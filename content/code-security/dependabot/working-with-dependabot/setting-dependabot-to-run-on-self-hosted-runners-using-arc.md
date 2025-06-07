@@ -17,8 +17,6 @@ shortTitle: Configure ARC
 
 ## Working with the {% data variables.product.prodname_actions_runner_controller %} (ARC)
 
-{% data reusables.dependabot.arc-support-private-preview-note %}
-
 This article provides step-by-step instructions for setting up ARC on a Kubernetes cluster and configuring {% data variables.product.prodname_dependabot %} to run on self-hosted action runners. The article:
 
 * Contains an overview of the ARC and {% data variables.product.prodname_dependabot %} integration.
@@ -178,17 +176,11 @@ Don't forget to add the following setting to the runner scale set configuration 
 
 Now that you've set up ARC, you can start a {% data variables.product.prodname_dependabot %} run.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.navigate-to-insights %}
-{% data reusables.repositories.click-dependency-graph %}
-
-1. Under "Dependency graph", click **{% data variables.product.prodname_dependabot %}**.
-1. To the right of the name of manifest file you're interested in, click **Recent update jobs**.
-1. If there are no recent update jobs for the manifest file, click **Check for updates** to re-run a {% data variables.product.prodname_dependabot %} version updates'job and check for new updates to dependencies for that ecosystem.
+{% data reusables.dependabot.trigger-run %}
 
 ## Viewing the generated ARC runners
 
-You can the ARC runners that have been created for the {% data variables.product.prodname_dependabot %} job.
+You can view the ARC runners that have been created for the {% data variables.product.prodname_dependabot %} job.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

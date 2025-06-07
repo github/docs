@@ -724,55 +724,11 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 
 ### ghe-cluster-failover
 
-{% ifversion ghes < 3.13 %}
-
-{% data reusables.enterprise_clustering.cluster-ip-note %}
-
-{% endif %}
-
 With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster).
 
 ```shell
 ghe-cluster-failover
 ```
-
-{% ifversion ghes < 3.13 %}
-
-### ghe-cluster-block-ips
-
-This utility allows you to block all the IPs in the `/data/user/common/cluster-ip-blocklist` file. The command reads the list of IPs and blocks each IP by calling `ghe-cluster-block-ip` on each node in the current cluster.
-
-The `/data/user/common/cluster-ip-blocklist` file only supports IPv4 addresses.
-
-```shell
-ghe-cluster-block-ips
-```
-
-### ghe-cluster-block-ip
-
-This utility allows you to block a specific IP address on a specific node. You can't block the IP of the current host, or any of the IPs for the hosts in the current `cluster.conf`.
-
-```shell
-ghe-cluster-block-ip IPV4 ADDRESS
-```
-
-### ghe-cluster-unblock-ips
-
-This utility allows you to unblock all the IPs currently blocked on each node in the cluster.
-
-```shell
-ghe-cluster-unblock-ips
-```
-
-### ghe-cluster-unblock-ip
-
-This utility allows you to unblock a specific IP address on a specific node.
-
-```shell
-ghe-cluster-unblock-ip IPV4 ADDRESS
-```
-
-{% endif %}
 
 ### ghe-dpages
 
@@ -1175,8 +1131,6 @@ This utility rewrites the imported repository. This gives you a chance to rename
 git-import-rewrite
 ```
 
-{% ifversion ghes > 3.12 %}
-
 ## License
 
 ### ghe-license
@@ -1233,8 +1187,6 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 # License imported at /data/user/common/enterprise.ghl.
 # License synchronized.
 ```
-
-{% endif %}
 
 ## Security
 
@@ -1402,14 +1354,14 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ## User management
 
-### {% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
+### ghe-license usage
 
 This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
 
-By default, the list of users in the resulting JSON file is encrypted. {% ifversion ghes > 3.12 %}Review optional flags via `ghe-license --help`{% else %}Use the `-h` flag for more options{% endif %}.
+By default, the list of users in the resulting JSON file is encrypted. Review optional flags via `ghe-license --help`.
 
 ```shell
-{% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
+ghe-license usage
 ```
 
 ### ghe-org-membership-update

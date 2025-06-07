@@ -36,7 +36,7 @@ curl --verbose -x http://YOUR-PROXY-URL:PORT -i -L https://copilot-proxy.githubu
 
 If you receive an error related to "revocation for the certificate," you can try the request again with the `--insecure` flag. If the request only succeeds when the `--insecure` flag is added, this may indicate that {% data variables.product.prodname_copilot %} will only connect successfully if you ignore certificate errors. For more information, see [Troubleshooting certificate-related errors](#troubleshooting-certificate-related-errors).
 
-If you're specifically having difficulty with {% data variables.product.prodname_copilot_chat_short %} in your editor, run the above `curl` commands but use `https://api.githubcopilot.com/_ping` instead of `https://copilot-proxy.githubusercontent.com/_ping`.
+If you're specifically having difficulty with {% data variables.copilot.copilot_chat_short %} in your editor, run the above `curl` commands but use `https://api.githubcopilot.com/_ping` instead of `https://copilot-proxy.githubusercontent.com/_ping`.
 
 If you're unable to connect and the `curl` requests don't help to identify the error, it may help to collect detailed diagnostic logs in your editor. If you're working with your company's IT department or {% data variables.contact.contact_support_page %}, sharing these diagnostics may help to resolve the error. Enabling debug logging in your editor will help you to share more specific information. For more information, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/viewing-logs-for-github-copilot-in-your-environment).
 

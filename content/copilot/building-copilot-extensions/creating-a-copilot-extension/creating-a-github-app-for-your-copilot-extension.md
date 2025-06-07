@@ -1,6 +1,6 @@
 ---
 title: Creating a GitHub App for your Copilot Extension
-intro: 'Learn how to create a {% data variables.product.prodname_github_app %} for your {% data variables.product.prodname_copilot_extension_short %}.'
+intro: 'Learn how to create a {% data variables.product.prodname_github_app %} for your {% data variables.copilot.copilot_extension_short %}.'
 versions:
   feature: copilot-extensions
 topics:
@@ -9,12 +9,12 @@ shortTitle: Create GitHub App
 type: how_to
 ---
 
-A {% data variables.product.prodname_copilot_extension_short %} is a {% data variables.product.prodname_github_app %} that is associated with a {% data variables.product.prodname_copilot_agent_short %}. The {% data variables.product.prodname_github_app %} you associate your {% data variables.product.prodname_copilot_agent_short %} with is used to authenticate the {% data variables.product.prodname_copilot_agent_short %} with {% data variables.product.prodname_dotcom %} and to authorize the {% data variables.product.prodname_copilot_agent_short %} to access the {% data variables.product.prodname_copilot_chat_short %} API. Each {% data variables.product.prodname_copilot_agent_short %} must be associated with a unique {% data variables.product.prodname_github_app %}.
+A {% data variables.copilot.copilot_extension_short %} is a {% data variables.product.prodname_github_app %} that is associated with a {% data variables.copilot.copilot_agent_short %}. The {% data variables.product.prodname_github_app %} you associate your {% data variables.copilot.copilot_agent_short %} with is used to authenticate the {% data variables.copilot.copilot_agent_short %} with {% data variables.product.prodname_dotcom %} and to authorize the {% data variables.copilot.copilot_agent_short %} to access the {% data variables.copilot.copilot_chat_short %} API. Each {% data variables.copilot.copilot_agent_short %} must be associated with a unique {% data variables.product.prodname_github_app %}.
 
 ## Prerequisites
 
-* You have created a {% data variables.product.prodname_copilot_agent_short %}. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension).
-* You have configured your server to deploy your {% data variables.product.prodname_copilot_agent_short %}, and you have your hostname (aka forwarding endpoint). For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
+* You have created a {% data variables.copilot.copilot_agent_short %}. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension).
+* You have configured your server to deploy your {% data variables.copilot.copilot_agent_short %}, and you have your hostname (aka forwarding endpoint). For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-server-to-deploy-your-copilot-agent).
 
 ## Creating a {% data variables.product.prodname_github_app %}
 

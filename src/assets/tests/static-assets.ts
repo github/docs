@@ -3,8 +3,8 @@ import path from 'path'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import { get } from '#src/tests/helpers/e2etest.js'
-import { checkCachingHeaders } from '#src/tests/helpers/caching-headers.js'
+import { get } from '@/tests/helpers/e2etest.js'
+import { checkCachingHeaders } from '@/tests/helpers/caching-headers.js'
 
 function getNextStaticAsset(directory: string) {
   const root = path.join('.next', 'static', directory)

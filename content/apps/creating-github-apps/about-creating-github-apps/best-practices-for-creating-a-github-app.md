@@ -40,7 +40,7 @@ The private key for your {% data variables.product.prodname_github_app %} grants
 
 Consider storing your {% data variables.product.prodname_github_app %}'s private key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), and making it sign-only.
 
-Alternatively, you can store the key as an environment variable. However, this not as strong as storing the key in a key vault. If an attacker gains access to the environment, they can read the private key and gain persistent authentication as the {% data variables.product.prodname_github_app %}.
+Alternatively, you can store the key as an environment variable. However, this is not as strong as storing the key in a key vault. If an attacker gains access to the environment, they can read the private key and gain persistent authentication as the {% data variables.product.prodname_github_app %}.
 
 You should never hard code your private key in your app, even if your code is stored in a private repository. If your app is a native client, client-side app, or runs on a user device (as opposed to running on your servers), you should never ship your private key with your app.
 
@@ -122,7 +122,7 @@ Only subscribe to the webhook events that your app needs. This will help reduce 
 
 ## Use a webhook secret
 
-You should set a webhook secret for your {% data variables.product.prodname_github_app %} and verify that the signature of incoming webhook events match the secret. This helps to ensure that the incoming webhook event is a valid {% data variables.product.company_short %} event.
+You should set a webhook secret for your {% data variables.product.prodname_github_app %} and verify that the signature of incoming webhook events matches the secret. This helps to ensure that the incoming webhook event is a valid {% data variables.product.company_short %} event.
 
 For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret). For an example, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events).
 

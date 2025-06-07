@@ -30,7 +30,7 @@ By default, when managing {% data variables.product.prodname_security_configurat
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
-1. To open the advanced filter dialog, in the "Apply configurations" section, click **{% octicon "filter" aria-hidden="true" %} Filter**.
-1. In the "Advanced filters" window, select the **{% octicon "plus" aria-hidden="true" %} Add a filter** dropdown menu, then click a filter.
+1. To open the advanced filter dialog, in the "Apply configurations" section, click **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter**.
+1. In the "Advanced filters" window, select the **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add a filter** dropdown menu, then click a filter.
 1. To search for repositories matching the selected filter, fill out the available fields for that filter, then click **Apply**. You can repeat this process to add as many filters as you would like to your search.
-1. Optionally, to remove a filter from your search, click **{% octicon "filter" aria-hidden="true" %} Filter**. In the row of the filter you want to remove, click {% octicon "x" aria-label="Delete FILTER-NUMBER: FILTER-PROPERTIES" %}, then click **Apply**.
+1. Optionally, to remove a filter from your search, click **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter**. In the row of the filter you want to remove, click {% octicon "x" aria-label="Delete FILTER-NUMBER: FILTER-PROPERTIES" %}, then click **Apply**.

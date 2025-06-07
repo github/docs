@@ -19,11 +19,11 @@ If you set a cutoff date for an assignment in {% data variables.product.prodname
 {% data reusables.classroom.sign-into-github-classroom %}
 1. Navigate to your classroom.
 1. Open the assignment for which you would like to grant an extension.
-1. In your classroom's roster, find the student or group you would like to grant an extension. In that student or group's row, select {% octicon "kebab-horizontal" aria-label="the dropdown menu" %}, then click **{% octicon "calendar" aria-hidden="true" %} Extend deadline**.
+1. In your classroom's roster, find the student or group you would like to grant an extension. In that student or group's row, select {% octicon "kebab-horizontal" aria-label="the dropdown menu" %}, then click **{% octicon "calendar" aria-hidden="true" aria-label="calendar" %} Extend deadline**.
 
     ![Screenshot of the assignment overview page. An expanded dropdown menu containing the "Extend deadline" option is outlined in dark orange.](/assets/images/help/classroom/classroom-extend-deadline.png)
 
 1. In the modal that appears, select **Extend STUDENT OR GROUP'S assignment deadline**, then click **I understand, extend the deadline**. A "Deadline extended" label will appear next to that student or group's name in the classroom roster.
-1. Optionally, to revoke an extension, select {% octicon "kebab-horizontal" aria-label="the dropdown menu" %}, then click **{% octicon "calendar" aria-hidden="true" %} Revoke extension**.
+1. Optionally, to revoke an extension, select {% octicon "kebab-horizontal" aria-label="the dropdown menu" %}, then click **{% octicon "calendar" aria-hidden="true" aria-label="calendar" %} Revoke extension**.
 
     In the modal that appears, select **Revoke STUDENT OR GROUP'S assignment extension**, then click **I understand, revoke the extension**. The "Deadline extended" label will be removed from the student or group's entry in the classroom roster.

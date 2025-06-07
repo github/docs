@@ -12,7 +12,7 @@ import core from '@actions/core'
 import yaml from 'js-yaml'
 
 import { getContentAndData, getCommitSha } from '@/workflows/git-utils.js'
-import schema from '@/secret-scanning/data/public-docs-schema.js'
+import schema from '@/secret-scanning/data/public-docs-schema'
 // This is temporarily being imported until the subsequent modules
 // have beeen converted to TypeScript.
 import { validateJson } from '@/tests/lib/validate-json-schema.js'

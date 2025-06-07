@@ -1,14 +1,14 @@
 ---
 title: Modernizing legacy code with GitHub Copilot
 shortTitle: Modernize legacy code
-intro: '{% data variables.product.prodname_copilot_chat_short %} helps modernize legacy code by suggesting refactors and creating tests to catch potential issues.'
+intro: '{% data variables.copilot.copilot_chat_short %} helps modernize legacy code by suggesting refactors and creating tests to catch potential issues.'
 versions:
   feature: copilot
 topics:
   - Copilot
 ---
 
-> [!NOTE] The responses shown in this article are examples. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
+> [!NOTE] The responses shown in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
 
 Legacy code is code that is old, outdated, or no longer supported by the original developers. It can be difficult to maintain and extend because it may not follow modern best practices, such as using consistent naming conventions or writing clear documentation.
 
@@ -45,7 +45,7 @@ git clone https://github.com/continuous-copilot/modernize-legacy-cobol-app.git
 
 ## Step 2: Compile and run the program
 
-You can either install a COBOL compiler in your preferred development environment (for example, the open source GnuCOBOL compiler), or use {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_github_codespaces %}.
+You can either install a COBOL compiler in your preferred development environment (for example, the open source GnuCOBOL compiler), or use {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_github_codespaces %}.
 
 If you use MacOS, you can install GnuCOBOL using [Homebrew](https://brew.sh/):
 
@@ -74,9 +74,9 @@ To run the program, use the following command:
 
 ## Step 3: Explain the files and code
 
-The first step in modernizing the code is to understand how it works. You can ask {% data variables.product.prodname_copilot_chat_short %} to explain the code in each file.
+The first step in modernizing the code is to understand how it works. You can ask {% data variables.copilot.copilot_chat_short %} to explain the code in each file.
 
-Open the repository in your IDE then, in the {% data variables.product.prodname_copilot_chat_short %} panel, enter the following prompt.
+Open the repository in your IDE then, in the {% data variables.copilot.copilot_chat_short %} panel, enter the following prompt.
 
 ### Example prompt 1
 
@@ -291,7 +291,7 @@ This Node.js code replicates the functionality of the COBOL main.cob file, provi
 You should review the suggested code thoroughly before using it. Once you're satisfied with the generated code, follow these steps to save it locally and complete the conversion:
 
 1. In the temporary directory you created earlier, create a new file called `main.js`.
-1. Copy the generated code from the {% data variables.product.prodname_copilot_chat_short %} panel and paste it into `main.js`.
+1. Copy the generated code from the {% data variables.copilot.copilot_chat_short %} panel and paste it into `main.js`.
 1. Save the file.
 1. Use similar prompts to convert `operations.cob` and `data.cob` to Node.js.
 1. Create corresponding JavaScript files, `operations.js` and `data.js`, in the same temporary directory.
@@ -382,7 +382,7 @@ Now, the refactored Node.js application is in its own standalone project folder,
 
 ## Conclusion
 
-In this example, we looked at an account management system written in COBOL and modernized it into Node.js. We used {% data variables.product.prodname_copilot_chat_short %} to explain the code, chart out the data flow, generate a test plan, and convert the code to Node.js. By following these steps, you can modernize your legacy code and make it easier to maintain and extend. Here are some additional tips for modernizing legacy code:
+In this example, we looked at an account management system written in COBOL and modernized it into Node.js. We used {% data variables.copilot.copilot_chat_short %} to explain the code, chart out the data flow, generate a test plan, and convert the code to Node.js. By following these steps, you can modernize your legacy code and make it easier to maintain and extend. Here are some additional tips for modernizing legacy code:
 
 * **Prompting best practices are key**: The quality of your prompts determines the quality of {% data variables.product.prodname_copilot_short %}'s suggestions. Provide clear context, break down complex tasks into smaller steps, provide examples, and give {% data variables.product.prodname_copilot_short %} specific goals to work toward. This makes your workflow smoother and your results more precise
 * **Review the code before using it**: Make sure you understand the code that {% data variables.product.prodname_copilot_short %} provides before using it in your application. This will help you catch any potential issues and ensure that the code meets your requirements.

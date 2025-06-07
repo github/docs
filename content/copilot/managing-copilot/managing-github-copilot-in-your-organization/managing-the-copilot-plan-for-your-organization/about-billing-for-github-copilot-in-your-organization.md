@@ -3,7 +3,7 @@ title: About billing for GitHub Copilot in your organization
 shortTitle: About billing
 intro: 'Learn about pricing and billing cycles for {% data variables.product.prodname_copilot_short %} in your organization.'
 permissions: 'Organization owners'
-product: '{% data variables.product.prodname_copilot_for_business %}'
+product: '{% data variables.copilot.copilot_for_business %}'
 versions:
   feature: copilot
 type: overview
@@ -15,7 +15,7 @@ redirect_from:
 
 ## About pricing for {% data variables.product.prodname_copilot_short %} in your organization
 
-{% data variables.product.prodname_copilot_business_short %} plans are available on a monthly cycle. The plans are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
+{% data variables.copilot.copilot_business_short %} plans are available on a monthly cycle. The plans are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
 
 ## Premium requests
 
@@ -25,10 +25,11 @@ Paid {% data variables.product.prodname_copilot_short %} plans include premium r
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
 
-* **Any seat assigned part way through the billing cycle** will be prorated based on the number of days remaining in the cycle.
-* **Any seat assignment removed during a billing cycle** will take effect from the beginning of the next cycle. The person will still be able to use {% data variables.product.prodname_copilot %} until the end of the cycle. If a user's access to the organization itself is removed, they will lose access immediately.
+* **Any seat assigned part way through the billing cycle** is prorated based on the number of days remaining in the cycle.
+* **Any seat assignment cancellation during a billing cycle** takes effect at the beginning of the next cycle. The user can access {% data variables.product.prodname_copilot %} until the end of the cycle.
+* **Any user removed from the organization during a billing cycle** loses access to {% data variables.product.prodname_copilot %} immediately. Billing for that user stops at the end of the cycle. If the user is restored to the organization during the billing cycle, they will regain access to {% data variables.product.prodname_copilot %} immediately.
 
-If your organization belongs to an enterprise, your enterprise will be charged on whichever payment method you’ve set up for the organization account, such as a credit card or a Microsoft Azure subscription.
+If your organization belongs to an enterprise, your enterprise will be charged on whichever payment method you’ve set up for the organization account, such as a credit card or a Microsoft Azure subscription. If an organization with {% data variables.product.prodname_copilot %} seats is removed from an enterprise, billing for those seats will stop at the end of the billing cycle. The users who had seats assigned by the removed organization will lose access to {% data variables.product.prodname_copilot %} unless they receive a seat through another organization.
 
 {% data reusables.billing.authorization-charge %}
 
@@ -36,7 +37,7 @@ If your organization belongs to an enterprise, your enterprise will be charged o
 
 ### About seat assignment for {% data variables.product.prodname_copilot_short %} in your organization
 
-A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot_short %}, which is granted to a unique user account through an organization's {% data variables.product.prodname_copilot_business_short %} plan. Each month, the organization is charged for the number of assigned seats.
+A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot_short %}, which is granted to a unique user account through an organization's {% data variables.copilot.copilot_business_short %} plan. Each month, the organization is charged for the number of assigned seats.
 
 Removing all assigned {% data variables.product.prodname_copilot_short %} seats in your organization will cancel your organization's {% data variables.product.prodname_copilot_short %} plan.
 

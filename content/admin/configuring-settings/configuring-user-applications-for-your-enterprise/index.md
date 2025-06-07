@@ -16,6 +16,7 @@ children:
   - /configuring-interactive-maps
   - /managing-github-mobile-for-your-enterprise
   - /verifying-or-approving-a-domain-for-your-enterprise
+  - /disabling-persistent-commit-verification
 redirect_from:
   - /admin/configuration/configuring-user-applications-for-your-enterprise
 ---

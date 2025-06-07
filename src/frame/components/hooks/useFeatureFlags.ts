@@ -1,4 +1,4 @@
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
 export type FeatureFlags = {}
 

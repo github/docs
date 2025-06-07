@@ -99,6 +99,14 @@ Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {
 
 {% data reusables.saml.current-time-earlier-than-notbefore-condition %}
 
+{% ifversion ghes > 3.16 %}
+
+## Error: "failure - Updated SAML validation returned an invalid result"
+
+This error can occur in version 3.17.0 or later of {% data variables.location.product_location %}. It indicates that {% data variables.product.github %} is unable to properly process the SAML response it received from the identity provider. Please open a {% data variables.product.github %} support ticket so that the {% data variables.product.github %} Support and Engineering teams can investigate and address the issue.
+
+{% endif %}
+
 {% ifversion ghec %}
 {% data reusables.saml.authentication-loop %}
 {% endif %}

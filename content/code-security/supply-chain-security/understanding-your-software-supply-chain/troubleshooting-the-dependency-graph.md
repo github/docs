@@ -71,7 +71,7 @@ From the repository's {% data variables.product.prodname_dependabot_alerts %} ta
 
 Clicking **Refresh {% data variables.product.prodname_dependabot_alerts %}** will only scan manifest files. If your dependency graph also includes build-time dependency information submitted using the {% data variables.dependency-submission-api.name %}, rerunning the Action or external process which generates and submits the dependency information will also trigger a rebuild of the repository's dependency graph. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
 
-If you are using automatic dependency submission for Maven, pushing a commit that updates the repository's `pom.xml` will trigger the automatic submission action to run.
+If you are using automatic dependency submission, pushing a commit that updates the repository's manifest file will trigger the automatic submission action to run.
 
 In all cases, the timestamp at the top of the list of alerts indicates the last time the dependency graph was built.
 

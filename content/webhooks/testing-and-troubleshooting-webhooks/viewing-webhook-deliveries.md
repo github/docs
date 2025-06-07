@@ -30,7 +30,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
+1. In the "Code and automation" section of the sidebar, click **{% octicon "webhook" aria-hidden="true" aria-label="webhook" %} Webhooks**.
 {% data reusables.webhooks.webhook_url_list %}
 {% data reusables.webhooks.webhook_recent_deliveries_tab %}
 1. Click a delivery GUID to view details.
@@ -43,7 +43,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
+1. In the "Code and automation" section of the sidebar, click **{% octicon "webhook" aria-hidden="true" aria-label="webhook" %} Webhooks**.
 {% data reusables.webhooks.webhook_url_list %}
 {% data reusables.webhooks.webhook_recent_deliveries_tab %}
 1. Click a delivery GUID to view details.

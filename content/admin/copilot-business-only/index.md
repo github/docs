@@ -1,6 +1,6 @@
 ---
 title: Using a dedicated enterprise account for Copilot Business
-intro: Get started with an enterprise account for managing {% data variables.product.prodname_copilot_business_short %} licenses.
+intro: Get started with an enterprise account for managing {% data variables.copilot.copilot_business_short %} licenses.
 versions:
   ghec: '*'
 children:

@@ -1,6 +1,6 @@
 import { preserveAnchorNodePosition } from 'scroll-anchoring'
 
-import { useArticleContext } from 'src/frame/components/context/ArticleContext'
+import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { InArticlePicker } from './InArticlePicker'
 
 // example: http://localhost:4000/en/codespaces/developing-in-codespaces/creating-a-codespace

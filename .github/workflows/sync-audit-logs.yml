@@ -51,34 +51,38 @@ jobs:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
-          # If nothing to commit, exit now. It's fine. No orphans.
-          changes=$(git diff --name-only | wc -l)
-          untracked=$(git status --untracked-files --short | wc -l)
-          filesChanged=$(git diff --name-only)
-          # There will always be at least one file changed:
-          # src/audit-logs/lib/config.json
-          # If the config file is the only file changed, exit.
-          if [[ $changes -eq 1 ]] && [[ $untracked -eq 1 ]] && [[ $filesChanged == *lib/config.json ]]; then
-            echo "There are no changes to commit or untracked files. Exiting..."
-            exit 0
-          fi
-
-          git config --global user.name "docs-bot"
-          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
-
+          echo "Creating a new branch if needed..."
           branchname=audit-logs-schema-update-${{ steps.audit-log-allowlists.outputs.COMMIT_SHA }}
-
           remotesha=$(git ls-remote --heads origin $branchname)
           if [ -n "$remotesha" ]; then
             # output is not empty, it means the remote branch exists
             echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
             exit 0
           fi
-
           git checkout -b $branchname
-          git add .
+          echo "Created a new branch $branchname"
+
+          echo "Preparing commit..."
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+          git add -A .
+          echo "Prepared commit"
+
+          echo "Check if there are changes..."
+          if git diff-index --cached --quiet HEAD -- . ':(exclude)src/audit-logs/lib/config.json'
+          then
+            echo "No real changes (only the SHA in config.json moved). Exiting…"
+            exit 0
+          fi
+          echo "Changes detected, proceeding"
+
+          echo "Creating commit..."
           git commit -m "Add updated audit log event data"
+          echo "Created commit"
+
+          echo "Pushing commit..."
           git push origin $branchname
+          echo "Pushed commit"
 
           echo "Creating pull request..."
           gh pr create \
@@ -89,16 +93,21 @@ jobs:
             --repo github/docs-internal \
             --label audit-log-pipeline \
             --head=$branchname
+          echo "Created pull request"
 
           # can't approve your own PR, approve with Actions
+          echo "Approving pull request..."
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
           gh pr review --approve
+          echo "Approved pull request"
 
           # Actions can't merge the PR so back to docs-bot to merge the PR
+          echo "Setting pull request to auto merge..."
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_BASE }}"
           gh pr merge --auto
+          echo "Set pull request to auto merge"
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

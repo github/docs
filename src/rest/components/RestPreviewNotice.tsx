@@ -1,4 +1,4 @@
-import { Alert } from 'src/frame/components/ui/Alert'
+import { Alert } from '@/frame/components/ui/Alert'
 
 type Props = {
   slug: string

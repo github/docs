@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 import { ParameterRow } from './ParameterRow'
 import { BodyParameter, ChildParameter, Parameter } from './types'

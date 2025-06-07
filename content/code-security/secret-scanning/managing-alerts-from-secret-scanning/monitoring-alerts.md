@@ -25,7 +25,7 @@ In addition to displaying an alert in the **Security** tab of the repository, {%
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. To start watching the repository, select **{% octicon "eye" aria-hidden="true" %} Watch**.
+1. To start watching the repository, select **{% octicon "eye" aria-hidden="true" aria-label="eye" %} Watch**.
 
    ![Screenshot of the repository's main page. A dropdown menu, titled "Watch", is highlighted with an orange outline.](/assets/images/help/repository/repository-watch-dropdown.png)
 

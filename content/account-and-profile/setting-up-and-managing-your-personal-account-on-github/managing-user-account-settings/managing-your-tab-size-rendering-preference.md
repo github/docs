@@ -16,5 +16,5 @@ redirect_from:
 If you feel that tabbed indentation in code rendered on {% data variables.product.github %} takes up too much, or too little space, you can change this in your settings.
 
 {% data reusables.user-settings.access_settings %}
-1. In the left sidebar, click **{% octicon "paintbrush" aria-hidden="true" %} Appearance**.
+1. In the left sidebar, click **{% octicon "paintbrush" aria-hidden="true" aria-label="paintbrush" %} Appearance**.
 1. Scroll down to "Tab size preference" and use the dropdown menu to choose your preference.

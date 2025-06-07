@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items {% ifversion projects-single-limit %} across both active views and the archive page{% else %}and {% data variables.projects.archived_item_limit %} archived items{% endif %}. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
+> A project can contain a maximum of{% ifversion projects-single-limit %} {% data variables.projects.item_limit %} items across both active views and the archive page{% else %} {% data variables.projects.legacy_item_limit %} items and {% data variables.projects.legacy_archived_item_limit %} archived items{% endif %}. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
 
 ## Adding issues and pull requests to a project
 
@@ -53,7 +53,7 @@ If you know the issue or pull request number or if you know part of the title, y
 
 You can add multiple issues and pull requests from your project and use filters, such as `label:bug`, to narrow down your search.
 
-1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" %}.
+1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" aria-label="plus" %}.
    ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
 {% data reusables.projects.bulk-add %}

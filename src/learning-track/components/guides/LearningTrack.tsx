@@ -1,9 +1,9 @@
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
-import { LearningTrack as LearningTrackT } from 'src/landings/components/ProductGuidesContext'
-import { Link } from 'src/frame/components/Link'
+import { LearningTrack as LearningTrackT } from '@/landings/components/ProductGuidesContext'
+import { Link } from '@/frame/components/Link'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
 
 type Props = {
   track: LearningTrackT

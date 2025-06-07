@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express'
 
-import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
 import { aiSearchProxy } from '../lib/ai-search-proxy'
-import { noCacheControl } from '#src/frame/middleware/cache-control.js'
+import { noCacheControl } from '@/frame/middleware/cache-control.js'
 
 const router = express.Router()
 

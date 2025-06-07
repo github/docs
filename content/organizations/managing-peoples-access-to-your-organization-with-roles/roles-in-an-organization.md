@@ -94,8 +94,6 @@ Generally, the outside collaborator and repository collaborator roles are equiva
 * Repository collaborators cannot bypass single sign-on (SSO) requirements, because SSO is managed at the enterprise level in an {% data variables.enterprise.prodname_emu_enterprise %}. However, like outside collaborators, they do not need to provide SSO authorization of credentials for organizations where they are a collaborator.
 * Repository collaborators are subject to your enterprise IP allow list policy and your identity provider's conditional access policy. However, they are not subject to the organization's IP allow list policy.
 
-{% data reusables.repositories.repository-collaborators-release-phase %}
-
 {% endif %}
 
 #### Managing outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}
@@ -155,12 +153,6 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion ghec %} |
 | View organization insights (see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-| {% endif %} |
-| {% ifversion team-discussions %} |
-| View and post public team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-| View and post private team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% octicon "x" aria-label="No" %}  | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Edit and delete team discussions in **all teams** (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Disable team discussions for an organization (see [AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | {% endif %} |
 | Hide comments on writable commits, pull requests, and issues (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Hide comments on _all_ commits, pull requests, and issues (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
@@ -255,15 +247,7 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion projects-v1 %} |
 | Create {% data variables.projects.projects_v1_boards %} (see [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
-| {% ifversion team-discussions %} |
-| View and post public team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
-| View and post private team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Edit and delete team discussions in **all teams** (for more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | Hide comments on commits, pull requests, and issues (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
-| {% ifversion team-discussions %} |
-| Disable team discussions for an organization (see [AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | Set a team profile picture in **all teams** (see [AUTOTITLE](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |

@@ -108,7 +108,9 @@ jobs:
       # the whole job fast.
       # As of June 2023, it takes about 10+ minutes to index one whole
       # language and we have 8 non-English languages.
-      max-parallel: 3
+      # As of May 2025, we index so many pages that we are being rate-limited by
+      # Elasticsearch. So we are shrinking this value to 2, down from 3
+      max-parallel: 2
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:

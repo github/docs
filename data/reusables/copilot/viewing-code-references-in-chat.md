@@ -1,4 +1,4 @@
-If a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code, this is indicated at the end of the response by the following text:
+If a response in {% data variables.copilot.copilot_chat_short %} includes matching code, this is indicated at the end of the response by the following text:
 
 > Similar code found with _n_ license types - **View matches**
 

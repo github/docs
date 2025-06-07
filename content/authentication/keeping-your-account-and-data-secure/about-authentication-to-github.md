@@ -116,7 +116,17 @@ You can work with all repositories on {% data variables.product.github %} over H
 
 If you authenticate with {% data variables.product.prodname_cli %}, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.github %}, you'll be prompted to enter your credentials, unless you cache them with a [credential helper](/get-started/git-basics/caching-your-github-credentials-in-git).
+If you authenticate without {% data variables.product.prodname_cli %}, {% ifversion fpt or ghec %}you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.github %}, you'll be prompted to enter your credentials, unless you cache them with a [credential helper](/get-started/git-basics/caching-your-github-credentials-in-git).{% elsif ghes %}you can use authentication methods whose availability depend on your IdP.
+
+The table outlines the available authentication methods based on the IdP configured for your instance. Different IdPs may impose specific restrictions or enable certain features, such as disabling password authentication. For more details, see [AUTOTITLE](/admin/authentication).
+
+| IdP | Available authentication methods | More information |
+| :- | :- | :- |
+| SAML | {% data variables.product.pat_generic_caps %} | Password authentication disabled |
+| LDAP | {% data variables.product.pat_generic_caps %} or Username / Password | Password authentication can be disabled by the site administrator |
+| Built-in authentication | {% data variables.product.pat_generic_caps %} or Username / Password | Password authentication cannot be disabled |
+
+{% endif %}
 
 ### SSH
 

@@ -22,7 +22,7 @@ After using an action from {% data variables.product.prodname_dotcom_the_website
 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Retired namespaces**.
+1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Retired namespaces**.
 1. To the right of the namespace that you want use in your enterprise, click **Unretire**.
 1. Go to the relevant organization and create a new repository.
 

@@ -17,13 +17,13 @@ Clicking the bookmark will then execute the JavaScript.
 
 [`src/bookmarklets/view-in-development.js`](./view-in-development.js)
 
-When you're looking at a page on docs.github.com or a review server, clicking this bookmarklet will load the same path you're viewing but on your local server running at localhost:4000.
+When you're looking at a page on docs.github.com, clicking this bookmarklet will load the same path you're viewing but on your local server running at localhost:4000.
 
 ## "View in production" toggle
 
 [`src/bookmarklets/view-in-production.js`](./view-in-production.js)
 
-When you're looking at a page on a review server or your local server running at localhost:4000, clicking this bookmarklet will load the same path you're viewing but on the live documentation site at docs.github.com.
+When you're looking at a page on your local server running at localhost:4000, clicking this bookmarklet will load the same path you're viewing but on the live documentation site at docs.github.com.
 
 ## Open a docs article in VS Code
 

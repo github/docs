@@ -1,7 +1,7 @@
 ---
 title: Writing discussions or blog posts
 shortTitle: Write discussions or blog posts
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help you generate ideas, outline, or draft discussions or blog posts.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help you generate ideas, outline, or draft discussions or blog posts.'
 versions:
   feature: copilot
 category:
@@ -13,17 +13,17 @@ topics:
   - Copilot
 ---
 
-When you're working on code, you often need to quickly create accurate and comprehensive explanations to share your work with teammates or the broader community. {% data variables.product.prodname_copilot_chat_short %} can help by suggesting ideas, outlines, or complete drafts for discussions or blog posts—enabling you to document and communicate clearly, so you can spend more time focused on coding.
+When you're working on code, you often need to quickly create accurate and comprehensive explanations to share your work with teammates or the broader community. {% data variables.copilot.copilot_chat_short %} can help by suggesting ideas, outlines, or complete drafts for discussions or blog posts—enabling you to document and communicate clearly, so you can spend more time focused on coding.
 
->[!TIP] You can include links to specific pull requests or issues in your prompts to give {% data variables.product.prodname_copilot_chat_short %} more context. If you're not getting the results you expect, try specifying the repository in your prompt to help {% data variables.product.prodname_copilot_chat_short %} focus on the right project.
+>[!TIP] You can include links to specific pull requests or issues in your prompts to give {% data variables.copilot.copilot_chat_short %} more context. If you're not getting the results you expect, try specifying the repository in your prompt to help {% data variables.copilot.copilot_chat_short %} focus on the right project.
 
 ## Generating ideas
 
-When you're working on a project, you may need to write a discussion or blog post to share your ideas, get feedback, or communicate with your team. {% data variables.product.prodname_copilot_chat_short %} can help you generate ideas.
+When you're working on a project, you may need to write a discussion or blog post to share your ideas, get feedback, or communicate with your team. {% data variables.copilot.copilot_chat_short %} can help you generate ideas.
 
 ### Brainstorming topics from recent work
 
-If you're looking for ideas for a discussion post, you can ask {% data variables.product.prodname_copilot_chat_short %} to suggest topics based on your recent work.
+If you're looking for ideas for a discussion post, you can ask {% data variables.copilot.copilot_chat_short %} to suggest topics based on your recent work.
 
 #### Example prompts
 
@@ -37,7 +37,7 @@ If you're looking for ideas for a discussion post, you can ask {% data variables
 
 ### Writing technical deep dives
 
-When you're working on a complex feature or system, you may need to write a technical deep dive to share your work with your team or the broader community. {% data variables.product.prodname_copilot_chat_short %} can help you generate ideas for technical deep dives by suggesting topics based on your recent work.
+When you're working on a complex feature or system, you may need to write a technical deep dive to share your work with your team or the broader community. {% data variables.copilot.copilot_chat_short %} can help you generate ideas for technical deep dives by suggesting topics based on your recent work.
 
 #### Example prompts
 
@@ -49,7 +49,7 @@ When you're working on a complex feature or system, you may need to write a tech
 
 ### Sharing best practices
 
-When you're working on a project, you may need to write a discussion post to share best practices or lessons learned. {% data variables.product.prodname_copilot_chat_short %} can help you generate ideas for discussion posts.
+When you're working on a project, you may need to write a discussion post to share best practices or lessons learned. {% data variables.copilot.copilot_chat_short %} can help you generate ideas for discussion posts.
 
 #### Example prompt
 
@@ -57,11 +57,11 @@ When you're working on a project, you may need to write a discussion post to sha
 
 ## Drafting content
 
-Once you have an idea for a discussion or blog post, you can ask {% data variables.product.prodname_copilot_chat_short %} to help you draft the content. {% data variables.product.prodname_copilot_chat_short %} can provide you with a detailed outline, a rough draft, or a polished draft, depending on your needs.
+Once you have an idea for a discussion or blog post, you can ask {% data variables.copilot.copilot_chat_short %} to help you draft the content. {% data variables.copilot.copilot_chat_short %} can provide you with a detailed outline, a rough draft, or a polished draft, depending on your needs.
 
 ### Outlining a blog post
 
-If you're looking for help outlining a blog post, you can ask {% data variables.product.prodname_copilot_chat_short %} to suggest a detailed outline for your post.
+If you're looking for help outlining a blog post, you can ask {% data variables.copilot.copilot_chat_short %} to suggest a detailed outline for your post.
 
 #### Example prompt
 
@@ -69,7 +69,7 @@ If you're looking for help outlining a blog post, you can ask {% data variables.
 
 ### Drafting a blog post
 
-If you're looking for help drafting a blog post, you can ask {% data variables.product.prodname_copilot_chat_short %} to suggest a rough draft for your post.
+If you're looking for help drafting a blog post, you can ask {% data variables.copilot.copilot_chat_short %} to suggest a rough draft for your post.
 
 #### Example prompts
 
@@ -81,11 +81,11 @@ If you're looking for help drafting a blog post, you can ask {% data variables.p
 
 ## Refining your draft
 
-Once you have a draft, you can ask {% data variables.product.prodname_copilot_chat_short %} to help you refine it. {% data variables.product.prodname_copilot_chat_short %} can provide you with suggestions for improving your writing, making it more engaging, or clarifying complex concepts.
+Once you have a draft, you can ask {% data variables.copilot.copilot_chat_short %} to help you refine it. {% data variables.copilot.copilot_chat_short %} can provide you with suggestions for improving your writing, making it more engaging, or clarifying complex concepts.
 
 ### Improving tone and style
 
-If you're looking to improve the tone and style of your writing, you can ask {% data variables.product.prodname_copilot_chat_short %} to suggest ways to make your writing more engaging or accessible.
+If you're looking to improve the tone and style of your writing, you can ask {% data variables.copilot.copilot_chat_short %} to suggest ways to make your writing more engaging or accessible.
 
 #### Example prompt
 
@@ -93,7 +93,7 @@ If you're looking to improve the tone and style of your writing, you can ask {% 
 
 ### Including next steps
 
-If you're looking to include next steps in your blog post, you can ask {% data variables.product.prodname_copilot_chat_short %} to suggest ways to make your writing more actionable.
+If you're looking to include next steps in your blog post, you can ask {% data variables.copilot.copilot_chat_short %} to suggest ways to make your writing more actionable.
 
 #### Example prompt
 

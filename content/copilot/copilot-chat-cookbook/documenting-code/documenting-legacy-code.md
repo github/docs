@@ -1,7 +1,7 @@
 ---
 title: 'Documenting legacy code'
 shortTitle: Document legacy code
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help with documenting legacy code.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help with documenting legacy code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/documenting-code/documenting-legacy-code
 versions:
@@ -71,7 +71,7 @@ INSERT-AND-VALIDATE.
 
 ## Example prompt
 
-We can use a simple prompt to ask {% data variables.product.prodname_copilot_chat_short %} to document the code.
+We can use a simple prompt to ask {% data variables.copilot.copilot_chat_short %} to document the code.
 
 `Document this code`
 

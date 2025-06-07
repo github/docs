@@ -10,6 +10,6 @@ children:
   - /setting-up-copilot-for-learning-to-code
   - /learning-to-debug-with-github-copilot
   - /storing-your-secrets-safely
+  - /finding-and-fixing-your-first-code-vulnerability
 shortTitle: Learn to code
 ---
-

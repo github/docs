@@ -1,8 +1,8 @@
 import { ArrowRightIcon, ArrowUpIcon, FileIcon, ListUnorderedIcon } from '@primer/octicons-react'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
 import { useRouter } from 'next/router'
 
 export function ProductReleases() {

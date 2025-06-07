@@ -1,8 +1,8 @@
 ---
 title: Revoking access to Copilot for members of your organization
-shortTitle: Revoking access
+shortTitle: Revoke access
 intro: 'Remove access to {% data variables.product.prodname_copilot %} for some or all of the members of your organization.'
-permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} plan.'
+permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.copilot.copilot_enterprise_short %} or{% endif %} {% data variables.copilot.copilot_business_short %} plan.'
 versions:
   feature: copilot
 topics:
@@ -27,7 +27,7 @@ Removing a user from the organization(s) that had granted them {% data variables
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," select **Enabled For: selected members**.
+1. Under {% ifversion ghec %}"{% data variables.copilot.copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.copilot.copilot_business_short %} is active in your organization," select **Enabled For: selected members**.
 
     * In the "Confirm policy update" dialog, click **Renew seats**.
 
@@ -44,6 +44,6 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke ac
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)

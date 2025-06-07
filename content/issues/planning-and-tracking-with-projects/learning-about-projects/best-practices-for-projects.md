@@ -27,7 +27,7 @@ To track how smaller issues fit into the larger goal, milestones, or labels. For
 
 Issues and pull requests include built-in features to let you easily communicate with your collaborators. Use @mentions to alert a person or entire team about a comment. Assign collaborators to issues to communicate responsibility. Link to related issues or pull requests to communicate how they are connected.
 
-## Make use of the description{% ifversion projects-v2-status-updates %}, README, and status updates{% else %} and README{% endif %}
+## Make use of the description, README, and status updates
 
 Use your project's description and README to share information about the project.
 
@@ -39,11 +39,7 @@ For example:
 
 Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project).
 
-{% ifversion projects-v2-status-updates %}
-
 You can also share high-level updates with other users of your project by posting status updates. Status updates allow you to mark the project with a status, such as "On track" or "At risk", set start and target dates, and share written updates with your team. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/sharing-project-updates).
-
-{% endif %}
 
 ## Use views
 

@@ -8,3 +8,9 @@
   outline-offset: -2px;
   box-shadow: 0 0 0 3px inset;
 }
+
+.underlineLinks {
+  a {
+    text-decoration: underline;
+  }
+}

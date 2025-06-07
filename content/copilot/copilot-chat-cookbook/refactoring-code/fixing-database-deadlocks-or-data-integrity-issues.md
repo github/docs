@@ -1,7 +1,7 @@
 ---
 title: 'Fixing database deadlocks or data integrity issues'
-shortTitle: Fixing database deadlocks
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help you avoid code that causes slow or blocked database operations, or tables with missing or incorrect data.'
+shortTitle: Fix database deadlocks
+intro: '{% data variables.copilot.copilot_chat_short %} can help you avoid code that causes slow or blocked database operations, or tables with missing or incorrect data.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/fixing-database-deadlocks-or-data-integrity-issues
 versions:
@@ -17,9 +17,9 @@ topics:
 
 Complex database operations–particularly those involving transactions–can lead to deadlocks or data inconsistencies that are hard to debug.
 
-{% data variables.product.prodname_copilot_chat_short %} can help by identifying points in a transaction where locking or deadlocks could occur, and can suggest best practices for transaction isolation or deadlock resolution, such as adjusting locking strategies or handling deadlock exceptions gracefully.
+{% data variables.copilot.copilot_chat_short %} can help by identifying points in a transaction where locking or deadlocks could occur, and can suggest best practices for transaction isolation or deadlock resolution, such as adjusting locking strategies or handling deadlock exceptions gracefully.
 
-> [!NOTE] The responses shown in this article are examples. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
+> [!NOTE] The responses shown in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
 
 ## Avoiding simultaneous updates on interdependent rows
 
@@ -42,7 +42,7 @@ COMMIT TRANSACTION;
 
 You can check whether there are any problems with this transaction.
 
-In the editor, select the transaction code, then ask {% data variables.product.prodname_copilot_chat_short %}:
+In the editor, select the transaction code, then ask {% data variables.copilot.copilot_chat_short %}:
 
 `Is this transaction good?`
 

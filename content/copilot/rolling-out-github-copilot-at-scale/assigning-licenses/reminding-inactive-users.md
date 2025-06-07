@@ -5,7 +5,7 @@ intro: 'Use the {% data variables.product.github %} API to identify inactive use
 versions:
   feature: copilot
 permissions: Organization owners and billing managers
-product: '{% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
+product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 topics:
   - Copilot
 allowTitleToDifferFromFilename: true
@@ -72,7 +72,7 @@ To use this workflow:
    To create a variable, see [AUTOTITLE](/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#creating-configuration-variables-for-a-repository).
 1. Create a {% data variables.product.pat_generic %} with permission to call the [List all Copilot seat assignments for an organization](/rest/copilot/copilot-user-management#list-all-copilot-seat-assignments-for-an-organization) API endpoint. For example, create a fine-grained token with the following details:
    * **Resource owner**: The organization where you're looking for inactive users.
-   * **Organization permissions**: {% data variables.product.prodname_copilot_for_business %} (read-only).
+   * **Organization permissions**: {% data variables.copilot.copilot_for_business %} (read-only).
 
    To create a token, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token).
 1. Save the access token as a {% data variables.product.prodname_actions %} secret in your repository or organization. Call the secret `COPILOT_LICENSE_READ`.
@@ -85,7 +85,7 @@ To use this workflow:
 
 ### Example workflow
 
->[!NOTE] This example assumes you assign licenses through an organization. If you use a dedicated enterprise account for {% data variables.product.prodname_copilot_business_short %}, you will need to use different API endpoints. See [AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-personal-accounts#automate-license-management).
+>[!NOTE] This example assumes you assign licenses through an organization. If you use a dedicated enterprise account for {% data variables.copilot.copilot_business_short %}, you will need to use different API endpoints. See [AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-personal-accounts#automate-license-management).
 
 <!-- markdownlint-disable GHD021 -->
 

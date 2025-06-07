@@ -201,7 +201,7 @@ function printQueries(options: Options, queries: QueryExtended[]) {
     'Related CWEs',
     'Default',
     'Extended',
-    '{% data variables.product.prodname_copilot_autofix_short %}',
+    '{% data variables.copilot.copilot_autofix_short %}',
   ]
   markdown.push(`| ${header.join(' | ')} |`)
   markdown.push(`| ${header.map(() => '---').join(' | ')} |`)

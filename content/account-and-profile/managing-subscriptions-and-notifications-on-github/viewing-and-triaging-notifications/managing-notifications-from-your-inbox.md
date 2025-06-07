@@ -101,8 +101,7 @@ To filter notifications for specific activity on {% data variables.product.prodn
 * `is:release`
 * `is:repository-invitation`
 * `is:repository-vulnerability-alert`{% ifversion fpt or ghec %}
-* `is:repository-advisory`{% endif %}{% ifversion team-discussions %}
-* `is:team-discussion`{% endif %}{% ifversion fpt or ghec %}
+* `is:repository-advisory`{% endif %}{% ifversion fpt or ghec %}
 * `is:discussion`{% endif %}
 
 For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts).
@@ -122,8 +121,8 @@ To filter notifications by why you've received an update, you can use the `reaso
 |-----------------|-------------|
 | `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
 | `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
-| `reason:comment`| When you commented on an issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %}.
-| `reason:participating` | When you have commented on an issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} or you have been @mentioned.
+| `reason:comment`| When you commented on an issue or pull request.
+| `reason:participating` | When you have commented on an issue or pull request or you have been @mentioned.
 | `reason:invitation` | When you're invited to a team, organization, or repository.
 | `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
 | `reason:mention` | You were directly @mentioned.

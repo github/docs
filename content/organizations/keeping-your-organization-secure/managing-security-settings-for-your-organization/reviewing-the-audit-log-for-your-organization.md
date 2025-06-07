@@ -52,7 +52,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `codespaces` | Contains all activities related to your organization's codespaces. |
-| `copilot` | Contains all activities related to your {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+| `copilot` | Contains all activities related to your {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscription.
 | {% endif %} |
 | `dependabot_alerts` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 | `dependabot_alerts_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
@@ -123,9 +123,6 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `sponsors`| Contains all events related to sponsor buttons (see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository))
 | {% endif %} |
 | `team` | Contains all activities related to teams in your organization.
-| {% ifversion team-discussions %} |
-| `team_discussions` | Contains activities related to managing team discussions for an organization.
-| {% endif %} |
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows.
 
 You can search for specific sets of actions using these terms. For example:

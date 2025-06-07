@@ -1,12 +1,12 @@
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { SidebarProduct } from 'src/landings/components/SidebarProduct'
-import { SidebarSearchAggregates } from 'src/search/components/results/SidebarSearchAggregates'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { SidebarProduct } from '@/landings/components/SidebarProduct'
+import { SidebarSearchAggregates } from '@/search/components/results/SidebarSearchAggregates'
 import { AllProductsLink } from './AllProductsLink'
-import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { Link } from 'src/frame/components/Link'
+import { ApiVersionPicker } from '@/rest/components/ApiVersionPicker'
+import { Link } from '@/frame/components/Link'
 
 type Props = {
   variant?: 'full' | 'overlay'
@@ -40,7 +40,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
           <div className={cx('d-none px-4 pb-3 border-bottom d-xxl-block')}>
             <AllProductsLink />
             {showCurrentProductLink && (
-              <div className="mt-3" id="allproducts-menu">
+              <h2 className="mt-3" id="allproducts-menu">
                 <Link
                   data-testid="sidebar-product-xl"
                   href={`/${router.locale}${currentProduct.href}`}
@@ -50,7 +50,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
                 >
                   {currentProductName || currentProduct.name}
                 </Link>
-              </div>
+              </h2>
             )}
             {variant === 'full' && isRestPage && <ApiVersionPicker />}
           </div>

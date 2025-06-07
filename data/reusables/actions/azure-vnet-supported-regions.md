@@ -8,6 +8,7 @@ The following regions are supported on {% data variables.product.prodname_dotcom
 <li><code>AustraliaEast</code></li>
 <li><code>BrazilSouth</code></li>
 <li><code>CanadaCentral</code></li>
+<li><code>CanadaEast</code></li>
 <li><code>CentralUs</code></li>
 <li><code>EastAsia</code></li>
 <li><code>EastUs</code></li>

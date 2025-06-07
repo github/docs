@@ -1,4 +1,4 @@
-Dependency graph can learn about dependencies in three different ways: static analysis, automatic submission, and user submission. A repository can have multiple methods configured, causing the same package manifest to be scanned multiple times, potentially with different outputs from each scan. Dependency graph uses deduplication logic to parse the outputs, prioritizing the most accurate information for each manifest file.
+Dependency graph can learn about dependencies in three different ways: static analysis, automatic submission, and manual submission. A repository can have multiple methods configured, which can cause the same package manifest to be scanned multiple times, potentially with different outputs from each scan. Dependency graph uses deduplication logic to parse the outputs, prioritizing the most accurate information for each manifest file.
 
 Dependency graph displays only one instance of each manifest file using the following precedence rules.
 

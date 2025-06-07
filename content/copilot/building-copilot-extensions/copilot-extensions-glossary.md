@@ -1,6 +1,6 @@
 ---
 title: Copilot Extensions Glossary
-intro: 'Understand the terminology used in {% data variables.product.prodname_copilot_extensions_short %}.'
+intro: 'Understand the terminology used in {% data variables.copilot.copilot_extensions_short %}.'
 versions:
   feature: copilot-extensions
 topics:
@@ -9,39 +9,39 @@ shortTitle: Extensions Glossary
 type: reference
 ---
 
-The following terms are used in the context of {% data variables.product.prodname_copilot_extensions_short %}, and are defined here for clarity.
+The following terms are used in the context of {% data variables.copilot.copilot_extensions_short %}, and are defined here for clarity.
 
 #### Agent
 
-A type of {% data variables.product.prodname_copilot_extension_short %} implementation that gives developers full control over handling user queries and response generation. This approach is ideal for builders who want complete customization and management of AI interactions.
+A type of {% data variables.copilot.copilot_extension_short %} implementation that gives developers full control over handling user queries and response generation. This approach is ideal for builders who want complete customization and management of AI interactions.
 
 #### Context Passing
 
-A capability in {% data variables.product.prodname_copilot_extensions_short %} that enables user context from editors to be sent to agents, allowing for more tailored responses.
+A capability in {% data variables.copilot.copilot_extensions_short %} that enables user context from editors to be sent to agents, allowing for more tailored responses.
 
-#### {% data variables.product.prodname_copilot_chat_short %}
+#### {% data variables.copilot.copilot_chat_short %}
 
 The conversational interface within {% data variables.product.prodname_copilot %} where users can interact with the AI assistant and extensions.
 
-#### {% data variables.product.prodname_copilot_extension_short %}
+#### {% data variables.copilot.copilot_extension_short %}
 
-A {% data variables.product.prodname_github_app %} with additional access to the {% data variables.product.prodname_copilot_chat_short %} window and Copilot API, allowing for extended functionality in {% data variables.product.company_short %}'s {% data variables.product.prodname_copilot_chat_short %}. This is how we will refer to extensions from the perspective of an extension user.
+A {% data variables.product.prodname_github_app %} with additional access to the {% data variables.copilot.copilot_chat_short %} window and Copilot API, allowing for extended functionality in {% data variables.product.company_short %}'s {% data variables.copilot.copilot_chat_short %}. This is how we will refer to extensions from the perspective of an extension user.
 
 #### {% data variables.product.prodname_copilot_short %} Extensibility Platform
 
 The system that handles authentication and proxies requests between clients and agent plugins.
 
-#### {% data variables.product.prodname_copilot_extension_vsc %}
+#### {% data variables.copilot.copilot_extension_vsc %}
 
-Also known as {% data variables.product.prodname_vscode %} Chat extensions, {% data variables.product.prodname_copilot_extensions_vsc %} are built as a {% data variables.product.prodname_vscode %} extension rather than a {% data variables.product.prodname_github_app %}. These extensions are exclusive to {% data variables.product.prodname_vscode_shortname %} and can be downloaded from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
+Also known as {% data variables.product.prodname_vscode %} Chat extensions, {% data variables.copilot.copilot_extensions_vsc %} are built as a {% data variables.product.prodname_vscode %} extension rather than a {% data variables.product.prodname_github_app %}. These extensions are exclusive to {% data variables.product.prodname_vscode_shortname %} and can be downloaded from the {% data variables.product.prodname_vscode_shortname %} Marketplace.
 
 #### {% data variables.product.prodname_github_app %}
 
-The foundation for a {% data variables.product.prodname_copilot_extension_short %} that provides the necessary infrastructure, permissions, and context from {% data variables.product.company_short %}, such as user, repo and organization metadata.
+The foundation for a {% data variables.copilot.copilot_extension_short %} that provides the necessary infrastructure, permissions, and context from {% data variables.product.company_short %}, such as user, repo and organization metadata.
 
 #### {% data variables.product.prodname_marketplace %}
 
-The platform where {% data variables.product.company_short %} approved {% data variables.product.prodname_copilot_extensions %} can be listed publicly and discovered by users.
+The platform where {% data variables.product.company_short %} approved {% data variables.copilot.copilot_extensions %} can be listed publicly and discovered by users.
 
 #### Listed/Published Extension
 
@@ -61,7 +61,7 @@ A piece of code that retrieves context or executes an action in response to a us
 
 #### Skillset
 
-A type of {% data variables.product.prodname_copilot_extension_short %} implementation that gives developers the ability to connect external services and custom API endpoints to {% data variables.product.prodname_copilot_short %} with minimal complexity. The {% data variables.product.prodname_copilot_extensibility_platform_short %} handles prompt crafting, function evaluation, and response generation. The builder only needs to handle API skill definitions. This approach is ideal for builders who want minimal complexity.
+A type of {% data variables.copilot.copilot_extension_short %} implementation that gives developers the ability to connect external services and custom API endpoints to {% data variables.product.prodname_copilot_short %} with minimal complexity. The {% data variables.copilot.copilot_extensibility_platform_short %} handles prompt crafting, function evaluation, and response generation. The builder only needs to handle API skill definitions. This approach is ideal for builders who want minimal complexity.
 
 #### Tool/Function Calling
 

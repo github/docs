@@ -2,7 +2,7 @@ import { createElement, ReactNode } from 'react'
 import cx from 'classnames'
 import styles from './Alert.module.scss'
 import { InfoIcon, ReportIcon, AlertIcon, LightBulbIcon, StopIcon } from '@primer/octicons-react'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 const alertTypes = {
   NOTE: { icon: InfoIcon, color: 'accent' },

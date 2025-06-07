@@ -142,7 +142,13 @@ When you migrate a repository directly, teams and team access to repositories ar
 
 ## Limitations on migrated data
 
-{% data reusables.enterprise-migration-tool.limitations-of-migrated-data %}
+{% data reusables.enterprise-migration-tool.limitations-of-dotcom %}
+
+### Limitations of {% data variables.product.prodname_importer_proper_name %}
+
+* {% data reusables.enterprise-migration-tool.git-repo-size-limit %}
+* **40 GB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
+{% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
 
 ## Getting started
 

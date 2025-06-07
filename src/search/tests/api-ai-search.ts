@@ -1,6 +1,6 @@
 import { expect, test, describe, beforeAll, afterAll } from 'vitest'
 
-import { post } from 'src/tests/helpers/e2etest.js'
+import { post } from '@/tests/helpers/e2etest.js'
 import { startMockServer, stopMockServer } from '@/tests/mocks/start-mock-server'
 
 describe('AI Search Routes', () => {

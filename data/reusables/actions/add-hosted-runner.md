@@ -1,4 +1,4 @@
-1. Click **New runner**, then click **{% octicon "mark-github" aria-hidden="true" %} New {% data variables.product.prodname_dotcom %}-hosted runner**.
+1. Click **New runner**, then click **{% octicon "mark-github" aria-hidden="true" aria-label="mark-github" %} New {% data variables.product.prodname_dotcom %}-hosted runner**.
 1. Complete the required details to configure your new runner:
 
     * **Name:** Enter a name for your new runner. For easier identification, this should indicate its hardware and operating configuration, such as `ubuntu-20.04-16core`.

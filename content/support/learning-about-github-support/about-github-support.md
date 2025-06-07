@@ -109,9 +109,9 @@ Enterprise owners can also add support entitlements to members of organizations 
 
 {% endif %}
 
-## About {% data variables.product.prodname_copilot_in_support %}
+## About {% data variables.copilot.copilot_in_support %}
 
-You can receive answers to questions relating to {% data variables.product.github %}'s products and features before submitting a support ticket by using {% data variables.product.prodname_copilot_in_support %}. {% data variables.product.prodname_copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.product.prodname_copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
+You can receive answers to questions relating to {% data variables.product.github %}'s products and features before submitting a support ticket by using {% data variables.copilot.copilot_in_support %}. {% data variables.copilot.copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.copilot.copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
 
 {% ifversion fpt or ghec %}
 

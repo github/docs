@@ -1,7 +1,7 @@
 import { Box } from '@primer/react'
 import { PersonIcon, BriefcaseIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 type Props = {
   product?: string

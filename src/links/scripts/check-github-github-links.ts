@@ -15,7 +15,7 @@ import fs from 'fs/promises'
 import got, { RequestError } from 'got'
 import { program } from 'commander'
 
-import { getContents, getPathsWithMatchingStrings } from 'src/workflows/git-utils'
+import { getContents, getPathsWithMatchingStrings } from '@/workflows/git-utils'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')

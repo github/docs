@@ -81,7 +81,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
     // Internal issue #4160
     content = content.replaceAll(
       '- % data variables.product.prodname_copilot_enterprise %}',
-      '- {% data variables.product.prodname_copilot_enterprise %}',
+      '- {% data variables.copilot.copilot_enterprise %}',
     )
 
     // This might not be exclusive to Japanese but put here because, at

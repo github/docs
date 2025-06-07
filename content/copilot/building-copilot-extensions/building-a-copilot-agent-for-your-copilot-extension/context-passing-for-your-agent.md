@@ -1,6 +1,6 @@
 ---
 title: Context passing for your agent
-intro: 'Learn how to use context passing with your {% data variables.product.prodname_copilot_agent_short %}.'
+intro: 'Learn how to use context passing with your {% data variables.copilot.copilot_agent_short %}.'
 versions:
   feature: copilot-extensions
 topics:
@@ -11,12 +11,12 @@ type: how_to
 
 ## About context passing
 
-{% data variables.product.prodname_copilot_extensions %} can access certain contextual information using context passing.
+{% data variables.copilot.copilot_extensions %} can access certain contextual information using context passing.
 Context passing allows agents to receive relevant details about a user’s current file, selected text, and repository.
 It happens automatically when you interact with an extension, but requires your explicit authorization through {% data variables.product.prodname_github_app %} permissions for use in any organization-owned repositories.
 
-Different clients, such as {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and {% data variables.product.github %}, provide context through different reference types.
-For example, IDEs send information such as file contents and selections, while {% data variables.product.prodname_copilot_chat_dotcom_short %} includes the current URL for the page being viewed.
+Different clients, such as {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and {% data variables.product.github %}, provide context through different reference types.
+For example, IDEs send information such as file contents and selections, while {% data variables.copilot.copilot_chat_dotcom_short %} includes the current URL for the page being viewed.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Context passing enables agents to receive information about the user’s active 
 Your agent receives server-sent events (SSEs) that contain a list of messages from the user as well as references to the user’s current environment.
 Depending on the client, different types of context are provided.
 
-The following table shows the reference types that are passed to {% data variables.product.prodname_copilot_extensions %} based on the client or IDE you are using.
+The following table shows the reference types that are passed to {% data variables.copilot.copilot_extensions %} based on the client or IDE you are using.
 
 {% rowheaders %}
 
@@ -41,14 +41,14 @@ The following table shows the reference types that are passed to {% data variabl
 
 {% endrowheaders %}
 
-### Reference types for {% data variables.product.prodname_copilot_chat_short %} in IDEs
+### Reference types for {% data variables.copilot.copilot_chat_short %} in IDEs
 
 The following reference types can be passed to your agent from an IDE:
 * `client.file`: Represents the full content of the currently active file in the IDE.
 * `client.selection`: Represents the selected portion of text the user highlighted in the active file.
 * `github.repository`: Provides information about the active repository.
 
-### Reference types for {% data variables.product.prodname_copilot_chat_dotcom_short %}
+### Reference types for {% data variables.copilot.copilot_chat_dotcom_short %}
 
 The following reference types can be passed to your agent from {% data variables.product.github %}:
 * `github.current-url`: Represents the URL of the current {% data variables.product.github %} page the user is viewing.

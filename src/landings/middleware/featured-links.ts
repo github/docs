@@ -1,8 +1,8 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, FeaturedLinkExpanded } from '@/types'
-import getLinkData from '@/learning-track/lib/get-link-data.js'
-import { renderContent } from '@/content-render/index.js'
+import getLinkData from '@/learning-track/lib/get-link-data'
+import { renderContent } from '@/content-render/index'
 
 /**
  * This is the max. number of featured links, by any category, that we
@@ -73,12 +73,20 @@ export default async function featuredLinks(
       if (!(key in req.context.page.featuredLinks))
         throw new Error('featureLinks key not found in Page')
       const pageFeaturedLink = req.context.page.featuredLinks[key]
-      req.context.featuredLinks[key] = (await getLinkData(
-        pageFeaturedLink,
+      // Handle different types of featuredLinks by converting to string array
+      const stringLinks = Array.isArray(pageFeaturedLink)
+        ? pageFeaturedLink.map((item) => (typeof item === 'string' ? item : item.href))
+        : []
+
+      const linkData = await getLinkData(
+        stringLinks,
         req.context,
         { title: true, intro: true, fullTitle: true },
         MAX_FEATURED_LINKS,
-      )) as FeaturedLinkExpanded[] // Remove ones `getLinkData` is TS
+      )
+      // We need to use a type assertion here because the Page interfaces are incompatible
+      // between our local types and the global types, but the actual runtime objects are compatible
+      req.context.featuredLinks[key] = (linkData || []) as unknown as FeaturedLinkExpanded[]
     }
   }
 

@@ -1,8 +1,8 @@
 import semver from 'semver'
 
-import { supported } from '#src/versions/lib/enterprise-server-releases.js'
-import getDataDirectory from '#src/data-directory/lib/data-directory.js'
-import { FeatureData, FrontmatterVersions } from '#src/types.js'
+import { supported } from '@/versions/lib/enterprise-server-releases.js'
+import getDataDirectory from '@/data-directory/lib/data-directory.js'
+import { FeatureData, FrontmatterVersions } from '@/types.js'
 
 // Return true if lowestSupportedVersion > semVerRange
 export function isGhesReleaseDeprecated(lowestSupportedVersion: string, semVerRange: string) {

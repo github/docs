@@ -78,11 +78,13 @@ You can also use {% data variables.product.prodname_discussions %} to create a s
 
 ### Providing learning resources
 
-In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.product.prodname_copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/copilot-chat-cookbook).
+In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.copilot.copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/copilot-chat-cookbook).
 
 ### Communicating expectations
 
 If your organization has specific {% data variables.product.prodname_copilot_short %} usage guidelines, these should be clearly communicated in onboarding materials and anywhere else that teams might look for information. For example, if you plan to revoke access to {% data variables.product.prodname_copilot_short %} for users who have not used it in a certain period of time, ensure that your users are aware of this policy.
+
+Many users may not be aware of all of {% data variables.product.prodname_copilot_short %}'s capabilities. You should offer guidance on how you expect the different features to fit into your organization's workflows, and provide training to support this. For an end-to-end example, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/integrating-agentic-ai).
 
 ### Ongoing analysis and optimization
 

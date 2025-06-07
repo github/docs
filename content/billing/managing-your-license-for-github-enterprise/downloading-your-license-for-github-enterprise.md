@@ -12,11 +12,8 @@ topics:
 shortTitle: Download your license
 ---
 
-{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## About license files for {% data variables.product.prodname_enterprise %}
 
@@ -37,6 +34,6 @@ If you have any questions about downloading your license, contact {% data variab
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "Enterprise Server licenses", next to the license you want to download, click **{% octicon "download" aria-hidden="true" %} Download**.
+1. Under "Enterprise Server licenses", next to the license you want to download, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download**.
 
 After you download your license file, you can upload the file to {% data variables.location.product_location_enterprise %} to validate your application. For more information, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}

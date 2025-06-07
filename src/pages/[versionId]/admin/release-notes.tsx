@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/release-notes/pages/release-notes'
+export { default, getServerSideProps } from '@/release-notes/pages/release-notes'

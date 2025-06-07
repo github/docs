@@ -570,9 +570,16 @@ function flawIssueDisplay(flaws: LinkFlaw[], opts: Options, mentionExternalExclu
       'For more information, see [Fixing broken links in GitHub user docs](https://github.com/github/docs/blob/main/src/links/lib/README.md).'
   }
 
-  return `${flawsToDisplay} broken${
+  output = `${flawsToDisplay} broken${
     opts.commentLimitToExternalLinks ? ' **external** ' : ' '
   }links found in [this](${opts.actionUrl}) workflow.\n${output}`
+
+  // limit is 65536
+  if (output.length > 60000) {
+    output = output.slice(0, 60000) + '\n\n---\n\nOUTPUT TRUNCATED'
+  }
+
+  return output
 }
 
 function printGlobalCacheHitRatio(core: CoreInject) {

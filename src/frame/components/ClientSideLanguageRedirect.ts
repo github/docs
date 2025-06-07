@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import { useLanguages } from 'src/languages/components/LanguagesContext'
-import Cookies from 'src/frame/components/lib/cookies'
-import { USER_LANGUAGE_COOKIE_NAME } from 'src/frame/lib/constants.js'
+import { useLanguages } from '@/languages/components/LanguagesContext'
+import Cookies from '@/frame/components/lib/cookies'
+import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants.js'
 
 export function ClientSideLanguageRedirect() {
   const { locale, asPath, replace } = useRouter()

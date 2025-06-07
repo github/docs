@@ -21,13 +21,15 @@ Automated pages allow for manually created content to be prepended to the automa
 ## How does it work
 
 We currently have two patterns that we used to create automated pipelines:
+
 - REST, Webhooks, GitHub Apps, and GraphQL pipelines consume external structured data and transform that data into a JSON file that is used to create content for a page on docs.github.com. Typically, data files are a 1:1 mapping to a specific page on docs.github.com.
 - The CodeQL CLI pipeline takes an unstructured ReStructuredText file and transforms it directly into a Markdown file with frontmatter, that uses the same authoring format as the rest of the docs.
 
 ## Creating a new pipeline
 
-Each pipeline should be evaluated individually to determine the best architecture for simplicity, maintainability, and requirements. 
+Each pipeline should be evaluated individually to determine the best architecture for simplicity, maintainability, and requirements.
 For example:
+
 - Is the content being displayed basic Markdown content? For example, does the content avoid using complex tables and interactive elements? If so, then writing the Markdown content directly and avoiding the need to create a structured data file that requires a React component may be the best approach. This was the case for the CodeQL CLI pipeline. One caveat to think about before writing Markdown directly is whether the content will need liquid versioning. The current pipeline that writes Markdown directly does not need to use liquid versioning. Liquid versioning which would increase the complexity quite a bit. All of the Markdown content in each article that is generated from the CodeQL CLI pipeline applies to all versions listed in the `versions` frontmatter property, simplifying the Markdown generation process.
 - Is the page interactive like the REST and Webhooks pages? If so, then the data will likely need to be structured data. In that case, a new React component may be needed to display the data.
 

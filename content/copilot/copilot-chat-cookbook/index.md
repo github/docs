@@ -1,6 +1,6 @@
 ---
 title: Copilot Chat Cookbook
-intro: 'Find examples of prompts to use with {% data variables.product.prodname_copilot_chat %}.'
+intro: 'Find examples of prompts to use with {% data variables.copilot.copilot_chat %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat

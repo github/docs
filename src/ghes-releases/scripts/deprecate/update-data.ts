@@ -4,7 +4,7 @@ import walkFiles from 'walk-sync'
 import yaml from 'js-yaml'
 
 import { isInAllGhes, isFeatureDeprecated } from '../version-utils'
-import type { MarkdownFrontmatter } from '#src/types.ts'
+import type { MarkdownFrontmatter } from '@/types.ts'
 
 const contentFiles = walkFiles('content', {
   includeBasePath: true,

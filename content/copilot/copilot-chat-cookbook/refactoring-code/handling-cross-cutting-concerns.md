@@ -1,7 +1,7 @@
 ---
 title: Handling cross-cutting concerns
 shortTitle: Cross-cutting concerns
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help you avoid code that relates to a concern other than the core concern of the method or function in which the code is located.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help you avoid code that relates to a concern other than the core concern of the method or function in which the code is located.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/handling-cross-cutting-concerns
 versions:
@@ -17,7 +17,7 @@ topics:
 
 Cross-cutting concerns are aspects of a program that affect multiple parts of the system, such as logging, security, data validation, and error handling. They can become scattered throughout a codebase, leading to code duplication and maintenance challenges.
 
-{% data variables.product.prodname_copilot_chat_short %} can help refactor cross-cutting concerns by suggesting the implementation of Aspect-Oriented Programming (AOP) practices or using decorators and middleware patterns to centralize these concerns in a modular, maintainable way.
+{% data variables.copilot.copilot_chat_short %} can help refactor cross-cutting concerns by suggesting the implementation of Aspect-Oriented Programming (AOP) practices or using decorators and middleware patterns to centralize these concerns in a modular, maintainable way.
 
 ## Example scenario
 
@@ -89,7 +89,7 @@ class OrderService:
 
 ## Example prompt
 
-Open the project workspace in {% data variables.product.prodname_vscode_shortname %} or {% data variables.product.prodname_vs %} and enter the following prompt in the {% data variables.product.prodname_copilot_chat_short %} view.
+Open the project workspace in {% data variables.product.prodname_vscode_shortname %} or {% data variables.product.prodname_vs %} and enter the following prompt in the {% data variables.copilot.copilot_chat_short %} view.
 
 `@workspace Refactor this project by using AOP to avoid logging that has cross-cutting concerns`
 

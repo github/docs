@@ -45,7 +45,7 @@ test('view the early-access links page', async ({ page }) => {
   await page.goto('/early-access')
   await turnOffExperimentsInPage(page)
   await expect(page).toHaveURL(/\/en\/early-access/)
-  await page.getByRole('heading', { name: 'Early Access documentation' }).click()
+  await page.getByRole('heading', { name: 'Early Access documentation', level: 1 }).click()
   const links = await page.$$eval(
     '#article-contents ul li a',
     (elements: HTMLAnchorElement[]) => elements,

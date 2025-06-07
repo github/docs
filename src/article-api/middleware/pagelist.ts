@@ -3,11 +3,11 @@ import type { Response, RequestHandler } from 'express'
 
 import type { ExtendedRequest } from '@/types'
 import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
-import { getProductStringFromPath, getVersionStringFromPath } from '#src/frame/lib/path-utils.js'
-import { getLanguageCodeFromPath } from '#src/languages/middleware/detect-language.js'
+import { getProductStringFromPath, getVersionStringFromPath } from '@/frame/lib/path-utils.js'
+import { getLanguageCodeFromPath } from '@/languages/middleware/detect-language.js'
 import { pagelistValidationMiddleware } from './validation'
-import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
-import statsd from '#src/observability/lib/statsd.js'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
+import statsd from '@/observability/lib/statsd.js'
 
 const router = express.Router()
 

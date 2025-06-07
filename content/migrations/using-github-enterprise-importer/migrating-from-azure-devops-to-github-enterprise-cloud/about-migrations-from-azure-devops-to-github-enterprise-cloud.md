@@ -29,7 +29,12 @@ If you want to migrate Azure Pipelines to {% data variables.product.prodname_act
 
 ## Limitations on migrated data
 
-{% data reusables.enterprise-migration-tool.limitations-of-migrated-data %}
+{% data reusables.enterprise-migration-tool.limitations-of-dotcom %}
+
+### Limitations of {% data variables.product.prodname_importer_proper_name %}
+
+* {% data reusables.enterprise-migration-tool.git-repo-size-limit %}
+{% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
 
 ## Getting started
 

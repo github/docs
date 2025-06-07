@@ -152,9 +152,7 @@
 | `sso_redirect` | Contains activities related to automatically redirecting users to sign in (see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)).
 | {% endif %} |
 | `staff` | Contains activities related to a site admin performing an action. |
-| `team` | Contains activities related to teams in an organization.{% ifversion team-discussions %} |
-| `team_discussions` | Contains activities related to managing team discussions for an organization. |
-| {% endif %} |
+| `team` | Contains activities related to teams in an organization.
 | {% ifversion ghec %} |
 | `team_sync_tenant` | Contains activities related to team synchronization with an IdP for an enterprise or organization. |
 | {% endif %} |

@@ -1,1 +1,1 @@
-1. Under "{% data variables.product.prodname_marketplace %}," next to the app you want to upgrade, select the **Edit** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Change plan**.
+1. Under "{% data variables.product.prodname_marketplace %}," next to the app you want to upgrade, select the **Edit** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Change plan**.

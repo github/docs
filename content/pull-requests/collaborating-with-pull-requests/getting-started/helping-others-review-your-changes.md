@@ -45,7 +45,7 @@ There are various tools available that can help you review your pull request for
 * Check the dependency diff to see if your pull request is introducing vulnerable dependencies. See [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request).
 * Check the {% data variables.product.prodname_advisory_database %} to find additional context and information on vulnerable dependencies.
 * Investigate and resolve any failing security checks or workflows, such as the dependency review action or the {% data variables.product.prodname_code_scanning %} results check. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#about-the-dependency-review-action) and [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#about-code-scanning-as-a-pull-request-check).{% ifversion code-scanning-autofix %}
-* If your repository has set up {% data variables.product.prodname_code_scanning %} as a pull request check, use {% data variables.product.prodname_copilot_autofix %} to suggest fixes for security vulnerabilities in your code. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request).{% endif %}
+* If your repository has set up {% data variables.product.prodname_code_scanning %} as a pull request check, use {% data variables.copilot.copilot_autofix %} to suggest fixes for security vulnerabilities in your code. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request).{% endif %}
 
 ## Keeping your team informed
 
@@ -77,7 +77,7 @@ You can use {% data variables.product.prodname_copilot_short %} to generate a su
 1. Add any additional context that will help people viewing your pull request.
 1. When you're happy with the description, click **Create pull request** on a new pull request, or **Update comment** if you're editing an existing description.
 
-> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to turn your work into a discussion or blog post. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to turn your work into a discussion or blog post. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
 
 {% endif %}
 

@@ -3,9 +3,9 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
-import { sendEvent } from 'src/events/components/events'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { sendEvent } from '@/events/components/events'
 import { EventType } from '../types'
 
 import styles from './Survey.module.scss'
@@ -104,7 +104,7 @@ export const Survey = () => {
 
   return (
     <form
-      className="f5"
+      className={cx(styles.underlineLinks, 'f5')}
       onSubmit={submit}
       ref={formRef}
       data-testid="survey-form"
@@ -201,7 +201,7 @@ export const Survey = () => {
             </label>
             <input
               type="email"
-              className="form-control input-sm width-full"
+              className="form-control input-sm width-full color-bg-transparent"
               name="survey-email"
               id="survey-email"
               value={email}
@@ -242,7 +242,7 @@ export const Survey = () => {
       )}
 
       <Link
-        className="f6 text-underline"
+        className="f6"
         href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
         target="_blank"
       >

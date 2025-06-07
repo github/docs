@@ -1,7 +1,7 @@
 ---
 title: Building a Copilot agent for your Copilot Extension
 shortTitle: Build a Copilot agent
-intro: 'Learn how to build a custom {% data variables.product.prodname_copilot_agent_short %} that determines the functionality of your {% data variables.product.prodname_copilot_extension_short %}.'
+intro: 'Learn how to build a custom {% data variables.copilot.copilot_agent_short %} that determines the functionality of your {% data variables.copilot.copilot_extension_short %}.'
 versions:
   feature: copilot
 topics:

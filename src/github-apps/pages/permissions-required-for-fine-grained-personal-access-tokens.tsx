@@ -3,9 +3,9 @@ import { GetServerSideProps } from 'next'
 import {
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import { MainContext, MainContextT, getMainContext } from 'src/frame/components/context/MainContext'
-import { PermissionsList, PermissionListT } from 'src/github-apps/components/PermissionsList'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import { MainContext, MainContextT, getMainContext } from '@/frame/components/context/MainContext'
+import { PermissionsList, PermissionListT } from '@/github-apps/components/PermissionsList'
 
 type Props = {
   mainContext: MainContextT
@@ -36,7 +36,7 @@ export default function FineGrainedPatPermissions({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAppsServerSideProps } = await import('src/github-apps/lib/index.js')
+  const { getAppsServerSideProps } = await import('@/github-apps/lib/index.js')
   const { currentVersion, appsItems, categoriesWithoutSubcategories } =
     await getAppsServerSideProps(context, 'fine-grained-pat-permissions', { useDisplayTitle: true })
 

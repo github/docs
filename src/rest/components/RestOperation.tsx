@@ -3,10 +3,10 @@ import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
-import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
+import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
 import { RestAuth } from './RestAuth'
@@ -26,6 +26,13 @@ const DEFAULT_ACCEPT_HEADER = {
   isRequired: false,
 }
 
+const REQUIRED_CONTENT_TYPE_HEADER = {
+  name: 'content-type',
+  type: 'string',
+  description: `<p>Setting to <code>application/json</code> is required.</p>`,
+  isRequired: true,
+}
+
 export function RestOperation({ operation }: Props) {
   const titleSlug = slug(operation.title)
   const { t } = useTranslation('rest_reference')
@@ -34,11 +41,13 @@ export function RestOperation({ operation }: Props) {
   const headers =
     operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes'
       ? []
-      : [DEFAULT_ACCEPT_HEADER]
-  const numPreviews = operation.previews.length
-  const hasStatusCodes = operation.statusCodes.length > 0
-  const hasCodeSamples = operation.codeExamples.length > 0
-  const hasParameters = operation.parameters.length > 0 || operation.bodyParameters.length > 0
+      : operation.subcategory === 'inference'
+        ? [REQUIRED_CONTENT_TYPE_HEADER, DEFAULT_ACCEPT_HEADER]
+        : [DEFAULT_ACCEPT_HEADER]
+  const numPreviews = operation.previews?.length || 0
+  const hasStatusCodes = operation.statusCodes?.length > 0
+  const hasCodeSamples = operation.codeExamples?.length > 0
+  const hasParameters = operation.parameters?.length > 0 || operation.bodyParameters?.length > 0
 
   const anchorRef = useRef<null | HTMLDivElement>(null)
 

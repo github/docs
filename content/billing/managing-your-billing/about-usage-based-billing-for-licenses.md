@@ -1,6 +1,6 @@
 ---
 title: About usage-based billing for licenses
-intro: Learn about usage-based billing for your licenses with the new billing platform, whether you pay through {% data variables.product.company_short %} or Azure.
+intro: 'Learn about usage-based billing for your licenses with the new billing platform, whether you pay through {% data variables.product.company_short %} or Azure.'
 redirect_from:
   - /early-access/billing/managing-usage-based-billing-for-github-licenses-through-github
   - /early-access/billing/managing-usage-based-billing-for-github-licenses-through-azure
@@ -11,11 +11,11 @@ redirect_from:
   - /billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses
 versions:
   ghec: '*'
-  ghes: '>= 3.13'
+  ghes: '*'
 type: overview
 topics:
   - Enterprise
-permissions: 'Enterprise administrators'
+permissions: Enterprise administrators
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Usage-based billing for licenses
 ---

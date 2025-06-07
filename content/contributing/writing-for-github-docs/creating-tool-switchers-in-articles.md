@@ -60,6 +60,6 @@ Do not use the tool switcher just to show examples in different languages. Only 
 
 New tools are only added when they are the only way to accurately document something for a specific user need. If a writer determines that adding a new tool is the only way to accurately document something, they need to propose the new tool in a content design plan. Whoever reviews the content design plan should consider any alternative ways to address the documentation needs without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
 
-To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) file as a key-value pair. The key is the tag you use to refer to the tool in the article and the value is how the tool will be identified on the tool picker at the top of the article. For example, `vscode: 'Visual Studio Code'`.
+To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.ts`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.ts) file as a key-value pair. The key is the tag you use to refer to the tool in the article and the value is how the tool will be identified on the tool picker at the top of the article. For example, `vscode: 'Visual Studio Code'`.
 
 Add new tools in alphabetical order.

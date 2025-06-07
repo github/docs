@@ -201,10 +201,10 @@ In addition, for {% data variables.code-scanning.no_build_support %}, there is a
 The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild).
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled language if you don’t include a
-`--command` option{% ifversion codeql-no-build %} or set `--build-mode none`{% endif %}. For example, for a C/C++ codebase, you could simply run:
+`--command` option{% ifversion codeql-no-build %} or set `--build-mode none`{% endif %}. For example, for a Swift codebase, you could simply run:
 
 ```shell
-codeql database create --language=cpp <output-folder>/cpp-database
+codeql database create --language=swift <output-folder>/swift-database
 ```
 
 If a codebase uses a standard build system, relying on an autobuilder is often the simplest way to create a database. For sources that require non-standard build steps, you may need to explicitly define each step in the command line.

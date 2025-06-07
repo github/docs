@@ -1,7 +1,7 @@
 ---
 title: 'Improving code readability and maintainability'
 shortTitle: Improve code readability
-intro: '{% data variables.product.prodname_copilot_chat_short %} can suggest ways to make your code easier to understand and maintain.'
+intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to make your code easier to understand and maintain.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/improving-code-readability-and-maintainability
 versions:
@@ -15,15 +15,15 @@ topics:
   - Copilot
 ---
 
-Code with poor readability is difficult for other developers to maintain and extend. {% data variables.product.prodname_copilot_chat_short %} can help in a number of ways. For example, by:
+Code with poor readability is difficult for other developers to maintain and extend. {% data variables.copilot.copilot_chat_short %} can help in a number of ways. For example, by:
 * [Suggesting improvements to variable names](#improving-variable-names)
 * [Avoiding sequential conditional checks](#avoiding-sequential-conditional-checks)
 * [Reducing nested logic](#reducing-nested-logic)
 * [Splitting large methods into smaller, more readable ones](#splitting-up-large-methods)
 
-Documenting your code is another way to improve the maintainability of your code. For information about using {% data variables.product.prodname_copilot_chat_short %} to help you add useful comments to your code, see the example prompts in [Documenting code](/copilot/copilot-chat-cookbook/documenting-code).
+Documenting your code is another way to improve the maintainability of your code. For information about using {% data variables.copilot.copilot_chat_short %} to help you add useful comments to your code, see the example prompts in [Documenting code](/copilot/copilot-chat-cookbook/documenting-code).
 
-> [!NOTE] The responses shown in this article are examples. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
+> [!NOTE] The responses shown in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
 
 ## Improving variable names
 
@@ -45,7 +45,7 @@ function logPersonsAge(a, b, c) {
 
 ### Example prompt
 
-In the editor, select the function you want to change, then ask {% data variables.product.prodname_copilot_chat_short %}:
+In the editor, select the function you want to change, then ask {% data variables.copilot.copilot_chat_short %}:
 
 `Improve the variable names in this function`
 

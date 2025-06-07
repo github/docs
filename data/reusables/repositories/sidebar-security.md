@@ -1,2 +1,2 @@
-1. Under the repository name, click **{% octicon "shield" aria-hidden="true" %} Security**. If you cannot see the "Security" tab, select the **{% octicon "kebab-horizontal" aria-hidden="true" %}** dropdown menu, and then click **Security**.
+1. Under the repository name, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security**. If you cannot see the "Security" tab, select the **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}** dropdown menu, and then click **Security**.
 ![Screenshot of a repository header showing the tabs. The "Security" tab is highlighted by a dark orange outline.](/assets/images/help/repository/security-tab.png)

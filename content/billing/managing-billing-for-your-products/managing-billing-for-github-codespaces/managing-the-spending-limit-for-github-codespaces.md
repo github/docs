@@ -18,8 +18,6 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About the {% data variables.product.prodname_github_codespaces %} spending limit
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %} See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).

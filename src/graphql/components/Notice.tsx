@@ -1,6 +1,6 @@
-import { Link } from 'src/frame/components/Link'
-import { Alert } from 'src/frame/components/ui/Alert'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { Alert } from '@/frame/components/ui/Alert'
+import { useTranslation } from '@/languages/components/useTranslation'
 import type { GraphqlT } from './types'
 
 type Props = {

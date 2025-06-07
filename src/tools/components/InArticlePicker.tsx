@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
-import { sendEvent } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
 import { useRouter } from 'next/router'
 
 type Option = {

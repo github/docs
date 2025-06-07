@@ -1,16 +1,16 @@
 import { GetServerSideProps } from 'next'
 import GithubSlugger from 'github-slugger'
 
-import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
+import { MainContextT, MainContext, getMainContext } from '@/frame/components/context/MainContext'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import type { HeadingT } from 'src/graphql/components/BreakingChanges'
-import { BreakingChanges } from 'src/graphql/components/BreakingChanges'
-import { BreakingChangesT } from 'src/graphql/components/types'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import type { HeadingT } from '@/graphql/components/BreakingChanges'
+import { BreakingChanges } from '@/graphql/components/BreakingChanges'
+import { BreakingChangesT } from '@/graphql/components/types'
 
 type Props = {
   mainContext: MainContextT
@@ -37,8 +37,8 @@ export default function GraphqlBreakingChanges({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlBreakingChanges } = await import('src/graphql/lib/index.js')
-  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items.js')
+  const { getGraphqlBreakingChanges } = await import('@/graphql/lib/index.js')
+  const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items.js')
 
   const req = context.req as any
   const res = context.res as any

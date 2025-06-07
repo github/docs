@@ -38,8 +38,8 @@ You'll find detailed guidance for the setup of the following package managers:
 * [Helm Charts](#helm-charts){% endif %}
 * [Maven](#maven)
 * [npm](#npm)
-* [NuGet](#nuget){% ifversion dependabot-updates-pub-private-registry %}
-* [pub](#pub){% endif %}
+* [NuGet](#nuget)
+* [pub](#pub)
 * [Python](#python)
 * [Yarn](#yarn)
 
@@ -431,8 +431,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### pub
 
 You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#pub-repository).
@@ -463,8 +461,6 @@ updates:
 pub supports URL and token authentication. The URL used for the registry should match the pub-hosted URL. For more information, see [Hosted Pub Repository Specification Version 2](https://github.com/dart-lang/pub/blob/master/doc/repository-spec-v2.md#hosted-url) in the `github/dart-lang/pub` repository.
 
 {% data variables.product.prodname_dependabot %} doesn't support overrides to the default package registry. For more information about overrides and why some users may implement them, see [Overriding the default package repository](https://dart.dev/tools/pub/custom-package-repositories#default-override) in the Dart documentation.
-
-{% endif %}
 
 ### Python
 
@@ -652,14 +648,6 @@ If you use the `replace-base` setting, you should also configure a remote reposi
 #### Virtual registry
 
 You can use a virtual registry to group together all private and public dependencies under a single domain. For more information, see [npm Registry](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry) in the JFrog Artifactory documentation.
-
-{% ifversion dependabot-updates-reference-private-registries %}{% else %}
-
-#### Limitations and workarounds
-
-The `target branch` setting does not work with {% data variables.product.prodname_dependabot_security_updates %}
- on Artifactory. If you get a 401 authentication error, you need to remove the `target-branch` property from your `dependabot.yml` file. For more information, see [ARTIFACTORY: Why GitHub Dependabot security updates are failing with 401 Authentication error, when it initiates a connection with Artifactory npm private registry for security updates](https://jfrog.com/help/r/artifactory-why-github-dependabot-security-updates-are-failing-with-401-authentication-error-when-it-initiates-a-connection-with-artifactory-npm-private-registry-for-security-updates/issue-description) in the JFrog Artifactory documentation.
-{% endif %}
 
 ### Azure Artifacts
 

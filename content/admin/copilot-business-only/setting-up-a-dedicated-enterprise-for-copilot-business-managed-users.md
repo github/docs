@@ -14,7 +14,7 @@ redirect_from:
 
 ---
 
-You can use an enterprise account to manage licenses for {% data variables.product.prodname_copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
+You can use an enterprise account to manage licenses for {% data variables.copilot.copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
 
 This article describes the setup for an **enterprise with managed users**. If you haven't chosen an enterprise type, see [AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
 

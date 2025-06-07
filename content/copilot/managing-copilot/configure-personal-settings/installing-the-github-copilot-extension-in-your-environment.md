@@ -13,7 +13,7 @@ redirect_from:
 
 ## Prerequisite
 
-To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.product.prodname_copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 
 {% azure_data_studio %}
 
@@ -148,7 +148,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ### Version compatibility
 
-Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the Microsoft documentation.
+Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.copilot.copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the Microsoft documentation.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
@@ -168,7 +168,7 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.copilot.copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -206,8 +206,8 @@ Two permissions are required to be able to use the extension: "Accessibility" an
 
 The "Xcode Source Editor Extension" permission needs to be enabled manually.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
-1. Click **Extension Permission** and click **Xcode Source Editor**.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
+1. Click **Extension Permission**.
 1. Enable {% data variables.product.prodname_copilot %} and click **Done**.
 
 After granting the required permissions, restart Xcode. You will see a new item in the "Editor" menu called "{% data variables.product.prodname_copilot %}".
@@ -218,7 +218,7 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=xcode#authenticating-from-xcode).
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. Click **Login to {% data variables.product.github %}** and follow the prompts to authorize the extension.
 
 {% endxcode %}
@@ -227,9 +227,7 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 ## About {% data variables.product.prodname_copilot %} in Eclipse
 
-Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
-
-{% data reusables.copilot.eclipse-public-preview-note %}
+Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.copilot.copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -243,7 +241,7 @@ To use the {% data variables.product.prodname_copilot %} extension, you must hav
 
 1. After the extension is installed, restart Eclipse to apply the changes.
 
-1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
 
 1. In the "Sign In to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy Code and Open**.
 

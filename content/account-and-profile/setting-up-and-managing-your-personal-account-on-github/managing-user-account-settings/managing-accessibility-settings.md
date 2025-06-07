@@ -59,3 +59,12 @@ By default, {% data variables.product.github %} syncs with your system-level pre
 1. Under "Motion", manage settings for motion.
 
    * To control how {% data variables.product.github %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
+
+## Managing appearance settings for better contrast
+
+You can customize contrast levels to improve visibility and meet accessibility needs.
+
+* If you're **not signed in**, click {% octicon "sliders" aria-hidden="true" aria-label="sliders" %} on the right in the top navigation bar to access the contrast settings.
+* If you're **signed in**, click **{% octicon "paintbrush" aria-hidden="true" aria-label="paintbrush" %} Appearance** in the left sidebar of your user settings. Under "Contrast", you can access the contrast settings.
+
+You can toggle the switch for "Increase contrast" to enable or disable high contrast mode. You can also choose between light and dark mode, or both, based on your system settings.

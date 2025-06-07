@@ -86,20 +86,30 @@ async function getPage(
   }
 }
 
+interface ProductGroupData {
+  name: string
+  icon?: string
+  octicon?: string
+  children: string[]
+}
+
 export async function getProductGroups(
   pageMap: PageMap,
   lang: string,
   context: Context,
 ): Promise<ProductGroup[]> {
+  // Handle case where data or childGroups might be undefined
+  const childGroups = data?.childGroups || []
+
   return await Promise.all(
-    data.childGroups!.map(async (group) => {
+    childGroups.map(async (group: ProductGroupData) => {
       return {
         name: group.name,
         icon: group.icon || null,
         octicon: group.octicon || null,
         // Typically the children are product IDs, but we support deeper page paths too
         children: (
-          await Promise.all(group.children.map((id) => getPage(id, lang, pageMap, context)))
+          await Promise.all(group.children.map((id: string) => getPage(id, lang, pageMap, context)))
         ).filter(Boolean) as ProductGroupChild[],
       }
     }),

@@ -1,6 +1,6 @@
 ---
 title: About enterprise accounts for Copilot Business
-intro: 'Learn about the options for creating an enterprise account to manage {% data variables.product.prodname_copilot_business_short %} licenses, without adopting {% data variables.product.prodname_enterprise %}.'
+intro: 'Learn about the options for creating an enterprise account to manage {% data variables.copilot.copilot_business_short %} licenses, without adopting {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
 topics:
@@ -12,15 +12,15 @@ redirect_from:
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
 ---
 
-You can use an enterprise account to manage licenses for {% data variables.product.prodname_copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
+You can use an enterprise account to manage licenses for {% data variables.copilot.copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
 
 >[!NOTE] Access to this feature is currently managed by {% data variables.contact.contact_enterprise_sales %}.
 
-## What is an enterprise account for {% data variables.product.prodname_copilot_business_short %}?
+## What is an enterprise account for {% data variables.copilot.copilot_business_short %}?
 
-To use {% data variables.product.prodname_copilot %}, a user must authenticate to an account on {% data variables.product.prodname_dotcom %} that has a license for {% data variables.product.prodname_copilot_short %}. Organizations and enterprises on {% data variables.product.prodname_dotcom %} can manage members' access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} subscription.
+To use {% data variables.product.prodname_copilot %}, a user must authenticate to an account on {% data variables.product.prodname_dotcom %} that has a license for {% data variables.product.prodname_copilot_short %}. Organizations and enterprises on {% data variables.product.prodname_dotcom %} can manage members' access to {% data variables.product.prodname_copilot_short %} through a {% data variables.copilot.copilot_business_short %} subscription.
 
-If you don't already manage users through an organization or enterprise, you can create an enterprise account specifically for allocating {% data variables.product.prodname_copilot_business_short %} licenses.
+If you don't already manage users through an organization or enterprise, you can create an enterprise account specifically for allocating {% data variables.copilot.copilot_business_short %} licenses.
 
 * You'll only pay for the {% data variables.product.prodname_copilot_short %} licenses you assign. For pricing, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business).
 * You won't pay for {% data variables.product.prodname_enterprise %} seats.
@@ -37,7 +37,7 @@ How you will add users to your enterprise and manage license assignment depends 
 If you request an enterprise with personal accounts:
 
 * You'll **add users** to the enterprise by sending an invitation to their personal {% data variables.product.prodname_dotcom %} account.
-* You'll **create teams** in the enterprise to manage which users receive {% data variables.product.prodname_copilot_business_short %} licenses. You can manage membership of the teams on {% data variables.product.prodname_dotcom %} or with the REST API.
+* You'll **create teams** in the enterprise to manage which users receive {% data variables.copilot.copilot_business_short %} licenses. You can manage membership of the teams on {% data variables.product.prodname_dotcom %} or with the REST API.
 * When users receive a license, they can authenticate to {% data variables.product.prodname_dotcom %} from their development environment and **gain access** to {% data variables.product.prodname_copilot_short %}.
 * Optionally, you can configure **SAML single sign-on** (SSO), so that users must authenticate to an external identity system in addition to their personal account.
 
@@ -46,7 +46,7 @@ If you request an enterprise with personal accounts:
 If you request an {% data variables.enterprise.prodname_emu_enterprise %}:
 
 * You'll **add users** to the enterprise by provisioning {% data variables.enterprise.prodname_managed_users %} from an identity provider (IdP), using SCIM.
-* You'll **create teams** in the enterprise to manage which users receive {% data variables.product.prodname_copilot_business_short %} licenses. You can manage membership of the teams from your IdP, on {% data variables.product.prodname_dotcom %}, or with the REST API.
+* You'll **create teams** in the enterprise to manage which users receive {% data variables.copilot.copilot_business_short %} licenses. You can manage membership of the teams from your IdP, on {% data variables.product.prodname_dotcom %}, or with the REST API.
 * When users receive a license, they can use single sign-on to authenticate to their {% data variables.product.prodname_dotcom %} account from their development environment and **gain access** to {% data variables.product.prodname_copilot_short %}.
 
 ## Limitations
@@ -60,7 +60,7 @@ If you request an {% data variables.enterprise.prodname_emu_enterprise %}:
 
 ## Getting started
 
-To get started, you will work with {% data variables.contact.contact_enterprise_sales %} to create an enterprise account, then add users to your enterprise and assign {% data variables.product.prodname_copilot_business_short %} licenses.
+To get started, you will work with {% data variables.contact.contact_enterprise_sales %} to create an enterprise account, then add users to your enterprise and assign {% data variables.copilot.copilot_business_short %} licenses.
 
 See the setup guide for your chosen type of enterprise.
 

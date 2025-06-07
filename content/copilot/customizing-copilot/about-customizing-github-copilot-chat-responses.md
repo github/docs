@@ -1,7 +1,7 @@
 ---
 title: About customizing GitHub Copilot Chat responses
 shortTitle: About customizing Copilot responses
-intro: 'Learn about customizing {% data variables.product.prodname_copilot_chat %} responses to fit with your preferences and requirements.'
+intro: 'Learn about customizing {% data variables.copilot.copilot_chat %} responses to fit with your preferences and requirements.'
 versions:
   feature: copilot
 topics:
@@ -26,7 +26,7 @@ topics:
 
 {% endvisualstudio %}
 
-## About customizing {% data variables.product.prodname_copilot_chat %} responses
+## About customizing {% data variables.copilot.copilot_chat %} responses
 
 {% webui %}
 
@@ -34,9 +34,9 @@ topics:
 
 ### Types of custom instructions
 
-* **Personal custom instructions** apply to all conversations you have with {% data variables.product.prodname_copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
+* **Personal custom instructions** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
 * **Repository custom instructions** apply to conversations within the context of a specific repository. They are useful for defining project-specific coding standards, frameworks, or tools. For example, you can specify that a repository uses TypeScript and a particular library, ensuring consistent responses for all contributors.
-* **Organization custom instructions (public preview)** apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+* **Organization custom instructions (public preview)** apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_enterprise_short %} subscription.
 
 {% endwebui %}
 
@@ -44,7 +44,7 @@ topics:
 
 {% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create files in your repository that automatically add this information for you.
 
-There are two types of files you can use to provide context and instructions to {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}:
+There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}:
 
 * **Repository custom instructions** allow you to specify repository-wide instructions and preferences, in a single file, that apply to any conversation held in the context of the repository.
 * **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
@@ -102,7 +102,7 @@ Common use cases include:
 
 > [!NOTE] Prompt files are {% data variables.release-phases.public_preview %} and subject to change.
 
-Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.product.prodname_copilot_chat_short %} (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.copilot.copilot_chat_short %} (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
 
 Common use cases include:
 

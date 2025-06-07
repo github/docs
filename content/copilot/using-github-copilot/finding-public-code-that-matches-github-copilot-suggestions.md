@@ -60,7 +60,7 @@ References to matching code are only generated if {% data variables.product.prod
 
 {% webui %}
 
-If you've allowed suggestions that match public code, then whenever a response from {% data variables.product.prodname_copilot_chat_short %} includes matching code, details of the matches will be included in the response.
+If you've allowed suggestions that match public code, then whenever a response from {% data variables.copilot.copilot_chat_short %} includes matching code, details of the matches will be included in the response.
 
 {% endwebui %}
 
@@ -78,7 +78,7 @@ This feature is called code referencing.
 
 {% data reusables.copilot.code-referencing-note %}
 
-### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
+### Code referencing for {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.code-referencing-in-chat %}
 
@@ -87,7 +87,7 @@ This feature is called code referencing.
 {% webui %}
 
 > [!NOTE]
-> Typically, matches to public code occur infrequently, so you should not expect to see code references in many {% data variables.product.prodname_copilot_chat_short %} responses.
+> Typically, matches to public code occur infrequently, so you should not expect to see code references in many {% data variables.copilot.copilot_chat_short %} responses.
 
 {% endwebui %}
 
@@ -97,7 +97,7 @@ This feature is called code referencing.
 
 {% data reusables.copilot.code-referencing-note %}
 
-### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
+### Code referencing for {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.code-referencing-in-chat %}
 
@@ -109,9 +109,9 @@ This feature is called code referencing.
 
 {% data reusables.copilot.code-referencing-note %}
 
-### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
+### Code referencing for {% data variables.copilot.copilot_chat_short %}
 
-When {% data variables.product.prodname_copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated below the suggested code, with a link to display details of the matched code in the output log.
+When {% data variables.copilot.copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated below the suggested code, with a link to display details of the matched code in the output log.
 
 {% endvisualstudio %}
 
@@ -223,7 +223,7 @@ You can find code references in the {% data variables.product.prodname_copilot %
 
 {% endvisualstudio %}
 
-## View code references for {% data variables.product.prodname_copilot_chat_short %}
+## View code references for {% data variables.copilot.copilot_chat_short %}
 
 {% jetbrains %}
 
@@ -239,7 +239,7 @@ You can find code references in the {% data variables.product.prodname_copilot %
 
 {% visualstudio %}
 
-If a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code, this is below the suggested code by the following text:
+If a response in {% data variables.copilot.copilot_chat_short %} includes matching code, this is below the suggested code by the following text:
 
 > Found similar code in public repos. **View matches**
 
@@ -285,7 +285,7 @@ The details include:
 
 {% webui %}
 
-When {% data variables.product.prodname_copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated beneath the code suggestion:
+When {% data variables.copilot.copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated beneath the code suggestion:
 
 > < > Public code references from _n_ repositories
 
@@ -295,7 +295,7 @@ To see details of the matching code:
 
    A list of {% data variables.product.github %} repositories containing matching code is displayed in a dropdown, together with licensing information, if found.
 
-   ![Screenshot of a code completion suggestion in {% data variables.product.prodname_copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
+   ![Screenshot of a code completion suggestion in {% data variables.copilot.copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
 
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
 

@@ -23,6 +23,18 @@ If you enable web commit signing, {% data variables.product.prodname_ghe_server 
 
 You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
 
+{% ifversion ghes > 3.16 %}
+
+### About persistent commit signature verification
+
+Persistent commit signature verification is related but separate from web commit signing. This feature ensures that the verified status of commits is retained, even if signing keys are changed or revoked.
+
+Persistent commit signature verification helps maintain long-term integrity and trust in your repository’s commit history. However, you may choose to disable it in environments where minimizing disk usage is a priority, especially for large installations with a high number of verified commits.
+
+For information about disabling persistent commit signature verification, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
+
+{% endif %}
+
 ## Enabling web commit signing
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}

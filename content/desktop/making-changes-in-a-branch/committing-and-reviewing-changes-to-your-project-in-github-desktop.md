@@ -22,7 +22,7 @@ Repository administrators can enable rulesets for a branch to enforce specific c
 
 ## Choosing a branch and making changes
 
-1. [Create a new branch](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), or select an existing branch by clicking **{% octicon "git-branch" aria-hidden="true" %} Current Branch** on the toolbar and selecting the branch from the list.
+1. [Create a new branch](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), or select an existing branch by clicking **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Current Branch** on the toolbar and selecting the branch from the list.
 
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}

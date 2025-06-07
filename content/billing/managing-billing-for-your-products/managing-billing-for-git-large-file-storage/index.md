@@ -20,4 +20,3 @@ children:
   - /downgrading-git-large-file-storage
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}

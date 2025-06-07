@@ -52,7 +52,7 @@ You can request a review from either a suggested or specific person. Suggested r
 ## Requesting a review from {% data variables.product.prodname_copilot %}
 
 >[!NOTE]
->{% data variables.product.prodname_copilot_workspace %} is currently in {% data variables.release-phases.public_preview %}. For information about joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+>{% data variables.copilot.copilot_workspace %} is currently in {% data variables.release-phases.public_preview %}. For information about joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
 You can also request that {% data variables.product.prodname_copilot_short %} reviews your code and provides feedback and suggested changes on your work. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 

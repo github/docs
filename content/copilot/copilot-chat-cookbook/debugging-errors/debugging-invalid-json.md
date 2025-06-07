@@ -1,7 +1,7 @@
 ---
 title: Debugging invalid JSON
 shortTitle: Debug invalid JSON
-intro: '{% data variables.product.prodname_copilot_chat_short %} can identify and resolve syntax errors or structural issues in JSON data.'
+intro: '{% data variables.copilot.copilot_chat_short %} can identify and resolve syntax errors or structural issues in JSON data.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/debugging-errors/debugging-invalid-json
 versions:
@@ -15,7 +15,7 @@ topics:
   - Copilot
 ---
 
-When working with JSON data, you may encounter issues such as trailing commas, mismatched braces, or incorrect data types that make the JSON invalid. {% data variables.product.prodname_copilot_chat %} can help you debug and fix these errors by suggesting corrections to fix invalid JSON.
+When working with JSON data, you may encounter issues such as trailing commas, mismatched braces, or incorrect data types that make the JSON invalid. {% data variables.copilot.copilot_chat %} can help you debug and fix these errors by suggesting corrections to fix invalid JSON.
 
 ## Example scenario
 

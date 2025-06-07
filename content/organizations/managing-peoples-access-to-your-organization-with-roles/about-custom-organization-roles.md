@@ -49,10 +49,8 @@ Organization permissions do not grant read, write, or administrator access to an
 |  {% ifversion ghec %} |
 Manage organization OAuth app policies | Access to the "OAuth app policy" settings for the organization. | [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions) |
 |  {% endif %} |
-|  {% ifversion repository-properties %} |
 | Edit custom properties values at the organization level | Access to set custom property values on all repositories in the organization. | [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) |
 | Manage the organization's custom properties definitions | Access to create and edit custom property definitions for the organization. | [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) |
-|  {% endif %} |
 |  {% ifversion repo-rules-enterprise %} |
 | Manage organization ref update rules and rulesets | Access to manage rulesets and view ruleset insights at the organization level. | [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization) |
 |  {% endif %} |

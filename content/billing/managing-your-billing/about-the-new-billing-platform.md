@@ -57,11 +57,7 @@ The products shown in the new billing platform are determined by your {% data va
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
 
-{% ifversion metered-ghe-ghas %}
-
 {% data reusables.billing.actions-usage-delay %}
-
-{% endif %}
 
 {% endif %}
 
@@ -90,7 +86,7 @@ With the new billing platform, you can:
 {% elsif ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. {% ifversion horizontal-nav %}At the top of the page,{% else %}In the enterprise account sidebar,{% endif %} click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. {% ifversion horizontal-nav %}At the top of the page,{% else %}In the enterprise account sidebar,{% endif %} click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
 {% endif %}
 

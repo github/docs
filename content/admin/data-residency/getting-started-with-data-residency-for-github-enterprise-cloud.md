@@ -17,24 +17,46 @@ redirect_from:
 
 When you adopt {% data variables.enterprise.data_residency %}, you can choose where your company's code and data are stored.
 
-After you have **worked with {% data variables.contact.contact_sales_data_residency %}** to create an enterprise account with a dedicated URL on {% data variables.enterprise.data_residency_site %}, you'll use this guide to set up your enterprise. You will:
+In this guide, you will:
 
+* Start a trial to create an enterprise account with {% data variables.enterprise.data_residency_short %} and a dedicated domain on {% data variables.enterprise.data_residency_site %}
 * Add users by configuring authentication and provisioning with an identity management system
+* Learn about available features, including features that work differently or require additional configuration compared to {% data variables.product.prodname_dotcom_the_website %}
 * Set up billing for your enterprise
 * Optionally, migrate data from another platform
-* Learn about available features, including features that work differently or require additional configuration
 
 After this initial setup, you'll be able to create organizations and repositories, collaborate on code, configure policies, and more.
 
 ## Prerequisites
 
-* You must have been provisioned with an enterprise on {% data variables.enterprise.data_residency_site %}.
-
 * If you intend to pay with a Microsoft Azure subscription, you must have admin access to the Azure portal or work with someone to configure an admin consent workflow. For a full list of prerequisites, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#prerequisites).
 
 * {% data reusables.data-residency.data-resident-enterprises-network-access %}
 
-## 1. Add users to your enterprise
+## 1. Sign up for a trial
+
+To get started with {% data variables.enterprise.data_residency_short %}, you will sign up for a trial. The trial:
+
+* Lasts for **{% data reusables.enterprise.ghec-trial-length %} days**
+* Includes access to most {% data variables.product.prodname_enterprise %} features, though not the features listed in [Features not included in the trial](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)
+* Allows you to create up to **three new organizations**
+
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=get+started+with+data+residency&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+
+1. Visit the trial page by clicking the link above.
+1. Select **Get started with managed users**.
+1. Under "Data hosting", use the dropdown menu to select your region for {% data variables.enterprise.data_residency_short %}.
+1. Complete the signup form. Pay close attention to the following fields:
+
+   * **Subdomain**: This will appear in your enterprise's dedicated domain. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
+   * **Identity Provider**: {% data variables.product.github %} partners with certain identity providers to provide a "paved-path" experience. Check whether your identity provider is a partner and ensure you understand the requirements for other systems. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
+   * **Admin work email**: This is where you will receive the invitation to sign in and configure the enterprise for the first time.
+
+1. Click **Create enterprise**.
+
+Your enterprise can take a few hours to be provisioned. When it's ready, you'll receive a welcome email and an invitation to reset your password, delivered to the "Admin work email" address.
+
+## 2. Add users to your enterprise
 
 Enterprises on {% data variables.enterprise.data_residency_site %} use {% data variables.product.prodname_emus %}. To create user accounts and grant access to your new enterprise on {% data variables.enterprise.data_residency_site %}, you must configure authentication and SCIM provisioning. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
@@ -70,16 +92,26 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-manage-org-membership %}
 
-## 2. Set up billing
+## 3. Learn about {% data variables.product.github %}'s features
+
+When you have completed the initial setup of your enterprise, you and your enterprise's members can start using {% data variables.product.github %}'s features.
+
+{% data reusables.data-residency.data-resident-enterprise-feature-availability %} Some features work differently or require additional configuration compared to the equivalent feature on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency).
+
+## 4. Purchase {% data variables.product.prodname_enterprise %}
+
+You can purchase {% data variables.product.prodname_enterprise %} at any time during the trial. To do so, click the **Activate enterprise** button displayed on your enterprise account.
 
 To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription.
 
 * To add a credit card or PayPal details, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information#viewing-payment-information).
 * To link an Azure subscription, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account).
 
-## 3. Migrate data
+## 5. Migrate data
 
-Optionally, to migrate existing data to your new enterprise on {% data variables.enterprise.data_residency_site %}, you can use {% data variables.product.company_short %}'s migration tools.
+To migrate existing data to your new enterprise on {% data variables.enterprise.data_residency_site %}, you can use {% data variables.product.company_short %}'s migration tools.
+
+Optionally, you can migrate data to {% data variables.enterprise.data_residency_site %} during your trial. However, migrated organizations will count towards the limit of three new organizations during the trial.
 
 * If you're migrating from {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_ghe_server %}, Azure DevOps, or Bitbucket Server, you can migrate source code history and metadata with {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
 * If you're migrating from a different platform, see [AUTOTITLE](/migrations/overview/migration-paths-to-github#migrations-to-ghecom).
@@ -115,12 +147,6 @@ export TARGET_REPO="TARGET-GHE-REPOSITORY-NAME"
 
 gh gei migrate-repo --target-api-url $TARGET_API_URL --github-source-org $GITHUB_SOURCE_ORG --source-repo $SOURCE_REPO --github-target-org $GITHUB_TARGET_ORG --target-repo $TARGET_REPO --verbose
 ```
-
-## 4. Learn about {% data variables.product.github %}'s features
-
-When you have completed the initial setup of your enterprise, you and your enterprise's members can start using {% data variables.product.github %}'s features.
-
-{% data reusables.data-residency.data-resident-enterprise-feature-availability %} Some features work differently or require additional configuration compared to the equivalent feature on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency).
 
 ## Further reading
 

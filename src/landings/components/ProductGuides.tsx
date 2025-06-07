@@ -1,11 +1,11 @@
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { useProductGuidesContext } from 'src/landings/components/ProductGuidesContext'
-import { LandingSection } from 'src/landings/components/LandingSection'
-import { GuidesHero } from 'src/landings/components/GuidesHero'
-import { LearningTracks } from 'src/learning-track/components/guides/LearningTracks'
-import { ArticleCards } from 'src/landings/components/ArticleCards'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { useProductGuidesContext } from '@/landings/components/ProductGuidesContext'
+import { LandingSection } from '@/landings/components/LandingSection'
+import { GuidesHero } from '@/landings/components/GuidesHero'
+import { LearningTracks } from '@/learning-track/components/guides/LearningTracks'
+import { ArticleCards } from '@/landings/components/ArticleCards'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
 export const ProductGuides = () => {
   const { title, learningTracks, includeGuides } = useProductGuidesContext()

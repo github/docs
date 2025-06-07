@@ -1,4 +1,4 @@
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import type { GraphqlT } from './types'
 import { Notice } from './Notice'
 

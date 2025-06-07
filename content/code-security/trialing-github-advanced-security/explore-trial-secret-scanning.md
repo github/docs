@@ -22,7 +22,7 @@ This guide assumes that you have planned and started a trial of {% data variable
 * Control and audit the bypass process for push protection and {% data variables.secret-scanning.alerts %}.
 * Enable validity checks for exposed tokens.
 
-If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% octicon "shield" aria-hidden="true" %} Security** tab for the organization.
+If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the organization.
 
 For full details of the features available, see [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
 
@@ -34,7 +34,7 @@ Most enterprises choose to enable {% data variables.product.prodname_secret_prot
 
 By default, only the repository administrator and the organization owner can view all {% data variables.product.prodname_secret_scanning %} alerts in their area. You should assign the predefined security manager role to all organization teams and users who you want to access the alerts found during the trial. You may also want to give the enterprise account owner this role for each organization in the trial. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
-You can see a summary of any results found in the organizations in your trial enterprise in the **{% octicon "shield" aria-hidden="true" %} Security** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+You can see a summary of any results found in the organizations in your trial enterprise in the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 
 ## Identify additional access tokens
 

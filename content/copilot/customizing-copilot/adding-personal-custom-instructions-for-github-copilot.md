@@ -1,7 +1,7 @@
 ---
 title: Adding personal custom instructions for GitHub Copilot
 shortTitle: Personal custom instructions
-intro: 'Customize {% data variables.product.prodname_copilot_chat %} responses to match your personal preferences.'
+intro: 'Customize {% data variables.copilot.copilot_chat %} responses to match your personal preferences.'
 versions:
   feature: copilot
 topics:
@@ -10,11 +10,11 @@ topics:
 
 {% data reusables.copilot.personal-instructions-note %}
 
-For an overview of the methods you can use to customize {% data variables.product.prodname_copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui).
+For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui).
 
-## About personal custom instructions for {% data variables.product.prodname_copilot_chat %}
+## About personal custom instructions for {% data variables.copilot.copilot_chat %}
 
-You can add custom instructions for {% data variables.product.prodname_copilot_chat %} in order to receive chat responses that are customized to your personal preferences, across your conversations on the {% data variables.product.github %} website. For example, you can choose to always have {% data variables.product.prodname_copilot_chat_short %} respond in a preferred language or with a particular style. Some examples of instructions you could add are:
+You can add custom instructions for {% data variables.copilot.copilot_chat %} in order to receive chat responses that are customized to your personal preferences, across your conversations on the {% data variables.product.github %} website. For example, you can choose to always have {% data variables.copilot.copilot_chat_short %} respond in a preferred language or with a particular style. Some examples of instructions you could add are:
 * `Always respond in Spanish.`
 * `Your style is a helpful colleague, minimize explanations but provide enough context to understand the code.`
 * `Always provide examples in TypeScript.`
@@ -26,8 +26,8 @@ You can add custom instructions for {% data variables.product.prodname_copilot_c
 You can add personal custom instructions either in the Chat panel or in immersive mode. The same instructions will be applied in both modes.
 
 1. In the top right of any page on {% data variables.product.github %}, either:
-   * Click the **{% octicon "copilot" aria-label="Copilot" %}** icon to open the {% data variables.product.prodname_copilot_chat_short %} panel.
-   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Immersive** to open {% data variables.product.prodname_copilot_chat_short %} in the full-page, immersive mode. You can also go directly to [https://github.com/copilot](https://github.com/copilot).
+   * Click the **{% octicon "copilot" aria-label="Copilot" %}** icon to open the {% data variables.copilot.copilot_chat_short %} panel.
+   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Immersive** to open {% data variables.copilot.copilot_chat_short %} in the full-page, immersive mode. You can also go directly to [https://github.com/copilot](https://github.com/copilot).
 1. Select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu at the top right of the Chat panel, or immersive page, then click **Personal instructions**.
 1. Add natural language instructions to the text box.
 

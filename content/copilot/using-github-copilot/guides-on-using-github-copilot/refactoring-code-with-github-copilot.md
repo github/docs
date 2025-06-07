@@ -16,7 +16,7 @@ Refactoring code is the process of restructuring existing code without changing 
 
 This article gives you some ideas for using {% data variables.product.prodname_copilot_short %} to refactor code in your IDE.
 
-> [!NOTE] Example responses are included in this article. {% data variables.product.prodname_copilot_chat %} may give you different responses from the ones shown here.
+> [!NOTE] Example responses are included in this article. {% data variables.copilot.copilot_chat %} may give you different responses from the ones shown here.
 
 ## Understanding code
 
@@ -45,12 +45,12 @@ for file in $(find . -type f -name "*.txt"); do
 done
 ```
 
-### Use the {% data variables.product.prodname_copilot_chat_short %} panel
+### Use the {% data variables.copilot.copilot_chat_short %} panel
 
 {% data variables.product.prodname_copilot_short %} can tell you whether code, like the example bash script, can be optimized.
 
 1. Select either the `for` loop or the entire contents of the file.
-1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the chat icon in the activity bar or by using the keyboard shortcut:
+1. Open {% data variables.copilot.copilot_chat_short %} by clicking the chat icon in the activity bar or by using the keyboard shortcut:
 
    * **{% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %}:** <kbd>Control</kbd>+<kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>i</kbd> (Windows/Linux)
    * **JetBrains:** <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>c</kbd>
@@ -63,7 +63,7 @@ done
 
    * **In {% data variables.product.prodname_vscode_shortname %} and JetBrains:** Hover over the suggestion in the chat panel and click the **Insert At Cursor** icon.
 
-     ![Screenshot of the 'Insert at cursor' icon in the {% data variables.product.prodname_copilot_chat_short %} panel.](/assets/images/help/copilot/insert-at-cursor.png)
+     ![Screenshot of the 'Insert at cursor' icon in the {% data variables.copilot.copilot_chat_short %} panel.](/assets/images/help/copilot/insert-at-cursor.png)
 
    * **In {% data variables.product.prodname_vs %}:** Click **Preview** then, in the comparison view, click **Accept**.
 

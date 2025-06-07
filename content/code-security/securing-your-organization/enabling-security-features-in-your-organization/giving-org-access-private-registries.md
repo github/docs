@@ -17,12 +17,12 @@ When a repository uses code stored in a private registry, some security features
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
-{% data variables.product.prodname_code_scanning_caps %} default setup analyzes {% data variables.code-scanning.no_build_support %} code without building it. If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results, that is, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
+If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results, that is, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
 
 When you configure access to the private registries used in your organization, {% data variables.product.prodname_code_scanning %} has access to all the information it needs and is much less likely to miss a vulnerability.
 
 > [!TIP]
-> You can define one private Maven registry and one private NuGet feed for each organization. If the codebases in your organization use more than one registry or feed, you should define access to the most important registry for the codebases in that organization.
+> You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should define access to the most important registry for the codebases in that organization.
 
 ### Defining registry access for {% data variables.product.prodname_code_scanning %} default setup
 

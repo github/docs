@@ -205,6 +205,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.user_access_reinstated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.user_access_revoked",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"

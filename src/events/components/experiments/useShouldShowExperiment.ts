@@ -11,6 +11,7 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
   }
 
   const [showExperiment, setShowExperiment] = useState(false)
+  const [experimentLoading, setExperimentLoading] = useState(true)
   const router = useRouter()
   const mainContext = useMainContext()
   const [isStaff, setIsStaff] = useState<boolean>(false)
@@ -29,6 +30,21 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
   }, [])
 
   useEffect(() => {
+    // After 1.5 seconds, if the experiment logic hasn't resolved, force it to stop loading
+    const timer = setTimeout(() => {
+      if (experimentLoading) {
+        setExperimentLoading(false)
+      }
+    }, 1500)
+    return () => {
+      clearTimeout(timer)
+      if (experimentLoading) {
+        setExperimentLoading(false)
+      }
+    }
+  }, [experimentLoading])
+
+  useEffect(() => {
     const updateShouldShow = async () => {
       const isStaff = await getIsStaff()
       setShowExperiment(
@@ -40,6 +56,7 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
           router.query,
         ),
       )
+      setExperimentLoading(false)
     }
 
     updateShouldShow()
@@ -52,5 +69,8 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
     }
   }, [experimentKey, router.locale, mainContext.currentVersion, router.query, isStaff])
 
-  return showExperiment
+  return {
+    showExperiment,
+    experimentLoading,
+  }
 }

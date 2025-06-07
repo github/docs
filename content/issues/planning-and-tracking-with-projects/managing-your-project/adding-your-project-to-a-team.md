@@ -24,7 +24,7 @@ Teams are granted read permissions on any project they are added to. This permis
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-1. Click **{% octicon "project" aria-hidden="true" %} Projects**.
+1. Click **{% octicon "project" aria-hidden="true" aria-label="project" %} Projects**.
 
    ![Screenshot of the main page for a team. In the horizontal navigation bar, the "Projects" tab is outlined in dark orange.](/assets/images/help/organizations/team-project-board-button.png)
 

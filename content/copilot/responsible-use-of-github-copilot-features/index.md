@@ -16,4 +16,5 @@ children:
   - /responsible-use-of-github-copilot-pull-request-summaries
   - /responsible-use-of-github-copilot-text-completion
   - /responsible-use-of-github-copilot-code-review
+  - /responsible-use-of-copilot-coding-agent-on-githubcom
 ---

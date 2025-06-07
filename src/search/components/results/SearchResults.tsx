@@ -4,15 +4,15 @@ import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
-import { sendEvent, uuidv4 } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { sendEvent, uuidv4 } from '@/events/components/events'
+import { EventType } from '@/events/types'
 
 import styles from './SearchResults.module.scss'
 
-import type { SearchQueryContentT } from 'src/search/components/types'
-import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from 'src/search/types'
+import type { SearchQueryContentT } from '@/search/components/types'
+import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
 import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 

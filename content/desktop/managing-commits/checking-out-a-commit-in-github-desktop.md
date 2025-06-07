@@ -24,7 +24,7 @@ Checking out a commit puts your repository in a "detached HEAD" state. In Git te
 {% data reusables.desktop.history-tab %}
 1. Right-click on the commit you would like to checkout and select **Checkout commit**.
     ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the "Checkout Commit" option is outlined in orange.](/assets/images/help/desktop/checkout-commit.png)
-1. The **{% octicon "git-branch" aria-hidden="true" %} Current Branch** item in the repository bar will now show "Detached HEAD", along with the SHA of the commit that was checked out.
+1. The **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Current Branch** item in the repository bar will now show "Detached HEAD", along with the SHA of the commit that was checked out.
     ![Screenshot of the repository bar. The "Current Branch" item shows a "Detached HEAD" state and is highlighted with an orange outline.](/assets/images/help/desktop/branch-item.png)
 1. To exit the "detached HEAD" state you will need to switch branches. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop#switching-between-branches).
 

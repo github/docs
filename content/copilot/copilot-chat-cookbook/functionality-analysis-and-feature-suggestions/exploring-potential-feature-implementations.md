@@ -2,7 +2,7 @@
 title: Exploring potential feature implementations
 shortTitle: Explore feature implementations
 intro: >-
-  {% data variables.product.prodname_copilot_chat_short %} can help explore
+  {% data variables.copilot.copilot_chat_short %} can help explore
   different approaches for implementing a single feature.
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/functionality-analysis-and-feature-suggestions/exploring-potential-feature-implementations
@@ -17,7 +17,7 @@ topics:
   - Copilot
 ---
 
-When tasked with implementing new features or enhancing existing ones, developers often face decisions about the best approach to take. {% data variables.product.prodname_copilot_chat_short %} can assist by analyzing the problem and generating implementation options so that you can explore multiple solutions.
+When tasked with implementing new features or enhancing existing ones, developers often face decisions about the best approach to take. {% data variables.copilot.copilot_chat_short %} can assist by analyzing the problem and generating implementation options so that you can explore multiple solutions.
 
 ## Example scenario
 
@@ -43,7 +43,7 @@ Users have requested a "Recent Items" section on their dashboard to quickly acce
 
 ## Example prompt
 
-You want to evaluate different approaches to this implementation to see whether they fit with your needs and constraints. Here we'll ask {% data variables.product.prodname_copilot_chat_short %} to suggest different approaches.
+You want to evaluate different approaches to this implementation to see whether they fit with your needs and constraints. Here we'll ask {% data variables.copilot.copilot_chat_short %} to suggest different approaches.
 
 Navigate to the issue, then type:
 

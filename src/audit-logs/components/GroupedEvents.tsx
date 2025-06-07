@@ -1,7 +1,7 @@
 import { slug } from 'github-slugger'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { useTranslation } from '@/languages/components/useTranslation'
 import type { AuditLogEventT } from '../types'
 
 type Props = {

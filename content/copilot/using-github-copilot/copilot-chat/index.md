@@ -1,6 +1,6 @@
 ---
 title: Copilot Chat
-intro: "Learn how to use {% data variables.product.prodname_copilot_chat_short %} across different environments."
+intro: "Learn how to use {% data variables.copilot.copilot_chat_short %} across different environments."
 versions:
   feature: copilot
 topics:

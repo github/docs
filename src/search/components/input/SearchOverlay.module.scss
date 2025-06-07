@@ -3,6 +3,8 @@
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
 
+$mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+
 .overlayBackdrop {
   position: fixed;
   top: 0;
@@ -113,4 +115,8 @@
   span {
     font-weight: 500 !important;
   }
+}
+
+.noResultsFound {
+  color: $mutedTextColor !important;
 }

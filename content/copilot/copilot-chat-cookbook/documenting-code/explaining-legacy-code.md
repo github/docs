@@ -1,7 +1,7 @@
 ---
 title: 'Explaining legacy code'
 shortTitle: Explain legacy code
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help with explaining unfamiliar code.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help with explaining unfamiliar code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/documenting-code/explaining-legacy-code
 versions:
@@ -15,11 +15,11 @@ topics:
   - Copilot
 ---
 
-One of the biggest challenges with legacy code is helping developers understand it who aren't familiar with the languages or frameworks. With {% data variables.product.prodname_copilot_chat_short %}, you can explain the background you have and ask for an explanation.
+One of the biggest challenges with legacy code is helping developers understand it who aren't familiar with the languages or frameworks. With {% data variables.copilot.copilot_chat_short %}, you can explain the background you have and ask for an explanation.
 
 ## Example scenario
 
-Consider the following COBOL code. If you're a Python developer (as an example), you might not be familiar with COBOL, so you could ask {% data variables.product.prodname_copilot_chat_short %} to explain the code to you.
+Consider the following COBOL code. If you're a Python developer (as an example), you might not be familiar with COBOL, so you could ask {% data variables.copilot.copilot_chat_short %} to explain the code to you.
 
 ```text
 IDENTIFICATION DIVISION.

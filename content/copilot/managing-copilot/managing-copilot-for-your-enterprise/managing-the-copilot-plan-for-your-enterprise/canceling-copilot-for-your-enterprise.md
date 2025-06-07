@@ -3,7 +3,7 @@ title: Canceling Copilot for your enterprise
 shortTitle: Cancel plan
 intro: 'Disabling {% data variables.product.prodname_copilot %} for all organizations in your enterprise will cancel your enterprise''s {% data variables.product.prodname_copilot_short %} plan.'
 permissions: Enterprise admins
-product: '{% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
   feature: copilot-enterprise
 topics:

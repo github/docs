@@ -15,9 +15,9 @@
 * {% data variables.product.prodname_projects_v2 %} (the new projects experience)
 * References between pull requests and issues in different repositories (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls))
 * Remediation states of {% data variables.product.prodname_secret_scanning %} results
-* Repositories owned by user accounts{% ifversion repository-properties %}
+* Repositories owned by user accounts
 * Repository activity feed
-* Repository properties{% endif %}
+* Repository properties
 * Repository stars
 * Repository watchers
 * Rulesets

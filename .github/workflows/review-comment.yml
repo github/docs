@@ -40,13 +40,13 @@ jobs:
       - name: check out repo content
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: ./.github/actions/node-npm-setup
-      # We're setting the URLs manually until we merge in-progress work. We can utilize review server and its helper functions in a later iteration.
+
       - name: Set APP_URL
         run: |
           if [[ "${{ github.repository }}" == "github/docs-internal" ]]; then
-            echo "APP_URL=https://docs-review.github.com" >> $GITHUB_ENV
+            echo "APP_URL=https://docs-internal-staging-TREE.githubapp.com/en" >> $GITHUB_ENV
           elif [[ "${{ github.repository }}" == 'github/docs' ]]; then
-            echo "APP_URL=https://os-docs-review.github.com" >> $GITHUB_ENV
+            echo "APP_URL=https://adjective-noun-hash-4000.app.github.dev" >> $GITHUB_ENV
           fi
       - name: Find code changes comment
         uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
@@ -60,13 +60,9 @@ jobs:
         timeout-minutes: 30
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REVIEW_SERVER: o
-          REVIEW_SERVER_ACCESS_TOKEN: ${{ secrets.REVIEW_SERVER_ACCESS_TOKEN }}
           APP_URL: ${{ env.APP_URL }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          # HEAD_BRANCH isn't necessary for the table comment, but lets us list the branch in the review server menu bar
-          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: npm run content-changes-table-comment
       - name: Update comment
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
@@ -88,9 +84,9 @@ jobs:
 
             <details><summary>Table of review links</summary>
 
-            ⚠️ **Warning**: Our review server is experiencing latency issues.
+            **Note**: Please update the URL for your staging server or codespace.
 
-            ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table.' || '' }}
+            ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on a staging server. Changes to the `data` directory are not included in this table.' || '' }}
 
             ${{ steps.changes.outputs.changesTable || '_This pull request contains code changes, so we will not generate a table of review links._' }}
 

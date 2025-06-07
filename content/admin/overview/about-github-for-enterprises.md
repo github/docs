@@ -64,7 +64,7 @@ Your business can:
 * Additional features such as SAML authentication and internal repositories. For a detailed list, see {% data variables.product.pricing_link %}.
 * Extra allowances for usage-based products such as {% data variables.product.prodname_actions %}.
 * An enterprise account, which provides a single place to manage billing and settings, enforce policies, and audit the people with access to your enterprise.
-* The option to add {% ifversion ghas-products %}<!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% else %}{% data variables.product.prodname_GHAS %}, {% endif %}{% data variables.contact.premium_support %}, and {% data variables.product.prodname_copilot_enterprise %}.
+* The option to add {% ifversion ghas-products %}<!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% else %}{% data variables.product.prodname_GHAS %}, {% endif %}{% data variables.contact.premium_support %}, and {% data variables.copilot.copilot_enterprise %}.
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers **save 45 minutes per day**, and onboarding and **training time is reduced by 40%**. See [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
 

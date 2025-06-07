@@ -187,9 +187,9 @@ You can also make changes to files on the {% data variables.product.github %} we
 
 {% ifversion copilot-hadron %}
 
-If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.product.prodname_copilot_workspace %}, clicking **Edit** on a file on the "Files changed" tab will open the file in a {% data variables.product.prodname_copilot_workspace %} on {% data variables.product.prodname_dotcom %}. In a {% data variables.product.prodname_copilot_workspace %}, you can still make changes to the file but also make changes to other files in the repository, group your changes into a single commit, and take advantage of {% data variables.product.prodname_copilot_short %} code completion.
+If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_workspace %}, clicking **Edit** on a file on the "Files changed" tab will open the file in a {% data variables.copilot.copilot_workspace %} on {% data variables.product.prodname_dotcom %}. In a {% data variables.copilot.copilot_workspace %}, you can still make changes to the file but also make changes to other files in the repository, group your changes into a single commit, and take advantage of {% data variables.product.prodname_copilot_short %} code completion.
 
-You can access {% data variables.product.prodname_copilot_workspace %} by choosing to edit an individual file or by clicking **Open in {% data variables.product.prodname_copilot_workspace_short %}** in your pull request's right sidebar. For more information about {% data variables.product.prodname_copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+You can access {% data variables.copilot.copilot_workspace %} by choosing to edit an individual file or by clicking **Open in {% data variables.copilot.copilot_workspace_short %}** in your pull request's right sidebar. For more information about {% data variables.copilot.copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
 {% endif %}
 

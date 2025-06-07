@@ -19,7 +19,7 @@ const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 // that the values of `?platform=...` should be none when the path is
 // something like `/en/search`.
 const RECOGNIZED_VALUES = {
-  platform: allPlatforms,
+  platform: allPlatforms as string[],
   tool: Object.keys(allTools),
 }
 // So we can look up if a key in the object is actually present

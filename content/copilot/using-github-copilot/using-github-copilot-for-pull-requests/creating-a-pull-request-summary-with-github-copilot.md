@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries
 ---
 
-## About {% data variables.product.prodname_copilot_for_prs %}
+## About {% data variables.copilot.copilot_for_prs %}
 
 You can use {% data variables.product.prodname_copilot %} to generate a summary of a pull request on {% data variables.product.github %}. You can use the summary to help reviewers understand your changes, or to quickly understand the changes in a pull request you're reviewing.
 
@@ -23,7 +23,7 @@ You can use {% data variables.product.prodname_copilot %} to generate a summary 
 * In the description of an existing pull request, by editing the opening comment
 * In a comment on the main timeline of a pull request
 
-To learn more about {% data variables.product.prodname_copilot_for_prs %} and how to use the feature most effectively, see [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries).
+To learn more about {% data variables.copilot.copilot_for_prs %} and how to use the feature most effectively, see [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries).
 
 ## Creating a summary for a pull request
 

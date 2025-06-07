@@ -1,7 +1,7 @@
 import { Label } from '@primer/react'
 
-import { ArticleGuide } from 'src/landings/components/ProductGuidesContext'
-import { Link } from 'src/frame/components/Link'
+import { ArticleGuide } from '@/landings/components/ProductGuidesContext'
+import { Link } from '@/frame/components/Link'
 
 type Props = {
   card: ArticleGuide

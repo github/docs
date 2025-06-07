@@ -1,7 +1,7 @@
 ---
 title: Subscribing to Copilot for your organization
 shortTitle: Subscribe
-intro: 'Organization owners can set up a {% data variables.product.prodname_copilot_business_short %} plan for their organization.'
+intro: 'Organization owners can set up a {% data variables.copilot.copilot_business_short %} plan for their organization.'
 permissions: Organization owners
 versions:
   feature: copilot

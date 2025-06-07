@@ -1,7 +1,7 @@
 ---
 title: Refactoring data access layers
 shortTitle: Data access layers
-intro: '{% data variables.product.prodname_copilot_chat_short %} can suggest ways to decouple your data access code from your business logic, making an application easier to maintain and scale.'
+intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to decouple your data access code from your business logic, making an application easier to maintain and scale.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/refactoring-data-access-layers
 versions:
@@ -17,9 +17,9 @@ topics:
 
 Hardcoded SQL queries and tightly coupled data access code can make it difficult to scale or switch databases, and they often lead to repeated logic.
 
-{% data variables.product.prodname_copilot_chat_short %} can recommend implementing a repository pattern or data access layer that abstracts database interactions, making the code more modular and reducing redundancy. It can also help refactor SQL queries into optimized versions, improving performance and maintainability.
+{% data variables.copilot.copilot_chat_short %} can recommend implementing a repository pattern or data access layer that abstracts database interactions, making the code more modular and reducing redundancy. It can also help refactor SQL queries into optimized versions, improving performance and maintainability.
 
-> [!NOTE] The responses described in this article are examples. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
+> [!NOTE] The responses described in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
 
 ## Example scenario
 

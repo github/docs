@@ -23,9 +23,9 @@ To quickly incorporate more than one suggested change into a single commit, you 
 {% ifversion copilot-hadron %}
 
 >[!NOTE]
->If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.product.prodname_copilot_workspace %}, suggested changes from people on your team, {% data variables.product.prodname_copilot_short %}, or {% data variables.product.prodname_copilot_autofix %} can all be applied and edited in {% data variables.product.prodname_copilot_workspace %}. Click **Open in {% data variables.product.prodname_copilot_workspace_short %}** on a suggested change to get started.
+>If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_workspace %}, suggested changes from people on your team, {% data variables.product.prodname_copilot_short %}, or {% data variables.copilot.copilot_autofix %} can all be applied and edited in {% data variables.copilot.copilot_workspace %}. Click **Open in {% data variables.copilot.copilot_workspace_short %}** on a suggested change to get started.
 >
->For more information about {% data variables.product.prodname_copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+>For more information about {% data variables.copilot.copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
 {% endif %}
 

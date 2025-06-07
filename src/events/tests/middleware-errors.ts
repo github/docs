@@ -1,6 +1,6 @@
 import { describe, test } from 'vitest'
 
-import { validateJson } from 'src/tests/lib/validate-json-schema.js'
+import { validateJson } from '@/tests/lib/validate-json-schema.js'
 import { formatErrors } from '../lib/middleware-errors.js'
 import { schemas } from '../lib/schema.js'
 

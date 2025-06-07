@@ -26,7 +26,7 @@ redirect_from:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. To filter to see all closed alerts, click **{% octicon "check" aria-hidden="true" %} Closed**. Alternatively, use the `is:closed` filter query in the search bar.
+1. To filter to see all closed alerts, click **{% octicon "check" aria-hidden="true" aria-label="check" %} Closed**. Alternatively, use the `is:closed` filter query in the search bar.
 
    ![Screenshot of the "Dependabot Alerts" page. A button, labelled "Closed" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-tab.png)
 
