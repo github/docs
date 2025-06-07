@@ -45,7 +45,7 @@ For more information, see the section "Use comments to iterate on a pull request
 
 {% data variables.product.prodname_actions %} workflows will not run automatically when {% data variables.product.prodname_copilot_short %} pushes changes to a pull request.
 
-{% data variables.product.prodname_actions %} workflows can be privileged and have access to sensitive secrets. {% data reusables.actions.workflows.inspect-proposed-changes %}
+{% data variables.product.prodname_actions %} workflows can be privileged and have access to sensitive secrets, so you should review code written by {% data variables.product.prodname_copilot_short %} before allowing workflows to run.
 
 To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box.
 
