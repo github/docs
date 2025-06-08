@@ -10,19 +10,17 @@ import { VersionPicker } from '@/versions/components/VersionPicker'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
 import { useHasAccount } from '../hooks/useHasAccount'
 
-import { SearchBarButton } from '@/search/components/input/SearchBarButton'
-import { useBreakpoint } from '@/search/components/hooks/useBreakpoint'
+import styles from './HeaderSearchAndWidgets.module.scss'
 
 type Props = {
   isSearchOpen: boolean
-  setIsSearchOpen: (value: boolean) => void
   width: number | null
+  SearchButton: JSX.Element | null
 }
 
-export function HeaderSearchAndWidgets({ isSearchOpen, setIsSearchOpen, width }: Props) {
+export function HeaderSearchAndWidgets({ width, isSearchOpen, SearchButton }: Props) {
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
-  const isLarge = useBreakpoint('large')
   const { hasAccount } = useHasAccount()
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
@@ -30,14 +28,8 @@ export function HeaderSearchAndWidgets({ isSearchOpen, setIsSearchOpen, width }:
 
   const showDomainNameEdit = currentVersion.startsWith('enterprise-server@')
 
-  const SearchButton = (
-    <SearchBarButton isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen} />
-  )
-
   return (
     <>
-      {/* At larger & up widths we show the search as an input. This doesn't need to be grouped with the widgets */}
-      {isLarge ? SearchButton : null}
       <div className={cx('d-flex flex-items-center', isSearchOpen && 'd-none')}>
         <div className={cx('d-none d-lg-flex flex-items-center', signupCTAVisible && 'mr-3')}>
           <LanguagePicker />
@@ -57,7 +49,7 @@ export function HeaderSearchAndWidgets({ isSearchOpen, setIsSearchOpen, width }:
         )}
 
         {/* Below large widths we show the search as a button which needs to be grouped with the widgets */}
-        {!isLarge ? SearchButton : null}
+        <div className={styles.displayUnderLarge}>{SearchButton}</div>
 
         {/* The ... navigation menu at medium and smaller widths */}
         <div>

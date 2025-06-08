@@ -1,7 +1,7 @@
 ---
 title: GitHub Copilot Chat cheat sheet
 shortTitle: Copilot Chat cheat sheet
-intro: "Use this cheat sheet to quickly reference the most common commands and options for using {% data variables.product.prodname_copilot_chat %}."
+intro: "Use this cheat sheet to quickly reference the most common commands and options for using {% data variables.copilot.copilot_chat %}."
 versions:
   feature: copilot
 topics:
@@ -16,23 +16,20 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.product.prodname_copilot_chat_short %} in the {% data variables.product.github %} website, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in the {% data variables.product.github %} website, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github).
 
 ## Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
 
-Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.product.prodname_copilot_chat_short %}.
+Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
 | Command | Description |
 | --- | --- |
 | `/clear` | Clear conversation. |
 | `/delete` | Delete a conversation. |
-| `/file` | Retrieves a specific file from the repository by its path. |
-| `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
 | `/new` | Start a new conversation |
 | `/rename` | Rename a conversation. |
-| `/search` | Performs a search within the repository, including issues, pull requests, and code. |
 
 {% endwebui %}
 
@@ -42,13 +39,13 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
 ## Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
 
-Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.product.prodname_copilot_chat_short %}.
+Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
 | Command | Description |
 | --- | --- |
@@ -81,7 +78,7 @@ Use chat variables to include specific context in your prompt. To use a chat var
 
 Chat participants are like domain experts who have a specialty that they can help you with. You can specify a chat participant by typing `@` in the chat prompt box, followed by a chat participant name. To see all available chat participants, type `@` in the chat prompt box.
 
-Below is a list of some of the most common chat participants for using {% data variables.product.prodname_copilot_chat_short %}.
+Below is a list of some of the most common chat participants for using {% data variables.copilot.copilot_chat_short %}.
 
 | Variable    | Description |
 |--------------|----------------------------------------------------------------------------------------------|
@@ -99,13 +96,13 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
 ## Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
 
-Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.product.prodname_copilot_chat_short %}.
+Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
 | Command | Description |
 | --- | --- |
@@ -118,7 +115,7 @@ Available slash commands may vary, depending on your environment and the context
 
 ## References
 
-By default, {% data variables.product.prodname_copilot_chat_short %} will reference the file that you have open or the code that you have selected. You can also use # followed by a file name, file name and line numbers, or solution to reference a specific file, lines, or solution.
+By default, {% data variables.copilot.copilot_chat_short %} will reference the file that you have open or the code that you have selected. You can also use # followed by a file name, file name and line numbers, or solution to reference a specific file, lines, or solution.
 
 | Example | Description |
 | --- | --- |
@@ -135,22 +132,19 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.product.prodname_copilot_chat_short %} in JetBrains, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in JetBrains, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
 ## Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
 
-Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.product.prodname_copilot_chat_short %}.
+Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of some of the most common slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
 | Command | Description |
 | --- | --- |
-| `/clear` | Start a new chat session. |
 | `/explain` | Explain how the code in your active editor works. |
 | `/fix` | Propose a fix for problems in the selected code. |
-| `/fixTestFailure` | Find and fix a failing test. |
 | `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
-| `/new` | Create a new project. |
 | `/tests` | Generate unit tests for the selected code. |
 
 ## Chat participants
@@ -172,13 +166,13 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% data reusables.copilot.about-copilot-enhancements %}
 
-For information about how to get started with {% data variables.product.prodname_copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+For information about how to get started with {% data variables.copilot.copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
 ## Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
 
-Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of the slash commands for using {% data variables.product.prodname_copilot_chat_short %}.
+Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of the slash commands for using {% data variables.copilot.copilot_chat_short %}.
 
 | Command     | Description                                        |
 |-------------|----------------------------------------------------|

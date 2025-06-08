@@ -1,7 +1,7 @@
 ---
 title: Decoupling business logic from UI components
 shortTitle: Decoupling business logic
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help you separate your business logic from your user interface code, making it easier to maintain and scale your application.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help you separate your business logic from your user interface code, making it easier to maintain and scale your application.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/decoupling-business-logic-from-ui-components
 versions:
@@ -17,7 +17,7 @@ topics:
 
 In many front-end frameworks, business logic can become embedded within user interface (UI) components, making the code hard to maintain or extend, especially as the application grows.
 
-{% data variables.product.prodname_copilot_chat_short %} can help you refactor your code to extract business logic into separate services or state management solutions. This allows the business logic to be reused across different UI components. It also makes the code easier to scale by separating concerns and reducing interdependencies, and it simplifies unit testing by allowing business logic to be tested independently from UI components.
+{% data variables.copilot.copilot_chat_short %} can help you refactor your code to extract business logic into separate services or state management solutions. This allows the business logic to be reused across different UI components. It also makes the code easier to scale by separating concerns and reducing interdependencies, and it simplifies unit testing by allowing business logic to be tested independently from UI components.
 
 ## Example scenario
 
@@ -60,7 +60,7 @@ The suggested changes refactor the `Counter` component to use Redux for state ma
 
 The proposed changes separate the code into five separate files.
 
-> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get a different response from the one described here.
+> [!NOTE] {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get a different response from the one described here.
 
 ### actions.js
 

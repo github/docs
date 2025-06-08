@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { readFile, writeFile, copyFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import walk from 'walk-sync'

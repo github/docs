@@ -80,7 +80,6 @@ export default function handleInvalidQuerystrings(
       const tags = [
         'response:400',
         `url:${req.url}`,
-        `ip:${req.ip}`,
         `path:${req.path}`,
         `keys:${originalKeys.length}`,
       ]
@@ -123,7 +122,6 @@ export default function handleInvalidQuerystrings(
       const tags = [
         'response:302',
         `url:${req.url}`,
-        `ip:${req.ip}`,
         `path:${req.path}`,
         `keys:${originalKeys.length}`,
       ]

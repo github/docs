@@ -38,7 +38,7 @@ You can run {% data variables.product.prodname_code_scanning %} on {% data varia
 
 With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
 
-{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-hidden="true" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
+{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
 
 ## Editing a {% data variables.product.prodname_code_scanning %} workflow
 
@@ -255,11 +255,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models %}
-
 ### Using {% data variables.product.prodname_codeql %} model packs
-
-{% endif %}
 
 To add one or more published {% data variables.product.prodname_codeql %} model packs, specify them inside the `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication) and [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 
@@ -440,15 +436,11 @@ packs:
 
 {% endraw %}
 
-{% ifversion codeql-threat-models %}
-
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 
 {% data reusables.code-scanning.beta-threat-models %}
 
 The default threat model includes remote sources of untrusted data. You can extend the {% data variables.product.prodname_codeql %} threat model to include local sources of untrusted data (for example: command-line arguments, environment variables, file systems, and databases) by specifying `threat-models: local` in a custom configuration file. If you extend the threat model, the default threat model will also be used.
-
-{% endif %}
 
 ### Specifying additional queries
 

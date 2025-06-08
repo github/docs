@@ -10,8 +10,6 @@ shortTitle: 'Managing issue types'
 permissions: 'Organization owners can modify issue types.'
 ---
 
-{% data reusables.issues.release-stage %}
-
 You can use issue types to classify and manage different types of issues across your organization. You can create up to {% data variables.projects.issue_type_limit %} issue types that your organization members can apply to issues, making it easier for you and your members to find issues and plan work.
 
 Default issue types are included in every organization, but these can edited, disabled, or deleted. The default types are task, bug, and feature.
@@ -25,12 +23,11 @@ When you add an issue type to an issue, the type will be shown on any lists of i
 1. Under "Type name", type the name of your new issue type.
 1. Under "Description", to help other people understand the purpose of your new issue type, type a description.
 1. Under "Color", click on the color you would like for the new issue type.
-1. Optionally, to stop the new issue type being available in public repositories, select **Private repositories only**.
 1. Click **Create**.
 
 ## Making changes to issue types
 
-You can change the name, description, color, and public repository visibility of your issue types.
+You can change the name, description, and color of your issue types.
 
 You can also choose to disable or delete an issue type. If you disable an issue type, it will not be shown and it won't be possible to set an issue to that type, but if you later decide to enable the issue type, it will be displayed again on any issues previously set to the issue type. If you delete an issue type, it is permanently removed.
 
@@ -40,5 +37,5 @@ You can also choose to disable or delete an issue type. If you disable an issue 
    ![Screenshot of the issue types settings page for an organization. The "open type options" button is highlighted with an orange rectangle.](/assets/images/help/issues/issue-type-edit.png)
 
 1. In the menu, click **Edit** and make your changes.
-    * To make changes to the type name, description, color, and if the issue type should only appear for private repositories. Then click **Save**.
+    * To make changes to the type name, description, or color, click **Save**.
     * To disable or delete the issue type, in the "Danger zone", click **Disable** or **Delete** and follow the prompts.

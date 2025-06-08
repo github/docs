@@ -56,7 +56,7 @@ Dormant users are not automatically suspended. Consider suspending dormant users
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-1. In the **User info** section, view the status of the user's account. Any users labeled with "{% octicon "hourglass" aria-hidden="true" %} Dormant" are dormant, and users labeled with "{% octicon "hourglass" aria-hidden="true" %} "Active" are not.
+1. In the **User info** section, view the status of the user's account. Any users labeled with "{% octicon "hourglass" aria-hidden="true" aria-label="hourglass" %} Dormant" are dormant, and users labeled with "{% octicon "hourglass" aria-hidden="true" aria-label="hourglass" %} "Active" are not.
 
    ![Screenshot of the "User info" section for a user. The "User info" heading is outlined. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/active-user.png)
 
@@ -79,5 +79,5 @@ Dormant users are not automatically suspended. Consider suspending dormant users
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
 1. Scroll to "Reports".
 1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
-1. Under "Recent reports", next to the report you want to download, click **{% octicon "download" aria-hidden="true" %} Download**.
+1. Under "Recent reports", next to the report you want to download, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download**.
 {% endif %}

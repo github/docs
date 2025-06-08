@@ -69,7 +69,7 @@ jobs:
 
       - uses: ./.github/actions/install-cocofix
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Lint the code (eslint)
         if: ${{ github.event_name == 'pull_request' }}
@@ -87,7 +87,7 @@ jobs:
 
       - name: Build code scanning query list
         run: |
-          for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
+          for lang in "actions" "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
             echo "Generating code scanning query list for $lang"
             npm run generate-code-scanning-query-list -- \
               --verbose \
@@ -103,7 +103,7 @@ jobs:
 
       - name: Create pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
 

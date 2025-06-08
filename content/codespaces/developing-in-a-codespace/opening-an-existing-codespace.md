@@ -20,7 +20,7 @@ redirect_from:
 
 {% endif %}
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle).
+You can reopen any of your active or stopped codespaces on {% data variables.product.github %}, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. See [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle).
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
@@ -36,7 +36,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 You can quickly resume a codespace when you're viewing a repository on {% data variables.product.github %}.
 
-1. With the **{% octicon "code" aria-hidden="true" %} Code** tab of your repository displayed on {% data variables.product.github %}, press <kbd>,</kbd> (the comma key).
+1. With the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** tab of your repository displayed on {% data variables.product.github %}, press <kbd>,</kbd> (the comma key).
 
    The "Resume codespace" page is displayed. This allows you to resume your most recently used codespace for the currently selected branch of the repository or, if you were viewing a pull request, for the topic branch of the pull request.
 
@@ -61,8 +61,6 @@ You can bookmark the address of this page if you want to get back to it quickly 
    1. Click the ellipsis (**...**) to the right of the codespace you want to open.
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
-
-   ![Screenshot of the "Open in" dialog, with "Open in {% data variables.product.prodname_vscode %}" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
    * Your browser

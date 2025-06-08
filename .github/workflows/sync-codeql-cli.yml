@@ -38,7 +38,7 @@ jobs:
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
-          token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/semmle-code
           path: semmle-code
           ref: ${{ inputs.SOURCE_BRANCH }}
@@ -67,7 +67,7 @@ jobs:
 
       - name: Sync the CodeQL CLI data
         run: |
-          src/codeql-cli/scripts/sync.js
+          npm run sync-codeql-cli
           git status
           echo "Deleting the cloned github/semmle-code repo..."
           rm -rf semmle-code
@@ -75,13 +75,13 @@ jobs:
       - name: Create pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)
           if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
-            echo "There are no changes to commit after running src/codeql/scripts/sync.js. Exiting..."
+            echo "There are no changes to commit after running 'npm run sync-codeql-cli'. Exiting..."
             exit 0
           fi
 

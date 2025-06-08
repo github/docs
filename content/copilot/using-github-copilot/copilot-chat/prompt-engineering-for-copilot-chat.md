@@ -10,7 +10,7 @@ redirect_from:
   - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
 ---
 
-A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, a question that you ask {% data variables.product.prodname_copilot_chat_short %}, or a code snippet that you ask {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses additional context, like the code in your current file and the chat history, to generate a response.
+A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, a question that you ask {% data variables.copilot.copilot_chat_short %}, or a code snippet that you ask {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses additional context, like the code in your current file and the chat history, to generate a response.
 
 Follow the tips in this article to write prompts that generate better responses from {% data variables.product.prodname_copilot_short %}.
 
@@ -78,7 +78,7 @@ Ambiguity can also apply to libraries:
 
 If you are using {% data variables.product.prodname_copilot_short %} in your IDE to get suggestions as you code, open any relevant files and close irrelevant files. {% data variables.product.prodname_copilot_short %} will use the open files to understand your request.
 
-If you are using {% data variables.product.prodname_copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.product.prodname_copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet).
+If you are using {% data variables.copilot.copilot_chat_short %} in your IDE, open the file or highlight the code that you want {% data variables.product.prodname_copilot_short %} to reference. You can also use keywords to manually supply context to {% data variables.copilot.copilot_chat_short %}. For example, you can add the `@workspace` chat participant in VS Code, or `@project` in JetBrains IDEs. See [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet).
 
 ## Experiment and iterate
 
@@ -86,11 +86,11 @@ If you don’t get the result that you want, iterate on your prompt and try agai
 
 If you are using {% data variables.product.prodname_copilot_short %} to get suggestions as you code, you can delete the suggestion entirely and start over. Or you can keep the suggestion and request modifications.
 
-If you are using {% data variables.product.prodname_copilot_chat_short %}, you can reference the previous response in your next request. Or, you can delete the previous response and start over.
+If you are using {% data variables.copilot.copilot_chat_short %}, you can reference the previous response in your next request. Or, you can delete the previous response and start over.
 
 ## Keep history relevant
 
-{% data variables.product.prodname_copilot_chat_short %} uses the chat history to get context about your request. To give {% data variables.product.prodname_copilot_short %} only the relevant history:
+{% data variables.copilot.copilot_chat_short %} uses the chat history to get context about your request. To give {% data variables.product.prodname_copilot_short %} only the relevant history:
 
 * Use threads to start a new conversation for a new task
 * Delete requests that are no longer relevant or that didn’t give you the desired result

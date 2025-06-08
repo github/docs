@@ -72,11 +72,9 @@ In addition to the features available with {% data variables.product.prodname_fr
 With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
-* {% data variables.product.prodname_gcf %}{% ifversion team-discussions %}
-* Team discussions{% endif %}
+* {% data variables.product.prodname_gcf %}
 * Team access controls for managing groups
 * 2,000 {% data variables.product.prodname_actions %} minutes per month
-* 500 MB {% data variables.product.prodname_registry %} storage
 
 ## {% data variables.product.prodname_team %}
 
@@ -84,10 +82,16 @@ In addition to the features available with {% data variables.product.prodname_fr
 * {% data variables.contact.github_support %} via email
 * 3,000 {% data variables.product.prodname_actions %} minutes per month
 * 2 GB {% data variables.product.prodname_registry %} storage
+{%- ifversion ghas-products %}
+* The option to purchase {% data variables.product.prodname_GHAS %} products:
+  * {% data variables.product.prodname_GH_code_security %}
+  * {% data variables.product.prodname_GH_secret_protection %}
+  
+  For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).{%- endif %}
+
 * Advanced tools and insights in private repositories:
   * Required pull request reviewers
   * Multiple pull request reviewers
-  * Draft pull requests
   * Team pull request reviewers
   * Protected branches
   * Code owners
@@ -97,7 +101,8 @@ In addition to the features available with {% data variables.product.prodname_fr
     > [!NOTE]
     > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
 
-  * Wikis
+  * Wikis{% ifversion ghas-products %}
+  * Security overview{% endif %}
   * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
     {% data reusables.repositories.repo-insights-commit-limit %}
 {%- ifversion fpt or ghec %}
@@ -120,9 +125,9 @@ In addition to the features available with {% data variables.product.prodname_te
 * Authentication with SAML single sign-on
 * Access provisioning with SAML or SCIM
 * Deployment protection rules with {% data variables.product.prodname_actions %} for private or internal repositories
-* {% data variables.product.prodname_github_connect %}
-* The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
-* Additional features such as internal repositories, security overview, and repository rules.
+* {% data variables.product.prodname_github_connect %}{%- ifversion ghas-products %}{% else %}
+* The option to purchase {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security){% endif %}
+* Additional features such as internal repositories{%- ifversion ghas-products %}{% else %}, security overview,{% endif %} and repository rules.
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 * 50,000 {% data variables.product.prodname_actions %} minutes per month
@@ -133,7 +138,7 @@ In addition to the features available with {% data variables.product.prodname_te
 
   * If you upgrade an existing organization to {% data variables.product.prodname_ghe_cloud %}, your enterprise account will contain your organization. For more information, see [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan) and [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/managing-your-enterprise-account/creating-an-enterprise-account#about-enterprise-account-creation){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 * The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users).
-* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion fpt and ghes %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion ghec %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 * The option to host your company's data in a specific region, on a unique subdomain
 
 For a detailed list of the features available with {% data variables.product.prodname_enterprise %}, see our [Pricing](https://github.com/pricing) page.

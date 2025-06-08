@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import dotenv from 'dotenv'
 import { Octokit } from '@octokit/rest'
 import { retry } from '@octokit/plugin-retry'

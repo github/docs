@@ -19,4 +19,5 @@ children:
   - /adding-a-security-policy-to-your-repository
   - /auditing-security-alerts
   - /best-practices-for-preventing-data-leaks-in-your-organization
+  - /understanding-github-secret-types
 ---

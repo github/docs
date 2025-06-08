@@ -28,7 +28,7 @@ Re-running a workflow or jobs in a workflow uses the same `GITHUB_SHA` (commit S
 {% data reusables.repositories.view-run %}
 1. In the upper-right corner of the workflow, re-run jobs.
 
-   * If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
+   * If any jobs failed, select the **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
 
    * If no jobs failed, click **Re-run all jobs**.
 
@@ -70,7 +70,7 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu, and click **Re-run failed jobs**.
+1. In the upper-right corner of the workflow, select the **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Re-run jobs** dropdown menu, and click **Re-run failed jobs**.
 {% data reusables.actions.enable-debug-logging %}
 
 {% endwebui %}

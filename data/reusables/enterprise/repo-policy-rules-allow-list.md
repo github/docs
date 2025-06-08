@@ -1,1 +1,1 @@
-Choose which roles and teams can **bypass** the restrictions in this policy.
+Choose which roles can **bypass** the restrictions in this policy.

@@ -40,7 +40,7 @@ If your organization currently pays for {% data variables.product.prodname_spons
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
 1. Scroll to the "{% data variables.product.prodname_sponsors %}" section and click **Switch to invoiced billing**.
 1. Compare credit card and invoice billing on the next page. To proceed with changing to invoiced billing, click **Switch to invoiced billing**.
 1. Fill out the form and click **Submit**.
@@ -53,7 +53,7 @@ To add money to your balance, you need to create an invoice. You can then use yo
 
 1. Navigate to the organization you want to create an invoice for.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Invoices**.
+1. In the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Invoices**.
 1. To create a new invoice, click **Create an invoice**.
 
    ![Screenshot of the "Invoices" page for {% data variables.product.prodname_sponsors %}. A button, labeled "Create an invoice," is outlined in dark orange.](/assets/images/help/sponsors/sponsors-create-an-invoice.png)
@@ -73,7 +73,7 @@ You can view your {% data variables.product.company_short %} Invoiced Sponsor Ag
 
 1. Navigate to the organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click **{% octicon "graph" aria-hidden="true" %} Insights**.
+1. In the sidebar, click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Insights**.
 1. Under your balance, click **{% data variables.product.company_short %} Invoiced Sponsor Agreement** to view the agreement.
 
 ## Understanding your {% data variables.product.prodname_sponsors %} invoice

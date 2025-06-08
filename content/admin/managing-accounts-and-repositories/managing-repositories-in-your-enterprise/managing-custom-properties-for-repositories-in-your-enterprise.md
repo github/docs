@@ -9,8 +9,6 @@ topics:
 shortTitle: Custom properties
 ---
 
-> [!NOTE] Custom properties for your enterprise are in {% data variables.release-phases.public_preview %} and subject to change.
-
 Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties are private and can only be viewed by people with read permissions to the repository. An enterprise can have up to 100 property definitions. An allowed value list can have up to 200 items.
 
 Defining custom properties at the enterprise level allows you to create consistent values that users can apply to repositories. With custom properties in place, you can apply consistent governance across repositories in your enterprise by creating a ruleset or repository policy targeting repositories with certain properties. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise).

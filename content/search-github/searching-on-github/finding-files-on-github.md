@@ -19,21 +19,12 @@ topics:
 
 ## Using the file finder
 
-{% ifversion code-view-ui %}
 {% data reusables.repositories.navigate-to-repo %}
 1. In the “Go to file” search bar, type the name of the file or directory you'd like to find.
    ![Screenshot of the main view for a repository. A search bar, labeled "Go to file", is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file.png)
 1. Alternatively, if there is no "Go to file" search bar, click **Go to file**, then type the name of the file or directory you'd like to find.
    ![Screenshot of the main view for a repository. A "Go to file" button is outlined in dark orange.](/assets/images/help/repository/repository-main-page-go-to-file-no-search-bar.png)
 1. In the list of results, click the file or directory you wanted to find. You can view the file path for a directory or file below each search result.
-{% else %}
-{% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, click **Go to file**.
-   ![Screenshot of a row of buttons on the main page of a repository. The "Go to file" button is outlined in dark orange.](/assets/images/help/search/find-file-button.png)
-1. In the search field, type the name of the file you'd like to find.
-   ![Screenshot of the repository file search bar. The search bar has the term "readme." Results are shown under the search bar and include "README.md."](/assets/images/help/search/find-file-search-field.png)
-1. In the list of results, click the file you wanted to find.
-{% endif %}
 
 ## Customizing excluded files
 

@@ -1,0 +1,3 @@
+When you use {% data variables.copilot.copilot_agent_short %} mode, each prompt you send counts as one premium request, multiplied by the model's rate. {% data variables.product.prodname_copilot_short %} may take several follow-up actions to complete your task, but these follow-up actions do not count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
+
+The total number of premium requests you use depends on how many prompts you enter and which model you select. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).

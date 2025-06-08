@@ -1,7 +1,7 @@
 ---
 title: 'Syncing documentation with code changes'
 shortTitle: Sync documentation
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help with keeping code documentation up-to-date.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help with keeping code documentation up-to-date.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/documenting-code/syncing-documentation-with-code-changes
 versions:
@@ -15,7 +15,7 @@ topics:
   - Copilot
 ---
 
-It can be difficult to keep documentation up to date with changes to code. However, good documentation is essential for maintaining codebases and ensuring that developers can work effectively with the code. {% data variables.product.prodname_copilot_chat_short %} can assist in updating existing code documentation.
+It can be difficult to keep documentation up to date with changes to code. However, good documentation is essential for maintaining codebases and ensuring that developers can work effectively with the code. {% data variables.copilot.copilot_chat_short %} can assist in updating existing code documentation.
 
 ## Example scenario
 
@@ -52,7 +52,7 @@ async getByCategoryName(categoryId: number, page = 1, pageSize = 10): Promise<Pr
 
 ## Example prompt
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} to update the documentation according to the current code.
+You can ask {% data variables.copilot.copilot_chat_short %} to update the documentation according to the current code.
 
 `Update the existing documentation for the getByCategoryName function to reflect the current implementation.`
 

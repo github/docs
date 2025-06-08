@@ -67,7 +67,7 @@ You can use the {% data variables.product.github %} web interface to manage a {%
 
 ## {% data variables.product.prodname_sponsors %} webhooks
 
-You can create webhooks to subscribe to events relating to {% data variables.product.prodname_sponsors %}. You can only create up to {% ifversion ghes %}250{% else %}20{% endif %} webhooks for a {% data variables.product.prodname_sponsors %} account.
+You can create webhooks to subscribe to events relating to {% data variables.product.prodname_sponsors %}. You can only create up to 20 webhooks for a {% data variables.product.prodname_sponsors %} account.
 
 You must be an account owner or have admin access in the sponsored account to manage sponsorship webhooks.
 

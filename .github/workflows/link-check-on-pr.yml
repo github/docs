@@ -33,14 +33,14 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Link check all pages (internal links only)
         env:
           LEVEL: 'critical'
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT != '' }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_BASE != '' }}
           CHECK_EXTERNAL_LINKS: false
           CREATE_REPORT: false
           CHECK_ANCHORS: true

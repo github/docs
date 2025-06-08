@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Run this script to check if OpenAPI files can be decorated successfully.

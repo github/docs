@@ -16,15 +16,9 @@ topics:
 shortTitle: Billing for GitHub Actions
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About billing for {% data variables.product.prodname_actions %}
 
-{% ifversion billing-auth-and-capture %}
-
 {% data reusables.billing.authorization-charge %}
-
-{% endif %}
 
 {% data reusables.actions.actions-billing %}
 
@@ -37,7 +31,7 @@ Minutes reset every month, while storage usage does not.
 ### Included storage and minutes
 
 > [!NOTE]
-> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
+> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see [Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 > * Logs and job summaries do not count towards storage usage.
 
 |Plan | Storage | Minutes (per month)|
@@ -48,13 +42,11 @@ Minutes reset every month, while storage usage does not.
 | {% data variables.product.prodname_team %} | 2 GB | 3,000 |
 | {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
 
-The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
-
-If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
+If your account's storage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day.
 
 ### Minute multipliers
 
-Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
+Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume.
 
 | Operating system | Minute multiplier |
 |----------------- | ------------------|
@@ -63,9 +55,11 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 | macOS            | 10                |
 
 > [!NOTE]
-> Minute multipliers do not apply to the per-minute rates shown below.
+> The billing dashboard may show your Actions usage as a dollar amount ("spend") rather than raw minutes. This amount already reflects the minute multipliers above. If you're using macOS or Windows runners, you will use up your included minutes more quickly
 
 ### Per-minute rates
+
+{% data variables.product.github %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
 
 #### Per-minute rates for standard runners
 
@@ -85,12 +79,13 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 |  Linux 16-core         |   $0.064   |
 |  Linux 32-core         |   $0.128   |
 |  Linux 64-core         |   $0.256   |
+| Linux 96-core          |   $0.384   |
 |  Windows 4-core        |   $0.032   |
 |  Windows 8-core        |   $0.064   |
 |  Windows 16-core       |   $0.128   |
 |  Windows 32-core       |   $0.256   |
 |  Windows 64-core       |   $0.512   |
-|  Windows 4-core GPU    |   $0.14    |
+| Windows 96-core        |   $0.768   |
 |  macOS 12-core         |   $0.12    |
 
 #### Per-minute rates for arm64-powered {% data variables.actions.hosted_runners %}
@@ -120,7 +115,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 #### Points to note about rates for runners
 
-* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits) for self-hosted runner usage limits.
+* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners) for self-hosted runner usage limits.
 * {% data reusables.user-settings.context_switcher %}
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}

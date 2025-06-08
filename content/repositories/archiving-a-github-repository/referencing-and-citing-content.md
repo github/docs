@@ -31,4 +31,4 @@ Zenodo archives your repository and issues a new DOI each time you create a new 
 
 ## Publicizing and citing research material with Figshare
 
-Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://info.figshare.com/user-guide/integrations/#github).
+Academics can use the data management service [Figshare](http://figshare.com) to publicize and cite research material. For more information, see [Figshare's support site](https://info.figshare.com/user-guide/how-to-connect-figshare-with-your-github-account/).

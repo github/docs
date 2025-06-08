@@ -59,7 +59,7 @@ You can use {% data variables.product.prodname_copilot %} to ask questions about
 
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The drop-down option "Ask {% data variables.product.prodname_copilot_short %}" is highlighted with an orange outline.](/assets/images/help/copilot/ask-copilot-from-search-bar.png)
 
-   The {% data variables.product.prodname_copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
+   The {% data variables.copilot.copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
 
 {% data reusables.copilot.stop-response-generation %}
 
@@ -68,11 +68,11 @@ You can use {% data variables.product.prodname_copilot %} to ask questions about
 ## Creating and managing saved searches
 
 1. In the top navigation of {% data variables.product.prodname_dotcom %}, click the search bar and type `saved:`.
-1. Under the search bar, in the "Saved queries" section, click **{% octicon "plus-circle" aria-hidden="true" %} Manage saved searches**.
+1. Under the search bar, in the "Saved queries" section, click **{% octicon "plus-circle" aria-hidden="true" aria-label="plus-circle" %} Manage saved searches**.
 1. In the pop-up window, type both the name you want for your saved search and the query you want to save.
 1. To finish creating your saved search, click **Create saved search**.
 1. To see your saved search, click the search bar. Your saved search will be in the "Saved queries" section. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
-1. To manage a saved search, type `saved:` in the search bar, then click **{% octicon "plus-circle" aria-hidden="true" %} Manage saved searches**.
+1. To manage a saved search, type `saved:` in the search bar, then click **{% octicon "plus-circle" aria-hidden="true" aria-label="plus-circle" %} Manage saved searches**.
     * To edit a saved search, to the right of the search, click {% octicon "pencil" aria-label="The pencil icon" %}.
     * To delete a saved search, to the right of the search, click {% octicon "trash" aria-label="The trash icon" %}.
 

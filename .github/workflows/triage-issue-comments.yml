@@ -47,9 +47,22 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - name: Check issue exists
+        id: exists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          if gh issue view $ISSUE_URL > /dev/null 2>&1
+          then
+            echo "exists=y" >> $GITHUB_OUTPUT
+          else
+            echo "exists=n" >> $GITHUB_OUTPUT
+          fi
+
       - name: Label issues with new comments with 'triage'
         uses: ./.github/actions/labeler
-        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
+        if: ${{ steps.is-internal-contributor.outputs.result == 'false' && steps.exists.outputs.exists == 'y' }}
         with:
           addLabels: 'triage'
           ignoreIfLabeled: true

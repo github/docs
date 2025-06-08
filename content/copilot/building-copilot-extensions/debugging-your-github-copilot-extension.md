@@ -1,6 +1,6 @@
 ---
 title: Debugging your GitHub Copilot Extension
-intro: 'Learn how to debug your {% data variables.product.prodname_copilot_extension %} from the command line before you publish it.'
+intro: 'Learn how to debug your {% data variables.copilot.copilot_extension %} from the command line before you publish it.'
 versions:
   feature: copilot-extensions
 topics:
@@ -8,10 +8,10 @@ topics:
 shortTitle: Debug Copilot Extension
 ---
 
-With the debug tool for {% data variables.product.prodname_copilot_extensions_short %}, you can chat with your {% data variables.product.prodname_copilot_agent_short %} from the command line, then view detailed logs as your agent generates a response. You can pass several flags to the tool, with the most important flags being:
-* The `url` flag, which contains the URL to access your {% data variables.product.prodname_copilot_agent_short %}. This is the only required flag to start the tool.
-* The `log-level` flag, which determines the level of visibility you have into your {% data variables.product.prodname_copilot_agent_short %}'s process for generating a response. The available log levels are `DEBUG`, `NONE`, and `TRACE`, and the tool uses `DEBUG` by default.
-* The `token` flag, which must contain a {% data variables.product.pat_v2 %} with read access to {% data variables.product.prodname_copilot_chat_short %} if your {% data variables.product.prodname_copilot_agent_short %} calls the {% data variables.product.prodname_copilot_short %} LLM. If your agent calls a different LLM, you don't need to use this flag.
+With the debug tool for {% data variables.copilot.copilot_extensions_short %}, you can chat with your {% data variables.copilot.copilot_agent_short %} from the command line, then view detailed logs as your agent generates a response. You can pass several flags to the tool, with the most important flags being:
+* The `url` flag, which contains the URL to access your {% data variables.copilot.copilot_agent_short %}. This is the only required flag to start the tool.
+* The `log-level` flag, which determines the level of visibility you have into your {% data variables.copilot.copilot_agent_short %}'s process for generating a response. The available log levels are `DEBUG`, `NONE`, and `TRACE`, and the tool uses `DEBUG` by default.
+* The `token` flag, which must contain a {% data variables.product.pat_v2 %} with read access to {% data variables.copilot.copilot_chat_short %} if your {% data variables.copilot.copilot_agent_short %} calls the {% data variables.product.prodname_copilot_short %} LLM. If your agent calls a different LLM, you don't need to use this flag.
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ To use the debug tool, you need to have the {% data variables.product.prodname_c
 
 * From the [{% data variables.product.prodname_cli %} releases page](https://github.com/cli/cli/releases/tag/v2.56.0)
 
-## Debugging your {% data variables.product.prodname_copilot_extension_short %} with the CLI
+## Debugging your {% data variables.copilot.copilot_extension_short %} with the CLI
 
-1. Optionally, to prepare to debug a specific server-sent event (SSE), add some code to your {% data variables.product.prodname_copilot_agent_short %} that sends an SSE when a prompt contains a certain keyword.
+1. Optionally, to prepare to debug a specific server-sent event (SSE), add some code to your {% data variables.copilot.copilot_agent_short %} that sends an SSE when a prompt contains a certain keyword.
 
     > [!NOTE] The debug tool does not handle the payload verification process. To validate your SSEs, you need to temporarily disable payload verification for local testing, then re-enable it after you have successfully tested your extension.
 
-1. On the command line, start your {% data variables.product.prodname_copilot_agent_short %}.
+1. On the command line, start your {% data variables.copilot.copilot_agent_short %}.
 1. To authenticate with the {% data variables.product.prodname_cli %} {% data variables.product.prodname_oauth_app %}, in a new window of your command line application, paste the following command and follow the prompts:
 
     ```bash copy
@@ -69,4 +69,4 @@ To use the debug tool, you need to have the {% data variables.product.prodname_c
 
 1. To interact with your agent, enter a prompt on the command line. The output will vary based on the log level you chose in the previous step, with the `DEBUG` and `TRACE` log levels providing more detailed information.
 
-    > [!TIP] If you are debugging an SSE, send a prompt containing the keyword you specified in your {% data variables.product.prodname_copilot_agent_short %} to trigger the SSE, then analyze the output in your command line application.
+    > [!TIP] If you are debugging an SSE, send a prompt containing the keyword you specified in your {% data variables.copilot.copilot_agent_short %} to trigger the SSE, then analyze the output in your command line application.

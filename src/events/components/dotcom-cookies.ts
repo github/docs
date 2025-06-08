@@ -1,8 +1,9 @@
+import { isHeadless } from './is-headless'
+
 // We cannot use Cookies.get() on the frontend for httpOnly cookies
 // so we need to make a request to the server to get the cookies
 
 type DotcomCookies = {
-  dotcomUsername?: string
   isStaff?: boolean
 }
 
@@ -19,6 +20,8 @@ const LOCAL_STORAGE_KEY = 'dotcomCookies'
 // If a user is staff and they didn't happen to be logged in when these cookies were saved,
 // we can instruct them as needed to update the cookies and correctly set the isStaff flag.
 async function fetchCookies(): Promise<DotcomCookies> {
+  if (isHeadless()) return { isStaff: false }
+
   // Return the cached object if we have it in memory.
   if (cachedCookies) {
     return cachedCookies
@@ -63,7 +66,6 @@ async function fetchCookies(): Promise<DotcomCookies> {
       console.error('Error fetching cookies:', err)
       // On failure, return default values.
       const defaultCookies: DotcomCookies = {
-        dotcomUsername: '',
         isStaff: false,
       }
       cachedCookies = defaultCookies
@@ -80,9 +82,4 @@ async function fetchCookies(): Promise<DotcomCookies> {
 export async function getIsStaff(): Promise<boolean> {
   const cookies = await fetchCookies()
   return cookies.isStaff || false
-}
-
-export async function getDotcomUsername(): Promise<string> {
-  const cookies = await fetchCookies()
-  return cookies.dotcomUsername || ''
 }

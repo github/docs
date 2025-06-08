@@ -114,5 +114,5 @@ Once all organizations have been removed or deleted, an enterprise owner can del
 
 * [AUTOTITLE](/get-started/learning-about-github/githubs-plans)
 * [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
 * [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)

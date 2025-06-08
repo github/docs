@@ -107,3 +107,7 @@ When routing a job to a self-hosted runner, {% data variables.product.prodname_d
   * If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
 * If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels and groups, then the job will remain queued until a runner comes online.
 * If the job remains queued for more than 24 hours, the job will fail.
+
+## Workflow run continuity
+
+{% data reusables.actions.runner-workflow-continuity %}

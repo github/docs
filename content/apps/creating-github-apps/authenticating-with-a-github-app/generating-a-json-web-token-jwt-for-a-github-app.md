@@ -47,7 +47,7 @@ Most programming languages have a package that can generate a JWT. In all cases,
 > [!NOTE]
 > You must run `gem install jwt` to install the `jwt` package in order to use this script.
 
-In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` and `YOUR_APP_ID` in double quotes.
+In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace {% ifversion client-id-for-app %}`YOUR_CLIENT_ID`{% else %}`YOUR_APP_ID`{% endif %} with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` and {% ifversion client-id-for-app %}`YOUR_CLIENT_ID`{% else %}`YOUR_APP_ID`{% endif %} in double quotes.
 
 ```ruby
 require 'openssl'

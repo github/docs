@@ -27,7 +27,7 @@ jobs:
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: check-membership
         with:
-          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
           result-encoding: string
           script: |
             const repoName = context.payload.repository.name
@@ -71,7 +71,7 @@ jobs:
       - name: Triage to docs-content FR project
         if: steps.check-membership.outputs.result == 'false'
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           PROJECT_NUMBER: 11672
           PROJECT_ID: PVT_kwDNJr_OAGNkBg

@@ -16,7 +16,7 @@ set -e
 . ./build-scripts/clone-or-use-cached-repo.sh
 
 # Set the GITHUB_TOKEN environment variable from the mounted --secret passed to Docker build
-GITHUB_TOKEN=$(cat /run/secrets/DOCS_BOT_PAT_READPUBLICKEY)
+GITHUB_TOKEN=$(cat /run/secrets/DOCS_BOT_PAT_BASE)
 
 # - - - - - - - - - -
 # Early access
@@ -35,7 +35,7 @@ cd translations
 
 # Iterate over each language
 echo "Fetching translations..."
-for lang in "zh-cn" "es-es" "pt-br" "ru-ru" "ja-jp" "fr-fr" "de-de" "ko-kr"
+for lang in  "es-es" "ja-jp" "pt-br" "zh-cn" "ru-ru" "fr-fr" "ko-kr" "de-de"
 do
   translations_repo="docs-internal.$lang"
   clone_or_use_cached_repo "$lang" "$translations_repo" "main"

@@ -21,7 +21,7 @@ jobs:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
             const owner = 'github'
             const originalRepo = 'docs-internal'

@@ -1,6 +1,6 @@
 ---
 title: Documenting code
-intro: 'Discover ways that you can use {% data variables.product.prodname_copilot_chat %} to document your code.'
+intro: 'Discover ways that you can use {% data variables.copilot.copilot_chat %} to document your code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/documenting-code
 versions:
@@ -12,4 +12,5 @@ children:
   - /explaining-legacy-code
   - /explaining-complex-algorithms-or-logic
   - /syncing-documentation-with-code-changes
+  - /writing-discussions-or-blog-posts
 ---

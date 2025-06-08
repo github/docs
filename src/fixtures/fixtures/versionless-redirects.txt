@@ -23,13 +23,6 @@
 - /early-access/github/articles/verifying-your-enterprise-accounts-domain
 - /github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
 
-/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
-- /billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
-- /articles/viewing-the-subscription-and-usage-for-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise/viewing-the-subscription-and-usage-for-your-enterprise-account
-
 /enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-saml-for-enterprise-iam
 - /github/setting-up-and-managing-your-enterprise/about-identity-and-access-management-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/about-identity-and-access-management-for-your-enterprise-account
@@ -73,13 +66,6 @@
 - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-webhooks-for-organization-events-in-your-enterprise-account
 
-/enterprise-server@3.12/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
-- /articles/enforcing-team-settings-for-organizations-in-your-business-account
-- /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account
-- /articles/enforcing-team-policies-in-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
-
 /enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
 - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
 - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
@@ -106,9 +92,8 @@
 - /graphql/guides/managing-enterprise-accounts
 - /v4/guides/managing-enterprise-accounts
 
-/enterprise-cloud@latest/billing/using-the-billing-platform/about-billing-for-your-enterprise
-- /admin/overview/managing-billing-for-your-enterprise
-- /admin/overview/managing-billing-for-github-enterprise
+/enterprise-cloud@latest/billing/managing-your-billing/about-billing-for-your-enterprise
+- /billing/managing-your-billing/about-billing-for-your-enterprise
 
 /enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
 - /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
@@ -378,10 +363,6 @@
 
 # FPT versioning for these files was removed as part of github/docs-content#5642
 
-/enterprise-cloud@latest/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
-- /code-security/secret-security/defining-custom-patterns-for-secret-scanning
-- /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning
-
 /enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
 - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
 - /articles/setting-permissions-for-adding-outside-collaborators
@@ -392,18 +373,6 @@
 - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
-
-/enterprise-cloud@latest/code-security/security-overview/viewing-the-security-overview
-- /code-security/security-overview/assessing-code-security-risk
-
-/enterprise-cloud@latest/code-security/security-overview/assessing-code-security-risk
-- /code-security/security-overview/assessing-code-security-risk
-
-/enterprise-cloud@latest/code-security/security-overview/assessing-adoption-code-security
-- /code-security/security-overview/assessing-adoption-code-security
-
-/enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-security-overview
-- /code-security/security-overview/filtering-alerts-in-security-overview
 
 /enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
@@ -432,13 +401,6 @@
 /enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
 - /pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
 - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
-
-/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-- /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-- /admin/advanced-security/viewing-your-github-advanced-security-usage
-- /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-- /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
-- /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 
 /enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization
 - /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization

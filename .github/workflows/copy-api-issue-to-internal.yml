@@ -22,7 +22,7 @@ jobs:
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -48,26 +48,26 @@ jobs:
           new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content)"
           echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
 
       - name: Comment on the old issue
         run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to this documentation must be made internally. I have copied your issue to an internal issue, so I will close this issue."
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Close the old issue
         run: gh issue close $OLD_ISSUE
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Comment on the new issue
         run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           NEW_ISSUE: ${{ env.NEW_ISSUE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 

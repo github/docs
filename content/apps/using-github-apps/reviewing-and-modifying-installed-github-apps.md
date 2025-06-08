@@ -38,7 +38,7 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
    > In the following steps, you will be taken to the account settings for the organization or personal account where the {% data variables.product.prodname_github_app %} is installed. The settings will affect all repositories where the app is installed under that account, not just the repository where you navigated from.
 
    1. Navigate to the main page of the organization or repository.
-   1. Click **{% octicon "gear" aria-hidden="true" %} Settings**.
+   1. Click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
    1. Under "Integrations," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} that have been granted access to your repository will be displayed.
 
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
@@ -67,9 +67,11 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
    If the {% data variables.product.prodname_github_app %} was previously suspended, you can unsuspend the app by clicking **Unsuspend**. If the {% data variables.product.prodname_github_app %} was suspended by the {% data variables.product.prodname_github_app %} owner, then you cannot unsuspend the app.
 1. To uninstall a {% data variables.product.prodname_github_app %} and block it from accessing resources owned by your account, click **Uninstall**.
 
-   When you delete a {% data variables.product.prodname_github_app %}, your authorization of the app (if the app is installed on your personal account) or the authorization of the app by members of your organization (if the app is installed on an organization) will be revoked. For more information, see [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
+   When you uninstall a {% data variables.product.prodname_github_app %} from an account, the app will lose access to the resources in that account. The app might still be authorized to access organizations on your behalf, if it has installations in those organizations.
+
+   If you want to stop an app from acting on your behalf anywhere on {% data variables.product.github %}, also de-authorize the app in the "Authorized {% data variables.product.prodname_github_apps %}" tab of your user account. This will fully deactivate any tokens issued to the app on your behalf. For more information, see [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
 
 ## Further reading
 
 * [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)
-* [AUTOTITLE](/apps/using-github-apps/internal-github-apps)
+* [AUTOTITLE](/apps/using-github-apps/privileged-github-apps)

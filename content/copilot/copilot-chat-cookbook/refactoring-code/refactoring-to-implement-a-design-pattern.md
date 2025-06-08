@@ -1,7 +1,7 @@
 ---
 title: Refactoring to implement a design pattern
 shortTitle: Design patterns
-intro: '{% data variables.product.prodname_copilot_chat_short %} can suggest design patterns that you can use to improve your code.'
+intro: '{% data variables.copilot.copilot_chat_short %} can suggest design patterns that you can use to improve your code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/refactoring-to-implement-a-design-pattern
 versions:
@@ -17,9 +17,9 @@ topics:
 
 Code that doesn’t follow established design patterns (like Singleton, Factory, or Observer) can lead to issues like tight coupling, lack of flexibility, or duplicated code.
 
-{% data variables.product.prodname_copilot_chat_short %} can help you use appropriate design patterns to make your code more flexible and maintainable. For example, it can recommend converting repetitive instantiations into a Factory pattern, or using the Observer pattern to decouple tightly connected classes.
+{% data variables.copilot.copilot_chat_short %} can help you use appropriate design patterns to make your code more flexible and maintainable. For example, it can recommend converting repetitive instantiations into a Factory pattern, or using the Observer pattern to decouple tightly connected classes.
 
-> [!NOTE] The responses described in this article are examples. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
+> [!NOTE] The responses described in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.
 
 ## Example scenario
 

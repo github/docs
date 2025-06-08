@@ -40,16 +40,21 @@ If you do not verify your email address, you will not be able to:
 
 ## About email verification for {% data variables.enterprise.prodname_managed_users %}
 
-Enterprise Managed Users (EMUs) must now prove ownership of their email addresses to secure their accounts and prevent any accidental data leaks by third party GitHub Apps and OAuth applications.
-If you are a member of an {% data variables.enterprise.prodname_emu_enterprise %} and your account was created from August 2024, your email address is unverified by default.
+For Enterprise Managed Users (EMUs), email addresses are no longer automatically verified. This prevents unauthorized access and potential data leaks from third-party {% data variables.product.prodname_github_apps %} and OAuth applications that rely on email addresses as a primary identifier.
 
-Having an unverified email address does not affect most actions you can take on {% data variables.product.prodname_dotcom %}. However, we **recommend email verification** for additional account security and to prevent potential exploitation of third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} which may not have followed our best practices around secure authentication methods for apps (see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)).
+>[!NOTE] If you are a member of an {% data variables.enterprise.prodname_emu_enterprise %} and your account was created after August 1st, 2024, your email address is unverified by default.
+
+Having an unverified email address does not affect most actions you can take on {% data variables.product.prodname_dotcom %}. However, we **recommend email verification** to prevent potential exploitation of third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} which may not have followed our best practices around secure authentication methods for apps (see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)).
 
 Until you verify your email address, your account will use a placeholder email address with your enterprise's shortcode appended for certain operations. For example, the [AUTOTITLE](/rest/users/users) and [AUTOTITLE](/rest/users/emails) will return `email+shortcode@domain.com`. In rare cases, you may find that your company's email provider does not handle the placeholder email correctly, or that the placeholder prevents you from accessing some third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
 You cannot verify an email address for your {% data variables.enterprise.prodname_managed_user %} if the email address is already verified by another account on {% data variables.product.prodname_dotcom_the_website %}. To verify the email, you will need to unverify the email address on the conflicting account, then verify it for your {% data variables.enterprise.prodname_managed_user %}. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
 Once you verify an email with a {% data variables.enterprise.prodname_managed_user %}, you won't be able to use the email to sign up for a personal account on {% data variables.product.prodname_dotcom_the_website %}.
+
+>[!NOTE] If you need to use the same email address for both your {% data variables.enterprise.prodname_managed_user %} and another {% data variables.product.github %} account (for example, for innersource, open source, or other valid use cases), you must sign in to your managed user account and unverify the email in your account settings.
+>
+> The email will still be linked to your managed user account, so you can continue signing in through your organization's or enterprise's identity provider (IdP). However, because the email is unverified, it may affect your access to third-party applications that identify users based solely on email address.
 
 ## Verifying your email address
 

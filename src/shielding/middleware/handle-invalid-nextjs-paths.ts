@@ -23,7 +23,7 @@ export default function handleInvalidNextPaths(
   ) {
     defaultCacheControl(res)
 
-    const tags = [`ip:${req.ip}`, `path:${req.path}`]
+    const tags = [`path:${req.path}`]
     statsd.increment(STATSD_KEY, 1, tags)
 
     return res.status(404).type('text').send('Not found')

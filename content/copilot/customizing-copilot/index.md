@@ -8,8 +8,14 @@ topics:
   - Copilot
 children:
   - /extending-the-capabilities-of-github-copilot-in-your-organization
-  - /adding-repository-custom-instructions-for-github-copilot
+  - /about-customizing-github-copilot-chat-responses
   - /adding-personal-custom-instructions-for-github-copilot
+  - /adding-repository-custom-instructions-for-github-copilot
+  - /adding-organization-custom-instructions-for-github-copilot
+  - /customizing-the-development-environment-for-copilot-coding-agent
+  - /customizing-or-disabling-the-firewall-for-copilot-coding-agent
+  - /extending-copilot-chat-with-mcp
+  - /extending-copilot-coding-agent-with-mcp
   - /managing-copilot-knowledge-bases
   - /creating-a-custom-model-for-github-copilot
 redirect_from:

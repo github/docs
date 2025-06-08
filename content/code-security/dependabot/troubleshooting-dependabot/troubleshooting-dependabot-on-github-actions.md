@@ -92,7 +92,6 @@ on: pull_request
 permissions:
   pull-requests: write
   issues: write
-  repository-projects: write
   ...
 
 jobs:

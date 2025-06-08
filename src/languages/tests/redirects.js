@@ -37,8 +37,8 @@ describe('redirects', () => {
 
   test.each([
     ['/jp', '/ja'],
-    ['/zh-CN', '/zh'],
     ['/br', '/pt'],
+    ['/zh-CN', '/zh'],
     ['/kr', '/ko'],
   ])('redirects %s to %s', async (from, to_) => {
     const res = await get(from)

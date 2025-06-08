@@ -27,7 +27,7 @@ There are a couple of customization options you can implement to optimize {% dat
 
 ## Controlling the frequency and timings of dependency updates
 
-{% data variables.product.prodname_dependabot %} runs its checks for version updates at a frequency set by you in the configuration file (where the required field, `schedule.interval`, must be set to `daily`, `weekly`, or `monthly`).
+{% data variables.product.prodname_dependabot %} runs its checks for version updates at a frequency set by you in the configuration file, where the required field, `schedule.interval`, must be set to `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron` (see [cronjob](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cronjob)).
 
 By default, {% data variables.product.prodname_dependabot %} balances its workload by assigning a random time to check and raise pull requests for dependency updates.
 
@@ -35,7 +35,7 @@ However, to reduce distraction, or to better organize time and resources for rev
 
 You can use `schedule` with a combination of options to modify the frequency and timings of when {% data variables.product.prodname_dependabot %} checks for version updates
 
-The example `dependabot.yml` file below changes the npm configuration to specify that {% data variables.product.prodname_dependabot %} should check for version updates to npm dependencies every day at 02:00 Japanese Standard Time (UTC +09:00).
+The example `dependabot.yml` file below changes the npm configuration to specify that {% data variables.product.prodname_dependabot %} should check for version updates to npm dependencies every Tuesday at 02:00 Japanese Standard Time (UTC +09:00).
 
 ```yaml copy
 # `dependabot.yml` file with

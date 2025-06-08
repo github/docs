@@ -137,7 +137,7 @@ Dependency caching works with all build modes, and is supported by {% data varia
 
 ### Enabling dependency caching for {% data variables.product.prodname_codeql %}
 
-For default setup workflows, dependency caching is enabled by default for {% data variables.product.github %}-hosted runners in public and private repositories.
+For default setup workflows, dependency caching is enabled only for {% data variables.product.github %}-hosted runners in public and private repositories.
 
 For advanced setup workflows, dependency caching is disabled by default. To enable dependency caching for {% data variables.product.prodname_codeql %}, use the `dependency-caching` setting for the {% data variables.product.prodname_codeql %} action in your advanced setup workflow. This setting accepts the following values:
 
@@ -308,7 +308,15 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 ## Building C/C++
 
-{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C/C++ code.
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes {% ifversion codeql-no-build-c-cpp %}`none`, {% endif %}`autobuild` or `manual` for C/C++ code.
+
+{% ifversion codeql-no-build-c-cpp %}
+
+When you enable default setup for a repository that contains C/C++ code, the build mode is set to `none` automatically.
+
+>[!NOTE] Support of build mode `none` for C/C++ codebases is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+{% endif %}
 
 ### Autobuild summary for C/C++{% endif %}
 

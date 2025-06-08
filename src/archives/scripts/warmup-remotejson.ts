@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // This calls a function directly that is used by our archived enterprise
@@ -25,7 +23,7 @@ import getRemoteJSON from '@/frame/lib/get-remote-json.js'
 import {
   deprecated,
   lastVersionWithoutArchivedRedirectsFile,
-} from '#src/versions/lib/enterprise-server-releases.js'
+} from '@/versions/lib/enterprise-server-releases.js'
 
 program
   .description(

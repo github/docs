@@ -8,21 +8,19 @@ versions:
 shortTitle: Set a token policy
 ---
 
-{% data reusables.user-settings.pat-v2-org-opt-in %}
-
 ## Restricting access by {% data variables.product.pat_generic_plural %}
 
 Organization owners can prevent {% data variables.product.pat_generic_plural %} from accessing resources owned by the organization with the following options:
 * **Restrict access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} cannot access resources owned by the organization. SSH keys created by {% data variables.product.pat_generic_plural %} will continue to work.
 * **Allow access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_v1_caps_plural %} or {% data variables.product.pat_v2_plural %} can access resources owned by the organization.
 
-Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organization.
+Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organization. {% ifversion fpt or ghec or ghes > 3.16 %}By default, both {% data variables.product.pat_v1_caps_plural %} and {% data variables.product.pat_v2_plural %} are enabled.{% endif %}
 
 {% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has restricted access by {% data variables.product.pat_generic_caps_plural %}, you cannot override the policy in your organization. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. {% ifversion tabbed-pat-settings-ui %}
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. {% ifversion tabbed-pat-settings-ui %}
 1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type. {% endif %}
 1. Under **{% data variables.product.pat_v2_caps_plural %}** or **Restrict {% data variables.product.pat_v1_plural %} from accessing your organizations**, select your access policy.
 1. Click **Save**.
@@ -39,7 +37,7 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**.
+1. In the left sidebar, click **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**.
 1. Select either the **Fine-grained tokens** or **Tokens (classic)** tab to enforce this policy based on the token type.
 1. Under **Set maximum lifetimes for {% data variables.product.pat_generic_plural %}**, set the maximum lifetime.
 1. Click **Save**.  
@@ -48,10 +46,10 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 ## Enforcing an approval policy for {% data variables.product.pat_v2_plural %}
 
 Organization owners can manage approval requirements for each {% data variables.product.pat_v2 %} that can access the organization with the following options:
-  * **Require administrator approval:** An organization owner must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps_plural %} created by organization owners will not need approval.
+  * **Require administrator approval:** An organization owner must approve each {% data variables.product.pat_v2 %} that can access the organization. {% data variables.product.pat_v2_caps_plural %} created by organization owners will not need approval. This is the default value.
   * **Do not require administrator approval:** {% data variables.product.pat_v2_caps %}s created by organization members can access resources in the organization without prior approval.
 
-{% data variables.product.pat_v2_caps %}s will still be able to read public resources within the organization without approval.
+{% data variables.product.pat_v2_caps_plural %} will still be able to read public resources within the organization without approval.
 
 {% ifversion ghec or ghes %} If your organization is owned by an enterprise, and your enterprise owner has set an approval policy for {% data variables.product.pat_v2 %}s, then you cannot override the policy in your organization. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise).{% endif %}
 
@@ -60,7 +58,7 @@ Organization owners can manage approval requirements for each {% data variables.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. {% ifversion tabbed-pat-settings-ui %}
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Settings**. {% ifversion tabbed-pat-settings-ui %}
 1. Select the **Fine-grained tokens** tab. {% endif %}
 1. Under **Require approval of {% data variables.product.pat_v2_plural %}**, select the option that meets your needs:
 1. Click **Save**.

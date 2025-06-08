@@ -6,7 +6,6 @@
 import languages from '@/languages/lib/languages'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 import { SearchTypes } from '@/search/types'
-import { latest } from '@/versions/lib/enterprise-server-releases'
 
 import type { SearchRequestQueryParams } from '@/search/lib/search-request-params/types'
 
@@ -120,20 +119,14 @@ const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
     cast: (size: string) => parseInt(size, 10),
     validate: (size: number) => size >= 0 && size <= MAX_AUTOCOMPLETE_SIZE,
   },
-  // We only want to enable for latest versions of fpt, ghec, and ghes
   {
     key: 'version',
     default_: 'free-pro-team',
     validate: (version: string) => {
-      const mappedVersion = versionToIndexVersionMap[version]
-      if (
-        mappedVersion === 'fpt' ||
-        mappedVersion === 'ghec' ||
-        mappedVersion === `ghes-${latest}`
-      ) {
-        return true
+      if (!versionToIndexVersionMap[version]) {
+        throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
       }
-      return false
+      return true
     },
   },
 ]

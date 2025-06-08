@@ -1,14 +1,14 @@
 import { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
+import { MainContextT, MainContext, getMainContext } from '@/frame/components/context/MainContext'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import { Changelog } from 'src/graphql/components/Changelog'
-import { ChangelogItemT } from 'src/graphql/components/types'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import { Changelog } from '@/graphql/components/Changelog'
+import { ChangelogItemT } from '@/graphql/components/types'
 
 type Props = {
   mainContext: MainContextT
@@ -28,8 +28,8 @@ export default function GraphqlChangelog({ mainContext, schema, automatedPageCon
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlChangelog } = await import('src/graphql/lib/index.js')
-  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items.js')
+  const { getGraphqlChangelog } = await import('@/graphql/lib/index.js')
+  const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items.js')
 
   const req = context.req as any
   const res = context.res as any

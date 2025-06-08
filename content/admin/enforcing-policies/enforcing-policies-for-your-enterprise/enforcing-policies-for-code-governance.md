@@ -16,8 +16,6 @@ topics:
 
 ## Introduction
 
->[!NOTE] Enterprise code rulesets are currently in public preview and subject to change.
-
 You can create rulesets to control how users can interact with code in repositories across your enterprise. You can:
 
 * Create a **branch or tag ruleset** to control things like who can push commits to a certain branch, how commits must be formatted, or who can delete or rename a tag.
