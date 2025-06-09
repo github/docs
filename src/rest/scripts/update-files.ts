@@ -50,7 +50,7 @@ program
       `The source repositories to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
     )
       .choices(['github', REST_API_DESCRIPTION_ROOT, MODELS_GATEWAY_ROOT])
-      .default('github', 'github'),
+      .default(['github', MODELS_GATEWAY_ROOT]),
   )
   .option(
     '-v --versions [VERSIONS...]',
