@@ -56,7 +56,7 @@ You may choose to create internal onboarding materials to help teams get started
 {% data variables.product.github %} documentation that you may want to feature in your onboarding materials includes:
 
 * [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)
-* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
+* [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat)
 * [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
 
