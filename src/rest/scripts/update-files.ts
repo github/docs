@@ -236,7 +236,7 @@ async function validateInputParameters(): Promise<void> {
 
   // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  if ((includeDeprecated || includeUnpublished) && !sourceRepos.include('github')) {
+  if ((includeDeprecated || includeUnpublished) && !sourceRepos.includes('github')) {
     const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }
