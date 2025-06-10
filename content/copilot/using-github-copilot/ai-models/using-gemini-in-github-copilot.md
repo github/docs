@@ -19,6 +19,7 @@ redirect_from:
 
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * Immersive mode in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}
+* {% data variables.copilot.copilot_chat_short %} in JetBrains IDEs
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_flash %} and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/gemini/docs/discover/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
@@ -34,7 +35,7 @@ You must enable access to {% data variables.copilot.copilot_gemini_flash %} and 
 
 > [!NOTE] {% data variables.copilot.copilot_gemini_25_pro %} is not currently available for {% data variables.copilot.copilot_free_short %}.
 
-If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} subscription, you can enable {% data variables.copilot.copilot_gemini %} in two ways:
+If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} subscription, you can enable the {% data variables.copilot.copilot_gemini %} models available to your plan in two ways:
 
 * The first time you choose to use {% data variables.copilot.copilot_gemini %} models with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.copilot.copilot_chat_short %}, you will be prompted to allow access to the model.
 
