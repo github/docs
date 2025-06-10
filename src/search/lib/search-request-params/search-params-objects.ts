@@ -11,9 +11,7 @@ import type { SearchRequestQueryParams } from '@/search/lib/search-request-param
 
 // Entry to this file, returns the query parameters to expect based on the type of search request
 export function getSearchRequestParamsObject(type: SearchTypes): SearchRequestQueryParams[] {
-  if (type === 'generalAutocomplete') {
-    return AUTOCOMPLETE_PARAMS_OBJ
-  } else if (type === 'aiSearchAutocomplete') {
+  if (type === 'aiSearchAutocomplete') {
     return AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ
   }
   return GENERAL_SEARCH_PARAMS_OBJ
@@ -134,11 +132,6 @@ const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
 const AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
   ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
   { key: 'language', default_: 'en', validate: (language: string) => language === 'en' },
-]
-
-const AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
-  ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
-  { key: 'language', default_: 'en', validate: (language: string) => language in languages },
 ]
 
 function toBoolean(value: any): boolean {
