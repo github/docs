@@ -82,7 +82,7 @@ To see all available chat variables, type `#` in the chat prompt box. See also [
 
 > [!NOTE] This feature is only available if you have a {% data variables.copilot.copilot_enterprise_short %} subscription.
 
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
 You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
 
@@ -181,10 +181,9 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
+* [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat)
 * [Using {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
-* [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
@@ -257,7 +256,7 @@ You can generate a list of currently available skills by asking {% data variable
 > * This feature is only available if you have a {% data variables.copilot.copilot_enterprise_short %} subscription.
 > * Support for knowledge bases is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 3](https://visualstudio.microsoft.com/vs/preview/) onwards.
 
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases).
+Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
 You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
 
