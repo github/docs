@@ -1,0 +1,105 @@
+@@ -1,4 +1,4 @@
+name: Repo Sync
+name: Sync
+
+# **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
+# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
+@@ -10,36 +10,36 @@ name: Repo Sync
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 */3 * * *' # Run every 3rd hour at 20 minutes after
+     cron: '20 */3 * * *' # Run every 3rd hour at 20 minutes after
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  repo-sync:
+  sync:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    name: Repo Sync
+    name: Sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+       name: Check out
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Sync repo to branch
+       name: Sync to branch
+        uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
+        with:
+          source_repo: https://${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
+          source_branch: main
+          destination_branch: repo-sync
+          destination_branch: sync
+          github_token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
+
+      - name: Ship pull request
+       name: Ship pull request
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
+          result-encoding: string
+          script: |
+            const { owner, repo } = context.repo
+            const { owner } = context.repo
+            const head = 'github:repo-sync'
+            const base = 'main'
+@@ -56,7 +56,7 @@ jobs:
+            }
+            console.log('Closing any existing pull requests')
+            const { data: existingPulls } = await github.rest.pulls.list({ owner, repo, head, base })
+            const { data: existingPulls } = await github.rest.pulls.list({ owner, head, base })
+            if (existingPulls.length) {
+              console.log('Found existing pull requests', existingPulls.map(pull => pull.number))
+              for (const pull of existingPulls) {
+@@ -66,10 +66,9 @@ jobs:
+            }
+            try {
+              const { data } = await github.rest.repos.compareCommits({
+              const { data } = await github.rest.compareCommits({
+                owner,
+                repo,
+                head,
+        head,
+                base,
+              })
+              const { files } = data
+@@ -92,10 +91,9 @@ jobs:
+            try {
+              const response = await github.rest.pulls.create({
+                owner,
+                repo,
+                head,
+                base,
+                title: 'Repo sync',
+                title: 'Sync',
+                body,
+              })
+              pull = response.data
+@@ -125,7 +123,7 @@ jobs:
+            }
+            console.log('Counting files changed')
+            const { data: prFiles } = await github.rest.pulls.listFiles({ owner, repo, pull_number })
+            const { data: prFiles } = await github.rest.pulls.listFiles({ owner, pull_number })
+            if (prFiles.length) {
+              console.log(prFiles.length, 'files have changed')
+            } else {
+@@ -146,14 +144,13 @@ jobs:
+            // Admin merge pull request to avoid squash
+            await github.rest.pulls.merge({
+              owner,
+              repo,
+              pull_number,
+              merge_method: 'merge',
+            })
+            // Error loud here, so no try/catch
+            console.log('Merged the pull request successfully')
+      - uses: ./.github/actions/slack-alert
+       uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
