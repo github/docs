@@ -19,6 +19,7 @@ redirect_from:
 
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * Immersive mode in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}
+* {% data variables.copilot.copilot_chat_short %} in JetBrains IDEs
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_flash %} and {% data variables.copilot.copilot_gemini_25_pro %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini %} models, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/gemini/docs/discover/data-governance): _{% data variables.copilot.copilot_gemini %} doesn't use your prompts, or its responses, as data to train its models._
 
