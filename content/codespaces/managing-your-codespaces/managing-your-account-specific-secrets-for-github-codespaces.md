@@ -17,7 +17,7 @@ topics:
   - Security
   - Secret store
 ---
-
+```
 ## About secrets for {% data variables.product.prodname_github_codespaces %}
 
 You can add development environment secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as secrets:
