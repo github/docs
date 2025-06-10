@@ -19,6 +19,7 @@ children:
   - /adding-licenses-to-an-organization
   - /roles-for-the-new-billing-platform
   - /estimating-spending
+  - /about-usage-reports
   - /gathering-insights-on-your-spending
   - /charging-business-units
   - /preventing-overspending
