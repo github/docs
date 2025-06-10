@@ -90,7 +90,7 @@ jobs:
           password: ${{ steps.setup-jfrog-cli.outputs.oidc-token }}
 ```
 
-## Further Reading
+## Further reading
 
 - [JFrog OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration)
 - [Configure Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings)
