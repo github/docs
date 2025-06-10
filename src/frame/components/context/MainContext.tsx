@@ -147,7 +147,6 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
-  'domain_edit',
   'cookbook_landing',
 ]
 
