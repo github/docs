@@ -51,9 +51,7 @@ For discussions with a question/answer format, an individual comment within the 
 
 {% data reusables.discussions.about-announcement-format %}
 
-{% data reusables.discussions.category-sections %}
-
-For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
+{% data reusables.discussions.category-sections %} For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
 
 {% data reusables.discussions.you-can-label-discussions %}
 
