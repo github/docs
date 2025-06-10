@@ -12,7 +12,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> * If the project you are migrating contains more than {% data variables.projects.item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.archived_item_limit %} items is reached, additional items will not be migrated.
+> * If the project you are migrating contains more than {% data variables.projects.legacy_item_limit %} items, open issues will be prioritized followed by open pull requests and then notes. Remaining space will be used for closed issues, merged pull requested, and closed pull requests. Items that cannot be migrated due to this limit will be moved to the archive. If the archive limit of {% data variables.projects.legacy_archived_item_limit %} items is reached, additional items will not be migrated.
 > * Note cards are converted to draft issues, and the contents are saved to the body of the draft issue. If information appears to be missing, make any hidden fields visible. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#showing-and-hiding-fields).
 > * Automation will not be migrated.
 > * Triage, archive, and activity will not be migrated.

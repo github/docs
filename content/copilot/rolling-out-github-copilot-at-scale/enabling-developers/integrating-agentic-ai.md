@@ -44,9 +44,13 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
    ![Screenshot of Copilot Chat in immersive mode. Copilot asks if the user would like to proceed with creating a set of prioritized issues.](/assets/images/help/copilot/sdlc-guide/issue-creation.png)
 
+1. To help the developer get started quickly, the PM creates a space with **{% data variables.copilot.copilot_spaces %}** at `https://github.com/copilot/spaces`. The PM collects resources like diagrams and references to code files, submits a few test questions, then shares the space with their organization.
+
+   Now, the developer can ask questions in the space, and {% data variables.product.prodname_copilot_short %} will already have all the context the PM added.
+
 ## 2. Create with {% data variables.product.prodname_github_models %} and agent mode
 
-1. The PM shares the results with the developer and asks the developer to start by finding the best AI model to provide the tailored umbrella recommendations, based on the cost and effectiveness of the models.
+1. The PM asks the developer to start by finding the best AI model to provide the tailored umbrella recommendations, based on the cost and effectiveness of the models.
 1. The developer asks **{% data variables.copilot.copilot_chat_short %}** to recommend several AI models for the job and the pros and cons of each. To provide useful context, they ask Copilot to consider the information in the [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) {% data variables.product.prodname_docs %} article.
 1. To settle on a model from the shortlist, the developer uses the **{% data variables.product.prodname_github_models %}** playground to compare results from the same prompt across models. They save time by testing models on a single platform, rather than needing to set up an API key for each model separately.
 
@@ -127,6 +131,7 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 | Feature | More information |
 | ------- | ---------------- |
 | Immersive view of {% data variables.copilot.copilot_chat_short %} | [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github#submitting-a-question-to-copilot-chat) |
+| {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) |
 | {% data variables.copilot.copilot_chat_short %} agent mode | [Use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) |
 | Content exclusions | [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot) |
 | MCP servers ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp#configuring-mcp-servers-in-visual-studio-code) |

@@ -42,7 +42,7 @@ An administrator needs to register your LMS instance with classroom before you c
 1. Select the Blackboard course or organization to integrate with {% data variables.product.prodname_classroom %}.
 1. In the right sidebar on the course page, click **Books & Tools**, then click **GitHub Classroom**. Note that the name may be different if your LMS administrator named it something else when registering your LMS.
 1. Click **{% data variables.product.prodname_classroom %}**.
-1. In {% data variables.product.prodname_classroom %}, select a classroom to link with your LMS course. 
+1. In {% data variables.product.prodname_classroom %}, select a classroom to link with your LMS course.
 
     > [!NOTE] This step might give you an error message, "Unable to launch link. The Tool Provider has been disabled by the System Administrator: {% data variables.product.prodname_classroom %}". To resolve this error, ensure that the status of the “{% data variables.product.prodname_classroom %}” tool is set to `Approved`. In the "Admin Panel," click **LTI Tool Providers**. Hover on the name next to {% data variables.product.prodname_classroom %} and click **Approve**.
 

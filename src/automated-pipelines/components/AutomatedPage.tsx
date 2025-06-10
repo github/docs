@@ -1,13 +1,13 @@
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
-import { MarkdownContent } from 'src/frame/components/ui/MarkdownContent'
-import { Lead } from 'src/frame/components/ui/Lead'
-import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
-import { ArticleGridLayout } from 'src/frame/components/article/ArticleGridLayout'
-import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
-import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
-import { ClientSideHighlight } from 'src/frame/components/ClientSideHighlight'
-import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { ArticleTitle } from '@/frame/components/article/ArticleTitle'
+import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
+import { Lead } from '@/frame/components/ui/Lead'
+import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
+import { ArticleGridLayout } from '@/frame/components/article/ArticleGridLayout'
+import { MiniTocs } from '@/frame/components/ui/MiniTocs'
+import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
+import { ClientSideHighlight } from '@/frame/components/ClientSideHighlight'
+import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 
 type Props = {
   children: React.ReactNode

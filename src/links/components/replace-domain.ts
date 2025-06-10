@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-import { useVersion } from 'src/versions/components/useVersion'
+import { useVersion } from '@/versions/components/useVersion'
 import { useEditableDomainName } from './useEditableDomainContext'
 import { createPenSVG } from './pen-icon'
 

@@ -1,19 +1,19 @@
 import { GetServerSideProps } from 'next'
 
-import { GraphqlPage } from 'src/graphql/components/GraphqlPage'
+import { GraphqlPage } from '@/graphql/components/GraphqlPage'
 import {
   MainContextT,
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'src/frame/components/context/MainContext'
-import type { ObjectT, GraphqlT } from 'src/graphql/components/types'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
+} from '@/frame/components/context/MainContext'
+import type { ObjectT, GraphqlT } from '@/graphql/components/types'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
+} from '@/automated-pipelines/components/AutomatedPageContext'
 
 type Props = {
   mainContext: MainContextT
@@ -44,7 +44,7 @@ export default function GraphqlReferencePage({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlSchema, getMiniToc } = await import('src/graphql/lib/index.js')
+  const { getGraphqlSchema, getMiniToc } = await import('@/graphql/lib/index.js')
 
   const req = context.req as any
   const res = context.res as any

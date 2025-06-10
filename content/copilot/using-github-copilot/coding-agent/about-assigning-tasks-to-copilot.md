@@ -29,12 +29,16 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 
 To delegate development tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
-* Assign an issue to {% data variables.product.prodname_copilot_short %}
-* Use {% data variables.copilot.copilot_chat %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request
+* Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
+* Use {% data variables.copilot.copilot_chat %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
 While working on a coding task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
+
+### {% data variables.copilot.copilot_coding_agent %} vs. agent mode in {% data variables.product.prodname_vscode %}
+
+{% data variables.copilot.copilot_coding_agent %} is distinct from the "agent mode" feature available in {% data variables.product.prodname_vscode %}. {% data variables.copilot.copilot_coding_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts, and creates pull requests with the results. In contrast, agent mode in {% data variables.product.prodname_vscode %} is part of the {% data variables.copilot.copilot_edits %} feature that allows {% data variables.product.prodname_copilot_short %} to make autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide?tool=visualstudio#copilot-edits-1).
 
 ### Streamlining software development with {% data variables.copilot.copilot_coding_agent %}
 
@@ -71,7 +75,7 @@ To mitigate this risk, {% data variables.product.github %}:
 * **Limits who can assign tasks to {% data variables.product.prodname_copilot_short %}.** Only users with write access to the repository can trigger {% data variables.product.prodname_copilot_short %} to work. Comments from users without write access are never presented to the agent.
 * **Limits the permissions in access tokens used by Copilot.** Pushes are only allowed to branches beginning with `copilot/`. {% data variables.product.prodname_copilot_short %} cannot push to the `main` or `master` branches.
 * **Limits {% data variables.product.prodname_copilot_short %}'s credentials.** {% data variables.product.prodname_copilot_short %} can only perform simple push operations. It cannot directly run `git push` or other Git commands.
-* **Restricts {% data variables.product.prodname_actions %} workflow runs.** Workflows are not triggered until {% data variables.product.prodname_copilot_short %}'s code is reviewed and a user with write access to the repo clicks the **Approve and run workflows** button. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
+* **Restricts {% data variables.product.prodname_actions %} workflow runs.** Workflows are not triggered until {% data variables.product.prodname_copilot_short %}'s code is reviewed and a user with write access to the repo clicks the **Approve and run workflows** button. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
 * **Prevents the user who asked {% data variables.product.prodname_copilot_short %} to create a pull request from approving it.** This maintains the expected controls in the "Required approvals" rule and branch protection. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 ### Risk: {% data variables.product.prodname_copilot_short %} has access to sensitive information

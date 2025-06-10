@@ -1,7 +1,7 @@
-import { SimpleHeader, SimpleFooter } from 'src/frame/components/GenericError'
+import { SimpleHeader, SimpleFooter } from '@/frame/components/GenericError'
 import Head from 'next/head'
 import { CommentDiscussionIcon } from '@primer/octicons-react'
-import { Lead } from 'src/frame/components/ui/Lead'
+import { Lead } from '@/frame/components/ui/Lead'
 
 const Custom404 = () => {
   return (

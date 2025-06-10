@@ -2,15 +2,15 @@ import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { slug as githubSlug } from 'github-slugger'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { Link } from 'src/frame/components/Link'
-import { MainContext, MainContextT } from 'src/frame/components/context/MainContext'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { Link } from '@/frame/components/Link'
+import { MainContext, MainContextT } from '@/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
-import { RestRedirect } from 'src/rest/components/RestRedirect'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
+import { RestRedirect } from '@/rest/components/RestRedirect'
 
 type EnabledOperationT = {
   slug: string

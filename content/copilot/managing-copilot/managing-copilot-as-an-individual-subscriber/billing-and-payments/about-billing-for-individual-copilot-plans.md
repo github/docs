@@ -49,9 +49,9 @@ You can cancel your {% data variables.product.prodname_copilot_short %} trial at
 
 ## About premium requests
 
-<!-- expires 2025-06-04 -->
+<!-- expires 2025-06-11 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-06-04 -->
+<!-- end expires 2025-06-11 -->
 
 Your {% data variables.product.prodname_copilot_short %} plan includes premium requests. Premium requests use more advanced models or features and count against your monthly premium request allowance.
 

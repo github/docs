@@ -37,7 +37,7 @@ In the next section, we'll use this message in an automation that creates an iss
 > We noticed you haven't used your assigned license for {% data variables.product.prodname_copilot %} in 30 days. Here are some resources that might help you get started:
 >
 > * If you haven't yet set up {% data variables.product.prodname_copilot_short %} in your environment, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) or [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot).
-> * For best practices and advice on getting started, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) or [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
+> * For best practices and advice on getting started, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) or [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat).
 > * For examples related to specific tasks, see [AUTOTITLE](/copilot/example-prompts-for-github-copilot-chat).
 >
 > If you no longer need access to {% data variables.product.prodname_copilot_short %}, please let us know in this issue. If your license remains inactive for a further 30 days, we'll revoke it to free up access for another user.
