@@ -34,7 +34,7 @@ You must enable access to {% data variables.copilot.copilot_gemini_flash %} and 
 
 > [!NOTE] {% data variables.copilot.copilot_gemini_25_pro %} is not currently available for {% data variables.copilot.copilot_free_short %}.
 
-If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} subscription, you can enable {% data variables.copilot.copilot_gemini %} in two ways:
+If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} subscription, you can enable the {% data variables.copilot.copilot_gemini %} models available to your plan in two ways:
 
 * The first time you choose to use {% data variables.copilot.copilot_gemini %} models with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.copilot.copilot_chat_short %}, you will be prompted to allow access to the model.
 
