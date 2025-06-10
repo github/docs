@@ -93,6 +93,6 @@ jobs:
 ## Further reading
 
 - [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation
-- [Configure Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings)
+- [Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings) in the JFrog documentation
 - [GitHub Docs: About Security Hardening with OIDC](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 ```
