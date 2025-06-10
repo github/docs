@@ -82,7 +82,7 @@ jobs:
 
 ### Using OIDC Credentials in other steps
 ```yaml
-      - name: Login to Artifactory Docker Registry
+      - name: Sign in to Artifactory Docker registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.JF_URL }}
