@@ -80,7 +80,7 @@ jobs:
 > These can be used for other integrations that require authentication with JFrog.
 > To reference these outputs, ensure the step has an explicit `id` defined (e.g., `id: setup-jfrog-cli`).
 
-### Example: Using OIDC Credentials in Other Steps
+### Using OIDC Credentials in other steps
 ```yaml
       - name: Login to Artifactory Docker Registry
         uses: docker/login-action@v3
