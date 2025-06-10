@@ -47,7 +47,7 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-### Example: Authenticating with JFrog using OIDC
+### Authenticating with JFrog using OIDC
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
