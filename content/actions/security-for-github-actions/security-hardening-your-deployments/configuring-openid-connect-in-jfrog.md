@@ -62,7 +62,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup JFrog CLI with OIDC
+      - name: Set up JFrog CLI with OIDC
         id: setup-jfrog-cli
         uses: jfrog/setup-jfrog-cli@29fa5190a4123350e81e2a2e8d803b2a27fed15e
         with:
