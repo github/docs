@@ -25,7 +25,6 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   input:
-    aria_label: Open search overlay
     placeholder: Search or ask {{icon}} Copilot
     placeholder_no_icon: Search or ask Copilot
     shortcut: Type {{icon}} to search
