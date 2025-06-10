@@ -1,4 +1,4 @@
----
+----your-authorized-oauth-apps.md
 title: Reviewing your authorized OAuth apps
 intro: 'You should review your authorized applications to verify that no new applications with expansive permissions are authorized, such as those that have access to your private repositories.'
 redirect_from:
