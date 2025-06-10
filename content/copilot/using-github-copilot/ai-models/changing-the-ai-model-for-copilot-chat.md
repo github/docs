@@ -96,7 +96,7 @@ For more information about these models, see [AUTOTITLE](/copilot/using-github-c
 
 ## Changing the AI model
 
-These instructions are for the {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
+These instructions are for {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
