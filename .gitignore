@@ -1,24 +1,3 @@
-.search-cache
-.DS_Store
-.env
-.vscode/settings.json
-.idea/
-/node_modules/
-npm-debug.log
-coverage/
-/assets/images/early-access
-/content/early-access
-/data/early-access
-/src/dev-toc/static
-.next
-.eslintcache
-*.tsbuildinfo
-/translations/
-.node-version
-.linkinator/full.log
-next-env.d.ts
-nohup.out
-
 # blc: broken link checker
 blc_output.log
 blc_output_internal.log
@@ -56,3 +35,5 @@ docs-internal-data/
 
 # For intermediate data (like scraping for Elasticsearch indexing)
 tmp/
+
+
