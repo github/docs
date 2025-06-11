@@ -62,7 +62,6 @@ import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
-import tracking from '@/tracking/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 
 const { NODE_ENV } = process.env
@@ -200,7 +199,6 @@ export default function (app: Express) {
   }
 
   // ** Possible early exits after cookies **
-  app.use(tracking)
 
   // *** Headers ***
   app.set('etag', false) // We will manage our own ETags if desired
