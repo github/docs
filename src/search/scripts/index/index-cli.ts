@@ -3,7 +3,7 @@ import { errors } from '@elastic/elasticsearch'
 import dotenv from 'dotenv'
 
 import { languageKeys } from '@/languages/lib/languages.js'
-import { indexGeneralAutocomplete } from './lib/index-general-autocomplete'
+
 import { indexGeneralSearch } from './lib/index-general-search'
 import {
   allIndexVersionKeys,
@@ -18,51 +18,6 @@ dotenv.config()
 program.name('index').description('CLI scripts for indexing Docs data into Elasticsearch')
 
 const allVersionKeysWithAll = [...allIndexVersionKeys, 'all']
-
-const generalAutoCompleteCommand = new Command('general-autocomplete')
-  .description('Index for general search autocomplete')
-  .addOption(
-    new Option('-l, --language <language...>', 'Specific languages(s)').choices(languageKeys),
-  )
-  .addOption(
-    new Option('-v, --version <version...>', 'Specific versions').choices(allVersionKeysWithAll),
-  )
-  .option('--verbose', 'Verbose output')
-  .option('--index-prefix <prefix>', 'Prefix for the index names', '')
-  .argument('<data-root>', 'path to the docs-internal-data repo')
-  .action(async (dataRepoRoot: string, options) => {
-    const languages = options.language ? options.language : languageKeys
-    const indexPrefix = options.indexPrefix || ''
-    if (!Array.isArray(options.version)) {
-      if (typeof options.version === 'undefined') {
-        options.version = ['all']
-      } else {
-        options.version = [options.version]
-      }
-    }
-    let versions = options.version
-    if (!versions.length || versions[0] === 'all') {
-      versions = supportedAutocompletePlanVersions
-    } else {
-      versions = versions.map((version: string) => versionToIndexVersionMap[version])
-    }
-    try {
-      await indexGeneralAutocomplete({
-        dataRepoRoot,
-        languages,
-        versions,
-        indexPrefix,
-      })
-    } catch (error: any) {
-      if (error instanceof errors.ElasticsearchClientError) {
-        if ((error as any)?.meta) {
-          console.error('Error meta: %O', (error as any).meta)
-        }
-      }
-      console.error('general-autocomplete indexing error:', error.message)
-      process.exit(1)
-    }
-  })
 
 const generalSearchCommand = new Command('general-search')
   .description(
@@ -179,7 +134,6 @@ const aiSearchAutocompleteCommand = new Command('ai-search-autocomplete')
     }
   })
 
-program.addCommand(generalAutoCompleteCommand)
 program.addCommand(generalSearchCommand)
 program.addCommand(aiSearchAutocompleteCommand)
 

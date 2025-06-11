@@ -25,11 +25,11 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   input:
-    aria_label: Open search overlay
     placeholder: Search or ask {{icon}} Copilot
     placeholder_no_icon: Search or ask Copilot
     shortcut: Type {{icon}} to search
   overlay:
+    aria_label: Search overlay
     input_aria_label: Search or ask Copilot
     suggestions_list_aria_label: Search suggestions
     ai_suggestions_list_aria_label: Copilot search suggestions
@@ -319,17 +319,7 @@ alerts:
   WARNING: Warning
   TIP: Tip
   CAUTION: Caution
-domain_edit:
-  name: Domain name
-  edit: Edit
-  edit_your: Edit your domain name
-  experimental: Experimental
-  your_name: Your domain name
-  cancel: Cancel
-  save: Save
-  snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
-  learn_more: Learn more
-  submission_failed: Submission failed. Please try again in a minute.
+
 cookbook_landing:
   spotlight: Spotlight
   explore_articles: Explore {{ number }} prompt articles
