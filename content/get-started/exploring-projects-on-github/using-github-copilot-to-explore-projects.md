@@ -38,6 +38,10 @@ When you’re exploring a project, you might want to understand the contents of 
 
 {% data reusables.copilot.chat-about-specific-lines %}
 
+## Further reading
+
+* [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase)
+
 ## Next steps
 
 Now that you know how to use {% data variables.product.prodname_copilot_short %} to explore projects, you can use it to help you understand any repository, file, or line of code on {% data variables.product.prodname_dotcom %}.

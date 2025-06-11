@@ -26,8 +26,10 @@ You can add custom instructions for {% data variables.copilot.copilot_chat %} in
 You can add personal custom instructions either in the Chat panel or in immersive mode. The same instructions will be applied in both modes.
 
 1. In the top right of any page on {% data variables.product.github %}, either:
-   * Click the **{% octicon "copilot" aria-label="Copilot" %}** icon to open the {% data variables.copilot.copilot_chat_short %} panel.
-   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Immersive** to open {% data variables.copilot.copilot_chat_short %} in the full-page, immersive mode. You can also go directly to [https://github.com/copilot](https://github.com/copilot).
+
+   * Click the **{% octicon "copilot" aria-label="Copilot" %}** icon to open the full-page, immersive mode of {% data variables.copilot.copilot_chat_short %}.
+   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Assistive** to open the {% data variables.copilot.copilot_chat_short %} panel.
+
 1. Select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu at the top right of the Chat panel, or immersive page, then click **Personal instructions**.
 1. Add natural language instructions to the text box.
 

@@ -69,11 +69,8 @@ You can open {% data variables.copilot.copilot_chat_short %} from any page on {%
 
 Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
-1. At the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon and click **Immersive** in the dropdown menu.
-
-   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
-
-1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+{% data reusables.copilot.immersive-mode-instructions %}
+1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
    Some examples of general questions you could ask are:
 
@@ -84,7 +81,7 @@ Depending on the question you ask, and your enterprise and organization settings
    * `Write a bash script to output today's date.`
 
 {% data reusables.copilot.stop-response-generation %}
-1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Using web search results for 'SEARCH QUERY'" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
+1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, you can click the **_n_ references** link at the top of the response to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
    You can use your initial question as a foundation for follow-up questions. A detailed foundational prompt can help {% data variables.product.prodname_copilot_short %} provide more relevant answers to your follow-up questions. For more information, see [Prompting {% data variables.copilot.copilot_chat %} to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/) on the {% data variables.product.prodname_dotcom %} Blog.
@@ -95,7 +92,7 @@ Depending on the question you ask, and your enterprise and organization settings
 ### Regenerating a response with a different model
 
 > [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change. It is currently not available for all models.
 
 After {% data variables.product.prodname_copilot_short %} responds to your question, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
 
@@ -157,7 +154,7 @@ You can ask {% data variables.copilot.copilot_chat_short %} different types of q
 
 ## Asking {% data variables.copilot.copilot_chat_short %} questions in a repository
 
-To ask a question about a specific repository, you must be viewing the repository on {% data variables.product.github %}.
+You can ask {% data variables.product.prodname_copilot_short %} about a specific repository:
 
 1. Navigate to a repository on {% data variables.product.github %}.
 {% data reusables.copilot.open-chat-panel %}
@@ -166,7 +163,7 @@ To ask a question about a specific repository, you must be viewing the repositor
 
    ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel opened inside a repository. The specified repository is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-in-repository.png)
 
-1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the panel, in the prompt box, type a question and press <kbd>Enter</kbd>.
 
    > [!NOTE]
    >
@@ -178,16 +175,11 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 
 > [!NOTE] A "symbol" is a named entity in code. This could be a variable, function, class, module, or any other identifier that's part of a codebase.
 
+1. Navigate to a repository on {% data variables.product.github %}.
 {% data reusables.copilot.open-chat-panel %}
-1. To select a repository for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Repositories".
-
-   ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
-
-1. Once the repository has been attached, click {% octicon "paperclip" aria-label="Add attachments" %} again, then select "Files, folders, and symbols".
-
+1. In the prompt box, click **{% octicon "paperclip" aria-label="Add attachments" %} Attach**, then click **Files, folders, and symbols**.
 1. Search for and select one or more files, folders, or symbols.
-
-1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
@@ -203,19 +195,12 @@ Organization owners (with a {% data variables.copilot.copilot_enterprise_short %
 
 When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
 
-1. At the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon and click **Immersive** in the dropdown menu.
+{% data reusables.copilot.immersive-mode-instructions %}
+1. To select a knowledge base for context, click **{% octicon "paperclip" aria-label="Add attachments" %} Attach** at the bottom of the chat panel, then click **Knowledge bases**.
+1. In the "Select knowledge bases" dialog, type the name of the knowledge base you want to use as context, select the knowledge bases you want to use, and click **Save**.
+1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
-   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
-
-1. To select a knowledge base for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Knowledge base".
-
-   ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
-
-1. In the "Search knowledge bases" box, type the name of the knowledge base you want to use as context, then click the knowledge base in the list of search results.
-
-1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
-
-1. At the bottom of the response, {% data variables.product.prodname_copilot_short %} provides links to the source documentation for additional context.
+   You can click the **_n_ references** link at the top of the response to see the sources that {% data variables.product.prodname_copilot_short %} used to answer your question.
 
 1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detach the knowledge base or select a different one.
 
@@ -240,33 +225,11 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
      ![Screenshot of the {% data variables.product.prodname_copilot_short %} buttons, highlighted with a dark orange outline, to the right of some selected code.](/assets/images/help/copilot/copilot-buttons-inline-code.png)
 
-1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>.
+1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, type a question in the prompt box at the bottom of the chat panel and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
    ![Screenshot of a response to the question "What does the function at the selected lines do?"](/assets/images/help/copilot/copilot-sample-chat-response.png)
-
-## Asking questions about alerts from {% data variables.product.prodname_GHAS %} products
-
-{% data variables.product.prodname_copilot_short %} allows you to use natural language questions to ask about security alerts in repositories in your organization when these alerts are generated by {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}).
-
-1. At the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon and click **Immersive** in the dropdown menu.
-
-   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
-
-1. To select a repository for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Repositories".
-
-   ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
-
-1. In the "Search repositories" box, type the name of the repository you want to ask about, then click the repository in the list of search results.
-
-1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
-
-   <a id="repo-indexing-note"></a>
-
-   > [!TIP]
-   >
-   > {% data reusables.copilot.semantic-index-info %}
 
 ## Asking questions about a specific pull request
 
@@ -277,14 +240,14 @@ You can ask {% data variables.product.prodname_copilot_short %} different questi
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 {% data reusables.copilot.open-chat-panel %}
 {% data reusables.copilot.chat-previous-conversation %}
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, in the prompt box, type a question and press <kbd>Enter</kbd>.
 
 ### Ask about changes to a specific file in a pull request
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Click the **Files changed** tab.
 1. Click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
-1. Type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>.
+1. Type a question in the prompt box at the bottom of the chat panel and press <kbd>Enter</kbd>.
 
 ### Ask about specific lines within a file in a pull request
 
@@ -301,9 +264,9 @@ You can ask {% data variables.product.prodname_copilot_short %} different questi
 1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
 {% data reusables.copilot.open-chat-panel %}
 {% data reusables.copilot.chat-previous-conversation %}
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, ask {% data variables.product.prodname_copilot_short %} why the pull request has failed and press <kbd>Enter</kbd>.
+1. At the bottom of the {% data variables.copilot.copilot_chat_short %} panel, in the prompt box, ask {% data variables.product.prodname_copilot_short %} why the pull request has failed and press <kbd>Enter</kbd>.
 
-{% data variables.product.prodname_copilot_short %} will respond with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
+   {% data variables.product.prodname_copilot_short %} responds with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
 
 1. If {% data variables.product.prodname_copilot_short %} has provided steps to fix the issue, you can follow the steps to resolve the problem.
 
@@ -316,7 +279,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 1. Navigate to an issue or discussion on {% data variables.product.github %}.
 {% data reusables.copilot.open-chat-panel %}
 {% data reusables.copilot.chat-previous-conversation %}
-1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the prompt box, type a question and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
@@ -329,7 +292,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 1. Navigate to a commit on {% data variables.product.github %}.
 {% data reusables.copilot.open-chat-panel %}
 {% data reusables.copilot.chat-previous-conversation %}
-1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the prompt box, type a question and press <kbd>Enter</kbd>.
 
    > [!TIP]
    > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.github %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`
@@ -395,11 +358,14 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 You can access {% data variables.product.prodname_copilot_short %}'s immersive view from the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit https://github.com while logged in.
 
 1. Go to the dashboard at [https://github.com](https://github.com).
-1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
    ![Screenshot of the dashboard with the "Ask Copilot" box highlighted with an orange outline.](/assets/images/help/copilot/copilot-chat-dashboard.png)
 
-   You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} will respond to your request.
+   You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} responds to your request.
+
+> [!NOTE]
+> If you don't see the {% data variables.copilot.copilot_chat_short %} prompt box on your dashboard, check that **Dashboard entry point** in enabled in your {% data variables.product.prodname_copilot %} settings.
 
 ## Extending {% data variables.copilot.copilot_chat_dotcom_short %}
 
@@ -413,9 +379,9 @@ You can share {% data variables.copilot.copilot_chat_short %} conversations from
 
 Once you share a conversation, the conversation and future messages will be visible to anyone with the link.
 
-1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-1. To view a conversation in immersive mode, click **{% octicon "screen-full" aria-hidden="true" aria-label="screen-full" %} Immersive**.
-1. Once you submit your first prompt, a share button will appear in the upper right corner. Click **{% octicon "lock" aria-hidden="true" aria-label="lock" %} Share** to open the share dialog.
+{% data reusables.copilot.immersive-mode-instructions %}
+1. After you submit your first prompt, a share button is displayed in the upper right corner.
+1. Click **{% octicon "lock" aria-hidden="true" aria-label="lock" %} Share** to open the share dialog.
 
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The share button is highlighted with an orange outline.](/assets/images/help/copilot/chat-share-button.png)
 
@@ -432,5 +398,6 @@ To give feedback about {% data variables.copilot.copilot_chat_short %} in genera
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide).
-* [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile).
+* [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)
+* [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile)
+* [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase)
