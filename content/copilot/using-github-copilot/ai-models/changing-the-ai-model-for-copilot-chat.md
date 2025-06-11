@@ -49,7 +49,7 @@ For more information about these models, see [AUTOTITLE](/copilot/using-github-c
 
 Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 
-## Changing your AI model
+## Changing the AI model
 
 These instructions are for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For instructions on different clients, click the appropriate tab at the top of this page.
 
@@ -94,9 +94,9 @@ The following models are currently available through multi-model {% data variabl
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-## Changing your AI model
+## Changing the AI model
 
-These instructions are for {% data variables.product.prodname_vscode_shortname %}. For instructions on different clients, click the appropriate tab at the top of this page.
+These instructions are for {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -128,7 +128,7 @@ The following models are currently available through multi-model {% data variabl
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-## Changing the AI model for {% data variables.copilot.copilot_chat_short %}
+## Changing the AI model
 
 These instructions are for {% data variables.product.prodname_vs %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
@@ -168,7 +168,7 @@ The following models are currently available through multi-model {% data variabl
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-## Changing the AI model for {% data variables.copilot.copilot_chat_short %}
+## Changing the AI model
 
 These instructions are for the JetBrains IDEs. For instructions on different clients, click the appropriate tab at the top of this page.
 
@@ -178,7 +178,7 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open {% data variables.copilot.copilot_chat %}**.
-1. In the bottom right of the chat view, select an AI model of your choice from the {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu.
+1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
 {% endjetbrains %}
 
@@ -207,7 +207,7 @@ The following models are currently available through multi-model {% data variabl
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-## Changing the AI model for {% data variables.copilot.copilot_chat_short %}
+## Changing the AI model
 
 These instructions are for the Eclipse IDE. For instructions on different clients, click the appropriate tab at the top of this page.
 
@@ -246,7 +246,7 @@ The following models are currently available through multi-model {% data variabl
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-## Changing the AI model for {% data variables.copilot.copilot_chat_short %}
+## Changing the AI model
 
 These instructions are for Xcode. For instructions on different clients, click the appropriate tab at the top of this page.
 

@@ -47,59 +47,52 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
-Once you establish a trust relationship between {% data variables.product.prodname_actions %} and the JFrog platform, you can update your {% data variables.product.prodname_actions %} workflow file.
+### Authenticating with JFrog using OIDC
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
-The following example uses the placeholder `YOUR_PROVIDER_NAME`.
+The following example uses the placeholders `YOUR_PROVIDER_NAME` and `YOUR_AUDIENCE`.
 
 ```yaml
-- name: Fetch Access Token from Artifactory
-        id: fetch_access_token
-        env:
-          ID_TOKEN: ${{ steps.idtoken.outputs.id_token }}
-        run: |
-          ACCESS_TOKEN=$(curl \
-          -X POST \
-          -H "Content-type: application/json" \
-          https://example.jfrog.io/access/api/v1/oidc/token \
-          -d \
-          "{\"grant_type\": \"urn:ietf:params:oauth:grant-type:token-exchange\", \"subject_token_type\":\"urn:ietf:params:oauth:token-type:id_token\", \"subject_token\": \"$ID_TOKEN\", \"provider_name\": \"YOUR_PROVIDER_NAME\"}" | jq .access_token | tr -d '"')
-          echo ACCESS_TOKEN=$ACCESS_TOKEN >> $GITHUB_OUTPUT
-```
+permissions:
+  id-token: write
+  contents: read
 
-The following example shows part of a {% data variables.product.prodname_actions %} workflow file using cURL.
-
-```yaml
-- name: Get ID Token (cURL method)
-        id: idtoken
-        run: |
-          ID_TOKEN=$(curl -sLS -H "User-Agent: actions/oidc-client" -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-          "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=jfrog-github" | jq .value | tr -d '"')
-          echo "ID_TOKEN=${ID_TOKEN}" >> $GITHUB_OUTPUT
-```
-
-Alternatively, you can set the audience as an environment variable using the `env` context. For more information about the `env` context, see [AUTOTITLE](/actions/learn-github-actions/contexts#env-context).
-
-{% data reusables.actions.oidc-deployment-protection-rules %}
-
-```yaml
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      OIDC_AUDIENCE: 'YOUR_AUDIENCE'
+    steps:
+      - name: Set up JFrog CLI with OIDC
+        id: setup-jfrog-cli
+        uses: jfrog/setup-jfrog-cli@29fa5190a4123350e81e2a2e8d803b2a27fed15e
+        with:
+          JF_URL: ${{ env.JF_URL }}
+          oidc-provider-name: 'YOUR_PROVIDER_NAME' 
+          oidc-audience: 'YOUR_AUDIENCE' # This is optional
+
+      - name: Upload artifact
+        run: jf rt upload "dist/*.zip" my-repo/
+
 ```
 
-Then, in your workflow file, retrieve the value of the variables stored in the `env` context. The following example uses the `env` context to retrieve the OIDC audience.
+> [!TIP]
+> When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides `oidc-user` and `oidc-token` as step outputs.
+> These can be used for other integrations that require authentication with JFrog.
+> To reference these outputs, ensure the step has an explicit `id` defined (for example `id: setup-jfrog-cli`).
 
+### Using OIDC Credentials in other steps
 ```yaml
-- name: Get ID Token (using env context)
-        uses: {% data reusables.actions.action-github-script %}
-        id: idtoken
+      - name: Sign in to Artifactory Docker registry
+        uses: docker/login-action@v3
         with:
-          script: |
-            const coredemo = require('@actions/core');
-            let id_token = await coredemo.getIDToken(process.env.OIDC_AUDIENCE);
-            coredemo.setOutput('id_token', id_token);
+          registry: ${{ env.JF_URL }}
+          username: ${{ steps.setup-jfrog-cli.outputs.oidc-user }}
+          password: ${{ steps.setup-jfrog-cli.outputs.oidc-token }}
+```
+
+## Further reading
+
+- [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation
+- [Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings) in the JFrog documentation
+- [AUTOTITLE](actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 ```

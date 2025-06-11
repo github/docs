@@ -37,7 +37,7 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'search-overlay-ask-ai',
   // The drop-downs on "Webhook events and payloads"
   'actionType',
-  // Used by the tracking middleware
+  // Legacy domain tracking parameter (no longer processed but still recognized)
   'ghdomain',
   // UTM campaign tracking
   'utm_source',

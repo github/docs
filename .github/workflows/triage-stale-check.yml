@@ -48,6 +48,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'
+          days-before-issue-stale: -1
           days-before-pr-stale: 14
           days-before-pr-close: -1 # Never close
           remove-stale-when-updated: false
