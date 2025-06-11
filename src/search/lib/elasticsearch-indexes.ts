@@ -15,10 +15,9 @@ export type SearchIndex = {
 
 /* Elasticsearch uses indexes to group categories of data
 
-  We currently have 3 top-level categories of indexes:
+  We currently have 2 top-level categories of indexes:
     1. General search: This is populated using data from all of our Docs pages
-    2. General autocomplete: This is populated using analytics search history in docs-internal-data
-    3. AI autocomplete: This is populated with human-readable questions using a GPT query in docs-internal-data
+    2. AI autocomplete: This is populated with human-readable questions using a GPT query in docs-internal-data
 
   This file is intended to be the source of truth for Docs Elasticsearch indexes.
 
@@ -33,10 +32,6 @@ const indexes: SearchIndexes = {
   generalSearch: {
     prefix,
     type: 'general-search',
-  },
-  generalAutocomplete: {
-    prefix,
-    type: 'general-autocomplete',
   },
   aiSearchAutocomplete: {
     prefix,
