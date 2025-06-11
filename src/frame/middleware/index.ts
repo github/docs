@@ -250,7 +250,7 @@ export default function (app: Express) {
 
   // Specifically deal with HEAD requests before doing the slower
   // full page rendering.
-  app.head('/*', fastHead)
+  app.head('/*path', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(secretScanning))
@@ -282,7 +282,7 @@ export default function (app: Express) {
   app.use(haltOnDroppedConnection)
 
   // *** Rendering, must go almost last ***
-  app.get('/*', asyncMiddleware(renderPage))
+  app.get('/*path', asyncMiddleware(renderPage))
 
   // *** Error handling, must go last ***
   app.use(handleErrors)

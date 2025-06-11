@@ -12,7 +12,8 @@ export default function fastHead(req: ExtendedRequest, res: Response, next: Next
     // this and allow the CDN to hold on to it.
     defaultCacheControl(res)
 
-    return res.status(200).send('')
+    res.status(200).send('')
+    return
   }
   next()
 }
