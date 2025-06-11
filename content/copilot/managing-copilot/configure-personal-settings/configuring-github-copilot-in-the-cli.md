@@ -1,7 +1,7 @@
 ---
 title: Configuring GitHub Copilot in the CLI
 shortTitle: Configure in the CLI
-intro: 'Learn how to configure settings and set up aliases for {% data variables.product.prodname_copilot_cli_short %}.'
+intro: 'Learn how to configure settings and set up aliases for {% data variables.copilot.copilot_cli_short %}.'
 versions:
   feature: copilot-in-the-cli
 topics:
@@ -13,9 +13,9 @@ redirect_from:
 
 ## Setting up aliases
 
-You can create aliases for {% data variables.product.prodname_copilot_cli_short %} to reduce keystrokes, and to allow {% data variables.product.prodname_copilot_cli_short %} to execute commands on your behalf.
+You can create aliases for {% data variables.copilot.copilot_cli_short %} to reduce keystrokes, and to allow {% data variables.copilot.copilot_cli_short %} to execute commands on your behalf.
 
-To allow {% data variables.product.prodname_copilot_cli_short %} to execute commands, you must run the following commands to create the aliases (as opposed to creating an alias like you would for another shell command).
+To allow {% data variables.copilot.copilot_cli_short %} to execute commands, you must run the following commands to create the aliases (as opposed to creating an alias like you would for another shell command).
 
 After executing the following commands to create the aliases, you can run `ghcs` and `ghce` instead of `gh copilot suggest` and `gh copilot explain`.
 
@@ -41,7 +41,7 @@ echo 'eval "$(gh copilot alias -- zsh)"' >> ~/.zshrc
 
 ## Changing the default execution confirmation
 
-When you use the `ghcs` alias and you select **Execute command**, {% data variables.product.prodname_copilot_cli_short %} will ask for confirmation before executing the command. You can change the default confirmation.
+When you use the `ghcs` alias and you select **Execute command**, {% data variables.copilot.copilot_cli_short %} will ask for confirmation before executing the command. You can change the default confirmation.
 
 1. Execute the following command:
 
@@ -54,7 +54,7 @@ When you use the `ghcs` alias and you select **Execute command**, {% data variab
 
 ## Changing usage analytics
 
-Unless you opt out, {% data variables.product.prodname_copilot_cli_short %} will send a payload in the format below to the analytics system. This data helps improve the product. {% data variables.product.company_short %} does not look at the data of specific individuals or at specific queries.
+Unless you opt out, {% data variables.copilot.copilot_cli_short %} will send a payload in the format below to the analytics system. This data helps improve the product. {% data variables.product.company_short %} does not look at the data of specific individuals or at specific queries.
 
 ```json
 {

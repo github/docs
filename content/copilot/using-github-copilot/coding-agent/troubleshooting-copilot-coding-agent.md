@@ -18,16 +18,16 @@ redirect_from:
 
 ## {% data variables.product.prodname_copilot_short %} is not available in the "Assignees" list on my issue
 
-You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through either the **{% data variables.product.prodname_copilot_pro_plus %}** plan or the **{% data variables.product.prodname_copilot_enterprise %}** plan.
+You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through either the **{% data variables.copilot.copilot_pro_plus %}** plan or the **{% data variables.copilot.copilot_enterprise %}** plan.
 
 If you do not already have a subscription for one of these plans, click this button for more information:<br>
 <a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=troubleshooting+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-If you _do_ have either {% data variables.product.prodname_copilot_pro_plus %} or {% data variables.product.prodname_copilot_enterprise %}, check that {% data variables.copilot.copilot_coding_agent %} {% ifversion ghec %}is enabled and{% endif %} has been made available for the repository:
+If you _do_ have either {% data variables.copilot.copilot_pro_plus %} or {% data variables.copilot.copilot_enterprise %}, check that {% data variables.copilot.copilot_coding_agent %} {% ifversion ghec %}is enabled and{% endif %} has been made available for the repository:
 
 {% ifversion ghec %}
 
-* If you are on the {% data variables.product.prodname_copilot_enterprise_short %} plan, your ability to use {% data variables.copilot.copilot_coding_agent %} is controlled at the enterprise level. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/adding-copilot-coding-agent-to-enterprise).
+* If you are on the {% data variables.copilot.copilot_enterprise_short %} plan, your ability to use {% data variables.copilot.copilot_coding_agent %} is controlled at the enterprise level. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/adding-copilot-coding-agent-to-enterprise).
 
 {% endif %}
 
@@ -38,7 +38,7 @@ If you _do_ have either {% data variables.product.prodname_copilot_pro_plus %} o
 > [!NOTE]
 > You can check whether {% data variables.copilot.copilot_coding_agent %} has been enabled for you in the features page of your {% data variables.product.prodname_copilot_short %} settings: [github.com/settings/copilot/features](https://github.com/settings/copilot/features).
 
-## {% data variables.product.prodname_copilot_short %} can't create a pull request from {% data variables.product.prodname_copilot_chat_short %}
+## {% data variables.product.prodname_copilot_short %} can't create a pull request from {% data variables.copilot.copilot_chat_short %}
 
 If you asked {% data variables.product.prodname_copilot_short %} to create a pull request and it responds that it cannot directly create a pull request, check that {% data variables.copilot.copilot_coding_agent %} is available.
 
@@ -75,7 +75,7 @@ If {% data variables.product.prodname_copilot_short %} got stuck while respondin
 
 {% data variables.product.prodname_actions %} workflows will not run automatically when {% data variables.product.prodname_copilot_short %} pushes changes to a pull request.
 
-To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
+To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
 
 ## {% data variables.product.prodname_copilot_short %} is pushing changes which don't pass my CI checks
 

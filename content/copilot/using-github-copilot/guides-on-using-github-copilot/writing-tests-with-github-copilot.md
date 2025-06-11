@@ -21,9 +21,9 @@ Before getting started you must have the following:
 * {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, or any JetBrains IDE.
 * The [{% data variables.product.prodname_copilot %} extension](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment) installed in your IDE.
 
-## Writing unit tests with {% data variables.product.prodname_copilot_chat_short %}
+## Writing unit tests with {% data variables.copilot.copilot_chat_short %}
 
-In this section, we’ll explore how to use {% data variables.product.prodname_copilot_chat %} to generate unit tests for a Python class. This example demonstrates how you can use {% data variables.product.prodname_copilot_short %} to create unit tests for a class like `BankAccount`. We will show you how to prompt {% data variables.product.prodname_copilot_short %} to generate tests, execute them, and verify the results.
+In this section, we’ll explore how to use {% data variables.copilot.copilot_chat %} to generate unit tests for a Python class. This example demonstrates how you can use {% data variables.product.prodname_copilot_short %} to create unit tests for a class like `BankAccount`. We will show you how to prompt {% data variables.product.prodname_copilot_short %} to generate tests, execute them, and verify the results.
 
 ### Example class: `BankAccount`
 
@@ -52,7 +52,7 @@ class BankAccount:
         return self.balance
 ```
 
-### Generating unit tests with {% data variables.product.prodname_copilot_chat_short %}
+### Generating unit tests with {% data variables.copilot.copilot_chat_short %}
 
 You can prompt Copilot with a request to write tests that cover a range of scenarios. Be specific with your test requirements to get the best results. The following is an example prompt you can use to generate unit tests for the `BankAccount` class.
 
@@ -315,9 +315,9 @@ Once Copilot has generated the test suite to your satisfaction, run the tests wi
 python -m unittest test_bank_account_integration.py
 ```
 
-## Using {% data variables.product.prodname_copilot_spaces %} to improve test suggestions
+## Using {% data variables.copilot.copilot_spaces %} to improve test suggestions
 
-{% data variables.product.prodname_copilot_spaces %} is a feature that allows you to organize and share task-specific context with {% data variables.product.prodname_copilot_short %}. This can help improve the relevance of the suggestions you receive. By providing {% data variables.product.prodname_copilot_short %} with more context about your project, you can get better test suggestions.
+{% data variables.copilot.copilot_spaces %} is a feature that allows you to organize and share task-specific context with {% data variables.product.prodname_copilot_short %}. This can help improve the relevance of the suggestions you receive. By providing {% data variables.product.prodname_copilot_short %} with more context about your project, you can get better test suggestions.
 
 For example, you could create a space that includes:
 
@@ -333,4 +333,4 @@ Or:
 
 > Write a unit test for the refund logic in `refund.js`, following the structure in the existing test suite.
 
-For more information about using {% data variables.product.prodname_copilot_spaces %}, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+For more information about using {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).

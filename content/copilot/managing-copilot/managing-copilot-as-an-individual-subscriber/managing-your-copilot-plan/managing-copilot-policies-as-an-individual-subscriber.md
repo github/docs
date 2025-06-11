@@ -2,7 +2,7 @@
 title: Managing Copilot policies as an individual subscriber
 shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
-product: '{% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_pro_plus_short %}, and {% data variables.product.prodname_copilot_free_short %}'
+product: '{% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, and {% data variables.copilot.copilot_free_short %}'
 topics:
   - Copilot
 versions:
@@ -32,7 +32,7 @@ If you choose to allow suggestions matching public code, when {% data variables.
 
 ## Enabling or disabling {% data variables.copilot.copilot_coding_agent %}
 
-{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.product.prodname_copilot_chat_short %}.
+{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.copilot.copilot_chat_short %}.
 
 > [!NOTE]
 > * {% data reusables.gated-features.copilot-coding-agent %}
@@ -66,9 +66,9 @@ You can choose whether to allow the following AI models to be used as an alterna
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of the model name, select the dropdown menu, then click **Enabled** or **Disabled**.
 
-## Enabling or disabling web search for {% data variables.product.prodname_copilot_chat %}
+## Enabling or disabling web search for {% data variables.copilot.copilot_chat %}
 
-You can enable web search for {% data variables.product.prodname_copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.product.prodname_copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
+You can enable web search for {% data variables.copilot.copilot_chat %}. This setting is disabled by default. If you enable this setting, {% data variables.copilot.copilot_chat_short %} will use Bing to search the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
 
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **{% data variables.product.prodname_copilot_short %} access to Bing**, select the dropdown menu, and then click **Enabled** or **Disabled**.

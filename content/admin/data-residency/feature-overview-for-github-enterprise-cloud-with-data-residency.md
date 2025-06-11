@@ -26,9 +26,9 @@ The following features are currently unavailable on {% data variables.enterprise
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
 | {% data variables.product.prodname_importer %} (the "Import repository" button on {% data variables.product.prodname_dotcom_the_website %}) | Instead, the **{% data variables.product.prodname_importer_proper_name %}** is available to migrate data. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer). | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
 | {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | N/A |
-| {% data variables.product.prodname_copilot_extensions %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat) |
+| {% data variables.copilot.copilot_extensions %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat) |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable | [AUTOTITLE](/rest/copilot/copilot-metrics) |
-| {% data variables.product.prodname_copilot_agent %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) |
+| {% data variables.copilot.copilot_coding_agent %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) |
 | Restricting {% data variables.product.prodname_actions %} policies to verified creators | Currently unavailable | [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allow-enterprise-and-select-non-enterprise-actions-and-reusable-workflows) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} | |
 
@@ -82,6 +82,7 @@ To allow people to use namespaces that match actions you have used from {% data 
 You can use {% data variables.product.prodname_github_connect %} to connect to {% data variables.enterprise.data_residency_site %} from {% data variables.product.prodname_ghe_server %}.
 
 * {% data variables.product.prodname_server_statistics %} is not available.
+* {% data variables.product.prodname_dotcom_the_website %} actions are not available.
 * Automatic user license sync requires {% data variables.product.prodname_ghe_server %} version 3.15 or later.
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure your {% data variables.product.prodname_ghe_server %} instance to connect to your {% data variables.enterprise.data_residency_site %} subdomain. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom).

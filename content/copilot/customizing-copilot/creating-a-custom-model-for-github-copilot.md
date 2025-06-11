@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot
 ---
 
-> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.product.prodname_copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).
+> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.copilot.copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).
 
 ## Prerequisite
 
@@ -22,8 +22,8 @@ The code on which you want to train a custom model must be hosted in repositorie
 ## Limitations
 
 * For the {% data variables.release-phases.public_preview %}, an enterprise can deploy one custom model in a single organization.
-* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} plan from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
-* The custom model is not used for code suggested in responses by {% data variables.product.prodname_copilot_chat %}.
+* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
+* The custom model is not used for code suggested in responses by {% data variables.copilot.copilot_chat %}.
 
 ## About {% data variables.product.prodname_copilot_short %} custom models
 
@@ -55,7 +55,7 @@ If model creation fails, {% data variables.product.prodname_copilot_short %} wil
 
 ### About model usage
 
-As soon as the custom model is successfully created, all managed users in your enterprise who get {% data variables.product.prodname_copilot_enterprise_short %} access from the organization in which the custom model is deployed will start to see {% data variables.product.prodname_copilot_short %} code completion suggestions that are generated using the custom model. The custom model will always be used for any code these users edit, irrespective of where the code resides. Users cannot choose which model is used to generate the code completion suggestions they see.
+As soon as the custom model is successfully created, all managed users in your enterprise who get {% data variables.copilot.copilot_enterprise_short %} access from the organization in which the custom model is deployed will start to see {% data variables.product.prodname_copilot_short %} code completion suggestions that are generated using the custom model. The custom model will always be used for any code these users edit, irrespective of where the code resides. Users cannot choose which model is used to generate the code completion suggestions they see.
 
 ## When you can benefit from a custom model
 
@@ -125,7 +125,7 @@ Retraining the model updates it to include any new code that has been added to t
 1. Go to your organization's settings for {% data variables.product.prodname_copilot_short %} custom models. See [Creating a custom model](#creating-a-custom-model) above.
 1. On the model training page, click the first ellipsis button (**...**), then click either **Retrain model** or **Delete model**.
 
-If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} plan from the organization.
+If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization.
 
 If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the base model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
 

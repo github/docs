@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Arbitrary file access during archive extraction ("Zip Slip")](https://codeql.github.com/codeql-query-help/javascript/js-zipslip/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/javascript/js-bad-tag-filter/) | 020, 080, 116, 184, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

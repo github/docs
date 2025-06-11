@@ -28,8 +28,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to start working
 You can assign an issue to {% data variables.product.prodname_copilot_short %}:
 
 * On {% data variables.product.prodname_dotcom_the_website %} (see the [next section](#assigning-an-issue-to-copilot-on-githubcom))
+* On [{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)
 * Via the {% data variables.product.github %} API (see [later in this article](#assigning-an-issue-to-copilot-via-the-github-api))
-* From the beta version of {% data variables.product.prodname_mobile %} ([Join iOS TestFlight](https://testflight.apple.com/join/NLskzwi5) or [Join Google Play Beta](https://play.google.com/apps/testing/com.github.android))
 * Using {% data variables.product.prodname_cli %} (see [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit))
 
 ### Assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}

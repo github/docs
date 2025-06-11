@@ -29,12 +29,13 @@ This solution supports both Maven and Gradle build tools and facilitates upgrade
 
 Before getting started you must have the following:
 
-* Either a **{% data variables.product.prodname_copilot_for_business %}** or **{% data variables.product.prodname_copilot_enterprise %}** [subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Either a **{% data variables.copilot.copilot_for_business %}** or **{% data variables.copilot.copilot_enterprise %}** [subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 * The latest version of [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/).
 * The "GitHub Copilot app modernization – upgrade for Java (preview)" extension installed in {% data variables.product.prodname_vscode %}.
 * Installed versions of both the source and target JDKs.
 * A Git-based Java project using Maven or Gradle.
 * For Maven-based projects, access to the public Maven Central repository.
+* Make sure `chat.extensionTools.enabled` is set to `true` in your {% data variables.product.prodname_vscode %} settings. This setting might be controlled by your organization.
 
 >[!NOTE] For Gradle projects, only wrapper-based builds (Gradle v5+) are supported. Projects using Kotlin DSL are not currently supported.
 
@@ -49,11 +50,11 @@ To get started, you'll need to install the “GitHub Copilot app modernization �
 1. Search for “GitHub Copilot app modernization – upgrade for Java (preview)” and click “Download”.
 1. Restart {% data variables.product.prodname_vscode %}.
 
-### 2. Use {% data variables.product.prodname_copilot_chat %} in agent mode and generate the upgrade plan
+### 2. Use {% data variables.copilot.copilot_chat %} in agent mode and generate the upgrade plan
 
 Now you have the extension, you can continue to use {% data variables.product.prodname_copilot %} in agent mode and create a plan for your upgrade.
 
-1. In {% data variables.product.prodname_vscode %}, open the {% data variables.product.prodname_copilot_chat %} panel.
+1. In {% data variables.product.prodname_vscode %}, open the {% data variables.copilot.copilot_chat %} panel.
 1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
 1. Enter a prompt describing the upgrade path you need. For example:
 

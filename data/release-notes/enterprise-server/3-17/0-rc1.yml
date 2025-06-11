@@ -1,6 +1,6 @@
 date: '2025-05-13'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
   >
@@ -146,7 +146,7 @@ sections:
         - |
           Verified commits are attached to persistent verification records, allowing users to identify the first actor to introduce a commit to a repository. Users can rotate, expire, or revoke their signing key without impacting existing verifications.
 
-          Verification records consume approximately 80 bytes on disk per signed commit. To limit data growth on large instances, site administrators can run `ghe-config app.persist-commit-signature-verification.enabled false` to disable persistent records.
+          Verification records consume approximately 80 bytes on disk per signed commit. To limit data growth on large instances, site administrators can run `ghe-config app.persist-commit-signature-verification.enabled false` to disable persistent records. See [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
 
     - heading: GitHub Mobile
       notes:

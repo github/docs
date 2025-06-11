@@ -2187,6 +2187,24 @@
   ],
   "dependabot": [
     {
+      "slug": "lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "subcategory": "repository-access",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/dependabot/repository-access"
+    },
+    {
+      "slug": "updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "subcategory": "repository-access",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/dependabot/repository-access"
+    },
+    {
+      "slug": "set-the-default-repository-access-level-for-dependabot",
+      "subcategory": "repository-access",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/dependabot/repository-access/default-level"
+    },
+    {
       "slug": "list-dependabot-alerts-for-an-organization",
       "subcategory": "alerts",
       "verb": "get",

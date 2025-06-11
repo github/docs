@@ -1,7 +1,7 @@
 ---
 title: 'Analyzing and incorporating user feedback'
 shortTitle: Incorporate feedback
-intro: '{% data variables.product.prodname_copilot_chat_short %} can enhance the process of incorporating user feedback into your project.'
+intro: '{% data variables.copilot.copilot_chat_short %} can enhance the process of incorporating user feedback into your project.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/functionality-analysis-and-feature-suggestions/analyzing-and-incorporating-user-feedback
 versions:
@@ -70,7 +70,7 @@ In this scenario, you've chosen a piece of user feedback to address. Someone req
 
 ### Example prompt
 
-This example assumes you are asking about an issue in the same repository where you are using {% data variables.product.prodname_copilot_chat_short %}.
+This example assumes you are asking about an issue in the same repository where you are using {% data variables.copilot.copilot_chat_short %}.
 
 `Write a feature specification for Issue #426.`
 

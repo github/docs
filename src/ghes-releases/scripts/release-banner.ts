@@ -7,7 +7,7 @@
 import fs from 'fs/promises'
 import { program } from 'commander'
 
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
 
 const releaseCandidateJSFile = 'src/versions/lib/enterprise-server-releases.js'
 const allowedActions = ['create', 'remove'] as const

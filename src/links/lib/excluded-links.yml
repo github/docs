@@ -16,10 +16,12 @@
 - startsWith: https://github.com/github/docs/edit
 - startsWith: https://github.com/github/insights-releases/releases/latest
 - startsWith: https://classroom.github.com/videos
+- startsWith: https://developer.anthology.com/portal
 
 # Oneoff links that link checkers think are broken but are not.
 - is: https://haveibeenpwned.com/
 - is: https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029
+- is: https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf
 - is: https://www.linkedin.com/company/github
 - is: https://www.facebook.com/
 - is: https://ko-fi.com/

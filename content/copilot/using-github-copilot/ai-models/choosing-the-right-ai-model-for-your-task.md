@@ -1,7 +1,7 @@
 ---
 title: Choosing the right AI model for your task
 shortTitle: 'Choose the right AI model'
-intro: 'Compare available AI models in {% data variables.product.prodname_copilot_chat_short %} and choose the best model for your task.'
+intro: 'Compare available AI models in {% data variables.copilot.copilot_chat_short %} and choose the best model for your task.'
 versions:
   feature: copilot
 topics:
@@ -10,7 +10,7 @@ topics:
 
 ## Comparison of AI models for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.product.prodname_copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
+{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
 
 This article helps you compare the available models, understand the strengths of each model, and choose the model that best fits your task. For guidance across different models using real-world tasks, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
 
@@ -29,8 +29,8 @@ You can click a model name in the list below to jump to a detailed overview of i
 * [{% data variables.copilot.copilot_o3 %}](#o3)
 * [{% data variables.copilot.copilot_o3_mini %}](#o3-mini)
 * [{% data variables.copilot.copilot_o4_mini %}](#o4-mini)
-* [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-35-sonnet)
-* [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-37-sonnet)
+* [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-sonnet-35)
+* [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-sonnet-37)
 * [{% data variables.copilot.copilot_claude_sonnet_40 %}](#claude-sonnet-4)
 * [{% data variables.copilot.copilot_claude_opus %}](#claude-opus-4)
 * [{% data variables.copilot.copilot_gemini_flash %}](#gemini-20-flash)
@@ -73,7 +73,7 @@ The following table summarizes the strengths of {% data variables.copilot.copilo
 
 ## {% data variables.copilot.copilot_gpt_4o %}
 
-OpenAI {% data variables.copilot.copilot_gpt_4o %} is a multimodal model that supports text and images. It responds in real time and works well for lightweight development tasks and conversational prompts in {% data variables.product.prodname_copilot_chat_short %}.
+OpenAI {% data variables.copilot.copilot_gpt_4o %} is a multimodal model that supports text and images. It responds in real time and works well for lightweight development tasks and conversational prompts in {% data variables.copilot.copilot_chat_short %}.
 
 Compared to previous models, {% data variables.copilot.copilot_gpt_4o %} improves performance in multilingual contexts and demonstrates stronger capabilities when interpreting visual content. It delivers GPT-4 Turbo–level performance with lower latency and cost, making it a good default choice for many common developer tasks.
 
@@ -117,7 +117,7 @@ The following table summarizes when an alternative model may be a better choice:
 ## GPT-4.5
 
 > [!NOTE]
-> GPT-4.5 in {% data variables.product.prodname_copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+> GPT-4.5 in {% data variables.copilot.copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 OpenAI GPT-4.5 improves reasoning, reliability, and contextual understanding. It works well for development tasks that involve complex logic, high-quality code generation, or interpreting nuanced intent.
 
@@ -413,7 +413,7 @@ For more information on using Claude in {% data variables.product.prodname_copil
 
 ## {% data variables.copilot.copilot_gemini_flash %}
 
-{% data variables.copilot.copilot_gemini_flash %} is Google’s high-speed, multimodal model optimized for real-time, interactive applications that benefit from visual input and agentic reasoning. In {% data variables.product.prodname_copilot_chat_short %}, {% data variables.copilot.copilot_gemini_flash %} enables fast responses and cross-modal understanding.
+{% data variables.copilot.copilot_gemini_flash %} is Google’s high-speed, multimodal model optimized for real-time, interactive applications that benefit from visual input and agentic reasoning. In {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_gemini_flash %} enables fast responses and cross-modal understanding.
 
 For more information about {% data variables.copilot.copilot_gemini_flash %}, see [Google's documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash).
 For more information on using {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).

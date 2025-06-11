@@ -1,7 +1,7 @@
 ---
 title: Translating code to a different programming language
 shortTitle: Translate code
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help you rewrite code to perform the same operations but in a different programming language.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help you rewrite code to perform the same operations but in a different programming language.'
 versions:
   feature: copilot
 category:
@@ -75,7 +75,7 @@ print "The file '$file_path' contains $word_count words and $char_count characte
 
 {% data variables.product.prodname_copilot_short %} generates the following Typescript code.
 
-> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get a different response from the one shown here.
+> [!NOTE] {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get a different response from the one shown here.
 
 ```typescript copy
 import * as fs from 'fs';

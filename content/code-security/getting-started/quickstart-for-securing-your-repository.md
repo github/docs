@@ -116,7 +116,7 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 > {% data variables.product.prodname_code_security %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %}.
 {% endif %}
 
-{% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.product.prodname_copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
+{% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.copilot.copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.github %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
@@ -126,7 +126,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to automat
 1. To the right of "CodeQL analysis", select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.{% else %}
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.{% endif %}
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.{% ifversion code-scanning-autofix %}
-1. Choose whether you want to enable addition features, such as {% data variables.product.prodname_copilot_autofix_short %}.{% endif %}
+1. Choose whether you want to enable addition features, such as {% data variables.copilot.copilot_autofix_short %}.{% endif %}
 
 As an alternative to default setup, you can use advanced setup, which generates a workflow file you can edit to customize your {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
