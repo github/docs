@@ -15,22 +15,22 @@ The use of AI tools is increasingly becoming a standard part of a software devel
 {% data variables.product.github %}'s AI tools assist with every phase of the software development lifecycle (SDLC):
 
 * **Planning**:
-  * {% data variables.product.prodname_copilot_short %} can create issues to help track your ideas.
-  * {% data variables.copilot.copilot_chat_short %} can help you brainstorm and identify the best technologies for your project.
+  * **{% data variables.copilot.copilot_chat_short %}** can help you brainstorm and identify the best technologies for your project.
+  * **{% data variables.copilot.copilot_chat_short %}** can create issues to help track your ideas.
 * **Code creation**:
-  * {% data variables.product.prodname_copilot_short %} code completion helps add code as you type.
-  * {% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %}) predicts the next edit you are likely to make and suggests a completion for it.
-  * {% data variables.copilot.copilot_chat_short %} can answer questions and offer suggestions in a conversational environment.
-  * You can assign {% data variables.copilot.copilot_coding_agent %} to an open issue and it will automatically raise a pull request to address the necessary changes.
+  * **{% data variables.product.prodname_copilot_short %} code completion** helps add code as you type.
+  * **{% data variables.copilot.next_edit_suggestions_caps %}** ({% data variables.release-phases.public_preview %}) predicts the next edit you are likely to make and suggests a completion for it.
+  * **{% data variables.copilot.copilot_chat_short %}** can answer questions and offer suggestions in a conversational environment.
+  * You can assign **{% data variables.copilot.copilot_coding_agent %}** to an open issue and it will automatically raise a pull request to address the necessary changes.
 * **Reviews**:
-  * {% data variables.copilot.copilot_code-review_short %} gives you feedback in your favorite IDE, or as a pull request review on {% data variables.product.github %}.
+  * **{% data variables.copilot.copilot_code-review_short %}** gives you feedback in your favorite IDE, or as a pull request review on {% data variables.product.github %}.
 * **Testing**:
-  * {% data variables.copilot.copilot_chat_short %} can help you write and debug tests.
+  * **{% data variables.copilot.copilot_chat_short %}** can help you write and debug tests.
 * **Deployment**:
-  * {% data variables.copilot.copilot_chat_short %} can help you configure continuous integration and continuous deployment (CI/CD) pipelines.
+  * **{% data variables.copilot.copilot_chat_short %}** can help you configure continuous integration and continuous deployment (CI/CD) pipelines.
 * **Operation**:
-  * {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %}) can raise pull requests for open issues.
-  * {% data variables.copilot.copilot_chat_short %} can help with tasks you're working on yourself.
+  * **{% data variables.copilot.copilot_coding_agent %}** ({% data variables.release-phases.public_preview %}) can raise pull requests for open issues.
+  * **{% data variables.copilot.copilot_chat_short %}** can help with tasks you're working on yourself.
 
 ## Planning
 
