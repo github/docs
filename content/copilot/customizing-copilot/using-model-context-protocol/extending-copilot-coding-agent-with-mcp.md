@@ -9,6 +9,7 @@ topics:
   - Copilot
 type: how_to
 redirect_from:
+  - /copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp
   - /early-access/copilot/coding-agent/extending-copilot-coding-agent-with-model-context-protocol
 ---
 
@@ -275,6 +276,8 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 1. Click the `copilot` environment.
 1. Under "Environment secrets", click **Add environment secret**.
 1. Call the secret `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN`, enter your {% data variables.product.pat_generic %} in the "Value" field, then click **Add secret**.
+
+For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
 
 ## Best practices
 
