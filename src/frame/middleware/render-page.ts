@@ -108,7 +108,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     // It's important to not use `src/pages/404.txt` (or `/404` as the path)
     // here because then it will set the wrong Cache-Control header.
     tempReq.url = '/_notfound'
-    tempReq.path = '/_notfound'
+    Object.defineProperty(tempReq, 'path', { value: '/_notfound', writable: true })
     tempReq.cookies = {}
     tempReq.headers = {}
     // By default, since the lookup for a `src/pages/*.tsx` file will work,

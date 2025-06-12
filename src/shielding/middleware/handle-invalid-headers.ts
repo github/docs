@@ -22,7 +22,8 @@ export default function handleInvalidNextPaths(
     // The CDN will not cache if the status code is not a success
     // and not a 404.
 
-    return res.status(400).type('text').send('Invalid request headers')
+    res.status(400).type('text').send('Invalid request headers')
+    return
   }
 
   return next()

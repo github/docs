@@ -8,7 +8,8 @@ export default function buildInfo(req: Request, res: Response) {
   res.type('text/plain')
   noCacheControl(res)
   if (!BUILD_SHA) {
-    return res.status(404).send('Not known')
+    res.status(404).send('Not known')
+    return
   }
-  return res.send(`${BUILD_SHA}`)
+  res.send(`${BUILD_SHA}`)
 }

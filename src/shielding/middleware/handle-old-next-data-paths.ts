@@ -36,7 +36,8 @@ export default function handleOldNextDataPaths(
     const requestBuildId = req.path.split('/')[3]
     if (requestBuildId !== getCurrentBuildID()) {
       errorCacheControl(res)
-      return res.status(404).type('text').send('build ID mismatch')
+      res.status(404).type('text').send('build ID mismatch')
+      return
     }
   }
   return next()

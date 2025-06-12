@@ -71,7 +71,7 @@ Before you require use of two-factor authentication, we recommend notifying {% i
 
 ### Requiring secure methods of two-factor authentication in your organization
 
-Alongside requiring two-factor authentication, you can require that organization members, billing managers, and outside collaborators use secure methods of 2FA. Secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app. Users who do not have a secure method of 2FA configured, or who have any insecure method configured, will be prevented from accessing organization resources.
+Alongside requiring two-factor authentication, you can require that organization members, billing managers, and outside collaborators use secure methods of 2FA. Secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app. Users who do not have a secure method of 2FA configured, or who have any insecure method (such as SMS) configured, will be prevented from accessing organization resources.
 
 Before you require secure methods of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up secure 2FA for their accounts. You can see if members and outside collaborators already use secure methods of 2FA on each organization's People page. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 

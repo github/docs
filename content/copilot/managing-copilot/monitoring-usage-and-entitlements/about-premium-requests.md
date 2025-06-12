@@ -58,7 +58,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
 | {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
-| {% data variables.copilot.copilot_o3 %}                                 | 5                                                                            |
+| {% data variables.copilot.copilot_o3 %}                                 | 1                                                                            |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
 | {% data variables.copilot.copilot_o4_mini %}                            | 0.33                                                                         |
 
