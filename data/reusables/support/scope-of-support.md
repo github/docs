@@ -1,8 +1,7 @@
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
 * Third party integrations, such as Jira{% ifversion ghes %}
-* Hardware setup
-* Hypervisor-related issues, such as OS disk detection, network setup, boot failure, VM console access, etc{% endif %}
+* Hardware setup{% endif %}
 * CI/CD, such as Jenkins
 * Writing scripts
 * Configuration of external authentication systems, such as SAML identity providers
