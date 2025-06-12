@@ -92,6 +92,7 @@ For security updates, {% data variables.product.prodname_dependabot %} will only
 {% data variables.product.prodname_dependabot_security_updates %} may include compatibility scores to let you know whether updating a dependency could cause breaking changes to your project. These are calculated from CI tests in other public repositories where the same security update has been generated. An update's compatibility score is the percentage of CI runs that passed when updating between specific versions of the dependency.
 
 {% endif %}
+![1000101407](https://github.com/user-attachments/assets/b472f618-df21-4def-987f-bd3ab9599fe4)
 
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
