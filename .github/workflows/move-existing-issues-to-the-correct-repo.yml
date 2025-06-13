@@ -4,6 +4,73 @@ name: Move existing issues to correct docs repo
 # **Why we have it**: We don't want engineering or content issues in the docs-internal repo
 # **Who does it impact**: GitHub staff.
 
+            - name: SecureStack Application Composition Analysis
+  # You may pin to the exact commit or the version.
+  # uses: SecureStackCo/actions-code@c2c35840882d041474c505c1045da157025cd57e
+  uses: SecureStackCo/actions-code@v0.1.1
+  with:
+    # SecureStack API key - generate an API key at https://app.securestack.com
+    securestack_api_key: 
+    # SecureStack Application ID - can be retrieved by accessing required application at https://app.securestack.com
+    securestack_app_id: 
+    # Severities lower than this value will be reported in the workflow console but will not cause an error for the action; value should be one of: critical | high | medium | low
+    severity: 
+    # Severities lower than this value will be reported in the workflow console but will not cause an error for the action; value should be one of: critical | high | medium | low
+    language: 
+    # Optional flags for the bloodhound-cli code command - run bloodhound cli code --help for more details
+    flags: # optional, default is 
+          
+
+            - name: tf-siesta
+  # You may pin to the exact commit or the version.
+  # uses: Typeform/siesta@ef96b0b260f3a98848aee6b847288a9eb7b4bd20
+  uses: Typeform/siesta@v1.3
+  with:
+    # string, contents of credentials.json
+    google-credentials: 
+    # string, contents of token.json
+    google-token: 
+    # string, the calendar id to check. If not specified, will take the primary calendar of that account
+    google-calendar-id: # optional
+    # string, in case the calendar is busy with events at the given timeframe, this message will be displayed in the github error
+    custom-calendar-busy-message: # optional
+    # string, in case the calendar is not busy with events at the given timeframe, this message will be displayed in the console log
+    custom-calendar-not-busy-message: # optional
+    # boolean, controls if the build should fail if the calendar is busy. Needs hard-failure in true. default is true
+    fail-if-busy: # optional
+    # boolean, if true, fails the build on any error. If false, throws an warning instead.
+    hard-failure: # optional
+    # the interval of time, starting from the moment of execution, on which to check that the calendar is busy. Default 0.1 seconds.
+    minutes-interval: # optional
+          
+
+            - name: Priority List
+  # You may pin to the exact commit or the version.
+  # uses: iterative/priority-list@646ca456f8a08495ae4c6259bd20ab274b9eaa03
+  uses: iterative/priority-list@v1.0.2
+  with:
+    # Token with read access to all analysed repos
+    github-token: 
+    # 
+    repos: 
+    # weight for number of comments
+    weight_activity: # default is 14
+    # weight for reactions to original issue
+    weight_reactions: # default is 7
+    # weight for days of inactivity
+    weight_staleness: # default is 1
+    # weight for days open
+    weight_age: # default is 0.142857
+    # weight multiplier for PRs (compared to issues)
+    multiplier_pr: # default is 7
+    # weight multiplier for labels (negative to exclude)
+    multiplier_labels: # default is example:-1 epic:0.142857 blocked:0.142857 invalid:0.142857
+    # largest pN-label (lowest priority)
+    p_label_graveyard: # default is 4
+    # URL to post slack payload to (requires `people.json`)
+    slack_webhook: # optional
+          
+
 on:
   workflow_dispatch:
 
@@ -31,6 +98,25 @@ jobs:
               owner: owner,
               repo: correctRepo
             })
+
+            - name: Setup Go environment
+  uses: actions/setup-go@v5.5.0
+  with:
+    # The Go version to download (if necessary) and use. Supports semver spec and ranges. Be sure to enclose this option in single quotation marks.
+    go-version: # optional
+    # Path to the go.mod or go.work file.
+    go-version-file: # optional
+    # Set this option to true if you want the action to always check for the latest available version that satisfies the version spec
+    check-latest: # optional
+    # Used to pull Go distributions from go-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.
+    token: # optional, default is ${{ github.server_url == 'https://github.com' && github.token || '' }}
+    # Used to specify whether caching is needed. Set to true, if you'd like to enable caching.
+    cache: # optional, default is true
+    # Used to specify the path to a dependency file - go.sum
+    cache-dependency-path: # optional
+    # Target architecture for Go to use. Examples: x86, x64. Will use system architecture by default.
+    architecture: # optional
+          
 
             const allIssues = await github.paginate(github.rest.issues.listForRepo, {
               owner: owner,
