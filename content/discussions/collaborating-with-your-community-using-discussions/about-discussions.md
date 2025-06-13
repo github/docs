@@ -42,13 +42,13 @@ For more information on creating polls, see [AUTOTITLE](/discussions/collaborati
 
 In addition to sorting discussions by category, section, and label, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
 
-* Discussions can be pinned to give topics more visibility, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)
+* Discussions can be pinned to give topics more visibility
 * Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly
 * If a discussion has reached a conclusion or gotten too heated, it can be locked
-* Issues that turn out to be too open-ended can be converted to a discussion, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)
+* Issues that turn out to be too open-ended can be converted to a discussion
 * Moderators can close discussions that are no longer useful
 
-For more information about management of discussions, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
+For more information about discussion management, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
 ## Sharing feedback
 
