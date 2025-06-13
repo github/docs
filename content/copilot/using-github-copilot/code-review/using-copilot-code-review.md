@@ -152,6 +152,10 @@ To request a re-review from {% data variables.product.prodname_copilot_short %},
 
 By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot).
 
+## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
+
+{% data reusables.copilot.code-review.custom-instructions-information %}
+
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines
 
 {% data reusables.copilot.code-review.custom-coding-guidelines %}
@@ -222,6 +226,10 @@ You can provide feedback on {% data variables.product.prodname_copilot_short %}'
 To provide feedback, hover over the comment and click the thumbs up or thumbs down button.
 
 ![Screenshot of a comment from {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %} with feedback buttons displayed. The buttons are outlined in dark orange.](/assets/images/help/copilot/code-review/vscode-comment-feedback@2x.png)
+
+## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
+
+{% data reusables.copilot.code-review.custom-instructions-information %}
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines
 
