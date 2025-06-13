@@ -39,6 +39,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 1. Download and install Node.js 20.x, which includes npm.
 
    https://nodejs.org/en/download/
+
 1. Create a new public repository on {% data variables.product.github %} and call it "hello-world-javascript-action". For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 
 1. Clone your repository to your computer. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
@@ -60,19 +61,22 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 ```yaml copy
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: Hello World
+description: Greet someone and record the time
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  who-to-greet: # id of input
+    description: Who to greet
     required: true
-    default: 'World'
+    default: World
+
 outputs:
   time: # id of output
-    description: 'The time we greeted you'
+    description: The time we greeted you
+
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: node20
+  main: dist/index.js
 ```
 
 This file defines the `who-to-greet` input and `time` output. It also tells the action runner how to start running this JavaScript action.
@@ -90,11 +94,10 @@ The toolkit offers more than the `core` and `github` packages. For more informat
 At your terminal, install the actions toolkit `core` and `github` packages.
 
 ```shell copy
-npm install @actions/core
-npm install @actions/github
+npm install @actions/core @actions/github
 ```
 
-Now you should see a `node_modules` directory with the modules you just installed and a `package-lock.json` file with the installed module dependencies and the versions of each installed module.
+You should now see a `node_modules` directory and a `package-lock.json` file which track any installed dependencies and their versions. You should not commit the `node_modules` directory to your repository.
 
 ## Writing the action code
 
@@ -102,23 +105,26 @@ This action uses the toolkit to get the `who-to-greet` input variable required i
 
 GitHub Actions provide context information about the webhook event, Git refs, workflow, action, and the person who triggered the workflow. To access the context information, you can use the `github` package. The action you'll write will print the webhook event payload to the log.
 
-Add a new file called `index.js`, with the following code.
+Add a new file called `src/index.js`, with the following code.
 
 {% raw %}
 
 ```javascript copy
-const core = require('@actions/core');
-const github = require('@actions/github');
+import * as core from "@actions/core";
+import * as github from "@actions/github";
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
+  const nameToGreet = core.getInput("who-to-greet");
+  core.info(`Hello ${nameToGreet}!`);
+
+  // Get the current time and set it as an output variable
+  const time = new Date().toTimeString();
   core.setOutput("time", time);
+
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  core.info(`The event payload: ${payload}`);
 } catch (error) {
   core.setFailed(error.message);
 }
@@ -142,7 +148,7 @@ In your `hello-world-javascript-action` directory, create a `README.md` file tha
 * An example of how to use your action in a workflow.
 
 ````markdown copy
-# Hello world javascript action
+# Hello world JavaScript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
@@ -163,53 +169,69 @@ The time we greeted you.
 ```yaml
 uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
 with:
-  who-to-greet: 'Mona the Octocat'
+  who-to-greet: Mona the Octocat
 ```
 ````
 
 ## Commit, tag, and push your action
 
-{% data variables.product.github %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
+{% data variables.product.github %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. For example, this action uses `@actions/core` and `@actions/github` packages.
 
-From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
+Checking in your `node_modules` directory can cause problems. As an alternative, you can use tools such as [`rollup.js`](https://github.com/rollup/rollup) or [`@vercel/ncc`](https://github.com/vercel/ncc) to combine your code and dependencies into one file for distribution.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions).
+1. Install `rollup` and its plugins by running this command in your terminal.
 
-```shell copy
-git add action.yml index.js node_modules/* package.json package-lock.json README.md
-git commit -m "My first action is ready"
-git tag -a -m "My first action release" v1.1
-git push --follow-tags
-```
+   `npm install --save-dev rollup @rollup/plugin-commonjs @rollup/plugin-node-resolve`
 
-Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
+1. Create a new file called `rollup.config.js` in the root of your repository with the following code.
 
-1. Install `vercel/ncc` by running this command in your terminal.
+   ```javascript copy
+   import commonjs from "@rollup/plugin-commonjs";
+   import { nodeResolve } from "@rollup/plugin-node-resolve";
 
-   `npm i -g @vercel/ncc`
+   const config = {
+     input: "src/index.js",
+     output: {
+       esModule: true,
+       file: "dist/index.js",
+       format: "es",
+       sourcemap: true,
+     },
+     plugins: [commonjs(), nodeResolve({ preferBuiltins: true })],
+   };
 
-1. Compile your `index.js` file.
+   export default config;
+   ```
 
-   `ncc build index.js --license licenses.txt`
+1. Compile your `dist/index.js` file.
 
-   You'll see a new `dist/index.js` file with your code and the compiled modules. You will also see an accompanying `dist/licenses.txt` file containing all the licenses of the `node_modules` you are using.
+   `rollup --config rollup.config.js`
 
-1. Change the `main` keyword in your `action.yml` file to use the new `dist/index.js` file.
+   You'll see a new `dist/index.js` file with your code and any dependencies.
 
-   `main: 'dist/index.js'`
-
-1. If you already checked in your `node_modules` directory, remove it.
-
-   `rm -rf node_modules/*`
-
-1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
+1. From your terminal, commit the updates.
 
    ```shell copy
-   git add action.yml dist/index.js node_modules/*
-   git commit -m "Use vercel/ncc"
+   git add src/index.js dist/index.js rollup.config.js package.json package-lock.json README.md action.yml
+   git commit -m "Initial commit of my first action"
    git tag -a -m "My first action release" v1.1
    git push --follow-tags
    ```
+
+When you commit and push your code, your updated repository should look like this:
+
+```text
+hello-world-javascript-action/
+├── action.yml
+├── dist/
+│   └── index.js
+├── package.json
+├── package-lock.json
+├── README.md
+├── rollup.config.js
+└── src/
+    └── index.js
+```
 
 ## Testing out your action in a workflow
 
@@ -228,18 +250,23 @@ Copy the following YAML into a new file at `.github/workflows/main.yml`, and upd
 {% raw %}
 
 ```yaml copy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   hello_world_job:
-    runs-on: ubuntu-latest
     name: A job to say hello
+    runs-on: ubuntu-latest
+
     steps:
       - name: Hello world action step
         id: hello
         uses: octocat/hello-world-javascript-action@1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b
         with:
-          who-to-greet: 'Mona the Octocat'
+          who-to-greet: Mona the Octocat
+
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
@@ -253,25 +280,29 @@ When this workflow is triggered, the runner will download the `hello-world-javas
 
 Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
 
-**.github/workflows/main.yml**
-
 ```yaml copy
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   hello_world_job:
-    runs-on: ubuntu-latest
     name: A job to say hello
+    runs-on: ubuntu-latest
+
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
+
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
-          who-to-greet: 'Mona the Octocat'
+          who-to-greet: Mona the Octocat
+
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
