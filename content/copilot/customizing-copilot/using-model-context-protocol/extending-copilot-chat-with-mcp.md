@@ -79,6 +79,7 @@ For information on configuring the {% data variables.product.github %} MCP serve
     ![Screenshot of the {% data variables.copilot.copilot_chat_short %} box in {% data variables.product.prodname_vscode %}. The "Agent" option is outlined in dark orange.](/assets/images/help/copilot/copilot-chat-agent-option.png)
 
 1. To view your list of available MCP servers, click the tools icon in the top left corner of the chat box. This will open the MCP server list, where you can see all the MCP servers and associated tools that are currently available in your {% data variables.product.prodname_vscode %} instance.
+     * Optionally, you can define toolsets, groups of related tools that you can reference in chat. Toolsets make it easier to group related MCP tools together and quickly enable or disable them. For information on how to define and use a toolset, see the [{% data variables.product.prodname_vscode_shortname %} docs](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_define-tool-sets).
 
 For more information on configuring MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %} (Preview)](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -99,6 +100,11 @@ Once you have configured your MCP servers, you can use them in {% data variables
 1. If {% data variables.product.prodname_copilot_short %} asks you to confirm that you want to proceed, click **Continue**.
 
 1. {% data variables.product.prodname_copilot_short %} will fetch the details of the URL and display them in the chat box.
+
+Optionally, you can use MCP prompts and resources in {% data variables.product.prodname_vscode_shortname %}.
+
+  * MCP servers can define preconfigured prompts for interacting with their tools. You can access these prompts in chat with slash commands, using the format `/mcp.servername.promptname`.
+  * MCP servers provide resources, which are any kind of data that the server wants to make available. For example, the {% data variables.product.github %} MCP server provides repository content as a resource. To add resources from an MCP server to your chat context, click **Add Context...** in the chat box, then click **MCP Resources**.
 
 For more information on using MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %} (Preview)](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
 

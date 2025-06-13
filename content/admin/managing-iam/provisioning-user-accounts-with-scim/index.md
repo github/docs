@@ -19,6 +19,7 @@ children:
   - /disabling-scim-provisioning-for-users
   - /provisioning-users-and-groups-with-scim-using-the-rest-api
   - /managing-team-memberships-with-identity-provider-groups
+  - /deprovisioning-and-reinstating-users
   - /troubleshooting-team-membership-with-identity-provider-groups
 redirect_from:
   - /admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users

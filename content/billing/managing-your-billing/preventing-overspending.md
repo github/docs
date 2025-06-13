@@ -131,6 +131,8 @@ As an {% data variables.enterprise.enterprise_or_org %} owner{% ifversion ghec %
 
 ### Editing or deleting a budget
 
+>[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets.
+
 {% ifversion fpt %}
 
 As an organization owner, you can edit or delete a budget at any time, but you cannot change the budget scope.
