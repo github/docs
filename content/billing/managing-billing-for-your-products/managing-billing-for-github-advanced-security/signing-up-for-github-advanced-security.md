@@ -1,6 +1,6 @@
 ---
 title: Signing up for {% data variables.product.prodname_GHAS %}
-intro: "You can sign up for {% data variables.product.prodname_GHAS %} products from your {% data variables.enterprise.enterprise_or_org %} account's settings to prevent data leaks and keep vulnerablities out of your codebase."
+intro: "You can sign up for {% data variables.product.prodname_GHAS %} products from your {% data variables.enterprise.enterprise_or_org %} account's settings to prevent data leaks and keep vulnerabilities out of your codebase."
 allowTitleToDifferFromFilename: true
 permissions: '{% ifversion fpt %}Organization{% else %}Enterprise{% endif %} owners can sign up for {% data variables.product.prodname_GH_cs_or_sp %}'
 product: '{% data reusables.gated-features.ghas-billing %}'

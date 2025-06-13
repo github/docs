@@ -849,7 +849,7 @@ nes set-node-adminaction approved HOSTNAME
 To revoke {% data variables.product.prodname_nes %}'s ability to take the node with hostname HOSTNAME offline:
 
 ```shell
-nes set-node-adminaction approved HOSTNAME
+nes set-node-adminaction none HOSTNAME
 ```
 
 To manually update a node's eligibility for re-addition to the cluster:
