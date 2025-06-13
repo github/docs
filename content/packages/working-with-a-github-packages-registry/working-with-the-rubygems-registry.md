@@ -1,7 +1,7 @@
 ---
 title: Working with the RubyGems registry
 intro: 'You can configure RubyGems to publish a package to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Ruby project with Bundler.'
-product: '{% data reusables.gated-features.packages %}'
+product: '{LUZIFER-MD}'
 redirect_from:
   - /articles/configuring-rubygems-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-rubygems-for-use-with-github-package-registry
