@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 type: how_to
+redirect_from:
+  - /copilot/customizing-copilot/extending-copilot-chat-with-mcp
 ---
 
 >[!NOTE]
@@ -36,14 +38,15 @@ For information on some of the other currently available MCP servers, see [the M
 
 To configure MCP servers in {% data variables.product.prodname_vscode %}, you need to set up a configuration script that specifies the details of the MCP servers you want to use. You can configure MCP servers for either:
 
-* **A specific repository**. This will share MCP servers with anyone who opens the project in {% data variables.product.prodname_vscode %}. To do this, create a `.vscode/mcp.json` file in the root of your repository.
-* **Your personal instance of {% data variables.product.prodname_vscode %}**. You will be the only person who has access to configured MCP servers. To do this, add the configuration to your `settings.json` file in {% data variables.product.prodname_vscode %}.
+{% data reusables.copilot.mcp.mcp-configuration-location %}
 
 	>[!NOTE] We recommend you use only one location per server. Adding the same server to both locations may cause conflicts and unexpected behavior.
 
 The steps below show how to configure the Fetch MCP server in your `.vscode/mcp.json` file. The Fetch MCP server is a simple MCP server that provides web content fetching capabilities. For more information on the Fetch MCP server, see [the Fetch directory](https://github.com/modelcontextprotocol/servers/tree/main/src/fetch) in the MCP Server repository.
 
 You can use the same steps to configure MCP servers in your personal {% data variables.product.prodname_vscode %} settings. Details on how to configure other MCP servers are available in the [MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+
+For information on configuring the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
 
 1. Add the following configuration to your `.vscode/mcp.json` file:
 
@@ -76,17 +79,16 @@ You can use the same steps to configure MCP servers in your personal {% data var
     ![Screenshot of the {% data variables.copilot.copilot_chat_short %} box in {% data variables.product.prodname_vscode %}. The "Agent" option is outlined in dark orange.](/assets/images/help/copilot/copilot-chat-agent-option.png)
 
 1. To view your list of available MCP servers, click the tools icon in the top left corner of the chat box. This will open the MCP server list, where you can see all the MCP servers and associated tools that are currently available in your {% data variables.product.prodname_vscode %} instance.
+     * Optionally, you can define toolsets, groups of related tools that you can reference in chat. Toolsets make it easier to group related MCP tools together and quickly enable or disable them. For information on how to define and use a toolset, see the [{% data variables.product.prodname_vscode_shortname %} docs](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_define-tool-sets).
 
 For more information on configuring MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %} (Preview)](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
-
->[!IMPORTANT] Beginning April 4, 2025, the {% data variables.product.github %} MCP server, and installation instructions, will be publicly available in the [github-mcp-server](https://github.com/github/github-mcp-server) repository.
 
 ## Using MCP servers in {% data variables.copilot.copilot_chat_short %}
 
 Once you have configured your MCP servers, you can use them in {% data variables.copilot.copilot_chat_short %} to access a wide range of tools and services. In the example below, we will use the Fetch MCP server to fetch details about a web page.
 
-1. Open {% data variables.copilot.copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
-1. In the {% data variables.copilot.copilot_chat_short %} box, select **Agent** from the popup menu.
+{% data reusables.copilot.open-chat-vs-code %}
+{% data reusables.copilot.select-agent %}
 1. In the file with the MCP configuration, check that the MCP server is running. If it is not running, click the "Start" button to start the MCP server.
 
     ![Screenshot of the MCP server configuration in {% data variables.product.prodname_vscode %}. The "Running" status is outlined in dark orange.](/assets/images/help/copilot/vsc-mcp-server-running.png)
@@ -98,6 +100,11 @@ Once you have configured your MCP servers, you can use them in {% data variables
 1. If {% data variables.product.prodname_copilot_short %} asks you to confirm that you want to proceed, click **Continue**.
 
 1. {% data variables.product.prodname_copilot_short %} will fetch the details of the URL and display them in the chat box.
+
+Optionally, you can use MCP prompts and resources in {% data variables.product.prodname_vscode_shortname %}.
+
+  * MCP servers can define preconfigured prompts for interacting with their tools. You can access these prompts in chat with slash commands, using the format `/mcp.servername.promptname`.
+  * MCP servers provide resources, which are any kind of data that the server wants to make available. For example, the {% data variables.product.github %} MCP server provides repository content as a resource. To add resources from an MCP server to your chat context, click **Add Context...** in the chat box, then click **MCP Resources**.
 
 For more information on using MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %} (Preview)](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -200,3 +207,4 @@ For more information on creating and configuring your own MCP servers, see [the 
 ## Further reading
 
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server)
