@@ -32,7 +32,7 @@ Anyone who can has access to a repository can create and participate in discussi
 * Discussions are opened in categories defined by anyone with maintain or admin permissions
 * Categories come with different formats, such as announcements, question-and-answer, polls, or open-ended
 * Categories can be further organized under sections you create
-* Individual discussions can be categorized with more specificity by applying labels. 
+* Individual discussions can be categorized with more specificity by applying labels
 
 For more information about managing categories, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
 
