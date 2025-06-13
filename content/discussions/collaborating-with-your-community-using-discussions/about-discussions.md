@@ -12,7 +12,7 @@ versions:
 
 With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within the project's repository or organization. Discussions empower a project's maintainers, contributors, and visitors to gather and accomplish the following goals in a central location, without third-party tools.
 
-* Share announcements and information 
+* Share announcements and information
 * Plan and make decisions with community input
 * Encourage and answer questions, and mark them answered as you respond to them
 * Gather feedback using polls to gauge community opinion
