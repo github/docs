@@ -40,25 +40,15 @@ For more information on creating polls, see [AUTOTITLE](/discussions/collaborati
 
 ## Managing discussions
 
-In addition to sorting discussions by category, section, and label, {% data variables.product.prodname_discussions %} includes other tools for managing discussions.
+In addition to sorting discussions by category, section, and label, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
 
-* Discussions can be pinned to give topics more visibility
+* Discussions can be pinned to give topics more visibility, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)
 * Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly
 * If a discussion has reached a conclusion or gotten too heated, it can be locked
-* Issues that turn out to be too open-ended can be converted to a discussion
+* Issues that turn out to be too open-ended can be converted to a discussion, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)
 * Moderators can close discussions that are no longer useful
 
 For more information about management of discussions, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
-
-## Use cases for {% data variables.product.prodname_discussions %}
-
-As a community member or maintainer, start a discussion to ask a question or discuss information that affects the community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions).
-
-Participate in a discussion to ask and answer questions, provide feedback, and engage with the project's community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion).
-
-You can spotlight discussions that contain important, useful, or exemplary conversations among members in the community. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion).
-
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
 
 ## Sharing feedback
 
