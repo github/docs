@@ -20,7 +20,7 @@ redirect_from:
 
 {% data variables.copilot.copilot_chat_dotcom %} is a chat interface that lets you ask and receive answers to coding-related questions on the {% data variables.product.github %} website.
 
-{% data variables.copilot.copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom).
+{% data variables.copilot.copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code.
 
 On {% data variables.product.github %}, you can use {% data variables.copilot.copilot_chat_short %} to ask different questions in different contexts. For example, you can ask about a specific repository, a specific issue, or a specific pull request. You can also ask general questions about software development, or about a specific programming language.
 
