@@ -12,59 +12,43 @@ versions:
 
 With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within the project's repository or organization. Discussions empower a project's maintainers, contributors, and visitors to gather and accomplish the following goals in a central location, without third-party tools.
 
-* Share announcements and information, gather feedback, plan, and make decisions
-* Ask questions, discuss and answer the questions, and mark the discussions as answered
-* Create polls to gauge community opinion
+* Share announcements and information
+* Plan and make decisions with community input
+* Encourage and answer questions, and mark them answered as you respond to them
+* Gather feedback using polls to gauge community opinion
 * Upvote discussions and comments to give higher visibility to ideas you find valuable
 * Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
 ![Screenshot of the "Discussions" page for a repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
-You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
+You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, {% data variables.product.prodname_discussions %} can also be used for broader conversations that affect the entire organization.
 
-{% data reusables.discussions.closing-discussions %} For more information, see [Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion).
+Anyone who can has access to a repository can create and participate in discussions once a repository administrator or project maintainer has enabled {% data variables.product.prodname_discussions %}. Similarly, if an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 
-If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who has access to the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
+## Organizing discussions
 
-Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. Similarly, for organization discussions, the role of a user in the source repository determines how a user can interact with organization discussions. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
+{% data variables.product.prodname_discussions %} offers you varying levels of granularity for organizing discussions:
 
-For more information about management of discussions, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
+* Discussions are opened in categories defined by anyone with maintain or admin permissions
+* Categories come with different formats, such as announcements, question-and-answer, polls, or open-ended
+* Categories can be further organized under sections you create
+* Individual discussions can be categorized with more specificity by applying labels
 
-## About polls
-
-You can create polls in the polls category to gauge interest in new ideas and project direction. Anyone with read access to your repository can create polls, vote in polls, and view their results.{% ifversion fpt or ghec %} Signed out users can view the results of polls in public repositories.{% endif %}
-
-Polls require a question and at least two options. You can add a maximum of eight options and the options can contain a maximum of 128 characters.
-
-Voters cannot change their vote. Editing a poll will reset any votes that have already been cast.
+For more information about managing categories, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
 
 For more information on creating polls, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#creating-a-poll).
 
-## About discussion organization
+## Managing discussions
 
-You can organize discussions with categories, sections, and labels.
+In addition to sorting discussions by category, section, and label, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
 
-{% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
+* Discussions can be pinned to give topics more visibility
+* Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly
+* If a discussion has reached a conclusion or gotten too heated, it can be locked
+* Issues that turn out to be too open-ended can be converted to a discussion
+* Moderators can close discussions that are no longer useful
 
-For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
-
-{% data reusables.discussions.about-announcement-format %}
-
-{% data reusables.discussions.category-sections %}
-
-For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
-
-{% data reusables.discussions.you-can-label-discussions %}
-
-## Best practices for {% data variables.product.prodname_discussions %}
-
-As a community member or maintainer, start a discussion to ask a question or discuss information that affects the community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions).
-
-Participate in a discussion to ask and answer questions, provide feedback, and engage with the project's community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion).
-
-You can spotlight discussions that contain important, useful, or exemplary conversations among members in the community. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion).
-
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
+For more information about discussion management, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
 ## Sharing feedback
 
