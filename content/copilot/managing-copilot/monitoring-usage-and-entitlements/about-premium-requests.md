@@ -47,7 +47,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | Model                                                                   | Premium requests                                                             |
 |-------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.copilot.copilot_free_short %}) |
-| Premium {% data variables.copilot.copilot_gpt_41 %}                     | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_41 %}                             | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_4o %}                             | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_45 %}                             | 50                                                                           |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                                                                            |
