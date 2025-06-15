@@ -1,6 +1,6 @@
 ---
 title: Finding inspiration on GitHub
-shortTitle: Find inspiration
+shortTitle: Finding inspiration
 redirect_from:
   - /be-social
   - /articles/be-social
