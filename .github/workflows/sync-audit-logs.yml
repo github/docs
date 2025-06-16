@@ -88,7 +88,7 @@ jobs:
           gh pr create \
             --title "Update audit log event data" \
             --body '👋 Docs First Responder. This PR updates the audit log event data with the latest changes, synced from github/audit-log-allowlists.
-            You only need to spot check this PR and make sure it builds successfully. You do not need to validate the contents (that is the responsibility of product teams).
+            Make sure the PR builds successfully and there are no gross errors (for example, a file is deleted). You do not need to validate the contents (that is the responsibility of product teams).
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
             --label audit-log-pipeline \
