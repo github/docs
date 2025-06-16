@@ -85,6 +85,46 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 
    {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
+## Authenticating ARC with a {% data variables.product.pat_v2 %}
+
+ARC can use {% data variables.product.pat_v2_plural %} to register self-hosted runners.
+
+{% ifversion ghec or ghes %}
+
+> [!NOTE]
+> Authenticating ARC with a {% data variables.product.pat_v1 %} is the only supported authentication method to register runners at the enterprise level.
+
+{% endif %}
+
+1. Create a {% data variables.product.pat_v2 %} with the required scopes. The required scopes are different depending on whether you are registering runners at the repository or organization level. For more information on how to create a {% data variables.product.pat_v2 %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-fine-grained-personal-access-token).
+
+    The following is the list of required {% data variables.product.pat_generic %} scopes for ARC runners.
+
+    * Repository runners:
+      * **Administration:** Read and write
+
+    * Organization runners:
+      * **Administration:** Read
+      * **Self-hosted runners:** Read and write
+
+1. To create a Kubernetes secret with the value of your {% data variables.product.pat_v2 %}, use the following command.
+
+   {% data reusables.actions.arc-runners-namespace %}
+
+   ```bash copy
+   kubectl create secret generic pre-defined-secret \
+      --namespace=arc-runners \
+      --from-literal=github_token='YOUR-PAT'
+   ```
+
+1. In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file, pass the secret name as a reference.
+
+   ```yaml
+   githubConfigSecret: pre-defined-secret
+   ```
+
+   {% data reusables.actions.actions-runner-controller-helm-chart-options %}
+
 ## Authenticating ARC with vault secrets
 
 > [!NOTE]
