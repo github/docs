@@ -42,10 +42,10 @@ The current functionality and availability of the two types of review is summari
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 > [!NOTE]
 > Billing for premium requests is coming soon. Until then, you can continue to use {% data variables.copilot.copilot_code-review_short %} without being billed for additional premium requests. For the most up-to-date start date, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 
 When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
@@ -72,10 +72,10 @@ This version of the article relates to {% data variables.copilot.copilot_code-re
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 > [!NOTE]
 > Billing for premium requests is coming soon. Until then, you can continue to use {% data variables.copilot.copilot_code-review_short %} without being billed for additional premium requests. For the most up-to-date start date, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 
 When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 

@@ -26,8 +26,7 @@ When you create a ruleset, you can allow certain users to bypass the rules in th
 
 For more information on rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
-{% ifversion repo-rules-enterprise %}
-You can also create rulesets for all repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).{% endif %}
+For customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans you can also create rulesets for repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).
 
 {% ifversion repo-rules-management %}
 
