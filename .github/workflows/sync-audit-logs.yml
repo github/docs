@@ -87,8 +87,8 @@ jobs:
           echo "Creating pull request..."
           gh pr create \
             --title "Update audit log event data" \
-            --body '👋 humans. This PR updates the audit log event data with the latest changes. (Synced from github/audit-log-allowlists)
-
+            --body '👋 Docs First Responder. This PR updates the audit log event data with the latest changes, synced from github/audit-log-allowlists.
+            You only need to spot check this PR and make sure it builds successfully. You do not need to validate the contents (that is the responsibility of product teams).
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
             --label audit-log-pipeline \
