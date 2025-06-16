@@ -21,7 +21,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 
 ![Screenshot of the "Discussions" page for a repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
-You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, {% data variables.product.prodname_discussions %} can also be used for broader conversations that affect the entire organization.
+You can use **repository** discussions to discuss topics that are specific to one repository and **organization** discussions for broader conversations that spans multiple repositories.
 
 Anyone who can has access to a repository can create and participate in discussions once a repository administrator or project maintainer has enabled {% data variables.product.prodname_discussions %}. Similarly, if an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 
