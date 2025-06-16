@@ -40,6 +40,10 @@ For information on making {% data variables.copilot.copilot_coding_agent %} avai
 
 1. Submit your prompt.
 
+   {% data variables.product.prodname_copilot_short %} asks you to confirm that you want to use the coding agent to create a pull request.
+
+1. Click **Allow**.
+
    {% data variables.product.prodname_copilot_short %} will respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
 
 ## Monitoring progress
