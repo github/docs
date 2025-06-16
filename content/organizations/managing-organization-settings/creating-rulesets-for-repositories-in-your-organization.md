@@ -2,7 +2,9 @@
 title: Creating rulesets for repositories in your organization
 intro: 'You can create a ruleset to target multiple repositories in your organization.'
 versions:
-  feature: repo-rules-enterprise
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.13'
 permissions: 'Organization owners can create rulesets at the organization level.'
 topics:
   - Organizations
@@ -11,7 +13,7 @@ shortTitle: Create rulesets
 
 ## Introduction
 
-You can create rulesets in your organization to control how users can interact with repositories in your organization. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
+For customers on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans you can create rulesets in your organization to control how users can interact with repositories in your organization. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
 
 {% ifversion push-rulesets %}
 
@@ -39,10 +41,13 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 {% data reusables.repositories.rulesets-fnmatch %}
 {% ifversion repo-rules-enterprise %}
 
+{% ifversion not fpt %}
+
 ## Using regular expressions for commit metadata
 
 {% data reusables.repositories.rulesets-commit-regex %}
 
+{% endif %}
 {% endif %}
 
 ## Using ruleset enforcement statuses
@@ -57,10 +62,13 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 {% data reusables.repositories.create-ruleset-step %}
 {% data reusables.repositories.rulesets-general-step %}
 
+{% ifversion not fpt %}
+
 ### Granting bypass permissions for your branch or tag ruleset
 
 {% data reusables.repositories.rulesets-bypass-step %}
 {% data reusables.repositories.rulesets-branch-tag-bypass-optional-step %}
+{% endif %}
 
 ### Choosing which repositories to target in your organization
 
@@ -74,9 +82,12 @@ To import one of the prebuilt rulesets by {% data variables.product.prodname_dot
 
 {% data reusables.repositories.rulesets-protections-step %}
 
+{% ifversion not fpt %}
+
 ### Adding metadata restrictions
 
 {% data reusables.repositories.rulesets-metadata-step %}
+{% endif %}
 
 ### Finalizing your branch or tag ruleset and next steps
 

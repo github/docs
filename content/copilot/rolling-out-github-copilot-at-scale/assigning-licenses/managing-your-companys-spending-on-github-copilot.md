@@ -24,9 +24,9 @@ We recommend that you identify the people with this role and communicate with th
 
 ## Managing charges for premium requests
 
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
