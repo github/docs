@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 import cheerio from 'cheerio'
 
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest.js'
 
 describe('curated homepage links', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })

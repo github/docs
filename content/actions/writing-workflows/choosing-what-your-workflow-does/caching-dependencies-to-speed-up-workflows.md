@@ -333,7 +333,7 @@ The following example workflow uses `gh cache` to delete up to 100 caches create
 To run the following example on cross-repository pull requests or pull requests from forks, you can trigger the workflow with the `pull_request_target` event. If you do use `pull_request_target` to trigger the workflow, there are security considerations to keep in mind. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target).
 
 ```yaml
-name: cleanup caches by a branch
+name: Cleanup github runner caches on closed pull requests
 on:
   pull_request:
     types:
@@ -342,10 +342,12 @@ on:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
     steps:
       - name: Cleanup
         run: |
-          echo "Fetching list of cache key"
+          echo "Fetching list of cache keys"
           cacheKeysForPR=$(gh cache list --ref $BRANCH --limit 100 --json id --jq '.[].id')
 
           ## Setting this to not fail the workflow while deleting cache keys.

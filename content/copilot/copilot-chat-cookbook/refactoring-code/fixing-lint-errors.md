@@ -1,7 +1,7 @@
 ---
 title: Fixing lint errors
 shortTitle: Lint errors
-intro: '{% data variables.product.prodname_copilot_chat_short %} can suggest ways to fix issues identified by a code linter.'
+intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to fix issues identified by a code linter.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/fixing-lint-errors
 versions:
@@ -19,7 +19,7 @@ It's good practice to use a linter to check your code for potential errors, styl
 
 ## Example scenario
 
-You have run a linter on your code and it has identified some issues that need to be fixed. Rather than fixing these manually, you can ask {% data variables.product.prodname_copilot_chat_short %} to fix them for you.
+You have run a linter on your code and it has identified some issues that need to be fixed. Rather than fixing these manually, you can ask {% data variables.copilot.copilot_chat_short %} to fix them for you.
 
 ## Example prompts
 
@@ -35,7 +35,7 @@ You have run a linter on your code and it has identified some issues that need t
 
   `Use the attached style guide to fix the lint errors`
 
-* Alternatively, you can ask {% data variables.product.prodname_copilot_chat_short %} to fix only a specific type of lint error:
+* Alternatively, you can ask {% data variables.copilot.copilot_chat_short %} to fix only a specific type of lint error:
 
   `Make sure all functions use snake_case naming style`
 

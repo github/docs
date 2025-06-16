@@ -47,9 +47,9 @@ If you want to see the code that triggered the security alert and the suggested 
 
 {% ifversion copilot %}
 
-## Using {% data variables.product.prodname_copilot_chat %} for secure coding
+## Using {% data variables.copilot.copilot_chat %} for secure coding
 
-If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
+If you have access to {% data variables.copilot.copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}

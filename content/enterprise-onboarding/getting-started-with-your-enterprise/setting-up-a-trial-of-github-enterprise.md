@@ -23,7 +23,7 @@ To set up a trial, you must be signed in to a personal account. If you don't hav
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.product.prodname_copilot_for_business %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
+* {% data variables.copilot.copilot_for_business %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * Access to the **new billing platform**. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
@@ -32,7 +32,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 ## Features not included in the trial
 
 * {% data variables.product.prodname_github_codespaces %}
-* {% data variables.product.prodname_copilot_enterprise %}
+* {% data variables.copilot.copilot_enterprise %}
 * {% data variables.product.prodname_sponsors %}
 * Paid {% data variables.product.prodname_marketplace %} apps
 * {% data variables.product.prodname_github_connect %}
@@ -43,7 +43,7 @@ If you invite an existing organization into your trial enterprise, **all of thes
 
 ## Do I need to provide a payment method?
 
-You do not need to provide a payment method to start a trial. If you want to use {% data variables.product.prodname_copilot_business_short %} during the trial, you need to provide a credit card. You **won't** be charged for using {% data variables.product.prodname_copilot_business_short %} during the trial.
+You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you need to provide a credit card. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
 
 ## Setting up a trial
 
@@ -68,15 +68,15 @@ You can find full instructions on setting up {% data variables.product.prodname_
 
 You can find information about planning a trial of {% data variables.product.prodname_cs_and_sp %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
 
-### Setting up {% data variables.product.prodname_copilot_for_business %}
+### Setting up {% data variables.copilot.copilot_for_business %}
 
-Setting up your {% data variables.product.prodname_copilot_for_business %} trial involves three phases, and each phase must be completed by different people.
+Setting up your {% data variables.copilot.copilot_for_business %} trial involves three phases, and each phase must be completed by different people.
 
-* As an **enterprise owner**, you must first configure {% data variables.product.prodname_copilot_for_business %} for your enterprise. This phase involves setting policies for the use of {% data variables.product.prodname_copilot_for_business %} in your enterprise, and deciding which organizations in your enterprise can use {% data variables.product.prodname_copilot_for_business %}. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
+* As an **enterprise owner**, you must first configure {% data variables.copilot.copilot_for_business %} for your enterprise. This phase involves setting policies for the use of {% data variables.copilot.copilot_for_business %} in your enterprise, and deciding which organizations in your enterprise can use {% data variables.copilot.copilot_for_business %}. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
 
-* Next, **organization owners** can enable {% data variables.product.prodname_copilot_for_business %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
+* Next, **organization owners** can enable {% data variables.copilot.copilot_for_business %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
 
-* If your **personal account** has been granted a seat in an organization that has enabled {% data variables.product.prodname_copilot_for_business %}, you can now enable {% data variables.product.prodname_copilot_for_business %} for your personal account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).
+* If your **personal account** has been granted a seat in an organization that has enabled {% data variables.copilot.copilot_for_business %}, you can now enable {% data variables.copilot.copilot_for_business %} for your personal account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).
 
 ## During the trial
 

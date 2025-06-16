@@ -13,7 +13,7 @@ redirect_from:
 
 ## Prerequisite
 
-To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.product.prodname_copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 
 {% azure_data_studio %}
 
@@ -148,7 +148,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ### Version compatibility
 
-Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the Microsoft documentation.
+Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.copilot.copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the Microsoft documentation.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
@@ -168,7 +168,7 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.copilot.copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -227,7 +227,7 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 ## About {% data variables.product.prodname_copilot %} in Eclipse
 
-Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.copilot.copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 

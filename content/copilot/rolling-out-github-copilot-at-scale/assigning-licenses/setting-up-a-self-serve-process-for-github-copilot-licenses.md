@@ -16,22 +16,22 @@ When you've enabled {% data variables.product.prodname_copilot %} in an organiza
 
 This article outlines two approaches your company can take:
 
-* {% data variables.product.github %}'s **request access** feature for {% data variables.product.prodname_copilot_business_short %}, which requires no setup but does require explicit approvals from an administrator
+* {% data variables.product.github %}'s **request access** feature for {% data variables.copilot.copilot_business_short %}, which requires no setup but does require explicit approvals from an administrator
 * Your own integration with **{% data variables.product.github %}'s API**, which allows you to create your own process with instant access
 
 ## Approach 1: Use {% data variables.product.github %}'s "request access" feature
 
-If you have a {% data variables.product.prodname_copilot_business_short %} plan, members of an organization can request access to {% data variables.product.prodname_copilot %} on their settings page. Then, an organization owner must review and approve each request.
+If you have a {% data variables.copilot.copilot_business_short %} plan, members of an organization can request access to {% data variables.product.prodname_copilot %} on their settings page. Then, an organization owner must review and approve each request.
 
 The process, which you should **communicate with users**, is as follows.
 
-1. An organization or enterprise owner ensures {% data variables.product.prodname_copilot_business_short %} is enabled in the organization where you want to manage access.
+1. An organization or enterprise owner ensures {% data variables.copilot.copilot_business_short %} is enabled in the organization where you want to manage access.
 1. Members of the organization go to their personal settings page at https://github.com/settings/copilot and click **Ask admin for access**.
 1. An organization owner reviews and approves requests on the "Requests from members" page in the organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/managing-requests-for-copilot-business-in-your-organization).
 
 You should set up a process where requests are reviewed regularly, so that interested users can get access to {% data variables.product.prodname_copilot_short %} quickly.
 
-Users can also request access from organizations where {% data variables.product.prodname_copilot_business_short %} is not enabled. In this case, organization owners will be prompted to ask an enterprise owner to enable {% data variables.product.prodname_copilot_short %} for the organization.
+Users can also request access from organizations where {% data variables.copilot.copilot_business_short %} is not enabled. In this case, organization owners will be prompted to ask an enterprise owner to enable {% data variables.product.prodname_copilot_short %} for the organization.
 
 ## Approach 2: Integrate with the API
 
@@ -53,7 +53,7 @@ const response = await octokit.request('POST /orgs/{org}/copilot/billing/selecte
 })
 ```
 
->[!NOTE] This endpoint only works if you use organizations on {% data variables.product.github %}. If {% data variables.product.company_short %} has provided you with a **dedicated enterprise for managing {% data variables.product.prodname_copilot_business_short %} licenses**, you will need to add users to enterprise teams instead. To request API documentation, please contact your account manager.
+>[!NOTE] This endpoint only works if you use organizations on {% data variables.product.github %}. If {% data variables.product.company_short %} has provided you with a **dedicated enterprise for managing {% data variables.copilot.copilot_business_short %} licenses**, you will need to add users to enterprise teams instead. To request API documentation, please contact your account manager.
 
 ### Example implementations
 

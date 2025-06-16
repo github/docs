@@ -1,11 +1,8 @@
 import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
 import { LearningTrack } from './ArticleContext'
-import {
-  FeaturedLink,
-  getFeaturedLinksFromReq,
-} from 'src/landings/components/ProductLandingContext'
-import { TocItem } from '#src/landings/types.ts'
+import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
+import { TocItem } from '@/landings/types'
 
 export type CategoryLandingContextT = {
   title: string

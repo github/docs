@@ -726,6 +726,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -737,6 +738,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -748,6 +750,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -783,6 +786,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1091,6 +1095,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1222,6 +1227,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1245,6 +1251,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1256,6 +1263,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1847,6 +1855,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1906,9 +1915,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Heroku
@@ -1917,6 +1927,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2076,30 +2087,6 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: IBM
-  supportedSecret: IBM Cloud IAM Key
-  secretType: ibm_cloud_iam_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.14'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
-- provider: IBM
-  supportedSecret: IBM SoftLayer API Key
-  secretType: ibm_softlayer_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.14'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Intercom
@@ -2535,6 +2522,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2546,6 +2534,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2557,6 +2546,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2568,6 +2558,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2579,6 +2570,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2590,6 +2582,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2601,6 +2594,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2612,6 +2606,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2623,6 +2618,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2955,6 +2951,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3386,6 +3383,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3397,9 +3395,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Salesforce
@@ -3408,6 +3407,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3734,6 +3734,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Snowflake
+  supportedSecret: Snowflake Programmatic Access Token
+  secretType: snowflake_programmatic_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Sourcegraph
@@ -4198,6 +4209,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { readFileSync } from 'fs'
 
-import { get } from '#src/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
 interface ConfigFile {
   targetFilename: string

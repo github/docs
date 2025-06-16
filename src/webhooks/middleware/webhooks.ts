@@ -1,7 +1,7 @@
 import express from 'express'
 import { getWebhook } from '../lib/index.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
 
 const router = express.Router()
 
@@ -12,10 +12,12 @@ const router = express.Router()
 //   /api/webhooks/v1?category=check_run&version=free-pro-team%40latest
 router.get('/v1', async function webhooks(req, res) {
   if (!req.query.category) {
-    return res.status(400).json({ error: "Missing 'category' in query string" })
+    res.status(400).json({ error: "Missing 'category' in query string" })
+    return
   }
   if (!req.query.version) {
-    return res.status(400).json({ error: "Missing 'version' in query string" })
+    res.status(400).json({ error: "Missing 'version' in query string" })
+    return
   }
 
   const webhookVersion = Object.values(allVersions).find(
@@ -24,7 +26,8 @@ router.get('/v1', async function webhooks(req, res) {
   const notFoundError = 'No webhook found for given category and version'
 
   if (!webhookVersion) {
-    return res.status(404).json({ error: notFoundError })
+    res.status(404).json({ error: notFoundError })
+    return
   }
 
   const webhook = await getWebhook(webhookVersion, req.query.category as string)
@@ -33,7 +36,7 @@ router.get('/v1', async function webhooks(req, res) {
     if (process.env.NODE_ENV !== 'development') {
       defaultCacheControl(res)
     }
-    return res.status(200).send(webhook)
+    res.status(200).send(webhook)
   } else {
     res.status(404).json({ error: notFoundError })
   }

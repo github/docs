@@ -56,7 +56,7 @@ You may choose to create internal onboarding materials to help teams get started
 {% data variables.product.github %} documentation that you may want to feature in your onboarding materials includes:
 
 * [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot)
-* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
+* [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat)
 * [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide)
 
@@ -78,7 +78,7 @@ You can also use {% data variables.product.prodname_discussions %} to create a s
 
 ### Providing learning resources
 
-In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.product.prodname_copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/copilot-chat-cookbook).
+In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.copilot.copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/copilot-chat-cookbook).
 
 ### Communicating expectations
 

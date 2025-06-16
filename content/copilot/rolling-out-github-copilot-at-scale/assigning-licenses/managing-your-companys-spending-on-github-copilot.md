@@ -7,7 +7,7 @@ versions:
 topics:
   - Copilot
 permissions: Enterprise owners and billing managers
-product: '{% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
+product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/managing-your-companys-spending-on-github-copilot
 ---
@@ -24,15 +24,15 @@ We recommend that you identify the people with this role and communicate with th
 
 ## Managing charges for premium requests
 
-<!-- expires 2025-06-04 -->
+<!-- expires 2025-06-11 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-06-04 -->
+<!-- expires 2025-06-11 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
 Premium requests over the allowance are rejected unless you have set a budget. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
 
-Premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
+Premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.copilot.copilot_enterprise_short %}.
 
 For pricing details and a list of available models, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
@@ -68,7 +68,7 @@ You can view a CSV report that shows the cumulative number of premium requests p
 
 * Understand if developers are frequently hitting the limit and would benefit from you enabling additional premium requests or upgrading your plan.
 * Identify users who are making a large number of premium requests over the limit, and follow up to the users to understand their use cases and requirements.
-* After enabling additional premium requests, track usage to determine if it would be more cost effective to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}.
+* After enabling additional premium requests, track usage to determine if it would be more cost effective to upgrade to {% data variables.copilot.copilot_enterprise_short %}.
 
 You can download the report for an enterprise account, or for an organization that is not part of an enterprise.
 
@@ -80,7 +80,7 @@ You can download the report for an enterprise account, or for an organization th
 
 With {% data variables.product.github %}'s new billing platform, you can create cost centers to map spending to individual business units or groups of users. Cost centers allow you to track costs tied to different initiatives and charge the costs to specific areas of your business.
 
-For example, if you were running a pilot program for {% data variables.product.prodname_copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
+For example, if you were running a pilot program for {% data variables.copilot.copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
 
 ### Create a cost center
 
@@ -111,7 +111,7 @@ With {% data variables.product.github %}'s new billing platform, you can underst
 1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 1. In the left sidebar, click **Usage**.
 1. In the "Metered usage" section, in the search field, enter `product:copilot`. To filter by cost center, add a query like `cost_center:ce-pilot-group`.
-1. To understand spending differences between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} plans, select the **Group: None** dropdown menu and click **Group: SKU**.
+1. To understand spending differences between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, select the **Group: None** dropdown menu and click **Group: SKU**.
 
 ![Screenshot of the "Usage" page. A line chart tracks Copilot spending over the current month, grouped by SKU.](/assets/images/help/copilot/track-spending.png)
 

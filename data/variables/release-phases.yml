@@ -13,6 +13,12 @@ private_preview: >-
 private_preview_caps: >-
   {% ifversion ghes < 3.16 %}Private beta{% else %}Private preview{% endif %}
 
+technical_preview: >-
+  technical preview
+
+technical_preview_caps: >-
+  Technical preview
+
 closing_down: >-
   {% ifversion ghes < 3.16 %}deprecated{% else %}closing down{% endif %}
 

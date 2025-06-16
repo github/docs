@@ -1,11 +1,11 @@
 import { ExtendedRequestWithPageInfo } from '../types'
 import type { NextFunction, Response } from 'express'
 
-import { ExtendedRequest, Page } from '#src/types.js'
+import { ExtendedRequest, Page } from '@/types.js'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import getRedirect from '@/redirects/lib/get-redirect.js'
-import { getVersionStringFromPath, getLangFromPath } from '#src/frame/lib/path-utils.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import { getVersionStringFromPath, getLangFromPath } from '@/frame/lib/path-utils.js'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
 
 // validates the path for pagelist endpoint
 // specifically, defaults to `/en/free-pro-team@latest` when those values are missing

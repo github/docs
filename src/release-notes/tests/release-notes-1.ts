@@ -36,7 +36,7 @@ describe('release notes', () => {
     const $ = await getDOM(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
     expect($('h1').first().text()).toBe(`Enterprise Server ${oldestSupportedGhes} release notes`)
     expect(
-      $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`),
+      $('main h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`),
     ).toBe(true)
   })
 

@@ -4,9 +4,9 @@ import { Liquid } from 'liquidjs'
 import walk from 'walk-sync'
 import matter from 'gray-matter'
 
-import { latest, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
-import { getContents } from '#src/workflows/git-utils.ts'
-import github from '#src/workflows/github.ts'
+import { latest, oldestSupported } from '@/versions/lib/enterprise-server-releases.js'
+import { getContents } from '@/workflows/git-utils'
+import github from '@/workflows/github'
 
 interface ReleaseDates {
   [releaseNumber: string]: {
