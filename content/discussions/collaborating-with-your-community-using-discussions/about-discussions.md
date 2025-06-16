@@ -15,7 +15,7 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 * Share announcements and information
 * Plan and make decisions with community input
 * Encourage and answer questions, and mark them answered as you respond to them
-* Gather feedback using polls to gauge community opinion
+* Gauge community opinion using polls 
 * Upvote discussions and comments to give higher visibility to ideas you find valuable
 * Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
