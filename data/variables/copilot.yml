@@ -118,3 +118,9 @@ copilot_o4_mini: 'o4-mini'
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'
 next_edit_suggestions_caps: 'Next edit suggestions'
+
+## Copilot Workspace
+copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
+copilot_workspace_pr_short: 'Copilot Workspace for PRs'
+copilot_workspace: 'Copilot Workspace'
+copilot_workspace_short: 'Workspace'
