@@ -7,6 +7,5 @@ versions:
 topics:
   - Copilot
 children:
-  - /using-copilot-to-help-you-work-on-a-pull-request
   - /creating-a-pull-request-summary-with-github-copilot
 ---
