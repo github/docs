@@ -347,8 +347,6 @@ jobs:
 
 ## `vars` context
 
-{% data reusables.actions.configuration-variables-beta-note %}
-
 The `vars` context contains custom configuration variables set at the organization, repository, and environment levels. For more information about defining configuration variables for use in multiple workflows, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-variables-for-multiple-workflows).
 
 ### Example contents of the `vars` context
