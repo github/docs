@@ -54,10 +54,6 @@ For more information about discussion management, see [AUTOTITLE](/discussions/m
 
 You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)
-* [AUTOTITLE](/search-github/searching-on-github/searching-discussions)
-* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)
-* [AUTOTITLE](/communities/moderating-comments-and-conversations){% ifversion fpt or ghec %}
-* [AUTOTITLE](/communities/maintaining-your-safety-on-github){% endif %}
+
