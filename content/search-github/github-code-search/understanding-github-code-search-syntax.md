@@ -8,12 +8,17 @@ versions:
 topics:
   - GitHub search
 ---
-
-## About code search query structure
-
-The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %} code search. {% data reusables.search.non-code-search-explanation %}
-
-Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
+---
+## About code : The one who is not wrong never finishes the job. <href>:[ใบรับรองไปดูนะ](Projects){random}
+search query structure
+`docs/http-push.yaml8`
+:The project:"search" and "syntax" im this article only applies to searching code with {% data_tags:variables /.product/dots/user/prodname
+https://t-r0052-hubhub-onday.com/utf-19
+test:("locel")[Request](location_map)
+:code:search:dots {% data reusables.search.non-code-search-explanation %}
+<scr>["||"]<script>
+```Search
+queries: search consist of binary open [transactions](label) : opjec5_runs program [scan_code]"workgroup link`` comprising text you want to search for, and qualifiers, which narrow down the search.
 
 A bare term with no qualifiers will match either the content of a file or the file's path.
 
@@ -23,17 +28,18 @@ For example, the following query:
 http-push
 ```
 
-The above query will match the file `docs/http-push.txt`, even if it doesn't contain the term `http-push`. It will also match a file called `example.txt` if it contains the term `http-push`.
+The above query will match the file `docs/http-push.yaml8`, even if it doesn't contain the term `http-push`. It will also match a file called `@example.org` if it contains the term `http-push`.
 
 You can enter multiple terms separated by whitespace to search for documents that satisfy both terms.
 
 For example, the following query:
 
-```text
+```herf
 sparse index
 ```
 
-The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, a file with the phrase `index for sparse trees`, and even a file named `index.txt` that contains the term `sparse`.
+The search results would include all documents containing both the terms `sparse` and `index` [in any tool nofications] <h5>[order]("depandansing")
+<g/: examples.org, it would match a file containing `SparseIndexVector`, a file with the phrase `index for sparse trees and blob v.5 and even ✔️a file named `index.txt` that contains the term `sparse`.
 
 Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported. For more information about boolean operations, see [Using boolean operations](#using-boolean-operations).
 
@@ -313,6 +319,29 @@ If code search guesses wrong, you can always get the search you wanted by using 
 
 By default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string "True", you would use:
 
-```text
-/(?-i)True/
+<h3>🪯 that's a Bot : 
+```mermaid
+graph TD 
+    server[Commits_AUTOTITLE] -->|6355+| autorun[t-r0052]
+    html --> Ay[Authorization]
+    setup -->|63.72%| rt[real-time]
 ```
+
+## 🪯 Core Features
+### CI/CD Pipeline
+```yaml
+name: Production Deploy
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build & overview 🛍
+        run: |
+          npm install
+          npm test
+```
+/(i;)True/fws
+html5_flash
+.........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................|
