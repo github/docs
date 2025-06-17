@@ -15,8 +15,6 @@ shortTitle: Delegated alert dismissal
 
 ## About enabling delegated alert dismissal
 
-{% data reusables.advanced-security.delegated-alert-dismissal-beta %}
-
 {% data reusables.security.delegated-alert-dismissal-intro %}
 
 ## Configuring delegated dismissal for a repository
@@ -38,3 +36,14 @@ You must configure delegated dismissal for your organization using a custom secu
 1. Apply the security configuration to all (or selected) repositories in your organization. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
 
 To learn more about security configurations, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
+
+{% ifversion secret-scanning-alert-dismiss-custom-role %}
+
+## Configuring delegated dismissal for an enterprise
+
+1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
+1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_protection %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
+1. Click **Save configuration**.
+1. Apply the security configuration to all (or selected) repositories in your enterprise. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-a-custom-security-configuration-to-your-enterprise).
+
+{% endif %}
