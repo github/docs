@@ -13830,7 +13830,9 @@
           "type": "IssueStateReason",
           "id": "issuestatereason",
           "kind": "enums",
-          "href": "/graphql/reference/enums#issuestatereason"
+          "href": "/graphql/reference/enums#issuestatereason",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.</p>"
         },
         {
           "name": "url",
@@ -29819,7 +29821,9 @@
                 "href": "/graphql/reference/scalars#boolean"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.</p>"
         },
         {
           "name": "subIssues",
@@ -89326,7 +89330,7 @@
         },
         {
           "name": "DUPLICATE",
-          "description": "<p>An issue that has been closed as a duplicate. To retrieve this value, set\n<code>(enableDuplicate: true)</code> when querying the stateReason field.</p>"
+          "description": "<p>An issue that has been closed as a duplicate.</p>"
         },
         {
           "name": "NOT_PLANNED",
