@@ -50,8 +50,8 @@ search:
     references: Copilot Sources
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    copy_answer: Copy answer
-    copied_announcement: Copied!
+    share_answer: Copy answer URL
+    share_copied_announcement: Copied share URL!
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
