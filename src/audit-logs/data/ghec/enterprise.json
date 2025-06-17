@@ -240,6 +240,11 @@
     "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
   },
   {
+    "action": "business_code_security_metered_usage.lock",
+    "description": "Enablement for Code Security features on new repositories has been locked for this enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.connect_usage_metrics_export",
     "description": "Server statistics were exported for the enterprise.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
@@ -482,6 +487,11 @@
   {
     "action": "business.revoke_sso_session",
     "description": "The SAML single sign-on session for a member in an enterprise was revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business_secret_protection_metered_usage.lock",
+    "description": "Enablement for Secret Protection features on new repositories has been locked for this enterprise.",
     "docs_reference_links": "N/A"
   },
   {

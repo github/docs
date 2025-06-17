@@ -106,8 +106,6 @@ Approval processes are available for:
 * Bypasses of push protection—You can choose who is allowed to bypass push protection, and add a review and approval cycle for pushes containing secrets from all other contributors. For more information about **delegated bypass for push protection**, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).{% ifversion security-delegated-alert-dismissal %}
 * Dismissals of alerts for {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}—You can provide additional control and visibility over alert assessment by ensuring that only designated individuals can dismiss (or close) alerts. For more information about **delegated alert dismissal**, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning).
 
-  {% data reusables.advanced-security.delegated-alert-dismissal-beta %}
-
 {% endif %}
 
 {% endif %}
