@@ -4664,6 +4664,33 @@
         "requestPath": "/repos/{owner}/{repo}/attestations/{subject_digest}",
         "additional-permissions": false,
         "access": "read"
+      },
+      {
+        "category": "users",
+        "slug": "delete-attestations-in-bulk",
+        "subcategory": "attestations",
+        "verb": "post",
+        "requestPath": "/users/{username}/attestations/delete-request",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "delete-attestations-by-subject-digest",
+        "subcategory": "attestations",
+        "verb": "delete",
+        "requestPath": "/users/{username}/attestations/digest/{subject_digest}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "users",
+        "slug": "delete-attestations-by-id",
+        "subcategory": "attestations",
+        "verb": "delete",
+        "requestPath": "/users/{username}/attestations/{attestation_id}",
+        "additional-permissions": false,
+        "access": "write"
       }
     ]
   },
@@ -5199,6 +5226,15 @@
     "title": "Contents",
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
+      {
+        "category": "markdown",
+        "slug": "render-a-markdown-document",
+        "subcategory": "markdown",
+        "verb": "post",
+        "requestPath": "/markdown",
+        "additional-permissions": false,
+        "access": "read"
+      },
       {
         "category": "repos",
         "slug": "list-repository-activities",
