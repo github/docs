@@ -155,6 +155,11 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business.advanced_security_metered_usage_unlock",
+    "description": "Enablement for Advanced Security features on new repositories has been unlocked for this enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.advanced_security_policy_update",
     "description": "An enterprise owner created, updated, or removed a policy for GitHub Advanced Security.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise"
@@ -240,7 +245,7 @@
     "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
   },
   {
-    "action": "business_code_security_metered_usage.lock",
+    "action": "business.code_security_metered_usage_lock",
     "description": "Enablement for Code Security features on new repositories has been locked for this enterprise.",
     "docs_reference_links": "N/A"
   },
@@ -487,11 +492,6 @@
   {
     "action": "business.revoke_sso_session",
     "description": "The SAML single sign-on session for a member in an enterprise was revoked.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business_secret_protection_metered_usage.lock",
-    "description": "Enablement for Secret Protection features on new repositories has been locked for this enterprise.",
     "docs_reference_links": "N/A"
   },
   {
