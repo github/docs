@@ -127,6 +127,7 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 When {% data variables.copilot.copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_code_scanning %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 > [!NOTE]
+>
 > * {% data variables.copilot.copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.copilot.copilot_autofix_short %}, see the query tables linked from [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites).
 > * When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.copilot.copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
 > * On alerts generated from queries that are not supported by {% data variables.copilot.copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
@@ -142,8 +143,6 @@ Each {% data variables.copilot.copilot_autofix_short %} suggestion demonstrates 
 1. Click **Edit** to display the editing options and select your preferred method.
    * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
    * Select **Edit FILENAME** to edit the file directly on {% data variables.product.prodname_dotcom %} with the suggested fix applied.
-
-    {% data reusables.rai.code-scanning.copilot-workspaces-prs-autofix-note %}
 
 1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" aria-label="copy" %} dropdown menu on the suggestion.
    * Select **View autofix patch** to display instructions for applying the suggested fix to any local repository or branch.
@@ -171,7 +170,3 @@ An alternative way of closing an alert is to dismiss it. You can dismiss an aler
 For more information about dismissing alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#dismissing--alerts).
 
 ## Further reading
-
-{%- ifversion copilot-hadron %}
-* [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)
-{%- endif %}

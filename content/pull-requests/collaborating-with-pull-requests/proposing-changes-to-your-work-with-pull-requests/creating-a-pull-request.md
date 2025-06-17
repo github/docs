@@ -37,6 +37,7 @@ When you change the base repository, you also change notifications for the pull 
 When you change any of the information in the branch range, the Commit and Files changed preview areas will update to show your new range.
 
 > [!TIP]
+>
 > * Using the compare view, you can set up comparisons across any timeframe. For more information, see [AUTOTITLE](/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
 > * Project maintainers can add a pull request template for a repository. Templates include prompts for information in the body of a pull request. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).
 
@@ -45,11 +46,13 @@ When you change any of the information in the branch range, the Commit and Files
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
+
 1. In the "Branch" menu, choose the branch that contains your commits.
 
    ![Screenshot of the branch dropdown menu on the main page of a repository.](/assets/images/help/pull_requests/branch-dropdown.png)
 
 {% data reusables.repositories.new-pull-request %}
+
 1. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in.
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.create-pull-request %}
@@ -184,14 +187,6 @@ You can also make changes to files on the {% data variables.product.github %} we
    ![Screenshot of the options above a file on the "File changed" tab. The "Show options" button is highlighted with an orange rectangle.](/assets/images/help/pull_requests/menu-on-pull-request-file.png)
 1. In the menu, click **Edit file**.
 1. Make your changes in the editor and when committing your change, choose to commit directly back to your head branch.
-
-{% ifversion copilot-hadron %}
-
-If you are part of the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_workspace %}, clicking **Edit** on a file on the "Files changed" tab will open the file in a {% data variables.copilot.copilot_workspace %} on {% data variables.product.prodname_dotcom %}. In a {% data variables.copilot.copilot_workspace %}, you can still make changes to the file but also make changes to other files in the repository, group your changes into a single commit, and take advantage of {% data variables.product.prodname_copilot_short %} code completion.
-
-You can access {% data variables.copilot.copilot_workspace %} by choosing to edit an individual file or by clicking **Open in {% data variables.copilot.copilot_workspace_short %}** in your pull request's right sidebar. For more information about {% data variables.copilot.copilot_workspace %} and joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
-
-{% endif %}
 
 {% endwebui %}
 

@@ -26,8 +26,6 @@ topics:
 
 You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
 
-If you have access to {% data variables.copilot.copilot_workspace %}, {% data variables.product.prodname_copilot_short %} can also help you when you are editing files in a pull request on the {% data variables.product.github %} website by offering you code completion suggestions. For more information about {% data variables.copilot.copilot_workspace %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
-
 Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
 {% ifversion fpt %}
@@ -95,6 +93,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
+
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_windows_terminal %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 * **{% data variables.product.prodname_windows_terminal %} Canary**. Terminal Chat is only available in [{% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
@@ -145,6 +144,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
+
 * **{% data variables.product.prodname_copilot_short %} subscription** - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 {% data reusables.copilot.vscode-prerequisites %}
@@ -184,6 +184,7 @@ The following example uses JavaScript, however other languages will work similar
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+
 * **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
 * **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [About {% data variables.copilot.next_edit_suggestions %}](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot#about-next-edit-suggestions).
 {% data reusables.copilot.quickstart-nextsteps2 %}
@@ -203,6 +204,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
+
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 {% data reusables.copilot.visual-studio-prerequisites %}
@@ -235,6 +237,7 @@ The following example uses JavaScript, however other languages will work similar
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+
 * **Prompt like a pro** - Watch [{% data variables.product.prodname_vs %} Prompt Engineering with {% data variables.product.prodname_copilot %}](https://www.youtube.com/watch?v=9hZsOeIINg8&list=PLReL099Y5nRckZDdcQ21UigO9pKa14yxC) on YouTube.
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
@@ -253,6 +256,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 ## Prerequisites
 
 {% ifversion ghec %}
+
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=jetbrains).
