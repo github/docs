@@ -2983,6 +2983,12 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/bulk-list"
+    },
+    {
       "slug": "list-attestations",
       "subcategory": "orgs",
       "verb": "get",
@@ -5117,6 +5123,24 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
+    },
+    {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/{attestation_id}"
     },
     {
       "slug": "list-attestations",

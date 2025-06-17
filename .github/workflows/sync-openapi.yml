@@ -110,6 +110,8 @@ jobs:
             --title "Update OpenAPI Description" \
             --body '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
 
+            Docs First Responders should follow [the acting-as-the-first-responder instructions](https://github.com/github/docs-team/blob/main/contributing-to-docs/first-responder/acting-as-the-first-responder.md?plain=1#L156).
+
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
             --label github-openapi-bot \

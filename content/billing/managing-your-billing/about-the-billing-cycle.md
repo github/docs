@@ -8,6 +8,7 @@ redirect_from:
   - /billing/using-the-billing-platform/viewing-your-subscriptions-and-billing-date
   - /billing/using-the-billing-platform/changing-the-duration-of-your-billing-cycle
   - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
+  - /billing/using-the-new-billing-platform/about-the-billing-cycle
 type: overview
 topics:
   - Enterprise

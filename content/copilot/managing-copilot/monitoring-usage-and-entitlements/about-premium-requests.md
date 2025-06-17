@@ -10,9 +10,9 @@ redirect_from:
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
 ---
 
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 {% data reusables.copilot.unlimited-premium-requests-with-date %}
-<!-- end expires 2025-06-11 -->
+<!-- end expires 2025-06-18 -->
 
 ## What is a request?
 
@@ -44,11 +44,12 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 Each model has a premium request multiplier, based on its complexity and resource usage. Your premium request allowance is deducted according to this multiplier.
 
+{% data variables.copilot.copilot_gpt_41 %} also serves as the base model. If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with the base model for the rest of the month. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
+
 | Model                                                                   | Premium requests                                                             |
 |-------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.copilot.copilot_free_short %}) |
-| Premium {% data variables.copilot.copilot_gpt_41 %}                     | 1                                                                            |
-| {% data variables.copilot.copilot_gpt_4o %}                             | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_41 %}                     | 0 (paid users), 1 ({% data variables.copilot.copilot_free_short %})                                                                            |
+| {% data variables.copilot.copilot_gpt_4o %}                             | 0 (paid users), 1 ({% data variables.copilot.copilot_free_short %})                                                                           |
 | {% data variables.copilot.copilot_gpt_45 %}                             | 50                                                                           |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                                                                            |
@@ -62,8 +63,6 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
 | {% data variables.copilot.copilot_o4_mini %}                            | 0.33                                                                         |
 
-[^2]: The base model at the time of writing is powered by {% data variables.copilot.copilot_gpt_41 %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
-
 ## Additional premium requests
 
 > [!NOTE]
@@ -71,9 +70,9 @@ Each model has a premium request multiplier, based on its complexity and resourc
 >
 > * Users on {% data variables.copilot.copilot_free_short %}. To access more premium requests, upgrade to a paid plan.
 > * Users who subscribe, or have subscribed, to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.
-> <!-- expires 2025-06-11 -->
+> <!-- expires 2025-06-18 -->
 > Budget setting for premium requests is coming soon. Until then, you can continue to use {% data variables.product.prodname_copilot_short %} premium models without being billed for additional premium requests.
-> <!-- end expires 2025-06-11 -->
+> <!-- end expires 2025-06-18 -->
 
 If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with the base model for the rest of the month. If you need more premium requests, you can upgrade to a higher plan or set a spending limit for premium requests over your plan's allowance. Premium requests over the allowance are rejected unless you have set a budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
 
