@@ -16,28 +16,24 @@ versions:
 * Plan and make decisions with community input
 * Encourage and answer questions, and mark them answered as you respond to them
 * Gauge community opinion using polls
-* Upvote discussions and comments to give higher visibility to ideas you find valuable
-* Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
 ![Screenshot of the "Discussions" page for a repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
 You can use **repository** discussions to discuss topics that are specific to one repository and **organization** discussions for broader conversations that span multiple repositories.
 
-Anyone who can access a repository or organization can create and participate in discussions there. However, an administrators must enable {% data variables.product.prodname_discussions %} for the repository or organization first.
+Anyone with access to a repository or organization can create and participate in discussions there. However, an administrators must enable {% data variables.product.prodname_discussions %} for the repository or organization first.
 
 ## Managing discussions
 
-Discussions are created in user-defined categories and can be further organized with labels.
+{% data variables.product.prodname_discussions %} includes tools for managing discussions, and for using discussions to manage the repository or organization.
 
-In addition to organzing discussions, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
+* Pin discussions to give topics more visibility
+* Mark comments as answers in question-and-answer categories to help users find information more quickly
+* Lock discussions that have reached a conclusion or become too heated
+* Convert open-ended issues into discussions
+* Close discussions that are no longer useful
 
-* Discussions can be pinned to give topics more visibility.
-* Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly.
-* If a discussion has reached a conclusion or gotten too heated, it can be locked.
-* Issues that turn out to be too open-ended can be converted to a discussion.
-* Moderators can close discussions that are no longer useful.
-
-For more information about discussion management, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
+Discussions are opened in user-defined categories, and can be further organized with repository labels. For more information about discussion management, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
 ## Sharing feedback
 
@@ -45,4 +41,4 @@ You can share your feedback about {% data variables.product.prodname_discussions
 
 ## Next steps
 
-Ready to try {% data variables.product.prodname_discussions %}? Find out how to get started at [AUTOTITLE](/discussions/quickstart)
+If you're ready to try {% data variables.product.prodname_discussions %}, find out how to get started at [AUTOTITLE](/discussions/quickstart)
