@@ -131,7 +131,7 @@ As an {% data variables.enterprise.enterprise_or_org %} owner{% ifversion ghec %
 
 ### Editing or deleting a budget
 
->[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets.
+>[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets. For example, deleting the default $0 budget for {% data variables.product.prodname_copilot_short %} premium requests allows for unlimited usage.
 
 {% ifversion fpt %}
 

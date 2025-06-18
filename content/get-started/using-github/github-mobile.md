@@ -26,19 +26,19 @@ With {% data variables.product.prodname_mobile %} you can:
 * Read, review, and collaborate on issues and pull requests
 * Edit files in pull requests
 * Search for, browse, and interact with users, repositories, and organizations
-* Receive a push notification when someone mentions your username
-{% ifversion mobile-code-search %}- Search through code in a specific repository{% endif %}
-{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication
-* Verify your sign in attempts on unrecognized devices{% endif %}
-{% ifversion copilot-chat-for-mobile %}- Use {% data variables.copilot.copilot_chat %} to ask and receive answers to coding-related questions{% endif %}
+* Receive a push notification when someone mentions your username{% ifversion mobile-code-search %}
+* Search through code in a specific repository{% endif %}{% ifversion fpt or ghec %}
+* Secure your {% data variables.product.prodname_dotcom_the_website %} account with two-factor authentication
+* Verify your sign in attempts on unrecognized devices{% endif %}{% ifversion copilot-chat-for-mobile %}
+* Use {% data variables.copilot.copilot_chat %} to ask and receive answers to coding-related questions{% endif %}
 
 The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
-* For more information about notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile).
-{% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}
-{% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}
-{% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.copilot.copilot_mobile %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).{% endif %}
-{% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.copilot.copilot_extensions %} in {% data variables.product.prodname_mobile %}, see [Extending {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_mobile %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile#extending-copilot-chat-in-github-mobile).{% endif %}
+* For more information about notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile).{% ifversion mobile-code-search %}
+* For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}{% ifversion fpt or ghec %}
+* For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}{% ifversion copilot-chat-for-mobile %}
+* For more information about using {% data variables.copilot.copilot_mobile %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).{% endif %}{% ifversion copilot-chat-for-mobile %}
+* For more information about using {% data variables.copilot.copilot_extensions %} in {% data variables.product.prodname_mobile %}, see [Extending {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_mobile %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile#extending-copilot-chat-in-github-mobile).{% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
 
