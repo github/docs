@@ -58,7 +58,20 @@ Examples:
 * ❌ Incorrect: `For more information, see [Using GitHub Copilot](/copilot/using-github-copilot).`
 * ❌ Incorrect: `For more information, see {% link /copilot/using-github-copilot %}.`
 
-### Creating a pull request
+### Parenthetical dashes
+
+Where a sentence of normal body text contains a parenthetical dash, the dash should always be an em dash without spaces at either side. This rule does not apply to text within code blocks.
+
+Examples:
+
+* ✅ Correct: "The cat—which sat on a branch—smiled with a broad grin." (em dash without spaces)
+* ❌ Incorrect: "The cat — which sat on a branch — smiled with a broad grin." (em dash with spaces)
+* ❌ Incorrect: "The cat–which sat on a branch–smiled with a broad grin." (en dash without spaces)
+* ❌ Incorrect: "The cat – which sat on a branch – smiled with a broad grin." (en dash with spaces)
+* ❌ Incorrect: "The cat-which sat on a branch-smiled with a broad grin." (hyphen without spaces)
+* ❌ Incorrect: "The cat - which sat on a branch - smiled with a broad grin." (hyphen with spaces)
+
+## Creating a pull request
 
 When creating a pull request as a result of a request to do so in Copilot Chat, the first line of the PR description should **always** be the following (in italics):
 
