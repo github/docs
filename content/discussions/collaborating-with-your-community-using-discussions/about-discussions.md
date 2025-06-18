@@ -10,7 +10,7 @@ versions:
 
 ## About {% data variables.product.prodname_discussions %}
 
-With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within a repository or organization. Maintainers, contributors, and visitors can gather in a central location, without third-party tools.
+{% data variables.product.prodname_discussions %} allows your project's community to engage in conversations about the project's direction and future in an open-ended format. Maintainers, contributors, and visitors can gather in a central location, without third-party tools.
 
 * Share announcements and information
 * Plan and make decisions with community input
@@ -29,7 +29,7 @@ Anyone who can has access to a repository can create and participate in discussi
 
 Discussions are created in user-defined categories and can be further organized with labels.
 
-In addition to sorting discussions, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
+In addition to organzing discussions, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
 
 * Discussions can be pinned to give topics more visibility.
 * Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly.
