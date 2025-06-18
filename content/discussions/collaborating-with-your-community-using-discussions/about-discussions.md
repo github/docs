@@ -21,32 +21,21 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 
 ![Screenshot of the "Discussions" page for a repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
-You can use **repository** discussions to discuss topics that are specific to one repository and **organization** discussions for broader conversations that spans multiple repositories.
+You can use **repository** discussions to discuss topics that are specific to one repository and **organization** discussions for broader conversations that span multiple repositories.
 
 Anyone who can has access to a repository can create and participate in discussions once a repository administrator or project maintainer has enabled {% data variables.product.prodname_discussions %}. Similarly, if an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 
-## Organizing discussions
-
-{% data variables.product.prodname_discussions %} offers you varying levels of granularity for organizing discussions:
-
-* Discussions are opened in categories defined by anyone with maintain or admin permissions
-* Categories come with different formats, such as announcements, question-and-answer, polls, or open-ended
-* Categories can be further organized under sections you create
-* Individual discussions can be categorized with more specificity by applying labels
-
-For more information about managing categories, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
-
-For more information on creating polls, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#creating-a-poll).
-
 ## Managing discussions
 
-In addition to sorting discussions by category, section, and label, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
+Discussions are created in user-defined categories and can be further organized with labels.
 
-* Discussions can be pinned to give topics more visibility
-* Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly
-* If a discussion has reached a conclusion or gotten too heated, it can be locked
-* Issues that turn out to be too open-ended can be converted to a discussion
-* Moderators can close discussions that are no longer useful
+In addition to sorting discussions, {% data variables.product.prodname_discussions %} includes other tools for managing discussions, and using discussions to manage the repository or organization.
+
+* Discussions can be pinned to give topics more visibility.
+* Comments can be marked as answers in question-and-answer categories to help readers find the most useful response quickly.
+* If a discussion has reached a conclusion or gotten too heated, it can be locked.
+* Issues that turn out to be too open-ended can be converted to a discussion.
+* Moderators can close discussions that are no longer useful.
 
 For more information about discussion management, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
@@ -56,4 +45,4 @@ You can share your feedback about {% data variables.product.prodname_discussions
 
 ## Next steps
 
-
+Ready to try {% data variables.product.prodname_discussions %}? Find out how to get started at [AUTOTITLE](/discussions/quickstart)
