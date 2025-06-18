@@ -9,5 +9,4 @@ topics:
 children:
   - /extending-copilot-chat-with-mcp
   - /using-the-github-mcp-server
-  - /extending-copilot-coding-agent-with-mcp
 ---
