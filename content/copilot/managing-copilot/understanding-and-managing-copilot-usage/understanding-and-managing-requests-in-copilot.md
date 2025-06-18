@@ -34,6 +34,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 * [Agent mode in {% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits) [^2]
 * [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review)
 * [{% data variables.copilot.copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions)
+* [{% data variables.copilot.copilot_spaces_short %}](/copilot/using-github-copilot/copilot-spaces/creating-and-using-copilot-spaces)
 
 [^1]: {% data variables.copilot.copilot_coding_agent %} uses a fixed multiplier of 1 for the premium requests it uses, and may use multiple premium requests in response to one user prompt.
 [^2]: Agent mode uses one premium request per user prompt, multiplied by the model's rate.
