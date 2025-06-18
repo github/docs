@@ -1,0 +1,75 @@
+date: '2025-06-18'
+sections:
+  security_fixes:
+    - |
+      **HIGH:** An attacker could execute arbitrary code, potentially leading to privilege escalation and system compromise, by exploiting the pre-receive hook functionality to bind to dynamically allocated ports that become temporarily available (for example, during a hot patch upgrade). This vulnerability is only exploitable under specific operational conditions, such as during the hot patching process, and requires either site administrator permissions or a user with privileges to modify repositories containing pre-receive hooks. The initial fix for this issue was found to be incomplete, leaving the vulnerability exploitable in some cases. GitHub has requested CVE ID: [CVE-2025-3509](https://www.cve.org/CVERecord?id=CVE-2025-3509) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      The Management Console maintenance page would not load correctly if the underlying API call fails to load the connection services data.
+    - |
+      On an instance with GitHub Actions configured to connect to Azure OIDC storage through a proxy, Actions logs and artifacts would not be properly stored.
+    - |
+      Site administrators and auditors reviewing audit logs saw the `mc_actor` field was empty when a user signed out, because audit logging occurred after the user was removed from session state.
+    - |
+      On instances with a large number of code scanning users, running `ghe-config-apply` previously resulted in slow performance.
+    - |
+      During hotpatching, site administrators could encounter issues with the kernel partition table not updating correctly when running `ghe-partition-setup`. These users had to manually intervene in order to complete the upgrade process.
+    - |
+      Users of GitHub Actions could not view or manage Actions artifacts and logs if the global AWS STS endpoint was unavailable, because Actions did not use the configured regional STS endpoint.
+    - |
+      Fixed an edge case for certain Security Configurations that would not automatically work when transitioning to unbundled GitHub Advanced Security SKUs.
+    - |
+      When users clicked and held on search suggestions in the search bar, they were not taken to the correct location.
+    - |
+      Organization owners had no audit log events to track organization announcements displayed on banners in the UI.
+    - |
+      If an Enterprise Managed User (EMU) pushed to their personal repository with both secret scanning and push protection enabled, the custom patterns defined at enterprise level were not being applied during the push protection scan.
+    - |
+      On instances with dangling commit graph lock files, recompute checksum operations were unexpectedly triggered.
+    - |
+      After an appliance reboot, code scanning did not always trigger or process analyses.
+  changes:
+    - |
+      Site administrators who test the Prometheus endpoint can now use 127.0.0.1 as a trusted IP address. Previously, only specific IPs were allowed for testing.
+    - |
+      To ensure critical integrations and automated systems have uninterrupted access, the `/repositories/:repository_id/collaborators` endpoints now honor the higher rate limits for exempt users set with `ghe-config app.github.rate-limiting-exempt-users "<USER>"`.
+    - |
+      Site administrators can now set rate limits for the WebSockets controller used for live updates, with `ghe-config app.github.web-sockets-rate-limit`. For more information, see [Controlling the rate for the live update service](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits#controlling-the-rate-for-the-live-update-service).
+  closing_down:
+    - |
+      Site administrators who manage dependencies with the base-pinned image should no longer rely on the vulcanizer CLI, as it is in the process of being retired and replaced with vulcancli. Transition to vulcancli to ensure continued support and compatibility.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      In a cluster, the host running restore requires to access the storage nodes via their private IP addresses.
+    - |
+      On an instance hosted on Azure, comments made on an issue via email are not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      Uploading a new license with unbundled GitHub Advanced Security may not fully unbundle all the Security Configurations on the instance in certain cases. Any active Security Configurations will continue to function, but when attempting to apply the configurations to new repositories you may see errors like "Advanced Security is not purchased" or `Validation failed: Secret scanning non provider patterns. Non-provider patterns must be disabled when secret scanning is disabled`. Contact GitHub Support for assistance clearing this state in version 3.17.1. This issue will be resolved in version 3.17.2.
