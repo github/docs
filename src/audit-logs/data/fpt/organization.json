@@ -1140,11 +1140,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "org_code_security_metered_usage.lock",
-    "description": "Enablement for Code Security features on new repositories has been locked for this organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -1563,11 +1558,6 @@
     "action": "org.runner_group_visiblity_updated",
     "description": "The visibility of a self-hosted runner group was updated via the REST API.",
     "docs_reference_links": "/rest/actions#update-a-self-hosted-runner-group-for-an-organization"
-  },
-  {
-    "action": "org_secret_protection_metered_usage.lock",
-    "description": "Enablement for Secret Protection features on new repositories has been locked for this organization.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "org_secret_scanning_automatic_validity_checks.disabled",

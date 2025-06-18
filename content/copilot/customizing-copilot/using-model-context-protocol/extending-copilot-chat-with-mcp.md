@@ -206,5 +206,5 @@ For more information on creating and configuring your own MCP servers, see [the 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 * [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server)

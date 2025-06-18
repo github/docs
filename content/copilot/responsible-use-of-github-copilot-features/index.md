@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /responsible-use-of-github-copilot-code-completion
   - /responsible-use-of-github-copilot-chat-in-your-ide
   - /responsible-use-of-github-copilot-chat-in-github
   - /responsible-use-of-github-copilot-chat-in-github-mobile

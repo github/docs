@@ -116,7 +116,7 @@ Alternatively, set to "No policy" to leave organization owners to make the decis
 
 > [!NOTE] Use of MCP servers on {% data variables.product.prodname_dotcom_the_website %} is in public preview and subject to change.
 
-{% data reusables.copilot.coding-agent.mcp-brief-intro %} See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp).
+{% data reusables.copilot.coding-agent.mcp-brief-intro %} See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 
