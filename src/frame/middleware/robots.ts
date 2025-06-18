@@ -23,8 +23,9 @@ export default function robots(req: ExtendedRequest, res: Response, next: NextFu
     req.hostname === 'docs.github.com' ||
     req.hostname === '127.0.0.1'
   ) {
-    return res.send(defaultResponse)
+    res.send(defaultResponse)
+    return
   }
 
-  return res.send(disallowAll)
+  res.send(disallowAll)
 }

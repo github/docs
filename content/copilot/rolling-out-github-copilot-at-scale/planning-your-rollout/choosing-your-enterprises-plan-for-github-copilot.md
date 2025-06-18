@@ -57,9 +57,9 @@ With {% data variables.copilot.copilot_enterprise_short %}, you can make {% data
 
 ## How much will we benefit from premium requests?
 
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- expires 2025-06-11 -->
+<!-- expires 2025-06-18 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
