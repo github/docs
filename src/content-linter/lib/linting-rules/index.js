@@ -35,6 +35,8 @@ import { liquidTagWhitespace } from './liquid-tag-whitespace.js'
 import { linkQuotation } from './link-quotation.js'
 import { octiconAriaLabels } from './octicon-aria-labels.js'
 import { liquidIfversionVersions } from './liquid-ifversion-versions.js'
+import { britishEnglishQuotes } from './british-english-quotes.js'
+import { multipleEmphasisPatterns } from './multiple-emphasis-patterns.js'
 import { noteWarningFormatting } from './note-warning-formatting.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
@@ -85,6 +87,8 @@ export const gitHubDocsMarkdownlint = {
     liquidTagWhitespace,
     linkQuotation,
     octiconAriaLabels,
+    britishEnglishQuotes,
+    multipleEmphasisPatterns,
     noteWarningFormatting,
   ],
 }
