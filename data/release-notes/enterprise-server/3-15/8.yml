@@ -1,26 +1,35 @@
-date: '2025-04-17'
+date: '2025-06-18'
 sections:
   security_fixes:
     - |
-      **MEDIUM:** An attacker could view private repository names, which the signed-in user is not authorized to see, in the GitHub Advanced Security Overview. This was due to a missing authorization check and occurred when filtering with _only_ `archived:`. GitHub has requested CVE ID [CVE-2025-3124](https://www.cve.org/CVERecord?id=CVE-2025-3124) for this vulnerability.
+      **HIGH:** An attacker could execute arbitrary code, potentially leading to privilege escalation and system compromise, by exploiting the pre-receive hook functionality to bind to dynamically allocated ports that become temporarily available (for example, during a hot patch upgrade). This vulnerability is only exploitable under specific operational conditions, such as during the hot patching process, and requires either site administrator permissions or a user with privileges to modify repositories containing pre-receive hooks. The initial fix for this issue was found to be incomplete, leaving the vulnerability exploitable in some cases. GitHub has requested CVE ID: [CVE-2025-3509](https://www.cve.org/CVERecord?id=CVE-2025-3509) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
   bugs:
     - |
-      Pruning unreachable Git objects on a single replica could cause increased CPU load due to many Git checksum recalculations.
+      The Management Console maintenance page would not load correctly if the underlying API call fails to load the connection services data.
     - |
-      In the commit author filter dropdown on the commit history page for a repository, users could not search for a specific author (such as `foo`) if their search query had already returned a similar username (such as `foobar`).
+      On an instance with GitHub Actions configured to connect to Azure OIDC storage through a proxy, Actions logs and artifacts would not be properly stored.
     - |
-      Various repository content API endpoints were unable to parse revisions containing invalid UTF-8 byte sequences, triggering `500 Internal Server Error` responses.
+      Site administrators and auditors reviewing audit logs saw the `mc_actor` field was empty when a user signed out, because audit logging occurred after the user was removed from session state.
     - |
-      The "Get allowed actions and reusable workflows" APIs for enterprises, organizations, and repositories did not include the `verified_allowed` response field.
+      On instances with a large number of code scanning users, running `ghe-config-apply` previously resulted in slow performance.
     - |
-      Pull requests notifications in Slack and Teams integrations did not strikethrough in the UI when approved.
+      During hotpatching, site administrators could encounter issues with the kernel partition table not updating correctly when running `ghe-partition-setup`. These users had to manually intervene in order to complete the upgrade process.
+    - |
+      Users of GitHub Actions could not view or manage Actions artifacts and logs if the global AWS STS endpoint was unavailable, because Actions did not use the configured regional STS endpoint.
+    - |
+      Organization owners had no audit log events to track organization announcements displayed on banners in the UI.
+    - |
+      If an Enterprise Managed User (EMU) pushed to their personal repository with both secret scanning and push protection enabled, the custom patterns defined at enterprise level were not being applied during the push protection scan.
   changes:
     - |
-      Upgrading using a hot patch package will fail if the Elasticsearch status is not green. To help prevent post-upgrade problems when the Elasticsearch status is red, usually in a high-availability configuration, a check has been added.
+      To ensure critical integrations and automated systems have uninterrupted access, the `/repositories/:repository_id/collaborators` endpoints now honor the higher rate limits for exempt users set with `ghe-config app.github.rate-limiting-exempt-users "<USER>"`.
     - |
-      Merging a pull request using the "Rebase and merge" option is now limited to 100 commits. If you have a pull request with more than 100 commits, you need to either create a merge commit, or squash and merge, or split the commits up into multiple pull requests.
+      Site administrators can now set rate limits for the WebSockets controller used for live updates, with `ghe-config app.github.web-sockets-rate-limit`. For more information, see [Controlling the rate for the live update service](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits#controlling-the-rate-for-the-live-update-service).
+  closing_down:
     - |
-      The `spokesctl info` and `spokesctl repos` commands now also show wikis that are part of a network.
+      Site administrators who manage dependencies with the base-pinned image should no longer rely on the vulcanizer CLI, as it is in the process of being retired and replaced with vulcancli. Transition to vulcancli to ensure continued support and compatibility.
   known_issues:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
@@ -43,8 +52,6 @@ sections:
     - |
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
-    - |
       In the header bar displayed to site administrators, some icons are not available.
     - |
       When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
@@ -56,5 +63,3 @@ sections:
       Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
     - |
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
-    - |
-      Repository Cache Replicas return `Repository not found` when changes have been pushed to the Primary instance that have not yet synchronized to the Cache Replica. This issue can also occur in all previous patches of this release.
