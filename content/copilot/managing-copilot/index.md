@@ -10,7 +10,7 @@ children:
   - /managing-copilot-as-an-individual-subscriber
   - /managing-github-copilot-in-your-organization
   - /managing-copilot-for-your-enterprise
-  - /monitoring-usage-and-entitlements
+  - /understanding-and-managing-copilot-usage
   - /configure-personal-settings
   - /configuring-and-auditing-content-exclusion
 ---
