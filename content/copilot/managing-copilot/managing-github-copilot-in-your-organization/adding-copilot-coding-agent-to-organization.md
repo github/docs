@@ -17,7 +17,7 @@ shortTitle: 'Add {% data variables.copilot.copilot_coding_agent %}'
 
 * For general information, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org).
 * For information on premium requests and Actions minutes, see [Allowance usage for {% data variables.copilot.copilot_coding_agent %}](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-coding-agent).
-* For information on MCP servers, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp).
+* For information on MCP servers, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Enabling {% data variables.copilot.copilot_coding_agent %} for your members
 

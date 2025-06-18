@@ -34,5 +34,5 @@ If you want {% data variables.copilot.copilot_coding_agent %} to be available in
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 * [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org)

@@ -47,4 +47,4 @@ You can also manage the permissions of installed {% data variables.copilot.copil
 ## Further reading
 
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)
-* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)

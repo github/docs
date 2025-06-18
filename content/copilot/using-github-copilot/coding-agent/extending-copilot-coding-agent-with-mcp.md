@@ -9,6 +9,7 @@ topics:
   - Copilot
 type: how_to
 redirect_from:
+  - /copilot/customizing-copilot/using-model-context-protocol/extending-copilot-coding-agent-with-mcp
   - /copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp
   - /early-access/copilot/coding-agent/extending-copilot-coding-agent-with-model-context-protocol
 ---
