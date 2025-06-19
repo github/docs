@@ -55,12 +55,14 @@ export const UnrenderedMarkdownContent = ({
       })
 
       return (
-        <div>
+        <div style={{ position: 'relative' }}>
           <IconButton
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
             className="btn-octicon"
-            aria-label={t('search.ai.response.copy_code')}
+            aria-label={
+              isCopied ? t('search.ai.response.copied_code') : t('search.ai.response.copy_code')
+            }
             onClick={async () => {
               await copyToClipboard()
               announce(t('search.ai.response.copied_code'))
@@ -73,8 +75,8 @@ export const UnrenderedMarkdownContent = ({
             }}
             sx={{
               position: 'absolute',
-              right: '1.3rem',
-              marginTop: '-.7rem',
+              right: '-.7rem',
+              top: '-.7rem',
               zIndex: 1,
             }}
           ></IconButton>
