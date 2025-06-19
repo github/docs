@@ -150,6 +150,10 @@ To fix this, you can do one of the following things.
 
 A `401 Unauthorized` error when attempting to obtain an access token for a {% data variables.product.prodname_github_app %} could be a result of a Network Time Protocol (NTP) drift. Ensure that your Kubernetes system is accurately syncing with an NTP server and that there isn't a significant time drift. There is more leeway if your system time is behind {% data variables.product.github %}'s time, but if the environment is more than a few seconds ahead, 401 errors will occur when using {% data variables.product.prodname_github_app %}.
 
+## Runner group limits
+
+{% data reusables.actions.self-hosted-runner-group-limit %}
+
 ## Legal notice
 
 {% data reusables.actions.actions-runner-controller-legal-notice %}
