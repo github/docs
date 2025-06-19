@@ -15,4 +15,4 @@ type: overview
 {% data reusables.actions.usage-api-requests %}
 * **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
-* **Registering self-hosted runners** - You can have a maximum of 10,000 self-hosted runners in one runner group. If this limit is reached, adding a new runner will not be possible.
+* **Registering self-hosted runners** - {% data reusables.actions.self-hosted-runner-group-limit %}

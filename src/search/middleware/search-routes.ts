@@ -88,7 +88,7 @@ router.get(
 
       if (process.env.NODE_ENV !== 'development') {
         searchCacheControl(res)
-        setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+        setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
       }
 
       res.status(200).json({ meta, hits })
