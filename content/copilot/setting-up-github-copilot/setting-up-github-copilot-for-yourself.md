@@ -13,7 +13,7 @@ topics:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completions and 50 chats or premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 * **Sign up for a paid plan**. You can subscribe to either:
 

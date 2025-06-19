@@ -27,17 +27,16 @@ If {% data variables.large_files.product_name_long %} ({% data variables.large_f
 
 > [!TIP]
 > * {% data reusables.large_files.owner_quota_only %}
-> * {% data reusables.large_files.does_not_carry %}
 
 ## Storage quota
 
-If you use more than {% data variables.large_files.initial_storage_quota %} of storage without purchasing a data pack, you can still clone repositories with large assets, but you will only retrieve the pointer files, and you will not be able to push new files back up. For more information about pointer files, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format).
+If you use more than {% data variables.large_files.initial_storage_quota %} of storage without a payment method on file, you can still clone repositories with large assets, but you will only retrieve the pointer files, and you will not be able to push new files back up. For more information about pointer files, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format).
 
 ## Bandwidth quota
 
-If you use more than {% data variables.large_files.initial_bandwidth_quota %} of bandwidth per month without purchasing a data pack, {% data variables.large_files.product_name_short %} support is disabled on your account until the next month.
+If you use more than {% data variables.large_files.initial_bandwidth_quota %} of bandwidth per month without a payment method on file, {% data variables.large_files.product_name_short %} support is disabled on your account until the next month.
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage)
+* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+* [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage)

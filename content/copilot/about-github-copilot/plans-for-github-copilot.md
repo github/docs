@@ -10,10 +10,6 @@ redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot
 ---
 
-<!-- expires 2025-06-18 -->
-{% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-06-18 -->
-
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
 * **{% data variables.copilot.copilot_free %}** is available to individual developers who don't have access to {% data variables.product.prodname_copilot_short %} through an organization or enterprise. This free plan includes limited access to select {% data variables.product.prodname_copilot_short %} features, allowing you to try AI-powered coding assistance at no cost.

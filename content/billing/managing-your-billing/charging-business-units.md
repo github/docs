@@ -60,7 +60,7 @@ To allocate spending to a cost center, you add repositories, organizations, or u
 
 ## Adding a budget to a cost center
 
-After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/preventing-overspending).
+After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 ## Viewing cost center usage
 

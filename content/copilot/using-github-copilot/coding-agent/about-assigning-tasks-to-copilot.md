@@ -56,8 +56,6 @@ Before you can assign tasks to {% data variables.product.prodname_copilot_short 
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 
-{% data reusables.copilot.coding-agent.premium-requests-start-date %}
-
 {% data variables.copilot.copilot_coding_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_copilot_short %} premium requests.
 
 Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask {% data variables.product.prodname_copilot_short %} to work on coding tasks without incurring any additional costs.

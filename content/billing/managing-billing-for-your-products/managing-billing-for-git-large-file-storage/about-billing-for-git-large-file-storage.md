@@ -31,8 +31,6 @@ Bandwidth is billed for each GiB of data downloaded. Storage is billed by calcul
 
 {% data reusables.large_files.owner_quota_only %}
 
-{% data reusables.large_files.does_not_carry %}
-
 ## Included bandwidth and storage (per month)
 
 The following amounts of bandwidth and storage are included for free with your {% data variables.product.company_short %} account.
@@ -54,7 +52,7 @@ If you use more than the included amount of bandwidth or storage for your plan t
 | Bandwidth | $0.0875 |
 | Storage   | $0.07   |
 
-For more information about how to purchase additional storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage).
+To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
 
 ### Sample storage cost calculation
 
@@ -69,11 +67,10 @@ In this example, {% data variables.product.company_short %} would bill for 1.5 G
 
 ## Managing your budget for {% data variables.large_files.product_name_long %}
 
-The default budget for paid usage is $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited. You can take steps to manage your {% data variables.large_files.product_name_short %} budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
+{% data reusables.billing.default-over-quota-behavior %}
 
 ## Further reading
 
 * [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)
 * [AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)
 * [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)
-*

@@ -24,10 +24,6 @@ We recommend that you identify the people with this role and communicate with th
 
 ## Managing charges for premium requests
 
-<!-- expires 2025-06-18 -->
-{% data reusables.copilot.unlimited-premium-requests %}
-<!-- expires 2025-06-18 -->
-
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
 Premium requests over the allowance are rejected unless you have set a budget. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
@@ -38,7 +34,9 @@ For pricing details and a list of available models, see [AUTOTITLE](/copilot/abo
 
 ### Managing budgets
 
-By default, a $0 budget for the {% data variables.product.prodname_copilot %} Premium Request SKU is created for your enterprise. You can edit this budget from the "Budgets and alerts" page. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending#editing-or-deleting-a-budget).
+By default, a $0 budget for the {% data variables.product.prodname_copilot %} Premium Request SKU is created for your enterprise. You can edit this budget from the "Budgets and alerts" page. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+
+> [!WARNING] Deleting this budget without setting a new one will enable **unlimited {% data variables.product.prodname_copilot %} usage**.
 
 The default budget that is created applies to your whole enterprise. To set a new budget for a specific part of your enterprise, such as a cost center, you can create a new budget:
 
