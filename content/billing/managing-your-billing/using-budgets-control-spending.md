@@ -34,7 +34,11 @@ shortTitle: Use budgets to control spending
 
 Budgets and alerts allow you to track spending on metered products for your accounts, organizations, cost centers (enterprise only), and repositories. By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
 
-{% data reusables.billing.default-over-quota-behavior %}
+If your account does not have a valid payment method on file, usage is blocked once you use up your quota.
+
+By default, if you have a valid payment method on file, spending is limited to $0 USD until you set a budget. You can set and manage a budget to limit spending for a product or SKU.
+
+<!--Billing: default budget-->
 
 ## About budgets
 
