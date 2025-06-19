@@ -14,7 +14,7 @@ children:
   - /about-billing-for-github-advanced-security
   - /setting-up-a-trial-of-github-advanced-security
   - /signing-up-for-github-advanced-security
-  - /viewing-your-github-advanced-security-usage
+  - /downloading-your-github-advanced-security-usage
   - /migrating-from-ghas-to-cs-and-sp
   - /viewing-committer-information-for-github-advanced-security
   - /managing-your-github-advanced-security-licensing

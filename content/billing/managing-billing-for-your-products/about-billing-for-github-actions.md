@@ -6,6 +6,11 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
   - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
   - /early-access/billing/actions-billing-update
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions
+  # Redirect for old maptopic
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-actions
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
+  - /billing/managing-billing-for-github-actions
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,7 +18,7 @@ type: overview
 topics:
   - Actions
   - Spending limits
-shortTitle: Billing for GitHub Actions
+shortTitle: GitHub Actions
 ---
 
 ## About billing for {% data variables.product.prodname_actions %}
@@ -22,9 +27,7 @@ shortTitle: Billing for GitHub Actions
 
 {% data reusables.actions.actions-billing %}
 
-{% data reusables.actions.actions-spending-limit-brief %} For more information, see [About spending limits](#about-spending-limits).
-
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts included with your account. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
+If you are an organization owner or enterprise owner, you can connect an Azure Subscription ID to your organization or enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts included with your account. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
 
 Minutes reset every month, while storage usage does not.
 
@@ -42,7 +45,7 @@ Minutes reset every month, while storage usage does not.
 | {% data variables.product.prodname_team %} | 2 GB | 3,000 |
 | {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
 
-If your account's storage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day.
+If your account's storage surpasses these limits and you have a valid payment method on file, you will pay $0.008 USD per GB of storage per day.
 
 ### Minute multipliers
 
@@ -131,7 +134,7 @@ At the end of the month, {% data variables.product.prodname_dotcom %} calculates
 
 ### Sample minutes cost calculation
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes beyond the included quota could have a total storage and minute cost of $56 USD, depending on the operating systems used to run jobs.
 
 * 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
   * 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
@@ -155,10 +158,6 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-## About spending limits
+## Managing your budget for {% data variables.product.prodname_actions %}
 
-{% data reusables.actions.actions-spending-limit-detailed %}
-
-For information on managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions).
-
-{% data reusables.dotcom_billing.actions-packages-unpaid-account %}
+{% data reusables.billing.default-over-quota-behavior %}

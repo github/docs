@@ -1,16 +1,9 @@
 ---
-title: Viewing and downloading licensed use of {% data variables.product.prodname_AS %}
-intro: 'You can view and download consumption of {% data variables.product.prodname_GHAS %} licenses by your {% data variables.enterprise.enterprise_or_org %}: volume/subscription licenses or metered usage.'
+title: Downloading licensed use of {% data variables.product.prodname_AS %}
+intro: 'You can download consumption of {% data variables.product.prodname_GHAS %} licenses by your {% data variables.enterprise.enterprise_or_org %}: volume/subscription licenses or metered usage.'
 allowTitleToDifferFromFilename: true
 permissions: '{% ifversion fpt %}Organization{% else %}Enterprise{% endif %} owners with {% data variables.product.prodname_AS %}'
 product: '{% data reusables.gated-features.ghas-billing %}'
-redirect_from:
-  - /billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-  - /admin/advanced-security/viewing-your-github-advanced-security-usage
-  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
-  - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
-  - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
-  - /billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,72 +12,8 @@ type: how_to
 topics:
   - Advanced Security
   - Enterprise
-shortTitle: View or download GHAS license use
+shortTitle: Download GHAS license use
 ---
-
-{% ifversion ghec or ghes %}
-<!--For FPT version see separate procedure below-->
-
-## Viewing {% data variables.product.prodname_AS %} usage for your enterprise{% ifversion ghec %} account{% endif %}
-
-You can view the current license limits and usage for your enterprise.
-
-{% ifversion ghec %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
-   * The "{% data variables.product.prodname_AS %}" section shows details of the licenses you currently **consume**.
-   * If you have a volume/subscription license, the number of licenses **available** to use is also displayed.
-   * If you run out of licenses, for volume/subscription only, the section is red and reports "Limit exceeded." You should either reduce your use or purchase more licenses.
-
-1. Optionally, to see a detailed breakdown of usage per organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}, in the "{% data variables.product.prodname_AS %}" section click **More details**.
-
-   In the "{% data variables.product.prodname_AS %}" section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}. The organizations{% ifversion secret-scanning-user-owned-repos %} and user namespaces{% endif %} in the billing table are sorted by the highest number of unique committers in descending order.
-
-1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Global code security settings" for the organization.
-
-   On the "Global code security settings" page, scroll to the "{% data variables.product.prodname_GHAS_cs_or_sp %} repositories" section to see a detailed breakdown of usage by repository for this organization. See [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage).
-
-{% elsif security-configurations %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.license-tab %}
-
-   The "{% data variables.product.prodname_AS %}" section shows details of the current usage. You can see the total number of licenses used, as well as a table with the number of committers and unique committers for each organization.
-
-1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Global code security settings" for the organization.
-
-   On the "Global code security settings" settings page, scroll to the "{% data variables.product.prodname_GHAS_cs_or_sp %} repositories" section to see a detailed breakdown of usage by repository for this organization, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage).
-
-{% elsif pre-security-configurations %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.license-tab %}
-
-   The "{% data variables.product.prodname_GHAS %}" section shows details of the current usage. You can see the total number of licenses used, as well as a table with the number of committers and unique committers for each organization.
-
-1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Security & analysis" for the organization.
-
-   * On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GHAS %} repositories" section to see a detailed breakdown of usage by repository for this organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
-{% endif %}
-
-{% endif %}
-
-{% ifversion fpt %}
-
-## Viewing {% data variables.product.prodname_AS %} usage for your organization account
-
-You can view the organization account's current license limits and usage.
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans_or_licensing %}
-
-   The "{% data variables.product.prodname_AS %}" section shows details of the current usage.
-
-{% endif %}
-
-{% ifversion enhanced-billing-platform %}
-> [!TIP]
-> For more tips, see [AUTOTITLE](/billing/managing-your-billing/gathering-insights-on-your-spending) and [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
-{% endif %}
 
 ## Downloading {% data variables.product.prodname_AS %} license usage information
 
@@ -101,8 +30,7 @@ You can download a CSV report of license usage through the {% data variables.pro
 
 ## Using the UI to download license and metered usage
 
-{% ifversion fpt %}You can download a CSV report for a repository or an organization.{% endif %}
-{% ifversion ghec %}You can download a CSV report for a repository, an organization, or an enterprise.{% endif %}
+You can download a CSV report for a repository, an organization, or an enterprise.
 
 {% ifversion fpt or ghec %}
 
@@ -130,10 +58,6 @@ You can download a CSV report of license usage through the {% data variables.pro
 1. For license consumption, in the sidebar click **{% octicon "law" aria-hidden="true" aria-label="law" %} Licensing**.
    1. Under "{% data variables.product.prodname_GHAS %}," click the **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report** dropdown and then click either **{% data variables.product.prodname_code_security %}** or **{% data variables.product.prodname_secret_protection %}**.
 
-{% endif %}
-
-{% ifversion ghec %}
-
 ### For an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -144,7 +68,7 @@ You can download a CSV report of license usage through the {% data variables.pro
         * To view usage by SKU, select the **Group** dropdown, then click **SKU**. This will allow you to view usage for both {% data variables.product.prodname_GH_cs_and_sp %}.
         * To filter by time, select **Time Frame**, then click a time period.
         * Below the graph, you can see a more granular overview of the usage. Click the arrow next to a specific date to see a nested table with usage per SKU, units, price/unit, gross amount (the amount actually used), and billed amount (the amount you are charged).
-   1. To download the data, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report**.  
+   1. To download the data, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report**.
 1. For license consumption, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing**.
    * Under "{% data variables.product.prodname_GHAS %}," click the **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report** dropdown and then click either **{% data variables.product.prodname_code_security %}** or **{% data variables.product.prodname_secret_protection %}**.
 

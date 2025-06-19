@@ -1,6 +1,6 @@
 ---
 title: About billing for GitHub Copilot
-shortTitle: Billing for GitHub Copilot
+shortTitle: GitHub Copilot
 intro: '{% data variables.product.prodname_dotcom %} offers several {% data variables.product.prodname_copilot_short %} plans for enterprises, organizations, and individual developers.'
 versions:
   feature: copilot
@@ -8,6 +8,10 @@ topics:
   - Copilot
 redirect_from:
   - /billing/managing-billing-for-github-copilot/about-billing-for-github-copilot
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot
+  # Redirect for old maptopic
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-copilot
+  - /billing/managing-billing-for-github-copilot
 ---
 
 ## {% data variables.product.prodname_copilot %} in your enterprise
@@ -73,7 +77,7 @@ For more information about {% data variables.copilot.copilot_coding_agent %}, se
 
 ### What happens if you have used up your monthly quota?
 
-If you run out of free Actions minutes or free premium requests, and you have set up billing and a spending limit, you will be charged at the normal rates for additional minutes and premium requests. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#additional-premium-requests).
+If you run out of free Actions minutes or free premium requests, and you have set up a payment method for billing, you will be charged at the normal rates for additional minutes and premium requests. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#additional-premium-requests).
 
 If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
 
