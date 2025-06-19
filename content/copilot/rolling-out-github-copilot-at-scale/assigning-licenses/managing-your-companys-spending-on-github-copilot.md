@@ -34,7 +34,7 @@ For pricing details and a list of available models, see [AUTOTITLE](/copilot/abo
 
 ### Managing budgets
 
-By default, a $0 budget for the {% data variables.product.prodname_copilot %} Premium Request SKU is created for your enterprise. You can edit this budget from the "Budgets and alerts" page. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending#editing-or-deleting-a-budget).
+By default, a $0 budget for the {% data variables.product.prodname_copilot %} Premium Request SKU is created for your enterprise. You can edit this budget from the "Budgets and alerts" page. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 > [!WARNING] Deleting this budget without setting a new one will enable **unlimited {% data variables.product.prodname_copilot %} usage**.
 

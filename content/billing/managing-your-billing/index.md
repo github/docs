@@ -21,8 +21,8 @@ children:
   - /estimating-spending
   - /about-usage-reports
   - /gathering-insights-on-your-spending
+  - /using-budgets-control-spending
   - /charging-business-units
-  - /preventing-overspending
   - /managing-your-payment-and-billing-information
   - /automating-usage-reporting
   - /adding-a-sales-tax-certificate
