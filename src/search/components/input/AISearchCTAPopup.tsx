@@ -65,7 +65,7 @@ export function AISearchCTAPopup({
     <>
       <img
         src="/assets/images/search/copilot-action.png"
-        width={220}
+        width="100%"
         alt="The Copilot Icon in front of an explosion of color."
       />
       <Heading

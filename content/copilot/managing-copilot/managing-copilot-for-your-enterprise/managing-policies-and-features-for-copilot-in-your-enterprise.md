@@ -87,7 +87,7 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 
 > [!NOTE] Support for GPT-4.5 is only available on {% data variables.copilot.copilot_enterprise_short %}.
 
-By default, {% data variables.copilot.copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
+By default, {% data variables.copilot.copilot_chat_short %} uses an included model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the included model. The available alternative models are:
 
 * **{% data variables.copilot.copilot_claude %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
@@ -116,7 +116,7 @@ Alternatively, set to "No policy" to leave organization owners to make the decis
 
 > [!NOTE] Use of MCP servers on {% data variables.product.prodname_dotcom_the_website %} is in public preview and subject to change.
 
-{% data reusables.copilot.coding-agent.mcp-brief-intro %} See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp).
+{% data reusables.copilot.coding-agent.mcp-brief-intro %} See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 

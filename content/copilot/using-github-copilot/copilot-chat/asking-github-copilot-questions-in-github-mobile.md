@@ -22,15 +22,15 @@ redirect_from:
 
 In {% data variables.product.prodname_mobile %}, you can use {% data variables.copilot.copilot_chat_short %} to ask:
 
-* General software-related questions, without a particular context. For more information, see [Asking a general question about software development](#asking-a-general-question-about-software-development).
-* Questions asked in the context of your project. For more information, see [Asking questions about a specific repository](#asking-exploratory-questions-about-a-repository).
-* Questions about a specific file or specified lines of code within a file. For more information, see [Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code).{% ifversion ghec %}
+* General software-related questions, without a particular context. See [Asking a general question about software development](#asking-a-general-question-about-software-development).
+* Questions asked in the context of your project. See [Asking questions about a specific repository](#asking-exploratory-questions-about-a-repository).
+* Questions about a specific file or specified lines of code within a file. See [Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code).{% ifversion ghec %}
 
 With {% data variables.copilot.copilot_enterprise_short %}, you can also ask:
 
-* Questions about a specific pull request. For more information, see [Asking questions about a specific pull request](#asking-questions-about-a-specific-pull-request).
-* Questions about a specific issue. For more information, see [Asking questions about a specific issue](#asking-questions-about-a-specific-issue).
-* Questions about a specific discussion. For more information, see [Asking questions about a specific discussion](#asking-questions-about-a-specific-discussion).
+* Questions about a specific pull request. See [Asking questions about a specific pull request](#asking-questions-about-a-specific-pull-request).
+* Questions about a specific issue. See [Asking questions about a specific issue](#asking-questions-about-a-specific-issue).
+* Questions about a specific discussion. See [Asking questions about a specific discussion](#asking-questions-about-a-specific-discussion).
 {% endif %}
 
 ## Limitations
@@ -38,6 +38,11 @@ With {% data variables.copilot.copilot_enterprise_short %}, you can also ask:
 The following limitations apply to {% data variables.copilot.copilot_mobile_short %}:
 
 * The quality of the results from {% data variables.copilot.copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
+* If you reach your premium request limit on mobile, {% data variables.product.prodname_copilot_short %} will automatically fall back to a free, non-premium model. Your access to premium models will reset at the start of the next billing cycle.
+* If you purchased {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} (via in-app purchase on iOS or Android), you cannot enable additional premium requests.
+
+  * To enable additional premium requests, you'll need to cancel your mobile subscription and re-subscribe on {% data variables.product.prodname_dotcom_the_website %} through a web browser.
+  * For help, contact {% data variables.contact.contact_support %}.
 
 ## Prerequisites
 

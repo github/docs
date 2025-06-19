@@ -177,6 +177,8 @@ sections:
     # https://github.com/github/releases/issues/5415
     - |
       The CodeQL Action has been updated to v3.28.6 to enable uploading artifacts in debug mode without logging the complete environment when running CodeQL CLI v2.20.3+.
+    - |
+      Customers who have code scanning enabled may experience slower transitions when upgrading to version 3.16.0, due to changes in the data model that require data migration. We recommend testing this upgrade in a non-production environment first, as it could result in longer downtime than expected. [Updated: 2025-06-12]
 
   known_issues:
     - |
@@ -265,3 +267,5 @@ sections:
       The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]
     - |
       The release notes previously mentioned Dependabot support for `pnpm` workspace catalogs, which did not ship in 3.16 and will ship in 3.17. [Updated: 2025-05-08]
+    - |
+      Customers who have code scanning enabled may experience slower transitions when upgrading to version 3.16.0, due to changes in the data model that require data migration. We recommend testing this upgrade in a non-production environment first, as it could result in longer downtime than expected. [Updated: 2025-06-12]

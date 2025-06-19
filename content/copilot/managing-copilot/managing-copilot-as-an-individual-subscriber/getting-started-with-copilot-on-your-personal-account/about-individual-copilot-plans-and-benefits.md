@@ -21,7 +21,7 @@ You can choose from the following plans.
 For developers looking to get started with {% data variables.product.prodname_copilot_short %}.
 
 * Includes up to **2,000 code completions** in IDEs per month
-* Includes up to **50 total chat requests** per month in {% data variables.copilot.copilot_chat_short %}
+* Includes up to **50 premium requests** per month
 * Designed to give you a limited taste of {% data variables.product.prodname_copilot_short %}'s capabilities
 * No subscription or payment required
 * Intended for **personal use only**, not for users managed by an organization or enterprise
@@ -57,10 +57,10 @@ The following table highlights the key differences between individual {% data va
 | Feature | {% data variables.copilot.copilot_free %} | {% data variables.copilot.copilot_pro %} | {% data variables.copilot.copilot_pro_plus %} |
 |--------|----------------------------------------------------|--------------------------------------------------|----------------------------------------------------------|
 | Price | Free | {% data variables.copilot.cfi_price_per_month %} per month, or<br>{% data variables.copilot.cfi_price_per_year %} per year<br>([free](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer) for some users) | {% data variables.copilot.cpp_price_per_month %} per month, or<br>{% data variables.copilot.cpp_price_per_year %} per year |
-| Real-time code suggestions with the base model | Up to 2,000 per month | Unlimited | Unlimited |
+| Real-time code suggestions with included models | Up to 2,000 per month | Unlimited | Unlimited |
 | Premium requests | 50 per month | 300 per month | 1,500 per month |
 | Purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_chat_short %} interactions[^1] | Up to 50 per month | Unlimited with base model | Unlimited with base model |
+| {% data variables.copilot.copilot_chat_short %} interactions[^1] | Up to 50 per month | Unlimited with included models | Unlimited with included models |
 | Access to premium models | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} Full access |
 
 {% endrowheaders %}

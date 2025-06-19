@@ -11,6 +11,7 @@ children:
   - /developing-your-project-locally
   - /learning-to-debug-with-github-copilot
   - /storing-your-secrets-safely
+  - /getting-feedback-on-your-code-from-github-copilot
   - /finding-and-fixing-your-first-code-vulnerability
   - /finding-and-fixing-your-first-dependency-vulnerability
 shortTitle: Learn to code
