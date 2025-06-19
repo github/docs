@@ -1,6 +1,6 @@
 ---
 title: Upgrading Git Large File Storage
-intro: 'You can purchase additional data packs to increase your monthly bandwidth quota and total storage capacity for {% data variables.large_files.product_name_short %}.'
+intro: '{% data variables.large_files.product_name_short %} has moved to metered billing so that you pay only for the amount of bandwidth and storage you use. You no longer need to buy data packs to increase your quota and storage capacity.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
   - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
@@ -15,49 +15,24 @@ type: how_to
 topics:
   - LFS
   - Organizations
-  - Upgrades
   - User account
 shortTitle: Upgrade Git LFS storage
 ---
 
-## Purchasing additional storage and bandwidth for a personal account
+<!--expires 2025-09-30-->
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-add-data %}
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
+<!--On expiry, check the data analytics to gauge the traffic to this article and decide whether or not we can delete the article-->
+<!--When deleting the article, add redirects for this article to the link on this page with the highest number of clicks.-->
 
-## Purchasing additional storage and bandwidth for an organization
+## Billing has changed to metered billing
 
-{% data reusables.dotcom_billing.org-billing-perms %}
+There is no need to purchase data packs to expand your allowance, you can pay as you go.
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-add-data %}
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
+This change to metered billing brings additional benefits:
 
-{% ifversion ghec %}
+* **Visualize your usage**: use new views to see your usage and export data to other systems, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage)
+* **Budget setting**: use budgets to control spending, see [AUTOTITLE](/billing/managing-your-billing/preventing-overspending)
 
-## Purchasing additional storage and bandwidth for an enterprise account
+For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage).
 
-{% data reusables.enterprise-accounts.billing-perms %}
-
-> [!NOTE]
-> If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-1. To the right of "Git LFS", click **Purchase more data packs**.
-1. Select the "Choose an organization" dropdown menu and click the organization you want to purchase a data pack for.
-{% data reusables.large_files.pack_selection %}
-{% data reusables.large_files.pack_confirm %}
-{% endif %}
-
-## Further reading
-
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
-* [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage)
-* [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage)
-* [AUTOTITLE](/repositories/working-with-files/managing-large-files)
+<!--end expires 2025-09-30-->

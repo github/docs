@@ -31,18 +31,22 @@ If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft E
 
 {% ifversion fpt or ghec %}
 
-## About usage-based billing on {% data variables.product.prodname_dotcom %}
+## About usage-based billing on {% data variables.product.github %}
 
-{% data variables.product.company_short %} provides usage-based billing for the following features and situations. You can learn more about billing and spending limits.
+{% data variables.product.github %} provides usage-based billing for the following products.
 
-| Billed feature or situation                                                                     | Information about billing                                                                                                                                            |                                                                                    Information about spending limits |
-| :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------: |
-| {% data variables.product.prodname_github_codespaces %} usage                                   | [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)                                                                   |                   [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) |
-| {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)                                                                         |   [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits) |
-| {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)                                                                       | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits) |
-| {% data variables.copilot.copilot_business_short %} usage                              | [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) |                                                                                                                  N/A |
-| {% data variables.product.prodname_AS %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security) |                                                                                                                  N/A |
-| {% data variables.product.prodname_enterprise %} usage                              | [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise) |                                                                                                                  N/A |
+* {% data variables.product.prodname_actions %}, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)
+* {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
+* {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)
+* {% data variables.large_files.product_name_long %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+
+In addition, usage-based billing is available for the following licenses
+
+* {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
+* {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)
+
+For information about controlling spending, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 {% endif %}
 

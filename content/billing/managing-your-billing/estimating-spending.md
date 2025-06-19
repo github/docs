@@ -100,4 +100,4 @@ If you have used all of your budget, a red banner appears at the top of the page
 
 ## Creating a budget
 
-As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending#creating-a-budget).
+As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#creating-a-budget).

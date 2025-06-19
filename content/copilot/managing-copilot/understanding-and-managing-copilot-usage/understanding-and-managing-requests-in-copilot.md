@@ -63,7 +63,7 @@ If you're on a **paid plan** and use all of your premium requests, you can still
 
 If you need more premium requests beyond your monthly allowance, you can:
 
-* Set a spending limit for additional premium requests. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
+* Set a spending limit for additional premium requests. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 * Upgrade to a higher plan.
 
 These actions can be taken by organization owners, billing managers, and personal account users.

@@ -9,14 +9,15 @@ versions:
 topics:
   - Billing
 children:
-  - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
-  - /managing-billing-for-github-actions
-  - /managing-billing-for-github-codespaces
-  - /managing-billing-for-github-packages
-  - /managing-billing-for-github-copilot
+  - /viewing-your-product-usage
+  - /about-billing-for-github-actions
+  - /about-billing-for-github-codespaces
+  - /about-billing-for-github-copilot
+  - /about-billing-for-github-packages
   - /managing-billing-for-github-advanced-security
-  - /managing-billing-for-github-sponsors
+  - /managing-billing-for-git-large-file-storage
   - /managing-billing-for-github-marketplace-apps
-  - /managing-billing-for-git-large-file-storage  
+  - /managing-billing-for-github-sponsors
+  - /managing-licenses-for-visual-studio-subscriptions-with-github-enterprise
 
 ---
