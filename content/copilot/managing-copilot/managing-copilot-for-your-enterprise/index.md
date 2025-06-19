@@ -10,5 +10,5 @@ children:
   - /managing-the-copilot-plan-for-your-enterprise
   - /managing-access-to-copilot-in-your-enterprise
   - /managing-policies-and-features-for-copilot-in-your-enterprise
-  - /making-copilot-coding-agent-available-to-enterprise
+  - /managing-copilot-coding-agent-in-your-enterprise
 ---
