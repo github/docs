@@ -81,6 +81,7 @@ jobs:
 > To reference these outputs, ensure the step has an explicit `id` defined (for example `id: setup-jfrog-cli`).
 
 ### Using OIDC Credentials in other steps
+
 ```yaml
       - name: Sign in to Artifactory Docker registry
         uses: docker/login-action@v3
@@ -92,7 +93,6 @@ jobs:
 
 ## Further reading
 
-- [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation
-- [Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings) in the JFrog documentation
-- [AUTOTITLE](actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
-```
+* [OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration) in the JFrog documentation
+* [Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings) in the JFrog documentation
+* [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
