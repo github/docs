@@ -13,7 +13,9 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-tasks-to-copilot
 ---
 
-{% data reusables.copilot.coding-agent.preview-note %}
+> [!NOTE]
+> * {% data reusables.copilot.coding-agent.preview-note-text %}
+> * The setting that blocks suggestions matching public code may not work as intended when using {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Overview of {% data variables.copilot.copilot_coding_agent %}
 

@@ -30,7 +30,7 @@ If you choose to allow suggestions matching public code, when {% data variables.
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
 
-## Enabling or disabling {% data variables.copilot.copilot_coding_agent %}
+## Disabling or enabling {% data variables.copilot.copilot_coding_agent %} in your repositories
 
 {% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.copilot.copilot_chat_short %}.
 
@@ -38,7 +38,7 @@ If you choose to allow suggestions matching public code, when {% data variables.
 > * {% data reusables.gated-features.copilot-coding-agent %}
 > * {% data reusables.copilot.coding-agent.preview-note-text %}
 
-To use {% data variables.copilot.copilot_coding_agent %} in repositories owned by your own personal account, you must enable it for those repositories in your account settings.
+{% data variables.copilot.copilot_coding_agent %} is enabled in all repositories by default, but you can block it from being used in repositories owned by your own personal account by changing your account settings.
 
 {% data reusables.user-settings.copilot-settings %}
 1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
