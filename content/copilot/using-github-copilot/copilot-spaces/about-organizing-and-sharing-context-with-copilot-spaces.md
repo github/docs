@@ -48,10 +48,12 @@ During the {% data variables.release-phases.public_preview %}, if you're using a
 
 {% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members (read-only) or kept private to the person who created the space.
 
+## How does using {% data variables.copilot.copilot_spaces_short %} affect my usage?
+
 Questions you submit in a space count as {% data variables.copilot.copilot_chat_short %} requests.
 
 * If you're a {% data variables.copilot.copilot_free_short %} user, this usage counts toward your monthly chat limit.
-* If you use {% data variables.copilot.copilot_spaces_short %} with a premium model, this usage counts toward your premium usage quota.
+* If you use {% data variables.copilot.copilot_spaces_short %} with a premium model, this usage counts toward your premium usage quota. Every question you submit to a premium model counts as one premium request, multiplied by the model's multiplier. For information about the multipliers applied to each model, see [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/understanding-and-managing-requests-in-copilot#model-multipliers).
 
 ## Next steps
 

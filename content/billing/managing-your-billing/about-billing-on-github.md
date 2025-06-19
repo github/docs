@@ -38,7 +38,7 @@ For more information about account types, see [AUTOTITLE](/get-started/learning-
 
 ## Included amounts by plan
 
-The table below shows what's included with each plan. When you exceed these amounts, you'll be charged for additional usage unless you've set a spending limit.
+The table below shows what's included with each plan. When you exceed these amounts, you'll be charged for additional usage unless you've set a budget with the setting "Stop usage when budget limit is reached" enabled.
 
 <table>
   <tr>

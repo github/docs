@@ -1,6 +1,6 @@
 ---
 title: About billing for GitHub Codespaces
-shortTitle: About billing
+shortTitle: GitHub Codespaces
 intro: 'Learn about the costs for using {% data variables.product.prodname_github_codespaces %}, and the monthly usage quotas included with {% data variables.product.prodname_dotcom %} personal accounts.'
 versions:
   fpt: '*'
@@ -15,8 +15,12 @@ redirect_from:
   - /codespaces/getting-started-with-codespaces/about-billing-for-codespaces
   - /codespaces/codespaces-reference/about-billing-for-codespaces
   - /codespaces/codespaces-reference/understanding-billing-for-codespaces
-  - /codespaces/codespaces-reference/understanding-billing-for-github-codespaces.md
+  - /codespaces/codespaces-reference/understanding-billing-for-github-codespaces
   - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+  # Redirect for old maptopic
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces
+  - /billing/managing-billing-for-github-codespaces
 ---
 
 ## About {% data variables.product.prodname_github_codespaces %} pricing
@@ -69,19 +73,19 @@ A "core hour" is a measure used for included compute usage. To calculate core ho
 
 ### Using your included usage
 
-You will be notified by email when you have used 75%, 90%, and 100% of your included quotas. Notifications are also displayed in a "toast" message within {% data variables.product.prodname_vscode_shortname %} and the {% data variables.product.prodname_vscode_shortname %} web client. You can turn off email notifications if required. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-usage-and-spending-limit-email-notifications).
+You will be notified by email when you have used 75%, 90%, and 100% of your included quotas. Notifications are also displayed in a "toast" message within {% data variables.product.prodname_vscode_shortname %} and the {% data variables.product.prodname_vscode_shortname %} web client. You can turn off email notifications if required. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
-When a personal account has used all of either the included storage or compute usage (whichever is reached first), and has no spending limit configured, use of {% data variables.product.prodname_github_codespaces %} will be blocked. You must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. At the beginning of the next monthly billing cycle the included usage is reset. Storage will not be billed while use of {% data variables.product.prodname_github_codespaces %} is blocked.
+When a personal account has used all of either the included storage or compute usage (whichever is reached first), and has no payment method defined, use of {% data variables.product.prodname_github_codespaces %} will be blocked. You must set up a payment method to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. At the beginning of the next monthly billing cycle the included usage is reset. Storage will not be billed while use of {% data variables.product.prodname_github_codespaces %} is blocked.
 
 You can view details of your usage for the current month at any time. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage).
 
 If you are blocked from resuming a codespace and you want to continue to work on changes you have made in your codespace, you can do any of the following:
 
-* Add a payment method and a spending limit greater than $0 USD.
+* Add a payment method and set a budget greater than $0 USD.
 * Export the changes from the codespace to a branch. See [AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch).
 * Wait for your monthly included usage to reset at the start of the next monthly billing cycle.
 
-If you have used all of either your included storage usage or your included compute usage, and you have set up a payment method and a spending limit, any further use of codespaces owned by your personal account will incur charges for whichever type of usage has no remaining included quota. You will not be charged for the other type of usage until you have also used all of its included quota.
+If you have used all of either your included storage usage or your included compute usage, and you have set up a payment method, any further use of codespaces owned by your personal account will incur charges for whichever type of usage has no remaining included quota. You will not be charged for the other type of usage until you have also used all of its included quota. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 {% data reusables.codespaces.tips-included-usage %}
 
@@ -122,7 +126,7 @@ You can control compute usage by stopping your codespaces. For information, see 
 
 ## About billing for storage usage
 
-For {% data variables.product.prodname_github_codespaces %} billing purposes, storage comprises the disk space used by all of the codespaces and prebuilds in your account. This includes any files you use in a codespace, such as cloned repositories, configuration files, data loaded to the codespace (for example as input or output of the software running in the repository), and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or inactive with the exception of blocked usage due to exhausted included usage quota or reaching your spending limit. The storage billing for a codespace ends when it is deleted. However, deleting a codespace does not reduce your used storage amount for the current billing month as this is a cumulative figure.
+For {% data variables.product.prodname_github_codespaces %} billing purposes, storage comprises the disk space used by all of the codespaces and prebuilds in your account. This includes any files you use in a codespace, such as cloned repositories, configuration files, data loaded to the codespace (for example as input or output of the software running in the repository), and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or inactive with the exception of blocked usage due to exhausted included usage quota or reaching your budget limit. The storage billing for a codespace ends when it is deleted. However, deleting a codespace does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
 ### Storage billing for containers based on the default image
 
@@ -196,11 +200,9 @@ Prebuilds can be updated multiple times during a billing month. Each update may 
 
 Use of codespaces created using prebuilds is charged at the same rate as regular codespaces.
 
-## Setting a spending limit
+## Managing your budget for {% data variables.product.prodname_github_codespaces %}
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %}
-
-For information on managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
+{% data reusables.billing.default-over-quota-behavior %}
 
 {% data reusables.codespaces.exporting-changes %}
 
@@ -244,7 +246,7 @@ Usage is calculated every hour. An organization pays for usage of codespaces cre
 
 You can get started on a new project by creating a codespace from a template. Codespaces created from templates aren't initially associated with a repository, but you can publish the codespace to a repository owned by your personal account. See [AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template).
 
-Any organization can maintain a template repository for use with {% data variables.product.prodname_github_codespaces %}. As with any other repository in an organization, a codespace created from a template repository is billed to the organization if the organization has set a spending limit for {% data variables.product.prodname_github_codespaces %} and allowed the user creating the codespace to do so at the organization's expense. Otherwise, the codespace is billed to the user who creates the codespace.
+Any organization can maintain a template repository for use with {% data variables.product.prodname_github_codespaces %}. As with any other repository in an organization, a codespace created from a template repository is billed to the organization if the organization allows the user creating the codespace to do so at the organization's expense. Otherwise, the codespace is billed to the user who creates the codespace.
 
 If a user publishes a codespace created from a template, the codespace is published to a new repository owned by the user's personal account. If the codespace is currently billed to an organization, ownership and billing of the codespace transfer to the user who created the codespace.
 

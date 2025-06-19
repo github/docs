@@ -148,8 +148,11 @@ The following example timeline demonstrates how the active committer count for {
 
 ## Further reading
 
+{% ifversion fpt or ghec %}
+* [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending)
 * [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)
-{% ifversion ghec %}
-* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing){% elsif ghes %}
-* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
-* {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/preventing-overspending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/preventing-overspending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)
+{% elsif ghes %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage) in the documentation for {% data variables.product.prodname_ghe_cloud %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing) in the documentation for {% data variables.product.prodname_ghe_cloud %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/using-budgets-control-spending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}

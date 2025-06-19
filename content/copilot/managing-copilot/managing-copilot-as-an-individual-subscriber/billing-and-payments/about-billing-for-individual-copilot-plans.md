@@ -60,7 +60,7 @@ If you use all of your premium requests, you can continue using {% data variable
 If you need more premium requests, you have two options:
 
 * Upgrade to a higher plan with a larger monthly premium request allowance.
-* Set a spending limit for premium requests over your plan's allowance. Additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan are billed at {% data variables.copilot.additional_premium_requests %} per premium request. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
+* Set a budget for premium requests over your plan's allowance. Additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan are billed at {% data variables.copilot.additional_premium_requests %} per premium request. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 {% data reusables.copilot.premium-requests-mobile %}
 
