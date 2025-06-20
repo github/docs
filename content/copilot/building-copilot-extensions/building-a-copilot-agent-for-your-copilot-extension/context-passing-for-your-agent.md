@@ -228,7 +228,7 @@ In the following example, the `type` field indicates that the reference has been
 To safeguard sensitive information, certain scenarios automatically prevent the passing of context to agents.
 If an organization has set content exclusion rules for {% data variables.product.prodname_copilot_short %}, files that fall under these rules will not be included in the context passed to agents.
 
-For more information on content exlusion rules, see [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
+For more information on content exclusion rules, see [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
 
 #### Large Files
 

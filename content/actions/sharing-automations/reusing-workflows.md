@@ -225,7 +225,7 @@ This example job below calls a reusable workflow and references the matrix conte
 
 ```yaml copy
 jobs:
-  ReuseableMatrixJobForDeployment:
+  ReusableMatrixJobForDeployment:
     strategy:
       matrix:
         target: [dev, stage, prod]
