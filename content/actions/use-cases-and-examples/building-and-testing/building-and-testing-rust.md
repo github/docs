@@ -96,7 +96,7 @@ You can cache and restore dependencies using the Cache action. This example assu
 
 ```yaml copy
       - name: Cache
-      - uses: {% data reusables.actions.action-cache %}
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: |
             ~/.cargo/registry

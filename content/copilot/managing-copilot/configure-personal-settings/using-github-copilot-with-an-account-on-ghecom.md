@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Copilot with an account on GHE.com
 shortTitle: Authenticate to GHE.com
-intro: 'Update your development environment to access a {% data variables.product.prodname_copilot_short %} subscription for an account on {% data variables.enterprise.data_residency_site %}.'
+intro: 'Update your development environment to access a {% data variables.product.prodname_copilot_short %} plan for an account on {% data variables.enterprise.data_residency_site %}.'
 versions:
   feature: copilot
 defaultTool: vscode
@@ -100,12 +100,10 @@ For the "{% data variables.product.prodname_enterprise %} URL" field, enter the 
 
 ## Authenticating from Eclipse
 
-{% data reusables.copilot.eclipse-public-preview-note %}
-
-1. In the IDE, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
+1. In the IDE, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
 1. Click **Edit Preferences...**.
 1. In the **{% data variables.product.prodname_enterprise %} Authentication Endpoint** field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
 1. Click **Apply**.
-1. Open the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** menu again then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+1. Open the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** menu again then click **Sign In to {% data variables.product.prodname_dotcom %}**.
 
 {% endeclipse %}

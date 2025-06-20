@@ -36,7 +36,7 @@ To run the REST pipeline locally:
 
 1. Clone the [`github/rest-api-description`](https://github.com/github/rest-api-description) repository inside your local `docs-internal` repository. 
 1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
-1. Run `npm run sync-rest -- -s rest-api-description -o rest`. Note, by default `-o rest` is specified, so you can omit it.
+1. Run `npm run sync-rest -- -s rest-api-description models-gateway -o rest`. Note, by default `-o rest` is specified, so you can omit it.
 
 ## About this directory
 

@@ -24,7 +24,7 @@ Each mannequin only has a display name, which comes from the display name in the
 
 Reclaiming is optional and can happen any time after a migration is finished. For this reason, you can allow your team to begin working in migrated repositories before reclaiming.
 
-Mannequins are not used for Git commit attribution. For more details about commit attribution, see [Managing authorship for commit commits](#managing-authorship-for-git-commits) below.
+Mannequins are not used for Git commit attribution. For more details about commit attribution, see [Managing authorship for Git commits](#managing-authorship-for-git-commits) below.
 
 ## Reclaiming mannequins
 
@@ -182,7 +182,7 @@ You can view the status of all attribution invitations for your organization.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.enterprise-migration-tool.import-export-tab %}
-1. Under "{% octicon "arrow-switch" aria-hidden="true" %} Import/Export", click **Attribution Invitations**.
+1. Under "{% octicon "arrow-switch" aria-hidden="true" aria-label="arrow-switch" %} Import/Export", click **Attribution Invitations**.
 
    ![Screenshot of the "Import/Export" page for a repository. A tab, labeled "Attribution Invitations," is outlined in dark orange.](/assets/images/help/github-enterprise-importer/attribution-invitations-tab.png)
 

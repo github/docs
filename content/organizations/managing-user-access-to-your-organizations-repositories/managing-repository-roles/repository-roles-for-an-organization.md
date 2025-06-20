@@ -110,7 +110,9 @@ Some of the features listed below are limited to organizations using {% data var
 | {% endif %} |
 | Manage [topics](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Enable wikis and restrict wiki editors | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| {% ifversion projects-v1 %} |
 | Enable {% data variables.projects.projects_v1_boards %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 | Configure [pull request merges](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion copilot %} |
@@ -162,6 +164,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for private{% ifversion ghec %}/internal{% endif %} repositories with [Codespaces secrets access](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization?tool=webui) | {% octicon "check" aria-label="No" %} | {% octicon "check" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for public repositories<br>(users with read-only access can only create codespaces at their own expense) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
+| Edit the custom property values for the repository | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}
 

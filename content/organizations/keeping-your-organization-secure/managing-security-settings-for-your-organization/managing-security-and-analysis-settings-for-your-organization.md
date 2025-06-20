@@ -43,9 +43,7 @@ If you have a license for {% data variables.product.prodname_GHAS %}, the page w
 
 You can enable or disable features for all repositories.
 
-{% ifversion code-security-multi-repo-enablement %}
 You can use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
-{% endif %}
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
@@ -60,7 +58,7 @@ You can use security overview to find a set of repositories and enable or disabl
 {% endif %}
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GHAS %}" is disabled if you have no available licenses for {% data variables.product.prodname_GHAS %}.
+1. Under "{% data variables.product.UI_advanced_security %}", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GHAS %}" is disabled if you have no available licenses for {% data variables.product.prodname_GHAS %}.
 1. Review the information in the dialog box.
 1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new repositories**.
 
@@ -73,14 +71,14 @@ You can use security overview to find a set of repositories and enable or disabl
 
    > [!NOTE]
    > * {% data reusables.code-scanning.limitation-org-enable-all %}
-   > * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %} and [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}.
+   > * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization).
 
 {% data reusables.security.displayed-information %}
 
 ## Enabling or disabling a feature automatically when new repositories are added
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories in your organization.
+1. Under "{% data variables.product.UI_advanced_security %}", locate the feature, enable or disable the feature by default for new repositories in your organization.
 
 {% endif %}
 

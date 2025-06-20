@@ -1,6 +1,7 @@
 ---
-title: Introduction to adopting GitHub Advanced Security at scale
-intro: 'You can adopt {% data variables.product.prodname_GH_advanced_security %} at scale in your company following industry and GitHub best practices.'
+title: 'Introduction to adopting {% data variables.product.prodname_GHAS %} at scale'
+intro: 'You can adopt {% data variables.product.prodname_GHAS %} at scale in your company following industry and {% data variables.product.github %} best practices.'
+allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
   ghec: '*'
@@ -17,11 +18,11 @@ redirect_from:
 
 ## About these articles
 
-{% data variables.product.prodname_GH_advanced_security %} (GHAS) helps teams build more secure code faster using integrated tooling such as secret scanning and code scanning using {% data variables.product.prodname_codeql %}. To understand the security features available through {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+{% data variables.product.prodname_GHAS %} (GHAS) products help teams build more secure code faster using integrated tooling such as secret scanning and code scanning using {% data variables.product.prodname_codeql %}. To understand the security features available through {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 GHAS is a suite of tools that requires active participation from developers across your enterprise. To realize the best return on your investment, you must learn how to use, apply, and maintain GHAS.
 
-We’ve created a phased approach to GHAS rollouts developed from industry and GitHub best practices. We expect most customers will want to follow these phases, based on our experience helping customers with a successful deployment of {% data variables.product.prodname_GH_advanced_security %}, but you may need to modify this approach to meet the needs of your company.
+We’ve created a phased approach to GHAS rollouts developed from industry and GitHub best practices. We expect most customers will want to follow these phases, based on our experience helping customers with a successful deployment of {% data variables.product.prodname_GHAS %}, but you may need to modify this approach to meet the needs of your company.
 
 Enabling GHAS across a large organization can be broken down into six core phases.
 
@@ -41,9 +42,9 @@ Enabling GHAS across a large organization can be broken down into six core phase
 
 If you encounter any issues or have any questions during your implementation, you can search our documentation for solutions or engage with {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support).
 
-If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services_team %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of {% data variables.product.prodname_professional_services %} options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GH_advanced_security %}.
+If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services_team %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GHAS %}. We offer a variety of {% data variables.product.prodname_professional_services %} options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GHAS %}.
 
 Speak with your sales representative for more information about all the {% data variables.product.prodname_professional_services %} options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
-> [!NOTE]
+>[!TIP]
 > For the first article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals).

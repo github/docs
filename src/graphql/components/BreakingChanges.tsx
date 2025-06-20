@@ -1,9 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { BreakingChangesT } from './types'
-import styles from 'src/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
+import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 export type HeadingT = {
   title: string

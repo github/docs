@@ -1,0 +1,7 @@
+# Reference: #17664
+# Global issues dashboard
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.17'

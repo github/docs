@@ -2,9 +2,9 @@ While creating or editing your ruleset, you can use enforcement statuses to conf
 
 You can select any of the following enforcement statuses for your ruleset.
 
-   * **{% octicon "play" aria-hidden="true" %} Active:** your ruleset will be enforced upon creation.{% ifversion repo-rules-enterprise %}
-   * **{% octicon "meter" aria-hidden="true" %} Evaluate:** your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page.{% endif %}
-   * **{% octicon "skip" aria-hidden="true" %} Disabled:** your ruleset will not be enforced{% ifversion repo-rules-enterprise %} or evaluated{% endif %}.
+   * **{% octicon "play" aria-hidden="true" aria-label="play" %} Active:** your ruleset will be enforced upon creation.{% ifversion repo-rules-enterprise %}
+   * **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Evaluate:** your ruleset will not be enforced, but you will be able to monitor which actions would or would not violate rules on the "Rule Insights" page.{% endif %}
+   * **{% octicon "skip" aria-hidden="true" aria-label="skip" %} Disabled:** your ruleset will not be enforced{% ifversion repo-rules-enterprise %} or evaluated{% endif %}.
 
 {% ifversion repo-rules-enterprise %}
 

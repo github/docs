@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { sortBy } from 'lodash-es'
 import { parse, buildASTSchema } from 'graphql'
 import helpers from './schema-helpers.js'

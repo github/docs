@@ -1,7 +1,7 @@
 ---
 title: Simplifying complex inheritance hierarchies
 shortTitle: Simplify inheritance hierarchies
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help you to refactor code to avoid classes with multiple layers of inheritance.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help you to refactor code to avoid classes with multiple layers of inheritance.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/simplifying-complex-inheritance-hierarchies
 versions:
@@ -17,7 +17,7 @@ topics:
 
 Deep inheritance hierarchies, or improper use of inheritance, can lead to code that is hard to maintain, making it difficult to follow relationships between classes, or to extend them without causing breakage.
 
-{% data variables.product.prodname_copilot_chat_short %} can suggest refactoring inheritance-based designs into more flexible composition-based designs (favoring composition over inheritance). It can also recommend applying patterns like Strategy or Decorator to make the system more extensible without adding complexity to the inheritance structure.
+{% data variables.copilot.copilot_chat_short %} can suggest refactoring inheritance-based designs into more flexible composition-based designs (favoring composition over inheritance). It can also recommend applying patterns like Strategy or Decorator to make the system more extensible without adding complexity to the inheritance structure.
 
 ## Example scenario
 

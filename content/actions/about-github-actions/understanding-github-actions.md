@@ -33,7 +33,7 @@ topics:
 
 {% elsif ghes %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.location.product_location %}.
 
 {% endif %}
 

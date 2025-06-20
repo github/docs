@@ -64,7 +64,10 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 
    {% data reusables.enterprise_installation.necessary_ports %}
 
-1. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) in the Microsoft documentation.
+1. Create and attach a new data disk to the VM, and configure the size based on your user license count. For more information, see [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) in the Microsoft documentation.
+
+   > [!NOTE]
+   > All Azure managed disks created since June 10, 2017 are encrypted at rest by default with [Azure Storage Encryption](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption#about-azure-storage-service-side-encryption). Enabling Azure Disk Encryption for GitHub Enterprise Server is not supported.
 
    Pass in options for the name of your VM (for example, `ghe-acme-corp`), the resource group, the premium storage SKU, the size of the disk (for example, `200`), and a name for the resulting VHD.
 

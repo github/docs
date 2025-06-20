@@ -28,11 +28,8 @@ When creating a file on {% data variables.product.github %}, consider the follow
 1. In the file name field, type the name and extension for the file. To create subdirectories, type the `/` directory separator.
 1. In the file contents text box, type content for the file.
 1. To review the new content, above the file contents, click **Preview**.
-{% ifversion code-view-ui %}
    ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/help/repository/new-file-preview.png)
-{% else %}
-   ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/enterprise/repository/new-file-preview.png)
-{% endif %}
+
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

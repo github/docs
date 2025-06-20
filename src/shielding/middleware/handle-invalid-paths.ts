@@ -7,7 +7,7 @@ import { ExtendedRequest } from '@/types'
 // one of these.
 // These are clearly intentional "guesses" made by some sort of
 // pen-testing bot.
-const JUNK_STARTS = ['///']
+const JUNK_STARTS = ['///', '/\\', '/\\.']
 const JUNK_ENDS = [
   '/package.json',
   '/package-lock.json',
@@ -80,7 +80,8 @@ export default function handleInvalidPaths(
     // they're not going to suddenly work in the next deployment.
     defaultCacheControl(res)
     res.setHeader('content-type', 'text/plain')
-    return res.status(404).send('Not found')
+    res.status(404).send('Not found')
+    return
   }
 
   if (req.path.endsWith('/index.md')) {
@@ -98,7 +99,8 @@ export default function handleInvalidPaths(
       .replace(/%2F/g, '/')
       .replace(/%40/g, '@')
     const newUrl = `/api/article/body?pathname=${encodedPath}`
-    return res.redirect(newUrl)
+    res.redirect(newUrl)
+    return
   }
   return next()
 }

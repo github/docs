@@ -1,6 +1,0 @@
-# Issues 9563
-# Discussions Category Sections
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.10'

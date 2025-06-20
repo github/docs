@@ -3,7 +3,7 @@ title: '{% ifversion ghes %}Setting up {% data variables.product.prodname_GHAS %
 shortTitle: '{% ifversion ghes %}Set up{% else %}Configure{% endif %} {% data variables.product.prodname_GHAS %}'
 intro: 'You can {% ifversion ghes %}set up{% else %}configure{% endif %} {% data variables.product.prodname_AS %}{% ifversion ghas-products %} products{% endif %} to suit your enterprise''s needs.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
   - /admin/configuration/configuring-advanced-security-features

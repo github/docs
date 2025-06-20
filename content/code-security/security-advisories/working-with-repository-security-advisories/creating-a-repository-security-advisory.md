@@ -1,7 +1,7 @@
 ---
 title: Creating a repository security advisory
 intro: You can create a draft security advisory to privately discuss and fix a security vulnerability in your open source project.
-permissions: Anyone with admin permissions to a public repository, or with a security manager role within the repository, can create a security advisory.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /articles/creating-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/creating-a-maintainer-security-advisory

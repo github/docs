@@ -33,7 +33,7 @@ const getSearchEndpointWithParams = (searchParams: URLSearchParams) =>
 describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  test('basic search', async () => {
+  test('perform a basic ai autocomplete search', async () => {
     const sp = new URLSearchParams()
     // To see why this will work,
     // see src/search/tests/fixtures/data/ai/*
@@ -59,7 +59,7 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
     expect(res.headers['surrogate-control']).toContain('public')
     expect(res.headers['surrogate-control']).toMatch(/max-age=[1-9]/)
-    expect(res.headers['surrogate-key']).toBe('manual-purge')
+    expect(res.headers['surrogate-key']).toBe('every-deployment')
   })
 
   test('invalid version', async () => {

@@ -1,8 +1,8 @@
 import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
-import type { CodeSample, Operation } from 'src/rest/components/types'
-import { type VersionItem } from 'src/frame/components/context/MainContext'
+import type { CodeSample, Operation } from '@/rest/components/types'
+import { type VersionItem } from '@/frame/components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 
@@ -37,6 +37,20 @@ export function getShellExample(
     contentTypeHeader = '-H "Content-Type: application/octet-stream"'
   } else if (codeSample?.request?.contentType === 'multipart/form-data') {
     contentTypeHeader = '-H "Content-Type: multipart/form-data"'
+  }
+
+  // GHES Manage API requests differ from the dotcom API requests and make use of multipart/form-data and json content types
+  if (operation.subcategory === 'manage-ghes') {
+    // GET requests don't have a requestBody set, therefore let's default them to application/json
+    if (operation.verb === 'get') {
+      contentTypeHeader = '-H "Content-Type: application/json"'
+    } else {
+      contentTypeHeader = `-H "Content-Type: ${codeSample?.request?.contentType}"`
+    }
+  }
+
+  if (operation.subcategory === 'inference') {
+    contentTypeHeader = '-H "Content-Type: application/json"'
   }
 
   let requestPath = codeSample?.request?.parameters

@@ -1,11 +1,9 @@
-import { Suspense } from 'react'
 import cx from 'classnames'
 import { SearchIcon, XIcon, KebabHorizontalIcon, LinkExternalIcon } from '@primer/octicons-react'
 import { IconButton, ActionMenu, ActionList } from '@primer/react'
 
 import { LanguagePicker } from '@/languages/components/LanguagePicker'
 import { useTranslation } from '@/languages/components/useTranslation'
-import DomainNameEdit from '@/links/components/DomainNameEdit'
 import { OldSearchInput } from '@/search/components/input/OldSearchInput'
 import { VersionPicker } from '@/versions/components/VersionPicker'
 import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
@@ -28,8 +26,6 @@ export function OldHeaderSearchAndWidgets({ isSearchOpen, setIsSearchOpen, width
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-
-  const showDomainNameEdit = currentVersion.startsWith('enterprise-server@')
 
   return (
     <div className={cx('d-flex flex-items-center', isSearchOpen && styles.widgetsContainer)}>
@@ -151,14 +147,6 @@ export function OldHeaderSearchAndWidgets({ isSearchOpen, setIsSearchOpen, width
                   <>
                     <VersionPicker xs={true} />
                     <ActionList.Divider />
-                    {showDomainNameEdit && (
-                      <>
-                        <Suspense>
-                          <DomainNameEdit xs={true} />
-                        </Suspense>
-                        <ActionList.Divider />
-                      </>
-                    )}
                   </>
                 )}
                 {signupCTAVisible && (

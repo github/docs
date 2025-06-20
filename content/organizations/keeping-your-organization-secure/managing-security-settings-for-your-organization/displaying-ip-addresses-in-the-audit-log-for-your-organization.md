@@ -43,8 +43,6 @@ After you enable the feature, you can access the audit log to view events that i
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. Click **Source IP disclosure**.
-
-   ![Screenshot of the "Audit log" page for an organization. A tab, labeled "Source IP disclosure," is outlined in dark orange.](/assets/images/help/organizations/audit-log-source-ip-disclosure-tab.png)
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 {% data reusables.audit_log.enable-ip-disclosure %}
 1. Click **Save**.

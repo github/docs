@@ -16,10 +16,12 @@
 - startsWith: https://github.com/github/docs/edit
 - startsWith: https://github.com/github/insights-releases/releases/latest
 - startsWith: https://classroom.github.com/videos
+- startsWith: https://developer.anthology.com/portal
 
 # Oneoff links that link checkers think are broken but are not.
 - is: https://haveibeenpwned.com/
 - is: https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029
+- is: https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf
 - is: https://www.linkedin.com/company/github
 - is: https://www.facebook.com/
 - is: https://ko-fi.com/
@@ -87,3 +89,14 @@
 - is: https://www.gnu.org/software/emacs/
 - is: https://www.transparency.org/what-is-corruption
 - startsWith: https://platform.openai.com/docs/api-reference/
+- is: https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/
+- is: https://www.anthropic.com/claude/sonnet
+- is: https://www.psiexams.com/become-psi-test-center/computer-specifications/
+- is: https://www.buymeacoffee.com/
+- startsWith: https://www.crashplan.com/
+- is: https://info.figshare.com/user-guide/how-to-connect-figshare-with-your-github-account/
+- is: https://www.anthropic.com/news/claude-3-5-sonnet
+- is: https://www.tpgi.com/color-contrast-checker/
+- startsWith: https://github.com/githubcustomers/enterprise-preview-program
+- is: https://aka.ms/copiloteclipse
+- is: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1375604

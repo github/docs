@@ -7,11 +7,11 @@ import { h } from 'hastscript'
 import octicons from '@primer/octicons'
 
 const alertTypes = {
-  NOTE: { icon: 'info', color: 'accent', title: 'Note' },
-  IMPORTANT: { icon: 'report', color: 'done', title: 'Important' },
-  WARNING: { icon: 'alert', color: 'attention', title: 'Warning' },
-  TIP: { icon: 'light-bulb', color: 'success', title: 'Tip' },
-  CAUTION: { icon: 'stop', color: 'danger', title: 'Caution' },
+  NOTE: { icon: 'info', color: 'accent' },
+  IMPORTANT: { icon: 'report', color: 'done' },
+  WARNING: { icon: 'alert', color: 'attention' },
+  TIP: { icon: 'light-bulb', color: 'success' },
+  CAUTION: { icon: 'stop', color: 'danger' },
 }
 
 // Must contain one of [!NOTE], [!IMPORTANT], ...
@@ -22,7 +22,7 @@ const matcher = (node) =>
   node.tagName === 'blockquote' &&
   ALERT_REGEXP.test(JSON.stringify(node.children))
 
-export default function alerts() {
+export default function alerts({ alertTitles = {} }) {
   return (tree) => {
     visit(tree, matcher, (node) => {
       const key = getAlertKey(node)
@@ -35,7 +35,12 @@ export default function alerts() {
       node.tagName = 'div'
       node.properties.className = 'ghd-alert ghd-alert-' + alertType.color
       node.children = [
-        h('p', { className: 'ghd-alert-title' }, getOcticonSVG(alertType.icon), alertType.title),
+        h(
+          'p',
+          { className: 'ghd-alert-title' },
+          getOcticonSVG(alertType.icon),
+          alertTitles[key] || '',
+        ),
         ...removeAlertSyntax(node.children),
       ]
     })

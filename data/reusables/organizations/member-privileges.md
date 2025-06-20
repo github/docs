@@ -1,1 +1,1 @@
-1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Member privileges**.
+1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" aria-label="people" %} Member privileges**.

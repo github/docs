@@ -1,6 +1,6 @@
 ---
 title: About authentication with SAML single sign-on
-intro: 'You can access {% ifversion ghec %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating through an identity provider (IdP).'
+intro: 'You can access an organization that uses SAML single sign-on (SSO) by authenticating through an identity provider (IdP).'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on

@@ -7,7 +7,6 @@ versions:
 topics:
   - Issues
   - Projects
-product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 children:
   - /about-insights-for-projects
   - /creating-charts

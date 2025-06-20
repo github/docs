@@ -13,7 +13,7 @@ on:
         required: false
         default: ''
       languages:
-        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to all)"
         required: false
         default: ''
   schedule:
@@ -51,7 +51,7 @@ jobs:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["zh", "es", "pt", "ru", "ja", "fr", "de", "ko"]
+            const allNonEnglish = 'es,ja,pt,zh,ru,fr,ko,de'.split(',')
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -87,7 +87,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -108,26 +108,28 @@ jobs:
       # the whole job fast.
       # As of June 2023, it takes about 10+ minutes to index one whole
       # language and we have 8 non-English languages.
-      max-parallel: 3
+      # As of May 2025, we index so many pages that we are being rate-limited by
+      # Elasticsearch. So we are shrinking this value to 2, down from 3
+      max-parallel: 2
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Clone docs-internal-data
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 

@@ -16,79 +16,91 @@ redirect_from:
 
 ### Code completion
 
-Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
+Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
 
 If you use {% data variables.product.prodname_vscode_shortname %}, you can also use {% data variables.copilot.next_edit_suggestions %}, which will predict the location of the next edit you are likely to make and suggest a completion for it.
 
-> [!NOTE] {% data variables.copilot.next_edit_suggestions_caps %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+### {% data variables.copilot.copilot_chat_short %}
 
-### {% data variables.product.prodname_copilot_chat_short %}
+A chat interface that lets you ask coding-related questions. {% data variables.copilot.copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Eclipse IDE, and Xcode)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
-A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Xcode)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+### {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
 
-### {% data variables.product.prodname_copilot_cli_short %}
+An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
 
-A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
+### {% data variables.copilot.copilot_cli_short %}
 
-### {% data variables.product.prodname_copilot_for_prs %}
+A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
 
-AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot).
+### {% data variables.product.prodname_copilot %} code review
 
-### {% data variables.product.prodname_copilot_workspace %} ({% data variables.release-phases.public_preview %})
+AI-generated code review suggestions to help you write better code. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
-A {% data variables.product.prodname_copilot_short %}-enabled environment for refining your pull requests, validating changes, and integrating suggestions from reviewers. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+### {% data variables.copilot.copilot_for_prs %}
 
-### {% data variables.product.prodname_copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
+AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot).
 
-AI-generated text completion to help you write pull request descriptions quickly and accurately. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
+### {% data variables.copilot.copilot_workspace %} ({% data variables.release-phases.public_preview %})
 
-### {% data variables.product.prodname_copilot_extensions %} ({% data variables.release-phases.public_preview %})
+A {% data variables.product.prodname_copilot_short %}-enabled environment for refining your pull requests, validating changes, and integrating suggestions from reviewers. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
-{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
+### {% data variables.copilot.copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
 
-### GitHub Models ({% data variables.release-phases.public_preview %})
+AI-generated text completion to help you write pull request descriptions quickly and accurately. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
 
-Bringing the power of industry leading large and small language models to users directly on {% data variables.product.github %}. For more information, see [AUTOTITLE](/github-models).
+### {% data variables.copilot.copilot_extensions %}
 
-### {% data variables.product.prodname_copilot %} code review ({% data variables.release-phases.public_preview %})
+{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
-AI-generated code review suggestions to help you write better code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
+### {% data variables.product.prodname_github_models %} ({% data variables.release-phases.public_preview %})
 
-### {% data variables.product.prodname_copilot_edits_vscode_short %}
+Bringing the power of industry leading large and small language models to users directly on {% data variables.product.github %}. See [AUTOTITLE](/github-models).
 
-{% data variables.product.prodname_copilot_edits_vscode_short %} is available in {% data variables.product.prodname_vscode %}. {% data reusables.copilot.about-copilot-edits %}
+### {% data variables.copilot.copilot_edits_short %}
 
-For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+{% data variables.copilot.copilot_edits_short %} is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs. {% data reusables.copilot.copilot-edits.about-copilot-edits %}
 
-### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
+### {% data variables.product.prodname_copilot_short %} custom instructions
 
-Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. For more information, see [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
+Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses).
+
+### {% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+
+Automatically generate commit messages and descriptions with {% data variables.copilot.copilot_desktop_short %} based on the changes you make to your project.
+
+### {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %})
+
+Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+
+### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.copilot.copilot_enterprise_short %} only)_
+
+Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.copilot.copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. See [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 
-The following features are available to organization and enterprise owners with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+The following features are available to organization and enterprise owners with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan.
 
 ### Policy management
 
-Manage policies for {% data variables.product.prodname_copilot_short %} in your organization or enterprise. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+Manage policies for {% data variables.product.prodname_copilot_short %} in your organization or enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 ### Access management
 
-Enterprise owners can specify which organizations in the enterprise can use {% data variables.product.prodname_copilot_short %}, and organization owners can specify which organization members can use Copilot. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise).
+Enterprise owners can specify which organizations in the enterprise can use {% data variables.product.prodname_copilot_short %}, and organization owners can specify which organization members can use Copilot. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise).
 
 ### Usage data
 
-Review {% data variables.product.prodname_copilot_short %} usage data within your organization or enterprise to inform how to manage access and drive adoption of {% data variables.product.prodname_copilot_short %}. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-user-activity-data-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/viewing-copilot-license-usage-in-your-enterprise).
+Review {% data variables.product.prodname_copilot_short %} usage data within your organization or enterprise to inform how to manage access and drive adoption of {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-user-activity-data-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/viewing-copilot-license-usage-in-your-enterprise).
 
 ### Audit logs
 
-Review audit logs for {% data variables.product.prodname_copilot_short %} in your organization to understand what actions have been taken and by which users. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business).
+Review audit logs for {% data variables.product.prodname_copilot_short %} in your organization to understand what actions have been taken and by which users. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-audit-logs-for-copilot-business).
 
 ### Exclude files
 
-Configure {% data variables.product.prodname_copilot_short %} to ignore certain files. This can be useful if you have files that you don't want to be available to {% data variables.product.prodname_copilot_short %}. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot).
+Configure {% data variables.product.prodname_copilot_short %} to ignore certain files. This can be useful if you have files that you don't want to be available to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/excluding-content-from-github-copilot).
 
 ## Next steps
 
-* To learn more about the subscription plans available for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* To learn more about the plans available for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 * To start using {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot).

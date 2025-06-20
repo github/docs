@@ -43,7 +43,7 @@ jobs:
     steps:
       - name: Generate a token
         id: generate-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         with:
           app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
           private-key: {% raw %}${{ secrets.APP_PRIVATE_KEY }}{% endraw %}

@@ -29,7 +29,7 @@ redirect_from:
 
 {% data variables.product.prodname_GH_secret_protection %} users can already receive {% data variables.secret-scanning.alerts %} for partner or custom patterns found in their source code, but unstructured secrets are not easily discoverable. {% data variables.secret-scanning.copilot-secret-scanning %} uses large language models (LLMs) to identify this type of secret.
 
-When a password is detected, an alert is displayed in the "Experimental" list of {% data variables.product.prodname_secret_scanning %} alerts (under the **Security** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
+When a password is detected, an alert is displayed in the "Generic" list of {% data variables.product.prodname_secret_scanning %} alerts (under the **Security** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
 
 {% data reusables.rai.secret-scanning.generic-secret-detection-policy-note %} The feature must then be enabled for repositories and organizations.
 

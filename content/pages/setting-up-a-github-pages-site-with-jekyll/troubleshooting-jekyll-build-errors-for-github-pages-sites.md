@@ -150,7 +150,7 @@ If you do want to use a submodule, initialize the submodule. For more informatio
 
 ## Relative permalinks configured
 
-This errors means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your `_config.yml` file.
+This error means that you have relative permalinks, which are not supported by {% data variables.product.prodname_pages %}, in your `_config.yml` file.
 
 Permalinks are permanent URLs that reference a particular page on your site. Absolute permalinks begin with the root of the site, while relative permalinks begin with the folder containing the referenced page. {% data variables.product.prodname_pages %} and Jekyll no longer support relative permalinks. For more information about permalinks, see [Permalinks](https://jekyllrb.com/docs/permalinks/) in the Jekyll documentation.
 

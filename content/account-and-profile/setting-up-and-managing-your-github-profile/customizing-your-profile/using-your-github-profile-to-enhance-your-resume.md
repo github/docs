@@ -55,7 +55,7 @@ Hiring managers usually consider many applicants for each role. Expect that they
 
 ### Write a helpful README
 
-The README for your project's repository is a perfect space to give a concise project overview. Use [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot) to help write your README, with a prompt like this:
+The README for your project's repository is a perfect space to give a concise project overview. Use [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to help write your README, with a prompt like this:
 
 >Write a README for my lottery-number-generator repository.
 

@@ -9,6 +9,7 @@ children:
   - /hello-world
   - /link-rewriting
   - /dynamic-title
+  - /api-article-body-test-page
 redirect_from:
   - /get-started/quickstart
 ---

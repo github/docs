@@ -70,7 +70,7 @@ ssh-keygen -s ./ca-key -V '+1d' -I KEY-IDENTITY -O extension:id@{% data variable
 > [!WARNING]
 > After a certificate has been signed and issued, the certificate cannot be revoked.
 
-For CAs uploaded {% ifversion ghec %}after March 27th, 2024{% elsif ghes %}to {% data variables.product.prodname_ghe_server %} version 3.13 or later{% endif %}, you {% ifversion ghes < 3.13 %}will need to{% else %}must{% endif %} use the `-V` flag to configure a lifetime less than 366 days for the certificate. For CAs uploaded {% ifversion ghec %}before this date{% elsif ghes %}before version 3.13{% endif %}, the `-V` flag is optional, and you can create certificates that are irrevocable and live forever.
+For CAs uploaded {% ifversion ghec %}after March 27th, 2024{% elsif ghes %}to {% data variables.product.prodname_ghe_server %} version 3.13 or later{% endif %}, you must use the `-V` flag to configure a lifetime less than 366 days for the certificate. For CAs uploaded {% ifversion ghec %}before this date{% elsif ghes %}before version 3.13{% endif %}, the `-V` flag is optional, and you can create certificates that are irrevocable and live forever.
 
 {% ifversion ssh-ca-expires %}
 If you have legacy CAs that are exempt from the expiration requirement, you can upgrade the CA to enforce the requirement. To learn more, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).

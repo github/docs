@@ -653,17 +653,7 @@ template:
       command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: unix:///var/run/docker.sock
-      volumeMounts:
-        - name: work
-          mountPath: /home/runner/_work
-        - name: dind-sock
-          mountPath: /var/run
-    - name: dind
-      image: docker:dind-rootless
-      args:
-        - dockerd
-        - --host=unix:///var/run/docker.sock
+          value: unix:///run/user/1001/docker.sock
       securityContext:
         privileged: true
         runAsUser: 1001
@@ -672,7 +662,21 @@ template:
         - name: work
           mountPath: /home/runner/_work
         - name: dind-sock
-          mountPath: /var/run
+          mountPath: /run/user/1001
+    - name: dind
+      image: docker:dind-rootless
+      args:
+        - dockerd
+        - --host=unix:///run/user/1001/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /run/user/1001
         - name: dind-externals
           mountPath: /home/runner/externals
         - name: dind-etc
@@ -755,17 +759,7 @@ template:
       command: ["/home/runner/run.sh"]
       env:
         - name: DOCKER_HOST
-          value: unix:///var/run/docker.sock
-      volumeMounts:
-        - name: work
-          mountPath: /home/runner/_work
-        - name: dind-sock
-          mountPath: /var/run
-    - name: dind
-      image: docker:dind-rootless
-      args:
-        - dockerd
-        - --host=unix:///var/run/docker.sock
+          value: unix:///run/user/1001/docker.sock
       securityContext:
         privileged: true
         runAsUser: 1001
@@ -774,7 +768,21 @@ template:
         - name: work
           mountPath: /home/runner/_work
         - name: dind-sock
-          mountPath: /var/run
+          mountPath: /run/user/1001
+    - name: dind
+      image: docker:dind-rootless
+      args:
+        - dockerd
+        - --host=unix:///run/user/1001/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /run/user/1001
         - name: dind-externals
           mountPath: /home/runner/externals
         - name: dind-etc

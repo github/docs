@@ -14,7 +14,7 @@ For more information about {% data variables.product.prodname_github_codespaces 
 
 ## Checking whether a codespace was created from a prebuild?
 
-When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-hidden="true" %} Prebuild ready" is shown next to it.
+When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-hidden="true" aria-label="zap" %} Prebuild ready" is shown next to it.
 
 ![Screenshot of a list of available machine types: 2, 4, 8, 16, and 32 core, all labeled "Prebuild ready."](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
@@ -46,18 +46,18 @@ You can check how much storage space has been consumed by prebuilds in your curr
 
 ## The "Prebuild Ready" label is sometimes missing
 
-You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-hidden="true" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
+You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-hidden="true" aria-label="zap" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
 
-By default, each time you push to a prebuild-enabled branch, the prebuild is updated. If the push involves a change to the dev container configuration then, while the update is in progress, the "{% octicon "zap" aria-hidden="true" %} Prebuild Ready" label is removed from the list of machine types. During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. For more information, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds).
+By default, each time you push to a prebuild-enabled branch, the prebuild is updated. If the push involves a change to the dev container configuration then, while the update is in progress, the "{% octicon "zap" aria-hidden="true" aria-label="zap" %} Prebuild Ready" label is removed from the list of machine types. During this time you can still create codespaces without a prebuild. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. For more information, see [AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds).
 
 If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container configuration is changed on your branch, so that it's not the same as the configuration on the base branch, prebuilds will no longer be available on your branch.
 
-Here are things to check if the "{% octicon "zap" aria-hidden="true" %} Prebuild Ready" label is not displayed for a particular branch:
+Here are things to check if the "{% octicon "zap" aria-hidden="true" aria-label="zap" %} Prebuild Ready" label is not displayed for a particular branch:
 
 * Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
 * Confirm that the prebuild configuration includes your region.
 * Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-hidden="true" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
+* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-hidden="true" aria-label="codespaces" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
 
 ## Some resources cannot be accessed in codespaces created using a prebuild
 

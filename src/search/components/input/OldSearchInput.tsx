@@ -3,12 +3,12 @@ import { useRouter } from 'next/router'
 import { IconButton, TextInput } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { useQuery } from 'src/search/components/hooks/useQuery'
-import { useBreakpoint } from 'src/search/components/hooks/useBreakpoint'
-import { sendEvent } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { useQuery } from '@/search/components/hooks/useQuery'
+import { useMinWidthBreakpoint } from '@/search/components/hooks/useBreakpoint'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
 import { GENERAL_SEARCH_CONTEXT } from '../helpers/execute-search-actions'
 
 type Props = { isSearchOpen: boolean }
@@ -19,7 +19,7 @@ export function OldSearchInput({ isSearchOpen }: Props) {
   const [localQuery, setLocalQuery] = useState(query)
   const { t } = useTranslation('old_search')
   const { currentVersion } = useVersion()
-  const atMediumViewport = useBreakpoint('medium')
+  const atMediumViewport = useMinWidthBreakpoint('medium')
 
   function redirectSearch() {
     let asPath = `/${router.locale}`

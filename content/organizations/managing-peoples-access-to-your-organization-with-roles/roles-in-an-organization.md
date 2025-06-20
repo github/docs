@@ -78,9 +78,9 @@ If your organization has a security team, you can use the security manager role 
 
 ### {% data variables.product.prodname_github_app %} managers
 
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %} registrations owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_app %} registrations owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %} registrations owned by an organization. To allow additional users{% ifversion org-app-manager-teams %} or teams{% endif %} to manage {% data variables.product.prodname_github_app %} registrations owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
-When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization).
+When you designate a user{% ifversion org-app-manager-teams %} or team{% endif %} as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization).
 
 ### Outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}
 
@@ -93,8 +93,6 @@ Generally, the outside collaborator and repository collaborator roles are equiva
 * You cannot enforce two-factor authentication (2FA) for repository collaborators, because this feature is not available with {% data variables.product.prodname_emus %}.
 * Repository collaborators cannot bypass single sign-on (SSO) requirements, because SSO is managed at the enterprise level in an {% data variables.enterprise.prodname_emu_enterprise %}. However, like outside collaborators, they do not need to provide SSO authorization of credentials for organizations where they are a collaborator.
 * Repository collaborators are subject to your enterprise IP allow list policy and your identity provider's conditional access policy. However, they are not subject to the organization's IP allow list policy.
-
-{% data reusables.repositories.repository-collaborators-release-phase %}
 
 {% endif %}
 
@@ -156,12 +154,6 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion ghec %} |
 | View organization insights (see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 | {% endif %} |
-| {% ifversion team-discussions %} |
-| View and post public team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
-| View and post private team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% octicon "x" aria-label="No" %}  | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Edit and delete team discussions in **all teams** (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Disable team discussions for an organization (see [AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | Hide comments on writable commits, pull requests, and issues (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Hide comments on _all_ commits, pull requests, and issues (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Block and unblock non-member contributors (see [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} |{% octicon "x" aria-label="No" %}  |
@@ -207,6 +199,12 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests (see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} dismissal requests (see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_code_scanning %} dismissal requests (see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 
 {% endrowheaders %}
 
@@ -227,10 +225,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Add collaborators to **all repositories** | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Access the organization audit log | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Edit the organization's profile page (see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% ifversion ghes %} |
 | Verify the organization's domains (see [AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Restrict email notifications to verified or approved domains (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | Delete **all teams** | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Delete the organization account, including all repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Create teams (see [AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
@@ -239,29 +235,21 @@ Some of the features listed below are limited to organizations using {% data var
 | Can be made a _team maintainer_ | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
 | Transfer repositories | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Manage security and analysis settings (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| {% ifversion ghes %} |
 | View the security overview for the organization (see [AUTOTITLE](/code-security/security-overview/about-the-security-overview)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} dismissal requests | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
-| {% ifversion ghes %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_code_scanning %} dismissal requests | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| {% endif %} |
 | Manage an organization's SSH certificate authorities (see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | {% ifversion projects-v1 %} |
 | Create {% data variables.projects.projects_v1_boards %} (see [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
-| {% ifversion team-discussions %} |
-| View and post public team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
-| View and post private team discussions to **all teams** (see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| Edit and delete team discussions in **all teams** (for more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | Hide comments on commits, pull requests, and issues (see [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %}  |
-| {% ifversion team-discussions %} |
-| Disable team discussions for an organization (see [AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | Set a team profile picture in **all teams** (see [AUTOTITLE](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% ifversion ghes %} |
 | Manage the publication of {% data variables.product.prodname_pages %} sites from repositories in the organization (see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
-| {% endif %} |
 | [Move teams in an organization's hierarchy](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |
 | Pull (read) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Push (write) and clone (copy) _all repositories_ in the organization | {% octicon "check" aria-label="Yes" %} |{% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} |

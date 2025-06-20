@@ -57,7 +57,6 @@ jobs:
           - events
           - fixtures
           - frame
-          - ghes-releases
           - github-apps
           - graphql
           - landings
@@ -76,7 +75,6 @@ jobs:
           - shielding
           # - tests
           # - tools
-          - tracking
           - versions
           - webhooks
           - workflows
@@ -92,7 +90,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
@@ -102,7 +100,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'fixtures' }}
@@ -127,41 +125,14 @@ jobs:
         if: ${{ matrix.name == 'languages' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Gather files changed
         if: ${{ matrix.name == 'content-linter' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ github.event.pull_request.number }}
-          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
-        run: |
-          # Find the file diff in the pull request or merge group
-          # If its a pull request, use the faster call to the GitHub API
-          # For push, workflow_dispatch, and merge_group, use git diff
-          if [ -n "$PR" ]
-          then
-            echo __ running gh pr diff __
-            DIFF=`gh pr diff $PR --name-only`
-          elif [ -n "$HEAD" ]
-          then
-            echo __ running git fetch main __
-            git fetch origin main --depth 1
-            echo __ running git diff __
-            DIFF=`git diff --name-only origin/main`
-          else
-            echo __ no head, empty diff __
-            DIFF=''
-          fi
-          # So we can inspect the output
-          echo __ DIFF found __
-          echo $DIFF
-
-          # So that becomes a string like `foo.js path/bar.md`
-          # Must do this because the list of files can be HUGE. Especially
-          # in a repo-sync when there are lots of translation files involved.
-          echo __ format, write to get_diff_files.txt __
-          echo $DIFF | tr '\n' ' ' > get_diff_files.txt
+        uses: ./.github/actions/get-changed-files
+        with:
+          head: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+          output_file: get_diff_files.txt
 
       - uses: ./.github/actions/cache-nextjs
 

@@ -91,4 +91,4 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 ## Further reading
 
-* [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)
+* [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle)

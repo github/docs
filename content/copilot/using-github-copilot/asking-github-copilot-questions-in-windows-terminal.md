@@ -14,7 +14,7 @@ versions:
 * **{% data variables.product.prodname_windows_terminal %} Canary installed**. For installation instructions, see [Installing {% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
 * **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/quickstart?tool=windowsterminal).
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} if your organization owner or enterprise administrator has disabled {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
 
 ## Getting command explanations and suggestions
 

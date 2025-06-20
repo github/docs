@@ -1,6 +1,6 @@
 ---
 title: 'Phase 1: Align on your rollout strategy and goals'
-intro: 'Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise.'
+intro: '{% ifversion ghas-products %}Before enabling {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} features, plan how these GHAS products should be rolled out across your enterprise.{% else %}Before enabling {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, plan how GHAS should be rolled out across your enterprise.{% endif %}'
 versions:
   ghes: '*'
   ghec: '*'
@@ -10,8 +10,8 @@ topics:
 shortTitle: 1. Align on strategy
 ---
 
-> [!NOTE]
-> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the introduction to this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
+> [!TIP]
+> This article is part of a series on adopting {% data variables.product.prodname_GHAS %} at scale. For the introduction to this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
 
 ## Set clear goals for your company’s rollout
 
@@ -19,11 +19,11 @@ To build a foundation for the direction of your company's rollout, outline goals
 
 Here are some high-level examples of what your goals for rolling out GHAS might look like:
 
-* Reducing the number of vulnerabilities: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
-* Identifying high-risk repositories: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities.
-* Increasing remediation rates: To prevent the accumulation of security debt, you may wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
-* Meeting compliance requirements: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
 * Preventing secrets leakage: Many companies want to prevent critical information from being leaked, such as software keys or financial data.
+* Meeting compliance requirements: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
+* Reducing the number of vulnerabilities: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
+* Identifying high-risk repositories: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities in their code and in their supply chain.
+* Increasing remediation rates: To prevent the accumulation of security debt, you will wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
 
 ## Lead your rollout with both your security and development groups
 
@@ -43,7 +43,10 @@ GHAS is a suite of tools that increases with value when configured, maintained, 
 
 ### 2. GHAS will require adjustment out of the box
 
-After GHAS is set up on your repositories, you'll need to configure GHAS to meet your company’s needs.{% ifversion default-setup-ghas-enablement %} For example, while default setup for {% data variables.product.prodname_code_scanning %} automatically detects the languages to be scanned, you may need to customize other aspects of your {% data variables.product.prodname_code_scanning %} configuration. {% else %} {% data variables.product.prodname_code_scanning_caps %} in particular requires further customization, such as evaluating initial results and making adjustments for future scans. Many customers find that initial scans return limited or irrelevant results until {% data variables.product.prodname_code_scanning %} is adjusted based on the application's threat model.{% endif %}
+After GHAS is set up on your repositories, you'll need to configure GHAS to meet your company’s needs. For example:
+
+* Default setup for {% data variables.product.prodname_code_scanning %} automatically detects the languages to be scanned, but you may need to customize other aspects of your {% data variables.product.prodname_code_scanning %} configuration such as the application's threat model to fine tune the results.
+* {% data variables.product.prodname_secret_scanning_caps %} automatically detects the patterns used by many commonly used systems, but you may want to add custom patterns to detect tokens and other secrets used by internal tooling.
 
 ### 3. GHAS tools are most effective when used together and integrated into your application security program
 
@@ -59,5 +62,5 @@ If your company is interested in custom {% data variables.product.prodname_codeq
 
 When {% data variables.product.prodname_code_scanning %} is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed against all interactions in the codebase.
 
-> [!NOTE]
+> [!TIP]
 > For the next article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale).

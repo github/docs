@@ -90,9 +90,8 @@ After you submit your support request, we may ask you to share a support bundle 
 * `babeld-logs/babeld.log`: Git proxy logs
 * `system-logs/haproxy.log`: HAProxy logs
 * `elasticsearch-logs/github-enterprise.log`: Elasticsearch logs
-* `configuration-logs/{% ifversion unique-config-run-logs %}{% else %}ghe-config.log{% endif %}`: {% data variables.product.prodname_ghe_server %} configuration logs
-{%- ifversion unique-config-run-logs %}
-{%- endif %}
+* `configuration-logs/`: {% data variables.product.prodname_ghe_server %} configuration logs
+
 * `collectd/logs/collectd.log`: Collectd logs
 * `mail-logs/mail.log`: SMTP email delivery logs
 

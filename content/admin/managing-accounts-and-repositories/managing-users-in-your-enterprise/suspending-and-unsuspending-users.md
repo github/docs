@@ -44,7 +44,7 @@ Before suspending site administrators, you must demote them to regular users. Se
 If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
 
 * If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
-* If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.
+* If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.{% ifversion scim-for-ghes-public-beta %} See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api#provisioning-users-with-the-rest-api).{% endif %}
 
 ## Viewing suspended users in the site admin dashboard
 

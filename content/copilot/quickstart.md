@@ -4,6 +4,17 @@ intro: 'Quickly learn how to use {% data variables.product.prodname_copilot %}.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/getting-started-with-github-copilot
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
+  - /copilot/using-github-copilot/getting-started-with-github-copilot
 shortTitle: Quickstart
 topics:
   - Copilot
@@ -15,7 +26,7 @@ topics:
 
 You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
 
-If you have access to {% data variables.product.prodname_copilot_workspace %}, {% data variables.product.prodname_copilot_short %} can also help you when you are editing files in a pull request on the {% data variables.product.github %} website by offering you code completion suggestions. For more information about {% data variables.product.prodname_copilot_workspace %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+If you have access to {% data variables.copilot.copilot_workspace %}, {% data variables.product.prodname_copilot_short %} can also help you when you are editing files in a pull request on the {% data variables.product.github %} website by offering you code completion suggestions. For more information about {% data variables.copilot.copilot_workspace %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
 Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
@@ -27,13 +38,13 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Prerequisite
 
-To use {% data variables.product.prodname_copilot %} on the {% data variables.product.github %} website, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+To use {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, you must have an active {% data variables.product.prodname_copilot_short %} plan. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 
 ## Asking your first question
 
 1. On {% data variables.product.github %}, navigate to a repository and open a file.
-1. Click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) at the top right of the file view.
+1. Click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) at the top right of the file view.
 
    ![Screenshot of the {% data variables.product.prodname_copilot_short %} button, highlighted with a dark orange outline, at the top of the file view.](/assets/images/help/copilot/copilot-button-for-file.png)
 
@@ -51,7 +62,7 @@ To use {% data variables.product.prodname_copilot %} on the {% data variables.pr
 
 ## Other questions you can ask
 
-There are many more things you can do with {% data variables.product.prodname_copilot_chat_dotcom %}. For example:
+There are many more things you can do with {% data variables.copilot.copilot_chat_dotcom %}. For example:
 
 * Ask a general question about software development
 * Ask exploratory questions about a repository
@@ -63,7 +74,7 @@ For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-
 
 ## Next steps
 
-* **Find out more about {% data variables.product.prodname_copilot_chat %}** - See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).{% endif %}
+* **Find out more about {% data variables.copilot.copilot_chat %}** - See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).{% endif %}
 * **Get {% data variables.product.prodname_copilot_short %} code completion suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
 * **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
 * **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).
@@ -203,13 +214,13 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 > [!NOTE] {% data reusables.copilot.chat-access-denied %}
 
 1. Open an existing code file.
-1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
+1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
 
 1. Select a line of code in the editor.
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
 ## Get your first code completion suggestion
 
@@ -254,16 +265,16 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 > [!NOTE] {% data reusables.copilot.chat-access-denied %}
 
 1. Open an existing code file.
-1. Open the {% data variables.product.prodname_copilot_chat_short %} window by clicking the **{% data variables.product.prodname_copilot_chat_short %}** icon at the right side of the JetBrains IDE window.
+1. Open the {% data variables.copilot.copilot_chat_short %} window by clicking the **{% data variables.copilot.copilot_chat_short %}** icon at the right side of the JetBrains IDE window.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
+   ![Screenshot of the {% data variables.copilot.copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
 
 1. Select a line of code in the editor.
-1. In the {% data variables.product.prodname_copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
 ## Get your first code completion suggestion
 

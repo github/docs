@@ -9,7 +9,7 @@ const actionRegex = /[\w-]+\/[\w-]+@[\w-]+/
 // Detects a full-length commit SHA (40 hexadecimal characters)
 const shaRegex = /[\w-]+\/[\w-]+@[0-9a-fA-F]{40}/
 // Detects first-party actions
-const firstPartyPrefixes = ['actions/', 'github/', 'octo-org/', 'OWNER/']
+const firstPartyPrefixes = ['actions/', './.github/actions/', 'github/', 'octo-org/', 'OWNER/']
 
 export const thirdPartyActionPinning = {
   names: ['GHD041', 'third-party-action-pinning'],

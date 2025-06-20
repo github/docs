@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { renderContent } from '#src/content-render/index.js'
 import fs from 'fs/promises'
 import {

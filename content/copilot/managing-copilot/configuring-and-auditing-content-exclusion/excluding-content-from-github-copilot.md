@@ -28,7 +28,8 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 * Code completion will not be available in the affected files.
 * The content in affected files will not inform code completion suggestions in other files.
-* The content in affected files will not inform {% data variables.product.prodname_copilot_chat %}'s responses.
+* The content in affected files will not inform {% data variables.copilot.copilot_chat %}'s responses.
+* Affected files will not be reviewed in a {% data variables.product.prodname_copilot_short %} code review.
 
 ### Who can configure content exclusion
 
@@ -38,23 +39,29 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 
 ### Availability of content exclusions
 
-| Tool                                            |            Code completion support            | {% data variables.product.prodname_copilot_chat_short %} support |
+| Tool                                            |            Code completion support            | {% data variables.copilot.copilot_chat_short %} support |
 |-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
 | {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
-| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
+| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
+| Eclipse                                         | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
 | Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
 | The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
 | {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
 
+Content exclusions also apply to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website.
+
 > [!NOTE]
-> Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
+> * Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
+> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}.
 
 ### Limitations of content exclusions
 
 {% data reusables.copilot.content-exclusion-limitations %}
+
+Currently, content exclusions do not apply to symbolic links (symlinks).
 
 ### Data sent to {% data variables.product.prodname_dotcom %}
 
@@ -67,7 +74,7 @@ You can use your repository settings to specify content in your repository that 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 
    If your repository inherits any exclusions from {% ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {% ifversion ghec %}one or more{% else %} a{% endif %} gray box{% ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
 
@@ -103,7 +110,7 @@ You can use your organization settings to specify files that {% data variables.p
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 1. In the box following "Repositories and paths to exclude," enter the details of files from which {% data variables.product.prodname_copilot_short %} should be excluded.
 
    To exclude files located anywhere (within a Git repository or elsewhere), enter `"*":` followed by the path to the file, or files, you want to exclude. If you want to specify multiple file path patterns, list each pattern on a separate line.
@@ -219,7 +226,7 @@ There are a few different ways to test your content exclusions, depending on whi
 1. Use one or more of the following techniques to test if content is being excluded:
    * **In JetBrains IDEs, {% data variables.product.prodname_vs %}, and {% data variables.product.prodname_vscode %}**, check the {% data variables.product.prodname_copilot_short %} icon in the status bar. If a {% data variables.product.prodname_copilot_short %} content exclusion applies to the file, the {% data variables.product.prodname_copilot_short %} icon will have a diagonal line through it. Hover over the icon to see whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for the file.
    * **In Vim/Neovim**, begin typing in the file. If {% data variables.product.prodname_copilot %} no longer provides inline suggestions as you type, the file is excluded.
-   * You can also test content exclusions in {% data variables.product.prodname_copilot_chat_short %}. Open the {% data variables.product.prodname_copilot_chat_short %} window, and ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
+   * You can also test content exclusions in {% data variables.copilot.copilot_chat_short %}. Open the {% data variables.copilot.copilot_chat_short %} window, and ask {% data variables.copilot.copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
 
 ## Further reading
 

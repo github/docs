@@ -110,6 +110,10 @@ The graphs break down different metrics about {% data variables.product.prodname
 
 Number of tasks queued for background processing on the {% data variables.product.prodname_ghe_server %} appliance.
 
+### Git Maintenance
+
+Monitoring Git maintenance failures can help customers with large and active repositories proactively manage repository health. Occasional "spurious failures" and "retries" are expected, but if a repository consistently shows Git maintenance marked as "failed", we recommend contacting [GitHub Support](https://support.github.com/).
+
 ### Network
 
 The network interface graphs can be useful in profiling user activity, and throughput of traffic in and out of the {% data variables.product.prodname_ghe_server %} appliance.

@@ -1257,6 +1257,38 @@
       "requestPath": "/repos/{owner}/{repo}/merges"
     }
   ],
+  "campaigns": [
+    {
+      "slug": "list-campaigns-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "create-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "get-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "update-a-campaign",
+      "subcategory": "campaigns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "delete-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    }
+  ],
   "checks": [
     {
       "slug": "create-a-check-run",
@@ -1861,12 +1893,6 @@
       "requestPath": "/orgs/{org}/copilot/metrics"
     },
     {
-      "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-      "subcategory": "copilot-usage",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/usage"
-    },
-    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -1877,15 +1903,35 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
-    },
+    }
+  ],
+  "credentials": [
     {
-      "slug": "get-a-summary-of-copilot-usage-for-a-team",
-      "subcategory": "copilot-usage",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage"
+      "slug": "revoke-a-list-of-credentials",
+      "subcategory": "revoke",
+      "verb": "post",
+      "requestPath": "/credentials/revoke"
     }
   ],
   "dependabot": [
+    {
+      "slug": "lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "subcategory": "repository-access",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/dependabot/repository-access"
+    },
+    {
+      "slug": "updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "subcategory": "repository-access",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/dependabot/repository-access"
+    },
+    {
+      "slug": "set-the-default-repository-access-level-for-dependabot",
+      "subcategory": "repository-access",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/dependabot/repository-access/default-level"
+    },
     {
       "slug": "list-dependabot-alerts-for-an-organization",
       "subcategory": "alerts",
@@ -2711,6 +2757,12 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/bulk-list"
+    },
+    {
       "slug": "list-attestations",
       "subcategory": "orgs",
       "verb": "get",
@@ -2895,6 +2947,30 @@
       "subcategory": "members",
       "verb": "get",
       "requestPath": "/orgs/{org}/invitations/{invitation_id}/teams"
+    },
+    {
+      "slug": "list-issue-types-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/issue-types"
+    },
+    {
+      "slug": "create-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/issue-types"
+    },
+    {
+      "slug": "update-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/issue-types/{issue_type_id}"
+    },
+    {
+      "slug": "delete-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/issue-types/{issue_type_id}"
     },
     {
       "slug": "list-organization-members",
@@ -4597,6 +4673,24 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
+    },
+    {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/{attestation_id}"
     },
     {
       "slug": "list-attestations",

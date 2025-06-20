@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import assert from 'node:assert/strict'
 import fs from 'fs'
 
@@ -143,13 +141,6 @@ async function testSiteSearch() {
   // Using the search API
   {
     const res = await get('/api/search?query=github')
-    const results = JSON.parse(res.body)
-    assert(results.meta)
-    assert(results.hits)
-  }
-  // Using the autocomplete search API
-  {
-    const res = await get('/api/search/autocomplete?query=gi')
     const results = JSON.parse(res.body)
     assert(results.meta)
     assert(results.hits)

@@ -1,19 +1,19 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
-import { Header } from 'src/frame/components/page-header/Header'
-import { LegalFooter } from 'src/frame/components/page-footer/LegalFooter'
-import { ScrollButton } from 'src/frame/components/ui/ScrollButton'
-import { SupportSection } from 'src/frame/components/page-footer/SupportSection'
-import { DeprecationBanner } from 'src/versions/components/DeprecationBanner'
-import { RestBanner } from 'src/rest/components/RestBanner'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
-import { useLanguages } from 'src/languages/components/LanguagesContext'
+import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
+import { Header } from '@/frame/components/page-header/Header'
+import { LegalFooter } from '@/frame/components/page-footer/LegalFooter'
+import { ScrollButton } from '@/frame/components/ui/ScrollButton'
+import { SupportSection } from '@/frame/components/page-footer/SupportSection'
+import { DeprecationBanner } from '@/versions/components/DeprecationBanner'
+import { RestBanner } from '@/rest/components/RestBanner'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
+import { useLanguages } from '@/languages/components/LanguagesContext'
 import { ClientSideLanguageRedirect } from './ClientSideLanguageRedirect'
-import { DomainNameEditProvider } from 'src/links/components/useEditableDomainContext'
+import { SearchOverlayContextProvider } from '@/search/components/context/SearchOverlayContext'
 
 const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
@@ -30,6 +30,7 @@ export const DefaultLayout = (props: Props) => {
     fullUrl,
     status,
   } = mainContext
+  const xHost = mainContext.xHost
   const page = mainContext.page!
   const { t } = useTranslation(['meta', 'scroll_button'])
   const router = useRouter()
@@ -59,8 +60,22 @@ export const DefaultLayout = (props: Props) => {
 
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
+  const SOCIAL_CATEGORIES = new Set(['code-security', 'actions', 'issues', 'copilot'])
+  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? 'https://' + xHost : ''}/assets/cb-345/images/social-cards`
+
+  function getCategoryImageUrl(category: string): string {
+    return `${SOCIAL_CARD_IMG_BASE_URL}/${category}.png`
+  }
+
+  function getSocialCardImage(): string {
+    if (currentProduct && SOCIAL_CATEGORIES.has(currentProduct.id)) {
+      return getCategoryImageUrl(currentProduct.id)
+    }
+    return getCategoryImageUrl('default')
+  }
+
   return (
-    <DomainNameEditProvider>
+    <SearchOverlayContextProvider>
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
@@ -111,12 +126,16 @@ export const DefaultLayout = (props: Props) => {
             <meta property="og:title" content={page.fullTitle} />
             <meta property="og:type" content="article" />
             <meta property="og:url" content={fullUrl} />
-            <meta
-              property="og:image"
-              content="https://github.githubassets.com/images/modules/open_graph/github-logo.png"
-            />
+            <meta property="og:image" content={getSocialCardImage()} />
           </>
         )}
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary" />
+        <meta property="twitter:domain" content={new URL(fullUrl).hostname} />
+        <meta property="twitter:url" content={fullUrl} />
+        <meta name="twitter:title" content={page.fullTitle} />
+        {page.introPlainText && <meta name="twitter:description" content={page.introPlainText} />}
+        <meta name="twitter:image" content={getSocialCardImage()} />
       </Head>
       <a
         href="#main-content"
@@ -147,6 +166,6 @@ export const DefaultLayout = (props: Props) => {
           </footer>
         </div>
       </div>
-    </DomainNameEditProvider>
+    </SearchOverlayContextProvider>
   )
 }
