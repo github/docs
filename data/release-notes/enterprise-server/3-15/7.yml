@@ -91,5 +91,7 @@ sections:
       Administrators setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
     - |
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+
+  errata:
     - |
-      Repository cache replicas return `Repository not found` when changes have been pushed to the primary instance that have not yet synchronized to the cache replica. This issue can also occur in all previous patches of this release.
+      The [Known issues](/admin/release-notes#3.15.7-known-issues) section previously indicated that `repository cache replicas return "Repository not found" when changes have been pushed to the primary instance that have not yet synchronized to the cache replica` is still an issue. The issue is resolved and is documented in the [Bug fixes](/admin/release-notes#3.15.7-bugs) section. [Updated: 2025-06-19]

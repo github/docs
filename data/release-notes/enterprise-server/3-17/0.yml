@@ -165,6 +165,10 @@ sections:
         - |
           Enterprise owners can centrally manage and share GitHub Apps across all organizations in their enterprise by creating enterprise-owned GitHub Apps. This eliminates the need to duplicate apps or make them `public`, reducing management overhead and improving security. `Private` and `internal` apps can be transferred to the enterprise level, with permission updates automatically applied across all organizations. Only `internal` visibility is supported, meaning only users and organizations within the enterprise can install and authorize these Apps. See [AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise).
 
+  bugs:
+    - |
+      Fetches from repository caches returned a "Repository not found" error when the cache is out of sync. [Updated: 2025-06-19]
+
   changes:
     # https://github.com/github/releases/issues/5956
     - |
@@ -202,8 +206,6 @@ sections:
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
     - |
       After a geo-replica is promoted to primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
-    - |
-      Repository Cache Replicas return `Repository not found` when changes have been pushed to the primary instance that have not yet synchronized to the Cache Replica. This issue can also occur in all previous patches of this release.
     - |
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
