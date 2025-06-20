@@ -116,8 +116,6 @@ Where possible, {% data variables.product.prodname_copilot_short %}'s feedback i
 
 If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
 
-If you want to validate {% data variables.product.prodname_copilot_short %}'s suggested changes (for example by running automated tests or your linter), or if you want to make modifications before committing the suggested changes, click the **Open in Workspace** button. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
-
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
 
 You can provide feedback on {% data variables.product.prodname_copilot_short %}'s comments directly within each comment. We use this information to improve the product and the quality of {% data variables.product.prodname_copilot_short %}'s suggestions.

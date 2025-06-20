@@ -26,8 +26,6 @@ topics:
 
 You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
 
-If you have access to {% data variables.copilot.copilot_workspace %}, {% data variables.product.prodname_copilot_short %} can also help you when you are editing files in a pull request on the {% data variables.product.github %} website by offering you code completion suggestions. For more information about {% data variables.copilot.copilot_workspace %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
-
 Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
 {% ifversion fpt %}

@@ -8,9 +8,10 @@ topics:
   - Copilot
 product: '{% data reusables.gated-features.copilot-free-availability %}'
 redirect_from:
-  - /copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot
+  - /copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries
+  - /copilot/using-github-copilot/using-github-copilot-for-pull-requests
 ---
 
 ## About {% data variables.copilot.copilot_for_prs %}

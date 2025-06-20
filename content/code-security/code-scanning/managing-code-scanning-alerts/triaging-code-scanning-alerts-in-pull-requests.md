@@ -142,9 +142,6 @@ Each {% data variables.copilot.copilot_autofix_short %} suggestion demonstrates 
 1. Click **Edit** to display the editing options and select your preferred method.
    * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
    * Select **Edit FILENAME** to edit the file directly on {% data variables.product.prodname_dotcom %} with the suggested fix applied.
-
-    {% data reusables.rai.code-scanning.copilot-workspaces-prs-autofix-note %}
-
 1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" aria-label="copy" %} dropdown menu on the suggestion.
    * Select **View autofix patch** to display instructions for applying the suggested fix to any local repository or branch.
    * Select **Copy modified line LINE_NUMBER** to copy a specific line of the suggestion.
@@ -169,9 +166,3 @@ An alternative way of closing an alert is to dismiss it. You can dismiss an aler
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
 For more information about dismissing alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#dismissing--alerts).
-
-## Further reading
-
-{%- ifversion copilot-hadron %}
-* [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)
-{%- endif %}

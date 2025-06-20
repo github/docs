@@ -19,7 +19,7 @@ children:
   - /using-extensions-to-integrate-external-tools-with-copilot-chat
   - /ai-models
   - /finding-public-code-that-matches-github-copilot-suggestions
-  - /using-github-copilot-for-pull-requests
+  - /creating-a-pull-request-summary-with-github-copilot
   - /using-github-copilot-to-create-issues
   - /guides-on-using-github-copilot
 redirect_from:
