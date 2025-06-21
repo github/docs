@@ -1,13 +1,244 @@
-{
-	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
-	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEORGE COLLEGE MANAGEMENT AND SCIENCE- Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-image: url("images/gcms\ campas.jpeg");
+            line-height: 1.6;
+            color: #100909;
+        }
 
-	// List of extensions which should be recommended for users of this workspace.
-	"recommendations": [
+        
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo {
+        
+            align-items: left;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+           
+        
+        .logo img { 
+            height: 100px;
+            margin-right: 0px;
+        }
+        .logo1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+             }
+        .logo1 img{
+            height: 60px;
+            margin-block: 20px;
 
-	],
-	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
-	"unwantedRecommendations": [
-		"ms-vscode-remote.remote-containers"
-	]
+        }
+        div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
 }
+
+        
+        nav {
+            background-color: #004080;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        ul li ul.dropdown li {
+            display: block;
+
+        }
+        ul li ul.dropdown {
+            width: 100%;
+            background:rgb(16, 1, 30) ;
+            position: absolute;
+            z-index: 999;
+            display: none;
+
+        }
+        ul li a:hover{
+            background: #0abddd;
+        }
+        ul li:hover ul.dropdown{
+            display: block;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("images/gcms\ campas.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(237, 253, 8);
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .feature-box {
+            text-align: center;
+            width: 30%;
+            padding: 20px;
+        }
+        
+        .feature-box i {
+            font-size: 3rem;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 0px;
+        }
+        
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        
+        .quick-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="C:\Users\USER\Documents\OneDrive\Desktop\college website\images\GCMS LOGO.jpeg" alt="College Logo">
+            <div class="logo1">
+                <img src="images/AICTE LOGO.png">
+                <div>
+                <h1>George Groups Of Colleges</h1>
+                <u><h2>AICTE aproved</h2></u>
+                <p>Excellence in Education Since 2003</p>
+            </div>
+        </div>
+        </div>
+    </header>
+    
+    
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a> </li>
+            <li><a href="gallary.html">Gallary</a></li>
+            <li><a href="academic.html">Academics</a></li>
+            <li><a href="admission.html">Admissions</a></li>
+            <li><a href="campus drive.html">Campus drive</a></li>
+            <li><a href="faculties.html">Facilities</a></li>
+            <li><a href="location.html">location</a></li>
+            <li><a href="#">course</a>
+                <ul class="dropdown">
+                    <li><a href="bca.html">BCA</a></li>
+                    <li><a href="bba.html">BBA</a></li>
+                    <li><a href="b.optom.html">B.OPTOM</a></li>
+                    <li><a href="bhm.html">BHM</a></li>
+                    <li><a href="m.optom.html">M.OPTOM</a></li> 
+                </ul>
+            </li>
+            <li><a href="CONTACT.HTML">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+          <marquee><h2>Admissions open:2025</h2></marquee>
+            <h1>Welcome to George College Management and Science </h1>
+           <U><h2>Affilated to makaut</h2></U>
+            <u><h2>AICTE aproved</h2></u>
+            <p>Shaping futures through innovative education and research</p>
+            <a href="EVENT.HTML" class="btn">Explore Our Events</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="feature-box">
+            <i>📚</i>
+            <h3>Undergraduate Programs</h3>
+            <p>Discover our wide range of bachelor's degree programs designed to prepare you for success.</p>
+        </div>
+        <div class="feature-box">            
+            <i>🎓</i>
+            <h3>Graduate Studies</h3>
+            <p>Advance your career with our master's and doctoral programs led by expert faculty.</p>
+        </div>
+        <div class="feature-box">            
+            <i>🔬</i>
+            <h3>Research Opportunities</h3>
+            <p>Join groundbreaking research projects that make a real-world impact.</p>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="quick-links">            
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>            
+            <a href="#">Careers</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+        <p>&copy; 2023 ABC College. All rights reserved.</p>
+    </footer>
+</body>
+</html>
