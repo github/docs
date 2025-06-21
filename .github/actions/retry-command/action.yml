@@ -1,0 +1,49 @@
+name: 'Retry command'
+description: 'Retries any command with configurable attempts and delay'
+inputs:
+  command:
+    description: 'The command to retry'
+    required: true
+  max_attempts:
+    description: 'Maximum number of retry attempts'
+    required: false
+    default: '8'
+  delay:
+    description: 'Delay between attempts in seconds'
+    required: false
+    default: '15'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Retry command
+      shell: bash
+      run: |
+        # Generic retry function: configurable attempts and delay
+        retry_command() {
+          local max_attempts=${{ inputs.max_attempts }}
+          local delay=${{ inputs.delay }}
+          local attempt=1
+          local command="${{ inputs.command }}"
+
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt/$max_attempts: Running command..."
+            echo "Command: $command"
+            if eval "$command"; then
+              echo "Command succeeded on attempt $attempt"
+              return 0
+            else
+              echo "Attempt $attempt failed"
+              if [ $attempt -lt $max_attempts ]; then
+                echo "Waiting $delay seconds before retry..."
+                sleep $delay
+              fi
+            fi
+            attempt=$((attempt + 1))
+          done
+
+          echo "Command failed after $max_attempts attempts"
+          return 1
+        }
+
+        retry_command

@@ -51,5 +51,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Add docs engineering as a reviewer
-        run: |
-          gh pr edit $PR --add-reviewer github/docs-engineering --add-label reviewers-docs-engineering
+        uses: ./.github/actions/retry-command
+        with:
+          command: gh pr edit $PR --add-reviewer github/docs-engineering --add-label reviewers-docs-engineering

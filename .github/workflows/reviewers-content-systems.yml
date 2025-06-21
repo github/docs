@@ -39,5 +39,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Add content systems as a reviewer
-        run: |
-          gh pr edit $PR --add-reviewer github/docs-content-systems --add-label reviewers-content-systems
+        uses: ./.github/actions/retry-command
+        with:
+          command: gh pr edit $PR --add-reviewer github/docs-content-systems --add-label reviewers-content-systems
