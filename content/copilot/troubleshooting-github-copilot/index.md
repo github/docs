@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 children:
   - /troubleshooting-common-issues-with-github-copilot
+  - /rate-limits-for-github-copilot
   - /viewing-logs-for-github-copilot-in-your-environment
   - /troubleshooting-firewall-settings-for-github-copilot
   - /troubleshooting-network-errors-for-github-copilot

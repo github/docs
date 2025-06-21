@@ -47,7 +47,7 @@ For more information about these models, see [AUTOTITLE](/copilot/using-github-c
 
 ### Limitations of AI models for {% data variables.copilot.copilot_chat_short %}
 
-Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code)).
 
 ## Changing the AI model
 

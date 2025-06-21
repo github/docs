@@ -94,10 +94,6 @@ This feed shows activity and recommendations based on your network on {% data va
 
 {% endif %}
 
-## Exploring recommended repositories
-
-In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
-
 ## Further reading
 
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)

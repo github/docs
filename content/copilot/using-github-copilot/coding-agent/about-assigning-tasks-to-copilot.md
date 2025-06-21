@@ -13,7 +13,9 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-tasks-to-copilot
 ---
 
-{% data reusables.copilot.coding-agent.preview-note %}
+> [!NOTE]
+> * {% data reusables.copilot.coding-agent.preview-note-text %}
+> * The setting that blocks suggestions matching public code may not work as intended when using {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Overview of {% data variables.copilot.copilot_coding_agent %}
 
@@ -56,8 +58,6 @@ Before you can assign tasks to {% data variables.product.prodname_copilot_short 
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 
-{% data reusables.copilot.coding-agent.premium-requests-start-date %}
-
 {% data variables.copilot.copilot_coding_agent %} uses {% data variables.product.prodname_actions %} minutes and {% data variables.product.prodname_copilot_short %} premium requests.
 
 Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask {% data variables.product.prodname_copilot_short %} to work on coding tasks without incurring any additional costs.
@@ -97,7 +97,7 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 ### Limitations in {% data variables.product.prodname_copilot_short %}'s software development workflow
 
 * **{% data variables.product.prodname_copilot_short %} can only make changes in the same repository where it is creating its pull request**. When {% data variables.product.prodname_copilot_short %} is assigned an issue, it can only make changes in the repository where that issue is located. In addition, {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
-* **{% data variables.product.prodname_copilot_short %} can only access context in the same repository as the assigned issue**. By default, an integration with the {% data variables.product.prodname_copilot_short %} MCP server provides {% data variables.product.prodname_copilot_short %} access to one repository at a time. You can, however, configure broader access. See [AUTOTITLE](/enterprise-cloud@latest/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp).
+* **{% data variables.product.prodname_copilot_short %} can only access context in the same repository as the assigned issue**. By default, an integration with the {% data variables.product.prodname_copilot_short %} MCP server provides {% data variables.product.prodname_copilot_short %} access to one repository at a time. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 * **{% data variables.product.prodname_copilot_short %} can only open one pull request at a time**. {% data variables.product.prodname_copilot_short %} will open exactly one pull request to address each task it is assigned.
 * **{% data variables.product.prodname_copilot_short %} cannot work on an existing pull request that it didn't create**. If you would like {% data variables.product.prodname_copilot_short %} to provide feedback on an existing pull request, you can add it as a reviewer. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 * **{% data variables.product.prodname_copilot_short %} will always start its changes from the repository's default branch**. {% data variables.product.prodname_copilot_short %} cannot branch off from any other branch—for example, a feature branch or a release branch.
@@ -116,4 +116,4 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)

@@ -2,7 +2,9 @@
 title: Managing rulesets for repositories in your organization
 intro: 'You can edit, monitor, and delete existing rulesets to alter how people can interact with repositories in your organization.'
 versions:
-  feature: repo-rules-enterprise
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.13'
 permissions: 'Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.'
 topics:
   - Organizations
@@ -11,7 +13,7 @@ shortTitle: Manage rulesets
 
 ## About managing rulesets for an organization
 
-After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
+After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories{% ifversion not fpt %}, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories{% endif %}. Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
 
 {% ifversion push-rule-delegated-bypass %}
 
@@ -64,6 +66,7 @@ You can import a ruleset from another repository or organization using the expor
 {% data reusables.repositories.import-a-ruleset %}
 
 {% endif %}
+{% ifversion not fpt %}
 
 ## Viewing insights for rulesets
 
@@ -82,4 +85,5 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 {% data reusables.repositories.managing-delegated-bypass %}
 
+{% endif %}
 {% endif %}

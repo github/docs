@@ -35,6 +35,8 @@ You can also view:
 * The number of alerts that were fixed with an accepted {% data variables.copilot.copilot_autofix_short %} suggestion, displayed as a fraction of how many total {% data variables.copilot.copilot_autofix_short %} suggestions were available.
 
 * Remediation rates, in a graph showing the percentage of alerts that were remediated with an available {% data variables.copilot.copilot_autofix_short %} suggestion, and the percentage of alerts that were remediated without a {% data variables.copilot.copilot_autofix_short %} suggestion.
+
+* Mean time to remediate, in a graph showing the average age of closed alerts that were remediated with an available {% data variables.copilot.copilot_autofix_short %} suggestion, and the average age of closed alerts that were remediated without a {% data variables.copilot.copilot_autofix_short %} suggestion.
 {% endif %}
 
 You can apply filters to the data. The metrics are based on activity from the default period or your selected period.

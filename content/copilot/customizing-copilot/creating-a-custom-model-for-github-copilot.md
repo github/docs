@@ -37,7 +37,7 @@ By creating a custom model you enable {% data variables.product.prodname_copilot
 
 This provides:
 
-* **Personalization** - {% data variables.product.prodname_copilot_short %} has a detailed knowledge of your codebase, including available modules, functions, and internal libraries. A custom model may be particularly beneficial if your code is not typical of the wide range of code used to train the base model.
+* **Personalization** - {% data variables.product.prodname_copilot_short %} has a detailed knowledge of your codebase, including available modules, functions, and internal libraries. A custom model may be particularly beneficial if your code is not typical of the wide range of code used to train the included model.
 * **Efficiency and quality** - {% data variables.product.prodname_copilot_short %} is better equipped to help you write code faster and with fewer errors.
 * **Privacy** - The custom model’s training process, hosting and inferencing are secure and private to your organization. Your data always remains yours, is never used to train another customer’s model, and your custom model is never shared.
 
@@ -113,7 +113,7 @@ You can check in your organization settings for an indication of how model creat
 Model training may fail for a variety of reasons, including:
 
 * Not enough data or non-representative data. Lack of data provided for training, or too much replication in the data, may make the fine-tuning unstable.
-* Non-differentiated data. If the data is not sufficiently different from the public data on which the base model was trained, training may fail or the quality of code completion suggestions from the custom model may be only marginally improved.
+* Non-differentiated data. If the data is not sufficiently different from the public data on which the included model was trained, training may fail or the quality of code completion suggestions from the custom model may be only marginally improved.
 * A data preprocessing step may encounter unexpected files types and formats which causes it to fail. A solution may be to specify only certain file types for training.
 
 ## Retraining or deleting the custom model
@@ -127,7 +127,7 @@ Retraining the model updates it to include any new code that has been added to t
 
 If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization.
 
-If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the base model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
+If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the included model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
 
 ## Telemetry data collection and usage for custom models
 
@@ -144,7 +144,7 @@ When you create a custom model, you can choose to allow {% data variables.produc
 Telemetry data is primarily used to fine-tune the {% data variables.product.prodname_copilot_short %} custom model to better understand and predict your organization’s coding patterns. Specifically, it helps:
 
 * **Enhance model accuracy:** By analyzing the collected telemetry, {% data variables.product.prodname_copilot_short %} refines your custom model to increase the relevance and accuracy of future coding suggestions.
-* **Monitor performance:** Telemetry data allows {% data variables.product.company_short %} to monitor how well custom models are performing compared to the base model, enabling ongoing improvements.
+* **Monitor performance:** Telemetry data allows {% data variables.product.company_short %} to monitor how well custom models are performing compared to the included model, enabling ongoing improvements.
 * **Feedback loops:** The data helps {% data variables.product.company_short %} create feedback loops where the model learns from real-world usage, adapting to your specific coding environment over time.
 
 ### Data storage and retention

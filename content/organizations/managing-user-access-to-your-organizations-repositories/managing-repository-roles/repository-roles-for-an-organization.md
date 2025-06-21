@@ -164,6 +164,7 @@ Some of the features listed below are limited to organizations using {% data var
 | [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for private{% ifversion ghec %}/internal{% endif %} repositories with [Codespaces secrets access](/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization?tool=webui) | {% octicon "check" aria-label="No" %} | {% octicon "check" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | [Create codespaces](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository?tool=webui) for public repositories<br>(users with read-only access can only create codespaces at their own expense) | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
+| Edit the custom property values for the repository | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}
 

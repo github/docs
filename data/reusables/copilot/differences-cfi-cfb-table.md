@@ -27,7 +27,7 @@
 
 | Chat | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
-| {% data variables.copilot.copilot_chat_short %} in IDEs[^1] [^2] | 50 messages per month | Unlimited with base model | Unlimited with base model | Unlimited with base model | Unlimited with base model |
+| {% data variables.copilot.copilot_chat_short %} in IDEs[^1] [^2] | 50 messages per month | Unlimited with included models | Unlimited with included models | Unlimited with included models | Unlimited with included models |
 | Inline chat | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Slash commands | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_mobile_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -67,7 +67,7 @@
 
 | Code completion | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
-| Real-time code suggestions with the base model[^5] | 2000 completions per month | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| Real-time code suggestions with included models[^5] | 2000 completions per month | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.next_edit_suggestions_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
@@ -85,7 +85,7 @@
 | Coding guidelines for code review | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | Block suggestions matching public code | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Exclude specified files from {% data variables.product.prodname_copilot_short %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| Organization-wide policy management         | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| Organization-wide policy management         | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
 

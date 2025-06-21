@@ -32,7 +32,7 @@ You can use self-hosted runners anywhere in the management hierarchy. Repository
 
 ### Requirements for self-hosted runner machines
 
-You can use any machine as a self-hosted runner as long at it meets these requirements:
+You can use any machine as a self-hosted runner as long as it meets these requirements:
 
 * You can install and run the self-hosted runner application on the machine.
 * The machine can communicate with {% data variables.product.prodname_actions %}.

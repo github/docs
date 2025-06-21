@@ -50,8 +50,8 @@ search:
     references: Copilot Sources
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    copy_answer: Copy answer
-    copied_announcement: Copied!
+    share_answer: Copy answer URL
+    share_copied_announcement: Copied share URL!
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
@@ -61,6 +61,9 @@ search:
       query_too_large: Sorry, your question is too long. Please try shortening it and asking again.
       asked_too_many_times: Sorry, you've asked too many questions in a short time period. Please wait a few minutes and try again.
       invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
+    response:
+      copy_code: Copy code to clipboard
+      copied_code: Copied!
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
