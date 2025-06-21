@@ -1303,7 +1303,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler SCIM Token
@@ -3698,7 +3698,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: Slack
   supportedSecret: Slack API Token
@@ -4000,6 +4000,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Tencent
+  supportedSecret: Tencent Cloud International Access Token
+  secretType: tencent_cloud_intl_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Tencent
   supportedSecret: Tencent Cloud Secret ID
   secretType: tencent_cloud_secret_id
   versions:
@@ -4213,7 +4224,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud API Key
