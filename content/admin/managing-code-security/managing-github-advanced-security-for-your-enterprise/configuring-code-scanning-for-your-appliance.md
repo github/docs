@@ -4,7 +4,7 @@ shortTitle: Configuring code scanning
 intro: 'You can enable, configure, and disable {% data variables.product.prodname_code_scanning %} for your enterprise{% ifversion default-setup-self-hosted-runners-GHEC %} without {% data variables.product.prodname_dotcom %}-hosted runners{% endif %}. {% data variables.product.prodname_code_scanning_caps %} allows users to scan code for vulnerabilities and errors.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.code-scanning %}'
-redirect_from:
+# redirect_from:
   - /enterprise/admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/configuration/configuring-code-scanning-for-your-appliance
   - /admin/advanced-security/configuring-code-scanning-for-your-appliance
