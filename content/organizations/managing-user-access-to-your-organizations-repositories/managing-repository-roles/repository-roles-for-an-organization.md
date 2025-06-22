@@ -173,8 +173,7 @@ Some of the features listed below are limited to organizations using {% data var
 In this section, you can find the access required for security features, such as {% data variables.product.prodname_GHAS %} features.
 
 > [!NOTE]
-> Repository writers and maintainers can only see secret scanning alert information for their own commits.
-
+> Repository writers and maintainers can only directly view secret scanning alert information for their own commits. They cannot access the alert list view.
 {% rowheaders %}
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
