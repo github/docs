@@ -11,14 +11,16 @@ shortTitle: Allow Copilot traffic
 
 If your company employs security measures like a firewall or proxy server, you should add the following URLs, ports, and protocols to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected:
 
-## GitHub Enterprise Related URLs
+## {% data variables.product.prodname_enterprise %} related URLs
+
 | Domain and/or URL                      | Purpose |
 | :------------------------------------- | :--------------------------------- |
 | `https://github.com/YOUR-ENTERPRISE/*` | Enterprise URL |
 | `https://github.com/YOUR-ENTERPRISE?*` | Enterprise URL |
 | `https://github.com/enterprises/YOUR-ENTERPRISE/*` | Authentication for {% data variables.enterprise.prodname_managed_users %}, only required with {% data variables.product.prodname_emus %} |
 
-## GitHub Public URLs
+## {% data variables.product.github %} public URLs
+
 | Domain and/or URL                      | Purpose |
 | :------------------------------------- | :--------------------------------- |
 | `https://github.com/login/*`             | Authentication, only required with Personal Users |
@@ -44,7 +46,8 @@ If your company employs security measures like a firewall or proxy server, you s
 | `https://github.com/switch_account?*` | Switch Account |
 | `https://github.com/switch_account/*` | Switch Account |
 
-## GitHub Copilot Related URLs
+## {% data variables.product.prodname_copilot_short %} related URLs
+
 | Domain and/or URL                      | Purpose |
 | :------------------------------------- | :--------------------------------- |
 | `https://api.github.com/copilot_internal/*` | User Management |
@@ -57,13 +60,11 @@ If your company employs security measures like a firewall or proxy server, you s
 | `https://*.business.githubcopilot.com/*`[^3] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.enterprise.githubcopilot.com/*`[^4] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 
-
-If your organization is using Microsoft Extra ID, you also need to add the following URLs to the allowlist:
-- `https://login.microsoftonline.com/*`
-- `https://aadcdn.msauth.net/*`
-- `https://login.live.com/*`
-- `https://*.activedirectory.windowsazure.com/*`
-
+If your organization is using Microsoft Entra ID, you also need to add the following URLs to the allowlist:
+* `https://login.microsoftonline.com/*`
+* `https://aadcdn.msauth.net/*`
+* `https://login.live.com/*`
+* `https://*.activedirectory.windowsazure.com/*`
 
 Depending on the security policies and editors your organization uses, you may need to allowlist additional domains and URLs. For more information on specific editors, see [Further reading](#further-reading).
 

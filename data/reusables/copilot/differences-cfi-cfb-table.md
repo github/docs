@@ -96,9 +96,9 @@
 | | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
 | {% data variables.copilot.copilot_for_prs %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| Audit logs                                  | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %}  | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| Audit logs | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %}  | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| Content exclusion | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_short %} knowledge bases |{% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
-| Fine tuning a custom large language model (limited {% data variables.release-phases.public_preview %})[^6] | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_cli_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
@@ -108,4 +108,3 @@
 [^3]: For details about the increased rate limits, see [AUTOTITLE](/github-models/prototyping-with-ai-models).
 [^4]: {% data variables.copilot.copilot_chat_short %} skills in IDEs is available in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}.
 [^5]: Code completion in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse.
-[^6]: For details about fine tuning the model, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot).
