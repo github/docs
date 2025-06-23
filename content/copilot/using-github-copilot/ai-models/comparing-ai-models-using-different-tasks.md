@@ -74,9 +74,9 @@ def grant_editor_access(user_id, doc_id):
 * {% data variables.copilot.copilot_gpt_4o %} can recognize the pattern and provide a clear, concise explanation.
 * The task doesn't require deep reasoning or complex logic.
 
-## o3-mini
+## {% data variables.copilot.copilot_o3_mini %}
 
-OpenAI o3-mini is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. o3-mini outperforms o1 on coding benchmarks with response times that are comparable to o1-mini. Copilot is configured to use OpenAI's "medium" reasoning effort.
+OpenAI {% data variables.copilot.copilot_o3_mini %} is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. {% data variables.copilot.copilot_o3_mini %} outperforms {% data variables.copilot.copilot_o1 %} on coding benchmarks with response times that are comparable to o1-mini. {% data variables.product.prodname_copilot_short %} is configured to use OpenAI's "medium" reasoning effort.
 
 ### Example scenario
 
