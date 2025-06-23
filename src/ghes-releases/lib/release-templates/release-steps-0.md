@@ -8,7 +8,7 @@ labels:
   - skip FR board
   - GHES {{ release-number }}
   - ghes-release-automation
-  - rhythm of docs operations
+  - workflow-generated
 ---
 
 This issue tracks Docs work for the GA release of GHES {{ release-number }}.

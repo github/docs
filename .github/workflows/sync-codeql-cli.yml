@@ -108,7 +108,7 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review"
+            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review,workflow-generated"
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

@@ -5,6 +5,7 @@ labels:
   - new-release
   - priority-0
   - GHES {{ release-number }}
+  - workflow-generated
 ---
 
 Docs Content will publish docs for the GHES {{ release-number }} RC soon. Please draft a release note for the latest supported version of the CodeQL CLI, and update the docs to reflect the latest supported version.
