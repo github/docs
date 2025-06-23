@@ -30,6 +30,8 @@ export function SearchResultsAggregations({ aggregations }: Props) {
     } else {
       params.append('toplevel', toplevel)
     }
+    // Reset pagination when filters change to prevent showing 0 results
+    params.delete('page')
     return `/${locale}${asPathRoot}?${params}`
   }
 
@@ -37,6 +39,8 @@ export function SearchResultsAggregations({ aggregations }: Props) {
     const [asPathRoot, asPathQuery = ''] = asPath.split('#')[0].split('?')
     const params = new URLSearchParams(asPathQuery)
     params.delete('toplevel')
+    // Reset pagination when clearing filters
+    params.delete('page')
     return `/${locale}${asPathRoot}?${params}`
   }
 
