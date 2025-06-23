@@ -170,14 +170,14 @@ To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you
        permissions:
          id-token: write
          contents: read
-       environment: Copilot
+       environment: copilot
        steps:
          - name: Azure login
-           uses: azure/login@a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0
+           uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5
            with:
-             client-id: ${{ secrets.AZURE_CLIENT_ID }}
-             tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-             subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+             client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
+             tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
+             subscription-id: {% raw %}${{ secrets.AZURE_SUBSCRIPTION_ID }}{% endraw %}
    ```
 
    This configuration ensures the `azure/login` action is executed when {% data variables.copilot.copilot_coding_agent %} runs.
@@ -188,14 +188,15 @@ To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you
    ```json copy
    {
      "mcpServers": {
-       "Azure MCP Server": {
+       "Azure": {
          "command": "npx",
          "args": [
            "-y",
            "@azure/mcp@latest",
            "server",
            "start"
-         ]
+         ],
+           "tools": ["*"]
        }
      }
    }
