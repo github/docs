@@ -114,7 +114,7 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label github-openapi-bot \
+            --label github-openapi-bot,workflow-generated \
             --head=$branchname \
 
       - uses: ./.github/actions/slack-alert

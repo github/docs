@@ -266,12 +266,12 @@ export function SearchOverlay({
 
   // Fetch initial search results on open
   useEffect(() => {
-    if (searchOverlayOpen && (!isAskAIState || aiSearchError || aiCouldNotAnswer)) {
+    if (searchOverlayOpen) {
       if (!searchEventGroupId.current) {
         searchEventGroupId.current = uuidv4()
       }
       updateAutocompleteResults(urlSearchInputQuery)
-    } else if (isAskAIState || aiSearchError || aiCouldNotAnswer) {
+    } else {
       // When opening the overlay via query params, we don't need to fetch autocomplete results
       // However, on initial open, we need to clear the loading state
       setSearchLoading(false)
@@ -628,7 +628,10 @@ export function SearchOverlay({
                   />
                 </Box>
               </li>
-              <ActionList.Divider key="error-bottom-divider" />
+              {/* If there are general results, show bottom divider */}
+              {generalOptionsWithViewStatus.length > 0 && (
+                <ActionList.Divider key="error-middle-divider" />
+              )}
             </>
           )}
           {renderSearchGroups(
@@ -885,35 +888,7 @@ function renderSearchGroups(
   const groups = []
 
   let isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
-  if (isInAskAIState) {
-    groups.push(
-      <ActionList.Group key="ai" data-testid="ask-ai">
-        <li tabIndex={-1}>
-          <AskAIResults
-            query={askAIState.aiQuery}
-            debug={askAIState.debug}
-            version={askAIState.currentVersion}
-            setAISearchError={askAIState.setAISearchError}
-            references={askAIState.references}
-            setReferences={askAIState.setReferences}
-            referencesIndexOffset={askAIState.referencesIndexOffset}
-            referenceOnSelect={askAIState.referenceOnSelect}
-            selectedIndex={selectedIndex}
-            askAIEventGroupId={askAIState.askAIEventGroupId}
-            aiCouldNotAnswer={askAIState.aiCouldNotAnswer}
-            setAICouldNotAnswer={askAIState.setAICouldNotAnswer}
-            listElementsRef={listElementsRef}
-          />
-        </li>
-      </ActionList.Group>,
-    )
-  }
-
   let isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
-
-  if (isInAskAIStateButNoAnswer) {
-    groups.push(<ActionList.Divider key="no-answer-divider" />)
-  }
 
   // already showing spinner when streaming AI response, so don't want to show 2 here
   if (showSpinner && !isInAskAIState) {
@@ -932,8 +907,8 @@ function renderSearchGroups(
     return groups
   }
 
-  // We want to show general search suggestions underneath the AI Response section if the AI Could no answer
-  if ((generalSearchOptions.length && !isInAskAIState) || isInAskAIStateButNoAnswer) {
+  // We want to show general search suggestions above the AI Response section if the AI could not answer
+  if (generalSearchOptions.length || isInAskAIStateButNoAnswer) {
     const items = []
     for (let index = 0; index < generalSearchOptions.length; index++) {
       const option = generalSearchOptions[index]
@@ -1034,17 +1009,43 @@ function renderSearchGroups(
       </ActionList.Group>,
     )
 
+    if (isInAskAIState || isInAskAIStateButNoAnswer) {
+      groups.push(<ActionList.Divider key="no-answer-divider" />)
+    }
+
+    if (isInAskAIState) {
+      groups.push(
+        <ActionList.Group key="ai" data-testid="ask-ai">
+          <li tabIndex={-1}>
+            <AskAIResults
+              query={askAIState.aiQuery}
+              debug={askAIState.debug}
+              version={askAIState.currentVersion}
+              setAISearchError={askAIState.setAISearchError}
+              references={askAIState.references}
+              setReferences={askAIState.setReferences}
+              referencesIndexOffset={askAIState.referencesIndexOffset}
+              referenceOnSelect={askAIState.referenceOnSelect}
+              selectedIndex={selectedIndex}
+              askAIEventGroupId={askAIState.askAIEventGroupId}
+              aiCouldNotAnswer={askAIState.aiCouldNotAnswer}
+              setAICouldNotAnswer={askAIState.setAICouldNotAnswer}
+              listElementsRef={listElementsRef}
+            />
+          </li>
+        </ActionList.Group>,
+      )
+    }
+
     // Don't show the bottom divider if:
     // 1. We are in the AI could not answer state
     // 2. We are in the AI Search error state
     // 3. There are no AI suggestions to show in suggestions state
     if (
-      !askAIState.aiCouldNotAnswer &&
+      !isInAskAIState &&
       !askAIState.aiSearchError &&
-      (!askAIState.isAskAIState ||
-        generalSearchOptions.filter(
-          (option) => !option.isViewAllResults && !option.isNoResultsFound,
-        ).length) &&
+      generalSearchOptions.filter((option) => !option.isViewAllResults && !option.isNoResultsFound)
+        .length &&
       aiOptionsWithUserInput.length
     ) {
       groups.push(<ActionList.Divider key="bottom-divider" />)

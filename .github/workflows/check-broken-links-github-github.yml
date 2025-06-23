@@ -20,7 +20,7 @@ jobs:
       # need to use a token from a user with access to github/github for this step
       GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
       REPORT_AUTHOR: docs-bot
-      REPORT_LABEL: github github broken link report
+      REPORT_LABEL: github github broken link report,workflow-generated
       REPORT_REPOSITORY: github/docs-content
     steps:
       - name: Checkout

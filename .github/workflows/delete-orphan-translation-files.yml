@@ -130,6 +130,7 @@ jobs:
             --body '👋 humans. This PR was generated from docs-internal/.github/workflows/delete-orphan-translation-files.yml.
             ' \
             --repo "${{ matrix.language_repo }}" \
+            --label "workflow-generated" \
             --head=$branch_name
           echo "Merge created PR..."
           retry_command gh pr merge --merge --auto --delete-branch "$branch_name"

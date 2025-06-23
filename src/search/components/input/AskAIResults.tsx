@@ -381,54 +381,6 @@ export function AskAIResults({
 
   return (
     <div id="ask-ai-result-container" role="region" className={styles.container}>
-      {!aiCouldNotAnswer && references && references.length > 0 ? (
-        <>
-          <ActionList className={styles.referencesList} showDividers>
-            <ActionList.Group>
-              <ActionList.GroupHeading
-                as="h3"
-                aria-label={t('search.ai.references')}
-                className={styles.referencesTitle}
-              >
-                {t('search.ai.references')}
-              </ActionList.GroupHeading>
-              {references
-                .map((source, index) => {
-                  if (index >= MAX_REFERENCES_TO_SHOW) {
-                    return null
-                  }
-                  const refIndex = index + referencesIndexOffset
-                  return (
-                    <ActionList.Item
-                      sx={{
-                        marginLeft: '0px',
-                      }}
-                      key={`reference-${index}`}
-                      id={`search-option-reference-${index + referencesIndexOffset}`}
-                      tabIndex={-1}
-                      onSelect={() => {
-                        referenceOnSelect(source.url)
-                      }}
-                      active={refIndex === selectedIndex}
-                      ref={(element) => {
-                        if (listElementsRef.current) {
-                          listElementsRef.current[refIndex] = element
-                        }
-                      }}
-                    >
-                      <ActionList.LeadingVisual aria-hidden="true">
-                        <FileIcon />
-                      </ActionList.LeadingVisual>
-                      {source.title}
-                    </ActionList.Item>
-                  )
-                })
-                .filter(Boolean)}
-            </ActionList.Group>
-            <ActionList.Divider aria-hidden="true" />
-          </ActionList>
-        </>
-      ) : null}
       <ActionList.GroupHeading
         key="ai-heading"
         as="h3"
@@ -528,6 +480,54 @@ export function AskAIResults({
             }}
           ></IconButton>
         </div>
+      ) : null}
+      {!aiCouldNotAnswer && references && references.length > 0 ? (
+        <>
+          <ActionList.Divider aria-hidden="true" />
+          <ActionList className={styles.referencesList} showDividers>
+            <ActionList.Group>
+              <ActionList.GroupHeading
+                as="h3"
+                aria-label={t('search.ai.references')}
+                className={styles.referencesTitle}
+              >
+                {t('search.ai.references')}
+              </ActionList.GroupHeading>
+              {references
+                .map((source, index) => {
+                  if (index >= MAX_REFERENCES_TO_SHOW) {
+                    return null
+                  }
+                  const refIndex = index + referencesIndexOffset
+                  return (
+                    <ActionList.Item
+                      sx={{
+                        marginLeft: '0px',
+                      }}
+                      key={`reference-${index}`}
+                      id={`search-option-reference-${index + referencesIndexOffset}`}
+                      tabIndex={-1}
+                      onSelect={() => {
+                        referenceOnSelect(source.url)
+                      }}
+                      active={refIndex === selectedIndex}
+                      ref={(element) => {
+                        if (listElementsRef.current) {
+                          listElementsRef.current[refIndex] = element
+                        }
+                      }}
+                    >
+                      <ActionList.LeadingVisual aria-hidden="true">
+                        <FileIcon />
+                      </ActionList.LeadingVisual>
+                      {source.title}
+                    </ActionList.Item>
+                  )
+                })
+                .filter(Boolean)}
+            </ActionList.Group>
+          </ActionList>
+        </>
       ) : null}
       <div
         aria-live="assertive"
