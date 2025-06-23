@@ -40,26 +40,7 @@
 
 ### Models
 
-{% rowheaders %}
-
-| Available models in chat                                       | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
-|----------------------------------------------------------------|----------------------------------------------------------|---------------------------------------------------------| --- |--------------------------------------------------------------| --- |
-| {% data variables.copilot.copilot_claude_sonnet_35 %}          | {% octicon "check" aria-label="Included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_37 %}          | {% octicon "x" aria-label="Not included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | {% octicon "x" aria-label="Not included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_40 %} | {% octicon "x" aria-label="Not included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_opus %} | {% octicon "x" aria-label="Not included" %}              | {% octicon "x" aria-label="Not included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %}                   | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gemini_flash %}              | {% octicon "check" aria-label="Included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gemini_25_pro %}             | {% octicon "x" aria-label="Not included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gpt_4o %}                    | {% octicon "check" aria-label="Included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gpt_41 %}                    | {% octicon "check" aria-label="Included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| GPT-4.5                                                        | {% octicon "x" aria-label="Not included" %}              | {% octicon "x" aria-label="Not included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %}                  | {% octicon "check" aria-label="Included" %} |
-| o1                                                             | {% octicon "x" aria-label="Not included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| o3                                                             | {% octicon "x" aria-label="Not included" %}              | {% octicon "x" aria-label="Not icluded" %}              | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| o3-mini                                                        | {% octicon "check" aria-label="Included" %}              | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-| o4-mini                                                        | {% octicon "x" aria-label="Not included" %}               | {% octicon "check" aria-label="Included" %}             | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %}                  | {% octicon "check" aria-label="Included" %} |
-
-{% endrowheaders %}
+{% data reusables.copilot.available-models-per-plan %}
 
 ### Code completion
 
