@@ -25,7 +25,7 @@ shortTitle: 'Add {% data variables.copilot.copilot_coding_agent %}'
 
 {% data variables.copilot.copilot_coding_agent %} and use of third-party MCP servers are disabled by default for organization members.
 
-Organizations with {% data variables.copilot.copilot_enterprise %} can enable these features for members on the {% data variables.product.prodname_copilot_short %} policies page for their organization. See [Enabling {% data variables.product.prodname_copilot_short %} features in your organization](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+All organizations with {% data variables.copilot.copilot_enterprise %} and select organizations with {% data variables.copilot.copilot_business_short %} can enable these features for members on the {% data variables.product.prodname_copilot_short %} policies page for their organization. See [Enabling {% data variables.product.prodname_copilot_short %} features in your organization](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 * For the "{% data variables.copilot.copilot_coding_agent %}" policy, select "Enabled".
 * For the "MCP servers on {% data variables.product.prodname_dotcom_the_website %}" policy, select "Enabled".
