@@ -221,7 +221,7 @@ The "Pull request alerts fixed with autofix suggestions" metric shows the ratio 
 {% endif %}
 
 {% else %}
-<!--The remainder of this article has content for the dashboard without Detection, Remediation, and Preventation tabs GHES 3.13-3.15-->
+<!--The remainder of this article has content for the dashboard without Detection, Remediation, and Prevention tabs GHES 3.13-3.15-->
 
 * [Alert trends graph](#alert-trends-graph)
 * [Age of alerts](#age-of-alerts)

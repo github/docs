@@ -23,7 +23,7 @@ This article focuses on how you can combine these features with enterprise-level
 
 In contrast to {% data variables.product.prodname_secret_protection %}, where a single security configuration is typically applied to all repositories, you probably want to fine-tune the configuration of {% data variables.product.prodname_code_scanning %} for different types of repositories. For example, you might need to create additional configurations so that:
 
-* {% data variables.product.prodname_code_scanning_caps %} uses runners with a specific label to apply to repositories that require a specialized environment or that use private registeries.
+* {% data variables.product.prodname_code_scanning_caps %} uses runners with a specific label to apply to repositories that require a specialized environment or that use private registries.
 * {% data variables.product.prodname_code_scanning_caps %} is "Not set" to apply to repositories that need to use advanced setup or that require a third-party tool.
 
 For your trial, it's simplest to create a primary enterprise-level security configuration and apply it to your test repositories. Then you can create any additional security configurations you need and apply them to a subset of repositories selected using code language, custom property, visibility, and  other filter options. For more information, see [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
@@ -103,7 +103,7 @@ There are two levels of control:
 
 ## Engage developers in security remediation
 
-Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secure coding with examples of vulnerable code in code that your developers are familar with. For more information, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secure coding with examples of vulnerable code in code that your developers are familiar with. For more information, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
 
 ## Provide a secure development environment
 
