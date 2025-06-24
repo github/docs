@@ -105,7 +105,7 @@ jobs:
             --title "Delete orphaned files ($date)" \
             --body "$body" \
             --repo github/docs-internal \
-            --label docs-content-fr
+            --label docs-content-fr,workflow-generated
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}

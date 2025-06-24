@@ -10,489 +10,141 @@ topics:
 
 ## Comparison of AI models for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
+{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks. This guide helps you pick the best model based on your task, not just model names.
 
-This article helps you compare the available models, understand the strengths of each model, and choose the model that best fits your task. For guidance across different models using real-world tasks, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
-
-The best model depends on your use case:
-
-* For **balance between cost and performance**, try {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_claude_sonnet_37 %}.
-* For **fast, low-cost support for basic tasks**, try {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_claude_sonnet_35 %}.
-* For **deep reasoning or complex coding challenges**, try {% data variables.copilot.copilot_o3 %}, GPT-4.5, or {% data variables.copilot.copilot_claude_sonnet_37 %}.
-* For **multimodal inputs and real-time performance**, try {% data variables.copilot.copilot_gemini_flash %} or {% data variables.copilot.copilot_gpt_41 %}.
-
-You can click a model name in the list below to jump to a detailed overview of its strengths and use cases.
-* [{% data variables.copilot.copilot_gpt_41 %}](#gpt-41)
-* [{% data variables.copilot.copilot_gpt_4o %}](#gpt-4o)
-* [{% data variables.copilot.copilot_gpt_45 %}](#gpt-45)
-* [{% data variables.copilot.copilot_o1 %}](#o1)
-* [{% data variables.copilot.copilot_o3 %}](#o3)
-* [{% data variables.copilot.copilot_o3_mini %}](#o3-mini)
-* [{% data variables.copilot.copilot_o4_mini %}](#o4-mini)
-* [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-sonnet-35)
-* [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-sonnet-37)
-* [{% data variables.copilot.copilot_claude_sonnet_40 %}](#claude-sonnet-4)
-* [{% data variables.copilot.copilot_claude_opus %}](#claude-opus-4)
-* [{% data variables.copilot.copilot_gemini_flash %}](#gemini-20-flash)
-* [{% data variables.copilot.copilot_gemini_25_pro %}](#gemini-25-pro)
 > [!NOTE] Different models have different premium request multipliers, which can affect how much of your monthly usage allowance is consumed. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
-## {% data variables.copilot.copilot_gpt_41 %}
+### Recommended models by task
 
-OpenAI’s latest model, {% data variables.copilot.copilot_gpt_41 %}, is now available in {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_github_models %}, bringing OpenAI’s newest model to your coding workflow. This model outperforms {% data variables.copilot.copilot_gpt_4o %} across the board, with major gains in coding, instruction following, and long-context understanding. It has a larger context window and features a refreshed knowledge cutoff of June 2024.
+Use this table to find a suitable model quickly, see more detail in the sections below.
 
-OpenAI has optimized {% data variables.copilot.copilot_gpt_41 %} for real-world use based on direct developer feedback about: frontend coding, making fewer extraneous edits, following formats reliably, adhering to response structure and ordering, consistent tool usage, and more. This model is a strong default choice for common development tasks that benefit from speed, responsiveness, and general-purpose reasoning.
+| Model | Task area | Excels at (primary use case) | Additional capabilities |
+|-------|-----------|-------------------------------|--------------------------|
+| {% data variables.copilot.copilot_gpt_41 %} | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, visual |
+| {% data variables.copilot.copilot_gpt_45 %} | Deep reasoning and debugging | Multi-step reasoning and complex code generation | Reasoning |
+| {% data variables.copilot.copilot_gpt_4o %} | General-purpose coding and writing | Fast completions and visual input understanding | Agent mode, visual |
+| {% data variables.copilot.copilot_o1 %} | Deep reasoning and debugging | Step-by-step problem solving and deep logic analysis | Reasoning |
+| {% data variables.copilot.copilot_o3 %} | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
+| {% data variables.copilot.copilot_o3_mini %} | Fast help with simple or repetitive tasks | Quick responses for code snippets, explanations, and prototyping | Lower latency |
+| {% data variables.copilot.copilot_o4_mini %} | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
+| {% data variables.copilot.copilot_claude_opus %} | Deep reasoning and debugging | Advanced agentic workflows over large codebases, long-horizon projects | Reasoning |
+| {% data variables.copilot.copilot_claude_sonnet_35 %} | Fast help with simple or repetitive tasks | Quick responses for code, syntax, and documentation | Agent mode |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} | Deep reasoning and debugging | Structured reasoning across large, complex codebases | Agent mode |
+| {% data variables.copilot.copilot_claude_sonnet_40 %} | Deep reasoning and debugging | High-performance code review, bug fixes, and efficient research workflows | Agent mode |
+| {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging | Complex code generation, debugging, and research workflows | Reasoning |
+| {% data variables.copilot.copilot_gemini_flash %} | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Visual |
 
-### Use cases
+## Task: General-purpose coding and writing
 
-{% data reusables.copilot.model-use-cases.gpt-41 %}
+Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.
 
-### Strengths
+| Model | Why it's a good fit |
+|-------|---------------------|
+| {% data variables.copilot.copilot_gpt_41 %} | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks. |
+| {% data variables.copilot.copilot_gpt_4o %} | Delivers GPT-4–level performance with lower latency. |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} | Produces clear, structured output. Follows formatting instructions and maintains consistent style. |
+| {% data variables.copilot.copilot_gemini_flash %} | Fast and cost-effective. Well suited for quick questions, short code snippets, and lightweight writing tasks. |
+| {% data variables.copilot.copilot_o4_mini %} | Optimized for speed and cost efficiency. Ideal for real-time suggestions with low usage overhead. |
 
-The following table summarizes the strengths of {% data variables.copilot.copilot_gpt_41 %}:
+### When to use these models
 
-{% rowheaders %}
+Use one of these models if you want to:
 
-| Task                              | Description                                                         | Why {% data variables.copilot.copilot_gpt_41 %} is a good fit   |
-|-----------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------|
-| Code explanation                  | Understand what a block of code does or walk through logic.         | Fast and accurate explanations.                                 |
-| Code commenting and documentation | Generate or refine comments and documentation.                      | Writes clear, concise explanations.                             |
-| Bug investigation                 | Get a quick explanation or suggestion for an error.                 | Provides fast diagnostic insight.                               |
-| Code snippet generation           | Generate small, reusable pieces of code.                            | Delivers high-quality results quickly.                          |
-| Multilingual prompts              | Work with non-English prompts or identifiers.                       | Improved multilingual comprehension.                            |
+* Write or review functions, short files, or code diffs.
+* Generate documentation, comments, or summaries.
+* Explain errors or unexpected behavior quickly.
+* Work in a non-English programming environment.
 
-{% endrowheaders %}
+### When to use a different model
 
-### Alternative options
+If you're working on complex refactoring, architectural decisions, or multi-step logic, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For faster, simpler tasks like repetitive edits or one-off code suggestions, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks).
 
-| Task                               | Description                                                       | Why another model may be better                                                                        |
-|------------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.           | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
-| Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.                                           |
-| System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.                |
+## Task: Fast help with simple or repetitive tasks
 
-## {% data variables.copilot.copilot_gpt_4o %}
+These models are optimized for speed and responsiveness. They’re ideal for quick edits, utility functions, syntax help, and lightweight prototyping. You’ll get fast answers without waiting for unnecessary depth or long reasoning chains.
 
-OpenAI {% data variables.copilot.copilot_gpt_4o %} is a multimodal model that supports text and images. It responds in real time and works well for lightweight development tasks and conversational prompts in {% data variables.copilot.copilot_chat_short %}.
+### Recommended models
 
-Compared to previous models, {% data variables.copilot.copilot_gpt_4o %} improves performance in multilingual contexts and demonstrates stronger capabilities when interpreting visual content. It delivers GPT-4 Turbo–level performance with lower latency and cost, making it a good default choice for many common developer tasks.
+| Model | Why it's a good fit |
+|-------|---------------------|
+| {% data variables.copilot.copilot_o4_mini %} | A quick and cost-effective model for repetitive or simple coding tasks. Offers clear, concise suggestions. |
+| {% data variables.copilot.copilot_o3_mini %} | Provides low-latency, accurate responses. Great for real-time suggestions and code walkthroughs. |
+| {% data variables.copilot.copilot_claude_sonnet_35 %} | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations. |
+| {% data variables.copilot.copilot_gemini_flash %} | Extremely low latency and multimodal support (where available). Great for fast, interactive feedback. |
 
-For more information about {% data variables.copilot.copilot_gpt_4o %}, see [OpenAI's documentation](https://platform.openai.com/docs/models/gpt-4o).
+### When to use these models
 
-### Use cases
+Use one of these models if you want to:
 
-{% data reusables.copilot.model-use-cases.gpt-4o %}
+* Write or edit small functions or utility code.
+* Ask quick syntax or language questions.
+* Prototype ideas with minimal setup.
+* Get fast feedback on simple prompts or edits.
 
-### Strengths
+### When to use a different model
 
-The following table summarizes the strengths of {% data variables.copilot.copilot_gpt_4o %}:
+If you’re working on complex refactoring, architectural decisions, or multi-step logic, see [Deep reasoning and debugging](#task-deep-reasoning-and-debugging).
+For tasks that need stronger general-purpose reasoning or more structured output, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing).
 
-{% rowheaders %}
+## Task: Deep reasoning and debugging
 
-| Task                              | Description                                                         | Why {% data variables.copilot.copilot_gpt_4o %} is a good fit |
-|-----------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------|
-| Code explanation                  | Understand what a block of code does or walk through logic.         | Fast and accurate explanations.                               |
-| Code commenting and documentation | Generate or refine comments and documentation.                      | Writes clear, concise explanations.                           |
-| Bug investigation                 | Get a quick explanation or suggestion for an error.                 | Provides fast diagnostic insight.                             |
-| Code snippet generation           | Generate small, reusable pieces of code.                            | Delivers high-quality results quickly.                        |
-| Multilingual prompts              | Work with non-English prompts or identifiers.                       | Improved multilingual comprehension.                          |
-| Image-based questions             | Ask about a diagram or screenshot (where image input is supported). | Supports visual reasoning.                                    |
+These models are designed for tasks that require step-by-step reasoning, complex decision-making, or high-context awareness. They work well when you need structured analysis, thoughtful code generation, or multi-file understanding.
 
-{% endrowheaders %}
+### Recommended models
 
-### Alternative options
+| Model | Why it's a good fit |
+|-------|---------------------|
+| {% data variables.copilot.copilot_gpt_45 %} | Delivers consistent results for multi-step logic, long-context tasks, and complex reasoning. Ideal for debugging and planning. |
+| {% data variables.copilot.copilot_o3 %} | Strong at algorithm design, system debugging, and architecture decisions. Balances performance and reasoning. |
+| {% data variables.copilot.copilot_o1 %} | Excels at deliberate, structured reasoning and deep analysis. Good for performance tuning and problem-solving. |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} | Provides hybrid reasoning that adapts to both fast tasks and deeper thinking. |
+| {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure. |
+| {% data variables.copilot.copilot_claude_opus %} | Anthropic’s most powerful model. Strong at strategy, debugging, and multi-layered logic. |
+| {% data variables.copilot.copilot_gemini_25_pro %} | Advanced reasoning across long contexts and scientific or technical analysis. |
 
-The following table summarizes when an alternative model may be a better choice:
+### When to use these models
 
-{% rowheaders %}
+Use one of these models if you want to:
 
-| Task                               | Description                                                  | Why another model may be better                            |
-|------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
-| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.      | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
-| Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.|
-| System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.              |
+* Debug complex issues with context across multiple files.
+* Refactor large or interconnected codebases.
+* Plan features or architecture across layers.
+* Weigh trade-offs between libraries, patterns, or workflows.
+* Analyze logs, performance data, or system behavior.
 
-{% endrowheaders %}
+### When to use a different model
 
-## GPT-4.5
+For fast iteration or lightweight tasks, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks).
+For general development workflows or content generation, see [General-purpose coding and writing](#task-general-purpose-coding-and-writing).
 
-> [!NOTE]
-> GPT-4.5 in {% data variables.copilot.copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+## Task: Working with visuals (diagrams, screenshots)
 
-OpenAI GPT-4.5 improves reasoning, reliability, and contextual understanding. It works well for development tasks that involve complex logic, high-quality code generation, or interpreting nuanced intent.
+Use these models when you want to ask questions about screenshots, diagrams, UI components, or other visual input. These models support multimodal input and are well suited for front-end work or visual debugging.
 
-Compared to {% data variables.copilot.copilot_gpt_41 %}, GPT-4.5 produces more consistent results for multi-step reasoning, long-form content, and complex problem-solving. It may have slightly higher latency and costs than {% data variables.copilot.copilot_gpt_41 %} and other smaller models.
+| Model | Why it's a good fit |
+|-------|---------------------|
+| {% data variables.copilot.copilot_gpt_4o %} | Supports image input. Great for interpreting screenshots or debugging UI issues with visual context. |
+| {% data variables.copilot.copilot_gemini_flash %} | Fast, multimodal model optimized for real-time interaction. Useful for feedback on diagrams, visual prototypes, and UI layouts. |
 
-For more information about GPT-4.5, see [OpenAI's documentation](https://platform.openai.com/docs/models/gpt-4.5-preview).
+### When to use these models
 
-### Use cases
+Use one of these models if you want to:
 
-{% data reusables.copilot.model-use-cases.gpt-45 %}
+* Ask questions about diagrams, screenshots, or UI components.
+* Get feedback on visual drafts or workflows.
+* Understand front-end behavior from visual context.
 
-### Strengths
+> [!TIP]
+> If you're using a model in a context that doesn’t support image input (like a code editor), you won’t see visual reasoning benefits. You may be able to use an MCP server to get access to visual input indirectly. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp).
 
-The following table summarizes the strengths of GPT-4.5:
+### When to use a different model
 
-{% rowheaders %}
+If your task involves deep reasoning or large-scale refactoring, consider a model from [Deep reasoning and debugging](#task-deep-reasoning-and-debugging). For text-only tasks or simpler code edits, see [Fast help with simple or repetitive tasks](#task-fast-help-with-simple-or-repetitive-tasks).
 
-| Task                    | Description                                                  | Why GPT-4.5 is a good fit                                       |
-|-------------------------|--------------------------------------------------------------|-----------------------------------------------------------------|
-| Code documentation      | Draft README files,  or technical explanations.              | Generates clear, context-rich writing with minimal editing.     |
-| Complex code generation | Write full functions, classes, or multi-file logic.          | Provides better structure, consistency, and fewer logic errors. |
-| Bug investigation       | Trace errors or walk through multi-step issues.              | Maintains state and offers reliable reasoning across steps.     |
-| Decision-making prompts | Weigh pros and cons of libraries, patterns, or architecture. | Provides balanced, contextualized reasoning.                    |
+## Next steps
 
-{% endrowheaders %}
+Choosing the right model helps you get the most out of {% data variables.product.prodname_copilot_short %}. If you're not sure which model to use, start with a general-purpose option like {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_gpt_4o %}, then adjust based on your needs.
 
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                     | Description                                    | Why another model may be better                                                                                      |
-|--------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| High-speed iteration     | Rapid back-and-forth prompts or code tweaks.   | {% data variables.copilot.copilot_gpt_41 %} responds faster with similar quality for lightweight tasks.              |
-| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters. | {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_o4_mini %} are more cost-effective. |
-
-{% endrowheaders %}
-
-## o1
-
-OpenAI o1 is an older reasoning model that supports complex, multi-step tasks and deep logical reasoning to find the best solution.
-
-For more information about o1, see [OpenAI's documentation](https://platform.openai.com/docs/models/o1).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.o1 %}
-
-### Strengths
-
-The following table summarizes the strengths of o1:
-
-{% rowheaders %}
-
-| Task                       | Description                                                             | Why o1 is a good fit                                               |
-|----------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Code optimization          | Analyze and improve performance-critical or algorithmic code.           | Excels at deep reasoning and identifying non-obvious improvements. |
-| Debugging complex systems  | Isolate and fix performance bottlenecks or multi-file issues.           | Provides step-by-step analysis and high reasoning accuracy.        |
-| Structured code generation | Generate reusable functions, typed outputs, or structured  responses.   | Supports function calling and structured output natively.          |
-| Analytical summarization   | Interpret logs, benchmark results, or code behavior.                    | Translates raw data into clear, actionable insights.               |
-| Refactoring code           | Improve maintainability and modularity of existing systems.             | Applies deliberate and context-aware suggestions.                  |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                      | Description                                        | Why another model may be better                                                                                                                        |
-|---------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.                |
-| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases.         |
-
-{% endrowheaders %}
-
-## {% data variables.copilot.copilot_o3 %}
-
-{% data reusables.copilot.o3-public-preview-note %}
-
-OpenAI {% data variables.copilot.copilot_o3 %} is the most capable reasoning model in the o-series. It is ideal for deep coding workflows and complex, multi-step tasks.
-For more information about {% data variables.copilot.copilot_o3 %}, see [OpenAI's documentation](https://platform.openai.com/docs/models/o3).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.o3 %}
-
-### Strengths
-
-The following table summarizes the strengths of {% data variables.copilot.copilot_o3 %}:
-
-{% rowheaders %}
-
-| Task                       | Description                                                             | Why {% data variables.copilot.copilot_o3 %} is a good fit                                               |
-|----------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------|
-| Code optimization          | Analyze and improve performance-critical or algorithmic code.           | Excels at deep reasoning and identifying non-obvious improvements. |
-| Debugging complex systems  | Isolate and fix performance bottlenecks or multi-file issues.           | Provides step-by-step analysis and high reasoning accuracy.        |
-| Structured code generation | Generate reusable functions, typed outputs, or structured  responses.   | Supports function calling and structured output natively.          |
-| Analytical summarization   | Interpret logs, benchmark results, or code behavior.                    | Translates raw data into clear, actionable insights.               |
-| Refactoring code           | Improve maintainability and modularity of existing systems.             | Applies deliberate and context-aware suggestions.                  |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                      | Description                                        | Why another model may be better                                                                                                                |
-|---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.        |
-| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. |
-
-{% endrowheaders %}
-
-## o3-mini
-
-OpenAI o3-mini is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. o3-mini outperforms o1 on coding benchmarks with response times that are comparable to o1-mini. Copilot is configured to use OpenAI's "medium" reasoning effort.
-
-For more information about o3-mini, see [OpenAI's documentation](https://platform.openai.com/docs/models/o3-mini).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.o3-mini %}
-
-### Strengths
-
-The following table summarizes the strengths of o3-mini:
-
-{% rowheaders %}
-
-| Task                       | Description                                                 | Why o3-mini is a good fit                                    |
-|----------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
-| Real-time code suggestions | Write or extend basic functions and utilities.              | Responds quickly with accurate, concise suggestions.         |
-| Code explanation           | Understand what a block of code does or walk through logic. | Fast, accurate summaries with clear language.                |
-| Learn new concepts         | Ask questions about programming concepts or patterns.       | Offers helpful, accessible explanations with quick feedback. |
-| Quick prototyping          | Try out small ideas or test simple code logic quickly.      | Fast, low-latency responses for iterative feedback.          |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                        | Description                                                | Why another model may be better                            |
-|-----------------------------|------------------------------------------------------------|------------------------------------------------------------|
-| Deep reasoning tasks        | Multi-step analysis or architectural decisions.            | GPT-4.5 or o1 provide more structured, thorough reasoning. |
-| Creative or long-form tasks | Writing docs, refactoring across large codebases.          | o3-mini is less expressive and structured than larger models. |
-| Complex code generation     | Write full functions, classes, or multi-file logic.        | Larger models handle complexity and structure more reliably. |
-
-{% endrowheaders %}
-
-## {% data variables.copilot.copilot_o4_mini %}
-
-{% data reusables.copilot.o4-mini-public-preview-note %}
-
-OpenAI {% data variables.copilot.copilot_o4_mini %} is the most efficient model in the o-series. It is a cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage.
-
-For more information about o4, see [OpenAI's documentation](https://platform.openai.com/docs/models/o4-mini).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.o4-mini %}
-
-### Strengths
-
-The following table summarizes the strengths of {% data variables.copilot.copilot_o4_mini %}:
-
-{% rowheaders %}
-
-| Task                       | Description                                                 | Why {% data variables.copilot.copilot_o4_mini %} is a good fit                                    |
-|----------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
-| Real-time code suggestions | Write or extend basic functions and utilities.              | Responds quickly with accurate, concise suggestions.         |
-| Code explanation           | Understand what a block of code does or walk through logic. | Fast, accurate summaries with clear language.                |
-| Learn new concepts         | Ask questions about programming concepts or patterns.       | Offers helpful, accessible explanations with quick feedback. |
-| Quick prototyping          | Try out small ideas or test simple code logic quickly.      | Fast, low-latency responses for iterative feedback.          |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                        | Description                                                | Why another model may be better                               |
-|-----------------------------|------------------------------------------------------------|---------------------------------------------------------------|
-| Deep reasoning tasks        | Multi-step analysis or architectural decisions.            | GPT-4.5 or {% data variables.copilot.copilot_o3 %} provide more structured, thorough reasoning.    |
-| Creative or long-form tasks | Writing docs, refactoring across large codebases.          | {% data variables.copilot.copilot_o4_mini %} is less expressive and structured than larger models. |
-| Complex code generation     | Write full functions, classes, or multi-file logic.        | Larger models handle complexity and structure more reliably.  |
-
-{% endrowheaders %}
-
-## {% data variables.copilot.copilot_claude_sonnet_35 %}
-
-{% data variables.copilot.copilot_claude_sonnet_35 %} is a fast and cost-efficient model designed for everyday developer tasks. While it doesn't have the deeper reasoning capabilities of {% data variables.copilot.copilot_claude_sonnet_37 %}, it still performs well on coding tasks that require quick responses, clear summaries, and basic logic.
-
-For more information about {% data variables.copilot.copilot_claude_sonnet_35 %}, see [Anthropic's documentation](https://www.anthropic.com/news/claude-3-5-sonnet).
-For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.claude-35-sonnet %}
-
-### Strengths
-
-The following table summarizes the strengths of {% data variables.copilot.copilot_claude_sonnet_35 %}:
-
-{% rowheaders %}
-
-| Task                              | Description                                                   | Why {% data variables.copilot.copilot_claude_sonnet_35 %} is a good fit             |
-|-----------------------------------|---------------------------------------------------------------|------------------------------------------|
-| Code explanation                  | Understand what a block of code does or walk through logic.   | Fast and accurate explanations.          |
-| Code commenting and documentation | Generate or refine comments and documentation.                | Writes clear, concise explanations.      |
-| Quick language questions          | Ask syntax, idiom, or feature-specific questions.             | Offers fast and accurate explanations.   |
-| Code snippet generation           | Generate small, reusable pieces of code.                      | Delivers high-quality results quickly.   |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                               | Description                                                         | Why another model may be better                                                                                      |
-|------------------------------------|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.             | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking.               |
-| Complex refactoring                | Refactor large codebases or update multiple interdependent files.   | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} handle context and code dependencies more robustly. |
-| System review or architecture      | Analyze structure, patterns, or architectural decisions in depth.   | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.                              |
-
-{% endrowheaders %}
-
-## {% data variables.copilot.copilot_claude_sonnet_37 %}
-
-{% data variables.copilot.copilot_claude_sonnet_37 %} is a powerful model that excels in development tasks that require structured reasoning across large or complex codebases. Its hybrid approach to reasoning responds quickly when needed, while still supporting slower step-by-step analysis for deeper tasks.
-
-For more information about {% data variables.copilot.copilot_claude_sonnet_37 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/sonnet).
-For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.claude-37-sonnet %}
-
-### Strengths
-
-The following table summarizes the strengths of {% data variables.copilot.copilot_claude_sonnet_37 %}:
-
-{% rowheaders %}
-
-| Task                   | Description                                                                 | Why {% data variables.copilot.copilot_claude_sonnet_37 %} is a good fit                                       |
-|------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------|
-| Multi-file refactoring | Improve structure and maintainability across large codebases.               | Handles multi-step logic and retains cross-file context.             |
-| Architectural planning  | Support mixed task complexity, from small queries to strategic work.        | Fine-grained “thinking” controls adapt to the scope of each task.    |
-| Feature development    | Build and implement functionality across frontend, backend, and API layers. | Supports tasks with structured reasoning and reliable completions.         |
-| Algorithm design       | Design, test, and optimize complex algorithms.                              | Balances rapid prototyping with deep analysis when needed.           |
-| Analytical insights    | Combine high-level summaries with deep dives into code behavior.            | Hybrid reasoning lets the model shift based on user needs.           |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                     | Description                                                    | Why another model may be better                                                                                                                                                                                                                                        |
-|--------------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Quick iterations         | Rapid back-and-forth prompts or code tweaks.                   | {% data variables.copilot.copilot_gpt_41 %} responds faster for lightweight tasks.                                                                                                                                                                                     |
-| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.                 | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. {% data variables.copilot.copilot_claude_sonnet_35 %} is cheaper, simpler, and still advanced enough for similar tasks. |
-| Lightweight prototyping  | Rapid back-and-forth code iterations with minimal context.     | {% data variables.copilot.copilot_claude_sonnet_37 %} may over-engineer or apply unnecessary complexity.                                                                                                                                                               |
-
-{% endrowheaders %}
-
-## {% data variables.copilot.copilot_claude_sonnet_40 %}
-
-{% data reusables.copilot.claude-sonnet-40-public-preview-note %}
-
-For more information about {% data variables.copilot.copilot_claude_sonnet_40 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/).
-For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
-
-## {% data variables.copilot.copilot_claude_opus %}
-
-{% data reusables.copilot.claude-opus-public-preview-note %}
-
-For more information about {% data variables.copilot.copilot_claude_opus %}, see [Anthropic's documentation](https://www.anthropic.com/claude/).
-For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
-
-## {% data variables.copilot.copilot_gemini_flash %}
-
-{% data variables.copilot.copilot_gemini_flash %} is Google’s high-speed, multimodal model optimized for real-time, interactive applications that benefit from visual input and agentic reasoning. In {% data variables.copilot.copilot_chat_short %}, {% data variables.copilot.copilot_gemini_flash %} enables fast responses and cross-modal understanding.
-
-For more information about {% data variables.copilot.copilot_gemini_flash %}, see [Google's documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash).
-For more information on using {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.gemini-20-flash %}
-
-### Strengths
-
-The following table summarizes the strengths of {% data variables.copilot.copilot_gemini_flash %}:
-
-{% rowheaders %}
-
-| Task                    | Description                                                         | Why {% data variables.copilot.copilot_gemini_flash %} is a good fit                     |
-|-------------------------|---------------------------------------------------------------------|--------------------------------------------------------|
-| Code snippet generation | Generate small, reusable pieces of code.                            | Delivers high-quality results quickly.                 |
-| Design feedback loops   | Get suggestions from sketches, diagrams, or visual drafts           | Supports visual reasoning.                             |
-| Image-based analysis    | Ask about a diagram or screenshot (where image input is supported). | Supports visual reasoning.                             |
-| Front-end prototyping   | Build and test UIs or workflows involving visual elements           | Supports multimodal reasoning and lightweight context. |
-| Bug investigation       | Get a quick explanation or suggestion for an error.                 | Provides fast diagnostic insight.                      |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                               | Description                                                  | Why another model may be better                            |
-|------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
-| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.      | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
-| Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.|
-
-{% endrowheaders %}
-
-## {% data variables.copilot.copilot_gemini_25_pro %}
-
-{% data reusables.copilot.gemini-25-pro-public-preview-note %}
-
-{% data variables.copilot.copilot_gemini_25_pro %} is Google's latest AI model, designed to handle complex tasks with advanced reasoning and coding capabilities. It also works well for heavy research workflows that require long-context understanding and analysis.
-
-For more information about {% data variables.copilot.copilot_gemini_25_pro %}, see [Google's documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro).
-For more information on using {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.gemini-25-pro %}
-
-### Strengths
-
-The following table summarizes the strengths of {% data variables.copilot.copilot_gemini_25_pro %}:
-
-{% rowheaders %}
-
-| Task                      | Description                                                       | Why {% data variables.copilot.copilot_gemini_25_pro %} is a good fit |
-|---------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------|
-| Complex code generation   | Write full functions, classes, or multi-file logic.               | Provides better structure, consistency, and fewer logic errors.     |
-| Debugging complex systems | Isolate and fix performance bottlenecks or multi-file issues.     | Provides step-by-step analysis and high reasoning accuracy.         |
-| Scientific research       | Analyze data and generate insights across scientific disciplines. | Supports complex analysis with heavy researching capabilities.      |
-| Long-context processing   | Analyze extensive documents, datasets, or codebases.              | 	Handles long-context inputs effectively.                           |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                      | Description                                        | Why another model may be better                                                                            |
-|---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases.  |
-
-{% endrowheaders %}
-
-## Further reading
-
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/examples-for-ai-model-comparison)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
+* For detailed model specs and pricing, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot).
+* For more examples of how to use different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
+* To switch between models, refer to [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).

@@ -91,5 +91,7 @@ sections:
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
     - |
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+
+  errata:
     - |
-      Repository cache replicas return `Repository not found` when changes have been pushed to the primary instance that have not yet synchronized to the cache replica. This issue can also occur in all previous patches of this release.
+      The [Known issues](/admin/release-notes#3.16.3-known-issues) section previously indicated that `repository cache replicas return "Repository not found" when changes have been pushed to the primary instance that have not yet synchronized to the cache replica` is still an issue. The issue is resolved and is documented in the [Bug fixes](/admin/release-notes#3.16.3-bugs) section. [Updated: 2025-06-19]

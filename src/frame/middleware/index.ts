@@ -26,6 +26,7 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots'
 import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
 import api from './api'
+import llmsTxt from './llms-txt'
 import healthcheck from './healthcheck'
 import manifestJson from './manifest-json'
 import buildInfo from './build-info'
@@ -229,6 +230,7 @@ export default function (app: Express) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
+  app.use('/llms.txt', llmsTxt)
   app.get('/_build', buildInfo)
   app.get('/_req-headers', reqHeaders)
   app.use(asyncMiddleware(manifestJson))

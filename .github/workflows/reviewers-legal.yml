@@ -54,8 +54,9 @@ jobs:
 
       - name: Add legal as a reviewer
         if: steps.checkContentType.outputs.containsContentType == 'true'
+        uses: ./.github/actions/retry-command
         env:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit $PR --add-reviewer github/legal-product --add-label reviewers-legal
+        with:
+          command: gh pr edit $PR --add-reviewer github/legal-product --add-label reviewers-legal

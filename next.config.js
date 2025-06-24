@@ -24,6 +24,7 @@ export default {
   },
   sassOptions: {
     quietDeps: true,
+    silenceDeprecations: ['import'],
   },
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'

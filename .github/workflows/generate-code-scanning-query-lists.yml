@@ -152,7 +152,7 @@ jobs:
           gh pr create \
             --title "Update CodeQL query tables" \
             --repo github/docs-internal \
-           --label "codeql-query-tables,skip FR board,ready-for-doc-review" \
+           --label "codeql-query-tables,skip FR board,ready-for-doc-review,workflow-generated" \
             --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
 
             No action is required from the first responder for the Docs content team. This PR will be reviewed and merged by the Code scanning and GHAS focus team as part of the next release of CodeQL CLI. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})

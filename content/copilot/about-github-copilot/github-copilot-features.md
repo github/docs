@@ -38,11 +38,7 @@ AI-generated code review suggestions to help you write better code. See [AUTOTIT
 
 ### {% data variables.copilot.copilot_for_prs %}
 
-AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot).
-
-### {% data variables.copilot.copilot_workspace %} ({% data variables.release-phases.public_preview %})
-
-A {% data variables.product.prodname_copilot_short %}-enabled environment for refining your pull requests, validating changes, and integrating suggestions from reviewers. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
+AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. See [AUTOTITLE](/copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot).
 
 ### {% data variables.copilot.copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
 

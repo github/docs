@@ -2,7 +2,7 @@
 title: Excluding content from GitHub Copilot
 shortTitle: Exclude content from Copilot
 intro: 'You can prevent {% data variables.product.prodname_copilot_short %} from accessing certain content.'
-permissions: 'Repository administrators{% ifversion ghec%}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can manage content exclusion settings. People with the "Maintain" role for a repository can view, but not edit, content exclusion settings for that repository.'
+permissions: 'Repository administrators, organization owners, and enterprise owners can manage content exclusion settings. People with the "Maintain" role for a repository can view, but not edit, content exclusion settings for that repository.'
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 layout: inline
 versions:
@@ -22,9 +22,9 @@ topics:
   - Copilot
 ---
 
-## About content exclusions for {% data variables.product.prodname_copilot_short %}
+## About content exclusion for {% data variables.product.prodname_copilot_short %}
 
-You can use content exclusions to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When you exclude content from {% data variables.product.prodname_copilot_short %}:
+You can use content exclusion to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When you exclude content from {% data variables.product.prodname_copilot_short %}:
 
 * Code completion will not be available in the affected files.
 * The content in affected files will not inform code completion suggestions in other files.
@@ -33,11 +33,13 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 ### Who can configure content exclusion
 
-Repository administrators{% ifversion ghec %}, organization owners, and enterprise owners{% else %} and organization owners{% endif %} can configure content exclusion.
+Repository administrators, organization owners, and enterprise owners can configure content exclusion.
 
 {% data reusables.copilot.content-exclusions-scope %}
 
-### Availability of content exclusions
+### Availability of content exclusion
+
+The {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans provide the following level of support for content exclusion.
 
 | Tool                                            |            Code completion support            | {% data variables.copilot.copilot_chat_short %} support |
 |-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
@@ -57,7 +59,7 @@ Content exclusions also apply to {% data variables.copilot.copilot_code-review_s
 > * Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
 > * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}.
 
-### Limitations of content exclusions
+### Limitations of content exclusion
 
 {% data reusables.copilot.content-exclusion-limitations %}
 
@@ -67,16 +69,16 @@ Currently, content exclusions do not apply to symbolic links (symlinks).
 
 After you configure content exclusion, the client (for example, the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode_shortname %}) sends the current repository URL to the {% data variables.product.prodname_dotcom %} server so that the server can return the correct policy to the client. These URLs are not logged anywhere.
 
-## Configuring content exclusions for your repository
+## Configuring content exclusion for your repository
 
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 
-   If your repository inherits any exclusions from {% ifversion fpt %}its parent organization{% else %} organizations in the same enterprise{% endif %}, you'll see {% ifversion ghec %}one or more{% else %} a{% endif %} gray box{% ifversion ghec %}es{% endif %} at the top of the page containing details of these exclusions. You cannot edit these settings.
+   If your repository inherits any exclusions from its parent organization, or from organizations in the same enterprise, you'll see one or more gray boxes at the top of the page, containing details of these exclusions. You cannot edit these settings.
 
 1. In the box following "Paths to exclude in this repository," enter the paths to files from which {% data variables.product.prodname_copilot_short %} should be excluded.
 
@@ -103,7 +105,7 @@ You can use your repository settings to specify content in your repository that 
 - "/scripts/**"
 ```
 
-## Configuring content exclusions for your organization
+## Configuring content exclusion for your organization
 
 You can use your organization settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
@@ -186,9 +188,7 @@ git@gitlab.com:gitlab-org/gitlab-runner.git:
   - "**/security/**"
 ```
 
-{% ifversion ghec %}
-
-## Configuring content exclusions for your enterprise
+## Configuring content exclusion for your enterprise
 
 As an enterprise owner, you can use the enterprise settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
@@ -196,12 +196,10 @@ As an enterprise owner, you can use the enterprise settings to specify files tha
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
 1. Click the **Content exclusion** tab.
-1. Use paths to specify which content to exclude. See the previous section, [Configuring content exclusions for your organization](#configuring-content-exclusions-for-your-organization).
+1. Use paths to specify which content to exclude. See the previous section, [Configuring content exclusion for your organization](#configuring-content-exclusion-for-your-organization).
 
 > [!NOTE]
 > The key difference between setting content exclusion at the enterprise level and the organization level is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.
-
-{% endif %}
 
 ## Testing changes to content exclusions
 
@@ -220,13 +218,19 @@ After you add or change content exclusions, it can take up to 30 minutes to take
 
 ### Test your content exclusions
 
-There are a few different ways to test your content exclusions, depending on which IDE you're using.
+You can verify that content exclusions you have configured are working as expected.
 
-1. Open a file that you expect to be affected by your content exclusions.
-1. Use one or more of the following techniques to test if content is being excluded:
-   * **In JetBrains IDEs, {% data variables.product.prodname_vs %}, and {% data variables.product.prodname_vscode %}**, check the {% data variables.product.prodname_copilot_short %} icon in the status bar. If a {% data variables.product.prodname_copilot_short %} content exclusion applies to the file, the {% data variables.product.prodname_copilot_short %} icon will have a diagonal line through it. Hover over the icon to see whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for the file.
-   * **In Vim/Neovim**, begin typing in the file. If {% data variables.product.prodname_copilot %} no longer provides inline suggestions as you type, the file is excluded.
-   * You can also test content exclusions in {% data variables.copilot.copilot_chat_short %}. Open the {% data variables.copilot.copilot_chat_short %} window, and ask {% data variables.copilot.copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
+1. First confirm that content exclusion is working in files that are not subject to content exclusion. To do this:
+   * In your IDE, open a file that is not subject to content exclusion.
+   * Make an edit that would normally generate a code completion suggestion. A suggestion should be offered
+1. Open a file that should be excluded and make the same edit. No suggestion should be offered.
+1. To test content exclusion for {% data variables.copilot.copilot_chat_short %}:
+   * In your IDE, open the {% data variables.copilot.copilot_chat_short %} panel.
+   * Open a file that should be excluded and close any other files that are open in the editor.
+   * Make sure that the open file is attached to the prompt as the context file.
+   * Enter the prompt `explain this file`.
+
+     If the file is excluded, {% data variables.copilot.copilot_chat_short %} will not be able to use the file to generate a response. The file will not be listed as a reference in {% data variables.product.prodname_copilot_short %}'s response.
 
 ## Further reading
 

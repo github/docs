@@ -45,6 +45,7 @@ copilot_code-review_short: 'Copilot code review'
 
 ## Copilot coding agent (previously Padawan) -> {% data variables.copilot.copilot_coding_agent %}
 copilot_coding_agent: 'Copilot coding agent'
+copilot_coding_agent_short: 'Coding agent'
 
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}
 ## Note: this is NOT a short form for the Copilot coding agent (previously Padawan):

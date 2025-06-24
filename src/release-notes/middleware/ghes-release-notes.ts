@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from 'express'
 
 import { formatReleases, renderPatchNotes } from '@/release-notes/lib/release-notes-utils'
-import { all } from '@/versions/lib/enterprise-server-releases.js'
+import { all, latestStable } from '@/versions/lib/enterprise-server-releases.js'
 import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
 import { getReleaseNotes } from './get-release-notes'
 import type { Context, ExtendedRequest } from '@/types'
@@ -87,7 +87,7 @@ export default async function ghesReleaseNotesContext(
   // GHES release notes on docs started with 2.20 but older release notes exist on enterprise.github.com.
   // So we want to use _all_ GHES versions when calculating next and previous releases.
   req.context.latestPatch = req.context.ghesReleaseNotes![0].version
-  req.context.latestRelease = all[0]
+  req.context.latestRelease = latestStable
 
   // Add convenience props for "Supported releases" section on GHES Admin landing page (NOT release notes).
   req.context.ghesReleases.forEach((release) => {

@@ -59,7 +59,7 @@
 | GHD022 | liquid-ifversion-versions | Liquid `ifversion`, `elsif`, and `else` tags should be valid and not contain unsupported versions. | error | liquid, versioning |
 | GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
-| GHD038 | expired-content | Expired content must be remediated. | error | expired |
+| GHD038 | expired-content | Expired content must be remediated. | warning | expired |
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
 | [GHD040](https://github.com/github/docs/blob/main/src/content-linter/README.md) | table-liquid-versioning | Tables must use the correct liquid versioning format | error | tables |
 | GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
