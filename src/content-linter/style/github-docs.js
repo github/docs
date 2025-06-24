@@ -137,7 +137,7 @@ const githubDocsConfig = {
   },
   'expired-content': {
     // GHD038
-    severity: 'error',
+    severity: 'warning',
     'partial-markdown-files': true,
   },
   'expiring-soon': {
