@@ -104,11 +104,9 @@ Enable this policy to allow users to use the {% data variables.product.prodname_
 
 {% data reusables.copilot.coding-agent.preview-note %}
 
-{% data variables.copilot.copilot_coding_agent %} is an autonomous, AI-powered software development agent. It is currently available to all {% data variables.copilot.copilot_enterprise %} customers and select {% data variables.copilot.copilot_for_business %} customers.
+{% data variables.copilot.copilot_coding_agent %} is an autonomous, AI-powered software development agent. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms). This feature may use models which are not enabled on your "Models" settings page. The cost of a premium request made by {% data variables.copilot.copilot_coding_agent %} is independent of the model it uses.
 
-During the preview, use of the feature is subject to [GitHub Pre-release License Terms](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms). This feature may use models which are not enabled on your "Models" settings page. The cost of a premium request made by {% data variables.copilot.copilot_coding_agent %} is independent of the model it uses.
-
-You can enable "{% data variables.copilot.copilot_coding_agent %}" to allow members of your enterprise to use {% data variables.copilot.copilot_coding_agent %} under the Copilot license you have assigned them. This will allow them to assign work or issues to {% data variables.product.prodname_copilot_short %} in organization repositories where {% data variables.copilot.copilot_coding_agent %} is available and to enable {% data variables.copilot.copilot_coding_agent %} for their personal repositories.
+With a **{% data variables.copilot.copilot_enterprise_short %} license**, you can enable "{% data variables.copilot.copilot_coding_agent %}" to allow members of your enterprise to use {% data variables.copilot.copilot_coding_agent %} under the Copilot license you have assigned them. This will allow them to assign work or issues to {% data variables.product.prodname_copilot_short %} in organization repositories where {% data variables.copilot.copilot_coding_agent %} is available and to enable {% data variables.copilot.copilot_coding_agent %} for their personal repositories.
 
 Alternatively, set to "No policy" to leave organization owners to make the decision in their organization settings.
 

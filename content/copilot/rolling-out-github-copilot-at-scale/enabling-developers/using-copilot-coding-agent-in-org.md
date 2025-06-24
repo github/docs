@@ -85,7 +85,7 @@ All AI models are trained to meet a request, even if they don't have all the inf
 
 <a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=using-cca-effectively" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-> [!TIP] During the {% data variables.release-phases.public_preview %}, you need {% data variables.copilot.copilot_pro_plus %} or {% data variables.copilot.copilot_enterprise %} to use {% data variables.copilot.copilot_coding_agent %}. We have also started to roll out to {% data variables.copilot.copilot_business_short %} customers, and you will receive an email once the feature is available to you.
+> [!TIP] During the {% data variables.release-phases.public_preview %}, you need {% data variables.copilot.copilot_pro_plus %} or {% data variables.copilot.copilot_enterprise %} to use {% data variables.copilot.copilot_coding_agent %}.
 
 As with any other change to working practices, it's important to run a trial to learn how to deploy {% data variables.copilot.copilot_coding_agent %} effectively in your organization or enterprise.
 
