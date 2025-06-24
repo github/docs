@@ -458,6 +458,9 @@ Supported values: `REGISTRY_NAME` or `"*"`
 
 ## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
+> [!Important]
+> This feature is retired from `dependabot.yml` and overlaps with [CODEOWNERS](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md) file from Tuesday, May 20, 2025. For more information, read our [blog](https://github.blog/changelog/2025-04-29-dependabot-reviewers-configuration-option-being-replaced-by-code-owners/).
+
 Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
 {% data variables.product.prodname_dependabot %} default behavior:
