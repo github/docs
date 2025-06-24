@@ -844,35 +844,3 @@ test.describe('translations', () => {
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
 })
-
-test.describe('view pages with custom domain cookie', () => {
-  test('view article page', async ({ page }) => {
-    await page.goto(
-      '/enterprise-server@latest/get-started/markdown/replace-domain?ghdomain=example.ghe.com',
-    )
-
-    const content = page.locator('pre')
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
-
-    // Now switch to enterprise-cloud, where replacedomain should not be used
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Cloud', { exact: true }).click()
-
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://HOSTNAME/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
-
-    // Again switch back to enterprise server again
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.').first().click()
-
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
-  })
-})

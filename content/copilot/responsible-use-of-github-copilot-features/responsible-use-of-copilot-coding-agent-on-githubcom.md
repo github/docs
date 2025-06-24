@@ -13,7 +13,7 @@ redirect_from:
 
 ## About {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}
 
-{% data variables.copilot.copilot_coding_agent %} is an autonomous and asynchronous software development agent integrated into {% data variables.product.github %}. The agent can pick up a task from an issue or from {% data variables.product.prodname_copilot_chat_short %}, create a pull request, and then iterate on the pull request in response to comments.
+{% data variables.copilot.copilot_coding_agent %} is an autonomous and asynchronous software development agent integrated into {% data variables.product.github %}. The agent can pick up a task from an issue or from {% data variables.copilot.copilot_chat_short %}, create a pull request, and then iterate on the pull request in response to comments.
 
 {% data variables.copilot.copilot_coding_agent %} can generate tailored changes based on your description and configurations, including tasks like bug fixes, implementing incremental new features, prototyping, documentation, and codebase maintenance. After the initial pull request is created, the agent can iterate with you, based on your feedback and reviews.
 
@@ -25,7 +25,7 @@ The agent works by using a combination of natural language processing and machin
 
 ### Prompt processing
 
-The task provided to {% data variables.product.prodname_copilot_short %} through an issue, pull request comment or {% data variables.product.prodname_copilot_chat_short %} message is combined with other relevant, contextual information to form a prompt. That prompt is sent to a large language model for processing. Inputs can take the form of plain natural language, code snippets, or images.
+The task provided to {% data variables.product.prodname_copilot_short %} through an issue, pull request comment or {% data variables.copilot.copilot_chat_short %} message is combined with other relevant, contextual information to form a prompt. That prompt is sent to a large language model for processing. Inputs can take the form of plain natural language, code snippets, or images.
 
 ### Language model analysis
 
@@ -79,7 +79,7 @@ For information about other customizations for {% data variables.copilot.copilot
 
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 
 ### Use {% data variables.copilot.copilot_coding_agent %} as a tool, not a replacement
 
@@ -141,12 +141,11 @@ The language model used by {% data variables.copilot.copilot_coding_agent %}’s
 
 ### Inaccurate code
 
-> [!Note]
-> Allowing {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code is not supported for {% data variables.copilot.copilot_coding_agent %} at this time. For more information, see [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
-
 {% data variables.copilot.copilot_coding_agent %} may generate code that appears to be valid but may not actually be semantically or syntactically correct or may not accurately reflect the intent of the developer.
 
 To mitigate the risk of inaccurate code, you should carefully review and test the generated code, particularly when dealing with critical or sensitive applications. You should also ensure that the generated code adheres to best practices and design patterns and fits within the overall architecture and style of the codebase.
+
+> [!NOTE] The setting that blocks suggestions matching public code may not work as intended when using {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
 ### Legal and regulatory considerations
 

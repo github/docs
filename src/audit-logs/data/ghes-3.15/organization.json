@@ -390,6 +390,21 @@
     "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
   },
   {
+    "action": "enterprise_announcement.create",
+    "description": "A global announcement banner was created for the enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner"
+  },
+  {
+    "action": "enterprise_announcement.destroy",
+    "description": "A global announcement banner was removed from the enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise"
+  },
+  {
+    "action": "enterprise_announcement.update",
+    "description": "A global announcement banner was updated for the enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise"
+  },
+  {
     "action": "enterprise_installation.create",
     "description": "The GitHub App associated with a GitHub Connect connection was created.",
     "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"

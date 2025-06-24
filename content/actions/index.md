@@ -18,7 +18,7 @@ featuredLinks:
     - /actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
   popular:
-    - /actions/writing-workflows/workflow-syntax-for-github-actions
+    - /actions/reference/workflow-syntax-for-github-actions
     - /actions/writing-workflows
     - /actions/use-cases-and-examples
 changelog:
@@ -30,7 +30,6 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
-  - /actions/reference
 layout: product-landing
 versions:
   fpt: '*'
@@ -48,6 +47,7 @@ children:
   - /use-cases-and-examples
   - /migrating-to-github-actions
   - /administering-github-actions
+  - /reference
   - /guides
 ---
 

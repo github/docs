@@ -1,18 +1,36 @@
 import { useEffect, useRef } from 'react'
-import { Text, Button, Heading, Popover, useOnEscapePress } from '@primer/react'
+import { Text, Button, Heading, Popover, useOnEscapePress, Box } from '@primer/react'
 import { focusTrap } from '@primer/behaviors'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useMaxWidthBreakpoint, useMinWidthBreakpoint } from '../hooks/useBreakpoint'
+import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 let previouslyFocused: HTMLElement | null = null
 
-export function AISearchCTAPopup({ isOpen, dismiss }: { isOpen: boolean; dismiss: () => void }) {
+export function AISearchCTAPopup({
+  isOpen,
+  dismiss,
+  setIsSearchOpen,
+  isDismissible = true,
+}: {
+  isOpen: boolean
+  dismiss?: () => void
+  setIsSearchOpen: (value: boolean) => void
+  isDismissible?: boolean
+}) {
   const { t } = useTranslation('search')
+  const { permanentDismiss } = useCTAPopoverContext()
   const isLargeOrUp = useMinWidthBreakpoint('large')
   const isTooSmallForCTA = useMaxWidthBreakpoint('293px')
   let overlayRef = useRef<HTMLDivElement>(null)
   let dismissButtonRef = useRef<HTMLButtonElement>(null)
+
+  const openSearch = () => {
+    setIsSearchOpen(true)
+    // They engaged with the CTA, so let's not show this popup for them anymore
+    permanentDismiss()
+  }
 
   // For a11y, focus trap the CTA and allow it to be closed with Escape
   useEffect(() => {
@@ -32,13 +50,101 @@ export function AISearchCTAPopup({ isOpen, dismiss }: { isOpen: boolean; dismiss
     if (previouslyFocused) {
       previouslyFocused.focus()
     }
-    dismiss()
+    if (dismiss) {
+      dismiss()
+    }
   }
 
   useOnEscapePress(onDismiss)
 
   if (isTooSmallForCTA) {
     return null
+  }
+
+  const innerContent = (
+    <>
+      <img
+        src="/assets/images/search/copilot-action.png"
+        width="100%"
+        alt="The Copilot Icon in front of an explosion of color."
+      />
+      <Heading
+        as="h2"
+        id="ai-search-cta-heading"
+        sx={{
+          fontSize: '16px',
+          fontWeight: 'bold',
+          marginTop: '12px',
+        }}
+      >
+        {t('search.cta.heading')}
+      </Heading>
+      <Text
+        id="ai-search-cta-description"
+        sx={{
+          display: 'block',
+          fontSize: '15px',
+          marginTop: '12px',
+        }}
+      >
+        {t('search.cta.description')}
+      </Text>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}
+      >
+        {isDismissible ? (
+          <Button
+            ref={dismissButtonRef}
+            aria-label="Dismiss"
+            sx={{
+              marginTop: '16px',
+              fontWeight: 'bold',
+            }}
+            onClick={onDismiss}
+          >
+            {t('search.cta.dismiss')}
+          </Button>
+        ) : null}
+        <Button
+          variant="primary"
+          sx={
+            isDismissible
+              ? {
+                  marginTop: '16px',
+                  marginLeft: '8px',
+                  fontWeight: 'bold',
+                }
+              : {
+                  marginTop: '16px',
+                  width: '100%',
+                }
+          }
+          onClick={openSearch}
+        >
+          {t('search.cta.ask_copilot')}
+        </Button>
+      </Box>
+    </>
+  )
+
+  // If not dismissible, it's not being used as a popover
+  if (!isDismissible) {
+    return (
+      <Box
+        sx={{
+          position: 'relative',
+          width: '270px',
+          border: '1px solid var(--borderColor-default, var(--color-border-default, #d0d7de))',
+          borderRadius: '6px',
+          padding: '16px',
+        }}
+      >
+        {innerContent}
+      </Box>
+    )
   }
 
   return (
@@ -64,43 +170,7 @@ export function AISearchCTAPopup({ isOpen, dismiss }: { isOpen: boolean; dismiss
           width: '270px',
         }}
       >
-        <img
-          src="/assets/images/search/copilot-action.png"
-          width={220}
-          alt="The Copilot Icon in front of an explosion of color."
-        />
-        <Heading
-          as="h2"
-          id="ai-search-cta-heading"
-          sx={{
-            fontSize: '16px',
-            fontWeight: 'bold',
-            marginTop: '12px',
-          }}
-        >
-          {t('search.cta.heading')}
-        </Heading>
-        <Text
-          id="ai-search-cta-description"
-          sx={{
-            display: 'block',
-            fontSize: '15px',
-            marginTop: '12px',
-          }}
-        >
-          {t('search.cta.description')}
-        </Text>
-        <Button
-          ref={dismissButtonRef}
-          aria-label="Dismiss"
-          sx={{
-            marginTop: '16px',
-            fontWeight: 'bold',
-          }}
-          onClick={onDismiss}
-        >
-          Dismiss
-        </Button>
+        {innerContent}
       </Popover.Content>
     </Popover>
   )

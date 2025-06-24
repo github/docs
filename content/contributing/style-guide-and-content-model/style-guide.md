@@ -788,7 +788,7 @@ When introducing a list, avoid short, nonspecific sentences using terms like “
 Use permission statements and product callouts to communicate tasks that require specific roles or products to complete.
 
 * [**Permissions statements**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements): The role required to take an action or do a task described in the article. Example: "Enterprise owners."
-* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.product.prodname_copilot_business_short %}."
+* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.copilot.copilot_business_short %}."
 
 Together, permission statements and product callouts tell readers who can use the feature being described in an article.
 

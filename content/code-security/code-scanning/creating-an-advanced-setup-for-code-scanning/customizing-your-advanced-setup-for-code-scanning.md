@@ -207,6 +207,9 @@ If your workflow does not contain a matrix called `language`, then {% data varia
     languages: c-cpp, csharp, python
 ```
 
+> [!NOTE]
+> When analyzing languages sequentially, the default build-mode for every language will be used. Alternatively, if you provide an explicit `autobuild` step, then every language that supports the `autobuild` mode will use it while other languages use their default mode. If a more complex build-mode configuration than this is required, then you will need to use a `language` matrix.
+
 ## Defining the alert severities that cause a check failure for a pull request
 
 {% ifversion code-scanning-merge-protection-rulesets %}

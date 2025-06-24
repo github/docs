@@ -60,6 +60,7 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 }
 
 .header {
+  display: flex;
   padding: 12px 14px 0px 14px !important;
   width: 100%;
   background-color: var(--overlay-bgColor) !important;

@@ -1,9 +1,9 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import { get } from '#src/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
-import { allVersionKeys } from '#src/versions/lib/all-versions.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import { allVersionKeys } from '@/versions/lib/all-versions.js'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
 
 describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
   beforeAll(() => {

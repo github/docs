@@ -1,7 +1,7 @@
 ---
 title: REST API endpoints for Copilot metrics
 shortTitle: Copilot metrics
-intro: Use the REST API to view Copilot metrics.
+intro: Use the REST API to view {% data variables.product.prodname_copilot_short %} metrics.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

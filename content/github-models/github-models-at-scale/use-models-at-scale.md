@@ -65,7 +65,7 @@ To more efficiently manage resources across all teams, you can leverage the {% d
 
 You can also use these extensions to run inference requests and manage prompts:
 * {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_cli %}
-* {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_copilot_chat %}
+* {% data variables.product.prodname_github_models %} extension for {% data variables.copilot.copilot_chat %}
 * {% data variables.product.prodname_github_models %} VS Code extension
 
 ### Monitor, iterate, and integrate

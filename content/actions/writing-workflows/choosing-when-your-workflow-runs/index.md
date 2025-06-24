@@ -9,6 +9,5 @@ versions:
 children:
   - /triggering-a-workflow
   - /using-conditions-to-control-job-execution
-  - /events-that-trigger-workflows
 ---
 

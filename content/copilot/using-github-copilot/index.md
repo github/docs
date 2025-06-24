@@ -10,6 +10,7 @@ children:
   - /best-practices-for-using-github-copilot
   - /getting-code-suggestions-in-your-ide-with-github-copilot
   - /copilot-chat
+  - /copilot-spaces
   - /coding-agent
   - /asking-github-copilot-questions-in-windows-terminal
   - /using-copilot-text-completion
@@ -18,7 +19,7 @@ children:
   - /using-extensions-to-integrate-external-tools-with-copilot-chat
   - /ai-models
   - /finding-public-code-that-matches-github-copilot-suggestions
-  - /using-github-copilot-for-pull-requests
+  - /creating-a-pull-request-summary-with-github-copilot
   - /using-github-copilot-to-create-issues
   - /guides-on-using-github-copilot
 redirect_from:

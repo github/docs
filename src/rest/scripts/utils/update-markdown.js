@@ -27,6 +27,26 @@ export async function updateRestFiles() {
 
 // Reads data files from the directory provided and returns a
 // JSON object that lists the versions for each category/subcategory
+/**
+ * Extract GHES version from a file path if it's a GHES directory
+ * @param {string} filePath - File path to parse
+ * @returns {string|null} - GHES version or null if not a GHES file
+ */
+export function getGHESVersionFromFilepath(filePath) {
+  // Normalize path separators to handle both Unix and Windows paths
+  const normalizedPath = filePath.replace(/\\/g, '/')
+  const pathParts = normalizedPath.split('/')
+  const ghesDir = pathParts.find((part) => part.startsWith('ghes-'))
+
+  if (!ghesDir) {
+    return null
+  }
+
+  // Extract version from ghes-X.Y or ghes-X.Y-YYYY-MM-DD format
+  const versionMatch = ghesDir.match(/^ghes-(\d+\.\d+)/)
+  return versionMatch ? versionMatch[1] : null
+}
+
 // The data files are split up by version, so all files must be
 // read to get a complete list of versions.
 async function getDataFrontmatter(dataDirectory, schemaFilename) {
@@ -36,16 +56,15 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
     // the most recent deprecated version but still allow data to exist.
     // This makes the deprecation steps easier.
     .filter((file) => {
-      return !deprecated.some((depVersion) =>
-        file.split(path.sep).find((pathSplit) => {
-          if (pathSplit.startsWith('ghes')) {
-            // An example version format is: ghes-3.6 or ghes-3.6-2022-01-01
-            const ghesVersion = pathSplit.split('-')[1]
-            return ghesVersion === depVersion
-          }
-          return false
-        }),
-      )
+      const ghesVersion = getGHESVersionFromFilepath(file)
+
+      // If it's not a GHES file, include it (e.g., ghae, fpt, ghec)
+      if (!ghesVersion) {
+        return true
+      }
+
+      // If it's a GHES file, exclude it only if the version is deprecated
+      return !deprecated.includes(ghesVersion)
     })
 
   const restVersions = {}

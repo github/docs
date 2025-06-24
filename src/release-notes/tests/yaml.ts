@@ -5,7 +5,9 @@ import path from 'path'
 import { beforeAll, describe, expect, test } from 'vitest'
 import yaml from 'js-yaml'
 
-import { liquid } from '#src/content-render/index.js'
+import { liquid } from '@/content-render/index.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
 
 interface ReleaseNoteContent {
   intro: string
@@ -34,7 +36,7 @@ describe('lint enterprise release notes', () => {
       yamlContent = yaml.load(fileContents) as ReleaseNoteContent
     })
 
-    test('contains valid liquid', () => {
+    test('contains valid liquid', async () => {
       const { intro, sections } = yamlContent
       let toLint: Record<string, string> = { intro }
       for (const key in sections) {
@@ -54,9 +56,28 @@ describe('lint enterprise release notes', () => {
         })
       }
 
+      // Create context with site data for rendering liquid variables
+      const context = {
+        currentLanguage: 'en',
+        currentVersionObj: allVersions['free-pro-team@latest'],
+        site: {
+          data: {
+            reusables: getDataByLanguage('reusables', 'en'),
+            variables: getDataByLanguage('variables', 'en'),
+            ui: getDataByLanguage('ui', 'en'),
+          },
+        },
+      }
+
       for (const key in toLint) {
         if (!toLint[key]) continue
+        // First check if liquid parses correctly
         expect(() => liquid.parse(toLint[key]), `${key} contains invalid liquid`).not.toThrow()
+        // Then check if liquid renders correctly with context
+        await expect(
+          liquid.parseAndRender(toLint[key], context),
+          `${key} contains liquid that fails to render`,
+        ).resolves.not.toThrow()
       }
     })
 

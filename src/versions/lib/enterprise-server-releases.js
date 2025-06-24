@@ -15,7 +15,7 @@ export const nextNext = '3.19'
 export const supported = ['3.17', '3.16', '3.15', '3.14', '3.13']
 
 // Edit this to `null` when it's no longer the release candidate
-export const releaseCandidate = '3.17'
+export const releaseCandidate = null
 
 // Ensure that:
 // "next" is ahead of "latest" by one minor or major release.

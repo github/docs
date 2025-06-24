@@ -5,6 +5,9 @@ export const listFirstWordCapitalization = {
   description: 'First word of list item should be capitalized',
   tags: ['ul', 'ol'],
   function: (params, onError) => {
+    // Skip site-policy directory as these are legal documents with specific formatting requirements
+    if (params.name && params.name.includes('content/site-policy/')) return
+
     // We're going to look for a sequence of 3 tokens. If the markdown
     // is a really small string, it might not even have that many tokens
     // in it. Can bail early.

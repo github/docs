@@ -13,12 +13,12 @@ topics:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.product.prodname_copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completions and 50 chats or premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 * **Sign up for a paid plan**. You can subscribe to either:
 
-  * **{% data variables.product.prodname_copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
-  * **{% data variables.product.prodname_copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.product.prodname_copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_cta=Copilot+Pro%2B&ref_loc=subscriptions+page&ref_page=docs).
+  * **{% data variables.copilot.copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
+  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_cta=Copilot+Pro%2B&ref_loc=subscriptions+page&ref_page=docs).
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
@@ -48,11 +48,11 @@ All users can configure {% data variables.product.prodname_copilot_short %} sett
 
 If you have your own {% data variables.product.prodname_copilot_short %} plan (instead of using your organization or enterprise's plan), you can:
 
-* **Install {% data variables.product.prodname_copilot_extensions_short %}** to integrate other tools with {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account).
+* **Install {% data variables.copilot.copilot_extensions_short %}** to integrate other tools with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account).
 * **Manage policies**. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber).
 
 ## 7. Start using {% data variables.product.prodname_copilot_short %}
 
-Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot). {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.product.prodname_copilot_chat_dotcom_short %}, and {% data variables.product.prodname_copilot_chat_short %} in your IDE are a great place to start.
+Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot). {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.copilot.copilot_chat_dotcom_short %}, and {% data variables.copilot.copilot_chat_short %} in your IDE are a great place to start.
 
-To learn how to best use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) and [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
+To learn how to best use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) and [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat).

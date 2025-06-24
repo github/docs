@@ -1,6 +1,0 @@
-# Reference: Issue #12448 - Tag protection to ruleset migration
-
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.13'

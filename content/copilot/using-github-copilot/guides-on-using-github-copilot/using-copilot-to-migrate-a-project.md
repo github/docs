@@ -1,7 +1,7 @@
 ---
 title: Using Copilot to migrate a project to another programming language
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.product.prodname_copilot_chat %} can help you move a project to a different language. This guide describes what''s involved in a migration process and gives an example of a PHP to Python migration.'
+intro: '{% data variables.copilot.copilot_chat %} can help you move a project to a different language. This guide describes what''s involved in a migration process and gives an example of a PHP to Python migration.'
 topics:
   - Copilot
 versions:
@@ -49,7 +49,7 @@ Consider the points before you start a migration process:
 
 Assuming you've already familiarized yourself with the existing project, a good way to start a migration is to open a branch of the repository in your editor and ask {% data variables.product.prodname_copilot_short %} for help.
 
-1. In your editor, open the {% data variables.product.prodname_copilot_chat_short %} panel. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+1. In your editor, open the {% data variables.copilot.copilot_chat_short %} panel. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 1. Ask {% data variables.product.prodname_copilot_short %} to outline the steps you need to take to migrate the project to the new language.
 
    For example, for a migration from PHP to Python, you could ask:
@@ -68,7 +68,7 @@ Assuming you've already familiarized yourself with the existing project, a good 
 
    If you think a change suggested by {% data variables.product.prodname_copilot_short %} is not right in some way, ask for an alternative suggestion.
 
-1. As soon as you've migrated a component to a state that you can run, check that it works as expected. If it generates an error, copy the error into the {% data variables.product.prodname_copilot_chat_short %} view, and ask {% data variables.product.prodname_copilot_short %} to help you fix it.
+1. As soon as you've migrated a component to a state that you can run, check that it works as expected. If it generates an error, copy the error into the {% data variables.copilot.copilot_chat_short %} view, and ask {% data variables.product.prodname_copilot_short %} to help you fix it.
 1. After you've completed the initial conversion, use {% data variables.product.prodname_copilot_short %} to help you refactor the code in the new language. For more information, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/refactoring-code-with-github-copilot).
 
 ## Example: migrating a PHP project to Python
@@ -107,11 +107,11 @@ template
 └── template.php
 ```
 
-This example gives the prompts you can enter into {% data variables.product.prodname_copilot_chat_short %} to complete the migration, and the responses {% data variables.product.prodname_copilot_short %} returned for one instance of this migration. The {% data variables.copilot.copilot_gpt_4o %} model was used to generate these responses. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you will probably get slightly different responses to the ones shown here.
+This example gives the prompts you can enter into {% data variables.copilot.copilot_chat_short %} to complete the migration, and the responses {% data variables.product.prodname_copilot_short %} returned for one instance of this migration. The {% data variables.copilot.copilot_gpt_4o %} model was used to generate these responses. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you will probably get slightly different responses to the ones shown here.
 
 During a migration process you are likely to get errors that you need to fix before moving ahead. {% data variables.product.prodname_copilot_short %} can help you with this. The example includes some errors and shows how you can get {% data variables.product.prodname_copilot_short %} to help you fix them.
 
-Because the responses you'll get from {% data variables.product.prodname_copilot_chat_short %} are likely to be different to those shown here, you may encounter different errors. You may, therefore, find it easier to step through this example migration using the responses shown here, rather than those you get from {% data variables.product.prodname_copilot_short %} yourself.
+Because the responses you'll get from {% data variables.copilot.copilot_chat_short %} are likely to be different to those shown here, you may encounter different errors. You may, therefore, find it easier to step through this example migration using the responses shown here, rather than those you get from {% data variables.product.prodname_copilot_short %} yourself.
 
 After completing this example migration you can then use the same methodology on your own project.
 
@@ -129,7 +129,7 @@ After completing this example migration you can then use the same methodology on
 1. Create a working branch in your repository and open it as a new workspace in {% data variables.product.prodname_vscode %}.
 1. Familiarize yourself with the contents and architecture of the existing project. {% data variables.product.prodname_copilot_short %} can help you with this:
 
-   1. Open the {% data variables.product.prodname_copilot_chat_short %} view.
+   1. Open the {% data variables.copilot.copilot_chat_short %} view.
    1. Enter a prompt such as:
 
       `@workspace Describe this project in detail, explaining what the various components do and how they interact.`
@@ -189,7 +189,7 @@ After completing this example migration you can then use the same methodology on
 
    We'll take {% data variables.product.prodname_copilot_short %}'s advice and use Flask.
 
-1. Returning to {% data variables.product.prodname_copilot_short %}'s high-level overview, the first step is to set up a Python environment and install the necessary packages. To find out how to do this, in {% data variables.product.prodname_copilot_chat_short %}, enter:
+1. Returning to {% data variables.product.prodname_copilot_short %}'s high-level overview, the first step is to set up a Python environment and install the necessary packages. To find out how to do this, in {% data variables.copilot.copilot_chat_short %}, enter:
 
    `@workspace I want to use Flask. Tell me how to set up a virtual environment and install the necessary packages.`
 
@@ -449,7 +449,7 @@ After completing this example migration you can then use the same methodology on
 
    When you do this you will see error messages in the browser.
 
-1. Copy the initial `TemplateNotFound` error message to the {% data variables.product.prodname_copilot_chat_short %} view and ask how you can fix this. For example:
+1. Copy the initial `TemplateNotFound` error message to the {% data variables.copilot.copilot_chat_short %} view and ask how you can fix this. For example:
 
    ``@workspace When I run `python3 app.py`, I get the following error in the browser: `jinja2.exceptions.TemplateNotFound: template.html`. How can I fix this?``
 
@@ -463,7 +463,7 @@ After completing this example migration you can then use the same methodology on
 
 1. Assuming the Flask development server is still running, if you refresh the browser page at [http://127.0.0.1:5000/](http://127.0.0.1:5000/), you will now see a new error relating to the `get_config` function.
 
-   Copy this error message to the {% data variables.product.prodname_copilot_chat_short %} view and ask for help.
+   Copy this error message to the {% data variables.copilot.copilot_chat_short %} view and ask for help.
 
    ``@workspace When I run `python3 app.py`, I get the following error in the browser: `jinja2.exceptions.UndefinedError: 'get_config' is undefined.` How can I fix this?``
 

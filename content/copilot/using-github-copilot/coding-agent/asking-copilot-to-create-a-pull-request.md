@@ -1,7 +1,7 @@
 ---
 title: Asking Copilot to create a pull request
-shortTitle: Creating a PR from chat
-intro: 'You can use a {% data variables.product.prodname_copilot_chat_short %} prompt to ask {% data variables.product.prodname_copilot_short %} to create a pull request.'
+shortTitle: Create a PR from chat
+intro: 'You can use a {% data variables.copilot.copilot_chat_short %} prompt to ask {% data variables.product.prodname_copilot_short %} to create a pull request.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=asking+copilot+to+create+a+pull+request&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> * If you have access to {% data variables.copilot.copilot_coding_agent %}, you can create a pull request from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and on {% data variables.product.prodname_dotcom_the_website %}.
+> * If you have access to {% data variables.copilot.copilot_coding_agent %}, you can create a pull request from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and on {% data variables.product.prodname_dotcom_the_website %}.
 > * {% data reusables.copilot.coding-agent.preview-note-text %}
 
 ## Introduction
@@ -25,9 +25,9 @@ Instead—if {% data variables.copilot.copilot_coding_agent %} is available—yo
 
 For information on making {% data variables.copilot.copilot_coding_agent %} available, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent).
 
-## Creating a pull request from {% data variables.product.prodname_copilot_chat_short %}
+## Creating a pull request from {% data variables.copilot.copilot_chat_short %}
 
-1. Open {% data variables.product.prodname_copilot_chat %}, in your IDE, or while viewing a file on {% data variables.product.prodname_dotcom_the_website %}.
+1. Open {% data variables.copilot.copilot_chat %}, in your IDE, or while viewing a file on {% data variables.product.prodname_dotcom_the_website %}.
 1. Type a prompt asking {% data variables.product.prodname_copilot_short %} to create a pull request, and giving details of what you want {% data variables.product.prodname_copilot_short %} to change.
 
    For example, `@github Create a PR to put backticks around file names and variables in output.`
@@ -39,6 +39,10 @@ For information on making {% data variables.copilot.copilot_coding_agent %} avai
    > To help {% data variables.product.prodname_copilot_short %}, you can select the relevant line(s) of code before submitting your prompt.
 
 1. Submit your prompt.
+
+   {% data variables.product.prodname_copilot_short %} asks you to confirm that you want to use the coding agent to create a pull request.
+
+1. Click **Allow**.
 
    {% data variables.product.prodname_copilot_short %} will respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
 

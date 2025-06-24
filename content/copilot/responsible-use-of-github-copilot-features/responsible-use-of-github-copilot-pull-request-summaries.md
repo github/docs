@@ -1,7 +1,7 @@
 ---
 title: Responsible use of GitHub Copilot pull request summaries
 shortTitle: Pull request summaries
-intro: 'Learn how to use {% data variables.product.prodname_copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
+intro: 'Learn how to use {% data variables.copilot.copilot_for_prs %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
 topics:
@@ -11,15 +11,15 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries
 ---
 
-## About {% data variables.product.prodname_copilot_for_prs %}
+## About {% data variables.copilot.copilot_for_prs %}
 
-{% data variables.product.prodname_copilot_for_prs %} is an AI-powered feature that allows you to create a summary of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review.
+{% data variables.copilot.copilot_for_prs %} is an AI-powered feature that allows you to create a summary of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review.
 
 When a user requests a summary, {% data variables.product.prodname_copilot_short %} scans through the pull request and provides an overview of the changes made in prose, as well as a bulleted list of changes with the files that they impact.
 
-The only supported language for {% data variables.product.prodname_copilot_for_prs %} is English.
+The only supported language for {% data variables.copilot.copilot_for_prs %} is English.
 
-{% data variables.product.prodname_copilot_for_prs %} uses a simple-prompt flow leveraging the {% data variables.product.prodname_copilot_short %} API, with no additional trained models. This utilizes the generic large language model.
+{% data variables.copilot.copilot_for_prs %} uses a simple-prompt flow leveraging the {% data variables.product.prodname_copilot_short %} API, with no additional trained models. This utilizes the generic large language model.
 
 ### Response generation
 
@@ -40,13 +40,13 @@ Larger pull requests can take a couple minutes for {% data variables.product.pro
 
 ## Use case for pull request summaries
 
-The goal of {% data variables.product.prodname_copilot_for_prs %} is to help optimize an author's ability to quickly provide context when they request a human review that requires sharing context of the changes that were made. It may help increase developer productivity by reducing the time taken to open a pull request.
+The goal of {% data variables.copilot.copilot_for_prs %} is to help optimize an author's ability to quickly provide context when they request a human review that requires sharing context of the changes that were made. It may help increase developer productivity by reducing the time taken to open a pull request.
 
 For many users, it could provide more helpful context for the changes that were made within a pull request than would normally be available.
 
 ## Improving performance of pull request summaries
 
-### Use {% data variables.product.prodname_copilot_for_prs %} as a tool, not a replacement
+### Use {% data variables.copilot.copilot_for_prs %} as a tool, not a replacement
 
 The feature is intended to supplement rather than replace a human's work to add context, and we encourage you to continue adding useful context and let {% data variables.product.prodname_copilot_short %} do the busy work of parsing the code and linking to specific files. It remains your responsibility to review and assess the accuracy of information in a pull request that you create.
 
@@ -54,7 +54,7 @@ The feature is intended to supplement rather than replace a human's work to add 
 
 {% data reusables.rai.copilot-dotcom-feedback-collection %}
 
-If you encounter any issues or limitations with {% data variables.product.prodname_copilot_for_prs %}, you can provide feedback by clicking the "Bad summary" button (a thumbs down icon), which is displayed below the text box after a summary is generated and before you click **Create pull request** or **Update comment**.
+If you encounter any issues or limitations with {% data variables.copilot.copilot_for_prs %}, you can provide feedback by clicking the "Bad summary" button (a thumbs down icon), which is displayed below the text box after a summary is generated and before you click **Create pull request** or **Update comment**.
 
 ![Screenshot of the bottom of a pull request comment. The feedback icons, thumbs up and thumbs down, are highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-summary-feedback.png)
 
@@ -62,7 +62,7 @@ After you rate a summary as good or bad, you can provide written feedback by cli
 
 ## Limitations of pull request summaries
 
-Currently, our team is aware that there are limitations to this feature. Many of them are expected in leveraging our {% data variables.product.prodname_copilot_short %} API; however, there are a few that are specific to {% data variables.product.prodname_copilot_for_prs %} which pertain to limited scope, longer processing times, and inaccurate responses. We also note that users should expect terms used in their PR to appear in the AI-generated summary. This feature has been subject to RAI Red Teaming and we will continue to monitor the efficacy and safety of the feature over time. For more information, see [Microsoft AI Red Team building future of safer AI](https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/) on the Microsoft security blog.
+Currently, our team is aware that there are limitations to this feature. Many of them are expected in leveraging our {% data variables.product.prodname_copilot_short %} API; however, there are a few that are specific to {% data variables.copilot.copilot_for_prs %} which pertain to limited scope, longer processing times, and inaccurate responses. We also note that users should expect terms used in their PR to appear in the AI-generated summary. This feature has been subject to RAI Red Teaming and we will continue to monitor the efficacy and safety of the feature over time. For more information, see [Microsoft AI Red Team building future of safer AI](https://www.microsoft.com/en-us/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/) on the Microsoft security blog.
 
 ### Limited scope
 

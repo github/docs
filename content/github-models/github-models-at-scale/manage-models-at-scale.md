@@ -30,7 +30,7 @@ While {% data variables.product.prodname_github_models %} for organizations and 
 
 * {% data variables.product.prodname_emus %} organizations
 * {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_cli %}
-* {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_copilot_chat %}
+* {% data variables.product.prodname_github_models %} extension for {% data variables.copilot.copilot_chat %}
 * {% data variables.product.prodname_github_models %} VS Code extension
 * Playground for {% data variables.product.prodname_github_models %} in the {% data variables.product.prodname_marketplace %} at https://github.com/marketplace/models.
 
