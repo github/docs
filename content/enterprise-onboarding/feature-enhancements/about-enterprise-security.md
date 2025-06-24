@@ -1,6 +1,6 @@
 ---
 title: 'About enterprise security'
-shortTitle: 'Learn about the security fetures available to your enterprise.'
+shortTitle: 'Learn about the security features available to your enterprise.'
 intro: 'Learn about the security features available to your enterprise.'
 versions:
   ghec: '*'
