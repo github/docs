@@ -6,9 +6,9 @@ redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
-  - /actions/reference/workflow-syntax-for-github-actions
   - /actions/learn-github-actions/workflow-syntax-for-github-actions
   - /actions/using-workflows/workflow-syntax-for-github-actions
+  - /actions/writing-workflows/workflow-syntax-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

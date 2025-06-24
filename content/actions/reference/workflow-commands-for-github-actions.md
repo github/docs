@@ -9,9 +9,9 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/development-tools-for-github-actions
   - /actions/reference/development-tools-for-github-actions
   - /actions/reference/logging-commands-for-github-actions
-  - /actions/reference/workflow-commands-for-github-actions
   - /actions/learn-github-actions/workflow-commands-for-github-actions
   - /actions/using-workflows/workflow-commands-for-github-actions
+  - /actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

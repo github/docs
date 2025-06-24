@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /actions/learn-github-actions/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
+  - /actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

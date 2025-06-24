@@ -1,6 +1,8 @@
 ---
 title: Actions limits
 intro: 'There are limits in {% data variables.product.prodname_actions %} which you may hit as you scale up, some may be increased by contacting support.'
+redirect_from:
+  - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/actions-limits
 versions:
   fpt: '*'
   ghes: '*'

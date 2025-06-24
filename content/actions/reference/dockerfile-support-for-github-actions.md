@@ -5,6 +5,7 @@ intro: 'When creating a `Dockerfile` for a Docker container action, you should b
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
   - /actions/creating-actions/dockerfile-support-for-github-actions
+  - /actions/sharing-automations/creating-actions/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

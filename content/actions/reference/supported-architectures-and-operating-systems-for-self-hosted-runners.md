@@ -2,6 +2,8 @@
 title: Supported architectures and operating systems for self-hosted runners
 shortTitle: Supported platforms
 intro: 'The following processor architectures and operating systems are supported for the self-hosted runner application.'
+redirect_from:
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners/supported-architectures-and-operating-systems-for-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'

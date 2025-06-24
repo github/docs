@@ -2,6 +2,8 @@
 title: Usage limits for self-hosted runners
 shortTitle: Usage limits
 intro: 'There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.'
+redirect_from:
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'

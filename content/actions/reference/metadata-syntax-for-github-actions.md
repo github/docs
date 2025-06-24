@@ -8,6 +8,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
   - /actions/building-actions/metadata-syntax-for-github-actions
   - /actions/creating-actions/metadata-syntax-for-github-actions
+  - /actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

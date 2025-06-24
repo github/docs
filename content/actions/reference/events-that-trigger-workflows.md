@@ -5,9 +5,9 @@ redirect_from:
   - /articles/events-that-trigger-workflows
   - /github/automating-your-workflow-with-github-actions/events-that-trigger-workflows
   - /actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows
-  - /actions/reference/events-that-trigger-workflows
   - /actions/learn-github-actions/events-that-trigger-workflows
   - /actions/using-workflows/events-that-trigger-workflows
+  - /actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
 versions:
   fpt: '*'
   ghes: '*'

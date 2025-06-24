@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/context-and-expression-syntax-for-github-actions
   - /actions/learn-github-actions/contexts
   - /actions/writing-workflows/choosing-what-your-workflow-does/contexts
+  - /actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs
 versions:
   fpt: '*'
   ghes: '*'
