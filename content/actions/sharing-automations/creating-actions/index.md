@@ -11,8 +11,6 @@ children:
   - /creating-a-docker-container-action
   - /creating-a-javascript-action
   - /creating-a-composite-action
-  - /metadata-syntax-for-github-actions
-  - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /releasing-and-maintaining-actions
   - /publishing-actions-in-github-marketplace

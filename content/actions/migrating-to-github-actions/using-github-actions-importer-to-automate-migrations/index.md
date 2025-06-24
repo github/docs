@@ -9,7 +9,6 @@ versions:
 children:
   - /automating-migration-with-github-actions-importer
   - /extending-github-actions-importer-with-custom-transformers
-  - /supplemental-arguments-and-settings
   - /migrating-from-azure-devops-with-github-actions-importer
   - /migrating-from-bamboo-with-github-actions-importer
   - /migrating-from-bitbucket-pipelines-with-github-actions-importer

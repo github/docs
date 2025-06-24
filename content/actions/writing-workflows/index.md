@@ -16,6 +16,5 @@ children:
   - /choosing-when-your-workflow-runs
   - /choosing-where-your-workflow-runs
   - /choosing-what-your-workflow-does
-  - /workflow-syntax-for-github-actions
 ---
 
