@@ -19,13 +19,13 @@ redirect_from:
 
 {% data reusables.copilot.coding-agent.what-is %}
 
-If you are a {% data variables.copilot.copilot_enterprise %} subscriber, {% data variables.copilot.copilot_coding_agent %} is disabled by default and must be enabled by an administrator before it is available for use.
+If you are a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_for_business %} subscriber, {% data variables.copilot.copilot_coding_agent %} is disabled by default and must be enabled by an administrator before it is available for use.
 
 If you are a {% data variables.copilot.copilot_pro_plus %} subscriber, {% data variables.copilot.copilot_coding_agent %} is enabled by default.
 
 Once enabled, you can use {% data variables.copilot.copilot_coding_agent %} in any repository, provided that an administrator hasn't opted the repository out.
 
-## Enabling {% data variables.copilot.copilot_coding_agent %} for {% data variables.copilot.copilot_enterprise %} subscribers
+## Enabling {% data variables.copilot.copilot_coding_agent %} for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} subscribers
 
 {% data reusables.copilot.coding-agent.enabling-for-orgs-and-enterprises %}
 
