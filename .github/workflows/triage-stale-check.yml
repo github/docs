@@ -34,7 +34,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() }}
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:
@@ -48,6 +48,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'
+          days-before-issue-stale: -1
           days-before-pr-stale: 14
           days-before-pr-close: -1 # Never close
           remove-stale-when-updated: false
@@ -62,7 +63,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() }}
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:

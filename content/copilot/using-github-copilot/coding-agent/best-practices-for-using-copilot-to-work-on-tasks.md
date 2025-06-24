@@ -105,7 +105,7 @@ This is a Go based repository with a Ruby client for certain API endpoints. It i
 
 ## Using the Model Context Protocol (MCP)
 
-You can extend the capabilities of {% data variables.copilot.copilot_coding_agent %} by using MCP. This allows {% data variables.copilot.copilot_coding_agent %} use tools provided by local MCP servers. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp).
+You can extend the capabilities of {% data variables.copilot.copilot_coding_agent %} by using MCP. This allows {% data variables.copilot.copilot_coding_agent %} use tools provided by local MCP servers. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Pre-installing dependencies in {% data variables.product.prodname_copilot %}'s environment
 

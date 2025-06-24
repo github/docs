@@ -155,6 +155,11 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
+    "action": "business.advanced_security_metered_usage_unlock",
+    "description": "Enablement for Advanced Security features on new repositories has been unlocked for this enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.advanced_security_policy_update",
     "description": "An enterprise owner created, updated, or removed a policy for GitHub Advanced Security.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise"
@@ -238,6 +243,11 @@
     "action": "business.code_security_enablement_policy_update",
     "description": "The policy for Code Security enablement was updated for an enterprise.",
     "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+  },
+  {
+    "action": "business.code_security_metered_usage_lock",
+    "description": "Enablement for Code Security features on new repositories has been locked for this enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.connect_usage_metrics_export",
@@ -348,6 +358,16 @@
     "action": "business.expire_trial",
     "description": "The trial of GitHub Enterprise Cloud expired.",
     "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
+  },
+  {
+    "action": "business.github_models_billing_disabled",
+    "description": "GitHub Models billing was disabled for the business.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.github_models_billing_enabled",
+    "description": "GitHub Models billing was enabled for the business.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.import_license_usage",
@@ -4038,6 +4058,16 @@
     "action": "secret_scanning_push_protection_request.approve",
     "description": "A request to bypass secret scanning push protection was approved by a user.",
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.cancel",
+    "description": "A user canceled a request to bypass secret scanning push protection.",
+    "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.complete",
+    "description": "A user pushed a commit containing a secret for which there is an approved secret scanning push protection bypass request.",
+    "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
   },
   {
     "action": "secret_scanning_push_protection_request.deny",

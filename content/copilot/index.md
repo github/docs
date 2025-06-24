@@ -4,6 +4,7 @@ shortTitle: '{% data variables.product.prodname_copilot %}'
 intro: 'You can use {% data variables.product.prodname_copilot %} to enhance your productivity and assist as you work on code.'
 redirect_from:
   - /github/copilot
+  - /copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request
 changelog:
   label: copilot
 introLinks:

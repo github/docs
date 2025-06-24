@@ -1,6 +1,6 @@
 ---
 title: Using the Copilot coding agent logs
-shortTitle: Using the Copilot logs
+shortTitle: Use the Copilot logs
 intro: "You can use the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach"
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
@@ -16,7 +16,7 @@ redirect_from:
 
 ## Introduction
 
-After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.product.prodname_copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.copilot.copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 

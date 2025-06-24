@@ -31,18 +31,22 @@ If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft E
 
 {% ifversion fpt or ghec %}
 
-## About usage-based billing on {% data variables.product.prodname_dotcom %}
+## About usage-based billing on {% data variables.product.github %}
 
-{% data variables.product.company_short %} provides usage-based billing for the following features and situations. You can learn more about billing and spending limits.
+{% data variables.product.github %} provides usage-based billing for the following products.
 
-| Billed feature or situation                                                                     | Information about billing                                                                                                                                            |                                                                                    Information about spending limits |
-| :---------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------: |
-| {% data variables.product.prodname_github_codespaces %} usage                                   | [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)                                                                   |                   [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces) |
-| {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)                                                                         |   [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits) |
-| {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)                                                                       | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits) |
-| {% data variables.product.prodname_copilot_business_short %} usage                              | [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) |                                                                                                                  N/A |
-| {% data variables.product.prodname_AS %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security) |                                                                                                                  N/A |
-| {% data variables.product.prodname_enterprise %} usage                              | [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise) |                                                                                                                  N/A |
+* {% data variables.product.prodname_actions %}, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)
+* {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)
+* {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)
+* {% data variables.large_files.product_name_long %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)
+
+In addition, usage-based billing is available for the following licenses
+
+* {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
+* {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)
+* {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)
+
+For information about controlling spending, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 {% endif %}
 
@@ -50,7 +54,7 @@ If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft E
 
 If you link your {% data variables.product.company_short %} account to Azure, any usage-based costs starting from that point will be billed through Azure and charged on the 1st of each month. However, remaining {% data variables.product.company_short %} charges, for example charges for your {% data variables.product.prodname_dotcom %} plan, will still be billed on your usual billing date.
 
-For example, you link your Azure subscription to your organization {% ifversion ghec %}or enterprise{% endif %} account on June 16th and you also have a {% data variables.product.prodname_copilot_for_business %} subscription. From that date onwards, any usage costs for {% data variables.product.prodname_copilot_business_short %} will be included in your Azure bill and charged on July 1st. However, any charges incurred before June 16th for {% data variables.product.prodname_copilot_business_short %} will be billed separately through {% data variables.product.company_short %} on your account's usual billing date.
+For example, you link your Azure subscription to your organization {% ifversion ghec %}or enterprise{% endif %} account on June 16th and you also have a {% data variables.copilot.copilot_for_business %} subscription. From that date onwards, any usage costs for {% data variables.copilot.copilot_business_short %} will be included in your Azure bill and charged on July 1st. However, any charges incurred before June 16th for {% data variables.copilot.copilot_business_short %} will be billed separately through {% data variables.product.company_short %} on your account's usual billing date.
 
 ## Prerequisites
 

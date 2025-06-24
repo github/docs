@@ -490,7 +490,7 @@ No output is expected for `run_script_step`.
    npm install && npm run bootstrap && npm run build-all
    ```
 
-When the resulting `index.js` is triggered by {% data variables.product.prodname_actions %}, it will run the customization commands defined in the JSON files. To trigger the `index.js`, you will need to add it your `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` environment variable, as described in the next section.
+When the resulting `index.js` is triggered by {% data variables.product.prodname_actions %}, it will run the customization commands defined in the JSON files. To trigger the `index.js`, you will need to add it to your `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` environment variable, as described in the next section.
 
 ## Triggering the customization script
 

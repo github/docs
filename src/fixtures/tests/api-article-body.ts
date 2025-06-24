@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import { get } from '#src/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
 const makeURL = (pathname: string) => `/api/article/body?${new URLSearchParams({ pathname })}`
 

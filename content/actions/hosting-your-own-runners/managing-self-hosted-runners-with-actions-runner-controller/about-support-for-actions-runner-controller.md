@@ -39,12 +39,10 @@ While ARC may be deployed successfully with different tooling and configurations
 * Installation tooling other than Helm
 * Service account and/or template spec customization
 
-If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.
-
 For more information about contacting {% data variables.contact.github_support %}, see [AUTOTITLE](/support/contacting-github-support).
 
 > [!NOTE]
-> * OpenShift clusters are currently unsupported.
+> * OpenShift clusters are in public preview. See guidance from [Red Hat](https://developers.redhat.com/articles/2025/02/17/how-securely-deploy-github-arc-openshift#arc_architecture) for configuration recommendations.
 > * ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
 
 ## Working with {% data variables.contact.github_support %} for Actions Runner Controller

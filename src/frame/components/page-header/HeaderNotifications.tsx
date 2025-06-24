@@ -3,14 +3,14 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { XIcon } from '@primer/octicons-react'
 
-import { useLanguages } from 'src/languages/components/LanguagesContext'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { ExcludesNull } from 'src/frame/components/lib/ExcludesNull'
-import { useVersion } from 'src/versions/components/useVersion'
-import { useUserLanguage } from 'src/languages/components/useUserLanguage'
+import { useLanguages } from '@/languages/components/LanguagesContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ExcludesNull } from '@/frame/components/lib/ExcludesNull'
+import { useVersion } from '@/versions/components/useVersion'
+import { useUserLanguage } from '@/languages/components/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
-import { useSharedUIContext } from 'src/frame/components/context/SharedUIContext'
+import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
 
 enum NotificationType {
   RELEASE = 'RELEASE',

@@ -50,7 +50,8 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_copilot %}
 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.product.prodname_copilot_pro %} or {% data variables.product.prodname_copilot_free %}. To allow a managed user to use {% data variables.product.prodname_copilot_short %}, you must grant the user access to a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. To allow a managed user to use {% data variables.product.prodname_copilot_short %}, you must grant the user access to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+* {% data reusables.copilot.coding-agent-emu-limitation %}
 
 ## {% data variables.product.prodname_pages %}
 

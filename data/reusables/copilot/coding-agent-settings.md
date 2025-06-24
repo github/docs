@@ -1,1 +1,1 @@
-1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and then click **{% data variables.copilot.coding_agent_UI %}**.
+1. In the sidebar, under "Code, planning, and automation", click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, and then click **{% data variables.copilot.copilot_coding_agent_short %}**.

@@ -21,6 +21,9 @@ To learn more about roles authorized to create and manage cost centers, see [AUT
 
 ## Creating a cost center
 
+> [!NOTE]
+> An enterprise can create up to 250 cost centers.
+
 Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, and users can be assigned to one cost center.
 
 When you create a cost center, you can add **organizations** or **repositories**—which track spending for usage-based products like {% data variables.product.prodname_actions %}—via the user interface. To track spending for license-based products like {% data variables.product.prodname_copilot %}, you will need to add **users** to the cost center via the API after the cost center has been created. For guidance by product, see [Allocating spending to a cost center](#allocating-spending-to-a-cost-center).
@@ -60,7 +63,7 @@ To allocate spending to a cost center, you add repositories, organizations, or u
 
 ## Adding a budget to a cost center
 
-After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/preventing-overspending).
+After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 ## Viewing cost center usage
 

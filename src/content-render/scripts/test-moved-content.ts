@@ -4,7 +4,7 @@ import path from 'path'
 
 import { program } from 'commander'
 
-import readFrontmatter from 'src/frame/lib/read-frontmatter.js'
+import readFrontmatter from '@/frame/lib/read-frontmatter.js'
 
 const ROOT = process.env.ROOT || '.'
 const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))

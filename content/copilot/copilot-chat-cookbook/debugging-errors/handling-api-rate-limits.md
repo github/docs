@@ -1,7 +1,7 @@
 ---
 title: Handling API rate limits
 shortTitle: Handle API rate limits
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help handle API  rate limits by suggesting code that detects implements retry logic.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help handle API  rate limits by suggesting code that detects implements retry logic.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/debugging-errors/handling-api-rate-limits
 versions:
@@ -15,7 +15,7 @@ topics:
   - Copilot
 ---
 
-When making requests to APIs, it's common to encounter rate limits that restrict the number of calls you can make within a certain time frame. {% data variables.product.prodname_copilot_chat %} can help you handle these limits by suggesting code to detect rate limit responses and automatically retry requests after a delay.
+When making requests to APIs, it's common to encounter rate limits that restrict the number of calls you can make within a certain time frame. {% data variables.copilot.copilot_chat %} can help you handle these limits by suggesting code to detect rate limit responses and automatically retry requests after a delay.
 
 ## Example scenario
 

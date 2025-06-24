@@ -28,7 +28,7 @@ This type of permanent link will render as a code snippet only in the repository
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you'd like to link to:
     * To link to code from a file, navigate to the file.
-    * To link to code from a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" aria-label="diff" %} Files changed**. Then, browse to the file that contains the code you want include in your comment, and click **View**.
+    * To link to code from a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" aria-label="diff" %} Files changed**. Then, browse to the file that contains the code you want to include in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 1. To the left of the line or range of lines, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the drop-down menu, click **Copy permalink**.
 

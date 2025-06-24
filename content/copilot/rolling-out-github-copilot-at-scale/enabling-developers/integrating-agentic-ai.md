@@ -30,9 +30,9 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
 >[!NOTE] {% data variables.product.github %} is continually expanding its AI-powered platform. Some of the features described in this article are in {% data variables.release-phases.public_preview %}, and may not be enabled for enterprises by default. You will find resources for each feature in the [Get started with agentic AI](#get-started-with-agentic-ai) section.
 
-## 1. Plan with {% data variables.product.prodname_copilot_chat_short %}
+## 1. Plan with {% data variables.copilot.copilot_chat_short %}
 
-1. To start planning, a product manager works with **{% data variables.product.prodname_copilot_chat_short %}** at `https://github.com/copilot`.
+1. To start planning, a product manager works with **{% data variables.copilot.copilot_chat_short %}** at `https://github.com/copilot`.
 
    They ask {% data variables.product.prodname_copilot_short %} high-level questions to get a sense of the development work required for the new feature. To give {% data variables.product.prodname_copilot_short %} access to important context about the project, they upload mockup files and link to the repository where the codebase is stored.
 
@@ -44,21 +44,25 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
    ![Screenshot of Copilot Chat in immersive mode. Copilot asks if the user would like to proceed with creating a set of prioritized issues.](/assets/images/help/copilot/sdlc-guide/issue-creation.png)
 
+1. To help the developer get started quickly, the PM creates a space with **{% data variables.copilot.copilot_spaces %}** at `https://github.com/copilot/spaces`. The PM collects resources like diagrams and references to code files, submits a few test questions, then shares the space with their organization.
+
+   Now, the developer can ask questions in the space, and {% data variables.product.prodname_copilot_short %} will already have all the context the PM added.
+
 ## 2. Create with {% data variables.product.prodname_github_models %} and agent mode
 
-1. The PM shares the results with the developer and asks the developer to start by finding the best AI model to provide the tailored umbrella recommendations, based on the cost and effectiveness of the models.
-1. The developer asks **{% data variables.product.prodname_copilot_chat_short %}** to recommend several AI models for the job and the pros and cons of each. To provide useful context, they ask Copilot to consider the information in the [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) {% data variables.product.prodname_docs %} article.
+1. The PM asks the developer to start by finding the best AI model to provide the tailored umbrella recommendations, based on the cost and effectiveness of the models.
+1. The developer asks **{% data variables.copilot.copilot_chat_short %}** to recommend several AI models for the job and the pros and cons of each. To provide useful context, they ask Copilot to consider the information in the [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) {% data variables.product.prodname_docs %} article.
 1. To settle on a model from the shortlist, the developer uses the **{% data variables.product.prodname_github_models %}** playground to compare results from the same prompt across models. They save time by testing models on a single platform, rather than needing to set up an API key for each model separately.
 
    ![Screenshot of the GitHub Models playground, with windows for sending prompts to two models side by side.](/assets/images/help/copilot/sdlc-guide/model-compare.png)
 
 1. With the model decided, the developer opens the code in **{% data variables.product.prodname_vscode_shortname %}**.
-1. The developer starts writing code for the new widget. To speed up their work, they use **{% data variables.product.prodname_copilot_chat_short %}** in "Ask" and "Edit" mode for syntax questions and high-level suggestions.
+1. The developer starts writing code for the new widget. To speed up their work, they use **{% data variables.copilot.copilot_chat_short %}** in "Ask" and "Edit" mode for syntax questions and high-level suggestions.
 
     >[!TIP]
     > The developer works with AI in the way that works best for them, but your organization has control over the experience. For example, you can:
     > * **Control the models** that the developer can use for development work in order to meet compliance requirements and manage costs.
-    > * **Exclude certain files** from {% data variables.product.prodname_copilot_chat_short %}'s reach.
+    > * **Exclude certain files** from {% data variables.copilot.copilot_chat_short %}'s reach.
     > * **Save effective prompts** that have been tested with {% data variables.product.prodname_github_models %}, so other users can benefit.
 
 1. When the developer has written some code, they switch to **agent mode** to ask {% data variables.product.prodname_copilot_short %} to refactor the code into several different functions for better readability.
@@ -93,7 +97,7 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 1. After the release, the product manager collects customer feedback and identifies an opportunity to improve the widget's suggestions by switching to a more reliable API for weather data. They create an issue to implement this change, and **assign it to {% data variables.product.prodname_copilot_short %}** directly on {% data variables.product.github %}.
 1. {% data variables.copilot.copilot_coding_agent %} works in the background and opens a pull request, which the product manager marks as ready for review.
 
-   ![Screenshot a pull request created by the Copilot coding agent.](/assets/images/help/copilot/sdlc-guide/agent-pr.png)
+   ![Screenshot of a pull request created by {% data variables.copilot.copilot_coding_agent %}.](/assets/images/help/copilot/sdlc-guide/agent-pr.png)
 
 1. A developer reviews {% data variables.product.prodname_copilot_short %}'s pull request and leaves feedback, which {% data variables.product.prodname_copilot_short %} incorporates. Finally, the developer merges the pull request.
 
@@ -105,10 +109,10 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
 1. {% data variables.product.prodname_copilot_short %} works in the background and opens a pull request on {% data variables.product.github %}, ready for another developer to review.
 
-## 6. Secure with {% data variables.product.prodname_copilot_autofix_short %}
+## 6. Secure with {% data variables.copilot.copilot_autofix_short %}
 
 1. An administrator has enabled {% data variables.product.prodname_code_scanning %} on the repository, and a {% data variables.product.prodname_code_scanning %} alert suggests a potential vulnerability in the code.
-1. A security manager requests **{% data variables.product.prodname_copilot_autofix_short %}** to automatically suggest a fix for the vulnerability, which a developer reviews and approves.
+1. A security manager requests **{% data variables.copilot.copilot_autofix_short %}** to automatically suggest a fix for the vulnerability, which a developer reviews and approves.
 
    ![Screenshot of a code scanning alert on GitHub.com. A button labeled "Generate fix" is outlined in orange.](/assets/images/help/copilot/sdlc-guide/autofix.png)
 
@@ -126,14 +130,15 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 
 | Feature | More information |
 | ------- | ---------------- |
-| Immersive view of {% data variables.product.prodname_copilot_chat_short %} | [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github#submitting-a-question-to-copilot-chat) |
-| {% data variables.product.prodname_copilot_chat_short %} agent mode | [Use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) |
+| Immersive view of {% data variables.copilot.copilot_chat_short %} | [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github#submitting-a-question-to-copilot-chat) |
+| {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) |
+| {% data variables.copilot.copilot_chat_short %} agent mode | [Use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) |
 | Content exclusions | [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot) |
 | MCP servers ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp#configuring-mcp-servers-in-visual-studio-code) |
 | GitHub Models playground ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground) |
 | Custom instructions | [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode) |
 | Copilot code review | [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot) |
 | {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org) |
-| {% data variables.product.prodname_copilot_autofix_short %} | [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) |
+| {% data variables.copilot.copilot_autofix_short %} | [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) |
 
 {% endrowheaders %}

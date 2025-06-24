@@ -65,10 +65,15 @@ router.get('/cookies', (req, res) => {
   const cookies = {
     isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
   }
-  return res.json(cookies)
+  res.json(cookies)
 })
 
-router.get('*', (req, res) => {
+// Handle root /api requests
+router.get('/', (req, res) => {
+  res.status(404).json({ error: `${req.path} not found` })
+})
+
+router.get('/*path', (req, res) => {
   res.status(404).json({ error: `${req.path} not found` })
 })
 

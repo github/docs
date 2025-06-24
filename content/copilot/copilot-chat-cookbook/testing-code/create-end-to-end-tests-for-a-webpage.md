@@ -1,7 +1,7 @@
 ---
 title: 'Create end-to-end tests for a webpage'
 shortTitle: Create end-to-end tests
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help with generating end-to-end tests.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help with generating end-to-end tests.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/testing-code/create-end-to-end-tests-for-a-webpage
 versions:
@@ -15,11 +15,11 @@ topics:
   - Copilot
 ---
 
-Creating end-to-end tests for a webpage can be time-consuming and complex as the HTML will be generated dynamically. {% data variables.product.prodname_copilot_chat_short %} can help you create end-to-end tests for a webpage by suggesting the necessary code to interact with the webpage and validate the expected results.
+Creating end-to-end tests for a webpage can be time-consuming and complex as the HTML will be generated dynamically. {% data variables.copilot.copilot_chat_short %} can help you create end-to-end tests for a webpage by suggesting the necessary code to interact with the webpage and validate the expected results.
 
 ## Example scenario
 
-Imagine a React application that displays product details on a webpage. You need to create end-to-end tests to ensure the product details are displayed correctly. You can ask {% data variables.product.prodname_copilot_chat_short %} to generate these tests for you.
+Imagine a React application that displays product details on a webpage. You need to create end-to-end tests to ensure the product details are displayed correctly. You can ask {% data variables.copilot.copilot_chat_short %} to generate these tests for you.
 
 ```javascript
 import React, { useState, useEffect } from 'react';

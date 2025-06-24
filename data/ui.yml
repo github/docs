@@ -25,11 +25,11 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   input:
-    aria_label: Open search overlay
     placeholder: Search or ask {{icon}} Copilot
     placeholder_no_icon: Search or ask Copilot
     shortcut: Type {{icon}} to search
   overlay:
+    aria_label: Search overlay
     input_aria_label: Search or ask Copilot
     suggestions_list_aria_label: Search suggestions
     ai_suggestions_list_aria_label: Copilot search suggestions
@@ -50,8 +50,8 @@ search:
     references: Copilot Sources
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    copy_answer: Copy answer
-    copied_announcement: Copied!
+    share_answer: Copy answer URL
+    share_copied_announcement: Copied share URL!
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
@@ -61,13 +61,18 @@ search:
       query_too_large: Sorry, your question is too long. Please try shortening it and asking again.
       asked_too_many_times: Sorry, you've asked too many questions in a short time period. Please wait a few minutes and try again.
       invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
+    response:
+      copy_code: Copy code to clipboard
+      copied_code: Copied!
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
   cta:
-    heading: New! Copilot for Docs
-    description: Ask your question in the search bar and get help in seconds.
+    heading: Get quick answers!
+    description: Ask Copilot your question.
+    dismiss: Dismiss
+    ask_copilot: Ask Copilot
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
@@ -317,17 +322,7 @@ alerts:
   WARNING: Warning
   TIP: Tip
   CAUTION: Caution
-domain_edit:
-  name: Domain name
-  edit: Edit
-  edit_your: Edit your domain name
-  experimental: Experimental
-  your_name: Your domain name
-  cancel: Cancel
-  save: Save
-  snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
-  learn_more: Learn more
-  submission_failed: Submission failed. Please try again in a minute.
+
 cookbook_landing:
   spotlight: Spotlight
   explore_articles: Explore {{ number }} prompt articles

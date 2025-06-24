@@ -20,11 +20,12 @@ redirect_from:
 
 While working on a task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
 
-You can customize {% data variables.product.prodname_copilot_short %}'s environment by:
+You can customize {% data variables.product.prodname_copilot_short %}'s environment to:
 
-* [Preinstalling tools or dependencies in {% data variables.product.prodname_copilot_short %}'s environment](#preinstalling-tools-or-dependencies-in-copilots-environment).
-* [Upgrading from standard {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners to larger runners](#upgrading-to-larger-github-hosted-github-actions-runners).
-* [Disabling or customizing the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+* [Preinstall tools or dependencies in {% data variables.product.prodname_copilot_short %}'s environment](#preinstalling-tools-or-dependencies-in-copilots-environment).
+* [Upgrade from standard {% data variables.product.github %}-hosted {% data variables.product.prodname_actions %} runners to larger runners](#upgrading-to-larger-github-hosted-github-actions-runners).
+* [Enable Git Large File Storage (LFS)](#enabling-git-large-file-storage-lfs)
+* [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
 ## Preinstalling tools or dependencies in {% data variables.product.prodname_copilot_short %}'s environment
 
@@ -41,8 +42,16 @@ Here is a simple example of a `copilot-setup-steps.yml` file for a TypeScript pr
 ```yaml copy
 name: "Copilot Setup Steps"
 
-# Allow testing of the setup steps from your repository's "Actions" tab.
-on: workflow_dispatch
+# Automatically run the setup steps when they are changed to allow for easy validation, and
+# allow manual testing through the repository's "Actions" tab
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
+  pull_request:
+    paths:
+      - .github/workflows/copilot-setup-steps.yml
 
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
@@ -83,7 +92,9 @@ In your `copilot-setup-steps.yml` file, you can only customize the following set
 
 For more information on these options, see [AUTOTITLE](/actions/writing-workflows/workflow-syntax-for-github-actions#jobs).
 
-Once you have created a `copilot-setup-steps.yml` file and merged it into your default branch, you can manually run the workflow from the repository's **Actions** tab to check that it works. For more information, see [AUTOTITLE](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
+Your `copilot-setup-steps.yml` file will automatically be run as a normal {% data variables.product.prodname_actions %} workflow when changes are made, so you can see if it runs successfully. This will show alongside other checks in a pull request where you create or modify the file.
+
+Once you have merged the yml file into your default branch, you can manually run the workflow from the repository's **Actions** tab at any time to check that everything works as expected. For more information, see [AUTOTITLE](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
 
 ## Upgrading to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
 
@@ -105,8 +116,28 @@ jobs:
 ```
 
 > [!NOTE]
-> * {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x86 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
+> * {% data variables.copilot.copilot_coding_agent %} is only compatible with Ubuntu x64 Linux runners. Runners with Windows, macOS or other operating systems are not supported.
 > * Self-hosted {% data variables.product.prodname_actions %} runners are not supported.
+
+## Enabling Git Large File Storage (LFS)
+
+If you use Git Large File Storage (LFS) to store large files in your repository, you will need to customize {% data variables.product.prodname_copilot_short %}'s environment to install Git LFS and fetch LFS objects.
+
+To enable Git LFS, add a `actions/checkout` step to your `copilot-setup-steps` job with the `lfs` option set to `true`.
+
+```yaml copy
+# ...
+
+jobs:
+  copilot-setup-steps:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read # for actions/checkout
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+        with:
+          lfs: true
+```
 
 ## Further reading
 

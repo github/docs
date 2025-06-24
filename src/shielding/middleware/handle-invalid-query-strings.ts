@@ -37,7 +37,7 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'search-overlay-ask-ai',
   // The drop-downs on "Webhook events and payloads"
   'actionType',
-  // Used by the tracking middleware
+  // Legacy domain tracking parameter (no longer processed but still recognized)
   'ghdomain',
   // UTM campaign tracking
   'utm_source',
@@ -55,6 +55,30 @@ export default function handleInvalidQuerystrings(
   const { method, query, path } = req
   if (method === 'GET' || method === 'HEAD') {
     const originalKeys = Object.keys(query)
+
+    // Check for invalid query string patterns (square brackets, etc.)
+    const invalidKeys = originalKeys.filter((key) => {
+      // Check for square brackets which are invalid
+      return key.includes('[') || key.includes(']')
+    })
+
+    if (invalidKeys.length > 0) {
+      noCacheControl(res)
+      const invalidKey = invalidKeys[0].replace(/\[.*$/, '') // Get the base key name
+      res.status(400).send(`Invalid query string key (${invalidKey})`)
+
+      const tags = [
+        'response:400',
+        'reason:invalid-brackets',
+        `url:${req.url}`,
+        `path:${req.path}`,
+        `keys:${originalKeys.length}`,
+      ]
+      statsd.increment(STATSD_KEY, 1, tags)
+
+      return
+    }
+
     let keys = originalKeys.filter((key) => !RECOGNIZED_KEYS_BY_ANY.has(key))
     if (keys.length > 0) {
       // Before we judge the number of query strings, strip out all the ones

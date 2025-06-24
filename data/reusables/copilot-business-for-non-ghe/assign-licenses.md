@@ -2,9 +2,9 @@ When you have created a team in the enterprise, you can assign licenses to all m
 
 {% data reusables.billing.enterprise-billing-menu %}
 1. Under **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**, click **Licensing**.
-1. In the "{% data variables.product.prodname_copilot_business_short %}" section, click **Manage seats**.
+1. In the "{% data variables.copilot.copilot_business_short %}" section, click **Manage seats**.
 
-   ![Screenshot of the "{% data variables.product.prodname_copilot_business_short %}" section. A button, labeled "Manage seats", is highlighted with an orange outline.](/assets/images/help/copilot/copilot-business-manage-seats.png)
+   ![Screenshot of the "{% data variables.copilot.copilot_business_short %}" section. A button, labeled "Manage seats", is highlighted with an orange outline.](/assets/images/help/copilot/copilot-business-manage-seats.png)
 
 1. Click **Add teams**.
 1. In the dialog, select the teams you want to add, review how your bill will be affected, then click **Add teams**.

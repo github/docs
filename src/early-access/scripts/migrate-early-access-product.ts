@@ -10,10 +10,10 @@ import yaml from 'js-yaml'
 import { last } from 'lodash-es'
 import { program } from 'commander'
 import { execFileSync } from 'child_process'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import patterns from '#src/frame/lib/patterns.js'
+import frontmatter from '@/frame/lib/read-frontmatter.js'
+import patterns from '@/frame/lib/patterns.js'
 import addRedirectToFrontmatter from '@/redirects/scripts/helpers/add-redirect-to-frontmatter'
-import walkFiles from '#src/workflows/walk-files.ts'
+import walkFiles from '@/workflows/walk-files'
 
 const contentFiles: string[] = walkFiles('content', '.md', { includeEarlyAccess: true })
 const contentDir: string = path.posix.join(process.cwd(), 'content')

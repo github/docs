@@ -141,15 +141,18 @@ The following example timeline demonstrates how the active committer count for {
 | Date | Events during the month | Total committers | Effect on usage-based billing |
 | :- | :- | -: | :- |
 | <span style="white-space: nowrap;">April 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_cs_and_sp %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** | Billing begins for 50 committers. |
-| <span style="white-space: nowrap;">May 1</span> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | No immediate change. Developer **A** continues to be billed until their contributions are inactive for 90 days. |
+| <span style="white-space: nowrap;">May 1</span> | Developer **A** switches teams and stops committing to repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | No immediate change. Developer **A** continues to be billed until their contributions are inactive for 90 days. |
 | <span style="white-space: nowrap;">August 1</span> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | 50 - 1 =<br>**49** | Developer **A** is removed from the billing count, reducing the billable committers to 49. |
 | <span style="white-space: nowrap;">August 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_cs_and_sp %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** | Billing increases to 59 committers, accounting for the 10 additional unique contributors. |
 | <span style="white-space: nowrap;">August 16</span> | A member of your enterprise disables {% data variables.product.prodname_GH_cs_and_sp %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** | Billing for repository **X** continues until the end of the monthly billing cycle, but the overall billing count decreases to 20 committers for the next cycle. |
 
 ## Further reading
 
+{% ifversion fpt or ghec %}
+* [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending)
 * [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)
-{% ifversion ghec %}
-* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing){% elsif ghes %}
-* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
-* {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/preventing-overspending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/preventing-overspending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)
+{% elsif ghes %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage) in the documentation for {% data variables.product.prodname_ghe_cloud %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing) in the documentation for {% data variables.product.prodname_ghe_cloud %}
+* [AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/using-budgets-control-spending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
