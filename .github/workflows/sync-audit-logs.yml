@@ -91,7 +91,7 @@ jobs:
             Make sure the PR builds successfully and there are no gross errors (for example, a file is deleted). You do not need to validate the contents (that is the responsibility of product teams).
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label audit-log-pipeline \
+            --label audit-log-pipeline,workflow-generated \
             --head=$branchname
           echo "Created pull request"
 

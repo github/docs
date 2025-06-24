@@ -50,6 +50,5 @@ Planning and implementing an effective enablement process is essential to drive 
 Enhance the {% data variables.product.prodname_copilot_short %} experience for your organization by:
 
 * **Setting up knowledge bases** for use with {% data variables.copilot.copilot_chat_short %} _({% data variables.copilot.copilot_enterprise_short %} only)_. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
-* **Fine tuning {% data variables.product.prodname_copilot_short %}** by creating a custom large language model. See [AUTOTITLE](/copilot/customizing-copilot/creating-a-custom-model-for-github-copilot).
 * **Installing {% data variables.copilot.copilot_extensions_short %}** to integrate other tools with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization).
 * **Adding {% data variables.copilot.copilot_coding_agent %}** as a team member to work asynchronously on issues. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org).

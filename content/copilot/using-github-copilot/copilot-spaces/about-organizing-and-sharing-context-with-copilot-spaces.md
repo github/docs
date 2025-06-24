@@ -35,7 +35,7 @@ With {% data variables.copilot.copilot_spaces %} you can:
 | -------------------- | --------------------------- | -------------------------------------------------------------- |
 | Who can create   | Anyone with a {% data variables.product.prodname_copilot_short %} license             | Organization owners                                              |
 | Owned by   | Organizations or individual users              | Organizations                             |
-| Content type     | Any code hosted in repositories and free-text content                  | Markdown files hosted in {% data variables.product.github %}
+| Content type     | Any code, pull requests, or issues hosted in repositories and free-text content                  | Markdown files hosted in {% data variables.product.github %}
 | Context handling | Limited in size, which guarantees higher response quality given the focused selection | Unlimited, but that comes with reduced response quality |
 
 {% endrowheaders %}

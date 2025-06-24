@@ -7,6 +7,7 @@ labels:
   - priority-0
   - skip FR board
   - rhythm of docs operations
+  - workflow-generated
 ---
 
 ## Instructions for triage

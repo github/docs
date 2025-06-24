@@ -62,17 +62,22 @@ The model may generate a response like the following:
 
     The user experiences consistent app crashes when attempting to upload a PDF from their phone. Uploading PDFs works normally on desktop. They request an investigation into the issue.
 
-### Defining the input variable
+### Using variables in prompts
+
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 At this point, the configuration generates a clear and concise summary. At the bottom of the **Parameters** settings, click **Create prompt.yml file** to open the Prompt view. Your system prompt will be prefilled automatically.
 
-In the **User prompt** field, enter the following prompt:
+In the **User prompt** field, enter a prompt that includes one or more variable placeholders inside double curly braces. For example:
 
 ```text
-Summarize the following: {% raw %}{{input}}{% endraw %}
+Travel or shopping assistants using {% raw %}{{city}}{% endraw %}, {% raw %}{{intent}}{% endraw %}, and {% raw %}{{budget}}{% endraw %} to tailor recommendations.
 ```
 
-The {% raw %}`{{input}}`{% endraw %} variable acts as a placeholder that lets you test different inputs (customer feedback) without modifying the prompt each time. Each test input you add will replace {% raw %}`{{input}}`{% endraw %} when the comparison runs.
+Each variable listed in the prompt will appear as a parameter in compare mode. When running an evaluation, you'll be prompted to provide values for each variable. This allows prompts to be reused with different inputs without modifying the prompt content.
+
+Alternatively, you can add variables in your `.prompt.yml` file system or user prompt to automate the process of evaluating with multiple variables in the future. See [AUTOTITLE](/github-models/use-github-models/storing-prompts-in-github-repositories).
 
 ## Adding test inputs
 

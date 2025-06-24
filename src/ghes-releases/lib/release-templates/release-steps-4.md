@@ -4,6 +4,7 @@ labels:
   - Enterprise
   - priority-0
   - skip FR board
+  - workflow-generated
 ---
 
 Docs Content will publish docs for the GHES {{ release-number }} RC soon. Please update the docs to reflect the minimum required version of the Actions Runner application for the new release.

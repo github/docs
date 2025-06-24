@@ -2179,7 +2179,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -3698,7 +3698,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   isduplicate: true
 - provider: Slack
   supportedSecret: Slack API Token
@@ -4224,7 +4224,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud API Key

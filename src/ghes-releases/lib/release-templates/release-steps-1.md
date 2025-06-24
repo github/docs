@@ -7,6 +7,7 @@ labels:
   - skip FR board
   - rhythm of docs operations
   - GHES {{ release-number }}
+  - workflow-generated
 ---
 
 ## Instructions for triage
