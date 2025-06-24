@@ -47,6 +47,8 @@ If you're on a **paid plan**, you get unlimited code completions and unlimited c
 
 Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
+{% data reusables.copilot.premium-request-entity-selection %}
+
 ## What happens to unused requests at the end of the month?
 
 Unused requests for the previous month do not carry over to the following month.
