@@ -8,7 +8,6 @@ versions:
   ghec: '*'
 children:
   - /about-troubleshooting-workflows
-  - /actions-limits
   - /using-copilot-to-troubleshoot-workflows
   - /enabling-debug-logging
   - /working-with-support-for-github-actions
