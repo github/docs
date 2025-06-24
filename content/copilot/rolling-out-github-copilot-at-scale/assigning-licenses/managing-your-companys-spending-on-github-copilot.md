@@ -26,11 +26,15 @@ We recommend that you identify the people with this role and communicate with th
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
+### Use of premium requests over the allowance
+
 Premium requests over the allowance are rejected unless you have set a budget. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
 
 Premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.copilot.copilot_enterprise_short %}.
 
 For pricing details and a list of available models, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+
+{% data reusables.copilot.premium-request-entity-selection %}
 
 ### Managing budgets
 
