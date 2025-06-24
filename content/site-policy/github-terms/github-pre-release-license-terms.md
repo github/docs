@@ -18,7 +18,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 1. Pre-Release Software.
 
-  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are provided for preview, evaluation, demonstration, or trial purposes, as well as prerelease versions of those such as alpha, beta, or early access versions.
+  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as alpha, beta, early access, technical preview, or similar versions.
 
   Pre-release software may not operate correctly. It may delete your data, corrupt your data, or have other bugs. It also may not work the way a final commercial version of the software will.
 
@@ -54,9 +54,17 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 4. Data Collection and Usage.
 
-  a. **Consent to Data Collection.** The pre-release software may collect information about you and your use of the software, and send that information to GitHub. GitHub may use this information to provide services, to improve our products and services, or for any other purpose permitted under the GitHub Data Protection Agreement or GitHub Privacy Statement. Your use of the pre-release software operates as your consent to these practices.
+  a. **Consent to Data Collection.** The pre-release software may collect telemetry information about you and your use of the software, and send that information to GitHub. Subject to the limitations in Section 4(b) below, GitHub may use this information to provide services, to improve our products and services, or for any other purpose permitted under the GitHub Data Protection Agreement or GitHub Privacy Statement. Your use of the pre-release software operates as your consent to these practices.
 
-  b. **Use of Collected Data.** GitHub will use collected data for analytics and measurement to understand how our pre-release software and related products are used. The software will collect data and usage information about events generated when interacting with it. These events help us analyze and measure performance and features used. This usage information is used by GitHub and may be shared with affiliates and other third parties to help deliver, develop, evaluate, and improve the software and related products. We analyze data to ensure the pre-release software is working as intended, to evaluate the safety, reliability, and user experience of the software, and to investigate and detect potential abuse. We may combine the information we collect from the pre-release software with other data.
+  b. **Use of Collected Data.**
+  * GitHub will use collected data for analytics and measurement to understand how our pre-release software and related products are used.
+  * The software will collect data and usage information about events generated when interacting with it. These events help us analyze and measure performance and features used. This usage information is used by GitHub and may be shared with affiliates and other third parties to help deliver, develop, evaluate, and improve the software and related products.
+  * We analyze data to ensure the pre-release software is working as intended, to evaluate the safety, reliability, and user experience of the software, and to investigate and detect potential abuse.
+  * We may combine the information we collect from the pre-release software with other data.
+  * For pre-release software that uses AI:
+      * You retain ownership of the code that you input to the software.
+      * GitHub does not own the output sent to you by the software.
+      * GitHub will not use your inputs or the outputs generated to train AI language models, unless you have instructed us in writing to do so.
 
   c. **Processing of Personal Data.** GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software.
 
