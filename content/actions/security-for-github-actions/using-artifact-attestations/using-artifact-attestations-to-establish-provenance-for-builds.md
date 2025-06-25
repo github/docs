@@ -137,7 +137,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate SBOM attestation
-     uses: actions/attest-sbom@v1
+     uses: actions/attest-sbom@v2
      with:
        subject-path: 'PATH/TO/ARTIFACT'
        sbom-path: 'PATH/TO/SBOM'
@@ -161,7 +161,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate SBOM attestation
-     uses: actions/attest-sbom@v1
+     uses: actions/attest-sbom@v2
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/PATH/TO/IMAGE{% endraw %}
        subject-digest: 'sha256:fedcba0...'

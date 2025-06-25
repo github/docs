@@ -18,16 +18,16 @@ redirect_from:
 
 ## {% data variables.product.prodname_copilot_short %} is not available in the "Assignees" list on my issue
 
-You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through either the **{% data variables.copilot.copilot_pro_plus %}** plan or the **{% data variables.copilot.copilot_enterprise %}** plan.
+You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through either the **{% data variables.copilot.copilot_pro_plus %}** plan, the **{% data variables.copilot.copilot_for_business %}**  plan, or the **{% data variables.copilot.copilot_enterprise %}** plan.
 
 If you do not already have a subscription for one of these plans, click this button for more information:<br>
 <a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=troubleshooting+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-If you _do_ have {% data variables.copilot.copilot_pro_plus %} or {% data variables.copilot.copilot_enterprise %}, check that {% data variables.copilot.copilot_coding_agent %} {% ifversion ghec %}is enabled and{% endif %} has not been manually disabled for the repository:
+If you _do_ have {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %}, or {% data variables.copilot.copilot_enterprise %}, check that {% data variables.copilot.copilot_coding_agent %} {% ifversion ghec %}is enabled and{% endif %} has not been manually disabled for the repository:
 
 {% ifversion ghec %}
 
-* If you are on the {% data variables.copilot.copilot_enterprise_short %} plan, your ability to use {% data variables.copilot.copilot_coding_agent %} is controlled at the enterprise level. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/adding-copilot-coding-agent-to-enterprise).
+* If you are on the {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise_short %} plan, your ability to use {% data variables.copilot.copilot_coding_agent %} is controlled at the enterprise level. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/adding-copilot-coding-agent-to-enterprise).
 
 {% endif %}
 

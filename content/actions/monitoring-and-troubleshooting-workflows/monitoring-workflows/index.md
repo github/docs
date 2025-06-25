@@ -7,8 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-monitoring-workflows
-  - /notifications-for-workflow-runs
   - /using-the-visualization-graph
   - /viewing-workflow-run-history
   - /viewing-job-execution-time

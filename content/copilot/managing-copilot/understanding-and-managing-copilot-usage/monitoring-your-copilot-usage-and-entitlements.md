@@ -78,3 +78,13 @@ You can use the following strategies to maximize the value of your premium reque
 * **Upgrade if needed**. If you find yourself consistently hitting your monthly allowance, consider upgrading to a plan with more premium requests included.
 
 * **Avoid retrying large prompts unnecessarily**. Submitting the same long or complex prompt multiple times may use more premium requests. Try rephrasing or simplifying your request when needed.
+
+## Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses
+
+If you have {% data variables.product.prodname_copilot_short %} licenses from multiple standalone organizations or enterprises, you must define which entity is charged for your use of premium requests. Until you define a billing entity, all premium requests you make will be rejected.
+
+In the {% data variables.product.prodname_copilot_short %} feature settings for your personal account, a **Usage billed to** dropdown is displayed in the "Billing" section if you are assigned {% data variables.product.prodname_copilot_short %} licenses by two or more enterprises or standalone organizations.
+
+![Screenshot of the {% data variables.product.prodname_copilot_short %} feature settings. The "Usage billed to" dropdown is open.](/assets/images/help/billing/copilot-billing-entity-dropdown.png)
+
+You can change your billing entity selection at any time. All subsequent premium requests are billed to the newly selected entity.

@@ -31,6 +31,7 @@
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [GH001](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH001-no-default-alt-text.md) | no-default-alt-text | Images should have meaningful alternative text (alt text) | error | accessibility, images |
 | [GH002](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH002-no-generic-link-text.md) | no-generic-link-text | Avoid using generic link text like `Learn more` or `Click here` | error | accessibility, links |
+| GHD030 | code-fence-line-length | Code fence lines should not exceed a maximum length | warning | code, accessibility |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
 | GHD004 | image-file-kebab-case | Image file names must use kebab-case | error | images |
 | GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | warning | accessibility, images |
@@ -66,3 +67,6 @@
 | GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
 | GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |
 | GHD044 | octicon-aria-labels | Octicons should always have an aria-label attribute even if aria-hidden. | warning | accessibility, octicons |
+| GHD048 | british-english-quotes | Periods and commas should be placed inside quotation marks (American English style) | warning | punctuation, quotes, style, consistency |
+| GHD050 | multiple-emphasis-patterns | Do not use more than one emphasis/strong, italics, or uppercase for a string | warning | formatting, emphasis, style |
+| GHD049 | note-warning-formatting | Note and warning tags should be formatted according to style guide | warning | formatting, callouts, notes, warnings, style |

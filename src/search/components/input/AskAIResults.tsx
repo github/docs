@@ -481,9 +481,8 @@ export function AskAIResults({
           ></IconButton>
         </div>
       ) : null}
-      {!aiCouldNotAnswer && references && references.length > 0 ? (
+      {!aiCouldNotAnswer && !responseLoading && references && references.length > 0 ? (
         <>
-          <ActionList.Divider aria-hidden="true" />
           <ActionList className={styles.referencesList} showDividers>
             <ActionList.Group>
               <ActionList.GroupHeading

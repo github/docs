@@ -9,7 +9,6 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
-  - /about-security-hardening-with-openid-connect
   - /configuring-openid-connect-in-amazon-web-services
   - /configuring-openid-connect-in-azure
   - /configuring-openid-connect-in-google-cloud-platform

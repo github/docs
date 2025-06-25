@@ -377,11 +377,11 @@ export function SearchOverlay({
         eventGroupId: askAIEventGroupId.current,
       })
       setSelectedIndex(-1)
+      setSearchLoading(true)
       updateParams({
         'search-overlay-ask-ai': 'true',
         'search-overlay-input': selectedOption.term,
       })
-      setSearchLoading(true)
       setAIQuery(selectedOption.term)
       inputRef.current?.focus()
     }
@@ -645,6 +645,7 @@ export function SearchOverlay({
             listElementsRef,
             askAIState,
             showSpinner,
+            searchLoading,
             previousSuggestionsListHeight,
           )}
         </ActionList>
@@ -673,6 +674,7 @@ export function SearchOverlay({
           listElementsRef,
           askAIState,
           showSpinner,
+          searchLoading,
           previousSuggestionsListHeight,
         )}
       </ActionList>
@@ -883,6 +885,7 @@ function renderSearchGroups(
     setAICouldNotAnswer: (value: boolean) => void
   },
   showSpinner: boolean,
+  searchLoading: boolean,
   previousSuggestionsListHeight: number | string,
 ) {
   const groups = []
@@ -890,7 +893,8 @@ function renderSearchGroups(
   let isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
   let isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
 
-  // already showing spinner when streaming AI response, so don't want to show 2 here
+  // This spinner is for both the AI search and the general search results.
+  // We already show a spinner when streaming AI response, so don't want to show 2 here
   if (showSpinner && !isInAskAIState) {
     groups.push(
       <Box
@@ -1005,7 +1009,19 @@ function renderSearchGroups(
         <ActionList.GroupHeading as="h3" tabIndex={-1}>
           {t('search.overlay.general_suggestions_list_heading')}
         </ActionList.GroupHeading>
-        {items}
+        {searchLoading && isInAskAIState ? (
+          <Box
+            role="status"
+            className={styles.loadingContainer}
+            sx={{
+              height: `${previousSuggestionsListHeight}px`,
+            }}
+          >
+            <Spinner />
+          </Box>
+        ) : (
+          items
+        )}
       </ActionList.Group>,
     )
 

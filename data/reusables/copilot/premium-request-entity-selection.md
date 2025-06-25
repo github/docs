@@ -1,0 +1,2 @@
+> [!NOTE]
+> If a user has licenses from multiple enterprises, or standalone organizations, they must make a selection using the "Usage billed to" drop down in order to utilize premium requests. The billing entity selected will be billed for any premium requests they make. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements#managing-premium-request-billing-with-multiple-copilot-licenses).
