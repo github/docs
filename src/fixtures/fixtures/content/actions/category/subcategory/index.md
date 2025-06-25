@@ -1,6 +1,6 @@
 ---
-title: Map Topic page about Actions
-shortTitle: Map & Topic
+title: Subcategory page about Actions
+shortTitle: Subcategory
 intro: "Here's the intro for {% data variables.product.prodname_actions %}."
 versions:
   fpt: '*'

@@ -43,7 +43,7 @@ export default async function currentProductTree(
 
   // First make a slim tree of just the 'href', 'title', 'shortTitle'
   // 'documentType' and 'childPages' (which is recursive).
-  // This gets used for map topic and category pages.
+  // This gets used for subcategory and category pages.
   req.context.currentProductTreeTitles = await getCurrentProductTreeTitles(
     req.context.currentProductTree,
     req.context,
