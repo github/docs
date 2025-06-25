@@ -21,7 +21,7 @@ versions:
 
 You can use **repository** discussions to discuss topics that are specific to one repository and **organization** discussions for broader conversations that span multiple repositories.
 
-Anyone with access to a repository or organization can create and participate in discussions there. However, an administrators must enable {% data variables.product.prodname_discussions %} for the repository or organization first.
+Anyone with access to a repository or organization can create and participate in discussions there. However, an administrator must enable {% data variables.product.prodname_discussions %} for the repository or organization first.
 
 ## Managing discussions
 
