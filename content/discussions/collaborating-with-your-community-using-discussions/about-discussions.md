@@ -41,4 +41,4 @@ You can share your feedback about {% data variables.product.prodname_discussions
 
 ## Next steps
 
-If you're ready to try {% data variables.product.prodname_discussions %}, find out how to get started at [AUTOTITLE](/discussions/quickstart)
+If you're ready to try {% data variables.product.prodname_discussions %}, get started at [AUTOTITLE](/discussions/quickstart).
