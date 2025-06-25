@@ -65,5 +65,4 @@ For more information, see [AUTOTITLE](/discussions).
 * Manage runners
 * Manage secrets
 * Manage variables
-* Manage environments (including environment secrets and variables) 
-  
+* Manage environments (including environment secrets and variables)
