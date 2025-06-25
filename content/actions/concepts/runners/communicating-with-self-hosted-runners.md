@@ -7,6 +7,8 @@ versions:
   ghes: '*'
   ghec: '*'
 type: overview
+redirect_from:
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners/communicating-with-self-hosted-runners
 ---
 
 A self-hosted runner connects to {% ifversion fpt or ghec %}{% data variables.product.github %}{% else %}{% data variables.location.product_location_enterprise %}{% endif %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} long poll that opens a connection to {% data variables.product.github %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.

@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs
+  - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/notifications-for-workflow-runs
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

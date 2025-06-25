@@ -5,6 +5,7 @@ redirect_from:
   - /actions/getting-started-with-github-actions/usage-and-billing-information-for-github-actions
   - /actions/reference/usage-limits-billing-and-administration
   - /actions/learn-github-actions/usage-limits-billing-and-administration
+  - /actions/administering-github-actions/usage-limits-billing-and-administration
 versions:
   fpt: '*'
   ghes: '*'

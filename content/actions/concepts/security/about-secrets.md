@@ -5,6 +5,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /actions/security-for-github-actions/security-guides/about-secrets
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

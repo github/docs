@@ -11,6 +11,7 @@ topics:
   - Workflows
 redirect_from:
   - /actions/using-workflows/avoiding-duplication
+  - /actions/sharing-automations/avoiding-duplication
 ---
 
 ## About reusable workflows and composite actions

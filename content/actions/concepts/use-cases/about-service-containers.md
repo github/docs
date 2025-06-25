@@ -6,6 +6,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/about-service-containers
   - /actions/guides/about-service-containers
   - /actions/using-containerized-services/about-service-containers
+  - /actions/use-cases-and-examples/using-containerized-services/about-service-containers
 versions:
   fpt: '*'
   ghes: '*'
