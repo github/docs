@@ -122,7 +122,7 @@ describe('server', () => {
   })
 
   // see issue 9678
-  test('does not use cached intros in map topics', async () => {
+  test('does not use cached intros in subcategories', async () => {
     let $ = await getDOM(
       '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
     )
@@ -130,8 +130,8 @@ describe('server', () => {
     $ = await getDOM(
       '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github',
     )
-    const mapTopicIntro = $('.map-topic').first().next().text()
-    expect(articleIntro).not.toEqual(mapTopicIntro)
+    const subcategoryIntro = $('.subcategory').first().next().text()
+    expect(articleIntro).not.toEqual(subcategoryIntro)
   })
 
   test('serves /categories.json for support team usage', async () => {

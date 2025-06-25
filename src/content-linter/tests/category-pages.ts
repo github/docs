@@ -139,8 +139,8 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const data = getFrontmatterData(articleContents)
 
-                // Do not include map topics in list of published articles
-                if (data.mapTopic || data.hidden) return null
+                // Do not include subcategories in list of published articles
+                if (data.subcategory || data.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -161,8 +161,8 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const data = getFrontmatterData(articleContents)
 
-                // Do not include map topics nor hidden pages in list of available articles
-                if (data.mapTopic || data.hidden) return null
+                // Do not include subcategories nor hidden pages in list of available articles
+                if (data.subcategory || data.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -195,7 +195,7 @@ describe.skip('category pages', () => {
           expect(unexpectedArticles.length, errorMessage).toBe(0)
         })
 
-        test('contains only articles and map topics with versions that are also available in the parent category', () => {
+        test('contains only articles and subcategories with versions that are also available in the parent category', () => {
           Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
             const unexpectedVersions = difference(articleVersions, categoryVersions)
             const errorMessage = `${articleName} has versions that are not available in parent category`

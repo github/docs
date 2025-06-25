@@ -6,4 +6,5 @@ versions:
 children:
   - /use-models-at-scale
   - /manage-models-at-scale
+  - /set-up-custom-model-integration-models-byok
 ---

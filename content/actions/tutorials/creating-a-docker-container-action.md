@@ -1,13 +1,14 @@
 ---
 title: Creating a Docker container action
 shortTitle: Create a Docker container action
-intro: 'This guide shows you the minimal steps required to build a Docker container action. '
+intro: 'In this tutorial, you''ll learn how to build a Docker container action.'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-docker-container-action
   - /actions/building-actions/creating-a-docker-container-action
   - /actions/creating-actions/creating-a-docker-container-action
+  - /actions/sharing-automations/creating-actions/creating-a-docker-container-action
 versions:
   fpt: '*'
   ghes: '*'

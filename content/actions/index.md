@@ -49,6 +49,7 @@ children:
   - /migrating-to-github-actions
   - /administering-github-actions
   - /reference
+  - /tutorials
   - /guides
 ---
 

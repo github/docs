@@ -10,6 +10,8 @@ redirect_from:
 
 If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://aka.ms/azureai/github-models) documentation.
 
+Organization owners can integrate their preferred custom models into {% data variables.product.prodname_github_models %}, by using an organization's own LLM API keys. See [AUTOTITLE](/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
+
 See also [AUTOTITLE](/github-models/responsible-use-of-github-models).
 
 ## Finding AI models
@@ -415,5 +417,5 @@ These limits are subject to change without notice.
 
 ## Leaving feedback
 
-To ask questions and share feedback, see this [GitHub Models discussion post](https://github.com/orgs/community/discussions/159087).  
+To ask questions and share feedback, see this [GitHub Models discussion post](https://github.com/orgs/community/discussions/159087).
 To learn how others are using {% data variables.product.prodname_github_models %}, visit the [GitHub Community discussions for Models](https://github.com/orgs/community/discussions/categories/models).

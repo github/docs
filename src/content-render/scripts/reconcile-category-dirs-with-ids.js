@@ -23,13 +23,13 @@ const slugger = new GithubSlugger()
 
 const contentDir = path.join(ROOT, 'content')
 
-const INCLUDE_MAP_TOPICS = Boolean(JSON.parse(process.env.INCLUDE_MAP_TOPICS || 'false'))
+const INCLUDE_SUBCATEGORIES = Boolean(JSON.parse(process.env.INCLUDE_SUBCATEGORIES || 'false'))
 
 main()
 
 async function main() {
   const englishCategoryIndices = getEnglishCategoryIndices().filter((name) => {
-    return INCLUDE_MAP_TOPICS || name.split(path.sep).length < 5
+    return INCLUDE_SUBCATEGORIES || name.split(path.sep).length < 5
   })
 
   const shouldRename = []

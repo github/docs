@@ -1,8 +1,6 @@
-You can choose to enable or disable {% data variables.product.prodname_github_models %} for your organization. You can also choose to only allow the use of selected models or model publishers.
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.models %}
+{% data reusables.organizations.models-development %}
 1. Under "Models", in the "Models in your organization" section, click {% octicon "chevron-down" aria-label="the down arrow" %} beside **Disabled** and select **Enabled** from the dropdown.
 
    > [!NOTE]

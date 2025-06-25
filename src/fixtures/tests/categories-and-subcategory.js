@@ -2,8 +2,8 @@ import { describe, expect, test } from 'vitest'
 
 import { getDOM, head } from '#src/tests/helpers/e2etest.js'
 
-describe('map topics', () => {
-  test('get-started/start-your-journey map-topic', async () => {
+describe('subcategories', () => {
+  test('get-started/start-your-journey subcategory', async () => {
     const $ = await getDOM('/get-started/start-your-journey')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Get started using HubGit to manage Git repositories')
@@ -20,8 +20,8 @@ describe('map topics', () => {
     expect(responses.every((r) => r.statusCode === 200)).toBeTruthy()
   })
 
-  test('actions/category/map-topic map-topic has its articles intro', async () => {
-    const $ = await getDOM('/actions/category/map-topic')
+  test('actions/category/subcategory subcategory has its articles intro', async () => {
+    const $ = await getDOM('/actions/category/subcategory')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch("Here's the intro for HubGit Actions.")
 
@@ -41,7 +41,7 @@ describe('map topics', () => {
 })
 
 describe('categories', () => {
-  test('actions/category map-topic', async () => {
+  test('actions/category subcategory', async () => {
     const $ = await getDOM('/actions/category')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Learn how to migrate your existing CI/CD')

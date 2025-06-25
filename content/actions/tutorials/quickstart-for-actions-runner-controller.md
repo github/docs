@@ -1,7 +1,7 @@
 ---
 title: Quickstart for Actions Runner Controller
-shortTitle: Quickstart
-intro: 'Try out {% data variables.product.prodname_actions_runner_controller %} in 5 minutes.'
+shortTitle: Actions Runner Controller
+intro: 'In this tutorial, you''ll try out the basics of {% data variables.product.prodname_actions_runner_controller %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,6 +10,8 @@ type: quick_start
 topics:
   - Actions Runner Controller
 defaultPlatform: linux
+redirect_from:
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller
 ---
 
 [Legal notice](#legal-notice)
