@@ -49,9 +49,6 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 {% vscode %}
 
-> [!NOTE]
-> Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-
 ## Changing the AI model
 
 These instructions are for {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
@@ -84,9 +81,6 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use
 
 {% jetbrains %}
 
-> [!NOTE]
-> Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-
 ## Changing the AI model
 
 These instructions are for the JetBrains IDEs. For instructions on different clients, click the appropriate tab at the top of this page.
@@ -103,9 +97,6 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 {% eclipse %}
 
-> [!NOTE]
-> Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-
 ## Changing the AI model
 
 These instructions are for the Eclipse IDE. For instructions on different clients, click the appropriate tab at the top of this page.
@@ -121,9 +112,6 @@ These instructions are for the Eclipse IDE. For instructions on different client
 {% endeclipse %}
 
 {% xcode %}
-
-> [!NOTE]
-> * Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
 
 ## Changing the AI model
 

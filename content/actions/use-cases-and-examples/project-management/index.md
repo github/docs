@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /using-github-actions-for-project-management
   - /adding-labels-to-issues
   - /closing-inactive-issues
   - /commenting-on-an-issue-when-a-label-is-added

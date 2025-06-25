@@ -7,8 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-self-hosted-runners
-  - /communicating-with-self-hosted-runners
   - /adding-self-hosted-runners
   - /autoscaling-with-self-hosted-runners
   - /running-scripts-before-or-after-a-job

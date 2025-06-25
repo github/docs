@@ -9,9 +9,9 @@ featuredLinks:
   startHere:
     - /actions/writing-workflows
     - /actions/use-cases-and-examples
-    - /actions/about-github-actions/about-continuous-integration-with-github-actions
-    - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
-    - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
+    - /actions/concepts/overview/about-continuous-integration-with-github-actions
+    - /actions/concepts/use-cases/deploying-with-github-actions
+    - /actions/concepts/use-cases/about-packaging-with-github-actions
     - /actions/monitoring-and-troubleshooting-workflows
   guideCards:
     - /actions/writing-workflows/using-workflow-templates
@@ -37,6 +37,7 @@ versions:
   ghec: '*'
 children:
   - /about-github-actions
+  - /concepts
   - /writing-workflows
   - /managing-workflow-runs-and-deployments
   - /sharing-automations

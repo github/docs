@@ -9,6 +9,8 @@ versions:
 topics:
   - Actions Runner Controller
   - Support
+redirect_from:
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller
 ---
 
 You can [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for assistance with Actions Runner Controller.

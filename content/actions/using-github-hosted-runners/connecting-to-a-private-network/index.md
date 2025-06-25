@@ -7,7 +7,6 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
-  - /about-private-networking-with-github-hosted-runners
   - /using-an-api-gateway-with-oidc
   - /using-wireguard-to-create-a-network-overlay
 ---

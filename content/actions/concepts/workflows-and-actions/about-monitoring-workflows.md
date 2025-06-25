@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About monitoring
+redirect_from:
+  - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/about-monitoring-workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

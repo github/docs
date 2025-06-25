@@ -7,6 +7,7 @@ versions:
   feature: actions-hosted-runners
 redirect_from:
   - /actions/using-github-hosted-runners/about-larger-runners/about-larger-runners
+  - /actions/using-github-hosted-runners/using-larger-runners/about-larger-runners
 ---
 
 ## Overview of {% data variables.actions.hosted_runners %}

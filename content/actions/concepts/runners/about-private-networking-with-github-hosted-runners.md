@@ -15,6 +15,8 @@ topics:
   - Developer
   - CI
   - CD
+redirect_from:
+  - /actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

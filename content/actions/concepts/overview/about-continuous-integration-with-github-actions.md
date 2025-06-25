@@ -9,6 +9,7 @@ redirect_from:
   - /actions/guides/about-continuous-integration
   - /actions/automating-builds-and-tests/about-continuous-integration
   - /actions/about-github-actions/about-continuous-integration
+  - /actions/about-github-actions/about-continuous-integration-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'
