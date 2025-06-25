@@ -117,6 +117,7 @@ export const schema = {
         // allows you to use an alternate heading for the popular column
         popularHeading: {
           type: 'string',
+          translatable: true,
         },
         videos: {
           type: 'array',
