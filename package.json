@@ -256,6 +256,7 @@
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
     "ajv-formats": "^3.0.1",
+    "azure-kusto-data": "^7.0.0",
     "bottleneck": "2.19.5",
     "boxen": "8.0.1",
     "cheerio": "^1.0.0-rc.12",
