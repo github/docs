@@ -320,6 +320,7 @@ const link = {
         'lead',
         'notifications',
         'article',
+        'alert',
         'toc',
         'footer',
         'static',
