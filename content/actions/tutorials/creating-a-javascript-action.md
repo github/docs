@@ -1,13 +1,14 @@
 ---
 title: Creating a JavaScript action
 shortTitle: Create a JavaScript action
-intro: 'In this guide, you''ll learn how to build a JavaScript action using the actions toolkit.'
+intro: 'In this tutorial, you''ll learn how to build a JavaScript action using the actions toolkit.'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/automating-your-workflow-with-github-actions/creating-a-javascript-action
   - /actions/building-actions/creating-a-javascript-action
   - /actions/creating-actions/creating-a-javascript-action
+  - /actions/sharing-automations/creating-actions/creating-a-javascript-action
 versions:
   fpt: '*'
   ghes: '*'

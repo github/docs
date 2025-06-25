@@ -1,6 +1,6 @@
 ---
 title: Creating an example workflow
-intro: Learn how to create a basic workflow that is triggered by a push event.
+intro: 'In this tutorial, you''ll learn how to create a basic workflow that is triggered by a push event.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,8 @@ topics:
   - Workflows
 shortTitle: Create an example workflow
 layout: inline
+redirect_from:
+  - /actions/use-cases-and-examples/creating-an-example-workflow
 ---
 
 ## Introduction

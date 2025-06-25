@@ -88,9 +88,9 @@ create_actions:
   guides:
     - /actions/concepts/workflows-and-actions/about-custom-actions
     - >-
-      /actions/sharing-automations/creating-actions/creating-a-docker-container-action
-    - /actions/sharing-automations/creating-actions/creating-a-javascript-action
-    - /actions/sharing-automations/creating-actions/creating-a-composite-action
+      /actions/tutorials/creating-a-docker-container-action
+    - /actions/tutorials/creating-a-javascript-action
+    - /actions/tutorials/creating-a-composite-action
     - >-
       /actions/reference/metadata-syntax-for-github-actions
     - >-
