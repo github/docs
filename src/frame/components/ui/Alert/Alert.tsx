@@ -25,6 +25,7 @@ export function Alert({ className, html, children, type = 'IMPORTANT' }: AlertPr
   return (
     <div
       data-testid="alert"
+      data-container="alert"
       className={cx(className, styles.container, `ghd-alert ghd-alert-${alertTypes[type].color}`)}
     >
       <p className="ghd-alert-title">
