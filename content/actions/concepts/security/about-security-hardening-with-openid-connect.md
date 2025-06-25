@@ -11,6 +11,7 @@ topics:
   - Security
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect
+  - /actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

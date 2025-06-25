@@ -6,6 +6,7 @@ redirect_from:
   - /actions/publishing-packages-with-github-actions/about-packaging-with-github-actions
   - /actions/guides/about-packaging-with-github-actions
   - /actions/publishing-packages/about-packaging-with-github-actions
+  - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'

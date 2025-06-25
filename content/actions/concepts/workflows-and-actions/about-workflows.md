@@ -12,6 +12,7 @@ redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
   - /actions/using-workflows/advanced-workflow-features
   - /actions/using-workflows/about-workflows
+  - /actions/writing-workflows/about-workflows
 topics:
   - Workflows
 layout: inline

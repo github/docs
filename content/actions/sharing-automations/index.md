@@ -13,7 +13,6 @@ redirect_from:
   - /actions/building-actions
   - /articles/creating-a-github-action
 children:
-  - /avoiding-duplication
   - /creating-actions
   - /reusing-workflows
   - /creating-workflow-templates-for-your-organization

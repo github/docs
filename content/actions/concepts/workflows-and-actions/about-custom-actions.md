@@ -8,6 +8,7 @@ redirect_from:
   - /actions/building-actions/about-actions
   - /actions/creating-actions/about-actions
   - /actions/creating-actions/about-custom-actions
+  - /actions/sharing-automations/creating-actions/about-custom-actions
 versions:
   fpt: '*'
   ghes: '*'

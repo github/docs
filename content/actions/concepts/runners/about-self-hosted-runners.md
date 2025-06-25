@@ -5,6 +5,7 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/hosting-your-own-runners/about-self-hosted-runners
+  - /actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'

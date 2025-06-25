@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: About troubleshooting
+redirect_from:
+  - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/about-troubleshooting-workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

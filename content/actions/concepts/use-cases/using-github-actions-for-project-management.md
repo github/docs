@@ -4,6 +4,7 @@ intro: 'You can use {% data variables.product.prodname_actions %} to automate ma
 redirect_from:
   - /actions/guides/using-github-actions-for-project-management
   - /actions/managing-issues-and-pull-requests/using-github-actions-for-project-management
+  - /actions/use-cases-and-examples/project-management/using-github-actions-for-project-management
 versions:
   fpt: '*'
   ghes: '*'

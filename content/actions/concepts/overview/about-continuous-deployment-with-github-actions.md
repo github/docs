@@ -12,6 +12,7 @@ redirect_from:
   - /actions/deployment/about-deployments/about-continuous-deployment
   - /actions/deployment/about-deployments
   - /actions/about-github-actions/about-continuous-deployment
+  - /actions/about-github-actions/about-continuous-deployment-with-github-actions
 topics:
   - CD
 ---
