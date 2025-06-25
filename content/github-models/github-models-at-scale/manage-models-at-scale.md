@@ -47,4 +47,6 @@ While {% data variables.product.prodname_github_models %} for organizations and 
 
 {% data reusables.models.enterprise-change-models-settings %}
 
+{% data reusables.models.enable-select-models-intro %}
+
 {% data reusables.models.enable-select-models-in-org %}

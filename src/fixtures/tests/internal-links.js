@@ -129,7 +129,7 @@ describe('link-rewriting', () => {
   })
 })
 
-describe('map-topic links', () => {
+describe('subcategory links', () => {
   test('no free-pro-team prefix', async () => {
     const $ = await getDOM('/rest/actions')
     const links = $('[data-testid="table-of-contents"] a[href]')

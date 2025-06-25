@@ -32706,6 +32706,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "name",
+          "description": "<p>The display name of the imported mannequin.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTML path to this resource.</p>",
           "type": "URI!",

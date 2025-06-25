@@ -63,7 +63,7 @@ describe('Page class', () => {
       expect(articleWithFM.showMiniToc).toBe(false)
     })
 
-    // products, categories, and map topics have index.md pages
+    // products, categories, and subcategories have index.md pages
     test('is undefined by default on index.md pages', () => {
       expect(tocPage.showMiniToc).toBeUndefined()
     })
