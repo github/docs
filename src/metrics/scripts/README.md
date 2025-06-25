@@ -6,6 +6,10 @@ See documentation below for:
 
   Run this on any GitHub Docs URL to gather a set of metrics about it.
 
+* [docsaudit](#docsaudit)
+
+  Run this on a top-level content directory to gather info about its files and output to a CSV.
+
 Print usage info for any script in this directory:
 
 ```bash
@@ -69,6 +73,23 @@ To use `docstat` from any location in Terminal, set up a global alias:
     source ~/.bash_profile  # or ~/.zshrc, etc.
     ```
 Now you can run `docstat <url>` from any directory.
+
+## docsaudit
+
+Run `docsaudit` on a top-level content directory to gather data about its files—including title, path, versions, 30d views, and 30d users—and output it to a CSV file.
+
+To see the available options:
+```
+tsx src/metrics/scripts/docsaudit.js --help
+```
+Run the script on any top-level content directory:
+```
+tsx src/metrics/scripts/docsaudit.js <content directory name>
+```
+For example:
+```
+tsx src/metrics/scripts/docsaudit.js actions
+```
 
 ## Future development
 
