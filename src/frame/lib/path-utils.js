@@ -102,6 +102,7 @@ export function getProductStringFromPath(href) {
 
   if (href === '/') return 'homepage'
 
+  // The first segment will always be empty on this split
   const pathParts = href.split('/')
 
   if (pathParts.includes('early-access')) return 'early-access'
@@ -109,6 +110,8 @@ export function getProductStringFromPath(href) {
   // For rest pages the currentProduct should be rest
   // We use this to show SidebarRest, which is a different sidebar than the rest of the site
   if (pathParts[1] === 'rest') return 'rest'
+  if (pathParts[1] === 'copilot') return 'copilot'
+  if (pathParts[1] === 'get-started') return 'get-started'
 
   return productIds.includes(pathParts[2]) ? pathParts[2] : pathParts[1]
 }
