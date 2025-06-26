@@ -18,7 +18,7 @@ featuredLinks:
     - /copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot
   popular:
     - /copilot/get-started/github-copilot-features
-    - /copilot/copilot-chat-cookbook
+    - /copilot/tutorials/copilot-chat-cookbook
     - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
     - /copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide
     - /copilot/using-github-copilot/using-github-copilot-in-the-command-line
@@ -28,10 +28,9 @@ versions:
 children:
   - /get-started
   - /using-github-copilot
-  - /copilot-chat-cookbook
   - /managing-copilot
-  - /rolling-out-github-copilot-at-scale
   - /customizing-copilot
+  - /tutorials
   - /building-copilot-extensions
   - /troubleshooting-github-copilot
   - /responsible-use-of-github-copilot-features

@@ -20,7 +20,6 @@ children:
   - /finding-public-code-that-matches-github-copilot-suggestions
   - /creating-a-pull-request-summary-with-github-copilot
   - /using-github-copilot-to-create-issues
-  - /guides-on-using-github-copilot
 redirect_from:
   - /copilot/github-copilot-chat
   - /copilot/github-copilot-in-the-cli
