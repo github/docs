@@ -47,7 +47,7 @@ export function createProcessor(context) {
       .use(useEnglishHeadings, context)
       .use(headingLinks)
       .use(codeHeader)
-      .use(annotate)
+      .use(annotate, context)
       .use(highlight, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
