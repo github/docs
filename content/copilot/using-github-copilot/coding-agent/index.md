@@ -6,7 +6,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-assigning-tasks-to-copilot
   - /best-practices-for-using-copilot-to-work-on-tasks
   - /enabling-copilot-coding-agent
   - /using-copilot-to-work-on-an-issue
@@ -20,3 +19,4 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues
   - /early-access/copilot/coding-agent
 ---
+

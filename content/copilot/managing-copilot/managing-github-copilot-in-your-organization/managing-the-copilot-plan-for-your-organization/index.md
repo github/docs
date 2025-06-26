@@ -7,9 +7,9 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-billing-for-github-copilot-in-your-organization
   - /subscribing-to-copilot-for-your-organization
   - /canceling-copilot-for-your-organization
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization
 ---
+

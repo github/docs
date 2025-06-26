@@ -9,5 +9,4 @@ topics:
 children:
   - /getting-started-with-copilot-on-your-personal-account
   - /managing-your-copilot-plan
-  - /billing-and-payments
 ---

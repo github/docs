@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-copilot-skillsets
   - /building-copilot-skillsets
 ---
 

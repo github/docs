@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-billing-for-github-copilot-in-your-enterprise
   - /subscribing-to-copilot-for-your-enterprise
   - /canceling-copilot-for-your-enterprise
   - /upgrading-copilot-for-your-enterprise
@@ -16,3 +15,4 @@ redirect_from:
   - /managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise
 ---
+
