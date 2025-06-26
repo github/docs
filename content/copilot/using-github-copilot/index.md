@@ -1,13 +1,12 @@
 ---
 title: Using GitHub Copilot
 shortTitle: Use GitHub Copilot
-intro: "Use {% data variables.product.prodname_copilot %} to increase your productivity."
+intro: 'Use {% data variables.product.prodname_copilot %} to increase your productivity.'
 versions:
   feature: copilot
 topics:
   - Copilot
 children:
-  - /best-practices-for-using-github-copilot
   - /getting-code-suggestions-in-your-ide-with-github-copilot
   - /copilot-chat
   - /copilot-spaces
@@ -26,3 +25,4 @@ redirect_from:
   - /copilot/github-copilot-chat
   - /copilot/github-copilot-in-the-cli
 ---
+

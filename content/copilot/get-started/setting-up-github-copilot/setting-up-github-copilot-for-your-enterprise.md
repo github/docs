@@ -1,17 +1,18 @@
 ---
-title: 'Setting up GitHub Copilot for your enterprise'
+title: Setting up GitHub Copilot for your enterprise
 shortTitle: Set up for enterprise
-intro: "Follow these steps to set up {% data variables.product.prodname_copilot %} in your enterprise."
+intro: 'Follow these steps to set up {% data variables.product.prodname_copilot %} in your enterprise.'
 permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/enabling-github-copilot-enterprise-features
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features
+  - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise
 ---
 
 ## 1. Enable {% data variables.product.prodname_copilot %} in your Enterprise through payment verification

@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat
   - /copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat
+  - /copilot/using-github-copilot/copilot-chat/getting-started-with-prompts-for-copilot-chat
 shortTitle: Get started with chat
 ---
 

@@ -6,6 +6,8 @@ topics:
 versions:
   feature: copilot
 shortTitle: Best practices
+redirect_from:
+  - /copilot/using-github-copilot/best-practices-for-using-github-copilot
 ---
 
 ## Understand {% data variables.product.prodname_copilot_short %}'s strengths and weaknesses

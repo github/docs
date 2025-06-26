@@ -8,6 +8,7 @@ topics:
 shortTitle: Plans for Copilot
 redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot
+  - /copilot/about-github-copilot/plans-for-github-copilot
 ---
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.

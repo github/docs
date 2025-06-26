@@ -15,6 +15,7 @@ redirect_from:
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
   - /copilot/using-github-copilot/getting-started-with-github-copilot
+  - /copilot/quickstart
 shortTitle: Quickstart
 topics:
   - Copilot

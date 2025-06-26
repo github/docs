@@ -1,12 +1,14 @@
 ---
-title: 'Setting up GitHub Copilot for yourself'
+title: Setting up GitHub Copilot for yourself
 shortTitle: Set up for self
-intro: "Follow these steps to start using Copilot."
+intro: Follow these steps to start using Copilot.
 permissions: Individuals
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself
 ---
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}

@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/copilot-business/github-copilot-business-feature-set
   - /copilot/copilot-individual/github-copilot-individual-feature-set
   - /copilot/github-copilot-enterprise/github-copilot-enterprise-feature-set
+  - /copilot/about-github-copilot/github-copilot-features
 ---
 
 ## {% data variables.product.prodname_copilot %} features

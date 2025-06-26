@@ -1,7 +1,7 @@
 ---
-title: 'Setting up GitHub Copilot for your organization'
+title: Setting up GitHub Copilot for your organization
 shortTitle: Set up for organization
-intro: "Follow these steps to set up {% data variables.product.prodname_copilot %} in your organization."
+intro: 'Follow these steps to set up {% data variables.product.prodname_copilot %} in your organization.'
 permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
 versions:
@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business
   - /copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-for-business
   - /copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-business
+  - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization
 ---
 
 ## 1. Subscribe your organization to {% data variables.product.prodname_copilot %}
