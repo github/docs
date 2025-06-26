@@ -12,4 +12,6 @@ children:
   - /creating-a-javascript-action
   - /creating-a-composite-action
   - /quickstart-for-actions-runner-controller
+redirect_from:
+  - /actions/guides
 ---
