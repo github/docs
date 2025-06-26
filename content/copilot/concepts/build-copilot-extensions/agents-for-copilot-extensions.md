@@ -1,12 +1,15 @@
 ---
-title: About Copilot agents
+title: About agents for Copilot Extensions
+shortTitle: Agents for Copilot Extensions
 intro: 'Learn what {% data variables.copilot.copilot_agents %} are and how they can enhance your {% data variables.copilot.copilot_chat %} experience.'
+allowTitleToDifferFromFilename: true
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: About Copilot agents
 type: overview
+redirect_from:
+  - /copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/about-copilot-agents
 ---
 
 {% data variables.copilot.copilot_agents_short %} are custom tools embedded in {% data variables.copilot.copilot_extensions_short %}. They integrate with {% data variables.copilot.copilot_chat_short %} to provide additional functionalities tailored to specific needs. {% data variables.copilot.copilot_agents_short %} can perform various tasks such as querying documentation, retrieving data, executing specific actions, or providing AI-assisted coding suggestions. They enhance the capabilities of {% data variables.product.prodname_copilot %} by allowing developers to build and integrate custom features directly into the {% data variables.copilot.copilot_chat_short %} interface.

@@ -1,11 +1,13 @@
 ---
 title: About customizing GitHub Copilot Chat responses
-shortTitle: About customizing Copilot responses
+shortTitle: Customize Copilot responses
 intro: 'Learn about customizing {% data variables.copilot.copilot_chat %} responses to fit with your preferences and requirements.'
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
 ---
 
 {% webui %}

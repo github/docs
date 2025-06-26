@@ -8,6 +8,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
+  - /copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
 ---
 
 A prompt is a request that you make to {% data variables.product.prodname_copilot %}. For example, a question that you ask {% data variables.copilot.copilot_chat_short %}, or a code snippet that you ask {% data variables.product.prodname_copilot_short %} to complete. In addition to your prompt, {% data variables.product.prodname_copilot_short %} uses additional context, like the code in your current file and the chat history, to generate a response.

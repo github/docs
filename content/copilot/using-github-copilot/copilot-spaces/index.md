@@ -6,7 +6,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-organizing-and-sharing-context-with-copilot-spaces
   - /creating-and-using-copilot-spaces
   - /collaborating-with-your-team-using-copilot-spaces
 ---

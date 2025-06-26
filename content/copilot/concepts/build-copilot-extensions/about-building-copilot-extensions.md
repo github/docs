@@ -8,6 +8,8 @@ topics:
   - Copilot
 shortTitle: About building Extensions
 type: overview
+redirect_from:
+  - /copilot/building-copilot-extensions/about-building-copilot-extensions
 ---
 
 ## About {% data variables.copilot.copilot_extensions_short %}

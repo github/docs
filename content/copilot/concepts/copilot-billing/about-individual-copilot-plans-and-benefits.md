@@ -1,5 +1,6 @@
 ---
 title: About individual Copilot plans and benefits
+shortTitle: Individual Copilot plans and benefits
 intro: '{% data variables.product.company_short %} offers several {% data variables.product.prodname_copilot_short %} plans for individual developers, each with different features, model access, and usage limits to support a wide range of coding needs.'
 versions:
   feature: copilot
@@ -10,6 +11,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/about-github-copilot-free
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-github-copilot-free
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits
 ---
 
 {% data variables.product.company_short %} offers three {% data variables.product.prodname_copilot_short %} plans for individual developers, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.

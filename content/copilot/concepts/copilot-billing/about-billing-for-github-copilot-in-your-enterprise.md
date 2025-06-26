@@ -1,8 +1,8 @@
 ---
 title: About billing for GitHub Copilot in your enterprise
-shortTitle: About billing
+shortTitle: Billing for enterprises
 intro: 'Learn about pricing and billing cycles for {% data variables.product.prodname_copilot_short %} in your enterprise.'
-permissions: 'Enterprise owners'
+permissions: Enterprise owners
 product: '{% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %}'
 versions:
   feature: copilot
@@ -11,6 +11,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-plan-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise
 ---
 
 ## About {% data variables.product.prodname_copilot_short %} plans for your enterprise

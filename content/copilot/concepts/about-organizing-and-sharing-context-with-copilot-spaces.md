@@ -8,6 +8,8 @@ versions:
 type: overview
 topics:
   - Copilot
+redirect_from:
+  - /copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces
 ---
 
 {% data reusables.copilot.copilot-spaces.preview-note %}

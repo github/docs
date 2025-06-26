@@ -1,12 +1,15 @@
 ---
-title: About Copilot skillsets
+title: About skillsets for Copilot Extensions
 intro: 'Learn what {% data variables.copilot.copilot_skillsets %} are and how they simplify integrating third-party tools and functions into your {% data variables.product.prodname_copilot_short %} experience.'
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: About {% data variables.copilot.copilot_skillsets_short %} 
+shortTitle: Skillsets for Copilot Extensions
+allowTitleToDifferFromFilename: true
 type: overview
+redirect_from:
+  - /copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets
 ---
 
 A skill within {% data variables.product.prodname_copilot %} is a tool that the model calls to perform a specific task in response to a user query. A skillset is a collection of these skills (up to five per skillset). {% data variables.copilot.copilot_skillsets %} provide a streamlined way to extend {% data variables.product.prodname_copilot_short %}’s functionality, allowing builders to integrate external services or custom API endpoints into their {% data variables.product.prodname_copilot_short %} workflow. With skillsets, builders can enable {% data variables.product.prodname_copilot_short %} to perform tasks—such as retrieving data or executing actions in third-party services—without needing to manage complex workflows or architecture.

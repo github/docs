@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests
+  - /copilot/managing-copilot/understanding-and-managing-copilot-usage/understanding-and-managing-requests-in-copilot
 ---
 
 > [!IMPORTANT]

@@ -1,6 +1,6 @@
 ---
 title: About billing for individual Copilot plans
-shortTitle: About billing
+shortTitle: Billing for individuals
 intro: 'Learn how billing works for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}.'
 versions:
   feature: copilot
@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-github-copilot-pro-subscription/about-billing-for-copilot-pro
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments/about-billing-for-copilot-pro
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments/about-billing-for-individual-copilot-plans
 ---
 
 ## Pricing for {% data variables.copilot.copilot_pro_short %} and {% data variables.copilot.copilot_pro_plus_short %}

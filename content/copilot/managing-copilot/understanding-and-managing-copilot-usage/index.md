@@ -7,8 +7,8 @@ versions:
 topics:
   - Copilot
 children:
-  - /understanding-and-managing-requests-in-copilot
   - /monitoring-your-copilot-usage-and-entitlements
 redirect_from:
   - /copilot/managing-copilot/monitoring-usage-and-entitlements
 ---
+
