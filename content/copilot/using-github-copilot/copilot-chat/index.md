@@ -13,6 +13,5 @@ children:
   - /asking-github-copilot-questions-in-github-mobile
   - /indexing-repositories-for-copilot-chat
   - /prompt-engineering-for-copilot-chat
-  - /github-copilot-chat-cheat-sheet
 ---
 

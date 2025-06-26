@@ -7,6 +7,8 @@ topics:
   - Copilot
 shortTitle: Extensions FAQ
 type: reference
+redirect_from:
+  - /copilot/building-copilot-extensions/copilot-extensions-faq
 ---
 
 ## General

@@ -1,13 +1,14 @@
 ---
 title: GitHub Copilot Chat cheat sheet
 shortTitle: Copilot Chat cheat sheet
-intro: "Use this cheat sheet to quickly reference the most common commands and options for using {% data variables.copilot.copilot_chat %}."
+intro: 'Use this cheat sheet to quickly reference the most common commands and options for using {% data variables.copilot.copilot_chat %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
 redirect_from:
   - /copilot/using-github-copilot/github-copilot-chat-cheat-sheet
+  - /copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet
 ---
 
 {% webui %}

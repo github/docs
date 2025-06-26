@@ -30,6 +30,7 @@ children:
   - /using-github-copilot
   - /managing-copilot
   - /customizing-copilot
+  - /reference
   - /tutorials
   - /building-copilot-extensions
   - /troubleshooting-github-copilot

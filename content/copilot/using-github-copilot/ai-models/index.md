@@ -7,8 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /supported-ai-models-in-copilot
-  - /choosing-the-right-ai-model-for-your-task
   - /configuring-access-to-ai-models-in-copilot
   - /changing-the-ai-model-for-copilot-chat
   - /changing-the-ai-model-for-copilot-code-completion

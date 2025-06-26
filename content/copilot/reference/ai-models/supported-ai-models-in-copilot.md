@@ -15,6 +15,7 @@ redirect_from:
   - /copilot/using-github-copilot/ai-models/using-openai-gpt-41-in-github-copilot
   - /copilot/using-github-copilot/ai-models/using-openai-o3-in-github-copilot
   - /copilot/using-github-copilot/ai-models/using-openai-o4-mini-in-github-copilot
+  - /copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot
 ---
 
 {% data variables.product.prodname_copilot %} supports multiple models, each with different strengths. Some models prioritize speed and cost-efficiency, while others are optimized for accuracy, reasoning, or working with multimodal inputs (like images and code together).

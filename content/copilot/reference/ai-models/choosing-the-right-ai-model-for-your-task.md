@@ -1,11 +1,13 @@
 ---
 title: Choosing the right AI model for your task
-shortTitle: 'Choose the right AI model'
+shortTitle: Choose the right AI model
 intro: 'Compare available AI models in {% data variables.copilot.copilot_chat_short %} and choose the best model for your task.'
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task
 ---
 
 ## Comparison of AI models for {% data variables.product.prodname_copilot %}

@@ -16,6 +16,5 @@ children:
   - /using-oidc-with-github-copilot-extensions
   - /debugging-your-github-copilot-extension
   - /managing-the-availability-of-your-copilot-extension
-  - /copilot-extensions-faq
-  - /copilot-extensions-glossary
 ---
+

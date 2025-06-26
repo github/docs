@@ -7,6 +7,8 @@ topics:
   - Copilot
 shortTitle: Extensions Glossary
 type: reference
+redirect_from:
+  - /copilot/building-copilot-extensions/copilot-extensions-glossary
 ---
 
 The following terms are used in the context of {% data variables.copilot.copilot_extensions_short %}, and are defined here for clarity.
