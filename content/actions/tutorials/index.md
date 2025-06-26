@@ -1,5 +1,6 @@
 ---
-title: Tutorials
+title: Tutorials for GitHub Actions
+shortTitle: Tutorials
 intro: "Build skills and knowledge about GitHub Actions through hands-on activities."
 versions:
   fpt: '*'
