@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /deploying-with-github-actions
   - /deploying-nodejs-to-azure-app-service
   - /deploying-python-to-azure-app-service
   - /deploying-java-to-azure-app-service

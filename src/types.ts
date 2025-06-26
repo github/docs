@@ -26,7 +26,7 @@ export type PageFrontmatter = {
   permissions?: string
   showMiniToc?: boolean
   miniTocMaxHeadingLevel?: number
-  mapTopic?: boolean
+  subcategory?: boolean
   hidden?: boolean
   noEarlyAccessBanner?: boolean
   earlyAccessToc?: string
@@ -461,6 +461,6 @@ export type MarkdownFrontmatter = {
   children: string[]
   allowTitleToDifferFromFilename?: boolean
   versions: FrontmatterVersions
-  mapTopic?: boolean
+  subcategory?: boolean
   hidden?: boolean
 }

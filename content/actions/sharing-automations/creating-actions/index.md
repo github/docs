@@ -7,10 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-custom-actions
-  - /creating-a-docker-container-action
-  - /creating-a-javascript-action
-  - /creating-a-composite-action
   - /setting-exit-codes-for-actions
   - /releasing-and-maintaining-actions
   - /publishing-actions-in-github-marketplace

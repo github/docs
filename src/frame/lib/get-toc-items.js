@@ -6,7 +6,7 @@ const productTOCs = Object.values(productMap)
 const linkString = /{% [^}]*?link.*? \/(.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
 
-// return an array of objects like { type: 'category|maptopic|article', href: 'path' }
+// return an array of objects like { type: 'category|subcategory|article', href: 'path' }
 export default function getTocItems(page) {
   // only process product and category tocs
   if (!page.relativePath.endsWith('index.md')) return
@@ -27,11 +27,11 @@ export default function getTocItems(page) {
     const tocItem = {}
 
     // a product's toc items are always categories
-    // whereas a category's toc items can be either maptopics or articles
+    // whereas a category's toc items can be either subcategories or articles
     tocItem.type = productTOCs.includes(page.relativePath)
       ? 'category'
       : item.includes('topic_')
-        ? 'maptopic'
+        ? 'subcategory'
         : 'article'
 
     tocItem.href = item.match(linkString)[1]

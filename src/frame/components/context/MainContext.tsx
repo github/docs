@@ -90,7 +90,7 @@ export type MainContextT = {
   breadcrumbs: {
     product: BreadcrumbT
     category?: BreadcrumbT
-    maptopic?: BreadcrumbT
+    subcategory?: BreadcrumbT
     article?: BreadcrumbT
   }
   communityRedirect: {

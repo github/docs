@@ -27,10 +27,10 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | {% data variables.copilot.copilot_o3 %} | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
 | {% data variables.copilot.copilot_o3_mini %} | Fast help with simple or repetitive tasks | Quick responses for code snippets, explanations, and prototyping | Lower latency |
 | {% data variables.copilot.copilot_o4_mini %} | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
-| {% data variables.copilot.copilot_claude_opus %} | Deep reasoning and debugging | Advanced agentic workflows over large codebases, long-horizon projects | Reasoning |
+| {% data variables.copilot.copilot_claude_opus %} | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
 | {% data variables.copilot.copilot_claude_sonnet_35 %} | Fast help with simple or repetitive tasks | Quick responses for code, syntax, and documentation | Agent mode |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} | Deep reasoning and debugging | Structured reasoning across large, complex codebases | Agent mode |
-| {% data variables.copilot.copilot_claude_sonnet_40 %} | Deep reasoning and debugging | High-performance code review, bug fixes, and efficient research workflows | Agent mode |
+| {% data variables.copilot.copilot_claude_sonnet_40 %} | Deep reasoning and debugging | Performance and practicality, perfectly balanced for coding workflows | Agent mode, vision |
 | {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging | Complex code generation, debugging, and research workflows | Reasoning |
 | {% data variables.copilot.copilot_gemini_flash %} | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Visual |
 

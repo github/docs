@@ -2621,6 +2621,21 @@
       }
     ]
   },
+  "secret_scanning_dismissal_requests": {
+    "title": "Secret scanning alert dismissal requests",
+    "displayTitle": "Organization permissions for \"Secret scanning alert dismissal requests\"",
+    "permissions": [
+      {
+        "category": "secret-scanning",
+        "slug": "list-alert-dismissal-requests-for-secret-scanning-for-an-org",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dismissal-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      }
+    ]
+  },
   "organization_secrets": {
     "title": "Secrets",
     "displayTitle": "Organization permissions for \"Secrets\"",
@@ -4647,6 +4662,33 @@
     "title": "Attestations",
     "displayTitle": "Repository permissions for \"Attestations\"",
     "permissions": [
+      {
+        "category": "orgs",
+        "slug": "delete-attestations-in-bulk",
+        "subcategory": "attestations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/attestations/delete-request",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-attestations-by-subject-digest",
+        "subcategory": "attestations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-attestations-by-id",
+        "subcategory": "attestations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/attestations/{attestation_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
       {
         "category": "repos",
         "slug": "create-an-attestation",
@@ -8112,7 +8154,7 @@
         "subcategory": "alert-dismissal-requests",
         "verb": "get",
         "requestPath": "/orgs/{org}/dismissal-requests/secret-scanning",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {

@@ -34,6 +34,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 * Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
 * Up to **50 licenses** to grant access to users.
+* Up to 3,000 minutes of standard {% data variables.product.prodname_dotcom %}-hosted runners.
 
 Your trial **won't** include access to {% data variables.product.prodname_ghe_server %}. To test this, contact {% data variables.contact.contact_enterprise_sales %}.
 

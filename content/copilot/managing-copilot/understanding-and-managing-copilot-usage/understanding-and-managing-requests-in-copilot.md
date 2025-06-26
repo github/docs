@@ -14,6 +14,7 @@ redirect_from:
 
 > [!IMPORTANT]
 > * Billing for premium requests began on June 18, 2025 for all paid {% data variables.product.prodname_copilot_short %} plans, and the request counters were only set to zero for paid plans.
+> * {% data reusables.copilot.data-residency-availability %}
 > * Premium request counters reset on the 1st of each month. See [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements).
 > * Certain requests may experience rate limits to accommodate high demand. Rate limits restrict the number of requests that can be made within a specific time period.
 

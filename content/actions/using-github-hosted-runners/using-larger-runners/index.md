@@ -5,7 +5,6 @@ intro: '{% data variables.product.prodname_dotcom %} offers runners with more RA
 versions:
   feature: actions-hosted-runners
 children:
-  - /about-larger-runners
   - /managing-larger-runners
   - /controlling-access-to-larger-runners
   - /running-jobs-on-larger-runners

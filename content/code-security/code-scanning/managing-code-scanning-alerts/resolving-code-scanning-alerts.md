@@ -64,9 +64,9 @@ Anyone with write permission for a repository can fix an alert by committing a c
 
 You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alerts may be fixed in one branch but not in another. You can use the "branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
-![Screenshot of alerts view with the "Branch" dropdown menu expanded. The "Branch" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
+![Screenshot of alerts view with the branch options expanded. The "branch" filter is underlined with dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
 
 {% data reusables.code-scanning.filter-non-default-branches %}
 

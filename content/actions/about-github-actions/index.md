@@ -8,7 +8,5 @@ versions:
   ghec: '*'
 children:
   - /understanding-github-actions
-  - /about-continuous-integration-with-github-actions
-  - /about-continuous-deployment-with-github-actions
 ---
 

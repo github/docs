@@ -32,6 +32,7 @@ The products shown in the new billing platform are determined by your {% data va
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
 * {% data variables.product.prodname_marketplace %}
+* {% data variables.product.prodname_github_models %}
 * {% data variables.product.prodname_sponsors %}
 
 {% endif %}
@@ -42,6 +43,7 @@ The products shown in the new billing platform are determined by your {% data va
 * {% data variables.product.prodname_GH_cs_and_sp %} (only available with {% data variables.product.prodname_team %})
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_copilot %}
+* {% data variables.product.prodname_github_models %}
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
 
@@ -54,6 +56,7 @@ The products shown in the new billing platform are determined by your {% data va
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_copilot %}
 * {% data variables.product.prodname_enterprise %}
+* {% data variables.product.prodname_github_models %}
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
 
