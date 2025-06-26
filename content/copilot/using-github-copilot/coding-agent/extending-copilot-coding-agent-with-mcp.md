@@ -21,7 +21,7 @@ redirect_from:
 
 {% data reusables.copilot.coding-agent.mcp-brief-intro %}
 
-The agent can use tools provided by local MCP servers. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) provides tools to interact with web pages and pull in additional context when executing on the requested task.
+The agent can use tools provided by local MCP servers. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) provides tools to interact with web pages and pull in additional context when executing on the requested task. Some MCP servers are configured by default to provide the best experience for getting started.
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
@@ -29,17 +29,23 @@ For more information on MCP, see [the official MCP documentation](https://modelc
 > * {% data variables.copilot.copilot_coding_agent %} only supports tools provided by MCP servers. It does not support resources or prompts.
 > * {% data variables.copilot.copilot_coding_agent %} currently only supports local MCP servers. To learn more about transport types, see the [official MCP documentation](https://modelcontextprotocol.io/docs/concepts/transports).
 
-## Staying safe with MCP servers
+## Default MCP servers
 
-Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
+The following MCP servers are configured automatically for {% data variables.copilot.copilot_coding_agent %}:
 
-We recommend that you restrict your servers to read-only tools. You can use the `tools` configuration option to only expose known, safe tools to {% data variables.product.prodname_copilot_short %}.
+* **{% data variables.product.github %}**: The {% data variables.product.github %} MCP server gives {% data variables.product.prodname_copilot_short %} access to {% data variables.product.github %} data like issues and pull requests. To learn more, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
+  * By default, the {% data variables.product.github %} MCP server connects to {% data variables.product.github %} using a specially scoped token that only has read-only access to the current repository. You can customize it to use a different token with broader access. For more details, see [Customizing the built-in {% data variables.product.github %} MCP server](#customizing-the-built-in-github-mcp-server) below.
 
-## About setting up MCP servers in a repository
+## Setting up MCP servers in a repository
+
+> [!WARNING]
+> Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
 
 As a repository administrator, you can configure MCP servers for use within your repository. This is done via a JSON-formatted configuration that specifies the details of the MCP servers you want to use. You enter the JSON configuration directly into the settings for the repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-Once MCP servers are configured for use within a repository, the tools specified in the configuration will be available to {% data variables.copilot.copilot_coding_agent %} on each assigned task.
+Once MCP servers are configured for use within a repository, the tools specified in the configuration will be available to {% data variables.copilot.copilot_coding_agent %} during each assigned task.
+
+{% data variables.product.prodname_copilot_short %} will use available tools autonomously, and will not ask for approval before use.
 
 ### Creating your JSON MCP configuration
 
@@ -67,15 +73,15 @@ The configuration object can contain the following keys:
 
 * `command` (`string`): The command to run to start the MCP server.
 * `args` (`string[]`): The arguments to pass to the `command`.
-* `tools` (`string[]`): The tools from the MCP server to enable. You may be able to find a list of tools in the server's documentation, or in its code. We recommend that you allowlist specific tools, but you can also enable all tools by including `*` in the array.
+* `tools` (`string[]`): The tools from the MCP server to enable. You may be able to find a list of tools in the server's documentation, or in its code. We strongly recommend that you allowlist specific read-only tools, since the agent will be able to use these tools autonomously and will not ask you for approval first. You can also enable all tools by including `*` in the array.
 * `type` (`string`): Optional field. {% data variables.copilot.copilot_coding_agent %} only accepts `"local"`.
 * `env` (`object`): The environment variables to pass to the server. This object should map the name of the environment variable that should be exposed to your MCP server to either of the following:
   * The name of a {% data variables.product.prodname_actions %} secret you have configured, beginning with `COPILOT_MCP_`.
   * A string value.
 
-## Example configurations
+### Example configurations
 
-### Example: Playwright
+#### Example: Playwright
 
 The [Playwright MCP server](https://github.com/microsoft/playwright-mcp) provides tools which allow {% data variables.product.prodname_copilot_short %} to browse the internet.
 
@@ -91,7 +97,7 @@ The [Playwright MCP server](https://github.com/microsoft/playwright-mcp) provide
 }
 ```
 
-### Example: Sentry
+#### Example: Sentry
 
 The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data variables.product.prodname_copilot_short %} authenticated access to exceptions recorded in [Sentry](https://sentry.io).
 
@@ -117,7 +123,7 @@ The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data v
 }
 ```
 
-### Example: Notion
+#### Example: Notion
 
 The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {% data variables.product.prodname_copilot_short %} authenticated access to notes and other content from [Notion](https://notion.so).
 
@@ -148,7 +154,7 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
 }
 ```
 
-### Example: Azure
+#### Example: Azure
 
 The [Azure MCP server](https://github.com/Azure/azure-mcp) creates a seamless connection between {% data variables.product.prodname_copilot_short %} and key Azure services such as Azure Cosmos DB and the Azure Storage platform.
 
@@ -202,7 +208,7 @@ To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you
    }
    ```
 
-## Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
+### Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 
 If you have already configured MCP servers in {% data variables.product.prodname_vscode_shortname %}, you can leverage a similar configuration for {% data variables.copilot.copilot_coding_agent %}.
 
@@ -217,7 +223,7 @@ To adapt the configuration for {% data variables.copilot.copilot_coding_agent %}
 
 For more information on MCP in {% data variables.product.prodname_vscode_shortname %}, see the [{% data variables.product.prodname_vscode_shortname %} docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
-## Adding your configuration to your repository
+### Adding your configuration to your repository
 
 Repository administrators can configure MCP servers by following these steps:
 
@@ -245,7 +251,7 @@ You must be a repository administrator to configure a {% data variables.product.
 1. Under "Environment secrets", click **Add environment secret**.
 1. Give the secret a name beginning `COPILOT_MCP_`, add the secret value, then click **Add secret**.
 
-## Validating your MCP configuration
+### Validating your MCP configuration
 
 Once you've set up your MCP configuration, you should test it to make sure it is set up correctly.
 
@@ -262,9 +268,7 @@ If your MCP servers require any dependencies that are not installed on the {% da
 
 ## Customizing the built-in {% data variables.product.github %} MCP server
 
-The {% data variables.product.github %} MCP server is enabled by default, giving {% data variables.product.prodname_copilot_short %} access to {% data variables.product.github %} data like issues and pull requests.
-
-By default, the MCP server connects to {% data variables.product.github %} with a specially scoped token that only has read-only access to the current repository.
+The {% data variables.product.github %} MCP server is enabled by default and connects to {% data variables.product.github %} with a specially scoped token that only has read-only access to the current repository.
 
 If you want to allow {% data variables.product.prodname_copilot_short %} to access data outside the current repository, you can give it a {% data variables.product.pat_generic %} with wider access.
 
