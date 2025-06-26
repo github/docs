@@ -14,5 +14,6 @@ children:
   - /about-billing-for-github-copilot-in-your-enterprise
 redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
+  - /copilot/managing-copilot/understanding-and-managing-copilot-usage
 ---
 
