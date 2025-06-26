@@ -45,3 +45,4 @@ For details of how to create and use reusable workflows and composite actions, s
 | Each step is logged in real-time | Logged as one step even if it contains multiple steps |
 | Can connect a maximum of four levels of workflows | Can be nested to have up to 10 composite actions in one workflow |
 | Can use secrets | Cannot use secrets |
+| Cannot be published to the [marketplace](https://github.com/marketplace?type=actions) | Can be published to the [marketplace](https://github.com/marketplace?type=actions) |
