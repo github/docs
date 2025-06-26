@@ -15,10 +15,10 @@ import {
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
-  TocItem,
   TocLandingContext,
   TocLandingContextT,
 } from '@/frame/components/context/TocLandingContext'
+import type { TocItem } from '@/landings/types'
 import { TocLanding } from '@/landings/components/TocLanding'
 
 type MinitocItemsT = {
