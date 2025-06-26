@@ -3469,6 +3469,24 @@
       "requestPath": "/orgs/{org}/attestations/bulk-list"
     },
     {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/attestations/{attestation_id}"
+    },
+    {
       "slug": "list-attestations",
       "subcategory": "orgs",
       "verb": "get",

@@ -59,4 +59,4 @@ Now that you've enabled your custom models in {% data variables.product.prodname
 
 * Store prompts on {% data variables.product.github %} so that you can iterate to fine-tune your prompts, and share them with stakeholders. See [AUTOTITLE](/github-models/use-github-models/storing-prompts-in-github-repositories).
 
-* Launch your AI application. See [Going to production](/github-models/use-github-models/prototyping-with-ai-models#going-to-production)
+* Launch your AI application. See [Going to production](/github-models/use-github-models/prototyping-with-ai-models#going-to-production).
