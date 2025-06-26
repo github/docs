@@ -36,6 +36,7 @@ import { h } from 'hastscript'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toHast } from 'mdast-util-to-hast'
 import { header } from './code-header.js'
+import findPage from '#src/frame/lib/find-page.js'
 
 const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8'))
 
@@ -66,15 +67,15 @@ const commentRegexes = {
 const matcher = (node) =>
   node.type === 'element' && node.tagName === 'pre' && getPreMeta(node).annotate
 
-export default function annotate() {
+export default function annotate(context) {
   return (tree) => {
     visit(tree, matcher, (node, index, parent) => {
-      parent.children[index] = createAnnotatedNode(node)
+      parent.children[index] = createAnnotatedNode(node, context)
     })
   }
 }
 
-function createAnnotatedNode(node) {
+function createAnnotatedNode(node, context) {
   const lang = node.children[0].properties.className[0].replace('language-', '')
   const code = node.children[0].children[0].value
 
@@ -98,7 +99,7 @@ function createAnnotatedNode(node) {
   }
 
   // Render the HTML
-  return template({ lang, code, rows })
+  return template({ lang, code, rows, context })
 }
 
 function validate(lang, code) {
@@ -178,7 +179,7 @@ function getSubnav() {
   return h('div', { className: 'annotate-toggle' }, [besideBtn, inlineBtn])
 }
 
-function template({ lang, code, rows }) {
+function template({ lang, code, rows, context }) {
   return h(
     'div',
     { class: 'annotate beside' },
@@ -197,7 +198,7 @@ function template({ lang, code, rows }) {
           h(
             'div',
             { className: 'annotate-note' },
-            mdToHast(note.map(removeComment(lang)).join('\n')),
+            mdToHast(note.map(removeComment(lang)).join('\n'), context),
           ),
         ]),
       ),
@@ -209,8 +210,39 @@ function template({ lang, code, rows }) {
   )
 }
 
-function mdToHast(text) {
-  return toHast(fromMarkdown(text))
+function mdToHast(text, context) {
+  const mdast = fromMarkdown(text)
+
+  // Process AUTOTITLE links if context is available
+  if (context) {
+    processAutotitleInMdast(mdast, context)
+  }
+
+  return toHast(mdast)
+}
+
+// Helper method to process AUTOTITLE links in MDAST
+// This can be reused for other MDAST processing that needs AUTOTITLE support
+function processAutotitleInMdast(mdast, context) {
+  visit(mdast, 'link', (node) => {
+    if (node.url && node.url.startsWith('/')) {
+      for (const child of node.children) {
+        if (child.type === 'text' && /^\s*AUTOTITLE\s*$/.test(child.value)) {
+          // Find the page and get its title
+          const page = findPage(node.url, context.pages, context.redirects)
+          if (page) {
+            try {
+              // Use rawTitle for synchronous processing in annotations
+              child.value = page.rawTitle || 'AUTOTITLE'
+            } catch (error) {
+              // Keep AUTOTITLE if we can't get the title
+              console.warn(`Could not resolve AUTOTITLE for ${node.url}:`, error.message)
+            }
+          }
+        }
+      }
+    }
+  })
 }
 
 function removeComment(lang) {
