@@ -2,7 +2,7 @@
 title: Enhancing Copilot agent mode with MCP
 allowTitleToDifferFromFilename: true
 shortTitle: Enhance agent mode with MCP
-intro: "Learn how to use the Model Context Protocol (MCP) to expand {% data variables.copilot.copilot_chat_short %}''s agentic capabilities."
+intro: "Learn how to use the Model Context Protocol (MCP) to expand the agentic capabilities of {% data variables.copilot.copilot_chat_short %}."
 versions:
   feature: copilot
 topics:
