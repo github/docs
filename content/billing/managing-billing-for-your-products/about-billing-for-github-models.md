@@ -59,7 +59,7 @@ For accounts that use a custom model with a third-party model provider, billing 
 
 ## Opting in to paid usage
 
-> [!NOTE] Once you opt in to paid usage, you will have access to production grade rate limits and be billed for all usage thereafter. For more information about these rate limits, see [Azure AI Foundry Models quotas and limits](https://learn.microsoft.com/en-us/azure/ai-foundry/model-inference/quotas-limits) in the Azure documentation.
+{% data reusables.github-models.production-rate-limits-note %}
 
 Enterprises and organizations can opt in to paid usage to access expanded model capabilities, including increased request allowances and larger context windows. You can manage their spending by setting a budget.
 

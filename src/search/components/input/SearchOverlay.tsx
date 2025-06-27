@@ -481,9 +481,6 @@ export function SearchOverlay({
         }
       }
     } else if (event.key === 'Enter') {
-      if (searchLoading) {
-        return
-      }
       event.preventDefault()
       let pressedGroupKey = SEARCH_OVERLAY_EVENT_GROUP
       let pressedGroupId = searchEventGroupId

@@ -122,7 +122,7 @@ export const CategoryLanding = () => {
         <div className="pt-8">
           <div className="py-5 border-bottom">
             <div className="pb-3 mr-5 ml-1 float-xl-left">
-              <h2>
+              <h2 aria-live="polite">
                 {t('explore_articles').replace('{{ number }}', searchResults.length.toString())}
               </h2>
             </div>
@@ -135,13 +135,13 @@ export const CategoryLanding = () => {
               />
             </div>
           </div>
-          <ul className="clearfix d-flex flex-wrap gutter-md-spacious">
+          <ul className="clearfix d-flex flex-wrap gutter-md-spacious" aria-live="polite">
             {searchResults.map((item, index) => (
               <li key={index} className="col-md-6 col-lg-4 col-sm-12 list-style-none p-4">
                 <CookBookArticleCard
                   title={item.title}
                   description={item.intro!}
-                  icon={item.octicon}
+                  icon={item.octicon ?? undefined}
                   tags={[
                     ...(item.industry || []),
                     ...(item.category || []),
