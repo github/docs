@@ -10,6 +10,7 @@ children:
   - /copilot-chat-cookbook
   - /choosing-the-right-ai-tool-for-your-task
   - /comparing-ai-models-using-different-tasks
+  - /enhancing-copilot-agent-mode-with-mcp
   - /speeding-up-development-work-with-copilot-spaces
   - /using-copilot-to-explore-a-codebase
   - /writing-tests-with-github-copilot

@@ -198,4 +198,5 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)

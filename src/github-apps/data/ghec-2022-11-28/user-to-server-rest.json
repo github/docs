@@ -5857,6 +5857,12 @@
       "requestPath": "/users"
     },
     {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/bulk-list"
+    },
+    {
       "slug": "delete-attestations-in-bulk",
       "subcategory": "attestations",
       "verb": "post",
