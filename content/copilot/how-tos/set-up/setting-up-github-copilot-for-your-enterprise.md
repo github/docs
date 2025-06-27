@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features
   - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise
+  - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise
 ---
 
 ## 1. Enable {% data variables.product.prodname_copilot %} in your Enterprise through payment verification

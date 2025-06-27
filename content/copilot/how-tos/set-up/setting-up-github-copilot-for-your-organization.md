@@ -14,6 +14,7 @@ redirect_from:
   - /copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-for-business
   - /copilot/managing-copilot-business/enabling-and-setting-up-github-copilot-business
   - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization
+  - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-your-organization
 ---
 
 ## 1. Subscribe your organization to {% data variables.product.prodname_copilot %}

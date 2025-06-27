@@ -9,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself
+  - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-yourself
 ---
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}

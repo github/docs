@@ -12,6 +12,6 @@ children:
   - /enforcing-artifact-attestations-with-a-kubernetes-admission-controller
   - /verifying-attestations-offline
 redirect_from:
-  - /actions/security-for-github-actions/security-guides/using-artifact-attestations
+  - /actions/security-for-github-actions/using-artifact-attestations
 ---
 

@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /set-up
   - /completions
   - /chat
   - /agents
@@ -15,10 +16,10 @@ children:
   - /custom-instructions
   - /content-exclusion
   - /github-flow
+  - /monitoring-your-copilot-usage-and-entitlements
   - /personal-settings
   - /manage-your-account
   - /administer
-  - /monitoring-your-copilot-usage-and-entitlements
   - /troubleshoot
   - /build-copilot-extensions
 redirect_from:

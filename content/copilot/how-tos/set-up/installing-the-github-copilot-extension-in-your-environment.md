@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
   - /copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment
+  - /copilot/how-tos/personal-settings/installing-the-github-copilot-extension-in-your-environment
 ---
 
 ## Prerequisite

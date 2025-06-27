@@ -12,7 +12,7 @@ redirect_from:
   - /developers/overview/viewing-deployment-history
   - /actions/deployment/viewing-deployment-history
   - /actions/deployment/managing-your-deployments/viewing-deployment-history
-  - /actions/managing-workflow-runs-and-deployments/managing-workflow-deployments/viewing-deployment-history
+  - /actions/managing-workflow-runs-and-deployments/managing-deployments/viewing-deployment-history
 ---
 
 ## About deployment history

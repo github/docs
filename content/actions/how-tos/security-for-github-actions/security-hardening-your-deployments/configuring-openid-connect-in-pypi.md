@@ -11,7 +11,7 @@ topics:
   - Actions
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi
-  - /actions/security-for-github-actions/security-guides/security-hardening-your-deployments/configuring-openid-connect-in-pypi
+  - /actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-pypi
 ---
 
 ## Overview

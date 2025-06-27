@@ -13,7 +13,7 @@ topics:
   - Deployment
 redirect_from:
   - /actions/deployment/protecting-deployments/creating-custom-deployment-protection-rules
-  - /actions/managing-workflow-runs-and-deployments/managing-workflow-deployments/creating-custom-deployment-protection-rules
+  - /actions/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules
 ---
 
 {% data reusables.actions.custom-deployment-protection-rules-beta-note %}

@@ -5,7 +5,7 @@ redirect_from:
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
   - /actions/migrating-to-github-actions/manual-migrations/migrating-from-circleci-to-github-actions
-  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-circleci-to-githib-actions
+  - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-circleci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

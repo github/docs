@@ -7,7 +7,7 @@ redirect_from:
   - /actions/learn-github-actions/creating-workflow-templates
   - /actions/learn-github-actions/creating-starter-workflows-for-your-organization
   - /actions/using-workflows/creating-starter-workflows-for-your-organization
-  - /actions/creating-starter-workflow-templates-for-your-organization
+  - /actions/sharing-automations/creating-workflow-templates-for-your-organization
 versions:
   fpt: '*'
   ghes: '*'
