@@ -8,6 +8,26 @@ This guide is for developers who are proficient with at least one programming la
 
 <hr>
 
+**25 June 2025**
+
+GitHub Models launched [Pay-As-You-Go billing and Bring Your Own Key support](https://github.blog/changelog/2025-06-24-github-models-now-supports-moving-beyond-free-limits/). This provides real production usage for the first time and lays the foundation for Models to scale beyond a free sandbox.
+
+See [About Billing for GitHub Models](https://docs.github.com/billing/managing-billing-for-your-products/about-billing-for-github-models) and [Using your own API keys in GitHub Models](https://docs.github.com/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
+
+<hr>
+
+**23 June 2025**
+
+We’ve restructured our documentation around Copilot’s AI models to make it easier for users to understand, choose, and configure models across clients and plans. See [Supported AI models in Copilot](https://docs.github.com/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot) and [Choosing the right AI model for your task](https://docs.github.com/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+
+<hr>
+
+**18 June 2025**
+
+We've published a new responsible AI article for Copilot: "Responsible use of GitHub Copilot code completion." This provides RAI transparency information for this feature of GitHub Copilot.
+
+<hr>
+
 **13 June 2025**
 
 We've published a new article for people learning to code: "[Developing your project locally](https://docs.github.com/get-started/learning-to-code/developing-your-project-locally)."
