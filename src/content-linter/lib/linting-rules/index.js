@@ -24,6 +24,7 @@ import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg.js'
 import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-tags.js'
 import { frontmatterSchema } from './frontmatter-schema.js'
 import { codeAnnotations } from './code-annotations.js'
+import { codeAnnotationCommentSpacing } from './code-annotation-comment-spacing.js'
 import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
 import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
 import { raiReusableUsage } from './rai-reusable-usage.js'
@@ -73,6 +74,7 @@ export const gitHubDocsMarkdownlint = {
     frontmatterVideoTranscripts,
     frontmatterSchema,
     codeAnnotations,
+    codeAnnotationCommentSpacing,
     frontmatterLiquidSyntax,
     liquidSyntax,
     liquidIfTags,

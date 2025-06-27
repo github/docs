@@ -53,6 +53,7 @@
 | GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
 | GHD007 | code-annotations | Code annotations defined in Markdown must contain a specific layout frontmatter property | error | code, feature, annotate, frontmatter |
+| GHD045 | code-annotation-comment-spacing | Code comments in annotation blocks must have exactly one space after the comment character(s) | warning | code, comments, annotate, spacing |
 | GHD017 | frontmatter-liquid-syntax | Frontmatter properties must use valid Liquid | error | liquid, frontmatter |
 | GHD018 | liquid-syntax | Markdown content must use valid Liquid | error | liquid |
 | GHD019 | liquid-if-tags | Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version | error | liquid, versioning |
