@@ -21,7 +21,7 @@ For ease of maintaining code, you might want to move code to a language that is 
 
 {% data variables.product.prodname_copilot_short %} can help you translate code from one language to another. Translating a standalone file, such as a script, is straightforward. This process is described in this article.
 
-Translating a project containing multiple files is a more complex process, and is described in [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-migrate-a-project).
+Translating a project containing multiple files is a more complex process, and is described in [AUTOTITLE](/copilot/tutorials/using-copilot-to-migrate-a-project).
 
 ## Example scenario
 
