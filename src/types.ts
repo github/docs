@@ -2,6 +2,7 @@ import type { Request } from 'express'
 import type { Failbot } from '@github/failbot'
 
 import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d.ts'
+import type { ValidOcticon } from '@/landings/types'
 
 // Throughout our codebase we "extend" the Request object by attaching
 // things to it. For example `req.context = { currentCategory: 'foo' }`.
@@ -26,7 +27,7 @@ export type PageFrontmatter = {
   permissions?: string
   showMiniToc?: boolean
   miniTocMaxHeadingLevel?: number
-  mapTopic?: boolean
+  subcategory?: boolean
   hidden?: boolean
   noEarlyAccessBanner?: boolean
   earlyAccessToc?: string
@@ -239,8 +240,12 @@ type Breadcrumb = {
 export type ToC = {
   title: string
   fullPath: string
-  intro: string
-  childTocItems: ToC[] | null
+  intro: string | null
+  octicon: ValidOcticon | null
+  category: string[] | null
+  complexity: string[] | null
+  industry: string[] | null
+  childTocItems: ToC[]
 }
 
 export type GHESRelease = {
@@ -461,6 +466,6 @@ export type MarkdownFrontmatter = {
   children: string[]
   allowTitleToDifferFromFilename?: boolean
   versions: FrontmatterVersions
-  mapTopic?: boolean
+  subcategory?: boolean
   hidden?: boolean
 }

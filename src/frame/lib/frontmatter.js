@@ -53,7 +53,7 @@ export const schema = {
       minimum: 2,
       maximum: 4,
     },
-    mapTopic: {
+    subcategory: {
       type: 'boolean',
     },
     // allow hidden articles under `early-access`
@@ -65,7 +65,7 @@ export const schema = {
       type: 'boolean',
     },
     // specify whether an Early Access product should have a table of contents
-    // (EA categories and map topics have them by default, but products don't)
+    // (EA categories and subcategories have them by default, but products don't)
     earlyAccessToc: {
       type: 'boolean',
     },
@@ -117,6 +117,7 @@ export const schema = {
         // allows you to use an alternate heading for the popular column
         popularHeading: {
           type: 'string',
+          translatable: true,
         },
         videos: {
           type: 'array',

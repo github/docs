@@ -12,7 +12,7 @@ import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
 // the entire content and data directories based on our
 // markdownlint.js rules.
 //
-// If errors are found, it will open up a new issue in the
+// If errors or warnings are found, it will open up a new issue in the
 // docs-content repo with the label "broken content markdown report".
 //
 // The Content FR will go through the issue and update the content and
@@ -21,10 +21,12 @@ import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
 // [end-readme]
 
 program
-  .description('Opens an issue for Content FR with the errors from the weekly content/data linter.')
+  .description(
+    'Opens an issue for Content FR with the errors and warnings from the weekly content/data linter.',
+  )
   .option(
     '-p, --path <path>',
-    'provide a path to the errors output json file that will be in the issue body',
+    'provide a path to the errors and warnings output json file that will be in the issue body',
   )
   .parse(process.argv)
 
@@ -32,7 +34,7 @@ const { path } = program.opts()
 
 main()
 async function main() {
-  const errors = fs.readFileSync(`${path}`, 'utf8')
+  const lintResults = fs.readFileSync(`${path}`, 'utf8')
   const core = coreLib
   const { REPORT_REPOSITORY, REPORT_AUTHOR, REPORT_LABEL } = process.env
 
@@ -41,10 +43,10 @@ async function main() {
   // or open an issue report, you might get cryptic error messages from Octokit.
   getEnvInputs(['GITHUB_TOKEN'])
 
-  core.info(`Creating issue for errors...`)
+  core.info(`Creating issue for errors and warnings...`)
 
   let reportBody = 'The following files have markdown lint warnings/errors:\n\n'
-  for (const [file, flaws] of Object.entries(JSON.parse(errors))) {
+  for (const [file, flaws] of Object.entries(JSON.parse(lintResults))) {
     reportBody += `File: \`${file}\`:\n`
     reportBody += `\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
   }
@@ -52,7 +54,7 @@ async function main() {
   const reportProps = {
     core,
     octokit,
-    reportTitle: `Error(s) in content markdown file(s)`,
+    reportTitle: `Error(s) and warning(s) in content markdown file(s)`,
     reportBody,
     reportRepository: REPORT_REPOSITORY,
     reportLabel: REPORT_LABEL,

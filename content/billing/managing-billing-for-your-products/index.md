@@ -14,6 +14,7 @@ children:
   - /about-billing-for-github-codespaces
   - /about-billing-for-github-copilot
   - /about-billing-for-github-packages
+  - /about-billing-for-github-models
   - /managing-billing-for-github-advanced-security
   - /managing-billing-for-git-large-file-storage
   - /managing-billing-for-github-marketplace-apps

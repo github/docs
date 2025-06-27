@@ -21453,6 +21453,11 @@ type Mannequin implements Actor & Node & UniformResourceLocatable {
   login: String!
 
   """
+  The display name of the imported mannequin.
+  """
+  name: String
+
+  """
   The HTML path to this resource.
   """
   resourcePath: URI!

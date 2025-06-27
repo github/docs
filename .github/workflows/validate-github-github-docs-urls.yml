@@ -50,6 +50,7 @@ jobs:
           # do other things in other steps.
           npm run validate-github-github-docs-urls -- validate \
             --output checks.json \
+            --ignore-not-found \
             github/config/docs-urls.json
 
       - name: Update config/docs-urls.json in github/github (possibly)

@@ -10,7 +10,7 @@ featuredLinks:
     - /get-started/foo/bar
     - /pages
     - '{% ifversion ghec %}/get-started/versioning/only-ghec{% endif %}'
-    - /actions/category/map-topic
+    - /actions/category/subcategory
 redirect_from:
   - /olden-days
 versions:

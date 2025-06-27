@@ -1858,7 +1858,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: HashiCorp

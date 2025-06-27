@@ -21,7 +21,7 @@ describe('page titles', () => {
     )
   })
 
-  test('fpt map topic page', async () => {
+  test('fpt subcategory page', async () => {
     const $ = await getDOM('/en/get-started/start-your-journey')
     expect($('title').text()).toBe('Start your journey - GitHub Docs')
   })

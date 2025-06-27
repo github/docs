@@ -96,12 +96,14 @@ export function getVersionObjectFromPath(href) {
   return allVersions[versionFromPath]
 }
 
+// TODO needs refactoring + tests
 // Return the product segment from the path
 export function getProductStringFromPath(href) {
   href = getPathWithoutLanguage(href)
 
   if (href === '/') return 'homepage'
 
+  // The first segment will always be empty on this split
   const pathParts = href.split('/')
 
   if (pathParts.includes('early-access')) return 'early-access'
@@ -109,8 +111,17 @@ export function getProductStringFromPath(href) {
   // For rest pages the currentProduct should be rest
   // We use this to show SidebarRest, which is a different sidebar than the rest of the site
   if (pathParts[1] === 'rest') return 'rest'
+  if (pathParts[1] === 'copilot') return 'copilot'
+  if (pathParts[1] === 'get-started') return 'get-started'
 
-  return productIds.includes(pathParts[2]) ? pathParts[2] : pathParts[1]
+  // Possible scenarios for href (assume part[0] is an empty string):
+  //
+  // * part[1] is a version and part[2] is undefined, so return part[1] as an enterprise landing page
+  // * part[1] is a version and part[2] is defined, so return part[2] as the product
+  // * part[1] is NOT a version, so return part[1] as the product
+  const isEnterprise = supportedVersions.has(pathParts[1])
+  const productString = isEnterprise && pathParts[2] ? pathParts[2] : pathParts[1]
+  return productString
 }
 
 export function getCategoryStringFromPath(href) {

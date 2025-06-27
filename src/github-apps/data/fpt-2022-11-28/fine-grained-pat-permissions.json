@@ -4075,6 +4075,33 @@
     "displayTitle": "Repository permissions for \"Attestations\"",
     "permissions": [
       {
+        "category": "orgs",
+        "slug": "delete-attestations-in-bulk",
+        "subcategory": "attestations",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/attestations/delete-request",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-attestations-by-subject-digest",
+        "subcategory": "attestations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-attestations-by-id",
+        "subcategory": "attestations",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/attestations/{attestation_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "repos",
         "slug": "create-an-attestation",
         "subcategory": "repos",

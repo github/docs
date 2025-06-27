@@ -20,6 +20,7 @@ children:
   - /filtering-alerts-in-security-overview
   - /enabling-security-features-for-multiple-repositories
   - /exporting-data-from-security-overview
+  - /viewing-metrics-for-dependabot-alerts
   - /viewing-metrics-for-secret-scanning-push-protection
   - /viewing-metrics-for-pull-request-alerts
   - /reviewing-requests-to-bypass-push-protection

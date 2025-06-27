@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import { ActionList } from '@primer/react'
 import { Link } from '@/frame/components/Link'
-import type { TocItem } from '@/landings/components/ProductLandingContext'
+import type { TocItem } from '@/landings/types'
 
 type Props = {
   items: Array<TocItem>
