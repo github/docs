@@ -141,7 +141,7 @@ export const CategoryLanding = () => {
                 <CookBookArticleCard
                   title={item.title}
                   description={item.intro!}
-                  icon={item.octicon}
+                  icon={item.octicon ?? undefined}
                   tags={[
                     ...(item.industry || []),
                     ...(item.category || []),
