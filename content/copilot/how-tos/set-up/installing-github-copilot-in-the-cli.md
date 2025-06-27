@@ -12,6 +12,7 @@ redirect_from:
   - /copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli
   - /copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli
+  - /copilot/how-tos/personal-settings/installing-github-copilot-in-the-cli
 ---
 
 ## Prerequisites

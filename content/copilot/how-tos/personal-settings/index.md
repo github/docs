@@ -7,8 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /installing-the-github-copilot-extension-in-your-environment
-  - /installing-github-copilot-in-the-cli
   - /configuring-network-settings-for-github-copilot
   - /configuring-github-copilot-in-your-environment
   - /configuring-github-copilot-in-the-cli

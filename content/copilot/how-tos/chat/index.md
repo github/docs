@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat
   - /copilot/using-github-copilot/copilot-chat
 children:
+  - /getting-started-with-prompts-for-copilot-chat
   - /asking-github-copilot-questions-in-your-ide
   - /asking-github-copilot-questions-in-windows-terminal
   - /asking-github-copilot-questions-in-github
