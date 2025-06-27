@@ -4,7 +4,7 @@ shortTitle: Security harden deployments
 intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments
-  - /actions/security-for-github-actions/security-guides/security-hardening-your-deployments
+  - /actions/security-for-github-actions/security-hardening-your-deployments
 versions:
   fpt: '*'
   ghec: '*'

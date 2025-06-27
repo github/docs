@@ -5,7 +5,7 @@ intro: 'View your deployment history and configure rules to protect your deploym
 redirect_from:
   - /actions/deployment/managing-your-deployments
   - /actions/deployment/protecting-deployments
-  - /actions/managing-workflow-runs-and-deployments/managing-workflow-deployments
+  - /actions/managing-workflow-runs-and-deployments/managing-deployments
 versions:
   fpt: '*'
   ghes: '*'

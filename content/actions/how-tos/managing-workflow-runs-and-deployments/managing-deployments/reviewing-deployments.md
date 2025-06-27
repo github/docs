@@ -9,7 +9,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/managing-workflow-runs/reviewing-deployments
-  - /actions/managing-workflow-runs-and-deployments/managing-workflow-deployments/reviewing-deployments
+  - /actions/managing-workflow-runs-and-deployments/managing-deployments/reviewing-deployments
 ---
 
 
