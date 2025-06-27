@@ -1,7 +1,7 @@
 ---
 title: Customizing the development environment for Copilot coding agent
 shortTitle: Customize the agent environment
-intro: 'Learn how to customize {% data variables.product.prodname_copilot %}''s development environment with additional tools.'
+intro: "Learn how to customize {% data variables.product.prodname_copilot %}'s development environment with additional tools."
 versions:
   feature: copilot
 topics:
@@ -23,8 +23,9 @@ While working on a task, {% data variables.product.prodname_copilot_short %} has
 
 You can customize {% data variables.product.prodname_copilot_short %}'s environment to:
 
-* [Preinstall tools or dependencies in {% data variables.product.prodname_copilot_short %}'s environment](#preinstalling-tools-or-dependencies-in-copilots-environment).
-* [Upgrade from standard {% data variables.product.github %}-hosted {% data variables.product.prodname_actions %} runners to larger runners](#upgrading-to-larger-github-hosted-github-actions-runners).
+* [Preinstall tools or dependencies in {% data variables.product.prodname_copilot_short %}'s environment](#preinstalling-tools-or-dependencies-in-copilots-environment)
+* [Set environment variables in {% data variables.product.prodname_copilot_short %}'s environment](#setting-environment-variables-in-copilots-environment)
+* [Upgrade from standard {% data variables.product.github %}-hosted {% data variables.product.prodname_actions %} runners to larger runners](#upgrading-to-larger-github-hosted-github-actions-runners)
 * [Enable Git Large File Storage (LFS)](#enabling-git-large-file-storage-lfs)
 * [Disable or customize the agent's firewall](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
@@ -96,6 +97,19 @@ For more information on these options, see [AUTOTITLE](/actions/writing-workflow
 Your `copilot-setup-steps.yml` file will automatically be run as a normal {% data variables.product.prodname_actions %} workflow when changes are made, so you can see if it runs successfully. This will show alongside other checks in a pull request where you create or modify the file.
 
 Once you have merged the yml file into your default branch, you can manually run the workflow from the repository's **Actions** tab at any time to check that everything works as expected. For more information, see [AUTOTITLE](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
+
+## Setting environment variables in {% data variables.product.prodname_copilot_short %}'s environment
+
+You may want to set environment variables in {% data variables.product.prodname_copilot_short %}'s environment to configure or authenticate tools or dependencies that it has access to.
+
+To set an environment variable for {% data variables.product.prodname_copilot_short %}, create a {% data variables.product.prodname_actions %} variable or secret in the `copilot` environment. If the value contains sensitive information, for example a password or API key, it's best to use a {% data variables.product.prodname_actions %} secret.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.actions.sidebar-environment %}
+1. Click the `copilot` environment.
+1. To add a secret, under "Environment secrets," click **Add environment secret**. To add a variable, under "Environment variables," click **Add environment variable**.
+1. Fill in the "Name" and "Value" fields, and then click **Add secret** or **Add variable** as appropriate.
 
 ## Upgrading to larger {% data variables.product.prodname_dotcom %}-hosted {% data variables.product.prodname_actions %} runners
 
