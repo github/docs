@@ -2,7 +2,7 @@
 
 **27 June 2025**
 
-We've published a new scenario-based guide for Copilot: "[Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot)."
+We've published a new scenario-based guide for Copilot: [Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot).
 
 This guide is for developers who are proficient with at least one programming language and want to learn an additional language. It provides information about how you can use Copilot as your personalized learning assistant. It also provides many ready-made prompts that you can use when you are learning a new programming language.
 
@@ -24,13 +24,13 @@ We’ve restructured our documentation around Copilot’s AI models to make it e
 
 **18 June 2025**
 
-We've published a new responsible AI article for Copilot: "Responsible use of GitHub Copilot code completion." This provides RAI transparency information for this feature of GitHub Copilot.
+We've published a new responsible AI article for Copilot: [Responsible use of GitHub Copilot code completion](https://docs.github.com/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion). This provides RAI transparency information for this feature of GitHub Copilot.
 
 <hr>
 
 **13 June 2025**
 
-We've published a new article for people learning to code: "[Developing your project locally](https://docs.github.com/get-started/learning-to-code/developing-your-project-locally)."
+We've published a new article for people learning to code: [Developing your project locally](https://docs.github.com/get-started/learning-to-code/developing-your-project-locally).
 
 This tutorial helps learners gain core skills needed to set up any project locally by working through an example client-side application using HTML, CSS, and JavaScript. The goal is to help new coders use GitHub tools to recognize patterns across different technologies and build confidence in their ability to set up any project locally.
 
@@ -40,13 +40,13 @@ This tutorial helps learners gain core skills needed to set up any project local
 
 To manage System for Cross-domain Identity Management (SCIM) integration with confidence, customers need to understand the different types of deprovisioning, the actions that trigger them, and their options for reinstating deprovisioned users.
 
-We've published a new article to answer questions around suspending and reinstating Enterprise Managed Users, or users where SCIM is enabled on GitHub Enterprise Server: "[Deprovisioning and reinstating users with SCIM](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/deprovisioning-and-reinstating-users)".
+We've published a new article to answer questions around suspending and reinstating Enterprise Managed Users, or users where SCIM is enabled on GitHub Enterprise Server: [Deprovisioning and reinstating users with SCIM](https://docs.github.com/enterprise-cloud@latest/admin/managing-iam/provisioning-user-accounts-with-scim/deprovisioning-and-reinstating-users).
 
 <hr>
 
 **11 June 2025**
 
-We've added a new scenario-based guide for the Builder persona: "[Using Copilot to explore a codebase](https://docs.github.com/copilot/tutorials/using-copilot-to-explore-a-codebase)."
+We've added a new scenario-based guide for the Builder persona: [Using Copilot to explore a codebase](https://docs.github.com/copilot/tutorials/using-copilot-to-explore-a-codebase).
 
 <hr>
 
