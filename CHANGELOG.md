@@ -1,5 +1,13 @@
 # Docs changelog
 
+**27 June 2025**
+
+We've published a new scenario-based guide for Copilot: "[Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot)."
+
+This guide is for developers who are proficient with at least one programming language and want to learn an additional language. It provides information about how you can use Copilot as your personalized learning assistant. It also provides many ready-made prompts that you can use when you are learning a new programming language.
+
+<hr>
+
 **13 June 2025**
 
 We've published a new article for people learning to code: "[Developing your project locally](https://docs.github.com/get-started/learning-to-code/developing-your-project-locally)."
@@ -27,5 +35,3 @@ We've added a new scenario-based guide for the Builder persona: "[Using Copilot 
 To help learners feel confident they are building real coding skills while using Copilot, we published [Setting up Copilot for learning to code](https://docs.github.com/get-started/learning-to-code/setting-up-copilot-for-learning-to-code).
 
 This article helps learners take their first steps in coding with Copilot acting as a tutor, rather than a code completion tool. Configuring Copilot for learning emphasizes skill development and gives learners a way to use Copilot as a daily tool to foster learning and coding independence.
-
-<hr>
