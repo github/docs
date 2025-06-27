@@ -1,7 +1,7 @@
 ---
 title:  'Understanding your organization''s exposure to vulnerabilities'
 shortTitle: Exposure to vulnerabilities
-intro: 'Understanding your organization’s exposure to vulnerable dependencies is crucial for identifying and prioritizing security risks. This awareness allows you to prioritize remediation efforts, reduce the likelihood of security breaches, protect sensitive data, and maintain the overall integrity and reputation of the organization.'
+intro: 'Understanding your organization''s exposure to vulnerable dependencies is crucial for identifying and prioritizing security risks. This awareness allows you to prioritize remediation efforts, reduce the likelihood of security breaches, protect sensitive data, and maintain the overall integrity and reputation of the organization.'
 versions:
   feature: dependabot-metrics
 topics:
