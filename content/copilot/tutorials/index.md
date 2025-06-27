@@ -14,6 +14,7 @@ children:
   - /using-copilot-to-explore-a-codebase
   - /writing-tests-with-github-copilot
   - /refactoring-code-with-github-copilot
+  - /learning-a-new-programming-language-with-github-copilot
   - /modernizing-legacy-code-with-github-copilot
   - /using-copilot-to-migrate-a-project
   - /upgrading-java-projects-with-github-copilot
@@ -21,4 +22,3 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 ---
-

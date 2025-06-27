@@ -173,7 +173,7 @@ class Cart:
 
 Consider a scenario where you are implementing both unit tests and integration tests for an application. You want to ensure that the tests are comprehensive and cover any edge cases that you may and may not have thought of.
 
-For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/writing-tests-with-github-copilot).
+For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/tutorials/writing-tests-with-github-copilot).
 
 ### Why {% data variables.copilot.copilot_claude_sonnet_35 %} is a good fit
 
@@ -188,7 +188,7 @@ For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/using-githu
 
 Consider a scenario where you're modernizing a legacy COBOL application by rewriting it in Node.js. The project involves understanding unfamiliar source code, converting logic across languages, iteratively building the replacement, and verifying correctness through a test suite.
 
-For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/modernizing-legacy-code-with-github-copilot).
+For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/tutorials/modernizing-legacy-code-with-github-copilot).
 
 ### Why {% data variables.copilot.copilot_claude_sonnet_37 %} is a good fit
 

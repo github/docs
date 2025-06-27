@@ -401,4 +401,4 @@ To give feedback about {% data variables.copilot.copilot_chat_short %} in genera
 
 * [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)
 * [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile)
-* [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
