@@ -1,3 +1,4 @@
+||
 ---
 title: Understanding GitHub Code Search syntax
 shortTitle: Code search syntax
