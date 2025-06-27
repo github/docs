@@ -186,7 +186,7 @@ You can request a review for your staged or unstaged changes in {% data variable
 1. In {% data variables.product.prodname_vscode_shortname %}, switch to the **Source Control** tab.
 1. To request a review on your unstaged changes, hover over **Changes** in the sidebar, and then click the {% data reusables.copilot.code-review.staging-icon-vscode %} **{% data variables.copilot.copilot_code-review_short %} - Changes** button.
 
-   ![Screenshot of the "{% data variables.copilot.copilot_code-review_short %} - Changes" button in {% data variables.product.prodname_vscode %}. The code review button is outlined in dark orange.](/assets/images/help/copilot/code-review/vscode-review-button@2x.png)
+   ![Screenshot of the "{% data variables.copilot.copilot_code-review_short %} - Changes" button in {% data variables.product.prodname_vscode %}. The code review button is outlined in dark orange.](/assets/images/help/copilot/code-review/vscode-review-button.png)
 
 1. To request a review on your staged changes, hover over **Staged Changes** in the sidebar, and then click the {% data reusables.copilot.code-review.staging-icon-vscode %} **{% data variables.copilot.copilot_code-review_short %} - Staged Changes** button.
 
