@@ -14,27 +14,23 @@ featuredLinks:
   startHere:
     - /copilot/get-started/what-is-github-copilot
     - /copilot/get-started/quickstart
-    - /copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+    - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
     - /copilot/concepts/about-assigning-tasks-to-copilot
   popular:
     - /copilot/get-started/github-copilot-features
     - /copilot/tutorials/copilot-chat-cookbook
-    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-    - /copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide
-    - /copilot/using-github-copilot/using-github-copilot-in-the-command-line
+    - /copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /copilot/how-tos/chat/asking-github-copilot-questions-in-your-ide
+    - /copilot/how-tos/github-flow/using-github-copilot-in-the-command-line
 layout: product-landing
 versions:
   feature: copilot
 children:
   - /get-started
   - /concepts
-  - /using-github-copilot
-  - /managing-copilot
-  - /customizing-copilot
+  - /how-tos
   - /reference
   - /tutorials
-  - /building-copilot-extensions
-  - /troubleshooting-github-copilot
   - /responsible-use-of-github-copilot-features
 topics:
   - Copilot

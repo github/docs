@@ -14,7 +14,5 @@ children:
   - /indexing-repositories-for-copilot-chat
   - /about-organizing-and-sharing-context-with-copilot-spaces
   - /build-copilot-extensions
-redirect_from:
-  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
 ---
 
