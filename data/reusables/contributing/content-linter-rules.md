@@ -31,6 +31,7 @@
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [GH001](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH001-no-default-alt-text.md) | no-default-alt-text | Images should have meaningful alternative text (alt text) | error | accessibility, images |
 | [GH002](https://github.com/github/markdownlint-github/blob/main/docs/rules/GH002-no-generic-link-text.md) | no-generic-link-text | Avoid using generic link text like `Learn more` or `Click here` | error | accessibility, links |
+| GHD030 | code-fence-line-length | Code fence lines should not exceed a maximum length | warning | code, accessibility |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
 | GHD004 | image-file-kebab-case | Image file names must use kebab-case | error | images |
 | GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | warning | accessibility, images |
@@ -52,6 +53,7 @@
 | GHD011 | frontmatter-video-transcripts | Video transcript must be configured correctly | error | frontmatter, feature, video-transcripts |
 | GHD012 | frontmatter-schema | Frontmatter must conform to the schema | error | frontmatter, schema |
 | GHD007 | code-annotations | Code annotations defined in Markdown must contain a specific layout frontmatter property | error | code, feature, annotate, frontmatter |
+| GHD045 | code-annotation-comment-spacing | Code comments in annotation blocks must have exactly one space after the comment character(s) | warning | code, comments, annotate, spacing |
 | GHD017 | frontmatter-liquid-syntax | Frontmatter properties must use valid Liquid | error | liquid, frontmatter |
 | GHD018 | liquid-syntax | Markdown content must use valid Liquid | error | liquid |
 | GHD019 | liquid-if-tags | Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version | error | liquid, versioning |
@@ -59,10 +61,13 @@
 | GHD022 | liquid-ifversion-versions | Liquid `ifversion`, `elsif`, and `else` tags should be valid and not contain unsupported versions. | error | liquid, versioning |
 | GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
-| GHD038 | expired-content | Expired content must be remediated. | error | expired |
+| GHD038 | expired-content | Expired content must be remediated. | warning | expired |
 | GHD039 | expiring-soon | Content that expires soon should be proactively addressed. | warning | expired |
 | [GHD040](https://github.com/github/docs/blob/main/src/content-linter/README.md) | table-liquid-versioning | Tables must use the correct liquid versioning format | error | tables |
 | GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
 | GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
 | GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |
 | GHD044 | octicon-aria-labels | Octicons should always have an aria-label attribute even if aria-hidden. | warning | accessibility, octicons |
+| GHD048 | british-english-quotes | Periods and commas should be placed inside quotation marks (American English style) | warning | punctuation, quotes, style, consistency |
+| GHD050 | multiple-emphasis-patterns | Do not use more than one emphasis/strong, italics, or uppercase for a string | warning | formatting, emphasis, style |
+| GHD049 | note-warning-formatting | Note and warning tags should be formatted according to style guide | warning | formatting, callouts, notes, warnings, style |

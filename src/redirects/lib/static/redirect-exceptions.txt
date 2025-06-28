@@ -40,7 +40,7 @@
 - /enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
 
 # As seen in PR 48753 we are restructuring the copilot docs and removing the overview category
-/copilot/about-github-copilot
+/copilot/get-started
 - /copilot/overview-of-github-copilot
 
 # Pages that existed *only* in github-ae need their equivalent

@@ -25,7 +25,7 @@ Organization members with write access can also assign a pull request review to 
 > [!NOTE]
 > Pull request authors can't request reviews unless they are either a repository owner or collaborator with write access to the repository.
 
-{% ifversion copilot-hadron %}
+{% ifversion copilot %}
 
 ## Requesting reviews from collaborators and organization members
 
@@ -47,12 +47,9 @@ You can request a review from either a suggested or specific person. Suggested r
 
    ![Screenshot of the "Reviewers" section of a pull request's sidebar. To the right of @octocat, a sync icon is outlined in dark orange.](/assets/images/help/pull_requests/request-re-review.png)
 
-{% ifversion copilot-hadron %}
+{% ifversion copilot %}
 
 ## Requesting a review from {% data variables.product.prodname_copilot %}
-
->[!NOTE]
->{% data variables.copilot.copilot_workspace %} is currently in {% data variables.release-phases.public_preview %}. For information about joining the {% data variables.release-phases.public_preview %}, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
 You can also request that {% data variables.product.prodname_copilot_short %} reviews your code and provides feedback and suggested changes on your work. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 

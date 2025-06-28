@@ -101,6 +101,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'code-fence-line-length': {
+    // GHD030
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'image-alt-text-exclude-words': {
     // GHD031
     severity: 'error',
@@ -137,7 +143,7 @@ const githubDocsConfig = {
   },
   'expired-content': {
     // GHD038
-    severity: 'error',
+    severity: 'warning',
     'partial-markdown-files': true,
   },
   'expiring-soon': {
@@ -170,6 +176,30 @@ const githubDocsConfig = {
   },
   'octicon-aria-labels': {
     // GHD044
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'code-annotation-comment-spacing': {
+    // GHD045
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'british-english-quotes': {
+    // GHD048
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'note-warning-formatting': {
+    // GHD049
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'multiple-emphasis-patterns': {
+    // GHD050
     severity: 'warning',
     'partial-markdown-files': true,
     'yml-files': true,

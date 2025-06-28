@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -87,11 +87,11 @@ jobs:
           echo "Creating pull request..."
           gh pr create \
             --title "Update audit log event data" \
-            --body '👋 humans. This PR updates the audit log event data with the latest changes. (Synced from github/audit-log-allowlists)
-
+            --body '👋 Docs First Responder. This PR updates the audit log event data with the latest changes, synced from github/audit-log-allowlists.
+            Make sure the PR builds successfully and there are no gross errors (for example, a file is deleted). You do not need to validate the contents (that is the responsibility of product teams).
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label audit-log-pipeline \
+            --label audit-log-pipeline,workflow-generated \
             --head=$branchname
           echo "Created pull request"
 

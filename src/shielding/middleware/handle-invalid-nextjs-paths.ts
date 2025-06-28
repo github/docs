@@ -26,7 +26,8 @@ export default function handleInvalidNextPaths(
     const tags = [`path:${req.path}`]
     statsd.increment(STATSD_KEY, 1, tags)
 
-    return res.status(404).type('text').send('Not found')
+    res.status(404).type('text').send('Not found')
+    return
   }
 
   return next()

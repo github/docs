@@ -99,6 +99,15 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
 
             // fine-grained pats
             if (isFineGrainedPat) {
+              // Hardcoded exception: exclude repository_projects from fine-grained PAT permissions
+              // This is because fine-grained PATs can only operate on organization-level Projects (classic),
+              // not repository-level Projects (classic). Users cannot grant the repository Projects (classic)
+              // fine-grained permission in the fine-grained PAT UI.
+              // See: https://github.com/github/docs-engineering/issues/4613
+              if (permissionName === 'repository_projects') {
+                continue
+              }
+
               const findGrainedPatPermissions = githubAppsData['fine-grained-pat-permissions']
               if (!findGrainedPatPermissions[permissionName]) {
                 findGrainedPatPermissions[permissionName] = {
@@ -249,7 +258,10 @@ function getDisplayTitle(permissionName, progActorResources, isRest = false) {
     )
   }
   const title = progActorResources[permissionName]?.title || tempTitle
-  const resourceGroup = progActorResources[permissionName]?.resource_group || ''
+  let resourceGroup = progActorResources[permissionName]?.resource_group || ''
+  if (resourceGroup === 'business') {
+    resourceGroup = 'enterprise'
+  }
 
   if (!title) {
     console.warn(`No title found for title ${title} resource group ${resourceGroup}`)

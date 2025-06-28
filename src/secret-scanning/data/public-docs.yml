@@ -726,6 +726,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -737,6 +738,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -748,6 +750,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -783,6 +786,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1091,6 +1095,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1222,6 +1227,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1245,6 +1251,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1256,6 +1263,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1295,7 +1303,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler SCIM Token
@@ -1847,9 +1855,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: HashiCorp
@@ -1906,6 +1915,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1917,6 +1927,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2168,7 +2179,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2511,6 +2522,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2522,6 +2534,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2533,6 +2546,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2544,6 +2558,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2555,6 +2570,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2566,6 +2582,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2577,6 +2594,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2588,6 +2606,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2599,6 +2618,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2931,6 +2951,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3362,6 +3383,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3373,6 +3395,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3384,6 +3407,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3712,6 +3736,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Snowflake
+  supportedSecret: Snowflake Programmatic Access Token
+  secretType: snowflake_programmatic_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph Access Token
   secretType: sourcegraph_access_token
@@ -3965,6 +4000,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Tencent
+  supportedSecret: Tencent Cloud International Access Token
+  secretType: tencent_cloud_intl_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Tencent
   supportedSecret: Tencent Cloud Secret ID
   secretType: tencent_cloud_secret_id
   versions:
@@ -4174,6 +4220,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false

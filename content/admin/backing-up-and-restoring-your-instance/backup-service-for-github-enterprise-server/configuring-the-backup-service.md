@@ -63,7 +63,7 @@ If you're using a dedicated block device as your backup target, you need to init
     >[!WARNING] This command will permanently erase all data on the specified device. Double-check the device name and back up any important data before proceeding.
 
     ```shell
-    ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
+    /usr/local/share/enterprise/ghe-storage-init-backup /dev/YOUR_DEVICE_NAME
     ```
 
     This command:

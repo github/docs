@@ -6,6 +6,12 @@ name: Reviewers - Dependabot
 
 on:
   pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
     paths:
       - 'data/reusable/dependabot/**'
       - 'content/code-security/dependabot/**'
@@ -18,7 +24,7 @@ permissions:
   repository-projects: read
 
 jobs:
-  add-reviewer:
+  reviewers-dependabot:
     if: >-
       ${{ github.repository == 'github/docs-internal' &&
           !github.event.pull_request.draft &&
@@ -26,11 +32,14 @@ jobs:
           github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
       PR: ${{ github.event.pull_request.html_url }}
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
     steps:
-      - name: Add Dependabot Core Maintainers as reviewers
-        run: |
-          gh pr edit $PR --add-reviewer github/dependabot-updates-reviewers
-          gh pr edit $PR --add-label reviewers-dependabot
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add dependabot as a reviewer
+        uses: ./.github/actions/retry-command
+        with:
+          command: gh pr edit $PR --add-reviewer github/dependabot-updates-reviewers --add-label reviewers-dependabot

@@ -64,9 +64,9 @@ Anyone with write permission for a repository can fix an alert by committing a c
 
 You can use the free text search or the filters to display a subset of alerts and then in turn mark all matching alerts as closed.
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alerts may be fixed in one branch but not in another. You can use the "branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
-![Screenshot of alerts view with the "Branch" dropdown menu expanded. The "Branch" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
+![Screenshot of alerts view with the branch options expanded. The "branch" filter is underlined with dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
 
 {% data reusables.code-scanning.filter-non-default-branches %}
 
@@ -136,6 +136,3 @@ You may have multiple code scanning configurations on a single repository. When 
 * [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)
 * [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
 * [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)
-{%- ifversion copilot-hadron %}
-* [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)
-{%- endif %}

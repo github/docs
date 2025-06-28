@@ -79,7 +79,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
   const { asPath, locale } = useRouter()
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
   const isActive = routePath === childPage.href
-  const specialCategory = childPage.href.endsWith('/copilot/copilot-chat-cookbook')
+  const specialCategory = childPage.href.endsWith('/copilot/tutorials/copilot-chat-cookbook')
 
   return (
     <NavList.Item
