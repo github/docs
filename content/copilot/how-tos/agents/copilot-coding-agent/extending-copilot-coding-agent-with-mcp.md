@@ -117,7 +117,7 @@ The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data v
         "SENTRY_HOST": "https://contoso.sentry.io",
         // or refer to a {% data variables.product.prodname_actions %} secret with a name starting with
         // `COPILOT_MCP_`
-        "SENTRY_AUTH_TOKEN": "COPILOT_MCP_SENTRY_AUTH_TOKEN"
+        "SENTRY_ACCESS_TOKEN": "COPILOT_MCP_SENTRY_ACCESS_TOKEN"
       }
     }
   }
