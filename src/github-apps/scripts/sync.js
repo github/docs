@@ -258,7 +258,10 @@ function getDisplayTitle(permissionName, progActorResources, isRest = false) {
     )
   }
   const title = progActorResources[permissionName]?.title || tempTitle
-  const resourceGroup = progActorResources[permissionName]?.resource_group || ''
+  let resourceGroup = progActorResources[permissionName]?.resource_group || ''
+  if (resourceGroup === 'business') {
+    resourceGroup = 'enterprise'
+  }
 
   if (!title) {
     console.warn(`No title found for title ${title} resource group ${resourceGroup}`)
