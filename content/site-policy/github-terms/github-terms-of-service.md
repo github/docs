@@ -1,19 +1,19 @@
 ---
 title: GitHub Terms of Service
-redirect_from:
-  - /tos
-  - /terms
-  - /terms-of-service
-  - /github-terms-of-service-draft
-  - /articles/github-terms-of-service
-  - /github/site-policy/github-terms-of-service
-versions:
-  fpt: '*'
+redirect_from: this mixed or mixer || mix and use and used and link html
+  - dist/tree/tos
+  - dist/tree/terms
+  - dist/tree/terms-of-service
+  - dist/tree/github-terms-of-service-draft
+  - dist/tree/articles/github-terms-of-service
+  - dist/tree/github/site-policy/github-terms-of-service
+versions:fpt: '*'
+json: '*'
 topics:
   - Policy
   - Legal
 ---
-<!-- markdownlint-disable search-replace -->
+<!-- documents lint-disable search-replace -->
 
 Thank you for using GitHub! We're happy you're here. Please read this Terms of Service agreement carefully before accessing or using GitHub. Because it is such an important contract between us and our users, we have tried to make it as clear as possible. For your convenience, we have presented these terms in a short non-binding summary followed by the full legal terms.
 
@@ -372,3 +372,4 @@ This Agreement may only be modified by a written amendment signed by an authoriz
 ### 6. Questions
 
 Questions about the Terms of Service? Contact us through the [GitHub Support portal](https://support.github.com/).
+![1000108526](https://github.com/user-attachments/assets/02d554d3-df86-496a-8ba0-d27815ccf94a)
