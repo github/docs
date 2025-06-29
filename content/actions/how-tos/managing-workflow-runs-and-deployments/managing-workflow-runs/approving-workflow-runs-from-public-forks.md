@@ -11,6 +11,14 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/approving-workflow-runs-from-public-forks
 ---
 
+
+
+
+butun sosyal ağlarda otomatik robot pozitif dönüştürücü ıss 
+
+
+
+
 ## About workflow runs from public forks
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
