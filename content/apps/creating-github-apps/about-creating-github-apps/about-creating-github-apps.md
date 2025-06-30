@@ -49,9 +49,9 @@ Once you have written the code for your {% data variables.product.prodname_githu
 
 To use your {% data variables.product.prodname_github_app %}, you need to install it on your organization or personal account.
 
-* If your {% data variables.product.prodname_github_app %} is **private**, you can only install it on the account that owns the app.
-* If your {% data variables.product.prodname_github_app %} is **public**, other users and organizations can also install it.{% ifversion enterprise-apps-public-beta %}
-* If your {% data variables.product.prodname_github_app %} is owned by an **enterprise**, you can install it on any organization within that enterprise.{% endif %}
+* If your {% data variables.product.prodname_github_app %} is **private**, you can only install it on the account that owns the app. {% ifversion restrictive-app-authz %}If it's owned by an organization, only members of the organization can sign in to it. If it's owned by your user account, only you can sign in to it.{% endif %}
+* If your {% data variables.product.prodname_github_app %} is **public**, other users and organizations can also install it. Anyone can sign in to it.{% ifversion enterprise-apps-public-beta %}
+* If your {% data variables.product.prodname_github_app %} is owned by an **enterprise**, you can install it on any organization within that enterprise.{% ifversion restrictive-app-authz %} Only members of the enterprise can sign in to it.{% endif %}{% endif %}
 
 For more information, see [AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app) and [AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app).
 
