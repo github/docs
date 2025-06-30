@@ -284,7 +284,7 @@
       },
       {
         "category": "dependabot",
-        "slug": "lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+        "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
         "subcategory": "repository-access",
         "verb": "get",
         "requestPath": "/organizations/{org}/dependabot/repository-access",
@@ -293,7 +293,7 @@
       },
       {
         "category": "dependabot",
-        "slug": "updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+        "slug": "updates-dependabots-repository-access-list-for-an-organization",
         "subcategory": "repository-access",
         "verb": "patch",
         "requestPath": "/organizations/{org}/dependabot/repository-access",
