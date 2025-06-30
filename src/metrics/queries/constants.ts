@@ -1,5 +1,11 @@
+import type { DateRange } from '@/metrics/lib/dates'
+
 // SHARED QUERY CONSTANTS
-export const SHARED_DECLARATIONS = (path, dates, version) =>
+export const SHARED_DECLARATIONS = (
+  path: string | string[],
+  dates: DateRange,
+  version: string | null,
+): string =>
   `
     let _article = dynamic(['${Array.isArray(path) ? path.join("', '") : path}']);
     let _articleType = dynamic(null);

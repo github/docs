@@ -1,11 +1,17 @@
-const dateOpts = {
+const dateOpts: Intl.DateTimeFormatOptions = {
   year: 'numeric',
   month: 'long',
   day: 'numeric',
 }
 
+export interface DateRange {
+  endDate: string
+  startDate: string
+  friendlyRange: string
+}
+
 // Default to 30 days ago if a range option is not provided
-export function getDates(range = '30') {
+export function getDates(range: string | number = '30'): DateRange {
   // Get current datetime in ISO format
   const today = new Date()
   const todayISO = today.toISOString()
@@ -21,7 +27,7 @@ export function getDates(range = '30') {
   }
 }
 
-function getDaysAgo(range) {
+function getDaysAgo(range: number): Date {
   const daysAgo = new Date()
   daysAgo.setDate(daysAgo.getDate() - range)
   return daysAgo

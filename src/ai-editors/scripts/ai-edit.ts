@@ -6,8 +6,9 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import path from 'path'
 import ora from 'ora'
-import github from '#src/workflows/github.ts'
-import { callModelsApi } from '#src/ai-editors/lib/call-models-api.js'
+import { callModelsApi } from '@/ai-editors/lib/call-models-api'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const promptDir = path.join(__dirname, '../prompts')
@@ -16,15 +17,36 @@ if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
 }
 
-const responseTypes = {
+interface ResponseTypes {
+  rewrite: string
+  list: string
+  json: string
+}
+
+const responseTypes: ResponseTypes = {
   rewrite: 'Edit the versioning only. Return the edited content.',
   list: `Do NOT rewrite the content. Report your edits in numbered list format.`,
   json: `Do NOT rewrite the content. Report your edits as a JSON list, with the format { lineNumber, currentText, suggestion }.`,
 }
 
-const validResponseTypes = Object.keys(responseTypes)
+const validResponseTypes = Object.keys(responseTypes) as Array<keyof ResponseTypes>
 
-const editorTypes = {
+interface EditorType {
+  promptFile: string
+  description: string
+}
+
+interface EditorTypes {
+  versioning: EditorType
+  // TODO
+  // scannability: EditorType
+  // readability: EditorType
+  // technical: EditorType
+  // styleguide: EditorType
+  // contentModels: EditorType
+}
+
+const editorTypes: EditorTypes = {
   versioning: {
     promptFile: 'versioning-editor.prompt.yml',
     description: 'Review against simplifying versioning guidelines.',
@@ -54,12 +76,19 @@ const editorTypes = {
   // Add more here...
 }
 
-const editorDescriptions = () => {
+const editorDescriptions = (): string => {
   let str = '\n\n'
   Object.entries(editorTypes).forEach(([ed, edObj]) => {
     str += `\t${ed}\n\t\t\t${edObj.description}\n\n`
   })
   return str
+}
+
+interface CliOptions {
+  verbose?: boolean
+  editor?: Array<keyof EditorTypes>
+  response?: keyof ResponseTypes
+  files: string[]
 }
 
 const program = new Command()
@@ -80,7 +109,7 @@ program
     '-f, --files <files...>',
     'One or more content file paths in the content directory',
   )
-  .action((options) => {
+  .action((options: CliOptions) => {
     ;(async () => {
       const spinner = ora('Starting AI review...').start()
 
@@ -88,7 +117,7 @@ program
       const editors = options.editor || ['versioning']
       const response = options.response || 'rewrite'
 
-      let responseTypeInstruction
+      let responseTypeInstruction: string
       if (validResponseTypes.includes(response)) {
         responseTypeInstruction = responseTypes[response]
       } else {
@@ -126,7 +155,8 @@ program
             }
           }
         } catch (err) {
-          spinner.fail(`Error processing file ${file}: ${err.message}`)
+          const error = err as Error
+          spinner.fail(`Error processing file ${file}: ${error.message}`)
           process.exitCode = 1
         }
       }
@@ -135,13 +165,31 @@ program
 
 program.parse(process.argv)
 
-async function callEditor(editorType, responseTypeInstruction, content) {
+interface PromptMessage {
+  content: string
+  role: string
+}
+
+interface PromptData {
+  messages: PromptMessage[]
+  model?: string
+  temperature?: number
+  max_tokens?: number
+}
+
+async function callEditor(
+  editorType: keyof EditorTypes,
+  responseTypeInstruction: string,
+  content: string,
+): Promise<string> {
   const promptName = editorTypes[editorType].promptFile
   const promptPath = path.join(promptDir, promptName)
-  const prompt = yaml.load(fs.readFileSync(promptPath, 'utf8'))
+  const prompt = yaml.load(fs.readFileSync(promptPath, 'utf8')) as PromptData
+
   prompt.messages.forEach((msg) => {
     msg.content = msg.content.replace('{{responseTypeInstruction}}', responseTypeInstruction)
     msg.content = msg.content.replace('{{input}}', content)
   })
+
   return callModelsApi(prompt)
 }
