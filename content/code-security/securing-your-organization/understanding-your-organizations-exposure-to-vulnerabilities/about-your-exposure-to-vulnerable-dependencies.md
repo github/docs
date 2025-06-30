@@ -11,6 +11,8 @@ topics:
   - Secret Protection
   - Organizations
   - Security
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/about-your-exposure-to-vulnerable-dependencies
 ---
 
 ## About exposure to vulnerable dependencies

@@ -11,6 +11,8 @@ topics:
   - Dependabot
   - Organizations
   - Security
+redirect_from:
+  - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics
 ---
 
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %} using metrics
