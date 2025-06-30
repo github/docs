@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { head } from '#src/tests/helpers/e2etest.js'
+import { head } from '@/tests/helpers/e2etest'
 
 describe('bad URLs', () => {
   test('any URL with /index.md suffix redirects to be without suffix', async () => {

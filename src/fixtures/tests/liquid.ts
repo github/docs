@@ -1,33 +1,34 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import { getDOM } from '#src/tests/helpers/e2etest.js'
-import { supported } from '#src/versions/lib/enterprise-server-releases.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { getDOM } from '@/tests/helpers/e2etest'
+import { supported } from '@/versions/lib/enterprise-server-releases'
 
 describe('spotlight', () => {
   test('renders styled warnings', async () => {
-    const $ = await getDOM('/get-started/liquid/warnings')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/warnings')
     const nodes = $('.ghd-spotlight-attention')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the warning.')).toBe(true)
   })
 
   test('renders styled danger', async () => {
-    const $ = await getDOM('/get-started/liquid/danger')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/danger')
     const nodes = $('.ghd-spotlight-danger')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
   })
 
   test('renders styled tips', async () => {
-    const $ = await getDOM('/get-started/liquid/tips')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/tips')
     const nodes = $('.ghd-spotlight-success')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the tip.')).toBe(true)
   })
 
   test('renders styled notes', async () => {
-    const $ = await getDOM('/get-started/liquid/notes')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/notes')
     const nodes = $('.ghd-spotlight-accent')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the note.')).toBe(true)
@@ -36,7 +37,7 @@ describe('spotlight', () => {
 
 describe('raw', () => {
   test('renders raw', async () => {
-    const $ = await getDOM('/get-started/liquid/raw')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/raw')
     const lead = $('[data-testid="lead"]').html()
     expect(lead).toMatch('{% raw %}')
     const code = $('pre code').html()
@@ -47,7 +48,7 @@ describe('raw', () => {
 
 describe('tool', () => {
   test('renders platform-specific content', async () => {
-    const $ = await getDOM('/get-started/liquid/platform-specific')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/platform-specific')
     expect($('.ghd-tool.mac p').length).toBe(1)
     expect($('.ghd-tool.mac p').text().includes('mac specific content')).toBe(true)
     expect($('.ghd-tool.windows p').length).toBe(1)
@@ -57,7 +58,7 @@ describe('tool', () => {
   })
 
   test('renders expected mini TOC headings in platform-specific content', async () => {
-    const $ = await getDOM('/get-started/liquid/platform-specific')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/platform-specific')
     expect($('h2#in-this-article').length).toBe(1)
     expect($('h2#in-this-article + nav ul .ghd-tool.mac').length).toBe(1)
     expect($('h2#in-this-article + nav ul .ghd-tool.windows').length).toBe(1)
@@ -67,7 +68,7 @@ describe('tool', () => {
 
 describe('post', () => {
   test('whitespace control', async () => {
-    const $ = await getDOM('/get-started/liquid/whitespace')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/whitespace')
     const html = $('#article-contents').html()
     expect(html).toMatch('<p>HubGit</p>')
     expect(html).toMatch('<p>Text before. HubGit Text after.</p>')
@@ -77,7 +78,9 @@ describe('post', () => {
     // Test what happens to `Cram{% ifversion fpt %}FPT{% endif %}ped.`
     // when it's not free-pro-team.
     {
-      const $ = await getDOM('/enterprise-server@latest/get-started/liquid/whitespace')
+      const $: cheerio.Root = await getDOM(
+        '/enterprise-server@latest/get-started/liquid/whitespace',
+      )
       const html = $('#article-contents').html()
       // Assures that there's not whitespace left when the `{% ifversion %}`
       // yields an empty string.
@@ -88,7 +91,7 @@ describe('post', () => {
 
 describe('rowheaders', () => {
   test('rowheaders', async () => {
-    const $ = await getDOM('/get-started/liquid/table-row-headers')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/table-row-headers')
     const tables = $('#article-contents table')
     expect(tables.length).toBe(2)
 
@@ -106,7 +109,7 @@ describe('rowheaders', () => {
     //
     // That's because a Liquid + Markdown solution rewrites the
     // *first* `tbody td` to become a `th` instead.
-    const firstTable = tables.filter((i) => i === 0)
+    const firstTable = tables.filter((i: number) => i === 0)
     expect($('tbody tr th', firstTable).length).toBe(2)
     expect($('tbody tr td', firstTable).length).toBe(2 * 3)
 
@@ -120,7 +123,7 @@ describe('rowheaders', () => {
     //         td
     //
     // (and there are 3 of these <tr> rows)
-    const secondTable = tables.filter((i) => i === 1)
+    const secondTable = tables.filter((i: number) => i === 1)
     expect($('tbody tr th', secondTable).length).toBe(0)
     expect($('tbody tr td', secondTable).length).toBe(3 * 3)
 
@@ -128,10 +131,10 @@ describe('rowheaders', () => {
     // `scope` attribute.
     // See "Scope attribute should be used correctly on tables"
     // https://dequeuniversity.com/rules/axe/4.1/scope-attr-valid?application=RuleDescription
-    $('thead th', firstTable).each((i, element) => {
+    $('thead th', firstTable).each((i: number, element: any) => {
       expect($(element).attr('scope')).toBe('col')
     })
-    $('tbody th', firstTable).each((i, element) => {
+    $('tbody th', firstTable).each((i: number, element: any) => {
       expect($(element).attr('scope')).toBe('row')
     })
     // The 5 here is the other `expect(...)` that happens before these
@@ -149,7 +152,7 @@ describe('ifversion', () => {
   // to find out versions that shouldn't match
   const ghesLast = `enterprise-server@${supported[supported.length - 1]}`
   const ghesPenultimate = `enterprise-server@${supported[supported.length - 2]}`
-  const matchesPerVersion = {
+  const matchesPerVersion: Record<string, string[]> = {
     'free-pro-team@latest': [
       'condition-a',
       'condition-b',
@@ -184,26 +187,26 @@ describe('ifversion', () => {
 
   test.each(Object.keys(matchesPerVersion))(
     'ifversion using rendered version %p',
-    async (version) => {
-      const $ = await getDOM(`/${version}/get-started/liquid/ifversion`)
+    async (version: string) => {
+      const $: cheerio.Root = await getDOM(`/${version}/get-started/liquid/ifversion`)
       const html = $('#article-contents').html()
 
       const allConditions = Object.values(matchesPerVersion).flat()
 
       // this is all conditions that should match for this rendered version
-      const wantedConditions = allConditions.filter((condition) => {
+      const wantedConditions = allConditions.filter((condition: string) => {
         return matchesPerVersion[version].includes(condition)
       })
 
       // this is the inverse of the above, conditions that shouldn't match for this rendered version
-      const unwantedConditions = allConditions.filter((condition) => {
+      const unwantedConditions = allConditions.filter((condition: string) => {
         return !matchesPerVersion[version].includes(condition)
       })
 
-      wantedConditions.forEach((condition) => {
+      wantedConditions.forEach((condition: string) => {
         expect(html).toMatch(condition)
       })
-      unwantedConditions.forEach((condition) => {
+      unwantedConditions.forEach((condition: string) => {
         expect(html).not.toMatch(condition)
       })
     },
@@ -212,14 +215,14 @@ describe('ifversion', () => {
 
 describe('misc Liquid', () => {
   test('links with liquid from data', async () => {
-    const $ = await getDOM('/get-started/liquid/links-with-liquid')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/links-with-liquid')
     // The URL comes from variables.product.pricing_url
     const url = getDataByLanguage('variables.product.pricing_url', 'en')
     if (!url) throw new Error('variable could not be found')
     const links = $(`#article-contents a[href="${url}"]`)
     expect(links.length).toBe(2)
     const texts = links
-      .map((i, element) => {
+      .map((i: number, element: any) => {
         return $(element).text()
       })
       .get()
@@ -232,7 +235,7 @@ describe('misc Liquid', () => {
     // Markdown directly follows a tool tag like `{% linux %}...{% endlinux %}`.
     // The next line immediately after the `{% endlinux %}` should not
     // leave the Markdown unrendered
-    const $ = await getDOM('/get-started/liquid/tool-platform-switcher')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/tool-platform-switcher')
     const innerHTML = $('#article-contents').html()
     expect(innerHTML).not.toMatch('On *this* line is `Markdown` too.')
     expect(innerHTML).toMatch('<p>On <em>this</em> line is <code>Markdown</code> too.</p>')
@@ -241,7 +244,7 @@ describe('misc Liquid', () => {
 
 describe('data tag', () => {
   test('injects data reusables with the right whitespace', async () => {
-    const $ = await getDOM('/get-started/liquid/data')
+    const $: cheerio.Root = await getDOM('/get-started/liquid/data')
 
     // This proves that the two injected reusables tables work.
     // CommonMark is finicky if the indentation isn't perfect, so
@@ -290,7 +293,7 @@ describe('data tag', () => {
     // But because `{% data reusables.injectables.paragraphs %}` is
     // inserted with some indentation, that's replicated on every line.
     const li = $('#article-contents li')
-      .filter((_, element) => {
+      .filter((_: number, element: any) => {
         return $(element).text().trim().startsWith('Point 1')
       })
       .eq(0)

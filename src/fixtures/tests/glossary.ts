@@ -1,18 +1,20 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOMCached as getDOM } from '@/tests/helpers/e2etest'
 
 describe('glossary', () => {
   test('headings are sorted alphabetically', async () => {
-    const $ = await getDOM('/get-started/learning-about-github/github-glossary')
+    const $: cheerio.Root = await getDOM('/get-started/learning-about-github/github-glossary')
     const headings = $('#article-contents h2')
-    const headingTexts = headings.map((_, el) => $(el).text()).get()
-    const cloned = [...headingTexts].sort((a, b) => a.localeCompare(b))
-    const equalStringArray = (a, b) => a.length === b.length && a.every((v, i) => v === b[i])
+    const headingTexts = headings.map((_: number, el: any) => $(el).text()).get()
+    const cloned = [...headingTexts].sort((a: string, b: string) => a.localeCompare(b))
+    const equalStringArray = (a: string[], b: string[]) =>
+      a.length === b.length && a.every((v, i) => v === b[i])
     expect(equalStringArray(headingTexts, cloned)).toBe(true)
   })
   test('Markdown links are correct', async () => {
-    const $ = await getDOM('/get-started/learning-about-github/github-glossary')
+    const $: cheerio.Root = await getDOM('/get-started/learning-about-github/github-glossary')
     const internalLink = $('#article-contents a[href="/en/get-started/foo"]')
     expect(internalLink.length).toBe(1)
     // That link used AUTOTITLE so it should be "expanded"
@@ -20,19 +22,19 @@ describe('glossary', () => {
   })
 
   test('all Liquid is evaluated', async () => {
-    const $ = await getDOM('/get-started/learning-about-github/github-glossary')
+    const $: cheerio.Root = await getDOM('/get-started/learning-about-github/github-glossary')
     const paragraphs = $('#article-contents p')
-    const paragraphTexts = paragraphs.map((_, el) => $(el).text()).get()
-    expect(paragraphTexts.find((text) => text.includes('{%'))).toBe(undefined)
+    const paragraphTexts = paragraphs.map((_: number, el: any) => $(el).text()).get()
+    expect(paragraphTexts.find((text: string) => text.includes('{%'))).toBe(undefined)
   })
 
   test('liquid in one of the description depends on version', async () => {
     // fpt
     {
-      const $ = await getDOM('/get-started/learning-about-github/github-glossary')
+      const $: cheerio.Root = await getDOM('/get-started/learning-about-github/github-glossary')
       const paragraphs = $('#article-contents p')
       const paragraphTexts = paragraphs
-        .map((_, el) => $(el).text())
+        .map((_: number, el: any) => $(el).text())
         .get()
         .join('\n')
       expect(paragraphTexts).toContain('status check on HubGit.')
@@ -40,12 +42,12 @@ describe('glossary', () => {
 
     // ghes
     {
-      const $ = await getDOM(
+      const $: cheerio.Root = await getDOM(
         '/enterprise-server@latest/get-started/learning-about-github/github-glossary',
       )
       const paragraphs = $('#article-contents p')
       const paragraphTexts = paragraphs
-        .map((_, el) => $(el).text())
+        .map((_: number, el: any) => $(el).text())
         .get()
         .join('\n')
       expect(paragraphTexts).toContain('status check on HubGit Enterprise Server.')

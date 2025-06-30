@@ -1,10 +1,11 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('<head>', () => {
   test('includes page intro in `description` meta tag', async () => {
-    const $ = await getDOM('/get-started/markdown/intro')
+    const $: cheerio.Root = await getDOM('/get-started/markdown/intro')
     // The intro has Markdown syntax which becomes HTML encoded in the lead element.
     const lead = $('[data-testid="lead"] p')
     expect(lead.html()).toMatch('<code>syntax</code>')

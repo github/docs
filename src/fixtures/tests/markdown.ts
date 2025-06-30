@@ -1,10 +1,11 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('markdown rendering', () => {
   test('markdown in intro', async () => {
-    const $ = await getDOM('/get-started/markdown/intro')
+    const $: cheerio.Root = await getDOM('/get-started/markdown/intro')
     const html = $('[data-testid="lead"]').html()
     expect(html).toMatch('<strong>Markdown</strong>')
     expect(html).toMatch('<code>syntax</code>')
@@ -14,7 +15,7 @@ describe('markdown rendering', () => {
 
 describe('alerts', () => {
   test('basic rendering', async () => {
-    const $ = await getDOM('/get-started/markdown/alerts')
+    const $: cheerio.Root = await getDOM('/get-started/markdown/alerts')
     const alerts = $('#article-contents .ghd-alert')
     // See src/fixtures/fixtures/content/get-started/markdown/alerts.md
     // to be this confident in the assertions.
@@ -22,13 +23,13 @@ describe('alerts', () => {
     const svgs = $('svg', alerts)
     expect(svgs.length).toBe(5)
     const titles = $('.ghd-alert-title', alerts)
-      .map((_, el) => $(el).text())
+      .map((_: number, el: any) => $(el).text())
       .get()
     expect(titles).toEqual(['Tip', 'Note', 'Important', 'Warning', 'Caution'])
     const bodies = $('p:nth-child(2)', alerts)
-      .map((_, el) => $(el).text())
+      .map((_: number, el: any) => $(el).text())
       .get()
-      .map((s) => s.trim())
+      .map((s: string) => s.trim())
     expect(bodies).toEqual([
       "Here's a free tip",
       'A note.',

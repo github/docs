@@ -1,11 +1,12 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDOM, head } from '#src/tests/helpers/e2etest.js'
-import { supported } from '#src/versions/lib/enterprise-server-releases.js'
+import { getDOM, head } from '@/tests/helpers/e2etest'
+import { supported } from '@/versions/lib/enterprise-server-releases'
 
 describe('article versioning', () => {
   test('only links to articles for fpt', async () => {
-    const $ = await getDOM('/get-started/versioning')
+    const $: cheerio.Root = await getDOM('/get-started/versioning')
     const links = $('[data-testid="table-of-contents"] a')
     // Only 1 link because there's only 1 article available in fpt
     expect(links.length).toBe(1)
@@ -13,18 +14,18 @@ describe('article versioning', () => {
   })
 
   test('only links to articles for ghec', async () => {
-    const $ = await getDOM('/enterprise-cloud@latest/get-started/versioning')
+    const $: cheerio.Root = await getDOM('/enterprise-cloud@latest/get-started/versioning')
     const links = $('[data-testid="table-of-contents"] a')
     expect(links.length).toBe(2)
-    const first = links.filter((i) => i === 0)
-    const second = links.filter((i) => i === 1)
+    const first = links.filter((i: number) => i === 0)
+    const second = links.filter((i: number) => i === 1)
     expect(first.attr('href')).toBe('/en/enterprise-cloud@latest/get-started/versioning/only-ghec')
     expect(second.attr('href')).toBe(
       '/en/enterprise-cloud@latest/get-started/versioning/only-ghec-and-ghes',
     )
     // Both links should 200 if you go to them
-    expect((await head(first.attr('href'))).statusCode).toBe(200)
-    expect((await head(second.attr('href'))).statusCode).toBe(200)
+    expect((await head(first.attr('href')!)).statusCode).toBe(200)
+    expect((await head(second.attr('href')!)).statusCode).toBe(200)
   })
 
   test('wrong version prefix for a non-fpt article will 404', async () => {

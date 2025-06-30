@@ -1,33 +1,34 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDOM, head } from '#src/tests/helpers/e2etest.js'
+import { getDOM, head } from '@/tests/helpers/e2etest'
 
 describe('subcategories', () => {
   test('get-started/start-your-journey subcategory', async () => {
-    const $ = await getDOM('/get-started/start-your-journey')
+    const $: cheerio.Root = await getDOM('/get-started/start-your-journey')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Get started using HubGit to manage Git repositories')
 
     const links = $('[data-testid=table-of-contents] a[href]')
     expect(links.length).toBeGreaterThan(0)
     // They all have the same prefix
-    const hrefs = links.map((i, el) => $(el).attr('href')).get()
+    const hrefs = links.map((i: number, el: any) => $(el).attr('href')).get()
     expect(
-      hrefs.every((href) => href.startsWith('/en/get-started/start-your-journey/')),
+      hrefs.every((href: string) => href.startsWith('/en/get-started/start-your-journey/')),
     ).toBeTruthy()
     // The all resolve to a 200 OK without redirects
-    const responses = await Promise.all(hrefs.map((href) => head(href)))
-    expect(responses.every((r) => r.statusCode === 200)).toBeTruthy()
+    const responses = await Promise.all(hrefs.map((href: string) => head(href)))
+    expect(responses.every((r: any) => r.statusCode === 200)).toBeTruthy()
   })
 
   test('actions/category/subcategory subcategory has its articles intro', async () => {
-    const $ = await getDOM('/actions/category/subcategory')
+    const $: cheerio.Root = await getDOM('/actions/category/subcategory')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch("Here's the intro for HubGit Actions.")
 
     const links = $('[data-testid=table-of-contents] a[href]')
-    const hrefs = links.map((i, el) => $(el).attr('href')).get()
-    expect(hrefs.every((href) => href.startsWith('/en/actions/category/'))).toBeTruthy()
+    const hrefs = links.map((i: number, el: any) => $(el).attr('href')).get()
+    expect(hrefs.every((href: string) => href.startsWith('/en/actions/category/'))).toBeTruthy()
 
     const firstArticleH2 = $('[data-testid=table-of-contents] h2').first()
     expect(firstArticleH2.text()).toMatch('Article title')
@@ -42,17 +43,17 @@ describe('subcategories', () => {
 
 describe('categories', () => {
   test('actions/category subcategory', async () => {
-    const $ = await getDOM('/actions/category')
+    const $: cheerio.Root = await getDOM('/actions/category')
     const lead = $('[data-search=lead]').text()
     expect(lead).toMatch('Learn how to migrate your existing CI/CD')
 
     const links = $('[data-testid=table-of-contents] a[href]')
     expect(links.length).toBeGreaterThan(0)
     // They all have the same prefix
-    const hrefs = links.map((i, el) => $(el).attr('href')).get()
-    expect(hrefs.every((href) => href.startsWith('/en/actions/category/'))).toBeTruthy()
+    const hrefs = links.map((i: number, el: any) => $(el).attr('href')).get()
+    expect(hrefs.every((href: string) => href.startsWith('/en/actions/category/'))).toBeTruthy()
     // The all resolve to a 200 OK without redirects
-    const responses = await Promise.all(hrefs.map((href) => head(href)))
-    expect(responses.every((r) => r.statusCode === 200)).toBeTruthy()
+    const responses = await Promise.all(hrefs.map((href: string) => head(href)))
+    expect(responses.every((r: any) => r.statusCode === 200)).toBeTruthy()
   })
 })

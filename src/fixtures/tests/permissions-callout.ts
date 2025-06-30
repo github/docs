@@ -1,10 +1,11 @@
 import { describe, expect, test } from 'vitest'
+import cheerio from 'cheerio'
 
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('permission statements', () => {
   test('article page product statement', async () => {
-    const $ = await getDOM('/get-started/foo/page-with-callout')
+    const $: cheerio.Root = await getDOM('/get-started/foo/page-with-callout')
     const callout = $('[data-testid=product-statement] div')
     expect(callout.html()).toBe('<p>Callout for HubGit Pages</p>')
   })
@@ -15,19 +16,21 @@ describe('permission statements', () => {
     // an empty string.
     // This test tests that alert is not rendered if its output
     // "exits" but is empty.
-    const $ = await getDOM('/enterprise-server@latest/get-started/foo/page-with-callout')
+    const $: cheerio.Root = await getDOM(
+      '/enterprise-server@latest/get-started/foo/page-with-callout',
+    )
     const callout = $('[data-testid=product-statement]')
     expect(callout.length).toBe(0)
   })
 
   test('toc landing page', async () => {
-    const $ = await getDOM('/actions/category')
+    const $: cheerio.Root = await getDOM('/actions/category')
     const callout = $('[data-testid=product-statement] div')
     expect(callout.html()).toBe('<p>This is the callout text</p>')
   })
 
   test('page with permission frontmatter', async () => {
-    const $ = await getDOM('/get-started/markdown/permissions')
+    const $: cheerio.Root = await getDOM('/get-started/markdown/permissions')
     const html = $('[data-testid=permissions-statement] div').html()
     // Markdown
     expect(html).toMatch('<strong>admin</strong>')
@@ -36,7 +39,9 @@ describe('permission statements', () => {
   })
 
   test('page with permission frontmatter and product statement', async () => {
-    const $ = await getDOM('/get-started/foo/page-with-permissions-and-product-callout')
+    const $: cheerio.Root = await getDOM(
+      '/get-started/foo/page-with-permissions-and-product-callout',
+    )
     const html = $('[data-testid=permissions-callout] div').html()
     // part of the UI
     expect(html).toMatch('Who can use this feature')
