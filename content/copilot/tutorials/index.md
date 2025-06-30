@@ -18,7 +18,7 @@ children:
   - /learning-a-new-programming-language-with-github-copilot
   - /modernizing-legacy-code-with-github-copilot
   - /using-copilot-to-migrate-a-project
-  - /upgrading-java-projects-with-github-copilot
+  - /upgrading-projects-with-github-copilot
   - /rolling-out-github-copilot-at-scale
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot

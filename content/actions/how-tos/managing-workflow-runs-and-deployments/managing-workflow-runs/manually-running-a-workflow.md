@@ -10,6 +10,7 @@ redirect_from:
   - /actions/managing-workflow-runs/manually-running-a-workflow
   - /actions/using-workflows/manually-running-a-workflow
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow
+  - /articles/configuring-a-workflow
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
