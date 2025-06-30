@@ -13,13 +13,13 @@ topics:
 
 ## EDUCATIONAL USE AGREEMENT
 
-This EDUCATIONAL USE AGREEMENT (this "Agreement") is a legal agreement between you ("Education Partner", “you”, or "your") and GitHub, Inc. (“GitHub”, “we”, or “us”). This Agreement sets forth the terms and conditions under which Education Partner may participate in GitHub’s Education Partner Program and receive Program benefits as defined herein.
+This EDUCATIONAL USE AGREEMENT (this "Agreement") is a legal agreement between you ("Education Partner", “you”, or "your") and GitHub, Inc. (“GitHub”, “we”, or “us”). This Agreement sets forth the terms and conditions under which the Education Partner may participate in GitHub’s Education Partner Program and receive Program benefits as defined herein.
 
 If you are entering into this Agreement on behalf of an organization or other legal entity, you represent that you have the legal authority to do so.
 
 When you click "I agree", “I accept”, or similar buttons, you accept all the terms and conditions of this Agreement.
 
-As an educational institution, you’d like to allow Qualified Users to use and access GitHub products listed on an Order Form solely for their non-commercial, academic use. GitHub is willing allow such use and access subject to compliance with this Agreement. GitHub and Education Partner are the "Parties", and each a “Party.” The Parties agree as follows:
+As an educational institution, you may allow Qualified Users to use and access GitHub products listed on an Order Form solely for their non-commercial, academic use. GitHub is willing to allow such use and access subject to compliance with this Agreement. Throughout this document GitHub and the Education Partner are referred to jointly as the "Parties", and individually are referred to throughout this document as a “Party.” The Parties agree as follows:
 
 ## 1. Definitions
 
