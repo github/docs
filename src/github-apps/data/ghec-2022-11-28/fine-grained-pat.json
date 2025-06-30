@@ -1513,6 +1513,12 @@
       "requestPath": "/orgs/{org}/code-scanning/alerts"
     },
     {
+      "slug": "list-dismissal-requests-for-code-scanning-alerts-for-an-organization",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/code-scanning"
+    },
+    {
       "slug": "list-code-scanning-alerts-for-a-repository",
       "subcategory": "code-scanning",
       "verb": "get",
@@ -1631,6 +1637,24 @@
       "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-code-scanning-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/code-scanning"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-code-scanning-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/code-scanning/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-code-scanning-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/code-scanning/{alert_number}"
     }
   ],
   "code-security": [
