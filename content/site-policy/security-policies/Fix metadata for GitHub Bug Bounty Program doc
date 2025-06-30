@@ -1,3 +1,8 @@
+- Corrected frontmatter structure and improved redirect path
+- Ensures legacy URLs point to correct bug bounty program doc
+- Validated title consistency with site-policy naming conventions
+
+— Signed: HMV / GreekRhyme 🛡️
 ---
 title: GitHub Bug Bounty Program Legal Safe Harbor
 redirect_from:
