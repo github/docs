@@ -1,5 +1,15 @@
 # Docs changelog
 
+**30 June 2025**
+
+Many enterprise customers want to measure the downstream impact of Copilot on their company, looking beyond leading metrics like adoption and usage.
+
+Inspired by [GitHub's latest guidance](https://resources.github.com/engineering-system-success-playbook/), we've published three guides that provide usecases, training resources, and metrics to help you plan and measure your rollout to achieve real-world goals, such as increasing test coverage.
+
+Get started at [Achieving your company's engineering goals with GitHub Copilot](https://docs.github.com/en/copilot/get-started/achieve-engineering-goals).
+
+<hr>
+
 **27 June 2025**
 
 We’ve published a new set of new documentation articles designed to help users make the most of the **Dependabot metrics page** in the organization’s security overview.
