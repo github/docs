@@ -1,6 +1,6 @@
 ---
 title: Choosing your enterprise's plan for GitHub Copilot
-shortTitle: Choose your plan
+shortTitle: Choose enterprise plan
 intro: 'Choose between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.'
 versions:
   feature: copilot
@@ -10,6 +10,7 @@ permissions: Enterprise owners and billing managers
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
+  - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
 ---
 
 When you adopt {% data variables.product.prodname_copilot %} in a company, you will sign up to a {% data variables.product.prodname_copilot_short %} plan designed for businesses. These plans allow you to:
@@ -39,6 +40,12 @@ When you subscribe your enterprise account to {% data variables.copilot.copilot_
 
 * Evaluate the benefits of {% data variables.copilot.copilot_enterprise_short %} for a smaller group of users before rolling it out further.
 * Enable {% data variables.copilot.copilot_enterprise_short %} in the organizations where it will have the most impact, such as organizations with complex documentation or specialized engineering requirements.
+
+## What are our goals for {% data variables.product.prodname_copilot_short %}?
+
+To drive and measure downstream impact of {% data variables.product.prodname_copilot_short %}, {% data variables.product.company_short %} recommends leading your rollout with specific engineering goals in mind. Your requirements for {% data variables.product.prodname_copilot_short %} features will depend on your overall goal for the rollout.
+
+For examples of how {% data variables.product.prodname_copilot_short %} can help with common problems in engineering teams, see [AUTOTITLE](/copilot/get-started/achieve-engineering-goals).
 
 ## Do we have projects with complex requirements?
 
@@ -71,6 +78,7 @@ To summarize:
 * Choose {% data variables.copilot.copilot_enterprise_short %} if your company has projects with complex requirements or large amounts of documentation. Knowledge bases give {% data variables.product.prodname_copilot_short %} enhanced context, which can save developers time and allow them to focus on tasks they enjoy.
 * If you think your developers will benefit from premium models and {% data variables.product.prodname_copilot_short %} code reviews, it may be cost effective to choose {% data variables.copilot.copilot_enterprise_short %} rather than pay for premium requests over your allowance.
 * If you're not sure about a full rollout, choose {% data variables.copilot.copilot_enterprise_short %} at the enterprise level and enable it for individual organizations where it will have the most impact.
+* Make your decision based on your downstream goals for the {% data variables.product.prodname_copilot_short %} rollout.
 
 ## Further reading
 

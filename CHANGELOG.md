@@ -2,6 +2,23 @@
 
 **27 June 2025**
 
+We’ve published a new set of new documentation articles designed to help users make the most of the **Dependabot metrics page** in the organization’s security overview.
+
+These clear, actionable guides help users:
+
+- **[View metrics for Dependabot alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-dependabot-alerts)**
+  This article is aimed at security and engineering leads who want to learn how to access and interpret key metrics, so they can quickly assess their organization’s exposure and remediation progress.
+
+- **[Understand your organization’s exposure to vulnerable dependencies](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/about-your-exposure-to-vulnerable-dependencies)**
+  In this article, security analysts and compliance teams get a deep dive into how vulnerable dependencies are tracked and what these numbers mean for their risk landscape.
+
+- **[Prioritize Dependabot alerts using metrics](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics)**
+  This guide provides engineering managers and remediation teams with strategies for using metrics to focus the team’s efforts where they matter most, making remediation more efficient.
+
+<hr>
+
+**27 June 2025**
+
 We've published a new scenario-based guide for Copilot: [Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot).
 
 This guide is for developers who are proficient with at least one programming language and want to learn an additional language. It provides information about how you can use Copilot as your personalized learning assistant. It also provides many ready-made prompts that you can use when you are learning a new programming language.

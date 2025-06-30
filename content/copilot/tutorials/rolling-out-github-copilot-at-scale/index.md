@@ -7,11 +7,12 @@ versions:
 topics:
   - Copilot
 children:
-  - /planning-your-rollout
   - /assigning-licenses
   - /enabling-developers
   - /measuring-adoption
+  - /driving-downstream-impact
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale
+  - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout
 ---
 
