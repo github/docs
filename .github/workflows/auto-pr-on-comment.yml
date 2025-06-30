@@ -1,4 +1,11 @@
-name: Create a PR to add an entry to the CHANGELOG.md file in this repo
+feat: trigger PR creation on issue comment or manual dispatch
+
+This workflow listens for new issue comments or manual workflow dispatches,
+and initiates automated PR logic with write access to contents and pull requests.
+
+Use case: automating contributor PR triggers from comment-based commands.
+name: 
+Create a PR to add an entry to the CHANGELOG.md file in this repo
 
 # **What it does**: If a member of the github org posts a changelog comment, it creates a PR to update the CHANGELOG.md file.
 # **Why we have it**: This surfaces docs changelog details publicly.
