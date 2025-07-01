@@ -115,3 +115,4 @@ For more information about premium requests, see [AUTOTITLE](/copilot/managing-c
 * To configure which models are available to you, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot).
 * To learn how to change your current model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 * To learn more about Responsible Use and Responsible AI, see [{% data variables.product.prodname_copilot_short %} Trust Center](https://copilot.github.trust.page/) and [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features).
+* To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/how-copilot-serves-ai-models).
