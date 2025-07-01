@@ -12,6 +12,12 @@ Get started at [Achieving your company's engineering goals with GitHub Copilot](
 
 **27 June 2025**
 
+We've published a new guide about how to combine use of GitHub Copilot's agent mode with Model Context Protocol (MCP) servers to complete complex tasks through agentic "loops" - illustrated through an accessibility compliance example. The guide also discusses best practices and benefits around using these two features together. See [Enhancing Copilot agent mode with MCP](https://docs.github.com/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp).
+
+<hr>
+
+**27 June 2025**
+
 We’ve published a new set of new documentation articles designed to help users make the most of the **Dependabot metrics page** in the organization’s security overview.
 
 These clear, actionable guides help users:

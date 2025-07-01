@@ -21,7 +21,10 @@ export const EXPERIMENTS = {
   ai_search_experiment: {
     key: 'ai_search_experiment',
     isActive: true, // Set to false when the experiment is over
-    percentOfUsersToGetExperiment: 30, // 30% of users will get the experiment
+    // We still use an experiment for the AI Search until we:
+    // 1. Move analytics over the main dashboard
+    // 2. Don't require an emergency rollback, which experiments provides us
+    percentOfUsersToGetExperiment: 100, // 100% of users will get the experiment
     includeVariationInContext: true, // All events will include the `experiment_variation` of the `ai_search_experiment`
     limitToLanguages: ['en'], // Only users with the `en` language will be included in the experiment
     alwaysShowForStaff: true, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
