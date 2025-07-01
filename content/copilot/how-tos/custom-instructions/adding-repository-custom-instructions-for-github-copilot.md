@@ -11,51 +11,53 @@ topics:
   - Copilot
 ---
 
-
 {% webui %}
 
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
->
-{% data reusables.copilot.repository-custom-instructions-note %} They are also supported for {% data variables.copilot.copilot_coding_agent %}.
->
-> This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui). For information on customizing {% data variables.copilot.copilot_coding_agent %} see [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent).
+This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 ## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_coding_agent %}**
+* **{% data variables.copilot.copilot_code-review_short %}**
 
-The custom instructions file is also used by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+{% data reusables.copilot.repository-custom-instructions-intro %} You can do this by creating a file in your repository that provides {% data variables.product.prodname_copilot_short %} with the contextual information it needs to generate higher quality responses.
+
+The custom instructions file is used for chat responses, for code review, and also by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 ### Example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
 
+{% data reusables.copilot.repository-cust-instr-code-review %}
+
 {% endwebui %}
 
 {% vscode %}
 
-{% data reusables.copilot.repository-custom-instructions-note %}
->
-> This version of this article is for using repository custom instructions in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+This version of this article is for using repository custom instructions in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments.
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=vscode).
+## About repository custom instructions and prompt files for {% data variables.product.prodname_copilot_short %}
 
-## About repository custom instructions and prompt files for {% data variables.copilot.copilot_chat %}
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_code-review_short %}**
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create files in your repository that automatically add this information for you.
+{% data reusables.copilot.repository-custom-instructions-intro %} You can do this by creating a file in your repositories that provides {% data variables.product.prodname_copilot_short %} with the contextual information it needs to generate higher quality responses.
 
-There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}:
+There are two types of files you can use to provide context and instructions to {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}:
 
-* **Repository custom instructions** allow you to specify repository-wide instructions and preferences, in a single file, that apply to any conversation held in the context of the repository.
-* **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
+* **Repository custom instructions** allow you to specify repository-wide instructions and preferences, in a single file, that {% data variables.product.prodname_copilot_short %} will use when working in this repository.
+* **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your {% data variables.copilot.copilot_chat_short %} prompts. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
 
-While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
+While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific {% data variables.product.prodname_copilot_short %} interaction.
 
 ### Repository custom instructions example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
+
+{% data reusables.copilot.repository-cust-instr-code-review %}
 
 ### Prompt file examples
 
@@ -95,31 +97,33 @@ The following examples demonstrate how to use prompt files.
 
 {% visualstudio %}
 
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
->
-{% data reusables.copilot.repository-custom-instructions-note %}
->
-> This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=visualstudio).
+This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
-## About repository custom instructions for {% data variables.copilot.copilot_chat %}
+## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_code-review_short %}**
+
+{% data reusables.copilot.repository-custom-instructions-intro %} You can do this by creating a file in your repositories that provides {% data variables.product.prodname_copilot_short %} with the contextual information it needs to generate higher quality responses.
 
 ### Example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
 
+{% data reusables.copilot.repository-cust-instr-code-review %}
+
 {% endvisualstudio %}
 
 ## Prerequisites for repository custom instructions
 
-* A custom instructions file (see the instructions below).
+* You must have a custom instructions file (see the instructions below).
 
 {% webui %}
 
 * Your personal choice of whether to use custom instructions must be set to enabled. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+
 * During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} {% ifversion ghec %}or {% data variables.copilot.copilot_enterprise_short %}{% endif %} plan, the organization {% ifversion ghec %}or enterprise{% endif %} that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
 
 {% endwebui %}
@@ -158,15 +162,15 @@ Did you successfully add a custom instructions file to your repository?
 
 ## Writing effective repository custom instructions
 
-The instructions you add to the `.github/copilot-instructions.md` file should be short, self-contained statements that add context or relevant information to supplement users' chat questions.
+The instructions you add to the `.github/copilot-instructions.md` file should be short, self-contained statements provide {% data variables.product.prodname_copilot_short %} with relevant information to help it work in this repository.
 
-You should also consider the size and complexity of your repository. The following types of instructions may work for a small repository with only a few contributors, but for a large and diverse repository, they may cause problems with other areas of {% data variables.product.prodname_copilot_short %}:
+You should also consider the size and complexity of your repository. The following types of instructions may work for a small repository with only a few contributors, but for a large and diverse repository, **these may cause problems**:
 
 * Requests to refer to external resources when formulating a response
 * Instructions to answer in a particular style
 * Requests to always respond with a certain level of detail
 
-For example, the following instructions may not have the intended results:
+For example, the following instructions **may not have the intended results**:
 
 ```markdown
 Always conform to the coding styles defined in styleguide.md in repo my-org/my-repo when generating code.
@@ -180,9 +184,9 @@ Answer all questions in less than 1000 characters, and words of no more than 12 
 
 ## Repository custom instructions in use
 
-{% webui %}
+The instructions in the `.github/copilot-instructions.md` file are available for use by {% data variables.copilot.copilot_chat_short %} as soon as you save the file. The complete set of instructions will be automatically added to requests that you submit to {% data variables.product.prodname_copilot_short %} in the context of that repository. For example, they are added to the prompt you submit to {% data variables.copilot.copilot_chat_short %}.
 
-The instructions in the `.github/copilot-instructions.md` file are available for use by {% data variables.copilot.copilot_chat_short %} as soon as you save the file. The complete set of instructions will be automatically added to chat prompts that relate to the repository containing the instructions file.
+{% webui %}
 
 In {% data variables.copilot.copilot_chat_short %}'s immersive view ([github.com/copilot](https://github.com/copilot)), you can start a conversation that uses repository custom instructions by adding, as an attachment, the repository that contains the instructions file.
 
@@ -214,17 +218,24 @@ You can click the reference to open the file.
 
 ## Enabling or disabling repository custom instructions
 
-You can choose whether or not to have custom instructions added to your chat questions.
+You can choose whether or not you want {% data variables.product.prodname_copilot_short %} to use repository-based custom instructions.
+
+### Enabling or disabling custom instructions for {% data variables.copilot.copilot_chat_short %}
+
+Custom instructions are enabled for {% data variables.copilot.copilot_chat_short %} by default but you can disable, or re-enable, them at any time. This applies to your own use of {% data variables.copilot.copilot_chat_short %} and does not affect other users.
 
 {% webui %}
 
+1. On {% data variables.product.prodname_dotcom_the_website %}, do one of the following:
+   * Go to a repository with a custom instructions file and open the assistive chat panel.
+   * Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot)) and attach a repository that contains a custom instructions file.
 1. Click the {% octicon "kebab-horizontal" aria-label="Conversation options" %} button at the top of the Chat panel, or the top right of the immersive page.
 1. Click **Disable custom instructions** or **Enable custom instructions**.
 
    > [!NOTE]
-   > In immersive mode, you will only see these options if you have attached a repository that contains a custom instructions file.
+   > You will only see these options in the context of a repository that contains a custom instructions file.
 
-Your choice persists until you change it.
+Your choice persists, for all repositories containing a custom instructions file, until you change it.
 
 {% endwebui %}
 
@@ -246,6 +257,15 @@ Your choice persists until you change it.
 1. Select or clear the checkbox for **(Preview) Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
 {% endvisualstudio %}
+
+### Enabling or disabling custom instructions for {% data variables.copilot.copilot_code-review_short %}
+
+Custom instructions are enabled for {% data variables.copilot.copilot_code-review_short %} by default but you can disable, or re-enable, them in the repository settings on {% data variables.product.prodname_dotcom_the_website %}. This applies to {% data variables.product.prodname_copilot_short %}'s use of custom instructions for all code reviews it performs in this repository.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
 
 {% vscode %}
 

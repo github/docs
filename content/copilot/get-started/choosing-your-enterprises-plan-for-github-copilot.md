@@ -57,11 +57,7 @@ With {% data variables.copilot.copilot_enterprise_short %}, you can create **kno
 
 With {% data variables.copilot.copilot_code-review_short %}, {% data variables.product.prodname_copilot_short %} can provide feedback on pull requests on {% data variables.product.github %}. How much you use this feature depends on the goals of your rollout. For example, if a goal is to increase velocity by accelerating approvals of pull requests, then you may be encouraging developers to use {% data variables.copilot.copilot_code-review_short %} as much as possible.
 
-With {% data variables.copilot.copilot_enterprise_short %}, you can make {% data variables.product.prodname_copilot_short %}'s reviews more consistent across your repositories by adding **custom coding guidelines** written in natural language. {% data variables.product.prodname_copilot_short %} will give feedback based on the guidelines when it reviews code, which can increase developers' confidence in the reviews and allow you to encourage consistency in coding standards across teams.
-
-{% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %}
-
-{% data variables.copilot.copilot_enterprise_short %} also includes a higher allowance for premium requests, which include code reviews. To learn more, see [How much will we benefit from premium requests?](#how-much-will-we-benefit-from-premium-requests).
+{% data variables.copilot.copilot_enterprise_short %} includes a higher allowance for premium requests, which are used by {% data variables.copilot.copilot_code-review_short %}. To learn more, see [How much will we benefit from premium requests?](#how-much-will-we-benefit-from-premium-requests).
 
 ## How much will we benefit from premium requests?
 
