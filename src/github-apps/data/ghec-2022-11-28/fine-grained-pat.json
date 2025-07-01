@@ -2565,6 +2565,60 @@
       "requestPath": "/enterprise-installation/{enterprise_or_org}/server-statistics"
     },
     {
+      "slug": "get-enterprise-owned-organizations-that-can-have-github-apps-installed",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/installable_organizations"
+    },
+    {
+      "slug": "get-repositories-belonging-to-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/installable_organizations/{org}/accessible_repositories"
+    },
+    {
+      "slug": "list-github-apps-installed-on-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations"
+    },
+    {
+      "slug": "install-a-github-app-on-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations"
+    },
+    {
+      "slug": "uninstall-a-github-app-from-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}"
+    },
+    {
+      "slug": "get-the-repositories-accessible-to-a-given-github-app-installation",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories"
+    },
+    {
+      "slug": "toggle-installation-repository-access-between-selected-and-all-repositories",
+      "subcategory": "organization-installations",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories"
+    },
+    {
+      "slug": "grant-repository-access-to-an-organization-installation",
+      "subcategory": "organization-installations",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/add"
+    },
+    {
+      "slug": "remove-repository-access-from-an-organization-installation",
+      "subcategory": "organization-installations",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/remove"
+    },
+    {
       "slug": "get-the-audit-log-for-an-enterprise",
       "subcategory": "audit-log",
       "verb": "get",
