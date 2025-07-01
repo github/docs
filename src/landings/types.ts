@@ -1,25 +1,15 @@
+import { ValidOcticon, isValidOcticon } from './lib/octicons'
+
+// Re-export ValidOcticon and isValidOcticon for compatibility with existing imports
+export type { ValidOcticon }
+export { isValidOcticon }
+
 // Base type for all TOC items with core properties
 export type BaseTocItem = {
   fullPath: string
   title: string
   intro?: string | null
 }
-
-// Valid octicon types that match the CookBookArticleCard component
-export type ValidOcticon =
-  | 'code'
-  | 'log'
-  | 'terminal'
-  | 'bug'
-  | 'lightbulb'
-  | 'gear'
-  | 'rocket'
-  | 'beaker'
-  | 'copilot'
-  | 'hubot'
-  | 'book'
-  | 'shield-lock'
-  | 'lock'
 
 // Extended type for child TOC items with additional metadata
 export type ChildTocItem = BaseTocItem & {
@@ -52,26 +42,6 @@ export type RawTocItem = {
   complexity: string[] | null
   industry: string[] | null
   childTocItems: RawTocItem[]
-}
-
-// Helper function to validate and cast octicon values
-export function isValidOcticon(octicon: string | null): octicon is ValidOcticon {
-  const validOcticons: ValidOcticon[] = [
-    'code',
-    'log',
-    'terminal',
-    'bug',
-    'lightbulb',
-    'gear',
-    'rocket',
-    'beaker',
-    'copilot',
-    'hubot',
-    'book',
-    'shield-lock',
-    'lock',
-  ]
-  return octicon !== null && validOcticons.includes(octicon as ValidOcticon)
 }
 
 // Simplified TOC item type for basic landing pages that don't need extended metadata

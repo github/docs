@@ -12,6 +12,8 @@ children:
   - /plans-for-github-copilot
   - /github-copilot-features
   - /best-practices-for-using-github-copilot
+  - /choosing-your-enterprises-plan-for-github-copilot
+  - /achieve-engineering-goals
 redirect_from:
   - /copilot/about-github-copilot
 ---

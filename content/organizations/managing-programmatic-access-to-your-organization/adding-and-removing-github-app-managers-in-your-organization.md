@@ -25,6 +25,8 @@ shortTitle: GitHub App managers
 
 {% data reusables.apps.github-app-managers %}
 
+For more information about {% data variables.product.prodname_github_app %} manager permissions, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#github-app-managers).
+
 ## Granting the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
 
 {%- ifversion org-app-manager-teams %}

@@ -29,13 +29,14 @@ The current functionality and availability of the two types of review is summari
 
 {% rowheaders %}
 
-|                  | Review selection | Review changes                                                                                                                                                                                                                                                                                  |
-|------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Available in     | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website                                                                                                                                                                                                |
-| Premium/standard feature | Standard feature available to all {% data variables.product.prodname_copilot_short %} subscribers | Premium feature. Available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. Per-person monthly quota applies. |
-| Description      | Initial review of a highlighted section of code with feedback and suggestions | Deeper review of all changes                                                                                                                                                                                                                                                                    |
-| Language support | All | All                                                                                                                                                                                                                                                                                             |
-| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines)                                                                                                                               |
+|                                  | Review selection | Review changes |
+|----------------------------------|------------------|----------------|
+| Available in                     | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
+| Premium/standard feature         | Standard feature available to all {% data variables.product.prodname_copilot_short %} subscribers | Premium feature. Available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. Per-person monthly quota applies. |
+| Description                      | Initial review of a highlighted section of code with feedback and suggestions | Deeper review of all changes |
+| Supported languages              | All | All |
+| Custom instructions support      | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions](#customizing-copilots-reviews-with-custom-instructions-1) |
+| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines-1) |
 
 {% endrowheaders %}
 

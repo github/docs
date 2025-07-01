@@ -456,7 +456,12 @@ When `registries` is defined for a package manager:
 
 Supported values: `REGISTRY_NAME` or `"*"`
 
+{% ifversion dependabot-reviewers-deprecation %}{% else %}
+
 ## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+
+> [!NOTE]
+> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
 
 Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
@@ -470,6 +475,11 @@ When `reviewers` is defined:
 * {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
+
+> [!NOTE]
+> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+{% endif %}
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
@@ -740,27 +750,29 @@ The `url` parameter defines where to access a registry. When the optional `repla
 
 ## `cooldown` {% octicon "versions" aria-label="cooldown" height="24" %}
 
-Defines a **cooldown period** for dependency updates to delay updates for a configurable number of days. This feature enables dependabot users to customize how often they receive new version updates, offering greater control over update frequency.
+Defines a **cooldown period** for dependency updates to delay updates for a configurable number of days. This feature enables {% data variables.product.prodname_dependabot %} users to customize how often they receive new version updates, offering greater control over update frequency.
 
 > [!NOTE]
 > Cooldown is not applicable for security updates.
+>
+> Cooldown is not available for the **NuGet** ecosystem
 
 ### **How Cooldown Works**
 
-* When Dependabot runs updates as per defined schedule, it checks the **cooldown settings** to determine if new release for dependency is still within its cooldown period.  
+* When {% data variables.product.prodname_dependabot %} runs updates as per defined schedule, it checks the **cooldown settings** to determine if new release for dependency is still within its cooldown period.  
 * If new version release date is within the cooldown period, dependency version update is **filtered out** and will not be updated until the cooldown period expires.  
 * Once the cooldown period ends for new version, the dependency update proceeds based on the standard update strategy defined in `dependabot.yml`.
 
-Without **`cooldown`** (default behaviour): {% data variables.product.prodname_dependabot %}
+Without **`cooldown`** (default behaviour):
 
 * Dependabot checks for updates according to the scheduled defined via `schedule.interval`.  
 * All new versions are considered for updates **immediately**.  
 
 With **`cooldown`** enabled:
 
-* Dependabot checks for updates based on the defined `schedule.interval` settings.  
+* {% data variables.product.prodname_dependabot %} checks for updates based on the defined `schedule.interval` settings.  
 * **Releases within the cooldown period are ignored.**  
-* Dependabot updates the dependency to the latest available version **that are no longer in cooldown period** following the configured `versioning-strategy`.
+* {% data variables.product.prodname_dependabot %} updates the dependency to the latest available version **that are no longer in cooldown period** following the configured `versioning-strategy`.
 
 ### **Cooldown Configuration**
 
@@ -814,7 +826,6 @@ With **`cooldown`** enabled:
 ### **Example `dependabot.yml` with cooldown**
 
 ```yaml copy
-
 version: 2
 updates:
   - package-ecosystem: "pip"
