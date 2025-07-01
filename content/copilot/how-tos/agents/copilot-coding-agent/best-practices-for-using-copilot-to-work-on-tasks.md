@@ -117,3 +117,7 @@ If {% data variables.product.prodname_copilot_short %} is able to build, test an
 To do that, it will need your project's dependencies. {% data variables.product.prodname_copilot_short %} can discover and install these dependencies itself via a process of trial and error - but this can be slow and unreliable, given the non-deterministic nature of large language models (LLMs).
 
 You can configure a `copilot-setup-steps.yml` file to pre-install these dependencies before the agent starts working so it can hit the ground running. For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent#preinstalling-tools-or-dependencies-in-copilots-environment).
+
+## Further reading
+
+* **Hands-on practice**: Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills course for practical experience with {% data variables.copilot.copilot_coding_agent %}.
