@@ -270,7 +270,7 @@
     "cuss": "2.2.0",
     "dayjs": "^1.11.13",
     "dereference-json-schema": "^0.2.1",
-    "dotenv": "^16.4.7",
+    "dotenv": "^17.0.0",
     "escape-string-regexp": "5.0.0",
     "express": "^5.1.0",
     "fastest-levenshtein": "1.0.16",
