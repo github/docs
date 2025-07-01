@@ -755,7 +755,7 @@ Defines a **cooldown period** for dependency updates to delay updates for a conf
 > [!NOTE]
 > Cooldown is not applicable for security updates.
 >
-> Cooldown is not available for **Nuget** ecosystem
+> Cooldown is not available for the **NuGet** ecosystem
 
 ### **How Cooldown Works**
 
