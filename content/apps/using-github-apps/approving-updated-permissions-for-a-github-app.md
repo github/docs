@@ -10,7 +10,7 @@ shortTitle: Approve new permissions
 
 Occasionally, a {% data variables.product.prodname_github_app %} that you have installed will request additional permissions. This may happen if the {% data variables.product.prodname_github_app %} owner wants the app to make additional API requests or respond to additional webhook events. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
 
-When a {% data variables.product.prodname_github_app %} requests additional organization or repository permissions, {% data variables.product.company_short %} will notify you if the app is installed on your personal account or on an organization that you own.
+When a {% data variables.product.prodname_github_app %} requests additional permissions, {% data variables.product.company_short %} will notify you if the app is installed on your personal account or on an account that you own.
 
 You can choose whether to accept the additional permissions. If you do not approve the additional permissions, the {% data variables.product.prodname_github_app %} will still retain its current permissions. The {% data variables.product.prodname_github_app %} may not function as expected if you do not approve the additional permissions.
 

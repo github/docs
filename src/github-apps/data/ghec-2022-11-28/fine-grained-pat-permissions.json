@@ -173,6 +173,144 @@
       }
     ]
   },
+  "enterprise_organization_installation_repositories": {
+    "title": "Enterprise organization installation repositories",
+    "displayTitle": "Enterprise permissions for \"Enterprise organization installation repositories\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "get-repositories-belonging-to-an-enterprise-owned-organization",
+        "subcategory": "organization-installations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/apps/installable_organizations/{org}/accessible_repositories",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-the-repositories-accessible-to-a-given-github-app-installation",
+        "subcategory": "organization-installations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "toggle-installation-repository-access-between-selected-and-all-repositories",
+        "subcategory": "organization-installations",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "grant-repository-access-to-an-organization-installation",
+        "subcategory": "organization-installations",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/add",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-repository-access-from-an-organization-installation",
+        "subcategory": "organization-installations",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/remove",
+        "additional-permissions": true,
+        "access": "write"
+      }
+    ]
+  },
+  "enterprise_organization_installations": {
+    "title": "Enterprise organization installations",
+    "displayTitle": "Enterprise permissions for \"Enterprise organization installations\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "get-enterprise-owned-organizations-that-can-have-github-apps-installed",
+        "subcategory": "organization-installations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/apps/installable_organizations",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-repositories-belonging-to-an-enterprise-owned-organization",
+        "subcategory": "organization-installations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/apps/installable_organizations/{org}/accessible_repositories",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-github-apps-installed-on-an-enterprise-owned-organization",
+        "subcategory": "organization-installations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "install-a-github-app-on-an-enterprise-owned-organization",
+        "subcategory": "organization-installations",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "uninstall-a-github-app-from-an-enterprise-owned-organization",
+        "subcategory": "organization-installations",
+        "verb": "delete",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-the-repositories-accessible-to-a-given-github-app-installation",
+        "subcategory": "organization-installations",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "toggle-installation-repository-access-between-selected-and-all-repositories",
+        "subcategory": "organization-installations",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "grant-repository-access-to-an-organization-installation",
+        "subcategory": "organization-installations",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/add",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-repository-access-from-an-organization-installation",
+        "subcategory": "organization-installations",
+        "verb": "patch",
+        "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/remove",
+        "additional-permissions": true,
+        "access": "write"
+      }
+    ]
+  },
   "organization_api_insights": {
     "title": "API Insights",
     "displayTitle": "Organization permissions for \"API Insights\"",

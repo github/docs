@@ -68,7 +68,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Disabling a {% data variables.product.prodname_marketplace %} webhook
 
-You can deactivate a webhook that was previously enabled for events relating to an app that you published on {% data variables.product.prodname_marketplace %}. You cannot delete the webhook. Only the owner of the app can deactivate the {% data variables.product.prodname_marketplace %} webhook for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also deactivate the {% data variables.product.prodname_marketplace %} webhook.
+You can deactivate a webhook that was previously enabled for events relating to an app that you published on {% data variables.product.prodname_marketplace %}. You cannot delete the webhook. Only the owner of the app can deactivate the {% data variables.product.prodname_marketplace %} webhook for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also deactivate the {% data variables.product.prodname_marketplace %} webhook.
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
@@ -89,7 +89,7 @@ You can disable webhooks that were previously enabled for events relating to {% 
 
 ## Disabling webhooks for a {% data variables.product.prodname_github_app %}
 
-Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can deactivate the webhook. The owner of a {% data variables.product.prodname_github_app %} can deactivate the webhook the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also deactivate the webhook for the app.
+Each {% data variables.product.prodname_github_app %} has one webhook. You cannot delete the webhook, but you can deactivate the webhook. The owner of a {% data variables.product.prodname_github_app %} can deactivate the webhook the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also deactivate the webhook for the app.
 
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}
