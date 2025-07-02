@@ -22,7 +22,7 @@ redirect_from:
 
 {% data reusables.copilot.coding-agent.mcp-brief-intro %}
 
-The agent can use tools provided by local MCP servers. Some MCP servers are configured by default to provide the best experience for getting started.
+The agent can use tools provided by local MCP servers. For example, the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) provides tools to interact with web pages and pull in additional context when executing on the requested task. Some MCP servers are configured by default to provide the best experience for getting started.
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
@@ -37,9 +37,6 @@ The following MCP servers are configured automatically for {% data variables.cop
 * **{% data variables.product.github %}**: The {% data variables.product.github %} MCP server gives {% data variables.product.prodname_copilot_short %} access to {% data variables.product.github %} data like issues and pull requests. To learn more, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
   * By default, the {% data variables.product.github %} MCP server connects to {% data variables.product.github %} using a specially scoped token that only has read-only access to the current repository. You can customize it to use a different token with broader access. For more details, see [Customizing the built-in {% data variables.product.github %} MCP server](#customizing-the-built-in-github-mcp-server) below.
 
-* **Playwright**: The [Playwright MCP server](https://github.com/microsoft/playwright-mcp) gives {% data variables.product.prodname_copilot_short %} access to web pages, including the ability to read, interact and take screenshots.
-  * By default, the Playwright MCP server is only able to access web resources hosted within {% data variables.product.prodname_copilot_short %}'s own environment, accessible on `localhost` or `127.0.0.1`.
-
 ## Setting up MCP servers in a repository
 
 > [!WARNING]
@@ -53,7 +50,7 @@ Once MCP servers are configured for use within a repository, the tools specified
 
 ### Creating your JSON MCP configuration
 
-You configure MCP servers using a special JSON format. The JSON must contain an `mcpServers` object, where the key is the name of the MCP server (for example, `sentry`), and the value is an object with the configuration for that MCP server.
+You configure MCP servers using a special JSON format. The JSON must contain an `mcpServers` object, where the key is the name of the MCP server (for example, `playwright`), and the value is an object with the configuration for that MCP server.
 
 ```json copy
 {
@@ -78,12 +75,28 @@ The configuration object can contain the following keys:
 * `command` (`string`): The command to run to start the MCP server.
 * `args` (`string[]`): The arguments to pass to the `command`.
 * `tools` (`string[]`): The tools from the MCP server to enable. You may be able to find a list of tools in the server's documentation, or in its code. We strongly recommend that you allowlist specific read-only tools, since the agent will be able to use these tools autonomously and will not ask you for approval first. You can also enable all tools by including `*` in the array.
-* `type` (`string`): {% data variables.copilot.copilot_coding_agent %} only accepts `"local"`.
+* `type` (`string`): Optional field. {% data variables.copilot.copilot_coding_agent %} only accepts `"local"`.
 * `env` (`object`): The environment variables to pass to the server. This object should map the name of the environment variable that should be exposed to your MCP server to either of the following:
   * The name of a {% data variables.product.prodname_actions %} secret you have configured, beginning with `COPILOT_MCP_`.
   * A string value.
 
 ### Example configurations
+
+#### Example: Playwright
+
+The [Playwright MCP server](https://github.com/microsoft/playwright-mcp) provides tools which allow {% data variables.product.prodname_copilot_short %} to browse the internet.
+
+```json copy
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--init", "mcp/playwright"],
+      "tools": ["*"]
+    }
+  }
+}
+```
 
 #### Example: Sentry
 
@@ -179,7 +192,7 @@ To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you
 1. In your repository’s {% data variables.product.prodname_copilot_short %} environment, add secrets for your `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` and `AZURE_SUBSCRIPTION_ID`.
 1. Configure the Azure MCP server by adding an `azure` object to your MCP configuration.
 
-  ```json copy
+   ```json copy
    {
      "mcpServers": {
        "Azure": {
