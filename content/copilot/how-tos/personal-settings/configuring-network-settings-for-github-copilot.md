@@ -110,7 +110,7 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
 1. In the JSON object, add the following top-level property, replacing `YOUR-SPN` with the correct SPN for your proxy service.
 
    ```json copy
-   "http.proxyKerberosServicePrincipal": "YOUR-SPN",
+   "http.proxyKerberosServicePrincipal": "YOUR-SPN"
    ```
 
 {% endvscode %}
