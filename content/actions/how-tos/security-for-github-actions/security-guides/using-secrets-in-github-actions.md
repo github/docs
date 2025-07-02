@@ -12,6 +12,7 @@ redirect_from:
   - /actions/security-guides/encrypted-secrets
   - /actions/security-guides/using-secrets-in-github-actions
   - /actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+  - /actions/how-tos/administering-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
 versions:
   fpt: '*'
   ghes: '*'
