@@ -114,7 +114,6 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
    ```
 
 
-{% jetbrains %}
 
 #### Overriding the default SPN in JetBrains IDEs
 
