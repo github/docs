@@ -16,7 +16,7 @@ redirect_from:
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
 
 > [!NOTE]
-> Premium request counters reset on the 1st of each month.
+> Premium request counters reset on the 1st of each month at 00:00:00 UTC.
 
 ## Viewing premium request usage
 
