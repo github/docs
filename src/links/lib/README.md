@@ -39,4 +39,4 @@ Before you decide whether to exclude a link from the daily link checker, you sho
 - Has it has been flagged as a broken link for more than a week, but the URL works when a real user opens it in their browser?
 - Has the URL been available for more than 3 months? You can check using the [Wayback Machine](https://web.archive.org).
 
-If you are confident that the URL for the article should work for real users, then you can open a pull request to add it to the `src/links/lib/excluded-links.ts` file.
+If you are confident that the URL for the article should work for real users, then you can open a pull request to add it to the `src/links/lib/excluded-links.yml` file.

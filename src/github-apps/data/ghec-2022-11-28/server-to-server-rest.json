@@ -1409,6 +1409,12 @@
       "requestPath": "/orgs/{org}/code-scanning/alerts"
     },
     {
+      "slug": "list-dismissal-requests-for-code-scanning-alerts-for-an-organization",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/code-scanning"
+    },
+    {
       "slug": "list-code-scanning-alerts-for-a-repository",
       "subcategory": "code-scanning",
       "verb": "get",
@@ -1527,6 +1533,24 @@
       "subcategory": "code-scanning",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/code-scanning/sarifs/{sarif_id}"
+    },
+    {
+      "slug": "list-dismissal-requests-for-code-scanning-alerts-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/code-scanning"
+    },
+    {
+      "slug": "get-a-dismissal-request-for-a-code-scanning-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/code-scanning/{alert_number}"
+    },
+    {
+      "slug": "review-a-dismissal-request-for-a-code-scanning-alert-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/code-scanning/{alert_number}"
     }
   ],
   "code-security": [
@@ -1953,13 +1977,13 @@
   ],
   "dependabot": [
     {
-      "slug": "lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
       "subcategory": "repository-access",
       "verb": "get",
       "requestPath": "/organizations/{org}/dependabot/repository-access"
     },
     {
-      "slug": "updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "slug": "updates-dependabots-repository-access-list-for-an-organization",
       "subcategory": "repository-access",
       "verb": "patch",
       "requestPath": "/organizations/{org}/dependabot/repository-access"
@@ -2267,6 +2291,60 @@
       "subcategory": "admin-stats",
       "verb": "get",
       "requestPath": "/enterprise-installation/{enterprise_or_org}/server-statistics"
+    },
+    {
+      "slug": "get-enterprise-owned-organizations-that-can-have-github-apps-installed",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/installable_organizations"
+    },
+    {
+      "slug": "get-repositories-belonging-to-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/installable_organizations/{org}/accessible_repositories"
+    },
+    {
+      "slug": "list-github-apps-installed-on-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations"
+    },
+    {
+      "slug": "install-a-github-app-on-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations"
+    },
+    {
+      "slug": "uninstall-a-github-app-from-an-enterprise-owned-organization",
+      "subcategory": "organization-installations",
+      "verb": "delete",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}"
+    },
+    {
+      "slug": "get-the-repositories-accessible-to-a-given-github-app-installation",
+      "subcategory": "organization-installations",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories"
+    },
+    {
+      "slug": "toggle-installation-repository-access-between-selected-and-all-repositories",
+      "subcategory": "organization-installations",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories"
+    },
+    {
+      "slug": "grant-repository-access-to-an-organization-installation",
+      "subcategory": "organization-installations",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/add"
+    },
+    {
+      "slug": "remove-repository-access-from-an-organization-installation",
+      "subcategory": "organization-installations",
+      "verb": "patch",
+      "requestPath": "/enterprises/{enterprise}/apps/organizations/{org}/installations/{installation_id}/repositories/remove"
     },
     {
       "slug": "get-the-audit-log-for-an-enterprise",
@@ -5141,6 +5219,12 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/bulk-list"
     },
     {
       "slug": "delete-attestations-in-bulk",

@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -106,11 +106,11 @@ childGroups:
     octicon: CopilotIcon
     children:
       - copilot
-      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
-      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
-      - copilot/copilot-chat-cookbook
-      - copilot/using-github-copilot/coding-agent
+      - copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
+      - copilot/concepts/prompt-engineering-for-copilot-chat
+      - copilot/how-tos/chat/asking-github-copilot-questions-in-github
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/how-tos/agents/copilot-coding-agent
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -153,7 +153,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/building-copilot-extensions
+      - copilot/how-tos/build-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -192,3 +192,4 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
+

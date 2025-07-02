@@ -10,7 +10,7 @@ The bulleted points in a bullet list should always be denoted in Markdown using 
 
 Within Markdown files, with the exception of the `title` field in the metadata at the start of a file, **always use the Liquid syntax variables rather than text** if a variable has been defined for that text. This ensures consistency and makes it easier to update product names globally.
 
-**Important**: Variables must be used in all content, including reusable content, data files, and regular articles. The only exception is the `title` field in frontmatter metadata.
+**Important**: Variables must be used in all content, including reusable content, data files, and regular articles. The only exceptions are the `title` field in frontmatter metadata and any file in the `content/site-policy` directory.
 
 For example:
 

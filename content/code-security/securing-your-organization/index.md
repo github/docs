@@ -16,7 +16,7 @@ children:
   - /enabling-security-features-in-your-organization
   - /managing-the-security-of-your-organization
   - /understanding-your-organizations-exposure-to-leaked-secrets
-  - /understanding-your-organizations-exposure-to-vulnerabilites
+  - /understanding-your-organizations-exposure-to-vulnerabilities
   - /fixing-security-alerts-at-scale
   - /troubleshooting-security-configurations
 ---

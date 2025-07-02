@@ -177,11 +177,10 @@ The following table illustrates how spending for each user is allocated to a cos
 
 There are a few current limitations when working with cost centers and the API:
 
-* You **cannot** create cost centers using the API. Administrators must create them through the UI.
-* Once a cost center is created in the UI, administrators can use the API to add **members** only.
-* It’s **not currently possible** to add **organizations** or **repositories** to cost centers using the API.
-* You **cannot** add members to cost centers through the UI.
-* A single **organization**, **repository**, or **member** can only be assigned to one cost center at a time.
+* There is a maximum of 250 cost centers per enterprise.
+* You can add or remove up to 50 resources at a time from a cost center using the API.
+* Azure subscriptions can only be added to or removed from cost centers via the UI.
+* Users can only be added to or removed from cost centers via the API.
 
 ## Further reading
 
