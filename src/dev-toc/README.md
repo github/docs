@@ -14,7 +14,7 @@ To generate the table of contents, run the following command from the Terminal:
 npm run dev-toc
 ```
 
-After generating the files, the ToC should open in your default browser. If it doesn't, open your browser and naviate to `file:///PATH/TO/docs-internal/src/dev-toc/static/free-pro-team@latest/index.html`.
+After generating the files, the ToC should open in your default browser. If it doesn't, open your browser and navigate to `file:///PATH/TO/docs-internal/src/dev-toc/static/free-pro-team@latest/index.html`.
 
 ## Generating the ToC with one or more sections auto-expanded
 
