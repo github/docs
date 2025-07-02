@@ -8,7 +8,7 @@ import path from 'path'
 import ora from 'ora'
 import { callModelsApi } from '@/ai-editors/lib/call-models-api'
 import dotenv from 'dotenv'
-dotenv.config()
+dotenv.config({ quiet: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const promptDir = path.join(__dirname, '../prompts')
