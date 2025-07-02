@@ -102,6 +102,7 @@ This is a Go based repository with a Ruby client for certain API endpoints. It i
 3. Use dependency injection patterns where appropriate
 4. Write unit tests for new functionality. Use table-driven unit tests when possible.
 5. Document public APIs and complex logic. Suggest changes to the `docs/` folder when appropriate
+```
 
 If you choose not to include a `.github/copilot-instructions.md` file in your repository, {% data variables.product.prodname_copilot_short %} will fall back to pre-existing custom instructions including `CLAUDE.md`, `AGENTS.md` and `GEMINI.md`.
 
