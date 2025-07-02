@@ -113,7 +113,6 @@ If the default SPN isn't correct for your proxy, you can override the SPN in {% 
    "http.proxyKerberosServicePrincipal": "YOUR-SPN"
    ```
 
-{% endvscode %}
 
 {% jetbrains %}
 
