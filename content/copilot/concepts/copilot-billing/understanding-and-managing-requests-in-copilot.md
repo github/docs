@@ -16,7 +16,7 @@ redirect_from:
 > [!IMPORTANT]
 > * Billing for premium requests began on June 18, 2025 for all paid {% data variables.product.prodname_copilot_short %} plans, and the request counters were only set to zero for paid plans.
 > * {% data reusables.copilot.data-residency-availability %}
-> * Premium request counters reset on the 1st of each month. See [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements).
+> * Premium request counters reset on the 1st of each month at 00:00:00 UTC. See [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements).
 > * Certain requests may experience rate limits to accommodate high demand. Rate limits restrict the number of requests that can be made within a specific time period.
 
 ## What is a request?
@@ -86,6 +86,8 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 If you use **{% data variables.copilot.copilot_free_short %}**, you have access to a limited number of models, and each model will consume one premium request when used. For example, if you make a request using the {% data variables.copilot.copilot_o3_mini %} model, your interaction will consume **one premium request**, not 0.33 premium requests.
 
+{% rowheaders %}
+
 | Model                                                                   | Multiplier for **paid plans**  | Multiplier for **{% data variables.copilot.copilot_free_short %}** |
 |-------------------------------------------------------------------------|--------------------------------|-----------------------|
 | {% data variables.copilot.copilot_gpt_41 %}                             | 0                              | 1                     |
@@ -102,6 +104,8 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 | {% data variables.copilot.copilot_o3 %}                                 | 1                              | Not applicable        |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                           | 1                     |
 | {% data variables.copilot.copilot_o4_mini %}                            | 0.33                           | Not applicable        |
+
+{% endrowheaders %}
 
 ## Examples of premium request usage
 

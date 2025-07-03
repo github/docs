@@ -30,7 +30,7 @@ You can review and revoke your authorization at any time. For more information, 
 {% ifversion ghec %}
 
 > [!NOTE]
-> If your organization uses SAML SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SAML session for your organization. For more information, see [AUTOTITLE](/apps/using-github-apps/saml-and-github-apps).
+> If your organization uses SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SSO session for your organization. For more information, see [AUTOTITLE](/apps/using-github-apps/saml-and-github-apps).
 
 {% endif %}
 

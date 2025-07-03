@@ -9,7 +9,7 @@ import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 // The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
-dotenv.config()
+dotenv.config({ quiet: true })
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 

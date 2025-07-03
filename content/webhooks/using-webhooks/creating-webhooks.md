@@ -98,7 +98,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Creating a {% data variables.product.prodname_marketplace %} webhook
 
-You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can create a {% data variables.product.prodname_marketplace %} webhook.
+You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the app, can create a {% data variables.product.prodname_marketplace %} webhook.
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.
@@ -127,7 +127,7 @@ You can create a webhook to subscribe to events relating to your sponsorships. O
 
 ## Creating webhooks for a {% data variables.product.prodname_github_app %}
 
-The owner of a {% data variables.product.prodname_github_app %} can subscribe the app to webhook events to receive notifications whenever certain events occur. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also subscribe the app to webhook events. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
+The owner of a {% data variables.product.prodname_github_app %} can subscribe the app to webhook events to receive notifications whenever certain events occur. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also subscribe the app to webhook events. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps).
 
 Each {% data variables.product.prodname_github_app %} has one webhook. You can configure the webhook when you register a {% data variables.product.prodname_github_app %}, or you can edit the webhook configuration for an existing {% data variables.product.prodname_github_app %} registration.
 

@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/using-github-copilot/code-review/configuring-coding-guidelines
 ---
 
-{% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %}
+{% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %} See [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/using-copilot-code-review#customizing-copilots-reviews-with-custom-instructions).
 
 ## About coding guidelines
 

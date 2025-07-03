@@ -2,7 +2,7 @@
 | --- | --- | --- | --- | --- | ---|
 | Cargo | Rust | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `Cargo.lock` | `Cargo.toml` |
 | Composer             | PHP           | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `composer.lock` | `composer.json` |
-| NuGet | .NET languages (C#, F#, VB), C++  | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `packages.config` |
+| NuGet | .NET languages (C#, F#, VB), C++  | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `packages.config` |
 | {% data variables.product.prodname_actions %} workflows | YAML | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | `.yml`, `.yaml` | {% octicon "x" aria-label="None" %} |
 | Go modules | Go | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |  `go.mod`| {% octicon "x" aria-label="None" %} |
 | Gradle | Java  | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} |  {% octicon "x" aria-label="None" %} | {% octicon "x" aria-label="None" %} |

@@ -1,5 +1,38 @@
 # Docs changelog
 
+**30 June 2025**
+
+Many enterprise customers want to measure the downstream impact of Copilot on their company, looking beyond leading metrics like adoption and usage.
+
+Inspired by [GitHub's latest guidance](https://resources.github.com/engineering-system-success-playbook/), we've published three guides that provide usecases, training resources, and metrics to help you plan and measure your rollout to achieve real-world goals, such as increasing test coverage.
+
+Get started at [Achieving your company's engineering goals with GitHub Copilot](https://docs.github.com/en/copilot/get-started/achieve-engineering-goals).
+
+<hr>
+
+**27 June 2025**
+
+We've published a new guide about how to combine use of GitHub Copilot's agent mode with Model Context Protocol (MCP) servers to complete complex tasks through agentic "loops" - illustrated through an accessibility compliance example. The guide also discusses best practices and benefits around using these two features together. See [Enhancing Copilot agent mode with MCP](https://docs.github.com/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp).
+
+<hr>
+
+**27 June 2025**
+
+We’ve published a new set of new documentation articles designed to help users make the most of the **Dependabot metrics page** in the organization’s security overview.
+
+These clear, actionable guides help users:
+
+- **[View metrics for Dependabot alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-dependabot-alerts)**
+  This article is aimed at security and engineering leads who want to learn how to access and interpret key metrics, so they can quickly assess their organization’s exposure and remediation progress.
+
+- **[Understand your organization’s exposure to vulnerable dependencies](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/about-your-exposure-to-vulnerable-dependencies)**
+  In this article, security analysts and compliance teams get a deep dive into how vulnerable dependencies are tracked and what these numbers mean for their risk landscape.
+
+- **[Prioritize Dependabot alerts using metrics](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics)**
+  This guide provides engineering managers and remediation teams with strategies for using metrics to focus the team’s efforts where they matter most, making remediation more efficient.
+
+<hr>
+
 **27 June 2025**
 
 We've published a new scenario-based guide for Copilot: [Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot).

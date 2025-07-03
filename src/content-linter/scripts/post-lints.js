@@ -6,6 +6,9 @@ import github from '#src/workflows/github.ts'
 import { getEnvInputs } from '#src/workflows/get-env-inputs.ts'
 import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
 
+// GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
+const MAX_ISSUE_BODY_SIZE = 60000
+
 // [start-readme]
 //
 // This script runs once a week via a scheduled GitHub Action to lint
@@ -45,10 +48,30 @@ async function main() {
 
   core.info(`Creating issue for errors and warnings...`)
 
+  const parsedResults = JSON.parse(lintResults)
+  const totalFiles = Object.keys(parsedResults).length
   let reportBody = 'The following files have markdown lint warnings/errors:\n\n'
-  for (const [file, flaws] of Object.entries(JSON.parse(lintResults))) {
-    reportBody += `File: \`${file}\`:\n`
-    reportBody += `\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
+  let filesIncluded = 0
+  let truncated = false
+
+  for (const [file, flaws] of Object.entries(parsedResults)) {
+    const fileEntry = `File: \`${file}\`:\n\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
+
+    // Check if adding this file would exceed the size limit
+    if (reportBody.length + fileEntry.length > MAX_ISSUE_BODY_SIZE) {
+      truncated = true
+      break
+    }
+
+    reportBody += fileEntry
+    filesIncluded++
+  }
+
+  // Add truncation notice if needed
+  if (truncated) {
+    const remaining = totalFiles - filesIncluded
+    reportBody += `\n---\n\n⚠️ **Output truncated**: Showing ${filesIncluded} of ${totalFiles} files with lint issues. ${remaining} additional files have been omitted to stay within GitHub's issue size limits.\n`
+    reportBody += `\nTo see all results, run the linter locally:\n\`\`\`bash\nnpm run lint-content -- --paths content data\n\`\`\`\n`
   }
 
   const reportProps = {

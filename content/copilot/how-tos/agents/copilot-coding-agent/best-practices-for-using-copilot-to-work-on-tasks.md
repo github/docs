@@ -104,9 +104,11 @@ This is a Go based repository with a Ruby client for certain API endpoints. It i
 5. Document public APIs and complex logic. Suggest changes to the `docs/` folder when appropriate
 ```
 
+If you choose not to include a `.github/copilot-instructions.md` file in your repository, {% data variables.product.prodname_copilot_short %} will fall back to pre-existing custom instructions including `CLAUDE.md`, `AGENTS.md` and `GEMINI.md`.
+
 ## Using the Model Context Protocol (MCP)
 
-You can extend the capabilities of {% data variables.copilot.copilot_coding_agent %} by using MCP. This allows {% data variables.copilot.copilot_coding_agent %} to use tools provided by local MCP servers. The {% data variables.product.github %} MCP server is enabled by default. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+You can extend the capabilities of {% data variables.copilot.copilot_coding_agent %} by using MCP. This allows {% data variables.copilot.copilot_coding_agent %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp) are enabled by default. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Pre-installing dependencies in {% data variables.product.prodname_copilot %}'s environment
 

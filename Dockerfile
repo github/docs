@@ -54,19 +54,28 @@ RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   . ./build-scripts/fetch-repos.sh
 
 # -----------------------------------------
-# DEPENDENCIES STAGE: Install node packages
+# PROD_DEPS STAGE: Install production dependencies
 # -----------------------------------------
-FROM base AS dependencies
+FROM base AS prod_deps
 USER node:node
 WORKDIR $APP_HOME
 
 # Copy what is needed to run npm ci
 COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci --omit=optional --registry https://registry.npmjs.org/
+# Install only production dependencies (skip scripts to avoid husky)
+RUN npm ci --omit=dev --ignore-scripts --registry https://registry.npmjs.org/
 
 # -----------------------------------------
-# BUILD STAGE: Prepare for production stage
+# ALL_DEPS STAGE: Install all dependencies on top of prod deps
+# -----------------------------------------
+FROM prod_deps AS all_deps
+
+# Install dev dependencies on top of production ones
+RUN npm ci --registry https://registry.npmjs.org/
+
+# -----------------------------------------
+# BUILD STAGE: Build the application
 # -----------------------------------------
 FROM base AS build
 USER node:node
@@ -84,14 +93,27 @@ COPY --chown=node:node --from=clones $APP_HOME/assets assets/
 COPY --chown=node:node --from=clones $APP_HOME/content content/
 COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 
-# From the dependencies stage
-COPY --chown=node:node --from=dependencies $APP_HOME/node_modules node_modules/
+# From the all_deps stage (need dev deps for build)
+COPY --chown=node:node --from=all_deps $APP_HOME/node_modules node_modules/
 
-# Generate build files
-RUN npm run build \
-  && npm run warmup-remotejson \
-  && npm run precompute-pageinfo -- --max-versions 2 \
-  && npm prune --production
+# Build the application
+RUN npm run build
+
+# -----------------------------------------
+# WARMUP_CACHE STAGE: Warm up remote JSON cache
+# -----------------------------------------
+FROM build AS warmup_cache
+
+# Generate remote JSON cache
+RUN npm run warmup-remotejson
+
+# -----------------------------------------
+# PRECOMPUTE STAGE: Precompute page info
+# -----------------------------------------
+FROM build AS precompute_stage
+
+# Generate precomputed page info
+RUN npm run precompute-pageinfo -- --max-versions 2
 
 # -------------------------------------------------
 # PRODUCTION STAGE: What will run on the containers
@@ -112,13 +134,17 @@ COPY --chown=node:node --from=clones $APP_HOME/assets assets/
 COPY --chown=node:node --from=clones $APP_HOME/content content/
 COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 
-# From dependencies stage (*modified in build stage)
-COPY --chown=node:node --from=build $APP_HOME/node_modules node_modules/
+# From prod_deps stage (production-only node_modules)
+COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules node_modules/
 
 # From build stage
 COPY --chown=node:node --from=build $APP_HOME/.next .next/
-COPY --chown=node:node --from=build $APP_HOME/.remotejson-cache ./
-COPY --chown=node:node --from=build $APP_HOME/.pageinfo-cache.json.br* ./
+
+# From warmup_cache stage
+COPY --chown=node:node --from=warmup_cache $APP_HOME/.remotejson-cache ./
+
+# From precompute_stage
+COPY --chown=node:node --from=precompute_stage $APP_HOME/.pageinfo-cache.json.br* ./
 
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.

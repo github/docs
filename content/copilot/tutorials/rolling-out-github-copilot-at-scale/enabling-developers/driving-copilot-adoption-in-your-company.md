@@ -50,6 +50,8 @@ For more complex issues, you may also choose to designate an internal point of c
 
 This section offers examples of how you can support effective use of {% data variables.product.prodname_copilot_short %}. You can use these examples as a starting point and adapt them to meet your organization's needs and goals.
 
+To drive and measure downstream impact of {% data variables.product.prodname_copilot_short %}, {% data variables.product.company_short %} recommends leading your rollout with specific engineering goals in mind. You should communicate your goals to staff and organize training accordingly. See [AUTOTITLE](/copilot/get-started/achieve-engineering-goals).
+
 ### Creating onboarding resources
 
 You may choose to create internal onboarding materials to help teams get started with {% data variables.product.prodname_copilot_short %}. These materials could include your organization's policies and guidelines for using {% data variables.product.prodname_copilot_short %}, {% data variables.product.github %} documentation, relevant {% data variables.product.github %} blog posts, and any other resources that you think will be helpful.

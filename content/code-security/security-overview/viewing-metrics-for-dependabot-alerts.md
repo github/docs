@@ -21,7 +21,7 @@ topics:
 
 The metrics overview for {% data variables.product.prodname_dependabot %} provides valuable insights for both developers and application security (AppSec) managers. The data in the {% data variables.product.prodname_dependabot %} dashboard page contains a vulnerability prioritization funnel that helps with efficiently prioritizing, remediating, and tracking vulnerabilities across multiple repositories. This ensures that the most critical risks are addressed first and that security improvements can be measured over time.
 
-For more information about how AppSec managers can best use these metrics to optimize alert fixing, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics).
+For more information about how AppSec managers can best use these metrics to optimize alert fixing, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/prioritizing-dependabot-alerts-using-metrics).
 
 You can see  {% data variables.product.prodname_dependabot %} metrics if you have:
 
