@@ -11,6 +11,7 @@ children:
   - /using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
   - /enforcing-artifact-attestations-with-a-kubernetes-admission-controller
   - /verifying-attestations-offline
+  - /managing-the-lifecycle-of-artifact-attestations
 redirect_from:
   - /actions/security-for-github-actions/using-artifact-attestations
 ---

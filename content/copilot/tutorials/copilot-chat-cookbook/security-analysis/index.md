@@ -9,6 +9,8 @@ versions:
 topics:
   - Copilot
 children:
+  - /securing-your-repository
+  - /managing-dependency-updates
   - /finding-existing-vulnerabilities-in-code
 ---
 

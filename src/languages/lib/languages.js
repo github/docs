@@ -8,7 +8,7 @@ import dotenv from 'dotenv'
 
 import { ROOT, TRANSLATIONS_ROOT, TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/lib/constants.js'
 
-dotenv.config()
+dotenv.config({ quiet: true })
 
 const possibleEnvVars = {
   'es-es': process.env.TRANSLATIONS_ROOT_ES_ES,

@@ -22,7 +22,7 @@ redirect_from:
 
 You can upgrade a Git-based Maven or Gradle Java project using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. You will need:
 
-* Either a **{% data variables.copilot.copilot_for_business %}** or **{% data variables.copilot.copilot_enterprise %}** [subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* Either a **{% data variables.copilot.copilot_pro %}**, **{% data variables.copilot.copilot_pro_plus %}**, **{% data variables.copilot.copilot_for_business %}** or **{% data variables.copilot.copilot_enterprise %}** [subscription plan](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 * The latest version of [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/).
 * For Maven-based projects, access to the public Maven Central repository.
 * Installed versions of both the source and target JDKs.

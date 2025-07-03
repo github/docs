@@ -33,14 +33,29 @@ echo "Merging early access..."
 mkdir -p translations
 cd translations
 
-# Iterate over each language
-echo "Fetching translations..."
-for lang in  "es-es" "ja-jp" "pt-br" "zh-cn" "ru-ru" "fr-fr" "ko-kr" "de-de"
-do
-  translations_repo="docs-internal.$lang"
-  clone_or_use_cached_repo "$lang" "$translations_repo" "main"
+# Temporarily turn off exit-on-error so we can collect all PIDs
+set +e
+
+pids=""
+for lang in es-es ja-jp pt-br zh-cn ru-ru fr-fr ko-kr de-de; do
+  clone_or_use_cached_repo "$lang" "docs-internal.$lang" "main" &
+  pids="$pids $!"
 done
-echo "Done fetching translations."
+
+failures=0
+for pid in $pids; do
+  wait "$pid" || failures=$((failures+1))
+done
+
+# Restore strict mode
+set -e
+
+if [ "$failures" -gt 0 ]; then
+  echo "⚠️  $failures translation repo(s) failed to fetch."
+  exit 1
+else
+  echo "✅  All translations fetched."
+fi
 
 # Go back to the root of the docs-internal repo
 cd ..

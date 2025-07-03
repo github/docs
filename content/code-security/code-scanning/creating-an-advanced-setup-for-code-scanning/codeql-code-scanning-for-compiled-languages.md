@@ -64,7 +64,7 @@ The {% data variables.product.prodname_codeql %} action supports three different
 
 * `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported for {% data variables.code-scanning.no_build_support %}).
 * `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
-* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
+* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages{% ifversion codeql-rust-public-preview %}, except Rust{% endif %}).
 
 ### Comparison of the build modes
 
