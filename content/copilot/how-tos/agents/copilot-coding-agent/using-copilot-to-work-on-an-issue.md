@@ -132,6 +132,8 @@ A few seconds later, {% data variables.product.prodname_copilot_short %} will op
 
 {% data variables.product.prodname_copilot_short %} will start an **agent session** to work on your issue. A "{% data variables.product.prodname_copilot_short %} started work" event will appear in the pull request timeline, and as {% data variables.product.prodname_copilot_short %} works, it will update the pull request body with regular status updates, and push commits to the branch.
 
+All of your sessions, past and present, can be seen and tracked from the [Agents page](https://github.com/copilot/agents). See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
+
 ![Screenshot of a pull request with a series of timeline events, including "Copilot started work."](/assets/images/help/copilot/coding-agent/copilot-started-work.png)
 
 If you want to check what {% data variables.product.prodname_copilot_short %} is doing, click **View session**. The session log viewer is displayed, showing you a live log as {% data variables.product.prodname_copilot_short %} works on the issue. If you want to stop {% data variables.product.prodname_copilot_short %} from working on the issue, click **Stop session**. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs).

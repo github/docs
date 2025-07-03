@@ -8,10 +8,10 @@ topics:
 children:
   - /best-practices-for-using-copilot-to-work-on-tasks
   - /enabling-copilot-coding-agent
-  - /using-copilot-to-work-on-an-issue
   - /asking-copilot-to-create-a-pull-request
+  - /using-copilot-to-work-on-an-issue
+  - /tracking-copilots-sessions
   - /reviewing-a-pull-request-created-by-copilot
-  - /using-the-copilot-coding-agent-logs
   - /extending-copilot-coding-agent-with-mcp
   - /customizing-the-development-environment-for-copilot-coding-agent
   - /customizing-or-disabling-the-firewall-for-copilot-coding-agent
