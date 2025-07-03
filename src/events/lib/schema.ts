@@ -371,6 +371,10 @@ const search = {
       type: 'string',
       description: 'Any additional search context, such as component searched.',
     },
+    search_client: {
+      type: 'string',
+      description: 'The client name identifier when the request is not from docs.github.com.',
+    },
   },
 }
 

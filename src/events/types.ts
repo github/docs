@@ -104,6 +104,7 @@ export type EventPropsByType = {
   [EventType.search]: {
     search_query: string
     search_context?: string
+    search_client?: string
   }
   [EventType.searchResult]: {
     search_result_query: string
