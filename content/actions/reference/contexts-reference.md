@@ -1,7 +1,7 @@
 ---
-title: Accessing contextual information about workflow runs
-shortTitle: Contexts
-intro: You can access context information in workflows and actions.
+title: Contexts reference
+shortTitle: Contexts reference
+intro: 'Find information about contexts available in {% data variables.product.prodname_actions %} workflows, including available properties, access methods, and usage examples.'
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -11,27 +11,14 @@ redirect_from:
   - /actions/learn-github-actions/contexts
   - /actions/writing-workflows/choosing-what-your-workflow-does/contexts
   - /actions/writing-workflows/choosing-what-your-workflow-does/accessing-contextual-information-about-workflow-runs
+  - /actions/reference/accessing-contextual-information-about-workflow-runs
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About contexts
-
-{% data reusables.actions.actions-contexts-about-description %} Each context is an object that contains properties, which can be strings or other objects.
-
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
-
-You can access contexts using the expression syntax. For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
-
-{% raw %}
-`${{ <context> }}`
-{% endraw %}
-
-{% data reusables.actions.context-injection-warning %}
+## Available contexts
 
 | Context name | Type | Description |
 |---------------|------|-------------|
@@ -174,7 +161,7 @@ jobs:
 
 ## `github` context
 
-The `github` context contains information about the workflow run and the event that triggered the run. You can also read most of the `github` context data in environment variables. For more information about environment variables, see [AUTOTITLE](/actions/learn-github-actions/variables).
+The `github` context contains information about the workflow run and the event that triggered the run. You can read most of the `github` context data in environment variables. For more information about environment variables, see [AUTOTITLE](/actions/learn-github-actions/variables).
 
 {% data reusables.actions.github-context-warning %}
 {% data reusables.actions.context-injection-warning %}
@@ -877,3 +864,7 @@ jobs:
 ```
 
 {% endraw %}
+
+## Further reading
+
+* [AUTOTITLE](/actions/concepts/workflows-and-actions/contexts)

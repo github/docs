@@ -12,7 +12,7 @@ children:
   - /workflow-commands-for-github-actions
   - /variables-reference
   - /evaluate-expressions-in-workflows-and-actions
-  - /accessing-contextual-information-about-workflow-runs
+  - /contexts-reference
   - /metadata-syntax-for-github-actions
   - /actions-limits
   - /dockerfile-support-for-github-actions

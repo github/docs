@@ -10,6 +10,7 @@ children:
   - /variables
   - /avoiding-duplication
   - /about-custom-actions
+  - /contexts
   - /about-monitoring-workflows
   - /notifications-for-workflow-runs
   - /about-troubleshooting-workflows
