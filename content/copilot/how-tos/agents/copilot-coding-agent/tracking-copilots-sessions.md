@@ -1,7 +1,7 @@
 ---
-title: Using the Copilot coding agent logs
-shortTitle: Use the Copilot logs
-intro: "You can use the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach."
+title: Tracking Copilot's sessions
+shortTitle: Track Copilot sessions
+intro: "You can use the Agents page and session logs to track {% data variables.product.prodname_copilot_short %}'s progress and understand its approach."
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -11,17 +11,34 @@ type: how_to
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs
   - /copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs
+  - /copilot/how-tos/agents/copilot-coding-agent/using-the-copilot-coding-agent-logs
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}
 
 ## Introduction
 
-After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.copilot.copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+
+The [Agents page](https://github.com/copilot/agents) provides an overview of your agent sessions across repositories. From this page, you can kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 
+## Tracking agent sessions from the Agents page
+
+You can see a list of your running and past agent sessions on the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+
+You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
+
+![Screenshot of the Agents page with several sessions, including one currently in progress.](/assets/images/help/copilot/coding-agent/agents-page.png)
+
+For each session listed below the prompt field, you can see its status at a glance, or click on it to navigate to the linked pull request.
+
+You can also start new agent sessions from this page. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request).
+
 ## Using the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach
+
+You can dive into {% data variables.product.prodname_copilot_short %}'s session logs to understand how it approached your task.
 
 To view the session logs, click **View session** in the pull request timeline.
 
