@@ -14,7 +14,14 @@ redirect_from:
 >[!NOTE]
 > The {% data variables.product.github %} MCP server is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
+{% vscode %}
+
 {% data reusables.copilot.mcp.about-github-mcp-server %}
+
+## Prerequisites
+
+* A {% data variables.product.github %} account.
+* {% data variables.product.prodname_vscode %}, or another MCP-compatible editor.
 
 ## Setting up the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}
 
@@ -187,12 +194,200 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 {% data reusables.copilot.open-chat-vs-code %}
 {% data reusables.copilot.select-agent %}
 1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the **Select tools** icon.
-    * In the **Tools** dropdown, under **MCP Server:{% data variables.product.github %}**, you will see a list of available actions.
+    * In the **Tools** dropdown, under **MCP Server: {% data variables.product.github %}**, you will see a list of available actions.
 1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
     * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
 1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.
     * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
 1. Follow the prompts to complete the action.
+
+{% endvscode %}
+
+{% jetbrains %}
+
+{% data reusables.copilot.mcp.about-github-mcp-server %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
+
+  {% data reusables.copilot.jetbrains-compatible-ides %}
+{% data reusables.copilot.jetbrains-plugin-prerequisites %}
+
+## Setting up the {% data variables.product.github %} MCP server in JetBrains IDEs
+
+The instructions below guide you through setting up the {% data variables.product.github %} MCP server in JetBrains IDEs. Other MCP-compatible editors may have similar steps, but the exact process may vary.
+
+We recommend setting up the {% data variables.product.github %} MCP server remotely. JetBrains IDEs only support using a {% data variables.product.pat_generic %} (PAT) for authentication with the {% data variables.product.github %} MCP server.
+
+> [!NOTE]
+> If you are an {% data variables.product.prodname_emu %} with PAT restrictions, you won't be able to use PAT authentication.
+
+For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server repository](https://github.com/github/github-mcp-server#usage-in-other-mcp-hosts-1).
+
+### Remote MCP server configuration with PAT
+
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
+1. From the menu, select "Edit settings".
+1. Under the MCP section, click "Edit in `mcp.json`".
+1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
+
+  ```json copy
+    {
+      "servers": {
+          "github": {
+              "url": "https://api.githubcopilot.com/mcp/",
+              "requestInit": {
+                  "headers": {
+                      "Authorization": "Bearer YOUR_GITHUB_PAT"
+                  }
+              }
+          }
+      }
+    }
+  ```
+
+## Using the {% data variables.product.github %} MCP server in JetBrains IDEs
+
+The {% data variables.product.github %} MCP server enables you to perform a wide range of actions on {% data variables.product.github %}, via {% data variables.copilot.copilot_chat_short %} in JetBrains IDEs.
+
+1. Open the {% data variables.copilot.copilot_chat_short %} window by clicking the **{% data variables.copilot.copilot_chat %}** icon at the right side of the JetBrains IDE window.
+
+   ![Screenshot of the {% data variables.copilot.copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
+1. At the top of the chat panel, click the **Agent** tab.
+1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon.
+    * Under **MCP Server: {% data variables.product.github %}**, you will see a list of available actions.
+1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
+    * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
+1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.
+    * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
+1. Follow the prompts to complete the action.
+
+{% endjetbrains %}
+
+{% xcode %}
+
+{% data reusables.copilot.mcp.about-github-mcp-server %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+
+## Setting up the {% data variables.product.github %} MCP server in Xcode
+
+The instructions below guide you through setting up the {% data variables.product.github %} MCP server in Xcode. Other MCP-compatible editors may have similar steps, but the exact process may vary.
+
+We recommend setting up the {% data variables.product.github %} MCP server remotely. Xcode only supports using a {% data variables.product.pat_generic %} (PAT) for authentication with the {% data variables.product.github %} MCP server.
+
+> [!NOTE]
+> If you are an {% data variables.product.prodname_emu %} with PAT restrictions, you won't be able to use PAT authentication.
+
+For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server repository](https://github.com/github/github-mcp-server#usage-in-other-mcp-hosts-1).
+
+### Remote MCP server configuration with PAT
+
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+1. Open the {% data variables.product.prodname_copilot %} for Xcode extension.
+1. In agent mode, click the tools icon.
+1. Select "Edit config".
+1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
+
+```json copy
+  {
+    "servers": {
+        "github": {
+            "url": "https://api.githubcopilot.com/mcp/",
+            "requestInit": {
+                "headers": {
+                    "Authorization": "Bearer YOUR_GITHUB_PAT"
+                }
+            }
+        }
+    }
+  }
+```
+  
+## Using the {% data variables.product.github %} MCP server in Xcode
+
+The {% data variables.product.github %} MCP server enables you to perform a wide range of actions on {% data variables.product.github %}, via {% data variables.copilot.copilot_chat_short %} in Xcode.
+
+1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
+1. At the bottom of the chat panel, select **Agent**.
+1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon.
+    * Under **MCP Server: {% data variables.product.github %}**, you will see a list of available actions.
+1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
+    * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
+1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.
+    * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
+1. Follow the prompts to complete the action.
+
+{% endxcode %}
+
+{% eclipse %}
+
+{% data reusables.copilot.mcp.about-github-mcp-server %}
+
+## Prerequisites
+
+{% data reusables.copilot.eclipse-prerequisites %}
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Sign in to {% data variables.product.company_short %} from Eclipse**.
+
+## Setting up the {% data variables.product.github %} MCP server in Eclipse
+
+The instructions below guide you through setting up the {% data variables.product.github %} MCP server in Eclipse. Other MCP-compatible editors may have similar steps, but the exact process may vary.
+
+We recommend setting up the {% data variables.product.github %} MCP server remotely. Eclipse only supports using a {% data variables.product.pat_generic %} (PAT) for authentication with the {% data variables.product.github %} MCP server.
+
+> [!NOTE]
+> If you are an {% data variables.product.prodname_emu %} with PAT restrictions, you won't be able to use PAT authentication.
+
+For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server repository](https://github.com/github/github-mcp-server#usage-in-other-mcp-hosts-1).
+
+### Remote MCP server configuration with PAT
+
+To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
+1. From the menu, select "Edit preferences".
+1. In the left pane, expand {% data variables.product.prodname_copilot %} and click **MCP**.
+1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
+
+  ```json copy
+    {
+      "servers": {
+          "github": {
+              "url": "https://api.githubcopilot.com/mcp/",
+              "requestInit": {
+                  "headers": {
+                      "Authorization": "Bearer YOUR_GITHUB_PAT"
+                  }
+              }
+          }
+      }
+    }
+  ```
+
+## Using the {% data variables.product.github %} MCP server in Eclipse
+
+The {% data variables.product.github %} MCP server enables you to perform a wide range of actions on {% data variables.product.github %}, via {% data variables.copilot.copilot_chat_short %} in Eclipse.
+
+1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
+1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. To see the available actions, in the {% data variables.copilot.copilot_chat_short %} box, click the tools icon.
+    * Under `github`, you will see a list of available actions.
+1. In the {% data variables.copilot.copilot_chat_short %} box, type a command or question related to the action you want to perform, and press **Enter**.
+    * For example, you can ask the {% data variables.product.github %} MCP server to create a new issue, list pull requests, or retrieve repository information.
+1. The {% data variables.product.github %} MCP server will process your request and provide a response in the chat interface.
+    * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
+1. Follow the prompts to complete the action.
+
+{% endeclipse %}
 
 {% data reusables.copilot.mcp.troubleshooting-mcp-server %}
 
