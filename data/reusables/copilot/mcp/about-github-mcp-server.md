@@ -20,11 +20,6 @@ Running the {% data variables.product.github %} MCP server locally requires a bi
 
 There is currently broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, XCode, and others.
 
-Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %} (with OAuth or PAT), {% data variables.product.prodname_vs %} (PAT only), Windsurf (PAT only), and Cursor (PAT only) already providing this functionality.
+Support for remote MCP servers is growing, with editors like {% data variables.product.prodname_vscode %} (with OAuth or PAT), {% data variables.product.prodname_vs %} (PAT only), JetBrains IDEs (PAT only), Xcode (PAT only), Eclipse (PAT only), Windsurf (PAT only), and Cursor (PAT only) already providing this functionality.
 
 To find out if your preferred editor supports remote MCP servers, check the documentation for your specific editor.
-
-## Prerequisites
-
-* A {% data variables.product.github %} account.
-* {% data variables.product.prodname_vscode %}, or another MCP-compatible editor.
