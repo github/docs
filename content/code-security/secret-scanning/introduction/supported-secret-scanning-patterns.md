@@ -55,6 +55,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 In addition to these generic non-provider patterns, {% data variables.product.prodname_secret_scanning %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
 {% endif %}
 
+{caption="Non-provider secret scanning patterns"}
 | Provider | Token |
 |----------|:--------------------|
 |  Generic | http_basic_authentication_header |
