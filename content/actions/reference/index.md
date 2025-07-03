@@ -1,7 +1,7 @@
 ---
 title: Reference for GitHub Actions
 shortTitle: Reference
-intro: "Find information to apply to your work with GitHub Actions."
+intro: Find information to apply to your work with GitHub Actions.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,7 @@ children:
   - /workflow-syntax-for-github-actions
   - /events-that-trigger-workflows
   - /workflow-commands-for-github-actions
+  - /variables-reference
   - /evaluate-expressions-in-workflows-and-actions
   - /accessing-contextual-information-about-workflow-runs
   - /metadata-syntax-for-github-actions
@@ -19,3 +20,4 @@ children:
   - /usage-limits-for-self-hosted-runners
   - /supplemental-arguments-and-settings
 ---
+

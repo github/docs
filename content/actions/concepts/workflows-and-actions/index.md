@@ -7,6 +7,7 @@ versions:
   ghec: '*'
 children:
   - /about-workflows
+  - /variables
   - /avoiding-duplication
   - /about-custom-actions
   - /about-monitoring-workflows

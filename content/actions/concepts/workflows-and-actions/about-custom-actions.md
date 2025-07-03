@@ -83,7 +83,7 @@ Many people access {% data variables.product.github %} at a domain other than {%
 
 To ensure that your action is compatible with other platforms, do not use any hard-coded references to API URLs such as `https://api.github.com`. Instead, you can:
 
-* Use environment variables (see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)):
+* Use environment variables (see [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables)):
 
   * For the REST API, use the `GITHUB_API_URL` environment variable.
   * For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
