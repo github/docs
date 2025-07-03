@@ -1,2 +1,1 @@
->[!NOTE]
->Newer versions of Jekyll are unsupported. {% data variables.product.prodname_actions %} is the fully supported alternative recommended for most users. Get started at [AUTOTITLE](/actions/get-started/quickstart).
+> [!NOTE] While the `github-pages` gem remains supported for some workflows, {% data variables.product.prodname_actions %} is now the recommended approach for deploying and automating Pages sites.
