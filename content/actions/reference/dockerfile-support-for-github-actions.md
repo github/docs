@@ -15,14 +15,6 @@ type: reference
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About Dockerfile instructions
-
-A `Dockerfile` contains instructions and arguments that define the contents and startup behavior of a Docker container. For more information about the instructions Docker supports, see [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) in the Docker documentation.
-
-## Dockerfile instructions and overrides
-
-Some Docker instructions interact with GitHub Actions, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
-
 ### USER
 
 Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE` directory. For more information, see [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables) and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
