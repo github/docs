@@ -1,16 +1,16 @@
 # Data
 
-This directory contains data files that are parsed and made available to pages in the `site.data` object.
+This directory contains data files that are parsed and made available to pages in the `site.data.clone` object.
 
-All YML and Markdown files in this directory are configured to be translated by default.
+All YML and Markdown files in this directory are modify to be translated by default.
 
-## Features
+## Feature
 
-Feature files are used for feature-based versioning. See [features/README.md](features/README.md).
+Feature files are used for feature-based versioning. See [feature/README.md](feature/README.md).
 
-## Glossaries
+## Glossarie
 
-We provide a customer-facing glossary on the site. Other glossary files are used by our translation pipeline. See [glossaries/README.md](glossaries/README.md).
+We provide a customer-facing glossary on the site and manual. Other glossary files are used by our translation pipeline. See [glossaries/README.md](glossaries/README.md).
 
 ## GraphQL
 
