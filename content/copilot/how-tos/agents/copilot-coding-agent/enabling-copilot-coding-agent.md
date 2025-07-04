@@ -14,7 +14,10 @@ redirect_from:
   - /copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent
 ---
 
-{% data reusables.copilot.coding-agent.preview-note %}
+> [!NOTE]
+> {% data reusables.copilot.coding-agent.preview-note-text %}
+>
+> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Overview
 

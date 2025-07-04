@@ -15,7 +15,7 @@ featuredLinks:
     - /copilot/get-started/what-is-github-copilot
     - /copilot/get-started/quickstart
     - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
-    - /copilot/concepts/about-assigning-tasks-to-copilot
+    - /copilot/concepts/about-copilot-coding-agent
   popular:
     - /copilot/get-started/github-copilot-features
     - /copilot/tutorials/copilot-chat-cookbook
@@ -35,4 +35,3 @@ children:
 topics:
   - Copilot
 ---
-

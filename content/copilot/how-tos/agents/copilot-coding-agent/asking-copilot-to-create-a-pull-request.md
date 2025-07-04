@@ -16,6 +16,7 @@ redirect_from:
 
 > [!NOTE]
 > * {% data reusables.copilot.coding-agent.preview-note-text %}
+> * For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
 
@@ -71,6 +72,6 @@ From the session logs page, you can also stop {% data variables.product.prodname
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot)
+* [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent#copilot-cant-create-a-pull-request-from-copilot-chat)

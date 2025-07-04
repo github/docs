@@ -58713,6 +58713,14 @@
           "href": "/graphql/reference/scalars#id"
         },
         {
+          "name": "immutable",
+          "description": "<p>Whether or not the release is immutable.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isDraft",
           "description": "<p>Whether or not the release is a draft.</p>",
           "type": "Boolean!",
