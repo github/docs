@@ -18,7 +18,9 @@ redirect_from:
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
 >
-> For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+
+## Overview
 
 {% data reusables.copilot.coding-agent.mcp-brief-intro %}
 
