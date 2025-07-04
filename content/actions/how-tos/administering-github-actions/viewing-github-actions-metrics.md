@@ -12,22 +12,6 @@ redirect_from:
   - /actions/administering-github-actions/viewing-github-actions-metrics
 ---
 
-{% data reusables.actions.about-actions-metrics %}
-
-{% data reusables.actions.enabling-actions-metrics %}
-
-## About {% data variables.product.prodname_actions %} usage metrics
-
-{% data reusables.actions.about-actions-usage-metrics %}
-
-## About {% data variables.product.prodname_actions %} performance metrics
-
-{% data reusables.actions.about-actions-performance-metrics %}
-
-## Understanding {% data variables.product.prodname_actions %} metrics aggregation
-
-{% data reusables.actions.about-actions-usage-metrics-aggregation %}
-
 ## Viewing {% data variables.product.prodname_actions %} metrics for your organization
 
 {% data reusables.actions.actions-metrics-discrepancy-note %}
@@ -44,3 +28,7 @@ redirect_from:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-insights %}
 {% data reusables.actions.viewing-actions-metrics %}
+
+## Understanding {% data variables.product.prodname_actions %} metrics aggregation
+
+{% data reusables.actions.about-actions-usage-metrics-aggregation %}
