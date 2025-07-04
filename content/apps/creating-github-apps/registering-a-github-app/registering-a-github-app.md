@@ -26,7 +26,7 @@ You can register a {% data variables.product.prodname_github_app %} in a few dif
 * Under your **personal account**.
 * Under an **organization you own**.
 * Under an **organization** that has granted you permission to manage all its apps. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-github-app-managers-in-your-organization).{% ifversion enterprise-apps-public-beta %}
-* Under your **enterprise**, but it can only be installed on organizations within the enterprise.
+* Under your **enterprise**, but it can only be installed on{% ifversion enterprise-installed-apps %} that enterprise and{% endif %} organizations within the enterprise.
 {% endif %}
 
 {% data reusables.apps.maximum-github-apps-allowed %}
@@ -40,8 +40,8 @@ You can register a {% data variables.product.prodname_github_app %} in a few dif
 
    The name must be unique across {% data variables.product.company_short %}. You cannot use the same name as an existing {% data variables.product.company_short %} account, unless it is your own user or organization name.
 
-1. Optionally, under "Description", type a description of your app. Users and organizations will see this description when they install your app.
-1. Under "Homepage URL", type the full URL to your app's website. If you don’t have a dedicated URL and your app's code is stored in a public repository, you can use that repository URL. Or, you can use the URL of the organization or user that owns the app.
+1. Optionally, under "Description", type a description of your app. Users will see this description when they install your app.
+1. Under "Homepage URL", type the full URL to your app's website. If you don’t have a dedicated URL and your app's code is stored in a public repository, you can use that repository URL. Or, you can use the URL of the account that owns the app.
 1. Optionally, under "Callback URL", enter the full URL to redirect to after a user authorizes the installation.
 
    You can enter up to 10 callback URLs. To add additional callback URLs, click **Add callback URL**.

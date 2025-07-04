@@ -805,7 +805,7 @@ export function SearchOverlay({
                   window.open('https://github.com/github/docs-team/discussions/5172', '_blank')
                 } else {
                   // public discussion for feedback
-                  window.open('https://github.com/orgs/community/discussions/158488', '_blank')
+                  window.open('https://github.com/orgs/community/discussions/164214', '_blank')
                 }
               }}
               as="button"

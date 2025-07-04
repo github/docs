@@ -41,7 +41,9 @@ While {% data variables.product.prodname_github_models %} for organizations and 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.models-policies %}
-1. Under "Models", in the "Models in your enterprise" section, click {% octicon "chevron-down" aria-label="the down arrow" %} beside **Disabled** and select **Enabled** from the dropdown.
+1. Under "Models", in the "Models in your enterprise" section, click {% octicon "chevron-down" aria-label="the down arrow" %} beside **Disabled** and select one of the following options:
+    * **Enabled**: Enable {% data variables.product.prodname_github_models %} for all organizations in your enterprise.
+    * **No policy**: Allow each organization in your enterprise to manage the enablement of {% data variables.product.prodname_github_models %} independently.
 
 ## Controlling model usage in your organization
 

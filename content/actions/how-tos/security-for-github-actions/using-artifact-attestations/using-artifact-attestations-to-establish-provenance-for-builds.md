@@ -221,3 +221,9 @@ gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \
   --format json \
   --jq '.[].verificationResult.statement.predicate'
 ```
+
+## Managing the lifecycle of attestations
+
+{% data reusables.actions.lifecycle-of-attestations %}
+
+To find and delete attestations, see [AUTOTITLE](/actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations).

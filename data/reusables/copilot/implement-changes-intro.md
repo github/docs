@@ -1,0 +1,3 @@
+When you've identified the right approach to overcome your barriers, you will scale the solutions you identified. For a successful rollout of a new tool or process, it's important to assign ownership to each part of the rollout, communicate transparently about your goals, provide effective training, and measure your outcomes.
+
+This section provides example scenarios, best practices, and resources for developers. We recommend using this section to **plan communications and training sessions** to help employees use {% data variables.product.prodname_copilot_short %} in a way that aligns with your goal.

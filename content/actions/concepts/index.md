@@ -12,4 +12,5 @@ children:
   - /runners
   - /security
   - /use-cases
+  - /about-github-actions-metrics
 ---

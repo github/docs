@@ -25,8 +25,7 @@ When you enable automatic dependency submission for a repository, {% data variab
 
 Using automatic dependency submission counts toward your {% data variables.product.prodname_actions %} minutes. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
-Optionally, you can choose to configure self-hosted runners or {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission. For more information, see [Using self-hosted runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-self-hosted-runners-for-automatic-dependency-submission
-) and [Using GitHub-hosted larger runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-github-hosted-larger-runners-for-automatic-dependency-submission
+Optionally, you can choose to configure self-hosted runners or {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission. For more information, see [Accessing private registries with self-hosted runners](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#accessing-private-registries-with-self-hosted-runners) and [Using GitHub-hosted larger runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-github-hosted-larger-runners-for-automatic-dependency-submission
 ).
 
 ## Prerequisites
@@ -55,9 +54,9 @@ You can view details about the automatic workflows run by viewing the **Actions*
 
 > [!NOTE] After you enable automatic dependency submission, we'll automatically trigger a run of the action. Once enabled, it'll run each time a commit to the default branch updates a manifest.
 
-## Using self-hosted runners for automatic dependency submission
+## Accessing private registries with self-hosted runners
 
-You can configure self-hosted runners to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure.
+You can configure self-hosted runners to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure. This is necessary to access private Maven registries.
 
 1. Provision one or more self-hosted runners, at the repository or organization level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners). The self-hosted runners must be running on Linux or macOS, and must have Docker installed.
 1. Assign a `dependency-submission` label to each runner you want automatic dependency submission to use. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner).

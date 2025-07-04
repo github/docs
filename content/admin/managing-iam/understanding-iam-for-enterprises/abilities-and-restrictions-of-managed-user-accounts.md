@@ -38,8 +38,6 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 * Can purchase and install paid {% data variables.product.prodname_github_apps %} only if the {% data variables.enterprise.prodname_managed_user %} is an enterprise owner.
 * Can create {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
-  {% data reusables.emus.oauth-app-note %}
-
 ## {% data variables.product.prodname_github_codespaces %}
 
 * On {% data variables.product.prodname_dotcom_the_website %}, {% data variables.enterprise.prodname_managed_users %} can only create codespaces that are owned by the enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:

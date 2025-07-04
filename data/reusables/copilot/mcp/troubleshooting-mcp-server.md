@@ -10,13 +10,13 @@ If you are having trouble authorizing the MCP server, ensure that:
 
 If you are authenticating with a {% data variables.product.pat_generic %} (PAT), ensure that:
 * Your GitHub PAT is valid and has the necessary scopes for the actions you want to perform.
-* You have entered the correct PAT when prompted in {% data variables.product.prodname_vscode %}.
+* You have entered the correct PAT.
 
 ### Copilot agent mode problems
 
 If you are having trouble with the {% data variables.copilot.copilot_chat_short %} agent mode, ensure that:
 * You have selected the correct agent in the {% data variables.copilot.copilot_chat_short %} box.
-* You have configured the MCP server correctly in {% data variables.product.prodname_vscode %}.
+* You have configured the MCP server correctly in your IDE.
 * You have the necessary permissions to perform the actions you are trying to execute.
 
 ### General tips

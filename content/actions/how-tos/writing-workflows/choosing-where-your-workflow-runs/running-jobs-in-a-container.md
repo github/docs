@@ -17,6 +17,14 @@ redirect_from:
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
+### Dockerfile instructions and overrides
+
+A Dockerfile contains instructions and arguments that define the contents and startup behavior of a Docker container. For more information about the instructions Docker supports, see [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) in the Docker documentation.
+
+Some Docker instructions interact with {% data variables.product.prodname_actions %}, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
+
+For reference information, see [AUTOTITLE](/actions/reference/dockerfile-support-for-github-actions).
+
 ## Defining the container image
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-image %}

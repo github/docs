@@ -52,7 +52,7 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
 > [!IMPORTANT]
-> {% data variables.product.prodname_codeql %} does **not** support languages that are not listed above. This includes, but is not limited to, **Rust**, **PHP**, **Scala**, and others. Attempting to use {% data variables.product.prodname_codeql %} with unsupported languages may result in no alerts being generated and incomplete analysis.
+> {% data variables.product.prodname_codeql %} does **not** support languages that are not listed above. This includes, but is not limited to, **PHP**, **Scala**, and others. Attempting to use {% data variables.product.prodname_codeql %} with unsupported languages may result in no alerts being generated and incomplete analysis.
 
 ## Modeling custom or niche frameworks
 

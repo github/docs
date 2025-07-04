@@ -3,7 +3,7 @@
 
    If you are responding to a webhook event, the webhook payload will include the installation ID.
 
-   You can also use the REST API to find the ID for an installation of your app. For example, you can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, `GET /orgs/{org}/installation`, or `GET /app/installations` endpoints. For more information, see [AUTOTITLE](/rest/apps/apps).
+   You can also use the REST API to find the ID for an installation of your app. For example, you can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, `GET /orgs/{org}/installation`, or `GET /app/installations` endpoints.{% ifversion enterprise-installed-apps %} The latter is required to find installations on an enterprise account.{% endif %} For more information, see [AUTOTITLE](/rest/apps/apps).
 
    You can also find the app ID on the settings page for your app. The app ID is different from the client ID. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings).
 
@@ -23,9 +23,11 @@
 
    Optionally, use the `permissions` body parameter to specify the permissions that the installation access token should have. If `permissions` is not specified, the installation access token will have all of the permissions that were granted to the app. The installation access token cannot be granted permissions that the app was not granted.
 
-   {% ifversion ghes > 3.13 and ghes < 3.16 %}When using the `permissions` parameters to reduce the access of the token, the complexity of the token is increased due to the number of permissions in the request and the number of repositories the token will have access to. If the complexity is too large, you will get an error message that indicates the maximum number of repositories that can be supported. In this case, you should request fewer permissions with the `permissions` parameter, use the `repositories` or `repository_ids` parameter to request fewer repositories, or install the app on `all` repositories in your organization.{% endif %}
+   {% ifversion ghes > 3.13 and ghes < 3.16 %}When using the `permissions` parameters to reduce the access of the token, the complexity of the token is increased due to the number of permissions in the request and the number of repositories the token will have access to. If the complexity is too large, you will get an error message that indicates the maximum number of repositories that can be supported. In this case, you should request fewer permissions with the `permissions` parameter, use the `repositories` or `repository_ids` parameter to request fewer repositories, or install the app on `all` repositories in your organization.{% endif %}{% ifversion enterprise-installed-apps %}
 
-   The response will include an installation access token, the time that the token expires, the permissions that the token has, and the repositories that the token can access. The installation access token will expire after 1 hour.
+   Installation tokens for enterprises cannot be scoped down. They only have access to the enterprise permissions they have been granted and always receive all of those permissions.{% endif %}
+
+   The response will include an installation access token, the time that the token expires, the permissions that the token has, and the repositories that the token can access, if applicable. The installation access token will expire after 1 hour.
 
    For more information about this endpoint, see [AUTOTITLE](/rest/apps/apps).
 

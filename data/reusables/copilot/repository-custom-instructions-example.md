@@ -1,4 +1,4 @@
-This example of a `.github/copilot-instructions.md` file contains three instructions that will be added to all chat questions.
+This example of a `.github/copilot-instructions.md` file contains three instructions for {% data variables.product.prodname_copilot_short %}.
 
 ```markdown
 We use Bazel for managing our Java dependencies, not Maven, so when talking about Java packages, always give me instructions and code samples that use Bazel.

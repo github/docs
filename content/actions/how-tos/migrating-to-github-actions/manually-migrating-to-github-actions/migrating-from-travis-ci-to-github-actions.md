@@ -50,7 +50,7 @@ Travis CI lets you set variables and share them between stages. Similarly, {% da
 
 ### Default variables
 
-Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables).
+Travis CI and {% data variables.product.prodname_actions %} both include default environment variables that you can use in your YAML files. For {% data variables.product.prodname_actions %}, you can see these listed in [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables).
 
 ### Parallel job processing
 

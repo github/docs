@@ -4,6 +4,7 @@ If your support request is outside of the scope of what our team can help you wi
 * Hardware setup
 * Hypervisor-related issues, such as OS disk detection, network setup, boot failure, VM console access, etc{% endif %}
 * CI/CD, such as Jenkins
+* Azure DevOps (please contact Azure Support)
 * Writing scripts
 * Configuration of external authentication systems, such as SAML identity providers
 * Open source projects

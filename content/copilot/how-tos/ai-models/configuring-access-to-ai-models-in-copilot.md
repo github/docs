@@ -18,6 +18,8 @@ Your access to {% data variables.product.prodname_copilot %} models depends on:
 
 For information about the AI models available in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot).
 
+To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/how-copilot-serves-ai-models).
+
 ## Setup for individual use
 
 If you have a {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} plan, you may need to enable access to certain models before using them.

@@ -27,7 +27,7 @@ The following scripting languages are supported:
 
 Your custom scripts can use the following features:
 
-* **Variables:** Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables).
+* **Variables:** Scripts have access to the default variables. The full webhook event payload can be found in `GITHUB_EVENT_PATH`. For more information, see [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables).
 * **Workflow commands:** Scripts can use workflow commands. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions). Scripts can also use environment files. For more information, see [Environment files](/actions/using-workflows/workflow-commands-for-github-actions#environment-files).
 
 Your script files must use a file extension for the relevant language, such as `.sh` or `.ps1`, in order to run successfully.

@@ -14,4 +14,3 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/ai-models
 ---
-

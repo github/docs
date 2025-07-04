@@ -27,6 +27,7 @@ children:
   - /management-console
   - /network-configurations
   - /org-pre-receive-hooks
+  - /organization-installations
   - /orgs
   - /pre-receive-environments
   - /pre-receive-hooks

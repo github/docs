@@ -59,6 +59,8 @@ To align the `last_activity_at` data point with _actual usage_, the system retur
 
 The `last_activity_at` date is consistent across the CSV generated via `Get Report` in Copilot Access settings as well as through {% data variables.product.prodname_dotcom %}'s REST API. The events which are tracked come from both client, and server-side telemetry. This allows the timestamp to be durable in the event that network conditions would impact client-telemetry.
 
+The retention period for `last_activity_at` data is 90 days. After 90 days of no new activity, a user's `last_activity_at` value is set to `nil`. The data retention period cannot be modified. For more information, see [Updating retention period for `last_activity_at` values on the Copilot user management API to 90 days](https://github.blog/changelog/2025-01-17-updating-retention-period-for-last_activity_at-values-on-the-user-management-api-public-preview-to-90-days/) on {% data variables.product.prodname_blog %}.
+
 ### Troubleshooting `last_activity_at` data
 
 Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. Users must have telemetry enabled in their IDE for their usage to be reflected in `last_activity_at`.

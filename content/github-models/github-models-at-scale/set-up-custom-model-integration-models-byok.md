@@ -38,8 +38,8 @@ You must first add the relevant API keys for the organization. After that, your 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.custom-models %}
-1. Click **Add custom key**.
-1. In the "Add a custom key" dialog, provide details about your key. **Name** and **Key** are compulsory fields.
+1. Click **Add API key**.
+1. In the "Add the API key" dialog, provide details about your key. **Name** and **API key** are compulsory fields.
 1. Click **Save**.
 
 ## Enabling custom models
@@ -47,7 +47,7 @@ You must first add the relevant API keys for the organization. After that, your 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.models-development %}
-1. Under "Models permissions", select **All publishers** to enable models added by custom keys.
+1. Under "Models permissions", select **All publishers** to enable models added by API keys.
    * If this option isn't available, you need to allow the use of the model in the organization. See [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale#controlling-model-usage-in-your-organization).
 1. Optionally, select **Only select models** to create a custom list of enabled or disabled models. This allows you to control which models are available to your organization.  
 

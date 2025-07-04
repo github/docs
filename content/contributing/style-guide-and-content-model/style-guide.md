@@ -810,6 +810,19 @@ If multiple roles or products apply to a permission statement or product callout
 
 You can use inline links to provide more information about a role or product. The linked text must match the link destination so that it is clear where following the link will lead to.
 
+## Parenthetical dashes
+
+We use em dashes for parenthetical statements in normal body text. This doesn’t apply to text within code blocks.
+
+Examples:
+
+* ✅ Correct: "The cat—which sat on a branch—smiled with a broad grin." (em dash without spaces)
+* ❌ Incorrect: "The cat — which sat on a branch — smiled with a broad grin." (em dash with spaces)
+* ❌ Incorrect: "The cat–which sat on a branch–smiled with a broad grin." (en dash without spaces)
+* ❌ Incorrect: "The cat – which sat on a branch – smiled with a broad grin." (en dash with spaces)
+* ❌ Incorrect: "The cat-which sat on a branch-smiled with a broad grin." (hyphen without spaces)
+* ❌ Incorrect: "The cat - which sat on a branch - smiled with a broad grin." (hyphen with spaces)
+
 ## Placeholders
 
 Style any placeholder text in all caps. If a placeholder is multiple words, connect the words with dashes (kebab-case). If you use a placeholder, explain what someone might replace it with. This helps people modify examples to fit their needs and helps identify placeholders for people who use assistive technology.
