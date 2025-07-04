@@ -11,6 +11,7 @@ children:
   - /avoiding-duplication
   - /about-custom-actions
   - /contexts
+  - /expressions
   - /about-monitoring-workflows
   - /notifications-for-workflow-runs
   - /about-troubleshooting-workflows

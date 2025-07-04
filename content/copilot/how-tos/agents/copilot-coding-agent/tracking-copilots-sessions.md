@@ -14,11 +14,14 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/using-the-copilot-coding-agent-logs
 ---
 
-{% data reusables.copilot.coding-agent.preview-note %}
+> [!NOTE]
+> {% data reusables.copilot.coding-agent.preview-note-text %}
+>
+> For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
 
-After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 The [Agents page](https://github.com/copilot/agents) provides an overview of your agent sessions across repositories. From this page, you can kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 

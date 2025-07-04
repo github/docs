@@ -1,6 +1,5 @@
 ---
-title: About assigning tasks to Copilot
-shortTitle: Assign tasks to Copilot
+title: About Copilot coding agent
 intro: 'You can assign {% data variables.product.github %} issues to {% data variables.product.prodname_copilot_short %}, or ask {% data variables.product.prodname_copilot_short %} to create a pull request.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=about+assigning+issues+to+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
@@ -9,6 +8,7 @@ topics:
   - Copilot
 type: overview
 redirect_from:
+  - /copilot/concepts/about-assigning-tasks-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-issues-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-tasks-to-copilot
@@ -40,9 +40,9 @@ To delegate development tasks to {% data variables.product.prodname_copilot_shor
 
 While working on a coding task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
 
-### {% data variables.copilot.copilot_coding_agent %} vs. agent mode in {% data variables.product.prodname_vscode %}
+### {% data variables.copilot.copilot_coding_agent %} versus agent mode
 
-{% data variables.copilot.copilot_coding_agent %} is distinct from the "agent mode" feature available in {% data variables.product.prodname_vscode %}. {% data variables.copilot.copilot_coding_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts, and creates pull requests with the results. In contrast, agent mode in {% data variables.product.prodname_vscode %} is part of the {% data variables.copilot.copilot_edits %} feature that allows {% data variables.product.prodname_copilot_short %} to make autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide?tool=visualstudio#copilot-edits-1).
+{% data variables.copilot.copilot_coding_agent %} is distinct from the "agent mode" feature available in {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode %}. {% data variables.copilot.copilot_coding_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts, and creates pull requests with the results. In contrast, agent mode in {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode %} is part of the {% data variables.copilot.copilot_edits %} feature that allows {% data variables.product.prodname_copilot_short %} to make autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide?tool=visualstudio#copilot-edits-1).
 
 ### Streamlining software development with {% data variables.copilot.copilot_coding_agent %}
 
@@ -115,8 +115,5 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 ## Further reading
 
 * **Hands-on practice**: Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills course for practical experience with {% data variables.copilot.copilot_coding_agent %}.
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent) how-to articles
 * [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
-* [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
