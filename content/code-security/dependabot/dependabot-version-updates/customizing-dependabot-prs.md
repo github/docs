@@ -228,7 +228,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`pull-request-branch-name.separator`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-name.separator--).
+See also [`pull-request-branch-name.separator`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-nameseparator--).
 
 ## Targeting pull requests against a non-default branch
 
