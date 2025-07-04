@@ -15,17 +15,9 @@ type: reference
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About Dockerfile instructions
-
-A `Dockerfile` contains instructions and arguments that define the contents and startup behavior of a Docker container. For more information about the instructions Docker supports, see [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) in the Docker documentation.
-
-## Dockerfile instructions and overrides
-
-Some Docker instructions interact with GitHub Actions, and an action's metadata file can override some Docker instructions. Ensure that you are familiar with how your Dockerfile interacts with {% data variables.product.prodname_actions %} to prevent any unexpected behavior.
-
 ### USER
 
-Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE` directory. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables) and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
+Docker actions must be run by the default Docker user (root). Do not use the `USER` instruction in your `Dockerfile`, because you won't be able to access the `GITHUB_WORKSPACE` directory. For more information, see [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables) and [USER reference](https://docs.docker.com/engine/reference/builder/#user) in the Docker documentation.
 
 ### FROM
 
@@ -39,7 +31,7 @@ These are some best practices when setting the `FROM` argument:
 
 ### WORKDIR
 
-{% data variables.product.github %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.github %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables) and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
+{% data variables.product.github %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.github %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables) and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
 
 ### ENTRYPOINT
 

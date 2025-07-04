@@ -554,7 +554,7 @@ console.log("The running PID from the main action is: " + process.env.STATE_proc
 
 ## Environment files
 
-During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files can be accessed and edited using GitHub's default environment variables. See [AUTOTITLE](/actions/reference/variables-reference#default-environment-variables). You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 To use environment variables in a GitHub Action, you create or modify `.env` files using specific GitHub Actions commands.
 
 Here's how:

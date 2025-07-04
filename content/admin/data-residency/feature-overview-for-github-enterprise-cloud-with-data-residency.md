@@ -28,7 +28,7 @@ The following features are currently unavailable on {% data variables.enterprise
 | {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | N/A |
 | {% data variables.copilot.copilot_extensions %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat) |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable | [AUTOTITLE](/rest/copilot/copilot-metrics) |
-| {% data variables.copilot.copilot_coding_agent %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) |
+| {% data variables.copilot.copilot_coding_agent %} | Currently unavailable | [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent) |
 | Restricting {% data variables.product.prodname_actions %} policies to verified creators | Currently unavailable | [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allow-enterprise-and-select-non-enterprise-actions-and-reusable-workflows) |
 | Billing for premium requests in {% data variables.product.prodname_copilot_short %} | Currently unavailable | [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/understanding-and-managing-requests-in-copilot) |
 | {% data variables.product.prodname_github_models %} |  Currently unavailable | [AUTOTITLE](/github-models/about-github-models) |

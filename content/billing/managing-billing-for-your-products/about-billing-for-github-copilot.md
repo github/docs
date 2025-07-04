@@ -75,7 +75,7 @@ When you use {% data variables.copilot.copilot_coding_agent %}, {% data variable
 
 On average, {% data variables.copilot.copilot_coding_agent %} uses 30-50 premium requests each time it is invoked. The exact number of premium requests will vary depending on the task’s complexity and the number of required steps. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
-For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ### What happens if you have used up your monthly quota?
 

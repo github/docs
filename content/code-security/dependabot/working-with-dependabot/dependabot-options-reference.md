@@ -222,8 +222,8 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 By default, a group will include all types of dependencies.
 
-* Use `development` to include only dependencies in the "Development dependency group".
-* Use `production` to include only dependencies in the "Production dependency group".
+* Use `development` to include only dependencies in the "Development dependency group."
+* Use `production` to include only dependencies in the "Production dependency group."
 
 ### `patterns` and `exclude-patterns` (`groups`)
 
@@ -343,6 +343,51 @@ Supported value: the numeric identifier of a milestone.
 
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
+
+{% ifversion not ghes %}
+
+## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
+
+Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.  
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Create separate pull requests for each package ecosystem that has dependency updates.
+
+When `multi-ecosystem-groups` is used:
+
+* Updates across multiple package ecosystems in the same group are combined into a single pull request.
+* Groups have their own schedules and can inherit or override individual ecosystem settings.
+
+### `multi-ecosystem-group`
+
+Assign individual package ecosystems to a multi-ecosystem group using the `multi-ecosystem-group` parameter in your `updates` configuration.
+
+> [!IMPORTANT]
+> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates).
+
+```yaml copy
+# Basic `dependabot.yml` file defining a multi-ecosystem-group
+version: 2
+
+multi-ecosystem-groups:
+  infrastructure:
+    schedule:
+      interval: "weekly"
+
+updates:
+  - package-ecosystem: "docker"
+    directory: "/"
+    patterns: ["nginx", "redis"]
+    multi-ecosystem-group: "infrastructure"
+  
+  - package-ecosystem: "terraform"
+    directory: "/"
+    patterns: ["aws"]
+    multi-ecosystem-group: "infrastructure"
+```
+
+{% endif %}
 
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
 

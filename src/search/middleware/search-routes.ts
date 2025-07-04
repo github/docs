@@ -17,6 +17,7 @@ import { getAISearchAutocompleteResults } from '@/search/lib/get-elasticsearch-r
 import { getSearchFromRequestParams } from '@/search/lib/search-request-params/get-search-from-request-params'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
 import { combinedSearchRoute } from '@/search/lib/routes/combined-search-route'
+import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
 const router = express.Router()
 
@@ -34,6 +35,14 @@ router.get(
     if (validationErrors.length) {
       // We only send the first validation error to the user
       return res.status(400).json(validationErrors[0])
+    }
+
+    // Handle search analytics and client_name validation
+    const analyticsError = await handleExternalSearchAnalytics(req, 'general-search')
+    if (analyticsError) {
+      return res.status(analyticsError.status).json({
+        error: analyticsError.error,
+      })
     }
 
     const getResultOptions = {
