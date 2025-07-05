@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .search-cache
 .DS_Store
 .env
@@ -56,3 +57,7 @@ docs-internal-data/
 
 # For intermediate data (like scraping for Elasticsearch indexing)
 tmp/
+=======
+*.yml
+/.github/workflows
+>>>>>>> Stashed changes
