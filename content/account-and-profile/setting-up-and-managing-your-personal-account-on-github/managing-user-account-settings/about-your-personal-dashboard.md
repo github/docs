@@ -49,7 +49,7 @@ You can also find a list of your recently visited repositories, teams, and proje
 
 The feed is designed to help you discover relevant content from projects you follow, keep up with your friends and community members, and track recent activity in your communities.
 
-You can use the **{% octicon "filter" aria-hidden="true" %} Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
+You can use the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
 
 * Stars a repository
 * Follows another user
@@ -93,10 +93,6 @@ This feed shows activity and recommendations based on your network on {% data va
 * Organizations you follow
 
 {% endif %}
-
-## Exploring recommended repositories
-
-In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).{% endif %}
 
 ## Further reading
 

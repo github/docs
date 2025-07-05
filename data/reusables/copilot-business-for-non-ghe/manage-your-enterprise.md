@@ -1,4 +1,4 @@
-For next steps that apply to any enterprise using {% data variables.product.prodname_copilot_business_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise). The step for granting access to organizations does not apply.
+For next steps that apply to any enterprise using {% data variables.copilot.copilot_business_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise). The step for granting access to organizations does not apply.
 
 The following sections contain specific information for your enterprise.
 
@@ -12,7 +12,7 @@ To do this in your enterprise, you can use the [List all {% data variables.produ
 
 Your enterprise has access to the new billing platform, which allows you to estimate upcoming spending, control overspending with budgets, and track spending changes over time.
 
-See [AUTOTITLE](/billing/using-the-new-billing-platform).
+See [AUTOTITLE](/billing/managing-your-billing).
 
 ### Configure content exclusions
 

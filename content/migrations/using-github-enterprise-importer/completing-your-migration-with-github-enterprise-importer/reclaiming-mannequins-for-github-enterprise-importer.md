@@ -182,7 +182,7 @@ You can view the status of all attribution invitations for your organization.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.enterprise-migration-tool.import-export-tab %}
-1. Under "{% octicon "arrow-switch" aria-hidden="true" %} Import/Export", click **Attribution Invitations**.
+1. Under "{% octicon "arrow-switch" aria-hidden="true" aria-label="arrow-switch" %} Import/Export", click **Attribution Invitations**.
 
    ![Screenshot of the "Import/Export" page for a repository. A tab, labeled "Attribution Invitations," is outlined in dark orange.](/assets/images/help/github-enterprise-importer/attribution-invitations-tab.png)
 

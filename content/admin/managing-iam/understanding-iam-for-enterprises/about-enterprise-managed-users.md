@@ -65,7 +65,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 * Provide **authentication using SAML**, adhering to SAML 2.0 specification
 * Provide **user lifecycle management using SCIM**, adhering to the SCIM 2.0 specification and communicating with {% data variables.product.company_short %}'s REST API (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api))
 
-{% data variables.product.company_short %} does not expressly support mixing and matching partner IdPs for authentication and provisioning and does not test all identity management systems. **{% data variables.product.company_short %}'s support team may not be able to assist you with issues related to mixed or untested systems.** If you need help, you must consult the system's documentation, support team, or other resources.
+{% data reusables.emus.mixed-systems-note %}
 
 ## Usernames and profile information
 
@@ -74,7 +74,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is provided by the IdP:
 * {% data variables.enterprise.prodname_managed_users_caps %} _cannot_ change their profile name or email address on {% data variables.product.prodname_dotcom %}.
 * The IdP can only provide one email address.
-* Changing a user's email address in your IdP will delink the user from the contribution history associated with the old email address.
+* Changing a user's email address in your IdP will unlink the user from the contribution history associated with the old email address.
 
 ## Managing roles and access
 

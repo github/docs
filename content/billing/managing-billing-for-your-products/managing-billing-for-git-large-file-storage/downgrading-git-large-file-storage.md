@@ -1,6 +1,6 @@
 ---
 title: Downgrading Git Large File Storage
-intro: 'You can downgrade storage and bandwidth for {% data variables.large_files.product_name_short %} by increments of 50 GB per month.'
+intro: '{% data variables.large_files.product_name_short %} has moved to metered billing so that you pay only for the amount of bandwidth and storage you use.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
   - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
@@ -13,28 +13,26 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Downgrades
   - LFS
   - Organizations
   - User account
 shortTitle: Downgrade Git LFS storage
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
+<!--expires 2025-09-30-->
 
-When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage).
+<!--On expiry, check the data analytics to gauge the traffic to this article and decide whether or not we can delete the article-->
+<!--When deleting the article, add redirects for this article to the link on this page with the highest number of clicks.-->
 
-## Downgrading storage and bandwidth for a personal account
+## Billing has changed to metered billing
 
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.lfs-remove-data %}
-{% data reusables.large_files.downgrade_data_packs %}
+There is no need to edit data packs to reduce your allowance, you can pay as you go.
 
-## Downgrading storage and bandwidth for an organization
+This change to metered billing brings additional benefits:
 
-{% data reusables.dotcom_billing.org-billing-perms %}
+* **Visualize your usage**: use new views to see your usage and export data to other systems, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage)
+* **Budget setting**: use budgets to control spending, see [AUTOTITLE](/billing/managing-your-billing/preventing-overspending)
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.lfs-remove-data %}
-{% data reusables.large_files.downgrade_data_packs %}
+For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage).
+
+<!--end expires 2025-09-30-->

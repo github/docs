@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
 
-import { ProductTreeNode, useMainContext } from 'src/frame/components/context/MainContext'
-import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
+import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
+import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '../../rest/lib/config.js'
 
 export const SidebarProduct = () => {
@@ -79,7 +79,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
   const { asPath, locale } = useRouter()
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
   const isActive = routePath === childPage.href
-  const specialCategory = childPage.href.endsWith('/copilot/copilot-chat-cookbook')
+  const specialCategory = childPage.href.endsWith('/copilot/tutorials/copilot-chat-cookbook')
 
   return (
     <NavList.Item

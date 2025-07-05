@@ -56,6 +56,7 @@ children:
   - /collaborators
   - /commits
   - /copilot
+  - /credentials
   - /dependabot
   - /dependency-graph
   - /deploy-keys
@@ -72,6 +73,7 @@ children:
   - /meta
   - /metrics
   - /migrations
+  - /models
   - /oauth-authorizations
   - /orgs
   - /packages

@@ -57,15 +57,15 @@ When you configure authentication and provisioning for your enterprise, you can 
 
 ### Using a partner identity provider
 
-Each partner IdP provides a "paved-path" application, which implements both SSO and user lifecycle management. To simplify configuration, {% data variables.product.company_short %} recommends that you use a partner IdP's application for both authentication and provisioning. For more information and a list of partner IdPs, see {% ifversion ghec %}[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers).{% endif %}
+Each partner IdP provides a "paved-path" application, which implements both SSO and user lifecycle management. To simplify configuration, {% data variables.product.company_short %} recommends that you use a single partner IdP application for both authentication and provisioning. For more information and a list of partner IdPs, see {% ifversion ghec %}[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers).{% endif %}
 
 For more information about configuring SCIM provisioning using a partner IdP, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users).
 
 ### Using other identity management systems
 
-If you cannot use a partner IdP for both authentication and provisioning due to migration overhead, licensing costs, or organizational inertia, you can use another identity management system or combination of systems. The systems must provide authentication using SAML and user lifecycle management using SCIM, and must adhere to {% data variables.product.company_short %}'s integration guidelines.
+If you cannot use a single partner IdP for both authentication and provisioning due to migration overhead, licensing costs, or organizational inertia, you can use another identity management system or combination of systems. The systems must provide authentication using SAML and user lifecycle management using SCIM, and must adhere to {% data variables.product.company_short %}'s integration guidelines.
 
-{% data variables.product.company_short %} has not tested integration with every identity management system. While integration with {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} may be possible, {% data variables.product.company_short %}'s support team may not be able to assist you with issues related to these systems. If you need help with an identity management system that's not a partner IdP, or if you use a partner IdP only for SAML authentication, you must consult the system's documentation, support team, or other resources.
+{% data reusables.emus.mixed-systems-note %}
 
 ## Prerequisites
 
@@ -98,6 +98,7 @@ When you configure your identity management system to provision users or groups 
 {%- ifversion scim-enterprise-scope %}
 * [Limit the scope of the SCIM token](#limit-the-scope-of-the-scim-token)
 {%- endif %}
+* [Understand the effects of deprovisioning](#understand-the-effects-of-deprovisioning)
 
 ### Ensure your identity management system is the only source of write operations
 
@@ -161,6 +162,12 @@ If you currently use a token with the `admin:enterprise` scope, be aware that th
 
 {% endif %}
 
+### Understand the effects of deprovisioning
+
+To remove a user's access from {% data variables.product.github %}, you can send either a "soft deprovision" or a "hard deprovision" request to your SCIM provider. Hard deprovisioning is an irreversible action that permanently suspends a user's {% data variables.product.github %} account.
+
+Before implementing an API integration, ensure you understand the types of deprovisioning and the effects they have. To learn about the different types of deprovisioning, their effects, and the audit log events they generate, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/deprovisioning-and-reinstating-users).
+
 ## Provisioning users with the REST API
 
 To provision, list, or manage users, make requests to the following REST API endpoints. You can read about the associated API endpoints in the REST API documentation and see code examples, and you can review audit log events associated with each request.
@@ -178,48 +185,21 @@ Before a person with an identity on your identity management system can sign in 
 | Retrieve an existing user in your enterprise using the `id` field from the `POST` request that you sent to create the user. | `GET` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#get-scim-provisioning-information-for-an-enterprise-user) | N/A |
 | Update all of an existing user's attributes using the `id` field from the `POST` request that you sent to create the user. Update `active` to `false` to soft-deprovision the user, or `true` to reactivate the user. {% data reusables.scim.public-scim-more-info-about-deprovisioning-and-reactivating %}  | `PUT` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#set-scim-information-for-a-provisioned-enterprise-user) | {% data reusables.scim.public-scim-put-or-patch-user-audit-log-events %} |
 | Update an individual attribute for an existing user using the `id` field from the `POST` request that you sent to create the user. Update `active` to `false` to soft-deprovision the user, or `true` to reactivate the user. {% data reusables.scim.public-scim-more-info-about-deprovisioning-and-reactivating %} | `PATCH` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#update-an-attribute-for-a-scim-enterprise-user) | {% data reusables.scim.public-scim-put-or-patch-user-audit-log-events %} |
-| To completely delete an existing user, you can hard-deprovision the user. After hard-deprovisioning, you cannot reactivate the user, and you must provision the user as a new user. For more information, see [Hard-deprovisioning users with the REST API](#hard-deprovisioning-users-with-the-rest-api). | `DELETE` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise) | <ul><li>`external_identity.deprovision`</li><li>`user.remove_email`</li><li>If request succeeds, `external_identity.scim_api_success`</li><li>If request fails, `external_identity.scim_api_failure`</li></ul> |
+| To permanently suspend an existing user, you can hard-deprovision the user. After hard-deprovisioning, you cannot reactivate the user, and you must provision the user as a new user. For more information, see [Hard-deprovisioning users with the REST API](#hard-deprovisioning-users-with-the-rest-api). | `DELETE` | [`/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`](/rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise) | <ul><li>`external_identity.deprovision`</li><li>`user.remove_email`</li><li>If request succeeds, `external_identity.scim_api_success`</li><li>If request fails, `external_identity.scim_api_failure`</li></ul> |
 
 ## Soft-deprovisioning users with the REST API
 
 To prevent a user from signing in to access your enterprise, you can soft-deprovision the user by sending a `PUT` or `PATCH` request to update a user's `active` field to `false` to `/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`. When you soft-deprovision a user, {% data variables.product.github %} obfuscates the user record's `login` and `email` fields, and the user is suspended.
 
-When you soft-deprovision a user, the `external_identity.update` event does not appear in the audit log. The following events appear in the audit log:
-
-* `user.suspend`
-* `user.remove_email`
-* `user.rename`
-* `external_identity.deprovision`
-* If the request succeeds, `external_identity.scim_api_success`
-* If the request fails, `external_identity.scim_api_failure`
-
-You can view all suspended users for your enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members).
-
 ## Reactivating users with the REST API
 
 To allow a soft-deprovisioned user to sign in to access your enterprise, unsuspend the user by sending a `PUT` or `PATCH` request to `/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}` that updates the user's `active` field to `true`.
 
-When you reactivate a user, the `external_identity.update` event does not appear in the audit log. The following events appear in the audit log:
-
-* `user.unsuspend`
-* `user.remove_email`
-* `user.rename`
-* `external_identity.provision`
-* If the request succeeds, `external_identity.scim_api_success`
-* If the request fails, `external_identity.scim_api_failure`
-
 ## Hard-deprovisioning users with the REST API
 
-To completely delete a user, you can hard-deprovision the user by sending a `DELETE` request to `/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`. Your enterprise will retain any resources and comments created by the user.
+> [!IMPORTANT] Hard deprovisioning is an irreversible action that permanently suspends a user's {% data variables.product.github %} account. See [Understand the effects of deprovisioning](#understand-the-effects-of-deprovisioning).
 
-When you hard-deprovision a user, the following events occur:
-
-* The user record's `login` and `email` fields are obfuscated.
-* The user's display name is set to an empty string.
-* {% data variables.product.github %} deletes all of the user's SCIM attributes, emails, SSH keys, {% data variables.product.pat_generic_plural %}, and GPG keys.
-* The user's account on {% data variables.product.github %} is suspended, and authentication to sign in to the account will fail.
-
-To reprovision the user, you must use the `POST` method to create a new user. The new user can reuse the deprovisioned user's `login`. If the email addresses of the hard-deprovisioned user and the new user match, {% data variables.product.github %} will attribute existing Git commits associated with the email address to the new user. Existing resources and comments created by the original user will not be associated with the new user.
+You can hard-deprovision the user by sending a `DELETE` request to `/scim/v2/{% ifversion ghec %}enterprises/{enterprise}/{% endif %}Users/{scim_user_id}`. Your enterprise will retain any resources and comments created by the user.
 
 ## Provisioning groups with the REST API
 
@@ -267,7 +247,9 @@ After you configure SCIM provisioning for your enterprise, you may need to migra
 
 * If your requests to the REST API are rate-limited, you can learn more in [Understand rate limits on {% data variables.product.prodname_dotcom %}](#understand-rate-limits-on-github).
 
-* If you enable audit log streaming and stream events for API requests, you can review any requests to the REST API endpoints for SCIM provisioning by filtering for events from the `EnterpriseUsersScim` or `EnterpriseGroupsScim` controllers.
+* All SCIM requests that {% data variables.product.company_short %} receives, with the exception of successful HTTP `GET` requests, will generate an [audit log](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_identity) event. These logs will contain useful information about the request outcome, payload information, and any errors. These logs can be used to determine whether or not {% data variables.product.company_short %} received a SCIM request, and troubleshoot API failures.
+  * To determine if a user has been provisioned, you can use the following audit log query: `action:external_identity.provision  user:USERNAME{% ifversion ghec %}_SHORTCODE{% endif %}`
+  * If you do not find a user using the query above, you can search for `action:external_identity.scim_api_failure` events on the date that you expected to have received the request.
 
 * If a SCIM request fails and you're unable to determine the cause, check the status of your identity management system to ensure that services were available.{% ifversion ghec %} Additionally, check {% data variables.product.company_short %}'s status page. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support#about-github-status).{% endif %}
 

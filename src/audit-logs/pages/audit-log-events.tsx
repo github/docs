@@ -5,13 +5,13 @@ import {
   getMainContext,
   MainContext,
   MainContextT,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 import {
   getAutomatedPageContextFromRequest,
   AutomatedPageContext,
   AutomatedPageContextT,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import GroupedEvents from '../components/GroupedEvents'
 import type { CategorizedEvents } from '../types'
 
@@ -42,7 +42,7 @@ export default function AuditLogEvents({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items')
+  const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
   const { getCategorizedAuditLogEvents } = await import('../lib')
 
   const req = context.req as object

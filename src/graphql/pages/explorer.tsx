@@ -1,12 +1,12 @@
 import { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
-import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
+import { MainContextT, MainContext, getMainContext } from '@/frame/components/context/MainContext'
+import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
+} from '@/automated-pipelines/components/AutomatedPageContext'
 import { useEffect, useRef } from 'react'
 
 type Props = {

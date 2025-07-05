@@ -19,8 +19,10 @@ children:
   - /codeql-query-suites
   - /configuring-larger-runners-for-default-setup
   - /viewing-code-scanning-logs
+  - /actions-built-in-queries
   - /c-cpp-built-in-queries
   - /csharp-built-in-queries
+  - /github-actions-built-in-queries
   - /go-built-in-queries
   - /java-kotlin-built-in-queries
   - /javascript-typescript-built-in-queries

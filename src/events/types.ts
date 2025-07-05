@@ -50,6 +50,7 @@ export type EventProps = {
     code_display_preference: string
     event_group_key?: string
     event_group_id?: string
+    is_headless: boolean
   }
 }
 
@@ -103,6 +104,7 @@ export type EventPropsByType = {
   [EventType.search]: {
     search_query: string
     search_context?: string
+    search_client?: string
   }
   [EventType.searchResult]: {
     search_result_query: string

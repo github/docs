@@ -1,11 +1,8 @@
-import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
 import { LearningTrack } from './ArticleContext'
-import {
-  FeaturedLink,
-  getFeaturedLinksFromReq,
-} from 'src/landings/components/ProductLandingContext'
-import { TocItem } from '#src/landings/types.ts'
+import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
+import type { TocItem } from '@/landings/types'
+import { mapRawTocItemToTocItem } from '@/landings/types'
 
 export type CategoryLandingContextT = {
   title: string
@@ -40,8 +37,8 @@ export const getCategoryLandingContextFromRequest = (req: any): CategoryLandingC
     productCallout: req.context.page.product || '',
     permissions: req.context.page.permissions || '',
     intro: req.context.page.intro,
-    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
-      pick(obj, ['fullPath', 'title', 'intro', 'childTocItems']),
+    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map(
+      mapRawTocItemToTocItem,
     ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),

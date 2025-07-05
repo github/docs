@@ -1,1 +1,1 @@
-1. {% ifversion horizontal-nav %}At the top of the page, click {% octicon "gear" aria-hidden="true" %} **Settings**{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "gear" aria-hidden="true" %} **Settings**{% endif %}.
+1. {% ifversion horizontal-nav %}At the top of the page, click {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**{% endif %}.

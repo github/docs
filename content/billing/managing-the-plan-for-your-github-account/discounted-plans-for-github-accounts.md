@@ -31,7 +31,7 @@ In addition to the unlimited public and private repositories for students and fa
 
 ## Discounts for schools and universities
 
-Verified academic faculty can apply for {% data variables.product.prodname_team %} for teaching or academic research. For more information, see [AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers). You can also request educational materials goodies for your students. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
+Verified academic faculty can apply for {% data variables.product.prodname_team %} for teaching or academic research. For more information, see [AUTOTITLE](/free-pro-team@latest/education/explore-the-benefits-of-teaching-and-learning-with-github-education).
 
 ## Discounts for nonprofits and libraries
 
@@ -41,4 +41,4 @@ If your organization already has a paid plan, your organization's last transacti
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github)

@@ -3,15 +3,15 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { CookBookArticleCard } from './CookBookArticleCard'
 import { CookBookFilter } from './CookBookFilter'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
-import { Lead } from 'src/frame/components/ui/Lead'
-import { useCategoryLandingContext } from 'src/frame/components/context/CategoryLandingContext'
-import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
-import { RestRedirect } from 'src/rest/components/RestRedirect'
-import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
-import { ArticleCardItems } from 'src/landings/types'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { ArticleTitle } from '@/frame/components/article/ArticleTitle'
+import { Lead } from '@/frame/components/ui/Lead'
+import { useCategoryLandingContext } from '@/frame/components/context/CategoryLandingContext'
+import { ClientSideRedirects } from '@/rest/components/ClientSideRedirects'
+import { RestRedirect } from '@/rest/components/RestRedirect'
+import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
+import { ArticleCardItems } from '@/landings/types'
 
 export const CategoryLanding = () => {
   const { t } = useTranslation('cookbook_landing')
@@ -122,7 +122,7 @@ export const CategoryLanding = () => {
         <div className="pt-8">
           <div className="py-5 border-bottom">
             <div className="pb-3 mr-5 ml-1 float-xl-left">
-              <h2>
+              <h2 aria-live="polite">
                 {t('explore_articles').replace('{{ number }}', searchResults.length.toString())}
               </h2>
             </div>
@@ -135,13 +135,13 @@ export const CategoryLanding = () => {
               />
             </div>
           </div>
-          <ul className="clearfix d-flex flex-wrap gutter-md-spacious">
+          <ul className="clearfix d-flex flex-wrap gutter-md-spacious" aria-live="polite">
             {searchResults.map((item, index) => (
               <li key={index} className="col-md-6 col-lg-4 col-sm-12 list-style-none p-4">
                 <CookBookArticleCard
                   title={item.title}
                   description={item.intro!}
-                  icon={item.octicon}
+                  icon={item.octicon ?? undefined}
                   tags={[
                     ...(item.industry || []),
                     ...(item.category || []),

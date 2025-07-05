@@ -58,7 +58,7 @@ If you can use a {% data variables.product.pat_v2 %} for your scenario, you'll b
 
 {% data variables.product.pat_v2_caps_plural %} do not support every feature of {% data variables.product.pat_v1_plural %}. These feature gaps are not permanent - {% data variables.product.company_short %} is working to close them. You can review [our public roadmap](https://github.com/github/roadmap) for more details on when these scenarios will be supported.
 
-The seven major gaps in {% data variables.product.pat_v2 %}s are:
+The major gaps in {% data variables.product.pat_v2 %}s are:
 
 * Using {% data variables.product.pat_v2 %} to contribute to public repos where the user is not a member.
 * Using {% data variables.product.pat_v2 %} to contribute to repositories where the user is an outside or repository collaborator.
@@ -67,6 +67,7 @@ The seven major gaps in {% data variables.product.pat_v2 %}s are:
 * Using {% data variables.product.pat_v2 %} to call APIs that manage the Enterprise account.
 {% endif %}* Using {% data variables.product.pat_v2 %} to access Packages.
 * Using {% data variables.product.pat_v2 %} to call the Checks API.
+* Using {% data variables.product.pat_v2 %} to access Projects owned by a user account.
 
 All of these gaps will be solved over time, as {% data variables.product.company_short %} continues to invest in more secure access patterns.
 
@@ -94,10 +95,13 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 
 ## Creating a {% data variables.product.pat_v2 %}
 
+> [!NOTE]
+> There is a limit of 50 {% data variables.product.pat_v2_plural %} you can create. If you require more tokens or are building automations, consider using a {% data variables.product.prodname_github_app %} for better scalability and management. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app#choosing-between-a-github-app-or-a-personal-access-token).
+
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
 1. Click **Generate new token**.
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token. Infinite lifetimes are allowed but may be blocked by a maximum lifetime policy set by your organization or enterprise owner. For more information, See [Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens).
@@ -125,7 +129,7 @@ If you selected an organization as the resource owner and the organization requi
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.
 1. Select **Generate new token**, then click **Generate new token (classic)**.
 1. In the "Note" field, give your token a descriptive name.
 1. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
@@ -142,8 +146,11 @@ You should delete a {% data variables.product.pat_generic %} if it is no longer 
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
 1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
+
+{% ifversion ghec or fpt %}> [!NOTE] If you find a leaked {% data variables.product.pat_generic %} belonging to someone else, you can submit a revocation request through the REST API. See [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization#mitigate-data-leaks).
+{% endif %}
 
 ## Using a {% data variables.product.pat_generic %} on the command line
 
@@ -156,6 +163,8 @@ $ git clone https://{% data variables.product.product_url %}/USERNAME/REPO.git
 Username: YOUR-USERNAME
 Password: YOUR-PERSONAL-ACCESS-TOKEN
 ```
+
+Although you are required to enter your username along with your {% data variables.product.pat_generic %}, the username is not used to authenticate you. Instead, the {% data variables.product.pat_generic %} is used to authenticate you. If you do not enter a username, you will receive an error message that your credentials are invalid.
 
 {% data variables.product.pat_generic_caps %}s can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/get-started/git-basics/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
 

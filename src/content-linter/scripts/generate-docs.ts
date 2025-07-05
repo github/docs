@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { writeFileSync } from 'fs'
 import type { Rule, Config } from '../types.ts'
 import { allRules, allConfig } from '../lib/helpers/get-rules.js'

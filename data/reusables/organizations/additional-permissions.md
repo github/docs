@@ -58,3 +58,11 @@ For more information, see [AUTOTITLE](/discussions).
 * Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}
 * View {% data variables.product.prodname_secret_scanning %} results
 * Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results
+
+### Actions
+
+* Manage {% data variables.product.prodname_actions %} general settings
+* Manage runners
+* Manage secrets
+* Manage variables
+* Manage environments (including environment secrets and variables)

@@ -34,6 +34,7 @@ prodname_team: 'GitHub Team'
 prodname_free_team: 'GitHub Free'
 
 prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities'
+prodname_enterprise_backup_service: 'GitHub Enterprise Server Backup Service'
 
 # GitHub Connect (enterprise accounts, other unified features)
 prodname_github_connect: 'GitHub Connect'
@@ -94,7 +95,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.17 %}2.20.3{% endif %}
+  {% ifversion ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -147,7 +148,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% endif %}
+  {% ifversion ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -202,8 +203,8 @@ prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Adv
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
 prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
 prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
-UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}'
-UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.15 %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.14 %}Code security{% else %}Code security and analysis{% endif %}'
 UI_code_security_scanning: '{% ifversion ghas-products %}Code Security{% else %}Code scanning{% endif %}'
 UI_secret_protection_scanning: '{% ifversion ghas-products %}Secret Protection{% else %}Secret scanning{% endif %}'
 
@@ -299,58 +300,6 @@ prodname_arctic_vault: 'Arctic Code Vault'
 # GitHub Copilot (product)
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
-prodname_copilot_for_business: 'GitHub Copilot Business'
-prodname_copilot_for_individuals: 'GitHub Copilot Individual'
-prodname_copilot_pro: 'GitHub Copilot Pro'
-prodname_copilot_pro_short: 'Copilot Pro'
-prodname_copilot_pro_plus: 'GitHub Copilot Pro+'
-prodname_copilot_pro_plus_short: 'Copilot Pro+'
-prodname_copilot_business_short: 'Copilot Business'
-prodname_copilot_individuals_short: 'Copilot Individual'
-prodname_copilot_enterprise: 'GitHub Copilot Enterprise'
-prodname_copilot_enterprise_short: 'Copilot Enterprise'
-prodname_copilot_free: 'GitHub Copilot Free'
-prodname_copilot_free_short: 'Copilot Free'
-prodname_copilot_chat: 'GitHub Copilot Chat'
-prodname_copilot_chat_short: 'Copilot Chat'
-prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub'
-prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub'
-prodname_copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
-prodname_copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
-prodname_copilot_extensions: 'GitHub Copilot Extensions'
-prodname_copilot_extension: 'GitHub Copilot Extension'
-prodname_copilot_extensions_short: 'Copilot Extensions'
-prodname_copilot_extension_short: 'Copilot Extension'
-prodname_copilot_extensions_vsc: 'Copilot-enabled Visual Studio Code extensions'
-prodname_copilot_extension_vsc: 'Copilot-enabled Visual Studio Code extension'
-prodname_copilot_extensibility_platform: 'GitHub Copilot Extensibility Platform'
-prodname_copilot_extensibility_platform_short: 'Copilot Extensibility Platform'
-prodname_copilot_agent: 'GitHub Copilot agent'
-prodname_copilot_agent_short: 'Copilot agent'
-prodname_copilot_agents: 'GitHub Copilot agents'
-prodname_copilot_agents_short: 'Copilot agents'
-prodname_copilot_skillset: 'Github Copilot skillset'
-prodname_copilot_skillset_short: 'Copilot skillset'
-prodname_copilot_skillsets: 'Github Copilot skillsets'
-prodname_copilot_skillsets_short: 'Copilot skillsets'
-prodname_copilot_cli: 'GitHub Copilot in the CLI'
-prodname_copilot_cli_short: 'Copilot in the CLI'
-prodname_copilot_for_prs: 'Copilot pull request summaries'
-prodname_copilot_prs_short: 'pull request summaries'
-prodname_copilot_customization: 'Copilot Customization'
-prodname_copilot_in_support: 'Copilot in GitHub Support'
-prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
-prodname_copilot_autocomplete_pr: 'Copilot text completion'
-prodname_copilot_edits: 'GitHub Copilot Edits'
-prodname_copilot_edits_short: 'Copilot Edits'
-prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
-prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
-prodname_copilot_workspace: 'Copilot Workspace'
-prodname_copilot_workspace_short: 'Workspace'
-
-# GHAS licensed features branded as Copilot
-prodname_copilot_autofix: 'GitHub Copilot Autofix'
-prodname_copilot_autofix_short: 'Copilot Autofix'
 
 # Windows
 prodname_windows_terminal: 'Windows Terminal'

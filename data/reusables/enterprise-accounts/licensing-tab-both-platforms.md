@@ -1,2 +1,2 @@
-1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** (visible if you use the new billing platform). Alternatively, click **{% octicon "gear" aria-hidden="true" %} Settings**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** (visible if you use the new billing platform). Alternatively, click **{% octicon "gear" aria-hidden="true" %} Settings**.{% endif %}
+1. At the top of the page, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
 1. Click **Licensing** to show detailed information on license use.

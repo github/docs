@@ -20,7 +20,7 @@ shortTitle: Review security log
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-hidden="true" %} Security log**.
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-hidden="true" aria-label="log" %} Security log**.
 
 ## Searching your security log
 
@@ -35,7 +35,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 |  {% ifversion fpt or ghec %} |
 | `billing` | Contains all activities related to your billing information. |
 | `codespaces` | Contains all activities related to {% data variables.product.prodname_github_codespaces %}. For more information, see [AUTOTITLE](/codespaces/quickstart). |
-| `copilot` | Contains all activities related to {% data variables.product.prodname_copilot_business_short %}. For more information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot). |
+| `copilot` | Contains all activities related to {% data variables.copilot.copilot_business_short %}. For more information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot). |
 | `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement. |
 | `marketplace_listing`| Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}. |
 |  {% endif %} |

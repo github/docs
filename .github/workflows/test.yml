@@ -57,7 +57,6 @@ jobs:
           - events
           - fixtures
           - frame
-          - ghes-releases
           - github-apps
           - graphql
           - landings
@@ -76,7 +75,6 @@ jobs:
           - shielding
           # - tests
           # - tools
-          - tracking
           - versions
           - webhooks
           - workflows
@@ -92,7 +90,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
@@ -102,7 +100,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'fixtures' }}
@@ -127,7 +125,7 @@ jobs:
         if: ${{ matrix.name == 'languages' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Gather files changed
         if: ${{ matrix.name == 'content-linter' }}

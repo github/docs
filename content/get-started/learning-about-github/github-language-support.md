@@ -42,6 +42,7 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.typescript %}
 
 > [!NOTE]
-{% ifversion fpt or ghec %}> * The language support for {% data variables.product.prodname_copilot %} varies depending on the volume and diversity of training data for that language.{% endif %}
-> * The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the {% data variables.dependency-submission-api.name %}.
-> * PHP, Rust, and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+> {% ifversion fpt or ghec %}The language support for {% data variables.product.prodname_copilot %} varies depending on the volume and diversity of training data for that language.{% endif %}
+> The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the {% data variables.dependency-submission-api.name %}.
+
+[^1]: {% ifversion codeql-rust-public-preview %}PHP and Scala {% else %}PHP, Rust, and Scala {% endif %}are supported for code scanning by third-party actions, but not by {% data variables.product.prodname_codeql %}.

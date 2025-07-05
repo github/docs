@@ -1,8 +1,15 @@
 import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
-import type { CodeSample, Operation } from 'src/rest/components/types'
-import { type VersionItem } from 'src/frame/components/context/MainContext'
+import type { CodeSample, Operation } from '@/rest/components/types'
+import { type VersionItem } from '@/frame/components/context/MainContext'
+
+// Helper function to escape shell values containing single quotes (contractions)
+// This prevents malformed shell commands when contractions like "there's" are used
+function escapeShellValue(value: string): string {
+  // Replace single quotes with '\'' to properly escape them in shell commands
+  return value.replace(/'/g, "'\\''")
+}
 
 type CodeExamples = Record<string, any>
 
@@ -49,6 +56,10 @@ export function getShellExample(
     }
   }
 
+  if (operation.subcategory === 'inference') {
+    contentTypeHeader = '-H "Content-Type: application/json"'
+  }
+
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
     : operation.requestPath
@@ -73,10 +84,12 @@ export function getShellExample(
       if (bodyParameters && typeof bodyParameters === 'object' && !Array.isArray(bodyParameters)) {
         const paramNames = Object.keys(bodyParameters)
         paramNames.forEach((elem) => {
-          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${bodyParameters[elem]}'`
+          const escapedValue = escapeShellValue(String(bodyParameters[elem]))
+          requestBodyParams = `${requestBodyParams} ${CURL_CONTENT_TYPE_MAPPING[contentType]} '${elem}=${escapedValue}'`
         })
       } else {
-        requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${bodyParameters}"`
+        const escapedValue = escapeShellValue(String(bodyParameters))
+        requestBodyParams = `${CURL_CONTENT_TYPE_MAPPING[contentType]} "${escapedValue}"`
       }
     }
   }
@@ -206,7 +219,9 @@ function handleSingleParameter(
     separator = ''
   }
   if (typeof value === 'string') {
-    cliLine += ` -f "${keyString}${separator}${value}"`
+    // Escape single quotes in string values to prevent shell command issues with contractions
+    const escapedValue = escapeShellValue(value)
+    cliLine += ` -f '${keyString}${separator}${escapedValue}'`
   } else if (typeof value === 'number' || typeof value === 'boolean' || value === null) {
     cliLine += ` -F "${keyString}${separator}${value}"`
   } else if (Array.isArray(value)) {

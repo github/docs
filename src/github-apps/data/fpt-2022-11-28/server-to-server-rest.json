@@ -1905,7 +1905,33 @@
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     }
   ],
+  "credentials": [
+    {
+      "slug": "revoke-a-list-of-credentials",
+      "subcategory": "revoke",
+      "verb": "post",
+      "requestPath": "/credentials/revoke"
+    }
+  ],
   "dependabot": [
+    {
+      "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
+      "subcategory": "repository-access",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/dependabot/repository-access"
+    },
+    {
+      "slug": "updates-dependabots-repository-access-list-for-an-organization",
+      "subcategory": "repository-access",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/dependabot/repository-access"
+    },
+    {
+      "slug": "set-the-default-repository-access-level-for-dependabot",
+      "subcategory": "repository-access",
+      "verb": "put",
+      "requestPath": "/organizations/{org}/dependabot/repository-access/default-level"
+    },
     {
       "slug": "list-dependabot-alerts-for-an-organization",
       "subcategory": "alerts",
@@ -2729,6 +2755,30 @@
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/bulk-list"
+    },
+    {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/attestations/{attestation_id}"
     },
     {
       "slug": "list-attestations",
@@ -4641,6 +4691,30 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/bulk-list"
+    },
+    {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/{attestation_id}"
     },
     {
       "slug": "list-attestations",

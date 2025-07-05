@@ -15,9 +15,6 @@ versions:
   ghec: '*'
 children:
   - /about-billing-for-git-large-file-storage
-  - /viewing-your-git-large-file-storage-usage
   - /upgrading-git-large-file-storage
   - /downgrading-git-large-file-storage
 ---
-
-{% data reusables.billing.enhanced-billing-platform %}

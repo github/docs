@@ -77,8 +77,8 @@ Use to define exactly which dependencies to maintain for a package ecosystem. Of
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% octicon "versions" aria-hidden="true" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
-* {% octicon "shield-check" aria-hidden="true" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
 
 When `allow` is specified {% data variables.product.prodname_dependabot %} uses the following process:
 
@@ -121,8 +121,8 @@ Specify individual assignees for all pull requests raised for a package ecosyste
 
 When `assignees` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All pull requests for version updates are created with the chosen assignees.
-* {% octicon "shield-check" aria-hidden="true" %} All pull requests for security updates are created with the chosen assignees, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen assignees.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen assignees, unless `target-branch` defines updates to a non-default branch.
 
 Assignees must have write access to the repository. For organization-owned repositories, organization members with read access are also valid assignees.
 
@@ -136,8 +136,8 @@ Define the format for commit messages. Since the titles of pull requests are wri
 
 When `commit-message` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All commit messages follow the defined pattern.
-* {% octicon "shield-check" aria-hidden="true" %} All commit messages follow the defined pattern, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All commit messages follow the defined pattern.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All commit messages follow the defined pattern, unless `target-branch` defines updates to a non-default branch.
 
 | Parameters | Purpose |
 |------------|---------|
@@ -222,8 +222,8 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 By default, a group will include all types of dependencies.
 
-* Use `development` to include only dependencies in the "Development dependency group".
-* Use `production` to include only dependencies in the "Production dependency group".
+* Use `development` to include only dependencies in the "Development dependency group."
+* Use `production` to include only dependencies in the "Production dependency group."
 
 ### `patterns` and `exclude-patterns` (`groups`)
 
@@ -245,8 +245,8 @@ Use with the [`allow`](#allow--) option to define exactly which dependencies to 
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% octicon "versions" aria-hidden="true" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
-* {% octicon "shield-check" aria-hidden="true" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
 
 When `ignore` is used {% data variables.product.prodname_dependabot %} uses the following process:
 
@@ -276,7 +276,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 
 * npm: use `^1.0.0` <!-- markdownlint-disable-line GHD034 -->
 * Bundler: use `~> 2.0`
-* Docker: use Ruby version syntax
+* Docker: use Bundler version syntax
 * NuGet: use `7.*`
 * Maven: use `[1.4,)`
 
@@ -344,6 +344,51 @@ Supported value: the numeric identifier of a milestone.
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
+{% ifversion not ghes %}
+
+## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
+
+Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.  
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Create separate pull requests for each package ecosystem that has dependency updates.
+
+When `multi-ecosystem-groups` is used:
+
+* Updates across multiple package ecosystems in the same group are combined into a single pull request.
+* Groups have their own schedules and can inherit or override individual ecosystem settings.
+
+### `multi-ecosystem-group`
+
+Assign individual package ecosystems to a multi-ecosystem group using the `multi-ecosystem-group` parameter in your `updates` configuration.
+
+> [!IMPORTANT]
+> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates).
+
+```yaml copy
+# Basic `dependabot.yml` file defining a multi-ecosystem-group
+version: 2
+
+multi-ecosystem-groups:
+  infrastructure:
+    schedule:
+      interval: "weekly"
+
+updates:
+  - package-ecosystem: "docker"
+    directory: "/"
+    patterns: ["nginx", "redis"]
+    multi-ecosystem-group: "infrastructure"
+  
+  - package-ecosystem: "terraform"
+    directory: "/"
+    patterns: ["aws"]
+    multi-ecosystem-group: "infrastructure"
+```
+
+{% endif %}
+
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Change the limit on the maximum number of pull requests for version updates open at any time.
@@ -372,9 +417,7 @@ Package manager | YAML value      | Supported versions |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
-| {% ifversion dependabot-version-updates-devcontainer-support %} |
 | Dev containers | `devcontainers`         | Not applicable               |
-| {% endif %} |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
@@ -393,12 +436,12 @@ Package manager | YAML value      | Supported versions |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
 | npm            | `npm`            |  v7, v8, v9   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} |
+| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0 {% endif %} |
 | pip| `pip`            | v21.1.2          |
 | pip-compile | `pip`            | 6.1.0            |
 | pipenv         | `pip`            | <= 2021-05-29    |
-| pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
-| poetry         | `pip`            | v1               |
+| pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
+| poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
@@ -458,7 +501,12 @@ When `registries` is defined for a package manager:
 
 Supported values: `REGISTRY_NAME` or `"*"`
 
+{% ifversion dependabot-reviewers-deprecation %}{% else %}
+
 ## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+
+> [!NOTE]
+> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
 
 Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
@@ -468,10 +516,15 @@ Specify individual reviewers, or teams of reviewers, for all pull requests raise
 
 When `reviewers` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All pull requests for version updates are created with the chosen reviewers.
-* {% octicon "shield-check" aria-hidden="true" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen reviewers.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
+
+> [!NOTE]
+> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+{% endif %}
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
@@ -482,19 +535,24 @@ Reviewers must have at least read access to the repository.
 | `interval` | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | `day` | Specify the day to run for a **weekly** interval. |
 | `time` | Specify the time to run. |
+| `cronjob` | Defines the cron expression if the interval type is `cron`. |
 | `timezone` | Specify the timezone of the `time` value.  |
 
 ### `interval`
 
-Supported values: `daily`, `weekly`, or `monthly`
+Supported values: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`
 
 Each package manager **must** define a schedule interval.
 
 * Use `daily` to run on every weekday, Monday to Friday.
 * Use `weekly` to run once a week, by default on Monday.
 * Use `monthly` to run on the first day of each month.
+* Use `quarterly` to run on the first day of each quarter (January, April, July, and October).
+* Use `semiannually` to run every six months, on the first day of January and July.
+* Use `yearly` to run on the first day of January.
+* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
 
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
 ### `day`
 
@@ -507,6 +565,40 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
+
+### `cronjob`
+
+Supported values: Valid cron expression in cron format or natural expression.
+
+Examples : `0 9 * * *`, `every day at 5pm`
+
+cron format is defined as the following:
+* `*` The minute field.
+* `*` The hour field (in 24-hour time).
+* `*` The day of the month (matches any day of the month).
+* `*` The month (matches any month).
+* `*` The day of the week (matches any day of the week).
+
+`0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
+
+> [!NOTE]
+> A `cronjob` type schedule is required to use a `cron` interval.
+
+```yaml copy
+
+# Basic `dependabot.yml` file for cronjob
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates based on `cronjob` value
+    schedule:
+      interval: "cron"
+      cronjob: "0 9 * * *"
+```
 
 ### `timezone`
 
@@ -525,7 +617,7 @@ Define a specific branch to check for version updates and to target pull request
 When `target-branch` is defined:
 
 * Only manifest files on the target branch are checked for version updates.
-* All pull requests for version updates are opened targetting the specified branch.
+* All pull requests for version updates are opened targeting the specified branch.
 * Options defined for this `package-ecosystem` no longer apply to security updates because security updates always use the default branch for the repository.
 
 ## `vendor` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
@@ -630,8 +722,8 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 > * Gradle
 > * Maven
 > * Npm
-> * NuGet{% ifversion dependabot-updates-pub-private-registry %}
-> * Pub{% endif %}
+> * NuGet
+> * Pub
 > * Python
 > * Yarn
 
@@ -663,6 +755,8 @@ updates:
 {% endraw %}
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
+
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
 
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
@@ -696,3 +790,130 @@ All sensitive data used for authentication should be stored securely and referen
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
+
+## `cooldown` {% octicon "versions" aria-label="cooldown" height="24" %}
+
+Defines a **cooldown period** for dependency updates to delay updates for a configurable number of days. This feature enables {% data variables.product.prodname_dependabot %} users to customize how often they receive new version updates, offering greater control over update frequency.
+
+> [!NOTE]
+> Cooldown is not applicable for security updates.
+>
+> Cooldown is not available for the **NuGet** ecosystem
+
+### **How Cooldown Works**
+
+* When {% data variables.product.prodname_dependabot %} runs updates as per defined schedule, it checks the **cooldown settings** to determine if new release for dependency is still within its cooldown period.  
+* If new version release date is within the cooldown period, dependency version update is **filtered out** and will not be updated until the cooldown period expires.  
+* Once the cooldown period ends for new version, the dependency update proceeds based on the standard update strategy defined in `dependabot.yml`.
+
+Without **`cooldown`** (default behaviour):
+
+* Dependabot checks for updates according to the scheduled defined via `schedule.interval`.  
+* All new versions are considered for updates **immediately**.  
+
+With **`cooldown`** enabled:
+
+* {% data variables.product.prodname_dependabot %} checks for updates based on the defined `schedule.interval` settings.  
+* **Releases within the cooldown period are ignored.**  
+* {% data variables.product.prodname_dependabot %} updates the dependency to the latest available version **that are no longer in cooldown period** following the configured `versioning-strategy`.
+
+### **Cooldown Configuration**
+
+| Parameter | Description |
+|-----------|-------------|
+| `default-days` | **Default cooldown period for dependencies** without specific rules (optional). |
+| `semver-major-days` | Cooldown period for **major version updates** (optional, applies only to SEMVER-supported package managers). |
+| `semver-minor-days` | Cooldown period for **minor version updates** (optional, applies only to SEMVER-supported package managers). |
+| `semver-patch-days` | Cooldown period for **patch version updates** (optional, applies only to SEMVER-supported package managers). |
+| `include` | List of dependencies to **apply cooldown** (up to **150 items**). Supports wildcards (`*`). |
+| `exclude` | List of dependencies **excluded from cooldown** (up to **150 items**). Supports wildcards (`*`). |
+
+### **semver versioning**
+
+| Package Manager        | SEMVER Supported |
+|-----------------------|------------------|
+| **Bundler**           | Yes              |
+| **Bun**               | Yes              |
+| **Cargo**             | Yes              |
+| **Composer**          | Yes              |
+| **Devcontainers**     | No               |
+| **Docker**            | No               |
+| **Docker Compose**    | No               |
+| **Dotnet SDK**        | Yes              |
+| **Elm**               | Yes              |
+| **Github Actions**    | No               |
+| **Gitsubmodule**      | No               |
+| **Gomod (Go Modules)**| Yes              |
+| **Gradle**            | Yes              |
+| **Helm**              | No               |
+| **Hex (Hex)**         | Yes              |
+| **Maven**             | Yes              |
+| **NPM and Yarn**      | Yes              |
+| **Pip**               | Yes              |
+| **Pub**               | Yes              |
+| **Swift**             | Yes              |
+| **Terraform**         | No               |
+| **UV**                | Yes              |
+
+> [!NOTE]
+>
+> * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, `default-days` settings take precedence for cooldown based updates.
+> * `semver-major-days`, `semver-minor-days`, and `semver-patch-days` are only applicable for [supported package managers](#semver-versioning).
+> * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is excluded from cooldown and will be updated immediately.
+
+### **Cooldown settings limitations**
+
+* `days` must be between 1 and 90.
+* Maximum allowed items limit in `include` and `exclude` list is 150 each.
+
+### **Example `dependabot.yml` with cooldown**
+
+```yaml copy
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    cooldown:
+      default-days: 5
+      semver-major-days: 30
+      semver-minor-days: 7
+      semver-patch-days: 3 
+      include:
+        - "requests"
+        - "numpy"
+        - "pandas*"
+        - "django"
+      exclude:
+        - "pandas"
+```
+
+### **Expected Behavior**
+
+Cooldown will be active for dependencies `requests`, `numpy` and dependencies starting with `pandas`, and `django`.  Dependency with exact name `pandas` will be excluded from cooldown based updates as it is present in **exclude** list.
+
+#### **Update days**
+
+Updates to new versions for included dependencies will be deferred as following:
+
+* **Major updates** → Delayed by **30 days** (`semver-major-days: 30`)
+* **Minor updates** → Delayed by **7 days** (`semver-minor-days: 7`)
+* **Patch updates** → Delayed by **3 days** (`semver-patch-days: 3`)
+
+**Wildcard Matching:**
+
+* `"pandas*"` applies cooldown to all dependencies that start with `pandas`.
+* `"pandas"` in `exclude` ensures that only `"pandas"` (exact match) is excluded from cooldown.
+
+> [!NOTE]
+> To consider all dependencies for cooldown, you can:
+>
+> * Omit the `include` option which applies cooldown to all dependencies.
+> * Use `"*"` in `include` to apply cooldown to everything.
+>
+> Use **only** `exclude` setting if specific dependencies are to be excluded from cooldown.
+
+{% data reusables.dependabot.option-affects-security-updates %}

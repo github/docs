@@ -1,6 +1,6 @@
 ---
 title: Best practices for user security
-intro: '{% ifversion ghes %}Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there {% else %}There {% endif %}are steps your users can take to help protect your enterprise.'
+intro: 'Outside of instance-level security measures (SSL, subdomain isolation, configuring a firewall) that a site administrator can implement, there are steps your users can take to help protect your enterprise.'
 redirect_from:
   - /enterprise/admin/user-management/best-practices-for-user-security
   - /admin/user-management/best-practices-for-user-security

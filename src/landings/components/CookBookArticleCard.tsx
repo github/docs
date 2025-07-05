@@ -1,37 +1,7 @@
 import { Label, LabelGroup, Link } from '@primer/react'
-import {
-  BugIcon,
-  LightBulbIcon,
-  CodeIcon,
-  GearIcon,
-  RocketIcon,
-  BeakerIcon,
-  CopilotIcon,
-  HubotIcon,
-  LogIcon,
-  TerminalIcon,
-  BookIcon,
-  ShieldLockIcon,
-  LockIcon,
-} from '@primer/octicons-react'
+import { ValidOcticon, getOcticonComponent } from '../lib/octicons'
 
-const Icons = {
-  bug: BugIcon,
-  lightbulb: LightBulbIcon,
-  code: CodeIcon,
-  gear: GearIcon,
-  rocket: RocketIcon,
-  beaker: BeakerIcon,
-  copilot: CopilotIcon,
-  hubot: HubotIcon,
-  log: LogIcon,
-  terminal: TerminalIcon,
-  book: BookIcon,
-  'shield-lock': ShieldLockIcon,
-  lock: LockIcon,
-}
-
-type IconType = keyof typeof Icons
+type IconType = ValidOcticon
 
 type Props = {
   title: string
@@ -69,11 +39,7 @@ export const CookBookArticleCard = ({
   url,
   spotlight = false,
 }: Props) => {
-  const setIcon = (icon: keyof typeof Icons) => {
-    return Icons[icon] || CopilotIcon
-  }
-
-  const IconComponent = setIcon(icon as keyof typeof Icons)
+  const IconComponent = getOcticonComponent(icon)
   return (
     <div className="m-2">
       <div

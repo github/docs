@@ -3,10 +3,10 @@ import { GetServerSideProps } from 'next'
 import {
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import { MainContextT, getMainContext } from 'src/frame/components/context/MainContext'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import { MainContextT, getMainContext } from '@/frame/components/context/MainContext'
 
-import { EnabledList, EnabledListT } from 'src/github-apps/components/EnabledList'
+import { EnabledList, EnabledListT } from '@/github-apps/components/EnabledList'
 
 type Props = {
   mainContext: MainContextT
@@ -35,7 +35,7 @@ export default function GitHubAppEndpoints({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAppsServerSideProps } = await import('src/github-apps/lib/index.js')
+  const { getAppsServerSideProps } = await import('@/github-apps/lib/index.js')
   const { currentVersion, appsItems, categoriesWithoutSubcategories } =
     await getAppsServerSideProps(context, 'server-to-server-rest', { useDisplayTitle: false })
 

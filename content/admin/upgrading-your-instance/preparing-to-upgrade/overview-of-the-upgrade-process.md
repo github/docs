@@ -80,7 +80,7 @@ Check if you need to upgrade the following applications:
     > [!NOTE]
     > Hotpatches require a configuration run, which can cause a brief period of errors or unresponsiveness for some or all services on {% data variables.location.product_location %}. You are not required to enable maintenance mode during installation of a hotpatch, but doing so will guarantee that users see a maintenance page instead of errors or timeouts. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
   * Patch releases using an upgrade package typically require less than five minutes of downtime.
-  * Upgrading to a new feature release that include data migrations may cause a few hours of downtime, depending on storage performance and the amount of data that is migrated. During this time none of your users will be able to use the enterprise.
+  * Upgrading to a new feature release that includes data migrations may cause a few hours of downtime, depending on storage performance and the amount of data that is migrated. During this time none of your users will be able to use the enterprise.{% ifversion ghes > 3.16 %} You may notice that upgrades to a new feature release take less time. This is because selective database transitions will now run concurrently, with the number of concurrent workers defaulting to the number of CPU cores, up to a maximum of 16.{% endif %}
 
 ## Communicating your upgrade
 

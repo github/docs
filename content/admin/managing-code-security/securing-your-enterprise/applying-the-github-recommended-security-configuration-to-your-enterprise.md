@@ -24,7 +24,7 @@ The {% data variables.product.prodname_github_security_configuration %} includes
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}
-1. In the "{% data variables.product.github %} recommended" row of the configurations table for your enterprise, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
+1. In the "{% data variables.product.github %} recommended" row of the configurations table for your enterprise, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
 {% data reusables.security-configurations.apply-configuration-by-default %}
 
 {% data reusables.security-configurations.apply-configuration %}

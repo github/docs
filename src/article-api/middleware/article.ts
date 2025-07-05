@@ -11,8 +11,8 @@ import {
   makeLanguageSurrogateKey,
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import statsd from '#src/observability/lib/statsd.js'
+} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import statsd from '@/observability/lib/statsd.js'
 
 const router = express.Router()
 

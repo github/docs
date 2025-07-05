@@ -20,8 +20,9 @@ project_v2_and_v1: '{% data variables.projects.project_v2 %}{% ifversion project
 projects_v2_and_v1_if_create: '{% data variables.projects.projects_v2 %}{% ifversion projects-v1-can-create %} and {% data variables.projects.projects_v1_boards %}{% endif %}'
 
 # Limits
+legacy_item_limit: '1,200'
 item_limit: '50,000'
-archived_item_limit: '10,000'
+legacy_archived_item_limit: '10,000'
 issue_type_limit: '25'
 sub-issue_limit: '100'
 

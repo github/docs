@@ -64,7 +64,7 @@ The {% data variables.product.prodname_codeql %} action supports three different
 
 * `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported for {% data variables.code-scanning.no_build_support %}).
 * `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
-* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages).
+* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages{% ifversion codeql-rust-public-preview %}, except Rust{% endif %}).
 
 ### Comparison of the build modes
 
@@ -308,7 +308,15 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 ## Building C/C++
 
-{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes `autobuild` or `manual` for C/C++ code.
+{% ifversion codeql-no-build %}{% data variables.product.prodname_codeql %} supports build modes {% ifversion codeql-no-build-c-cpp %}`none`, {% endif %}`autobuild` or `manual` for C/C++ code.
+
+{% ifversion codeql-no-build-c-cpp %}
+
+When you enable default setup for a repository that contains C/C++ code, the build mode is set to `none` automatically.
+
+>[!NOTE] Support of build mode `none` for C/C++ codebases is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+{% endif %}
 
 ### Autobuild summary for C/C++{% endif %}
 

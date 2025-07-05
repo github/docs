@@ -1,18 +1,28 @@
 import cx from 'classnames'
 
-import { Survey } from 'src/events/components/Survey'
-import { Contribution } from 'src/frame/components/page-footer/Contribution'
-import { Support } from 'src/frame/components/page-footer/Support'
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useVersion } from 'src/versions/components/useVersion'
+import { Survey } from '@/events/components/Survey'
+import { Contribution } from '@/frame/components/page-footer/Contribution'
+import { Support } from '@/frame/components/page-footer/Support'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useVersion } from '@/versions/components/useVersion'
 import { useRouter } from 'next/router'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { AISearchCTAPopup } from '@/search/components/input/AISearchCTAPopup'
+import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
+import { EXPERIMENTS } from '@/events/components/experiments/experiments'
+import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
+
+import styles from './SupportSection.module.scss'
 
 export const SupportSection = () => {
   const { currentVersion } = useVersion()
   const { relativePath, enterpriseServerReleases } = useMainContext()
   const router = useRouter()
   const { t } = useTranslation('footer')
+  const { setIsSearchOpen } = useSearchOverlayContext()
+  const { showExperiment: showNewSearch } = useShouldShowExperiment(
+    EXPERIMENTS.ai_search_experiment,
+  )
 
   const isDeprecated =
     enterpriseServerReleases.isOldestReleaseDeprecated &&
@@ -24,47 +34,30 @@ export const SupportSection = () => {
   const showSurvey = !isDeprecated && !isSitePolicyDocs
   const showContribution = !isDeprecated && !isEarlyAccess && isEnglish
   const showSupport = true
-  const totalCols = Number(showSurvey) + Number(showContribution) + Number(showSupport)
+  const showCopilotCTA = !isDeprecated && !isEarlyAccess && isEnglish && showNewSearch
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
       <h2 className="f3">{t('support_heading')}</h2>
-      <div className="container-xl mx-auto py-6 py-lg-6 clearfix border-top border-color-secondary">
-        {showSurvey && (
-          <div
-            className={cx(
-              'float-left pr-4 mb-6 mb-xl-0 col-12',
-              totalCols > 1 && 'col-lg-6',
-              totalCols > 2 && 'col-xl-3',
-            )}
-          >
-            <Survey />
-          </div>
+
+      {/* CSS Grid container */}
+      <div
+        className={cx(
+          'border-top border-color-secondary pt-6',
+          styles.supportGrid /* ← adds the grid rules */,
         )}
-        {showContribution && (
-          <div
-            className={cx(
-              'float-left pr-4 mb-6 mb-xl-0 col-12',
-              totalCols > 1 && 'col-lg-6',
-              totalCols > 2 && 'col-xl-4',
-              totalCols > 2 && showSurvey && 'offset-xl-1',
-            )}
-          >
-            <Contribution />
-          </div>
+      >
+        {showCopilotCTA && (
+          <AISearchCTAPopup
+            isOpen
+            setIsSearchOpen={setIsSearchOpen}
+            isDismissible={false}
+            bannerType="footer"
+          />
         )}
-        {showSupport && (
-          <div
-            className={cx(
-              'float-left pr-4 mb-6 mb-xl-0 col-12',
-              totalCols > 1 && 'col-lg-6',
-              totalCols > 2 && 'col-xl-3',
-              totalCols > 2 && (showSurvey || showContribution) && 'offset-xl-1',
-            )}
-          >
-            <Support />
-          </div>
-        )}
+        {showSurvey && <Survey />}
+        {showContribution && <Contribution />}
+        {showSupport && <Support />}
       </div>
     </section>
   )

@@ -83,7 +83,7 @@ describe.skip('category pages', () => {
         let publishedArticlePaths: string[] = []
         let availableArticlePaths: string[] = []
         let categoryVersions: string[] = []
-        let categoryChildTypes: string[] = []
+
         let allowTitleToDifferFromFilename: boolean | undefined = false
         let indexTitle: string = ''
         let indexShortTitle: string = ''
@@ -101,23 +101,9 @@ describe.skip('category pages', () => {
           const data = parsed.data as MarkdownFrontmatter
           categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
           allowTitleToDifferFromFilename = data.allowTitleToDifferFromFilename
-          categoryChildTypes = []
           const articleLinks = data.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
-
             const fileExists = fs.existsSync(mdPath)
-
-            // We're checking each item in the category's 'children' frontmatter
-            // to see if the child is an article by tacking on `.md` to it.  If
-            // that file exists it's an article, otherwise it's a map topic.  A
-            // category needs to have all the same type of children so we track
-            // that here so we can test to make sure all the types are the same.
-            if (fileExists) {
-              categoryChildTypes.push('article')
-            } else {
-              categoryChildTypes.push('mapTopic')
-            }
-
             return fileExists && fs.statSync(mdPath).isFile()
           })
 
@@ -153,8 +139,8 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const data = getFrontmatterData(articleContents)
 
-                // Do not include map topics in list of published articles
-                if (data.mapTopic || data.hidden) return null
+                // Do not include subcategories in list of published articles
+                if (data.subcategory || data.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -175,8 +161,8 @@ describe.skip('category pages', () => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
                 const data = getFrontmatterData(articleContents)
 
-                // Do not include map topics nor hidden pages in list of available articles
-                if (data.mapTopic || data.hidden) return null
+                // Do not include subcategories nor hidden pages in list of available articles
+                if (data.subcategory || data.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -209,25 +195,12 @@ describe.skip('category pages', () => {
           expect(unexpectedArticles.length, errorMessage).toBe(0)
         })
 
-        test('contains only articles and map topics with versions that are also available in the parent category', () => {
+        test('contains only articles and subcategories with versions that are also available in the parent category', () => {
           Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
             const unexpectedVersions = difference(articleVersions, categoryVersions)
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
           })
-        })
-
-        test('categories contain all the same type of children', () => {
-          let errorType = ''
-          expect(
-            categoryChildTypes.every((categoryChildType) => {
-              errorType = categoryChildType
-              return categoryChildType === categoryChildTypes[0]
-            }),
-            `${indexRelPath.replace('index.md', '')} contains a mix of ${errorType}s and ${
-              categoryChildTypes[0]
-            }s, category children must be of the same type`,
-          ).toBe(true)
         })
 
         test('slugified title matches parent directory name', () => {

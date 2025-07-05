@@ -136,7 +136,7 @@ Your secret is now safely encrypted and ready to use!
 
 Now we can update the YAML workflow file to use the token and test it works.
 
-1. Navigate back to your repository. If you're in your repository's settings, you can click **{% octicon "code" aria-hidden="true" %} Code** under the repository name.
+1. Navigate back to your repository. If you're in your repository's settings, you can click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** under the repository name.
 1. Navigate to the YAML workflow file by clicking `.github/workflows` in the list of files.
 1. Open the workflow file by clicking `comment.yml` in the list of files.
 1. To start editing the workflow file, at the top-right, click {% octicon "pencil" aria-label="Edit this file" %}.
@@ -166,3 +166,5 @@ Once the workflow has had time to complete, you should see a new comment appear.
 ## Next steps
 
 For a more in-depth dive into secret scanning and push protection, you can complete the [Introduction to secret scanning](https://github.com/skills/introduction-to-secret-scanning/tree/main) course in {% data variables.product.prodname_learning %}.
+
+Another important part of code security is learning how to identify and patch code vulnerabilities in your projects. See [AUTOTITLE](/get-started/learning-to-code/finding-and-fixing-your-first-code-vulnerability).

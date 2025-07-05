@@ -91,12 +91,19 @@ const githubDocsConfig = {
   },
   'liquid-ifversion-versions': {
     // GHD022
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'yaml-scheduled-jobs': {
     // GHD021
     severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'code-fence-line-length': {
+    // GHD030
+    severity: 'warning',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -136,7 +143,7 @@ const githubDocsConfig = {
   },
   'expired-content': {
     // GHD038
-    severity: 'error',
+    severity: 'warning',
     'partial-markdown-files': true,
   },
   'expiring-soon': {
@@ -164,6 +171,36 @@ const githubDocsConfig = {
   'link-quotation': {
     // GHD043
     severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'octicon-aria-labels': {
+    // GHD044
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'code-annotation-comment-spacing': {
+    // GHD045
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'british-english-quotes': {
+    // GHD048
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'note-warning-formatting': {
+    // GHD049
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'multiple-emphasis-patterns': {
+    // GHD050
+    severity: 'warning',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -207,8 +244,9 @@ export const githubDocsFrontmatterConfig = {
   },
   'liquid-ifversion-versions': {
     // GHD022
-    severity: 'warning',
-    'partial-markdown-files': false,
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
   },
   'link-quotation': {
     // GHD043

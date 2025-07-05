@@ -11,7 +11,7 @@ describe(thirdPartyActionPinning.names.join(' - '), () => {
       '  build:',
       '    runs-on: ubuntu-latest',
       '    steps:',
-      '      - uses: actions/javascript-action@main',
+      '      - uses: ./.github/actions/javascript-action@main',
       '```',
     ].join('\n')
     const result = await runRule(thirdPartyActionPinning, { strings: { markdown } })

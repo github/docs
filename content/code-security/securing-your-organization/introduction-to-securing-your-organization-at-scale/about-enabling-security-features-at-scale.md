@@ -15,13 +15,15 @@ topics:
 
 {% ifversion ghas-products %}
 
-{% data variables.product.github %} has many features that help you improve and maintain the quality of your code. Some features are included in all {% data variables.product.github %} plans. Additional features are available to organizations {% ifversion ghec %}and enterprises{% endif %} on {% data variables.product.prodname_team %}{% ifversion ghec %} and {% data variables.product.prodname_ghe_cloud %}{% endif %} that purchase a {% data variables.product.prodname_GHAS %} product:
-  * **{% data variables.product.prodname_GH_code_security %}**, which includes features that help you find and fix vulnerabilities, like {% data variables.product.prodname_code_scanning %}, premium {% data variables.product.prodname_dependabot %} features, and dependency review.
-  * **{% data variables.product.prodname_GH_secret_protection %}**, which includes features that help you detect and prevent secret leaks, such as {% data variables.product.prodname_secret_scanning %} and push protection.
+{% data variables.product.github %} has many features that help you improve and maintain the quality of your code. Some features are included in all {% data variables.product.github %} plans. Additional features are available {% ifversion fpt or ghec %}to organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} that{% else %} if you {% endif %} purchase a {% data variables.product.prodname_GHAS %} product:
+
+{% data reusables.advanced-security.ghas-products-bullets+ghas %}
 
 {% else %}
 
-{% data variables.product.github %} offers many security features including {% data variables.product.prodname_GHAS %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more.{% endif %}
+{% data variables.product.github %} offers many security features including {% data variables.product.prodname_GHAS %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more.
+
+{% endif %}
 
 You can easily enable and manage {% data variables.product.github %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
 

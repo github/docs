@@ -1,7 +1,7 @@
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
-import { defaultCSSTheme } from 'src/color-schemes/components/useTheme'
+import { defaultCSSTheme } from '@/color-schemes/components/useTheme'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

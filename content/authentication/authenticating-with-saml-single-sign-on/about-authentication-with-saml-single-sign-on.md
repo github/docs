@@ -1,6 +1,6 @@
 ---
 title: About authentication with SAML single sign-on
-intro: 'You can access {% ifversion ghec %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating through an identity provider (IdP).'
+intro: 'You can access an organization that uses single sign-on (SSO) by authenticating through an identity provider (IdP).'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
   - /github/authenticating-to-github/about-authentication-with-saml-single-sign-on
@@ -11,13 +11,15 @@ topics:
   - SSO
 shortTitle: SAML single sign-on
 ---
-## About authentication with SAML SSO
+## About authentication with SSO
 
-{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your personal account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
+{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your personal account on {% data variables.product.prodname_dotcom %} to join their organization that uses SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
+
+Access to SSO protected `internal` resources in an enterprise, such as repositories, projects, and packages, requires an SSO session for any organization in the enterprise. This allows code and work to be shared across organizations in an enterprise without requiring users to join each organization.
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will instead use a new account that is provisioned for you and controlled by your enterprise. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
-When you attempt to access most resources within an organization that uses SAML SSO, {% data variables.product.prodname_dotcom %} will redirect you to the organization's SAML IdP to authenticate. After you successfully authenticate with your account on the IdP, the IdP redirects you back to {% data variables.product.prodname_dotcom %}, where you can access the organization's resources.
+When you attempt to access most resources within an organization that uses SSO, {% data variables.product.prodname_dotcom %} will redirect you to the organization's SSO IdP to authenticate. After you successfully authenticate with your account on the IdP, the IdP redirects you back to {% data variables.product.prodname_dotcom %}, where you can access the organization's resources.
 
 {% data reusables.saml.resources-without-sso %}
 
@@ -45,9 +47,9 @@ To use a new or existing {% data variables.product.pat_generic %} or SSH key wit
 
 ## About {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %}, and SAML SSO
 
-You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} to access an organization that uses or enforces SAML SSO. You can create an active SAML session by navigating to `https://github.com/orgs/ORGANIZATION-NAME/sso` in your browser.
+You must have an active SSO session each time you authorize an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} in order to access an organization that uses or enforces SSO. If you do not have an active session for an organization that requires SSO when you sign into the app, the app will be unable to access that organization. You can create an active SSO session by navigating to `https://github.com/orgs/ORGANIZATION-NAME/sso` or `https://github.com/enterprises/ENTERPRISE-NAME/sso` in your browser.
 
-After an enterprise or organization owner enables or enforces SAML SSO for an organization, and after you authenticate via SAML for the first time, you must reauthorize any {% data variables.product.prodname_oauth_apps %} or {% data variables.product.prodname_github_apps %} that you previously authorized to access the organization.
+After an enterprise or organization owner enables or enforces SSO for an organization, and after you authenticate via SSO for the first time, you must reauthorize any {% data variables.product.prodname_oauth_apps %} or {% data variables.product.prodname_github_apps %} that you previously authorized to access the organization.
 
 To see the {% data variables.product.prodname_oauth_apps %} you've authorized, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications). To see the {% data variables.product.prodname_github_apps %} you've authorized, visit your [{% data variables.product.prodname_github_apps %} page](https://github.com/settings/apps/authorizations).
 

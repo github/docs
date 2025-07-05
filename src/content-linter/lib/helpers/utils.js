@@ -133,3 +133,10 @@ export function getFrontmatter(lines) {
   if (Object.keys(data).length === 0) return null
   return data
 }
+
+export function getFrontmatterLines(lines) {
+  const indexStart = lines.indexOf('---')
+  if (indexStart === -1) return []
+  const indexEnd = lines.indexOf('---', indexStart + 1)
+  return lines.slice(indexStart, indexEnd + 1)
+}

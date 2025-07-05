@@ -1,25 +1,25 @@
 import { GetServerSideProps } from 'next'
-import { Operation } from 'src/rest/components/types'
-import { RestReferencePage } from 'src/rest/components/RestReferencePage'
+import { Operation } from '@/rest/components/types'
+import { RestReferencePage } from '@/rest/components/RestReferencePage'
 import {
   addUINamespaces,
   getMainContext,
   MainContext,
   MainContextT,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
-  TocItem,
   TocLandingContext,
   TocLandingContextT,
-} from 'src/frame/components/context/TocLandingContext'
-import { TocLanding } from 'src/landings/components/TocLanding'
+} from '@/frame/components/context/TocLandingContext'
+import type { TocItem } from '@/landings/types'
+import { TocLanding } from '@/landings/components/TocLanding'
 
 type MinitocItemsT = {
   restOperationsMiniTocItems: MiniTocItem[]
@@ -60,7 +60,7 @@ export default function Category({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { default: getRest, getRestMiniTocItems } = await import('src/rest/lib/index.js')
+  const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index.js')
   const nonEnterpriseDefaultVersionModule = await import(
     'src/versions/lib/non-enterprise-default-version.js'
   )

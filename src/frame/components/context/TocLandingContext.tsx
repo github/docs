@@ -1,23 +1,15 @@
-import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
 import { LearningTrack } from './ArticleContext'
-import {
-  FeaturedLink,
-  getFeaturedLinksFromReq,
-} from 'src/landings/components/ProductLandingContext'
-
-export type TocItem = {
-  fullPath: string
-  title: string
-  intro?: string
-}
+import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
+import type { SimpleTocItem } from '@/landings/types'
+import { mapRawTocItemToSimpleTocItem } from '@/landings/types'
 
 export type TocLandingContextT = {
   title: string
   intro: string
   productCallout: string
   permissions: string
-  tocItems: Array<TocItem>
+  tocItems: Array<SimpleTocItem>
   variant?: 'compact' | 'expanded'
   featuredLinks: Record<string, Array<FeaturedLink>>
   renderedPage: string
@@ -42,8 +34,8 @@ export const getTocLandingContextFromRequest = (req: any): TocLandingContextT =>
     productCallout: req.context.page.product || '',
     permissions: req.context.page.permissions || '',
     intro: req.context.page.intro,
-    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map((obj: any) =>
-      pick(obj, ['fullPath', 'title', 'intro', 'childTocItems']),
+    tocItems: (req.context.genericTocFlat || req.context.genericTocNested || []).map(
+      mapRawTocItemToSimpleTocItem,
     ),
     variant: req.context.genericTocFlat ? 'expanded' : 'compact',
     featuredLinks: getFeaturedLinksFromReq(req),

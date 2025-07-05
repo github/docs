@@ -13,7 +13,7 @@ The status of deployments are posted in the `#docs-ops` Slack channel.
 Build the production Docker image locally,
 
 ```bash
-docker build -t docs:latest . --secret id=DOCS_BOT_PAT_READPUBLICKEY,src=<(echo "<your GH PAT value>")
+docker build -t docs:latest . --secret id=DOCS_BOT_PAT_BASE,src=<(echo "<your GH PAT value>")
 ```
 
 Where `<your GH PAT value>` must be a PAT with `contents: read` access to:
