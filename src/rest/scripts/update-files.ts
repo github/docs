@@ -50,7 +50,7 @@ program
       `The source repositories to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
     )
       .choices(['github', REST_API_DESCRIPTION_ROOT, MODELS_GATEWAY_ROOT])
-      .default('github', 'github'),
+      .default(['github', MODELS_GATEWAY_ROOT]),
   )
   .option(
     '-v --versions [VERSIONS...]',
@@ -236,7 +236,7 @@ async function validateInputParameters(): Promise<void> {
 
   // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  if ((includeDeprecated || includeUnpublished) && !sourceRepos.include('github')) {
+  if ((includeDeprecated || includeUnpublished) && !sourceRepos.includes('github')) {
     const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }

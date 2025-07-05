@@ -50,7 +50,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Viewing deliveries for {% data variables.product.prodname_github_app %} webhooks
 
-The owner of a {% data variables.product.prodname_github_app %} can view recent webhook deliveries for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also view recent webhook deliveries.
+The owner of a {% data variables.product.prodname_github_app %} can view recent webhook deliveries for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also view recent webhook deliveries.
 
 You can use the {% data variables.product.company_short %} web interface or the REST API to view recent webhook deliveries for a {% data variables.product.prodname_github_app %}. For more information about using the REST API to view recent deliveries, see [AUTOTITLE](/rest/apps/webhooks).
 
@@ -64,7 +64,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 
 ## Viewing deliveries for {% data variables.product.prodname_marketplace %} webhooks
 
-The owner of a {% data variables.product.prodname_github_app %} can view recent {% data variables.product.prodname_marketplace %} webhook deliveries for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also view recent webhook deliveries.
+The owner of a {% data variables.product.prodname_github_app %} can view recent {% data variables.product.prodname_marketplace %} webhook deliveries for the app. If the app owner has designated any app managers for a {% data variables.product.prodname_github_app %}, the app managers can also view recent webhook deliveries.
 
 1. Navigate to your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage).
 1. Next to the {% data variables.product.prodname_marketplace %} listing that you want to view webhook deliveries for, click **Manage listing**.

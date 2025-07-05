@@ -1,6 +1,6 @@
 ---
-title: Evaluating AI models 
-intro: 'Test and compare AI model outputs using evaluators and scoring metrics in GitHub Models.'
+title: Evaluating AI models
+intro: 'Test and compare AI model outputs using evaluators and scoring metrics in {% data variables.product.prodname_github_models %}.'
 versions:
   feature: github-models
 shortTitle: Evaluate AI models
@@ -10,7 +10,10 @@ topics:
 
 ## Overview
 
-{% data variables.product.prodname_github_models %} provides a simple evaluation workflow that helps developers compare large language models (LLMs), refine prompts, and make data-driven decisions within the GitHub platform. You can use {% data variables.product.prodname_github_models %} to experiment with new features or validate model changes by analyzing performance, accuracy, and cost through structured evaluation tools.
+{% data variables.product.prodname_github_models %} provides a simple evaluation workflow that helps developers compare large language models (LLMs), refine prompts, and make data-driven decisions within the {% data variables.product.github %} platform. You can use {% data variables.product.prodname_github_models %} to experiment with new features or validate model changes by analyzing performance, accuracy, and cost through structured evaluation tools.
+
+>[!TIP]
+> You can run evaluations directly from the command line using the `gh models eval` command. It uses the same evaluators as the UI: string match, similarity, custom LLM-as-a-judge evaluators, and more, so you can test your `.prompt.yml` file locally or in CI.
 
 ## Use cases for {% data variables.product.prodname_github_models %}
 
@@ -41,7 +44,7 @@ In this step, you'll configure a model to generate summaries for customer suppor
 
 ### Defining the system prompt
 
-Define the model's behavior for your current goal. In this case, the goal is to summarize customer feedback. Under **Parameters**, enter the following System prompt:  
+Define the model's behavior for your current goal. In this case, the goal is to summarize customer feedback. Under **Parameters**, enter the following System prompt:
 
     You are a helpful assistant that summarizes support ticket responses into concise summaries.
 
@@ -59,17 +62,22 @@ The model may generate a response like the following:
 
     The user experiences consistent app crashes when attempting to upload a PDF from their phone. Uploading PDFs works normally on desktop. They request an investigation into the issue.
 
-### Defining the input variable
+### Using variables in prompts
+
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 At this point, the configuration generates a clear and concise summary. At the bottom of the **Parameters** settings, click **Create prompt.yml file** to open the Prompt view. Your system prompt will be prefilled automatically.
 
-In the **User prompt** field, enter the following prompt:
+In the **User prompt** field, enter a prompt that includes one or more variable placeholders inside double curly braces. For example:
 
 ```text
-Summarize the following: {% raw %}{{input}}{% endraw %}
+Travel or shopping assistants using {% raw %}{{city}}{% endraw %}, {% raw %}{{intent}}{% endraw %}, and {% raw %}{{budget}}{% endraw %} to tailor recommendations.
 ```
 
-The {% raw %}`{{input}}`{% endraw %} variable acts as a placeholder that lets you test different inputs (customer feedback) without modifying the prompt each time. Each test input you add will replace {% raw %}`{{input}}`{% endraw %} when the comparison runs.
+Each variable listed in the prompt will appear as a parameter in compare mode. When running an evaluation, you'll be prompted to provide values for each variable. This allows prompts to be reused with different inputs without modifying the prompt content.
+
+Alternatively, you can add variables in your `.prompt.yml` file system or user prompt to automate the process of evaluating with multiple variables in the future. See [AUTOTITLE](/github-models/use-github-models/storing-prompts-in-github-repositories).
 
 ## Adding test inputs
 
@@ -144,13 +152,13 @@ The following tables display each model's output and its evaluator scores:
 
 | Model | Output                                                                                                                                     |
 |-------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| GPT-4.1 | User reports that the app crashes when uploading a PDF from mobile, though uploading works on desktop.                           |
+| {% data variables.copilot.copilot_gpt_41 %} | User reports that the app crashes when uploading a PDF from mobile, though uploading works on desktop.                           |
 | DeepSeek-R1 | <think> Okay, the user is having trouble with the app crashing when they try to upload a PDF from their phone. It works on the desktop but not mobile. Let me break this down. First, the main issue is the app crashing specifically during PDF uploads on mobile. The fact that it works on desktop suggests it's a mobile-specific problem. Possible causes could be related to the mobile app version, the phone's OS, file size limits on mobile, or compatibility issues with certain PDF formats on mobile devices. I need to make sure the summary mentions the crash during PDF uploads on mobile, note that desktop works, and |
 | Phi-4 | The app crashes when attempting to upload a PDF from the mobile device, though it functions correctly on the desktop version.                     |
 
 | Model         | Similarity | Relevance | Groundedness | Input tokens | Output tokens | Latency |
 |---------------|------------|-----------|--------------|--------------|---------------|---------|
-| GPT-4.1       | 100%       | 50%       | 100%         | 61           | 20            | 918ms   |
+| {% data variables.copilot.copilot_gpt_41 %}       | 100%       | 50%       | 100%         | 61           | 20            | 918ms   |
 | DeepSeek-R1   | 50%        | 50%       | 75%          | 52           | 128           | 2285ms  |
 | Phi-4         | 75%        | 100%      | 100%         | 61           | 66            | 1117ms  |
 
@@ -162,11 +170,11 @@ Evaluate how closely each model’s output aligns with the expected summary. The
 
 | Model         | Similarity score |
 |---------------|------------------|
-| GPT-4.1       | 100%             |
+| {% data variables.copilot.copilot_gpt_41 %}       | 100%             |
 | DeepSeek-R1   | 50%              |
 | Phi-4         | 75%              |
 
-While all models included the key content from the input, DeepSeek-R1’s similarity score is significantly lower due to its verbose internal commentary, which deviate from the expected concise summary format. In contrast, GPT-4.1’s response matches the phrasing and structure of the reference output.
+While all models included the key content from the input, DeepSeek-R1’s similarity score is significantly lower due to its verbose internal commentary, which deviate from the expected concise summary format. In contrast, {% data variables.copilot.copilot_gpt_41 %}’s response matches the phrasing and structure of the reference output.
 
 ### Relevance
 
@@ -174,7 +182,7 @@ Evaluate how well each model captures the core intent of the input. The table be
 
 | Model         | Relevance score |
 |---------------|-----------------|
-| GPT-4.1       | 50%             |
+| {% data variables.copilot.copilot_gpt_41 %}       | 50%             |
 | DeepSeek-R1   | 50%             |
 | Phi-4         | 100%            |
 
@@ -187,7 +195,7 @@ The table below shows the relevance scores for each model.
 
 | Model         | Groundedness score |
 |---------------|--------------------|
-| GPT-4.1       | 100%               |
+| {% data variables.copilot.copilot_gpt_41 %}       | 100%               |
 | DeepSeek-R1   | 75%                |
 | Phi-4         | 100%               |
 
@@ -201,13 +209,13 @@ The following tables display each model's output and its evaluator scores:
 
 | Model | Output                                                                                                                                      |
 |-------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| GPT-4.1 | User requests the addition of a dark mode feature due to discomfort and eye strain when using the app at night.                            |
+| {% data variables.copilot.copilot_gpt_41 %} | User requests the addition of a dark mode feature due to discomfort and eye strain when using the app at night.                            |
 | DeepSeek-R1 | <think> Okay, the user wants dark mode added because it's hard to use at night and their eyes hurt. I need to make a concise summary. Let me start with the main request: adding dark mode. Then mention the reason: eye strain from prolonged use at night. Keep it to one sentence. Maybe structure it as "Request to implement dark mode to reduce eye strain during nighttime use." That covers the key points without extra details. Check if that's under the character limit. Yep, looks good. </think> Summary: Request to implement dark mode to reduce eye strain caused by prolonged nighttime use. |
 | Phi-4 | The customer is requesting the addition of a dark mode feature to reduce eye strain when using the product at night.                       |
 
 | Model         | Similarity | Relevance | Groundedness | Input Tokens | Output Tokens | Latency |
 |---------------|------------|-----------|--------------|---------------|----------------|---------|
-| GPT-4.1       | 100%       | 75%       | 100%         | 57            | 18             | 1286ms  |
+| {% data variables.copilot.copilot_gpt_41 %}       | 100%       | 75%       | 100%         | 57            | 18             | 1286ms  |
 | DeepSeek-R1   | 50%        | 0%        | 25%          | 49            | 128            | 1946ms  |
 | Phi-4         | 100%       | 75%       | 100%         | 58            | 20             | 899ms   |
 
@@ -217,7 +225,7 @@ Evaluate how closely each model’s output aligns with the expected summary. The
 
 | Model         | Similarity score |
 |---------------|------------------|
-| GPT-4.1       | 100%             |
+| {% data variables.copilot.copilot_gpt_41 %}       | 100%             |
 | DeepSeek-R1   | 50%              |
 | Phi-4         | 100%             |
 
@@ -229,11 +237,11 @@ Evaluate how well each model captures the core intent of the input. The table be
 
 | Model         | Relevance score |
 |---------------|-----------------|
-| GPT-4.1       | 75%             |
+| {% data variables.copilot.copilot_gpt_41 %}       | 75%             |
 | DeepSeek-R1   | 0%              |
 | Phi-4         | 75%             |
 
-GPT-4.1 and Phi-4 both captured the main intent of the user’s request: the need for dark mode to reduce eye strain and improve usability at night. DeepSeek-R1 scored 0% in relevance due to its verbose internal commentary that distracted from the actual output.
+{% data variables.copilot.copilot_gpt_41 %} and Phi-4 both captured the main intent of the user’s request: the need for dark mode to reduce eye strain and improve usability at night. DeepSeek-R1 scored 0% in relevance due to its verbose internal commentary that distracted from the actual output.
 
 ### Groundedness
 
@@ -242,7 +250,7 @@ The table below shows the relevance scores for each model.
 
 | Model         | Groundedness score |
 |---------------|--------------------|
-| GPT-4.1       | 100%               |
+| {% data variables.copilot.copilot_gpt_41 %}       | 100%               |
 | DeepSeek-R1   | 25%                |
 | Phi-4         | 100%               |
 
@@ -250,7 +258,7 @@ DeepSeek-R1 scored lower due to its verbose `<think>` block, which included spec
 
 ## Save the configuration
 
-After completing your evaluations, the final step is to choose the model that performs best for your specific use case. In the examples above, Phi-4 and GPT-4.1 delivered strong, consistent results across all evaluators. DeepSeek-R1 scored lower due to its verbose reasoning and less focused outputs.
+After completing your evaluations, the final step is to choose the model that performs best for your specific use case. In the examples above, Phi-4 and {% data variables.copilot.copilot_gpt_41 %} delivered strong, consistent results across all evaluators. DeepSeek-R1 scored lower due to its verbose reasoning and less focused outputs.
 
 Once you've selected your preferred model and prompt configuration, add a descriptive name to the prompt file, then click **Commit changes**. This will save the model, prompt, parameter settings, and associated dataset as a reusable configuration file in your repository.
 

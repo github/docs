@@ -90,7 +90,7 @@ export type MainContextT = {
   breadcrumbs: {
     product: BreadcrumbT
     category?: BreadcrumbT
-    maptopic?: BreadcrumbT
+    subcategory?: BreadcrumbT
     article?: BreadcrumbT
   }
   communityRedirect: {
@@ -147,7 +147,6 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
-  'domain_edit',
   'cookbook_landing',
 ]
 

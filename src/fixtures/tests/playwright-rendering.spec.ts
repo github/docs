@@ -9,7 +9,7 @@ import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 // The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
-dotenv.config()
+dotenv.config({ quiet: true })
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -302,18 +302,18 @@ test.describe('tool picker', () => {
   })
 })
 
-test('navigate with side bar into article inside a map-topic inside a category', async ({
+test('navigate with side bar into article inside a subcategory inside a category', async ({
   page,
 }) => {
   // Our TreeView sidebar only shows "2 levels". If you click and expand
-  // the category, you'll be able to see the map-topic and the article
+  // the category, you'll be able to see the subcategory and the article
   // within.
   await page.goto('/actions')
-  await page.getByTestId('sidebar').getByText('Category').click()
-  await page.getByText('Map & Topic').click()
+  await page.getByTestId('sidebar').getByText('Category', { exact: true }).click()
+  await page.getByTestId('sidebar').getByText('Subcategory').click()
   await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
-  await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
+  await expect(page).toHaveURL(/actions\/category\/subcategory\/article/)
 })
 
 test.describe('hover cards', () => {
@@ -842,37 +842,5 @@ test.describe('translations', () => {
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
-  })
-})
-
-test.describe('view pages with custom domain cookie', () => {
-  test('view article page', async ({ page }) => {
-    await page.goto(
-      '/enterprise-server@latest/get-started/markdown/replace-domain?ghdomain=example.ghe.com',
-    )
-
-    const content = page.locator('pre')
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
-
-    // Now switch to enterprise-cloud, where replacedomain should not be used
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Cloud', { exact: true }).click()
-
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://HOSTNAME/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
-
-    // Again switch back to enterprise server again
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.').first().click()
-
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
   })
 })

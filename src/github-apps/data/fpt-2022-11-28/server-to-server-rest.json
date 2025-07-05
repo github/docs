@@ -1915,13 +1915,13 @@
   ],
   "dependabot": [
     {
-      "slug": "lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "slug": "lists-the-repositories-dependabot-can-access-in-an-organization",
       "subcategory": "repository-access",
       "verb": "get",
       "requestPath": "/organizations/{org}/dependabot/repository-access"
     },
     {
-      "slug": "updates-repositories-to-the-list-of-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+      "slug": "updates-dependabots-repository-access-list-for-an-organization",
       "subcategory": "repository-access",
       "verb": "patch",
       "requestPath": "/organizations/{org}/dependabot/repository-access"
@@ -2755,6 +2755,30 @@
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "orgs",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/bulk-list"
+    },
+    {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/attestations/{attestation_id}"
     },
     {
       "slug": "list-attestations",
@@ -4667,6 +4691,30 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
+    },
+    {
+      "slug": "list-attestations-by-bulk-subject-digests",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/bulk-list"
+    },
+    {
+      "slug": "delete-attestations-in-bulk",
+      "subcategory": "attestations",
+      "verb": "post",
+      "requestPath": "/users/{username}/attestations/delete-request"
+    },
+    {
+      "slug": "delete-attestations-by-subject-digest",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "delete-attestations-by-id",
+      "subcategory": "attestations",
+      "verb": "delete",
+      "requestPath": "/users/{username}/attestations/{attestation_id}"
     },
     {
       "slug": "list-attestations",

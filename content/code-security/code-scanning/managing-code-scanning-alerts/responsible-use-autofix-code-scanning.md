@@ -115,8 +115,6 @@ The best way to mitigate the limitations of suggestions from {% data variables.c
 
 It is important to remember that the author of a pull request retains responsibility for how they respond to review comments and suggested code changes, whether proposed by colleagues or automated tools. Developers should always look at suggestions for code changes critically. If needed, they should edit the suggested changes to ensure that the resulting code and application are correct, secure, meet performance criteria, and satisfy all other functional and non-functional requirements for the application.
 
-{% data reusables.rai.code-scanning.copilot-workspaces-prs-autofix-note %}
-
 ## Next steps
 
 * [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)

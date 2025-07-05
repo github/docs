@@ -42,11 +42,9 @@ After signing in a user, app developers must take additional steps to ensure tha
 
 ### Verify a user's access to your app
 
-Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
+{% ifversion ghec %}An {% data variables.product.prodname_oauth_app %} created by a {% data variables.enterprise.prodname_managed_user %} or {% data variables.enterprise.prodname_emu_org %} can only be accessed by members of the enterprise that owns those accounts. Otherwise, your{% else %}Your{% endif %} OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
 
 To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see [AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user).
-
-{% data reusables.emus.oauth-app-note %}
 
 ## Secure your app's credentials
 

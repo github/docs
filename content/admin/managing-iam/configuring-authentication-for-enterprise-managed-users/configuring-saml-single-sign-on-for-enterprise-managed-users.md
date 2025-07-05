@@ -73,7 +73,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
    | ----------------- | ------------- | ------------------- |
    | Microsoft Entra ID | [Microsoft Learn](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) | [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-ghe-com-tutorial) |
    | Okta | [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) | [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) |
-   | PingFederate | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisities" and "1. Configure SAML" sections) | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisities" and "1. Configure SAML" sections) |
+   | PingFederate | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisites" and "1. Configure SAML" sections) | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisites" and "1. Configure SAML" sections) |
 
    {% endrowheaders %}
 

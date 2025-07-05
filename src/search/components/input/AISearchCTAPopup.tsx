@@ -5,6 +5,8 @@ import { focusTrap } from '@primer/behaviors'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useMaxWidthBreakpoint, useMinWidthBreakpoint } from '../hooks/useBreakpoint'
 import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
 
 let previouslyFocused: HTMLElement | null = null
 
@@ -13,11 +15,13 @@ export function AISearchCTAPopup({
   dismiss,
   setIsSearchOpen,
   isDismissible = true,
+  bannerType = 'popover',
 }: {
   isOpen: boolean
   dismiss?: () => void
   setIsSearchOpen: (value: boolean) => void
   isDismissible?: boolean
+  bannerType?: 'popover' | 'footer'
 }) {
   const { t } = useTranslation('search')
   const { permanentDismiss } = useCTAPopoverContext()
@@ -26,7 +30,21 @@ export function AISearchCTAPopup({
   let overlayRef = useRef<HTMLDivElement>(null)
   let dismissButtonRef = useRef<HTMLButtonElement>(null)
 
+  // Analytics helper functions
+  const sendCTAAnalytics = (variation: 'dismiss' | 'ask_copilot') => {
+    const experimentName =
+      bannerType === 'footer' ? 'copilot_footer_banner' : 'copilot_popover_banner'
+    sendEvent({
+      type: EventType.experiment,
+      experiment_name: experimentName,
+      experiment_variation: variation,
+      experiment_success: true,
+    })
+  }
+
   const openSearch = () => {
+    // Send analytics before taking action
+    sendCTAAnalytics('ask_copilot')
     setIsSearchOpen(true)
     // They engaged with the CTA, so let's not show this popup for them anymore
     permanentDismiss()
@@ -47,6 +65,8 @@ export function AISearchCTAPopup({
     if (isTooSmallForCTA) {
       return
     }
+    // Send analytics before taking action
+    sendCTAAnalytics('dismiss')
     if (previouslyFocused) {
       previouslyFocused.focus()
     }
@@ -65,7 +85,7 @@ export function AISearchCTAPopup({
     <>
       <img
         src="/assets/images/search/copilot-action.png"
-        width={220}
+        width="100%"
         alt="The Copilot Icon in front of an explosion of color."
       />
       <Heading

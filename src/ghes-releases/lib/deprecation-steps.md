@@ -4,6 +4,7 @@ labels:
   - enterprise deprecation
   - priority-1
   - time sensitive
+  - workflow-generated
 ---
 
 # Deprecation steps for GHES releases

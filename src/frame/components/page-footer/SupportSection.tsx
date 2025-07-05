@@ -48,7 +48,12 @@ export const SupportSection = () => {
         )}
       >
         {showCopilotCTA && (
-          <AISearchCTAPopup isOpen setIsSearchOpen={setIsSearchOpen} isDismissible={false} />
+          <AISearchCTAPopup
+            isOpen
+            setIsSearchOpen={setIsSearchOpen}
+            isDismissible={false}
+            bannerType="footer"
+          />
         )}
         {showSurvey && <Survey />}
         {showContribution && <Contribution />}

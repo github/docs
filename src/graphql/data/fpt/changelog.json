@@ -4,6 +4,65 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>immutable</code> was added to object type <code>Release</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-07-04"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>name</code> was added to object type <code>Mannequin</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-06-25"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>ClosedEvent.stateReason</code>:<code>stateReason</code> will be removed. <strong>Effective 2025-10-01</strong>.</p>",
+          "<p>On member <code>Issue.stateReason</code>:<code>stateReason</code> will be removed. <strong>Effective 2025-10-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2025-06-17"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>BotOrUser</code> was removed</p>",
+          "<p>Input field <code>botIds</code> of type '[ID!]<code>was added to input object type</code>RequestReviewsInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-06-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'ISSUE_COUNT<code>was added to enum</code>LabelOrderField'</p>",
           "<p>Field <code>digest</code> was added to object type <code>ReleaseAsset</code></p>"
         ]

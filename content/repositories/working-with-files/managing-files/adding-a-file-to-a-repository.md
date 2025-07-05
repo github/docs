@@ -41,6 +41,9 @@ Your repository may be secured by push protection. With push protection, {% data
 
 {% endif %}
 
+> [!WARNING]
+> Use Git to push files to your repository if you need to apply the logic in your `.gitattributes` file. For example, automatic conversion of line endings. Uploading a file through the {% data variables.product.github %} web interface will ignore `.gitattributes`.
+
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**. Alternatively, you can drag and drop files into your browser.
 

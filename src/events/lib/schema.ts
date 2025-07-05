@@ -89,7 +89,7 @@ const context = {
     page_document_type: {
       type: 'string',
       description: 'The generic page document type based on URL path.',
-      enum: ['homepage', 'early-access', 'product', 'category', 'mapTopic', 'article'], // get-document-type.js
+      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.js
     },
     page_type: {
       type: 'string',
@@ -320,6 +320,7 @@ const link = {
         'lead',
         'notifications',
         'article',
+        'alert',
         'toc',
         'footer',
         'static',
@@ -369,6 +370,10 @@ const search = {
     search_context: {
       type: 'string',
       description: 'Any additional search context, such as component searched.',
+    },
+    search_client: {
+      type: 'string',
+      description: 'The client name identifier when the request is not from docs.github.com.',
     },
   },
 }

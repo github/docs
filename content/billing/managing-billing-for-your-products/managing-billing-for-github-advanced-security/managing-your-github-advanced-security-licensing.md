@@ -2,7 +2,7 @@
 title: Managing volume/subscription licenses for {% data variables.product.prodname_AS %}
 intro: 'You can monitor and control the availability and consumption of licenses for {% data variables.product.prodname_AS %} in repositories in your enterprise.'
 allowTitleToDifferFromFilename: true
-permissions: 'Enterprise owners with **volume/subscription licenses** for {% data variables.product.prodname_AS %}. </br>For metered usage on the new platform, see [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).'
+permissions: 'Enterprise owners with **volume/subscription licenses** for {% data variables.product.prodname_AS %}. </br>For metered usage on the new platform, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).'
 versions:
   ghec: '*'
 type: how_to

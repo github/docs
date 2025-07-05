@@ -58,14 +58,14 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchB
             className={styles.searchIconButton}
             onClick={handleClick}
             tabIndex={0}
-            aria-label={t('search.input.aria_label')}
+            aria-label={t('search.input.placeholder_no_icon')}
             icon={SearchIcon}
           />
           {/* On large and up the SearchBarButton is shown */}
           <button
             data-testid="search"
             tabIndex={0}
-            aria-label={t`search.input.aria_label`}
+            aria-label={t('search.input.placeholder_no_icon')}
             className={styles.searchInputButton}
             onKeyDown={handleKeyDown}
             onClick={handleClick}

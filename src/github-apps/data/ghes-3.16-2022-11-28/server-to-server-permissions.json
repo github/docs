@@ -1,7 +1,7 @@
 {
   "enterprise_scim": {
     "title": "Enterprise SCIM",
-    "displayTitle": "Business permissions for \"Enterprise SCIM\"",
+    "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
     "permissions": [
       {
         "category": "enterprise-admin",
@@ -1450,17 +1450,6 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/private-registries",
         "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "private-registries",
-        "slug": "create-a-private-registry-for-an-organization",
-        "subcategory": "organization-configurations",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/private-registries",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -4503,6 +4492,17 @@
     "title": "Contents",
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
+      {
+        "category": "markdown",
+        "slug": "render-a-markdown-document",
+        "subcategory": "markdown",
+        "verb": "post",
+        "requestPath": "/markdown",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
       {
         "category": "repos",
         "slug": "list-repository-activities",

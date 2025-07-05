@@ -11,7 +11,7 @@ featuredLinks:
     - /codespaces/about-codespaces/understanding-the-codespace-lifecycle
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
-    - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+    - /billing/managing-billing-for-your-products/about-billing-for-github-codespaces
   guideCards:
     - /codespaces/about-codespaces/deep-dive
     - /codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository

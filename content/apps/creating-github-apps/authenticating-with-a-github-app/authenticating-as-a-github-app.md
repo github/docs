@@ -12,9 +12,9 @@ shortTitle: Authenticate as an app
 
 ## About authentication as a {% data variables.product.prodname_github_app %}
 
-You must authenticate as a {% data variables.product.prodname_github_app %} in order to make REST API requests as the application. For example, if you want to use the API to generate an installation access token for accessing organization resources, list installations across organizations for your app, or suspend an app installation, you must authenticate as an app.
+You must authenticate as a {% data variables.product.prodname_github_app %} in order to make REST API requests as the application. For example, if you want to use the API to generate an installation access token for accessing organization{% ifversion enterprise-installed-apps %} or enterprise{% endif %} resources, list installations across accounts for your app, or suspend an app installation, you must authenticate as an app.
 
-If a REST API endpoint requires you to authenticate as an app, the documentation for that endpoint will indicate that you must use a JWT to access the endpoint. The GraphQL API does not support any queries or mutations that require you to authenticate as an app.
+If a REST API endpoint requires you to authenticate as an app, the documentation for that endpoint will indicate that you must use a JWT to access the endpoint. The GraphQL API does not support any queries or mutations that require you to authenticate with a JWT.
 
 ## Using a JSON Web Token (JWT) to authenticate as a {% data variables.product.prodname_github_app %}
 

@@ -1,7 +1,7 @@
 {
   "enterprise_scim": {
     "title": "Enterprise SCIM",
-    "displayTitle": "Business permissions for \"Enterprise SCIM\"",
+    "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
     "permissions": [
       {
         "category": "enterprise-admin",
@@ -3652,6 +3652,15 @@
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
       {
+        "category": "markdown",
+        "slug": "render-a-markdown-document",
+        "subcategory": "markdown",
+        "verb": "post",
+        "requestPath": "/markdown",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "repos",
         "slug": "list-repository-activities",
         "subcategory": "repos",
@@ -5421,201 +5430,6 @@
         "subcategory": "repo-pre-receive-hooks",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
-  "repository_projects": {
-    "title": "Projects",
-    "displayTitle": "Repository permissions for \"Projects\"",
-    "permissions": [
-      {
-        "category": "projects",
-        "slug": "get-a-project-card",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-an-existing-project-card",
-        "subcategory": "cards",
-        "verb": "patch",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-a-project-card",
-        "subcategory": "cards",
-        "verb": "delete",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "move-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/cards/{card_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "get-a-project-column",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-an-existing-project-column",
-        "subcategory": "columns",
-        "verb": "patch",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-a-project-column",
-        "subcategory": "columns",
-        "verb": "delete",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-cards",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}/cards",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "create-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/cards",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "move-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "get-a-project",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-a-project",
-        "subcategory": "projects",
-        "verb": "patch",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-a-project",
-        "subcategory": "projects",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-collaborators",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "add-project-collaborator",
-        "subcategory": "collaborators",
-        "verb": "put",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "remove-user-as-a-collaborator",
-        "subcategory": "collaborators",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "get-project-permission-for-a-user",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-columns",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "create-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "list-repository-projects",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/projects",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "create-a-repository-project",
-        "subcategory": "projects",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/projects",
         "additional-permissions": false,
         "access": "write"
       }

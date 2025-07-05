@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="AWS EC2 Instance Deployment" type="aws-ec2-server-deploy" factoryName="cloud-deploy-aws-docker" singleton="false" server-name="AWS EC2 Instance4">
+    <deployment type="cloud-deploy-aws-docker">
+      <settings>
+        <option name="composeFile" value="" />
+      </settings>
+    </deployment>
+    <method v="2">
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="" externalProjectPath="$PROJECT_DIR$/../d" vmOptions="" scriptParameters="" />
+    </method>
+  </configuration>
+</component>

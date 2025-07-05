@@ -32,12 +32,12 @@ jobs:
     runs-on: ubuntu-20.04-xl
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           repository: github/codeql
           path: codeql
@@ -87,7 +87,7 @@ jobs:
 
       - name: Build code scanning query list
         run: |
-          for lang in "actions" "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
+          for lang in "actions" "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "rust" "swift"; do
             echo "Generating code scanning query list for $lang"
             npm run generate-code-scanning-query-list -- \
               --verbose \
@@ -152,7 +152,7 @@ jobs:
           gh pr create \
             --title "Update CodeQL query tables" \
             --repo github/docs-internal \
-           --label "codeql-query-tables,skip FR board,ready-for-doc-review" \
+           --label "codeql-query-tables,skip FR board,ready-for-doc-review,workflow-generated" \
             --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
 
             No action is required from the first responder for the Docs content team. This PR will be reviewed and merged by the Code scanning and GHAS focus team as part of the next release of CodeQL CLI. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})

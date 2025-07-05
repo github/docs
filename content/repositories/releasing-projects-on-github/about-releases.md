@@ -46,6 +46,6 @@ You can also use the Releases API to gather information, such as the number of t
 
 ## Storage and bandwidth quotas
 
- Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
+Up to {% data variables.releases.release_asset_limit %} release assets may be associated with a single release. Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.
 
 {% endif %}

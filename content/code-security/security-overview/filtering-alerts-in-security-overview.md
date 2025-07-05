@@ -162,7 +162,7 @@ You can also filter the "Overview" view by properties of alerts.
 
 {% endif %}
 
-## {% data variables.product.prodname_dependabot %} alert view filters
+### {% data variables.product.prodname_dependabot %} alert view filters
 
 You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
 
@@ -176,14 +176,26 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 |`scope`|Display {% data variables.product.prodname_dependabot_alerts %} from the development dependency (`development`) or from the runtime dependency (`runtime`).|
 |`sort`| Groups {% data variables.product.prodname_dependabot_alerts %} by the manifest file path the alerts point to (`manifest-path`) or by the name of the package where the alert was detected (`package-name`). Alternatively, displays alerts from most important to least important, as determined by CVSS score, vulnerability impact, relevancy, and actionability (`most-important`), from newest to oldest (`newest`), from oldest to newest (`oldest`), or from most to least severe (`severity`).
 
-## {% data variables.product.prodname_code_scanning_caps %} alert view filters
+{% ifversion dependabot-metrics %}
+
+### {% data variables.product.prodname_dependabot %} dashboard filters
+
+You can filter the "{% data variables.product.prodname_dependabot %} dashboard" view using these filters.
+
+{% data reusables.security-overview.filter-dependabot-metrics %}
+
+Alternatively, you can use complex filters by clicking **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** and build custom filters to suit your needs.
+
+{% endif %}
+
+### {% data variables.product.prodname_code_scanning_caps %} alert view filters
 
 All {% data variables.product.prodname_code_scanning %} alerts have one of the categories shown below. You can click any result to see full details of the relevant query and the line of code that triggered the alert.
 
 | Qualifier | Description |
 | -------- | -------- |
 |`is`|Display {% data variables.product.prodname_code_scanning %} alerts that are open (`open`) or closed (`closed`).|
-|`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-postive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
+|`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-positive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`rule`|Display {% data variables.product.prodname_code_scanning %} alerts identified by the specified rule.|
 |`severity`|Display {% data variables.product.prodname_code_scanning %} alerts categorized as `critical`, `high`, `medium`, or `low` security alerts. Alternatively, displays {% data variables.product.prodname_code_scanning %} alerts categorized as `error`, `warning`, `note` problems.|
 |`sort`| Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).

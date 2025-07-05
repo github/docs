@@ -4,6 +4,7 @@ import got from 'got'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
 import type { ExtendedRequest } from '@/types'
+import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
 export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
   const { query, version } = req.body
@@ -26,6 +27,15 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
 
   if (errors.length) {
     res.status(400).json({ errors })
+    return
+  }
+
+  // Handle search analytics and client_name validation
+  const analyticsError = await handleExternalSearchAnalytics(req, 'ai-search')
+  if (analyticsError) {
+    res.status(analyticsError.status).json({
+      errors: [{ message: analyticsError.error }],
+    })
     return
   }
 

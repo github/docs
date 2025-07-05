@@ -24,6 +24,13 @@ export default {
   },
   sassOptions: {
     quietDeps: true,
+    silenceDeprecations: [
+      'legacy-js-api',
+      'import',
+      'global-builtin',
+      'color-4-api',
+      'mixed-decls',
+    ],
   },
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'

@@ -21,6 +21,9 @@ To learn more about roles authorized to create and manage cost centers, see [AUT
 
 ## Creating a cost center
 
+> [!NOTE]
+> An enterprise can create up to 250 cost centers.
+
 Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, and users can be assigned to one cost center.
 
 When you create a cost center, you can add **organizations** or **repositories**—which track spending for usage-based products like {% data variables.product.prodname_actions %}—via the user interface. To track spending for license-based products like {% data variables.product.prodname_copilot %}, you will need to add **users** to the cost center via the API after the cost center has been created. For guidance by product, see [Allocating spending to a cost center](#allocating-spending-to-a-cost-center).
@@ -60,7 +63,7 @@ To allocate spending to a cost center, you add repositories, organizations, or u
 
 ## Adding a budget to a cost center
 
-After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/preventing-overspending).
+After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
 ## Viewing cost center usage
 
@@ -102,7 +105,7 @@ To ensure your cost centers reflect spending as intended, it's important to unde
 
 * If a user belongs to a cost center, all charges associated with the user are billed to the cost center.
 * If a user does not belong to any cost center, usage is billed to the organization where the user receives their {% data variables.product.prodname_copilot_short %} license. If _that organization_ is part of a cost center, the charges are billed to that cost center.
-* If the user receives access to {% data variables.product.prodname_copilot_short %} through **multiple organizations**, one of the organizations is chosen at random each month to be billed, and the cost center that contains the organization is charged accordingly. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise),
+* If the user receives access to {% data variables.product.prodname_copilot_short %} through **multiple organizations**, one of the organizations is chosen at random each month to be billed, and the cost center that contains the organization is charged accordingly. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise).
 
 ### Cost center allocation for {% data variables.product.prodname_GH_cs_and_sp %}
 
@@ -174,11 +177,10 @@ The following table illustrates how spending for each user is allocated to a cos
 
 There are a few current limitations when working with cost centers and the API:
 
-* You **cannot** create cost centers using the API. Administrators must create them through the UI.
-* Once a cost center is created in the UI, administrators can use the API to add **members** only.
-* It’s **not currently possible** to add **organizations** or **repositories** to cost centers using the API.
-* You **cannot** add members to cost centers through the UI.
-* A single **organization**, **repository**, or **member** can only be assigned to one cost center at a time.
+* There is a maximum of 250 cost centers per enterprise.
+* You can add or remove up to 50 resources at a time from a cost center using the API.
+* Azure subscriptions can only be added to or removed from cost centers via the UI.
+* Users can only be added to or removed from cost centers via the API.
 
 ## Further reading
 

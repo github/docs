@@ -1,7 +1,7 @@
 {
   "enterprise_scim": {
     "title": "Enterprise SCIM",
-    "displayTitle": "Business permissions for \"Enterprise SCIM\"",
+    "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
     "permissions": [
       {
         "category": "enterprise-admin",
@@ -4310,6 +4310,17 @@
     "title": "Contents",
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
+      {
+        "category": "markdown",
+        "slug": "render-a-markdown-document",
+        "subcategory": "markdown",
+        "verb": "post",
+        "requestPath": "/markdown",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
       {
         "category": "repos",
         "slug": "list-repository-activities",
