@@ -1,0 +1,10 @@
+<component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$" connection-id="ffdce63a-8912-4712-8379-94e979e39a15" session-id="MAIN" current-schema="" />
+  </component>
+  <component name="DBNavigator.Project.JavaUploadManager">
+    <uploader-states />
+  </component>
+
