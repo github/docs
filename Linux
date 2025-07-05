@@ -1,0 +1,15 @@
+Your query is quite brief. If you're asking about Docker and Linux, I can provide some information based on the knowledge sources:
+
+Docker is well-supported on Linux-based systems. Here are some key points about Docker and Linux:
+
+1. **Platform Support**: Docker Engine is officially supported on several Ubuntu versions including Ubuntu Oracular 24.10, Ubuntu Noble 24.04 (LTS), Ubuntu Jammy 22.04 (LTS), and Ubuntu Focal 20.04 (LTS). Docker Engine for Ubuntu is compatible with x86_64 (amd64), armhf, arm64, s390x, and ppc64le architectures [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/).
+
+2. **Kernel Requirements**: Docker requires a Linux kernel version 3.10 or newer to run correctly. You can check kernel compatibility using the `check-config.sh` script [Kernel compatibility](https://docs.docker.com/engine/daemon/troubleshoot/#kernel-compatibility).
+
+3. **JupyterHub Support**: JupyterHub officially supports Linux/Unix-based systems but does not officially support Windows. For Windows-based systems, it's recommended to run JupyterHub in a Docker container or Linux VM [JupyterHub](https://hub.docker.com/r/jupyterhub/jupyterhub).
+
+4. **Firewall Considerations**: When using Docker with ufw (Uncomplicated Firewall) on Linux, be aware that Docker and ufw are incompatible in how they use iptables. When you publish container ports using Docker, traffic bypasses the ufw firewall settings [Docker and ufw](https://docs.docker.com/engine/network/packet-filtering-firewalls/#docker-and-ufw).
+
+5. **Alpine Linux**: For smaller container images, Alpine Linux is often used as a base image. It's a stripped-down version of Linux based on musl libc and Busybox, resulting in much smaller Docker images (approximately 5MB) [Alpine Linux](https://hub.docker.com/_/ibmjava).
+
+If you have a more specific question about Docker on Linux, please let me know and I'll be happy to provide more detailed information.
