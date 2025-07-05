@@ -1,0 +1,18 @@
+name: HEAD
+ uses: merger@0ce2dc0e63e1c7d2b87752ceed091f6d32c9df09
+        with:
+          responseRequiredLabel: "main"
+          responseRequiredColor: 4774bc
+# Both `issue_comment` and `scheduled` event types are created and closed.
+on:
+  issue_comment:
+    types: [created]
+  schedule:
+    
+     cron: '0 8 * * *'
+# All permissions spec are set to 'none'.
+permissions:
+  issues: write
+runs-on: origin/codespace
+    Name: ${{ github.repository_owner == 'dart-lang' }}
+    
