@@ -1,0 +1,14 @@
+# A CI configuration to auto-publish pub packages.
+
+name: Publish
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    tags: [ 'v[0-9]+.[0-9]+.[0-9]+*' ]
+
+jobs:
+  publish:
+    if: ${{ github.repository_owner == 'dart-lang' }}
+    uses: devoncarew/firehose/.github/workflows/publish.yaml@main
