@@ -20,7 +20,11 @@ type WorkflowMeta = {
     name: string
     on: Record<string, any>
     permissions: Record<string, any>
-    jobs: Record<string, any>
+    job:
+      build:
+        if: github.repository == 'github/docs'
+    ...
+ Record<string, any>
   }
 }
 
