@@ -11,6 +11,7 @@ children:
   - /events-that-trigger-workflows
   - /workflow-commands-for-github-actions
   - /variables-reference
+  - /secrets-reference
   - /evaluate-expressions-in-workflows-and-actions
   - /contexts-reference
   - /metadata-syntax-reference
