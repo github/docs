@@ -88,6 +88,14 @@ Every user across {% data variables.product.prodname_dotcom %} can also enable p
 
 Once push protection is enabled, you can customize it further:
 
+{% ifversion push-protected-pattern-configuration %}
+
+### Configure push protected patterns
+
+Customize which secret patterns are included in push protection at the enterprise or organization level. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#specifying-patterns-to-include-in-push-protection-for-your-enterprise) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#specifying-patterns-to-include-in-push-protection).
+
+{% endif %}
+
 ### Define custom patterns
 
 Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).

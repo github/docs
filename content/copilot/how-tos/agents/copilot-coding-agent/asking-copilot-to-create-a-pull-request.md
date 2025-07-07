@@ -36,7 +36,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
     For example, `Implement a user friendly message for common errors.`
 
   ![Screenshot of asking Copilot to create a pull request from the Agents page.](/assets/images/help/copilot/coding-agent/agents-page-input.png)
-  
+
 1. Click the **Send now** button or press <kbd>Return</kbd>.
 
     {% data variables.product.prodname_copilot_short %} will start a new session, which will appear in the list below the prompt box. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
@@ -53,6 +53,10 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
 
    > [!IMPORTANT]
    > {% data reusables.copilot.coding-agent.use-chat-participant-in-vsc %}
+
+   > [!TIP]
+   > * To help {% data variables.product.prodname_copilot_short %}, you can select the relevant line(s) of code before submitting your prompt.
+   > * From {% data variables.copilot.copilot_chat_short %}, you can ask {% data variables.product.prodname_copilot_short %} to open a pull request using a specific branch as the base branch by including it in your prompt.
 
 1. Submit your prompt.
 
