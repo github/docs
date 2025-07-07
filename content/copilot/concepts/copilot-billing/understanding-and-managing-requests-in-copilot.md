@@ -92,7 +92,6 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 |-------------------------------------------------------------------------|--------------------------------|-----------------------|
 | {% data variables.copilot.copilot_gpt_41 %}                             | 0                              | 1                     |
 | {% data variables.copilot.copilot_gpt_4o %}                             | 0                              | 1                     |
-| {% data variables.copilot.copilot_gpt_45 %}                             | 50                             | Not applicable        |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                              | 1                     |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                              | Not applicable        |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                           | Not applicable        |
@@ -100,7 +99,6 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 | {% data variables.copilot.copilot_claude_opus %}                        | 10                             | Not applicable        |
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                           | 1                     |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                              | Not applicable        |
-| {% data variables.copilot.copilot_o1 %}                                 | 10                             | Not applicable        |
 | {% data variables.copilot.copilot_o3 %}                                 | 1                              | Not applicable        |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                           | 1                     |
 | {% data variables.copilot.copilot_o4_mini %}                            | 0.33                           | Not applicable        |
@@ -111,6 +109,6 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 
 Premium request usage is based on the model’s multiplier and the feature you’re using. For example:
 
-* **Using {% data variables.copilot.copilot_gpt_45 %} in {% data variables.copilot.copilot_chat_short %}**: With a 50× multiplier, one interaction counts as 50 premium requests.
+* **Using {% data variables.copilot.copilot_claude_opus %} in {% data variables.copilot.copilot_chat_short %}**: With a 10× multiplier, one interaction counts as 10 premium requests.
 * **Using {% data variables.copilot.copilot_gpt_41 %} on {% data variables.copilot.copilot_free_short %}**: Each interaction counts as 1 premium request.
 * **Using {% data variables.copilot.copilot_gpt_41 %} on a paid plan**: No premium requests are consumed.
