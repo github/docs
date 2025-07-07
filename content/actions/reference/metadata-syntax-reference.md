@@ -1,5 +1,5 @@
 ---
-title: Metadata syntax for GitHub Actions
+title: Metadata syntax reference
 shortTitle: Metadata syntax
 intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
 redirect_from:
@@ -9,20 +9,16 @@ redirect_from:
   - /actions/building-actions/metadata-syntax-for-github-actions
   - /actions/creating-actions/metadata-syntax-for-github-actions
   - /actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions
+  - /actions/reference/metadata-syntax-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 type: reference
+allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About YAML syntax for {% data variables.product.prodname_actions %}
-
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The preferred format is `action.yml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
-
-Action metadata files use YAML syntax. If you're new to YAML, you can read [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
+{% data reusables.actions.types-of-actions %}
 
 ## `name`
 
