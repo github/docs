@@ -102,7 +102,6 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} can only access context in the same repository as the assigned issue**. By default, an integration with the {% data variables.product.prodname_copilot_short %} MCP server provides {% data variables.product.prodname_copilot_short %} access to one repository at a time. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 * **{% data variables.product.prodname_copilot_short %} can only open one pull request at a time**. {% data variables.product.prodname_copilot_short %} will open exactly one pull request to address each task it is assigned.
 * **{% data variables.product.prodname_copilot_short %} cannot work on an existing pull request that it didn't create**. If you would like {% data variables.product.prodname_copilot_short %} to provide feedback on an existing pull request, you can add it as a reviewer. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
-* **{% data variables.product.prodname_copilot_short %} will always start its changes from the repository's default branch**. {% data variables.product.prodname_copilot_short %} cannot branch off from any other branch—for example, a feature branch or a release branch.
 
 ### Limitations in Copilot's compatibility with other features
 
