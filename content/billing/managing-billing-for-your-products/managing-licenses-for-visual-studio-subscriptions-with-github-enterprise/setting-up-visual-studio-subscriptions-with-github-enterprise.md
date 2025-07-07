@@ -57,7 +57,32 @@ One person may be able to complete the tasks because the person has all of the r
    > * If the subscriber accepts the invitation to the organization with an existing personal account on {% data variables.location.product_location %}, we recommend that the subscriber add the email address they use for {% data variables.product.prodname_vs %} to their personal account on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account).
    > * If the organization owner must invite a large number of subscribers, a script may make the process faster. For more information, see [the sample PowerShell script](https://github.com/github/platform-samples/blob/master/api/powershell/invite_members_to_org.ps1) in the `github/platform-samples` repository.
 
+1. If any enterprise members aren't automatically matched to their {% data variables.product.prodname_vs %} account, an enterprise owner can match the accounts manually on {% data variables.product.github %}. See [Reconciling users across {% data variables.product.prodname_vs %} and {% data variables.product.github %}](#reconciling-users-across-visual-studio-and-github).
+
 After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account).
+
+## Reconciling users across {% data variables.product.prodname_vs %} and {% data variables.product.github %}
+
+To stay compliant with the terms of use, a {% data variables.product.github %} **enterprise owner** should ensure all user accounts are correctly matched across {% data variables.product.github %} and {% data variables.product.prodname_vs %}.
+
+Most users are automatically matched across {% data variables.product.github %} and {% data variables.product.prodname_vs %}. If a user has different email addresses in {% data variables.product.github %} and {% data variables.product.prodname_vs %}, you may need to match the accounts manually.
+
+Under the terms of use, the {% data variables.product.github %} account and {% data variables.product.prodname_vs %} account for a single license must belong to the same person.
+
+### 1. Audit user mappings
+
+To audit your user mappings, download a summary of assigned users from the {% data variables.product.prodname_vs %} portal, and compare it against the verified emails of users in your {% data variables.product.github %} enterprise. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-email-addresses).
+
+### 2. Match users to {% data variables.product.prodname_vs %}
+
+When you've identified {% data variables.product.github %} users who aren't correctly matched to their {% data variables.product.prodname_vs %} account, you can update the mappings on {% data variables.product.github %}. You can't update mappings for users who have been automatically matched.
+
+1. Go to your enterprise on {% data variables.product.github %} and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
+1. In the left sidebar, click **{% octicon "law" aria-hidden="true" aria-label="law" %} Licensing**.
+1. On the Licensing page, next to "Enterprise Cloud", click **Manage**.
+1. In the list of users, look for users with an "Enterprise" license type. These are enterprise members that aren't matched to a user in your {% data variables.product.prodname_vs %} subscription.
+1. To match a user to their {% data variables.product.prodname_vs %} account, click {% octicon "kebab-horizontal" aria-label="More options" %}, then click **Change to {% data variables.product.prodname_vs %} license**.
+1. Select the user's {% data variables.product.prodname_vs %} login email, then click **Confirm change**.
 
 ## Further reading
 
