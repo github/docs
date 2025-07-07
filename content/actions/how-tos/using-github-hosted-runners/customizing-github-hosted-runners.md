@@ -4,6 +4,7 @@ intro: You can install additional software on GitHub-hosted runners as a part of
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Workflows
@@ -12,6 +13,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/customizing-github-hosted-runners
   - /actions/using-github-hosted-runners/about-github-hosted-runners/customizing-github-hosted-runners
   - /actions/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
+  - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/customizing-github-hosted-runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

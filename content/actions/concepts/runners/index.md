@@ -7,6 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /about-github-hosted-runners
   - /about-larger-runners
   - /about-private-networking-with-github-hosted-runners
   - /about-self-hosted-runners
