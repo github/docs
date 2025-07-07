@@ -13,7 +13,7 @@ children:
   - /variables-reference
   - /evaluate-expressions-in-workflows-and-actions
   - /contexts-reference
-  - /metadata-syntax-for-github-actions
+  - /metadata-syntax-reference
   - /actions-limits
   - /dockerfile-support-for-github-actions
   - /supported-architectures-and-operating-systems-for-self-hosted-runners
