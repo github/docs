@@ -1,7 +1,7 @@
 ---
 title: Using secrets in GitHub Actions
 shortTitle: Using secrets
-intro: 'Secrets allow you to store sensitive information in your organization, repository, or repository environments.'
+intro: 'Learn how to create secrets at the repository, environment, and organization levels for {% data variables.product.prodname_actions %} workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -18,10 +18,6 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-For general information about secrets, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
 
 ## Creating secrets for a repository
 
@@ -44,8 +40,6 @@ If your repository has environment secrets or can access secrets from the parent
 {% endwebui %}
 
 {% cli %}
-
-{% data reusables.cli.cli-learn-more %}
 
 To add a repository secret, use the `gh secret set` subcommand. Replace `secret-name` with the name of your secret.
 
@@ -172,6 +166,8 @@ You can check which access policies are being applied to a secret in your organi
 > * Secrets are not automatically passed to reusable workflows. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow).
 > {% data reusables.actions.about-oidc-short-overview %}
 
+> [!WARNING] Mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs.
+
 To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts) and [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 
 {% raw %}
@@ -240,19 +236,7 @@ steps:
 
 {% endraw %}
 
-## Limits for secrets
-
-You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
-
-A workflow created in a repository can access the following number of secrets:
-
-* All 100 repository secrets.
-* If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
-* All 100 environment secrets.
-
-Secrets are limited to 48 KB in size. To store larger secrets, see the [Storing large secrets](#storing-large-secrets) workaround below.
-
-### Storing large secrets
+## Storing large secrets
 
 To use secrets that are larger than 48 KB, you can use a workaround to store secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the [gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html).
 
@@ -330,7 +314,8 @@ To use secrets that are larger than 48 KB, you can use a workaround to store sec
 You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#limits-for-secrets).
 
 > [!NOTE]
-> Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+> * Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+> * Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
 
 1. Use `base64` to encode your file into a Base64 string. For example:
 
@@ -374,33 +359,3 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-
-> [!NOTE]
-> Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.
-
-## Redacting secrets from workflow run logs
-
-{% data variables.product.prodname_actions %} automatically redacts the contents of all {% data variables.product.prodname_dotcom %} secrets that are printed to workflow logs.
-
-{% data variables.product.prodname_actions %} also redacts information that is recognized as sensitive, but is not stored as a secret. Currently {% data variables.product.prodname_dotcom %} supports the following:
-
-* 32-byte and 64-byte Azure keys
-* Azure AD client app passwords
-* Azure Cache keys
-* Azure Container Registry keys
-* Azure Function host keys
-* Azure Search keys
-* Database connection strings
-* HTTP Bearer token headers
-* JWTs
-* NPM author tokens
-* NuGet API keys
-* v1 GitHub installation tokens
-* v2 GitHub installation tokens (`ghp`, `gho`, `ghu`, `ghs`, `ghr`)
-* v2 GitHub PATs
-
-> [!NOTE] If you would like other types of sensitive information to be automatically redacted, please reach out to us in our [community discussions](https://github.com/orgs/community/discussions?discussions_q=is%3Aopen+label%3AActions).
-
-As a habit of best practice, you should mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs. For more information about masking data, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#masking-a-value-in-a-log).
-
-Redacting of secrets is performed by your workflow runners. This means a secret will only be redacted if it was used within a job and is accessible by the runner. If an unredacted secret is sent to a workflow run log, you should delete the log and rotate the secret. For information on deleting logs, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#deleting-logs).

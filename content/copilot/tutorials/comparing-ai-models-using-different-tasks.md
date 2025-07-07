@@ -77,7 +77,7 @@ def grant_editor_access(user_id, doc_id):
 
 ## {% data variables.copilot.copilot_o3_mini %}
 
-OpenAI {% data variables.copilot.copilot_o3_mini %} is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. {% data variables.copilot.copilot_o3_mini %} outperforms {% data variables.copilot.copilot_o1 %} on coding benchmarks with response times that are comparable to o1-mini. {% data variables.product.prodname_copilot_short %} is configured to use OpenAI's "medium" reasoning effort.
+OpenAI {% data variables.copilot.copilot_o3_mini %} is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. {% data variables.product.prodname_copilot_short %} is configured to use OpenAI's "medium" reasoning effort.
 
 ### Example scenario
 

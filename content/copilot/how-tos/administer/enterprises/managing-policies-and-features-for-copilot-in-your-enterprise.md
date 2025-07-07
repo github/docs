@@ -49,7 +49,7 @@ You can enable "{% data variables.product.prodname_copilot_short %} in {% data v
 * **{% data variables.product.prodname_copilot_short %} pull request summaries** - {% data variables.product.prodname_copilot_short %} can generate a summary of the changes made in a pull request, as well as a list of impacted files, using natural language. This overview helps reviewers quickly understand the proposed changes.
 * **{% data variables.product.prodname_copilot_short %} knowledge bases** - Organization owners can create knowledge bases consisting of Markdown documentation across one or more repositories, allowing organization members to use that documentation as context when they ask questions in {% data variables.copilot.copilot_chat_dotcom_short %}, {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
-If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", you can also configure additional features:
+If you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}," you can also configure additional features:
 
 {% data reusables.copilot.policies-for-dotcom %}
 
@@ -86,8 +86,6 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 {% data variables.copilot.copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
 
 ### {% data variables.product.prodname_copilot_short %} access to alternative AI models
-
-> [!NOTE] Support for GPT-4.5 is only available on {% data variables.copilot.copilot_enterprise_short %}.
 
 By default, {% data variables.copilot.copilot_chat_short %} uses an included model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the included model. The available alternative models are:
 
