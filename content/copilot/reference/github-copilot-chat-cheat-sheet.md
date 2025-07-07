@@ -19,6 +19,16 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 For information about how to get started with {% data variables.copilot.copilot_chat_short %} in the {% data variables.product.github %} website, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github).
 
+## Mentions
+
+Use `@` mentions in to attach relevant context directly to your conversations. Type `@` in the chat prompt box to display a list of items you can attach, such as:
+* Discussions
+* Extensions
+* Files
+* Issues
+* Pull requests
+* Repositories
+
 ## Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
