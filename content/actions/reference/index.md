@@ -18,7 +18,8 @@ children:
   - /actions-limits
   - /dockerfile-support-for-github-actions
   - /github-hosted-runners-reference
-  - /supported-architectures-and-operating-systems-for-self-hosted-runners
+  - /self-hosted-runners-reference
   - /usage-limits-for-self-hosted-runners
   - /supplemental-arguments-and-settings
 ---
+
