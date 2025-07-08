@@ -1,22 +1,24 @@
 ---
 title: Using your own API keys in GitHub Models
 shortTitle: Use custom models
-intro: Learn how to integrate your preferred custom models with {% data variables.product.prodname_github_models %} by using your own LLM API keys.
+intro: 'Learn how to integrate your preferred custom models with {% data variables.product.prodname_github_models %} by using your own LLM API keys.'
 versions:
   feature: github-models
-permissions: Organization owners can add custom models to {% data variables.product.prodname_github_models %} for their organization
+permissions: 'Organization owners can add custom models to {% data variables.product.prodname_github_models %} for their organization'
 topics:
   - Enterprise
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /github-models/github-models-at-scale/set-up-custom-model-integration-models-byok
 ---
 
 {% data reusables.models.byok-preview-note %}
+>
+> Model support is currently limited to OpenAI and AzureAI.
 
 You can bring your own API keys (BYOK) to {% data variables.product.prodname_github_models %}, and enable teams to use your preferred large language model (LLM) providers across tools like Prompts, Playground, and Models in Actions. For more information about {% data variables.product.prodname_github_models %}, see [AUTOTITLE](/github-models/about-github-models).
 
 To learn about billing and pricing, see [AUTOTITLE](/billing/managing-billing-for-your-products/about-billing-for-github-models).
-
->[!NOTE] Model support is currently limited to OpenAI and AzureAI.
 
 ## Why bring your own API keys?
 
@@ -47,9 +49,22 @@ You must first add the relevant API keys for the organization. After that, your 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.models-development %}
-1. Under "Models permissions", select **All publishers** to enable models added by API keys.
+1. Under "Models permissions," select **All publishers** to enable models added by API keys.
    * If this option isn't available, you need to allow the use of the model in the organization. See [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale#controlling-model-usage-in-your-organization).
 1. Optionally, select **Only select models** to create a custom list of enabled or disabled models. This allows you to control which models are available to your organization.  
+
+## Creating an enabled or disabled models list
+
+To control which models are available to your organization, create an enabled or disabled models list as follows:
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.models-development %}
+1. Under "Models permissions," select **Only select models**, then select **Enabled list** from the dropdown to create a list of allowed models.
+1. Optionally, select **Disabled list** from the dropdown if you want to create a list of blocked models.
+1. Above the table of models, click **Add models or publishers**.
+1. In the "Select models and publishers to allow" dialog, select the models and publishers you want to include in your list.
+1. Click **Update enabled list** to save your changes.
 
 ## Next steps
 
