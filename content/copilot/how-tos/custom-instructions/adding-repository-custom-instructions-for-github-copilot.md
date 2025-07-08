@@ -116,6 +116,42 @@ This version of this article is for using repository custom instructions in {% d
 
 {% endvisualstudio %}
 
+{% jetbrains %}
+
+> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
+
+## About repository custom instructions for {% data variables.copilot.copilot_chat %}
+
+Repository custom instructions are currently supported for {% data variables.copilot.copilot_chat_short %} in JetBrains IDEs, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, Xcode, and on the {% data variables.product.github %} website.
+
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+### Example
+
+{% data reusables.copilot.repository-custom-instructions-example %}
+
+{% endjetbrains %}
+
+{% xcode %}
+
+> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+This version of this article is for using repository custom instructions in Xcode. Click the tabs above for instructions on using custom instructions in other environments.
+
+## About repository custom instructions for {% data variables.copilot.copilot_chat %}
+
+Repository custom instructions are currently supported for {% data variables.copilot.copilot_chat_short %} in Xcode, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %} JetBrains IDEs, and on the {% data variables.product.github %} website.
+
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+### Example
+
+{% data reusables.copilot.repository-custom-instructions-example %}
+
+{% endxcode %}
+
 ## Prerequisites for repository custom instructions
 
 * You must have a custom instructions file (see the instructions below).
@@ -140,7 +176,33 @@ This version of this article is for using repository custom instructions in {% d
 
 {% endvisualstudio %}
 
+{% jetbrains %}
+
+* The latest version of the {% data variables.product.prodname_copilot_short %} extension must be installed in your JetBrains IDE.
+
+{% endjetbrains %}
+
+{% xcode %}
+
+* The latest version of the {% data variables.product.prodname_copilot_short %} extension must be installed in Xcode.
+
+{% endxcode %}
+
 ## Creating a repository custom instructions file
+
+{% jetbrains %}
+
+You can create a custom instructions file in your repository using the {% data variables.product.prodname_copilot_short %} settings page, or you can create the file manually.
+
+Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+### Using the settings page
+
+{% data reusables.copilot.jetbrains-settings %}
+{% data reusables.copilot.jetbrains-languages-and-frameworks %}
+1. Under "{% data variables.product.prodname_copilot_short %} Instructions", click **Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
+
+### Manually creating a workspace custom instructions file
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -148,9 +210,76 @@ This version of this article is for using repository custom instructions in {% d
 
 1. Add natural language instructions to the file, in Markdown format.
 
-   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.{% webui %}
+Once saved, these instructions will apply to the current workspace in JetBrains IDEs that you open with {% data variables.product.prodname_copilot_short %} enabled.
 
-To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot), attach the repository containing the instructions file, and start a conversation.{% endwebui %}
+### Manually creating a global custom instructions file
+
+To apply the same instructions across all workspaces in JetBrains IDEs, you can create a global custom instructions file on your local machine.
+
+1. Open your file explorer or terminal.
+1. Navigate to the appropriate location for your operating system:
+
+   * **macOS**:
+     `/Users/YOUR-USERNAME/.config/github-copilot/intellij/`
+   * **Windows**:
+     `C:\Users\YOUR-USERNAME\AppData\Local\github-copilot\intellij\`
+
+1. Create a file named `global-copilot-instructions.md` in that directory.
+1. Add your custom instructions in natural language, using Markdown format.
+
+Once saved, these instructions will apply globally across all workspaces in JetBrains IDEs that you open with {% data variables.product.prodname_copilot_short %} enabled.
+
+{% endjetbrains %}
+
+{% xcode %}
+
+You can create a custom instructions file in your repository via the {% data variables.product.prodname_copilot_short %} settings page.
+
+Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
+1. At the top of the application window, click **Advanced**.
+1. To the right of "Custom Instructions", click **Current Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
+
+{% endxcode %}
+
+{% vscode %}
+
+1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
+
+   Create the `.github` directory if it does not already exist.
+
+1. Add natural language instructions to the file, in Markdown format.
+
+   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+{% endvscode %}
+
+{% visualstudio %}
+
+1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
+
+   Create the `.github` directory if it does not already exist.
+
+1. Add natural language instructions to the file, in Markdown format.
+
+   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+{% endvisualstudio %}
+
+{% webui %}
+
+1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
+
+   Create the `.github` directory if it does not already exist.
+
+1. Add natural language instructions to the file, in Markdown format.
+
+   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot), attach the repository containing the instructions file, and start a conversation.
+
+{% endwebui %}
 
 {% note %}
 
@@ -216,15 +345,21 @@ You can click the reference to open the file.
 
 {% endvisualstudio %}
 
-## Enabling or disabling repository custom instructions
+{% jetbrains %}
 
-You can choose whether or not you want {% data variables.product.prodname_copilot_short %} to use repository-based custom instructions.
+{% data reusables.copilot.custom-instructions-reference %}
 
-### Enabling or disabling custom instructions for {% data variables.copilot.copilot_chat_short %}
+{% endjetbrains %}
 
-Custom instructions are enabled for {% data variables.copilot.copilot_chat_short %} by default but you can disable, or re-enable, them at any time. This applies to your own use of {% data variables.copilot.copilot_chat_short %} and does not affect other users.
+{% xcode %}
+
+{% data reusables.copilot.custom-instructions-reference %}
+
+{% endxcode %}
 
 {% webui %}
+
+{% data reusables.copilot.custom-instructions-enabling %}
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, do one of the following:
    * Go to a repository with a custom instructions file and open the assistive chat panel.
@@ -237,17 +372,25 @@ Custom instructions are enabled for {% data variables.copilot.copilot_chat_short
 
 Your choice persists, for all repositories containing a custom instructions file, until you change it.
 
+{% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
 {% endwebui %}
 
 {% vscode %}
+
+{% data reusables.copilot.custom-instructions-enabling %}
 
 1. Open the Setting editor by using the keyboard shortcut <kbd>Command</kbd>+<kbd>,</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>,</kbd> (Linux/Windows).
 1. Type `instruction file` in the search box.
 1. Select or clear the checkbox under **Code Generation: Use Instruction Files**.
 
+{% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
 {% endvscode %}
 
 {% visualstudio %}
+
+{% data reusables.copilot.custom-instructions-enabling %}
 
 1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
 
@@ -256,16 +399,9 @@ Your choice persists, for all repositories containing a custom instructions file
 1. In the "Options" dialog, type `custom instructions` in the search box, then click **{% data variables.product.prodname_copilot_short %}**.
 1. Select or clear the checkbox for **(Preview) Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
+{% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
 {% endvisualstudio %}
-
-### Enabling or disabling custom instructions for {% data variables.copilot.copilot_code-review_short %}
-
-Custom instructions are enabled for {% data variables.copilot.copilot_code-review_short %} by default but you can disable, or re-enable, them in the repository settings on {% data variables.product.prodname_dotcom_the_website %}. This applies to {% data variables.product.prodname_copilot_short %}'s use of custom instructions for all code reviews it performs in this repository.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
-1. Toggle the “Use custom instructions when reviewing pull requests” option on or off.
 
 {% vscode %}
 
