@@ -16,6 +16,7 @@ children:
   - /contexts-reference
   - /metadata-syntax-reference
   - /actions-limits
+  - /github_token-reference
   - /dockerfile-support-for-github-actions
   - /github-hosted-runners-reference
   - /self-hosted-runners-reference
