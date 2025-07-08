@@ -250,7 +250,7 @@
     "@octokit/plugin-retry": "8.0.1",
     "@octokit/request-error": "7.0.0",
     "@primer/behaviors": "^1.7.2",
-    "@primer/css": "^21.3.1",
+    "@primer/css": "^22.0.1",
     "@primer/live-region-element": "^0.7.2",
     "@primer/octicons": "^19.14.0",
     "@primer/octicons-react": "^19.14.0",
