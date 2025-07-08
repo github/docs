@@ -28,6 +28,16 @@ redirect_from:
 
 {% endvisualstudio %}
 
+{% jetbrains %}
+
+> [!NOTE] This version of this article is about custom instructions in JetBrains IDEs. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
+{% endjetbrains %}
+
+{% xcode %}
+
+> [!NOTE] This version of this article is about custom instructions in Xcode. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
+{% endxcode %}
+
 ## About customizing {% data variables.copilot.copilot_chat %} responses
 
 {% webui %}
@@ -60,6 +70,18 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 {% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
 {% endvisualstudio %}
+
+{% jetbrains %}
+
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+{% endjetbrains %}
+
+{% xcode %}
+
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+{% endxcode %}
 
 {% webui %}
 
@@ -169,6 +191,42 @@ Common use cases include:
 
 {% endvisualstudio %}
 
+{% jetbrains %}
+
+## About repository custom instructions
+
+Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+
+Common use cases include:
+
+* **Test generation.** Create instructions for test generation, such as specifying the use of a certain test framework.
+* **Code review.** Specify instructions for reviewing code, such as telling a reviewer to look for a specific error in the code.
+* **Commit message generation.** Write instructions for generating commit messages, such as format or the type of information to include.
+
+### Example
+
+{% data reusables.copilot.repository-custom-instructions-example %}
+
+{% endjetbrains %}
+
+{% xcode %}
+
+## About repository custom instructions
+
+Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+
+Common use cases include:
+
+* **Test generation.** Create instructions for test generation, such as specifying the use of a certain test framework.
+* **Code review.** Specify instructions for reviewing code, such as telling a reviewer to look for a specific error in the code.
+* **Commit message generation.** Write instructions for generating commit messages, such as format or the type of information to include.
+
+### Example
+
+{% data reusables.copilot.repository-custom-instructions-example %}
+
+{% endxcode %}
+
 ## Next steps
 
 {% webui %}
@@ -190,3 +248,9 @@ Common use cases include:
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 
 {% endvisualstudio %}
+
+{% jetbrains %}
+
+* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+
+{% endjetbrains %}

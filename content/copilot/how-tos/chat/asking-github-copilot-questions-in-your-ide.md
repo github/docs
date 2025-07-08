@@ -372,7 +372,7 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
 
-   To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, select the **References** dropdown below the response.
+   To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
 ## Using keywords in your prompt
 
@@ -487,6 +487,8 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
+
+   To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
