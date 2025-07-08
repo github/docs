@@ -49,10 +49,6 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
-### {% data variables.product.prodname_github_models %} ({% data variables.release-phases.public_preview %})
-
-Bringing the power of industry leading large and small language models to users directly on {% data variables.product.github %}. See [AUTOTITLE](/github-models).
-
 ### {% data variables.copilot.copilot_edits_short %}
 
 {% data variables.copilot.copilot_edits_short %} is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs. {% data reusables.copilot.copilot-edits.about-copilot-edits %}
