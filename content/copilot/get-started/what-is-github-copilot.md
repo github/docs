@@ -40,7 +40,7 @@ redirect_from:
 * Organize and share task-specific context with {% data variables.copilot.copilot_spaces %} to get more relevant answers
 * Generate a description of the changes in a pull request
 * Create and manage collections of documentation, called knowledge bases, to use as a context for chatting with {% data variables.product.prodname_copilot_short %} _({% data variables.copilot.copilot_enterprise_short %} only)_
-* Work on code changes and create a pull request for you to review
+* Work on code changes and create a pull request for you to review _({% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only)_
 
 {% data variables.product.prodname_copilot_short %} is available:
 
