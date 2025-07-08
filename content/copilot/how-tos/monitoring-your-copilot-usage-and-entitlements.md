@@ -23,7 +23,7 @@ You can track your monthly usage of premium requests to help you get the most va
 There are two ways to view your premium request usage:
 
 * [View current usage directly within your IDE](#viewing-usage-in-your-ide)
-* [Download a monthly usage report](#downloading-a-monthly-usage-report)
+* [Download a {% data variables.product.prodname_copilot_short %} premium request usage report](#downloading-a-copilot-premium-request-usage-report)
 
 If you reach your limit for premium requests, you will be notified with a message in each of the {% data variables.product.prodname_copilot_short %} interfaces you use.
 
@@ -41,7 +41,7 @@ You can access usage information in the following IDEs.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
 
-### Downloading a monthly usage report
+### Downloading a {% data variables.product.prodname_copilot_short %} premium request usage report
 
 >[!NOTE]
 > For organizations and enterprises, only admins can download a usage report to understand {% data variables.product.prodname_copilot_short %} usage across their business. Individual members of the organization or enterprise cannot download the report for themselves.
@@ -61,7 +61,7 @@ You can access usage information in the following IDEs.
    * For **organizations**, click the **Get usage report** drop down, then click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
    * For **enterprises**, click the **Get usage report** drop down, then click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
 
-   Typically the report will be emailed to you within 30 minutes.
+   The report contains {% data variables.product.prodname_copilot_short %} premium request usage from the past 45 days. Typically the report will be emailed to you within 30 minutes.
 
 ## Optimizing usage of premium requests
 
