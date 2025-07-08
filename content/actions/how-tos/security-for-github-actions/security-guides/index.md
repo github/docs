@@ -9,7 +9,7 @@ versions:
 children:
   - /security-hardening-for-github-actions
   - /using-secrets-in-github-actions
-  - /automatic-token-authentication
+  - /use-github_token-in-workflows
   - /using-githubs-security-features-to-secure-your-use-of-github-actions
 redirect_from:
   - /actions/security-for-github-actions/security-guides

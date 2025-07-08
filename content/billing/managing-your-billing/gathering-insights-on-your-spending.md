@@ -118,4 +118,4 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 
 {% ifversion ghec %}
 * [AUTOTITLE](/rest/enterprise-admin/billing){% endif %}
-* [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization))
+* [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization)
