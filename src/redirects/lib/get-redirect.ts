@@ -9,24 +9,33 @@ import {
 } from '#src/versions/lib/enterprise-server-releases.js'
 import { getPathWithLanguage, getVersionStringFromPath } from '#src/frame/lib/path-utils.js'
 
+import type { Context } from '@/types.js'
+
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})/`)
 const nonEnterpriseDefaultVersionPrefix = `/${nonEnterpriseDefaultVersion}`
 
 const supportedAndRecentlyDeprecated = [...supported, ...deprecatedWithFunctionalRedirects]
 
-export function splitPathByLanguage(uri, userLanguage) {
+export function splitPathByLanguage(uri: string, userLanguage?: string): [string, string] {
   let language = userLanguage || 'en'
   let withoutLanguage = uri
   if (languagePrefixRegex.test(uri)) {
-    language = uri.match(languagePrefixRegex)[1]
-    withoutLanguage = uri.replace(languagePrefixRegex, '/')
+    const match = uri.match(languagePrefixRegex)
+    if (match) {
+      language = match[1]
+      withoutLanguage = uri.replace(languagePrefixRegex, '/')
+    }
   }
   return [language, withoutLanguage]
 }
 
 // Return the new URI if there is one, otherwise return undefined.
-export default function getRedirect(uri, context) {
+export default function getRedirect(uri: string, context: Context): string | undefined {
   const { redirects, userLanguage } = context
+
+  if (!redirects) {
+    return undefined
+  }
 
   const [language, withoutLanguage] = splitPathByLanguage(uri, userLanguage)
 
@@ -43,7 +52,7 @@ export default function getRedirect(uri, context) {
     return nonAERedirect
   }
 
-  let destination
+  let destination: string | undefined
 
   // `redirects` is sourced from more than one thing. The primary use
   // case is gathering up the `redirect_from` frontmatter key.
@@ -60,7 +69,7 @@ export default function getRedirect(uri, context) {
     return getPathWithLanguage(redirects[withoutLanguage], language)
   }
 
-  let basicCorrection
+  let basicCorrection: string | undefined
 
   if (withoutLanguage.startsWith(nonEnterpriseDefaultVersionPrefix)) {
     // E.g. '/free-pro-team@latest/foo/bar' or '/free-pro-team@latest'
@@ -157,8 +166,8 @@ export default function getRedirect(uri, context) {
     const majorVersion = withoutLanguage.split('/')[1].split('@')[0]
     const split = withoutLanguage.split('/')
     const version = split[1].split('@')[1]
-    let prefix
-    let suffix
+    let prefix: string
+    let suffix: string
 
     if (supported.includes(version) || version === 'latest') {
       prefix = `/${majorVersion}@${version}`
@@ -171,6 +180,10 @@ export default function getRedirect(uri, context) {
       ) {
         suffix = tryReplacements(prefix, suffix, context) || suffix
       }
+    } else {
+      // If version is not supported, we still need to set these values
+      prefix = `/${majorVersion}@${version}`
+      suffix = '/' + split.slice(2).join('/')
     }
 
     const newURL = prefix + suffix
@@ -193,10 +206,18 @@ export default function getRedirect(uri, context) {
     // to the destination URL.
     return `/${language}${destination}`
   }
+
+  return undefined
 }
 
-function githubAERedirect(uri, context) {
+function githubAERedirect(uri: string, context: Context): string {
   const { redirects, userLanguage, pages } = context
+
+  if (!redirects || !pages) {
+    // Fallback to home page if context is incomplete
+    const [language] = splitPathByLanguage(uri, userLanguage)
+    return `/${language}`
+  }
 
   const [language, withoutLanguage] = splitPathByLanguage(uri, userLanguage)
 
@@ -283,8 +304,14 @@ function githubAERedirect(uri, context) {
 // This function tries different string replacement on the suffix
 // (the pathname after the language and version part) until it
 // finds one string replacement that yields either a page or a redirect.
-function tryReplacements(prefix, suffix, { pages, redirects }) {
-  const test = (suffix) => {
+function tryReplacements(prefix: string, suffix: string, context: Context): string | undefined {
+  const { pages, redirects } = context
+
+  if (!pages || !redirects) {
+    return undefined
+  }
+
+  const test = (suffix: string): boolean => {
     // This is a generally broad search and replace and this particular
     // replacement has never been present in api documentation only enterprise
     // admin documentation, so we're excluding the REST api pages
@@ -310,4 +337,6 @@ function tryReplacements(prefix, suffix, { pages, redirects }) {
 
   attempt = suffix.replace('/admin/guides', '/admin').replace('/user', '/github')
   if (test(attempt)) return attempt
+
+  return undefined
 }
