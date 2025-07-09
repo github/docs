@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 describe('octicon tag', () => {
   test('renders the expected octicon', async () => {

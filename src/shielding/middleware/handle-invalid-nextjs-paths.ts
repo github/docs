@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
-import statsd from '@/observability/lib/statsd.js'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import statsd from '@/observability/lib/statsd'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 const STATSD_KEY = 'middleware.handle_invalid_nextjs_paths'

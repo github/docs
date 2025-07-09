@@ -6,10 +6,10 @@ import { beforeAll, describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases, {
   deprecatedWithFunctionalRedirects,
-} from '#src/versions/lib/enterprise-server-releases.js'
-import Page from '#src/frame/lib/page.js'
-import { get, head } from '#src/tests/helpers/e2etest.js'
-import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
+} from '@/versions/lib/enterprise-server-releases'
+import Page from '@/frame/lib/page'
+import { get, head } from '@/tests/helpers/e2etest'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

@@ -1,6 +1,6 @@
-import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
-import getExceptionRedirects from './exception-redirects.js'
-import { latest } from '#src/versions/lib/enterprise-server-releases.js'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
+import getExceptionRedirects from './exception-redirects'
+import { latest } from '@/versions/lib/enterprise-server-releases'
 
 const EXCEPTIONS_FILE = './src/redirects/lib/static/redirect-exceptions.txt'
 

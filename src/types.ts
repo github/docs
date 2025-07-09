@@ -1,7 +1,7 @@
 import type { Request } from 'express'
 import type { Failbot } from '@github/failbot'
 
-import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d.ts'
+import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
 
 // Throughout our codebase we "extend" the Request object by attaching

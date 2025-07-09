@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 import { allVersions } from '@/versions/lib/all-versions'
 import { getCategorizedAuditLogEvents } from '../lib'
 

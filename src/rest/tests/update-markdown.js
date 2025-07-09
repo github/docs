@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getGHESVersionFromFilepath } from '../scripts/utils/update-markdown.js'
+import { getGHESVersionFromFilepath } from '../scripts/utils/update-markdown'
 
 describe('GHES version extraction for update-markdown', () => {
   test('extracts GHES version from file path with date suffix', () => {

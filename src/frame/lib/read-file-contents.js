@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 
-import encodeBracketedParentheses from './encode-bracketed-parentheses.js'
-import fm from './frontmatter.js'
+import encodeBracketedParentheses from './encode-bracketed-parentheses'
+import fm from './frontmatter'
 
 /**
  * Read only the frontmatter from  file

@@ -5,9 +5,9 @@ import { extname, basename } from 'path'
 import walk from 'walk-sync'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-schema.ts'
-import { formatAjvErrors } from '#src/tests/helpers/schemas.ts'
-import dataSchemas from '#src/data-directory/lib/data-schemas/index.ts'
+import { getJsonValidator, validateJson } from '@/tests/lib/validate-json-schema'
+import { formatAjvErrors } from '@/tests/helpers/schemas'
+import dataSchemas from '@/data-directory/lib/data-schemas/index'
 
 const schemaPaths = Object.keys(dataSchemas)
 const singleFilesSchemas = schemaPaths.filter((schemaPath) => extname(schemaPath))

@@ -4,9 +4,9 @@ import {
   EmptyTitleError,
   renderContentWithFallback,
   executeWithFallback,
-} from '../lib/render-with-fallback.js'
-import { TitleFromAutotitleError } from '#src/content-render/unified/rewrite-local-links.js'
-import Page from '#src/frame/lib/page.js'
+} from '../lib/render-with-fallback'
+import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
+import Page from '@/frame/lib/page'
 
 describe('Translation Error Comments', () => {
   // Mock renderContent for integration tests

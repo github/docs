@@ -5,7 +5,7 @@ import { NavList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { nonAutomatedRestPaths } from '../../rest/lib/config.js'
+import { nonAutomatedRestPaths } from '../../rest/lib/config'
 
 export const SidebarProduct = () => {
   const router = useRouter()

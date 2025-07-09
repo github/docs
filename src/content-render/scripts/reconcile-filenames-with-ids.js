@@ -12,9 +12,9 @@ import path from 'path'
 import walk from 'walk-sync'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
 import { execFileSync } from 'child_process'
-import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
+import addRedirectToFrontmatter from '@/redirects/scripts/helpers/add-redirect-to-frontmatter'
 
 const slugger = new GithubSlugger()
 

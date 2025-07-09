@@ -1,7 +1,7 @@
 import { expect, test, vi } from 'vitest'
 
-import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.ts'
-import { get } from '#src/tests/helpers/e2etest.js'
+import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
+import { get } from '@/tests/helpers/e2etest'
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware in non-English', () => {

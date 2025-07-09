@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('breadcrumbs', () => {
   test('links always prefixed with language', async () => {

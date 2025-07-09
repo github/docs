@@ -2,7 +2,8 @@ import fs from 'fs'
 import path from 'path'
 
 import frontmatter from 'gray-matter'
-import { ROOT } from '#src/frame/lib/constants.js'
+// Replace imports with hardcoded values
+const ROOT = process.env.ROOT || '.'
 
 // Hard-coded language keys to avoid TypeScript import in config file
 const languageKeys = ['en', 'es', 'ja', 'pt', 'zh', 'ru', 'fr', 'ko', 'de']

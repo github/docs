@@ -1,13 +1,10 @@
 import got from 'got'
 import type { Response, NextFunction } from 'express'
 
-import patterns from '@/frame/lib/patterns.js'
+import patterns from '@/frame/lib/patterns'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for

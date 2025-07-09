@@ -3,10 +3,10 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, TitlesTree, Tree, Context } from '@/types'
-import { liquid } from '@/content-render/index.js'
+import { liquid } from '@/content-render/index'
 import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
-import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 
 // This module adds currentProductTree to the context object for use in layouts.
 export default async function currentProductTree(

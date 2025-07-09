@@ -1,7 +1,7 @@
 import { addError } from 'markdownlint-rule-helpers'
 import yaml from 'js-yaml'
 
-import { getRange, getFrontmatter } from '../helpers/utils.js'
+import { getRange, getFrontmatter } from '../helpers/utils'
 
 const ERROR_MESSAGE =
   'An early access reference appears to be used in a non-early access doc. Remove early access references or disable this rule.'

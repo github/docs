@@ -1,7 +1,7 @@
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON

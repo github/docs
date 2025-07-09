@@ -1,7 +1,7 @@
-import { languageKeys } from '#src/languages/lib/languages.ts'
+import { languageKeys } from '@/languages/lib/languages'
 
-import { makeLanguageSurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import purgeEdgeCache from '#src/workflows/purge-edge-cache.ts'
+import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import purgeEdgeCache from '@/workflows/purge-edge-cache'
 
 /**
  * In simple terms, this script sends purge commands for...

@@ -1,4 +1,4 @@
-import FailBot from './failbot.js'
+import FailBot from './failbot'
 
 process.on('uncaughtException', async (err) => {
   if (err.code === 'MODULE_NOT_FOUND') {

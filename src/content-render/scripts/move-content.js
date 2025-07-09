@@ -27,8 +27,8 @@ import walk from 'walk-sync'
 import yaml from 'js-yaml'
 import escapeStringRegexp from 'escape-string-regexp'
 
-import fm from '#src/frame/lib/frontmatter.js'
-import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
+import fm from '@/frame/lib/frontmatter'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 
 // This is so you can optionally run it again the test fixtures root.
 const ROOT = process.env.ROOT || '.'

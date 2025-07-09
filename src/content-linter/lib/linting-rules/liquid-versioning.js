@@ -2,18 +2,13 @@ import semver from 'semver'
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getRange, addFixErrorDetail } from '../helpers/utils.js'
-import { allVersions, allVersionShortnames } from '#src/versions/lib/all-versions.ts'
-import {
-  supported,
-  next,
-  nextNext,
-  deprecated,
-} from '#src/versions/lib/enterprise-server-releases.js'
-import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
-import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
+import { getRange, addFixErrorDetail } from '../helpers/utils'
+import { allVersions, allVersionShortnames } from '@/versions/lib/all-versions'
+import { supported, next, nextNext, deprecated } from '@/versions/lib/enterprise-server-releases'
+import allowedVersionOperators from '@/content-render/liquid/ifversion-supported-operators'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 
 const allShortnames = Object.keys(allVersionShortnames)
 const getAllPossibleVersionNames = memoize(() => {

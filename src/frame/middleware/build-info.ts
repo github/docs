@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express'
 
-import { noCacheControl } from './cache-control.js'
+import { noCacheControl } from './cache-control'
 
 const BUILD_SHA = process.env.BUILD_SHA
 

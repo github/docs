@@ -2,8 +2,8 @@ import path from 'path'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import { loadPages } from '#src/frame/lib/page-data.js'
-import Permalink from '#src/frame/lib/permalink.js'
+import { loadPages } from '@/frame/lib/page-data'
+import Permalink from '@/frame/lib/permalink'
 
 describe('redirect orphans', () => {
   // Because calling `loadPages` will trigger a warmup, this can potentially

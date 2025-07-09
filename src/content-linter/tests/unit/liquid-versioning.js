@@ -2,9 +2,9 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { liquidIfTags, liquidIfVersionTags } from '../../lib/linting-rules/liquid-versioning.js'
-import { nextNext } from '#src/versions/lib/enterprise-server-releases.js'
+import { runRule } from '../../lib/init-test'
+import { liquidIfTags, liquidIfVersionTags } from '../../lib/linting-rules/liquid-versioning'
+import { nextNext } from '@/versions/lib/enterprise-server-releases'
 
 describe(liquidIfTags.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT

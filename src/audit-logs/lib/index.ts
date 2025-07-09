@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
 import type {
   AuditLogEventT,

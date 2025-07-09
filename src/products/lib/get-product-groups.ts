@@ -1,9 +1,9 @@
 import path from 'path'
 
 import type { Page, ProductGroup, ProductGroupChild, Context } from '@/types'
-import { productMap, data } from './all-products.js'
-import { renderContentWithFallback } from '@/languages/lib/render-with-fallback.js'
-import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
+import { productMap, data } from './all-products'
+import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 
 type PageMap = Record<string, Page>
 
