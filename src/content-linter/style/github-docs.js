@@ -1,3 +1,23 @@
+// Configuration for which rules should be included in automated weekly reports
+export const reportingConfig = {
+  // Always include all rules with these severities
+  includeSeverities: ['error'],
+
+  // Specific rules to include regardless of severity
+  // Add rule names (short or long form) that should always be reported
+  includeRules: [
+    'GHD038', // expired-content - Content that has passed its expiration date
+    'expired-content',
+  ],
+
+  // Specific rules to exclude from reports (overrides severity-based inclusion)
+  // Add rule names here if you want to suppress them from reports
+  excludeRules: [
+    // Example: 'GHD030' // Uncomment to exclude code-fence-line-length warnings
+    // Example: 'british-english-quotes' // Uncomment to exclude punctuation warnings
+  ],
+}
+
 const githubDocsConfig = {
   'link-punctuation': {
     // GHD001

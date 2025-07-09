@@ -5,9 +5,46 @@ import coreLib from '@actions/core'
 import github from '#src/workflows/github.ts'
 import { getEnvInputs } from '#src/workflows/get-env-inputs.ts'
 import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
+import { reportingConfig } from '#src/content-linter/style/github-docs.js'
 
 // GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
 const MAX_ISSUE_BODY_SIZE = 60000
+
+/**
+ * Determines if a lint result should be included in the automated report
+ * @param {Object} flaw - The lint result object
+ * @param {string} flaw.severity - 'error' or 'warning'
+ * @param {string[]} flaw.ruleNames - Array of rule names for this flaw
+ * @returns {boolean} - True if this flaw should be included in the report
+ */
+function shouldIncludeInReport(flaw) {
+  if (!flaw.ruleNames || !Array.isArray(flaw.ruleNames)) {
+    return false
+  }
+
+  // Check if any rule name is in the exclude list
+  const hasExcludedRule = flaw.ruleNames.some((ruleName) =>
+    reportingConfig.excludeRules.includes(ruleName),
+  )
+  if (hasExcludedRule) {
+    return false
+  }
+
+  // Check if severity should be included
+  if (reportingConfig.includeSeverities.includes(flaw.severity)) {
+    return true
+  }
+
+  // Check if any rule name is in the include list
+  const hasIncludedRule = flaw.ruleNames.some((ruleName) =>
+    reportingConfig.includeRules.includes(ruleName),
+  )
+  if (hasIncludedRule) {
+    return true
+  }
+
+  return false
+}
 
 // [start-readme]
 //
@@ -46,15 +83,26 @@ async function main() {
   // or open an issue report, you might get cryptic error messages from Octokit.
   getEnvInputs(['GITHUB_TOKEN'])
 
-  core.info(`Creating issue for errors and warnings...`)
+  core.info(`Creating issue for configured lint rules...`)
 
   const parsedResults = JSON.parse(lintResults)
-  const totalFiles = Object.keys(parsedResults).length
-  let reportBody = 'The following files have markdown lint warnings/errors:\n\n'
+
+  // Filter results based on reporting configuration
+  const filteredResults = {}
+  for (const [file, flaws] of Object.entries(parsedResults)) {
+    const filteredFlaws = flaws.filter(shouldIncludeInReport)
+
+    // Only include files that have remaining flaws after filtering
+    if (filteredFlaws.length > 0) {
+      filteredResults[file] = filteredFlaws
+    }
+  }
+  const totalFiles = Object.keys(filteredResults).length
+  let reportBody = 'The following files have markdown lint issues that require attention:\n\n'
   let filesIncluded = 0
   let truncated = false
 
-  for (const [file, flaws] of Object.entries(parsedResults)) {
+  for (const [file, flaws] of Object.entries(filteredResults)) {
     const fileEntry = `File: \`${file}\`:\n\`\`\`json\n${JSON.stringify(flaws, null, 2)}\n\`\`\`\n`
 
     // Check if adding this file would exceed the size limit
@@ -77,7 +125,7 @@ async function main() {
   const reportProps = {
     core,
     octokit,
-    reportTitle: `Error(s) and warning(s) in content markdown file(s)`,
+    reportTitle: `Content linting issues requiring attention`,
     reportBody,
     reportRepository: REPORT_REPOSITORY,
     reportLabel: REPORT_LABEL,

@@ -41,7 +41,7 @@ jobs:
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken content markdown report
           REPORT_REPOSITORY: github/docs-content
-        run: npm run post-lints -- --path /tmp/lint-results.json
+        run: npm run lint-report -- --path /tmp/lint-results.json
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
