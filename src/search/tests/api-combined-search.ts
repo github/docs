@@ -13,7 +13,7 @@
 
 import { expect, test, vi } from 'vitest'
 
-import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs.js'
+import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
 import { get } from '@/tests/helpers/e2etest-ts'
 
 import type { CombinedSearchResponse } from '@/search/types'

@@ -14,9 +14,9 @@ import yaml from 'js-yaml'
 import { getContentAndData, getCommitSha } from '@/workflows/git-utils.js'
 import schema from '@/secret-scanning/data/public-docs-schema'
 // This is temporarily being imported until the subsequent modules
-// have beeen converted to TypeScript.
-import { validateJson } from '@/tests/lib/validate-json-schema.js'
-import { formatAjvErrors } from '@/tests/helpers/schemas.js'
+// have been converted to TypeScript.
+import { validateJson } from '@/tests/lib/validate-json-schema'
+import { formatAjvErrors } from '@/tests/helpers/schemas'
 
 const SECRET_SCANNING_FILEPATH = 'src/secret-scanning/data/public-docs.yml'
 type PipelineConfig = { sha: string; 'blob-sha': string }

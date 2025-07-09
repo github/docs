@@ -1,11 +1,11 @@
 import { beforeAll, describe, expect, test, vi } from 'vitest'
 
-import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.ts'
 import schema from '#src/tests/helpers/schemas/site-tree-schema.js'
 import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { loadSiteTree } from '#src/frame/lib/page-data.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.ts'
 
 const latestEnterpriseRelease = EnterpriseServerReleases.latest
 

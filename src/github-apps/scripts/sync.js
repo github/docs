@@ -9,7 +9,7 @@ import walk from 'walk-sync'
 import { getContents, getDirectoryContents } from '#src/workflows/git-utils.ts'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
-import { validateJson } from '#src/tests/lib/validate-json-schema.js'
+import { validateJson } from '#src/tests/lib/validate-json-schema.ts'
 
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'

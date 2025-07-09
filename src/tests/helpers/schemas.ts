@@ -1,3 +1,5 @@
+import type { ErrorObject } from 'ajv'
+
 // lightly format the schema errors object returned from ajv to connect the
 // error message to where the problem is -- for example, if a top level 'date'
 // property isn't correctly formatted as a date we return:
@@ -8,7 +10,7 @@
 // property and we misspell the property name in the first item:
 //
 //   at 'sections > features > item 0': must have required property 'notes'
-export const formatAjvErrors = (errors = []) => {
+export const formatAjvErrors = (errors: ErrorObject[] = []): string => {
   return errors
     .map((errorObj) => {
       // ajv instancePath tells us in the data we're checking where there was a
@@ -31,7 +33,7 @@ export const formatAjvErrors = (errors = []) => {
 
       const schemaErrorPath = split
         .map((item) => {
-          if (!isNaN(item)) {
+          if (!isNaN(Number(item))) {
             return `item ${item}`
           } else {
             return item

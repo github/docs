@@ -1,9 +1,9 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-schema.js'
+import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-schema.ts'
 import readJsonFile from '#src/frame/lib/read-json-file.js'
 import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator.ts'
-import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.ts'
 import { allVersions } from '#src/versions/lib/all-versions.ts'
 import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 
