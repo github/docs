@@ -33,7 +33,7 @@ export const SidebarProduct = () => {
 
   const productSection = () => (
     <div className="ml-3" data-testid="product-sidebar">
-      <NavList aria-label="Product sidebar">
+      <NavList aria-label="Product sidebar" role="navigation">
         {sidebarTree &&
           sidebarTree.childPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
@@ -51,7 +51,7 @@ export const SidebarProduct = () => {
     )
     return (
       <div className="ml-3">
-        <NavList aria-label="REST sidebar overview articles">
+        <NavList aria-label="REST sidebar overview articles" role="navigation">
           {conceptualPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
           ))}
@@ -59,7 +59,7 @@ export const SidebarProduct = () => {
 
         <hr data-testid="rest-sidebar-reference" className="m-2" />
 
-        <NavList aria-label="REST sidebar reference pages">
+        <NavList aria-label="REST sidebar reference pages" role="navigation">
           {restPages.map((category) => (
             <RestNavListItem key={category.href} category={category} />
           ))}
@@ -90,7 +90,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
     >
       {childPage.title}
       {childPage.childPages.length > 0 && (
-        <NavList.SubNav aria-label={childPage.title} sx={{ '*': { fontSize: 1 } }}>
+        <NavList.SubNav aria-label={`${childPage.title} submenu`} sx={{ '*': { fontSize: 1 } }}>
           {specialCategory && (
             <NavList.Item href={childPage.href} as={Link} aria-current={isActive ? 'page' : false}>
               {childPage.title}
@@ -155,7 +155,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     >
       {category.title}
       {category.childPages.length > 0 && (
-        <NavList.SubNav aria-label={category.title} sx={{ '*': { fontSize: 1 } }}>
+        <NavList.SubNav aria-label={`${category.title} submenu`} sx={{ '*': { fontSize: 1 } }}>
           {category.childPages.map((childPage) => {
             return (
               <NavList.Item
@@ -169,7 +169,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
                 {childPage.title}
 
                 {routePath === childPage.href && miniTocItems.length > 0 && (
-                  <NavList.SubNav aria-label={childPage.title}>
+                  <NavList.SubNav aria-label={`${childPage.title} table of contents`}>
                     {miniTocItems.map((item) => {
                       const isAnchorCurrent = visibleAnchor === item.contents.href
                       return (
