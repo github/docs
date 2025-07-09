@@ -8,6 +8,6 @@ versions:
   ghec: '*'
 children:
   - /about-continuous-deployment-with-github-actions
-  - /about-continuous-integration-with-github-actions
+  - /continuous-integration
   - /usage-limits-billing-and-administration
 ---
