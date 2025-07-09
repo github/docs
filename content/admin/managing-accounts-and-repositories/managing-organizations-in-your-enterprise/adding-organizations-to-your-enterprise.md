@@ -62,8 +62,9 @@ After you add an existing organization to your enterprise, the organization's re
   To transfer an existing organization with billed apps between enterprise accounts, first remove the billed apps and then re-add the apps after the transfer is complete.
 * **Sponsorships:** Any sponsorships by the organization will be canceled.
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
+`
 
-## Handling GitHub Sponsors when using Azure billing
+## Handling {% data variables.product.prodname_sponsors %} when using Azure billing
 
 ### What to do if your organization’s active sponsorships are canceled after joining an enterprise with Azure billing
 
