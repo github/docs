@@ -79,7 +79,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
   const { asPath, locale } = useRouter()
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
   const isActive = routePath === childPage.href
-  const specialCategory = childPage.href.endsWith('/copilot/tutorials/copilot-chat-cookbook')
+  const specialCategory = childPage.layout === 'category-landing'
 
   return (
     <NavList.Item
@@ -93,7 +93,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
         <NavList.SubNav aria-label={childPage.title} sx={{ '*': { fontSize: 1 } }}>
           {specialCategory && (
             <NavList.Item href={childPage.href} as={Link} aria-current={isActive ? 'page' : false}>
-              All prompts
+              {childPage.title}
             </NavList.Item>
           )}
           {childPage.childPages.map((childPage) => (

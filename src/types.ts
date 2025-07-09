@@ -380,6 +380,7 @@ export type TitlesTree = {
   documentType?: string
   childPages: TitlesTree[]
   hidden?: boolean
+  layout?: string
 }
 
 export type Tree = {

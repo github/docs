@@ -54,6 +54,7 @@ export type ProductTreeNode = {
   title: string
   href: string
   childPages: Array<ProductTreeNode>
+  layout?: string
 }
 
 type UIString = Record<string, string>
