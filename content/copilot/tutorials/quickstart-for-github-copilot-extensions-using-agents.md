@@ -8,6 +8,7 @@ redirect_from:
   - /copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/using-a-demo-agent
   - /copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions
   - /copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+  - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
 topics:
   - Copilot
 shortTitle: Extensions quickstart

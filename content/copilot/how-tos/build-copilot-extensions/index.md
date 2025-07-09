@@ -7,7 +7,6 @@ versions:
 topics:
   - Copilot
 children:
-  - /quickstart-for-github-copilot-extensions-using-agents
   - /setting-up-copilot-extensions
   - /creating-a-copilot-extension
   - /building-a-copilot-agent-for-your-copilot-extension

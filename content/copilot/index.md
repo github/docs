@@ -14,7 +14,7 @@ featuredLinks:
   startHere:
     - /copilot/get-started/what-is-github-copilot
     - /copilot/get-started/quickstart
-    - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+    - /copilot/tutorials/quickstart-for-github-copilot-extensions-using-agents
     - /copilot/concepts/about-copilot-coding-agent
   popular:
     - /copilot/get-started/github-copilot-features
@@ -35,3 +35,4 @@ children:
 topics:
   - Copilot
 ---
+
