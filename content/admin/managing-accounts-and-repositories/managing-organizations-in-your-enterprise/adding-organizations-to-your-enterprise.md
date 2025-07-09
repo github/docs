@@ -68,11 +68,11 @@ After you add an existing organization to your enterprise, the organization's re
 
 ### What to do if your organization’s active sponsorships are canceled after joining an enterprise with Azure billing
 
-If your organization is added to an enterprise account with Azure metered billing, any active GitHub Sponsors sponsorships may be canceled. Additionally, it will not be possible to reactivate these sponsorships while your organization remains under enterprise billing, as sponsoring is not currently supported for organizations billed through Azure.
+If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships may be canceled. Additionally, it will not be possible to reactivate these sponsorships while your organization remains under enterprise billing, as sponsoring is not currently supported for organizations billed through Azure.
 
 ### Workaround
 
-To continue using GitHub Sponsors, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can then use this shell organization to manage sponsorships independently of your enterprise’s billing setup.
+To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can then use this shell organization to manage sponsorships independently of your enterprise’s billing setup.
 
 ### Note
 
