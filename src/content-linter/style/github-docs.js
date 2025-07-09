@@ -186,6 +186,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'table-column-integrity': {
+    // GHD047
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'british-english-quotes': {
     // GHD048
     severity: 'warning',

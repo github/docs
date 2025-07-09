@@ -31,6 +31,7 @@ import { raiReusableUsage } from './rai-reusable-usage.js'
 import { imageNoGif } from './image-no-gif.js'
 import { expiredContent, expiringSoon } from './expired-content.js'
 import { tableLiquidVersioning } from './table-liquid-versioning.js'
+import { tableColumnIntegrity } from './table-column-integrity.js'
 import { thirdPartyActionPinning } from './third-party-action-pinning.js'
 import { liquidTagWhitespace } from './liquid-tag-whitespace.js'
 import { linkQuotation } from './link-quotation.js'
@@ -85,6 +86,7 @@ export const gitHubDocsMarkdownlint = {
     expiredContent,
     expiringSoon,
     tableLiquidVersioning,
+    tableColumnIntegrity,
     thirdPartyActionPinning,
     liquidTagWhitespace,
     linkQuotation,
