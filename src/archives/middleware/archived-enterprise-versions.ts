@@ -106,7 +106,7 @@ export default async function archivedEnterpriseVersions(
 
   // Redirects for releases 3.0+
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
-    const redirectTo = getRedirect(req.path, req.context)
+    const redirectTo = req.context ? getRedirect(req.path, req.context) : undefined
     if (redirectTo) {
       if (redirectCode === 302) {
         languageCacheControl(res) // call first to get `vary`

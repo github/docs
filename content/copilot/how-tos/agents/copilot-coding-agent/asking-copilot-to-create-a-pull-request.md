@@ -66,6 +66,30 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
 
    {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
 
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.github %} MCP server
+
+As an alternative to using {% data variables.copilot.copilot_chat_short %}, you can use the remote {% data variables.product.github %} MCP server to trigger {% data variables.copilot.copilot_coding_agent %} from any MCP host.
+
+> [!NOTE]
+> * This capability is only available on the remote {% data variables.product.github %} MCP server and host applications where remote MCP servers are supported.
+
+1. Install the {% data variables.product.github %} MCP server in your preferred IDE or agentic coding tool. See [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+
+1. Ensure the `create_pull_request_with_copilot` tool is enabled.
+
+1. Open chat.
+
+1. Type a prompt asking {% data variables.product.prodname_copilot_short %} to create a pull request, with the details of what you want to change.
+
+   For example, `Open a PR in my repository to expand unit test coverage.`
+
+   > [!TIP]
+   > * You can ask {% data variables.product.prodname_copilot_short %} to open a pull request using a specific branch as the base branch by including it in your prompt.
+
+1. Submit your prompt.
+
+   {% data variables.product.prodname_copilot_short %} will start a new session, open a draft pull request and work on the task in the background. As it works, it will push changes to the pull request, and once it has finished, it will add you as a reviewer. In most cases, the MCP host will show you the URL of the created pull request.
+
 ## Monitoring progress
 
 You can view your current and past {% data variables.product.prodname_copilot_short %} sessions from the [Agents page](https://github.com/copilot/agents). See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs).

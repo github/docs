@@ -67,7 +67,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
       // The `req.context.currentVersion` is just the portion of the URL
       // pathname. It could be that the currentVersion is something
       // like `enterprise` which needs to be redirected to its new name.
-      redirectTo = getRedirect(redirectTo, req.context)
+      redirectTo = getRedirect(redirectTo, req.context) || redirectTo
     }
 
     redirectTo += `/search?${sp.toString()}`

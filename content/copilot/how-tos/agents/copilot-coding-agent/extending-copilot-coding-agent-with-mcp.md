@@ -24,13 +24,13 @@ redirect_from:
 
 {% data reusables.copilot.coding-agent.mcp-brief-intro %}
 
-The agent can use tools provided by local MCP servers. Some MCP servers are configured by default to provide the best experience for getting started.
+The agent can use tools provided by local and remote MCP servers. Some MCP servers are configured by default to provide the best experience for getting started.
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
 > [!NOTE]
 > * {% data variables.copilot.copilot_coding_agent %} only supports tools provided by MCP servers. It does not support resources or prompts.
-> * {% data variables.copilot.copilot_coding_agent %} currently only supports local MCP servers. To learn more about transport types, see the [official MCP documentation](https://modelcontextprotocol.io/docs/concepts/transports).
+> * {% data variables.copilot.copilot_coding_agent %} does not currently support remote MCP servers that leverage OAuth for authentication and authorization.
 
 ## Default MCP servers
 
@@ -77,13 +77,22 @@ You configure MCP servers using a special JSON format. The JSON must contain an 
 
 The configuration object can contain the following keys:
 
-* `command` (`string`): The command to run to start the MCP server.
-* `args` (`string[]`): The arguments to pass to the `command`.
+**Required keys for local and remote MCP servers**
 * `tools` (`string[]`): The tools from the MCP server to enable. You may be able to find a list of tools in the server's documentation, or in its code. We strongly recommend that you allowlist specific read-only tools, since the agent will be able to use these tools autonomously and will not ask you for approval first. You can also enable all tools by including `*` in the array.
-* `type` (`string`): {% data variables.copilot.copilot_coding_agent %} only accepts `"local"`.
-* `env` (`object`): The environment variables to pass to the server. This object should map the name of the environment variable that should be exposed to your MCP server to either of the following:
+* `type` (`string`): {% data variables.copilot.copilot_coding_agent %} accepts `"local"`, `"http"`, or `"sse"`.
+
+**Local MCP specific keys**
+* `command` (`string`): Required. The command to run to start the MCP server.
+* `args` (`string[]`): Required. The arguments to pass to the `command`.
+* `env` (`object`): Optional. The environment variables to pass to the server. This object should map the name of the environment variable that should be exposed to your MCP server to either of the following:
   * The name of a {% data variables.product.prodname_actions %} secret you have configured, beginning with `COPILOT_MCP_`.
   * A string value.
+
+**Remote MCP specific keys**
+* `url` (`string`): Required. The MCP server's URL.
+* `headers` (`object`): Optional. The headers to attach to requests to the server. This object should map the name of header keys to either of the following:
+  * The name of a {% data variables.product.prodname_actions %} secret you have configured, beginning with `COPILOT_MCP_` preceded by a `$`
+  * A string value
 
 ### Example configurations
 
@@ -96,6 +105,7 @@ The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data v
 {
   "mcpServers": {
     "sentry": {
+      "type": "local",
       "command": "npx",
       // We can use the $SENTRY_HOST environment variable which is passed to
       // the server because of the `env` value below.
@@ -122,6 +132,7 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
 {
   "mcpServers": {
     "notionApi": {
+      "type": "local",
       "command": "docker",
       "args": [
         "run",
@@ -185,18 +196,35 @@ To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you
    {
      "mcpServers": {
        "Azure": {
-         "command": "npx",
-         "args": [
-           "-y",
-           "@azure/mcp@latest",
-           "server",
-           "start"
+        "type": "local",
+        "command": "npx",
+        "args": [
+          "-y",
+          "@azure/mcp@latest",
+          "server",
+          "start"
          ],
-           "tools": ["*"]
+        "tools": ["*"]
        }
      }
    }
    ```
+
+#### Example: Cloudflare
+
+The [Cloudflare MCP server](https://github.com/cloudflare/mcp-server-cloudflare) creates connections between your Cloudflare services, including processing documentation and data analysis.
+
+```json copy
+{
+  "mcpServers": {
+    "cloudflare": {
+      "type": "sse",
+      "url": "https://docs.mcp.cloudflare.com/sse",
+      "tools": ["*"]
+    }
+  }
+}
+```
 
 ### Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 

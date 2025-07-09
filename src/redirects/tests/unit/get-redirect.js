@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import getRedirect from '../../lib/get-redirect.js'
+import getRedirect from '../../lib/get-redirect.ts'
 import {
   latest,
   latestStable,
