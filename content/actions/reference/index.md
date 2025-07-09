@@ -14,6 +14,7 @@ children:
   - /secrets-reference
   - /evaluate-expressions-in-workflows-and-actions
   - /contexts-reference
+  - /dependency-caching-reference
   - /metadata-syntax-reference
   - /actions-limits
   - /reusable-workflows-reference
@@ -24,4 +25,3 @@ children:
   - /usage-limits-for-self-hosted-runners
   - /supplemental-arguments-and-settings
 ---
-
