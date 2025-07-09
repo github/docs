@@ -11,6 +11,7 @@ children:
   - /choosing-the-right-ai-tool-for-your-task
   - /comparing-ai-models-using-different-tasks
   - /enhancing-copilot-agent-mode-with-mcp
+  - /quickstart-for-github-copilot-extensions-using-agents
   - /speeding-up-development-work-with-copilot-spaces
   - /using-copilot-to-explore-a-codebase
   - /writing-tests-with-github-copilot
@@ -23,3 +24,4 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 ---
+
