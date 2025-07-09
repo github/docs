@@ -3,7 +3,7 @@ import { beforeAll, describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get, getDOM, head, post } from '#src/tests/helpers/e2etest.js'
-import { describeViaActionsOnly } from '#src/tests/helpers/conditional-runs.js'
+import { describeViaActionsOnly } from '#src/tests/helpers/conditional-runs.ts'
 import { loadPages } from '#src/frame/lib/page-data.js'
 import {
   SURROGATE_ENUMS,

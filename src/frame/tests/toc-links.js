@@ -2,7 +2,7 @@ import { describe, expect, test, vi } from 'vitest'
 
 import { loadPageMap, loadPages } from '#src/frame/lib/page-data.js'
 import { renderContent } from '#src/content-render/index.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 
 describe('toc links', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })

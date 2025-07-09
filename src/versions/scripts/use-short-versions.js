@@ -4,7 +4,7 @@ import path from 'path'
 import { escapeRegExp } from 'lodash-es'
 import { Tokenizer } from 'liquidjs'
 import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import { deprecated, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
 
 const allVersionKeys = Object.values(allVersions)

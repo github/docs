@@ -1,7 +1,7 @@
 import path from 'path'
 
-import languages from '#src/languages/lib/languages.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import languages from '#src/languages/lib/languages.ts'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import createTree from './create-tree.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import readFileContents from './read-file-contents.js'

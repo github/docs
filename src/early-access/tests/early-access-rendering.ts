@@ -3,7 +3,7 @@ import path from 'path'
 
 import { describe, expect } from 'vitest'
 
-import { testViaActionsOnly } from '@/tests/helpers/conditional-runs.js'
+import { testViaActionsOnly } from '@/tests/helpers/conditional-runs'
 import { get, getDOM } from '@/tests/helpers/e2etest.js'
 
 describe('cloning early-access', () => {

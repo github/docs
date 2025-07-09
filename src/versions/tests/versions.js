@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
 
-import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { getJsonValidator } from '#src/tests/lib/validate-json-schema.ts'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 import schema from '#src/tests/helpers/schemas/versions-schema.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
+import { formatAjvErrors } from '#src/tests/helpers/schemas.ts'
 
 const validate = getJsonValidator(schema)
 

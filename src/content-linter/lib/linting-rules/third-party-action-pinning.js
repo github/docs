@@ -2,7 +2,7 @@ import yaml from 'js-yaml'
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import { liquid } from '#src/content-render/index.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 
 // Detects third-party actions in the format `owner/repo@ref`
 const actionRegex = /[\w-]+\/[\w-]+@[\w-]+/

@@ -1,5 +1,6 @@
 import path from 'path'
 import { escapeRegExp } from 'lodash-es'
+
 /* eslint-disable prefer-regex-literals */
 
 // slash at the beginning of a filename
@@ -14,8 +15,8 @@ const windowsPathSeparator = new RegExp('/', 'g')
 const windowsDoubleSlashSeparator = new RegExp('\\\\', 'g')
 
 // derive `foo.bar.baz` object key from `foo/bar/baz.yml` filename
-export default function filenameToKey(filename) {
-  const extension = new RegExp(`${path.extname(filename)}$`)
+export default function filenameToKey(filename: string): string {
+  const extension = new RegExp(`${escapeRegExp(path.extname(filename))}$`)
   const key = filename
     .replace(extension, '')
     .replace(leadingPathSeparator, '')

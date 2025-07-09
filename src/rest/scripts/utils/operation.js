@@ -6,7 +6,7 @@ import mergeAllOf from 'json-schema-merge-allof'
 import { renderContent } from './render-content'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
-import { validateJson } from '#src/tests/lib/validate-json-schema.js'
+import { validateJson } from '#src/tests/lib/validate-json-schema.ts'
 import { getBodyParams } from './get-body-params'
 
 export default class Operation {

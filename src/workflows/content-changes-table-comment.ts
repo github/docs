@@ -20,7 +20,7 @@ import { retry } from '@octokit/plugin-retry'
 import { getContents } from './git-utils.js'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { allVersionShortnames } from '@/versions/lib/all-versions.js'
+import { allVersionShortnames } from '@/versions/lib/all-versions'
 import readFrontmatter from '@/frame/lib/read-frontmatter.js'
 import { inLiquid } from './lib/in-liquid'
 

@@ -1,4 +1,8 @@
-export default {
+interface DataSchemas {
+  [key: string]: string
+}
+
+const dataSchemas: DataSchemas = {
   'data/features': '#src/data-directory/lib/data-schemas/features.js',
   'data/variables': '#src/data-directory/lib/data-schemas/variables.js',
   'data/learning-tracks': '#src/data-directory/lib/data-schemas/learning-tracks.js',
@@ -7,3 +11,5 @@ export default {
   'data/glossaries/candidates.yml': '#src/data-directory/lib/data-schemas/glossaries-candidates.js',
   'data/glossaries/external.yml': '#src/data-directory/lib/data-schemas/glossaries-external.js',
 }
+
+export default dataSchemas

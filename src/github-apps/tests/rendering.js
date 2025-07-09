@@ -2,7 +2,7 @@ import { readFile } from 'fs/promises'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { categoriesWithoutSubcategories } from '#src/rest/lib/index.js'
 import { getAppsData } from '#src/github-apps/lib/index.js'

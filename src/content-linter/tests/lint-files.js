@@ -8,7 +8,7 @@ import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '#src/languages/lib/languages.js'
+import languages from '#src/languages/lib/languages.ts'
 import { getDiffFiles } from '../lib/diff-files.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

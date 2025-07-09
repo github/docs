@@ -1,4 +1,4 @@
-import { languageKeys } from '#src/languages/lib/languages.js'
+import { languageKeys } from '#src/languages/lib/languages.ts'
 
 import { makeLanguageSurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import purgeEdgeCache from '#src/workflows/purge-edge-cache.ts'

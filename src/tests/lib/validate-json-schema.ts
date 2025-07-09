@@ -1,4 +1,4 @@
-import Ajv from 'ajv'
+import Ajv, { type ValidateFunction, type ErrorObject, type SchemaObject } from 'ajv'
 import addErrors from 'ajv-errors'
 import addFormats from 'ajv-formats'
 import semver from 'semver'
@@ -24,7 +24,7 @@ ajv.addKeyword({
 
 // Custom JSON formats
 ajv.addFormat('semver', {
-  validate: (x) => semver.validRange(x),
+  validate: (x: string): boolean => semver.validRange(x) !== null,
 })
 
 // The ajv.validate function is supposed to cache
@@ -35,18 +35,24 @@ ajv.addFormat('semver', {
 // this is the best function to use. If the schema
 // changes from one call to the next, then the validateJson
 // function makes more sense to use.
-export function getJsonValidator(schema) {
+export function getJsonValidator(schema: SchemaObject): ValidateFunction {
   return ajv.compile(schema)
 }
 
 // The next call to ajv.validate will overwrite
 // the ajv.errors property, so returning it here
 // ensures that it remains accessible.
-export function validateJson(schema, data) {
+export function validateJson(
+  schema: SchemaObject,
+  data: unknown,
+): {
+  isValid: boolean
+  errors: ErrorObject[] | null
+} {
   const isValid = ajv.validate(schema, data)
   return {
     isValid,
-    errors: isValid ? null : structuredClone(ajv.errors),
+    errors: isValid ? null : structuredClone(ajv.errors || []),
   }
 }
 

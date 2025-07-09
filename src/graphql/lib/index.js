@@ -3,8 +3,8 @@ import {
   readCompressedJsonFileFallback,
 } from '#src/frame/lib/read-json-file.js'
 import { getAutomatedPageMiniTocItems } from '#src/frame/lib/get-mini-toc-items.js'
-import languages from '#src/languages/lib/languages.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import languages from '#src/languages/lib/languages.ts'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 
 export const GRAPHQL_DATA_DIR = 'src/graphql/data'
 /* ADD LANGUAGE KEY */

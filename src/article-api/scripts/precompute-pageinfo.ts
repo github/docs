@@ -30,7 +30,7 @@ import { brotliCompressSync } from 'zlib'
 import chalk from 'chalk'
 import { program, Option } from 'commander'
 
-import { languageKeys } from '@/languages/lib/languages.js'
+import { languageKeys } from '@/languages/lib/languages'
 import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data.js'
 import { CACHE_FILE_PATH, getPageInfo } from '../middleware/article-pageinfo'
 

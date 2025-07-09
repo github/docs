@@ -1,7 +1,7 @@
 import semver from 'semver'
 
 import { supported } from '@/versions/lib/enterprise-server-releases.js'
-import getDataDirectory from '@/data-directory/lib/data-directory.js'
+import getDataDirectory from '@/data-directory/lib/data-directory'
 import { FeatureData, FrontmatterVersions } from '@/types.js'
 
 // Return true if lowestSupportedVersion > semVerRange

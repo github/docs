@@ -7,7 +7,7 @@ import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
-import { languageKeys } from '#src/languages/lib/languages.js'
+import { languageKeys } from '#src/languages/lib/languages.ts'
 import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options.js'
 
 const { targetDirectory, removeKeywords } = JSON.parse(

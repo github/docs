@@ -1,6 +1,6 @@
 import path from 'path'
 
-import { getOpenApiVersion } from '@/versions/lib/all-versions.js'
+import { getOpenApiVersion } from '@/versions/lib/all-versions'
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file.js'
 
 export const WEBHOOK_DATA_DIR = 'src/webhooks/data'

@@ -10,7 +10,7 @@ import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
 import renderedContentLinkChecker from './rendered-content-link-checker'
 import { getCoreInject, getUploadArtifactInject } from '@/links/scripts/action-injections.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 import github from '@/workflows/github.js'
 
 const STATIC_PREFIXES = {

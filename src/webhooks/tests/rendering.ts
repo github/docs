@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import { getDOM } from '@/tests/helpers/e2etest.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 import { getWebhooks } from '../lib/index.js'
 
 describe('webhooks events and payloads', () => {

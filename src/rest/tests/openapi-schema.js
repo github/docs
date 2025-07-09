@@ -5,7 +5,7 @@ import { beforeAll, describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
-import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
+import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.ts'
 import getRest from '../lib/index.js'
 import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 import frontmatter from '#src/frame/lib/frontmatter.js'
