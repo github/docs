@@ -7,7 +7,7 @@ import { rimraf } from 'rimraf'
 import { mkdirp } from 'mkdirp'
 import { difference, isEqual } from 'lodash-es'
 
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
 import type { MarkdownFrontmatter } from '@/types'
 

@@ -4,7 +4,7 @@ import type { Response } from 'express'
 import { liquid } from '@/content-render/index.js'
 import shortVersionsMiddleware from '@/versions/middleware/short-versions.js'
 import featureVersionsMiddleware from '@/versions/middleware/features'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
 import type { Context, ExtendedRequest, Page } from '@/types'
 

@@ -6,7 +6,7 @@ import {
   updateContentDirectory,
   convertVersionsToFrontmatter,
 } from '../../../automated-pipelines/lib/update-markdown.js'
-import { getDocsVersion } from '#src/versions/lib/all-versions.js'
+import { getDocsVersion } from '#src/versions/lib/all-versions.ts'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 

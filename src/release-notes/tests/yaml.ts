@@ -7,7 +7,7 @@ import yaml from 'js-yaml'
 
 import { liquid } from '@/content-render/index.js'
 import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 
 interface ReleaseNoteContent {
   intro: string

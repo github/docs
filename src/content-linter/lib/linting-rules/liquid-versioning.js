@@ -3,7 +3,7 @@ import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getRange, addFixErrorDetail } from '../helpers/utils.js'
-import { allVersions, allVersionShortnames } from '#src/versions/lib/all-versions.js'
+import { allVersions, allVersionShortnames } from '#src/versions/lib/all-versions.ts'
 import {
   supported,
   next,

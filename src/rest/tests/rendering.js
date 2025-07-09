@@ -2,7 +2,7 @@ import { describe, expect, test, vi } from 'vitest'
 import { slug } from 'github-slugger'
 
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
-import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
+import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.ts'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
 import getRest from '#src/rest/lib/index.js'
 

@@ -4,7 +4,7 @@ import type { ExtendedRequest } from '@/types'
 import { getProductGroups } from '@/products/lib/get-product-groups'
 import warmServer from '@/frame/lib/warm-server'
 import { languageKeys } from '@/languages/lib/languages.js'
-import { allVersionKeys } from '@/versions/lib/all-versions.js'
+import { allVersionKeys } from '@/versions/lib/all-versions'
 
 const isHomepage = (path: string) => {
   const split = path.split('/')

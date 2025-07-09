@@ -3,7 +3,7 @@ import path from 'path'
 import patterns from './patterns.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 import { productIds } from '#src/products/lib/all-products.ts'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 const supportedVersions = new Set(Object.keys(allVersions))
 

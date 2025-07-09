@@ -1,5 +1,5 @@
 import { reduce, sortBy } from 'lodash-es'
-import { allVersions } from './all-versions.js'
+import { allVersions } from './all-versions.ts'
 import versionSatisfiesRange from './version-satisfies-range.js'
 import { next, nextNext } from './enterprise-server-releases.js'
 import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'

@@ -1,6 +1,6 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 import {
   latest,
   latestStable,

@@ -2,7 +2,7 @@ import { readFileSync } from 'fs'
 
 import { describe, expect, test } from 'vitest'
 
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import {
   getGraphqlSchema,
   getGraphqlChangelog,

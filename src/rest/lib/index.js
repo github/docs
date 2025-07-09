@@ -3,7 +3,7 @@ import path from 'path'
 
 import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
 import { getAutomatedPageMiniTocItems } from '#src/frame/lib/get-mini-toc-items.js'
-import { allVersions, getOpenApiVersion } from '#src/versions/lib/all-versions.js'
+import { allVersions, getOpenApiVersion } from '#src/versions/lib/all-versions.ts'
 import languages from '#src/languages/lib/languages.js'
 
 export const REST_DATA_DIR = 'src/rest/data'

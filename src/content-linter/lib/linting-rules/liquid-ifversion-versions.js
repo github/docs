@@ -8,7 +8,7 @@ import {
 } from '../helpers/liquid-utils.js'
 import { getFrontmatter, getFrontmatterLines } from '../helpers/utils.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import { difference } from 'lodash-es'
 import { convertVersionsToFrontmatter } from '#src/automated-pipelines/lib/update-markdown.js'
 import {

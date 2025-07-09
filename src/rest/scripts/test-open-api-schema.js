@@ -9,7 +9,7 @@ import _ from 'lodash'
 
 import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { allVersions, getDocsVersion } from '#src/versions/lib/all-versions.js'
+import { allVersions, getDocsVersion } from '#src/versions/lib/all-versions.ts'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
 import { nonAutomatedRestPaths } from '../lib/config.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'

@@ -6,7 +6,7 @@ import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
 import statsd from '@/observability/lib/statsd.js'
 import languages from '@/languages/lib/languages.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 
 const router = express.Router()
 const BASE_API_URL = 'https://docs.github.com/api/pagelist'

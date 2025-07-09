@@ -4,7 +4,7 @@ import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-sch
 import readJsonFile from '#src/frame/lib/read-json-file.js'
 import { schemaValidator, previewsValidator, upcomingChangesValidator } from '../lib/validator.ts'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '#src/versions/lib/all-versions.ts'
 import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 
 const allVersionValues = Object.values(allVersions)
