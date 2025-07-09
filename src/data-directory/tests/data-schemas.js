@@ -7,7 +7,7 @@ import { beforeAll, describe, expect, test } from 'vitest'
 
 import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-schema.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
-import dataSchemas from '#src/data-directory/lib/data-schemas/index.js'
+import dataSchemas from '#src/data-directory/lib/data-schemas/index.ts'
 
 const schemaPaths = Object.keys(dataSchemas)
 const singleFilesSchemas = schemaPaths.filter((schemaPath) => extname(schemaPath))

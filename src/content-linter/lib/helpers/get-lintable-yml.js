@@ -1,7 +1,7 @@
 import yaml from 'js-yaml'
 import fs from 'fs/promises'
 
-import dataSchemas from '#src/data-directory/lib/data-schemas/index.js'
+import dataSchemas from '#src/data-directory/lib/data-schemas/index.ts'
 import ajv from '#src/tests/lib/validate-json-schema.js'
 
 // AJV already has a built-in way to extract out properties
