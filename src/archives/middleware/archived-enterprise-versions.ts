@@ -17,7 +17,7 @@ import {
 } from '@/frame/middleware/set-fastly-surrogate-key.js'
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file.js'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control.js'
-import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages.js'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages'
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect.js'
 import getRemoteJSON from '@/frame/lib/get-remote-json.js'
 import { ExtendedRequest } from '@/types'

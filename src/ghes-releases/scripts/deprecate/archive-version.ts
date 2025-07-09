@@ -17,7 +17,7 @@ import createApp from '@/frame/lib/app'
 import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
 import loadRedirects from '@/redirects/lib/precompile.js'
 import { loadPageMap, loadPages } from '@/frame/lib/page-data.js'
-import { languageKeys } from '@/languages/lib/languages.js'
+import { languageKeys } from '@/languages/lib/languages'
 import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/deprecate/rewrite-asset-paths'
 
 const port = '4001'

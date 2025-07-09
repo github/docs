@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
-import { languagePrefixPathRegex } from '@/languages/lib/languages.js'
+import { languagePrefixPathRegex } from '@/languages/lib/languages'
 
 const isDev = process.env.NODE_ENV === 'development'
 const GITHUB_DOMAINS = [

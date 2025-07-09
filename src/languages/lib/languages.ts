@@ -6,11 +6,35 @@ import fs from 'fs'
 
 import dotenv from 'dotenv'
 
-import { ROOT, TRANSLATIONS_ROOT, TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/lib/constants.js'
+import { ROOT, TRANSLATIONS_ROOT, TRANSLATIONS_FIXTURE_ROOT } from '@/frame/lib/constants'
 
 dotenv.config({ quiet: true })
 
-const possibleEnvVars = {
+export interface Language {
+  name: string
+  nativeName?: string
+  code: string
+  hreflang: string
+  redirectPatterns?: RegExp[]
+  dir: string
+}
+
+export type LanguageCode = 'en' | 'es' | 'ja' | 'pt' | 'zh' | 'ru' | 'fr' | 'ko' | 'de'
+export type LocaleCode =
+  | 'es-es'
+  | 'ja-jp'
+  | 'pt-br'
+  | 'zh-cn'
+  | 'ru-ru'
+  | 'fr-fr'
+  | 'ko-kr'
+  | 'de-de'
+
+export interface Languages {
+  [code: string]: Language
+}
+
+const possibleEnvVars: Record<LocaleCode, string | undefined> = {
   'es-es': process.env.TRANSLATIONS_ROOT_ES_ES,
   'ja-jp': process.env.TRANSLATIONS_ROOT_JA_JP,
   'pt-br': process.env.TRANSLATIONS_ROOT_PT_BR,
@@ -21,7 +45,7 @@ const possibleEnvVars = {
   'de-de': process.env.TRANSLATIONS_ROOT_DE_DE,
 }
 
-function getRoot(languageCode) {
+function getRoot(languageCode: string): string {
   if (languageCode === 'en') return ROOT
 
   // This one trumps anything else. This makes it possible, and convenient,
@@ -32,7 +56,7 @@ function getRoot(languageCode) {
   }
 
   if (languageCode in possibleEnvVars) {
-    const possibleEnvVar = possibleEnvVars[languageCode]
+    const possibleEnvVar = possibleEnvVars[languageCode as LocaleCode]
     if (possibleEnvVar) {
       return possibleEnvVar
     }
@@ -44,7 +68,7 @@ function getRoot(languageCode) {
 }
 
 // Languages in order of accept-language header frequency
-const allLanguages = {
+const allLanguages: Languages = {
   en: {
     name: 'English',
     code: 'en',
@@ -112,13 +136,14 @@ const allLanguages = {
     dir: getRoot('de-de'),
   },
 }
+
 // Some markdownlint tests depend on having access to all
 // language keys. Not modifying the original object makes
 // it possible to export all keys, even when those directories
 // don't exist on disk.
 Object.freeze(allLanguages)
-export const allLanguageKeys = Object.keys(allLanguages)
-const languages = { ...allLanguages }
+export const allLanguageKeys: string[] = Object.keys(allLanguages)
+const languages: Languages = { ...allLanguages }
 
 if (TRANSLATIONS_FIXTURE_ROOT) {
   // Keep all languages that have a directory in the fixture root.
@@ -130,7 +155,7 @@ if (TRANSLATIONS_FIXTURE_ROOT) {
 } else if (process.env.ENABLED_LANGUAGES) {
   if (process.env.ENABLED_LANGUAGES.toLowerCase() !== 'all') {
     Object.keys(languages).forEach((code) => {
-      if (!process.env.ENABLED_LANGUAGES.includes(code)) {
+      if (!process.env.ENABLED_LANGUAGES!.includes(code)) {
         delete languages[code]
       }
     })
@@ -144,15 +169,15 @@ if (TRANSLATIONS_FIXTURE_ROOT) {
   })
 }
 
-export const languageKeys = Object.keys(languages)
+export const languageKeys: string[] = Object.keys(languages)
 
-export const languagePrefixPathRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
+export const languagePrefixPathRegex: RegExp = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 
 /** Return true if the URL is something like /en/foo or /ja but return false
  * if it's something like /foo or /foo/bar or /fr (because French (fr)
  * is currently not an active language)
  */
-export function pathLanguagePrefixed(path) {
+export function pathLanguagePrefixed(path: string): boolean {
   return languagePrefixPathRegex.test(path)
 }
 

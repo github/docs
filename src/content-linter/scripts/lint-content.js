@@ -14,7 +14,7 @@ import { defaultConfig } from '../lib/default-markdownlint-options.js'
 import { prettyPrintResults } from './pretty-print-results.js'
 import { getLintableYml } from '#src/content-linter/lib/helpers/get-lintable-yml.js'
 import { printAnnotationResults } from '../lib/helpers/print-annotations.js'
-import languages from '#src/languages/lib/languages.js'
+import languages from '#src/languages/lib/languages.ts'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')

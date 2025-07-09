@@ -3,7 +3,7 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '#src/languages/lib/languages.js'
+import languages from '#src/languages/lib/languages.ts'
 import {
   getDataByLanguage,
   getDeepDataByLanguage,

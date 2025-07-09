@@ -5,7 +5,7 @@ import yaml from 'js-yaml'
 import matter from 'gray-matter'
 import { merge, get } from 'lodash-es'
 
-import languages from '#src/languages/lib/languages.js'
+import languages from '#src/languages/lib/languages.ts'
 import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
 
 // If you run `export DEBUG_JIT_DATA_READS=true` in your terminal,

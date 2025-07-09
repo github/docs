@@ -3,7 +3,7 @@ import { existsSync } from 'fs'
 
 import { ROOT } from '#src/frame/lib/constants.js'
 import Page from '#src/frame/lib/page.js'
-import { languagePrefixPathRegex } from '#src/languages/lib/languages.js'
+import { languagePrefixPathRegex } from '#src/languages/lib/languages.ts'
 
 const englishPrefixRegex = /^\/en(\/|$)/
 const CONTENT_ROOT = path.join(ROOT, 'content')
