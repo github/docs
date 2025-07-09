@@ -9,6 +9,7 @@ children:
   - /about-workflows
   - /variables
   - /avoiding-duplication
+  - /reusable-workflows
   - /about-custom-actions
   - /contexts
   - /expressions
