@@ -13,19 +13,12 @@ redirect_from:
 
 If your company employs security measures like a firewall or proxy server, you should add the following URLs, ports, and protocols to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected:
 
-## {% data variables.product.prodname_enterprise %} related URLs
-
-| Domain and/or URL                      | Purpose |
-| :------------------------------------- | :--------------------------------- |
-| `https://github.com/YOUR-ENTERPRISE/*` | Enterprise URL |
-| `https://github.com/YOUR-ENTERPRISE?*` | Enterprise URL |
-| `https://github.com/enterprises/YOUR-ENTERPRISE/*` | Authentication for {% data variables.enterprise.prodname_managed_users %}, only required with {% data variables.product.prodname_emus %} |
-
 ## {% data variables.product.github %} public URLs
 
 | Domain and/or URL                      | Purpose |
 | :------------------------------------- | :--------------------------------- |
 | `https://github.com/login/*`             | Authentication |
+| `https://github.com/enterprises/YOUR-ENTERPRISE/*` | Authentication for {% data variables.enterprise.prodname_managed_users %}, only required with {% data variables.product.prodname_emus %} |
 | `https://api.github.com/user`             | User Management |
 | `https://api.github.com/copilot_internal/*` | User Management |
 | `https://copilot-telemetry.githubusercontent.com/telemetry` | Telemetry |
