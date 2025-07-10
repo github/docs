@@ -13,7 +13,7 @@
 
 import { expect, test, vi } from 'vitest'
 import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs'
-import { get } from '@/tests/helpers/e2etest-ts'
+import { get } from '@/tests/helpers/e2etest'
 import { GeneralSearchResponse, SearchResultAggregations, GeneralSearchHit } from '@/search/types'
 
 if (!process.env.ELASTICSEARCH_URL) {

@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
-import { get, getDOM } from '@/tests/helpers/e2etest-ts'
+import { get, getDOM } from '@/tests/helpers/e2etest'
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('enterprise deprecation', () => {
