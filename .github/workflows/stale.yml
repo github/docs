@@ -1,9 +1,5 @@
 name: Stale
 
-# **What it does**: Close issues and pull requests after no updates for 365 days.
-# **Why we have it**: We want to manage our queue of issues and pull requests.
-# **Who does it impact**: Everyone that works on docs or docs-internal.
-
 on:
   schedule:
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
@@ -18,11 +14,32 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
+      - name: Mark stale issues and PRs (docs-internal)
+        if: github.repository == 'github/docs-internal'
+        uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'This issue is stale because there have been no updates in 365 days.'
+          stale-pr-message: 'This PR has been automatically marked as stale due to 14 days of inactivity. Please update soon to avoid closure.'
+          close-pr-message: 'Closing this PR due to prolonged inactivity. If you wish to continue, please reopen.'
+          days-before-stale: 365
+          days-before-close: 0
+          days-before-stale-pr: 14
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+          exempt-pr-labels: 'never-stale,waiting for review'
+          exempt-issue-labels: 'never-stale,help wanted,waiting for review'
+          operations-per-run: 1000
+          close-issue-reason: not_planned
+
+      - name: Mark stale issues and PRs (docs)
+        if: github.repository == 'github/docs'
+        uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: 'This issue is stale because there have been no updates in 365 days.'
           stale-pr-message: 'This PR is stale because there have been no updates in 365 days.'
+          close-pr-message: 'This PR is being closed due to inactivity.'
           days-before-stale: 365
           days-before-close: 0
           stale-issue-label: 'stale'
