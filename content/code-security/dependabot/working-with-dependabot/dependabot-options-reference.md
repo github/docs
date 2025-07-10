@@ -348,7 +348,7 @@ Supported value: the numeric identifier of a milestone.
 
 ## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.  
+Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
@@ -380,7 +380,7 @@ updates:
     directory: "/"
     patterns: ["nginx", "redis"]
     multi-ecosystem-group: "infrastructure"
-  
+
   - package-ecosystem: "terraform"
     directory: "/"
     patterns: ["aws"]
@@ -804,19 +804,19 @@ Defines a **cooldown period** for dependency updates to delay updates for a conf
 
 ### **How Cooldown Works**
 
-* When {% data variables.product.prodname_dependabot %} runs updates as per defined schedule, it checks the **cooldown settings** to determine if new release for dependency is still within its cooldown period.  
-* If new version release date is within the cooldown period, dependency version update is **filtered out** and will not be updated until the cooldown period expires.  
+* When {% data variables.product.prodname_dependabot %} runs updates as per defined schedule, it checks the **cooldown settings** to determine if new release for dependency is still within its cooldown period.
+* If new version release date is within the cooldown period, dependency version update is **filtered out** and will not be updated until the cooldown period expires.
 * Once the cooldown period ends for new version, the dependency update proceeds based on the standard update strategy defined in `dependabot.yml`.
 
 Without **`cooldown`** (default behaviour):
 
-* Dependabot checks for updates according to the scheduled defined via `schedule.interval`.  
-* All new versions are considered for updates **immediately**.  
+* Dependabot checks for updates according to the scheduled defined via `schedule.interval`.
+* All new versions are considered for updates **immediately**.
 
 With **`cooldown`** enabled:
 
-* {% data variables.product.prodname_dependabot %} checks for updates based on the defined `schedule.interval` settings.  
-* **Releases within the cooldown period are ignored.**  
+* {% data variables.product.prodname_dependabot %} checks for updates based on the defined `schedule.interval` settings.
+* **Releases within the cooldown period are ignored.**
 * {% data variables.product.prodname_dependabot %} updates the dependency to the latest available version **that are no longer in cooldown period** following the configured `versioning-strategy`.
 
 ### **Cooldown Configuration**
@@ -843,7 +843,7 @@ With **`cooldown`** enabled:
 | **Docker Compose**    | No               |
 | **Dotnet SDK**        | Yes              |
 | **Elm**               | Yes              |
-| **Github Actions**    | No               |
+| **{% data variables.product.prodname_actions %}**    | No               |
 | **Gitsubmodule**      | No               |
 | **Gomod (Go Modules)**| Yes              |
 | **Gradle**            | Yes              |
@@ -881,7 +881,7 @@ updates:
       default-days: 5
       semver-major-days: 30
       semver-minor-days: 7
-      semver-patch-days: 3 
+      semver-patch-days: 3
       include:
         - "requests"
         - "numpy"
