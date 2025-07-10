@@ -125,7 +125,7 @@ Avoid using the `pull_request_target` and `workflow_run` workflow triggers if no
 
 ### Do not use the `pull_request_target` and `workflow_run` workflow triggers with untrusted content
 
-Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control.
+Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution (i.e. as untrusted).
 
 ### Use CodeQL to detect potentially vulnerable workflows
 
