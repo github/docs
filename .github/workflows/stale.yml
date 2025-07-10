@@ -1,5 +1,9 @@
 name: Stale
 
+# **What it does**: Close issues and pull requests after no updates for 365 days (docs) or 14 days for PRs (docs-internal).
+# **Why we have it**: We want to manage our queue of issues and pull requests.
+# **Who does it impact**: Everyone that works on docs or docs-internal.
+
 on:
   schedule:
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
@@ -21,9 +25,9 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: 'This issue is stale because there have been no updates in 365 days.'
           stale-pr-message: 'This PR has been automatically marked as stalled after 14 days of inactivity (open PRs rapidly collect merge conflicts). Please update soon to avoid closure.'
-          close-pr-message: 'Closing this PR because it's been inactive for 3 weeks. If the PR is still relevant, please reopen and resolve any merge conflicts.'
+          close-pr-message: 'Closing this PR because it has been inactive for 3 weeks. If the PR is still relevant, please reopen and resolve any merge conflicts.'
           days-before-stale: 365
-          days-before-issue-close: 0
+          days-before-close: 0
           days-before-stale-pr: 14
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
