@@ -486,6 +486,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure Event Grid Key Identifiable
+  secretType: azure_event_grid_key_identifiable
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Azure
   supportedSecret: Azure Event Hub Key Identifiable
   secretType: azure_event_hub_key_identifiable
   versions:
@@ -890,7 +901,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Canva
   supportedSecret: Canva App Secret
@@ -1654,7 +1665,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Frame.io
   supportedSecret: Frame.io JSON Web Token
@@ -3066,7 +3077,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Persona  Identities
   supportedSecret: Persona Sandbox Api Key
@@ -3078,7 +3089,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Pinterest
   supportedSecret: Pinterest Access Token
@@ -3150,7 +3161,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Planning Center
   supportedSecret: Planning Center OAuth Application Secret
@@ -3438,7 +3449,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Replicate
   supportedSecret: Replicate API Token
@@ -3462,7 +3473,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: RubyGems
   supportedSecret: RubyGems API Key
@@ -3546,7 +3557,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Segment
   supportedSecret: Segment Public API Token
@@ -3558,7 +3569,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: SendGrid
   supportedSecret: SendGrid API Key

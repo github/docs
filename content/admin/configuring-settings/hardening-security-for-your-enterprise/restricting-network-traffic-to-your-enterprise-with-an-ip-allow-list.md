@@ -130,3 +130,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 ## Using {% data variables.product.prodname_pages %} with an IP allow list
 
 {% data reusables.pages.ip-allow-list-pages %}
+
+## Using {% data variables.product.prodname_dependabot %} with an IP allow list
+
+{% data reusables.dependabot.ip-allow-list-dependabot %}
