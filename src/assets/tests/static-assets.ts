@@ -4,10 +4,10 @@ import path from 'path'
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
 
-import { get } from '@/tests/helpers/e2etest.js'
-import { checkCachingHeaders } from '@/tests/helpers/caching-headers.js'
-import { setDefaultFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
+import { get } from '@/tests/helpers/e2etest'
+import { checkCachingHeaders } from '@/tests/helpers/caching-headers'
+import { setDefaultFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
 
 function getNextStaticAsset(directory: string) {
   const root = path.join('.next', 'static', directory)

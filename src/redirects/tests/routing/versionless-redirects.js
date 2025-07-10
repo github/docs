@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import getExceptionRedirects from '../../lib/exception-redirects.js'
-import { latest } from '#src/versions/lib/enterprise-server-releases.js'
+import getExceptionRedirects from '../../lib/exception-redirects'
+import { latest } from '@/versions/lib/enterprise-server-releases'
 
 import path from 'path'
 import { fileURLToPath } from 'url'

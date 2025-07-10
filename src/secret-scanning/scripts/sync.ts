@@ -11,7 +11,7 @@ import { readFile, writeFile } from 'fs/promises'
 import core from '@actions/core'
 import yaml from 'js-yaml'
 
-import { getContentAndData, getCommitSha } from '@/workflows/git-utils.js'
+import { getContentAndData, getCommitSha } from '@/workflows/git-utils'
 import schema from '@/secret-scanning/data/public-docs-schema'
 // This is temporarily being imported until the subsequent modules
 // have been converted to TypeScript.

@@ -1,4 +1,4 @@
-import { productMap } from '#src/products/lib/all-products.ts'
+import { productMap } from '@/products/lib/all-products'
 const productTOCs = Object.values(productMap)
   .filter((product) => !product.external)
   .map((product) => product.toc.replace('content/', ''))

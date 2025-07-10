@@ -1,10 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
-import { getAutomatedPageMiniTocItems } from '#src/frame/lib/get-mini-toc-items.js'
-import { allVersions, getOpenApiVersion } from '#src/versions/lib/all-versions.ts'
-import languages from '#src/languages/lib/languages.ts'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
+import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
+import { allVersions, getOpenApiVersion } from '@/versions/lib/all-versions'
+import languages from '@/languages/lib/languages'
 
 export const REST_DATA_DIR = 'src/rest/data'
 export const REST_SCHEMA_FILENAME = 'schema.json'

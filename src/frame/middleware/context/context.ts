@@ -3,20 +3,20 @@ import type { NextFunction, Response } from 'express'
 import type { ExtendedRequest, Context } from '@/types'
 
 import languages from '@/languages/lib/languages'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { allVersions } from '@/versions/lib/all-versions'
-import { productMap } from '@/products/lib/all-products.js'
+import { productMap } from '@/products/lib/all-products'
 import {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
   getPathWithoutVersion,
-} from '@/frame/lib/path-utils.js'
-import productNames from '@/products/lib/product-names.js'
+} from '@/frame/lib/path-utils'
+import productNames from '@/products/lib/product-names'
 import warmServer from '@/frame/lib/warm-server'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data.js'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>

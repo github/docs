@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 import searchReplace from 'markdownlint-rule-search-replace'
 
-import { runRule } from '../../lib/init-test.js'
-import { searchReplaceConfig } from '../../style/github-docs.js'
+import { runRule } from '../../lib/init-test'
+import { searchReplaceConfig } from '../../style/github-docs'
 
 describe(searchReplace.names.join(' - '), () => {
   test('TODOCS placeholder occurrences cause errors', async () => {

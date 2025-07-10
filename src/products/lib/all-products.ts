@@ -1,9 +1,9 @@
 import fs from 'fs/promises'
 import path from 'path'
-import frontmatter from '@/frame/lib/read-frontmatter.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
-import { ROOT } from '@/frame/lib/constants.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import { ROOT } from '@/frame/lib/constants'
 
 /**
  * Represents a product in the documentation

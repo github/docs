@@ -5,11 +5,11 @@ import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
 
-import { loadPages } from '#src/frame/lib/page-data.js'
-import libLanguages from '#src/languages/lib/languages.ts'
-import { liquid } from '#src/content-render/index.js'
-import patterns from '#src/frame/lib/patterns.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
+import { loadPages } from '@/frame/lib/page-data'
+import libLanguages from '@/languages/lib/languages'
+import { liquid } from '@/content-render/index'
+import patterns from '@/frame/lib/patterns'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()

@@ -1,5 +1,5 @@
 import { expect, test, vi } from 'vitest'
-import { get, getDOM } from '@/tests/helpers/e2etest.js'
+import { get, getDOM } from '@/tests/helpers/e2etest'
 
 import { describeIfDocsEarlyAccess } from '@/tests/helpers/conditional-runs'
 import languages from '@/languages/lib/languages'

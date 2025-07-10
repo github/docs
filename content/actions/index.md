@@ -9,7 +9,7 @@ featuredLinks:
   startHere:
     - /actions/how-tos/writing-workflows
     - /actions/how-tos/use-cases-and-examples
-    - /actions/concepts/overview/about-continuous-integration-with-github-actions
+    - /actions/concepts/overview/continuous-integration
     - /actions/concepts/use-cases/deploying-with-github-actions
     - /actions/concepts/use-cases/about-packaging-with-github-actions
     - /actions/how-tos/monitoring-and-troubleshooting-workflows
@@ -42,4 +42,3 @@ children:
   - /reference
   - /tutorials
 ---
-

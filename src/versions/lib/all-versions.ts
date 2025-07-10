@@ -1,6 +1,6 @@
 import fs from 'fs'
 import type { AllVersions, Version } from '@/types'
-import enterpriseServerReleases from './enterprise-server-releases.js'
+import enterpriseServerReleases from './enterprise-server-releases'
 
 // version = "plan"@"release"
 // example: enterprise-server@2.21

@@ -1,7 +1,7 @@
 import fs from 'fs/promises'
 import semver from 'semver'
 
-import versionSatisfiesRange from './version-satisfies-range.js'
+import versionSatisfiesRange from './version-satisfies-range'
 
 export const dates = JSON.parse(await fs.readFile('src/ghes-releases/lib/enterprise-dates.json'))
 

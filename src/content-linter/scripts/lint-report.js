@@ -2,10 +2,10 @@ import { program } from 'commander'
 import fs from 'fs'
 import coreLib from '@actions/core'
 
-import github from '#src/workflows/github.ts'
-import { getEnvInputs } from '#src/workflows/get-env-inputs.ts'
-import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
-import { reportingConfig } from '#src/content-linter/style/github-docs.js'
+import github from '@/workflows/github'
+import { getEnvInputs } from '@/workflows/get-env-inputs'
+import { createReportIssue, linkReports } from '@/workflows/issue-report'
+import { reportingConfig } from '@/content-linter/style/github-docs'
 
 // GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
 const MAX_ISSUE_BODY_SIZE = 60000

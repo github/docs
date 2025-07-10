@@ -1,6 +1,6 @@
 import { describe, expect, test, beforeEach, afterEach } from 'vitest'
-import { renderContent } from '#src/content-render/index.js'
-import { TitleFromAutotitleError } from '#src/content-render/unified/rewrite-local-links.js'
+import { renderContent } from '@/content-render/index'
+import { TitleFromAutotitleError } from '@/content-render/unified/rewrite-local-links'
 
 describe('link error line numbers', () => {
   let fs

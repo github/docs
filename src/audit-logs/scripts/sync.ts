@@ -12,13 +12,9 @@ import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
-import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index.js'
-import { getContents, getCommitSha } from '@/workflows/git-utils.js'
-import {
-  latest,
-  latestStable,
-  releaseCandidate,
-} from '@/versions/lib/enterprise-server-releases.js'
+import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
+import { getContents, getCommitSha } from '@/workflows/git-utils'
+import { latest, latestStable, releaseCandidate } from '@/versions/lib/enterprise-server-releases'
 import type { AuditLogEventT, VersionedAuditLogData } from '../types'
 
 if (!process.env.GITHUB_TOKEN) {

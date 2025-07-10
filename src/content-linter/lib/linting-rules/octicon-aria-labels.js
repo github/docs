@@ -1,6 +1,6 @@
 import { TokenKind } from 'liquidjs'
-import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
-import { addFixErrorDetail } from '../helpers/utils.js'
+import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
+import { addFixErrorDetail } from '../helpers/utils'
 /*
 Octicons should always have an aria-label attribute even if aria hidden. For example:
 

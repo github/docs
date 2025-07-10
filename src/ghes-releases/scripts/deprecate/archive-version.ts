@@ -14,9 +14,9 @@ import { rimraf } from 'rimraf'
 import http from 'http'
 
 import createApp from '@/frame/lib/app'
-import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
-import { loadPageMap, loadPages } from '@/frame/lib/page-data.js'
+import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import loadRedirects from '@/redirects/lib/precompile'
+import { loadPageMap, loadPages } from '@/frame/lib/page-data'
 import { languageKeys } from '@/languages/lib/languages'
 import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/deprecate/rewrite-asset-paths'
 

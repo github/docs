@@ -1,7 +1,7 @@
 import assert from 'assert'
 import path from 'path'
-import patterns from './patterns.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
+import patterns from './patterns'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 
 /*
 This class creates the "permalinks" that power a page's different versions,

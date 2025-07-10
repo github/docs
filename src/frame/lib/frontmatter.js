@@ -1,7 +1,7 @@
-import parse from './read-frontmatter.js'
-import { allVersions } from '#src/versions/lib/all-versions.ts'
-import { allTools } from '#src/tools/lib/all-tools.ts'
-import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import parse from './read-frontmatter'
+import { allVersions } from '@/versions/lib/all-versions'
+import { allTools } from '@/tools/lib/all-tools'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 const layoutNames = [
   'default',

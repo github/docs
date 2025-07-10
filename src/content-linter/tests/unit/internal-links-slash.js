@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { internalLinksSlash } from '../../lib/linting-rules/internal-links-slash.js'
+import { runRule } from '../../lib/init-test'
+import { internalLinksSlash } from '../../lib/linting-rules/internal-links-slash'
 
 describe(internalLinksSlash.names.join(' - '), () => {
   test('relative links that do not start with / fail', async () => {

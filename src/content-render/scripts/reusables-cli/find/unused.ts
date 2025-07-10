@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 import {
   getAllContentFilePaths,
   getAllReusablesFilePaths,

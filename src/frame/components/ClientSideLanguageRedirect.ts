@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
 import Cookies from '@/frame/components/lib/cookies'
-import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 
 export function ClientSideLanguageRedirect() {
   const { locale, asPath, replace } = useRouter()

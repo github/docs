@@ -5,8 +5,8 @@ import path from 'path'
 import { beforeAll, describe, expect, test } from 'vitest'
 import yaml from 'js-yaml'
 
-import { liquid } from '@/content-render/index.js'
-import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { liquid } from '@/content-render/index'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import { allVersions } from '@/versions/lib/all-versions'
 
 interface ReleaseNoteContent {

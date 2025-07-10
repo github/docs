@@ -1,6 +1,6 @@
 import { Tag, isTruthy, Value, TokenizationError } from 'liquidjs'
-import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
-import supportedOperators from './ifversion-supported-operators.js'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
+import supportedOperators from './ifversion-supported-operators'
 
 const SyntaxHelp =
   "Syntax Error in 'ifversion' with range - Valid syntax: ifversion [plan] [operator] [releaseNumber]"

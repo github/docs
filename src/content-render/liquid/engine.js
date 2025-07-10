@@ -1,11 +1,11 @@
 import { Liquid } from 'liquidjs'
 import GithubSlugger from 'github-slugger'
-import IndentedDataReference from './indented-data-reference.js'
-import Data from './data.js'
-import Octicon from './octicon.js'
-import Ifversion from './ifversion.js'
-import { Tool, tags as toolTags } from './tool.js'
-import { Spotlight, tags as spotlightTags } from './spotlight.js'
+import IndentedDataReference from './indented-data-reference'
+import Data from './data'
+import Octicon from './octicon'
+import Ifversion from './ifversion'
+import { Tool, tags as toolTags } from './tool'
+import { Spotlight, tags as spotlightTags } from './spotlight'
 
 export const engine = new Liquid({
   extname: '.html',

@@ -9,7 +9,7 @@ const fixturesDir = path.join(__dirname, 'orphaned-features', 'fixtures')
 
 // Import the actual helper functions from the orphaned features script
 const { getVariableFiles, getReusableFiles } = await import(
-  '#src/data-directory/scripts/find-orphaned-features/find.js'
+  '@/data-directory/scripts/find-orphaned-features/find.js'
 )
 
 describe('orphaned features detection', () => {

@@ -9,8 +9,8 @@ import {
   cleanPreviewTitle,
   previewAnchor,
   prependDatedEntry,
-} from '../scripts/build-changelog.js'
-import readJsonFile from '#src/frame/lib/read-json-file.js'
+} from '../scripts/build-changelog'
+import readJsonFile from '@/frame/lib/read-json-file'
 
 const expectedChangelogEntry = readJsonFile('src/graphql/tests/fixtures/changelog-entry.json')
 const expectedUpdatedChangelogFile = readJsonFile(

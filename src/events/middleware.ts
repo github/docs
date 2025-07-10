@@ -6,13 +6,13 @@ import { ErrorObject } from 'ajv'
 import type { ExtendedRequest } from '@/types'
 import type { Response } from 'express'
 
-import { schemas, hydroNames } from './lib/schema.js'
+import { schemas, hydroNames } from './lib/schema'
 import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import { noCacheControl } from '@/frame/middleware/cache-control'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
-import { formatErrors } from './lib/middleware-errors.js'
-import { publish as _publish } from './lib/hydro.js'
-import { analyzeComment, getGuessedLanguage } from './lib/analyze-comment.js'
+import { formatErrors } from './lib/middleware-errors'
+import { publish as _publish } from './lib/hydro'
+import { analyzeComment, getGuessedLanguage } from './lib/analyze-comment'
 import { EventType, EventProps, EventPropsByType } from './types'
 
 const router = express.Router()

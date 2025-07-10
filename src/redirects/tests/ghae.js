@@ -12,7 +12,7 @@
 
 import { describe, expect, test } from 'vitest'
 
-import { head } from '#src/tests/helpers/e2etest.js'
+import { head } from '@/tests/helpers/e2etest'
 
 describe('ghae redirects', () => {
   test('ghae home page', async () => {

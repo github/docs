@@ -1,5 +1,5 @@
 ---
-title: About continuous integration with GitHub Actions
+title: Continuous integration
 intro: 'You can create custom continuous integration (CI) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /articles/about-continuous-integration
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/automating-builds-and-tests/about-continuous-integration
   - /actions/about-github-actions/about-continuous-integration
   - /actions/about-github-actions/about-continuous-integration-with-github-actions
+  - /actions/concepts/overview/about-continuous-integration-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'
@@ -44,13 +45,6 @@ In addition to helping you set up CI workflows for your project, you can use {% 
 
 For a definition of common terms, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
 
-## Workflow templates
+## Next steps
 
-{% data variables.product.github %} offers CI workflow templates for a variety of languages and frameworks.
-
-Browse the complete list of CI workflow templates offered by {% data variables.product.company_short %} in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows/tree/main/ci) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
-
-## Further reading
-
-* [AUTOTITLE](/actions/use-cases-and-examples/building-and-testing){% ifversion fpt or ghec %}
-* [AUTOTITLE](/billing/managing-billing-for-github-actions){% endif %}
+{% data variables.product.github %} offers CI workflow templates for a variety of languages and frameworks. For tutorials on setting up continuous integration with these templates, see [AUTOTITLE](/actions/use-cases-and-examples/building-and-testing).

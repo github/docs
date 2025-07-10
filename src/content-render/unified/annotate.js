@@ -35,8 +35,8 @@ import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toHast } from 'mdast-util-to-hast'
-import { header } from './code-header.js'
-import findPage from '#src/frame/lib/find-page.js'
+import { header } from './code-header'
+import findPage from '@/frame/lib/find-page'
 
 const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8'))
 

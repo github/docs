@@ -1,6 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
-import { getRange } from '../helpers/utils.js'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import { getRange } from '../helpers/utils'
+import frontmatter from '@/frame/lib/read-frontmatter'
 
 // Regex to detect table rows (must start with |, contain at least one more |, and end with optional whitespace)
 const TABLE_ROW_REGEX = /^\s*\|.*\|\s*$/

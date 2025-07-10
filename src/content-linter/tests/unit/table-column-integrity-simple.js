@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { tableColumnIntegrity } from '../../lib/linting-rules/table-column-integrity.js'
+import { runRule } from '../../lib/init-test'
+import { tableColumnIntegrity } from '../../lib/linting-rules/table-column-integrity'
 
 describe(tableColumnIntegrity.names.join(' - '), () => {
   test('Valid table with consistent columns passes', async () => {
