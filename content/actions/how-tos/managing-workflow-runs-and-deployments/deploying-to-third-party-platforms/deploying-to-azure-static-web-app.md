@@ -1,27 +1,19 @@
 ---
 title: Deploying to Azure Static Web App
-intro: You can deploy your web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
+shortTitle: Azure Static Web App
+intro: Learn how to deploy a web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CD
   - Azure Static Web Apps
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-static-web-app
   - /actions/use-cases-and-examples/deploying/deploying-to-azure-static-web-app
+  - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-azure-static-web-app
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -101,9 +93,7 @@ jobs:
           action: "close"
 ```
 
-## Additional resources
-
-The following resources may also be useful:
+## Further reading
 
 * For the original workflow template, see [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.

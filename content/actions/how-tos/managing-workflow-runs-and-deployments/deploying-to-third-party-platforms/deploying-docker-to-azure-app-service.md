@@ -1,11 +1,11 @@
 ---
 title: Deploying Docker to Azure App Service
-intro: You can deploy a Docker container to Azure App Service as part of your continuous deployment (CD) workflows.
+shortTitle: Docker to Azure App Service
+intro: Learn how to deploy a Docker container to Azure App Service as part of your continuous deployment (CD) workflows.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CD
   - Containers
@@ -14,16 +14,8 @@ topics:
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-docker-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-docker-to-azure-app-service
+  - /actions/how-tos/use-cases-and-examples/deploying/deploying-docker-to-azure-app-service
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -140,9 +132,7 @@ jobs:
           images: 'ghcr.io/{% raw %}${{ env.REPO }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}'
 ```
 
-## Additional resources
-
-The following resources may also be useful:
+## Further reading
 
 * For the original workflow template, see [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.

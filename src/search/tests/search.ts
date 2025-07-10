@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { get, getDOM } from '@/tests/helpers/e2etest-ts'
+import { get, getDOM } from '@/tests/helpers/e2etest'
 
 describe('search results page', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

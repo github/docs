@@ -8,13 +8,9 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/examples
-  - /actions/deployment
-  - /actions/deployment/deploying-to-your-cloud-provider
-  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure
   - /actions/use-cases-and-examples
 children:
   - building-and-testing
-  - deploying
   - publishing-packages
   - project-management
   - using-containerized-services

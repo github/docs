@@ -1,32 +1,24 @@
 ---
 title: Deploying Node.js to Azure App Service
-intro: You can deploy your Node.js project to Azure App Service as part of your continuous deployment (CD) workflows.
+shortTitle: Node.js to Azure App Service
+intro: Learn how to deploy a Node.js project to Azure App Service as part of your continuous deployment (CD) workflows.
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-nodejs-to-azure-app-service
   - /actions/use-cases-and-examples/deploying/deploying-nodejs-to-azure-app-service
+  - /actions/how-tos/use-cases-and-examples/deploying/deploying-nodejs-to-azure-app-service
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CD
   - Node
   - JavaScript
   - Azure App Service
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -122,9 +114,7 @@ jobs:
         package: {% raw %}${{ env.AZURE_WEBAPP_PACKAGE_PATH }}{% endraw %}
 ```
 
-## Additional resources
-
-The following resources may also be useful:
+## Further reading
 
 * For the original workflow template, see [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.

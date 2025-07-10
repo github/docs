@@ -30,8 +30,11 @@ interface ResponseWithHeaders<T> extends Response<T> {
   headers: Record<string, string>
 }
 
+// Type alias for cached DOM results to improve maintainability
+type CachedDOMResult = cheerio.Root & { res: Response; $: cheerio.Root }
+
 // Cache to store DOM objects
-const getDOMCache = new Map<string, cheerio.Root>()
+const getDOMCache = new Map<string, CachedDOMResult>()
 
 /**
  * Makes an HTTP request using the specified method and options.
@@ -119,10 +122,10 @@ export function post(
 export async function getDOMCached(
   route: string,
   options: GetDOMOptions = {},
-): Promise<cheerio.Root> {
+): Promise<CachedDOMResult> {
   const key = `${route}::${JSON.stringify(options)}`
   if (!getDOMCache.has(key)) {
-    const { $ } = await getDOM(route, options)
+    const $ = await getDOM(route, options)
     getDOMCache.set(key, $)
   }
   // The non-null assertion is safe here because we've just set the key if it didn't exist
@@ -134,12 +137,9 @@ export async function getDOMCached(
  *
  * @param route - The route to request.
  * @param options - Options for fetching the DOM.
- * @returns A promise that resolves to the loaded DOM object.
+ * @returns A promise that resolves to the loaded DOM object with res attached and destructurable.
  */
-export async function getDOM(
-  route: string,
-  options: GetDOMOptions = {},
-): Promise<{ $: cheerio.Root; res: Response }> {
+export async function getDOM(route: string, options: GetDOMOptions = {}): Promise<CachedDOMResult> {
   const { headers, allow500s = false, allow404 = false, retries = 0 } = options
   const res = await get(route, { followRedirects: true, headers, retries })
 
@@ -152,8 +152,13 @@ export async function getDOM(
   }
 
   const $ = cheerio.load(res.body || '', { xmlMode: true })
+  const result = $ as CachedDOMResult
+  // Attach res to the cheerio object for backward compatibility
+  result.res = res
+  // Attach $ to itself for destructuring compatibility
+  result.$ = result
 
-  return { $, res }
+  return result
 }
 
 /**

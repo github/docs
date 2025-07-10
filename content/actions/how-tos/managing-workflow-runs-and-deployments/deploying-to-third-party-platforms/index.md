@@ -1,7 +1,13 @@
 ---
-title: Deploying
-shortTitle: Deployment
-intro: 'Automatically deploy projects with {% data variables.product.prodname_actions %}.'
+title: Managing deployments to third-party platforms
+shortTitle: Third-party platforms
+intro: Learn how to deploy to third-party platforms as part of your continuous deployment and continuous integration workflows.
+redirect_from:
+  - /actions/deployment
+  - /actions/deployment/deploying-to-your-cloud-provider
+  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure
+  - /actions/use-cases-and-examples/deploying
+  - /actions/how-tos/use-cases-and-examples/deploying
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +24,5 @@ children:
   - /deploying-to-amazon-elastic-container-service
   - /deploying-to-google-kubernetes-engine
   - /installing-an-apple-certificate-on-macos-runners-for-xcode-development
-redirect_from:
-  - /actions/use-cases-and-examples/deploying
 ---
 

@@ -1,27 +1,19 @@
 ---
 title: Deploying to Azure Kubernetes Service
-intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of your continuous deployment (CD) workflows.
+shortTitle: Azure Kubernetes Service
+intro: Learn how to deploy a project to Azure Kubernetes Service (AKS) as part of a continuous deployment (CD) workflow.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CD
   - Azure Kubernetes Service
 redirect_from:
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-to-azure-kubernetes-service
   - /actions/use-cases-and-examples/deploying/deploying-to-azure-kubernetes-service
+  - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-azure-kubernetes-service
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure).
 
 ## Prerequisites
 
@@ -112,9 +104,7 @@ jobs:
           {% raw %}${{ env.PROJECT_NAME }}{% endraw %}
 ```
 
-## Additional resources
-
-The following resources may also be useful:
+## Further reading
 
 * For the original workflow template, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
