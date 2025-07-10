@@ -14,6 +14,7 @@ children:
   - /secrets-reference
   - /evaluate-expressions-in-workflows-and-actions
   - /contexts-reference
+  - /deployments-and-environments
   - /dependency-caching-reference
   - /metadata-syntax-reference
   - /actions-limits
