@@ -1,28 +1,24 @@
 ---
 title: Installing an Apple certificate on macOS runners for Xcode development
 shortTitle: Sign Xcode applications
-intro: 'You can sign Xcode apps within your continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.'
+intro: Learn how to sign Xcode apps within a continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.
 redirect_from:
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
   - /actions/deployment/installing-an-apple-certificate-on-macos-runners-for-xcode-development
   - /actions/deployment/deploying-xcode-applications/installing-an-apple-certificate-on-macos-runners-for-xcode-development
   - /actions/deployment/deploying-xcode-applications
   - /actions/use-cases-and-examples/deploying/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+  - /actions/how-tos/use-cases-and-examples/deploying/installing-an-apple-certificate-on-macos-runners-for-xcode-development
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Xcode
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide shows you how to add a step to your continuous integration (CI) workflow that installs an Apple code signing certificate and provisioning profile on {% data variables.product.prodname_actions %} runners. This will allow you to sign your Xcode apps for publishing to the Apple App Store, or distributing it to test groups.
 
 ## Prerequisites
 
