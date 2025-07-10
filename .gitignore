@@ -56,3 +56,37 @@ docs-internal-data/
 
 # For intermediate data (like scraping for Elasticsearch indexing)
 tmp/
+
+# Additional common files to ignore
+*.log
+*.pid
+*.seed
+*.pid.lock
+.npm
+.nyc_output
+.grunt
+bower_components
+.lock-wscript
+build/Release
+.coverage
+.nyc_output
+.cache
+.parcel-cache
+.next
+out
+dist
+.nuxt
+.vuepress/dist
+.serverless
+.fusebox
+.dynamodb
+.tern-port
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

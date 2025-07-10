@@ -5,6 +5,42 @@ This repository contains the documentation website code and Markdown source file
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
+## Prerequisites
+
+- **Node.js**: Version 20 or 22 (see [engines](package.json) in package.json)
+- **npm**: Comes with Node.js
+- **Git**: For version control
+
+## Quick Start
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/github/docs.git
+   cd docs
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The site will be available at `http://localhost:4000`
+
+### Available Scripts
+
+- `npm run dev` - Start development server with English content only
+- `npm run start-all-languages` - Start server with all language versions
+- `npm run build` - Build the production version
+- `npm test` - Run the test suite
+- `npm run lint` - Check code style and formatting
+- `npm run prettier` - Format code automatically
+
 Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to navigate to a specific section quickly.
 
 ## Contributing
