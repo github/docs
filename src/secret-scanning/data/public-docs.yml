@@ -605,6 +605,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure ML Inference Key
+  secretType: azure_ml_inference_identifiable_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure ML Internal Service Principal Key
   secretType: azure_ml_internal_service_principal_identifiable_key
   versions:

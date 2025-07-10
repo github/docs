@@ -50,30 +50,42 @@ describe('pages module', () => {
       const englishPages = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
-        .map((pages) => pick(pages, ['redirect_from', 'applicableVersions']))
+        .map((pages) => pick(pages, ['redirect_from', 'applicableVersions', 'fullPath']))
         .value()
 
+      // Map from redirect path to Set of file paths
+      const redirectToFiles = new Map()
       const versionedRedirects = []
 
       englishPages.forEach((page) => {
         page.redirect_from.forEach((redirect) => {
           page.applicableVersions.forEach((version) => {
-            versionedRedirects.push(removeFPTFromPath(path.posix.join('/', version, redirect)))
+            const versioned = removeFPTFromPath(path.posix.join('/', version, redirect))
+            versionedRedirects.push({ path: versioned, file: page.fullPath })
+            if (!redirectToFiles.has(versioned)) {
+              redirectToFiles.set(versioned, new Set())
+            }
+            redirectToFiles.get(versioned).add(page.fullPath)
           })
         })
       })
 
-      const duplicates = versionedRedirects.reduce((acc, el, i, arr) => {
-        if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el)
-        return acc
-      }, [])
+      // Only consider as duplicate if more than one unique file defines the same redirect
+      const duplicates = Array.from(redirectToFiles.entries())
+        .filter(([_, files]) => files.size > 1)
+        .map(([path]) => path)
 
-      const message = `Found ${duplicates.length} duplicate redirect_from ${
-        duplicates.length === 1 ? 'path' : 'paths'
-      }.
-      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files.
-      You may also receive this error if you have defined the same children property more than once.\n
-  ${duplicates.join('\n')}`
+      // Build a detailed message with sources for each duplicate
+      const message =
+        `Found ${duplicates.length} duplicate redirect_from path${duplicates.length === 1 ? '' : 's'}.
+        Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files.
+        You may also receive this error if you have defined the same children property more than once.\n` +
+        duplicates
+          .map((dup) => {
+            const files = Array.from(redirectToFiles.get(dup) || [])
+            return `${dup}\n  Defined in:\n    ${files.join('\n    ')}`
+          })
+          .join('\n\n')
       expect(duplicates.length, message).toBe(0)
     })
 
