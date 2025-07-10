@@ -19,6 +19,7 @@ children:
   - /metadata-syntax-reference
   - /actions-limits
   - /reusable-workflows-reference
+  - /openid-connect-reference
   - /github_token-reference
   - /dockerfile-support-for-github-actions
   - /github-hosted-runners-reference
