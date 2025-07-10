@@ -111,8 +111,11 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
 * **{% data variables.copilot.copilot_coding_agent %} is not available in {% data variables.enterprise.data_residency %}**. The agent is only available in {% data variables.product.prodname_dotcom_the_website %}.
 
+## Hands-on practice
+
+Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.
+
 ## Further reading
 
-* **Hands-on practice**: Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills course for practical experience with {% data variables.copilot.copilot_coding_agent %}.
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent) how-to articles
 * [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
