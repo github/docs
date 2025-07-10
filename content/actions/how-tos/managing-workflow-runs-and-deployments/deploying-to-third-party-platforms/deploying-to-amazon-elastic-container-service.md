@@ -1,33 +1,22 @@
 ---
 title: Deploying to Amazon Elastic Container Service
-intro: You can deploy to Amazon Elastic Container Service (ECS) as part of your continuous deployment (CD) workflows.
+shortTitle: Amazon Elastic Container Service
+intro: Learn how to deploy a project to Amazon Elastic Container Service (ECS) as part of a continuous deployment (CD) workflow.
 redirect_from:
   - /actions/guides/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-amazon-elastic-container-service
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-amazon-elastic-container-service
   - /actions/use-cases-and-examples/deploying/deploying-to-amazon-elastic-container-service
+  - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-amazon-elastic-container-service
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CD
   - Containers
   - Amazon ECS
-shortTitle: Deploy to Amazon ECS
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
-
-On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %} and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
 
 ## Prerequisites
 
@@ -167,7 +156,7 @@ jobs:
           wait-for-service-stability: true{% endraw %}
 ```
 
-## Additional resources
+## Further reading
 
 For the original workflow template, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 

@@ -1,11 +1,13 @@
 ---
 title: Deploying to Google Kubernetes Engine
-intro: You can deploy to Google Kubernetes Engine as part of your continuous deployment (CD) workflows.
+shortTitle: Google Kubernetes Engine
+intro: Learn how to deploy a project to Google Kubernetes Engine (GKE) as part of a continuous deployment (CD) workflow.
 redirect_from:
   - /actions/guides/deploying-to-google-kubernetes-engine
   - /actions/deployment/deploying-to-google-kubernetes-engine
   - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-google-kubernetes-engine
   - /actions/use-cases-and-examples/deploying/deploying-to-google-kubernetes-engine
+  - /actions/how-tos/use-cases-and-examples/deploying/deploying-to-google-kubernetes-engine
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,19 +17,7 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
-shortTitle: Deploy to Google Kubernetes Engine
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
-
-GKE is a managed Kubernetes cluster service from Google Cloud that can host your containerized workloads in the cloud or in your own datacenter. For more information, see [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine).
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %}
 
 ## Prerequisites
 
@@ -203,7 +193,7 @@ jobs:
         kubectl get services -o wide
 ```
 
-## Additional resources
+## Further reading
 
 For more information on the tools used in these examples, see the following documentation:
 
