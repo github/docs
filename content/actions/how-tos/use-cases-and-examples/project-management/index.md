@@ -10,11 +10,11 @@ children:
   - /adding-labels-to-issues
   - /closing-inactive-issues
   - /commenting-on-an-issue-when-a-label-is-added
-  - /moving-assigned-issues-on-project-boards
-  - /removing-a-label-when-a-card-is-added-to-a-project-board-column
   - /scheduling-issue-creation
 redirect_from:
   - /actions/managing-issues-and-pull-requests
   - /actions/use-cases-and-examples/project-management
+  - /actions/how-tos/use-cases-and-examples/project-management/moving-assigned-issues-on-project-boards
+  - /actions/how-tos/use-cases-and-examples/project-management/removing-a-label-when-a-card-is-added-to-a-project-board-column
 ---
 

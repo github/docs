@@ -15,9 +15,7 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/viewing-deployment-history
 ---
 
-## About deployment history
-
-{% data reusables.actions.about-deployment-with-github-actions %}
+## Viewing your repository's deployment history
 
 On the deployments page of your repository, you can view the following aspects of your deployments.
 
@@ -31,8 +29,6 @@ On the deployments page of your repository, you can view the following aspects o
 * Deployment statuses. For more information about deployment statuses, see [AUTOTITLE](/rest/deployments/deployments#about-deployments).
 
 By default, the deployments page shows currently active deployments from select environments and a timeline of the latest deployments for all environments.
-
-## Viewing your repository's deployment history
 
 1. In the right-hand sidebar of the home page of your repository, click **Deployments**.
 1. Once you are on the "Deployments" page, you can view the following information about your deployment history.
