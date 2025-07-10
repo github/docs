@@ -59,6 +59,8 @@ For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigg
 
 {% data reusables.actions.about-environments %}
 
+You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the deployment protection rules pass. To learn more, see [Using custom deployment protection rules](#using-custom-deployment-protection-rules) in this article.
+
 ## Using concurrency
 
 Concurrency ensures that only a single job or workflow using the same concurrency group will run at a time. You can use concurrency so that an environment has a maximum of one deployment in progress and one deployment pending at a time. For more information about concurrency, see [AUTOTITLE](/actions/using-jobs/using-concurrency).
@@ -141,6 +143,30 @@ When a {% data variables.product.prodname_actions %} workflow deploys to an envi
 Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug deployments. For more information see, [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph).
 
 You can also view the logs of each workflow run and the history of workflow runs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
+
+## Using required reviews in workflows
+
+Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, it will automatically fail.
+
+For more information about environments and required approvals, see [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment). For information about how to review deployments with the REST API, see [AUTOTITLE](/rest/actions/workflow-runs).
+
+## Using custom deployment protection rules
+
+{% data reusables.actions.custom-deployment-protection-rules-beta-note %}
+
+{% data reusables.actions.about-custom-deployment-protection-rules %}
+
+Custom deployment protection rules are powered by {% data variables.product.prodname_github_apps %} and run based on webhooks and callbacks. Approval or rejection of a workflow job is based on consumption of the `deployment_protection_rule` webhook. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_protection_rule) and [Approving or rejecting deployments](/actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/creating-custom-deployment-protection-rules#approving-or-rejecting-deployments).
+
+Once you have created a custom deployment protection rule and installed it on your repository, the custom deployment protection rule will automatically be available for all environments in the repository.
+
+Deployments to an environment can be approved or rejected based on the conditions defined in any external service like an approved ticket in an IT Service Management (ITSM) system, vulnerable scan result on dependencies, or stable health metrics of a cloud resource. The decision to approve or reject deployments is at the discretion of the integrating third-party application and the gating conditions you define in them. The following are a few use cases for which you can create a deployment protection rule.
+
+* ITSM & Security Operations: you can check for service readiness by validating quality, security, and compliance processes that verify deployment readiness.
+* Observability systems: you can consult monitoring or observability systems (Asset Performance Management Systems and logging aggregators, cloud resource health verification systems, etc.) for verifying the safety and deployment readiness.
+* Code quality & testing tools: you can check for automated tests on CI builds which need to be deployed to an environment.
+
+Alternatively, you can write your own protection rules for any of the above use cases or you can define any custom logic to safely approve or reject deployments from pre-production to production environments.
 
 ## Tracking deployments through apps
 
