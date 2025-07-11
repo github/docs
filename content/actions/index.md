@@ -10,8 +10,8 @@ featuredLinks:
     - /actions/how-tos/writing-workflows
     - /actions/how-tos/use-cases-and-examples
     - /actions/concepts/overview/continuous-integration
-    - /actions/concepts/use-cases/deploying-with-github-actions
-    - /actions/concepts/use-cases/about-packaging-with-github-actions
+    - /actions/tutorials/deploying-with-github-actions
+    - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
     - /actions/how-tos/monitoring-and-troubleshooting-workflows
   guideCards:
     - /actions/how-tos/writing-workflows/using-workflow-templates

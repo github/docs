@@ -1,5 +1,6 @@
 ---
 title: Deploying with GitHub Actions
+shortTitle: Controlling deployments
 intro: Learn how to control deployments with features like environments and concurrency.
 versions:
   fpt: '*'
@@ -10,23 +11,11 @@ redirect_from:
   - /actions/deployment/deploying-with-github-actions
   - /actions/deployment/about-deployments/deploying-with-github-actions
   - /actions/use-cases-and-examples/deploying/deploying-with-github-actions
+  - /actions/concepts/use-cases/deploying-with-github-actions
 topics:
   - CD
   - Deployment
-shortTitle: Deploy with GitHub Actions
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
-{% data variables.product.prodname_actions %} offers features that let you control deployments. You can:
-
-* Trigger workflows with a variety of events.
-* Configure environments to set rules before a job can proceed and to limit access to secrets.
-* Use concurrency to control the number of deployments running at a time.
-
-For more information about continuous deployment, see [AUTOTITLE](/actions/deployment/about-deployments/about-continuous-deployment).
 
 ## Prerequisites
 
