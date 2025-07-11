@@ -13,6 +13,7 @@ children:
   - /about-custom-actions
   - /contexts
   - /expressions
+  - /deployment-environments
   - /dependency-caching
   - /about-monitoring-workflows
   - /notifications-for-workflow-runs
