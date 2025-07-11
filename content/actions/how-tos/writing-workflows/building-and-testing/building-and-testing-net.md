@@ -1,10 +1,11 @@
 ---
 title: Building and testing .NET
-intro: You can create a continuous integration (CI) workflow to build and test your .NET project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your .NET project.
 redirect_from:
   - /actions/guides/building-and-testing-net
   - /actions/automating-builds-and-tests/building-and-testing-net
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-net
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-net
 versions:
   fpt: '*'
   ghes: '*'

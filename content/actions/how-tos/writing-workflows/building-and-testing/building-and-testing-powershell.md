@@ -1,17 +1,18 @@
 ---
 title: Building and testing PowerShell
-intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your PowerShell project.
 redirect_from:
   - /actions/guides/building-and-testing-powershell
   - /actions/automating-builds-and-tests/building-and-testing-powershell
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-powershell
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 authors:
   - potatoqualitee
-type: tutorial
+
 topics:
   - CI
   - PowerShell

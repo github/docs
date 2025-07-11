@@ -1,7 +1,7 @@
 ---
-title: Storing and sharing data from a workflow
-shortTitle: Store artifacts
-intro: Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed.
+title: Store and share data with workflow artifacts
+shortTitle: Store and share data
+intro: Use artifacts to share data between jobs in a workflow and store data once that workflow has completed.
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -12,6 +12,7 @@ redirect_from:
   - /actions/using-workflows/storing-workflow-data-as-artifacts
   - /actions/writing-workflows/choosing-what-your-workflow-does/storing-workflow-data-as-artifacts
   - /actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
+  - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,51 +20,14 @@ versions:
 type: tutorial
 topics:
   - Workflows
+allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Prerequisites
 
-## About workflow artifacts
-
-Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. {% data reusables.actions.reusable-workflow-artifacts %}
-
-{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
-
-These are some of the common artifacts that you can upload:
-
-* Log files and core dumps
-* Test results, failures, and screenshots
-* Binary or compressed files
-* Stress test performance output and code coverage results
-
-{% ifversion fpt or ghec %}
-
-Storing artifacts uses storage space on {% data variables.product.github %}. {% data reusables.actions.actions-billing %} For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions).
-
-{% else %}
-
-Artifacts consume storage space on the external blob storage that is configured for {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}.
-
-{% endif %}
-
-Artifacts are uploaded during a workflow run, and you can view an artifact's name and size in the UI. When an artifact is downloaded using the {% data variables.product.github %} UI, all files that were individually uploaded as part of the artifact get zipped together into a single file. This means that billing is calculated based on the size of the uploaded artifact and not the size of the zip file.
-
-{% data variables.product.github %} provides two actions that you can use to upload and download build artifacts. For more information, see the {% ifversion fpt or ghec %}[upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `upload-artifact` and `download-artifact` actions on {% data variables.product.prodname_ghe_server %}{% endif %}.
-
-To share data between jobs:
-
-* **Uploading files:** Give the uploaded file a name and upload the data before the job ends.
-* **Downloading files:** You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
-
-The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
-
-{% data reusables.actions.comparing-artifacts-caching %}
-
-For more information on dependency caching, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#comparing-artifacts-and-dependency-caching).
+Before you can complete this tutorial, you need to understand workflow artifacts. See [AUTOTITLE](/actions/concepts/workflows-and-actions/workflow-artifacts).
 
 ## Uploading build and test artifacts
-
-You can create a continuous integration (CI) workflow to build and test your code. For more information about using {% data variables.product.prodname_actions %} to perform CI, see [AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration).
 
 The output of building and testing your code often produces files you can use to debug test failures and production code that you can deploy. You can configure a workflow to build and test the code pushed to your repository and report a success or failure status. You can upload the build and test output to use for deployments, debugging failed tests or crashes, and viewing test suite coverage.
 
@@ -119,18 +83,6 @@ jobs:
           path: output/test/code-coverage.html
 ```
 
-{% ifversion artifact-attestations %}
-
-## Generating artifact attestations for builds
-
-{% data reusables.actions.about-artifact-attestations %}
-
-You can access attestations after a build run, underneath the list of the artifacts the build produced.
-
-For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
-
-{% endif %}
-
 ## Configuring a custom artifact retention period
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
@@ -146,15 +98,9 @@ You can define a custom retention period for individual artifacts created by a w
 
 The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
 
-## Downloading or deleting artifacts
+## Downloading artifacts during a workflow run
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact) action to download artifacts that were previously uploaded in the same workflow run.
-
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts), [AUTOTITLE](/actions/managing-workflow-runs/removing-workflow-artifacts), and [AUTOTITLE](/rest/actions/artifacts).
-
-### Downloading artifacts during a workflow run
-
-The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
+You can use the [`actions/download-artifact`](https://github.com/actions/download-artifact) action to download previously uploaded artifacts during a workflow run.
 
 > [!NOTE]
 > {% ifversion fpt or ghec %}If you want to download artifacts from a different workflow or workflow run, you need to supply a token and run identifier. See [Download Artifacts from other Workflow Runs or Repositories](https://github.com/actions/download-artifact?tab=readme-ov-file#download-artifacts-from-other-workflow-runs-or-repositories) in the documentation for the `download-artifact` action.
@@ -179,20 +125,6 @@ You can also download all artifacts in a workflow run by not specifying a name. 
 If you download all workflow run's artifacts, a directory for each artifact is created using its name.
 
 For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.prodname_ghe_server %}{% endif %}.
-
-{% ifversion fpt or ghec %}
-
-## Validating artifacts
-
-Every time the upload-artifact action is used it returns an output called `digest`. This is a SHA256 digest of the Artifact you uploaded during a workflow run.
-
-When the download-artifact action is then used to download that artifact, it automatically calculates the digest for that downloaded artifact and validates that it matches the output from the upload-artifact step.
-
-If the digest does not match, the run will display a warning in the UI and in the job logs.
-
-To view the SHA256 digest you can open the logs for the upload-artifact job or check in the Artifact output that appears in the workflow run UI.
-
-{% endif %}
 
 ## Passing data between jobs in a workflow
 
@@ -271,12 +203,16 @@ jobs:
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
 
-{% data reusables.actions.artifacts.artifacts-from-deleted-workflow-runs %}
-
 {% ifversion fpt or ghec %}
 
-## Further reading
+## Validating artifacts
 
-* [AUTOTITLE](/billing/managing-billing-for-github-actions).
+Every time the upload-artifact action is used it returns an output called `digest`. This is a SHA256 digest of the Artifact you uploaded during a workflow run.
+
+When the download-artifact action is then used to download that artifact, it automatically calculates the digest for that downloaded artifact and validates that it matches the output from the upload-artifact step.
+
+If the digest does not match, the run will display a warning in the UI and in the job logs.
+
+To view the SHA256 digest, open the logs for the upload-artifact job or check in the Artifact output that appears in the workflow run UI.
 
 {% endif %}

@@ -16,7 +16,7 @@ featuredLinks:
   guideCards:
     - /actions/how-tos/writing-workflows/using-workflow-templates
     - /actions/how-tos/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-    - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-powershell
+    - /actions/how-tos/writing-workflows/building-and-testing/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/how-tos/writing-workflows

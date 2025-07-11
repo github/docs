@@ -33,8 +33,9 @@ Organization owners can set policies to govern how {% data variables.product.pro
   * Image support in {% data variables.copilot.copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
     >[!NOTE] This setting only applies to preview features within {% data variables.product.prodname_copilot_short %} and does not control all preview-related settings in {% data variables.product.prodname_vscode_shortname %}.
 * {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
+* {% data variables.copilot.copilot_spaces %} (public preview)
+* MCP servers in {% data variables.product.prodname_copilot_short %}
 * {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %})
-* MCP servers on {% data variables.product.prodname_dotcom_the_website %} ({% data variables.release-phases.public_preview %})
 * {% data variables.copilot.copilot_mobile_short %}
 * {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * {% data variables.copilot.copilot_desktop_short %}
@@ -71,6 +72,23 @@ If an organization member is assigned a seat by multiple organizations with diff
 
 > [!TIP]
 > If you choose to enable {% data variables.copilot.copilot_coding_agent %} for users, you also need to define which repositories the agent is available in, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
+
+## Setting a policy for MCP servers connecting to {% data variables.product.prodname_copilot_short %} in your organization
+
+{% data reusables.copilot.coding-agent.mcp-brief-intro %}
+
+You can enable this policy to allow users to connect MCP (Model Context Protocol) servers to {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_coding_agent_short %}.
+
+* By default, this policy is disabled. When disabled, members with a {% data variables.product.prodname_copilot_short %} seat assigned by the organization will not be able to access MCP servers (remote or local) in {% data variables.product.prodname_copilot_short %}.
+* If there is a parent enterprise with the policy set to **Enabled** or **Disabled**, the organizations will inherit (and cannot change) the configuration set by the parent enterprise.
+* If **No policy** is selected at the enterprise level and multiple organizations within the enterprise assign seats to the same users, each with different policies, the least restrictive policy is applied.
+* This policy only applies to members with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} license assigned by the same organization configuring or inheriting the policy. It does not govern MCP access for any members with a {% data variables.product.prodname_copilot_short %} Free, Pro or Pro+ plan.
+* For centralized governance across all organizations you can configure the policy at the enterprise level.
+
+> [!NOTE]
+> This policy does not apply to {% data variables.product.prodname_copilot_short %} editors where MCP support is still in preview. Instead, you can use the **Editor preview features** policy to disable MCP access in these editors.
+
+For more information on using MCP, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Setting a policy for {% data variables.copilot.copilot_extensions %} in your organization
 

@@ -1,16 +1,16 @@
 ---
 title: Building and testing Rust
-intro: You can create a continuous integration (CI) workflow to build and test your Rust project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your Rust project.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: tutorial
 topics:
   - CI
 shortTitle: Build & test Rust
 redirect_from:
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-rust
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-rust
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

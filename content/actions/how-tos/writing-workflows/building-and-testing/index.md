@@ -18,6 +18,7 @@ redirect_from:
   - /actions/automating-builds-and-tests
   - /actions/examples/using-scripts-to-test-your-code-on-a-runner
   - /actions/use-cases-and-examples/building-and-testing
+  - /actions/how-tos/use-cases-and-examples/building-and-testing
 children:
   - /building-and-testing-go
   - /building-and-testing-java-with-ant

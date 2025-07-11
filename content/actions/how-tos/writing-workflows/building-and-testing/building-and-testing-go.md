@@ -1,17 +1,17 @@
 ---
 title: Building and testing Go
-intro: You can create a continuous integration (CI) workflow to build and test your Go project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your Go project.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
 shortTitle: Build & test Go
 redirect_from:
   - /actions/automating-builds-and-tests/building-and-testing-go
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-go
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-go
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
