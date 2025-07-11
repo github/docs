@@ -30,7 +30,7 @@ You can configure policies for your enterprise. If no policy is chosen at the en
 | ----------- | ------------------------------------------ |
 | [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom) | least restrictive |
 | [{% data variables.copilot.copilot_cli %}](#github-copilot-in-the-cli) | least restrictive |
-| [{% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview) | least restrictive |
+| [{% data variables.copilot.copilot_desktop_short %}](#copilot-in-github-desktop) | least restrictive |
 | [{% data variables.copilot.copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide) | least restrictive |
 | [Editor preview features](#editor-preview-features) | least restrictive |
 | [{% data variables.copilot.copilot_mobile %}](#github-copilot-chat-in-github-mobile) | least restrictive |
@@ -57,7 +57,7 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 
 {% data variables.copilot.copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal. You can ask {% data variables.product.prodname_copilot %} for command suggestions, or for explanations of commands they run.
 
-### {% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_desktop_short %}
 
 You can generate commit messages and descriptions in {% data variables.product.prodname_desktop %} based on the changes you make to your project.
 

@@ -33,11 +33,11 @@ Organization owners can set policies to govern how {% data variables.product.pro
   * Image support in {% data variables.copilot.copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
     >[!NOTE] This setting only applies to preview features within {% data variables.product.prodname_copilot_short %} and does not control all preview-related settings in {% data variables.product.prodname_vscode_shortname %}.
 * {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
-* {% data variables.copilot.copilot_spaces %} (public preview)
+* {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %})
 * MCP servers on {% data variables.product.prodname_dotcom_the_website %} ({% data variables.release-phases.public_preview %})
 * {% data variables.copilot.copilot_mobile_short %}
 * {% data variables.copilot.copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
-* {% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+* {% data variables.copilot.copilot_desktop_short %}
 * Suggestions matching public code
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
   * Anthropic {% data variables.copilot.copilot_claude %} in {% data variables.product.prodname_copilot_short %}
@@ -65,7 +65,7 @@ If an organization member is assigned a seat by multiple organizations with diff
 
    For example, to enable or disable suggestion matching, in the "Suggestions matching public code" dropdown, select **Allowed** or **Blocked**.
 
-1. If your organization has a {% data variables.copilot.copilot_business_short %}{% ifversion ghec %} or {% data variables.copilot.copilot_enterprise_short %}{% endif %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:
+1. If your organization has a {% data variables.copilot.copilot_business_short %}{% ifversion ghec %} or {% data variables.copilot.copilot_enterprise_short %}{% endif %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}," two additional options are displayed:
 
     {% data reusables.copilot.policies-for-dotcom %}
 
