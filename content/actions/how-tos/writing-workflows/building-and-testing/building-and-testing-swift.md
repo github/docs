@@ -1,15 +1,15 @@
 ---
 title: Building and testing Swift
-intro: You can create a continuous integration (CI) workflow to build and test your Swift project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your Swift project.
 redirect_from:
   - /actions/guides/building-and-testing-swift
   - /actions/automating-builds-and-tests/building-and-testing-swift
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-swift
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-swift
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Swift

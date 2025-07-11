@@ -1,17 +1,17 @@
 ---
 title: Building and testing Node.js
-intro: You can create a continuous integration (CI) workflow to build and test your Node.js project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your Node.js project.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
   - /actions/guides/building-and-testing-nodejs
   - /actions/automating-builds-and-tests/building-and-testing-nodejs
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-nodejs
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Node

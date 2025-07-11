@@ -5,11 +5,11 @@ redirect_from:
   - /actions/guides/building-and-testing-ruby
   - /actions/automating-builds-and-tests/building-and-testing-ruby
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-ruby
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-ruby
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Ruby

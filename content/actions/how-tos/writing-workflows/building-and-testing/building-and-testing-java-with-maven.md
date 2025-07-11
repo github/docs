@@ -1,16 +1,16 @@
 ---
 title: Building and testing Java with Maven
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Maven.
+intro: Learn how to create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Maven.
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-maven
   - /actions/guides/building-and-testing-java-with-maven
   - /actions/automating-builds-and-tests/building-and-testing-java-with-maven
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Java

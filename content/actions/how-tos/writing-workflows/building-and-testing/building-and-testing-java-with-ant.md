@@ -1,6 +1,6 @@
 ---
 title: Building and testing Java with Ant
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Ant.
+intro: Learn how to create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Ant.
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-ant
   - /actions/guides/building-and-testing-java-with-ant
@@ -10,7 +10,6 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Java

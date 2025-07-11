@@ -1,17 +1,17 @@
 ---
 title: Building and testing Python
-intro: You can create a continuous integration (CI) workflow to build and test your Python project.
+intro: Learn how to create a continuous integration (CI) workflow to build and test your Python project.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-python-with-github-actions
   - /actions/language-and-framework-guides/using-python-with-github-actions
   - /actions/guides/building-and-testing-python
   - /actions/automating-builds-and-tests/building-and-testing-python
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-python
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-python
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Python

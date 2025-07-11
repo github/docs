@@ -1,16 +1,16 @@
 ---
 title: Building and testing Java with Gradle
-intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Gradle.
+intro: Learn how to create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Gradle.
 redirect_from:
   - /actions/language-and-framework-guides/building-and-testing-java-with-gradle
   - /actions/guides/building-and-testing-java-with-gradle
   - /actions/automating-builds-and-tests/building-and-testing-java-with-gradle
   - /actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-gradle
+  - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-java-with-gradle
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 topics:
   - CI
   - Java
