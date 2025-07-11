@@ -1,3 +1,6 @@
+// When updating this file to typescript,
+// update links in content/contributing as well
+
 import path from 'path'
 
 import stripAnsi from 'strip-ansi'

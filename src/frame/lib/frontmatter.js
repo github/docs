@@ -1,3 +1,6 @@
+// when updating to typescript,
+// update links in content/contributing as well
+
 import parse from './read-frontmatter'
 import { allVersions } from '@/versions/lib/all-versions'
 import { allTools } from '@/tools/lib/all-tools'
