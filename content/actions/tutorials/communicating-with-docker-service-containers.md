@@ -1,12 +1,14 @@
 ---
-title: About service containers
-intro: 'You can use service containers to connect databases, web services, memory caches, and other tools to your workflow.'
+title: Communicating with Docker service containers
+shortTitle: Docker service containers
+intro: Learn how to use Docker service containers to connect databases, web services, memory caches, and other tools to your workflow.
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-service-containers
   - /actions/configuring-and-managing-workflows/about-service-containers
   - /actions/guides/about-service-containers
   - /actions/using-containerized-services/about-service-containers
   - /actions/use-cases-and-examples/using-containerized-services/about-service-containers
+  - /actions/concepts/use-cases/about-service-containers
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,17 +19,13 @@ topics:
   - Docker
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About service containers
+## Communicating with Docker service containers
 
 Service containers are Docker containers that provide a simple and portable way for you to host services that you might need to test or operate your application in a workflow. For example, your workflow might need to run integration tests that require access to a database and memory cache.
 
 You can configure service containers for each job in a workflow. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job. However, you cannot create and use service containers inside a composite action.
 
 {% data reusables.actions.docker-container-os-support %}
-
-## Communicating with service containers
 
 You can configure jobs in a workflow to run directly on a runner machine or in a Docker container. Communication between a job and its service containers is different depending on whether a job runs directly on the runner machine or in a container.
 

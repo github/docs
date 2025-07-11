@@ -14,6 +14,7 @@ shortTitle: Extending GitHub Actions Importer
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
+  - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
 ---
 
 [Legal notice](#legal-notice)

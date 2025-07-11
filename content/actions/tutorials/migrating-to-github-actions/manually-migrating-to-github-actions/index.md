@@ -15,5 +15,6 @@ children:
 redirect_from:
   - /actions/migrating-to-github-actions/manual-migrations
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions
+  - /actions/how-tos/migrating-to-github-actions/manually-migrating-to-github-actions
 ---
 

@@ -6,6 +6,7 @@ redirect_from:
   - /actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
   - /actions/migrating-to-github-actions/manual-migrations/migrating-from-gitlab-cicd-to-github-actions
   - /actions/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/how-tos/migrating-to-github-actions/manually-migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

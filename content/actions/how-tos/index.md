@@ -1,7 +1,7 @@
 ---
 title: How-tos for GitHub Actions
 shortTitle: How-tos
-intro: "Learn how to accomplish specific goals with GitHub Actions."
+intro: Learn how to accomplish specific goals with GitHub Actions.
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,6 +15,6 @@ children:
   - /hosting-your-own-runners
   - /security-for-github-actions
   - /use-cases-and-examples
-  - /migrating-to-github-actions
   - /administering-github-actions
 ---
+
