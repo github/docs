@@ -21,5 +21,4 @@ children:
   - /deploying-to-a-specific-environment
   - /control-the-concurrency-of-workflows-and-jobs
   - /running-variations-of-jobs-in-a-workflow
-  - /storing-and-sharing-data-from-a-workflow
 ---
