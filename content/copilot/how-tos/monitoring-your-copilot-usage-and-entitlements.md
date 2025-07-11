@@ -20,9 +20,10 @@ You can track your monthly usage of premium requests to help you get the most va
 
 ## Viewing premium request usage
 
-There are two ways to view your premium request usage:
+There are multiple ways to view your premium request usage:
 
 * [View current usage directly within your IDE](#viewing-usage-in-your-ide)
+* [View current usage in your {% data variables.product.prodname_copilot_short %} settings](#viewing-usage-in-your-copilot-settings)
 * [Download a {% data variables.product.prodname_copilot_short %} premium request usage report](#downloading-a-copilot-premium-request-usage-report)
 
 If you reach your limit for premium requests, you will be notified with a message in each of the {% data variables.product.prodname_copilot_short %} interfaces you use.
@@ -40,6 +41,14 @@ You can access usage information in the following IDEs.
 * **In JetBrains IDEs**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then select **View quote usage**.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
+
+### Viewing usage in your {% data variables.product.prodname_copilot_short %} settings
+
+You can view your premium request usage at any time from your {% data variables.product.prodname_copilot_short %} settings page on {% data variables.product.prodname_dotcom_the_website %}.
+
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. Click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.
+1. Under "Usage," view the "Premium requests" progress bar to see the percentage of your premium request quota used for the current month.
 
 ### Downloading a {% data variables.product.prodname_copilot_short %} premium request usage report
 
