@@ -1,4 +1,4 @@
----
+-----
 title: Concepts for GitHub Actions
 shortTitle: Concepts
 intro: "Learn the core concepts that you'll need to understand GitHub Actions."
@@ -13,4 +13,4 @@ children:
   - /security
   - /use-cases
   - /about-github-actions-metrics
----
+-----
