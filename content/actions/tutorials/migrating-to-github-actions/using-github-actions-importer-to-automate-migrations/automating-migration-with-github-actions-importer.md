@@ -5,6 +5,7 @@ redirect_from:
   - /actions/migrating-to-github-actions/automating-migration-with-github-actions-importer
   - /actions/migrating-to-github-actions/automated-migrations/automating-migration-with-github-actions-importer
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/automating-migration-with-github-actions-importer
+  - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/automating-migration-with-github-actions-importer
 versions:
   fpt: '*'
   ghec: '*'

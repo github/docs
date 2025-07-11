@@ -8,7 +8,6 @@ versions:
   ghec: '*'
 children:
   - /automating-migration-with-github-actions-importer
-  - /extending-github-actions-importer-with-custom-transformers
   - /migrating-from-azure-devops-with-github-actions-importer
   - /migrating-from-bamboo-with-github-actions-importer
   - /migrating-from-bitbucket-pipelines-with-github-actions-importer
@@ -19,5 +18,6 @@ children:
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations
+  - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations
 ---
 

@@ -14,6 +14,7 @@ shortTitle: Travis CI migration
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/migrating-from-travis-ci-with-github-actions-importer
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
+  - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
 ---
 
 [Legal notice](#legal-notice)

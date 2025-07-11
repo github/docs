@@ -26,4 +26,6 @@ children:
   - /self-hosted-runners-reference
   - /usage-limits-for-self-hosted-runners
   - /supplemental-arguments-and-settings
+  - /extending-github-actions-importer-with-custom-transformers
 ---
+
