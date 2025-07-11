@@ -11,15 +11,15 @@ type: how_to
 ---
 
 >[!NOTE]
-> * MCP support is currently in {% data variables.release-phases.public_preview %} and subject to change.
-> * MCP support is available in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode.
+> * MCP support is generally available (GA) in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}.
+> * MCP support for Copilot in {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode is in {% data variables.release-phases.public_preview %} and is subject to change.
 > * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
 
 ## About {% data variables.product.prodname_copilot_short %}'s agentic capabilities and MCP
 
 {% data variables.product.prodname_copilot_short %}'s agentic capabilities refer to the ability to **work independently** by executing multi-step workflows without constant guidance, **make decisions** by choosing appropriate tools and approaches based on context, and **iterate and adapt** by adjusting its approach according to feedback and results. You can access these capabilities by using agent mode.
 
-When combined with Model Context Protocol (MCP) servers, agent mode becomes significantly more powerful, giving {% data variables.product.prodname_copilot_short %} access to external resources without switching context. This enables {% data variables.product.prodname_copilot_short %} to complete agentic "loops", where it can dynamically adapt its approach by autonomously finding relevant information, analyzing feedback, and making informed decisions. With MCP, {% data variables.product.prodname_copilot_short %} can complete a task with minimal human intervention, continuously adjusting its strategy based on what it discovers.
+When combined with Model Context Protocol (MCP) servers, agent mode becomes significantly more powerful, giving {% data variables.product.prodname_copilot_short %} access to external resources without switching context. This enables {% data variables.product.prodname_copilot_short %} to complete agentic "loops," where it can dynamically adapt its approach by autonomously finding relevant information, analyzing feedback, and making informed decisions. With MCP, {% data variables.product.prodname_copilot_short %} can complete a task with minimal human intervention, continuously adjusting its strategy based on what it discovers.
 
 ### Benefits of combining MCP with agent mode
 
