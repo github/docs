@@ -46,7 +46,7 @@ When issues are identified, {% data variables.product.prodname_copilot_short %} 
 
 #### Ongoing maintenance
 
-{% data variables.product.prodname_copilot_short %} integrates with {% data variables.product.github %}'a code scanning capabilities to keep your existing codebase secure. When code scanning identifies a potential security alert, {% data variables.copilot.copilot_autofix_short %} can intelligently analyze the vulnerability and provide targeted, context-specific recommendations to resolve it.
+{% data variables.product.prodname_copilot_short %} integrates with {% data variables.product.github %}'s code scanning capabilities to keep your existing codebase secure. When code scanning identifies a potential security alert, {% data variables.copilot.copilot_autofix_short %} can intelligently analyze the vulnerability and provide targeted, context-specific recommendations to resolve it.
 
 These concrete fix suggestions streamline remediation, reducing the time developers spend researching vulnerabilities and figuring out how to address them. As a result, security alerts are resolved more efficiently and are less likely to linger or contribute to ongoing security debt.
 
