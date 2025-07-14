@@ -3,6 +3,8 @@ export type CategorizedEvents = Record<string, AuditLogEventT[]>
 export type AuditLogEventT = {
   action: string
   description: string
+  docs_reference_links?: string
+  docs_reference_titles?: string
 }
 
 export type RawAuditLogEventT = {
@@ -10,6 +12,7 @@ export type RawAuditLogEventT = {
   action: string
   description: string
   docs_reference_links: string
+  docs_reference_titles?: string
   ghes: Record<string, { _allowlists: string[] }>
 }
 
