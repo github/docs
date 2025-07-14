@@ -1,8 +1,15 @@
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { getPathWithoutVersion } from '@/frame/lib/path-utils'
 
-export default function permalinkRedirects(permalinks, redirectFrom) {
-  const redirects = {}
+import type { Permalink } from '@/types'
+
+type Redirects = Record<string, string>
+
+export default function permalinkRedirects(
+  permalinks: Permalink[],
+  redirectFrom: string[],
+): Redirects {
+  const redirects: Redirects = {}
   if (!permalinks.length) return redirects
 
   // The following is handling for versionless redirect fallbacks!

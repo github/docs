@@ -2,14 +2,20 @@ import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import getExceptionRedirects from './exception-redirects'
 import { latest } from '@/versions/lib/enterprise-server-releases'
 
+import type { Page } from '@/types'
+
 const EXCEPTIONS_FILE = './src/redirects/lib/static/redirect-exceptions.txt'
+
+type Redirects = Record<string, string>
 
 // This function runs at server warmup and precompiles possible redirect routes.
 // It outputs them in key-value pairs within a neat JavaScript object: { oldPath: newPath }
-export async function precompileRedirects(pageList) {
-  const allRedirects = readCompressedJsonFileFallback('./src/redirects/lib/static/developer.json')
+export async function precompileRedirects(pageList: Page[]): Promise<Redirects> {
+  const allRedirects: Redirects = readCompressedJsonFileFallback(
+    './src/redirects/lib/static/developer.json',
+  )
 
-  const externalRedirects = readCompressedJsonFileFallback(
+  const externalRedirects: Redirects = readCompressedJsonFileFallback(
     './src/redirects/lib/external-sites.json',
   )
   Object.assign(allRedirects, externalRedirects)
@@ -37,7 +43,7 @@ export async function precompileRedirects(pageList) {
   // The advantage of the exception redirects file is that it's encoded in plain
   // text so it's possible to write comments and it's also possible to write 1
   // destination URL once for each N redirect origins.
-  const exceptions = getExceptionRedirects(EXCEPTIONS_FILE)
+  const exceptions = getExceptionRedirects(EXCEPTIONS_FILE) as Redirects
   Object.assign(allRedirects, exceptions)
 
   Object.entries(allRedirects).forEach(([fromURI, toURI]) => {

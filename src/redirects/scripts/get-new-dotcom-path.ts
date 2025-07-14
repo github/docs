@@ -15,13 +15,13 @@ const markdownRegex = new RegExp(`${markdownExtension}$`, 'm')
 
 const newDotcomDir = 'content/github'
 
-const oldPath = process.argv.slice(2)[0]
+const oldPath: string = process.argv.slice(2)[0]
 assert(oldPath, 'must provide old dotcom path like "foo" or "articles/foo"')
 
-let filename = oldPath
+let filename: string = oldPath
 
 // get last part of path
-if (filename.includes('/')) filename = last(filename.split('/'))
+if (filename.includes('/')) filename = last(filename.split('/')) as string
 
 // first check whether name is a category
 const categoryDir = `${newDotcomDir}/${filename.replace(markdownRegex, '')}`
@@ -35,7 +35,7 @@ if (fs.existsSync(categoryDir)) {
 if (!filename.endsWith(markdownExtension)) filename = filename + markdownExtension
 
 // run find command
-const newPath = execSync(`find ${newDotcomDir} -name ${filename}`).toString()
+const newPath: string = execSync(`find ${newDotcomDir} -name ${filename}`).toString()
 
 if (!newPath) {
   console.log(`Cannot find new path for "${oldPath}". Check the name and try again.\n`)
