@@ -8,12 +8,12 @@ versions:
   ghec: '*'
 children:
   - /migrating-to-github-actions
+  - /actions-runner-controller
   - /creating-an-example-workflow
   - /creating-a-docker-container-action
   - /creating-a-javascript-action
   - /creating-a-composite-action
   - /store-and-share-data
-  - /quickstart-for-actions-runner-controller
   - /deploying-with-github-actions
   - /communicating-with-docker-service-containers
 redirect_from:

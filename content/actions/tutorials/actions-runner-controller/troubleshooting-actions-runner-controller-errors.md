@@ -11,6 +11,7 @@ topics:
   - Actions Runner Controller
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
 ---
 
 [Legal notice](#legal-notice)
