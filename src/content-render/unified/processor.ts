@@ -29,8 +29,9 @@ import annotate from './annotate'
 import alerts from './alerts'
 import removeHtmlComments from 'remark-remove-comments'
 import remarkStringify from 'remark-stringify'
+import type { Context, UnifiedProcessor } from '@/content-render/types'
 
-export function createProcessor(context) {
+export function createProcessor(context: Context): UnifiedProcessor {
   return (
     unified()
       .use(remarkParse)
@@ -44,11 +45,13 @@ export function createProcessor(context) {
       .use(remark2rehype, { allowDangerousHtml: true })
       // HTML AST below vvv
       .use(slug)
-      .use(useEnglishHeadings, context)
+      // useEnglishHeadings plugin requires context with englishHeadings property
+      .use(useEnglishHeadings as any, context || {})
       .use(headingLinks)
       .use(codeHeader)
       .use(annotate, context)
-      .use(highlight, {
+      // Using 'as any' for highlight plugin due to complex type mismatch between unified and rehype-highlight
+      .use(highlight as any, {
         languages: { ...common, graphql, dockerfile, http, groovy, erb, powershell },
         subset: false,
         aliases: {
@@ -71,18 +74,22 @@ export function createProcessor(context) {
       .use(rewriteForRowheaders)
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
-      .use(alerts, context)
+      // alerts plugin requires context with alertTitles property
+      .use(alerts as any, context || {})
       // HTML AST above ^^^
-      .use(html)
-    // String below vvv
+      .use(html) as UnifiedProcessor // String below vvv
   )
 }
 
-export function createMarkdownOnlyProcessor(context) {
-  return unified().use(remarkParse).use(gfm).use(rewriteLocalLinks, context).use(remarkStringify)
+export function createMarkdownOnlyProcessor(context: Context): UnifiedProcessor {
+  return unified()
+    .use(remarkParse)
+    .use(gfm)
+    .use(rewriteLocalLinks, context)
+    .use(remarkStringify) as UnifiedProcessor
 }
 
-export function createMinimalProcessor(context) {
+export function createMinimalProcessor(context: Context): UnifiedProcessor {
   return unified()
     .use(remarkParse)
     .use(gfm)
@@ -90,5 +97,5 @@ export function createMinimalProcessor(context) {
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(slug)
     .use(raw)
-    .use(html)
+    .use(html) as UnifiedProcessor
 }
