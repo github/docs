@@ -50,7 +50,7 @@ You can create a webhook to subscribe to events that occur in a specific organiz
 
 You can use the {% data variables.product.github %} web interface or the REST API to create an organization webhook. For more information about using the REST API to create an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#create-an-organization-webhook).
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
 1. Click **Your organizations**.
 1. To the right of the organization, click **Settings**.
 {% data reusables.webhooks.sidebar_webhooks %}
@@ -114,7 +114,7 @@ After you create a new webhook, {% data variables.product.github %} will send yo
 
 You can create a webhook to subscribe to events relating to your sponsorships. Only the owner of the sponsored account can create sponsorship webhooks for that account. For more information about the event that a sponsorship webhook is subscribed to, see the [`sponsorship` webhook event](/webhooks-and-events/webhooks/webhook-events-and-payloads#sponsorship).
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to create a webhook for, click **Dashboard**.
 1. In the left sidebar, click **Webhooks**.
 {% data reusables.webhooks.add_webhook_button %}
