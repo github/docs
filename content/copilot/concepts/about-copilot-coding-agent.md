@@ -17,7 +17,6 @@ redirect_from:
 
 > [!NOTE]
 > * {% data reusables.copilot.coding-agent.preview-note-text %}
-> * The setting that blocks suggestions matching public code may not work as intended when using {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Overview of {% data variables.copilot.copilot_coding_agent %}
 
@@ -109,6 +108,7 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} does not work with self-hosted {% data variables.product.prodname_actions %} runners**. {% data variables.product.prodname_copilot_short %} has access to its own development environment, running in {% data variables.product.prodname_actions %}, and must use {% data variables.product.prodname_dotcom %}-hosted runners. See [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent#upgrading-to-larger-github-hosted-github-actions-runners).
 * **{% data variables.copilot.copilot_coding_agent %} does not work in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}**. This is because {% data variables.copilot.copilot_coding_agent %} requires {% data variables.product.company_short %}-hosted runners, which are not available to repositories owned by {% data variables.enterprise.prodname_managed_users %}. See [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
 * **{% data variables.product.prodname_copilot_short %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
+* **{% data variables.copilot.copilot_coding_agent %} does not apply the "Suggestions matching public code" policy**. {% data variables.product.prodname_copilot_short %} may still produce suggestions matching public code, even if the "Suggestions matching public code" policy is set to "Block." If this happens, {% data variables.product.prodname_copilot_short %} will not provide code references pointing to the original source of the code. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 * **{% data variables.copilot.copilot_coding_agent %} is not available in {% data variables.enterprise.data_residency %}**. The agent is only available in {% data variables.product.prodname_dotcom_the_website %}.
 
 ## Hands-on practice
