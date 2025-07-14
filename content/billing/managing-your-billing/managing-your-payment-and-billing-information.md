@@ -81,7 +81,7 @@ The {% data variables.product.company_short %} products on your Azure invoice ar
 
 You can view and edit your billing information and update your payment method.
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
 
    * For **personal accounts**, click **Settings**, then in the **Access** section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
    * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.

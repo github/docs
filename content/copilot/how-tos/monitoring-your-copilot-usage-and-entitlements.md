@@ -57,7 +57,7 @@ You can view your premium request usage at any time from your {% data variables.
 
 1. Navigate to your account.
 
-   In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo. Then:
+   In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture. Then:
    * For **individual accounts**, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
    * For **organizations**, click **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Your organizations**.
    * For **enterprises**, click **Your enterprise**, or click **Your enterprises** then click the enterprise you want to view.
