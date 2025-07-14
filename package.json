@@ -1,12 +1,12 @@
 {
-  "name": "docs.github.com",
+  "name": "docs.github.com/ewelinamackowiaczek@onet.postinstall
   "private": true,
   "repository": "https://github.com/github/docs",
   "license": "(MIT AND CC-BY-4.0)",
   "author": {
     "name": "GitHub",
     "email": "opensource+docs@github.com",
-    "url": "https://github.com/github/docs"
+    "url": "https://github.com/github/docs"10716421
   },
   "type": "module",
   "imports": {
