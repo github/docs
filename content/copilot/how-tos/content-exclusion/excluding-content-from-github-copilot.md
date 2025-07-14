@@ -1,7 +1,7 @@
 ---
 title: Excluding content from GitHub Copilot
 shortTitle: Exclude content from Copilot
-intro: 'You can prevent {% data variables.product.prodname_copilot_short %} from accessing certain content.'
+intro: 'Learn how to prevent {% data variables.product.prodname_copilot_short %} from accessing certain content.'
 permissions: 'Repository administrators, organization owners, and enterprise owners can manage content exclusion settings. People with the "Maintain" role for a repository can view, but not edit, content exclusion settings for that repository.'
 product: '{% data reusables.gated-features.copilot-business-and-enterprise %}'
 layout: inline
@@ -22,53 +22,6 @@ redirect_from:
 topics:
   - Copilot
 ---
-
-## About content exclusion for {% data variables.product.prodname_copilot_short %}
-
-You can use content exclusion to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When you exclude content from {% data variables.product.prodname_copilot_short %}:
-
-* Code completion will not be available in the affected files.
-* The content in affected files will not inform code completion suggestions in other files.
-* The content in affected files will not inform {% data variables.copilot.copilot_chat %}'s responses.
-* Affected files will not be reviewed in a {% data variables.product.prodname_copilot_short %} code review.
-
-### Who can configure content exclusion
-
-Repository administrators, organization owners, and enterprise owners can configure content exclusion.
-
-{% data reusables.copilot.content-exclusions-scope %}
-
-### Availability of content exclusion
-
-The {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans provide the following level of support for content exclusion.
-
-| Tool                                            |            Code completion support            | {% data variables.copilot.copilot_chat_short %} support |
-|-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
-| {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
-| {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
-| JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
-| Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
-| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
-| Eclipse                                         | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
-| Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
-| The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
-| {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
-
-Content exclusions also apply to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website.
-
-> [!NOTE]
-> * Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
-> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}.
-
-### Limitations of content exclusion
-
-{% data reusables.copilot.content-exclusion-limitations %}
-
-Currently, content exclusions do not apply to symbolic links (symlinks).
-
-### Data sent to {% data variables.product.prodname_dotcom %}
-
-After you configure content exclusion, the client (for example, the {% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode_shortname %}) sends the current repository URL to the {% data variables.product.prodname_dotcom %} server so that the server can return the correct policy to the client. These URLs are not logged anywhere.
 
 ## Configuring content exclusion for your repository
 
@@ -235,5 +188,6 @@ You can verify that content exclusions you have configured are working as expect
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
 * [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation
