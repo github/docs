@@ -111,7 +111,7 @@ If you are an organization owner, enterprise owner, or billing manager, your bud
 
 ### Creating a budget
 
-As the onwer of an enterprise or organization account, or as a billing manager, you can set a budget at the account level, or at any level below this.
+As the owner of an enterprise or organization account, or as a billing manager, you can set a budget at the account level, or at any level below this.
 
 1. In the "Budgets and alerts" view, click **New budget**.
 1. Under "Budget", set a budget amount.
