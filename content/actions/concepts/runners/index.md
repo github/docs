@@ -12,6 +12,7 @@ children:
   - /about-private-networking-with-github-hosted-runners
   - /about-self-hosted-runners
   - /communicating-with-self-hosted-runners
+  - /about-runner-scale-sets
   - /about-actions-runner-controller
   - /about-support-for-actions-runner-controller
 ---

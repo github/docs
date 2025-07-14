@@ -80,7 +80,7 @@ With the new billing platform, you can:
 
 {% ifversion fpt %}
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
 
    * For **personal accounts**, click **Settings**.
    * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**.

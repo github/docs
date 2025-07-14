@@ -9,6 +9,7 @@ topics:
 children:
   - /github-copilot-chat-cheat-sheet
   - /ai-models
+  - /proxy-server-and-firewall-settings-for-copilot
   - /copilot-extensions
 ---
 
