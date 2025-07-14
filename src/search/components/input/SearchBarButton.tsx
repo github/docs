@@ -14,9 +14,16 @@ type Props = {
   setIsSearchOpen: (value: boolean) => void
   params: QueryParams
   searchButtonRef: React.RefObject<HTMLButtonElement>
+  instanceId?: string
 }
 
-export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchButtonRef }: Props) {
+export function SearchBarButton({
+  isSearchOpen,
+  setIsSearchOpen,
+  params,
+  searchButtonRef,
+  instanceId,
+}: Props) {
   const { t } = useTranslation('search')
   const { isOpen, dismiss } = useCTAPopoverContext()
 
@@ -42,15 +49,20 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchB
   const placeHolderElements = t('search.input.placeholder')
     .split(/({{[^}]+}})/)
     .filter((item) => item.trim() !== '')
-    .map((item) => <>{item.trim()}</>)
-  placeHolderElements[1] = <CopilotIcon aria-hidden className="mr-1 ml-1" />
+    .map((item, index) => <span key={`${item.trim()}-${index}`}>{item.trim()}</span>)
+  placeHolderElements[1] = <CopilotIcon key="copilot-icon" aria-hidden className="mr-1 ml-1" />
 
   return (
     <>
       {/* We don't want to show the input when overlay is open */}
       {!isSearchOpen ? (
         <>
-          <AISearchCTAPopup isOpen={isOpen} setIsSearchOpen={setIsSearchOpen} dismiss={dismiss} />
+          <AISearchCTAPopup
+            isOpen={isOpen}
+            setIsSearchOpen={setIsSearchOpen}
+            dismiss={dismiss}
+            instanceId={instanceId}
+          />
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"
