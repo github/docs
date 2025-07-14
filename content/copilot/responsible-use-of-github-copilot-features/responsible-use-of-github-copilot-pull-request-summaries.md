@@ -17,6 +17,12 @@ redirect_from:
 
 When a user requests a summary, {% data variables.product.prodname_copilot_short %} scans through the pull request and provides an overview of the changes made in prose, as well as a bulleted list of changes with the files that they impact.
 
+You can generate a summary in the following places:
+
+* In the description of a new pull request you're creating
+* In the description of an existing pull request, by editing the opening comment
+* In a comment on the main timeline of a pull request
+
 The only supported language for {% data variables.copilot.copilot_for_prs %} is English.
 
 {% data variables.copilot.copilot_for_prs %} uses a simple-prompt flow leveraging the {% data variables.product.prodname_copilot_short %} API, with no additional trained models. This utilizes the generic large language model.

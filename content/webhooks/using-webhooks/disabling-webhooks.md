@@ -39,7 +39,7 @@ To disable an organization webhook, you can deactivate or delete it. Only organi
 
 You can use the {% data variables.product.github %} web interface or the REST API to delete an organization webhook. For more information about using the REST API to delete an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#delete-an-organization-webhook).
 
-1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
 1. Click **Your organizations**.
 1. To the right of the organization, click **Settings**.
 {% data reusables.webhooks.sidebar_webhooks %}
@@ -80,7 +80,7 @@ You can deactivate a webhook that was previously enabled for events relating to 
 
 You can disable webhooks that were previously enabled for events relating to {% data variables.product.prodname_sponsors %}. Only the owner of the sponsored account can disable sponsorship webhooks for that account.
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to edit a webhook for, click **Dashboard**.
 1. In the left sidebar, click **Webhooks**.
 {% data reusables.webhooks.disable_webhook %}

@@ -21,7 +21,7 @@ The aim is to enable all the security features you want to trial quickly, as a s
 
 When you planned your trial, you identified the features that you want to test and any enforcement needs. You should create one or more security configurations for your enterprise that enable these features and set any enforcement levels you require.
 
-1. In the top-right corner of {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. In the top-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Depending on your environment, click **Your enterprise**, or click **Your enterprises** then click your trial enterprise.
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}

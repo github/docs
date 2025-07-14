@@ -12,6 +12,7 @@ redirect_from:
   - /early-access/copilot/code-reviews/using-copilot-code-review
   - /early-access/copilot/code-reviews/using-copilot-code-reviews
   - /copilot/using-github-copilot/code-review/using-copilot-code-review
+  - /copilot/code-review
 ---
 
 ## About {% data variables.copilot.copilot_code-review_short %}
@@ -44,11 +45,7 @@ The current functionality and availability of the two types of review is summari
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-
-If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the quota of the pull request author. If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to the user who triggered the workflow (if identifiable), or to a designated billing owner.
-
-When you reach your monthly quota you will not be able to get a code review from {% data variables.product.prodname_copilot_short %} until your quota resets—unless you upgrade your {% data variables.product.prodname_copilot_short %} plan or enable additional premium requests.
+{% data reusables.copilot.code-review.premium-reqs-monthly-quota %}
 
 {% endvscode %}
 
@@ -63,23 +60,47 @@ This version of the article relates to {% data variables.copilot.copilot_code-re
 
 ### Availability
 
-{% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.
+{% data reusables.copilot.code-review.availability %}
+
+{% data reusables.copilot.code-review.enable-for-orgs %}
 
 ### Code review monthly quota
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-
-If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the quota of the pull request author. If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to the user who triggered the workflow (if identifiable), or to a designated billing owner.
-
-When you reach your monthly quota you will not be able to get a code review from {% data variables.product.prodname_copilot_short %} until your quota resets—unless you upgrade your {% data variables.product.prodname_copilot_short %} plan or enable additional premium requests.
-
-### Language support
-
-{% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports all languages.
+{% data reusables.copilot.code-review.premium-reqs-monthly-quota %}
 
 {% endwebui %}
+
+{% mobile %}
+
+### Availability
+
+{% data reusables.copilot.code-review.availability %}
+
+{% data reusables.copilot.code-review.enable-for-orgs %}
+
+### Code review monthly quota
+
+{% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
+
+{% data reusables.copilot.code-review.premium-reqs-monthly-quota %}
+
+{% endmobile %}
+
+{% visualstudio %}
+
+### Availability
+
+{% data reusables.copilot.code-review.availability %}
+
+### Code review monthly quota
+
+{% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
+
+{% data reusables.copilot.code-review.premium-reqs-monthly-quota %}
+
+{% endvisualstudio %}
 
 ### Validating {% data variables.product.prodname_copilot_short %} code reviews
 
@@ -92,8 +113,6 @@ For more information, see [AUTOTITLE](/copilot/responsible-use-of-github-copilot
 {% webui %}
 
 These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} in the {% data variables.product.github %} website. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
-
-### Requesting a pull request review from {% data variables.product.prodname_copilot_short %}
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, create a pull request or navigate to an existing pull request.
 1. Open the **Reviewers** menu, then select **{% data variables.product.prodname_copilot_short %}**.
@@ -248,3 +267,16 @@ To use {% data variables.copilot.copilot_code-review_short %}, you must use {% d
 For more information on enabling and configuring {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_vs %}, see [Review local changes with {% data variables.copilot.copilot_chat_short %}](https://learn.microsoft.com/en-us/visualstudio/version-control/git-make-commit?view=vs-2022#review-local-changes-with-copilot-chat) in the {% data variables.product.prodname_vs %} documentation.
 
 {% endvisualstudio %}
+
+{% mobile %}
+
+These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_mobile %}. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+1. In {% data variables.product.prodname_mobile %}, open a pull request.
+1. Scroll down to the **Reviews** section and expand it.
+1. Click **Request Reviews**.
+1. Add {% data variables.product.prodname_copilot_short %} as a reviewer, then click **Done**.
+
+{% data variables.product.prodname_copilot_short %} will review the changes and provide feedback.
+
+{% endmobile %}

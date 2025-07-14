@@ -325,8 +325,8 @@
     connected to a network.
 - term: identicon
   description: >-
-    An auto-generated image used as a default profile photo when users sign up for
-    GitHub. Users can replace their identicon with their own profile photo.
+    An auto-generated image used as a default profile picture when users sign up for
+    GitHub. Users can replace their identicon with their own profile picture.
 - term: identity provider
   description: >-
     Also known as an IdP. A trusted provider that lets you use SAML single
@@ -527,7 +527,7 @@
     A branch with final changes that are ready to be used or deployed to an application or site.
 - term: profile
   description: The page that shows information about a user's activity on GitHub.
-- term: profile photo
+- term: profile picture
   description: >-
     A custom image users upload to GitHub to identify their activity, usually
     along with their username. This is also referred to as an avatar.

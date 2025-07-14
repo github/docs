@@ -60,7 +60,7 @@ For more information, see [AUTOTITLE](/code-security/supply-chain-security/under
 {% data reusables.dependabot.quickstart-link %}
 
 {% ifversion fpt or ghec %}
-1. Click your profile photo, then click **Settings**.
+1. Click your profile picture, then click **Settings**.
 1. Click **{% data variables.product.UI_advanced_security %}**.
 1. Click **Enable** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}

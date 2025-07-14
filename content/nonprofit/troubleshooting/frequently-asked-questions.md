@@ -9,7 +9,7 @@ shortTitle: Frequently asked questions
 ## How do I convert my user account to an organization account?
 
 You will need an organization account to sign up for a GitHub for Nonprofits discount. Below is a guide to convert your account to an organization.
-  
+
 Before you begin converting your account to an organization, set up a new personal GitHub account to manage the organization after conversion and ensure the personal account you're converting has left any organizations it has joined.
 
 > [!WARNING]
@@ -21,7 +21,7 @@ Before you begin converting your account to an organization, set up a new person
 > * Existing collaborators will retain access to repositories in the new organization.
 > * After conversion, GitHub Actions is not automatically enabled and will need to be re-enabled by creating a new workflow file in the `.github/workflows` directory of your repository.
 
-1. In the upper-right corner of any GitHub page, click your profile photo, then click **Settings**.
+1. In the upper-right corner of any GitHub page, click your profile picture, then click **Settings**.
 1. In the "Access" section of the sidebar, click **Organizations**.
 1. In the "Transform account" section, click **Turn USERNAME into an organization**.
 1. Read the warning provided, then click **Turn USERNAME into an organization** to confirm.
@@ -51,7 +51,7 @@ You will have to cancel your trial or remove your organization from the enterpri
 
 ### Cancelling your GitHub Enterprise trial
 
-1. In the top-right corner of GitHub, click your profile photo.
+1. In the top-right corner of GitHub, click your profile picture.
 1. Depending on your environment, click **Your enterprise** or **Your enterprises**. Then click the enterprise you want to view.
 1. On the left side of the page, in the enterprise account sidebar, click **Settings**.
 Under “Settings,” click **Profile**.
@@ -59,7 +59,7 @@ Under “Settings,” click **Profile**.
 
 ### Removing your organization from an enterprise
 
-1. In the top-right corner of GitHub, click your profile photo.
+1. In the top-right corner of GitHub, click your profile picture.
 1. Depending on your environment, click **Your enterprise** or **Your enterprises**. Then click the enterprise you want to view.
 1. In the left sidebar, click **Organizations**.
 1. In the search bar, begin typing the organization's name until the organization appears in the search results.

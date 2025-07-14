@@ -414,6 +414,17 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure App Configuration Key
+  secretType: azure_app_configuration_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Batch Key Identifiable
   secretType: azure_batch_key_identifiable
   versions:
@@ -448,6 +459,17 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Azure Communication Services Key
+  secretType: azure_communication_services_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Registry Key Identifiable
@@ -605,6 +627,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure Maps Key
+  secretType: azure_maps_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure ML Inference Key
   secretType: azure_ml_inference_identifiable_key
   versions:
@@ -759,6 +792,17 @@
   hasValidityCheck: false
   isduplicate: true
 - provider: Azure
+  supportedSecret: Microsoft Azure Web App Bot Key
+  secretType: azure_web_app_bot_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Web Pub Sub Connection String
   secretType: azure_web_pub_sub_connection_string
   versions:
@@ -770,6 +814,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Azure
+  supportedSecret: Azure Web Pub Sub Key
+  secretType: azure_web_pub_sub_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
 - provider: Azure
   supportedSecret: Microsoft Azure Entra ID Token
   secretType: microsoft_azure_entra_id_token
@@ -3580,7 +3635,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   isduplicate: false
 - provider: SendGrid
   supportedSecret: SendGrid API Key

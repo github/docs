@@ -11,7 +11,7 @@ children:
   - /creating-a-copilot-extension
   - /building-a-copilot-agent-for-your-copilot-extension
   - /building-a-copilot-skillset-for-your-copilot-extension
-  - /using-oidc-with-github-copilot-extensions
+  - /set-up-oidc
   - /debugging-your-github-copilot-extension
   - /managing-the-availability-of-your-copilot-extension
 redirect_from:

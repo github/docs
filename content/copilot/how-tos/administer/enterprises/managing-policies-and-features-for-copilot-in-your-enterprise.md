@@ -30,7 +30,7 @@ You can configure policies for your enterprise. If no policy is chosen at the en
 | ----------- | ------------------------------------------ |
 | [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom) | least restrictive |
 | [{% data variables.copilot.copilot_cli %}](#github-copilot-in-the-cli) | least restrictive |
-| [{% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview) | least restrictive |
+| [{% data variables.copilot.copilot_desktop_short %}](#copilot-in-github-desktop) | least restrictive |
 | [{% data variables.copilot.copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide) | least restrictive |
 | [Editor preview features](#editor-preview-features) | least restrictive |
 | [{% data variables.copilot.copilot_mobile %}](#github-copilot-chat-in-github-mobile) | least restrictive |
@@ -40,7 +40,7 @@ You can configure policies for your enterprise. If no policy is chosen at the en
 | [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models) | least restrictive |
 | [{% data variables.product.prodname_copilot_short %} Metrics API access](#copilot-metrics-api-access) | most restrictive |
 | [{% data variables.copilot.copilot_coding_agent %}](#copilot-coding-agent) | least restrictive |
-| [MCP servers on {% data variables.product.prodname_dotcom_the_website %}](#mcp-servers-on-githubcom) | least restrictive |
+| [MCP servers in {% data variables.product.prodname_copilot_short %}](#mcp-servers-in-copilot) | least restrictive |
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -57,7 +57,7 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 
 {% data variables.copilot.copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal. You can ask {% data variables.product.prodname_copilot %} for command suggestions, or for explanations of commands they run.
 
-### {% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_desktop_short %}
 
 You can generate commit messages and descriptions in {% data variables.product.prodname_desktop %} based on the changes you make to your project.
 
@@ -112,11 +112,20 @@ Alternatively, set to "No policy" to leave organization owners to make the decis
 
 > [!TIP] Enabling your license holders to use {% data variables.copilot.copilot_coding_agent %} is the first step in making {% data variables.copilot.copilot_coding_agent %} available for use in repositories in your organizations. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
 
-### MCP servers on {% data variables.product.prodname_dotcom_the_website %}
+### MCP servers in {% data variables.product.prodname_copilot_short %}
 
-> [!NOTE] Use of MCP servers on {% data variables.product.prodname_dotcom_the_website %} is in public preview and subject to change.
+{% data reusables.copilot.coding-agent.mcp-brief-intro %}
 
-{% data reusables.copilot.coding-agent.mcp-brief-intro %} See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+You can enable this policy to allow users to connect MCP servers to {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} and {% data variables.copilot.copilot_coding_agent_short %}.
+
+* By default, this policy is disabled. When disabled, users with a {% data variables.product.prodname_copilot_short %} seat assigned by the enterprise or any child organizations will not be able to access MCP servers (remote or local) in {% data variables.product.prodname_copilot_short %}.
+* If the policy is set to **Disabled** or **Enabled** at the enterprise level, all child organizations will inherit the same policy configuration.
+* This policy only applies to users with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat assigned by the same enterprise (or any of its child organizations) configuring the policy. It does not govern MCP access for any users with a {% data variables.product.prodname_copilot_short %} Free, Pro or Pro+ license.
+
+> [!NOTE]
+> This policy does not apply to {% data variables.product.prodname_copilot_short %} editors where MCP support is still in preview. Instead, you can use the **Editor preview features** policy to disable MCP access in these editors.
+
+For more information on using MCP, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 

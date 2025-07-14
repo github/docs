@@ -40,7 +40,7 @@ To share contributions from {% data variables.product.prodname_ghe_server %}, vi
 {% elsif ghes %}
 
 1. Sign in to both your user account on {% data variables.product.prodname_ghe_cloud %} **and** your user account on {% data variables.product.prodname_ghe_cloud %} ({% data variables.product.prodname_dotcom_the_website %}{% ifversion ghecom-github-connect %} or {% data variables.enterprise.data_residency_site %}{% endif %}).
-1. On {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
+1. On {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click your profile picture, then click **Settings**.
 
    ![Screenshot of a user's account menu on {% data variables.product.prodname_dotcom %}. The menu item "Settings" is outlined in dark orange.](/assets/images/help/settings/userbar-account-settings-global-nav-update.png)
 

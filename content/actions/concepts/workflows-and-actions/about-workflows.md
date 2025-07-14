@@ -13,6 +13,7 @@ redirect_from:
   - /actions/using-workflows/advanced-workflow-features
   - /actions/using-workflows/about-workflows
   - /actions/writing-workflows/about-workflows
+  - /actions/concepts/use-cases/using-github-actions-for-project-management
 topics:
   - Workflows
 layout: inline
