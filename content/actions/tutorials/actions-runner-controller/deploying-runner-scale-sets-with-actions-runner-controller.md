@@ -12,17 +12,10 @@ topics:
 defaultPlatform: linux
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
 ---
 
 [Legal notice](#legal-notice)
-
-## About runner scale sets
-
-Runner scale sets is a group of homogeneous runners that can be assigned jobs from {% data variables.product.prodname_actions %}. The number of active runners owned by a runner scale set can be controlled by auto-scaling runner solutions such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
-
-You can use runner groups to manage runner scale sets. Similar to self-hosted runners, you can add runner scale sets to existing runner groups. However, runner scale sets can belong to only one runner group at a time and can only have one label assigned to them. For more information on runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
-
-To assign jobs to a runner scale set, you must configure your workflow to reference the runner scale set's name. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
 
 ## Deploying a runner scale set
 
