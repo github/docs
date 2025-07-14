@@ -1,4 +1,4 @@
-import { describe, expect, test, vi, beforeEach, afterEach } from 'vitest'
+import { describe, expect, test, vi, beforeEach, afterEach, type MockedFunction } from 'vitest'
 import {
   createTranslationFallbackComment,
   EmptyTitleError,
@@ -10,7 +10,7 @@ import Page from '@/frame/lib/page'
 
 describe('Translation Error Comments', () => {
   // Mock renderContent for integration tests
-  let mockRenderContent
+  let mockRenderContent: MockedFunction<(template: string, context: any) => string>
 
   beforeEach(() => {
     mockRenderContent = vi.fn()
@@ -26,7 +26,7 @@ describe('Translation Error Comments', () => {
       test('includes all fields when token information is available', () => {
         const error = new Error("Unknown tag 'badtag', line:1, col:3")
         error.name = 'ParseError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test/article.md',
           getPosition: () => [1, 3],
         }
@@ -48,11 +48,11 @@ describe('Translation Error Comments', () => {
       test('includes original error message when available', () => {
         const error = new Error("Unknown variable 'variables.nonexistent.value'")
         error.name = 'RenderError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test/intro.md',
           getPosition: () => [3, 15],
         }
-        error.originalError = new Error('Variable not found: variables.nonexistent.value')
+        ;(error as any).originalError = new Error('Variable not found: variables.nonexistent.value')
 
         const result = createTranslationFallbackComment(error, 'rawIntro')
 
@@ -67,7 +67,7 @@ describe('Translation Error Comments', () => {
       test('falls back to main error message when no originalError', () => {
         const error = new Error('Main error message')
         error.name = 'RenderError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -82,7 +82,7 @@ describe('Translation Error Comments', () => {
       test('includes tokenization error details', () => {
         const error = new Error('Unexpected token, line:1, col:10')
         error.name = 'TokenizationError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test/page.md',
           getPosition: () => [1, 10],
         }
@@ -152,7 +152,7 @@ describe('Translation Error Comments', () => {
       test('handles error with token but no file', () => {
         const error = new Error('Error message')
         error.name = 'ParseError'
-        error.token = {
+        ;(error as any).token = {
           // No file property
           getPosition: () => [5, 10],
         }
@@ -167,7 +167,7 @@ describe('Translation Error Comments', () => {
       test('handles error with token but no getPosition method', () => {
         const error = new Error('Error message')
         error.name = 'ParseError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test.md',
           // No getPosition method
         }
@@ -192,7 +192,9 @@ describe('Translation Error Comments', () => {
         // Extract the message part to verify truncation
         const msgMatch = result.match(/msg="([^"]*)"/)
         expect(msgMatch).toBeTruthy()
-        expect(msgMatch[1].length).toBeLessThanOrEqual(203) // 200 + '...'
+        if (msgMatch?.[1]) {
+          expect(msgMatch[1].length).toBeLessThanOrEqual(203) // 200 + '...'
+        }
       })
 
       test('properly escapes quotes in error messages', () => {
@@ -244,7 +246,7 @@ describe('Translation Error Comments', () => {
       test('comment format is valid HTML', () => {
         const error = new Error('Test error')
         error.name = 'ParseError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -262,7 +264,7 @@ describe('Translation Error Comments', () => {
       test('contains all required fields when available', () => {
         const error = new Error('Detailed error message')
         error.name = 'RenderError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/detailed-test.md',
           getPosition: () => [42, 15],
         }
@@ -281,7 +283,7 @@ describe('Translation Error Comments', () => {
       test('maintains consistent field order', () => {
         const error = new Error('Test message')
         error.name = 'ParseError'
-        error.token = {
+        ;(error as any).token = {
           file: '/content/test.md',
           getPosition: () => [1, 1],
         }
@@ -318,11 +320,11 @@ describe('Translation Error Comments', () => {
         }
 
         // Mock renderContent to simulate error for Japanese, success for English
-        mockRenderContent.mockImplementation((template, context) => {
+        mockRenderContent.mockImplementation((template: string, context: any) => {
           if (context.currentLanguage !== 'en' && template.includes('badtag')) {
             const error = new Error("Unknown tag 'badtag'")
             error.name = 'ParseError'
-            error.token = {
+            ;(error as any).token = {
               file: '/content/test.md',
               getPosition: () => [1, 5],
             }
@@ -355,7 +357,7 @@ describe('Translation Error Comments', () => {
           },
         }
 
-        mockRenderContent.mockImplementation((template, context) => {
+        mockRenderContent.mockImplementation((template: string, context: any) => {
           if (context.currentLanguage !== 'en' && template.includes('badtag')) {
             const error = new Error("Unknown tag 'badtag'")
             error.name = 'ParseError'
@@ -382,7 +384,7 @@ describe('Translation Error Comments', () => {
         const failingCallable = async () => {
           const error = new Error("Unknown variable 'variables.bad'")
           error.name = 'RenderError'
-          error.token = {
+          ;(error as any).token = {
             file: '/content/article.md',
             getPosition: () => [10, 20],
           }

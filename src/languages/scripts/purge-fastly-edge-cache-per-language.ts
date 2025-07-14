@@ -20,7 +20,7 @@ import purgeEdgeCache from '@/workflows/purge-edge-cache'
  */
 const DELAY_BETWEEN_LANGUAGES = 10 * 1000
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms))
 
 // This covers things like `/api/webhooks` which isn't language specific.
 await purgeEdgeCache(makeLanguageSurrogateKey())
@@ -40,7 +40,7 @@ for (const language of languages) {
   await purgeEdgeCache(makeLanguageSurrogateKey(language))
 }
 
-function languagesFromString(str) {
+function languagesFromString(str: string): string[] {
   const languages = str
     .split(/,/)
     .map((x) => x.trim())
