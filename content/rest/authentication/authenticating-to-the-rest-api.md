@@ -89,7 +89,7 @@ The client ID and client secret are associated with the app, not with the owner 
 
 If you are the owner of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, or if you are an app manager for a {% data variables.product.prodname_github_app %}, you can find the client ID and generate a client secret on the settings page for your app. To navigate to your app's settings page:
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Navigate to your account settings.
    * For an app owned by a personal account, click **Settings**.
    * For an app owned by an organization:
