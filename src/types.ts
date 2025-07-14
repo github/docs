@@ -323,6 +323,7 @@ export type Permalink = {
   pageVersion: string
   title: string
   href: string
+  hrefWithoutLanguage: string
 }
 
 export type FrontmatterVersions = {
@@ -361,6 +362,7 @@ export type Page = {
   effectiveDate?: string
   fullTitle?: string
   render: (context: Context) => Promise<string>
+  buildRedirects: () => Record<string, string>
   octicon?: string
   category?: string[]
   complexity?: string[]

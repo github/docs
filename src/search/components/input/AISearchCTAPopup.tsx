@@ -16,12 +16,14 @@ export function AISearchCTAPopup({
   setIsSearchOpen,
   isDismissible = true,
   bannerType = 'popover',
+  instanceId = '',
 }: {
   isOpen: boolean
   dismiss?: () => void
   setIsSearchOpen: (value: boolean) => void
   isDismissible?: boolean
   bannerType?: 'popover' | 'footer'
+  instanceId?: string
 }) {
   const { t } = useTranslation('search')
   const { permanentDismiss } = useCTAPopoverContext()
@@ -90,7 +92,7 @@ export function AISearchCTAPopup({
       />
       <Heading
         as="h2"
-        id="ai-search-cta-heading"
+        id={`ai-search-cta-heading-${bannerType}${instanceId ? `-${instanceId}` : ''}`}
         sx={{
           fontSize: '16px',
           fontWeight: 'bold',
@@ -172,7 +174,7 @@ export function AISearchCTAPopup({
       ref={overlayRef}
       role="alertdialog"
       aria-modal="true"
-      aria-labelledby="ai-search-cta-heading"
+      aria-labelledby={`ai-search-cta-heading-${bannerType}${instanceId ? `-${instanceId}` : ''}`}
       aria-describedby="ai-search-cta-description"
       open={isOpen}
       caret={isLargeOrUp ? 'top' : 'top-right'}
