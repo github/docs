@@ -72,3 +72,5 @@ Organization and repository settings include the ability to exclude content from
 {% data reusables.copilot.more-details-content-exclusion-logs %}
 
 {% endif %}
+
+* [AUTOTITLE](/copilot/concepts/content-exclusion-for-github-copilot)

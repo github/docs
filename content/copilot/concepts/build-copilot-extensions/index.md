@@ -10,5 +10,6 @@ children:
   - /about-building-copilot-extensions
   - /agents-for-copilot-extensions
   - /skillsets-for-copilot-extensions
+  - /openid-connect
 ---
 

@@ -1,14 +1,15 @@
 ---
-title: Configuring your proxy server or firewall for Copilot
-intro: 'You should allow certain traffic through your firewall or proxy server for {% data variables.product.prodname_copilot_short %} to work as intended.'
+title: Proxy server and firewall settings for Copilot
+intro: 'Learn how to allow certain traffic through your firewall or proxy server for {% data variables.product.prodname_copilot_short %} to work as intended in your organization.'
 permissions: Proxy server maintainers or firewall maintainers
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Allow Copilot traffic
+shortTitle: Traffic allowlist for Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot
+  - /copilot/how-tos/administer/organizations/configuring-your-proxy-server-or-firewall-for-copilot
 ---
 
 If your company employs security measures like a firewall or proxy server, you should add the following URLs, ports, and protocols to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected:

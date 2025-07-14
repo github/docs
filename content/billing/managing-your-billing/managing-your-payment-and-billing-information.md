@@ -24,11 +24,24 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Manage your payment information
 ---
 
-You can view your payment information and history, and update your billing contacts. Supported payment methods include:
+You can view your payment information and history, and update your billing contacts.
 
-* Credit card
-* PayPal
-* Azure Subscription ID (not available for personal accounts)
+## Supported payment methods
+
+These are the supported payment methods for metered billing:
+
+* Invoice – Managed accounts only
+* Credit card – Unmanaged accounts, or as a nonrecurring method for managed accounts
+* PayPal – Unmanaged accounts, or as a nonrecurring method for managed accounts
+* Azure Subscription ID – Not available for personal accounts
+* Automated Clearing House (ACH) – Managed accounts only
+
+Accounts with volume licenses and metered billing can use multiple payment methods.
+
+* For unmanaged accounts, you might pay for volume licenses with a credit card or PayPal, and metered usage with an Azure Subscription ID.
+* For managed accounts, you might pay for volume licenses via invoice, and metered usage via Azure Subscription ID.
+
+{% data variables.product.prodname_copilot_short %} standalone accounts, which traditionally used Azure Subscription IDs, can now also pay by credit card. Contact your {% data variables.product.github %} representative for details.
 
 {% ifversion fpt %}
 
@@ -100,6 +113,16 @@ You can view and edit your billing information, update your payment method, and 
 1. Click **Payment information**.
 1. Click **Edit** to edit your payment information or **Remove** to delete your payment method.
 1. Follow the prompts.
+
+>[!NOTE] You may see an authorization hold on your provided payment method once its updated or after accruing significant usage of metered services. Authorization holds are temporary and are released as quickly as possible.
+
+## Troubleshooting payment method issues
+
+If you encounter issues when adding or updating your payment method, you can try the following:
+
+1. Retry adding your payment method.
+1. Try adding a new payment method.
+1. Reach out to {% data variables.contact.github_support %} or your customer representative for additional assistance.
 
 ## Viewing payment history
 

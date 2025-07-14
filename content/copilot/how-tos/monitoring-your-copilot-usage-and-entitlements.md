@@ -46,7 +46,7 @@ You can access usage information in the following IDEs.
 
 You can view your premium request usage at any time from your {% data variables.product.prodname_copilot_short %} settings page on {% data variables.product.prodname_dotcom_the_website %}.
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.
 1. Under "Usage," view the "Premium requests" progress bar to see the percentage of your premium request quota used for the current month.
 
