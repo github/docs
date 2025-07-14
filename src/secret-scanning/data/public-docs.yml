@@ -4294,6 +4294,17 @@
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
+- provider: Val Town
+  supportedSecret: Val Town API Token
+  secretType: val_town_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: VolcEngine
   supportedSecret: VolcEngine Access Key ID
   secretType: volcengine_access_key_id
@@ -4399,7 +4410,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Yandex
