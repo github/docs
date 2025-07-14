@@ -189,7 +189,10 @@ For example, {% data variables.product.prodname_copilot_short %} will add commen
 
 Now you can review the pull request and make any adjustments. Once you have verified that the changes are valid, you can merge as with any other pull request.
 
+## Hands-on practice
+
+Try the [Integrate MCP with {% data variables.product.prodname_copilot %}](https://github.com/skills/integrate-mcp-with-copilot/) Skills exercise for practical experience integrating MCP with {% data variables.product.prodname_copilot %}.
+
 ## Further reading
 
-* **Hands-on practice**: Try the [Integrate MCP with Copilot](https://github.com/skills/integrate-mcp-with-copilot/) Skills course for practical experience with MCP and agent mode.
 * **MCP fundamentals**: For more information about setting up and configuring MCP servers, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp).
