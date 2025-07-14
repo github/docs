@@ -30,10 +30,10 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 * Update documentation
 * Address technical debt
 
-To delegate development tasks to {% data variables.product.prodname_copilot_short %}, you can:
+To delegate tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
 * Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
-* Use {% data variables.copilot.copilot_chat %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
+* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %} or your favorite IDE or agentic coding tool with MCP support. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
