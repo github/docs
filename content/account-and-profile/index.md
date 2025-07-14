@@ -1,7 +1,7 @@
 ---
 title: Account and Profile Documentation
 shortTitle: Account and Profile
-intro: >
+intro: 'Make {% data variables.product.github %} work best for you by customizing your personal account settings, personalizing your profile page, and managing the notifications you receive.'
   Make {% data variables.product.github %} work best for you by customizing your personal account settings, personalizing your profile page, and managing your notification preferences.
 introLinks:
   quickstart:
