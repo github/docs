@@ -16,6 +16,8 @@ sections:
       Users of GitHub Actions could not view or manage Actions artifacts and logs if the global AWS STS endpoint was unavailable, because Actions did not use the configured regional STS endpoint.
     - |
       If an Enterprise Managed User (EMU) pushed to their personal repository with both secret scanning and push protection enabled, the custom patterns defined at enterprise level were not being applied during the push protection scan.
+    - |
+      In some situations, the kafka-lite service could cause client timeouts when processing consumer group membership sessions and expirations. [Updated: 2025-07-14]
   changes:
     - |
       Site administrators can now set rate limits for the WebSockets controller used for live updates, with `ghe-config app.github.web-sockets-rate-limit`. For more information, see [Controlling the rate for the live update service](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/configuring-rate-limits#controlling-the-rate-for-the-live-update-service).

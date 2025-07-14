@@ -22,6 +22,8 @@ sections:
       Organization owners had no audit log events to track organization announcements displayed on banners in the UI.
     - |
       If an Enterprise Managed User (EMU) pushed to their personal repository with both secret scanning and push protection enabled, the custom patterns defined at enterprise level were not being applied during the push protection scan.
+    - |
+      In some situations, the kafka-lite service could cause client timeouts when processing consumer group membership sessions and expirations. [Updated: 2025-07-14]
   changes:
     - |
       To ensure critical integrations and automated systems have uninterrupted access, the `/repositories/:repository_id/collaborators` endpoints now honor the higher rate limits for exempt users set with `ghe-config app.github.rate-limiting-exempt-users "<USER>"`.
