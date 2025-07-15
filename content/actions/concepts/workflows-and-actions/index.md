@@ -6,7 +6,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-workflows
+  - /workflows
   - /variables
   - /avoiding-duplication
   - /reusable-workflows

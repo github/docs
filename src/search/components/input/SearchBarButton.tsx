@@ -4,10 +4,8 @@ import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from '@/languages/components/useTranslation'
 import { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
-import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import styles from './SearchBarButton.module.scss'
-import { AISearchCTAPopup } from './AISearchCTAPopup'
 
 type Props = {
   isSearchOpen: boolean
@@ -25,7 +23,6 @@ export function SearchBarButton({
   instanceId,
 }: Props) {
   const { t } = useTranslation('search')
-  const { isOpen, dismiss } = useCTAPopoverContext()
 
   const urlSearchInputQuery = params['search-overlay-input']
 
@@ -57,15 +54,10 @@ export function SearchBarButton({
       {/* We don't want to show the input when overlay is open */}
       {!isSearchOpen ? (
         <>
-          <AISearchCTAPopup
-            isOpen={isOpen}
-            setIsSearchOpen={setIsSearchOpen}
-            dismiss={dismiss}
-            instanceId={instanceId}
-          />
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"
+            data-instance={instanceId}
             ref={searchButtonRef}
             className={styles.searchIconButton}
             onClick={handleClick}
@@ -76,6 +68,7 @@ export function SearchBarButton({
           {/* On large and up the SearchBarButton is shown */}
           <button
             data-testid="search"
+            data-instance={instanceId}
             tabIndex={0}
             aria-label={t('search.input.placeholder_no_icon')}
             className={styles.searchInputButton}

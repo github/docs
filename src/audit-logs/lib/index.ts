@@ -174,6 +174,7 @@ export async function filterByAllowlistValues({
         action: event.action,
         description: processAndGetEventDescription(event, eventAllowlists, pipelineConfig),
         docs_reference_links: event.docs_reference_links,
+        fields: event.fields,
       }
 
       // Resolve reference link titles if context is provided
@@ -259,6 +260,7 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
           action: event.action,
           description: processAndGetEventDescription(event, ghesVersionAllowlists, pipelineConfig),
           docs_reference_links: event.docs_reference_links,
+          fields: event.ghes[ghesVersion].fields || event.fields,
         }
 
         // Resolve reference link titles if context is provided

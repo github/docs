@@ -144,6 +144,7 @@ parameter_table:
 audit_logs:
   action: Action
   description: Description
+  fields: Fields
   reference: Reference
 graphql:
   reference:

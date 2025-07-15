@@ -45,32 +45,33 @@ describe('audit log events docs', () => {
 
         const versionedAuditLogEventsPage = `/${version}${page.path}`
         const $ = await getDOM(versionedAuditLogEventsPage)
-        const categoryH2Ids = $('h2')
-          .map((_, h2) => $(h2).attr('id'))
+        const categoryH3Ids = $('h3')
+          .map((_, h3) => $(h3).attr('id'))
           .get()
-        const categoryNames = categoryH2Ids.map((category) => category)
+        const categoryNames = categoryH3Ids.map((category) => category)
 
         const everyAuditLogCategoryPresent = auditLogCategories.every((category) =>
           categoryNames.includes(category),
         )
 
-        expect(categoryH2Ids.length).toBeGreaterThan(0)
+        expect(categoryH3Ids.length).toBeGreaterThan(0)
         expect(everyAuditLogCategoryPresent).toBe(true)
 
         // Spot check audit log event data by checking all the event actions under
         // the workflows category which is available across all audit log event
         // pages.
         const workflowsEventActions = auditLogEvents.workflows.map((e) => e.action)
-        // each row corresponds to an audit log event, the format is:
+        // each definition list item corresponds to an audit log event, the format is:
         //
-        // event action | event description
+        // <dt>event action</dt>
+        // <dd>event description</dd>
         //
         // we grab all the rendered workflow event action names and for our
         // comparison we check that all the action names from the audit log
         // schema data are included in the rendered action names.
-        const workflowsEventTRs = $('#workflows + table > tbody > tr').get()
-        const renderedWorkflowsEventActions = workflowsEventTRs.map((tr) => {
-          return $(tr.children[0]).text()
+        const workflowsEventDTs = $('#workflows + div > div > dl > dt').get()
+        const renderedWorkflowsEventActions = workflowsEventDTs.map((dt) => {
+          return $(dt).find('code').text()
         })
         const everyWorkflowsEventActionPresent = workflowsEventActions.every((action) =>
           renderedWorkflowsEventActions.includes(action),
