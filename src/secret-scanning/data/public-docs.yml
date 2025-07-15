@@ -531,6 +531,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure Fluid Relay Key
+  secretType: azure_fluid_relay_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Function Key
   secretType: azure_function_key
   versions:
@@ -629,6 +640,17 @@
 - provider: Azure
   supportedSecret: Azure Maps Key
   secretType: azure_maps_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Azure Mixed Reality Key
+  secretType: azure_mixed_reality_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -756,6 +778,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure SignalR Key
+  secretType: azure_signalr_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Azure
   supportedSecret: Azure SQL Connection String
   secretType: azure_sql_connection_string
   versions:
@@ -764,6 +797,17 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Azure SQL Internal Default CloudSA Key
+  secretType: azure_sql_internal_default_cloudsa_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -943,6 +987,105 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Agent Access Token
+  secretType: buildkite_agent_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Agent Job Token
+  secretType: buildkite_agent_job_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Agent Registration Token
+  secretType: buildkite_agent_registration_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Cluster Queue Token
+  secretType: buildkite_cluster_queue_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Cluster Token
+  secretType: buildkite_cluster_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Packages Registry Token
+  secretType: buildkite_packages_registry_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Packages Temporary Token
+  secretType: buildkite_packages_temporary_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Portal Secret
+  secretType: buildkite_portal_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite Portal Token
+  secretType: buildkite_portal_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Buildkite
