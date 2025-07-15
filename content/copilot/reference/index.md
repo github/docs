@@ -11,5 +11,6 @@ children:
   - /ai-models
   - /proxy-server-and-firewall-settings-for-copilot
   - /copilot-extensions
+  - /metrics-data
 ---
 

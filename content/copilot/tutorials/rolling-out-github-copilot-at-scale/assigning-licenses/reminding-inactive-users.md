@@ -159,5 +159,6 @@ jobs:
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/reference/metrics-data#last_activity_at)
 * [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company)
 * [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/analyzing-usage-over-time-with-the-copilot-metrics-api)
