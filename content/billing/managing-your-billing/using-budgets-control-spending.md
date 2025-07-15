@@ -132,7 +132,6 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
 
-1. In the "Budgets and alerts" view, click **New budget**.
-1. Click **Budgets and alerts**.
-1. To edit a budget, in the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
+1. Navigate to the "Budgets and alerts" view. See [Viewing budgets](#viewing-budgets).
+1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.
