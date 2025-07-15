@@ -144,6 +144,7 @@ parameter_table:
 audit_logs:
   action: Action
   description: Description
+  reference: Reference
 graphql:
   reference:
     implements: <code>{{ GraphQLItemTitle }}</code> Implements

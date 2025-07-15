@@ -30,6 +30,8 @@ sections:
       On instances with dangling commit graph lock files, recompute checksum operations were unexpectedly triggered.
     - |
       After an appliance reboot, code scanning did not always trigger or process analyses.
+    - |
+      In some situations, the kafka-lite service could cause client timeouts when processing consumer group membership sessions and expirations. [Updated: 2025-07-14]
   changes:
     - |
       Site administrators who test the Prometheus endpoint can now use 127.0.0.1 as a trusted IP address. Previously, only specific IPs were allowed for testing.
