@@ -1512,14 +1512,8 @@ upcoming_changes:
     date: '2025-09-04'
     criticality: breaking
     owner: github/issues_advanced_search
-  - location: ClosedEvent.stateReason
-    description: '`stateReason` will be removed.'
-    reason: The state reason for duplicate issue is now returned by default.
-    date: '2025-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: issues
-  - location: Issue.stateReason
-    description: '`stateReason` will be removed.'
+  - location: Issue.stateReason.enableDuplicate
+    description: '`enableDuplicate` will be removed.'
     reason: The state reason for duplicate issue is now returned by default.
     date: '2025-10-01T00:00:00+00:00'
     criticality: breaking
