@@ -1,9 +1,10 @@
 ---
 title: Account and profile documentation
 shortTitle: Account and profile
-intro: 'Make {% data variables.product.github %} work best for you by adjusting the settings for your personal account, personalizing your profile page, and managing the notifications you receive.'
+intro: 'Make {% data variables.product.github %} work best for you by customizing your personal account settings, personalizing your profile page, and managing the notifications you receive.'
 introLinks:
-  quickstart: /get-started/onboarding/getting-started-with-your-github-account
+  quickstart:
+    - /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
   startHere:
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username
