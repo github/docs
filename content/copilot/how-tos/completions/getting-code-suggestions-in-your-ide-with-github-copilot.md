@@ -10,6 +10,7 @@ versions:
 defaultTool: vscode
 topics:
   - Copilot
+type: how_to
 ---
 
 <style>
@@ -32,11 +33,13 @@ topics:
 
 {% jetbrains %}
 
-## About {% data variables.product.prodname_copilot %} and JetBrains IDEs
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in a JetBrains IDE. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-The examples in this guide use Java, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
+The examples in this guide use Java, however other languages will work similarly.
+
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions?tool=jetbrains).
 
 ## Prerequisites
 
@@ -134,11 +137,13 @@ If you want to accept the next line of a suggestion, you will need to set a cust
 
 {% visualstudio %}
 
-## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_vs %}
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %} for Windows. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-The examples in this guide use C#, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
+The examples in this guide use C#, however other languages will work similarly.
+
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions?tool=visualstudio).
 
 ## Prerequisites
 
@@ -212,7 +217,7 @@ To enable comment suggestions, you need to configure the comment style in {% dat
 1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
 1. In the left-side panel, click **Text Editor**.
 1. Click **C++**, then **Code Style**, then **General**.
-1. Under "Comments", select **Xml Doc Comments** from the dropdown.
+1. Under "Comments," select **Xml Doc Comments** from the dropdown.
 1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.**
 
 #### For C#
@@ -220,7 +225,7 @@ To enable comment suggestions, you need to configure the comment style in {% dat
 1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
 1. In the left-side panel, click **Text Editor**.
 1. Click **C#**, then **Advanced**.
-1. Under "Comments", select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.**
+1. Under "Comments," select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.**
 
 ### Using comment suggestions
 
@@ -228,15 +233,9 @@ To initiate comment suggestions, type the standard comment initiator for the lan
 
 To accept the suggestion, press <kbd>Tab</kbd>. To modify the suggestion, press <kbd>Alt</kbd>+<kbd>/</kbd>. To reject the suggestion, press <kbd>Esc</kbd>.
 
-## About {% data variables.copilot.next_edit_suggestions %}
+## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
 
-Inline suggestions autocomplete code, but many development tasks involve editing existing code. {% data variables.copilot.next_edit_suggestions_caps %} assists with edits both at the cursor and in other relevant parts of the code, helping maintain consistency and streamline changes.
-
-{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
-
-To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
-
-### Navigating and accepting suggestions
+Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it.
 
 You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
 
@@ -246,16 +245,13 @@ An arrow in the gutter indicates an available edit suggestion. Click the arrow t
 
 {% vscode %}
 
-## About {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_vscode %}
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} provides two kinds of suggestions:
+The examples in this guide use JavaScript, however other languages will work similarly.
 
-* **Code completion**. {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
-* **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**. Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it.
-
-The examples in this guide use JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions?tool=vscode).
 
 ## Prerequisites
 
@@ -350,15 +346,9 @@ Alternatively, you can use a keyboard shortcut to accept the next word of a sugg
 
 If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 
-## About {% data variables.copilot.next_edit_suggestions %}
+## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
 
-Inline suggestions autocomplete code, but many development tasks involve editing existing code. {% data variables.copilot.next_edit_suggestions_caps %} assists with edits both at the cursor and in other relevant parts of the code, helping maintain consistency and streamline changes.
-
-{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
-
-To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
-
-### Navigating and accepting suggestions
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes.
 
 You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
 
@@ -376,7 +366,7 @@ You can change the large language model that's used to generate code completion 
 
 {% vimneovim %}
 
-## About {% data variables.product.prodname_copilot %} and Vim/Neovim
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Vim/Neovim. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -402,7 +392,7 @@ For more information and guidance on using {% data variables.product.prodname_co
 
 {% azure_data_studio %}
 
-## About {% data variables.product.prodname_copilot %} and Azure Data Studio
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Azure Data Studio. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -498,7 +488,7 @@ If you want to accept the next line of the suggestion, you will need to set a cu
 
 {% xcode %}
 
-## About {% data variables.product.prodname_copilot %} in Xcode
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Xcode. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -523,7 +513,7 @@ func calculateDaysBetweenDates(
 
 If you encounter issues with code suggestions, such as conflicting or missing suggestions, you can try the following:
 
-* **Disable Xcode's native predictive text completion:** To avoid receiving two sets of code suggestions, you can disable Xcode's native predictive text completion. You can find this setting in the Xcode settings in the "Editing" tab under "Text Editing".
+* **Disable Xcode's native predictive text completion:** To avoid receiving two sets of code suggestions, you can disable Xcode's native predictive text completion. You can find this setting in the Xcode settings in the "Editing" tab under "Text Editing."
 * **Check for duplication detection in {% data variables.product.prodname_copilot_short %}:** If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information on duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
 * **Check for updates and restart Xcode:** Ensure you have the latest version of {% data variables.product.prodname_copilot_short %} for Xcode in the extension application and restart Xcode.
 
@@ -533,7 +523,7 @@ You can also open an issue in the [{% data variables.product.prodname_copilot_sh
 
 {% eclipse %}
 
-## About {% data variables.product.prodname_copilot %} and Eclipse
+## Introduction
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Eclipse. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
@@ -593,3 +583,7 @@ If you don't want to accept an entire suggestion from {% data variables.product.
 * **Configure {% data variables.product.prodname_copilot_short %} in your editor** - You can enable or disable {% data variables.product.prodname_copilot %} from within your editor, and create your own preferred keyboard shortcuts for {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
 * **Get started with {% data variables.copilot.copilot_chat %}** - Learn how to ask {% data variables.product.prodname_copilot_short %} for information and assistance, using {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom){% endif %}.
 * **Troubleshoot issues** - Learn more about how to troubleshoot common issues with {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/copilot/troubleshooting-github-copilot).
+
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/completions/code-suggestions)
