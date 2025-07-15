@@ -41,7 +41,6 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | OpenAI                          | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Pusher                          | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
 | Twilio     (SendGrid)           | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
-| VividCortex                     | Monitor database performance, efficiency, and uptime                           | United States                                     | United States      |
 | Zendesk                         | Customer support ticketing system                                              | United States                                     | United States      |
 
 ## GitHub Subsidiaries
