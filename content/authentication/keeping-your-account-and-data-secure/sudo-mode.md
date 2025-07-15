@@ -52,6 +52,7 @@ To confirm access for sudo mode, you can authenticate with your password. Option
 {%- endif %}
 * [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
 * [Confirming access using your password](#confirming-access-using-your-password)
+* [Confirming access using your social login email](#confirming-access-using-your-social-login-email)
 
 ### Confirming access using a passkey
 
@@ -87,3 +88,9 @@ When prompted to authenticate for sudo mode, type the authentication code from y
 ### Confirming access using your password
 
 When prompted to authenticate for sudo mode, type your password, then click **Confirm**.
+
+### Confirming access using your social login email
+
+Before you can access sudo mode, you must first configure social login. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
+
+When prompted to authenticate for sudo mode, type the authentication code sent to your social login email account, then click **Verify**.
