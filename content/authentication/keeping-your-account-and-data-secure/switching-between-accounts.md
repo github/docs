@@ -1,9 +1,11 @@
 ---
-title: 'Switching between accounts'
+title: Switching between accounts
 intro: 'Learn how to switch between multiple {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} accounts and {% data variables.enterprise.prodname_managed_users %}{% else %}accounts{% endif %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: account-switcher
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: overview
 topics:
   - Identity
@@ -38,7 +40,7 @@ When you have added accounts to the account switcher, you can quickly change bet
 1. In the menu, click **{% octicon "arrow-switch" aria-hidden="true" aria-label="arrow-switch" %} Switch account**.
 1. In the submenu, click on the account that you want to switch to.
 
-      ![Screenshot of the "Switch account" menu with three options, "octocat", "hubot", and "Add account".](/assets/images/help/profile/switch-accounts.png)
+      ![Screenshot of the "Switch account" menu with three options, "octocat," "hubot," and "Add account."](/assets/images/help/profile/switch-accounts.png)
 
 ## Removing accounts from the account switcher
 

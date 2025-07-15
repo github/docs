@@ -69,9 +69,7 @@ This endpoint takes the following input parameters.
 | `code_challenge_method` | `string` | Strongly recommended | Used to secure the authentication flow with PKCE (Proof Key for Code Exchange). Required if `code_challenge` is included. Must be `S256` - the `plain` code challenge method is not supported.
 |  {% endif %} |
 | `allow_signup`|`string` | Optional | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups. |
-|  {% ifversion oauth_account_picker %} |
 | `prompt` | `string` | Optional | Forces the account picker to appear if set to `select_account`. The account picker will also appear if the application has a non-HTTP redirect URI or if the user has multiple accounts signed in. |
-|  {% endif %} |
 
 {% ifversion not pkce_support %}The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. {% endif %}CORS pre-flight requests (OPTIONS) are not supported at this time.
 

@@ -157,8 +157,7 @@ updates:
 
 Examples of how to configure access to the private registries supported by {% data variables.product.prodname_dependabot %}.
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}
-* [`cargo-registry`](#cargo-registry){% endif %}
+* [`cargo-registry`](#cargo-registry)
 * [`composer-repository`](#composer-repository)
 * [`docker-registry`](#docker-registry)
 * [`git`](#git)
@@ -172,8 +171,6 @@ Examples of how to configure access to the private registries supported by {% da
 * [`rubygems-server`](#rubygems-server)
 * [`terraform-registry`](#terraform-registry)
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}
-
 ### `cargo-registry`
 
 The `cargo-registry` type supports a token.
@@ -181,8 +178,6 @@ The `cargo-registry` type supports a token.
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% data reusables.dependabot.cargo-private-registry-config-example %}
-
-{% endif %}
 
 ### `composer-repository`
 

@@ -20,7 +20,7 @@ To keep your account secure, you must authenticate before you can access certain
 You can access your resources in {% data variables.product.github %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.github %} supports different modes of authentication.
 {%- ifversion not fpt %}
 * Your identity provider (IdP){% endif %}
-* Username and password with two-factor authentication{% ifversion passkeys %}, or a passkey{% endif %}
+* Username and password with two-factor authentication, or a passkey
 * {% data variables.product.pat_generic_caps %}
 * SSH key
 
@@ -30,7 +30,7 @@ You can access your resources in {% data variables.product.github %} in a variet
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.github %} in your browser using your IdP. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
-If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom %} username and password{% ifversion passkeys %}, or a passkey{% endif %}. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
+If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom %} username and password, or a passkey. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
 
 {% else %}
 
@@ -42,11 +42,7 @@ You can authenticate to {% data variables.product.github %} in your browser in a
 {% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
 {% endif %}
 
-{% ifversion account-switcher %}
-
 If you need to use multiple accounts on {% data variables.location.product_location %}, such as a personal account and a service account, you can quickly switch between your accounts without always needing to reauthenticate each time. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).
-
-{% endif %}
 
 * **Username and password only**
   * You'll create a password when you create your account on {% data variables.product.github %}. We recommend that you use a password manager to generate a random and unique password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).{% ifversion fpt or ghec %}
@@ -62,9 +58,9 @@ If you need to use multiple accounts on {% data variables.location.product_locat
     > [!NOTE]
     > {% data reusables.two_fa.unlink-email-address %}
 
-    {% endif %}{% ifversion passkeys %}
+    {% endif %}
 * **Passkey**
-  * You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).{% endif %}
+  * You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 
 {% ifversion ghes %}
 * **External authentication**

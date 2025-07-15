@@ -1,11 +1,11 @@
 ---
 title: Creating rulesets for repositories in your organization
-intro: 'You can create a ruleset to target multiple repositories in your organization.'
+intro: You can create a ruleset to target multiple repositories in your organization.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.13'
-permissions: 'Organization owners can create rulesets at the organization level.'
+  ghes: '*'
+permissions: Organization owners can create rulesets at the organization level.
 topics:
   - Organizations
 shortTitle: Create rulesets

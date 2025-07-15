@@ -64,7 +64,7 @@ If undecryptable records are detected, you will be prompted whether you want to 
 If you have any questions during the upgrade, you can reach out to {% data variables.contact.github_support %}. Once you have had the time and opportunity to understand the impact, you can retrigger the upgrade.
 {% endif %}
 
-{% ifversion ghes > 3.13 and ghes < 3.17 %}
+{% ifversion ghes < 3.17 %}
 
 ## Upgrading from 3.14 to 3.16.0
 
