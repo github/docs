@@ -15,7 +15,9 @@ describe('REST references docs', () => {
   test('loads schema data for all versions', async () => {
     for (const version of Object.keys(allVersions)) {
       const calendarDate = allVersions[version].latestApiVersion
-      const checksRestOperations = await getRest(version, calendarDate, 'checks', 'runs')
+      const restData = await getRest(version, calendarDate)
+      const checksRestOperations =
+        (restData && restData['checks'] && restData['checks']['runs']) || []
       const $ = await getDOM(`/en/${version}/rest/checks/runs?restVersion=${calendarDate}`)
       const domH2Ids = $('h2')
         .map((i, h2) => $(h2).attr('id'))
