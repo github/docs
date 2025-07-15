@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements
+  - /copilot/how-tos/monitoring-your-copilot-usage-and-entitlements
 ---
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
@@ -51,6 +52,8 @@ You can view your premium request usage at any time from your {% data variables.
 1. Under "Usage," view the "Premium requests" progress bar to see the percentage of your premium request quota used for the current month.
 
 ### Downloading a {% data variables.product.prodname_copilot_short %} premium request usage report
+
+The premium request usage report includes all premium request usage, both within and beyond the allowance. By contrast, other metered billing reports only reflect costs for premium requests beyond the allowance.
 
 >[!NOTE]
 > For organizations and enterprises, only admins can download a usage report to understand {% data variables.product.prodname_copilot_short %} usage across their business. Individual members of the organization or enterprise cannot download the report for themselves.

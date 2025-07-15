@@ -52,6 +52,18 @@ You can be simultaneously signed into mobile with multiple accounts on {% data v
 
 {% data variables.product.prodname_mobile %} may not work with your enterprise if you're required to access your enterprise over VPN.
 
+### Signing in with social login
+
+> [!NOTE]
+> Social login is only available for {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_ghe_cloud %} users
+
+You can sign in to {% data variables.product.prodname_mobile %} using a supported social login provider. Currently, only Google is supported for social login on the {% data variables.product.prodname_mobile %} for Android. To use this option, make sure you originally created your {% data variables.product.github %} account using Google.
+
+For iOS users, social login with Google is not supported in {% data variables.product.prodname_mobile %}. Follow the steps below to sign in to {% data variables.product.prodname_mobile %} on iOS using an account that was created with Google:
+1. Open the native web browser Safari and sign in to your {% data variables.product.github %} account.
+1. Authorize {% data variables.product.prodname_mobile %} in your browser when prompted.
+1. If you are unable to sign in through your browser, you can set a password or passkey for your {% data variables.product.github %} account on {% data variables.product.github %}. After setting a password or passkey, use your username and password with two-factor authentication, or a passkey, to sign in to {% data variables.product.prodname_mobile %}.
+
 ### Prerequisites for {% data variables.enterprise.data_residency_site %} accounts
 
 To access accounts on {% data variables.enterprise.data_residency %} using {% data variables.product.prodname_mobile %}, you need to install {% data variables.product.prodname_mobile %} with at least version iOS 1.182.0 or Android 1.178.0.
@@ -105,5 +117,5 @@ You can submit feature requests or other feedback for {% data variables.product.
 If you're testing a {% data variables.release-phases.public_preview %} release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the {% data variables.release-phases.public_preview %} at any time.
 
 1. On your iOS device, open the TestFlight app.
-1. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
+1. Under "Apps," tap **{% data variables.product.prodname_dotcom %}**.
 1. At the bottom of the page, tap **Stop Testing**.

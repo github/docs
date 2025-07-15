@@ -1,9 +1,11 @@
 ---
-title: Using Copilot text completion
-shortTitle: Text completion
-intro: 'You can use {% data variables.copilot.copilot_autocomplete_pr %} to help you write pull request descriptions more quickly and accurately.'
+title: Writing pull request descriptions with {% data variables.copilot.copilot_autocomplete_pr %}
+shortTitle: Write PR descriptions
+allowTitleToDifferFromFilename: true
+intro: 'Write pull request descriptions more quickly and accurately with {% data variables.copilot.copilot_autocomplete_pr %}.'
 versions:
   feature: copilot-enterprise
+type: how_to
 permissions: 'Members of an enterprise with a subscription to [{% data variables.copilot.copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
 topics:
   - Copilot
@@ -11,14 +13,7 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-text-completion
 ---
 
->[!NOTE]
-> {% data variables.copilot.copilot_autocomplete_pr %} is currently in {% data variables.release-phases.public_preview %} and subject to change. To participate in the {% data variables.release-phases.public_preview %}, an administrator of your enterprise must opt in to the use of previews of {% data variables.product.prodname_copilot_short %} features. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
-
-## About {% data variables.copilot.copilot_autocomplete_pr %}
-
-With {% data variables.copilot.copilot_autocomplete_pr %}, you can use AI-generated autocompletions to help you write pull request descriptions quickly and accurately. Accurate descriptions help reviewers understand the changes you're proposing, and help you communicate the purpose of your pull request more effectively.
-
-When you are creating a new pull request, {% data variables.copilot.copilot_autocomplete_pr %} will scan through the pull request and provide suggestions as you write, based on the context of the pull request.
+{% data reusables.copilot.text-completion-preview %}
 
 ## Using {% data variables.copilot.copilot_autocomplete_pr %}
 
@@ -38,3 +33,7 @@ You can disable or enable {% data variables.copilot.copilot_autocomplete_pr %} f
 
 1. On {% data variables.product.github %}, create a pull request.
 1. At the top of the description field, select {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} then hover over **Autocomplete ({% data variables.release-phases.public_preview_caps %})**, and click **Disabled** or **Enabled**.
+
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/completions/text-completion)

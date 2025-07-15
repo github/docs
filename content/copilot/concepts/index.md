@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /copilot-billing
+  - /completions
   - /prompt-engineering-for-copilot-chat
   - /about-customizing-github-copilot-chat-responses
   - /content-exclusion-for-github-copilot

@@ -273,6 +273,7 @@ const CHANGES_TO_REPORT = [
   ChangeType.SchemaQueryTypeChanged,
   ChangeType.SchemaMutationTypeChanged,
   ChangeType.SchemaSubscriptionTypeChanged,
+  ChangeType.DirectiveUsageFieldDefinitionRemoved,
 ]
 
 const CHANGES_TO_IGNORE = [
