@@ -15,7 +15,7 @@ topics:
 shortTitle: Create site with Jekyll
 ---
 
-{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 
 ## Prerequisites
 
