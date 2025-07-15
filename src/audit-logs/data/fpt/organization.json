@@ -2,7 +2,22 @@
   {
     "action": "account.billing_date_change",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "account.plan_change",
@@ -13,7 +28,22 @@
   {
     "action": "actions_cache.delete",
     "description": "A GitHub Actions cache was deleted using the REST API.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "advisory_credit.accept",
@@ -24,22 +54,82 @@
   {
     "action": "advisory_credit.create",
     "description": "Someone was added to the credit section of a security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "advisory_credit.decline",
     "description": "Credit was declined for a security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "advisory_credit.destroy",
     "description": "Someone was removed from the credit section of a security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "artifact.destroy",
     "description": "A workflow run artifact was manually deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "auto_approve_personal_access_token_requests.disable",
@@ -68,12 +158,42 @@
   {
     "action": "billing.lock",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "billing.unlock",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "checks.auto_trigger_disabled",
@@ -90,7 +210,22 @@
   {
     "action": "checks.delete_logs",
     "description": "Logs in a check suite were deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "code_scanning.alert_appeared_in_branch",
@@ -155,12 +290,42 @@
   {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.attempted_to_create_from_prebuild",
     "description": "An attempt to create a codespace from a prebuild was made.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.business_enablement_updated",
@@ -171,7 +336,22 @@
   {
     "action": "codespaces.connect",
     "description": "Credentials for a codespace were refreshed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.create",
@@ -188,37 +368,142 @@
   {
     "action": "codespaces.export_environment",
     "description": "A codespace was exported to a branch on GitHub.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.policy_group_created",
     "description": "Policies were applied to codespaces in an organization or enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.policy_group_deleted",
     "description": "Policies were removed from codespaces in an organization or enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.policy_group_updated",
     "description": "Policies were updated for codespaces in an organization or enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.restore",
     "description": "A codespace was restored.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.start_environment",
     "description": "A codespace was started.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.suspend_environment",
     "description": "A codespace was stopped.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "codespaces.trusted_repositories_access_update",
@@ -229,27 +514,102 @@
   {
     "action": "commit_comment.destroy",
     "description": "A commit comment was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "commit_comment.update",
     "description": "A commit comment was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.access_revoked",
     "description": "Copilot access was revoked for the organization or enterprise due to its Copilot subscription ending, an issue with billing the entity, the entity being marked spammy, or the entity being suspended.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_org_settings_changed",
     "description": "Copilot feature settings were changed at the organization level.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_added",
     "description": "A Copilot Business or Copilot Enterprise seat was added for a user and they have received access to GitHub Copilot. This can occur as the result of directly assigning a seat for a user, assigning a seat for a team, or setting the organization to allow access for all members.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_assignment_created",
@@ -260,47 +620,182 @@
   {
     "action": "copilot.cfb_seat_assignment_refreshed",
     "description": "A seat assignment that was previously pending cancellation was re-assigned and the user will retain access to Copilot.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_assignment_reused",
     "description": "A Copilot Business or Copilot Enterprise seat assignment was re-created for a user who already had a seat with no pending cancellation date, and the user will retain access to Copilot.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_assignment_unassigned",
     "description": "A user or team's Copilot Business or Copilot Enterprise seat assignment was unassigned, and the user(s) will lose access to Copilot at the end of the current billing cycle.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_cancelled",
     "description": "A user's Copilot Business or Copilot Enterprise seat was canceled, and the user no longer has access to Copilot.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
     "description": "A user's Copilot Business or Copilot Enterprise seat was canceled manually by GitHub staff, and the user no longer has access to Copilot.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.cfb_seat_management_changed",
     "description": "The seat management setting was changed at the organization level to either enable or disable Copilot access for all members of the organization, or to enable Copilot access for selected members or teams.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.content_exclusion_changed",
     "description": "The excluded paths for GitHub Copilot were updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.custom_instructions_created",
     "description": "Copilot custom instructions were created for the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.custom_instructions_updated",
     "description": "Copilot custom instructions were updated for the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.knowledge_base_created",
@@ -329,37 +824,142 @@
   {
     "action": "copilot.plan_downgrade_scheduled",
     "description": "The plan for GitHub Copilot was scheduled to be downgraded.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.swe_agent_repo_disabled",
     "description": "Specific repositories were disabled from using Copilot coding agent.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.swe_agent_repo_enabled",
     "description": "Specific repositories were enabled to use Copilot coding agent.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "copilot.swe_agent_repo_enablement_updated",
     "description": "Copilot coding agent access was updated for the organization's or user's repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "custom_hosted_runner.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "custom_hosted_runner.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "custom_property_definition.create",
@@ -424,12 +1024,42 @@
   {
     "action": "dependabot_repository_access.default_access_level_updated",
     "description": "The default repository access for Dependabot was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
     "description": "The repositories that Dependabot can access were updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "dependabot_security_updates.disable",
@@ -440,7 +1070,22 @@
   {
     "action": "dependabot_security_updates.enable",
     "description": "Dependabot security updates were enabled for all existing repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "dependabot_security_updates_new_repos.disable",
@@ -451,7 +1096,22 @@
   {
     "action": "dependabot_security_updates_new_repos.enable",
     "description": "Dependabot security updates were enabled for all new repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "dependency_graph.disable",
@@ -462,7 +1122,22 @@
   {
     "action": "dependency_graph.enable",
     "description": "The dependency graph was enabled for all existing repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "dependency_graph_new_repos.disable",
@@ -473,22 +1148,82 @@
   {
     "action": "dependency_graph_new_repos.enable",
     "description": "The dependency graph was enabled for all new repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "discussion_comment.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "discussion_comment.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "discussion.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "discussion_post.destroy",
@@ -553,7 +1288,22 @@
   {
     "action": "environment.create",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "environment.create_actions_secret",
@@ -612,42 +1362,213 @@
   {
     "action": "git.clone",
     "description": "A repository was cloned.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "git.fetch",
     "description": "Changes were fetched from a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "git.push",
     "description": "Changes were pushed to a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "github_hosted_runner.create",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "github_hosted_runner.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "github_hosted_runner.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "hook.active_changed",
     "description": "A hook's active status was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "hook.config_changed",
     "description": "A hook's configuration was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "hook.create",
@@ -658,27 +1579,102 @@
   {
     "action": "hook.destroy",
     "description": "A hook was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "hook.events_changed",
     "description": "A hook's configured events were changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration.create",
     "description": "A GitHub App was created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration.destroy",
     "description": "A GitHub App was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration.generate_client_secret",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration_installation.create",
@@ -749,17 +1745,62 @@
   {
     "action": "integration.remove_client_secret",
     "description": "A client secret for a GitHub App was removed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration.revoke_all_tokens",
     "description": "All user tokens for a GitHub App were requested to be revoked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration.revoke_tokens",
     "description": "Token(s) for a GitHub App were revoked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "integration.suspend",
@@ -782,47 +1823,182 @@
   {
     "action": "ip_allow_list.disable",
     "description": "An IP allow list was disabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ip_allow_list.disable_for_installed_apps",
     "description": "An IP allow list was disabled for installed GitHub Apps.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ip_allow_list.enable",
     "description": "An IP allow list was enabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ip_allow_list.enable_for_installed_apps",
     "description": "An IP allow list was enabled for installed GitHub Apps.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ip_allow_list_entry.create",
     "description": "An IP address was added to an IP allow list.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ip_allow_list_entry.destroy",
     "description": "An IP address was deleted from an IP allow list.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ip_allow_list_entry.update",
     "description": "An IP address or its description was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "issue_comment.destroy",
     "description": "A comment on an issue was deleted from the repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "issue_comment.update",
     "description": "A comment on an issue (other than the initial one) changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "issue.destroy",
@@ -845,17 +2021,62 @@
   {
     "action": "issue_type.create",
     "description": "An issue type was created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "issue_type.destroy",
     "description": "An issue type was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "issue_type.update",
     "description": "An issue type was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "issue.unpinned",
@@ -884,37 +2105,142 @@
   {
     "action": "marketplace_agreement_signature.create",
     "description": "The GitHub Marketplace Developer Agreement was signed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "marketplace_listing.approve",
     "description": "A listing was approved for inclusion in GitHub Marketplace.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "marketplace_listing.change_category",
     "description": "A category for a listing for an app in GitHub Marketplace was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "marketplace_listing.create",
     "description": "A listing for an app in GitHub Marketplace was created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "marketplace_listing.delist",
     "description": "A listing was removed from GitHub Marketplace.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "marketplace_listing.redraft",
     "description": "A listing was sent back to draft state.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "marketplace_listing.reject",
     "description": "A listing was not accepted for inclusion in GitHub Marketplace.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "members_can_create_pages.disable",
@@ -973,7 +2299,22 @@
   {
     "action": "members_can_view_dependency_insights.clear",
     "description": "An enterprise owner cleared the policy setting for viewing dependency insights in any organizations in an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "members_can_view_dependency_insights.disable",
@@ -990,52 +2331,202 @@
   {
     "action": "merge_queue.pull_request_dequeued",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "merge_queue.queue_cleared",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "merge_queue.update_settings",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "metered_billing_configuration.create",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "metered_billing_configuration.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "metered_billing_configuration.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "migration.create",
     "description": "A migration file was created for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "migration.destroy_file",
     "description": "A migration file for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "migration.download",
     "description": "A migration file for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance was downloaded.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "network_configuration.create",
@@ -1118,42 +2609,162 @@
   {
     "action": "org.add_disallowed_two_factor_method",
     "description": "An organization prevented access to resources by users with the given two-factor method.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.add_member",
     "description": "A user joined an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.add_outside_collaborator",
     "description": "An outside collaborator was added to a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.add_security_manager",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.advanced_security_disabled_for_new_repos",
     "description": "GitHub Advanced Security was disabled for new repositories in an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.advanced_security_disabled_on_all_repos",
     "description": "GitHub Advanced Security was disabled for all repositories in an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.advanced_security_enabled_for_new_repos",
     "description": "GitHub Advanced Security was enabled for new repositories in an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.advanced_security_enabled_on_all_repos",
     "description": "GitHub Advanced Security was enabled for all repositories in an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.advanced_security_entity_policy_update",
@@ -1188,7 +2799,22 @@
   {
     "action": "org.archive",
     "description": "The organization was archived.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.audit_log_export",
@@ -1205,7 +2831,22 @@
   {
     "action": "org.billing_signup_error",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.block_user",
@@ -1222,37 +2863,142 @@
   {
     "action": "org.cancel_invitation",
     "description": "An invitation sent to a user to join an organization was revoked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.clear_custom_invitation_rate_limit",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.clear_disallowed_two_factor_methods",
     "description": "Cleared two-factor authentication restrictions for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.code_scanning_autofix_disabled",
     "description": "Autofix for code scanning alerts was disabled for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.code_scanning_autofix_third_party_tools_disabled",
     "description": "Autofix for third party tools for code scanning alerts was disabled for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.code_scanning_autofix_third_party_tools_enabled",
     "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.codeql_disabled",
@@ -1281,12 +3027,42 @@
   {
     "action": "org.codespaces_team_access_allowed",
     "description": "A team has been allowed to use Codespaces for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.codespaces_team_access_revoked",
     "description": "A team has been prevented from using Codespaces for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.codespaces_trusted_repo_access_granted",
@@ -1303,12 +3079,42 @@
   {
     "action": "org.codespaces_user_access_allowed",
     "description": "A user has been allowed to use Codespaces for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.codespaces_user_access_revoked",
     "description": "A user has been prevented from using Codespaces for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.config.disable_collaborators_only",
@@ -1349,7 +3155,22 @@
   {
     "action": "org.configure_self_hosted_jit_runner",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.confirm_business_invitation",
@@ -1384,7 +3205,22 @@
   {
     "action": "org.create_integration_secret",
     "description": "A Codespaces or Dependabot secret was created for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org_credential_authorization.deauthorize",
@@ -1407,7 +3243,22 @@
   {
     "action": "org.delete",
     "description": "An organization was deleted by a user or staff.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.disable_member_team_creation_permission",
@@ -1430,7 +3281,22 @@
   {
     "action": "org.disable_saml",
     "description": "SAML single sign-on was disabled for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.disable_source_ip_disclosure",
@@ -1441,17 +3307,62 @@
   {
     "action": "org.disable_two_factor_requirement",
     "description": "A two-factor authentication requirement was disabled for the organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.display_commenter_full_name_disabled",
     "description": "An organization owner disabled the display of a commenter's full name in an organization. Members cannot see a comment author's full name.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.display_commenter_full_name_enabled",
     "description": "An organization owner enabled the display of a commenter's full name in an organization. Members can see a comment author's full name.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.enable_member_team_creation_permission",
@@ -1492,12 +3403,42 @@
   {
     "action": "org.integration_manager_added",
     "description": "An organization owner granted a member access to manage all GitHub Apps owned by an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.integration_manager_removed",
     "description": "An organization owner removed access to manage all GitHub Apps owned by an organization from an organization member.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.invite_member",
@@ -1508,17 +3449,62 @@
   {
     "action": "org.invite_to_business",
     "description": "An organization was invited to join an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.members_can_update_protected_branches.disable",
     "description": "The ability for enterprise members to update protected branches was disabled. Only enterprise owners can update protected branches.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.members_can_update_protected_branches.enable",
     "description": "The ability for enterprise members to update protected branches was enabled. Members of an organization can update protected branches.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.oauth_app_access_approved",
@@ -1529,7 +3515,22 @@
   {
     "action": "org.oauth_app_access_blocked",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.oauth_app_access_denied",
@@ -1540,17 +3541,62 @@
   {
     "action": "org.oauth_app_access_requested",
     "description": "An organization member requested that an owner grant an OAuth App access to an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.oauth_app_access_unblocked",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.rate_limited_invites",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.recovery_code_failed",
@@ -1615,27 +3661,102 @@
   {
     "action": "org.remove_disallowed_two_factor_method",
     "description": "Removed a two-factor authentication method restriction for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.remove_integration_secret",
     "description": "A Codespaces or Dependabot secret was removed from an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.remove_member",
     "description": "A member was removed from an organization, either manually or due to a two-factor authentication requirement.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.remove_outside_collaborator",
     "description": "An outside collaborator was removed from an organization, either manually or due to a two-factor authentication requirement.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.remove_security_manager",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.remove_self_hosted_runner",
@@ -1646,7 +3767,22 @@
   {
     "action": "org.rename",
     "description": "An organization was renamed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.required_workflow_create",
@@ -1783,12 +3919,42 @@
   {
     "action": "org_secret_scanning_generic_secrets.disabled",
     "description": "Generic secrets have been disabled at the organization level",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org_secret_scanning_generic_secrets.enabled",
     "description": "Generic secrets have been enabled at the organization level",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org_secret_scanning_non_provider_patterns.disabled",
@@ -1883,22 +4049,82 @@
   {
     "action": "org.security_center_export_code_scanning_metrics",
     "description": "A CSV export was requested on the CodeQL pull request alerts page.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.security_center_export_coverage",
     "description": "A CSV export was requested on the Coverage page.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.security_center_export_overview_dashboard",
     "description": "A CSV export was requested on the Overview Dashboard page.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.security_center_export_risk",
     "description": "A CSV export was requested on the Risk page.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.self_hosted_runner_offline",
@@ -1939,7 +4165,22 @@
   {
     "action": "org.set_custom_invitation_rate_limit",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.set_default_workflow_permissions",
@@ -1962,7 +4203,22 @@
   {
     "action": "org.sso_response",
     "description": "A SAML single sign-on (SSO) response was generated when a member attempted to authenticate with your organization. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.transfer",
@@ -1979,7 +4235,22 @@
   {
     "action": "org.unarchive",
     "description": "The organization was unarchived.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.unblock_user",
@@ -2008,22 +4279,82 @@
   {
     "action": "org.update_default_repository_permission",
     "description": "The default repository permission level for organization members was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.update_integration_secret",
     "description": "A Codespaces or Dependabot secret was updated for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.update_member",
     "description": "A person's role was changed from owner to member or member to owner.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.update_member_repository_creation_permission",
     "description": "The create repository permission for organization members was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.update_member_repository_invitation_permission",
@@ -2040,12 +4371,42 @@
   {
     "action": "org.update_repo_self_hosted_runners_policy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.update_saml_provider_settings",
     "description": "An organization's SAML provider settings were updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "org.update_terms_of_service",
@@ -2098,22 +4459,82 @@
   {
     "action": "organization_moderators.add_team",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "organization_moderators.add_user",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "organization_moderators.remove_team",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "organization_moderators.remove_user",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "organization_projects_change.clear",
@@ -2166,7 +4587,22 @@
   {
     "action": "organization_wide_project_base_role.update",
     "description": "An organization's default project base role was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "packages.package_deleted",
@@ -2177,7 +4613,22 @@
   {
     "action": "packages.package_published",
     "description": "A package was published or republished to an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "packages.package_version_deleted",
@@ -2188,7 +4639,22 @@
   {
     "action": "packages.package_version_published",
     "description": "A specific package version was published or republished to a package.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pages_protected_domain.create",
@@ -2211,17 +4677,62 @@
   {
     "action": "payment_method.create",
     "description": "A new payment method was added, such as a new credit card or PayPal account.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "payment_method.remove",
     "description": "A payment method was removed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "payment_method.update",
     "description": "An existing payment method was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.access_granted",
@@ -2232,12 +4743,42 @@
   {
     "action": "personal_access_token.access_restriction_disabled",
     "description": "The configured restriction for access to resources via personal access tokens was disabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.access_restriction_enabled",
     "description": "The configured restriction for access to resources via personal access tokens was enabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.access_revoked",
@@ -2248,27 +4789,102 @@
   {
     "action": "personal_access_token.auto_approve_grant_requests_disabled",
     "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.auto_approve_grant_requests_enabled",
     "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.expiration_limit_set",
     "description": "A personal access token expiration limit was set.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.expiration_limit_unset",
     "description": "A personal access token expiration limit was unset.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.request_cancelled",
     "description": "A pending request for a fine-grained personal access token to access organization resources was canceled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "personal_access_token.request_created",
@@ -2309,52 +4925,202 @@
   {
     "action": "premium_runner.create",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "premium_runner.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "premium_runner.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_repository_forking.clear",
     "description": "An enterprise owner cleared the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_repository_forking.disable",
     "description": "An enterprise owner disabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are never allowed to be forked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_repository_forking.enable",
     "description": "An enterprise owner enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_vulnerability_reporting.disable",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_vulnerability_reporting.enable",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_vulnerability_reporting_new_repos.disable",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "private_vulnerability_reporting_new_repos.enable",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "profile_picture.update",
@@ -2365,12 +5131,42 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project_base_role.update",
     "description": "A project's base role was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.close",
@@ -2381,27 +5177,102 @@
   {
     "action": "project_collaborator.add",
     "description": "A collaborator was added to a project.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project_collaborator.remove",
     "description": "A collaborator was removed from a project.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project_collaborator.update",
     "description": "A project collaborator's permission level was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.create",
     "description": "A project board was created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.delete",
     "description": "A project board was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project_field.create",
@@ -2418,7 +5289,22 @@
   {
     "action": "project.link",
     "description": "A repository was linked to a project board.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.open",
@@ -2429,27 +5315,102 @@
   {
     "action": "project.rename",
     "description": "A project board was renamed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.unlink",
     "description": "A repository was unlinked from a project board.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.update_org_permission",
     "description": "The project's base-level permission for all organization members was changed or removed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.update_team_permission",
     "description": "A team's project board permission level was changed or when a team was added or removed from a project board.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.update_user_permission",
     "description": "A user was added to or removed from a project board or had their permission level changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project_view.create",
@@ -2466,12 +5427,42 @@
   {
     "action": "project.visibility_private",
     "description": "A project's visibility was changed from public to private.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "project.visibility_public",
     "description": "A project's visibility was changed from private to public.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.authorized_users_teams",
@@ -2482,52 +5473,202 @@
   {
     "action": "protected_branch.branch_allowances",
     "description": "A protected branch allowance was given to a specific user, team or integration.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.create",
     "description": "Branch protection was enabled on a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.destroy",
     "description": "Branch protection was disabled on a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.dismiss_stale_reviews",
     "description": "Enforcement of dismissing stale pull requests was updated on a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.dismissal_restricted_users_teams",
     "description": "Enforcement of restricting users and/or teams who can dismiss reviews was updated on a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.policy_override",
     "description": "A branch protection requirement was overridden by a repository administrator.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.rejected_ref_update",
     "description": "A branch update attempt was rejected.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_admin_enforced",
     "description": "Branch protection was enforced for repository administrators.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_allow_deletions_enforcement_level",
     "description": "Branch deletion was enabled or disabled for a protected branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_allow_force_pushes_enforcement_level",
     "description": "Force pushes were enabled or disabled for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_ignore_approvals_from_contributors",
@@ -2538,7 +5679,22 @@
   {
     "action": "protected_branch.update_linear_history_requirement_enforcement_level",
     "description": "Required linear commit history was enabled or disabled for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_lock_allows_fetch_and_merge",
@@ -2561,17 +5717,62 @@
   {
     "action": "protected_branch.update_name",
     "description": "A branch name pattern was updated for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_pull_request_reviews_enforcement_level",
     "description": "Enforcement of required pull request reviews was updated for a branch. Can be 0 (deactivated), 1 (non-admins), or 2 (everyone).",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_require_code_owner_review",
     "description": "Enforcement of required code owner review was updated for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_require_last_push_approval",
@@ -2582,22 +5783,82 @@
   {
     "action": "protected_branch.update_required_approving_review_count",
     "description": "Enforcement of the required number of approvals before merging was updated on a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_required_status_checks_enforcement_level",
     "description": "Enforcement of required status checks was updated for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_signature_requirement_enforcement_level",
     "description": "Enforcement of required commit signing was updated for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "protected_branch.update_strict_required_status_checks_policy",
     "description": "Enforcement of required status checks was updated for a branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "public_key.create",
@@ -2668,12 +5929,42 @@
   {
     "action": "pull_request.in_progress",
     "description": "A pull request was marked as in progress.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request.indirect_merge",
     "description": "A pull request was considered merged because the pull request's commits were merged into the target branch.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request.merge",
@@ -2690,7 +5981,22 @@
   {
     "action": "pull_request.rebase",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request.remove_review_request",
@@ -2701,7 +6007,22 @@
   {
     "action": "pull_request.reopen",
     "description": "A pull request was reopened after previously being closed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request_review_comment.create",
@@ -2712,17 +6033,62 @@
   {
     "action": "pull_request_review_comment.delete",
     "description": "A review comment on a pull request was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request_review_comment.update",
     "description": "A review comment on a pull request was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request_review.delete",
     "description": "A review on a pull request was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "pull_request_review.dismiss",
@@ -2781,7 +6147,39 @@
   {
     "action": "repo.change_merge_setting",
     "description": "Pull request merge options were changed for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.code_scanning_analysis_deleted",
@@ -2792,22 +6190,150 @@
   {
     "action": "repo.code_scanning_autofix_disabled",
     "description": "Autofix for code scanning alerts was disabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.code_scanning_autofix_third_party_tools_disabled",
     "description": "Autofix for third party tools for code scanning alerts was disabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.code_scanning_autofix_third_party_tools_enabled",
     "description": "Autofix for third party tools for code scanning alerts was enabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.code_scanning_configuration_for_branch_deleted",
@@ -2818,12 +6344,76 @@
   {
     "action": "repo.code_scanning_delegated_alert_dismissal_disabled",
     "description": "Prevention of direct alert dismissal for code scanning was disabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.code_scanning_delegated_alert_dismissal_enabled",
     "description": "Prevention of direct alert dismissal for code scanning was enabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.codeql_disabled",
@@ -2846,12 +6436,76 @@
   {
     "action": "repo.codespaces_trusted_repo_access_granted",
     "description": "GitHub Codespaces was granted trusted repository access to this repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.codespaces_trusted_repo_access_revoked",
     "description": "GitHub Codespaces trusted repository access to this repository was revoked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.config.disable_collaborators_only",
@@ -2892,7 +6546,39 @@
   {
     "action": "repo.configure_self_hosted_jit_runner",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.create",
@@ -2915,7 +6601,39 @@
   {
     "action": "repo.create_integration_secret",
     "description": "A Codespaces or Dependabot secret was created for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.destroy",
@@ -2932,52 +6650,372 @@
   {
     "action": "repo.pages_cname",
     "description": "A GitHub Pages custom domain was modified in a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_create",
     "description": "A GitHub Pages site was created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_destroy",
     "description": "A GitHub Pages site was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_https_redirect_disabled",
     "description": "HTTPS redirects were disabled for a GitHub Pages site.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_https_redirect_enabled",
     "description": "HTTPS redirects were enabled for a GitHub Pages site.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_private",
     "description": "A GitHub Pages site visibility was changed to private.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_public",
     "description": "A GitHub Pages site visibility was changed to public.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_soft_delete",
     "description": "A GitHub Pages site was soft-deleted because its owner's plan changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_soft_delete_restore",
     "description": "A GitHub Pages site that was previously soft-deleted was restored.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.pages_source",
     "description": "A GitHub Pages source was modified.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.register_self_hosted_runner",
@@ -3000,7 +7038,39 @@
   {
     "action": "repo.remove_integration_secret",
     "description": "A Codespaces or Dependabot secret was deleted for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.remove_member",
@@ -3017,7 +7087,39 @@
   {
     "action": "repo.remove_topic",
     "description": "A topic was removed from a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.rename",
@@ -3028,12 +7130,76 @@
   {
     "action": "repo.rename_branch",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.restore",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.self_hosted_runner_offline",
@@ -3092,7 +7258,39 @@
   {
     "action": "repo.staff_unlock",
     "description": "An enterprise owner or GitHub staff (with permission from a repository administrator) temporarily unlocked the repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.transfer",
@@ -3103,12 +7301,76 @@
   {
     "action": "repo.transfer_outgoing",
     "description": "A repository was transferred to another repository network.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.transfer_start",
     "description": "A user sent a request to transfer a repository to another user or organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.unarchived",
@@ -3119,7 +7381,39 @@
   {
     "action": "repo.update_actions_access_settings",
     "description": "The setting to control how a repository was used by GitHub Actions workflows in other repositories was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.update_actions_secret",
@@ -3130,7 +7424,39 @@
   {
     "action": "repo.update_actions_settings",
     "description": "A repository administrator changed GitHub Actions policy settings for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.update_actions_variable",
@@ -3141,17 +7467,113 @@
   {
     "action": "repo.update_default_branch",
     "description": "The default branch for a repository was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.update_integration_secret",
     "description": "A Codespaces or Dependabot secret was updated for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repo.update_member",
     "description": "A user's permission to a repository was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes",
+      "pull_request_id",
+      "pull_request_url",
+      "pull_request_title",
+      "branch",
+      "head_sha",
+      "head_branch",
+      "message",
+      "fingerprint",
+      "oauth_application_id",
+      "permission",
+      "visibility",
+      "public_repo",
+      "key",
+      "name",
+      "owner",
+      "old_permission",
+      "new_permission"
+    ]
   },
   {
     "action": "repository_advisory.close",
@@ -3162,37 +7584,142 @@
   {
     "action": "repository_advisory.cve_request",
     "description": "Someone requested a CVE (Common Vulnerabilities and Exposures) number from GitHub for a draft security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_advisory.github_broadcast",
     "description": "GitHub made a security advisory public in the GitHub Advisory Database.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_advisory.github_withdraw",
     "description": "GitHub withdrew a security advisory that was published in error.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_advisory.open",
     "description": "Someone opened a draft security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_advisory.publish",
     "description": "Someone published a security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_advisory.reopen",
     "description": "Someone reopened as draft security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_advisory.update",
     "description": "Someone edited a draft or published security advisory.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_branch_protection_evaluation.disable",
@@ -3209,12 +7736,42 @@
   {
     "action": "repository_code_security.disable",
     "description": "Code security was disabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_code_security.enable",
     "description": "Code security was enabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_content_analysis.disable",
@@ -3237,37 +7794,142 @@
   {
     "action": "repository_dependency_graph.enable",
     "description": "The dependency graph was enabled for a private repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_image.create",
     "description": "An image to represent a repository was uploaded.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_image.destroy",
     "description": "An image to represent a repository was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_invitation.accept",
     "description": "An invitation to join a repository was accepted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_invitation.cancel",
     "description": "An invitation to join a repository was canceled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_invitation.create",
     "description": "An invitation to join a repository was sent.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_invitation.reject",
     "description": "An invitation to join a repository was declined.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_limit.reached",
@@ -3290,12 +7952,42 @@
   {
     "action": "repository_projects_change.disable",
     "description": "Repository projects were disabled for a repository, all repositories in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_projects_change.enable",
     "description": "Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_ruleset.create",
@@ -3372,17 +8064,62 @@
   {
     "action": "repository_secret_scanning.enable",
     "description": "Secret scanning was enabled for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_secret_scanning_generic_secrets.disabled",
     "description": "Generic secrets have been disabled at the repository level",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_secret_scanning_generic_secrets.enabled",
     "description": "Generic secrets have been enabled at the repository level",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_secret_scanning_non_provider_patterns.disabled",
@@ -3435,22 +8172,82 @@
   {
     "action": "repository_security_configuration.applied",
     "description": "A code security configuration was applied to a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_security_configuration.failed",
     "description": "A code security configuration failed to attach to the repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_security_configuration.removed",
     "description": "A code security configuration was removed from a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_security_configuration.removed_by_settings_change",
     "description": "A code security configuration was removed due to a change in repository or enterprise settings.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_visibility_change.clear",
@@ -3461,12 +8258,42 @@
   {
     "action": "repository_visibility_change.disable",
     "description": "The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_visibility_change.enable",
     "description": "The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alert.auto_dismiss",
@@ -3489,27 +8316,102 @@
   {
     "action": "repository_vulnerability_alert.dismiss",
     "description": "A Dependabot alert was manually dismissed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alert.reintroduce",
     "description": "A Dependabot alert was automatically reopened because the repository resumed use of a vulnerable dependency.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alert.reopen",
     "description": "A Dependabot alert was manually reopened.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alert.resolve",
     "description": "Changes were pushed to update and resolve a Dependabot alert in a project dependency.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alert.withdraw",
     "description": "A Dependabot alert was withdrawn.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alerts.authorized_users_teams",
@@ -3520,22 +8422,82 @@
   {
     "action": "repository_vulnerability_alerts_auto_dismissal.disable",
     "description": "Automatic dismissal of low-impact Dependabot alerts was disabled for the repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alerts_auto_dismissal.enable",
     "description": "Automatic dismissal of low-impact Dependabot alerts was enabled for the repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alerts.disable",
     "description": "Dependabot alerts was disabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "repository_vulnerability_alerts.enable",
     "description": "Dependabot alerts was enabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "required_status_check.create",
@@ -3594,7 +8556,22 @@
   {
     "action": "secret_scanning_alert.reopen",
     "description": "A secret scanning alert was reopened.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "secret_scanning_alert.report",
@@ -3605,12 +8582,42 @@
   {
     "action": "secret_scanning_alert.resolve",
     "description": "A secret scanning alert was resolved.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "secret_scanning_alert.revoke",
     "description": "A secret scanning alert was revoked.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "secret_scanning_alert.validate",
@@ -3621,7 +8628,22 @@
   {
     "action": "secret_scanning_closure_request.approve",
     "description": "A request to close a secret scanning alert was approved by a user.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "secret_scanning_closure_request.cancel",
@@ -3638,7 +8660,22 @@
   {
     "action": "secret_scanning_closure_request.deny",
     "description": "A request to close a secret scanning alert was denied by a user.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "secret_scanning.disable",
@@ -3709,37 +8746,142 @@
   {
     "action": "security_configuration.create",
     "description": "A security configuration was created",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "security_configuration_default.delete",
     "description": "A default security configuration setting for new repositories was removed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "security_configuration_default.update",
     "description": "A default security configuration setting for new repositories was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "security_configuration.delete",
     "description": "A security configuration was deleted",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "security_configuration_policy.update",
     "description": "A security configuration policy was updated",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "security_configuration.update",
     "description": "A security configuration was updated",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.agreement_sign",
     "description": "A GitHub Sponsors agreement was signed on behalf of an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.custom_amount_settings_change",
@@ -3750,7 +8892,22 @@
   {
     "action": "sponsors.fiscal_host_change",
     "description": "The fiscal host for a GitHub Sponsors listing was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.invoiced_agreement_sign",
@@ -3809,7 +8966,22 @@
   {
     "action": "sponsors.sponsored_developer_disable",
     "description": "A GitHub Sponsors account was disabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_profile_update",
@@ -3820,7 +8992,22 @@
   {
     "action": "sponsors.sponsored_developer_redraft",
     "description": "A GitHub Sponsors account was returned to draft state from approved state.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.sponsored_developer_request_approval",
@@ -3849,17 +9036,62 @@
   {
     "action": "sponsors.update_tier_repository",
     "description": "A GitHub Sponsors tier changed access for a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.update_tier_welcome_message",
     "description": "The welcome message for a GitHub Sponsors tier for an organization was updated.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "sponsors.withdraw_agreement_signature",
     "description": "A signature was withdrawn from a GitHub Sponsors agreement that applies to an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "ssh_certificate_authority.create",
@@ -3888,22 +9120,82 @@
   {
     "action": "staff.dependabot_debug_credentials_generated",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "staff.set_domain_token_expiration",
     "description": "The verification code expiry time for an organization or enterprise domain was set.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "staff.unverify_domain",
     "description": "An organization or enterprise domain was unverified.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "staff.verify_domain",
     "description": "An organization or enterprise domain was verified.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team.add_member",
@@ -3914,7 +9206,22 @@
   {
     "action": "team.add_repository",
     "description": "A team was given access and permissions to a repository.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team.change_parent_team",
@@ -3931,7 +9238,22 @@
   {
     "action": "team.create",
     "description": "A new team is created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team.demote_maintainer",
@@ -3942,12 +9264,42 @@
   {
     "action": "team.destroy",
     "description": "A team was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team_discussions.clear",
     "description": "An organization owner cleared the setting to allow team discussions for an organization or enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team_discussions.disable",
@@ -3958,22 +9310,82 @@
   {
     "action": "team_discussions.enable",
     "description": "Team discussions were enabled for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team_group_mapping.create",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team_group_mapping.destroy",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team_group_mapping.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team.promote_maintainer",
@@ -3990,12 +9402,42 @@
   {
     "action": "team.remove_repository",
     "description": "A repository was removed from a team's control.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team.rename",
     "description": "A team's name was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team_sync_tenant.disabled",
@@ -4012,47 +9454,182 @@
   {
     "action": "team_sync_tenant.update_okta_credentials",
     "description": "The Okta credentials for team synchronization with a tenant were changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "team.update_repository_permission",
     "description": "A team's permission to a repository was changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.create",
     "description": "A Dependabot rule was created.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.delete",
     "description": "A Dependabot rule was deleted.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.disable",
     "description": "A Dependabot rule was disabled for a single repository or disabled by default for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.enable",
     "description": "A Dependabot rule was enabled for a single repository or enabled by default for an organization.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.force_disable",
     "description": "A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.force_enable",
     "description": "A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "vulnerability_alert_rule.update",
     "description": "A Dependabot rule's conditions, actions, or metadata changed.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "workflows.approve_workflow_job",
@@ -4063,7 +9640,22 @@
   {
     "action": "workflows.bypass_protection_rules",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "workflows.cancel_workflow_run",
@@ -4074,7 +9666,22 @@
   {
     "action": "workflows.comment_workflow_job",
     "description": "N/A",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "workflows.completed_workflow_run",
@@ -4097,17 +9704,62 @@
   {
     "action": "workflows.disable_workflow",
     "description": "A workflow was disabled.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "workflows.enable_workflow",
     "description": "A workflow was enabled, after previously being disabled by disable_workflow.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "workflows.pin_workflow",
     "description": "A workflow was pinned.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   },
   {
     "action": "workflows.prepared_workflow_job",
@@ -4130,6 +9782,21 @@
   {
     "action": "workflows.unpin_workflow",
     "description": "A workflow was unpinned after previously being pinned.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "N/A",
+    "fields": [
+      "@timestamp",
+      "_document_id",
+      "action",
+      "actor",
+      "actor_id",
+      "business",
+      "org",
+      "repo",
+      "user",
+      "created_at",
+      "operation_type",
+      "programmatic_access_type",
+      "token_scopes"
+    ]
   }
 ]

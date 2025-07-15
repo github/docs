@@ -12,6 +12,7 @@ import {
   AutomatedPageContextT,
 } from '@/automated-pipelines/components/AutomatedPageContext'
 import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import GroupedEvents from '../components/GroupedEvents'
 import type { CategorizedEvents } from '../types'
 
@@ -26,11 +27,22 @@ export default function AuditLogEvents({
   automatedPageContext,
   auditLogEvents,
 }: Props) {
-  const content = Object.keys(auditLogEvents).map((category) => {
-    return (
-      <GroupedEvents key={category} category={category} auditLogEvents={auditLogEvents[category]} />
-    )
-  })
+  const content = (
+    <>
+      <HeadingLink as="h2" slug="audit-log-events">
+        Audit log events
+      </HeadingLink>
+      {Object.keys(auditLogEvents).map((category) => {
+        return (
+          <GroupedEvents
+            key={category}
+            category={category}
+            auditLogEvents={auditLogEvents[category]}
+          />
+        )
+      })}
+    </>
+  )
 
   return (
     <MainContext.Provider value={mainContext}>
