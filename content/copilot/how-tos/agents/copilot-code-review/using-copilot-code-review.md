@@ -54,7 +54,7 @@ The **review changes** type of {% data variables.copilot.copilot_code-review_sho
 Two types of {% data variables.copilot.copilot_code-review_short %} are available:
 
 * **Review selection:** Highlight code and ask for an initial review _(only available in {% data variables.product.prodname_vscode_shortname %})_
-* **Review changes:** Request a deeper review of all your changes _(available in {% data variables.product.prodname_vscode_shortname %} and the {% data variables.product.github %} website)_
+* **Review changes:** Request a deeper review of all your changes _(available in Visual Studio, {% data variables.product.prodname_vscode_shortname %} and the {% data variables.product.github %} website)_
 
 This version of the article relates to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website. To see information about the review selection type of {% data variables.copilot.copilot_code-review_short %}, click the "{% data variables.product.prodname_vscode %}" tool switcher at the top of the page.
 
