@@ -10,5 +10,7 @@ children:
   - /secrets
   - /github_token
   - /openid-connect
+  - /script-injections
+  - /compromised-runners
 ---
 

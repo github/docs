@@ -71,7 +71,7 @@ This endpoint takes the following input parameters.
 | `allow_signup`|`string` | Optional | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups. |
 | `prompt` | `string` | Optional | Forces the account picker to appear if set to `select_account`. The account picker will also appear if the application has a non-HTTP redirect URI or if the user has multiple accounts signed in. |
 
-{% ifversion not pkce_support %}The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. {% endif %}CORS pre-flight requests (OPTIONS) are not supported at this time.
+{% ifversion pkce_support %}{% else %}The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. {% endif %}CORS pre-flight requests (OPTIONS) are not supported at this time.
 
 ### 2. Users are redirected back to your site by GitHub
 
