@@ -67,7 +67,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
 ## Upgrading an instance with multiple nodes using an upgrade package
 
-To upgrade an instance that comprises multiple nodes using an upgrade package, you must upgrade the primary node, then upgrade any additional nodes.
+To upgrade a multi-node GitHub Enterprise Server environment using an upgrade package, you must first upgrade the primary node and wait for its configuration run to complete successfully. Only after the primary is fully upgraded and configured can you proceed to upgrade any replica or additional nodes. Attempting to upgrade other nodes before the primary is complete will result in upgrade failures.
 
 * [Upgrading the primary node with an upgrade package](#upgrading-the-primary-node-with-an-upgrade-package)
 * [Upgrading additional nodes with an upgrade package](#upgrading-additional-nodes-with-an-upgrade-package)
