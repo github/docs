@@ -14,18 +14,20 @@ import {
 import { AutomatedPage } from '@/automated-pipelines/components/AutomatedPage'
 import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import GroupedEvents from '../components/GroupedEvents'
-import type { CategorizedEvents } from '../types'
+import type { CategorizedEvents, CategoryNotes } from '../types'
 
 type Props = {
   mainContext: MainContextT
   automatedPageContext: AutomatedPageContextT
   auditLogEvents: CategorizedEvents
+  categoryNotes: CategoryNotes
 }
 
 export default function AuditLogEvents({
   mainContext,
   automatedPageContext,
   auditLogEvents,
+  categoryNotes,
 }: Props) {
   const content = (
     <>
@@ -38,6 +40,7 @@ export default function AuditLogEvents({
             key={category}
             category={category}
             auditLogEvents={auditLogEvents[category]}
+            categoryNote={categoryNotes[category]}
           />
         )
       })}
@@ -55,7 +58,7 @@ export default function AuditLogEvents({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
-  const { getCategorizedAuditLogEvents } = await import('../lib')
+  const { getCategorizedAuditLogEvents, getCategoryNotes } = await import('../lib')
 
   const req = context.req as object
   const res = context.res as object
@@ -77,6 +80,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     auditLogEvents = getCategorizedAuditLogEvents('organization', currentVersion)
   }
 
+  const categoryNotes = getCategoryNotes()
+
   const auditLogEventsMiniTocs = await getAutomatedPageMiniTocItems(
     Object.keys(auditLogEvents).map((category) => category),
     context,
@@ -86,6 +91,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   return {
     props: {
       auditLogEvents,
+      categoryNotes,
       mainContext,
       automatedPageContext: getAutomatedPageContextFromRequest(req),
     },

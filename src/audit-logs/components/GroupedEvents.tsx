@@ -7,9 +7,10 @@ import type { AuditLogEventT } from '../types'
 type Props = {
   auditLogEvents: AuditLogEventT[]
   category: string
+  categoryNote?: string
 }
 
-export default function GroupedEvents({ auditLogEvents, category }: Props) {
+export default function GroupedEvents({ auditLogEvents, category, categoryNote }: Props) {
   const { t } = useTranslation('audit_logs')
   const eventSlug = slug(category)
 
@@ -39,6 +40,11 @@ export default function GroupedEvents({ auditLogEvents, category }: Props) {
       <HeadingLink as="h3" slug={eventSlug}>
         {category}
       </HeadingLink>
+      {categoryNote && (
+        <div className="category-note mb-3 p-3 color-border-default border rounded-2">
+          <p className="mb-0">{categoryNote}</p>
+        </div>
+      )}
       <div>
         {auditLogEvents.map((event) => (
           <div key={event.action} style={{ marginBottom: '3rem' }}>
