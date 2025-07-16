@@ -83,6 +83,10 @@ topics:
 
 {% endeclipse %}
 
+## Code suggestions that match public code
+
+{% data variables.product.prodname_copilot %} checks each suggestion for matches with publicly available code. Any matches are discarded or suggested with a code reference, based on the setting of the "Suggestions matching public code" policy for your account or organization. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
+
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot)

@@ -28,3 +28,9 @@ redirect_from:
 ## Defining prerequisite jobs
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-needs %}
+
+## Using a matrix to run jobs with different variables
+
+To automatically run a job with different combinations of variables, such as operating systems or language versions, define a `matrix` strategy in your workflow.
+
+For more information, see [AUTOTITLE](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow).

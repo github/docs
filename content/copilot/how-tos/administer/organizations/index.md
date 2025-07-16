@@ -12,9 +12,10 @@ topics:
   - Copilot
 children:
   - /managing-the-copilot-plan-for-your-organization
-  - /managing-policies-for-copilot-in-your-organization
   - /managing-access-to-github-copilot-in-your-organization
+  - /managing-policies-for-copilot-in-your-organization
   - /adding-copilot-coding-agent-to-organization
+  - /set-extension-permissions
   - /reviewing-activity-related-to-github-copilot-in-your-organization
 ---
 

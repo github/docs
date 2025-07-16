@@ -887,23 +887,86 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 ## `jobs.<job_id>.strategy.matrix`
 
-{% data reusables.actions.jobs.using-matrix-strategy %}
+Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. For more information, see [AUTOTITLE](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/running-variations-of-jobs-in-a-workflow).
 
-### Example: Using a single-dimension matrix
+A matrix will generate a maximum of 256 jobs per workflow run. This limit applies to both {% data variables.product.github %}-hosted and self-hosted runners.
 
-{% data reusables.actions.jobs.single-dimension-matrix %}
+The variables that you define become properties in the `matrix` context, and you can reference the property in other areas of your workflow file. In this example, you can use `matrix.version` and `matrix.os` to access the current value of `version` and `os` that the job is using. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
-### Example: Using a multi-dimension matrix
+By default, {% data variables.product.github %} will maximize the number of jobs run in parallel depending on runner availability. The order of the variables in the matrix determines the order in which the jobs are created. The first variable you define will be the first job that is created in your workflow run.
 
-{% data reusables.actions.jobs.multi-dimension-matrix %}
+### Using a single-dimension matrix
 
-### Example: Using contexts to create matrices
+The following workflow defines the variable `version` with the values `[10, 12, 14]`. The workflow will run three jobs, one for each value in the variable. Each job will access the `version` value through the `matrix.version` context and pass the value as `node-version` to the `actions/setup-node` action.
 
-{% data reusables.actions.jobs.matrix-from-context %}
+```yaml
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+    steps:
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: {% raw %}${{ matrix.version }}{% endraw %}
+```
+
+### Using a multi-dimensional matrix
+
+Specify multiple variables to create a multi-dimensional matrix. A job will run for each possible combination of the variables.
+
+For example, the following workflow specifies two variables:
+
+* Two operating systems specified in the `os` variable
+* Three Node.js versions specified in the `version` variable
+
+The workflow will run six jobs, one for each combination of the `os` and `version` variables. Each job will set the `runs-on` value to the current `os` value and will pass the current `version` value to the `actions/setup-node` action.
+
+```yaml
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-20.04]
+        version: [10, 12, 14]
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
+    steps:
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: {% raw %}${{ matrix.version }}{% endraw %}
+```
+
+A variable configuration in a matrix can be an `array` of `object`s. For example, the following matrix produces 4 jobs with corresponding contexts.
+
+```yaml
+matrix:
+  os:
+    - ubuntu-latest
+    - macos-latest
+  node:
+    - version: 14
+    - version: 20
+      env: NODE_OPTIONS=--openssl-legacy-provider
+```
+
+Each job in the matrix will have its own combination of `os` and `node` values, as shown below.
+
+```yaml
+- matrix.os: ubuntu-latest
+  matrix.node.version: 14
+- matrix.os: ubuntu-latest
+  matrix.node.version: 20
+  matrix.node.env: NODE_OPTIONS=--openssl-legacy-provider
+- matrix.os: macos-latest
+  matrix.node.version: 14
+- matrix.os: macos-latest
+  matrix.node.version: 20
+  matrix.node.env: NODE_OPTIONS=--openssl-legacy-provider
+```
 
 ## `jobs.<job_id>.strategy.matrix.include`
 
-{% data reusables.actions.jobs.matrix-include %}
+For each object in the `include` list, the key:value pairs in the object will be added to each of the matrix combinations if none of the key:value pairs overwrite any of the original matrix values. If the object cannot be added to any of the matrix combinations, a new matrix combination will be created instead. Note that the original matrix values will not be overwritten, but added matrix values can be overwritten.
 
 ### Example: Expanding configurations
 
@@ -915,17 +978,23 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 ## `jobs.<job_id>.strategy.matrix.exclude`
 
-{% data reusables.actions.jobs.matrix-exclude %}
+An excluded configuration only has to be a partial match for it to be excluded.
+
+All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.
 
 ## `jobs.<job_id>.strategy.fail-fast`
+
+`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true` or its expression evaluates to `true`, {% data variables.product.github %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
 ## `jobs.<job_id>.strategy.max-parallel`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}
+By default, {% data variables.product.github %} will maximize the number of jobs run in parallel depending on runner availability.
 
 ## `jobs.<job_id>.continue-on-error`
+
+`jobs.<job_id>.continue-on-error` applies to a single job. If `jobs.<job_id>.continue-on-error` is `true`, other jobs in the matrix will continue running even if the job with `jobs.<job_id>.continue-on-error: true` fails.
 
 Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
 
