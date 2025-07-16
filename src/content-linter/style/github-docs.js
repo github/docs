@@ -206,6 +206,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'outdated-release-phase-terminology': {
+    // GHD046
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'table-column-integrity': {
     // GHD047
     severity: 'warning',
