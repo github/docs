@@ -39,6 +39,8 @@ Organization and repository secrets are read when a workflow run is queued, and 
 
 {% data variables.product.prodname_dotcom %} automatically redacts the following sensitive information from workflow logs.
 
+> [!NOTE] If you would like other types of sensitive information to be automatically redacted, please reach out to us in our [community discussions](https://github.com/orgs/community/discussions?discussions_q=is%3Aopen+label%3AActions).
+
 * 32-byte and 64-byte Azure keys
 * Azure AD client app passwords
 * Azure Cache keys
@@ -53,3 +55,7 @@ Organization and repository secrets are read when a workflow run is queued, and 
 * v1 GitHub installation tokens
 * v2 GitHub installation tokens (`ghp`, `gho`, `ghu`, `ghs`, `ghr`)
 * v2 GitHub PATs
+
+## Security
+
+For security best practices using secrets, see [AUTOTITLE](/actions/reference/secure-use-reference#use-secrets-for-sensitive-information).

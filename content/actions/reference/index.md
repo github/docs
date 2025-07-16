@@ -7,6 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /secure-use-reference
   - /workflow-syntax-for-github-actions
   - /events-that-trigger-workflows
   - /workflow-commands-for-github-actions
@@ -20,7 +21,6 @@ children:
   - /actions-limits
   - /reusable-workflows-reference
   - /openid-connect-reference
-  - /github_token-reference
   - /dockerfile-support-for-github-actions
   - /github-hosted-runners-reference
   - /self-hosted-runners-reference

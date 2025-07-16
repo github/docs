@@ -9,6 +9,7 @@ redirect_from:
   - /actions/learn-github-actions/workflow-syntax-for-github-actions
   - /actions/using-workflows/workflow-syntax-for-github-actions
   - /actions/writing-workflows/workflow-syntax-for-github-actions
+  - /actions/reference/github_token-reference
 versions:
   fpt: '*'
   ghes: '*'
@@ -268,6 +269,10 @@ The value of this parameter is a string specifying the data type of the input. T
 
 {% data reusables.actions.forked-write-permission %}
 
+## How permissions are calculated for a workflow job
+
+The permissions for the `GITHUB_TOKEN` are initially set to the default setting for the enterprise, organization, or repository. If the default is set to the restricted permissions at any of these levels then this will apply to the relevant repositories. For example, if you choose the restricted default at the organization level then all repositories in that organization will use the restricted permissions as the default. The permissions are then adjusted based on any configuration within the workflow file, first at the workflow level and then at the job level. Finally, if the workflow was triggered by a pull request from a forked repository, and the **Send write tokens to workflows from pull requests** setting is not selected, the permissions are adjusted to change any write permissions to read only.
+
 ### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
 
 You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow.
@@ -275,6 +280,14 @@ You can specify `permissions` at the top level of a workflow, so that the settin
 #### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
 
 {% data reusables.actions.jobs.setting-permissions-all-jobs-example %}
+
+### Using the `permissions` key for forked repositories
+
+You can use the `permissions` key to add and remove `read` permissions for forked repositories, but typically you can't grant `write` access. The exception to this behavior is where an admin user has selected the **Send write tokens to workflows from pull requests** option in the {% data variables.product.prodname_actions %} settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-private-repository-forks).
+
+### Permissions for workflow runs triggered by {% data variables.product.prodname_dependabot %}
+
+{% data reusables.actions.workflow-runs-dependabot-note %}
 
 ## `env`
 
