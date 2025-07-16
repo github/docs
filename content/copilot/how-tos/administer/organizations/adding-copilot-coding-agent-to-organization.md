@@ -26,7 +26,8 @@ redirect_from:
 
 ## Enabling {% data variables.copilot.copilot_coding_agent %} for your members
 
-{% data reusables.organizations.copilot-policy-ent-overrides-org %}
+> [!NOTE]
+> {% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
 {% data variables.copilot.copilot_coding_agent %} and use of third-party MCP servers are disabled by default for organization members assigned a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_business_short %} license by your organization.
 
