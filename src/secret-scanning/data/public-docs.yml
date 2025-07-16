@@ -506,7 +506,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Event Grid Key Identifiable
   secretType: azure_event_grid_key_identifiable
