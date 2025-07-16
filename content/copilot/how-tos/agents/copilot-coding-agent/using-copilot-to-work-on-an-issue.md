@@ -62,10 +62,70 @@ You can also assign issues to {% data variables.product.prodname_copilot_short %
 
 ### Assigning an issue to {% data variables.product.prodname_copilot_short %} via the {% data variables.product.github %} API
 
-You can assign an issue to {% data variables.product.prodname_copilot_short %} by making a request to the GraphQL API.
+You can assign issues to {% data variables.product.prodname_copilot_short %} using the GraphQL API.
+
+#### Creating and assigning a new issue
 
 1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
-1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `monalisa` with the repository owner, and `octocat` with the name.
+1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `octo-org` with the repository owner, and `octo-repo` with the repository name.
+
+    ```graphql copy
+    query {
+      repository(owner: "octo-org", name: "octo-repo") {
+        suggestedActors(capabilities: [CAN_BE_ASSIGNED], first: 100) {
+          nodes {
+            login
+            __typename
+
+            ... on Bot {
+              id
+            }
+
+            ... on User {
+              id
+            }
+          }
+        }
+      }
+    }
+    ```
+
+    If {% data variables.copilot.copilot_coding_agent %} is enabled for the user and in the repository, the first node returned from the query will have the `login` value `copilot-swe-agent`.
+
+1. Make a note of the `id` value of this login.
+
+1. Fetch the GraphQL global ID of the repository you want to create the issue in, replacing `octo-org` with the repository owner, and `octo-repo` with the repository name.
+
+    ```graphql copy
+    query {
+      repository(owner: "octo-org", name: "octo-repo") {
+        id
+      }
+    }
+    ```
+
+1. Create the issue with the `createIssue` mutation. Replace `REPOSITORY_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
+
+    ```graphql copy
+    mutation {
+      createIssue(input: {repositoryId: "REPOSITORY_ID", title: "Implement comprehensive unit tests", body: "DETAILS", assigneeIds: ["BOT_ID"]}) {
+        issue {
+          id
+          title
+          assignees(first: 10) {
+            nodes {
+              login
+            }
+          }
+        }
+      }
+    }
+    ```
+
+#### Assigning an existing issue
+
+1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
+1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `octo-org` with the repository owner, and `octo-repo` with the repository name.
 
     ```graphql copy
     query {
@@ -103,11 +163,11 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %} b
     }
     ```
 
-1. Assign the issue to {% data variables.product.prodname_copilot_short %} using the `replaceActorsForAssignable` GraphQL mutation. Replace `ISSUE_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
+1. Assign the existing issue to {% data variables.product.prodname_copilot_short %} using the `replaceActorsForAssignable` mutation. Replace `ISSUE_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
 
     ```graphql copy
     mutation {
-      replaceActorsForAssignable(input: {assignableId: "ISSUE_ID", assigneeIds: ["BOT_ID"]}) {
+      replaceActorsForAssignable(input: {assignableId: "ISSUE_ID", actorIds: ["BOT_ID"]}) {
         assignable {
           ... on Issue {
             id
