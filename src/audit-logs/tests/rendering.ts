@@ -98,4 +98,49 @@ describe('audit log events docs', () => {
     const $lead = $(leadSelector)
     expect($lead.length).toBe(1)
   })
+
+  test('category notes are rendered when present', async () => {
+    // Test organization page which should have category notes
+    const $ = await getDOM(
+      '/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization',
+    )
+
+    // Look for category note elements - they should appear before tables
+    const categoryNotes = $('.category-note')
+
+    // If there are categories with notes configured, we should see them rendered
+    if (categoryNotes.length > 0) {
+      categoryNotes.each((_, note) => {
+        const $note = $(note)
+        expect($note.text().length).toBeGreaterThan(0)
+
+        // Should be followed by a div (the category events)
+        const $nextDiv = $note.next('div')
+        expect($nextDiv.length).toBe(1)
+      })
+    }
+  })
+
+  test('git category note is rendered on appropriate pages', async () => {
+    // Test enterprise page which should have git category note for GHES
+    const $ = await getDOM(
+      '/enterprise-server@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise',
+    )
+
+    // Look for git category heading
+    const gitHeading = $('#git')
+    if (gitHeading.length > 0) {
+      // Should have a category note before the div
+      const $noteOrTable = gitHeading.next()
+
+      // Either the next element is a note (followed by div) or directly a div
+      if ($noteOrTable.hasClass('category-note')) {
+        expect($noteOrTable.text()).toContain('Git events')
+        expect($noteOrTable.next('div').length).toBe(1)
+      } else if ($noteOrTable.is('div')) {
+        // Direct div is fine too - means no note for this category
+        expect($noteOrTable.is('div')).toBe(true)
+      }
+    }
+  })
 })

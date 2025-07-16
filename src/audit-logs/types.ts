@@ -1,5 +1,7 @@
 export type CategorizedEvents = Record<string, AuditLogEventT[]>
 
+export type CategoryNotes = Record<string, string>
+
 export type AuditLogEventT = {
   action: string
   description: string
@@ -19,3 +21,9 @@ export type RawAuditLogEventT = {
 }
 
 export type VersionedAuditLogData = Record<string, Record<string, AuditLogEventT[]>>
+
+export type AuditLogConfig = {
+  sha: string
+  appendedDescriptions: Record<string, string>
+  categoryNotes?: CategoryNotes
+}
