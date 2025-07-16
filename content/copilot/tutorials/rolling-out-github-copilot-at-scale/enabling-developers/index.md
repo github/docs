@@ -9,7 +9,6 @@ topics:
 children:
   - /driving-copilot-adoption-in-your-company
   - /integrating-agentic-ai
-  - /using-copilot-coding-agent-in-org
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers
 ---
