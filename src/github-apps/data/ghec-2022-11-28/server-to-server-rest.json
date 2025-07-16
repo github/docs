@@ -4999,6 +4999,12 @@
   ],
   "secret-scanning": [
     {
+      "slug": "list-bypass-requests-for-secret-scanning-for-an-org",
+      "subcategory": "delegated-bypass",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/bypass-requests/secret-scanning"
+    },
+    {
       "slug": "list-alert-dismissal-requests-for-secret-scanning-for-an-org",
       "subcategory": "alert-dismissal-requests",
       "verb": "get",
@@ -5009,6 +5015,24 @@
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
+    },
+    {
+      "slug": "list-bypass-requests-for-secret-scanning-for-a-repository",
+      "subcategory": "delegated-bypass",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning"
+    },
+    {
+      "slug": "get-a-bypass-request-for-secret-scanning",
+      "subcategory": "delegated-bypass",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}"
+    },
+    {
+      "slug": "review-a-bypass-request-for-secret-scanning",
+      "subcategory": "delegated-bypass",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}"
     },
     {
       "slug": "list-alert-dismissal-requests-for-secret-scanning-for-a-repository",
