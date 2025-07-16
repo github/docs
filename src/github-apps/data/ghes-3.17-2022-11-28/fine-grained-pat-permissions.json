@@ -1109,6 +1109,48 @@
       }
     ]
   },
+  "organization_secret_scanning_bypass_requests": {
+    "title": "Organization bypass requests for secret scanning",
+    "displayTitle": "Organization permissions for \"Organization bypass requests for secret scanning\"",
+    "permissions": [
+      {
+        "category": "secret-scanning",
+        "slug": "list-bypass-requests-for-secret-scanning-for-an-org",
+        "subcategory": "delegated-bypass",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/bypass-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "list-bypass-requests-for-secret-scanning-for-a-repository",
+        "subcategory": "delegated-bypass",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "get-a-bypass-request-for-secret-scanning",
+        "subcategory": "delegated-bypass",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "review-a-bypass-request-for-secret-scanning",
+        "subcategory": "delegated-bypass",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
+        "additional-permissions": true,
+        "access": "write"
+      }
+    ]
+  },
   "organization_dependabot_secrets": {
     "title": "Organization dependabot secrets",
     "displayTitle": "Organization permissions for \"Organization dependabot secrets\"",
@@ -6096,7 +6138,7 @@
         "subcategory": "delegated-bypass",
         "verb": "get",
         "requestPath": "/orgs/{org}/bypass-requests/secret-scanning",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -6114,7 +6156,7 @@
         "subcategory": "delegated-bypass",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -6123,7 +6165,7 @@
         "subcategory": "delegated-bypass",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -6132,7 +6174,7 @@
         "subcategory": "delegated-bypass",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {

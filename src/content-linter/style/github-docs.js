@@ -14,7 +14,7 @@ export const reportingConfig = {
   // Add rule names here if you want to suppress them from reports
   excludeRules: [
     // Example: 'GHD030' // Uncomment to exclude code-fence-line-length warnings
-    // Example: 'british-english-quotes' // Uncomment to exclude punctuation warnings
+    'british-english-quotes', // Exclude from reports but keep for pre-commit
   ],
 }
 
@@ -215,6 +215,7 @@ const githubDocsConfig = {
   'british-english-quotes': {
     // GHD048
     severity: 'warning',
+    precommitSeverity: 'warning', // Show warnings locally for writer awareness
     'partial-markdown-files': true,
     'yml-files': true,
   },
