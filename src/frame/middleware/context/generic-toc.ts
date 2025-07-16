@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, Context, Tree, ToC } from '@/types'
-import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree.js'
+import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, category, and subcategory TOCs that don't have other layouts specified.

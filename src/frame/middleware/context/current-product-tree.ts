@@ -3,10 +3,10 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, TitlesTree, Tree, Context } from '@/types'
-import { liquid } from '@/content-render/index.js'
+import { liquid } from '@/content-render/index'
 import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
-import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 
 // This module adds currentProductTree to the context object for use in layouts.
 export default async function currentProductTree(
@@ -125,6 +125,7 @@ async function getCurrentProductTreeTitles(input: Tree, context: Context): Promi
     childPages: childPages.filter(Boolean),
   }
   if (page.hidden) node.hidden = true
+  if (page.layout && typeof page.layout === 'string') node.layout = page.layout
   return node
 }
 
@@ -137,6 +138,7 @@ function excludeHidden(tree: TitlesTree) {
     documentType: tree.documentType,
     childPages: tree.childPages.map(excludeHidden).filter(Boolean) as TitlesTree[],
   }
+  if (tree.layout && typeof tree.layout === 'string') newTree.layout = tree.layout
   return newTree
 }
 
@@ -148,5 +150,6 @@ function sidebarTree(tree: TitlesTree) {
     title: shortTitle || title,
     childPages: childChildPages,
   }
+  if (tree.layout && typeof tree.layout === 'string') newTree.layout = tree.layout
   return newTree
 }

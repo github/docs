@@ -3,9 +3,9 @@ import path from 'path'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import { get } from '#src/tests/helpers/e2etest.js'
-import getExceptionRedirects from '../../lib/exception-redirects.js'
-import { latest } from '#src/versions/lib/enterprise-server-releases.js'
+import { get } from '@/tests/helpers/e2etest'
+import getExceptionRedirects from '../../lib/exception-redirects'
+import { latest } from '@/versions/lib/enterprise-server-releases'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

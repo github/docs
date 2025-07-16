@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { britishEnglishQuotes } from '../../lib/linting-rules/british-english-quotes.js'
+import { runRule } from '../../lib/init-test'
+import { britishEnglishQuotes } from '../../lib/linting-rules/british-english-quotes'
 
 describe(britishEnglishQuotes.names.join(' - '), () => {
   test('Correct American English punctuation passes', async () => {

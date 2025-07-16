@@ -17,7 +17,6 @@ redirect_from:
 
 > [!NOTE]
 > * {% data reusables.copilot.coding-agent.preview-note-text %}
-> * The setting that blocks suggestions matching public code may not work as intended when using {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 
 ## Overview of {% data variables.copilot.copilot_coding_agent %}
 
@@ -31,14 +30,22 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 * Update documentation
 * Address technical debt
 
-To delegate development tasks to {% data variables.product.prodname_copilot_short %}, you can:
+To delegate tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
 * Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
-* Use {% data variables.copilot.copilot_chat %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
+* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %} or your favorite IDE or agentic coding tool with MCP support. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
 While working on a coding task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
+
+### Benefits over traditional AI workflows
+
+When used effectively, {% data variables.copilot.copilot_coding_agent %} offers productivity benefits over traditional AI assistants in IDEs:
+
+* With **AI assistants in IDEs**, coding happens **locally**. Individual developers pair in **synchronous** sessions with the AI assistant. Decisions made during the session are **untracked** and lost to time unless committed. Although the assistant helps write code, the developer still has a lot of **manual steps** to do: create the branch, write commit messages, push the changes, open the PR, write the PR description, get a review, iterate in the IDE, and repeat. These steps take time and effort that may be hard to justify for simple or routine issues.
+
+* With **{% data variables.copilot.copilot_coding_agent %}**, all coding and iterating happens **on {% data variables.product.github %}** as part of the pull request workflow. {% data variables.product.prodname_copilot_short %} **automates** branch creation, commit message writing and pushing, PR opening, and PR description writing. Developers let the agent **work in the background** and then steer {% data variables.product.prodname_copilot_short %} to a final solution using PR reviews. Working on {% data variables.product.github %} adds **transparency**, where every step happens in a commit and is viewable in logs. Working on {% data variables.product.github %} also opens up **collaboration** opportunities for the entire team.
 
 ### {% data variables.copilot.copilot_coding_agent %} versus agent mode
 
@@ -65,6 +72,22 @@ Before you can assign tasks to {% data variables.product.prodname_copilot_short 
 Within your monthly usage allowance for {% data variables.product.prodname_actions %} and premium requests, you can ask {% data variables.product.prodname_copilot_short %} to work on coding tasks without incurring any additional costs.
 
 For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-coding-agent).
+
+## Built-in security protections
+
+Security is a fundamental consideration when you enable {% data variables.copilot.copilot_coding_agent %}, as with any other AI agent. {% data variables.product.prodname_copilot_short %} has a strong base of built-in security protections that you can supplement by following best practice guidance.
+
+* **Subject to existing governance**: Organization settings and enterprise policies control availability. Any security policies and practices set up for the organization also apply to {% data variables.copilot.copilot_coding_agent %}.
+* **Restricted development environment**: {% data variables.product.prodname_copilot_short %} works in a sandbox development environment with internet access controlled by a firewall. It has read-only access to the repository it's assigned to work in.
+* **Limited access to branches**: {% data variables.product.prodname_copilot_short %} can only create and push to branches beginning with `copilot/`. It is subject to any branch protections and required checks for the working repository.
+* **Responds only to users with write permissions**: {% data variables.product.prodname_copilot_short %} will not respond to feedback from users with lower levels of access.
+* **Treated as an outside collaborator**: Draft pull requests proposed by {% data variables.product.prodname_copilot_short %} require approval by a user with write permissions before Actions workflows can run. {% data variables.product.prodname_copilot_short %} cannot mark its pull requests as "Ready for review" and cannot approve or merge a pull request.
+* **Tracked for compliance**: {% data variables.product.prodname_copilot_short %}'s commits are co-authored by the developer who assigned the issue or requested the change to the pull request, allowing attribution of proposed changes. The developer who asked {% data variables.product.prodname_copilot_short %} to create a pull request cannot approve that pull request. In repositories where an approving review is required, this ensures that at least one independent developer reviews {% data variables.product.prodname_copilot_short %}'s work.
+
+For more information, see:
+* [AUTOTITLE](/copilot/tutorials/pilot-copilot-coding-agent#2-secure) (information on how organization owners can further enhance security)
+* [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)
 
 ## Risks and mitigations
 
@@ -109,10 +132,14 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} does not work with self-hosted {% data variables.product.prodname_actions %} runners**. {% data variables.product.prodname_copilot_short %} has access to its own development environment, running in {% data variables.product.prodname_actions %}, and must use {% data variables.product.prodname_dotcom %}-hosted runners. See [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent#upgrading-to-larger-github-hosted-github-actions-runners).
 * **{% data variables.copilot.copilot_coding_agent %} does not work in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}**. This is because {% data variables.copilot.copilot_coding_agent %} requires {% data variables.product.company_short %}-hosted runners, which are not available to repositories owned by {% data variables.enterprise.prodname_managed_users %}. See [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
 * **{% data variables.product.prodname_copilot_short %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
+* **{% data variables.copilot.copilot_coding_agent %} does not apply the "Suggestions matching public code" policy**. {% data variables.product.prodname_copilot_short %} may still produce suggestions matching public code, even if the "Suggestions matching public code" policy is set to "Block." If this happens, {% data variables.product.prodname_copilot_short %} will not provide code references pointing to the original source of the code. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 * **{% data variables.copilot.copilot_coding_agent %} is not available in {% data variables.enterprise.data_residency %}**. The agent is only available in {% data variables.product.prodname_dotcom_the_website %}.
+
+## Hands-on practice
+
+Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.
 
 ## Further reading
 
-* **Hands-on practice**: Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills course for practical experience with {% data variables.copilot.copilot_coding_agent %}.
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent) how-to articles
 * [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)

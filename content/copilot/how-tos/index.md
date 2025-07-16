@@ -16,7 +16,7 @@ children:
   - /custom-instructions
   - /content-exclusion
   - /github-flow
-  - /monitoring-your-copilot-usage-and-entitlements
+  - /premium-requests
   - /personal-settings
   - /manage-your-account
   - /administer

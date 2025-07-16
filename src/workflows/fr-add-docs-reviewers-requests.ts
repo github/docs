@@ -7,7 +7,7 @@ import {
   findFieldID,
   findSingleSelectID,
   generateUpdateProjectV2ItemFieldMutation,
-} from './projects.js'
+} from './projects'
 
 async function getAllOpenPRs() {
   let prsRemaining = true

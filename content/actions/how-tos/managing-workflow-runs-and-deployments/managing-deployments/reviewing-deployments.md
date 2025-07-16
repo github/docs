@@ -12,13 +12,6 @@ redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-deployments/reviewing-deployments
 ---
 
-
-## About required reviews in workflows
-
-Jobs that reference an environment configured with required reviewers will wait for an approval before starting. While a job is awaiting approval, it has a status of "Waiting". If a job is not approved within 30 days, it will automatically fail.
-
-For more information about environments and required approvals, see [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment). For information about how to review deployments with the REST API, see [AUTOTITLE](/rest/actions/workflow-runs).
-
 ## Approving or rejecting a job
 
 1. Navigate to the workflow run that requires review. For more information about navigating to a workflow run, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).

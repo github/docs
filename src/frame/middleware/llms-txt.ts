@@ -2,11 +2,11 @@ import type { Response } from 'express'
 import express from 'express'
 
 import type { ExtendedRequest } from '@/types'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
-import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
-import statsd from '@/observability/lib/statsd.js'
-import languages from '@/languages/lib/languages.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
+import statsd from '@/observability/lib/statsd'
+import languages from '@/languages/lib/languages'
+import { allVersions } from '@/versions/lib/all-versions'
 
 const router = express.Router()
 const BASE_API_URL = 'https://docs.github.com/api/pagelist'

@@ -1,4 +1,4 @@
-import { addFixErrorDetail, getRange, filterTokensByOrder } from '../helpers/utils.js'
+import { addFixErrorDetail, getRange, filterTokensByOrder } from '../helpers/utils'
 
 export const listFirstWordCapitalization = {
   names: ['GHD034', 'list-first-word-capitalization'],

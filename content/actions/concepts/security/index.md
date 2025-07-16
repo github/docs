@@ -9,6 +9,8 @@ versions:
 children:
   - /secrets
   - /github_token
-  - /about-security-hardening-with-openid-connect
+  - /openid-connect
+  - /script-injections
+  - /compromised-runners
 ---
 

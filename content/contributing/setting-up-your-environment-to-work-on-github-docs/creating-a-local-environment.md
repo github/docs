@@ -74,7 +74,7 @@ For example, to enable Japanese and Portuguese in addition to English, you can e
 > [!NOTE]
 > Before you commit your changes, you should revert the `package.json` file to its original state.
 
-The supported language codes are defined in [`src/languages/lib/languages.js`](https://github.com/github/docs/blob/main/src/languages/lib/languages.js).
+The supported language codes are defined in [`src/languages/lib/languages.ts`](https://github.com/github/docs/blob/main/src/languages/lib/languages.ts).
 
 ## Using {% data variables.product.prodname_github_codespaces %}
 

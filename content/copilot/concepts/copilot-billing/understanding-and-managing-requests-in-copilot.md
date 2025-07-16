@@ -34,7 +34,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | Feature | Premium request consumption |
 | ------- | ----------- |
 | [{% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat) | {% data variables.copilot.copilot_chat_short %} uses **one premium request** per user prompt, multiplied by the model's rate. |
-| [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent) | {% data variables.copilot.copilot_coding_agent %} will make multiple premium requests to complete a single task. On average, {% data variables.copilot.copilot_coding_agent %} uses **30-50 premium requests** each time it is invoked. The exact number of premium requests will vary depending on the task’s complexity and the number of required steps. {% data variables.copilot.copilot_coding_agent %} uses a fixed multiplier of 1 for the premium requests it uses. |
+| [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent) | {% data variables.copilot.copilot_coding_agent %} uses **one premium request** per session. A session begins when you ask {% data variables.product.prodname_copilot_short %} to create a pull request or make one or more changes to an existing pull request. |
 | [Agent mode in {% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits) | Agent mode uses **one premium request** per user prompt, multiplied by the model's rate. |
 | [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review) | When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, **one premium request** is used each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. |
 | [{% data variables.copilot.copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions) | {% data variables.copilot.copilot_extensions_short %} uses **one premium request** per user prompt, multiplied by the model's rate. |
@@ -67,9 +67,10 @@ If you're on a **paid plan** and use all of your premium requests, you can still
 If you need more premium requests beyond your monthly allowance, you can:
 
 * Set a spending limit for additional premium requests. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
-* Upgrade to a higher plan.
+* Upgrade your individual subscription to a higher plan.
+* If you're an enterprise owner, edit the default $0 budget or upgrade members to {% data variables.copilot.copilot_enterprise_short %}. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-These actions can be taken by organization owners, billing managers, and personal account users.
+These actions can be taken by enterprise owners, organization owners, billing managers, and personal account users.
 
 > [!IMPORTANT] By default, all budgets are set to zero and premium requests over the allowance are rejected unless a budget has been created. Additional premium requests beyond your plan’s included amount are billed at {% data variables.copilot.additional_premium_requests %} per request.
 

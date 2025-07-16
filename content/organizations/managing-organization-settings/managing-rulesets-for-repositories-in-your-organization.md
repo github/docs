@@ -4,8 +4,8 @@ intro: 'You can edit, monitor, and delete existing rulesets to alter how people 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.13'
-permissions: 'Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.'
+  ghes: '*'
+permissions: Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.
 topics:
   - Organizations
 shortTitle: Manage rulesets

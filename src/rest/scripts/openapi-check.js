@@ -8,7 +8,7 @@ import fs from 'fs'
 import path from 'path'
 import { globSync } from 'glob'
 import { program } from 'commander'
-import { createOperations, processOperations } from './utils/get-operations.js'
+import { createOperations, processOperations } from './utils/get-operations'
 
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')

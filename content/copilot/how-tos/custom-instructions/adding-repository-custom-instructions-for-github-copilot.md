@@ -238,7 +238,7 @@ You can create a custom instructions file in your repository via the {% data var
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
 1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
-1. At the top of the application window, click **Advanced**.
+1. At the top of the application window, under **Settings**, click **Advanced**.
 1. To the right of "Custom Instructions", click **Current Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
 
 {% endxcode %}

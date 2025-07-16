@@ -22,6 +22,7 @@ export const allTools: ToolsMapping = {
   javascript: 'JavaScript',
   jetbrains: 'JetBrains IDEs',
   jetbrains_beta: 'JetBrains IDEs (Beta)',
+  mobile: 'Mobile',
   skillsets: 'Skillsets',
   vimneovim: 'Vim/Neovim',
   powershell: 'PowerShell',

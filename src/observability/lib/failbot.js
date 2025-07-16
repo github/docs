@@ -55,7 +55,7 @@ export function report(error, metadata) {
 
 // Kept for legacy so you can continue to do:
 //
-//  import FailBot from './lib/failbot.js'
+//  import FailBot from './lib/failbot'
 //  ...
 //  FailBot.report(myError)
 //

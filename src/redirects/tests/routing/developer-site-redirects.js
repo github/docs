@@ -2,9 +2,9 @@ import path from 'path'
 
 import { beforeAll, describe, expect, test, vi } from 'vitest'
 
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get } from '#src/tests/helpers/e2etest.js'
-import readJsonFile from '#src/frame/lib/read-json-file.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { get } from '@/tests/helpers/e2etest'
+import readJsonFile from '@/frame/lib/read-json-file'
 
 describe('developer redirects', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

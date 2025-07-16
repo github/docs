@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import cheerio from 'cheerio'
 
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 const example = `
 \`\`\`yaml annotate

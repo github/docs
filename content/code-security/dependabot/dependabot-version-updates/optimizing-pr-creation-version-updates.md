@@ -62,8 +62,7 @@ You can use `groups` to consolidate updates for multiple dependencies into a sin
 
 You must configure groups per individual package ecosystem, then you can create multiple groups per package ecosystem using a combination of criteria:
 
-{% ifversion dependabot-grouped-security-updates-config %}
-* {% data variables.product.prodname_dependabot %} update type: `applies-to`{% endif %}
+* {% data variables.product.prodname_dependabot %} update type: `applies-to`
 * Type of dependency: `dependency-type`.
 * Dependency name: `patterns` and `exclude-patterns`
 * Semantic versioning levels: `update-types`

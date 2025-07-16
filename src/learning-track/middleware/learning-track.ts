@@ -2,11 +2,11 @@ import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, LearningTracks } from '@/types'
 import type { Context, CurrentLearningTrack, TrackGuide } from '../lib/types'
-import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils'
 import getLinkData from '../lib/get-link-data'
-import { renderContent } from '@/content-render/index.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { renderContent } from '@/content-render/index'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 export default async function learningTrack(
   req: ExtendedRequest & { context: Context },

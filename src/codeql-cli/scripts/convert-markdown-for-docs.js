@@ -7,8 +7,8 @@ import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
-import { languageKeys } from '#src/languages/lib/languages.js'
-import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options.js'
+import { languageKeys } from '@/languages/lib/languages'
+import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options'
 
 const { targetDirectory, removeKeywords } = JSON.parse(
   await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),

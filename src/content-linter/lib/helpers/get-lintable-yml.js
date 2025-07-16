@@ -1,8 +1,8 @@
 import yaml from 'js-yaml'
 import fs from 'fs/promises'
 
-import dataSchemas from '#src/data-directory/lib/data-schemas/index.js'
-import ajv from '#src/tests/lib/validate-json-schema.js'
+import dataSchemas from '@/data-directory/lib/data-schemas/index'
+import ajv from '@/tests/lib/validate-json-schema'
 
 // AJV already has a built-in way to extract out properties
 // with a specific keyword using a custom validator function.

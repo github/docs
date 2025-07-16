@@ -7,8 +7,8 @@ import { rimraf } from 'rimraf'
 import { mkdirp } from 'mkdirp'
 import { difference, isEqual } from 'lodash-es'
 
-import { allVersions } from '@/versions/lib/all-versions.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import type { MarkdownFrontmatter } from '@/types'
 
 // Type definitions - extending existing type to add missing fields and make most fields optional

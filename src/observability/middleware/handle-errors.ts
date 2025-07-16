@@ -1,14 +1,11 @@
 import type { NextFunction, Response, ErrorRequestHandler } from 'express'
 
-import FailBot from '../lib/failbot.js'
-import { nextApp } from '@/frame/middleware/next.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { errorCacheControl } from '@/frame/middleware/cache-control.js'
-import statsd from '@/observability/lib/statsd.js'
-import { ExtendedRequest } from '@/types.js'
+import FailBot from '../lib/failbot'
+import { nextApp } from '@/frame/middleware/next'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { errorCacheControl } from '@/frame/middleware/cache-control'
+import statsd from '@/observability/lib/statsd'
+import { ExtendedRequest } from '@/types'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 

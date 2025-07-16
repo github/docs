@@ -21,7 +21,7 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 ## Navigating to the {% data variables.product.prodname_github_app %} you want to review or modify
 
 {% ifversion enterprise-installed-apps %}* For a {% data variables.product.prodname_github_app %} installed on an enterprise:
-   1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile photo, then click **Your enterprises**.
+   1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **Your enterprises**.
    1. Next to your enterprise name, click **Settings**.
    1. In the top navigation bar, click **Settings**.
    1. In the side bar, click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} owned by your enterprise will be displayed.
@@ -29,13 +29,13 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.{% endif %}
 
 * For a {% data variables.product.prodname_github_app %} installed on an organization:
-   1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile photo, then click **Your organizations**.
+   1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **Your organizations**.
    1. Next to your organization name, click **Settings**.
    1. In the side bar, under "Third-party Access," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your organization will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
 * For a {% data variables.product.prodname_github_app %} installed on your personal account:
-   1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
+   1. In the upper-right corner of any page, click your profile picture, then click **Settings**.
    1. Under "Integrations," click **Applications**.
    1. Click **Installed GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your personal account will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.

@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /get-started/git-basics/set-up-git
@@ -170,6 +170,7 @@ childGroups:
       - codeql
       - electron
       - npm
+      - gh-wa
 externalProducts:
   electron:
     id: electron
@@ -192,4 +193,3 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
-

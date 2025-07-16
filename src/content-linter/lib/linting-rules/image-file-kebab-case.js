@@ -1,4 +1,4 @@
-import { addFixErrorDetail, forEachInlineChild } from '../helpers/utils.js'
+import { addFixErrorDetail, forEachInlineChild } from '../helpers/utils'
 
 export const imageFileKebabCase = {
   names: ['GHD004', 'image-file-kebab-case'],

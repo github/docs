@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { codeAnnotationCommentSpacing } from '../../lib/linting-rules/code-annotation-comment-spacing.js'
+import { runRule } from '../../lib/init-test'
+import { codeAnnotationCommentSpacing } from '../../lib/linting-rules/code-annotation-comment-spacing'
 
 describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
   test('correctly formatted comments pass', async () => {

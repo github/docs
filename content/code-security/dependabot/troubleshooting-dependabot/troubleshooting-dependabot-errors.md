@@ -44,7 +44,7 @@ For more information about troubleshooting when running {% data variables.produc
 
 When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to fix a {% data variables.product.prodname_dependabot %} alert, it posts the error message on the alert. The {% data variables.product.prodname_dependabot_alerts %} view shows a list of any alerts that have not been resolved yet. To access the alerts view, click **{% data variables.product.prodname_dependabot_alerts %}** on the **Security** tab for the repository. Where a pull request that will fix the vulnerable dependency has been generated, the alert includes a link to that pull request.
 
-![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} view. To the right of one alert, a link to a pull request, titled "#353", is outlined in orange.](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
+![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} view. To the right of one alert, a link to a pull request, titled "#353," is outlined in orange.](/assets/images/help/dependabot/dependabot-alert-pr-link.png)
 
 There are several reasons why an alert may have no pull request link:
 
@@ -62,7 +62,7 @@ When {% data variables.product.prodname_dependabot %} is blocked from creating a
 
 To view the full logs files for a particular job, to the right of the log entry you are interested in, click **view logs**.
 
-![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs", is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
+![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs," is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
 
 For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
 
@@ -159,9 +159,9 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
 
-{% ifversion dependabot-grouped-security-updates-config %}The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
+The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
 
-{% data reusables.dependabot.dependabot-grouped-updates-applies-to %}{% else %}{% data reusables.dependabot.dependabot-version-updates-groups-supported %}{% endif %}
+{% data reusables.dependabot.dependabot-grouped-updates-applies-to %}
 
 When you configure grouped version updates, you must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see [Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates) above.
 
@@ -187,8 +187,6 @@ You need to ensure that configuration settings don't cancel each other, and upda
 
 For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups).
 
-{% ifversion dependabot-grouped-security-updates-config %}
-
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_security_updates %}
 
 The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied. Check you have grouping configured to apply to security updates. If the `applies-to` key is absent from a set of grouping rules in your configuration, any group rules will by default only apply to version updates.
@@ -204,13 +202,11 @@ For grouped security updates, {% data variables.product.prodname_dependabot %} u
 
 For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs).
 
-{% endif %}
-
 ### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
 
-{% ifversion dependabot-grouped-security-updates-config %}There are different troubleshooting techniques you can use for failed version updates and failed security updates.
+There are different troubleshooting techniques you can use for failed version updates and failed security updates.
 
-#### Handling failures in grouped version updates{% endif %}
+#### Handling failures in grouped version updates
 
 **Version updates only.** {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands).
 
@@ -220,15 +216,11 @@ If the dependency still fails to update, there may be a problem with the depende
 
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
 
-{% ifversion dependabot-grouped-security-updates-config %}
-
 #### Handling failures in grouped security updates
 
 **Security updates only.** If a grouped pull request for security updates fails or is unable to be merged, we recommend you manually open pull requests to bump the versions of breaking changes. When you manually update a package that is included in a grouped pull request, {% data variables.product.prodname_dependabot %} will rebase the pull request so it does not include the manually updated package.
 
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
-
-{% endif %}
 
 ### Continuous integration (CI) fails on my grouped pull request
 

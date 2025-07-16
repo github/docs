@@ -8,10 +8,14 @@ topics:
   - Copilot
 children:
   - /copilot-billing
+  - /completions
   - /prompt-engineering-for-copilot-chat
   - /about-customizing-github-copilot-chat-responses
-  - /about-copilot-coding-agent
+  - /content-exclusion-for-github-copilot
   - /indexing-repositories-for-copilot-chat
+  - /about-copilot-coding-agent
   - /about-organizing-and-sharing-context-with-copilot-spaces
+  - /policies
+  - /copilot-knowledge-bases
   - /build-copilot-extensions
 ---

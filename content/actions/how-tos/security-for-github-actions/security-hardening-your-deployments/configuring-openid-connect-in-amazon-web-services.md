@@ -69,7 +69,7 @@ Edit the trust policy, adding the `sub` field to the validation conditions. For 
 }
 ```
 
-If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token).
+If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`. For more information, see [AUTOTITLE](/actions/reference/openid-connect-reference#filtering-for-a-specific-environment).
 
 {% data reusables.actions.oidc-deployment-protection-rules %}
 

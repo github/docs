@@ -1,6 +1,6 @@
 import matter from 'gray-matter'
 
-import { validateJson } from '#src/tests/lib/validate-json-schema.js'
+import { validateJson } from '@/tests/lib/validate-json-schema'
 
 function readFrontmatter(markdown, opts = {}) {
   const schema = opts.schema || { type: 'object', properties: {} }

@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { head } from '#src/tests/helpers/e2etest.js'
+import { head } from '@/tests/helpers/e2etest'
 
 describe('developer.github.com redirects', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

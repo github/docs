@@ -1,17 +1,20 @@
+// When updating this file to typescript,
+// update links in content/contributing as well
+
 import path from 'path'
 
 import stripAnsi from 'strip-ansi'
 import { visit } from 'unist-util-visit'
 import { distance } from 'fastest-levenshtein'
-import { getPathWithoutLanguage, getVersionStringFromPath } from '#src/frame/lib/path-utils.js'
-import { getNewVersionedPath } from '#src/archives/lib/old-versions-utils.ts'
-import patterns from '#src/frame/lib/patterns.js'
-import { deprecated, latest } from '#src/versions/lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
-import readJsonFile from '#src/frame/lib/read-json-file.js'
-import findPage from '#src/frame/lib/find-page.js'
+import { getPathWithoutLanguage, getVersionStringFromPath } from '@/frame/lib/path-utils'
+import { getNewVersionedPath } from '@/archives/lib/old-versions-utils'
+import patterns from '@/frame/lib/patterns'
+import { deprecated, latest } from '@/versions/lib/enterprise-server-releases'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersions } from '@/versions/lib/all-versions'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import readJsonFile from '@/frame/lib/read-json-file'
+import findPage from '@/frame/lib/find-page'
 
 const isProd = process.env.NODE_ENV === 'production'
 

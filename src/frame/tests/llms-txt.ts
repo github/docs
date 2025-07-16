@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { get } from '@/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest'
 
 describe('llms.txt endpoint', () => {
   test('returns 200 OK', async () => {

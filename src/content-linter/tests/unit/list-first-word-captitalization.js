@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { listFirstWordCapitalization } from '../../lib/linting-rules/list-first-word-capitalization.js'
+import { runRule } from '../../lib/init-test'
+import { listFirstWordCapitalization } from '../../lib/linting-rules/list-first-word-capitalization'
 
 describe(listFirstWordCapitalization.names.join(' - '), () => {
   test('ensure multi-level lists catch incorrect capitalization errors', async () => {

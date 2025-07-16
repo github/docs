@@ -33,8 +33,8 @@ import path from 'path'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import { head, get } from '#src/tests/helpers/e2etest.js'
-import { loadPages } from '#src/frame/lib/page-data.js'
+import { head, get } from '@/tests/helpers/e2etest'
+import { loadPages } from '@/frame/lib/page-data'
 
 const EMPTY = Symbol('EMPTY')
 

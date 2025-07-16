@@ -5,18 +5,18 @@ import {
   getPositionData,
   getContentDeleteData,
   getSimplifiedSemverRange,
-} from '../helpers/liquid-utils.js'
-import { getFrontmatter, getFrontmatterLines } from '../helpers/utils.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+} from '../helpers/liquid-utils'
+import { getFrontmatter, getFrontmatterLines } from '../helpers/utils'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { allVersions } from '@/versions/lib/all-versions'
 import { difference } from 'lodash-es'
-import { convertVersionsToFrontmatter } from '#src/automated-pipelines/lib/update-markdown.js'
+import { convertVersionsToFrontmatter } from '@/automated-pipelines/lib/update-markdown'
 import {
   isAllVersions,
   getFeatureVersionsObject,
   isInAllGhes,
-} from '#src/ghes-releases/scripts/version-utils.js'
-import { deprecated, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
+} from '@/ghes-releases/scripts/version-utils'
+import { deprecated, oldestSupported } from '@/versions/lib/enterprise-server-releases'
 
 export const liquidIfversionVersions = {
   names: ['GHD022', 'liquid-ifversion-versions'],

@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
-import { supported } from '@/versions/lib/enterprise-server-releases.js'
-import { allVersionKeys, allVersions } from '@/versions/lib/all-versions.js'
-import { convertVersionsToFrontmatter } from '../lib/update-markdown.js'
+import { supported } from '@/versions/lib/enterprise-server-releases'
+import { allVersionKeys, allVersions } from '@/versions/lib/all-versions'
+import { convertVersionsToFrontmatter } from '../lib/update-markdown'
 
 describe('frontmatter versions are generated correctly from automated data', () => {
   test('non-continuous enterprise server versions', async () => {

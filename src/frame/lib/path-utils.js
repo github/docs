@@ -1,10 +1,10 @@
 import slash from 'slash'
 import path from 'path'
-import patterns from './patterns.js'
-import { latest } from '#src/versions/lib/enterprise-server-releases.js'
-import { productIds } from '#src/products/lib/all-products.ts'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import patterns from './patterns'
+import { latest } from '@/versions/lib/enterprise-server-releases'
+import { productIds } from '@/products/lib/all-products'
+import { allVersions } from '@/versions/lib/all-versions'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 const supportedVersions = new Set(Object.keys(allVersions))
 
 // Extracts the language code from the path

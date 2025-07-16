@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test } from 'vitest'
 import nock from 'nock'
 
-import FailBot from '../lib/failbot.js'
+import FailBot from '../lib/failbot'
 
 describe('FailBot', () => {
   const requestBodiesSent = []

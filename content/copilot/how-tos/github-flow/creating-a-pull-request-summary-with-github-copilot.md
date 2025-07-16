@@ -15,19 +15,9 @@ redirect_from:
   - /copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot
 ---
 
-## About {% data variables.copilot.copilot_for_prs %}
+## Creating a summary for a pull request
 
 You can use {% data variables.product.prodname_copilot %} to generate a summary of a pull request on {% data variables.product.github %}. You can use the summary to help reviewers understand your changes, or to quickly understand the changes in a pull request you're reviewing.
-
-{% data variables.product.prodname_copilot %} will scan through the pull request and provide an overview of the changes made in prose, as well as a bulleted list of changes with the files that they impact. You can generate a summary in the following places.
-
-* In the description of a new pull request you're creating
-* In the description of an existing pull request, by editing the opening comment
-* In a comment on the main timeline of a pull request
-
-To learn more about {% data variables.copilot.copilot_for_prs %} and how to use the feature most effectively, see [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries).
-
-## Creating a summary for a pull request
 
 1. On {% data variables.product.github %}, create a pull request or navigate to an existing pull request.
 
@@ -52,3 +42,7 @@ To learn more about {% data variables.copilot.copilot_for_prs %} and how to use 
 
 1. Add any additional context that will help people viewing your pull request.
 1. When you're happy with the description, click **Create pull request** on a new pull request, or **Update comment** if you're editing an existing description.
+
+## Further reading
+
+* [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/about-copilot-pull-request-summaries)

@@ -1,7 +1,7 @@
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
@@ -273,6 +273,7 @@ const CHANGES_TO_REPORT = [
   ChangeType.SchemaQueryTypeChanged,
   ChangeType.SchemaMutationTypeChanged,
   ChangeType.SchemaSubscriptionTypeChanged,
+  ChangeType.DirectiveUsageFieldDefinitionRemoved,
 ]
 
 const CHANGES_TO_IGNORE = [

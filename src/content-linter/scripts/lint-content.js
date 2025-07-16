@@ -7,14 +7,14 @@ import { applyFixes } from 'markdownlint-rule-helpers'
 import boxen from 'boxen'
 import ora from 'ora'
 
-import walkFiles from '#src/workflows/walk-files.ts'
-import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
-import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
-import { defaultConfig } from '../lib/default-markdownlint-options.js'
-import { prettyPrintResults } from './pretty-print-results.js'
-import { getLintableYml } from '#src/content-linter/lib/helpers/get-lintable-yml.js'
-import { printAnnotationResults } from '../lib/helpers/print-annotations.js'
-import languages from '#src/languages/lib/languages.js'
+import walkFiles from '@/workflows/walk-files'
+import { allConfig, allRules, customRules } from '../lib/helpers/get-rules'
+import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs'
+import { defaultConfig } from '../lib/default-markdownlint-options'
+import { prettyPrintResults } from './pretty-print-results'
+import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
+import { printAnnotationResults } from '../lib/helpers/print-annotations'
+import languages from '@/languages/lib/languages'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')

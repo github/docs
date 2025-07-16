@@ -1,6 +1,6 @@
-import statsd from '@/observability/lib/statsd.js'
-import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
+import statsd from '@/observability/lib/statsd'
+import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data'
+import loadRedirects from '@/redirects/lib/precompile'
 
 // Instrument these functions so that
 // it's wrapped in a timer that reports to Datadog

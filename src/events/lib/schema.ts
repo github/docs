@@ -1,7 +1,7 @@
-import { languageKeys } from '@/languages/lib/languages.js'
-import { allVersionKeys } from '@/versions/lib/all-versions.js'
+import { languageKeys } from '@/languages/lib/languages'
+import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
-import { allTools } from '@/tools/lib/all-tools.js'
+import { allTools } from '@/tools/lib/all-tools'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
 

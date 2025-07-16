@@ -41,31 +41,11 @@ redirect_from:
 
 You can use {% data variables.product.prodname_dotcom %}'s REST API to get details about the assignment of {% data variables.product.prodname_copilot %} seats in your organization. See [Get Copilot seat information and settings for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#get-copilot-seat-information-and-settings-for-an-organization), [List all Copilot seat assignments for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#list-all-copilot-seat-assignments-for-an-organization), and [Get Copilot seat assignment details for a user](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#get-copilot-seat-assignment-details-for-a-user).
 
-## Understanding the `last_activity_at` calculation
+## Troubleshooting `last_activity_at` data
 
-> [!NOTE] This data is in {% data variables.release-phases.public_preview %} and subject to change.
+If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
 
-To align the `last_activity_at` data point with _actual usage_, the system returns the timestamp of a user's most recent interaction with Copilot functionality. These interactions are:
-
-* Receiving a code suggestion in an IDE
-* Chatting with Copilot Chat in an IDE
-{%- ifversion ghec %}
-* Creating or updating a knowledge base
-* Creating a pull request summary
-* Interacting with Copilot Chat in GitHub
-{%- endif %}
-* Interacting with Copilot on a mobile device
-* Interacting with Copilot Chat for CLI
-
-The `last_activity_at` date is consistent across the CSV generated via `Get Report` in Copilot Access settings as well as through {% data variables.product.prodname_dotcom %}'s REST API. The events which are tracked come from both client, and server-side telemetry. This allows the timestamp to be durable in the event that network conditions would impact client-telemetry.
-
-The retention period for `last_activity_at` data is 90 days. After 90 days of no new activity, a user's `last_activity_at` value is set to `nil`. The data retention period cannot be modified. For more information, see [Updating retention period for `last_activity_at` values on the Copilot user management API to 90 days](https://github.blog/changelog/2025-01-17-updating-retention-period-for-last_activity_at-values-on-the-user-management-api-public-preview-to-90-days/) on {% data variables.product.prodname_blog %}.
-
-### Troubleshooting `last_activity_at` data
-
-Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. Users must have telemetry enabled in their IDE for their usage to be reflected in `last_activity_at`.
-
-If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
+For more information about this property, see [AUTOTITLE](/copilot/reference/metrics-data#last_activity_at).
 
 ## Further reading
 

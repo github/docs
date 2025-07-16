@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'vitest'
 
-import getRedirect from '../../lib/get-redirect.js'
+import getRedirect from '../../lib/get-redirect'
 import {
   latest,
   latestStable,
   supported,
   oldestSupported,
-} from '#src/versions/lib/enterprise-server-releases.js'
+} from '@/versions/lib/enterprise-server-releases'
 
 const previousEnterpriserServerVersion = supported[1]
 

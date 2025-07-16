@@ -7,13 +7,13 @@ import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
 
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { allVersions, getDocsVersion } from '#src/versions/lib/all-versions.js'
-import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
-import { nonAutomatedRestPaths } from '../lib/config.js'
-import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
-import walkFiles from '#src/workflows/walk-files.ts'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { allVersions, getDocsVersion } from '@/versions/lib/all-versions'
+import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index'
+import { nonAutomatedRestPaths } from '../lib/config'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
+import walkFiles from '@/workflows/walk-files'
 
 export async function getDiffOpenAPIContentRest() {
   const contentFiles = getAutomatedMarkdownFiles('content/rest')

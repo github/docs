@@ -3,10 +3,10 @@ import path from 'path'
 import yaml from 'js-yaml'
 import walkFiles from 'walk-sync'
 
-import frontmatter from '@/frame/lib/read-frontmatter.js'
-import { supported, deprecated } from '@/versions/lib/enterprise-server-releases.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import { supported, deprecated } from '@/versions/lib/enterprise-server-releases'
 import { isInAllGhes } from '../version-utils'
-import { Versions } from '@/types.js'
+import { Versions } from '@/types'
 
 type featureDataType = Versions | undefined
 

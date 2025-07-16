@@ -4,10 +4,10 @@ import path from 'path'
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
 
-import { get } from '@/tests/helpers/e2etest.js'
-import { checkCachingHeaders } from '@/tests/helpers/caching-headers.js'
-import { setDefaultFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets.js'
+import { get } from '@/tests/helpers/e2etest'
+import { checkCachingHeaders } from '@/tests/helpers/caching-headers'
+import { setDefaultFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
+import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
 
 function getNextStaticAsset(directory: string) {
   const root = path.join('.next', 'static', directory)
@@ -38,6 +38,8 @@ type MockResponse = {
   statusCode: number
   json?: (payload: any) => void
   send?: (body: any) => void
+  sendStatus?: (statusCode: number) => void
+  end?: () => void
   _json?: string
   _send?: string
   headers: Record<string, string>
@@ -48,8 +50,8 @@ type MockResponse = {
 
 const mockResponse = () => {
   const res: MockResponse = {
-    status: 404,
-    statusCode: 404,
+    status: undefined as any,
+    statusCode: undefined as any,
     headers: {},
   }
   res.json = (payload) => {
@@ -59,6 +61,14 @@ const mockResponse = () => {
     res.status = 200
     res.statusCode = 200
     res._send = body
+  }
+  res.end = () => {
+    // Mock end method
+  }
+  res.sendStatus = (statusCode) => {
+    res.status = statusCode
+    res.statusCode = statusCode
+    // Mock sendStatus method
   }
   res.set = (key, value) => {
     if (typeof key === 'string') {
@@ -74,6 +84,12 @@ const mockResponse = () => {
   }
   res.hasHeader = (key) => {
     return key in res.headers
+  }
+  // Add Express-style status method that supports chaining
+  ;(res as any).status = (code: number) => {
+    res.status = code
+    res.statusCode = code
+    return res
   }
   return res
 }
@@ -178,7 +194,12 @@ describe('archived enterprise static assets', () => {
       })
     nock('https://github.github.com')
       .get('/docs-ghes-2.3/_next/static/fourofour.css')
-      .reply(404, 'Not found', {
+      .reply(404, 'not found', {
+        'content-type': 'text/plain',
+      })
+    nock('https://github.github.com')
+      .get('/docs-ghes-3.5/assets/images/some-image.png')
+      .reply(404, 'not found', {
         'content-type': 'text/plain',
       })
     nock('https://github.github.com')
@@ -251,7 +272,6 @@ describe('archived enterprise static assets', () => {
     }
     setDefaultFastlySurrogateKey(req, res, next)
     await archivedEnterpriseVersionsAssets(req as any, res as any, next)
-    expect(res.statusCode).toBe(404)
     // It didn't exit in that middleware but called next() to move on
     // with any other middlewares.
     expect(nexted).toBe(true)
@@ -273,5 +293,88 @@ describe('archived enterprise static assets', () => {
     // It tried to go via the proxy, but it wasn't there, but then it
     // tried "our disk" and it's eventually there.
     expect(nexted).toBe(true)
+  })
+
+  describe.each([
+    {
+      name: 'Next.js chunk assets from archived enterprise referrer (legacy format)',
+      path: '/_next/static/chunks/9589-81283b60820a85f5.js',
+      referrer: '/en/enterprise/3.5/authentication/connecting-to-github-with-ssh',
+      expectStatus: 204,
+      shouldCallNext: false,
+    },
+    {
+      name: 'Next.js chunk assets from archived enterprise referrer (new format)',
+      path: '/_next/static/chunks/pages/[versionId]-40812da083876691.js',
+      referrer: '/en/enterprise-server@3.5/authentication/connecting-to-github-with-ssh',
+      expectStatus: 204,
+      shouldCallNext: false,
+    },
+    {
+      name: 'Next.js build manifest from archived enterprise referrer',
+      path: '/_next/static/NkhGE2zLVuDHVh7pXdtVC/_buildManifest.js',
+      referrer: '/enterprise-server@3.5/admin/configuration',
+      expectStatus: 204,
+      shouldCallNext: false,
+    },
+  ])(
+    'should return $expectStatus for $name',
+    ({ name, path, referrer, expectStatus, shouldCallNext }) => {
+      test(name, async () => {
+        const req = mockRequest(path, {
+          headers: {
+            Referrer: referrer,
+          },
+        })
+        const res = mockResponse()
+        let nexted = false
+        const next = () => {
+          if (!shouldCallNext) {
+            throw new Error('should not call next() for suppressed assets')
+          }
+          nexted = true
+        }
+        setDefaultFastlySurrogateKey(req, res, () => {})
+        await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+        expect(res.statusCode).toBe(expectStatus)
+        if (shouldCallNext) {
+          expect(nexted).toBe(true)
+        }
+      })
+    },
+  )
+
+  describe.each([
+    {
+      name: 'Next.js assets from non-enterprise referrer',
+      path: '/_next/static/chunks/main-abc123.js',
+      referrer: '/en/actions/using-workflows',
+      expectStatus: undefined,
+      shouldCallNext: true,
+    },
+    {
+      name: 'non-Next.js assets from archived enterprise referrer',
+      path: '/assets/images/some-image.png',
+      referrer: '/en/enterprise-server@3.5/some/page',
+      expectStatus: undefined,
+      shouldCallNext: true,
+    },
+  ])('should not suppress $name', ({ name, path, referrer, expectStatus, shouldCallNext }) => {
+    test(name, async () => {
+      const req = mockRequest(path, {
+        headers: {
+          Referrer: referrer,
+        },
+      })
+      const res = mockResponse()
+      let nexted = false
+      const next = () => {
+        nexted = true
+      }
+      setDefaultFastlySurrogateKey(req, res, () => {})
+      await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+      expect(nexted).toBe(shouldCallNext)
+      expect(res.statusCode).toBe(expectStatus)
+    })
   })
 })

@@ -1,10 +1,10 @@
 import { describe, expect, test, vi } from 'vitest'
 import { slug } from 'github-slugger'
 
-import { get, getDOM } from '#src/tests/helpers/e2etest.js'
-import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
-import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
-import getRest from '#src/rest/lib/index.js'
+import { get, getDOM } from '@/tests/helpers/e2etest'
+import { isApiVersioned, allVersions } from '@/versions/lib/all-versions'
+import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema'
+import getRest from '@/rest/lib/index'
 
 describe('REST references docs', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
@@ -15,7 +15,9 @@ describe('REST references docs', () => {
   test('loads schema data for all versions', async () => {
     for (const version of Object.keys(allVersions)) {
       const calendarDate = allVersions[version].latestApiVersion
-      const checksRestOperations = await getRest(version, calendarDate, 'checks', 'runs')
+      const restData = await getRest(version, calendarDate)
+      const checksRestOperations =
+        (restData && restData['checks'] && restData['checks']['runs']) || []
       const $ = await getDOM(`/en/${version}/rest/checks/runs?restVersion=${calendarDate}`)
       const domH2Ids = $('h2')
         .map((i, h2) => $(h2).attr('id'))

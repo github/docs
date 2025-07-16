@@ -96,9 +96,9 @@ You bear the sole risk of using the pre-release software.
 
   Neither GitHub nor Microsoft give any express warranties, guarantees, or commitments about the pre-release software or its quality, reliability, availability, security, or function. The software may contain errors, may delete or corrupt your data, and may have defects or other bugs.
 
-## 10. No Indemnity.
+## 10. Defense of Third Party Claims.
 
-  Neither GitHub nor Microsoft will have any obligation to defend, indemnify, or hold you harmless from any claim against you relating to your use of the pre-release software.
+  If your Agreement provides for the defense of third party claims, that provision will apply to your use of the pre-release software and the outputs you receive from it. For software that uses artificial intelligence, you must have complied with (a) the Acceptable Use Policies in your Agreement, and (b) the [Microsoft Enterprise AI Services Code of Conduct](https://aka.ms/AIcode), and (c) the [Microsoft Customer Copyright Commitment Required Mitigations](https://aka.ms/AIfilters).
 
 ## 11. No Uptime Guarantees.
 
@@ -106,7 +106,7 @@ You bear the sole risk of using the pre-release software.
 
 ## 12. Limitation of Liability.
 
-  GitHub’s maximum liability for any claim related to your use of the pre-release software is limited to direct damages up to five hundred dollars ($500.00 USD).
+  GitHub’s maximum liability for any claim related to your use of the pre-release software is limited to direct damages up to five hundred dollars ($500.00 USD). This limit will not apply to the defense obligations in Section 10.
 
 ## 13. Compliance with Export Restrictions.
 

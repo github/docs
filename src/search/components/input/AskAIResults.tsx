@@ -484,7 +484,7 @@ export function AskAIResults({
       {!aiCouldNotAnswer && !responseLoading && references && references.length > 0 ? (
         <>
           <ActionList className={styles.referencesList} showDividers>
-            <ActionList.Group>
+            <ActionList.Group data-testid="ai-references">
               <ActionList.GroupHeading
                 as="h3"
                 aria-label={t('search.ai.references')}

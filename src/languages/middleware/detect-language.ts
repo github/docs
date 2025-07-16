@@ -2,8 +2,8 @@ import type { Request, Response, NextFunction } from 'express'
 import parser from 'accept-language-parser'
 import type { Language as parserLanguage } from 'accept-language-parser'
 
-import languages, { languageKeys } from '@/languages/lib/languages.js'
-import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants.js'
+import languages, { languageKeys } from '@/languages/lib/languages'
+import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import type { ExtendedRequest, Languages } from '@/types'
 
 const chineseRegions = [
