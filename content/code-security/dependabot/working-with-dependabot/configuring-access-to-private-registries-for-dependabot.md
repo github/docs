@@ -160,8 +160,7 @@ Examples of how to configure access to the private registries supported by {% da
 * [`cargo-registry`](#cargo-registry)
 * [`composer-repository`](#composer-repository)
 * [`docker-registry`](#docker-registry)
-* [`git`](#git){% ifversion dependabot-helm-support %}
-* [`helm-registry`](#helm-registry){% endif %}
+* [`git`](#git)
 * [`hex-organization`](#hex-organization)
 * [`hex-repository`](#hex-repository)
 * [`maven-repository`](#maven-repository)
