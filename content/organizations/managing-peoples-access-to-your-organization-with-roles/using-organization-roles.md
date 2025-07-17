@@ -1,10 +1,10 @@
 ---
 title: Using organization roles
-intro: "Learn how to{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments."
+intro: 'Learn how to{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments.'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.14'
+  ghes: '*'
 topics:
   - Organizations
   - Access management

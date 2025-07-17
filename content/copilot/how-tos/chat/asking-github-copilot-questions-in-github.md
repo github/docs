@@ -92,9 +92,6 @@ Depending on the question you ask, and your enterprise and organization settings
 
 ### Regenerating a response with a different model
 
-> [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change. It is currently not available for all models.
-
 After {% data variables.product.prodname_copilot_short %} responds to your question, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
 
 You can switch between responses to compare the results from different models.
@@ -102,9 +99,6 @@ You can switch between responses to compare the results from different models.
 For help deciding which model to use, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
 ### Using subthreads in a conversation
-
-> [!NOTE]
-> Subthreading in {% data variables.copilot.copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 Subthreads are branches of a conversation that are created from a point in a conversation where you asked a question. Subthreads offer more control and flexibility for exploring aspects of a topic, or new topics, all within the same thread.
 

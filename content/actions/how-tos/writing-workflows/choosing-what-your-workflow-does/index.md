@@ -14,12 +14,12 @@ children:
   - /using-pre-written-building-blocks-in-your-workflow
   - /using-github-cli-in-workflows
   - /adding-scripts-to-your-workflow
-  - /controlling-permissions-for-github_token
+  - /using-secrets-in-github-actions
   - /store-information-in-variables
   - /passing-information-between-jobs
   - /setting-a-default-shell-and-working-directory
-  - /using-environments-for-deployment
+  - /deploying-to-a-specific-environment
   - /control-the-concurrency-of-workflows-and-jobs
   - /running-variations-of-jobs-in-a-workflow
-  - /storing-and-sharing-data-from-a-workflow
 ---
+

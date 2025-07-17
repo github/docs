@@ -20,6 +20,7 @@ children:
   - /modernizing-legacy-code-with-github-copilot
   - /using-copilot-to-migrate-a-project
   - /upgrading-projects-with-github-copilot
+  - /pilot-copilot-coding-agent
   - /rolling-out-github-copilot-at-scale
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot

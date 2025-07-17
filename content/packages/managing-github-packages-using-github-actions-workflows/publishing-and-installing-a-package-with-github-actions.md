@@ -6,6 +6,8 @@ redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-github-actions
   - /packages/using-github-packages-with-your-projects-ecosystem/using-github-packages-with-github-actions
   - /packages/guides/using-github-packages-with-github-actions
+  - /actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
+  - /actions/concepts/use-cases/about-packaging-with-github-actions
 versions:
   fpt: '*'
   ghes: '*'

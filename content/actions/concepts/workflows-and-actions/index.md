@@ -6,13 +6,15 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-workflows
+  - /workflows
   - /variables
   - /avoiding-duplication
   - /reusable-workflows
   - /about-custom-actions
   - /contexts
   - /expressions
+  - /deployment-environments
+  - /workflow-artifacts
   - /dependency-caching
   - /about-monitoring-workflows
   - /notifications-for-workflow-runs

@@ -38,22 +38,25 @@ contentFiles.forEach((oldFullPath) => {
   // skip pages with frontmatter flag
   if (data.allowTitleToDifferFromFilename) return
 
-  // slugify the title of each article
-  // where title = Foo bar
-  // and slug = foo-bar
+  // Slugify the title of each article, where:
+  // * title = Foo bar
+  // * slug = foo-bar
+  // Also allow for the slugified shortTitle to match the filename.
   slugger.reset()
-  const slug = slugger.slug(decode(data.title))
+  const slugTitle = slugger.slug(decode(data.title))
+  const slugShortTitle = slugger.slug(decode(data.shortTitle))
+  const allowedSlugs = [slugTitle, slugShortTitle]
 
   // get the basename of each file
   // where file = content/foo-bar.md
   // and basename = foo-bar
   const basename = path.basename(oldFullPath, '.md')
 
-  // if slug and basename match, return early
-  if (basename === slug) return
+  // If the basename is one of the allowed slugs, we're all set here.
+  if (allowedSlugs.includes(basename)) return
 
   // otherwise rename the file using the slug
-  const newFullPath = oldFullPath.replace(basename, slug)
+  const newFullPath = oldFullPath.replace(basename, slugShortTitle || slugTitle)
 
   const oldContentPath = path.relative(process.cwd(), oldFullPath)
   const newContentPath = path.relative(process.cwd(), newFullPath)

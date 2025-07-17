@@ -1,42 +1,55 @@
 import searchReplace from 'markdownlint-rule-search-replace'
 import markdownlintGitHub from '@github/markdownlint-github'
 
-import { codeFenceLineLength } from './code-fence-line-length'
-import { imageAltTextEndPunctuation } from './image-alt-text-end-punctuation'
-import { imageFileKebabCase } from './image-file-kebab-case'
-import { incorrectAltTextLength } from './image-alt-text-length'
-import { internalLinksNoLang } from './internal-links-no-lang'
-import { internalLinksSlash } from './internal-links-slash'
-import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words'
-import { listFirstWordCapitalization } from './list-first-word-capitalization'
-import { linkPunctuation } from './link-punctuation'
-import { earlyAccessReferences, frontmatterEarlyAccessReferences } from './early-access-references'
-import { frontmatterHiddenDocs } from './frontmatter-hidden-docs'
-import { frontmatterVideoTranscripts } from './frontmatter-video-transcripts'
-import { yamlScheduledJobs } from './yaml-scheduled-jobs'
-import { internalLinksOldVersion } from './internal-links-old-version'
-import { hardcodedDataVariable } from './hardcoded-data-variable'
-import { githubOwnedActionReferences } from './github-owned-action-references'
-import { liquidQuotedConditionalArg } from './liquid-quoted-conditional-arg'
-import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-tags'
-import { frontmatterSchema } from './frontmatter-schema'
-import { codeAnnotations } from './code-annotations'
-import { codeAnnotationCommentSpacing } from './code-annotation-comment-spacing'
-import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax'
-import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning'
-import { raiReusableUsage } from './rai-reusable-usage'
-import { imageNoGif } from './image-no-gif'
-import { expiredContent, expiringSoon } from './expired-content'
-import { tableLiquidVersioning } from './table-liquid-versioning'
-import { tableColumnIntegrity } from './table-column-integrity'
-import { thirdPartyActionPinning } from './third-party-action-pinning'
-import { liquidTagWhitespace } from './liquid-tag-whitespace'
-import { linkQuotation } from './link-quotation'
-import { octiconAriaLabels } from './octicon-aria-labels'
-import { liquidIfversionVersions } from './liquid-ifversion-versions'
-import { britishEnglishQuotes } from './british-english-quotes'
-import { multipleEmphasisPatterns } from './multiple-emphasis-patterns'
-import { noteWarningFormatting } from './note-warning-formatting'
+import { codeFenceLineLength } from '@/content-linter/lib/linting-rules/code-fence-line-length'
+import { imageAltTextEndPunctuation } from '@/content-linter/lib/linting-rules/image-alt-text-end-punctuation'
+import { imageFileKebabCase } from '@/content-linter/lib/linting-rules/image-file-kebab-case'
+import { incorrectAltTextLength } from '@/content-linter/lib/linting-rules/image-alt-text-length'
+import { internalLinksNoLang } from '@/content-linter/lib/linting-rules/internal-links-no-lang'
+import { internalLinksSlash } from '@/content-linter/lib/linting-rules/internal-links-slash'
+import { imageAltTextExcludeStartWords } from '@/content-linter/lib/linting-rules/image-alt-text-exclude-start-words'
+import { listFirstWordCapitalization } from '@/content-linter/lib/linting-rules/list-first-word-capitalization'
+import { linkPunctuation } from '@/content-linter/lib/linting-rules/link-punctuation'
+import {
+  earlyAccessReferences,
+  frontmatterEarlyAccessReferences,
+} from '@/content-linter/lib/linting-rules/early-access-references'
+import { frontmatterHiddenDocs } from '@/content-linter/lib/linting-rules/frontmatter-hidden-docs'
+import { frontmatterVideoTranscripts } from '@/content-linter/lib/linting-rules/frontmatter-video-transcripts'
+import { yamlScheduledJobs } from '@/content-linter/lib/linting-rules/yaml-scheduled-jobs'
+import { internalLinksOldVersion } from '@/content-linter/lib/linting-rules/internal-links-old-version'
+import { hardcodedDataVariable } from '@/content-linter/lib/linting-rules/hardcoded-data-variable'
+import { githubOwnedActionReferences } from '@/content-linter/lib/linting-rules/github-owned-action-references'
+import { liquidQuotedConditionalArg } from '@/content-linter/lib/linting-rules/liquid-quoted-conditional-arg'
+import {
+  liquidDataReferencesDefined,
+  liquidDataTagFormat,
+} from '@/content-linter/lib/linting-rules/liquid-data-tags'
+import { frontmatterSchema } from '@/content-linter/lib/linting-rules/frontmatter-schema'
+import { codeAnnotations } from '@/content-linter/lib/linting-rules/code-annotations'
+import { codeAnnotationCommentSpacing } from '@/content-linter/lib/linting-rules/code-annotation-comment-spacing'
+import {
+  frontmatterLiquidSyntax,
+  liquidSyntax,
+} from '@/content-linter/lib/linting-rules/liquid-syntax'
+import {
+  liquidIfTags,
+  liquidIfVersionTags,
+} from '@/content-linter/lib/linting-rules/liquid-versioning'
+import { raiReusableUsage } from '@/content-linter/lib/linting-rules/rai-reusable-usage'
+import { imageNoGif } from '@/content-linter/lib/linting-rules/image-no-gif'
+import { expiredContent, expiringSoon } from '@/content-linter/lib/linting-rules/expired-content'
+import { tableLiquidVersioning } from '@/content-linter/lib/linting-rules/table-liquid-versioning'
+import { tableColumnIntegrity } from '@/content-linter/lib/linting-rules/table-column-integrity'
+import { thirdPartyActionPinning } from '@/content-linter/lib/linting-rules/third-party-action-pinning'
+import { liquidTagWhitespace } from '@/content-linter/lib/linting-rules/liquid-tag-whitespace'
+import { linkQuotation } from '@/content-linter/lib/linting-rules/link-quotation'
+import { octiconAriaLabels } from '@/content-linter/lib/linting-rules/octicon-aria-labels'
+import { liquidIfversionVersions } from '@/content-linter/lib/linting-rules/liquid-ifversion-versions'
+import { outdatedReleasePhaseTerminology } from '@/content-linter/lib/linting-rules/outdated-release-phase-terminology'
+import { britishEnglishQuotes } from '@/content-linter/lib/linting-rules/british-english-quotes'
+import { multipleEmphasisPatterns } from '@/content-linter/lib/linting-rules/multiple-emphasis-patterns'
+import { noteWarningFormatting } from '@/content-linter/lib/linting-rules/note-warning-formatting'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -88,6 +101,7 @@ export const gitHubDocsMarkdownlint = {
     liquidTagWhitespace,
     linkQuotation,
     octiconAriaLabels,
+    outdatedReleasePhaseTerminology,
     britishEnglishQuotes,
     multipleEmphasisPatterns,
     noteWarningFormatting,

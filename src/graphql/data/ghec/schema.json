@@ -13830,9 +13830,7 @@
           "type": "IssueStateReason",
           "id": "issuestatereason",
           "kind": "enums",
-          "href": "/graphql/reference/enums#issuestatereason",
-          "isDeprecated": true,
-          "deprecationReason": "<p>The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.</p>"
+          "href": "/graphql/reference/enums#issuestatereason"
         },
         {
           "name": "url",
@@ -29813,7 +29811,7 @@
             {
               "name": "enableDuplicate",
               "defaultValue": false,
-              "description": "<p>Whether or not to return state reason for duplicates.</p>",
+              "description": "<p>Whether or not to return state reason for duplicates</p>\n<p><strong>Upcoming Change on 2025-10-01 UTC</strong>\n<strong>Description:</strong> <code>enableDuplicate</code> will be removed.\n<strong>Reason:</strong> The state reason for duplicate issue is now returned by default.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -29821,9 +29819,7 @@
                 "href": "/graphql/reference/scalars#boolean"
               }
             }
-          ],
-          "isDeprecated": true,
-          "deprecationReason": "<p>The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.</p>"
+          ]
         },
         {
           "name": "subIssues",

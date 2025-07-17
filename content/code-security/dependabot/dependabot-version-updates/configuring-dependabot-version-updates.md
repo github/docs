@@ -66,7 +66,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 1. For each package manager, use:
 
     * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem).
-    * {% ifversion dependabot-updates-multidirectory-support %}`directories` or {% endif %}`directory` to specify the location of multiple manifest or other definition files.{% ifversion dependabot-updates-multidirectory-support %} For more information, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).{% endif %}
+    * `directories` or `directory` to specify the location of multiple manifest or other definition files. For more information, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
     * `schedule.interval` to specify how often to check for new versions.
 
 {% data reusables.dependabot.check-in-dependabot-yml %}
@@ -117,13 +117,13 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "{% ifversion ghas-products %}{% data variables.product.prodname_dependabot %}{% else %}{% data variables.product.UI_advanced_security %}{% endif %}", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
+1. Under "{% ifversion ghas-products %}{% data variables.product.prodname_dependabot %}{% else %}{% data variables.product.UI_advanced_security %}{% endif %}," to the right of "{% data variables.product.prodname_dependabot_version_updates %}," click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
 
 ## Checking the status of version updates
 
 After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. This tab shows which package managers {% data variables.product.prodname_dependabot %} is configured to monitor and when {% data variables.product.prodname_dependabot %} last checked for new versions.
 
-![Screenshot of the Dependency graph page. A tab, titled "{% data variables.product.prodname_dependabot %}", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view.png)
+![Screenshot of the Dependency graph page. A tab, titled "{% data variables.product.prodname_dependabot %}," is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view.png)
 
 For information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/listing-dependencies-configured-for-version-updates).
 

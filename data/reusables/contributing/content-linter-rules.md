@@ -69,6 +69,7 @@
 | GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
 | GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |
 | GHD044 | octicon-aria-labels | Octicons should always have an aria-label attribute even if aria-hidden. | warning | accessibility, octicons |
+| GHD046 | outdated-release-phase-terminology | Outdated release phase terminology should be replaced with current GitHub terminology | warning | terminology, consistency, release-phases |
 | GHD048 | british-english-quotes | Periods and commas should be placed inside quotation marks (American English style) | warning | punctuation, quotes, style, consistency |
 | GHD050 | multiple-emphasis-patterns | Do not use more than one emphasis/strong, italics, or uppercase for a string | warning | formatting, emphasis, style |
 | GHD049 | note-warning-formatting | Note and warning tags should be formatted according to style guide | warning | formatting, callouts, notes, warnings, style |

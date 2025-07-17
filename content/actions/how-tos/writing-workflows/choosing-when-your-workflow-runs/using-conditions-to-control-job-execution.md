@@ -1,6 +1,6 @@
 ---
 title: Using conditions to control job execution
-shortTitle: Use conditions to control job execution
+shortTitle: Control jobs with conditions
 intro: Prevent a job from running unless your conditions are met.
 versions:
   fpt: '*'
@@ -11,15 +11,28 @@ redirect_from:
   - /actions/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
+You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
-## Overview
+### Example: Only run job for a specific repository
 
-{% data reusables.actions.workflows.skipped-job-status-checks-passing %}
+This example uses `if` to control when the `production-deploy` job can run. It will only run if the repository is named `octo-repo-prod` and is within the `octo-org` organization. Otherwise, the job will be marked as _skipped_.
 
-{% data reusables.actions.jobs.section-using-conditions-to-control-job-execution %}
+```yaml copy
+name: example-workflow
+on: [push]
+jobs:
+  production-deploy:
+    if: github.repository == 'octo-org/octo-repo-prod'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+```
 
-On a skipped job, you should see "This check was skipped."
+Skipped jobs display the message "This check was skipped."
 
 > [!NOTE]
-> In some parts of the workflow you cannot use environment variables. Instead you can use contexts to access the value of an environment variable. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#using-the-env-context-to-access-environment-variable-values).
+> A job that is skipped will report its status as "Success". It will not prevent a pull request from merging, even if it is a required check.

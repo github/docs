@@ -44,7 +44,7 @@ Before suspending site administrators, you must demote them to regular users. Se
 If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
 
 * If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
-* If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.{% ifversion scim-for-ghes-public-beta %} See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api#provisioning-users-with-the-rest-api).{% endif %}
+* If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api#provisioning-users-with-the-rest-api).
 
 ## Viewing suspended users in the site admin dashboard
 
@@ -90,7 +90,7 @@ You can create a custom message that suspended users will see when attempting to
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. To the right of "Suspended user page", click **Add message**.
+1. To the right of "Suspended user page," click **Add message**.
 
    ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is outlined.](/assets/images/enterprise/site-admin-settings/add-message.png)
 1. In the "Suspend user message" field, type your message. You can type Markdown, or use the Markdown toolbar to style your message.

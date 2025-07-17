@@ -15,7 +15,7 @@ Leaked secrets can pose serious security risks to your repository and your suppl
 If the repository you're contributing to on {% data variables.product.github %} is secured by push protection, you'll encounter a push protection block whenever you:
 
 * **Push commits** containing recognized secrets **from the command line** to the remote repository.
-* **Commit changes** {% ifversion push-protection-block-uploads %}or upload files {% endif %}containing recognized secrets to a repository in the **{% data variables.product.github %} UI**. {% ifversion secret-scanning-push-protection-content-endpoints %}
+* **Commit changes** or upload files containing recognized secrets to a repository in the **{% data variables.product.github %} UI**. {% ifversion secret-scanning-push-protection-content-endpoints %}
 * **Make certain requests** containing recognized secrets in **the REST API**.{% endif %}
 
 ## Resolving a push protection block

@@ -403,7 +403,7 @@ You can use the [`github/actions-oidc-debugger`](https://github.com/github/actio
 
 ### Required permission
 
-* The job or workflow must grant the [`id-token: write`](/actions/reference/github_token-reference#permissions-for-the-github_token) permission to allow {% data variables.product.github %}'s OIDC provider to create a JSON Web Token (JWT):
+* The job or workflow must grant the [`id-token: write`](/actions/reference/workflow-syntax-for-github-actions#permissions) permission to allow {% data variables.product.github %}'s OIDC provider to create a JSON Web Token (JWT):
 
   ```yaml
   permissions:

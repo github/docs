@@ -14,9 +14,9 @@ redirect_from:
 ---
 
 >[!NOTE]
-> * MCP support is currently in {% data variables.release-phases.public_preview %} and subject to change.
-> * MCP support is available in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}, JetBrains, Eclipse, and Xcode.
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+> * MCP support is generally available (GA) in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}.
+> * MCP support for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode is in {% data variables.release-phases.public_preview %} and is subject to change.
+> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply only to {% data variables.product.prodname_copilot_short %} in IDEs where MCP support is still in preview. GA terms apply when using MCP for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}.
 
 {% vscode %}
 
@@ -25,6 +25,8 @@ redirect_from:
 The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
 
 You can use MCP to extend the capabilities of {% data variables.copilot.copilot_chat_short %} by integrating it with a wide range of existing tools and services. For example, the {% data variables.product.github %} MCP server allows you to use {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} to perform tasks on {% data variables.product.github %}. You can also use MCP to create new tools and services that work with {% data variables.copilot.copilot_chat_short %}, allowing you to customize and enhance your experience.
+
+Enterprises and organizations can choose to enable or disable use of MCP for members of their organization or enterprise. See [AUTOTITLE](/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise#mcp-servers-on-githubcom). The MCP policy only applies to members with {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_short %} licenses assigned by the organization or enterprise that configures the policy. {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} do not have their MCP access governed by this policy.
 
 For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction).
 
@@ -82,7 +84,7 @@ For information on configuring the {% data variables.product.github %} MCP serve
 1. To view your list of available MCP servers, click the tools icon in the top left corner of the chat box. This will open the MCP server list, where you can see all the MCP servers and associated tools that are currently available in your {% data variables.product.prodname_vscode %} instance.
      * Optionally, you can define toolsets, groups of related tools that you can reference in chat. Toolsets make it easier to group related MCP tools together and quickly enable or disable them. For information on how to define and use a toolset, see the [{% data variables.product.prodname_vscode_shortname %} docs](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode#_define-tool-sets).
 
-For more information on configuring MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %} (Preview)](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
+For more information on configuring MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %}](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Using MCP servers in {% data variables.copilot.copilot_chat_short %}
 
@@ -107,7 +109,7 @@ Optionally, you can use MCP prompts and resources in {% data variables.product.p
   * MCP servers can define preconfigured prompts for interacting with their tools. You can access these prompts in chat with slash commands, using the format `/mcp.servername.promptname`.
   * MCP servers provide resources, which are any kind of data that the server wants to make available. For example, the {% data variables.product.github %} MCP server provides repository content as a resource. To add resources from an MCP server to your chat context, click **Add Context...** in the chat box, then click **MCP Resources**.
 
-For more information on using MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %} (Preview)](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
+For more information on using MCP servers in {% data variables.product.prodname_vscode %}, see [Use MCP servers in {% data variables.product.prodname_vscode %}](https://aka.ms/vscode-add-mcp) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Using existing MCP configurations
 
@@ -140,13 +142,13 @@ For information on other currently available MCP servers, see [the MCP servers r
 ## Configuring MCP servers in JetBrains IDEs
 
 1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
-1. From the menu, select "Edit settings".
-1. Under the MCP section, click "Edit in `mcp.json`".
+1. From the menu, select "Edit settings."
+1. Under the MCP section, click "Edit in `mcp.json`."
 1. Define your MCP servers. You can use the following configuration as an example:
 
    {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
 
-Alternatively, to access the MCP settings, once you're in "Agent Mode", click the tools icon, then click **Add more tools**.
+Alternatively, to access the MCP settings, once you're in "Agent Mode," click the tools icon, then click **Add more tools**.
 
 {% endjetbrains %}
 
@@ -167,7 +169,7 @@ For information on other currently available MCP servers, see [the MCP servers r
 
 1. Open the {% data variables.product.prodname_copilot %} for Xcode extension.
 1. In agent mode, click the tools icon.
-1. Select "Edit config".
+1. Select "Edit config."
 1. Define your MCP servers, editing `mcp.json`. You can use the following configuration as an example:
 
    {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
@@ -191,7 +193,7 @@ For information on other currently available MCP servers, see [the MCP servers r
 ## Configuring MCP servers in Eclipse
 
 1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
-1. From the menu, select "Edit preferences".
+1. From the menu, select "Edit preferences."
 1. In the left pane, expand {% data variables.copilot.copilot_chat_short %} and click **MCP**.
 1. Define your MCP servers. You can use the following configuration as an example:
 
