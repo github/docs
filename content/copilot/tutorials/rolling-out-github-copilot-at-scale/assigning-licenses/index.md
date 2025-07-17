@@ -9,7 +9,6 @@ topics:
 children:
   - /setting-up-a-self-serve-process-for-github-copilot-licenses
   - /reminding-inactive-users
-  - /managing-your-companys-spending-on-github-copilot
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/assigning-licenses
 ---

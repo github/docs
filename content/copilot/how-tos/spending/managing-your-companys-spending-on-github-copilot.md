@@ -1,6 +1,6 @@
 ---
 title: Managing your company's spending on GitHub Copilot
-shortTitle: Manage spending
+shortTitle: Manage company spending
 intro: 'Learn how to track spending, view usage, and optimize license distribution.'
 versions:
   feature: copilot
@@ -11,6 +11,7 @@ product: '{% data variables.copilot.copilot_for_business %} or {% data variables
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/managing-your-companys-spending-on-github-copilot
   - /copilot/rolling-out-github-copilot-at-scale/assigning-licenses/managing-your-companys-spending-on-github-copilot
+  - /copilot/tutorials/rolling-out-github-copilot-at-scale/assigning-licenses/managing-your-companys-spending-on-github-copilot
 ---
 
 When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
@@ -20,6 +21,8 @@ When you're adopting {% data variables.product.prodname_copilot %} in an enterpr
 To control spending, it's important to understand who can affect your bill by granting licenses to users. These are people with the **organization owner** role in organizations where you enable {% data variables.product.prodname_copilot %}. Organization owners can receive requests for access from members through the {% data variables.product.github %} UI.
 
 We recommend that you identify the people with this role and communicate with them about your company's strategy for distributing licenses. For example, you may have a budget or limited pilot program, or you may distribute licenses through an internal website.
+
+For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members).
 
 ## Managing premium requests
 
@@ -77,9 +80,9 @@ For more detailed insights, you can filter the results by cost center and group 
 
 ![Screenshot of the "Usage" page. A line chart tracks Copilot spending over the current month, grouped by SKU.](/assets/images/help/copilot/track-spending.png)
 
-## Optimize license usage
+## Next steps
 
-When you begin rolling out {% data variables.product.prodname_copilot_short %} in a company, you may see low rates of adoption at first. An effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your company. Tailor this process to your company's needs and goals, and design it to help your teams understand how to use {% data variables.product.prodname_copilot_short %} effectively.
+As well as managing spending on licenses, it is important to ensure licenses are being used effectively. When you begin rolling out {% data variables.product.prodname_copilot_short %} in a company, you may see low rates of adoption at first. An effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your company. Tailor this process to your company's needs and goals, and design it to help your teams understand how to use {% data variables.product.prodname_copilot_short %} effectively.
 
 To ensure your licenses are being used effectively, you can use the API to identify inactive users. We recommend sending these users a message with advice and resources for getting started. If a user remains inactive, you can revoke their license and assign it to another user.
 

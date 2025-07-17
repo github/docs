@@ -1,6 +1,6 @@
 ---
 title: Managing the premium request allowance for users in your enterprise
-shortTitle: Manage allowance for members
+shortTitle: Enterprise premium requests
 intro: 'Change the default spending limit or upgrade users to {% data variables.copilot.copilot_enterprise_short %}.'
 permissions: 'Enterprise owners'
 versions:
@@ -9,6 +9,8 @@ topics:
   - Copilot
 allowTitleToDifferFromFilename: true
 product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
+redirect_from:
+  - /copilot/how-tos/premium-requests/manage-for-enterprise
 ---
 
 Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/understanding-and-managing-requests-in-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
