@@ -63,19 +63,14 @@ After you add an existing organization to your enterprise, the organization's re
 * **Sponsorships:** Any sponsorships by the organization will be canceled.
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
 
-## Handling {% data variables.product.prodname_sponsors %} when using Azure billing
+## Handling {% data variables.product.prodname_sponsors %} with Azure billing
 
-### What to do if your organization’s active sponsorships are canceled after joining an enterprise with Azure billing
+If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships will be canceled. While your organization remains under enterprise billing through Azure, you will not be able to reactivate these sponsorships, as sponsoring is not currently supported for organizations billed through Azure.
 
-If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships may be canceled. Additionally, it will not be possible to reactivate these sponsorships while your organization remains under enterprise billing, as sponsoring is not currently supported for organizations billed through Azure.
+To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can use this shell organization to manage sponsorships independently.
 
-### Workaround
-
-To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can then use this shell organization to manage sponsorships independently of your enterprise’s billing setup.
-
-### Note
-
-Be sure to update any public references or documentation to point sponsors to the new shell organization.
+> [!NOTE]
+> After you create a shell organization, update any public references or documentation to point sponsors to the new organization.
 
 ## Creating a new organization
 
