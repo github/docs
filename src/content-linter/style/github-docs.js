@@ -286,6 +286,12 @@ export const githubDocsFrontmatterConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
+  'frontmatter-versions-whitespace': {
+    // GHD051
+    severity: 'warning',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
 }
 
 // Configures rules from the `github/markdownlint-github` repo

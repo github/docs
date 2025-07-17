@@ -30,6 +30,8 @@ The following machines sizes are available for macOS {% data variables.actions.h
 
 {% data reusables.actions.larger-runners-table %}
 
+>[!NOTE] The XLarge macOS runner is in public preview and subject to change.
+
 #### Limitations for macOS {% data variables.actions.hosted_runners %}
 
 {% data reusables.actions.macos-runner-limitations %}
@@ -82,7 +84,7 @@ You can choose from several specifications for {% data variables.actions.hosted_
 
 | CPU | Memory (RAM)  | Storage (SSD) | Architecture | Operating system (OS) |
 | --- | ------------- | ------------- | ------------ | --------------------- |
-| 6   | 14 GB         | 14 GB         | arm64        | macOS                 |
+| 5   | 14 GB         | 14 GB         | arm64        | macOS                 |
 | 12  | 30 GB         | 14 GB         | x64          | macOS                 |
 | 2   | 8 GB          | 75 GB         | x64, arm64   | Ubuntu                |
 | 4   | 16 GB         | 150 GB        | x64, arm64   | Ubuntu, Windows       |
@@ -94,6 +96,8 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | 96 | 384 GB         | 2040 GB       | x64          | Ubuntu, Windows        |
 
 >[!NOTE] The 4-vCPU Windows runner only works with the Windows Server 2025 or the Base Windows 11 Desktop image.
+
+>[!NOTE] The 5-vCPU macOS runner is in public preview and subject to change.
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
 

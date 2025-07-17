@@ -35,22 +35,10 @@ You may also need to install custom SSL certificates on your members' machines. 
 
 ## 4. Grant access to members
 
-Enable {% data variables.product.prodname_copilot_short %} for some or all members of your organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
-
-To help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization, think about what teams or members are most excited about {% data variables.product.prodname_copilot_short %} or could benefit the most from {% data variables.product.prodname_copilot_short %}. You may want to enable {% data variables.product.prodname_copilot_short %} for those members before enabling {% data variables.product.prodname_copilot_short %} for your whole organization. This can help you discover blockers, demonstrate early success, and set your organization up for a successful {% data variables.product.prodname_copilot_short %} rollout.
-
-{% data reusables.copilot.self-serve-license-link %}
+Enable {% data variables.product.prodname_copilot_short %} for some or all members of your organization. You may want to identify teams or members who are most likely to benefit from {% data variables.product.prodname_copilot_short %} and enable {% data variables.product.prodname_copilot_short %} for them first to discover potential blockers and demonstrate early success. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
 If your organization is part of an enterprise on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-## 5. Drive {% data variables.product.prodname_copilot_short %} adoption
+## Next steps
 
-Planning and implementing an effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company).
-
-## 6. Enhance the {% data variables.product.prodname_copilot_short %} experience
-
-Enhance the {% data variables.product.prodname_copilot_short %} experience for your organization by:
-
-* **Setting up knowledge bases** for use with {% data variables.copilot.copilot_chat_short %} _({% data variables.copilot.copilot_enterprise_short %} only)_. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
-* **Installing {% data variables.copilot.copilot_extensions_short %}** to integrate other tools with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/installing-github-copilot-extensions-for-your-organization).
-* **Adding {% data variables.copilot.copilot_coding_agent %}** as a team member to work asynchronously on issues. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org).
+{% data reusables.copilot.setup-next-steps %}
