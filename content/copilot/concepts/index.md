@@ -1,5 +1,5 @@
 ---
-title: 'Concepts for GitHub Copilot'
+title: Concepts for GitHub Copilot
 shortTitle: Concepts
 intro: 'Learn the core concepts that you''ll need to understand {% data variables.product.prodname_copilot %}.'
 versions:
@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /copilot-billing
+  - /choosing-the-right-ai-tool-for-your-task
   - /completions
   - /prompt-engineering-for-copilot-chat
   - /about-customizing-github-copilot-chat-responses
@@ -19,3 +20,4 @@ children:
   - /copilot-knowledge-bases
   - /build-copilot-extensions
 ---
+

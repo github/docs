@@ -8,7 +8,6 @@ topics:
   - Copilot
 children:
   - /copilot-chat-cookbook
-  - /choosing-the-right-ai-tool-for-your-task
   - /comparing-ai-models-using-different-tasks
   - /enhancing-copilot-agent-mode-with-mcp
   - /quickstart-for-github-copilot-extensions-using-agents

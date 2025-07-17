@@ -8,6 +8,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/choosing-the-right-ai-tool-for-your-task
+  - /copilot/tutorials/choosing-the-right-ai-tool-for-your-task
 ---
 
 ## Overview
