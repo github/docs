@@ -19,7 +19,5 @@ children:
   - /passing-information-between-jobs
   - /setting-a-default-shell-and-working-directory
   - /deploying-to-a-specific-environment
-  - /control-the-concurrency-of-workflows-and-jobs
   - /running-variations-of-jobs-in-a-workflow
 ---
-

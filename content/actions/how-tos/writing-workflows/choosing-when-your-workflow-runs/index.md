@@ -9,7 +9,7 @@ versions:
 children:
   - /triggering-a-workflow
   - /using-conditions-to-control-job-execution
+  - /control-the-concurrency-of-workflows-and-jobs
 redirect_from:
   - /actions/writing-workflows/choosing-when-your-workflow-runs
 ---
-
