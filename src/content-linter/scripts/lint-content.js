@@ -553,6 +553,9 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     if (runRules && !runRules.includes(ruleName)) continue
 
+    // Skip british-english-quotes rule in CI/PRs (only run in pre-commit)
+    if (ruleName === 'british-english-quotes' && !isPrecommit) continue
+
     // There are a subset of rules run on just the frontmatter in files
     if (githubDocsFrontmatterConfig[ruleName]) {
       config.frontMatter[ruleName] = ruleConfig

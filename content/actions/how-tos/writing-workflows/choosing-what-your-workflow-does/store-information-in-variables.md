@@ -1,6 +1,6 @@
 ---
 title: Store information in variables
-shortTitle: Variables
+shortTitle: Use variables
 intro: '{% data variables.product.prodname_dotcom %} sets default variables for each {% data variables.product.prodname_actions %} workflow run. You can also set custom variables for use in a single workflow or multiple workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/using-environment-variables
@@ -11,6 +11,7 @@ redirect_from:
   - /actions/learn-github-actions/variables
   - /actions/writing-workflows/choosing-what-your-workflow-does/variables
   - /actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables
+  - /actions/tutorials/store-information-in-variables
 versions:
   fpt: '*'
   ghes: '*'
@@ -198,3 +199,7 @@ In this example, the two `if` statements check the `os` property of the `runner`
  If you generate a value in one step of a job, you can use the value in subsequent steps of the same job by assigning the value to an existing or new environment variable and then writing this to the `GITHUB_ENV` environment file. The environment file can be used directly by an action, or from a shell command in the workflow file by using the `run` keyword. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable).
 
  If you want to pass a value from a step in one job in a workflow to a step in another job in the workflow, you can define the value as a job output. You can then reference this job output from a step in another job. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs).
+
+## Next steps
+
+For reference information, see [AUTOTITLE](/actions/reference/variables-reference).

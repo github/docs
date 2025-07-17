@@ -131,7 +131,7 @@ For more information about `patterns`, see [`patterns` and `exclude-patterns`](/
 
 ### Additional configuration options
 
-All standard {% data variables.product.prodname_dependabot %} configuration options can be used with multi-ecosystem groups. See [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem--), [`directory`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory-), [`allow`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#allow--), [`ignore`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore-), and [`registries`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#registries--) in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
+All standard {% data variables.product.prodname_dependabot %} configuration options can be used with multi-ecosystem groups. See [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem--), [`directory`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory-), [`allow`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#allow--), [`ignore`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore-), [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-), and [`registries`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#registries--) in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
 
 ## Key configuration
 
@@ -166,6 +166,7 @@ The following table shows the configuration keys available at the ecosystem leve
 | [`vendor`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#vendor--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`versioning-strategy`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#versioning-strategy--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`update-types`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#update-types-groups--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
+| [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--)        | {% octicon "x" aria-label="Not required" %} | Additive |
 | [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) |{% octicon "x" aria-label="Not required" %} |Additive |
 

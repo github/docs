@@ -15,5 +15,7 @@ children:
   - /indexing-repositories-for-copilot-chat
   - /about-copilot-coding-agent
   - /about-organizing-and-sharing-context-with-copilot-spaces
+  - /policies
+  - /copilot-knowledge-bases
   - /build-copilot-extensions
 ---

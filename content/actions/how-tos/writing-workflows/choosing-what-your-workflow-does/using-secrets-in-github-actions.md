@@ -13,6 +13,8 @@ redirect_from:
   - /actions/security-guides/using-secrets-in-github-actions
   - /actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
   - /actions/how-tos/administering-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
+  - /actions/how-tos/security-for-github-actions/security-guides/using-secrets-in-github-actions
+  - /actions/tutorials/using-secrets-in-github-actions
 versions:
   fpt: '*'
   ghes: '*'
@@ -359,3 +361,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
+
+## Next steps
+
+For reference information, see [AUTOTITLE](/actions/reference/secrets-reference).

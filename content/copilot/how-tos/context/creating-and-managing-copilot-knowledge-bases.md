@@ -1,8 +1,9 @@
 ---
-title: Managing Copilot knowledge bases
-shortTitle: Manage knowledge bases
-intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.copilot.copilot_chat_dotcom_short %}.'
+title: Creating and managing Copilot knowledge bases
+shortTitle: Create knowledge bases
+intro: 'Learn how to create and manage knowledge bases, which allow you to bring together Markdown documentation across one or more repositories, and then use that knowledge base as context for {% data variables.copilot.copilot_chat_short %}.'
 versions:
+  fpt: '*'
   ghec: '*'
 product: '{% data reusables.copilot.ce-product-callout %}'
 topics:
@@ -19,19 +20,10 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
   - /copilot/customizing-copilot/managing-copilot-knowledge-bases
+  - /copilot/how-tos/context/managing-copilot-knowledge-bases
 ---
 
-> [!TIP] If you're looking for a more flexible way to organize context for {% data variables.product.prodname_copilot_short %}, you can also try {% data variables.copilot.copilot_spaces %}.
->
-> {% data variables.copilot.copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
-
-## About knowledge bases
-
-Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.copilot.copilot_chat_dotcom_short %}, {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}.
-
-When you ask a question in {% data variables.copilot.copilot_chat %} with a knowledge base selected, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response.
-
-For more information on how to use knowledge bases in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-knowledge-base) and [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#asking-a-question-about-a-knowledge-base-in-github-copilot-chat).
+Knowledge bases are a way to bring together Markdown documentation across one or more repositories. When you ask a question in {% data variables.copilot.copilot_chat_short %} with a knowledge base selected, {% data variables.product.prodname_copilot_short %} will search the knowledge base for relevant information and synthesize a response.
 
 ## Creating a knowledge base
 
@@ -88,3 +80,7 @@ Organization owners can delete a knowledge base created in their organization.
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
 1. In the "Confirm deletion" dialog box, review the information and click **Delete**.
+
+## Next steps
+
+* To learn how to use knowledge bases in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/chat/asking-github-copilot-questions-in-github#asking-copilot-chat-questions-about-a-knowledge-base) and [AUTOTITLE](/copilot/how-tos/chat/asking-github-copilot-questions-in-your-ide#asking-a-question-about-a-knowledge-base).
