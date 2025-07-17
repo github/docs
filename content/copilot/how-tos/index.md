@@ -16,7 +16,7 @@ children:
   - /custom-instructions
   - /content-exclusion
   - /github-flow
-  - /premium-requests
+  - /spending
   - /personal-settings
   - /manage-your-account
   - /administer

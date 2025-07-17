@@ -3072,7 +3072,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  isduplicate: false
+  isduplicate: true
 - provider: Octopus Deploy
   supportedSecret: Octopus Deploy API Key
   secretType: octopus_deploy_api_key

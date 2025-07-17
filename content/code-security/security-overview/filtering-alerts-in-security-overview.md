@@ -158,7 +158,7 @@ You can also filter the "Overview" view by properties of alerts.
 | `severity` | Display data only for alerts of a specific severity (`critical`, `high`, `medium`, or `low`).
 | `third-party.rule`| Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for a tool developed by a third party. For example, `third-party.rule:CVE-2021-26291-maven-artifact` shows only results for the `CVE-2021-26291-maven-artifact` rule of a third-party {% data variables.product.prodname_code_scanning %} tool.
 
-### {% data variables.product.prodname_dependabot %} alert view filters
+## {% data variables.product.prodname_dependabot %} alert view filters
 
 You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
 
@@ -174,7 +174,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 
 {% ifversion dependabot-metrics %}
 
-### {% data variables.product.prodname_dependabot %} dashboard filters
+## {% data variables.product.prodname_dependabot %} dashboard filters
 
 You can filter the "{% data variables.product.prodname_dependabot %} dashboard" view using these filters.
 
@@ -184,7 +184,7 @@ Alternatively, you can use complex filters by clicking **{% octicon "filter" ari
 
 {% endif %}
 
-### {% data variables.product.prodname_code_scanning_caps %} alert view filters
+## {% data variables.product.prodname_code_scanning_caps %} alert view filters
 
 All {% data variables.product.prodname_code_scanning %} alerts have one of the categories shown below. You can click any result to see full details of the relevant query and the line of code that triggered the alert.
 

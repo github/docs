@@ -9,5 +9,4 @@ versions:
 children:
   - /about-continuous-deployment-with-github-actions
   - /continuous-integration
-  - /usage-limits-billing-and-administration
 ---

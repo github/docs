@@ -14,6 +14,7 @@ children:
   - /contexts
   - /expressions
   - /deployment-environments
+  - /concurrency
   - /workflow-artifacts
   - /dependency-caching
   - /about-monitoring-workflows

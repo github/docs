@@ -51,6 +51,7 @@ import { britishEnglishQuotes } from '@/content-linter/lib/linting-rules/british
 import { multipleEmphasisPatterns } from '@/content-linter/lib/linting-rules/multiple-emphasis-patterns'
 import { noteWarningFormatting } from '@/content-linter/lib/linting-rules/note-warning-formatting'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
+import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -107,5 +108,6 @@ export const gitHubDocsMarkdownlint = {
     multipleEmphasisPatterns,
     noteWarningFormatting,
     frontmatterVersionsWhitespace,
+    thirdPartyActionsReusable,
   ],
 }

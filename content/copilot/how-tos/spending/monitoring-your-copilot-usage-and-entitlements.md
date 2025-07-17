@@ -1,6 +1,6 @@
 ---
 title: Monitoring your Copilot usage and entitlements
-shortTitle: Monitor usage and entitlements
+shortTitle: Monitor premium requests
 intro: 'Learn how you can monitor your monthly usage of {% data variables.product.prodname_copilot_short %} and get the most value out of your {% data variables.product.prodname_copilot_short %} plan.'
 permissions: 'Individual users on a paid {% data variables.product.prodname_copilot_short %} plan can view their own usage and entitlements. For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, organization admins and billing managers can view usage reports for members.'
 versions:
@@ -12,6 +12,7 @@ redirect_from:
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements
   - /copilot/how-tos/monitoring-your-copilot-usage-and-entitlements
+  - /copilot/how-tos/premium-requests/monitoring-your-copilot-usage-and-entitlements
 ---
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.

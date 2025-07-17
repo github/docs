@@ -237,6 +237,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'third-party-actions-reusable': {
+    // GHD054
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
 }
 
 export const githubDocsFrontmatterConfig = {
