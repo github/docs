@@ -12,7 +12,11 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-spaces/creating-and-using-copilot-spaces
 ---
 
+For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces).
+
 {% data reusables.copilot.copilot-spaces.preview-note %}
+
+## Creating a space
 
 1. To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces), and click **Create space**.
 1. Give your space a name.
@@ -23,7 +27,7 @@ redirect_from:
 
 1. Click **Save** in the top right corner of the page.
 
-## Adding context to {% data variables.copilot.copilot_spaces_short %}
+## Adding context to a space
 
 You can add two types of context to your space:
 
@@ -37,11 +41,12 @@ You can add two types of context to your space:
 
   To add attachments, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add** to the right of "Attachments", then choose one of the following options:
 
-  * **{% octicon "file-code" aria-hidden="true" aria-label="file-code" %} Add files, folders...**: You can add files and folders from your {% data variables.product.github %} repositories. This includes code files, documentation, and other relevant content that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
-  * **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add a text file...**: You can add free-text content, such as transcripts, notes, or any other relevant information that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
-  * **{% octicon "paste" aria-hidden="true" aria-label="paste" %} Add via {% data variables.product.github %} URL...**: You can paste the URLs of the {% data variables.product.github %} content you want to add. This can include issues and pull requests.
+  * **{% octicon "file-code" aria-hidden="true" aria-label="file-code" %} Attach files and folders**: You can add files and folders from your {% data variables.product.github %} repositories. This includes code files, documentation, and other relevant content that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
+  * **{% octicon "link" aria-hidden="true" aria-label="link" %} Link pull requests and issues**: You can paste the URLs of the {% data variables.product.github %} issues and pull requests.
+  * **{% octicon "upload" aria-hidden="true" aria-label="upload" %} Upload a file**: You can upload files directly from your local machine. This includes images, text files, rich documents, and spreadsheets.
+  * **{% octicon "paste" aria-hidden="true" aria-label="paste" %} Add text content**: You can type or paste free-text content, such as transcripts, notes, or any other relevant information that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
 
-## Using {% data variables.copilot.copilot_spaces_short %}
+## Using {% data variables.copilot.copilot_spaces %}
 
 Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the chat interface. Your chat will be grounded in the context you've added.
 
