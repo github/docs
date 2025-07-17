@@ -27,7 +27,7 @@ Find information about security best practices when you are writing workflows an
 
 Because there are multiple ways a secret value can be transformed, automatic redaction is not guaranteed. Adhere to the following best practices to limit risks associated with secrets.
 
-* **Principal of least privilege**
+* **Principle of least privilege**
   * Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
   * Actions can use the `GITHUB_TOKEN` by accessing it from the `github.token` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context). You should therefore make sure that the `GITHUB_TOKEN` is granted the minimum required permissions. It's good security practice to set the default permission for the `GITHUB_TOKEN` to read access only for repository contents. The permissions can then be increased, as required, for individual jobs within the workflow file. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
 * **Mask sensitive data**
