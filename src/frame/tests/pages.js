@@ -89,7 +89,7 @@ describe('pages module', () => {
       expect(duplicates.length, message).toBe(0)
     })
 
-    test('every English page has a filename that matches its slugified title', async () => {
+    test('every English page has a filename that matches its slugified title or shortTitle', async () => {
       const nonMatches = pages
         .filter((page) => {
           slugger.reset()
@@ -97,7 +97,8 @@ describe('pages module', () => {
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
             !page.allowTitleToDifferFromFilename && // ignore docs with override
-            slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md')
+            slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md') &&
+            slugger.slug(decode(page.shortTitle || '')) !== path.basename(page.relativePath, '.md')
           )
         })
         // make the output easier to read
