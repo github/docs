@@ -50,8 +50,8 @@ import { outdatedReleasePhaseTerminology } from '@/content-linter/lib/linting-ru
 import { britishEnglishQuotes } from '@/content-linter/lib/linting-rules/british-english-quotes'
 import { multipleEmphasisPatterns } from '@/content-linter/lib/linting-rules/multiple-emphasis-patterns'
 import { noteWarningFormatting } from '@/content-linter/lib/linting-rules/note-warning-formatting'
-
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
+import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
@@ -111,7 +111,7 @@ export const gitHubDocsMarkdownlint = {
     noteWarningFormatting, // GHD049
     multipleEmphasisPatterns, // GHD050
     frontmatterVersionsWhitespace, // GHD051
-
+    headerContentRequirement, // GHD053
     thirdPartyActionsReusable, // GHD054
 
     // Search-replace rules

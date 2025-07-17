@@ -68,6 +68,7 @@
 | GHD049 | note-warning-formatting | Note and warning tags should be formatted according to style guide | warning | formatting, callouts, notes, warnings, style |
 | GHD050 | multiple-emphasis-patterns | Do not use more than one emphasis/strong, italics, or uppercase for a string | warning | formatting, emphasis, style |
 | GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | warning | frontmatter, versions |
+| GHD053 | header-content-requirement | Headers must have content between them, such as an introduction | warning | headers, structure, content |
 | GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | warning | actions, reusable, third-party |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
