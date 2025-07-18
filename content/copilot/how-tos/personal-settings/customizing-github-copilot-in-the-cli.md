@@ -1,7 +1,7 @@
 ---
-title: Configuring GitHub Copilot in the CLI
-shortTitle: Configure in the CLI
-intro: 'Learn how to configure settings and set up aliases for {% data variables.copilot.copilot_cli_short %}.'
+title: Customizing GitHub Copilot in the CLI
+shortTitle: Customize Copilot in the CLI
+intro: 'Learn how to customize and set up aliases for {% data variables.copilot.copilot_cli_short %}.'
 versions:
   feature: copilot-in-the-cli
 topics:
@@ -10,7 +10,10 @@ topics:
 redirect_from:
   - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
   - /copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli
+  - /copilot/how-tos/personal-settings/configuring-github-copilot-in-the-cli
 ---
+
+Before you begin, make sure you have installed {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/how-tos/set-up/installing-github-copilot-in-the-cli).
 
 ## Setting up aliases
 

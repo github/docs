@@ -25,43 +25,6 @@ If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can he
 
 To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=jetbrains).
 
-## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
-
-You can use the default keyboard shortcuts for inline suggestions in your JetBrains IDE when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in your JetBrains IDE, see the JetBrains documentation. For example, you can view the [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
-
-### Keyboard shortcuts for macOS
-
-| Action | Shortcut |
-|:---|:---|
-|Accept an inline suggestion|<kbd>Tab</kbd>|
-|Dismiss an inline suggestion|<kbd>Esc</kbd>|
-|Show next inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>]</kbd>|
-|Show previous inline suggestion|<kbd>Option (⌥) or Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Option (⌥)</kbd>+<kbd>\\</kbd>|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Option (⌥) or Alt</kbd>+<kbd>Return</kbd> |
-
-### Keyboard shortcuts for Windows
-
-| Action | Shortcut |
-|:---|:---|
-|Accept an inline suggestion|<kbd>Tab</kbd>|
-|Dismiss an inline suggestion|<kbd>Esc</kbd>|
-|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
-|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
-
-### Keyboard shortcuts for Linux
-
-| Action | Shortcut |
-|:---|:---|
-|Accept an inline suggestion|<kbd>Tab</kbd>|
-|Dismiss an inline suggestion|<kbd>Esc</kbd>|
-|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd>|
-|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Alt</kbd>+<kbd>Enter</kbd> |
-
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
 
 You can enable or disable {% data variables.product.prodname_copilot %} from within your JetBrains IDE. The {% data variables.product.prodname_copilot %} status icon in the bottom panel of the JetBrains window indicates whether {% data variables.product.prodname_copilot %} is enabled or disabled. When enabled, the icon is highlighted. When disabled, the icon is grayed out.
@@ -73,6 +36,12 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
 
     ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE.](/assets/images/help/copilot/disable-copilot-global-or-language-jetbrains.png)
+
+## Rebinding keyboard shortcuts
+
+You can use the default keyboard shortcuts for inline suggestions in your JetBrains IDE when using {% data variables.product.prodname_copilot %}. For a list of default keyboard shortcuts, see [AUTOTITLE](/copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide).
+
+Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in your JetBrains IDE, see the JetBrains documentation. For example, you can view the [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
@@ -203,18 +172,9 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=visualstudio).
 
-## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Rebinding keyboard shortcuts
 
-You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
-
-### Using default keyboard shortcuts
-
-| Action | Shortcut | Command name |
-|:---|:---|:---|
-|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>.</kbd>|Edit.NextSuggestion|
-|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Edit.PreviousSuggestion|
-
-### Rebinding keyboard shortcuts
+You can use the default keyboard shortcuts for inline suggestions in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. For a list of default keyboard shortcuts, see [AUTOTITLE](/copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide).
 
 If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
@@ -265,47 +225,11 @@ If you use {% data variables.product.prodname_vscode %}, {% data variables.produ
 
 You can learn more about scenarios and setup in the [{% data variables.product.prodname_vscode_shortname %} documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Rebinding keyboard shortcuts
 
-You can use the default keyboard shortcuts for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_copilot %}. Search keyboard shortcuts by command name in the Keyboard Shortcuts editor.
+You can use the default keyboard shortcuts for inline suggestions in {% data variables.product.prodname_vscode_shortname %} when using {% data variables.product.prodname_copilot %}. Search keyboard shortcuts by command name in the Keyboard Shortcuts editor. For a list of default keyboard shortcuts, see [AUTOTITLE](/copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide).
 
-Alternatively, you can rebind the shortcut for each command in the Keyboard Shortcuts editor. For more information, see the [VS Code documentation on editing shortcuts](https://code.visualstudio.com/Docs/editor/keybindings).
-
-### Keyboard shortcuts for macOS
-
-| Action | Shortcut | Command name |
-|:---|:---|:---|
-|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
-|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
-|Show next inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>]</kbd><br> |editor.action.inlineSuggest.showNext|
-|Show previous inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>[</kbd><br> |editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion| <kbd>Option (⌥)</kbd>+<kbd>\\</kbd><br> |editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Return</kbd>|github.copilot.generate|
-|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
-
-### Keyboard shortcuts for Windows
-
-| Action | Shortcut | Command name |
-|:---|:---|:---|
-|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
-|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
-|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
-|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
-|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
-
-### Keyboard shortcuts for Linux
-
-| Action | Shortcut | Command name |
-|:---|:---|:---|
-|Accept an inline suggestion|<kbd>Tab</kbd>|editor.action.inlineSuggest.commit|
-|Dismiss an inline suggestion|<kbd>Esc</kbd>|editor.action.inlineSuggest.hide|
-|Show next inline suggestion|<kbd>Alt</kbd>+<kbd>]</kbd> |editor.action.inlineSuggest.showNext|
-|Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>[</kbd>|editor.action.inlineSuggest.showPrevious|
-|Trigger inline suggestion|<kbd>Alt</kbd>+<kbd>\\</kbd>|editor.action.inlineSuggest.trigger|
-|Open {% data variables.product.prodname_copilot %} (additional suggestions in separate pane)|<kbd>Ctrl</kbd>+<kbd>Enter</kbd>|github.copilot.generate|
-|Toggle {% data variables.product.prodname_copilot %} on/off|_No default shortcut_|github.copilot.toggleCopilot|
+Alternatively, you can rebind the shortcut for each command in the Keyboard Shortcuts editor. For more information, see the [{% data variables.product.prodname_vscode %} documentation on editing shortcuts](https://code.visualstudio.com/Docs/editor/keybindings).
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
@@ -402,19 +326,9 @@ If you use Xcode, {% data variables.product.prodname_copilot %} can help you wit
 
 To configure {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode).
 
-## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Rebinding keyboard shortcuts
 
-You can use the default keyboard shortcuts for inline suggestions in Xcode when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command.
-
-### Default keyboard shortcuts
-
-| Action | Shortcut |
-|:---|:---|
-|Accept the first line of a suggestion|<kbd>Tab</kbd>|
-|View full suggestion|Hold <kbd>Option</kbd>|
-|Accept full suggestion|<kbd>Option</kbd>+<kbd>Tab</kbd>|
-
-### Rebinding keyboard shortcuts
+You can use the default keyboard shortcuts for inline suggestions in Xcode when using {% data variables.product.prodname_copilot %}. For a list of default keyboard shortcuts, see [AUTOTITLE](/copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide).
 
 If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
 
@@ -456,13 +370,9 @@ After you install {% data variables.product.prodname_copilot %} in Eclipse, you 
 
 To configure {% data variables.product.prodname_copilot %} in Eclipse, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
 
-## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
-
-You can use the default keyboard shortcuts for inline suggestions in Eclipse when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command.
-
 ## Rebinding keyboard shortcuts
 
-If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
+If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts. For a list of default keyboard shortcuts, see [AUTOTITLE](/copilot/reference/keyboard-shortcuts-for-github-copilot-in-the-ide).
 
 1. In the IDE, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
 1. Click **Edit Keyboard Shortcuts...** to rebind the shortcuts.
