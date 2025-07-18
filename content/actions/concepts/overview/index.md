@@ -7,6 +7,6 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-continuous-deployment-with-github-actions
   - /continuous-integration
+  - /continuous-deployment
 ---

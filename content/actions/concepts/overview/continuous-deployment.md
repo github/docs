@@ -1,6 +1,5 @@
 ---
-title: About continuous deployment with GitHub Actions
-shortTitle: Continuous deployment
+title: Continuous deployment
 intro: 'You can create custom continuous deployment (CD) workflows directly in your {% data variables.product.prodname_dotcom %} repository with {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
@@ -13,6 +12,7 @@ redirect_from:
   - /actions/deployment/about-deployments
   - /actions/about-github-actions/about-continuous-deployment
   - /actions/about-github-actions/about-continuous-deployment-with-github-actions
+  - /actions/concepts/overview/about-continuous-deployment-with-github-actions
 topics:
   - CD
 ---
@@ -33,17 +33,10 @@ You can configure your CD workflow to run when an event occurs (for example, whe
 
 {% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. For more information about these features, see [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions) and [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment).
 
-## Using OpenID Connect to access cloud resources
-
-{% data reusables.actions.about-oidc-short-overview %}
-
-## Workflow templates and third party actions
+## Workflow templates and third-party actions
 
 {% data reusables.actions.cd-templates-actions %}
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/actions/use-cases-and-examples/deploying)
-* [AUTOTITLE](/actions/deployment/about-deployments/deploying-with-github-actions)
-* [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment){% ifversion fpt or ghec %}
-* [AUTOTITLE](/billing/managing-billing-for-github-actions){% endif %}
+If your {% data variables.product.prodname_actions %} workflows need to access resources from a cloud provider that supports OpenID Connect (OIDC), you can configure your workflows to authenticate directly to the cloud provider. This will let you stop storing these credentials as long-lived secrets and provide other security benefits. For more information, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
