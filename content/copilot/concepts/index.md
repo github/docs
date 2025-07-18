@@ -19,5 +19,6 @@ children:
   - /policies
   - /copilot-knowledge-bases
   - /build-copilot-extensions
+  - /network-settings-for-github-copilot
 ---
 
