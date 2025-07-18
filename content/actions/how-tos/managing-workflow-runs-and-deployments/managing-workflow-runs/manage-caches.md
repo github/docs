@@ -76,7 +76,7 @@ jobs:
           done
           echo "Done"
         env:
-          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GH_TOKEN: {% raw %}${{ github.token }}{% endraw %}
           GH_REPO: {% raw %}${{ github.repository }}{% endraw %}
           BRANCH: refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge
 ```
