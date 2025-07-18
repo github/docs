@@ -17,6 +17,7 @@ children:
   - /store-and-share-data
   - /deploying-with-github-actions
   - /communicating-with-docker-service-containers
+  - /publishing-packages
 redirect_from:
   - /actions/guides
 ---

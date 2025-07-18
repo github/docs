@@ -10,6 +10,7 @@ redirect_from:
   - /actions/publishing-packages-with-github-actions
   - /actions/publishing-packages
   - /actions/use-cases-and-examples/publishing-packages
+  - /actions/how-tos/use-cases-and-examples/publishing-packages
 children:
   - /publishing-docker-images
   - /publishing-java-packages-with-gradle

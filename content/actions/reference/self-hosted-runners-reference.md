@@ -58,6 +58,15 @@ You can use a machine as a self-hosted runner as long as it meets these requirem
 * `ARM64` - Linux, macOS{% ifversion actions-windows-arm %}, Windows (currently in {% data variables.release-phases.public_preview %}){% endif %}.
 * `ARM32` - Linux.
 
+## Routing precedence for self-hosted runners
+
+When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels and groups:
+
+* If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels and groups, the job is then assigned and sent to the runner.
+  * If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
+* If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels and groups, then the job will remain queued until a runner comes online.
+* If the job remains queued for more than 24 hours, the job will fail.
+
 ## Autoscaling
 
 You can automatically increase or decrease the number of self-hosted runners in your environment in response to the webhook events you receive with a particular label.
