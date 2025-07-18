@@ -14,28 +14,6 @@ type: tutorial
 shortTitle: Use runners in a workflow
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-You can target self-hosted runners for use in a workflow based on the labels assigned to the runners, or their group membership, or a combination of these.
-
->[!IMPORTANT]Runner Scale Sets do not support multiple labels, only the name of the runner can be used in place of a label. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
-
-## About self-hosted runner labels
-
-Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
-
-{% data reusables.actions.self-hosted-runner-labels-runs-on %}
-
-For information on creating custom and default labels, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners).
-
-## About self-hosted runner groups
-
-For self-hosted runners defined at the organization {% ifversion ghec or ghes %}or enterprise levels{% else %}level{% endif %}, you can group your runners with shared characteristics into a single runner group and then configure your job to target the runner group.
-
-To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
-
-For information on creating and managing runner groups, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
-
 {% ifversion repository-actions-runners %}
 
 ## Viewing available runners for a repository
@@ -99,16 +77,3 @@ These labels operate cumulatively, so a self-hosted runner must have all four la
 ## Using labels and groups to route jobs
 
 {% data reusables.actions.jobs.example-runs-on-labels-and-groups %}
-
-## Routing precedence for self-hosted runners
-
-When routing a job to a self-hosted runner, {% data variables.product.prodname_dotcom %} looks for a runner that matches the job's `runs-on` labels and groups:
-
-* If {% data variables.product.prodname_dotcom %} finds an online and idle runner that matches the job's `runs-on` labels and groups, the job is then assigned and sent to the runner.
-  * If the runner doesn't pick up the assigned job within 60 seconds, the job is re-queued so that a new runner can accept it.
-* If {% data variables.product.prodname_dotcom %} doesn't find an online and idle runner that matches the job's `runs-on` labels and groups, then the job will remain queued until a runner comes online.
-* If the job remains queued for more than 24 hours, the job will fail.
-
-## Workflow run continuity
-
-{% data reusables.actions.runner-workflow-continuity %}
