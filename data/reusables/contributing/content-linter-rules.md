@@ -70,6 +70,7 @@
 | GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | warning | frontmatter, versions |
 | GHD053 | header-content-requirement | Headers must have content between them, such as an introduction | warning | headers, structure, content |
 | GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | warning | actions, reusable, third-party |
+| GHD055 | frontmatter-validation | Frontmatter properties must meet character limits and required property requirements | warning | frontmatter, character-limits, required-properties |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |
