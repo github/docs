@@ -18,7 +18,7 @@ shortTitle: Monitor & troubleshoot
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Using repository-level self-hosted runners
+## Checking access levels
 
 You may not be able to create a self-hosted runner for an organization-owned repository.
 
