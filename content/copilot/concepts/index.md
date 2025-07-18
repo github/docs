@@ -19,6 +19,7 @@ children:
   - /policies
   - /copilot-knowledge-bases
   - /build-copilot-extensions
+  - /rate-limits
   - /network-settings-for-github-copilot
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Rate limits for GitHub Copilot
 shortTitle: Rate limits
+allowTitleToDifferFromFilename: true
 intro: 'Learn about {% data variables.product.prodname_copilot %} rate limits and what to do if you are rate limited.'
 versions:
   feature: copilot
@@ -8,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/troubleshooting-github-copilot/rate-limits-for-github-copilot
+  - /copilot/how-tos/troubleshoot/rate-limits-for-github-copilot
 ---
 
 Rate limiting is a mechanism used to control the number of requests a user or application can make in a given time period. {% data variables.product.github %} uses rate limits to ensure everyone has fair access to {% data variables.product.prodname_copilot %} and to protect against abuse.
