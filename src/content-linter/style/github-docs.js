@@ -237,6 +237,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'header-content-requirement': {
+    // GHD053
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'third-party-actions-reusable': {
     // GHD054
     severity: 'warning',
@@ -294,6 +300,12 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-versions-whitespace': {
     // GHD051
+    severity: 'warning',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-validation': {
+    // GHD055
     severity: 'warning',
     'partial-markdown-files': false,
     'yml-files': false,

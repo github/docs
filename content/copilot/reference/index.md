@@ -8,10 +8,10 @@ topics:
   - Copilot
 children:
   - /github-copilot-chat-cheat-sheet
+  - /keyboard-shortcuts-for-github-copilot-in-the-ide
   - /feature-availability-enterprise
   - /ai-models
   - /proxy-server-and-firewall-settings-for-copilot
   - /copilot-extensions
   - /metrics-data
 ---
-

@@ -257,23 +257,23 @@ test.describe('tool picker', () => {
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
     await expect(page).toHaveURL(/\?tool=cli/)
-    await expect(page.getByText('this is cli content')).toBeVisible()
-    await expect(page.getByText('this is webui content')).not.toBeVisible()
+    await expect(page.getByText('This is cli content')).toBeVisible()
+    await expect(page.getByText('This is webui content')).not.toBeVisible()
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
     await expect(page).toHaveURL(/\?tool=webui/)
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
-    await expect(page.getByText('this is desktop content')).not.toBeVisible()
-    await expect(page.getByText('this is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
   test('prefer default tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
 
-    // defaultTool is set in the fixture frontmatter
-    await expect(page.getByText('this is desktop content')).toBeVisible()
-    await expect(page.getByText('this is webui content')).not.toBeVisible()
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    // defaultTool is set in the fixture frontmatter to webui
+    await expect(page.getByText('This is webui content')).toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
   })
 
   test('remember last clicked tool', async ({ page }) => {
@@ -284,28 +284,28 @@ test.describe('tool picker', () => {
 
     // Return and now the cookie should start us off with Web UI content again
     await page.goto('/get-started/liquid/tool-specific')
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
-    await expect(page.getByText('this is desktop content')).not.toBeVisible()
-    await expect(page.getByText('this is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
   test('minitoc matches picker', async ({ page }) => {
-    // default tool set to desktop in fixture fronmatter
+    // default tool set to webui in fixture frontmatter
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
     await dismissCTAPopover(page)
     await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
     ).toBeVisible()
     await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
-    ).not.toBeVisible()
-    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
-    await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Desktop' }).click()
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).toBeVisible()
   })
 })
