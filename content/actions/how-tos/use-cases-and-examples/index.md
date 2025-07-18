@@ -10,7 +10,6 @@ redirect_from:
   - /actions/examples
   - /actions/use-cases-and-examples
 children:
-  - publishing-packages
   - project-management
   - using-containerized-services
 ---
