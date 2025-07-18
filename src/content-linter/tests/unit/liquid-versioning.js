@@ -94,4 +94,29 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
+
+  test('ifversion tags with not keyword and feature-based versions fail', async () => {
+    const markdown = [
+      '{% ifversion not volvo %}',
+      '{% ifversion fpt or not volvo %}',
+      '{% ifversion not them-and-all %}',
+    ]
+    const result = await runRule(liquidIfVersionTags, {
+      strings: { markdown: markdown.join('\n') },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(markdown.length)
+    expect(errors.every((error) => error.errorDetail.includes('feature-based version'))).toBe(true)
+  })
+
+  test('ifversion tags with not keyword and short versions pass', async () => {
+    const markdown = [
+      '{% ifversion not ghec %}',
+      '{% ifversion fpt or not ghes %}',
+      '{% ifversion not fpt %}',
+    ].join('\n')
+    const result = await runRule(liquidIfVersionTags, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
 })
