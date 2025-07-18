@@ -236,7 +236,7 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
 
   const progAccessData = {}
   for (const operation of progAccessDataRaw) {
-    progAccessData[operation.operation_ids] = {
+    const operationData = {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
       fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
@@ -246,6 +246,12 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
       allowPermissionlessAccess: operation.allows_permissionless_access,
       allowsPublicRead: operation.allows_public_read,
       basicAuth: operation.basic_auth,
+    }
+
+    // Handle comma-separated operation IDs
+    const operationIds = operation.operation_ids.split(',').map((id) => id.trim())
+    for (const operationId of operationIds) {
+      progAccessData[operationId] = operationData
     }
   }
 
