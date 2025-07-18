@@ -9,4 +9,5 @@ versions:
 children:
   - /continuous-integration
   - /continuous-deployment
+  - /github-actions-vs-github-apps
 ---
