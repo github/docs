@@ -1,6 +1,6 @@
 ---
 title: Using jobs in a workflow
-shortTitle: Use jobs in a workflow
+shortTitle: Use jobs
 intro: Use workflows to run multiple jobs.
 versions:
   fpt: '*'
@@ -11,11 +11,9 @@ redirect_from:
   - /actions/writing-workflows/choosing-what-your-workflow-does/using-jobs-in-a-workflow
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
+## Prerequisites
 
-## Overview
-
-{% data reusables.actions.jobs.section-using-jobs-in-a-workflow %}
+To implement jobs in your workflows, you need to understand what jobs are. See [AUTOTITLE](/actions/get-started/understanding-github-actions#jobs).
 
 ## Setting an ID for a job
 
