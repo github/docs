@@ -51,6 +51,7 @@ import { britishEnglishQuotes } from '@/content-linter/lib/linting-rules/british
 import { multipleEmphasisPatterns } from '@/content-linter/lib/linting-rules/multiple-emphasis-patterns'
 import { noteWarningFormatting } from '@/content-linter/lib/linting-rules/note-warning-formatting'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
+import { frontmatterValidation } from '@/content-linter/lib/linting-rules/frontmatter-validation'
 import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 
@@ -113,6 +114,7 @@ export const gitHubDocsMarkdownlint = {
     frontmatterVersionsWhitespace, // GHD051
     headerContentRequirement, // GHD053
     thirdPartyActionsReusable, // GHD054
+    frontmatterValidation, // GHD055
 
     // Search-replace rules
     searchReplace, // Open-source plugin

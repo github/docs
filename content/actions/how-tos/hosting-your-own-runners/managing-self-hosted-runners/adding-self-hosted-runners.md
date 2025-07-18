@@ -10,27 +10,19 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 shortTitle: Add self-hosted runners
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-You can add a self-hosted runner to a repository, an organization, or an enterprise.
-
-If you are an organization or enterprise administrator, you might want to add your self-hosted runners at the organization or enterprise level. This approach makes the runner available to multiple repositories in your organization or enterprise, and also lets you to manage your runners in one place.
 
 > [!WARNING]
 > {% data reusables.actions.self-hosted-runner-security %}
 >
 > For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions).
 
-You can set up automation to scale the number of self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners).
-
-You can register ephemeral runners that perform a single job before the registration is cleaned up by using just-in-time runner registration. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-just-in-time-runners).
-
 ## Prerequisites
 
+Before you add a self-hosted runner, you should understand what they are and how they work. See [AUTOTITLE](/actions/concepts/runners/about-self-hosted-runners).
+
+Additionally, you must meet the following requirements:
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
 ## Adding a self-hosted runner to a repository
@@ -96,11 +88,6 @@ To make an enterprise-level self-hosted runner group available to an organizatio
 For more information on changing runner group access settings, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group).
 {% endif %}
 
-{% ifversion ghec or ghes %}
+## Next steps
 
-## Further reading
-
-* [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
-* [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
-
-{% endif %}
+You can set up automation to scale the number of self-hosted runners. For more information, see [AUTOTITLE](/actions/reference/self-hosted-runners-reference#autoscaling).
