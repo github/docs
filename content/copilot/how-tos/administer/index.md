@@ -9,5 +9,6 @@ topics:
 children:
   - /organizations
   - /enterprises
+  - /download-activity-report
 ---
 
