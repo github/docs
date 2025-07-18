@@ -568,6 +568,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       const searchReplaceRules = []
       const dataSearchReplaceRules = []
       const ymlSearchReplaceRules = []
+      const frontmatterSearchReplaceRules = []
 
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
@@ -578,6 +579,11 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
         }
         if (searchRule['yml-files']) {
           ymlSearchReplaceRules.push(searchRule)
+        }
+        // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
+        // This ensures rules like TODOCS detection work in frontmatter
+        if (searchRule.applyToFrontmatter) {
+          frontmatterSearchReplaceRules.push(searchRule)
         }
       }
 
@@ -592,6 +598,10 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       if (ymlSearchReplaceRules.length > 0) {
         config.yml[ruleName] = { ...ruleConfig, rules: ymlSearchReplaceRules }
         if (customRule) configuredRules.yml.push(customRule)
+      }
+      if (frontmatterSearchReplaceRules.length > 0) {
+        config.frontMatter[ruleName] = { ...ruleConfig, rules: frontmatterSearchReplaceRules }
+        if (customRule) configuredRules.frontMatter.push(customRule)
       }
       continue
     }

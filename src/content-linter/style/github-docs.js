@@ -342,6 +342,7 @@ export const searchReplaceConfig = {
         precommitSeverity: 'warning',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Critical for content quality - prevents placeholders in titles, intros, etc.
       },
       {
         name: 'docs-domain',
@@ -351,6 +352,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Should not appear in frontmatter
       },
       {
         name: 'help-domain',
@@ -360,6 +362,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Should not appear in frontmatter
       },
       {
         name: 'developer-domain',
@@ -373,6 +376,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Should not appear in frontmatter
       },
       {
         // Catches usage of old liquid data reusable syntax. For example:
@@ -384,6 +388,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Can appear in frontmatter strings
       },
       {
         // Catches usage of old octicon variable syntax. For example:
@@ -396,6 +401,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Can appear in frontmatter strings
       },
     ],
   },
