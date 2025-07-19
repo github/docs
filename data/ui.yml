@@ -1,15 +1,13 @@
 meta:
   default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
+
 header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
-    release_candidate:
-      # The version name is rendered before the below text via includes/header-notification.html
-      ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
+    release_candidate: ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about a private preview feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
-    # GHES release notes
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
     ghes_release_notes_upgrade_release_only: 📣 This is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
@@ -17,12 +15,15 @@ header:
   menu: Menu
   open_menu_label: Open menu
   go_home: Home
+
 picker:
   language_picker_label: Language
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
+
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
+
 search:
   input:
     placeholder: Search or ask {{icon}} Copilot
@@ -73,10 +74,12 @@ search:
     description: Ask Copilot your question.
     dismiss: Dismiss
     ask_copilot: Ask Copilot
+
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
   label: Search GitHub Docs
+
 search_results:
   search_results_for: Search results for
   matches_displayed: Matches displayed
@@ -84,10 +87,12 @@ search_results:
   search_validation_error: Validation error with search query
   filter: Filter
   clear_filter: Clear
+
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
   description: Help for wherever you are on your GitHub journey.
+
 toc:
   getting_started: Getting started
   popular: Popular
@@ -95,6 +100,7 @@ toc:
   whats_new: What's new
   videos: Videos
   all_changelogs: All changelog posts
+
 pages:
   article_version: 'Article version'
   miniToc: In this article
@@ -102,10 +108,12 @@ pages:
   about_versions: About versions
   permissions_callout_title: Who can use this feature?
   video_from_transcript: See video for this transcript
+
 support:
   still_need_help: Still need help?
   contact_support: Contact support
   ask_community: Ask the GitHub community
+
 survey:
   able_to_find: Did you find what you needed?
   yes: Yes
@@ -121,11 +129,13 @@ survey:
   not_support: If you need a reply, please contact <a href="https://support.github.com/">support</a>.
   privacy_policy: Privacy policy
   server_error: Unable to process comment at the moment. Please try again.
+
 contribution_cta:
   title: Help us make these docs great!
   body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
   button: Make a contribution
   to_guidelines: Learn how to contribute
+
 parameter_table:
   body: Body parameters
   webhook-body: Webhook request body parameters
@@ -141,11 +151,13 @@ parameter_table:
   see_preview_notices: See preview notices
   type: Type
   single_enum_description: Value
+
 audit_logs:
   action: Action
   description: Description
   fields: Fields
   reference: Reference
+
 graphql:
   reference:
     implements: <code>{{ GraphQLItemTitle }}</code> Implements
@@ -168,6 +180,7 @@ graphql:
     preview_schema_members: 'Previewed schema members'
     announced: Announced
     updates: Updates
+
 rest:
   banner:
     api_versioned: The REST API is now versioned.
@@ -188,6 +201,7 @@ rest:
       uat: UAT
       iat: IAT
   screen_reader_text_checkmark_icon: Multiple permissions are required, or a different permission may be used. For more information about the permissions, see the documentation for this endpoint.
+
 rest_reference:
   in: In
   description: Description
@@ -236,6 +250,7 @@ rest_reference:
   no_fine_grained_access: This endpoint does not work with GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens.
   basic_auth_heading: Basic authentication for "{{ RESTOperationTitle }}"
   basic_auth: You must use <a href="/rest/authentication/authenticating-to-the-rest-api#using-basic-authentication">Basic Authentication</a> to use this endpoint. Use the application's <code>client_id</code> as the username and the <code>client_secret</code> as the password.
+
 webhooks:
   action_type_switch_error: There was an error switching webhook action types.
   action_type: Action type
@@ -249,6 +264,7 @@ webhooks:
     business: Enterprises
     marketplace: GitHub Marketplace
     sponsors_listing: Sponsored accounts
+
 footer:
   support_heading: Help and support
   legal_heading: Legal
@@ -260,6 +276,7 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
+
 product_landing:
   quickstart: Quickstart
   reference: Reference
@@ -291,6 +308,7 @@ product_landing:
   view_transcript: View video transcript
   all_docs: 'All {{ title }} docs'
   all_content: 'View all {{ title }} content'
+
 product_guides:
   learning_paths_title: '{{ name }} learning paths'
   start_path: Start learning path
@@ -309,15 +327,19 @@ product_guides:
     tutorial: Tutorial
     how_to: How-to guide
     reference: Reference
+
 learning_track_nav:
   prev_guide: Previous
   next_guide: Next
   more_guides: More guides →
   current_progress: '{i} of {n} in learning path'
+
 scroll_button:
   scroll_to_top: Scroll to top
+
 popovers:
   role_description: hovercard link
+
 alerts:
   NOTE: Note
   IMPORTANT: Important
