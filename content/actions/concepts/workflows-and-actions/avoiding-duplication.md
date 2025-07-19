@@ -44,4 +44,4 @@ For details of how to create and use reusable workflows and composite actions, s
 | Can contain multiple jobs | Does not contain jobs |
 | Each step is logged in real-time | Logged as one step even if it contains multiple steps |
 | Can connect a maximum of four levels of workflows | Can be nested to have up to 10 composite actions in one workflow |
-| Can use secrets | Cannot use secrets |
+| Secrets must be passed as explicit named secrets | Secrets must be passed as inputs from the calling workflow |
