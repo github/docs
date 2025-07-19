@@ -5,6 +5,8 @@ header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
+    # NOTE: The leading space below is intentional for proper spacing when prepending the version or product name variable.
+    # Use the appropriate variable, e.g., {% data variables.product.prodname_ghe_server %} or {{ version_name }}, before this string in templates.
     release_candidate: ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about a private preview feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
