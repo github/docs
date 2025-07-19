@@ -83,7 +83,7 @@ puts jwt
 import sys
 import time
 
-import jwt
+from jwt import JWT, jwk_from_pem
 
 
 # Get PEM file path
@@ -101,7 +101,7 @@ else:
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
-    signing_key = pem_file.read()
+    signing_key = jwk_from_pem(pem_file.read())
 
 payload = {
     # Issued at time
@@ -115,7 +115,8 @@ payload = {
 }
 
 # Create JWT
-encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
+instance = JWT()
+encoded_jwt = instance.encode(payload, signing_key, alg='RS256')
 
 print(f"JWT: {encoded_jwt}")
 ```
