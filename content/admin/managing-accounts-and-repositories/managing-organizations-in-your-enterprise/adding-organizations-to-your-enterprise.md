@@ -63,6 +63,15 @@ After you add an existing organization to your enterprise, the organization's re
 * **Sponsorships:** Any sponsorships by the organization will be canceled.
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
 
+## Handling {% data variables.product.prodname_sponsors %} with Azure billing
+
+If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships will be canceled. While your organization remains under enterprise billing through Azure, you will not be able to reactivate these sponsorships, as sponsoring is not currently supported for organizations billed through Azure.
+
+To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can use this shell organization to manage sponsorships independently.
+
+> [!NOTE]
+> After you create a shell organization, update any public references or documentation to point sponsors to the new organization.
+
 ## Creating a new organization
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription.
@@ -76,9 +85,9 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can creat
 1. In the left sidebar, click **Organizations**.
 {%- endif %}
 1. Above the list of organizations, click **New organization**.
-1. Under "Organization name", type a name for your organization.
+1. Under "Organization name," type a name for your organization.
 1. Click **Create organization**.
-1. Optionally, under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
+1. Optionally, under "Invite owners," type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
 1. Click **Finish**.
 
 ## Inviting an existing organization
@@ -94,10 +103,10 @@ After you invite the organization, and before an owner approves the invitation, 
 {% data reusables.enterprise-accounts.click-organizations-tab %}
 {%- endif %}
 1. Above the list of organizations, click **Invite organization**.
-1. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
+1. Under "Organization name," start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
 1. Click **Invite organization**. The organization owners will receive an email inviting them to join the enterprise.
 1. After an organization owner has approved the invitation, navigate back to the **Organizations** tab of the enterprise settings.
-1. Under "Organizations", click **X pending**.
+1. Under "Organizations," click **X pending**.
 1. To complete the transfer, next to the organization name, click **Approve**.
 
 ## Transferring an existing organization
