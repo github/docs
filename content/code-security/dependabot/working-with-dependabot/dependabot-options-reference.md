@@ -167,6 +167,75 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 * Supports only the value `scope`
 * When defined any prefix is followed by the type of dependencies updated in the commit: `deps` or `deps-dev`.
 
+## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
+
+> [!NOTE]
+> `cooldown` is not available for the NuGet ecosystem.
+
+Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
+
+This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Check for updates according to the scheduled defined via `schedule.interval`.
+* Consider all new versions **immediately** for updates.
+
+When **`cooldown`** is defined:
+
+1. {% data variables.product.prodname_dependabot %} checks for updates according to the defined `schedule.interval` settings.
+1. {% data variables.product.prodname_dependabot %} checks for any cooldown settings.
+1. If a dependency’s new release falls within its cooldown period, {% data variables.product.prodname_dependabot %} skips updating the version for that dependency.
+1. Dependencies without a cooldown period, or those past their cooldown period, are updated to the latest version as per the configured `versioning-strategy` setting.
+1. After a cooldown ends for a dependency, {% data variables.product.prodname_dependabot %} resumes updating the dependency following the standard update strategy defined in `dependabot.yml`.
+
+{% data reusables.dependabot.option-affects-security-updates %}
+
+### **Configuration of `cooldown`**
+
+You can specify the duration of the cooldown using the options below.
+
+| Parameter | Description |
+|-----------|-------------|
+| `default-days` | **Default cooldown period for dependencies** without specific rules (optional). |
+| `semver-major-days` | Cooldown period for **major version updates** (optional, applies only to package managers supporting SemVer). |
+| `semver-minor-days` | Cooldown period for **minor version updates** (optional, applies only to package managers supporting SemVer). |
+| `semver-patch-days` | Cooldown period for **patch version updates** (optional, applies only to package managers supporting SemVer). |
+| `include` | List of dependencies to **apply cooldown** (up to **150 items**). Supports wildcards (`*`). |
+| `exclude` | List of dependencies **excluded from cooldown** (up to **150 items**). Supports wildcards (`*`). |
+
+The table below shows the package managers for which SemVer is supported.
+
+| Package manager        | SemVer supported |
+|-----------------------|------------------|
+| Bundler          | {% octicon "check" aria-label="Supported" %}              |
+| Bun               | {% octicon "check" aria-label="Supported" %}              |
+| Cargo             | {% octicon "check" aria-label="Supported" %}              |
+| Composer          | {% octicon "check" aria-label="Supported" %}              |
+| Devcontainers     | {% octicon "x" aria-label="Not supported" %}               |
+| Docker            | {% octicon "x" aria-label="Not supported" %}               |
+| Docker Compose    | {% octicon "x" aria-label="Not supported" %}               |
+| Dotnet SDK        | {% octicon "check" aria-label="Supported" %}              |
+| Elm               | {% octicon "check" aria-label="Supported" %}              |
+| {% data variables.product.prodname_actions %}    | {% octicon "x" aria-label="Not supported" %}               |
+| Gitsubmodule      | {% octicon "x" aria-label="Not supported" %}               |
+| Gomod (Go Modules)| {% octicon "check" aria-label="Supported" %}              |
+| Gradle            | {% octicon "check" aria-label="Supported" %}              |
+| Helm              | {% octicon "x" aria-label="Not supported" %}               |
+| Hex (Hex)         | {% octicon "check" aria-label="Supported" %}              |
+| Maven             | {% octicon "check" aria-label="Supported" %}              |
+| NPM and Yarn      | {% octicon "check" aria-label="Supported" %}              |
+| Pip               | {% octicon "check" aria-label="Supported" %}              |
+| Pub              | {% octicon "check" aria-label="Supported" %}              |
+| Swift             | {% octicon "check" aria-label="Supported" %}              |
+| Terraform         | {% octicon "x" aria-label="Not supported" %}               |
+| UV                | {% octicon "check" aria-label="Supported" %}              |
+
+> [!NOTE]
+>
+> * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
+> * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
+
 ## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
 **Required option**. Use to define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). Without this information {% data variables.product.prodname_dependabot %} cannot create pull requests for version updates. For examples, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
@@ -783,128 +852,3 @@ All sensitive data used for authentication should be stored securely and referen
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
 
 {% data reusables.dependabot.dependabot-replaces-base-nuget %}
-
-## `cooldown` {% octicon "versions" aria-label="cooldown" height="24" %}
-
-Defines a **cooldown period** for dependency updates to delay updates for a configurable number of days. This feature enables {% data variables.product.prodname_dependabot %} users to customize how often they receive new version updates, offering greater control over update frequency.
-
-> [!NOTE]
-> Cooldown is not applicable for security updates.
->
-> Cooldown is not available for the **NuGet** ecosystem
-
-### **How Cooldown Works**
-
-* When {% data variables.product.prodname_dependabot %} runs updates as per defined schedule, it checks the **cooldown settings** to determine if new release for dependency is still within its cooldown period.
-* If new version release date is within the cooldown period, dependency version update is **filtered out** and will not be updated until the cooldown period expires.
-* Once the cooldown period ends for new version, the dependency update proceeds based on the standard update strategy defined in `dependabot.yml`.
-
-Without **`cooldown`** (default behaviour):
-
-* Dependabot checks for updates according to the scheduled defined via `schedule.interval`.
-* All new versions are considered for updates **immediately**.
-
-With **`cooldown`** enabled:
-
-* {% data variables.product.prodname_dependabot %} checks for updates based on the defined `schedule.interval` settings.
-* **Releases within the cooldown period are ignored.**
-* {% data variables.product.prodname_dependabot %} updates the dependency to the latest available version **that are no longer in cooldown period** following the configured `versioning-strategy`.
-
-### **Cooldown Configuration**
-
-| Parameter | Description |
-|-----------|-------------|
-| `default-days` | **Default cooldown period for dependencies** without specific rules (optional). |
-| `semver-major-days` | Cooldown period for **major version updates** (optional, applies only to SEMVER-supported package managers). |
-| `semver-minor-days` | Cooldown period for **minor version updates** (optional, applies only to SEMVER-supported package managers). |
-| `semver-patch-days` | Cooldown period for **patch version updates** (optional, applies only to SEMVER-supported package managers). |
-| `include` | List of dependencies to **apply cooldown** (up to **150 items**). Supports wildcards (`*`). |
-| `exclude` | List of dependencies **excluded from cooldown** (up to **150 items**). Supports wildcards (`*`). |
-
-### **semver versioning**
-
-| Package Manager        | SEMVER Supported |
-|-----------------------|------------------|
-| **Bundler**           | Yes              |
-| **Bun**               | Yes              |
-| **Cargo**             | Yes              |
-| **Composer**          | Yes              |
-| **Devcontainers**     | No               |
-| **Docker**            | No               |
-| **Docker Compose**    | No               |
-| **Dotnet SDK**        | Yes              |
-| **Elm**               | Yes              |
-| **{% data variables.product.prodname_actions %}**    | No               |
-| **Gitsubmodule**      | No               |
-| **Gomod (Go Modules)**| Yes              |
-| **Gradle**            | Yes              |
-| **Helm**              | No               |
-| **Hex (Hex)**         | Yes              |
-| **Maven**             | Yes              |
-| **NPM and Yarn**      | Yes              |
-| **Pip**               | Yes              |
-| **Pub**               | Yes              |
-| **Swift**             | Yes              |
-| **Terraform**         | No               |
-| **UV**                | Yes              |
-
-> [!NOTE]
->
-> * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, `default-days` settings take precedence for cooldown based updates.
-> * `semver-major-days`, `semver-minor-days`, and `semver-patch-days` are only applicable for [supported package managers](#semver-versioning).
-> * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is excluded from cooldown and will be updated immediately.
-
-### **Cooldown settings limitations**
-
-* `days` must be between 1 and 90.
-* Maximum allowed items limit in `include` and `exclude` list is 150 each.
-
-### **Example `dependabot.yml` with cooldown**
-
-```yaml copy
-version: 2
-updates:
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    cooldown:
-      default-days: 5
-      semver-major-days: 30
-      semver-minor-days: 7
-      semver-patch-days: 3
-      include:
-        - "requests"
-        - "numpy"
-        - "pandas*"
-        - "django"
-      exclude:
-        - "pandas"
-```
-
-### **Expected Behavior**
-
-Cooldown will be active for dependencies `requests`, `numpy` and dependencies starting with `pandas`, and `django`.  Dependency with exact name `pandas` will be excluded from cooldown based updates as it is present in **exclude** list.
-
-#### **Update days**
-
-Updates to new versions for included dependencies will be deferred as following:
-
-* **Major updates** → Delayed by **30 days** (`semver-major-days: 30`)
-* **Minor updates** → Delayed by **7 days** (`semver-minor-days: 7`)
-* **Patch updates** → Delayed by **3 days** (`semver-patch-days: 3`)
-
-**Wildcard Matching:**
-
-* `"pandas*"` applies cooldown to all dependencies that start with `pandas`.
-* `"pandas"` in `exclude` ensures that only `"pandas"` (exact match) is excluded from cooldown.
-
-> [!NOTE]
-> To consider all dependencies for cooldown, you can:
->
-> * Omit the `include` option which applies cooldown to all dependencies.
-> * Use `"*"` in `include` to apply cooldown to everything.
->
-> Use **only** `exclude` setting if specific dependencies are to be excluded from cooldown.
-
-{% data reusables.dependabot.option-affects-security-updates %}
