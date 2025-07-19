@@ -5963,9 +5963,27 @@
       },
       {
         "category": "secret-scanning",
+        "slug": "list-bypass-requests-for-secret-scanning-for-a-repository",
+        "subcategory": "delegated-bypass",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
         "slug": "get-a-bypass-request-for-secret-scanning",
         "subcategory": "delegated-bypass",
         "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "review-a-bypass-request-for-secret-scanning",
+        "subcategory": "delegated-bypass",
+        "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
         "additional-permissions": true,
         "access": "read"
@@ -6032,6 +6050,30 @@
         "requestPath": "/repos/{owner}/{repo}/secret-scanning/scan-history",
         "additional-permissions": false,
         "access": "read"
+      }
+    ]
+  },
+  "secret_scanning_bypass_requests": {
+    "title": "Secret scanning push protection bypass requests",
+    "displayTitle": "Repository permissions for \"Secret scanning push protection bypass requests\"",
+    "permissions": [
+      {
+        "category": "secret-scanning",
+        "slug": "list-bypass-requests-for-secret-scanning-for-a-repository",
+        "subcategory": "delegated-bypass",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "review-a-bypass-request-for-secret-scanning",
+        "subcategory": "delegated-bypass",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}",
+        "additional-permissions": true,
+        "access": "write"
       }
     ]
   },
