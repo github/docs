@@ -19,27 +19,111 @@ import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 
+import type { Context, FrontmatterVersions } from '@/types'
+
 // We're going to check a lot of pages' "ID" (the first part of
 // the relativePath) against `productMap` to make sure it's valid.
 // To avoid having to do `Object.keys(productMap).includes(id)`
 // every single time, we turn it into a Set once.
 const productMapKeysAsSet = new Set(Object.keys(productMap))
 
+type ReadFileContentsResult = {
+  data?: any
+  content?: string
+  errors?: any[]
+}
+
+type PageInitOptions = {
+  languageCode: string
+  relativePath: string
+  basePath: string
+}
+
+type PageReadResult = PageInitOptions & {
+  fullPath: string
+  markdown: string
+  frontmatterErrors?: any[]
+} & any
+
+type RenderOptions = {
+  preferShort?: boolean
+  unwrap?: boolean
+  textOnly?: boolean
+  throwIfEmpty?: boolean
+}
+
+type CommunityRedirect = {
+  name: string
+  href: string
+}
+
+type GuideWithType = {
+  href: string
+  title: string
+  type?: string
+  topics?: string[]
+}
+
 export class FrontmatterErrorsError extends Error {
-  constructor(message, frontmatterErrors) {
+  public frontmatterErrors: string[]
+
+  constructor(message: string, frontmatterErrors: string[]) {
     super(message)
     this.frontmatterErrors = frontmatterErrors
   }
 }
 
 class Page {
-  static async init(opts) {
-    opts = await Page.read(opts)
-    if (!opts) return
-    return new Page(opts)
+  // Core properties from PageFrontmatter
+  public title: string = ''
+  public rawTitle: string = ''
+  public shortTitle?: string
+  public rawShortTitle?: string
+  public intro: string = ''
+  public rawIntro?: string
+  public product?: string
+  public rawProduct?: string
+  public permissions?: string
+  public rawPermissions?: string
+  public versions: FrontmatterVersions = {}
+  public showMiniToc?: boolean
+  public hidden?: boolean
+  public redirect_from?: string[]
+  public learningTracks?: any[]
+  public rawLearningTracks?: string[]
+  public includeGuides?: GuideWithType[]
+  public rawIncludeGuides?: string[]
+  public introLinks?: Record<string, string>
+  public rawIntroLinks?: Record<string, string>
+
+  // Derived properties
+  public languageCode!: string
+  public relativePath!: string
+  public basePath!: string
+  public fullPath!: string
+  public markdown!: string
+  public documentType: string
+  public applicableVersions: string[]
+  public permalinks: Permalink[]
+  public tocItems?: any[]
+  public communityRedirect?: CommunityRedirect
+  public detectedPlatforms: string[] = []
+  public includesPlatformSpecificContent: boolean = false
+  public detectedTools: string[] = []
+  public includesToolSpecificContent: boolean = false
+  public allToolsParsed: typeof allTools = allTools
+  public introPlainText?: string
+
+  // Bound method
+  public render: (context: Context) => Promise<string>
+
+  static async init(opts: PageInitOptions): Promise<Page | undefined> {
+    const readResult = await Page.read(opts)
+    if (!readResult) return
+    return new Page(readResult)
   }
 
-  static async read(opts) {
+  static async read(opts: PageInitOptions): Promise<PageReadResult | false> {
     assert(opts.languageCode, 'languageCode is required')
     assert(opts.relativePath, 'relativePath is required')
     assert(opts.basePath, 'basePath is required')
@@ -50,7 +134,11 @@ class Page {
     // Per https://nodejs.org/api/fs.html#fs_fs_exists_path_callback
     // its better to read and handle errors than to check access/stats first
     try {
-      const { data, content, errors: frontmatterErrors } = await readFileContents(fullPath)
+      const {
+        data,
+        content,
+        errors: frontmatterErrors,
+      }: ReadFileContentsResult = await readFileContents(fullPath)
 
       // The `|| ''` is for pages that are purely frontmatter.
       // So the `content` property will be `undefined`.
@@ -72,11 +160,11 @@ class Page {
       // where as notations like `__GHES_DEPRECATED__[3]`
       // or `__GHES_SUPPORTED__[0]` are static.
       if (opts.basePath.split(path.sep).includes('fixtures')) {
-        supported.forEach((version, i, arr) => {
+        supported.forEach((version: string, i: number, arr: string[]) => {
           markdown = markdown.replaceAll(`__GHES_SUPPORTED__[${i}]`, version)
           markdown = markdown.replaceAll(`__GHES_SUPPORTED__[-${arr.length - i}]`, version)
         })
-        deprecated.forEach((version, i, arr) => {
+        deprecated.forEach((version: string, i: number, arr: string[]) => {
           markdown = markdown.replaceAll(`__GHES_DEPRECATED__[${i}]`, version)
           markdown = markdown.replaceAll(`__GHES_DEPRECATED__[-${arr.length - i}]`, version)
         })
@@ -86,25 +174,29 @@ class Page {
         ...opts,
         relativePath,
         fullPath,
-        ...data,
+        ...(data || {}),
         markdown,
         frontmatterErrors,
-      }
-    } catch (err) {
+      } as PageReadResult
+    } catch (err: any) {
       if (err.code === 'ENOENT') return false
       console.error(err)
+      return false
     }
   }
 
-  constructor(opts) {
+  constructor(opts: PageReadResult) {
     if (opts.frontmatterErrors && opts.frontmatterErrors.length) {
       throw new FrontmatterErrorsError(
         `${opts.frontmatterErrors.length} frontmatter errors trying to load ${opts.fullPath}`,
         opts.frontmatterErrors,
       )
     }
-    delete opts.frontmatterErrors
-    Object.assign(this, { ...opts })
+
+    // Remove frontmatter errors before assignment
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { frontmatterErrors: _, ...cleanOpts } = opts
+    Object.assign(this, cleanOpts)
 
     // Store raw data so we can cache parsed versions
     this.rawIntro = this.intro
@@ -113,7 +205,7 @@ class Page {
     this.rawProduct = this.product
     this.rawPermissions = this.permissions
     this.rawLearningTracks = this.learningTracks
-    this.rawIncludeGuides = this.includeGuides
+    this.rawIncludeGuides = this.includeGuides as any
     this.rawIntroLinks = this.introLinks
 
     // Is this the Homepage or a Product, Category, Topic, or Article?
@@ -130,7 +222,7 @@ class Page {
       const versionsParentProductIsNotAvailableIn = this.applicableVersions
         // only the homepage will not have this.parentProduct
         .filter(
-          (availableVersion) =>
+          (availableVersion: string) =>
             this.parentProduct && !this.parentProduct.versions.includes(availableVersion),
         )
 
@@ -164,12 +256,15 @@ class Page {
     return this
   }
 
-  buildRedirects() {
-    return generateRedirectsForPermalinks(this.permalinks, this.redirect_from || [])
+  buildRedirects(): Record<string, string> {
+    return generateRedirectsForPermalinks(this.permalinks, this.redirect_from || []) as Record<
+      string,
+      string
+    >
   }
 
   // Infer the parent product ID from the page's relative file path
-  get parentProductId() {
+  get parentProductId(): string | null {
     // Each page's top-level content directory matches its product ID
     const id = this.relativePath.split('/')[0]
 
@@ -184,17 +279,21 @@ class Page {
     return id
   }
 
-  get parentProduct() {
-    return productMap[this.parentProductId]
+  get parentProduct(): any {
+    const id = this.parentProductId
+    return id ? productMap[id] : undefined
   }
 
-  async renderTitle(context, opts = { preferShort: true }) {
+  async renderTitle(
+    context: Context,
+    opts: RenderOptions = { preferShort: true },
+  ): Promise<string> {
     return opts.preferShort && this.shortTitle
       ? this.renderProp('shortTitle', context, opts)
       : this.renderProp('title', context, opts)
   }
 
-  async _render(context) {
+  private async _render(context: Context): Promise<string> {
     // use English IDs/anchors for translated headings, so links don't break (see #8572)
     if (this.languageCode !== 'en') {
       const englishHeadings = getEnglishHeadings(this, context)
@@ -246,7 +345,7 @@ class Page {
 
     // introLinks may contain Liquid and need to have versioning processed.
     if (this.rawIntroLinks) {
-      const introLinks = {}
+      const introLinks: Record<string, string> = {}
       for (const [rawKey, value] of Object.entries(this.rawIntroLinks)) {
         introLinks[rawKey] = await renderContent(value, context, {
           textOnly: true,
@@ -257,8 +356,8 @@ class Page {
     }
 
     if (this.rawIncludeGuides) {
-      this.includeGuides = await getLinkData(this.rawIncludeGuides, context)
-      this.includeGuides.map((guide) => {
+      this.includeGuides = (await getLinkData(this.rawIncludeGuides, context)) as GuideWithType[]
+      this.includeGuides?.map((guide: any) => {
         const { page } = guide
         guide.type = page.type
         if (page.topics) {
@@ -272,7 +371,7 @@ class Page {
     // set a flag so layout knows whether to render a mac/windows/linux switcher element
     // Remember, the values of platform is matched in
     // the handleInvalidQuerystringValues shielding middleware.
-    this.detectedPlatforms = allPlatforms.filter((platform) => {
+    this.detectedPlatforms = allPlatforms.filter((platform: string) => {
       // This matches `ghd-tool mac` but not `ghd-tool macos`
       // Whereas `html.includes('ghd-tool mac')` would match both.
       const regex = new RegExp(`ghd-tool ${platform}\\b|platform-${platform}\\b`)
@@ -281,7 +380,7 @@ class Page {
     this.includesPlatformSpecificContent = this.detectedPlatforms.length > 0
 
     // set flags for webui, cli, etc switcher element
-    this.detectedTools = Object.keys(allTools).filter((tool) => {
+    this.detectedTools = Object.keys(allTools).filter((tool: string) => {
       // This matches `ghd-tool jetbrain` but not `ghd-tool jetbrain_beta`
       // Whereas `html.includes('ghd-tool jetbrain')` would match both.
       const regex = new RegExp(`ghd-tool ${tool}\\b|tool-${tool}\\b`)
@@ -298,8 +397,12 @@ class Page {
 
   // Allow other modules (like custom liquid tags) to make one-off requests
   // for a page's rendered properties like `title` and `intro`
-  async renderProp(propName, context, opts = { unwrap: false }) {
-    let prop
+  async renderProp(
+    propName: string,
+    context: Context,
+    opts: RenderOptions = { unwrap: false },
+  ): Promise<string> {
+    let prop: string
     if (propName === 'title') {
       prop = 'rawTitle'
     } else if (propName === 'shortTitle') {
@@ -316,13 +419,13 @@ class Page {
 
     // The unwrap option removes surrounding tags from a string, preserving any inner HTML
     const $ = cheerio.load(html, { xmlMode: true })
-    return $.root().contents().html()
+    return $.root().contents().html() || ''
   }
 
   // infer current page's corresponding homepage
   // /en/articles/foo                          -> /en
   // /en/enterprise/2.14/user/articles/foo     -> /en/enterprise/2.14/user
-  static getHomepage(requestPath) {
+  static getHomepage(requestPath: string): string {
     return requestPath.replace(/\/articles.*/, '')
   }
 }
