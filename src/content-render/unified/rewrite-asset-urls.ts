@@ -1,21 +1,28 @@
 import fs from 'fs'
-
+import type { Element, Node } from 'hast'
 import { visit } from 'unist-util-visit'
 
 // Matches any <img> tags with an href that starts with `/assets/` or '/public/'
-const matcher = (node) =>
-  node.type === 'element' &&
-  node.tagName === 'img' &&
-  node.properties &&
-  node.properties.src &&
-  (node.properties.src.startsWith('/assets/') || node.properties.src.startsWith('/public/'))
+function isAssetOrPublicImg(node: Node): node is Element {
+  return (
+    node.type === 'element' &&
+    (node as Element).tagName === 'img' &&
+    !!(node as Element).properties &&
+    !!(node as Element).properties?.src &&
+    typeof (node as Element).properties?.src === 'string' &&
+    (((node as Element).properties?.src as string).startsWith('/assets/') ||
+      ((node as Element).properties?.src as string).startsWith('/public/'))
+  )
+}
 
 // Content authors write images like `![Alt](/assets/images/foo.png`, but
 // for caching purposes we want to rewrite those so they can be cached
 // indefinitely.
 export default function rewriteImgSources() {
-  return (tree) => {
-    visit(tree, matcher, (node) => {
+  return (tree: Node) => {
+    visit(tree, 'element', (node: Node) => {
+      if (!isAssetOrPublicImg(node)) return
+
       const newSrc = getNewSrc(node)
       if (newSrc) {
         node.properties.src = newSrc
@@ -24,8 +31,8 @@ export default function rewriteImgSources() {
   }
 }
 
-function getNewSrc(node) {
-  const { src } = node.properties
+function getNewSrc(node: Element): string | undefined {
+  const src = node.properties?.src as string
   if (!src.startsWith('/')) return
 
   try {
@@ -46,7 +53,7 @@ function getNewSrc(node) {
     const split = src.split('/')
     split.splice(2, 0, `cb-${hash}`)
     return split.join('/')
-  } catch (err) {
+  } catch {
     console.warn(
       `Failed to get a hash for ${src} ` +
         '(This is mostly harmless and can happen with outdated translations).',
