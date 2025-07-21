@@ -1,5 +1,6 @@
 ---
-title: Working with Support for GitHub Actions
+title: Getting help from GitHub Support about GitHub Actions
+shortTitle: Get support
 intro: 'Learn how {% data variables.contact.github_support %} can assist with {% data variables.product.prodname_actions %}'
 versions:
   fpt: '*'
@@ -9,10 +10,10 @@ type: reference
 topics:
   - Actions
   - Support
-shortTitle: 'Working with {% data variables.contact.github_support %}'
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/working-with-support-for-github-actions
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/working-with-support-for-github-actions
 ---
 
 You can [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for assistance with {% data variables.product.prodname_actions %}.

@@ -1,6 +1,6 @@
 ---
 title: Viewing workflow run history
-shortTitle: Workflow run history
+shortTitle: View workflow run history
 intro: You can view logs for each run of a workflow. Logs include the status for each job and step in a workflow.
 redirect_from:
   - /actions/managing-workflow-runs/viewing-workflow-run-history

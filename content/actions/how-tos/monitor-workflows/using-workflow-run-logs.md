@@ -1,6 +1,6 @@
 ---
 title: Using workflow run logs
-shortTitle: Workflow run logs
+shortTitle: Use workflow run logs
 intro: 'You can view, search, and download the logs for each job in a workflow run.'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
