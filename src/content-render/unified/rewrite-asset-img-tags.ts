@@ -1,3 +1,4 @@
+import type { Element, Node } from 'hast'
 import { visit, SKIP } from 'unist-util-visit'
 import { IMAGE_DENSITY } from '../../assets/lib/image-density'
 
@@ -9,12 +10,16 @@ export const MAX_WIDTH = 1440
 const DEFAULT_IMAGE_DENSITY = '2x'
 
 // Matches any <img> tags with an href that starts with `/assets/`
-const matcher = (node) =>
-  node.type === 'element' &&
-  node.tagName === 'img' &&
-  node.properties &&
-  node.properties.src &&
-  node.properties.src.startsWith('/assets/')
+function isAssetImg(node: Node): node is Element {
+  return (
+    node.type === 'element' &&
+    (node as Element).tagName === 'img' &&
+    !!(node as Element).properties &&
+    !!(node as Element).properties?.src &&
+    typeof (node as Element).properties?.src === 'string' &&
+    ((node as Element).properties?.src as string).startsWith('/assets/')
+  )
+}
 
 /**
  * Where it can mutate the AST to swap from:
@@ -30,17 +35,20 @@ const matcher = (node) =>
  *
  * */
 export default function rewriteAssetImgTags() {
-  return (tree) => {
-    visit(tree, matcher, (node) => {
-      if (node.properties.src.endsWith('.png')) {
+  return (tree: Node) => {
+    visit(tree, 'element', (node: Node) => {
+      if (!isAssetImg(node)) return
+
+      const src = node.properties?.src as string
+      if (src.endsWith('.png')) {
         const copyPNG = structuredClone(node)
 
-        const originalSrc = node.properties.src
+        const originalSrc = src
         const originalSrcWithoutCb = originalSrc.replace(/cb-\w+\//, '')
-        const webpSrc = injectMaxWidth(node.properties.src.replace(/\.png$/, '.webp'), MAX_WIDTH)
+        const webpSrc = injectMaxWidth(src.replace(/\.png$/, '.webp'), MAX_WIDTH)
         const srcset = `${webpSrc} ${IMAGE_DENSITY[originalSrcWithoutCb] || DEFAULT_IMAGE_DENSITY}`
 
-        const sourceWEBP = {
+        const sourceWEBP: Element = {
           type: 'element',
           tagName: 'source',
           properties: {
@@ -49,12 +57,15 @@ export default function rewriteAssetImgTags() {
           },
           children: [],
         }
-        node.children.push(sourceWEBP)
 
+        node.children = node.children || []
+        node.children.push(sourceWEBP)
         node.children.push(copyPNG)
         node.tagName = 'picture'
+
         delete node.properties.alt
         delete node.properties.src
+
         // Don't go further or else you end up in an infinite recursion
         return SKIP
       }
@@ -68,7 +79,7 @@ export default function rewriteAssetImgTags() {
  * For example, if the pathname is `/assets/cb-1234/images/foo.png`
  * return `/assets/cb-1234/_mw-1440/images/foo.png`
  */
-function injectMaxWidth(pathname, maxWidth) {
+function injectMaxWidth(pathname: string, maxWidth: number): string {
   const split = pathname.split('/')
   // This prefix needs to match what's possibly expected in dynamic-assets.js
   const inject = `mw-${maxWidth}`

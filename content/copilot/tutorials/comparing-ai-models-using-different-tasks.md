@@ -75,15 +75,15 @@ def grant_editor_access(user_id, doc_id):
 * {% data variables.copilot.copilot_gpt_4o %} can recognize the pattern and provide a clear, concise explanation.
 * The task doesn't require deep reasoning or complex logic.
 
-## {% data variables.copilot.copilot_o3_mini %}
+## {% data variables.copilot.copilot_o4_mini %}
 
-OpenAI {% data variables.copilot.copilot_o3_mini %} is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. {% data variables.product.prodname_copilot_short %} is configured to use OpenAI's "medium" reasoning effort.
+OpenAI {% data variables.copilot.copilot_o4_mini %} is a fast, cost-efficient model designed for simple or repetitive coding tasks. It delivers reliable, concise answers with very low latency, making it ideal for real-time suggestions and lightweight development workflows. {% data variables.copilot.copilot_o4_mini %} is optimized for speed and responsiveness, so you can quickly iterate on small code changes or get instant feedback on straightforward prompts.
 
 ### Example scenario
 
-Consider a scenario where you are working on a software licensing system. You have a list of user records, each stored as a dictionary with fields like `name`, `active`, and `signup_date`. You want to find only the active users, sorted by their signup date, so that the newest users appear last.
+Suppose you are building a utility script and need to filter a list of user records to include only active users, sorted by their signup date. The task is simple and doesn’t require deep reasoning or multi-step logic.
 
-Below is list of users you are working with:
+Here’s a sample list of users:
 
 ```python
 users = [
@@ -111,10 +111,11 @@ active_users_sorted = sorted(active_users, key=lambda user: user["signup_date"])
 print(active_users_sorted)
 ```
 
-### Why o3-mini is a good fit
+### Why {% data variables.copilot.copilot_o4_mini %} is a good fit
 
-* The task involves simple filtering and sorting, which doesn’t require deep reasoning.
-* Its fast responses make it ideal for quick iteration during development.
+* The task is straightforward and benefits from fast, low-latency responses.
+* {% data variables.copilot.copilot_o4_mini %} is optimized for cost and speed, making it ideal for quick edits, prototyping, and utility code.
+* Use this model when you want reliable answers for simple coding questions without waiting for unnecessary depth.
 
 ## {% data variables.copilot.copilot_gemini_flash %}
 
