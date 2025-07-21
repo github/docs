@@ -52,8 +52,8 @@ jobs:
             if you have the information we requested, or open an [issue](https://github.com/github/docs/issues/new/choose)
             to describe your changes. Then we can reopen this PR and begin the review process.
 
-          staled-issues-prs: true # report issues and PRs that were commented on as stale in the output
-          closed-issues-prs: true # report issues and PRs that were closed in the output
+      - name: Print outputs
+        run: echo "Staled issues/PRs:${{ steps.stale.outputs.staled-issues-prs || '0' }}, Closed issues/PRs:${{ steps.stale.outputs.closed-issues-prs || '0' }}"
 
       - name: Check out repo
         if: ${{ failure() }}
