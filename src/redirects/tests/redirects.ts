@@ -23,6 +23,7 @@ describe('redirects', () => {
       basePath: path.join(__dirname, '../../../content'),
       languageCode: 'en',
     })
+    if (!page) throw new Error('Failed to initialize page')
     const pageRedirects = page.buildRedirects()
     expect(isPlainObject(pageRedirects)).toBe(true)
   })
@@ -33,6 +34,7 @@ describe('redirects', () => {
       basePath: path.join(__dirname, '../../../content'),
       languageCode: 'en',
     })
+    if (!page) throw new Error('Failed to initialize page')
     const pageRedirects = page.buildRedirects()
     expect(pageRedirects['/about-issues']).toBe('/issues')
     expect(pageRedirects['/creating-an-issue']).toBe('/issues')
@@ -88,7 +90,7 @@ describe('redirects', () => {
   })
 
   describe('trailing slashes', () => {
-    let redirects
+    let redirects: Record<string, string>
     beforeAll(async () => {
       const res = await get('/en?json=redirects')
       redirects = JSON.parse(res.body)
@@ -102,7 +104,7 @@ describe('redirects', () => {
 
     test('are absent from all destination URLs', async () => {
       const values = Object.entries(redirects)
-        .filter(([, to]) => !to.includes('://'))
+        .filter(([, to]: [string, string]) => !to.includes('://'))
         .map(([from_]) => from_)
       expect(values.length).toBeGreaterThan(100)
       expect(values.every((value) => !value.endsWith('/'))).toBe(true)
@@ -138,7 +140,7 @@ describe('redirects', () => {
   })
 
   describe('external redirects', () => {
-    let redirects
+    let redirects: Record<string, string>
     beforeAll(async () => {
       const res = await get('/en?json=redirects')
       redirects = JSON.parse(res.body)
@@ -146,7 +148,7 @@ describe('redirects', () => {
 
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
-        .filter(([, to]) => to.includes('://'))
+        .filter(([, to]: [string, string]) => to.includes('://'))
         .map(([from_]) => from_)
         .filter((from_) => from_.startsWith('/en/'))
       expect(values.length).toBe(0)
@@ -154,8 +156,8 @@ describe('redirects', () => {
 
     test('no external redirect should go to developer.github.com', () => {
       const values = Object.values(redirects)
-        .filter((to) => to.includes('://'))
-        .filter((to) => new URL(to).hostname === 'developer.github.com')
+        .filter((to: string) => to.includes('://'))
+        .filter((to: string) => new URL(to).hostname === 'developer.github.com')
       expect(values.length).toBe(0)
     })
 

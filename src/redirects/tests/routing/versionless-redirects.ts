@@ -76,7 +76,7 @@ describe('versioned redirects', () => {
       newPath.includes('/enterprise-server@latest'),
     )
 
-    enterpriseServerPaths.forEach(([oldPath, newPath]) => {
+    enterpriseServerPaths.forEach(([, newPath]) => {
       const transformedPath = `/en${newPath.replace(
         '/enterprise-server@latest',
         `/enterprise-server@${latest}`,

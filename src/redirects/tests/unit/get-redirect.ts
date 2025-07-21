@@ -8,6 +8,12 @@ import {
   oldestSupported,
 } from '@/versions/lib/enterprise-server-releases'
 
+// Test helper type for mocking contexts
+type TestContext = {
+  pages: Record<string, any>
+  redirects: Record<string, string>
+}
+
 const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {
@@ -19,7 +25,7 @@ describe('getRedirect basics', () => {
     // part.
     // But some redirects from `developer.json` as old and static.
     const uri = '/enterprise/3.0/foo/bar'
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {
         '/enterprise/3.0/foo/bar': '/something/else',
@@ -29,7 +35,7 @@ describe('getRedirect basics', () => {
   })
 
   test('should return undefined if nothing could be found', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -37,7 +43,7 @@ describe('getRedirect basics', () => {
   })
 
   test('should just inject language on version "home pages"', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -69,7 +75,7 @@ describe('getRedirect basics', () => {
   })
 
   test('should handle some odd exceptions', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -86,7 +92,7 @@ describe('getRedirect basics', () => {
   })
 
   test('should figure out redirect based on presence of pages in certain cases', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {
         [`/en/enterprise-server@${previousEnterpriserServerVersion}/foo/bar`]: null,
         [`/en/enterprise-server@${previousEnterpriserServerVersion}/admin/github-management`]: null,
@@ -131,7 +137,7 @@ describe('getRedirect basics', () => {
   })
 
   test('should not do anything on some prefixes', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -159,7 +165,7 @@ describe('getRedirect basics', () => {
   test('should work for some deprecated enterprise-server URLs too', () => {
     // Starting with enterprise-server 3.0, we have made redirects become
     // a *function* rather than a lookup on a massive object.
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -170,7 +176,7 @@ describe('getRedirect basics', () => {
 
 describe('github-ae@latest', () => {
   test('home page should redirect to enterprise-cloud home page', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -178,7 +184,7 @@ describe('github-ae@latest', () => {
     expect(getRedirect('/en/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
   })
   test('should redirect to home page for admin/release-notes', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {},
       redirects: {},
     }
@@ -186,7 +192,7 @@ describe('github-ae@latest', () => {
     expect(getRedirect('/en/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
   })
   test('a page that does exits, without correction, in enterprise-cloud', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {
         '/en/enterprise-cloud@latest/foo': null,
       },
@@ -196,7 +202,7 @@ describe('github-ae@latest', () => {
     expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
   })
   test("a page that doesn't exist in enterprise-cloud but in FPT", () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {
         '/en/foo': true,
       },
@@ -206,7 +212,7 @@ describe('github-ae@latest', () => {
     expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/foo')
   })
   test("a page that doesn't exist in enterprise-cloud or in FPT", () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {
         '/en/foo': true,
       },
@@ -216,7 +222,7 @@ describe('github-ae@latest', () => {
     expect(getRedirect('/en/github-ae@latest/bar', ctx)).toBe('/en')
   })
   test('a URL with legacy redirects, that redirects to enterprise-cloud', () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {
         '/en/foo': true,
         '/en/enterprise-cloud@latest/foo': true,
@@ -229,7 +235,7 @@ describe('github-ae@latest', () => {
     expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
   })
   test("a URL with legacy redirects, that can't redirect to enterprise-cloud", () => {
-    const ctx = {
+    const ctx: TestContext = {
       pages: {
         '/en/foo': true,
         // Note the lack of an enterprise-cloud page here

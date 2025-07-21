@@ -106,18 +106,18 @@ describe('developer redirects', () => {
         graphql: './src/fixtures/fixtures/graphql-redirects.json',
       }
       if (!(label in FIXTURES)) throw new Error('unrecognized label')
-      const fixtures = readJsonFile(FIXTURES[label])
+      const fixtures = readJsonFile(FIXTURES[label as keyof typeof FIXTURES])
       // Don't use a `Promise.all()` because it's actually slower
       // because of all the eventloop context switching.
       for (let [oldPath, newPath] of Object.entries(fixtures)) {
         // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
         // We make an exception to always redirect versionless paths to the latest version.
-        newPath = newPath.replace(
+        newPath = (newPath as string).replace(
           '/enterprise-server/',
           `/enterprise-server@${enterpriseServerReleases.latest}/`,
         )
         const res = await get(oldPath)
-        const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
+        const sameFirstPrefix = oldPath.split('/')[1] === (newPath as string).split('/')[1]
         expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
           sameFirstPrefix ? 301 : 302,
         )
