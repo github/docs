@@ -14,12 +14,10 @@ const mock = NODE_ENV === 'test' || MODA_PROD_SERVICE_ENV !== 'true'
 // MODA_APP_NAME gets set when the deploy target is Moda
 const modaApp = MODA_APP_NAME ? `moda_app_name:${MODA_APP_NAME}` : false
 
-export const tags = ['app:docs', modaApp].filter(Boolean)
+const tagCandidates = ['app:docs', modaApp]
+export const tags: string[] = tagCandidates.filter((tag): tag is string => Boolean(tag))
 
-/**
- * @type {import('hot-shots').StatsD}
- */
-export default new StatsD({
+const statsd = new StatsD({
   // When host and port are not set, hot-shots will default to the
   // DD_AGENT_HOST and DD_DOGSTATSD_PORT environment variables.
   // If undefined, the host will default to 'localhost' and the port
@@ -28,8 +26,10 @@ export default new StatsD({
   // For Moda, the host must be set to the Kubernetes node name, which is
   // set in KUBE_NODE_HOSTNAME.
   host: DD_AGENT_HOST || KUBE_NODE_HOSTNAME,
-  port: DD_DOGSTATSD_PORT,
+  port: DD_DOGSTATSD_PORT ? parseInt(DD_DOGSTATSD_PORT, 10) : undefined,
   prefix: 'docs.',
   mock,
   globalTags: tags,
 })
+
+export default statsd

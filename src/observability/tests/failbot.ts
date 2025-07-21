@@ -4,7 +4,7 @@ import nock from 'nock'
 import FailBot from '../lib/failbot'
 
 describe('FailBot', () => {
-  const requestBodiesSent = []
+  const requestBodiesSent: any[] = []
 
   beforeEach(() => {
     delete process.env.HAYSTACK_URL
@@ -27,7 +27,7 @@ describe('FailBot', () => {
 
   describe('.report', () => {
     test('returns early if `HAYSTACK_URL` is not set', async () => {
-      const result = await FailBot.report()
+      const result = await FailBot.report(new Error('test'))
       expect(result).toBeUndefined()
       expect(requestBodiesSent.length).toBe(0)
     })
@@ -41,7 +41,9 @@ describe('FailBot', () => {
       // But here in the context of vitest, we need to await *now*
       // so we can assert that it did make the relevant post requests.
       // Once we've done this, we can immediate check what it did.
-      await Promise.all(await backendPromises)
+      if (backendPromises) {
+        await Promise.all(await backendPromises)
+      }
 
       // It's not interesting or relevant what the `.report()` static
       // method returns. All that matters is that it did a POST
