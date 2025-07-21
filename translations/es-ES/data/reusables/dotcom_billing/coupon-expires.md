@@ -1,1 +1,0 @@
-Si utilizas un cupón para pagar una suscripción, cuando este venza, se hará un cobro a tu método de pago por el costo total de tu suscripción. If you do not have a saved payment method, your account will be downgraded to {% data variables.product.prodname_free_user %} for personal accounts or {% data variables.product.prodname_free_team %} for organizations.

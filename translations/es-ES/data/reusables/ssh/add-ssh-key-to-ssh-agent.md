@@ -1,1 +1,0 @@
-Si creaste tu llave con un nombre diferente o si estás agregando una llave existente que tenga un nombre diferente, reemplaza a *id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}* en el comando con el nombre de tu archivo de llave privada.

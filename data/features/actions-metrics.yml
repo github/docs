@@ -1,0 +1,5 @@
+# Issue 16035
+# Versioning for Actions Usage Metrics and Actions Performance Metrics
+versions:
+  fpt: '*'
+  ghec: '*'

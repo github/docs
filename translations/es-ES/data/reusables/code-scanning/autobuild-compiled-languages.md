@@ -1,1 +1,0 @@
-Para los lenguajes compilados compatibles, puedes utilizar la acción de `autobuild` en el {% data variables.product.prodname_codeql_workflow %} para compilar tu código. Esto te evita tener que especificar los comandos de compilación explícitos paraC/C++, C#, y Java.

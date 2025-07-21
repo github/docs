@@ -1,1 +1,0 @@
-El acceso por SSH te permite ejecutar las utilidades de línea de comandos de {% data variables.product.product_name %} para solucionar los problemas, ejecutar los respaldos y configurar la replicación.

@@ -1,7 +1,0 @@
----
-explore_github: >-
-  {% ifversion fpt or ghec %}[GitHub 探訪](https://github.com/explore){% else %}GitHub 探訪 (`https://[hostname]/explore`){% endif %}
-your_stars_page: >-
-  {% ifversion fpt or ghec %}[Star ページ](https://github.com/stars){% else %}Star ページ(`https://[hostname]/stars`){% endif %}
-trending_page: >-
-  {% ifversion fpt or ghec %}[トレンドページ](https://github.com/trending){% else %}トレンドページ (`https://[hostname]/trending`){% endif %}

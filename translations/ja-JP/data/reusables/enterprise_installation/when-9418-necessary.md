@@ -1,1 +1,0 @@
-インスタンスでプライベートモードを有効化した場合、このポートをオープンする必要があるのは、匿名Git読み取りアクセスも有効化している場合のみです。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」を参照してください。

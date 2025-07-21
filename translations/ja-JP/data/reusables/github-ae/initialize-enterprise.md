@@ -1,1 +1,0 @@
-{% data variables.product.product_name %} を購入後、Enterprise を初期化するユーザのメールアドレスとユーザ名を入力するように求められます。 {% data variables.contact.enterprise_support %} の専任のテクニカルアカウントマネージャーが Enterprise オーナーのアカウントを作成し、Enterprise オーナーにメールを送信して {% data variables.product.product_name %} にログイン後、初期化を完了します。

@@ -1,0 +1,6 @@
+# Issue #8501
+# Webhook forwarding with GitHub CLI
+
+versions:
+  fpt: '*'
+  ghec: '*'

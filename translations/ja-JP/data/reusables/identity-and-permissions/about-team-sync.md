@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} TeamをIdPグループと同期すると、IdPグループへの変更は{% data variables.product.product_name %}に自動的に反映され、手動での更新やカスタムスクリプトの必要を減らせます。 IdPをTeam同期と共に使い、新しいメンバーのオンボーディング、Organization内での移動に応じた新しい権限の付与、Organizationからのメンバーアクセスの削除といった管理タスクを扱うことができます。

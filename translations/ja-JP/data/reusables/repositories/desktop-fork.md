@@ -1,1 +1,0 @@
-{% data variables.product.prodname_desktop %}を使ってリポジトリのフォークをすることができます。 詳しい情報については、「[{% data variables.product.prodname_desktop %} からのリポジトリのクローンとフォーク](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)」を参照してください。

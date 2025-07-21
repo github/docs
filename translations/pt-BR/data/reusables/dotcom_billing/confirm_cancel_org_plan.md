@@ -1,1 +1,0 @@
-7. Leia as informações sobre os recursos a que sua organização deixará de ter acesso na próxima data de cobrança e clique em **I understand. Downgrade my organization** (Entendi; faça downgrade da minha organização). ![Botão Downgrade (Fazer downgrade)](/assets/images/help/billing/downgrade-confirm-button.png)

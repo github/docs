@@ -1,1 +1,0 @@
-1. Como alternativa, se você estiver patrocinando como organização, pague um valor proporcional em vez de fazer o pagamento mensal completo, em "Total devido agora", clique em **Pagar parcelado $X.XX**. ![Link para valor proporcional de pagamento](/assets/images/help/sponsors/pay-prorated-amount-link.png)

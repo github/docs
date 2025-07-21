@@ -1,1 +1,0 @@
-Você pode usar a API de {% data variables.product.prodname_dotcom %} para importar um quadro de projetos. Para obter mais informações, consulte "[importProject]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/mutations#importproject/)".

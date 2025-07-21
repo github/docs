@@ -17,12 +17,11 @@ topics:
 Every app in {% data variables.product.prodname_marketplace %} includes a link to contact the app's support team.
 
 {% data reusables.marketplace.visit-marketplace %}
-2. Browse to your app's page.
-3. In the left sidebar, under "Developer tools," click **Support**.
-4. On the app's support page, follow the instructions on the app's page to contact the app's support team.
+1. Browse to your app's page.
+1. In the left sidebar, under "Developer tools," click **Support**.
+1. On the app's support page, follow the instructions on the app's page to contact the app's support team.
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)"
-- "[Purchasing and installing apps in {% data variables.product.prodname_marketplace %}](/articles/purchasing-and-installing-apps-in-github-marketplace)"
-- "[Managing billing for {% data variables.product.prodname_marketplace %} apps](/articles/managing-billing-for-github-marketplace-apps)"
+* [AUTOTITLE](/apps/using-github-apps)
+* [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)

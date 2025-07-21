@@ -11,7 +11,6 @@ intro: 'The `git rebase` command allows you to easily change a series of commits
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 Typically, you would use `git rebase` to:
@@ -20,18 +19,15 @@ Typically, you would use `git rebase` to:
 * Combine multiple commits into one
 * Delete or revert commits that are no longer necessary
 
-{% warning %}
-
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase on {% data variables.product.product_location %}, see "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
-
-{% endwarning %}
+> [!WARNING]
+> Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges).
 
 ## Rebasing commits against a branch
 
 To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
 
 ```shell
-$ git rebase --interactive <em>other_branch_name</em>
+git rebase --interactive OTHER-BRANCH-NAME
 ```
 
 ## Rebasing commits against a point in time
@@ -39,7 +35,7 @@ $ git rebase --interactive <em>other_branch_name</em>
 To rebase the last few commits in your current branch, you can enter the following command in your shell:
 
 ```shell
-$ git rebase --interactive HEAD~7
+git rebase --interactive HEAD~7
 ```
 
 ## Commands available while rebasing
@@ -68,9 +64,9 @@ There are six commands available while rebasing:
 
 ## An example of using `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/github/getting-started-with-github/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+No matter which command you use, Git will launch [your default text editor](/get-started/git-basics/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
-```
+```text
 pick 1fc6c95 Patch A
 pick 6b2481b Patch B
 pick dd1475d something I want to split
@@ -96,16 +92,16 @@ pick 7b36971 something to move before patch B
 
 Breaking this information, from top to bottom, we see that:
 
-- Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
-- The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
-- Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are *rebased* onto your repository.
-- After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
-- Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
+* Seven commits are listed, which indicates that there were seven changes between our starting point and our current branch state.
+* The commits you chose to rebase are sorted in the order of the oldest changes (at the top) to the newest changes (at the bottom).
+* Each line lists a command (by default, `pick`), the commit SHA, and the commit message. The entire `git rebase` procedure centers around your manipulation of these three columns. The changes you make are _rebased_ onto your repository.
+* After the commits, Git tells you the range of commits we're working with (`41a72e6..7b36971`).
+* Finally, Git gives some help by telling you the commands that are available to you when rebasing commits.
 
 ## Further reading
 
-- "[Using Git rebase](/articles/using-git-rebase)"
-- [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-- [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-- "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Syncing your branch](/desktop/contributing-to-projects/syncing-your-branch)" in the {% data variables.product.prodname_desktop %} documentation
+* [AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line)
+* [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+* [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#_changing_multiple)
+* [Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+* [AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop) in the {% data variables.product.prodname_desktop %} documentation

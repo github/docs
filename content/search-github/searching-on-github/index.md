@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -20,9 +19,11 @@ children:
   - /searching-issues-and-pull-requests
   - /searching-discussions
   - /searching-github-marketplace
+  - /searching-github-models
   - /searching-users
   - /searching-for-packages
   - /searching-wikis
   - /searching-in-forks
+  - /searching-gists
 ---
 

@@ -1,0 +1,1 @@
+>[!WARNING] {% data variables.product.github %} may add new features to the {% data variables.product.prodname_github_security_configuration %} without warning. If you have concerns and prefer to test out features before they are turned on, we suggest you do not use the {% data variables.product.prodname_github_security_configuration %}.

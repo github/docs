@@ -1,0 +1,5 @@
+# Reference: #7657
+# Self-hosted runners with Windows ARM (beta)
+versions:
+  fpt: '*'
+  ghec: '*'

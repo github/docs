@@ -1,0 +1,6 @@
+# Issue 6980
+# ProjectV2 GA
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'

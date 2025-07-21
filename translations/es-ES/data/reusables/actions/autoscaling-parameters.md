@@ -1,3 +1,0 @@
-- Opcionalmente, autoescalar parámetros para cada agrupación.
-  - Cantidad mínima de ejecutores inactivos para la agrupación
-  - Límite de tiempo activo: La cantidad de minutos que un ejecutor debería permanecer activo en la agrupación antes de que esta se reduzca al conteo de los inactivos

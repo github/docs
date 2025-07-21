@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -16,11 +15,13 @@ topics:
 children:
   - /about-organizations
   - /about-your-organization-dashboard
+  - /best-practices-for-organizations
   - /creating-a-new-organization-from-scratch
   - /accessing-your-organizations-settings
   - /customizing-your-organizations-profile
   - /about-your-organizations-news-feed
-  - /viewing-insights-for-your-organization
+  - /viewing-insights-for-dependencies-in-your-organization
+  - /viewing-github-actions-metrics-for-your-organization
 shortTitle: Collaborate with groups
 ---
 

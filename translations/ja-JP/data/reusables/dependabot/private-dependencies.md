@@ -1,1 +1,0 @@
-現時点では、{% data variables.product.prodname_dependabot_version_updates %}はプライベートなGitの依存関係やプライベートのGitレジストリを含むマニフェストあるいはロックファイルをサポートしていません。 これは、バージョンのアップデートを実行する際に、{% data variables.product.prodname_dependabot %}はバージョンアップデートが成功したことを検証するために、すべての依存関係をソースから解決しなければならないためです。

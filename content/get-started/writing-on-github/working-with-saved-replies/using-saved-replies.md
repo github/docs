@@ -8,27 +8,22 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-2. Click the desired issue or pull request.
-3. To add a saved reply, in the comment field, click {% octicon "reply" aria-label="The mail reply" %}.
-   ![Saved replies button](/assets/images/help/writing/saved-replies-button.png)
-4. From the list, select the saved reply you'd like to add to your comment.
-   ![Saved replies](/assets/images/help/settings/saved-replies.png)
+1. Click the desired issue or pull request.
+1. To add a saved reply, above the comment field, select {% octicon "reply" aria-label="The mail reply" %}.
+   ![Screenshot of a {% data variables.product.prodname_dotcom %} comment box. On the toolbar, a reply button with a left-facing curved arrow is outlined in dark orange.](/assets/images/help/writing/saved-replies-button.png)
+1. From the list, select the saved reply you'd like to add to your comment. Optionally, edit the content of the saved reply.  
+1. Select **Comment** to add your comment.
 
-{% tip %}
-
-**Tips:**
-- You can use a keyboard shortcut to autofill the comment with a saved reply. For more information, see "[Keyboard shortcuts](/articles/keyboard-shortcuts/#comments)."
-- You can filter the list by typing the title of the saved reply.
-
-{% endtip %}
+> [!TIP]
+> * You can use a keyboard shortcut to autofill the comment with a saved reply. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#comments).
+> * You can filter the list by typing the title of the saved reply.
 
 ## Further reading
 
-- "[Creating a saved reply](/articles/creating-a-saved-reply)"
-- "[Editing a saved reply](/articles/editing-a-saved-reply)"
-- "[Deleting a saved reply](/articles/deleting-a-saved-reply)"
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)

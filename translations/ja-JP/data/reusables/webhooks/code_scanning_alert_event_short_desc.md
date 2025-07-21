@@ -1,1 +1,0 @@
-リポジトリのCode Scanningアラートに関連するアクティビティ。 アクティビティのタイプは、ペイロードオブジェクトのactionプロパティで指定されます。 詳しい情報については、「[コードスキャニングについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。

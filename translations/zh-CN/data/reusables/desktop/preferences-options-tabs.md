@@ -1,6 +1,0 @@
-    - 选择 **Accounts（帐户）**添加或删除 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 帐户。
-    - 选择 **Integrations（集成）**可选择外部编辑器或 shell。
-    - 选择 **Git** 可编辑 Git 配置。
-    - 选择 **Appearance（外观）**可在浅色或深色主题之间进行切换。
-    - 选择**提示**以在执行破坏性操作之前启用或禁用确认对话框。
-    - 选择 **Advanced（高级）**查看更多配置选项。

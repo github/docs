@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Community
@@ -16,7 +15,7 @@ children:
   - /managing-disruptive-comments
   - /locking-conversations
   - /limiting-interactions-in-your-repository
-  - /limiting-interactions-for-your-user-account
+  - /limiting-interactions-for-your-personal-account
   - /limiting-interactions-in-your-organization
   - /tracking-changes-in-a-comment
   - /managing-how-contributors-report-abuse-in-your-organizations-repository

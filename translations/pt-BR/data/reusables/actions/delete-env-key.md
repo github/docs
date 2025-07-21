@@ -1,1 +1,0 @@
-Se você configurou um ambiente de implementação, altere o valor do `ambiente` para o nome do seu ambiente. Se você não configurou um ambiente{% ifversion fpt or ghec %} ou se o fluxo de trabalho está em um repositório privado e não usa o {% data variables.product.prodname_ghe_cloud %}{% endif %}, exclua a chave `ambiente`.

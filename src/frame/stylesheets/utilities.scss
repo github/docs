@@ -1,0 +1,70 @@
+@import "src/frame/stylesheets/breakpoint-xxl.scss"; // for d-xxl-block and d-xxl-none
+
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+}
+
+// For the screenreader
+.skip-button {
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: hidden;
+  z-index: 101;
+  padding: 16px;
+
+  &:not(:focus) {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0px;
+  }
+}
+
+// used to help prevent overlapping main content and the minitoc sidebar
+.d-xxl-block {
+  @include breakpoint-xxl {
+    display: block !important;
+  }
+}
+
+.d-xxl-none {
+  @include breakpoint-xxl {
+    display: none !important;
+  }
+}

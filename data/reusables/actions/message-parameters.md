@@ -1,8 +1,8 @@
-| Parameter | Value |
-| :- | :- |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `title` | Custom title |{% endif %}
-| `file` | Filename |
-| `col` | Column number, starting at 1 |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `endColumn` | End column number |{% endif %}
-| `line` | Line number, starting at 1 |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `endLine` | End line number |{% endif %}
+| Parameter | Value | Required | Default |
+| :- | :- | :- | :- |
+| `title` | Custom title | No | None |
+| `file` | Filename | No | `.github` |
+| `col` | Column number, starting at 1 | No | None |
+| `endColumn` | End column number | No | None |
+| `line` | Line number, starting at 1 | No | `1` |
+| `endLine` | End line number | No | `1` |

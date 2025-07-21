@@ -1,1 +1,0 @@
-## Repository webhook configuration

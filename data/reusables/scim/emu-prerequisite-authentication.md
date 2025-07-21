@@ -1,0 +1,1 @@
+Before you configure provisioning, you must configure authentication for your users. This configuration requires setup on both your identity management system and {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users).

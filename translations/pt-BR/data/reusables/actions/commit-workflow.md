@@ -1,1 +1,0 @@
-Faça o commit do arquivo de fluxo de trabalho para o branch padrão do seu repositório. Para obter mais informações, consulte "[Criar arquivos](/github/managing-files-in-a-repository/creating-new-files)".

@@ -1,1 +1,0 @@
-1. Atribua o aplicativo ao seu usuário no Okta. Para obter mais informações, consulte [Atribuir aplicativos aos usuários](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm) na documentação do Okta.

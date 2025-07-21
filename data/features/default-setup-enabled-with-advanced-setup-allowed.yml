@@ -1,0 +1,6 @@
+# References:
+# Issue #16873 - Security Configurations include "Default or Advanced" option for Code Scanning [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.18'

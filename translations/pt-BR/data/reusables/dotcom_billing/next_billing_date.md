@@ -1,1 +1,0 @@
-1. Na parte superior da página, em "Próximo pagamento devido", revise quando o seu próximo pagamento irá vencer. ![Data da próxima cobrança](/assets/images/help/billing/settings_billing_next_payment.png)

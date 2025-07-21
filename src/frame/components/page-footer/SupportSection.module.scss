@@ -1,0 +1,25 @@
+.supportGrid {
+  display: grid;
+  gap: var(--base-size-4);
+
+  // Mobile is 1 column
+  grid-template-columns: 1fr;
+  grid-column-gap: 1rem;
+
+  grid-row-gap: 2rem;
+}
+
+// Medium is 2 columns
+@media (min-width: 768px) {
+  .supportGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1rem;
+  }
+}
+
+// Large is 4 columns
+@media (min-width: 1280px) {
+  .supportGrid {
+    grid-template-columns: minmax(18rem, 1fr) repeat(3, 1fr);
+  }
+}

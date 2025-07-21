@@ -1,6 +1,3 @@
-1. To the right of the list of files, click **Packages**.
-  {% ifversion fpt or ghec %}
-  ![Packages link on repo overview page](/assets/images/help/package-registry/packages-link.png)
-  {% else %}
-  ![Packages link on repo overview page](/assets/images/help/package-registry/packages-from-repo.png)
-  {% endif %}
+1. In the right sidebar of your repository, click **Packages**.
+
+   ![Screenshot of the sidebar of a repository page. The "Packages" section is outlined in orange.](/assets/images/help/package-registry/packages-from-repo.png)

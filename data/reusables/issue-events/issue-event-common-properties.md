@@ -1,7 +1,7 @@
 Name | Type | Description
 -----|------|--------------
 `id` | `integer` | The unique identifier of the event.
-`node_id` | `string` | The [Global Node ID]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/guides/using-global-node-ids) of the event.
+`node_id` | `string` | The [Global Node ID](/graphql/guides/using-global-node-ids) of the event.
 `url`| `string` | The REST API URL for fetching the event.
 `actor` | `object`| The person who generated the event.
 `event` | `string` | Identifies the actual type of event that occurred.

@@ -1,1 +1,0 @@
-1. 查看 [{% data variables.product.prodname_sponsors %} 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)和 [{% data variables.product.prodname_dotcom %} 隐私声明](/free-pro-team@latest/github/site-policy/github-privacy-statement)，然后单击 **Join the waitlist（加入等待列表）**。

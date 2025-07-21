@@ -1,0 +1,1 @@
+{% ifversion ghec %}If you pay by invoice, contact {% data variables.contact.contact_enterprise_sales %} to discuss trialing {% data variables.product.prodname_GHAS %} features for your enterprise.{% endif %}

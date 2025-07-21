@@ -1,1 +1,0 @@
-`instalação` | `objeto` | A instalação de {% data variables.product.prodname_github_app %}. As cargas de webhook contêm a propriedade `instalação` quando o evento é configurado para um {% data variables.product.prodname_github_app %}.

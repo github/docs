@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %} es compatible con versiones `SNAPSHOT` de Apache Maven. Para utilizar el repositorio del {% data variables.product.prodname_registry %} para descargar artefactos de `SNAPSHOT`, habilita las SNAPSHOTS en el POM del proyecto consumidor en tu archivo *~/.m2/settings.xml*.

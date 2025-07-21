@@ -1,1 +1,0 @@
-You automatically watch all repositories that you create and are owned by your personal account. Você também pode optar por assistir automaticamente todos os repositórios aos quais você tem acesso de push, exceto as bifurcações. Você pode assistir qualquer outro repositório manualmente.

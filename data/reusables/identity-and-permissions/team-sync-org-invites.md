@@ -1,0 +1,1 @@
+Team synchronization is not a user provisioning service and does not invite non-members to join organizations in most cases. This means a user will only be successfully added to a team if they are already an organization member. However, you can optionally allow team synchronization to re-invite users who were previously organization members and have since been removed.

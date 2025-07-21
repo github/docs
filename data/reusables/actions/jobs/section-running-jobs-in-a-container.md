@@ -2,13 +2,21 @@ Use `jobs.<job_id>.container` to create a container to run any steps in a job th
 
 If you do not set a `container`, all steps will run directly on the host specified by `runs-on` unless a step refers to an action configured to run in a container.
 
+> [!NOTE]
+> The default shell for `run` steps inside a container is `sh` instead of `bash`. This can be overridden with [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) or [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
+
 ### Example: Running a job within a container
 
-```yaml
+```yaml copy
+name: CI
+on:
+  push:
+    branches: [ main ]
 jobs:
-  my_job:
+  container-test-job:
+    runs-on: ubuntu-latest
     container:
-      image: node:14.16
+      image: node:18
       env:
         NODE_ENV: development
       ports:
@@ -16,12 +24,16 @@ jobs:
       volumes:
         - my_docker_volume:/volume_mount
       options: --cpus 1
+    steps:
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
 
 When you only specify a container image, you can omit the `image` keyword.
 
 ```yaml
 jobs:
-  my_job:
-    container: node:14.16
+  container-test-job:
+    runs-on: ubuntu-latest
+    container: node:18
 ```

@@ -1,0 +1,5 @@
+# Issue 8420
+# Timeline events
+versions:
+  fpt: '*'
+  ghec: '*'

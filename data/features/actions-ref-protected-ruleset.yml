@@ -1,0 +1,5 @@
+# Ref protected variable respects ruleset configuration
+versions:
+  fpt: '*'
+  ghec: '*'
+  # ghes: TBD

@@ -1,0 +1,5 @@
+# Reference: Issue #15951 - Deprecation notice - Dependabot updates ceases supporting Composer v1 [Deprecation]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.15'

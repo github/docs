@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %}ホストランナーにプレインストールされているツールを含むディレクトリへのパス。 For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".

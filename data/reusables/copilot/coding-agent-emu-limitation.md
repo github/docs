@@ -1,0 +1,3 @@
+{% data variables.copilot.copilot_coding_agent %} is not available in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}. This is because {% data variables.copilot.copilot_coding_agent %} runs on {% data variables.product.company_short %}-hosted runners, which are not available to repositories owned by {% data variables.enterprise.prodname_managed_users %}. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
+
+<!--If you update this text, you may also need to update "Limitations in Copilot's compatibility with other features" in https://docs.github.com/en/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot  -->

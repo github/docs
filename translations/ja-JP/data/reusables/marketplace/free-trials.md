@@ -1,1 +1,0 @@
-無料のトライアルがある有料プランを選択した場合、トライアルの期間中にはいつでも課金されることなくキャンセルができますが、アプリケーションへのアクセスは自動的にできなくなります。 有料プランは 14 日間のトライアルの終了時に開始されます。 詳しい情報については、[{% data variables.product.prodname_marketplace %}の支払いについて](/articles/about-billing-for-github-marketplace)を参照してください。

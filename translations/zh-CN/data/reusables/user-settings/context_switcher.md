@@ -1,1 +1,0 @@
-您必须单独管理每个帐户的计费设置和付款功能。 您可以使用每个设置页面上的上下文切换器在个人帐户、组织帐户和企业帐户的设置之间切换。 更多信息请参阅“[在不同帐户的设置之间切换](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)”。

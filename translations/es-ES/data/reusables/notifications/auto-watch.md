@@ -1,1 +1,0 @@
-You automatically watch all repositories that you create and are owned by your personal account. También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes observar cualquier otro repositorio manualmente.

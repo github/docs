@@ -4,7 +4,6 @@ intro: 'Learn how to share new {% data variables.product.prodname_cli %} command
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI
@@ -12,30 +11,24 @@ topics:
 
 ## About {% data variables.product.prodname_cli %} extensions
 
-{% data reusables.cli.cli-extensions %} For more information about how to use {% data variables.product.prodname_cli %} extensions, see "[Using {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/using-github-cli-extensions)."
+{% data reusables.cli.cli-extensions %} For more information about how to use {% data variables.product.prodname_cli %} extensions, see [AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions).
 
 You need a repository for each extension that you create. The repository name must start with `gh-`. The rest of the repository name is the name of the extension. The repository must have an executable file at its root with the same name as the repository or a set of precompiled binary executables attached to a release.
 
-{% note %}
-
-**Note**: When relying on an executable script, we recommend using a bash script because bash is a widely available interpreter. You may use non-bash scripts, but the user must have the necessary interpreter installed in order to use the extension. If you would prefer to not rely on users having interpreters installed, consider a precompiled extension.
-
-{% endnote %}
+> [!NOTE]
+> When relying on an executable script, we recommend using a bash script because bash is a widely available interpreter. You may use non-bash scripts, but the user must have the necessary interpreter installed in order to use the extension. If you would prefer to not rely on users having interpreters installed, consider a precompiled extension.
 
 ## Creating an interpreted extension with `gh extension create`
 
-{% note %}
-
-**Note**: Running `gh extension create` with no arguments will start an interactive wizard.
-
-{% endnote %}
+> [!NOTE]
+> Running `gh extension create` with no arguments will start an interactive wizard.
 
 You can use the `gh extension create` command to create a project for your extension, including a bash script that contains some starter code.
 
 1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension.
 
     ```shell
-    gh extension create <em>EXTENSION-NAME</em>
+    gh extension create EXTENSION-NAME
     ```
 
 1. Follow the printed instructions to finalize and optionally publish your extension.
@@ -47,7 +40,7 @@ You can use the `--precompiled=go` argument to create a Go-based project for you
 1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension and specify `--precompiled=go`.
 
     ```shell
-    gh extension create --precompiled=go <em>EXTENSION-NAME</em>
+    gh extension create --precompiled=go EXTENSION-NAME
     ```
 
 1. Follow the printed instructions to finalize and optionally publish your extension.
@@ -59,7 +52,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
 1. Set up a new extension by using the `gh extension create` subcommand. Replace `EXTENSION-NAME` with the name of your extension and specify `--precompiled=other`.
 
     ```shell
-    gh extension create --precompiled=other <em>EXTENSION-NAME</em>
+    gh extension create --precompiled=other EXTENSION-NAME
     ```
 
 1. Add some initial code for your extension in your compiled language of choice.
@@ -74,19 +67,16 @@ You can use the `--precompiled=other` argument to create a project for your non-
 
 1. In the directory that you created, add an executable file with the same name as the directory.
 
-  {% note %}
-
-  **Note:** Make sure that your file is executable. On Unix, you can execute `chmod +x file_name` in the command line to make `file_name` executable. On Windows, you can run `git init -b main`, `git add file_name`, then `git update-index --chmod=+x file_name`.
-
-  {% endnote %}
+   > [!NOTE]
+   > Make sure that your file is executable. On Unix, you can execute `chmod +x file_name` in the command line to make `file_name` executable. On Windows, you can run `git init -b main`, `git add file_name`, then `git update-index --chmod=+x file_name`.
 
 1. Write your script in the executable file. For example:
 
-  ```bash
-  #!/usr/bin/env bash
-  set -e
-  exec gh api user --jq '"You are @\(.login) (\(.name))."'
-  ```
+   ```bash
+   #!/usr/bin/env bash
+   set -e
+   exec gh api user --jq '"You are @\(.login) (\(.name))."'
+   ```
 
 1. From your directory, install the extension as a local extension.
 
@@ -97,7 +87,7 @@ You can use the `--precompiled=other` argument to create a project for your non-
 1. Verify that your extension works. Replace `EXTENSION-NAME` with the name of your extension. For example, `whoami`.
 
    ```shell
-   gh <em>EXTENSION-NAME</em>
+   gh EXTENSION-NAME
    ```
 
 1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
@@ -105,10 +95,10 @@ You can use the `--precompiled=other` argument to create a project for your non-
    ```shell
    git init -b main
    git add . && git commit -m "initial commit"
-   gh repo create gh-<em>EXTENSION-NAME</em> --source=. --public --push
+   gh repo create gh-EXTENSION-NAME --source=. --public --push
    ```
 
-1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
+1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics).
 
 ## Tips for writing interpreted {% data variables.product.prodname_cli %} extensions
 
@@ -162,9 +152,9 @@ For example, to create an issue programmatically, specify the title and body:
 gh issue create --title "My Title" --body "Issue description"
 ```
 
-### Fetching data programatically
+### Fetching data programmatically
 
-Many core commands support the `--json` flag for fetching data programatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
+Many core commands support the `--json` flag for fetching data programmatically. For example, to return a JSON object listing the number, title, and mergeability status of pull requests:
 
 ```shell
 gh pr list --json number,title,mergeStateStatus
@@ -190,7 +180,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
 1. In the directory you created, add some source code. For example:
 
-    ```go
+    ```golang
     package main
     import (
       "github.com/cli/go-gh"
@@ -217,7 +207,7 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 1. Build your code. For example, with Go, replacing `YOUR-USERNAME` with your GitHub username:
 
     ```shell
-    go mod init github.com/<em>YOUR-USERNAME</em>/gh-whoami
+    go mod init github.com/YOUR-USERNAME/gh-whoami
     go mod tidy
     go build
     ```
@@ -225,46 +215,39 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 1. Verify that your extension works. Replace `EXTENSION-NAME` with the name of your extension. For example, `whoami`.
 
     ```shell
-    gh <em>EXTENSION-NAME</em>
+    gh EXTENSION-NAME
     ```
 
 1. From your directory, create a repository to publish your extension. Replace `EXTENSION-NAME` with the name of your extension.
 
-  {% note %}
+   > [!NOTE]
+   > Be careful not to commit the binary produced by your compilation step to version control.
 
-  **Note:** Be careful not to commit the binary produced by your compilation step to version control.
-
-  {% endnote %}
-
-    ```shell
+   ```shell
     git init -b main
-    echo "gh-<em>EXTENSION-NAME</em>" >> .gitignore
-    git add main.go go.* .gitignore && git commit -m'Initial commit'
-    gh repo create "gh-<em>EXTENSION-NAME</em>"
-    ```
+   echo "gh-EXTENSION-NAME" >> .gitignore
+   git add main.go go.* .gitignore && git commit -m 'Initial commit'
+   gh repo create "gh-EXTENSION-NAME"
+   ```
 
-1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of <em>OS-ARCHITECTURE\[EXTENSION\]</em>.
+1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of OS-ARCHITECTURE\[EXTENSION\].
 
-  For example, an extension named `whoami` compiled for Windows 64bit would have the name `gh-whoami-windows-amd64.exe` while the same extension compiled for Linux 32bit would have the name `gh-whoami-linux-386`. To see an exhaustive list of OS and architecture combinations recognized by `gh`, see [this source code](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
+   For example, an extension named `whoami` compiled for Windows 64bit would have the name `gh-whoami-windows-amd64.exe` while the same extension compiled for Linux 32bit would have the name `gh-whoami-linux-386`. To see an exhaustive list of OS and architecture combinations recognized by `gh`, see [this source code](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
 
-  {% note %}
+   > [!NOTE]
+   > For your extension to run properly on Windows, its asset file must have a `.exe` extension. No extension is needed for other operating systems.
 
-  **Note:** For your extension to run properly on Windows, its asset file must have a `.exe` extension. No extension is needed for other operating systems.
+   Releases can be created from the command line. For example:
 
-  {% endnote %}
+   ```shell
+   git tag v1.0.0
+   git push origin v1.0.0
+   GOOS=windows GOARCH=amd64 go build -o gh-EXTENSION-NAME-windows-amd64.exe
+   GOOS=linux GOARCH=amd64 go build -o gh-EXTENSION-NAME-linux-amd64
+   GOOS=darwin GOARCH=amd64 go build -o gh-EXTENSION-NAME-darwin-amd64
+   gh release create v1.0.0 ./*amd64*
 
-  Releases can be created from the command line. For example:
-
-  ```shell
-  git tag v1.0.0
-  git push origin v1.0.0
-  GOOS=windows GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-windows-amd64.exe
-  GOOS=linux GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-linux-amd64
-  GOOS=darwin GOARCH=amd64 go build -o gh-<em>EXTENSION-NAME</em>-darwin-amd64
-  gh release create v1.0.0 ./*amd64*
-
-1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
-
+1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see [Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics).
 
 ## Tips for writing precompiled {% data variables.product.prodname_cli %} extensions
 

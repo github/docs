@@ -1,8 +1,0 @@
-.header {
-  display: unset;
-}
-
-// Need children of portal root to be higher z-index to show dropdown
-.portalRoot * {
-  z-index: 3 !important;
-}

@@ -1,1 +1,0 @@
-`número`|`inteiro` | O número do pull request. `alterações`|`objeto`| As alterações no comentário se a ação foi `editada`. `alterações[title][from]`|`string` | A versão anterior do título se a ação foi `editada`. `alterações[body][from]`|`string` | A versão anterior do texto se a ação foi `editada`. `pull_request`|`objeto` | O próprio [pull request](/rest/reference/pulls).

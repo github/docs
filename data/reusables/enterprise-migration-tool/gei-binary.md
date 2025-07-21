@@ -1,0 +1,1 @@
+Alternatively, you can download a standalone binary from the [releases page](https://github.com/github/gh-gei/releases) for the `github/gh-gei` repository. You can run the binary directly, without the `gh` prefix.

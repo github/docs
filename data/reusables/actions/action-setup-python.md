@@ -1,1 +1,1 @@
-actions/setup-python@{% if actions-node16-action %}v3{% else %}v2{% endif %}
+actions/setup-python@v5

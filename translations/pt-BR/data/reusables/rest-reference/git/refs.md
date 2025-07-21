@@ -1,3 +1,0 @@
-## Referências
-
-Uma referência do Git (`git ref`) é apenas um arquivo que contém um hash SHA-1 do commit do Git. Ao referir-se a um commit do Git, você pode usar a referência do Git, que é um nome fácil de lembrar, em vez do hash. A referência do Git pode ser reescrita para apontar para um novo commit. Um branch é apenas uma referência do Git que armazena o novo hash de commit do Git. Estes pontos de extremidade permitem ler e escrever [referências](https://git-scm.com/book/en/v1/Git-Internals-Git-References) para o seu banco de dados do Git em {% data variables.product.product_name %}.

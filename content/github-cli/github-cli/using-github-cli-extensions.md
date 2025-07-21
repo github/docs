@@ -4,7 +4,6 @@ intro: 'Learn how to use custom extensions written by other {% data variables.pr
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI
@@ -12,13 +11,10 @@ topics:
 
 ## About {% data variables.product.prodname_cli %} extensions
 
-{% note %}
+> [!NOTE]
+> Extensions outside of {% data variables.product.github %} and {% data variables.product.prodname_cli %} are not certified by {% data variables.product.github %} and are governed by separate terms of service, privacy policy, and support documentation. To mitigate risk when using third-party extensions, audit the source code of the extension before installing or updating the extension.
 
-**Note:** Extensions outside of {% data variables.product.product_name %} and {% data variables.product.prodname_cli %} are not certified by {% data variables.product.product_name %} and are governed by separate terms of service, privacy policy, and support documentation. To mitigate risk when using third-party extensions, audit the source code of the extension before installing or updating the extension.
-
-{% endnote %}
-
-{% data reusables.cli.cli-extensions %} For more information about how to create {% data variables.product.prodname_cli %} extensions, see "[Creating {% data variables.product.prodname_cli %} extensions](/github-cli/github-cli/creating-github-cli-extensions)."
+{% data reusables.cli.cli-extensions %} For more information about how to create {% data variables.product.prodname_cli %} extensions, see [AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions).
 
 Extensions are locally installed and are scoped to the user. Therefore, if you access {% data variables.product.prodname_cli %} from a different machine or another user accesses {% data variables.product.prodname_cli %} from the same machine, the extension will not be available.
 
@@ -35,10 +31,22 @@ If the owner and repository are used, `gh` will install the extension using the 
 To install an extension in development from the current directory, use `.` as the value for the `repo` parameter.
 
 ```shell
-gh extension install <em>repo</em>
+gh extension install REPO
 ```
 
 If you already have an extension by the same name installed, the command will fail. For example, if you have installed `octocat/gh-whoami`, you must uninstall it before installing `hubot/gh-whoami`.
+
+## Running an extension
+
+When you have installed an extension, you run the extension as you would run a native {% data variables.product.prodname_cli %} command, using `gh EXTENSION-NAME`. The `EXTENSION-NAME` is the name of the repository that contains the extension, minus the `gh-` prefix.
+
+For example, if you installed the extension from the `octocat/gh-whoami` repository, you would run the extension with the following command.
+
+``` shell
+gh whoami
+```
+
+You can usually find specific information about how to use an extension in the README of the repository that contains the extension.
 
 ## Viewing installed extensions
 
@@ -53,7 +61,7 @@ gh extension list
 To update an extension, use the `extensions upgrade` subcommand. Replace the `extension` parameter with the name of the extension.
 
 ```shell
-gh extension upgrade <em>extension</em>
+gh extension upgrade EXTENSION
 ```
 
 To update all installed extensions, use the `--all` flag.
@@ -67,5 +75,5 @@ gh extension upgrade --all
 To uninstall an extension, use the `extensions remove` subcommand. Replace the `extension` parameter with the name of the extension.
 
 ```shell
-gh extension remove <em>extension</em>
+gh extension remove EXTENSION
 ```

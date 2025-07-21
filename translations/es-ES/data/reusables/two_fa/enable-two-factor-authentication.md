@@ -1,1 +1,0 @@
-1. Debajo de "Autenticación bifactorial", da clic en **Habilitar la autenticación bifactorial**. ![Habilitar la opción de autenticación bifactorial](/assets/images/help/2fa/enable-two-factor-authentication-dialoge.png)

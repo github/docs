@@ -1,0 +1,1 @@
+Before you enable {% data variables.product.prodname_dependabot_updates %}, you must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners.

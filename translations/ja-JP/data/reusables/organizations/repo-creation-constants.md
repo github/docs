@@ -1,1 +1,0 @@
-Organizationのオーナーは、いつでも任意の種類のリポジトリを作成でき、外部のコラボレータはいかなる種類のリポジトリも作成できません。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."

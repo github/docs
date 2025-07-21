@@ -5,10 +5,15 @@ redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program
   - /articles/adding-organization-members-to-a-team
   - /github/setting-up-and-managing-organizations-and-teams/adding-organization-members-to-a-team
+  - /enterprise/admin/articles/adding-teams
+  - /enterprise/admin/articles/adding-or-inviting-people-to-teams
+  - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams
+  - /enterprise/admin/user-management/adding-people-to-teams
+  - /admin/user-management/adding-people-to-teams
+  - /admin/user-management/managing-organizations-in-your-enterprise/adding-people-to-teams
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -18,18 +23,34 @@ shortTitle: Add members to a team
 
 {% data reusables.organizations.team-synchronization %}
 
+{% ifversion ghes %}
+
+## Adding organization members to a team
+
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
-6. Above the list of team members, click **Add a member**.
-![Add member button](/assets/images/help/teams/add-member-button.png)
+1. Above the list of team members, click **Add a member**.
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}
 
 {% ifversion fpt or ghec %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
+{% ifversion ghes %}
+
+## Mapping teams to LDAP groups (for instances using LDAP Sync for user authentication)
+
+You can create a team with LDAP Sync enabled. See [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled).
+
+A team that's synced to an LDAP group is indicated with a special LDAP badge. The member list for an LDAP synced team can only be managed from the LDAP group it's mapped to. See [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
+
+To add a new member to a team synced to an LDAP group, add the user as a member of the LDAP group, or contact your LDAP administrator.
+
+{% endif %}
+
 ## Further reading
 
-- "[About teams](/articles/about-teams)"
-- "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)"
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)

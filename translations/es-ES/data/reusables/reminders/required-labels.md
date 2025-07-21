@@ -1,1 +1,0 @@
-1. Debajo de "Etiquetas requeridas", teclea una lista de etiquetas separadas por comas. Los recordatorios programados solo incluirán las solicitudes de extracción que no se hayan ignorado en caso de que tengan una o más de estas etiquetas. ![Campo de etiquetas requeridas](/assets/images/help/settings/scheduled-reminders-required-labels-field.png)

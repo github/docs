@@ -1,0 +1,7 @@
+# Reference: #16452
+# Documentation for reviewers can add a comment on push protection bypass requests for secret scanning [GA]
+# Ref 17108 Advanced Security available to Team plans
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.16'

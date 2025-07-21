@@ -1,0 +1,6 @@
+# Issue 13549
+# Versioning for the Artifacts v1-3 deprecation. Feb 5, 2024: Eventually this will ship to some version of GHES, at that point, we can add the GHES versioning into this fbv file.
+versions:
+  fpt: '*'
+  ghec: '*'
+# ghes: 'tbd'

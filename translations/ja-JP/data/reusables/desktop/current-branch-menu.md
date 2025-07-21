@@ -1,1 +1,0 @@
-1. {% data variables.product.prodname_desktop %}で、{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch（現在のブランチ）**をクリックしてください。 ![現在のブランチのドロップダウンメニュー](/assets/images/help/desktop/current-branch-menu.png)

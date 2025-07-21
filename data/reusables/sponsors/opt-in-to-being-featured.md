@@ -1,2 +1,1 @@
-1. Optionally, select **Opt-in to potentially being featured on github.com/sponsors**.
-  ![Checkbox to opt-in to being featured](/assets/images/help/sponsors/opt-in-to-being-featured.png)
+1. Optionally, select **Optional: Opt-in to get featured on github.com/sponsors**.

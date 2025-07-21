@@ -1,1 +1,0 @@
-Hay un límite de diez tokens que se emite por combinación de usuario/aplicación/alcance. Si una aplicación crea más de 10 tokens para el mismo usuario y los mismos alcances, se revocarán los tokens más antiguos con la misma combinación de usuario/aplicación/alcance.

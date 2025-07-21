@@ -1,0 +1,1 @@
+You can reattribute the history for each mannequin to an organization member with the {% data variables.product.prodname_cli %} or in your browser. If you use the {% data variables.product.prodname_cli %}, you can reclaim mannequins in bulk.

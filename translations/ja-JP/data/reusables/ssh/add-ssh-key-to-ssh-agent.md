@@ -1,1 +1,0 @@
-If you created your key with a different name, or if you are adding an existing key that has a different name, replace *id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}* in the command with the name of your private key file.

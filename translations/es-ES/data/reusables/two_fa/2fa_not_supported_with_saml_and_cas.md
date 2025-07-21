@@ -1,1 +1,0 @@
-No se soporta o administra en el aplicativo de {% data variables.product.prodname_ghe_server %}, pero puede que sí lo haga el proveedor de autenticación externo. No está disponible la implementación de la autenticación de dos factores en organizaciones.

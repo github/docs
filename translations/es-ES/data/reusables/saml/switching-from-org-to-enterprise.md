@@ -1,1 +1,0 @@
-Existen consideraciones especiales al habilitar el SSO de SAML en tu cuenta empresarial si cualquiera de las organizaciones que pertenecen a la cuenta empresarial ya se configuraron para utilizar el SSO de SAML.

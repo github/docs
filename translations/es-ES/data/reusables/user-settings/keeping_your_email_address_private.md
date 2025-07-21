@@ -1,1 +1,0 @@
-5. Para mantener tu dirección de correo electrónico como privada cuando realices operaciones de Git basadas en la web, haz clic en **Mantener mis direcciones de correo electrónico como privadas**. ![Imagen de casilla para mantener tu dirección de correo electrónico como privada](/assets/images/help/settings/email_privacy.png)

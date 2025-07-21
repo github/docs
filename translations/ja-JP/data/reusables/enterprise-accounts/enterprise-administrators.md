@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}現時点では、Enterpriseでは2つの管理ロールが利用できます。EnterpriseオーナーはEnterpriseのすべての設定にアクセス及び管理ができます。支払いマネージャーは、Enterpriseの支払い設定のみアクセス及び管理ができます。 {% endif %}Enterpriseオーナーは、Enterpriseが所有するすべてのOrganizationのすべてのメンバーと外部のコラボレータを見ること{% ifversion fpt or ghec %}も{% endif %}できます。

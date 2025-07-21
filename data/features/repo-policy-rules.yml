@@ -1,0 +1,5 @@
+# Repository policy rules (public preview)
+# Ref: 15306
+
+versions:
+  ghec: '*'

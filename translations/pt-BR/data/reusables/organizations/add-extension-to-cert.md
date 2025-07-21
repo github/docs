@@ -1,1 +1,0 @@
-Ao emitir cada certificado de cliente, você deve incluir uma extensão que especifica para qual usuário do {% data variables.product.product_name %} o certificado serve. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/articles/about-ssh-certificate-authorities)".

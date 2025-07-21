@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} pode entrar em contato com candidatos ou participantes de {% data variables.product.prodname_sponsors %} para obter informações adicionais sobre o seu perfil de patrocínio ou atividade para determinar a elegibilidade para patrocínio ou correspondência, ou como parte da investigação de possíveis violações dos termos.

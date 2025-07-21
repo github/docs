@@ -1,1 +1,0 @@
-4. À direita de "Email updates to your sponsors" (Enviar e-mail com atualizações para patrocinadores), clique em **Draft a new update** (Rascunhar nova atualização). ![Botão New update (Nova atualização)](/assets/images/help/sponsors/new-update-button.png)

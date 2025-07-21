@@ -1,75 +1,44 @@
 ---
 title: About discussions
-intro: 'Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project on {% data variables.product.product_name %}.'
+intro: 'Use discussions to ask and answer questions, share information, make announcements, and conduct or participate in a conversation about a project.'
 versions:
   fpt: '*'
+  ghes: '*'
   ghec: '*'
 ---
 
 
 ## About {% data variables.product.prodname_discussions %}
 
-With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within the project's repository or organization. Discussions empower a project's maintainers, contributors, and visitors to gather and accomplish the following goals in a central location, without third-party tools.
+{% data variables.product.prodname_discussions %} allows your project's community to engage in conversations about the project's direction and future in an open-ended format. Maintainers, contributors, and visitors can gather in a central location, without third-party tools.
 
-- Share announcements and information, gather feedback, plan, and make decisions
-- Ask questions, discuss and answer the questions, and mark the discussions as answered
-- Create polls to gauge community opinion
-- Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
+* Share announcements and information
+* Plan and make decisions with community input
+* Encourage and answer questions, and mark them answered as you respond to them
+* Gauge community opinion using polls
 
-![Discussions tab for a repository](/assets/images/help/discussions/hero.png)
+![Screenshot of the "Discussions" page for a repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
-You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
+You can use **repository** discussions to discuss topics that are specific to one repository and **organization** discussions for broader conversations that span multiple repositories.
 
-You don't need to close a discussion like you close an issue or a pull request.
+Anyone with access to a repository or organization can create and participate in discussions there. However, an administrator must enable {% data variables.product.prodname_discussions %} for the repository or organization first.
 
-If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
+## Managing discussions
 
-Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. Similarly, for organization discussions, the role of a user in the source repository determines how a user can interact with organization discussions. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+{% data variables.product.prodname_discussions %} includes tools for managing discussions, and for using discussions to manage the repository or organization.
 
-For more information about management of discussions, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+* Pin discussions to give topics more visibility
+* Mark comments as answers in question-and-answer categories to help users find information more quickly
+* Lock discussions that have reached a conclusion or become too heated
+* Convert open-ended issues into discussions
+* Close discussions that are no longer useful
 
-## About polls
-
-You can create polls in the polls category to gauge interest in new ideas and project direction. Anyone with read access to your repository can create polls, vote in polls, and view their results. Logged out users can view the results of polls in public repositories.
-
-Polls require a question and at least two options. You can add a maximum of eight options and the options can contain a maximum of 128 characters. 
-
-Voters cannot change their vote. Editing a poll will reset any votes that have already been cast.
-
-For more information on creating polls, see "[Creating a poll](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#creating-a-poll)."
-
-## About discussion organization
-
-You can organize discussions with categories and labels.
-
-{% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
-
-For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
-
-{% data reusables.discussions.about-announcement-format %}
-
-For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
-
-{% data reusables.discussions.you-can-label-discussions %}
-
-## Best practices for {% data variables.product.prodname_discussions %}
-
-As a community member or maintainer, start a discussion to ask a question or discuss information that affects the community. For more information, see "[Collaborating with maintainers using discussions](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions)."
-
-Participate in a discussion to ask and answer questions, provide feedback, and engage with the project's community. For more information, see "[Participating in a discussion](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)."
-
-You can spotlight discussions that contain important, useful, or exemplary conversations among members in the community. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
-
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+Discussions are opened in user-defined categories, and can be further organized with repository labels. For more information about discussion management, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
 ## Sharing feedback
 
-You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [`github/feedback`](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Discussions+Feedback%22).
+You can share your feedback about {% data variables.product.prodname_discussions %} with {% data variables.product.company_short %}. To join the conversation, see [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions/categories/discussions).
 
-## Further reading
+## Next steps
 
-- "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/about-writing-and-formatting-on-github)"
-- "[Searching discussions](/search-github/searching-on-github/searching-discussions)"
-- "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
-- "[Moderating comments and conversations](/communities/moderating-comments-and-conversations)"
-- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)"
+If you're ready to try {% data variables.product.prodname_discussions %}, get started at [AUTOTITLE](/discussions/quickstart).

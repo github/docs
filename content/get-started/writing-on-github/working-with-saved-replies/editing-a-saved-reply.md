@@ -9,20 +9,17 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.saved_replies %}
-3. Under "Saved replies", next to the saved reply you want to edit, click {% octicon "pencil" aria-label="The pencil" %}.  
-![Edit a saved reply](/assets/images/help/settings/saved-replies-edit-existing.png)
-4. Under "Edit saved reply", you can edit the title and the content of the saved reply.
-![Edit title and content](/assets/images/help/settings/saved-replies-edit-existing-content.png)
-5. Click **Update saved reply**.
-![Update saved reply](/assets/images/help/settings/saved-replies-save-edit.png)
+1. Under "Saved replies," next to the saved reply you want to edit, click {% octicon "pencil" aria-label="The pencil" %}.
+![Screenshot of {% data variables.product.github %} settings for "Saved replies." To the right of the "Ship squirrel" reply, an edit button with a pencil icon is outlined in orange.](/assets/images/help/writing/saved-replies-edit-existing.png)
+1. Under "Edit saved reply," edit the title or content of the saved reply.
+1. Click **Update saved reply**.
 
 ## Further reading
 
-- "[Creating a saved reply](/articles/creating-a-saved-reply)"
-- "[Deleting a saved reply](/articles/deleting-a-saved-reply)"
-- "[Using saved replies](/articles/using-saved-replies)"
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)

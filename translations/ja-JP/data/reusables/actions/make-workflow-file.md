@@ -1,1 +1,0 @@
-リポジトリに、`.github/workflows/YOUR_WORKFLOW.yml`というファイルを`YOUR_WORKFLOW`の部分を選択した名前で置き換えて作成してください。 これがワークフローファイルです。 GitHub上での新しいファイルの作成に関する詳しい情報については「[新しいファイルの作成](/github/managing-files-in-a-repository/creating-new-files)」を参照してください。

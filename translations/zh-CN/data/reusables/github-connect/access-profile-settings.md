@@ -1,1 +1,0 @@
-1. On {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %}, in the upper-right corner of any page, click your profile photo, then click **Settings**. ![用户栏中的 Settings 图标](/assets/images/help/settings/userbar-account-settings.png)

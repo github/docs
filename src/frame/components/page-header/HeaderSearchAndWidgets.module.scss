@@ -1,0 +1,12 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+.displayUnderLarge {
+  display: flex;
+  visibility: visible;
+
+  @include breakpoint(lg) {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

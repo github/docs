@@ -1,3 +1,0 @@
-{% data variables.product.prodname_dotcom %} provides preconfigured starter workflow that you can customize to create your own continuous integration workflow. {% data variables.product.product_name %} analyzes your code and shows you CI starter workflow that might be useful for your repository. Por exemplo, se o seu repositório contiver o código Node.js, você verá sugestões para projetos Node.js. You can use starter workflow as a starting place to build your custom workflow or use them as-is.
-
-You can browse the full list of starter workflow in the {% ifversion fpt or ghec %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.

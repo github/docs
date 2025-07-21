@@ -1,0 +1,5 @@
+# Reference: #9844
+# Slash Commands (Public Beta)
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -1,1 +1,0 @@
-1. {% data variables.product.prodname_ghe_server %}インスタンスへのアーカイブされた移行データのインポートの準備をするには、「[Enterpriseへのデータ移行の準備](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)」を参照してください。

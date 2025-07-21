@@ -1,1 +1,0 @@
-Você pode ver cada token de acesso pessoal e a chave SSH que um integrante autorizou para obter acesso à API e ao Git. Somente os últimos caracteres de cada token ou chave são visíveis. Se necessário, trabalhe com o integrante para determinar quais credenciais você deve revogar.

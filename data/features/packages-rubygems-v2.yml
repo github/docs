@@ -1,0 +1,5 @@
+# Issue 7872
+# RubyGems Registry Improvements (v2)
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -1,6 +1,6 @@
 ---
 title: Editing files
-intro: 'You can edit files directly on {% data variables.product.product_name %} in any of your repositories using the file editor.'
+intro: 'You can edit files directly on {% data variables.product.github %} in any of your repositories using the file editor.'
 redirect_from:
   - /articles/editing-files
   - /articles/editing-files-in-your-repository
@@ -12,7 +12,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -21,22 +20,15 @@ shortTitle: Edit files
 
 ## Editing files in your repository
 
-{% tip %}
+> [!TIP]
+> {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
-**Tip**: {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
-
-{% endtip %}
-
-{% note %}
-
-**Note:** {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.github %}'s file editor uses [CodeMirror](https://codemirror.net/).
 
 1. In your repository, browse to the file you want to edit.
 {% data reusables.repositories.edit-file %}
-3. On the **Edit file** tab, make any changes you need to the file.
-![New content in file](/assets/images/help/repository/edit-readme-light.png)
+1. In the text box, make any changes you need to the file.
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
@@ -45,18 +37,14 @@ shortTitle: Edit files
 
 ## Editing files in another user's repository
 
-When you edit a file in another user's repository, we'll automatically [fork the repository](/articles/fork-a-repo) and [open a pull request](/articles/creating-a-pull-request) for you.
+When you edit a file in another user's repository, we'll automatically [fork the repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and [open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) for you.
 
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.
-2. Above the file content, click {% octicon "pencil" aria-label="The edit icon" %}. At this point, GitHub forks the repository for you.
-3. Make any changes you need to the file.
-![New content in file](/assets/images/help/repository/edit-readme-light.png)
+1. Above the file content, click {% octicon "pencil" aria-label="Edit file" %}. On the page that appears, click **Fork this repository**.
+1. In the text box, make any changes you need to the file.
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-6. Click **Propose file change**.
-![Commit Changes button](/assets/images/help/repository/propose_file_change_button.png)
-7. Type a title and description for your pull request.
-![Pull Request description page](/assets/images/help/pull_requests/pullrequest-description.png)
-8. Click **Create pull request**.
-![Pull Request button](/assets/images/help/pull_requests/pullrequest-send.png)
+1. Click **Propose changes**.
+1. Type a title and description for your pull request.
+1. Click **Create pull request**.

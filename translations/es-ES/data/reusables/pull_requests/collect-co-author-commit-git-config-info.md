@@ -1,1 +1,0 @@
-1. Recopila el nombre y dirección de correo electrónico de cada co-autor. {% ifversion fpt or ghec %} Si alguien elige mantener su dirección de correo electrónico como privada, debes utilizar su correo de `no-reply` proporcionado por {% data variables.product.product_name %} para proteger su privacidad.{% endif %}

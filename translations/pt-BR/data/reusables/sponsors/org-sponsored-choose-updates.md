@@ -1,1 +1,0 @@
-4. Decida se deseja receber atualizações por e-mail da organização patrocinada e, em seguida, selecione ou desmarque "Receber atualizações da _ORGANIZAÇÃO_". ![Caixa de seleção para receber atualizações da organização patrocinada](/assets/images/help/sponsors/org-updates-checkbox-manage.png)

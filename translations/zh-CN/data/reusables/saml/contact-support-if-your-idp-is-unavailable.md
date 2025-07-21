@@ -1,1 +1,0 @@
-如果您因 {% data variables.product.product_name %} 无法与您的 SAML IDP 通信而无法登录企业，您可以联系 {% data variables.contact.github_support %} 帮助您访问 {% data variables.product.product_name %} SAML SSO 配置。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。

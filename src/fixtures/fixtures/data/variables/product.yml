@@ -1,0 +1,12 @@
+company_short: 'HubGit'
+
+product_name: >-
+  {% ifversion ghec %}HubGit Enterprise Cloud{% elsif ghes %}HubGit Enterprise Server{% else %}HubGit{% endif %}
+
+prodname_dotcom: 'HubGit'
+
+prodname_pages: 'HubGit Pages'
+
+prodname_actions: 'HubGit Actions'
+
+pricing_url: 'https://github.com/pricing'

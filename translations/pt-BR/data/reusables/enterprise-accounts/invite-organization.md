@@ -1,1 +1,0 @@
-Enterprise account owners can invite existing organization accounts to join their enterprise. For more information, see "[Inviting an organization to join your enterprise account](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."

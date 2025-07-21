@@ -1,1 +1,0 @@
-Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. However, each personal account has a limit of 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.

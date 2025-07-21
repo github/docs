@@ -1,0 +1,1 @@
+For some languages or build systems, you may need to instead configure advanced setup for {% data variables.product.prodname_code_scanning %} to get full coverage of your codebase. However, advanced setup requires significantly more effort to configure, customize, and maintain, so we recommend enabling default setup first.

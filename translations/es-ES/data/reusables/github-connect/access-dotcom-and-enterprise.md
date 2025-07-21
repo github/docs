@@ -1,1 +1,0 @@
-1. Inicia sesión en {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% else %}{% data variables.product.prodname_ghe_managed %}{% endif %} y {% data variables.product.prodname_dotcom_the_website %}.

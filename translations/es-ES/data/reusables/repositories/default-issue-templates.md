@@ -1,2 +1,0 @@
-You can create default issue templates{% ifversion fpt or ghes or ghae or ghec %} and a default configuration file for issue templates{% endif %} for your organization{% ifversion fpt or ghes or ghae or ghec %} or personal account{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
-

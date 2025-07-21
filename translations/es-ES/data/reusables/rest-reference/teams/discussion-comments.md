@@ -1,3 +1,0 @@
-## Comentarios de debate
-
-La API de comentarios para debates de equipo te permite obtener, crear, editar y borrar los comentarios del debate en una publicación de un [debate de equipo](/rest/reference/teams#discussions). Cualquier miembro de la [organización](/rest/reference/orgs) del equipo puede crear y leer los comentarios de un debate público. Para obtener más detalles, consulta la sección "[Acerca de los debates de equipo](/organizations/collaborating-with-your-team/about-team-discussions/)". Esta API solo está disponible para los miembros autenticados de la organization del equipo.
