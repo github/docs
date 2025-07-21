@@ -12,7 +12,7 @@ redirect_from:
 
 {% data reusables.copilot.personal-instructions-note %}
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui).
+For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
 
 ## About personal custom instructions for {% data variables.copilot.copilot_chat %}
 
