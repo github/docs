@@ -10,7 +10,6 @@ children:
   - /using-github-hosted-runners
   - /customizing-github-hosted-runners
   - /viewing-your-current-jobs
-  - /using-larger-runners
   - /connecting-to-a-private-network
 redirect_from:
   - /actions/using-github-hosted-runners

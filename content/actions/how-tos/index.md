@@ -11,6 +11,7 @@ children:
   - /managing-workflow-runs-and-deployments
   - /sharing-automations
   - /using-github-hosted-runners
+  - /using-larger-runners
   - /hosting-your-own-runners
   - /security-for-github-actions
   - /use-cases-and-examples

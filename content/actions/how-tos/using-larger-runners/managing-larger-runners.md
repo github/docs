@@ -9,6 +9,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/managing-larger-runners
   - /actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners/managing-larger-runners
+  - /actions/how-tos/using-github-hosted-runners/using-larger-runners/managing-larger-runners
 ---
 
 > [!NOTE]

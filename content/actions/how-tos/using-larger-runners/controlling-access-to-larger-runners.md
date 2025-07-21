@@ -10,6 +10,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/controlling-access-to-larger-runners
   - /actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners/controlling-access-to-larger-runners
+  - /actions/how-tos/using-github-hosted-runners/using-larger-runners/controlling-access-to-larger-runners
 ---
 
 > [!NOTE]
