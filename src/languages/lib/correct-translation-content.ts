@@ -7,7 +7,19 @@
  * It looks for easy "low hanging fruit" that we can correct for.
  *
  */
-export function correctTranslatedContentStrings(content, englishContent, context = {}) {
+
+interface CorrectionContext {
+  code?: string
+  dottedPath?: string
+  relativePath?: string
+  [key: string]: any
+}
+
+export function correctTranslatedContentStrings(
+  content: string,
+  englishContent: string,
+  context: CorrectionContext = {},
+): string {
   // A lot of translations have corruptions around the AUTOTITLE links.
   // We've requested that these are corrected back but as a temporary
   // solution we'll manually recover now.
@@ -294,7 +306,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
     const keyString = '5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23'
     const translatedSentences = [
       // ru
-      'Полный отпечаток ключа — `' + keyString + '`.',
+      'Полный отпечаток ключа\u00A0\u2014 `' + keyString + '`.',
       // ko
       `키의 전체 지문은 \`${keyString}\`입니다.`,
       // es
@@ -306,7 +318,7 @@ export function correctTranslatedContentStrings(content, englishContent, context
       // ja
       `キーの完全な指紋は、\`${keyString}\` です。`,
       // fr
-      `L’empreinte digitale complète de la clé est \`${keyString}\`.`,
+      `L\u2019empreinte digitale complète de la clé est \`${keyString}\`.`,
       // de
       `Der vollständige Fingerabdruck des Schlüssels ist \`${keyString}\`.`,
     ]

@@ -10,6 +10,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/running-jobs-on-larger-runners
   - /actions/using-github-hosted-runners/about-larger-runners/running-jobs-on-larger-runners
   - /actions/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
+  - /actions/how-tos/using-github-hosted-runners/using-larger-runners/running-jobs-on-larger-runners
 ---
 
 ## Running jobs on your runner

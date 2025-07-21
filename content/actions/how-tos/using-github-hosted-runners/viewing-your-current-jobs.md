@@ -1,6 +1,6 @@
 ---
-title: Monitoring your current jobs
-shortTitle: Monitor current jobs
+title: Viewing your current jobs
+shortTitle: View current jobs
 intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners are processing jobs in your organization or enterprise, and identify any related constraints.'
 versions:
   feature: github-runner-dashboard
@@ -9,6 +9,8 @@ redirect_from:
   - /actions/using-github-hosted-runners/about-github-hosted-runners/monitoring-your-current-jobs
   - /actions/using-github-hosted-runners/using-github-hosted-runners/monitoring-your-current-jobs
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/monitoring-your-current-jobs
+  - /actions/how-tos/using-github-hosted-runners/monitoring-your-current-jobs#viewing-active-jobs-in-your-organization-or-enterprise
+  - /actions/how-tos/using-github-hosted-runners/monitoring-your-current-jobs
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

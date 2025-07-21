@@ -9,8 +9,7 @@ versions:
 children:
   - /using-github-hosted-runners
   - /customizing-github-hosted-runners
-  - /monitoring-your-current-jobs
-  - /using-larger-runners
+  - /viewing-your-current-jobs
   - /connecting-to-a-private-network
 redirect_from:
   - /actions/using-github-hosted-runners

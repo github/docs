@@ -1,7 +1,7 @@
 ---
 title: About customizing GitHub Copilot Chat responses
 shortTitle: Customize Copilot responses
-intro: 'Learn about customizing {% data variables.copilot.copilot_chat %} responses to fit with your preferences and requirements.'
+intro: 'Learn about customizing the behavior of {% data variables.product.prodname_copilot %} to fit with your preferences and requirements.'
 versions:
   feature: copilot
 topics:
@@ -49,6 +49,16 @@ redirect_from:
 * **Personal custom instructions** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
 * **Repository custom instructions** apply to conversations within the context of a specific repository. They are useful for defining project-specific coding standards, frameworks, or tools. For example, you can specify that a repository uses TypeScript and a particular library, ensuring consistent responses for all contributors.
 * **Organization custom instructions (public preview)** apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_enterprise_short %} subscription.
+
+### About repository custom instructions
+
+Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository.
+
+Repository custom instructions files are used for chat responses, for code review, and also by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+
+{% data reusables.copilot.repository-custom-instructions-example %}
+
+{% data reusables.copilot.repository-cust-instr-code-review %}
 
 {% endwebui %}
 
@@ -122,6 +132,8 @@ Common use cases include:
 
 {% data reusables.copilot.repository-custom-instructions-example %}
 
+{% data reusables.copilot.repository-cust-instr-code-review %}
+
 ## About prompt files
 
 > [!NOTE] Prompt files are {% data variables.release-phases.public_preview %} and subject to change.
@@ -189,6 +201,8 @@ Common use cases include:
 
 {% data reusables.copilot.repository-custom-instructions-example %}
 
+{% data reusables.copilot.repository-cust-instr-code-review %}
+
 {% endvisualstudio %}
 
 {% jetbrains %}
@@ -226,6 +240,28 @@ Common use cases include:
 {% data reusables.copilot.repository-custom-instructions-example %}
 
 {% endxcode %}
+
+## Writing effective custom instructions
+
+The instructions you add should ideally be short, self-contained statements provide {% data variables.product.prodname_copilot_short %} with relevant information to help it work.
+
+When writing custom instructions for a repository, you should also consider the size and complexity of your repository. The following types of instructions may work for a small repository with only a few contributors, but for a large and diverse repository, **these may cause problems**:
+
+* Requests to refer to external resources when formulating a response
+* Instructions to answer in a particular style
+* Requests to always respond with a certain level of detail
+
+For example, the following instructions **may not have the intended results**:
+
+```markdown
+Always conform to the coding styles defined in styleguide.md in repo my-org/my-repo when generating code.
+
+Use @terminal when answering questions about Git.
+
+Answer all questions in the style of a friendly colleague, using informal language.
+
+Answer all questions in less than 1000 characters, and words of no more than 12 characters.
+```
 
 ## Next steps
 

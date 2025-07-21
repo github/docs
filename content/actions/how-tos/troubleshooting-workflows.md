@@ -1,13 +1,15 @@
 ---
-title: About troubleshooting workflows
+title: Troubleshooting workflows
+shortTitle: Troubleshoot workflows
 intro: 'You can use the tools in {% data variables.product.prodname_actions %} to debug your workflows.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: About troubleshooting
 redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/about-troubleshooting-workflows
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -18,9 +20,16 @@ There are several ways you can troubleshoot failed workflow runs.
 
 {% ifversion copilot %}
 
+>[!NOTE] If you are on a {% data variables.copilot.copilot_free %} subscription, this will count towards your monthly chat message limit.
+
 ### Using {% data variables.product.prodname_copilot %}
 
-If a workflow run fails, you can open a chat with {% data variables.product.prodname_copilot %} for assistance resolving the error. See [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/using-copilot-to-troubleshoot-workflows).
+To open a chat with {% data variables.product.prodname_copilot %} about a failed workflow run, you can either:
+
+* Next to the failed check in the merge box, click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Explain error**.
+* In the merge box, click on the failed check. At the top of the workflow run summary page, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Explain error**.
+
+This opens a chat window with {% data variables.product.prodname_copilot %}, where it will provide instructions to resolve the issue.
 
 {% endif %}
 

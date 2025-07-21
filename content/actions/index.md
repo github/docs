@@ -12,7 +12,6 @@ featuredLinks:
     - /actions/concepts/overview/continuous-integration
     - /actions/tutorials/deploying-with-github-actions
     - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
-    - /actions/how-tos/monitoring-and-troubleshooting-workflows
   guideCards:
     - /actions/how-tos/writing-workflows/using-workflow-templates
     - /actions/tutorials/publishing-packages/publishing-nodejs-packages

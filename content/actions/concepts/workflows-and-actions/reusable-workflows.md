@@ -36,7 +36,15 @@ Reusable workflows and composite actions both help you to avoid duplication. Whe
 
 ## Reusable workflows and workflow templates
 
-Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a workflow template and some or all of the work of writing the workflow will be done for them. Within a workflow template, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code. If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows).
+Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a workflow template and some or all of the work of writing the workflow will be done for them. Within a workflow template, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code.
+
+If you use a commit SHA when referencing the reusable workflow, you can ensure that everyone who reuses that workflow will always be using the same YAML code. However, if you reference a reusable workflow by a tag or branch, be sure that you can trust that version of the workflow. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows).
+
+{% data variables.product.github %} offers workflow templates for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.github %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use Node.js, {% data variables.product.github %} will suggest a workflow template file that installs your Node.js packages and runs your tests. You can search and filter to find relevant workflow templates.
+
+{% data reusables.actions.workflow-templates-categories %}
+
+{% data reusables.actions.workflow-templates-repo-link %}
 
 For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
 
