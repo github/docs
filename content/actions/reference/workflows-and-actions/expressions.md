@@ -278,6 +278,8 @@ Creates a hash for all `.rb` files in the `lib` directory at root level, includi
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
 
+None of status check functions can be used outside `if` conditionals. However, outside `if` you can use `job.status` to access same information. For more information, see [AUTOTITLE](actions/reference/contexts-reference#job-context).
+
 ### success
 
 Returns `true` when all previous steps have succeeded.
