@@ -12,7 +12,7 @@ See: [Using Copilot to work on an issue](https://docs.github.com/copilot/how-tos
 
 We've updated the Copilot documentation to coincide with the release of an improved user interface for configuring the firewall for Copilot coding agent.
 
-See: https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent
+See: [Customizing or disabling the firewall for Copilot coding agent](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
 <hr>
 
