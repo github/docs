@@ -9,6 +9,7 @@ versions:
 children:
   - /writing-workflows
   - /managing-workflow-runs-and-deployments
+  - /creating-and-publishing-actions
   - /sharing-automations
   - /using-github-hosted-runners
   - /managing-self-hosted-runners

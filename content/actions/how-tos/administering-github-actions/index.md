@@ -9,7 +9,6 @@ versions:
 children:
   - /viewing-github-actions-metrics
   - /making-retired-namespaces-available-on-ghecom
-  - /managing-custom-actions
 redirect_from:
   - /actions/administering-github-actions
 ---
