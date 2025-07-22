@@ -1,5 +1,13 @@
 # Docs changelog
 
+**16 July 2025**
+
+We've updated the Copilot docs to coincide with the release of issue form support for Copilot Chat. When you use Copilot Chat to create an issue, an issue form will be used if there's an appropriate one in the repo. Previously only issue templates were supported.
+
+See [Using GitHub Copilot to create issues](https://docs.github.com/en/copilot/how-tos/github-flow/using-github-copilot-to-create-issues).
+
+<hr>
+
 **30 June 2025**
 
 Many enterprise customers want to measure the downstream impact of Copilot on their company, looking beyond leading metrics like adoption and usage.
