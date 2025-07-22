@@ -17,8 +17,6 @@ redirect_from:
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/migrating-from-travis-ci-with-github-actions-importer
 ---
 
-[Legal notice](#legal-notice)
-
 ## About migrating from Travis CI with GitHub Actions Importer
 
 The instructions below will guide you through configuring your environment to use {% data variables.product.prodname_actions_importer %} to migrate Travis CI pipelines to {% data variables.product.prodname_actions %}.

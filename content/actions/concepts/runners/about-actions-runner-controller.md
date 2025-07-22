@@ -13,8 +13,6 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller
 ---
 
-[Legal notice](#legal-notice)
-
 ## About {% data variables.product.prodname_actions_runner_controller %}
 
 {% data reusables.actions.actions-runner-controller-about-arc %}
