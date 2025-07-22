@@ -17,8 +17,6 @@ redirect_from:
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
 ---
 
-[Legal notice](#legal-notice)
-
 ## About custom transformers
 
 {% data variables.product.prodname_actions_importer %} offers the ability to extend its built-in mapping by creating custom transformers. Custom transformers can be used to:

@@ -7,16 +7,17 @@ redirect_from:
   - /actions/building-actions/publishing-actions-in-github-marketplace
   - /actions/creating-actions/publishing-actions-in-github-marketplace
   - /actions/sharing-automations/creating-actions/publishing-actions-in-github-marketplace
+  - /actions/how-tos/sharing-automations/creating-actions/publishing-actions-in-github-marketplace
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
 shortTitle: Publish in GitHub Marketplace
 ---
 
-You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
+## Prerequisites
 
-## About publishing actions
+>[!NOTE]
+> You must accept the terms of service to publish actions in {% data variables.product.prodname_marketplace %}.
 
 Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/creating-actions).
 

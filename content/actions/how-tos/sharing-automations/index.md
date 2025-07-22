@@ -14,7 +14,6 @@ redirect_from:
   - /articles/creating-a-github-action
   - /actions/sharing-automations
 children:
-  - /creating-actions
   - /reuse-workflows
   - /creating-workflow-templates-for-your-organization
   - /sharing-actions-and-workflows-from-your-private-repository

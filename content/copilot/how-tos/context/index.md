@@ -10,6 +10,7 @@ children:
   - /copilot-spaces
   - /model-context-protocol
   - /creating-and-managing-copilot-knowledge-bases
+  - /using-knowledge-bases
   - /install-copilot-extensions
 redirect_from:
   - /copilot/customizing-copilot

@@ -6,11 +6,11 @@ redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
   - /actions/creating-actions/setting-exit-codes-for-actions
   - /actions/sharing-automations/creating-actions/setting-exit-codes-for-actions
+  - /actions/how-tos/sharing-automations/creating-actions/setting-exit-codes-for-actions
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: how_to
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
