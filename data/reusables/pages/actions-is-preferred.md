@@ -1,1 +1,1 @@
-> [!NOTE] While the `github-pages` gem remains supported for some workflows, {% data variables.product.prodname_actions %} is now the recommended approach for deploying and automating Pages sites.
+> [!NOTE] While this `github-pages` gem remains supported for some workflows, {% data variables.product.prodname_actions %} is now the recommended approach for deploying and automating Pages sites.
