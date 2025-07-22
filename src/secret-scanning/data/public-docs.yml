@@ -2215,7 +2215,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
@@ -2227,7 +2227,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
@@ -2239,7 +2239,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
@@ -2251,7 +2251,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
@@ -2263,7 +2263,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
@@ -2275,7 +2275,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.14'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
@@ -3117,7 +3117,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Midtrans
   supportedSecret: Midtrans Sandbox Server Key
@@ -3129,7 +3129,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: MongoDB
   supportedSecret: MongoDB Atlas Database URI with credentials
@@ -3475,7 +3475,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Onfido
   supportedSecret: Onfido Sandbox API Token
@@ -3487,7 +3487,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: OpenAI
   supportedSecret: OpenAI API Key
@@ -3798,7 +3798,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Postman
   supportedSecret: Postman Collection Key
@@ -3810,7 +3810,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Prefect
   supportedSecret: Prefect Server API Key
@@ -4086,7 +4086,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: SendGrid
   supportedSecret: SendGrid API Key
