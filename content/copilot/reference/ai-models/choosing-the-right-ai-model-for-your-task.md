@@ -25,7 +25,6 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | {% data variables.copilot.copilot_gpt_41 %} | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, visual |
 | {% data variables.copilot.copilot_gpt_4o %} | General-purpose coding and writing | Fast completions and visual input understanding | Agent mode, visual |
 | {% data variables.copilot.copilot_o3 %} | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
-| {% data variables.copilot.copilot_o3_mini %} | Fast help with simple or repetitive tasks | Quick responses for code snippets, explanations, and prototyping | Lower latency |
 | {% data variables.copilot.copilot_o4_mini %} | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
 | {% data variables.copilot.copilot_claude_opus %} | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
 | {% data variables.copilot.copilot_claude_sonnet_35 %} | Fast help with simple or repetitive tasks | Quick responses for code, syntax, and documentation | Agent mode |
@@ -68,7 +67,6 @@ These models are optimized for speed and responsiveness. They’re ideal for qui
 | Model | Why it's a good fit |
 |-------|---------------------|
 | {% data variables.copilot.copilot_o4_mini %} | A quick and cost-effective model for repetitive or simple coding tasks. Offers clear, concise suggestions. |
-| {% data variables.copilot.copilot_o3_mini %} | Provides low-latency, accurate responses. Great for real-time suggestions and code walkthroughs. |
 | {% data variables.copilot.copilot_claude_sonnet_35 %} | Balances fast responses with quality output. Ideal for small tasks and lightweight code explanations. |
 | {% data variables.copilot.copilot_gemini_flash %} | Extremely low latency and multimodal support (where available). Great for fast, interactive feedback. |
 

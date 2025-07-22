@@ -1,7 +1,7 @@
 /*
 This file & middleware is for when a user requests our /search page e.g. 'docs.github.com/search?query=foo'
- We make whatever search is in the ?query= parameter and attach it to req.search 
- req.search is then consumed by the search component in 'src/search/pages/search.tsx' 
+ We make whatever search is in the ?query= parameter and attach it to req.search
+ req.search is then consumed by the search component in 'src/search/pages/search.tsx'
 
 When a user directly hits our API e.g. /api/search/v1?query=foo, they will hit the routes in ./search-routes.ts
 */

@@ -111,7 +111,6 @@ copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_41: 'GPT-4.1'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
-copilot_o3_mini: 'o3-mini'
 copilot_o4_mini: 'o4-mini'
 
 ## Next edit suggestions in VS Code

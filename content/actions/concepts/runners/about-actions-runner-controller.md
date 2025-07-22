@@ -2,7 +2,6 @@
 title: About Actions Runner Controller
 shortTitle: About ARC
 intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
-layout: inline
 versions:
   fpt: '*'
   ghec: '*'

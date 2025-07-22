@@ -1,5 +1,6 @@
 ---
 title: About custom actions
+shortTitle: Custom actions
 intro: 'Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
 redirect_from:
   - /articles/about-actions

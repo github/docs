@@ -39,7 +39,7 @@ Follow these best practices to get the most out of combining MCP servers with ag
 * **Provide context**: Include relevant background information about your project and requirements, including links to external resources that {% data variables.product.prodname_copilot_short %} can access.
 * **Set boundaries**: Specify any constraints or limitations for the task. For example, if you want {% data variables.product.prodname_copilot_short %} to only plan a new feature and not make any changes yet, specify that. You can also limit which MCP tools are enabled.
 * **Request confirmations**: Ask {% data variables.product.prodname_copilot_short %} to confirm its understanding before proceeding with significant changes.
-* **Use prompt files or custom instructions**: You can create prompt files or custom instructions files to guide {% data variables.product.prodname_copilot_short %} on how to behave for different MCP servers. See [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses).
+* **Use prompt files or custom instructions**: You can create prompt files or custom instructions files to guide {% data variables.product.prodname_copilot_short %} on how to behave for different MCP servers. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
 
 ### MCP server use
 

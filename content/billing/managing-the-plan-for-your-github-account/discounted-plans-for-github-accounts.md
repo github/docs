@@ -35,7 +35,7 @@ Verified academic faculty can apply for {% data variables.product.prodname_team 
 
 ## Discounts for nonprofits and libraries
 
-{% data variables.product.company_short %} provides free {% data variables.product.prodname_team %} for organizations with unlimited private repositories, unlimited collaborators, and a full feature set to qualifying 501(c)3 (or equivalent) organizations and libraries. You can request a discount for your organization on [our nonprofit page](https://github.com/nonprofit).
+{% data variables.product.company_short %} provides free {% data variables.product.prodname_team %} for organizations with unlimited private repositories, unlimited collaborators, and a full feature set, or 25% off GitHub Enterprise Cloud to qualifying 501(c)3 (or equivalent) organizations and libraries. You can request a discount for your organization on [our nonprofit page](https://nonprofits.github.com/).
 
 If your organization already has a paid plan, your organization's last transaction will be refunded once your nonprofit discount has been applied.
 
