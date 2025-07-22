@@ -29,6 +29,9 @@ You must authorize your {% data variables.product.pat_v1 %} after creation befor
 
 1. In the dropdown menu, to the right of the organization you'd like to authorize the token for, click **Authorize**.
 
+> [!NOTE]
+> When authorizing a {% data variables.product.pat_v1 %} for use within an organization that belongs to an enterprise which has both an IP allow list and single sign-on enabled at the enterprise level, your IP must also be allowed at the enterprise level. See [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
+
 ## Further reading
 
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
