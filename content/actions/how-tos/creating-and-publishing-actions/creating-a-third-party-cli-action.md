@@ -1,14 +1,14 @@
 ---
-title: Developing a third party CLI action
-shortTitle: CLI setup action
+title: Creating a third party CLI action
+shortTitle: Create a CLI action
 intro: 'Learn how to develop an action to set up a CLI on {% data variables.product.prodname_actions %} runners.'
 redirect_from:
   - /actions/creating-actions/developing-a-third-party-cli-action
   - /actions/sharing-automations/creating-actions/developing-a-third-party-cli-action
+  - /actions/how-tos/sharing-automations/creating-actions/developing-a-third-party-cli-action
 versions:
   fpt: '*'
   ghec: '*'
-type: tutorial
 topics:
   - Actions
 ---
@@ -29,7 +29,7 @@ This article will demonstrate how to write an action that retrieves a specific v
 
 ## Prerequisites
 
-You should have an understanding of how to write a custom action. For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-actions). For a more detailed guide on how to write a custom action, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action).
+You should have an understanding of how to write a custom action. For more information, see [AUTOTITLE](/actions/how-tos/creating-and-publishing-actions/managing-custom-actions).
 
 ## Example
 

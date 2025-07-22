@@ -1,5 +1,6 @@
 ---
 title: Managing custom actions
+shortTitle: Manage custom actions
 intro: 'Learn how to create and manage your own actions, and customize actions shared by the {% data variables.product.prodname_dotcom %} community.'
 versions:
   fpt: '*'
@@ -9,6 +10,8 @@ type: overview
 topics:
   - Action development
   - Fundamentals
+redirect_from:
+  - /actions/how-tos/administering-github-actions/managing-custom-actions
 ---
 
 ## Choosing a location for your action
