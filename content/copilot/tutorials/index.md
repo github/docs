@@ -13,6 +13,8 @@ children:
   - /quickstart-for-github-copilot-extensions-using-agents
   - /speeding-up-development-work-with-copilot-spaces
   - /using-copilot-to-explore-a-codebase
+  - /using-copilot-to-explore-issues-and-discussions
+  - /using-copilot-to-explore-pull-requests
   - /writing-tests-with-github-copilot
   - /refactoring-code-with-github-copilot
   - /learning-a-new-programming-language-with-github-copilot
