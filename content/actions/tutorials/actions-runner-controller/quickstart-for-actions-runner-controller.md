@@ -15,14 +15,6 @@ redirect_from:
   - /actions/tutorials/quickstart-for-actions-runner-controller
 ---
 
-[Legal notice](#legal-notice)
-
-## Introduction
-
-{% data reusables.actions.actions-runner-controller-about-arc %}
-
-You can set up ARC on Kubernetes using Helm, then create and run a workflow that uses runner scale sets. For more information about runner scale sets, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#runner-scale-set).
-
 ## Prerequisites
 
 In order to use ARC, ensure you have the following.

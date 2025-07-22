@@ -15,8 +15,6 @@ redirect_from:
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow
 ---
 
-[Legal notice](#legal-notice)
-
 ## Using ARC runners in a workflow file
 
 To assign jobs to run on a runner scale set, you can specify the name of the scale set as the value for the `runs-on` key in your {% data variables.product.prodname_actions %} workflow file.

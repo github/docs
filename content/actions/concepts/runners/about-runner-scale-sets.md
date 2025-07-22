@@ -12,8 +12,6 @@ topics:
   - Actions Runner Controller
 ---
 
-[Legal notice](#legal-notice)
-
 ## About runner scale sets
 
 A runner scale set is a group of homogeneous runners that can be assigned jobs from {% data variables.product.prodname_actions %}. The number of active runners owned by a runner scale set can be controlled by auto-scaling runner solutions such as {% data variables.product.prodname_actions_runner_controller %} (ARC).
