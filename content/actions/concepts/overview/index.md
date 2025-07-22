@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-continuous-deployment-with-github-actions
-  - /about-continuous-integration-with-github-actions
-  - /usage-limits-billing-and-administration
+  - /continuous-integration
+  - /continuous-deployment
+  - /github-actions-vs-github-apps
 ---

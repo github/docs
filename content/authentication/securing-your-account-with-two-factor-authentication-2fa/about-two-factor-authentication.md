@@ -22,9 +22,7 @@ For {% data variables.product.github %}, the second form of authentication is a 
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
-{% ifversion passkeys %}
 {% data reusables.passkeys.after-2fa-optional-add-passkey %} See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
-{% endif %}
 
 {% ifversion fpt or ghec %}
 You can also use {% data variables.product.prodname_mobile %} for 2FA after configuring a TOTP mobile app or text messages. {% data variables.product.prodname_mobile %} uses public-key cryptography to secure your account, allowing you to use any mobile device that you've used to sign in to {% data variables.product.prodname_mobile %} as your second factor.

@@ -6,13 +6,26 @@ import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
 import walk from 'walk-sync'
 
-import { getContents, getDirectoryContents } from '#src/workflows/git-utils.ts'
-import permissionSchema from './permission-list-schema.js'
-import enabledSchema from './enabled-list-schema.js'
-import { validateJson } from '#src/tests/lib/validate-json-schema.js'
+import { getContents, getDirectoryContents } from '@/workflows/git-utils'
+import permissionSchema from './permission-list-schema'
+import enabledSchema from './enabled-list-schema'
+import { validateJson } from '@/tests/lib/validate-json-schema'
 
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
+
+// Actor type mapping from generic names to actual YAML values
+export const actorTypeMap = {
+  fine_grained_pat: 'fine_grained_personal_access_token',
+  server_to_server: 'github_app',
+  user_to_server: 'user_access_token',
+}
+
+// Also need to handle the actual values that come from the source data
+// UserProgrammaticAccess maps to fine_grained_pat functionality
+const sourceDataActorMap = {
+  UserProgrammaticAccess: 'fine_grained_pat',
+}
 
 export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource) {
   console.log(
@@ -60,7 +73,26 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
 
         // fine-grained pat
         if (isFineGrainedPat) {
-          addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
+          // Check if all permission sets for this operation are excluded for fine-grained PATs
+          const allPermissionSetsExcluded = progAccessData[operation.operationId].permissions.every(
+            (permissionSet) =>
+              Object.keys(permissionSet).every((permissionName) =>
+                isActorExcluded(
+                  progActorResources[permissionName]?.excluded_actors,
+                  'fine_grained_pat',
+                  actorTypeMap,
+                ),
+              ),
+          )
+
+          // Debug logging for checks-related operations
+          const hasChecksPermission = progAccessData[operation.operationId].permissions.some(
+            (permissionSet) => permissionSet.checks,
+          )
+
+          if (!allPermissionSetsExcluded) {
+            addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
+          }
         }
 
         // permissions
@@ -69,36 +101,62 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
             const { title, displayTitle } = getDisplayTitle(permissionName, progActorResources)
             if (progActorResources[permissionName]['visibility'] === 'private') continue
 
-            const additionalPermissions =
-              progAccessData[operation.operationId].permissions.length > 1 ||
-              progAccessData[operation.operationId].permissions.some(
-                (permissionSet) => Object.keys(permissionSet).length > 1,
-              )
-            // github app permissions
-            const serverToServerPermissions = githubAppsData['server-to-server-permissions']
-            if (!serverToServerPermissions[permissionName]) {
-              serverToServerPermissions[permissionName] = {
-                title,
-                displayTitle,
-                permissions: [],
-              }
-            }
-            const worksWithData = {
-              'user-to-server': Boolean(isUserAccessToken),
-              'server-to-server': Boolean(isInstallationAccessToken),
-              'additional-permissions': additionalPermissions,
-            }
-            serverToServerPermissions[permissionName].permissions.push(
-              Object.assign(
-                {},
-                appDataOperationWithCategory,
-                { access: readOrWrite },
-                worksWithData,
-              ),
+            const excludedActors = progActorResources[permissionName]['excluded_actors']
+
+            const additionalPermissions = calculateAdditionalPermissions(
+              progAccessData[operation.operationId].permissions,
             )
 
+            // Filter out metadata permissions when combined with other permissions
+            // The metadata permission is automatically granted with any other repository permission,
+            // so documenting it for operations that require additional permissions is misleading.
+            // This fixes the issue where mutating operations (PUT, DELETE) incorrectly appeared
+            // to only need metadata access when they actually require write permissions.
+            // See: https://github.com/github/docs-engineering/issues/5212
+            if (
+              shouldFilterMetadataPermission(
+                permissionName,
+                progAccessData[operation.operationId].permissions,
+              )
+            ) {
+              continue
+            }
+
+            // github app permissions
+            if (!isActorExcluded(excludedActors, 'server_to_server', actorTypeMap)) {
+              const serverToServerPermissions = githubAppsData['server-to-server-permissions']
+              if (!serverToServerPermissions[permissionName]) {
+                serverToServerPermissions[permissionName] = {
+                  title,
+                  displayTitle,
+                  permissions: [],
+                }
+              }
+              const worksWithData = {
+                'user-to-server': Boolean(
+                  isUserAccessToken &&
+                    !isActorExcluded(excludedActors, 'user_to_server', actorTypeMap),
+                ),
+                'server-to-server': Boolean(
+                  isInstallationAccessToken &&
+                    !isActorExcluded(excludedActors, 'server_to_server', actorTypeMap),
+                ),
+                'additional-permissions': additionalPermissions,
+              }
+              serverToServerPermissions[permissionName].permissions.push(
+                Object.assign(
+                  {},
+                  appDataOperationWithCategory,
+                  { access: readOrWrite },
+                  worksWithData,
+                ),
+              )
+            }
+
             // fine-grained pats
-            if (isFineGrainedPat) {
+            const isExcluded = isActorExcluded(excludedActors, 'fine_grained_pat', actorTypeMap)
+
+            if (isFineGrainedPat && !isExcluded) {
               // Hardcoded exception: exclude repository_projects from fine-grained PAT permissions
               // This is because fine-grained PATs can only operate on organization-level Projects (classic),
               // not repository-level Projects (classic). Users cannot grant the repository Projects (classic)
@@ -107,7 +165,6 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
               if (permissionName === 'repository_projects') {
                 continue
               }
-
               const findGrainedPatPermissions = githubAppsData['fine-grained-pat-permissions']
               if (!findGrainedPatPermissions[permissionName]) {
                 findGrainedPatPermissions[permissionName] = {
@@ -193,7 +250,7 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
 
   const progAccessData = {}
   for (const operation of progAccessDataRaw) {
-    progAccessData[operation.operation_ids] = {
+    const operationData = {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
       fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
@@ -203,6 +260,12 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
       allowPermissionlessAccess: operation.allows_permissionless_access,
       allowsPublicRead: operation.allows_public_read,
       basicAuth: operation.basic_auth,
+    }
+
+    // Handle comma-separated operation IDs
+    const operationIds = operation.operation_ids.split(',').map((id) => id.trim())
+    for (const operationId of operationIds) {
+      progAccessData[operationId] = operationData
     }
   }
 
@@ -283,6 +346,54 @@ function sentenceCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+/**
+ * Calculates whether an operation has additional permissions beyond a single permission.
+ */
+export function calculateAdditionalPermissions(permissionSets) {
+  return (
+    permissionSets.length > 1 ||
+    permissionSets.some((permissionSet) => Object.keys(permissionSet).length > 1)
+  )
+}
+
+/**
+ * Determines whether a metadata permission should be filtered out when it has additional permissions.
+ * Prevents misleading documentation where mutating operations appear to only need metadata access.
+ */
+export function shouldFilterMetadataPermission(permissionName, permissionSets) {
+  if (permissionName !== 'metadata') {
+    return false
+  }
+
+  return calculateAdditionalPermissions(permissionSets)
+}
+
+export function isActorExcluded(excludedActors, actorType, actorTypeMap = {}) {
+  if (!excludedActors || !Array.isArray(excludedActors)) {
+    return false
+  }
+
+  // Map generic actor type to actual YAML value if mapping exists
+  const actualActorType = actorTypeMap[actorType] || actorType
+
+  // Check if the mapped actor type is excluded
+  if (excludedActors.includes(actualActorType)) {
+    return true
+  }
+
+  // Also check for the original actor type (before mapping)
+  if (excludedActors.includes(actorType)) {
+    return true
+  }
+
+  // Check for known aliases - the source data might use different values
+  // than what we expect in our mapping
+  if (actorType === 'fine_grained_pat' && excludedActors.includes('UserProgrammaticAccess')) {
+    return true
+  }
+
+  return false
+}
 function addAppData(storage, category, data) {
   if (!storage[category]) {
     storage[category] = []

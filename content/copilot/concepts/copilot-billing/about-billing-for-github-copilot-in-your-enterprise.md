@@ -35,6 +35,7 @@ Billed users are calculated at the end of each billing cycle, based on the numbe
 * **Any seat assigned part way through the billing cycle** is prorated based on the number of days remaining in the cycle.
 * **Any seat assignment cancellation during a billing cycle** takes effect at the beginning of the next cycle. The user can access {% data variables.product.prodname_copilot_short %} until the end of the cycle.
 * **Any user removed from an organization with {% data variables.product.prodname_copilot_short %} during a billing cycle** loses access to {% data variables.product.prodname_copilot_short %} immediately. Billing for that user stops at the end of the cycle.  If the user is restored to the organization during the billing cycle, they regain access to {% data variables.product.prodname_copilot_short %} immediately.
+* **When {% data variables.product.prodname_copilot_short %} is disabled at the enterprise or organization level** any user with a {% data variables.product.prodname_copilot_short %} license will lose access to {% data variables.product.prodname_copilot_short %} immediately. Billing for that user stops at the end of the cycle.  If the user is restored to the organization during the billing cycle, they regain access to {% data variables.product.prodname_copilot_short %} immediately.
 
 Your enterprise will be charged on whichever payment method you’ve set up for the enterprise account, such as a credit card or a Microsoft Azure subscription.
 

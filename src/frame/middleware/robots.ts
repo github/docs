@@ -1,6 +1,6 @@
 import type { NextFunction, Response } from 'express'
 
-import { defaultCacheControl } from './cache-control.js'
+import { defaultCacheControl } from './cache-control'
 import type { ExtendedRequest } from '@/types'
 
 const defaultResponse = 'User-agent: *'

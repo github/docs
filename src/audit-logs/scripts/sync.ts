@@ -12,13 +12,11 @@ import { readFile, writeFile } from 'fs/promises'
 import { mkdirp } from 'mkdirp'
 import path from 'path'
 
-import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index.js'
-import { getContents, getCommitSha } from '@/workflows/git-utils.js'
-import {
-  latest,
-  latestStable,
-  releaseCandidate,
-} from '@/versions/lib/enterprise-server-releases.js'
+import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../lib/index'
+import { getContents, getCommitSha } from '@/workflows/git-utils'
+import { latest, latestStable, releaseCandidate } from '@/versions/lib/enterprise-server-releases'
+import { loadPages, loadPageMap } from '@/frame/lib/page-data'
+import loadRedirects from '@/redirects/lib/precompile'
 import type { AuditLogEventT, VersionedAuditLogData } from '../types'
 
 if (!process.env.GITHUB_TOKEN) {
@@ -57,6 +55,13 @@ async function main() {
   pipelineConfig.sha = mainSha
   await writeFile(configFilepath, JSON.stringify(pipelineConfig, null, 2))
 
+  // Load pages and redirects for title resolution
+  console.log('Loading pages and redirects for title resolution...')
+  const pageList = await loadPages(undefined, ['en'])
+  const pages = await loadPageMap(pageList)
+  const redirects = await loadRedirects(pageList)
+  const titleContext = { pages, redirects }
+
   // store an array of audit log event data keyed by version and audit log page,
   // will look like this (depends on supported GHES versions):
   //
@@ -79,32 +84,39 @@ async function main() {
   // Wrapper around filterByAllowlistValues() because we always need all the
   // schema events and pipeline config data.
   const filter = (allowListValues: string | string[], currentEvents: AuditLogEventT[] = []) =>
-    filterByAllowlistValues(schemaEvents, allowListValues, currentEvents, pipelineConfig)
-  // Wrapper around filterGhesByAllowlistValues() because we always need all the
-  // schema events and pipeline config data.
-  const filterAndUpdateGhes = (
-    allowListValues: string,
-    auditLogPage: string,
-    currentEvents: VersionedAuditLogData,
-  ) =>
-    filterAndUpdateGhesDataByAllowlistValues(
-      schemaEvents,
+    filterByAllowlistValues({
+      eventsToCheck: schemaEvents,
       allowListValues,
       currentEvents,
       pipelineConfig,
+      titleContext,
+    })
+  // Wrapper around filterGhesByAllowlistValues() because we always need all the
+  // schema events and pipeline config data.
+  const filterAndUpdateGhes = (
+    allowListValue: string,
+    auditLogPage: string,
+    currentGhesEvents: VersionedAuditLogData,
+  ) =>
+    filterAndUpdateGhesDataByAllowlistValues({
+      eventsToCheck: schemaEvents,
+      allowListValue,
+      currentGhesEvents,
+      pipelineConfig,
       auditLogPage,
-    )
+      titleContext,
+    })
 
   auditLogData.fpt = {}
-  auditLogData.fpt.user = filter('user')
-  auditLogData.fpt.organization = filter(['organization', 'org_api_only'])
+  auditLogData.fpt.user = await filter('user')
+  auditLogData.fpt.organization = await filter(['organization', 'org_api_only'])
 
   auditLogData.ghec = {}
-  auditLogData.ghec.user = filter('user')
-  auditLogData.ghec.organization = filter('organization')
-  auditLogData.ghec.organization = filter('org_api_only', auditLogData.ghec.organization)
-  auditLogData.ghec.enterprise = filter('business')
-  auditLogData.ghec.enterprise = filter('business_api_only', auditLogData.ghec.enterprise)
+  auditLogData.ghec.user = await filter('user')
+  auditLogData.ghec.organization = await filter('organization')
+  auditLogData.ghec.organization = await filter('org_api_only', auditLogData.ghec.organization)
+  auditLogData.ghec.enterprise = await filter('business')
+  auditLogData.ghec.enterprise = await filter('business_api_only', auditLogData.ghec.enterprise)
 
   // GHES versions are numbered (i.e. "3.9", "3.10", etc.) and filterGhes()
   // gives us back an object of GHES versions to page events for each version
@@ -118,11 +130,15 @@ async function main() {
   // so there's no single auditLogData.ghes like the other versions.
   const ghesVersionsAuditLogData = {}
 
-  filterAndUpdateGhes('business', AUDIT_LOG_PAGES.ENTERPRISE, ghesVersionsAuditLogData)
-  filterAndUpdateGhes('business_api_only', AUDIT_LOG_PAGES.ENTERPRISE, ghesVersionsAuditLogData)
-  filterAndUpdateGhes('user', AUDIT_LOG_PAGES.USER, ghesVersionsAuditLogData)
-  filterAndUpdateGhes('organization', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
-  filterAndUpdateGhes('org_api_only', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
+  await filterAndUpdateGhes('business', AUDIT_LOG_PAGES.ENTERPRISE, ghesVersionsAuditLogData)
+  await filterAndUpdateGhes(
+    'business_api_only',
+    AUDIT_LOG_PAGES.ENTERPRISE,
+    ghesVersionsAuditLogData,
+  )
+  await filterAndUpdateGhes('user', AUDIT_LOG_PAGES.USER, ghesVersionsAuditLogData)
+  await filterAndUpdateGhes('organization', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
+  await filterAndUpdateGhes('org_api_only', AUDIT_LOG_PAGES.ORGANIZATION, ghesVersionsAuditLogData)
   Object.assign(auditLogData, ghesVersionsAuditLogData)
 
   // We don't maintain the order of events as we process them so after filtering

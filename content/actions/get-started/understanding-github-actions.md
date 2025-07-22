@@ -70,6 +70,8 @@ A **job** is a set of **steps** in a workflow that is executed on the same **run
 
 You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel. When a job takes a dependency on another job, it waits for the dependent job to complete before running.
 
+You can also use a **matrix** to run the same job multiple times, each with a different combination of variables—like operating systems or language versions.
+
 For example, you might configure multiple build jobs for different architectures without any job dependencies and a packaging job that depends on those builds. The build jobs run in parallel, and once they complete successfully, the packaging job runs.
 
 For more information, see [AUTOTITLE](/actions/using-jobs).
@@ -95,7 +97,7 @@ A **runner** is a server that runs your workflows when they're triggered. Each r
 If you need a different operating system or require a specific hardware configuration, you can host your own runners.
 {% endif %}
 
-For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/hosting-your-own-runners).
+For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners).
 
 ## Next steps
 

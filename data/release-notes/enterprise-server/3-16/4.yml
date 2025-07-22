@@ -30,6 +30,8 @@ sections:
       When an administrator suspended a user from the site admin dashboard, the form required them to complete Digital Services Act (DSA) fields that are not relevant on GitHub Enterprise Server.
     - |
       After an appliance reboot, code scanning did not always trigger or process analyses.
+    - |
+      In some situations, the kafka-lite service could cause client timeouts when processing consumer group membership sessions and expirations. [Updated: 2025-07-14]
   changes:
     - |
       Site administrators who test the Prometheus endpoint can now use 127.0.0.1 as a trusted IP address. Previously, only specific IPs were allowed for testing.

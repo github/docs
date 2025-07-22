@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { octiconAriaLabels } from '../../lib/linting-rules/octicon-aria-labels.js'
+import { octiconAriaLabels } from '../../lib/linting-rules/octicon-aria-labels'
 
 describe('octicon-aria-labels', () => {
   const rule = octiconAriaLabels

@@ -4,10 +4,10 @@ import path from 'path'
 import cheerio from 'cheerio'
 import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
 
-import Page, { FrontmatterErrorsError } from '#src/frame/lib/page.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import enterpriseServerReleases, { latest } from '#src/versions/lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import Page, { FrontmatterErrorsError } from '@/frame/lib/page'
+import { allVersions } from '@/versions/lib/all-versions'
+import enterpriseServerReleases, { latest } from '@/versions/lib/enterprise-server-releases'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>

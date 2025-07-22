@@ -10,89 +10,23 @@ redirect_from:
   - /copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion
 ---
 
-## Overview
-
-By default, {% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
-
-<details>
-  <summary>View the list of programming languages and technologies included in the training data.</summary>
-
-  * C
-  * C#
-  * C++
-  * Clojure
-  * CSS
-  * Dart
-  * Dockerfile
-  * Elixir
-  * Emacs Lisp
-  * Go
-  * Haskell
-  * HTML
-  * Java
-  * JavaScript
-  * Julia
-  * Jupyter Notebook
-  * Kotlin
-  * Lua
-  * MATLAB
-  * Objective-C
-  * Perl
-  * PHP
-  * PowerShell
-  * Python
-  * R
-  * Ruby
-  * Rust
-  * Scala
-  * Shell
-  * Swift
-  * TeX
-  * TypeScript
-  * Vue
-
-</details>
-
-> [!NOTE]
-> The list of available models will change over time. When only one code completion model is available, the model picker will only show that model. Preview models and additional code completion models will appear in the picker when we release them.
-
-{% vscode %} You can switch AI models in the latest releases of {% data variables.product.prodname_vscode_shortname %} with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endvscode %}
-
-{% visualstudio %} You can switch AI models in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later. {% endvisualstudio %}
-
-{% jetbrains %} You can switch AI models in the latest releases of JetBrains IDEs with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endjetbrains %}
-
-## Effects of switching the AI model
-
-Changing the model that's used for {% data variables.product.prodname_copilot_short %} code completion does not affect the model that's used by {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
-
-There are no changes to the data collection and usage policy if you change the AI model.
-
-If you are on a {% data variables.copilot.copilot_free_short %} plan, all completions count against your completions quota regardless of the model used. See [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-subscriptions).
-
-The setting to enable or disable suggestions that match public code are applied irrespective of which model you choose. See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
-
-## Enabling the model switcher
-
-{% ifversion fpt %}
-
-If you have a {% data variables.copilot.copilot_free_short %} or {% data variables.copilot.copilot_pro_short %} plan, the model switcher for {% data variables.product.prodname_copilot_short %} code completion is automatically enabled.
-
-{% endif %}
-
-{% data reusables.copilot.editor-preview-settings %}
-
 {% vscode %}
 
-## Changing the AI model for code completion
-
 The following instructions are for {% data variables.product.prodname_vscode_shortname %}. If you are using {% data variables.product.prodname_vs %}, or a JetBrains IDE, click the appropriate tab at the start of this article.
+
+## Prerequisites
+
+{% data reusables.copilot.code-completion-switch-prereqs-vscode %}
+
+{% data reusables.copilot.code-completion-available-models %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-code-completion).
+
+## Changing the AI model for code completion
 
 1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
 1. In the dropdown menu, select the model you want to use.
-
-Alternatively, if Command Center is enabled, you can click {% octicon "chevron-down" aria-label="The downward-pointing arrowhead" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
 
 ## Checking which model is being used
 
@@ -105,9 +39,17 @@ Alternatively, if Command Center is enabled, you can click {% octicon "chevron-d
 
 {% visualstudio %}
 
-## Changing the AI model for code completion
-
 The following instructions are for {% data variables.product.prodname_vs %}. If you are using {% data variables.product.prodname_vscode_shortname %}, or a JetBrains IDE, click the appropriate tab at the start of this article.
+
+## Prerequisites
+
+{% data reusables.copilot.code-completion-switch-prereqs-vs %}
+
+{% data reusables.copilot.code-completion-available-models %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-code-completion).
+
+## Changing the AI model for code completion
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the top right corner.
 1. Click **Settings**, then click **Options**.
@@ -117,9 +59,17 @@ The following instructions are for {% data variables.product.prodname_vs %}. If 
 
 {% jetbrains %}
 
-## Changing the AI model for code completion
-
 The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vs %}, or {% data variables.product.prodname_vscode_shortname %}, click the appropriate tab at the start of this article.
+
+## Prerequisites
+
+{% data reusables.copilot.code-completion-switch-prereqs-jetbrains %}
+
+{% data reusables.copilot.code-completion-available-models %}
+
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-code-completion).
+
+## Changing the AI model for code completion
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Edit Model for Completion**.

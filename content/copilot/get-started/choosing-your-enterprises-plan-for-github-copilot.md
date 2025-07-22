@@ -61,9 +61,12 @@ With {% data variables.copilot.copilot_code-review_short %}, {% data variables.p
 
 ## How much will we benefit from premium requests?
 
-{% data reusables.copilot.premium-requests-for-enterprises %}
+Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests:
 
-To decide if you will benefit from a higher allowance for premium requests, compare the goals of your rollout to **development tasks** that each model is specialized in. For example, the o1 model is focused on math and science. Teams who work in specialized areas may require more requests to premium models. To learn about the benefits of different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+* 300 requests per user per month for {% data variables.copilot.copilot_business_short %}
+* 1000 requests per user per month for {% data variables.copilot.copilot_enterprise_short %}
+
+By ensuring members have access to enough premium requests, you can drive real business outcomes, such as reducing your backlog with {% data variables.copilot.copilot_coding_agent %}, accelerating pull requests with {% data variables.copilot.copilot_code-review_short %}, or increasing code quality with suggestions from more specialized models.
 
 Regardless of your plan, you can set a spending limit for premium requests over your plan's allowance. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
 

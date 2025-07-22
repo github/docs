@@ -17,6 +17,7 @@ versions:
 children:
   - /managing-workflow-runs
   - /managing-deployments
+  - /deploying-to-third-party-platforms
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

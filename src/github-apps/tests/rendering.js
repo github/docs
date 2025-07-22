@@ -2,10 +2,10 @@ import { readFile } from 'fs/promises'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { get, getDOM } from '#src/tests/helpers/e2etest.js'
-import { categoriesWithoutSubcategories } from '#src/rest/lib/index.js'
-import { getAppsData } from '#src/github-apps/lib/index.js'
+import { allVersions } from '@/versions/lib/all-versions'
+import { get, getDOM } from '@/tests/helpers/e2etest'
+import { categoriesWithoutSubcategories } from '@/rest/lib/index'
+import { getAppsData } from '@/github-apps/lib/index'
 
 const configContent = JSON.parse(await readFile('src/github-apps/lib/config.json', 'utf8'))
 const pageTypes = Object.keys(configContent.pages)

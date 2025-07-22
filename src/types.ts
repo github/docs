@@ -1,7 +1,7 @@
 import type { Request } from 'express'
 import type { Failbot } from '@github/failbot'
 
-import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d.ts'
+import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
 
 // Throughout our codebase we "extend" the Request object by attaching
@@ -323,6 +323,7 @@ export type Permalink = {
   pageVersion: string
   title: string
   href: string
+  hrefWithoutLanguage: string
 }
 
 export type FrontmatterVersions = {
@@ -361,6 +362,7 @@ export type Page = {
   effectiveDate?: string
   fullTitle?: string
   render: (context: Context) => Promise<string>
+  buildRedirects: () => Record<string, string>
   octicon?: string
   category?: string[]
   complexity?: string[]
@@ -380,6 +382,7 @@ export type TitlesTree = {
   documentType?: string
   childPages: TitlesTree[]
   hidden?: boolean
+  layout?: string
 }
 
 export type Tree = {

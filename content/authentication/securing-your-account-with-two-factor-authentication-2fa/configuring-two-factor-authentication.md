@@ -37,14 +37,18 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endif %}
 
 {% ifversion ghes < 3.17 %}
+
 > [!WARNING]
 > * If you're a member or outside collaborator to a private repository of an organization that requires 2FA, you must leave the organization before you can disable 2FA.
 > * If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable 2FA and contact an organization owner.
+
 {% else %}
+
 > [!WARNING]
 > * If you're an outside collaborator to a private repository of an organization that requires 2FA, you must leave the organization before you can disable 2FA.
 > * If you're a member{% ifversion fpt or ghec %} or billing manager{% endif %} of an organization that requires 2FA, you will be unable to access that organization's resources while you have 2FA disabled.
 > * If you disable 2FA, you will automatically lose access to the organization. To regain access to the organization, if you're a member{% ifversion fpt or ghec %} or billing manager{% endif %}, you must re-enable 2FA. If you're an outside collaborator, you will also lose access to any private forks you have of the organization's private repositories after disabling 2FA, and must re-enable 2FA and contact an organization owner to have access restored.
+
 {% endif %}
 
 > [!NOTE]
@@ -55,7 +59,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. These apps can be downloaded to your phone or desktop. We recommend using cloud-based TOTP apps. {% data variables.product.prodname_dotcom %} is app-agnostic when it comes to TOTP apps, so you have the freedom to choose any TOTP app you prefer. Just search for `TOTP app` in your browser to find various options. You can also refine your search by adding keywords like `free` or `open source` to match your preferences.
 
 > [!TIP]
-> To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the "setup key", which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
+> To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the "setup key," which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
 
 1. Download a TOTP app of your choice to your phone or desktop.
 {% data reusables.user-settings.access_settings %}
@@ -87,8 +91,6 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 {% endif %}
 
-{% ifversion passkeys %}
-
 ## Configuring two-factor authentication using a passkey
 
 {% data reusables.passkeys.about-passkeys %} See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
@@ -99,19 +101,9 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 {% data reusables.passkeys.adding-a-passkey %}
 
-{% endif %}
-
 ## Configuring two-factor authentication using a security key
 
-{% ifversion passkeys %}
-
 Not all FIDO authenticators can be used as passkeys, but you can still register those authenticators as security keys. Security keys are also WebAuthn credentials, but unlike passkeys they don't require user validation. Since security keys only need to verify user presence, they only count as a second factor and must be used in conjunction with your password.
-
-{% else %}
-
-On most devices and browsers, you can use a physical security key over USB or NFC. Most browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key as well.
-
-{% endif %}
 
 Registering a security key for your account is available after enabling 2FA with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
@@ -119,11 +111,11 @@ Registering a security key for your account is available after enabling 2FA with
 1. Ensure that you have a WebAuthn compatible security key inserted into your device.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-1. Next to "Security keys", click **Add**.
+1. Next to "Security keys," click **Add**.
 
    ![Screenshot of the "two-factor methods" section of the 2FA settings. A gray button labeled "Add" is outlined in orange.](/assets/images/help/2fa/add-security-keys-option.png)
 
-1. Under "Security keys", click **Register new security key**.
+1. Under "Security keys," click **Register new security key**.
 1. Type a nickname for the security key, then click **Add**.
 1. Following your security key's documentation, activate your security key.
 1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).

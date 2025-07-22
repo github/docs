@@ -11,5 +11,8 @@ children:
   - /workflows-and-actions
   - /runners
   - /security
-  - /use-cases
+  - /about-github-actions-metrics
+  - /billing-and-usage
+redirect_from:
+  - /actions/concepts/use-cases
 ---

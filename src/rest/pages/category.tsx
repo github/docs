@@ -60,7 +60,7 @@ export default function Category({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index.js')
+  const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
   const nonEnterpriseDefaultVersionModule = await import(
     'src/versions/lib/non-enterprise-default-version.js'
   )
@@ -86,7 +86,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subcategory = category
   }
 
-  const restOperations = (await getRest(currentVersion, apiVersion, category, subcategory)) || []
+  const restData = await getRest(currentVersion, apiVersion)
+  const restOperations = (restData && restData[category] && restData[category][subcategory]) || []
 
   // Build table of contents for all category operations for TocLanding:
   //
@@ -94,7 +95,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // * loop over subcategories and get the operations per subcategory
   //   * get the minitoc items per set of subcategory operations
   //   * with this data, build a collection of toc items that can be used by TocLanding
-  const restCategoryOperations = (await getRest(currentVersion, apiVersion, category)) || []
+  const restCategoryOperations = (restData && restData[category]) || {}
   const restCategoryTocItems = []
 
   for (const [subCat, subCatOperations] of Object.entries(restCategoryOperations)) {

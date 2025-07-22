@@ -4641,7 +4641,6 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   The reason the issue state was changed to closed.
   """
   stateReason: IssueStateReason
-    @deprecated(reason: "The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.")
 
   """
   The HTTP URL for this closed event.
@@ -19068,10 +19067,13 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   stateReason(
     """
     Whether or not to return state reason for duplicates
+
+    **Upcoming Change on 2025-10-01 UTC**
+    **Description:** `enableDuplicate` will be removed.
+    **Reason:** The state reason for duplicate issue is now returned by default.
     """
     enableDuplicate: Boolean = false
   ): IssueStateReason
-    @deprecated(reason: "The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.")
 
   """
   A list of sub-issues associated with the Issue.
@@ -44681,6 +44683,11 @@ type Release implements Node & Reactable & UniformResourceLocatable {
   The Node ID of the Release object
   """
   id: ID!
+
+  """
+  Whether or not the release is immutable
+  """
+  immutable: Boolean!
 
   """
   Whether or not the release is a draft

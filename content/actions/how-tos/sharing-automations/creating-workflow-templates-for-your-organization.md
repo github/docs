@@ -16,29 +16,14 @@ type: tutorial
 topics:
   - Workflows
   - CI
+permissions: Write access to the organization's public `.github` repository. Templates can be used by organization members who have permission to create workflows.
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
-
-{% data reusables.actions.workflow-organization-templates %}
-
-{% data reusables.actions.workflow-templates-categories %}
-
 > [!NOTE]
-> Because workflow templates require a public `.github` repository, they are not available for {% data variables.product.prodname_emus %}.
-
-## Creating a workflow template
-
-Workflow templates can be created by users with write access to the organization's _public_ `.github` repository. These can then be used by organization members who have permission to create workflows.
-
-{% ifversion fpt %}
-Workflow templates created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use workflow templates to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization).
-{% endif %}
-
-> [!NOTE]
-> To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+> * Because workflow templates require a public `.github` repository, they are not available for {% data variables.product.prodname_emus %}.
+> * To avoid duplication among workflow templates you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 This procedure demonstrates how to create a workflow template and metadata file. The metadata file describes how the workflow templates will be presented to users when they are creating a new workflow.
 

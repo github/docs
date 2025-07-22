@@ -19,12 +19,12 @@ import yaml from 'js-yaml'
 
 import { program } from 'commander'
 
-import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data.js'
+import { loadPages, loadUnversionedTree } from '@/frame/lib/page-data'
 import { TokenizationError } from 'liquidjs'
 
-import readFrontmatter from '@/frame/lib/read-frontmatter.js'
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
-import walkFiles from '@/workflows/walk-files.js'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
+import walkFiles from '@/workflows/walk-files'
 
 program
   .description('Finds unused variables in frontmatter, content, and reusables')

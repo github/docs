@@ -13,16 +13,16 @@ import cookieParser from './cookie-parser'
 import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
-} from './set-fastly-surrogate-key.js'
+} from './set-fastly-surrogate-key'
 import handleErrors from '@/observability/middleware/handle-errors'
 import handleNextDataPath from './handle-next-data-path'
 import detectLanguage from '@/languages/middleware/detect-language'
 import reloadTree from './reload-tree'
 import context from './context/context'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import shortVersions from '@/versions/middleware/short-versions'
 import languageCodeRedirects from '@/redirects/middleware/language-code-redirects'
 import handleRedirects from '@/redirects/middleware/handle-redirects'
-import findPage from './find-page.js'
+import findPage from './find-page'
 import blockRobots from './block-robots'
 import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
 import api from './api'
@@ -63,7 +63,7 @@ import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
-import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
+import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 
 const { NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'

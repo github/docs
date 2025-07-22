@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema.js'
+import { runRule } from '../../lib/init-test'
+import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema'
 
 // Configure the test figure to not split frontmatter and content
 const fmOptions = { markdownlintOptions: { frontMatter: null } }

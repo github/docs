@@ -15,11 +15,8 @@ import { VersionPicker } from '@/versions/components/VersionPicker'
 import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
 import { AllProductsLink } from '@/frame/components/sidebar/AllProductsLink'
 import { SearchBarButton } from '@/search/components/input/SearchBarButton'
-import { OldHeaderSearchAndWidgets } from './OldHeaderSearchAndWidgets'
 import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
-import { EXPERIMENTS } from '@/events/components/experiments/experiments'
-import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
 import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
@@ -50,21 +47,28 @@ export const Header = () => {
   const { initializeCTA } = useCTAPopoverContext()
   const { isSearchOpen, setIsSearchOpen } = useSearchOverlayContext()
 
-  const { showExperiment: showNewSearch, experimentLoading: newSearchLoading } =
-    useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
-  let SearchButton: JSX.Element | null = (
+  const SearchButtonLarge: JSX.Element = (
     <SearchBarButton
       isSearchOpen={isSearchOpen}
       setIsSearchOpen={setIsSearchOpen}
       params={params}
       searchButtonRef={searchButtonRef}
+      instanceId="large"
     />
   )
-  if (!showNewSearch) {
-    SearchButton = null
-  } else {
-    initializeCTA()
-  }
+
+  const SearchButtonSmall: JSX.Element = (
+    <SearchBarButton
+      isSearchOpen={isSearchOpen}
+      setIsSearchOpen={setIsSearchOpen}
+      params={params}
+      searchButtonRef={searchButtonRef}
+      instanceId="small"
+    />
+  )
+
+  // Initialize the CTA(s)
+  initializeCTA()
 
   useEffect(() => {
     function onScroll() {
@@ -175,22 +179,14 @@ export const Header = () => {
             <div className="hide-sm border-left pl-3 d-flex flex-items-center">
               <VersionPicker />
               {/* In larger viewports, we want to show the search bar next to the version picker */}
-              {!newSearchLoading && <div className={styles.displayOverLarge}>{SearchButton}</div>}
+              <div className={styles.displayOverLarge}>{SearchButtonLarge}</div>
             </div>
           </div>
-          {newSearchLoading ? null : showNewSearch ? (
-            <HeaderSearchAndWidgets
-              isSearchOpen={isSearchOpen}
-              SearchButton={SearchButton}
-              width={width}
-            />
-          ) : (
-            <OldHeaderSearchAndWidgets
-              isSearchOpen={isSearchOpen}
-              setIsSearchOpen={setIsSearchOpen}
-              width={width}
-            />
-          )}
+          <HeaderSearchAndWidgets
+            isSearchOpen={isSearchOpen}
+            SearchButton={SearchButtonSmall}
+            width={width}
+          />
         </div>
         {!isHomepageVersion && !isSearchResultsPage && (
           <div className="d-flex flex-items-center d-xxl-none mt-2" data-testid="header-subnav">
@@ -254,15 +250,13 @@ export const Header = () => {
             </div>
           </div>
         )}
-        {showNewSearch && (
-          <SearchOverlayContainer
-            isSearchOpen={isSearchOpen}
-            setIsSearchOpen={setIsSearchOpen}
-            params={params}
-            updateParams={updateParams}
-            searchButtonRef={searchButtonRef}
-          />
-        )}
+        <SearchOverlayContainer
+          isSearchOpen={isSearchOpen}
+          setIsSearchOpen={setIsSearchOpen}
+          params={params}
+          updateParams={updateParams}
+          searchButtonRef={searchButtonRef}
+        />
       </header>
     </div>
   )

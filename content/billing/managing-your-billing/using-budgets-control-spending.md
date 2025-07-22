@@ -111,7 +111,7 @@ If you are an organization owner, enterprise owner, or billing manager, your bud
 
 ### Creating a budget
 
-As the onwer of an enterprise or organization account, or as a billing manager, you can set a budget at the account level, or at any level below this.
+As the owner of an enterprise or organization account, or as a billing manager, you can set a budget at the account level, or at any level below this.
 
 1. In the "Budgets and alerts" view, click **New budget**.
 1. Under "Budget", set a budget amount.
@@ -132,7 +132,6 @@ As the onwer of an enterprise or organization account, or as a billing manager, 
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
 
-1. In the "Budgets and alerts" view, click **New budget**.
-1. Click **Budgets and alerts**.
-1. To edit a budget, in the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
+1. Navigate to the "Budgets and alerts" view. See [Viewing budgets](#viewing-budgets).
+1. In the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
 1. Follow the prompts.

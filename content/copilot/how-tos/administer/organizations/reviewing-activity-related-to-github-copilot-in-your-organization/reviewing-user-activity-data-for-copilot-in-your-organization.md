@@ -18,8 +18,6 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-user-activity-data-for-copilot-in-your-organization
 ---
 
-## Reviewing user activity data for {% data variables.product.prodname_copilot_short %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
@@ -31,39 +29,24 @@ redirect_from:
    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview.png)
    {% endif %}
 
-1. For more detailed information, next to "Access management," click **Get report**.
-
-   {% data variables.product.prodname_dotcom %} generates a report for you, which you can download as a CSV file.
-
 1. Alternatively, under "Access management," you can use the **Sort** options to sort the list of users by when they last used {% data variables.product.prodname_copilot %}.
+1. For more detailed information, you can retrieve the **Activity report**. {% data variables.product.prodname_dotcom %} generates a report for you, which you can download as a CSV file.
+
+   <!-- expires 2025-10-23 -->
+
+   >[!NOTE] This report is replacing the {% data variables.product.prodname_copilot_short %} **usage report**. The new report adds clarity by introducing authentication information and improving timestamp resolution. The old usage report is closing down and will be removed on October 23rd, 2025.
+
+   <!-- end expires 2025-10-23 -->
 
 ## Using the API to retrieve assignment information
 
 You can use {% data variables.product.prodname_dotcom %}'s REST API to get details about the assignment of {% data variables.product.prodname_copilot %} seats in your organization. See [Get Copilot seat information and settings for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#get-copilot-seat-information-and-settings-for-an-organization), [List all Copilot seat assignments for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#list-all-copilot-seat-assignments-for-an-organization), and [Get Copilot seat assignment details for a user](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#get-copilot-seat-assignment-details-for-a-user).
 
-## Understanding the `last_activity_at` calculation
+## Troubleshooting `last_activity_at` data
 
-> [!NOTE] This data is in {% data variables.release-phases.public_preview %} and subject to change.
+If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
 
-To align the `last_activity_at` data point with _actual usage_, the system returns the timestamp of a user's most recent interaction with Copilot functionality. These interactions are:
-
-* Receiving a code suggestion in an IDE
-* Chatting with Copilot Chat in an IDE
-{%- ifversion ghec %}
-* Creating or updating a knowledge base
-* Creating a pull request summary
-* Interacting with Copilot Chat in GitHub
-{%- endif %}
-* Interacting with Copilot on a mobile device
-* Interacting with Copilot Chat for CLI
-
-The `last_activity_at` date is consistent across the CSV generated via `Get Report` in Copilot Access settings as well as through {% data variables.product.prodname_dotcom %}'s REST API. The events which are tracked come from both client, and server-side telemetry. This allows the timestamp to be durable in the event that network conditions would impact client-telemetry.
-
-### Troubleshooting `last_activity_at` data
-
-Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. Users must have telemetry enabled in their IDE for their usage to be reflected in `last_activity_at`.
-
-If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
+For more information about this property and other data in the activity report, see [AUTOTITLE](/copilot/reference/metrics-data).
 
 ## Further reading
 

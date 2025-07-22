@@ -1,8 +1,8 @@
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getLiquidTokens, conditionalTags, getPositionData } from '../helpers/liquid-utils.js'
-import { isStringQuoted } from '../helpers/utils.js'
+import { getLiquidTokens, conditionalTags, getPositionData } from '../helpers/liquid-utils'
+import { isStringQuoted } from '../helpers/utils'
 
 /*
   Checks for instances where a Liquid conditional tag's argument is

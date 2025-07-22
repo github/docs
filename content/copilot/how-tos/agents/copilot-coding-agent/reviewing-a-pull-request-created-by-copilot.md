@@ -13,7 +13,10 @@ redirect_from:
   - /copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot
 ---
 
-{% data reusables.copilot.coding-agent.preview-note %}
+> [!NOTE]
+> {% data reusables.copilot.coding-agent.preview-note-text %}
+>
+> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Reviewing {% data variables.product.prodname_copilot_short %}'s changes
 
@@ -38,7 +41,7 @@ If {% data variables.product.prodname_copilot_short %} starts a new agent sessio
 {% data variables.product.prodname_copilot_short %} may ignore a comment if it considers that the comment was not intended for it. If you are sure that you want {% data variables.product.prodname_copilot_short %} to respond to your comment, you can @mention {% data variables.product.prodname_copilot_short %} by including `@copilot` in your comment.
 
 > [!TIP]
-> If you don't want {% data variables.product.prodname_copilot_short %} to respond to comments on a pull request, you can unassign {% data variables.product.prodname_copilot_short %} from the pull request. If you later reassign {% data variables.product.prodname_copilot_short %} to the same pull request it will respond to new comments and push more changes. It will not respond to comment that were added while it was not assigned.
+> If you don't want {% data variables.product.prodname_copilot_short %} to respond to comments on a pull request, you can unassign {% data variables.product.prodname_copilot_short %} from the pull request. If you later reassign {% data variables.product.prodname_copilot_short %} to the same pull request it will respond to new comments and push more changes. It will not respond to comments that were added while it was not assigned.
 
 For more information, see the section "Use comments to iterate on a pull request" in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#using-comments-to-iterate-on-a-pull-request).
 

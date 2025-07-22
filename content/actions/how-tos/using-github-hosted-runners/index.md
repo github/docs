@@ -8,7 +8,8 @@ versions:
   ghes: '*'
 children:
   - /using-github-hosted-runners
-  - /using-larger-runners
+  - /customizing-github-hosted-runners
+  - /viewing-your-current-jobs
   - /connecting-to-a-private-network
 redirect_from:
   - /actions/using-github-hosted-runners

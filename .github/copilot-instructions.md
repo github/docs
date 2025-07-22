@@ -1,4 +1,44 @@
-This documentation repository consists mainly of content written in Markdown format. These files are converted into HTML for displaying on a website. Most Markdown files become a single article on the documentation site. Other files contain reusable content which is inserted into multiple articles. The repository also contains YAML files (e.g. for variable text), image files, JavaScript/TypeScript files, etc.
+This repository contains code to run the GitHub Docs site on docs.github.com, as well as the content that is displayed on the site. The code is written in JavaScript and TypeScript, and the content is primarily written in Markdown.
+
+Changes to files in `src/*` or files with `.ts` or `.js` extensions are likely code-related changes. Please follow the engineering guidelines below when making changes to these files.
+
+Changes to files in `content/*` and `data/*` are likely content-related changes. Content changes include updates to articles, reusable content, and data files that define variables used in articles. Please follow the content guidelines below when making changes to these files.
+
+## Engineering guidelines
+
+### Scripts
+
+All scripts can be found in `package.json`.
+
+To validate any code changes:
+   - `npm run tsc`
+   - `npm run build`
+   - `npm run prettier`
+   - `npm run lint`: you can include `-- --fix`
+
+To validate specific changes,
+  - `npm run test`: For all unit tests
+    - You can pass specific paths, e.g. `npm run test -- src/search/tests/ai-search-proxy`
+    - You can add `--silent=false` to include `console.log` debugging.
+  - `npm run build && npm run playwright-test -- playwright-rendering`: You need to build for changes outside of the test to be picked up. We use playwright for all rendering and end-to-end tests
+    - You can add `--ui` to keep open `localhost:4000` which can be viewed in a simple browser for debugging UI state.
+  - `npm run dev` to start the development server on `localhost:4000`.
+
+### Imports
+
+We use absolute imports, relative to the `src` directory, using the `@` symbol.
+
+For example, `getRedirect` which lives inn `src/redirects/lib/get-redirect.js` can be imported with `import getRedirect from '@/redirects/lib/get-redirect'`.
+
+The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { GeneralSearchHit } from '@/search/types'`
+
+### Testing changes
+
+We use `vitest` to write unit tests. Tests live in their own files in the `tests` subdirectory of a source (src) directory, e.g. `src/search/tests/api-ai-search.ts`. 
+
+For integration tests, we can use the mock server in `src/tests/mocks/start-mock-server.ts` to mock exteneral requests. 
+
+For UI rendering tests, we use `playwright` and write tests in `src/fixtures/tests/playwright-rendering.spec.ts`
 
 ## Content guidelines
 
@@ -90,9 +130,7 @@ Then, within a collapsed section, quote the original prompt from Copilot Chat:
 
 This helps reviewers understand the context and intent behind the automated changes.
 
-## Development and testing guidelines
-
-### Content changes
+### Testing Content changes
 
 Before committing content changes, always:
 
@@ -100,21 +138,3 @@ Before committing content changes, always:
 2. **Check for proper variable usage** in your content
 3. **Verify [AUTOTITLE] links** point to existing articles
 4. **Run tests** on changed content: `npm run test -- src/content-render/tests/render-changed-and-deleted-files.js`
-
-### Script and code changes
-
-For TypeScript, JavaScript, and SCSS files:
-
-1. **Run Prettier** to check formatting: `npm run prettier-check`
-2. **Run the linter**: `npm run lint`
-3. **Run TypeScript checks**: `npm run tsc`
-4. **Run relevant tests**: `npm test`
-
-### Environment setup
-
-When testing changes in your development environment:
-
-1. Install dependencies: `npm ci`
-2. For content changes, ensure the content linter runs successfully
-3. For script changes, ensure all formatting and linting checks pass
-4. Always verify your changes don't break existing functionality

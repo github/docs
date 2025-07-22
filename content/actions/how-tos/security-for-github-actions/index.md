@@ -5,12 +5,13 @@ intro: 'Use security best practices with {% data variables.product.prodname_acti
 redirect_from:
   - /actions/security-guides
   - /actions/security-for-github-actions
+  - /actions/security-for-github-actions/security-guides
+  - /actions/how-tos/security-for-github-actions/security-guides
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 children:
-  - /security-guides
   - /using-artifact-attestations
   - /security-hardening-your-deployments
 ---

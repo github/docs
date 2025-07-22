@@ -145,7 +145,11 @@ The language model used by {% data variables.copilot.copilot_coding_agent %}’s
 
 To mitigate the risk of inaccurate code, you should carefully review and test the generated code, particularly when dealing with critical or sensitive applications. You should also ensure that the generated code adheres to best practices and design patterns and fits within the overall architecture and style of the codebase.
 
-> [!NOTE] The setting that blocks suggestions matching public code may not work as intended when using {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+### Public code
+
+{% data variables.copilot.copilot_coding_agent %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+
+If this happens, {% data variables.product.prodname_copilot_short %} will not provide code references pointing to the original source of the code. See [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
 
 ### Legal and regulatory considerations
 

@@ -49,19 +49,15 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
-### {% data variables.product.prodname_github_models %} ({% data variables.release-phases.public_preview %})
-
-Bringing the power of industry leading large and small language models to users directly on {% data variables.product.github %}. See [AUTOTITLE](/github-models).
-
 ### {% data variables.copilot.copilot_edits_short %}
 
 {% data variables.copilot.copilot_edits_short %} is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs. {% data reusables.copilot.copilot-edits.about-copilot-edits %}
 
 ### {% data variables.product.prodname_copilot_short %} custom instructions
 
-Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses).
+Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
 
-### {% data variables.copilot.copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_desktop_short %}
 
 Automatically generate commit messages and descriptions with {% data variables.copilot.copilot_desktop_short %} based on the changes you make to your project.
 

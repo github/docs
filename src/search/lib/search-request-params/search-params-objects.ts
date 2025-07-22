@@ -1,6 +1,6 @@
-/* 
+/*
   When a request is made to a /search endpoint with query parameters, e.g. ?query=foo&version=free-pro-team,
-  we need to validate and parse the parameters. This file contains the configuration for which parameters 
+  we need to validate and parse the parameters. This file contains the configuration for which parameters
   to expect based on the type of search request "e.g. general search vs autocomplete search" and how to validate them.
  */
 import languages from '@/languages/lib/languages'

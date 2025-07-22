@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { multipleEmphasisPatterns } from '../../lib/linting-rules/multiple-emphasis-patterns.js'
+import { runRule } from '../../lib/init-test'
+import { multipleEmphasisPatterns } from '../../lib/linting-rules/multiple-emphasis-patterns'
 
 describe(multipleEmphasisPatterns.names.join(' - '), () => {
   test('Single emphasis types pass', async () => {

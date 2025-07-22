@@ -15,7 +15,7 @@ import { rimrafSync } from 'rimraf'
 import { difference, intersection } from 'lodash-es'
 import { mkdirp } from 'mkdirp'
 
-import { deprecated, supported } from '@/versions/lib/enterprise-server-releases.js'
+import { deprecated, supported } from '@/versions/lib/enterprise-server-releases'
 
 const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json', 'utf-8'))[

@@ -34,7 +34,9 @@ After you assign a license for {% data variables.visual_studio.prodname_vss_ghec
 
 > [!NOTE] For {% data variables.product.prodname_emu %} only, to make sure a user account consumes a {% data variables.product.prodname_vs %} license, ensure the {% data variables.product.prodname_vs %} UPN matches the SCIM `userName` attribute or the email address from the linked identity on the {% data variables.product.prodname_dotcom %} account.
 
-The total quantity of your licenses for your enterprise on {% data variables.product.prodname_dotcom %} is the sum of any standard {% data variables.product.prodname_enterprise %} licenses and the number of {% data variables.product.prodname_vs %} subscription licenses that include access to {% data variables.product.prodname_dotcom %}. If the personal account for an enterprise member does not correspond with the email address for a {% data variables.product.prodname_vs %} subscriber, the license that the personal account consumes is unavailable for a {% data variables.product.prodname_vs %} subscriber.
+The total quantity of your licenses for your enterprise on {% data variables.product.prodname_dotcom %} is the sum of any standard {% data variables.product.prodname_enterprise %} licenses and the number of {% data variables.product.prodname_vs %} subscription licenses that include access to {% data variables.product.prodname_dotcom %}.
+
+If the personal account for an enterprise member does not correspond with the email address for a {% data variables.product.prodname_vs %} subscriber, an enterprise owner can manually match the accounts to consolidate licenses. Under the terms of service, the {% data variables.product.github %} account and {% data variables.product.prodname_vs %} subscription must belong to the same person.
 
 For more information about {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-enterprise). For more information about accounts on {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 

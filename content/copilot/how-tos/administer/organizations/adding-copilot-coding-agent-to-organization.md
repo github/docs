@@ -13,7 +13,10 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization
 ---
 
-{% data reusables.copilot.coding-agent.preview-note %}
+> [!NOTE]
+> {% data reusables.copilot.coding-agent.preview-note-text %}
+>
+> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Prerequisites
 
@@ -23,7 +26,8 @@ redirect_from:
 
 ## Enabling {% data variables.copilot.copilot_coding_agent %} for your members
 
-{% data reusables.organizations.copilot-policy-ent-overrides-org %}
+> [!NOTE]
+> {% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
 {% data variables.copilot.copilot_coding_agent %} and use of third-party MCP servers are disabled by default for organization members assigned a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_business_short %} license by your organization.
 

@@ -9,7 +9,8 @@ topics:
 children:
   - /copilot-spaces
   - /model-context-protocol
-  - /managing-copilot-knowledge-bases
+  - /creating-and-managing-copilot-knowledge-bases
+  - /using-knowledge-bases
   - /install-copilot-extensions
 redirect_from:
   - /copilot/customizing-copilot

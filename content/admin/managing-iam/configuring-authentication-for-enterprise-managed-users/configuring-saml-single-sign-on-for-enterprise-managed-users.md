@@ -19,7 +19,7 @@ topics:
   - SSO
 ---
 
-**Before** following the steps in this article, make sure that your enterprise uses **managed users**. You can do so by checking whether your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen. If you see this, your enterprise uses **managed users** and you can follow the steps in this article.
+**Before** following the steps in this article, make sure that your enterprise uses **managed users** and that you are signed in as the setup user whose username is your enterprise's shortcode suffixed with `_admin`. You can verify you are signed in with the correct user by checking whether your enterprise view has the "Viewing as SHORTCODE_admin" header bar at the top of the screen. If you see this, you are signed in with the correct user and you can follow the steps in this article. For more information about the setup user, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
 If your enterprise uses **personal accounts**, you must follow a different process to configure SAML single sign-on. See [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 

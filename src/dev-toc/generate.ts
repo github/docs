@@ -4,10 +4,10 @@ import { execSync } from 'child_process'
 import { program } from 'commander'
 import type { NextFunction, Response } from 'express'
 import type { ExtendedRequest } from '@/types'
-import fpt from '@/versions/lib/non-enterprise-default-version.js'
-import { allVersionKeys } from '@/versions/lib/all-versions.js'
-import { liquid } from '@/content-render/index.js'
-import contextualize from '@/frame/middleware/context/context.js'
+import fpt from '@/versions/lib/non-enterprise-default-version'
+import { allVersionKeys } from '@/versions/lib/all-versions'
+import { liquid } from '@/content-render/index'
+import contextualize from '@/frame/middleware/context/context'
 
 interface CommandOptions {
   openSections?: string | string[]

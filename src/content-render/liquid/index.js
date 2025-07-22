@@ -1,5 +1,5 @@
-import { processLiquidPost } from './post.js'
-import { engine } from './engine.js'
+import { processLiquidPost } from './post'
+import { engine } from './engine'
 
 export async function renderLiquid(template, context) {
   template = await engine.parseAndRender(template, context)

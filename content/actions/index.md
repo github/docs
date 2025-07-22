@@ -9,14 +9,13 @@ featuredLinks:
   startHere:
     - /actions/how-tos/writing-workflows
     - /actions/how-tos/use-cases-and-examples
-    - /actions/concepts/overview/about-continuous-integration-with-github-actions
-    - /actions/concepts/use-cases/deploying-with-github-actions
-    - /actions/concepts/use-cases/about-packaging-with-github-actions
-    - /actions/how-tos/monitoring-and-troubleshooting-workflows
+    - /actions/concepts/overview/continuous-integration
+    - /actions/tutorials/deploying-with-github-actions
+    - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
   guideCards:
     - /actions/how-tos/writing-workflows/using-workflow-templates
-    - /actions/how-tos/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-    - /actions/how-tos/use-cases-and-examples/building-and-testing/building-and-testing-powershell
+    - /actions/tutorials/publishing-packages/publishing-nodejs-packages
+    - /actions/how-tos/writing-workflows/building-and-testing/building-and-testing-powershell
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/how-tos/writing-workflows
@@ -42,4 +41,3 @@ children:
   - /reference
   - /tutorials
 ---
-

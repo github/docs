@@ -1,3 +1,23 @@
+// Configuration for which rules should be included in automated weekly reports
+export const reportingConfig = {
+  // Always include all rules with these severities
+  includeSeverities: ['error'],
+
+  // Specific rules to include regardless of severity
+  // Add rule names (short or long form) that should always be reported
+  includeRules: [
+    'GHD038', // expired-content - Content that has passed its expiration date
+    'expired-content',
+  ],
+
+  // Specific rules to exclude from reports (overrides severity-based inclusion)
+  // Add rule names here if you want to suppress them from reports
+  excludeRules: [
+    // Example: 'GHD030' // Uncomment to exclude code-fence-line-length warnings
+    'british-english-quotes', // Exclude from reports but keep for pre-commit
+  ],
+}
+
 const githubDocsConfig = {
   'link-punctuation': {
     // GHD001
@@ -186,9 +206,22 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'outdated-release-phase-terminology': {
+    // GHD046
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'table-column-integrity': {
+    // GHD047
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'british-english-quotes': {
     // GHD048
     severity: 'warning',
+    precommitSeverity: 'warning', // Show warnings locally for writer awareness
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -200,6 +233,18 @@ const githubDocsConfig = {
   },
   'multiple-emphasis-patterns': {
     // GHD050
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'header-content-requirement': {
+    // GHD053
+    severity: 'warning',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'third-party-actions-reusable': {
+    // GHD054
     severity: 'warning',
     'partial-markdown-files': true,
     'yml-files': true,
@@ -253,6 +298,18 @@ export const githubDocsFrontmatterConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
+  'frontmatter-versions-whitespace': {
+    // GHD051
+    severity: 'warning',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'frontmatter-validation': {
+    // GHD055
+    severity: 'warning',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
 }
 
 // Configures rules from the `github/markdownlint-github` repo
@@ -285,6 +342,7 @@ export const searchReplaceConfig = {
         precommitSeverity: 'warning',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Critical for content quality - prevents placeholders in titles, intros, etc.
       },
       {
         name: 'docs-domain',
@@ -294,6 +352,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Should not appear in frontmatter
       },
       {
         name: 'help-domain',
@@ -303,6 +362,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Should not appear in frontmatter
       },
       {
         name: 'developer-domain',
@@ -316,6 +376,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Should not appear in frontmatter
       },
       {
         // Catches usage of old liquid data reusable syntax. For example:
@@ -327,6 +388,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Can appear in frontmatter strings
       },
       {
         // Catches usage of old octicon variable syntax. For example:
@@ -339,6 +401,7 @@ export const searchReplaceConfig = {
         severity: 'error',
         'partial-markdown-files': true,
         'yml-files': true,
+        applyToFrontmatter: true, // Can appear in frontmatter strings
       },
     ],
   },

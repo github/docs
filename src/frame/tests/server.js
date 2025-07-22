@@ -1,14 +1,14 @@
 import CspParse from 'csp-parse'
 import { beforeAll, describe, expect, test, vi } from 'vitest'
 
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get, getDOM, head, post } from '#src/tests/helpers/e2etest.js'
-import { describeViaActionsOnly } from '#src/tests/helpers/conditional-runs.js'
-import { loadPages } from '#src/frame/lib/page-data.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { get, getDOM, head, post } from '@/tests/helpers/e2etest'
+import { describeViaActionsOnly } from '@/tests/helpers/conditional-runs'
+import { loadPages } from '@/frame/lib/page-data'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
+} from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('server', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

@@ -1,8 +1,8 @@
 import { describe, test } from 'vitest'
 
-import { validateJson } from '@/tests/lib/validate-json-schema.js'
-import { formatErrors } from '../lib/middleware-errors.js'
-import { schemas } from '../lib/schema.js'
+import { validateJson } from '@/tests/lib/validate-json-schema'
+import { formatErrors } from '../lib/middleware-errors'
+import { schemas } from '../lib/schema'
 
 describe('formatErrors', () => {
   test('should produce objects that match the validation spec', () => {

@@ -82,9 +82,9 @@ You can view the usage of your {% data variables.enterprise.enterprise_or_org %}
 1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
 
    * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
+   * For a per user breakdown of premium requests for the last 45 days, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
 
-   You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
+   >[!TIP] The premium request usage report includes all premium requests, both within and beyond the allowance. By contrast, the metered billing usage report only reflects costs for requests beyond the allowance.
 
 ## Viewing license usage
 
@@ -118,4 +118,4 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 
 {% ifversion ghec %}
 * [AUTOTITLE](/rest/enterprise-admin/billing){% endif %}
-* [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization))
+* [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization)

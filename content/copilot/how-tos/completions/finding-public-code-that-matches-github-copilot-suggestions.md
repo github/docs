@@ -1,7 +1,7 @@
 ---
 title: Finding public code that matches GitHub Copilot suggestions
 shortTitle: Find matching code
-intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found.'
+intro: 'Learn how to view code references when {% data variables.product.prodname_copilot %} makes suggestions that matches publicly available code.'
 defaultTool: vscode
 redirect_from:
   - /early-access/copilot/code-referencing-in-github-copilot
@@ -10,8 +10,8 @@ topics:
   - Copilot
 versions:
   feature: copilot
+type: how_to
 ---
-
 
 {% jetbrains %}
 
@@ -37,88 +37,15 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% endvisualstudio %}
 
-## Limitations
+## Introduction
 
-References to matching code are currently available in JetBrains IDEs, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, and on the {% data variables.product.github %} website.
+If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
 
-## Prerequisites
+### Prerequisites
 
-References to matching code are only generated if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching){% ifversion ghec %} or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
+References to matching code are only generated if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings.
 
-## About code referencing in {% data variables.product.prodname_copilot %}
-
-{% jetbrains %}
-
-{% data reusables.copilot.about-code-referencing %}
-
-{% endjetbrains %}
-
-{% vscode %}
-
-{% data reusables.copilot.about-code-referencing %}
-
-{% endvscode %}
-
-{% webui %}
-
-If you've allowed suggestions that match public code, then whenever a response from {% data variables.copilot.copilot_chat_short %} includes matching code, details of the matches will be included in the response.
-
-{% endwebui %}
-
-{% visualstudio %}
-
-{% data reusables.copilot.about-code-referencing %}
-
-{% endvisualstudio %}
-
-This feature is called code referencing.
-
-{% jetbrains %}
-
-### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
-
-{% data reusables.copilot.code-referencing-note %}
-
-### Code referencing for {% data variables.copilot.copilot_chat_short %}
-
-{% data reusables.copilot.code-referencing-in-chat %}
-
-{% endjetbrains %}
-
-{% webui %}
-
-> [!NOTE]
-> Typically, matches to public code occur infrequently, so you should not expect to see code references in many {% data variables.copilot.copilot_chat_short %} responses.
-
-{% endwebui %}
-
-{% vscode %}
-
-### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
-
-{% data reusables.copilot.code-referencing-note %}
-
-### Code referencing for {% data variables.copilot.copilot_chat_short %}
-
-{% data reusables.copilot.code-referencing-in-chat %}
-
-{% endvscode %}
-
-{% visualstudio %}
-
-### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
-
-{% data reusables.copilot.code-referencing-note %}
-
-### Code referencing for {% data variables.copilot.copilot_chat_short %}
-
-When {% data variables.copilot.copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated below the suggested code, with a link to display details of the matched code in the output log.
-
-{% endvisualstudio %}
-
-### How code referencing finds matching code
-
-{% data variables.product.prodname_copilot_short %} code referencing searches for matches by taking the code suggestion, plus some of the code that will surround the suggestion if it is accepted, and comparing it against an index of all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Code in private {% data variables.product.prodname_dotcom %} repositories, or code outside of {% data variables.product.prodname_dotcom %}, is not included in the search process. The search index is refreshed every few months. As a result, newly committed code, and code from public repositories deleted before the index was created, may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
+For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching){% ifversion ghec %} or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
 
 {% jetbrains %}
 
@@ -301,3 +228,7 @@ To see details of the matching code:
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endwebui %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/concepts/completions/code-referencing)

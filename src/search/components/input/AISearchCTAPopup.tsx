@@ -5,6 +5,8 @@ import { focusTrap } from '@primer/behaviors'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useMaxWidthBreakpoint, useMinWidthBreakpoint } from '../hooks/useBreakpoint'
 import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
 
 let previouslyFocused: HTMLElement | null = null
 
@@ -13,11 +15,15 @@ export function AISearchCTAPopup({
   dismiss,
   setIsSearchOpen,
   isDismissible = true,
+  bannerType = 'popover',
+  instanceId = '',
 }: {
   isOpen: boolean
   dismiss?: () => void
   setIsSearchOpen: (value: boolean) => void
   isDismissible?: boolean
+  bannerType?: 'popover' | 'footer'
+  instanceId?: string
 }) {
   const { t } = useTranslation('search')
   const { permanentDismiss } = useCTAPopoverContext()
@@ -26,7 +32,21 @@ export function AISearchCTAPopup({
   let overlayRef = useRef<HTMLDivElement>(null)
   let dismissButtonRef = useRef<HTMLButtonElement>(null)
 
+  // Analytics helper functions
+  const sendCTAAnalytics = (variation: 'dismiss' | 'ask_copilot') => {
+    const experimentName =
+      bannerType === 'footer' ? 'copilot_footer_banner' : 'copilot_popover_banner'
+    sendEvent({
+      type: EventType.experiment,
+      experiment_name: experimentName,
+      experiment_variation: variation,
+      experiment_success: true,
+    })
+  }
+
   const openSearch = () => {
+    // Send analytics before taking action
+    sendCTAAnalytics('ask_copilot')
     setIsSearchOpen(true)
     // They engaged with the CTA, so let's not show this popup for them anymore
     permanentDismiss()
@@ -47,6 +67,8 @@ export function AISearchCTAPopup({
     if (isTooSmallForCTA) {
       return
     }
+    // Send analytics before taking action
+    sendCTAAnalytics('dismiss')
     if (previouslyFocused) {
       previouslyFocused.focus()
     }
@@ -70,7 +92,7 @@ export function AISearchCTAPopup({
       />
       <Heading
         as="h2"
-        id="ai-search-cta-heading"
+        id={`ai-search-cta-heading-${bannerType}${instanceId ? `-${instanceId}` : ''}`}
         sx={{
           fontSize: '16px',
           fontWeight: 'bold',
@@ -152,7 +174,7 @@ export function AISearchCTAPopup({
       ref={overlayRef}
       role="alertdialog"
       aria-modal="true"
-      aria-labelledby="ai-search-cta-heading"
+      aria-labelledby={`ai-search-cta-heading-${bannerType}${instanceId ? `-${instanceId}` : ''}`}
       aria-describedby="ai-search-cta-description"
       open={isOpen}
       caret={isLargeOrUp ? 'top' : 'top-right'}

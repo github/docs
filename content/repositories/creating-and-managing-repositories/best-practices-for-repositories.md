@@ -43,3 +43,7 @@ To maintain quality of important branches, such as `main`, while using a branchi
 To optimize performance, {% data variables.product.prodname_dotcom %} limits the sizes of files allowed in repositories. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
 To track large files in a Git repository, we recommend using {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
+
+## Hands-on practice
+
+Try the [Introduction to Repository Management](https://github.com/skills/introduction-to-repository-management/) Skills exercise for practical experience with repository management.

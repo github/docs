@@ -295,7 +295,7 @@ Use agent mode when you have a specific task in mind and want to enable {% data 
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
-When you use agent mode, {% data variables.product.prodname_copilot_short %} may make multiple premium requests to complete a single task. This includes both user-initiated prompts and follow-up actions {% data variables.product.prodname_copilot_short %} takes on your behalf. The total premium requests used will depend on the complexity of the task, the number of steps involved, and the model selected. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+When you use {% data variables.copilot.copilot_agent_short %} mode, each prompt you enter counts as one premium request, multiplied by the model’s multiplier. For example, if you're using the included model—which has a multiplier of 0—your prompts won’t consume any premium requests. {% data variables.product.prodname_copilot_short %} may take several follow-up actions to complete your task, but these follow-up actions do **not** count toward your premium request usage. Only the prompts you enter are billed—tool calls or background steps taken by the agent are not charged.
 
 ## Using images in {% data variables.copilot.copilot_chat_short %}
 
@@ -372,7 +372,7 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
 
-   To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, select the **References** dropdown below the response.
+   To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
 ## Using keywords in your prompt
 
@@ -487,6 +487,8 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
+
+   To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 

@@ -1,6 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
-import { getRange } from '../helpers/utils.js'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
+import { getRange } from '../helpers/utils'
+import frontmatter from '@/frame/lib/read-frontmatter'
 
 export const noteWarningFormatting = {
   names: ['GHD049', 'note-warning-formatting'],

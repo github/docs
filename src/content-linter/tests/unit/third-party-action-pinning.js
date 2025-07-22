@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { thirdPartyActionPinning } from '../../lib/linting-rules/third-party-action-pinning.js'
+import { runRule } from '../../lib/init-test'
+import { thirdPartyActionPinning } from '../../lib/linting-rules/third-party-action-pinning'
 
 describe(thirdPartyActionPinning.names.join(' - '), () => {
   test('should not report an error for first-party actions', async () => {
