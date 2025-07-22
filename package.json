@@ -373,7 +373,7 @@
     "commander": "^14.0.0",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
-    "csv-parse": "5.5.6",
+    "csv-parse": "6.1.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.0.3",
     "eslint-import-resolver-typescript": "^4.4.2",
