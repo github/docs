@@ -85,6 +85,38 @@ To find out about a specific file:
 1. For a small file, ask {% data variables.product.prodname_copilot_short %}: `Explain this file`.
 1. For a large file, ask: `Explain what this file does. Start with an overview of the purpose of the file. Then, in appropriately headed sections, go through each part of the file and explain what it does in detail.`
 
+## Understanding specific lines of code
+
+Use {% data variables.product.prodname_copilot_short %} to help you understand specific lines of code in a file.
+
+To find out about a specific line of code:
+
+1. On {% data variables.product.github %}, navigate to a repository and open a file.
+1. Select the lines by clicking the line number for the first line you want to select, holding down <kbd>Shift</kbd> and clicking the line number for the last line you want to select.
+1. To ask your own question about the selected lines, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to the right of your selection.
+  This displays the {% data variables.copilot.copilot_chat %} panel with the selected lines indicated as the context of your question.
+1. To ask a predefined question, click the downward-pointing button beside the {% data variables.product.prodname_copilot_short %} icon, then choose one of the options.
+
+![Screenshot of the {% data variables.product.prodname_copilot_short %} buttons, highlighted with a dark orange outline, to the right of some selected code.](/assets/images/help/copilot/copilot-buttons-inline-code.png)
+
+1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, type a question in the prompt box at the bottom of the chat panel and press <kbd>Enter</kbd>.
+
+## Understanding a specific file or symbol
+
+Use {% data variables.product.prodname_copilot_short %} to help you understand the purpose of a specific file or symbol in the codebase. A symbol is a named entity in the code, such as a function, class, or variable.
+
+1. Navigate to a repository on {% data variables.product.github %}.
+{% data reusables.copilot.open-chat-panel %}
+1. In the prompt box, click **{% octicon "paperclip" aria-label="Add attachments" %} Attach**, then click **Files, folders, and symbols**.
+1. Search for and select one or more files, folders, or symbols.
+1. In the prompt box, type a question and press <kbd>Enter</kbd>.
+
+   {% data variables.product.prodname_copilot_short %} replies in the chat panel.
+
+   > [!TIP]
+   >
+   > {% data reusables.copilot.semantic-index-info %}
+
 ## Finding out about commits
 
 One good way to familiarize yourself with a project is to look at the recent work that's been happening. You can do this by browsing the recent commits.
