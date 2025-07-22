@@ -2,6 +2,14 @@
 
 **16 July 2025**
 
+We've added documentation describing how to use the GraphQL API to create a new issue and, in the same request, assign the issue to Copilot coding agent.
+
+See: [Using Copilot to work on an issue](https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/using-copilot-to-work-on-an-issue#assigning-an-issue-to-copilot-via-the-github-api).
+
+<hr>
+
+**16 July 2025**
+
 We've updated the Copilot documentation to coincide with the release of an improved user interface for configuring the firewall for Copilot coding agent.
 
 See: https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent
@@ -12,7 +20,7 @@ See: https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/customi
 
 We've updated the Copilot docs to coincide with the release of issue form support for Copilot Chat. When you use Copilot Chat to create an issue, an issue form will be used if there's an appropriate one in the repo. Previously only issue templates were supported.
 
-See [Using GitHub Copilot to create issues](https://docs.github.com/en/copilot/how-tos/github-flow/using-github-copilot-to-create-issues).
+See [Using GitHub Copilot to create issues](https://docs.github.com/copilot/how-tos/github-flow/using-github-copilot-to-create-issues).
 
 <hr>
 
