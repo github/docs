@@ -1,15 +1,15 @@
 ---
 title: Using labels with self-hosted runners
+shortTitle: Apply labels
 intro: You can use labels to organize your self-hosted runners based on their characteristics.
 redirect_from:
   - /actions/hosting-your-own-runners/using-labels-with-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-shortTitle: Label runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

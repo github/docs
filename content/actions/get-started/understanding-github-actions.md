@@ -97,7 +97,7 @@ A **runner** is a server that runs your workflows when they're triggered. Each r
 If you need a different operating system or require a specific hardware configuration, you can host your own runners.
 {% endif %}
 
-For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/hosting-your-own-runners).
+For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners).
 
 ## Next steps
 

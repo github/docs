@@ -1,17 +1,19 @@
 ---
 title: Customizing the containers used by jobs
+shortTitle: Customize containers
 intro: You can customize how your self-hosted runner invokes a container for a job.
 redirect_from:
   - /actions/hosting-your-own-runners/customizing-the-containers-used-by-jobs
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs
 versions:
   feature: container-hooks
-type: reference
-shortTitle: Customize containers used by jobs
 ---
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About container customization
 

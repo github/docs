@@ -1,16 +1,18 @@
 ---
 title: Running scripts before or after a job
+shortTitle: Run scripts
 intro: 'Scripts can automatically execute on a self-hosted runner, directly before or after a job.'
 redirect_from:
   - /actions/hosting-your-own-runners/running-scripts-before-or-after-a-job
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/running-scripts-before-or-after-a-job
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/running-scripts-before-or-after-a-job
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-shortTitle: Run a script before or after a job
 ---
+
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About pre- and post-job scripts
 

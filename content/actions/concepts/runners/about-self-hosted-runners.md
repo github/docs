@@ -35,7 +35,7 @@ You can use self-hosted runners anywhere in the management hierarchy. Repository
 {% ifversion ghec or ghes %}
 To get hands-on experience with the policies and usage of self-hosted runners, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)
 {% else %}
-To set up a self-hosted runner in your workspace, see [AUTOTITLE](/actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+To set up a self-hosted runner in your workspace, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners/adding-self-hosted-runners).
 {% endif %}
 
 To find information about the requirements and supported software and hardware for self-hosted runners, see [AUTOTITLE](/actions/reference/self-hosted-runners-reference).

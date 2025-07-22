@@ -173,7 +173,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Hosting your own runners
 
-If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners).
+If your jobs require specific hardware or software, {% data variables.product.prodname_actions %} allows you to host your own runners and send your jobs to them for processing. {% data variables.product.prodname_actions %} also lets you use policies to control how these runners are accessed, granting access at the organization or repository level. For more information, see [AUTOTITLE](/actions/how-tos/managing-self-hosted-runners).
 
 {% ifversion fpt or ghec %}
 
