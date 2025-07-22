@@ -1,6 +1,6 @@
 ---
 title: Managing access to self-hosted runners using groups
-shortTitle: Manage access with runner groups
+shortTitle: Manage access
 intro: You can use policies to limit access to self-hosted runners that have been added to an organization{% ifversion ghec or ghes %} or enterprise{% endif %}.
 permissions: 'Enterprise accounts, organizations owned by enterprise accounts, and organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_user %} plans can create and manage additional runner groups using self-hosted runners.<br><br>{% ifversion custom-org-roles %}Users with the "Manage organization runners and runner groups" permission can manage runner groups at the organization level.{% endif %}'
 redirect_from:
@@ -8,18 +8,14 @@ redirect_from:
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About runner groups
-
-{% data reusables.actions.about-runner-groups %}
 
 ## Creating a self-hosted runner group for an organization
 

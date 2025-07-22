@@ -11,8 +11,8 @@ children:
   - /managing-workflow-runs-and-deployments
   - /sharing-automations
   - /using-github-hosted-runners
+  - /managing-self-hosted-runners
   - /using-larger-runners
-  - /hosting-your-own-runners
   - /security-for-github-actions
   - /use-cases-and-examples
   - /administering-github-actions
@@ -22,5 +22,6 @@ children:
 redirect_from:
   - /actions/how-tos/monitoring-and-troubleshooting-workflows
   - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners
 ---
 

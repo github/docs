@@ -1,16 +1,16 @@
 ---
 title: Using a proxy server with self-hosted runners
+shortTitle: Use proxy servers
 intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.github %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
   - /actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/using-a-proxy-server-with-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
-shortTitle: Proxy servers
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

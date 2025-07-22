@@ -16,11 +16,7 @@ redirect_from:
 > [!NOTE]
 > {% data reusables.actions.windows-linux-larger-runners-note %}
 
-## About runner groups
-
-{% data reusables.actions.about-runner-groups %}
-
-### Managing access to your runners
+## Managing access to larger runners
 
 > [!NOTE]
 > Before your workflows can send jobs to {% data variables.actions.hosted_runner %}s, you must first configure permissions for the runner group. See the following sections for more information.

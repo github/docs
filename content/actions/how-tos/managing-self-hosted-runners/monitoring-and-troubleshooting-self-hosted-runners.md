@@ -1,5 +1,6 @@
 ---
 title: Monitoring and troubleshooting self-hosted runners
+shortTitle: Monitor and troubleshoot
 intro: You can monitor your self-hosted runners to view their activity and diagnose common issues.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/checking-the-status-of-self-hosted-runners
@@ -7,13 +8,12 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/checking-the-status-of-self-hosted-runners
   - /actions/hosting-your-own-runners/checking-the-status-of-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners
+  - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: tutorial
 defaultPlatform: linux
-shortTitle: Monitor & troubleshoot
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
