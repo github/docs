@@ -10,6 +10,13 @@ versions:
 topics:
   - Copilot
 layout: category-landing
+spotlight:
+  - article: /testing-code/generate-unit-tests
+    image: /assets/images/copilot-landing/generating_unit_tests.png
+  - article: /refactoring-code/improving-code-readability-and-maintainability
+    image: /assets/images/copilot-landing/improving_code_readability.png
+  - article: /debugging-errors/debugging-invalid-json
+    image: /assets/images/copilot-landing/debugging_invalid_json.png
 children:
   - /debugging-errors
   - /functionality-analysis-and-feature-suggestions

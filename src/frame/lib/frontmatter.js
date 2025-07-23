@@ -291,6 +291,26 @@ export const schema = {
       type: 'string',
     },
     // END category landing tags
+    // Spotlight configuration for category landing pages
+    spotlight: {
+      type: 'array',
+      items: {
+        type: 'object',
+        required: ['article', 'image'],
+        properties: {
+          article: {
+            type: 'string',
+            description: 'Path to the article to spotlight',
+          },
+          image: {
+            type: 'string',
+            description: 'Path to image for the spotlight card',
+          },
+        },
+        additionalProperties: false,
+      },
+      description: 'Array of articles to feature in the spotlight section',
+    },
   },
 }
 

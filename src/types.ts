@@ -55,6 +55,7 @@ export type PageFrontmatter = {
   defaultPlatform?: 'mac' | 'windows' | 'linux'
   defaultTool?: string
   childGroups?: ChildGroup[]
+  spotlight?: SpotlightItem[]
 }
 
 type FeaturedLinks = {
@@ -75,6 +76,11 @@ export type ChildGroup = {
   octicon: string
   children: string[]
   icon?: string
+}
+
+export type SpotlightItem = {
+  article: string
+  image: string
 }
 
 export type Product = {
