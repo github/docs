@@ -27,4 +27,5 @@ children:
   - /self-hosted-runners-reference
   - /supplemental-arguments-and-settings
   - /extending-github-actions-importer-with-custom-transformers
+  - /workflow-cancellation-reference
 ---

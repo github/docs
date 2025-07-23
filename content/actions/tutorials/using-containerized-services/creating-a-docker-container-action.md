@@ -9,6 +9,7 @@ redirect_from:
   - /actions/building-actions/creating-a-docker-container-action
   - /actions/creating-actions/creating-a-docker-container-action
   - /actions/sharing-automations/creating-actions/creating-a-docker-container-action
+  - /actions/tutorials/creating-a-docker-container-action
 versions:
   fpt: '*'
   ghes: '*'

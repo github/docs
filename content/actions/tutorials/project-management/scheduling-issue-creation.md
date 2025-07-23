@@ -6,6 +6,7 @@ redirect_from:
   - /actions/guides/scheduling-issue-creation
   - /actions/managing-issues-and-pull-requests/scheduling-issue-creation
   - /actions/use-cases-and-examples/project-management/scheduling-issue-creation
+  - /actions/how-tos/use-cases-and-examples/project-management/scheduling-issue-creation
 versions:
   fpt: '*'
   ghes: '*'

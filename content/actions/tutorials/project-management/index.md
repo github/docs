@@ -16,5 +16,7 @@ redirect_from:
   - /actions/use-cases-and-examples/project-management
   - /actions/how-tos/use-cases-and-examples/project-management/moving-assigned-issues-on-project-boards
   - /actions/how-tos/use-cases-and-examples/project-management/removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /actions/how-tos/use-cases-and-examples/project-management
+  - /actions/examples
 ---
 
