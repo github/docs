@@ -5,6 +5,7 @@ redirect_from:
   - /actions/guides/commenting-on-an-issue-when-a-label-is-added
   - /actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added
   - /actions/use-cases-and-examples/project-management/commenting-on-an-issue-when-a-label-is-added
+  - /actions/how-tos/use-cases-and-examples/project-management/commenting-on-an-issue-when-a-label-is-added
 versions:
   fpt: '*'
   ghes: '*'

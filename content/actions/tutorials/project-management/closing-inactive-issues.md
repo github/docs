@@ -6,6 +6,7 @@ redirect_from:
   - /actions/guides/closing-inactive-issues
   - /actions/managing-issues-and-pull-requests/closing-inactive-issues
   - /actions/use-cases-and-examples/project-management/closing-inactive-issues
+  - /actions/how-tos/use-cases-and-examples/project-management/closing-inactive-issues
 versions:
   fpt: '*'
   ghes: '*'

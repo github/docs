@@ -12,7 +12,9 @@ redirect_from:
   - /actions/guides/using-databases-and-service-containers
   - /actions/using-containerized-services
   - /actions/use-cases-and-examples/using-containerized-services
+  - /actions/how-tos/use-cases-and-examples/using-containerized-services
 children:
+  - /creating-a-docker-container-action
   - /creating-postgresql-service-containers
   - /creating-redis-service-containers
 ---

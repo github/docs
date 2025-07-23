@@ -6,6 +6,7 @@ redirect_from:
   - /actions/guides/adding-labels-to-issues
   - /actions/managing-issues-and-pull-requests/adding-labels-to-issues
   - /actions/use-cases-and-examples/project-management/adding-labels-to-issues
+  - /actions/how-tos/use-cases-and-examples/project-management/adding-labels-to-issues
 versions:
   fpt: '*'
   ghes: '*'

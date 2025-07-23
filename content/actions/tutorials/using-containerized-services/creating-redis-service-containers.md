@@ -8,6 +8,7 @@ redirect_from:
   - /actions/guides/creating-redis-service-containers
   - /actions/using-containerized-services/creating-redis-service-containers
   - /actions/use-cases-and-examples/using-containerized-services/creating-redis-service-containers
+  - /actions/how-tos/use-cases-and-examples/using-containerized-services/creating-redis-service-containers
 versions:
   fpt: '*'
   ghes: '*'
