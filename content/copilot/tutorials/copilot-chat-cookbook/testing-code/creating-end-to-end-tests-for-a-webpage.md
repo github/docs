@@ -1,10 +1,11 @@
 ---
-title: Create end-to-end tests for a webpage
+title: Creating end-to-end tests for a webpage
 shortTitle: Create end-to-end tests
 intro: '{% data variables.copilot.copilot_chat_short %} can help with generating end-to-end tests.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/testing-code/create-end-to-end-tests-for-a-webpage
   - /copilot/copilot-chat-cookbook/testing-code/create-end-to-end-tests-for-a-webpage
+  - /copilot/tutorials/copilot-chat-cookbook/testing-code/create-end-to-end-tests-for-a-webpage
 versions:
   feature: copilot
 category:

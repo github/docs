@@ -1,6 +1,5 @@
 ---
-title: Understanding and managing requests in Copilot
-shortTitle: Understand and manage requests
+title: Requests in GitHub Copilot
 intro: 'Learn about requests in {% data variables.product.prodname_copilot_short %}, including premium requests, how they work, and how to manage your usage effectively.'
 versions:
   feature: copilot
@@ -11,6 +10,7 @@ redirect_from:
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage/understanding-and-managing-requests-in-copilot
+  - /copilot/concepts/copilot-billing/understanding-and-managing-requests-in-copilot
 ---
 
 > [!IMPORTANT]

@@ -26,7 +26,7 @@ For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/
 
 ## Managing premium requests
 
-Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/understanding-and-managing-requests-in-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
+Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
 
 ### Tracking premium request usage
 

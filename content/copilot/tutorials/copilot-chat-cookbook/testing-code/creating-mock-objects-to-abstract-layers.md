@@ -1,10 +1,11 @@
 ---
-title: Create mock objects to abstract layers
+title: Creating mock objects to abstract layers
 shortTitle: Create mock objects
 intro: '{% data variables.copilot.copilot_chat_short %} can help with creating mock objects that you can use for unit tests.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/testing-code/create-mock-objects-to-abstract-layers
   - /copilot/copilot-chat-cookbook/testing-code/create-mock-objects-to-abstract-layers
+  - /copilot/tutorials/copilot-chat-cookbook/testing-code/create-mock-objects-to-abstract-layers
 versions:
   feature: copilot
 category:
