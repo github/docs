@@ -35,8 +35,6 @@ You can see a list of your running and past agent sessions on the Agents page at
 
 You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
-![Screenshot of the Agents page with several sessions, including one currently in progress.](/assets/images/help/copilot/coding-agent/agents-page.png)
-
 For each session listed below the prompt field, you can see its status at a glance, or click on it to navigate to the linked pull request.
 
 To view the session logs, click through to the pull request in the list, then find the "{% data variables.product.prodname_copilot_short %} started work..." event in the timeline, and then click **View session**.
