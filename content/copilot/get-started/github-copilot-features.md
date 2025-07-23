@@ -55,7 +55,7 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 ### {% data variables.product.prodname_copilot_short %} custom instructions
 
-Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses).
+Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
 
 ### {% data variables.copilot.copilot_desktop_short %}
 

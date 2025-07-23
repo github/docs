@@ -37,6 +37,9 @@ You do not need to authorize SSH certificates signed by your organization's SSH 
    ![Screenshot of the "Authentication Keys" section. Next to a key, a dropdown menu, labeled "Configure SSO," is outlined in orange.](/assets/images/help/settings/ssh-sso-button.png)
 1. In the dropdown menu, to the right of the organization you'd like to authorize the SSH key for, click **Authorize**.
 
+> [!NOTE]
+> When authorizing an SSH key for use within an organization that belongs to an enterprise which has both an IP allow list and single sign-on enabled at the enterprise level, your IP must also be allowed at the enterprise level. See [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
+
 ## Further reading
 
 * [AUTOTITLE](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)

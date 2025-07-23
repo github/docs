@@ -50,7 +50,7 @@ Content exclusions also apply to {% data variables.copilot.copilot_code-review_s
 
 {% data reusables.copilot.content-exclusion-limitations %}
 
-Currently, content exclusions do not apply to symbolic links (symlinks).
+Currently, content exclusions do not apply to symbolic links (symlinks) and repositories located on remote filesystems.
 
 ### Data sent to {% data variables.product.prodname_dotcom %}
 

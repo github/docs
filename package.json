@@ -100,6 +100,7 @@
     "unallowed-contributions": "tsx src/workflows/unallowed-contributions.ts",
     "update-data-and-image-paths": "tsx src/early-access/scripts/update-data-and-image-paths.ts",
     "update-enterprise-dates": "tsx src/ghes-releases/scripts/update-enterprise-dates.ts",
+    "update-filepaths": "tsx src/content-render/scripts/update-filepaths.ts",
     "update-internal-links": "tsx src/links/scripts/update-internal-links.ts",
     "validate-asset-images": "tsx src/assets/scripts/validate-asset-images.ts",
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",

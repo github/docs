@@ -8,11 +8,9 @@ introLinks:
 featuredLinks:
   startHere:
     - /actions/how-tos/writing-workflows
-    - /actions/how-tos/use-cases-and-examples
+    - /actions/tutorials
     - /actions/concepts/overview/continuous-integration
-    - /actions/tutorials/deploying-with-github-actions
     - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
-    - /actions/how-tos/monitoring-and-troubleshooting-workflows
   guideCards:
     - /actions/how-tos/writing-workflows/using-workflow-templates
     - /actions/tutorials/publishing-packages/publishing-nodejs-packages
@@ -20,7 +18,6 @@ featuredLinks:
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/how-tos/writing-workflows
-    - /actions/how-tos/use-cases-and-examples
 changelog:
   label: actions
 redirect_from:

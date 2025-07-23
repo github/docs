@@ -85,7 +85,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %} are the included models, and do not consume any premium requests if you are on a **paid plan**.
 
-If you use **{% data variables.copilot.copilot_free_short %}**, you have access to a limited number of models, and each model will consume one premium request when used. For example, if you make a request using the {% data variables.copilot.copilot_o3_mini %} model, your interaction will consume **one premium request**, not 0.33 premium requests.
+If you use **{% data variables.copilot.copilot_free_short %}**, you have access to a limited number of models, and each model will consume one premium request when used. For example, if you make a request using the {% data variables.copilot.copilot_gemini_flash %} model, your interaction will consume **one premium request**, not 0.25 premium requests.
 
 {% rowheaders %}
 
@@ -101,7 +101,6 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                           | 1                     |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                              | Not applicable        |
 | {% data variables.copilot.copilot_o3 %}                                 | 1                              | Not applicable        |
-| {% data variables.copilot.copilot_o3_mini %}                            | 0.33                           | 1                     |
 | {% data variables.copilot.copilot_o4_mini %}                            | 0.33                           | Not applicable        |
 
 {% endrowheaders %}

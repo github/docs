@@ -869,6 +869,33 @@
       },
       {
         "category": "teams",
+        "slug": "get-a-team-by-name",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "update-a-team",
+        "subcategory": "teams",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/teams/{team_slug}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "delete-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
         "slug": "list-a-connection-between-an-external-group-and-a-team",
         "subcategory": "external-groups",
         "verb": "get",
@@ -891,6 +918,42 @@
         "subcategory": "external-groups",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-team-members",
+        "subcategory": "members",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/members",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "get-team-membership-for-a-user",
+        "subcategory": "members",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-membership-for-a-user",
+        "subcategory": "members",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-team-membership-for-a-user",
+        "subcategory": "members",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}",
         "additional-permissions": false,
         "access": "write"
       },
@@ -932,6 +995,87 @@
       },
       {
         "category": "teams",
+        "slug": "list-team-repositories",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-repository",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-repository-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-repository-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "list-child-teams",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/teams",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "get-a-team-legacy",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "update-a-team-legacy",
+        "subcategory": "teams",
+        "verb": "patch",
+        "requestPath": "/teams/{team_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "delete-a-team-legacy",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-team-members-legacy",
+        "subcategory": "members",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/members",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
         "slug": "get-team-member-legacy",
         "subcategory": "members",
         "verb": "get",
@@ -956,6 +1100,78 @@
         "requestPath": "/teams/{team_id}/members/{username}",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "get-team-membership-for-a-user-legacy",
+        "subcategory": "members",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/memberships/{username}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-membership-for-a-user-legacy",
+        "subcategory": "members",
+        "verb": "put",
+        "requestPath": "/teams/{team_id}/memberships/{username}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-team-membership-for-a-user-legacy",
+        "subcategory": "members",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}/memberships/{username}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-team-repositories-legacy",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/repos",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-repository-legacy",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-repository-permissions-legacy",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-repository-from-a-team-legacy",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "list-child-teams-legacy",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/teams",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "orgs",
@@ -1144,24 +1360,6 @@
     "displayTitle": "Organization permissions for \"Projects\"",
     "permissions": [
       {
-        "category": "projects",
-        "slug": "list-organization-projects",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projects",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "create-an-organization-project",
-        "subcategory": "projects",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/projects",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
         "category": "teams",
         "slug": "add-or-update-team-project-permissions",
         "subcategory": "teams",
@@ -1178,177 +1376,6 @@
         "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
         "additional-permissions": true,
         "access": "admin"
-      },
-      {
-        "category": "projects",
-        "slug": "get-a-project-card",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-an-existing-project-card",
-        "subcategory": "cards",
-        "verb": "patch",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-a-project-card",
-        "subcategory": "cards",
-        "verb": "delete",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "move-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/cards/{card_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "get-a-project-column",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-an-existing-project-column",
-        "subcategory": "columns",
-        "verb": "patch",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-a-project-column",
-        "subcategory": "columns",
-        "verb": "delete",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-cards",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}/cards",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "create-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/cards",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "move-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "get-a-project",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "update-a-project",
-        "subcategory": "projects",
-        "verb": "patch",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "delete-a-project",
-        "subcategory": "projects",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-collaborators",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects",
-        "slug": "add-project-collaborator",
-        "subcategory": "collaborators",
-        "verb": "put",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects",
-        "slug": "remove-user-as-a-collaborator",
-        "subcategory": "collaborators",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects",
-        "slug": "get-project-permission-for-a-user",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects",
-        "slug": "list-project-columns",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects",
-        "slug": "create-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "write"
       }
     ]
   },
@@ -1675,6 +1702,114 @@
     "displayTitle": "Organization permissions for \"Team discussions\"",
     "permissions": [
       {
+        "category": "teams",
+        "slug": "list-discussions",
+        "subcategory": "discussions",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "create-a-discussion",
+        "subcategory": "discussions",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "get-a-discussion",
+        "subcategory": "discussions",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "update-a-discussion",
+        "subcategory": "discussions",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "delete-a-discussion",
+        "subcategory": "discussions",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-discussion-comments",
+        "subcategory": "discussion-comments",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "create-a-discussion-comment",
+        "subcategory": "discussion-comments",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "get-a-discussion-comment",
+        "subcategory": "discussion-comments",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "update-a-discussion-comment",
+        "subcategory": "discussion-comments",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "delete-a-discussion-comment",
+        "subcategory": "discussion-comments",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "reactions",
+        "slug": "list-reactions-for-a-team-discussion-comment",
+        "subcategory": "reactions",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "reactions",
+        "slug": "create-reaction-for-a-team-discussion-comment",
+        "subcategory": "reactions",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "reactions",
         "slug": "delete-team-discussion-comment-reaction",
         "subcategory": "reactions",
@@ -1685,10 +1820,154 @@
       },
       {
         "category": "reactions",
+        "slug": "list-reactions-for-a-team-discussion",
+        "subcategory": "reactions",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "reactions",
+        "slug": "create-reaction-for-a-team-discussion",
+        "subcategory": "reactions",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "reactions",
         "slug": "delete-team-discussion-reaction",
         "subcategory": "reactions",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-discussions-legacy",
+        "subcategory": "discussions",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/discussions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "create-a-discussion-legacy",
+        "subcategory": "discussions",
+        "verb": "post",
+        "requestPath": "/teams/{team_id}/discussions",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "get-a-discussion-legacy",
+        "subcategory": "discussions",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "update-a-discussion-legacy",
+        "subcategory": "discussions",
+        "verb": "patch",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "delete-a-discussion-legacy",
+        "subcategory": "discussions",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-discussion-comments-legacy",
+        "subcategory": "discussion-comments",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "create-a-discussion-comment-legacy",
+        "subcategory": "discussion-comments",
+        "verb": "post",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "get-a-discussion-comment-legacy",
+        "subcategory": "discussion-comments",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "update-a-discussion-comment-legacy",
+        "subcategory": "discussion-comments",
+        "verb": "patch",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "delete-a-discussion-comment-legacy",
+        "subcategory": "discussion-comments",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "reactions",
+        "slug": "list-reactions-for-a-team-discussion-comment-legacy",
+        "subcategory": "reactions",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "reactions",
+        "slug": "create-reaction-for-a-team-discussion-comment-legacy",
+        "subcategory": "reactions",
+        "verb": "post",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "reactions",
+        "slug": "list-reactions-for-a-team-discussion-legacy",
+        "subcategory": "reactions",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "reactions",
+        "slug": "create-reaction-for-a-team-discussion-legacy",
+        "subcategory": "reactions",
+        "verb": "post",
+        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions",
         "additional-permissions": false,
         "access": "write"
       }
@@ -2281,6 +2560,24 @@
         "verb": "post",
         "requestPath": "/orgs/{org}/repos",
         "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-repository-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-repository-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -3184,6 +3481,24 @@
         "access": "write"
       },
       {
+        "category": "teams",
+        "slug": "add-or-update-team-repository-permissions-legacy",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-repository-from-a-team-legacy",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
         "category": "repos",
         "slug": "create-a-repository-for-the-authenticated-user",
         "subcategory": "repos",
@@ -3749,6 +4064,24 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/merge",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-readme",
+        "subcategory": "contents",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/readme",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "get-a-repository-readme-for-a-directory",
+        "subcategory": "contents",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/readme/{dir}",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "releases",
@@ -4675,6 +5008,33 @@
         "access": "read"
       },
       {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-repository",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-repository-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-repository-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "repos",
         "slug": "get-a-repository",
         "subcategory": "repos",
@@ -4924,6 +5284,33 @@
         "verb": "get",
         "requestPath": "/search/labels",
         "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-repository-legacy",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-repository-permissions-legacy",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-repository-from-a-team-legacy",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/teams/{team_id}/repos/{owner}/{repo}",
+        "additional-permissions": true,
         "access": "read"
       },
       {
