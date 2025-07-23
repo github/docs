@@ -1,16 +1,15 @@
 ---
-title: About Actions Runner Controller
-shortTitle: About ARC
+title: Actions Runner Controller
 intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 topics:
   - Actions Runner Controller
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller
+  - /actions/concepts/runners/about-actions-runner-controller
 ---
 
 ## About {% data variables.product.prodname_actions_runner_controller %}
@@ -146,18 +145,6 @@ RUN curl -f -L -o runner-container-hooks.zip https://github.com/actions/runner-c
 USER runner
 ```
 
-## Executing workflows
-
-After installation and configuration are complete, you can use ARC to execute workflow runs. A workflow can be created in the same repository that can target a self hosted runner created by ARC. For more information about targeting workflows to run on self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow).
-
-### Using ARC runners in a workflow
-
-{% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
-
-## Scaling runners
-
-You can scale runners statically or dynamically depending on your needs. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners).
-
 ## Software installed in the ARC runner image
 
 The ARC [runner image](https://github.com/actions/runner/pkgs/container/actions-runner) is bundled with the following software:
@@ -183,3 +170,11 @@ The supported runner image is released as a separate container image, which you 
 ## Legal notice
 
 {% data reusables.actions.actions-runner-controller-legal-notice %}
+
+## Next steps
+
+When you're ready to use ARC to execute workflows, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
+
+{% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow).
+
+You can scale runners statically or dynamically depending on your needs. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners).

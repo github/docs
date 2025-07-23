@@ -1,15 +1,15 @@
 ---
-title: About runner scale sets
-shortTitle: Runner scale sets
+title: Runner scale sets
 intro: 'Learn about what a runner scale set is and how they can interact with the {% data variables.product.prodname_actions_runner_controller %}.'
 layout: inline
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
 topics:
   - Actions Runner Controller
+redirect_from:
+  - /actions/concepts/runners/about-runner-scale-sets
 ---
 
 ## About runner scale sets

@@ -1,12 +1,12 @@
 ---
-title: About runner groups
-shortTitle: Runner groups
+title: Runner groups
 intro: 'Learn about what a runner group is, and how to use them to control access to runners at the organization{% ifversion ghec or ghes %} and/or enterprise levels{% else %} level.{% endif %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-type: overview
+redirect_from:
+  - /actions/concepts/runners/about-runner-groups
 ---
 
 ## About runner groups
