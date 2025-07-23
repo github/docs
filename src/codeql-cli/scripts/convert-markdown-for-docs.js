@@ -20,7 +20,11 @@ const END_SECTION = '\n:::'
 const PROGRAM_SECTION = '::: {.program}\n'
 
 // Updates several properties of the Markdown file using the AST
-export async function convertContentToDocs(content, frontmatterDefaults = {}) {
+export async function convertContentToDocs(
+  content,
+  frontmatterDefaults = {},
+  currentFileName = '',
+) {
   const ast = fromMarkdown(content)
 
   let depth = 0
@@ -160,11 +164,20 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
 
       // Remove the string {.interpreted-text role="doc"} from this node
       node.value = node.value.replace(/\n/g, ' ').replace('{.interpreted-text role="doc"}', '')
-      // Make the previous sibling node a link
-      link.type = 'link'
-      link.url = `${RELATIVE_LINK_PATH}/${linkPath}`
-      link.children = [{ type: 'text', value: linkText }]
-      delete link.value
+
+      // Check for circular links - if the link points to the same file we're processing
+      const currentFileBaseName = currentFileName.replace('.md', '')
+      if (currentFileBaseName && linkPath === currentFileBaseName) {
+        // Convert circular link to plain text instead of creating a link
+        link.type = 'text'
+        link.value = linkText
+      } else {
+        // Make the previous sibling node a link
+        link.type = 'link'
+        link.url = `${RELATIVE_LINK_PATH}/${linkPath}`
+        link.children = [{ type: 'text', value: linkText }]
+        delete link.value
+      }
     }
 
     // Save any nodes that contain aka.ms links so we can convert them later
