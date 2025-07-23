@@ -120,6 +120,29 @@ describe('REST references docs', () => {
       }
     }
   })
+
+  test('markdown/raw endpoint shows request content types in example selector', async () => {
+    // Test the specific endpoint that has multiple examples with different request content types
+    const $ = await getDOM('/en/rest/markdown/markdown?apiVersion=2022-11-28')
+
+    // Find the render raw mode operation section by its specific ID
+    const rawModeSection = $('#render-a-markdown-document-in-raw-mode--code-samples').parent()
+    expect(rawModeSection.length).toBeGreaterThan(0)
+
+    // Should have an example selector dropdown since there are multiple examples
+    const exampleSelector = rawModeSection.find('select[aria-labelledby], select').first()
+    expect(exampleSelector.length).toBe(1)
+
+    // Get the option texts from the dropdown
+    const optionTexts = exampleSelector
+      .find('option')
+      .map((i, option) => $(option).text().trim())
+      .get()
+      .filter((text) => text.length > 0)
+
+    // Should show request content types since they differ between examples
+    expect(optionTexts).toEqual(['Example (text/plain)', 'Rendering markdown (text/x-markdown)'])
+  })
 })
 
 function formatErrors(differences) {
