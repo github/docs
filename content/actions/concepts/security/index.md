@@ -10,8 +10,8 @@ children:
   - /secrets
   - /github_token
   - /openid-connect
+  - /artifact-attestations
   - /script-injections
   - /compromised-runners
   - /kubernetes-admissions-controller
 ---
-
