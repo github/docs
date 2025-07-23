@@ -12,5 +12,6 @@ children:
   - /openid-connect
   - /script-injections
   - /compromised-runners
+  - /kubernetes-admissions-controller
 ---
 
