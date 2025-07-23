@@ -4,7 +4,7 @@ intro: 'Learn how to use subscription-based network routing to control {% data v
 permissions: Enterprise owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 shortTitle: Manage network access

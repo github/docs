@@ -5,7 +5,7 @@ intro: 'Disable {% data variables.product.prodname_copilot %} for some or all of
 permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 redirect_from:

@@ -5,7 +5,7 @@ intro: 'Customize {% data variables.copilot.copilot_chat %} responses for member
 permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} plan'
 versions:
-  feature: copilot-org-instructions
+  feature: copilot
 topics:
   - Copilot
 redirect_from:
