@@ -1,6 +1,6 @@
 ---
 title: Adding repository custom instructions for GitHub Copilot
-shortTitle: Repository custom instructions
+shortTitle: Add repository instructions
 intro: 'Create a file in a repository that gives {% data variables.product.prodname_copilot_short %} additional context for the work it does in that repository.'
 redirect_from:
   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot

@@ -1,6 +1,6 @@
 ---
 title: Provide context to GitHub Copilot
-shortTitle: Context
+shortTitle: Provide context
 intro: 'Learn how to give {% data variables.product.prodname_copilot %} relevant information to increase the quality of responses.'
 versions:
   feature: copilot
@@ -15,4 +15,3 @@ children:
 redirect_from:
   - /copilot/customizing-copilot
 ---
-

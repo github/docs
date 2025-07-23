@@ -1,6 +1,6 @@
 ---
 title: Adding personal custom instructions for GitHub Copilot
-shortTitle: Personal custom instructions
+shortTitle: Add personal instructions
 intro: 'Customize {% data variables.copilot.copilot_chat %} responses to match your personal preferences.'
 versions:
   feature: copilot

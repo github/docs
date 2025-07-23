@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Copilot coding agent
-shortTitle: Troubleshooting
+shortTitle: Troubleshoot coding agent
 intro: 'Learn how to resolve problems that may occur when you assign tasks to {% data variables.product.prodname_copilot_short %}.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=troubleshooting+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
