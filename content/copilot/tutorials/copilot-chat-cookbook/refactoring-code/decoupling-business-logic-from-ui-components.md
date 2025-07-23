@@ -1,6 +1,6 @@
 ---
 title: Decoupling business logic from UI components
-shortTitle: Decoupling business logic
+shortTitle: Decouple business logic
 intro: '{% data variables.copilot.copilot_chat_short %} can help you separate your business logic from your user interface code, making it easier to maintain and scale your application.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/decoupling-business-logic-from-ui-components

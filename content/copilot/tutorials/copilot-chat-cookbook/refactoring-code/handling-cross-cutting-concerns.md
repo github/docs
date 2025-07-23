@@ -1,6 +1,6 @@
 ---
 title: Handling cross-cutting concerns
-shortTitle: Cross-cutting concerns
+shortTitle: Handle cross-cutting 
 intro: '{% data variables.copilot.copilot_chat_short %} can help you avoid code that relates to a concern other than the core concern of the method or function in which the code is located.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/handling-cross-cutting-concerns

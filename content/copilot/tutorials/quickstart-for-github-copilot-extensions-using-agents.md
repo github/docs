@@ -11,7 +11,7 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
 topics:
   - Copilot
-shortTitle: Extensions quickstart
+shortTitle: Try Extensions
 ---
 
 The [Blackbeard extension](https://github.com/copilot-extensions/blackbeard-extension) is a {% data variables.copilot.copilot_extension %} that comprises a {% data variables.product.prodname_github_app %} and a {% data variables.product.prodname_copilot_short %} agent. The agent responds to chat requests in the style of a pirate, using {% data variables.product.prodname_copilot_short %}'s large language model (LLM) API and special system prompts. See [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/about-copilot-agents).
