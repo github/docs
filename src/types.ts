@@ -55,6 +55,7 @@ export type PageFrontmatter = {
   defaultPlatform?: 'mac' | 'windows' | 'linux'
   defaultTool?: string
   childGroups?: ChildGroup[]
+  sidebarLink?: SidebarLink
   spotlight?: SpotlightItem[]
 }
 
@@ -373,6 +374,12 @@ export type Page = {
   category?: string[]
   complexity?: string[]
   industry?: string[]
+  sidebarLink?: SidebarLink
+}
+
+export type SidebarLink = {
+  text: string
+  href: string
 }
 
 type ChangeLog = {
@@ -388,6 +395,7 @@ export type TitlesTree = {
   documentType?: string
   childPages: TitlesTree[]
   hidden?: boolean
+  sidebarLink?: SidebarLink
   layout?: string
 }
 

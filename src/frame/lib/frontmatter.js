@@ -1,7 +1,7 @@
 // when updating to typescript,
 // update links in content/contributing as well
 
-import parse from './read-frontmatter'
+import parse from '@/frame/lib/read-frontmatter'
 import { allVersions } from '@/versions/lib/all-versions'
 import { allTools } from '@/tools/lib/all-tools'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
@@ -291,6 +291,20 @@ export const schema = {
       type: 'string',
     },
     // END category landing tags
+    // Custom sidebar link for category pages
+    sidebarLink: {
+      type: 'object',
+      required: ['text', 'href'],
+      properties: {
+        text: {
+          type: 'string',
+          translatable: true,
+        },
+        href: {
+          type: 'string',
+        },
+      },
+    },
     // Spotlight configuration for category landing pages
     spotlight: {
       type: 'array',
