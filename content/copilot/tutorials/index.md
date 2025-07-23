@@ -18,6 +18,8 @@ children:
   - /writing-tests-with-github-copilot
   - /refactoring-code-with-github-copilot
   - /learning-a-new-programming-language-with-github-copilot
+  - /building-your-first-app-in-minutes-with-github-spark
+  - /building-ai-app-prototypes
   - /modernizing-legacy-code-with-github-copilot
   - /using-copilot-to-migrate-a-project
   - /upgrading-projects-with-github-copilot

@@ -301,6 +301,10 @@ prodname_arctic_vault: 'Arctic Code Vault'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 
+# GitHub Spark
+prodname_spark: 'GitHub Spark'
+prodname_spark_short: 'Spark'
+
 # Windows
 prodname_windows_terminal: 'Windows Terminal'
 
