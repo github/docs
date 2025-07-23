@@ -1,12 +1,11 @@
 ---
-title: About private networking with GitHub-hosted runners
+title: Private networking with GitHub-hosted runners
 shortTitle: About private networking
 intro: '{% data reusables.actions.private-networking-intro %}'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 topics:
   - Actions
   - Action development
@@ -17,6 +16,7 @@ topics:
   - CD
 redirect_from:
   - /actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners
+  - /actions/concepts/runners/about-private-networking-with-github-hosted-runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

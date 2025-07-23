@@ -1,6 +1,5 @@
 ---
-title: About GitHub-hosted runners
-shortTitle: GitHub-hosted runners
+title: GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
@@ -14,6 +13,7 @@ redirect_from:
   - /actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners
   - /actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners
+  - /actions/concepts/runners/about-github-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'

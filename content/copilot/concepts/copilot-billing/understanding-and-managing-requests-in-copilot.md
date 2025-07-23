@@ -39,6 +39,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review) | When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, **one premium request** is used each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. |
 | [{% data variables.copilot.copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions) | {% data variables.copilot.copilot_extensions_short %} uses **one premium request** per user prompt, multiplied by the model's rate. |
 | [{% data variables.copilot.copilot_spaces %}](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. |
+| [{% data variables.product.prodname_spark_short %}](/copilot/tutorials/building-ai-app-prototypes) | Each prompt to {% data variables.product.prodname_spark_short %} uses a fixed rate of **four premium requests**. |
 
 ## How do request allowances work per plan?
 

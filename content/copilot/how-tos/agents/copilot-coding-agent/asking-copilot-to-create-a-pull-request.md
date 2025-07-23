@@ -35,11 +35,14 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
 1. Using the dropdown menu in the prompt field, select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
+
 1. Type a prompt describing your request.
 
     For example, `Implement a user friendly message for common errors.`
 
   ![Screenshot of asking Copilot to create a pull request from the Agents page.](/assets/images/help/copilot/coding-agent/agents-page-input.png)
+
+1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request. {% data variables.product.prodname_copilot_short %} will create a new branch based on this branch, then push its changes to a pull request targeting that branch.
 
 1. Click the **Send now** button or press <kbd>Return</kbd>.
 

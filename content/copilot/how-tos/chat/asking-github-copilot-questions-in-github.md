@@ -1,6 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in GitHub
-shortTitle: Chat in GitHub
+shortTitle: Use Chat in GitHub
 intro: 'You can use {% data variables.copilot.copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.'
 versions:
   feature: copilot

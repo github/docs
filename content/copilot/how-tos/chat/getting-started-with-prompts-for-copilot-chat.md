@@ -11,7 +11,7 @@ redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat
   - /copilot/using-github-copilot/copilot-chat/getting-started-with-prompts-for-copilot-chat
   - /copilot/get-started/getting-started-with-prompts-for-copilot-chat
-shortTitle: Get started with chat
+shortTitle: Get started with Chat
 ---
 
 You can ask {% data variables.copilot.copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.copilot.copilot_chat_short %} to write code, fix errors, write tests, and document code.

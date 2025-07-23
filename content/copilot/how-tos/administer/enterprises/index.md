@@ -3,7 +3,7 @@ title: Managing GitHub Copilot in your enterprise
 shortTitle: Manage for enterprise
 intro: 'Enterprise owners can subscribe to {% data variables.product.prodname_copilot_short %}, manage {% data variables.product.prodname_copilot_short %} for organizations in the enterprise, and control {% data variables.product.prodname_copilot_short %} policies.'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 children:

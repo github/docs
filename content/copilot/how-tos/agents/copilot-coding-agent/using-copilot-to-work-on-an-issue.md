@@ -1,5 +1,6 @@
 ---
 title: Using Copilot to work on an issue
+shortTitle: Assign Copilot to an issue
 intro: 'Learn how to assign issues to {% data variables.product.prodname_copilot %}, monitor progress as {% data variables.product.prodname_copilot_short %} works on the issue, and then use pull request review comments to prompt {% data variables.product.prodname_copilot_short %} to iterate on its work.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+copilot+to+work+on+an+issue&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:

@@ -1,17 +1,16 @@
 ---
-title: About self-hosted runners
-shortTitle: Self-hosted runners
+title: Self-hosted runners
 intro: 'You can host your own runners and customize the environment used to run jobs in your {% data variables.product.prodname_actions %} workflows.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/automating-your-workflow-with-github-actions/about-self-hosted-runners
   - /actions/hosting-your-own-runners/about-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners
+  - /actions/concepts/runners/about-self-hosted-runners
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-type: overview
 ---
 
 A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% data variables.product.github %}.

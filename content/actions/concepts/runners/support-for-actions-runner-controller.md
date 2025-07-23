@@ -1,7 +1,7 @@
 ---
-title: About support for Actions Runner Controller
+title: Support for Actions Runner Controller
+shortTitle: Support for ARC
 intro: 'What to know before you [contact {% data variables.contact.github_support %}](support/contacting-github-support) for assistance with Actions Runner Controller.'
-shortTitle: About Support for ARC
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,11 +11,10 @@ topics:
   - Support
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller
+  - /actions/concepts/runners/about-support-for-actions-runner-controller
 ---
 
-You can [contact {% data variables.contact.github_support %}](/support/contacting-github-support) for assistance with Actions Runner Controller.
-
-## About support for Actions Runner Controller Versions
+## Overview
 
 The Actions Runner Controller (ARC) project [was adopted by GitHub](https://github.com/actions/actions-runner-controller/discussions/2072) to release as a new GitHub product. As a result, there are currently two ARC releases: the legacy community-maintained ARC and GitHub's Autoscaling Runner Sets.
 

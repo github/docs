@@ -1,6 +1,6 @@
 ---
 title: Get suggestions from GitHub Copilot
-shortTitle: Completions
+shortTitle: Get code suggestions
 intro: 'Learn how to use {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
@@ -11,4 +11,3 @@ children:
   - /using-copilot-text-completion
   - /finding-public-code-that-matches-github-copilot-suggestions
 ---
-

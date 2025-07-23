@@ -14,7 +14,7 @@ redirect_from:
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-enterprise
 ---
 
-## About {% data variables.product.prodname_actions %} access to internal and private repositories
+## Overview
 
 If your organization is owned by an enterprise account, you can share actions and reusable workflows within your enterprise, without publishing them publicly, by allowing {% data variables.product.prodname_actions %} workflows to access an internal or private repository that contains the action or reusable workflow.
 
