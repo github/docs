@@ -5,7 +5,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Common issues with GitHub Copilot
+shortTitle: Troubleshoot common issues
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot
   - /copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides

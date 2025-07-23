@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot GitHub Copilot
-shortTitle: Troubleshoot
+shortTitle: Troubleshoot Copilot
 intro: 'These guides provide information for troubleshooting {% data variables.product.prodname_copilot %}.'
 versions:
   fpt: '*'

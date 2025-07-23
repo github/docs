@@ -1,6 +1,6 @@
 ---
 title: Reviewing user activity data for Copilot in your organization
-shortTitle: User activity data
+shortTitle: Review user activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
 permissions: Organization owners
 product: 'Organizations with a plan to {% ifversion ghec %}{% data variables.copilot.copilot_enterprise_short %} or{% endif %} {% data variables.copilot.copilot_business_short %}'

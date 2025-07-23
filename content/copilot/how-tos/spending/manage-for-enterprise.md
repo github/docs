@@ -1,6 +1,6 @@
 ---
 title: Managing the premium request allowance for users in your enterprise
-shortTitle: Enterprise premium requests
+shortTitle: Manage for your enterprise
 intro: 'Change the default spending limit or upgrade users to {% data variables.copilot.copilot_enterprise_short %}.'
 permissions: 'Enterprise owners'
 versions:
