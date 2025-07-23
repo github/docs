@@ -471,4 +471,6 @@ export type MarkdownFrontmatter = {
   versions: FrontmatterVersions
   subcategory?: boolean
   hidden?: boolean
+  type?: string
+  contentType?: string
 }

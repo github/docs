@@ -17,7 +17,23 @@ const layoutNames = [
   false,
 ]
 
+// DEPRECATED: Use 'contentType' instead of 'type' for new content.
+// 'type' exists on ~40% of files but is used only for internal analytics.
+// Migration tool: src/content-render/scripts/add-content-type.ts
 const guideTypes = ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai']
+
+// As of July 2025, use 'contentType' rather than 'type'.
+export const contentTypesEnum = [
+  'get-started',
+  'concepts',
+  'how-tos',
+  'reference',
+  'tutorials',
+  'homepage', // Only applies to the sole 'content/index.md' file (the homepage).
+  'landing', // Only applies to 'content/<product>/index.md' files (product landings).
+  'rai', // Only applies to files that live in directories with 'responsible-use' in the name.
+  'other', // Everything else.
+]
 
 export const schema = {
   type: 'object',
@@ -150,9 +166,17 @@ export const schema = {
         prefix: { type: 'string' },
       },
     },
+    // DEPRECATED: Use 'contentType' instead of 'type' for new content.
+    // 'type' exists on ~40% of files but is used only for internal analytics.
+    // Migration tool: src/content-render/scripts/add-content-type.ts
     type: {
       type: 'string',
       enum: guideTypes,
+    },
+    // As of July 2025, use 'contentType' rather than 'type'.
+    contentType: {
+      type: 'string',
+      enum: contentTypesEnum,
     },
     topics: {
       type: 'array',
