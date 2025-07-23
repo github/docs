@@ -5,6 +5,7 @@ import type { Language as parserLanguage } from 'accept-language-parser'
 import languages, { languageKeys } from '@/languages/lib/languages'
 import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 import type { ExtendedRequest, Languages } from '@/types'
+import { updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
 const chineseRegions = [
   'CN', // Mainland
@@ -70,5 +71,9 @@ export default function detectLanguage(req: ExtendedRequest, res: Response, next
   if (!req.userLanguage) {
     req.userLanguage = getLanguageCodeFromHeader(req)
   }
+  updateLoggerContext({
+    language: req.language,
+    userLanguage: req.userLanguage,
+  })
   return next()
 }
