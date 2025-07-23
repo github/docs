@@ -1,6 +1,6 @@
 ---
 title: Reviewing audit logs for Copilot Business
-shortTitle: Audit logs
+shortTitle: Review audit logs
 intro: 'Review the audit logs for your {% data variables.copilot.copilot_business_short %} plan to understand what actions have been taken by which users.'
 redirect_from:
   - /copilot/managing-copilot-for-business/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-for-business

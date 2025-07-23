@@ -69,6 +69,10 @@ Organize and centralize relevant content—like code, docs, specs, and more—in
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.copilot.copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. See [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
+### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
+
+Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes).
+
 ## {% data variables.product.prodname_copilot %} features for administrators
 
 The following features are available to organization and enterprise owners with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan.

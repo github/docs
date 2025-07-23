@@ -1,6 +1,6 @@
 ---
 title: Managing the premium request allowance for users in your enterprise
-shortTitle: Enterprise premium requests
+shortTitle: Manage for your enterprise
 intro: 'Change the default spending limit or upgrade users to {% data variables.copilot.copilot_enterprise_short %}.'
 permissions: 'Enterprise owners'
 versions:
@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/how-tos/premium-requests/manage-for-enterprise
 ---
 
-Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/understanding-and-managing-requests-in-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
+Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).
 
 By default, every enterprise has a $0 budget for the Premium Request SKU. Unless this budget is edited or deleted, your enterprise will have **no extra costs** for premium requests: when one of your licensed users exhausts the allowance in their plan, the user's premium requests will be rejected for the rest of the month.
 

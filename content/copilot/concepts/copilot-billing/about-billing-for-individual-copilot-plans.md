@@ -52,6 +52,8 @@ You can cancel your {% data variables.product.prodname_copilot_short %} trial at
 
 Your {% data variables.product.prodname_copilot_short %} plan includes premium requests. Premium requests use more advanced models or features and count against your monthly premium request allowance.
 
+The premium request quota renews on the first day of the month, regardless of the subscription renewal date.
+
 To learn more about premium requests and how they affect your billing, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ### Purchasing additional premium requests

@@ -1,5 +1,5 @@
 ---
-title: Generate unit tests
+title: Generating unit tests
 shortTitle: Generate unit tests
 intro: '{% data variables.copilot.copilot_chat_short %} can help with generating unit tests for a function.'
 redirect_from:

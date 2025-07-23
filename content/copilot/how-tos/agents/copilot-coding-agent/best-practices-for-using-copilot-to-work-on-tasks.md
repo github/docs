@@ -1,6 +1,6 @@
 ---
 title: Best practices for using Copilot to work on tasks
-shortTitle: Best practices
+shortTitle: Get the best results
 intro: 'Learn how to get the best results from {% data variables.copilot.copilot_coding_agent %}.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=best+practices+for+using+copilot+to+work+on+tasks&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
@@ -70,7 +70,7 @@ By adding custom instructions to your repository, you can guide {% data variable
 
 If {% data variables.product.prodname_copilot_short %} is able to build, test and validate its changes in its own development environment, it is more likely to produce good pull requests which can be merged quickly.
 
-Add instructions to a `.github/copilot-instructions.md` file in the repository. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
+You can add instructions in a single `.github/copilot-instructions.md` file in the repository, or create one or more `.github/instructions/**/*.instructions.md` files applying to different files or directories in your repository. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
 
 Here is an example of an effective `copilot-instructions.md` file:
 
@@ -107,7 +107,7 @@ This is a Go based repository with a Ruby client for certain API endpoints. It i
 5. Document public APIs and complex logic. Suggest changes to the `docs/` folder when appropriate
 ```
 
-If you choose not to include a `.github/copilot-instructions.md` file in your repository, {% data variables.product.prodname_copilot_short %} will fall back to pre-existing custom instructions including `CLAUDE.md`, `AGENTS.md` and `GEMINI.md`.
+If you choose not to include any {% data variables.product.prodname_copilot_short %} instructions files in your repository, {% data variables.product.prodname_copilot_short %} will fall back to pre-existing custom instructions including `CLAUDE.md`, `AGENTS.md` and `GEMINI.md`.
 
 ## Using the Model Context Protocol (MCP)
 

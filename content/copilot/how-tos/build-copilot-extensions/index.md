@@ -1,6 +1,6 @@
 ---
 title: Copilot Extensions
-shortTitle: Copilot Extensions
+shortTitle: Use Copilot Extensions
 intro: 'Learn how to integrate external tools with {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
@@ -17,4 +17,3 @@ children:
 redirect_from:
   - /copilot/building-copilot-extensions
 ---
-

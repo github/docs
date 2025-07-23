@@ -78,7 +78,11 @@ For more information, see [AUTOTITLE](/actions/using-jobs).
 
 ### Actions
 
-An **action** is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your **workflow** files. An action can pull your Git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+An **action** is a pre-defined, reusable set of jobs or code that performs specific tasks within a **workflow**, reducing the amount of repetitive code you write in your workflow files. Actions can perform tasks such as:
+
+* Pulling your Git repository from {% data variables.product.prodname_dotcom %}
+* Setting up the correct toolchain for your build environment
+* Setting up authentication to your cloud provider
 
 You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
 

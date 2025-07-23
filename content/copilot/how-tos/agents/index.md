@@ -1,6 +1,6 @@
 ---
 title: Use GitHub Copilot agents
-shortTitle: Agents
+shortTitle: Use Copilot agents
 intro: 'Learn how to use {% data variables.product.prodname_copilot %} agents.'
 versions:
   feature: copilot
@@ -10,4 +10,3 @@ children:
   - /copilot-coding-agent
   - /copilot-code-review
 ---
-

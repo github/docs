@@ -106,11 +106,11 @@ childGroups:
     octicon: CopilotIcon
     children:
       - copilot
+      - copilot/get-started/plans-for-github-copilot
       - copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/concepts/prompt-engineering-for-copilot-chat
-      - copilot/how-tos/chat/asking-github-copilot-questions-in-github
       - copilot/tutorials/copilot-chat-cookbook
       - copilot/how-tos/agents/copilot-coding-agent
+      - copilot/how-tos/custom-instructions
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:

@@ -324,6 +324,19 @@ test('navigate with side bar into article inside a subcategory inside a category
   await expect(page).toHaveURL(/actions\/category\/subcategory\/article/)
 })
 
+test('sidebar custom link functionality works', async ({ page }) => {
+  // Test that sidebar functionality is not broken by custom links feature
+  await page.goto('/get-started')
+
+  await expect(page).toHaveTitle(/Getting started with HubGit/)
+
+  // Verify that regular sidebar navigation still works by clicking on known sections
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+  await page.getByTestId('product-sidebar').getByText('Hello World').click()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
+})
+
 test.describe('hover cards', () => {
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')

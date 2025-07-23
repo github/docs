@@ -6,7 +6,7 @@ topics:
   - Mobile
 versions:
   feature: copilot-chat-for-mobile
-shortTitle: Chat in Mobile
+shortTitle: Use Chat in Mobile
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile
   - /copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile

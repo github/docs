@@ -5,7 +5,7 @@ versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Context passing
+shortTitle: Use context passing
 type: how_to
 redirect_from:
   - /copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/context-passing-for-your-agent
@@ -65,7 +65,7 @@ The following code shows an example object for `client.file`:
     // The reference type.
     "type": "client.file",
     "data": {
-        // The full content of the active file. 
+        // The full content of the active file.
         "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
         "language": "plaintext"
     },

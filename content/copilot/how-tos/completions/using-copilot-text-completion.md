@@ -4,7 +4,7 @@ shortTitle: Write PR descriptions
 allowTitleToDifferFromFilename: true
 intro: 'Write pull request descriptions more quickly and accurately with {% data variables.copilot.copilot_autocomplete_pr %}.'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 type: how_to
 permissions: 'Members of an enterprise with a subscription to [{% data variables.copilot.copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
 topics:

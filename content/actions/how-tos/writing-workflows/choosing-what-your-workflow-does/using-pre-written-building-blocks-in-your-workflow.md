@@ -1,7 +1,7 @@
 ---
 title: Using pre-written building blocks in your workflow
 shortTitle: Find and customize actions
-intro: 'Actions are the building blocks that power your workflow. A workflow can contain actions created by the community, or you can create your own actions directly within your application''s repository. This guide will show you how to discover, use, and customize actions.'
+intro: 'You can use and customize pre-written actions to power your workflow.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-github-marketplace-actions
   - /actions/automating-your-workflow-with-github-actions/using-actions-from-github-marketplace-in-your-workflow
@@ -18,28 +18,6 @@ type: how_to
 topics:
   - Fundamentals
 ---
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Overview
-
-You can use pre-written building blocks, called actions, in your workflow. An action is a pre-defined, reusable set of jobs or code that perform specific tasks within a workflow.
-
-Actions can be:
-
-* **Reusable:** actions can be used across different workflows and repositories, allowing you to avoid rewriting the same code.
-* **Pre-written:** many actions are available in the {% data variables.product.prodname_marketplace %}, covering a wide range of tasks like checking out code, setting up environments, running tests, and deploying applications.
-* **Configurable:** you can configure actions with inputs, outputs, and environment variables to tailor them to your specific needs.
-* **Community-driven:** you can create your own actions and share them with others or use actions developed by the community.
-
-The actions you use in your workflow can be defined in:
-
-* The same repository as your workflow file{% ifversion ghec or ghes %}
-* An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
-* Any public repository
-* A published Docker container image on Docker Hub
-
-{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
@@ -59,7 +37,12 @@ You can search and browse actions directly in your repository's workflow editor.
 
 ## Adding an action to your workflow
 
-You can add an action to your workflow by referencing the action in your workflow file.
+You can add an action to your workflow by referencing the action in your workflow file. The actions you use in your workflow can be defined in:
+
+* The same repository as your workflow file{% ifversion ghec or ghes %}
+* An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
+* Any public repository
+* A published Docker container image on Docker Hub
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
@@ -182,7 +165,3 @@ outputs:
   results-file: # id of output
     description: "Path to results file"
 ```
-
-## Next steps
-
-To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions).

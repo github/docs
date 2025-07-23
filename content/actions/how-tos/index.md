@@ -15,7 +15,6 @@ children:
   - /managing-self-hosted-runners
   - /using-larger-runners
   - /security-for-github-actions
-  - /use-cases-and-examples
   - /administering-github-actions
   - /monitor-workflows
   - /troubleshooting-workflows

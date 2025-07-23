@@ -6996,7 +6996,7 @@
       "runner_group_id",
       "runner_group_name"
     ],
-    "docs_reference_titles": "About self-hosted runners"
+    "docs_reference_titles": "Self-hosted runners"
   },
   {
     "action": "org.set_actions_fork_pr_approvals_policy",
@@ -11379,7 +11379,7 @@
       "runner_group_id",
       "runner_group_name"
     ],
-    "docs_reference_titles": "About self-hosted runners"
+    "docs_reference_titles": "Self-hosted runners"
   },
   {
     "action": "repo.set_actions_fork_pr_approvals_policy",
