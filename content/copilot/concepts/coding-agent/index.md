@@ -8,9 +8,10 @@ versions:
 topics:
   - Copilot
 children:
-  - /about-copilot-coding-agent
-  - /about-enabling-coding-agent
+  - /coding-agent
+  - /enable-coding-agent
   - /mcp-and-coding-agent
+contentType: concepts
 ---
 
-These articles provide an overview of {% data variables.copilot.copilot_coding_agent %}. For instructions on configuring and using {% data variables.copilot.copilot_coding_agent %}, see the how-to articles under [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent).
+These articles provide an overview of {% data variables.copilot.copilot_coding_agent %}. For instructions on configuring and using {% data variables.copilot.copilot_coding_agent %}, see the how-to articles under [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent).

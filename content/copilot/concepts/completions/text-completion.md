@@ -8,6 +8,7 @@ versions:
 permissions: 'Members of an enterprise with a subscription to [{% data variables.copilot.copilot_enterprise %}](/copilot/github-copilot-enterprise/overview/about-github-copilot-enterprise)'
 topics:
   - Copilot
+contentType: concepts
 ---
 
 {% data reusables.copilot.text-completion-preview %}

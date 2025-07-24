@@ -2,11 +2,12 @@
 title: About coding guidelines for GitHub Copilot code review
 shortTitle: Coding guidelines
 allowTitleToDifferFromFilename: true
-intro: "Find out how you can use custom coding guidelines to improve {% data variables.product.prodname_copilot_short %}'s pull request reviews."
+intro: 'Find out how you can use custom coding guidelines to improve {% data variables.product.prodname_copilot_short %}''s pull request reviews.'
 versions:
   feature: copilot
 topics:
   - Copilot
+contentType: concepts
 ---
 
 {% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %} See [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot?tool=webui).

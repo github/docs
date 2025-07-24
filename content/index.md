@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /copilot/how-tos/get-code-suggestions/get-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -106,11 +106,11 @@ childGroups:
     octicon: CopilotIcon
     children:
       - copilot
-      - copilot/get-started/plans-for-github-copilot
-      - copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
+      - copilot/get-started/plans
+      - copilot/how-tos/get-code-suggestions/get-code-suggestions
       - copilot/tutorials/copilot-chat-cookbook
-      - copilot/how-tos/agents/copilot-coding-agent
-      - copilot/how-tos/custom-instructions
+      - copilot/how-tos/use-copilot-agents/coding-agent
+      - copilot/how-tos/configure-custom-instructions
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -153,7 +153,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/how-tos/build-copilot-extensions
+      - copilot/how-tos/use-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -193,3 +193,4 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
+

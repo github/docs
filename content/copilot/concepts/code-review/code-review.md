@@ -9,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/code-review
+contentType: concepts
 ---
 
 ## Introduction

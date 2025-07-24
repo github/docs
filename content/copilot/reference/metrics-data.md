@@ -1,12 +1,13 @@
 ---
 title: Metrics data properties for GitHub Copilot
 shortTitle: Metrics data
-intro: 'See how GitHub calculates properties from APIs and reports.'
+intro: See how GitHub calculates properties from APIs and reports.
 versions:
   feature: copilot
 topics:
   - Copilot
 allowTitleToDifferFromFilename: true
+contentType: reference
 ---
 
 ## `last_activity_at`

@@ -7,13 +7,14 @@ topics:
 versions:
   feature: copilot
 children:
-  - /setting-up-github-copilot-for-yourself
-  - /setting-up-github-copilot-for-your-organization
-  - /setting-up-github-copilot-for-your-enterprise
-  - /installing-the-github-copilot-extension-in-your-environment
-  - /installing-github-copilot-in-the-cli
+  - /set-up-for-self
+  - /set-up-for-organization
+  - /set-up-for-enterprise
+  - /install-copilot-extension
+  - /install-copilot-in-the-cli
 redirect_from:
   - /copilot/setting-up-github-copilot
   - /copilot/get-started/setting-up-github-copilot
+contentType: how-tos
 ---
 

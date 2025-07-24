@@ -7,6 +7,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
+contentType: concepts
 ---
 
 > [!NOTE]

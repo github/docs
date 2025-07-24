@@ -9,22 +9,24 @@ topics:
 children:
   - /copilot-chat-cookbook
   - /coding-agent
-  - /comparing-ai-models-using-different-tasks
-  - /enhancing-copilot-agent-mode-with-mcp
-  - /quickstart-for-github-copilot-extensions-using-agents
-  - /speeding-up-development-work-with-copilot-spaces
-  - /using-copilot-to-explore-a-codebase
-  - /using-copilot-to-explore-issues-and-discussions
-  - /using-copilot-to-explore-pull-requests
-  - /writing-tests-with-github-copilot
-  - /refactoring-code-with-github-copilot
-  - /learning-a-new-programming-language-with-github-copilot
-  - /building-your-first-app-in-minutes-with-github-spark
-  - /building-ai-app-prototypes
-  - /modernizing-legacy-code-with-github-copilot
-  - /using-copilot-to-migrate-a-project
-  - /upgrading-projects-with-github-copilot
-  - /rolling-out-github-copilot-at-scale
+  - /compare-ai-models
+  - /enhance-agent-mode-with-mcp
+  - /try-extensions
+  - /speed-up-development-work
+  - /explore-a-codebase
+  - /explore-issues-and-discussions
+  - /explore-pull-requests
+  - /write-tests
+  - /refactor-code
+  - /learn-a-new-language
+  - /easy-apps-with-spark
+  - /build-apps-with-spark
+  - /modernize-legacy-code
+  - /migrate-a-project
+  - /upgrade-projects
+  - /roll-out-at-scale
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
+contentType: tutorials
 ---
+
