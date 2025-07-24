@@ -1,6 +1,6 @@
 ---
-title: Piloting Copilot coding agent in your organization
-shortTitle: Pilot coding agent
+title: 'Piloting {% data variables.copilot.copilot_coding_agent %} in your organization'
+shortTitle: 'Pilot {% data variables.copilot.copilot_coding_agent_short %}'
 intro: 'Follow best practices to enable {% data variables.copilot.copilot_coding_agent %} in your organization.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -11,6 +11,7 @@ product: '{% data reusables.gated-features.copilot-coding-agent %}'
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org
+  - /copilot/tutorials/pilot-copilot-coding-agent
 ---
 <!--JTBD: When rolling out {% data variables.copilot.copilot_coding_agent %}, I want to understand use cases and follow best practices, so I can ensure I'm using it as intended and get value from a pilot program.-->
 
@@ -29,7 +30,7 @@ redirect_from:
 Before enabling {% data variables.copilot.copilot_coding_agent %} for members, understand how {% data variables.copilot.copilot_coding_agent %} will fit into your organization. This will help you evaluate whether {% data variables.copilot.copilot_coding_agent %} is suitable for your needs and plan communications and training sessions for developers.
 
 1. Learn about {% data variables.copilot.copilot_coding_agent %}, including the costs, built-in security features, and how it differs from other AI tools your developers may be used to. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
-1. Learn about the tasks that {% data variables.copilot.copilot_coding_agent %} is best suited for. These are generally well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks).
+1. Learn about the tasks that {% data variables.copilot.copilot_coding_agent %} is best suited for. These are generally well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. See [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices).
 1. Consider how {% data variables.copilot.copilot_coding_agent %} fits alongside other tools in your organization's workflows. For an example scenario that walks through how to use {% data variables.copilot.copilot_coding_agent %} alongside other AI features on {% data variables.product.github %}, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/integrating-agentic-ai).
 
 ## 2. Secure
@@ -54,7 +55,7 @@ As with any other change to working practices, it's important to run a trial to 
 1. Choose an isolated or low-risk repository, for example, one that contains documentation or internal tools. You could create a fresh repository to use as a playground, but {% data variables.product.prodname_copilot_short %} needs context to be successful, so you would need to add a lot of context, including team processes, development environment, and common dependencies.
 1. Enable {% data variables.copilot.copilot_coding_agent %} in the repository and optionally enable third-party MCP servers for enhanced context sharing. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
 1. Create repository instructions and pre-install any tools required in the development environment {% data variables.product.prodname_copilot_short %} uses. See [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent).
-1. Identify a few compelling use cases for your organization, for example: test coverage or improving accessibility. See [Choose the right type of tasks to give to Copilot](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#choosing-the-right-type-of-tasks-to-give-to-copilot) in the best practice guide.
+1. Identify a few compelling use cases for your organization, for example: test coverage or improving accessibility. See [Choose the right type of tasks to give to Copilot](/copilot/tutorials/coding-agent/best-practices#choosing-the-right-type-of-tasks-to-give-to-copilot) in the best practice guide.
 1. Use best practice to create or refine issues for {% data variables.product.prodname_copilot_short %} in your pilot repository.
 1. Assign issues to {% data variables.product.prodname_copilot_short %} and prepare team members to review its work.
 1. Spend time looking at the codebase or documentation in {% data variables.product.prodname_vscode_shortname %} or {% data variables.product.prodname_dotcom_the_website %}, asking {% data variables.product.prodname_copilot_short %} to create a pull request to fix any bugs or small improvements that you identify.

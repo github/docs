@@ -151,7 +151,7 @@ Developers **should not**:
 * [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot)
 * [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review?tool=vscode#reviewing-changes)
 * [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-coding-guidelines)
-* [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot)
+* [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review)
 * [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot)
 
 ## Metrics to watch

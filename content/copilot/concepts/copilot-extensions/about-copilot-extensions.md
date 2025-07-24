@@ -1,15 +1,19 @@
 ---
-title: About building Copilot Extensions
+title: About Copilot Extensions
 intro: 'Learn about the development process for {% data variables.copilot.copilot_extensions_short %}.'
+allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-extensions %}'
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: About building Extensions
-type: overview
 redirect_from:
   - /copilot/building-copilot-extensions/about-building-copilot-extensions
+  - /copilot/concepts/build-copilot-extensions/about-building-copilot-extensions
+  - /copilot/building-copilot-extensions/copilot-extensions-faq
+  - /copilot/reference/copilot-extensions/copilot-extensions-faq
+  - /copilot/reference/copilot-extensions
+  - /copilot/concepts/copilot-extensions/about-building-copilot-extensions
 ---
 
 ## About {% data variables.copilot.copilot_extensions_short %}
@@ -21,15 +25,13 @@ redirect_from:
 * **Data retrieval:** A {% data variables.copilot.copilot_extension_short %} can allow {% data variables.copilot.copilot_chat_short %} to query a third-party data service to retrieve information about a specific topic.
 * **Action execution:** A {% data variables.copilot.copilot_extension_short %} can allow {% data variables.copilot.copilot_chat_short %} to execute a specific action, such as posting to a message board or updating a tracking item in an external system.
 
-## About building {% data variables.copilot.copilot_extensions %}
+{% data variables.copilot.copilot_extensions %} are built with {% data variables.product.prodname_github_apps %}. They are best suited for developers who want cross-platform compatibility and app management and support from {% data variables.product.github %}.
 
-{% data variables.copilot.copilot_extensions %} are a type of {% data variables.copilot.copilot_extension_short %} built with {% data variables.product.prodname_github_apps %}. {% data variables.copilot.copilot_extensions %} are best suited for developers who want cross-platform compatibility and app management and support from {% data variables.product.github %}.
-
-### Supported clients and IDEs
+## Supported clients and IDEs
 
 {% data reusables.copilot.copilot-extensions.supported-clients-and-ides-table %}
 
-### About visibility of {% data variables.copilot.copilot_extensions %}
+## Visibility of {% data variables.copilot.copilot_extensions %}
 
 {% data variables.copilot.copilot_extensions %} can be private, public and shareable, or public and listed on the {% data variables.product.prodname_marketplace %}. Which visibility option you choose will depend on your use case and the audience you are targeting.
 
@@ -46,25 +48,50 @@ redirect_from:
     * Integrate their tool into the developer workflow on {% data variables.product.company_short %} and the IDE
     * Leverage the {% data variables.product.company_short %} ecosystem to raise awareness for their product
 
-### About {% data variables.copilot.copilot_extensions %} permissions
+## {% data variables.copilot.copilot_extensions %} permissions
 
-{% data reusables.copilot.copilot-extensions.about-extensions-permissions %}
+Permissions vary by extension, depending on the level of authorization that the extension requires in order to respond to your query. You can view the required permissions on the extension’s installation page, located after the billing information step and before the install and authorize step.
 
-#### Granting permissions to access organization resources
+**For extension users**: At a minimum, the **{% data variables.copilot.copilot_chat_short %}** permissions must be set to "Read-only". Additional permissions may include executing write actions on other surfaces and authorizing read access to repository and organization level data in {% data variables.product.github %}.
 
-Only organization admins can grant permissions for {% data variables.copilot.copilot_extensions_short %} to access organization resources.
-To grant organization members access:
-* The organization admin must install the extension.
-* The organization admin must grant the extension permission to access specific repositories.
-* The organization admin must authorize access for all, or specific repositories.
+**For extension creators**: In addition to the above, you may also request local context from a user’s editor to further tailor responses. To do so, the **{% data variables.product.prodname_copilot_short %} Editor Context** permissions must be set to "Read-only". Users will be notified to provide the required authorization.
 
-### About skillsets and agents
+For more information on {% data variables.product.prodname_github_app %} permissions, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
+
+### Granting permissions to access organization resources
+
+Users with an individual {% data variables.product.prodname_copilot_short %} subscription can install and use {% data variables.copilot.copilot_extensions_short %}. Users with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription need an organization administrator to enable this feature.
+
+Only organization administrators can grant permissions for {% data variables.copilot.copilot_extensions_short %} to access organization resources.
+
+To grant organization members access, the organization administrator must:
+
+* Install the extension
+* Grant the extension permission to access specific repositories
+* Authorize access for all, or specific repositories
+
+### Controlling access at the enterprise level
+
+If you are an enterprise administrator, you can disable {% data variables.copilot.copilot_extensions_short %} across your enterprise by setting the **{% data variables.copilot.copilot_extensions_short %}** policy to "Disabled". The "No Policy" setting allows organization administrators to set their own policy.
+
+No, there is no allowlist or blocklist at the enterprise level.
+
+## Sharing data with {% data variables.copilot.copilot_extensions_short %}
+
+The following data is shared when you interact with {% data variables.copilot.copilot_extensions_short %}:
+
+* Data attached to your account and {% data variables.copilot.copilot_chat_short %} usage, such as {% data variables.product.github %} user ID, and timestamps of messages.
+* Past messages within the chat thread where you are invoking an extension. Only one extension can be used per thread, preventing data sharing across extensions. The data retention period for thread context is 30 days.
+* Any additional organization and repository data that is authorized for the extension by your organization administrator. Administrators installing extensions must approve access to the required permissions prior to completing installation.
+* For {% data variables.copilot.copilot_chat_dotcom_short %}, if your administrator has approved the extension to access repository or organization metadata, that data will be shared as well.
+
+## About skillsets and agents
 
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}
 For more information about skillsets, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets).
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-2 %}
 
-### About context passing
+## About context passing
 
 You can allow your {% data variables.copilot.copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See step 10 of [Configuring your {% data variables.product.prodname_github_app %}](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension#configuring-your-github-app).
 
@@ -81,7 +108,7 @@ Context passing respects content exclusions, which refers to any files listed in
 
 For more information about context passing, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/context-passing-for-your-agent).
 
-### Using APIs in {% data variables.copilot.copilot_extensions %}
+## Using APIs in {% data variables.copilot.copilot_extensions %}
 
 Building {% data variables.copilot.copilot_extensions %} requires using the {% data variables.product.github %} API. Optionally, the {% data variables.product.prodname_copilot_short %} API can be used for additional capabilities. For details on request and response formatting, see the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat).
 
@@ -96,24 +123,37 @@ Before creating your own {% data variables.copilot.copilot_extension %} from scr
 * **Blackbeard:** A simple {% data variables.copilot.copilot_agent_short %} that responds to requests like a pirate, using {% data variables.product.prodname_copilot_short %}'s LLM API and special system prompts. It is a good starting point for learning how to build a {% data variables.copilot.copilot_extension %}. For more information, see the [Blackbeard {% data variables.copilot.copilot_extension_short %}](https://github.com/copilot-extensions/blackbeard-extension).
 * **{% data variables.product.prodname_github_models %}:** A more complex {% data variables.copilot.copilot_agent_short %} that lets you ask about and interact with various LLMs listed on the {% data variables.product.prodname_marketplace %} from within {% data variables.copilot.copilot_chat_short %}. For more information, see the [{% data variables.product.prodname_github_models %} {% data variables.copilot.copilot_extension_short %}](https://github.com/copilot-extensions/github-models-extension).
 
-    > [!NOTE] {% data variables.product.prodname_github_models %} are in {% data variables.release-phases.public_preview %} and subject to change. To request access, join the [waitlist](https://github.com/marketplace/models/waitlist).
+  > [!NOTE] {% data variables.product.prodname_github_models %} are in {% data variables.release-phases.public_preview %} and subject to change.
+
 * **Function calling:** an example agent written in Go that demonstrates function calling and confirmation dialogues. For more information, see the [Function calling extension](https://github.com/copilot-extensions/function-calling-extension).
 * **RAG extension:** an example agent written in Go that demonstrates a simple implementation of retrieval augmented generation. For more information, see the [RAG extension](https://github.com/copilot-extensions/rag-extension).
 * **Preview SDK:** An SDK that simplifies the process of building {% data variables.copilot.copilot_extensions %} by handling request verification, response formatting, and API interactions. It allows builders to focus on their extension's core functionality rather than boilerplate, by streamlining the integration of tools, APIs, and data sources into {% data variables.copilot.copilot_chat_short %}. For more information, see the [Preview SDK](https://github.com/copilot-extensions/preview-sdk.js).
 
-## About building {% data variables.copilot.copilot_extensions_vsc %}
+## About building {% data variables.copilot.copilot_vsc_chat_participants %}
 
-> [!NOTE] The {% data variables.product.github %} documentation focuses on building {% data variables.copilot.copilot_extensions %}, not {% data variables.copilot.copilot_extensions_vsc %}.
+> [!NOTE] The {% data variables.product.github %} documentation focuses on building {% data variables.copilot.copilot_extensions %}, not {% data variables.copilot.copilot_vsc_chat_participants %}.
 
-You can build a {% data variables.copilot.copilot_extension_short %} that is exclusive and native to {% data variables.product.prodname_vscode %}, called a {% data variables.copilot.copilot_extensions_vsc %}. This option is best suited for developers who want to build extensions that use {% data variables.product.prodname_vscode_shortname %}-specific APIs and functionality, or extend existing {% data variables.product.prodname_vscode_shortname %} extensions.
+You can build a {% data variables.copilot.copilot_extension_short %} that is exclusive and native to {% data variables.product.prodname_vscode %}, called a {% data variables.copilot.copilot_vsc_chat_participant %}.
 
-Also known as {% data variables.product.prodname_vscode_shortname %} Chat extensions, {% data variables.copilot.copilot_extensions_vsc %} function similarly to {% data variables.copilot.copilot_extensions %} by extending the capabilities of {% data variables.copilot.copilot_chat_short %}, with a few notable differences:
-* {% data variables.product.prodname_vscode_shortname %} Chat extensions are only usable in {% data variables.product.prodname_vscode_shortname %}.
-* {% data variables.product.prodname_vscode_shortname %} Chat extensions have more access to {% data variables.product.prodname_vscode_shortname %}'s features and APIs, allowing more editor-specific interactions like accessing local workspace data, manipulating {% data variables.product.prodname_vscode %}'s interface, and read/write access to local files.
-* {% data variables.product.prodname_vscode_shortname %} Chat extensions are published to the {% data variables.product.prodname_vs_marketplace_shortname %}, not the {% data variables.product.prodname_marketplace %}.
-* {% data variables.product.prodname_vscode_shortname %} Chat extensions are local to the user's machine, and cannot be controlled by an organization{% ifversion ghec %} or enterprise's{% else %}'s{% endif %} policies.
+{% data variables.copilot.copilot_extensions %} and {% data variables.copilot.copilot_vsc_chat_participants %} use the same backend platform to route requests to extensions. Both provide similar end-user experiences, integrate with {% data variables.copilot.copilot_chat_short %}, and can leverage the {% data variables.product.prodname_copilot_short %} API or other LLMs.
 
-For more information on {% data variables.copilot.copilot_extensions_vsc %}, see [Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the {% data variables.product.prodname_vscode %} documentation.
+While they share similarities, below are several key differences:
+
+* {% data variables.copilot.copilot_extensions %} can be used in any editor where extensions are supported, while {% data variables.copilot.copilot_vsc_chat_participants %} are only available in {% data variables.product.prodname_vscode %}.
+* {% data variables.copilot.copilot_extensions %} are server-side extensions, requiring server infrastructure to build. These extensions provide a built-in connection to your {% data variables.product.github %} workspaces, as set by your organization administrator.
+* {% data variables.copilot.copilot_vsc_chat_participants %} are client-side extensions that have more access to {% data variables.product.prodname_vscode_shortname %}'s features and APIs, allowing more editor-specific interactions like accessing local workspace data, manipulating {% data variables.product.prodname_vscode %}'s interface, and read/write access to local files. They do not require server infrastructure.
+* Because {% data variables.copilot.copilot_vsc_chat_participants %} are local to the user's machine, they cannot be controlled by the {% data variables.product.prodname_copilot_short %} policies of an organization or enterprise on {% data variables.product.prodname_dotcom_the_website %}.
+* {% data variables.copilot.copilot_vsc_chat_participants %} are published to the {% data variables.product.prodname_vs_marketplace_shortname %}, not the {% data variables.product.prodname_marketplace %}.
+
+{% data variables.copilot.copilot_vsc_chat_participants %} are best suited for developers who want to build extensions that use {% data variables.product.prodname_vscode_shortname %}-specific APIs and functionality, or extend existing {% data variables.product.prodname_vscode_shortname %} extensions.
+
+For more information on {% data variables.copilot.copilot_vsc_chat_participants %}, see [Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the {% data variables.product.prodname_vscode %} documentation.
+
+## Indemnity for {% data variables.copilot.copilot_extensions_short %}
+
+{% data variables.copilot.copilot_extensions_short %} are not covered by {% data variables.product.prodname_copilot %}’s indemnity policy. However, this exclusion applies only to issues that arise within extension chat threads.
+
+Installing and using extensions does not affect indemnity coverage for any issues that occur while using other {% data variables.product.prodname_copilot_short %} features such as code completion and chat.
 
 ## Further reading
 

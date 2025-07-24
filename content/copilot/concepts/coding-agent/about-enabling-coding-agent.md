@@ -1,13 +1,13 @@
 ---
-title: Enabling Copilot coding agent
-shortTitle: Enable coding agent
-intro: 'You can allow {% data variables.product.prodname_copilot_short %} to work on code and raise pull requests.'
+title: 'About enabling {% data variables.copilot.copilot_coding_agent %}'
+shortTitle: 'Enabling {% data variables.copilot.copilot_coding_agent_short %}'
+allowTitleToDifferFromFilename: true
+intro: 'Find out about enabling {% data variables.copilot.copilot_coding_agent %} for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=enabling+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
   - Copilot
-type: how_to
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/enabling-copilot-coding-agent
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/enabling-copilot-coding-agent-for-your-personal-repositories
@@ -26,7 +26,7 @@ redirect_from:
 
 If you are a {% data variables.copilot.copilot_enterprise %} or {% data variables.copilot.copilot_for_business %} subscriber, {% data variables.copilot.copilot_coding_agent %} is disabled by default and must be enabled by an administrator before it is available for use.
 
-If you are a {% data variables.copilot.copilot_pro_plus %} subscriber, {% data variables.copilot.copilot_coding_agent %} is enabled by default.
+If you are a {% data variables.copilot.copilot_pro %} or Pro+ subscriber, {% data variables.copilot.copilot_coding_agent %} is enabled by default.
 
 Once enabled, you can use {% data variables.copilot.copilot_coding_agent %} in any repository, provided that an administrator hasn't opted the repository out.
 

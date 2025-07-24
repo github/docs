@@ -53,6 +53,6 @@ Once {% data variables.copilot.copilot_coding_agent %} is enabled for a reposito
 * Tell the members of repositories where {% data variables.copilot.copilot_coding_agent %} is available that they can delegate work to the coding agent.
 * Encourage members to educate themselves about setting up their repository to get the most from {% data variables.copilot.copilot_coding_agent %}. Useful resources:
 
-   * [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-tasks)
+   * [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
    * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
    * [Security best practices](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org#security-best-practices)

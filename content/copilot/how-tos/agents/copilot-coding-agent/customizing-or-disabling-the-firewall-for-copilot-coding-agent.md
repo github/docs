@@ -14,8 +14,6 @@ redirect_from:
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
 >
-> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
->
 > Firewall configuration has moved to the {% data variables.copilot.copilot_coding_agent %} settings page. Previous configurations saved as Actions variables will be maintained on that page.
 
 ## Overview

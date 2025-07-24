@@ -1,6 +1,7 @@
 ---
 title: Configuring automatic code review by Copilot
 shortTitle: Configure automatic review
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to configure {% data variables.product.prodname_copilot_short %} to automatically review pull requests.'
 versions:
   feature: copilot
@@ -8,32 +9,18 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot
+  - /copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot
 ---
 
-## About automatic code review
+## Introduction
 
-By default, {% data variables.product.prodname_copilot_short %} will only review a pull request if it's assigned to the pull request in the same way you would assign a human reviewer. However:
+This article tells you how to set up {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review/code-review#about-automatic-pull-request-reviews).
 
-* Individual users on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests they create.
-* Repository owners can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}.
-* Organization owners can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
+The three sections in this article tell you how to configure automatic code review for:
 
-### Triggering an automatic pull request review
-
-After you configure automatic code review, {% data variables.product.prodname_copilot_short %} will review pull requests in the following situations:
-
-* When a pull request is created as an "Open" pull request.
-
-  A review is not triggered if the pull request is created as a "Draft" pull request.
-
-* The first time a "Draft" pull request is switched to "Open".
-
-> [!NOTE]
-> {% data variables.product.prodname_copilot_short %} only automatically reviews a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review the pull request, you must request this manually. To do this, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
-
-### Limits on automatic pull request reviews
-
-{% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota. When {% data variables.product.prodname_copilot_short %} carries out an automatic review, it uses one premium request from the quota of the user who created the pull request. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review#code-review-monthly-quota).
+* [Pull requests that you create yourself](#configuring-automatic-code-review-for-all-pull-requests-you-create)
+* [All new pull requests in a repository](#configuring-automatic-code-review-for-a-single-repository)
+* [Pull requests in multiple repositories owned by an organization](#configuring-automatic-code-review-for-repositories-in-an-organization)
 
 ## Configuring automatic code review for all pull requests you create
 

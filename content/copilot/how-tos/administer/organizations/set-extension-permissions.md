@@ -14,7 +14,7 @@ topics:
 shortTitle: Set extension permissions
 ---
 
-{% data variables.copilot.copilot_extensions %} integrate external tools with {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/concepts/build-copilot-extensions/about-building-copilot-extensions).
+{% data variables.copilot.copilot_extensions %} integrate external tools with {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
 ## Prerequisites
 
@@ -38,4 +38,4 @@ After you have installed a {% data variables.copilot.copilot_extension_short %} 
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/how-tos/context/install-copilot-extensions/using-extensions-to-integrate-external-tools-with-copilot-chat)
-* [AUTOTITLE](/copilot/concepts/build-copilot-extensions/about-building-copilot-extensions)
+* [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions)

@@ -135,5 +135,5 @@ You can view your current and past {% data variables.product.prodname_copilot_sh
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent)
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent#copilot-cant-create-a-pull-request-from-copilot-chat)

@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-issues-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-tasks-to-copilot
   - /copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot
+  - /copilot/concepts/about-copilot-coding-agent
 ---
 
 > [!NOTE]
@@ -63,7 +64,7 @@ Having {% data variables.product.prodname_copilot_short %} as an additional codi
 
 ### Making {% data variables.copilot.copilot_coding_agent %} available
 
-Before you can assign tasks to {% data variables.product.prodname_copilot_short %}, it must be enabled. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent).
+Before you can assign tasks to {% data variables.product.prodname_copilot_short %}, it must be enabled. See [AUTOTITLE](/copilot/concepts/coding-agent/about-enabling-coding-agent).
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 
