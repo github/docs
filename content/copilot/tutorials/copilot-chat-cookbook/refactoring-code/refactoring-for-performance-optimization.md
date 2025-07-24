@@ -1,6 +1,6 @@
 ---
 title: Refactoring for performance optimization
-shortTitle: Performance optimization
+shortTitle: Refactor for optimization
 intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to speed up slow-running code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/refactoring-for-performance-optimization

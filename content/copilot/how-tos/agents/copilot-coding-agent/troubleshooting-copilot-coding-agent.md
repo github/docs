@@ -17,8 +17,6 @@ redirect_from:
 
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
->
-> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## {% data variables.product.prodname_copilot_short %} is not available in the "Assignees" list on my issue
 
@@ -93,7 +91,7 @@ To allow {% data variables.product.prodname_actions %} workflows to run, click t
 
 While working on an issue, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can execute automated tests and linters to validate its work before it pushes.
 
-It is most likely to do this if given clear instructions on what to do. The best way to do this is with a `.github/copilot-instructions.md` file. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository).
+It is most likely to do this if given clear instructions on what to do. The best way to do this is with a `.github/copilot-instructions.md` file. See [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices#adding-custom-instructions-to-your-repository).
 
 ## There is a warning from {% data variables.product.prodname_copilot %} about the firewall
 
@@ -109,5 +107,5 @@ For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-o
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)

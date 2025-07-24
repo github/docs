@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /copilot-chat-cookbook
+  - /coding-agent
   - /comparing-ai-models-using-different-tasks
   - /enhancing-copilot-agent-mode-with-mcp
   - /quickstart-for-github-copilot-extensions-using-agents
@@ -23,9 +24,7 @@ children:
   - /modernizing-legacy-code-with-github-copilot
   - /using-copilot-to-migrate-a-project
   - /upgrading-projects-with-github-copilot
-  - /pilot-copilot-coding-agent
   - /rolling-out-github-copilot-at-scale
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 ---
-

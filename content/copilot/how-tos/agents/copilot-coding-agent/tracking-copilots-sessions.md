@@ -16,8 +16,6 @@ redirect_from:
 
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
->
-> For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
 
@@ -78,5 +76,5 @@ Reasons you might want to stop a session include:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)

@@ -1,6 +1,6 @@
 ---
 title: Setting up a self-serve process for GitHub Copilot licenses
-shortTitle: Self-serve licenses
+shortTitle: Set up self-serve licenses
 intro: Learn how users can request a license and receive access immediately.
 versions:
   feature: copilot

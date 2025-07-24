@@ -1,6 +1,6 @@
 ---
 title: About organizing and sharing context with Copilot Spaces
-shortTitle: Organize and share context
+shortTitle: Spaces
 intro: 'Understand how gathering context with {% data variables.copilot.copilot_spaces %} can improve your results and help your teammates.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:

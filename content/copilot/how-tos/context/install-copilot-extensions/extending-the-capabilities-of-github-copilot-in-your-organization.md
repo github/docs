@@ -25,7 +25,7 @@ Any organization owner can install {% data variables.copilot.copilot_extensions_
 
 > [!NOTE] Anyone can install a {% data variables.copilot.copilot_extension_short %} on their personal account. However, if they get access to {% data variables.product.prodname_copilot_short %} through a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, they will only be able to use the extension if it is installed at the organization level.
 
-You can also create your own custom {% data variables.copilot.copilot_extensions_short %} for your organization. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
+You can also create your own custom {% data variables.copilot.copilot_extensions_short %} for your organization. For more information, see [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
 ## Prerequisites
 

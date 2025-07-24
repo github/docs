@@ -1,6 +1,6 @@
 ---
 title: Building and deploying AI-powered apps with GitHub Spark
-shortTitle: Build intelligent apps with Spark
+shortTitle: Build apps with Spark
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to build and deploy an intelligent web app with natural language using {% data variables.product.prodname_spark %}.'
 versions:

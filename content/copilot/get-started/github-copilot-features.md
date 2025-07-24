@@ -5,7 +5,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Copilot features
+shortTitle: Features
 redirect_from:
   - /copilot/copilot-business/github-copilot-business-feature-set
   - /copilot/copilot-individual/github-copilot-individual-feature-set
@@ -47,7 +47,7 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 ### {% data variables.copilot.copilot_extensions %}
 
-{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
+{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
 ### {% data variables.copilot.copilot_edits_short %}
 

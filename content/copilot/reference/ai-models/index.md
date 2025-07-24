@@ -8,6 +8,6 @@ topics:
   - Copilot
 children:
   - /supported-ai-models-in-copilot
-  - /choosing-the-right-ai-model-for-your-task
-  - /how-copilot-serves-ai-models
+  - /model-comparison
+  - /model-hosting
 ---

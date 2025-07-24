@@ -1,5 +1,6 @@
 import got, { type OptionsOfTextResponseBody, type Method } from 'got'
 import { Failbot, HTTPBackend } from '@github/failbot'
+import { getLoggerContext } from '@/observability/logger/lib/logger-context'
 
 const HAYSTACK_APP = 'docs'
 
@@ -62,7 +63,15 @@ export function report(error: Error, metadata?: Record<string, unknown>) {
     backends,
   })
 
-  return failbot.report(error, metadata)
+  // Add the request id from the logger context to the metadata
+  // Per https://github.com/github/failbotg/blob/main/docs/api.md#additional-data
+  // Metadata can only be a flat object with string & number values, so only add the requestUuid
+  const loggerContext = getLoggerContext()
+
+  return failbot.report(error, {
+    ...metadata,
+    requestUuid: loggerContext.requestUuid || 'unknown',
+  })
 }
 
 // Kept for legacy so you can continue to do:

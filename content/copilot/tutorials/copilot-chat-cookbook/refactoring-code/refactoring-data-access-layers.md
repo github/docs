@@ -1,6 +1,6 @@
 ---
 title: Refactoring data access layers
-shortTitle: Data access layers
+shortTitle: Refactor data access layers
 intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to decouple your data access code from your business logic, making an application easier to maintain and scale.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/refactoring-data-access-layers

@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions Runners
 shortTitle: Runners
-intro: "Learn about the concept of runners in GitHub Actions."
+intro: Learn about the concept of runners in GitHub Actions.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,9 +10,10 @@ children:
   - /github-hosted-runners
   - /larger-runners
   - /self-hosted-runners
-  - /private-networking-with-github-hosted-runners
+  - /private-networking
   - /runner-groups
   - /runner-scale-sets
   - /actions-runner-controller
-  - /support-for-actions-runner-controller
+  - /support-for-arc
 ---
+

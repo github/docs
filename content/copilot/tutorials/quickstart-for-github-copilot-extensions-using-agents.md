@@ -11,12 +11,12 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
 topics:
   - Copilot
-shortTitle: Extensions quickstart
+shortTitle: Try Extensions
 ---
 
 The [Blackbeard extension](https://github.com/copilot-extensions/blackbeard-extension) is a {% data variables.copilot.copilot_extension %} that comprises a {% data variables.product.prodname_github_app %} and a {% data variables.product.prodname_copilot_short %} agent. The agent responds to chat requests in the style of a pirate, using {% data variables.product.prodname_copilot_short %}'s large language model (LLM) API and special system prompts. See [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/about-copilot-agents).
 
-This guide uses a simple agent implementation, but the process is similar for skillsets. For information about the difference between agents and skillsets, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions#about-skillsets-and-agents).
+This guide uses a simple agent implementation, but the process is similar for skillsets. For information about the difference between agents and skillsets, see [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
 This quickstart is designed to help you build and chat with the Blackbeard extension as quickly as possible, so you can develop and test your extension without deploying infrastructure. For production, you'll need to host the application for your agent or skillset's endpoints on a publicly accessible server. To instead learn how to create a new {% data variables.copilot.copilot_extension %}, see [AUTOTITLE](/copilot/building-copilot-extensions/setting-up-copilot-extensions).
 
@@ -74,7 +74,7 @@ After you set up your {% data variables.product.prodname_github_app %} and Black
 * In the "Permissions & events" settings, grant read-only permissions to {% data variables.copilot.copilot_chat_short %}.
 * In the "{% data variables.product.prodname_copilot_short %}" settings, set your app type to "Agent," then fill out the remaining fields.
 
-After you update your {% data variables.product.prodname_github_app %} settings, you can start chatting with your extension by typing `@YOUR-EXTENSION-NAME` in the {% data variables.copilot.copilot_chat_short %} window of a supported client or IDE, then sending a prompt as normal. For a list of supported clients and IDEs, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions#supported-clients-and-ides).
+After you update your {% data variables.product.prodname_github_app %} settings, you can start chatting with your extension by typing `@YOUR-EXTENSION-NAME` in the {% data variables.copilot.copilot_chat_short %} window of a supported client or IDE, then sending a prompt as normal. For a list of supported clients and IDEs, see [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions#supported-clients-and-ides).
 
 > [!NOTE] Chatting with {% data variables.copilot.copilot_extensions %} in {% data variables.product.prodname_github_codespaces %} is not supported.
 
