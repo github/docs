@@ -1,6 +1,5 @@
 ---
 title: Dependency caching
-shortTitle: Dependency caching
 intro: 'Learn about dependency caching for workflow speed and efficiency.'
 versions:
   fpt: '*'

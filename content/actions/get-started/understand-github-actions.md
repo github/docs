@@ -11,6 +11,7 @@ redirect_from:
   - /actions/learn-github-actions/essential-features-of-github-actions
   - /articles/getting-started-with-github-actions
   - /actions/about-github-actions/understanding-github-actions
+  - /actions/get-started/understanding-github-actions
 versions:
   fpt: '*'
   ghes: '*'
