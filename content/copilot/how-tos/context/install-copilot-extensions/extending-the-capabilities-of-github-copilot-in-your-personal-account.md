@@ -22,7 +22,7 @@ Anyone can install {% data variables.copilot.copilot_extensions_short %} for the
 
 > [!NOTE] If you have access to {% data variables.product.prodname_copilot_short %} through a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, {% data variables.copilot.copilot_extensions_short %} are installed by organization owners at the organization level, and you do not need to install the extension on your personal account. To start using {% data variables.copilot.copilot_extensions_short %} installed in your organization, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions).
 
-You can also create your own custom {% data variables.copilot.copilot_extensions_short %} for your personal account. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
+You can also create your own custom {% data variables.copilot.copilot_extensions_short %} for your personal account. For more information, see [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
 ## Installing {% data variables.copilot.copilot_extensions %} for your personal account
 

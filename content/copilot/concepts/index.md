@@ -20,7 +20,7 @@ children:
   - /about-organizing-and-sharing-context-with-copilot-spaces
   - /policies
   - /copilot-knowledge-bases
-  - /build-copilot-extensions
+  - /copilot-extensions
   - /rate-limits
   - /network-settings-for-github-copilot
 ---

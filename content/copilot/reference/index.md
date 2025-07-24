@@ -12,6 +12,6 @@ children:
   - /feature-availability-enterprise
   - /ai-models
   - /proxy-server-and-firewall-settings-for-copilot
-  - /copilot-extensions
+  - /copilot-extensions-glossary
   - /metrics-data
 ---

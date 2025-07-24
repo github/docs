@@ -22,7 +22,7 @@ redirect_from:
 > [!NOTE] {% data variables.copilot.copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completion and {% data variables.copilot.copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment).
 
 You can get started with {% data variables.copilot.copilot_extensions_short %} in one of two ways:
-* Build your own {% data variables.copilot.copilot_extension_short %}. See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
+* Build your own {% data variables.copilot.copilot_extension_short %}. See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 * Install a {% data variables.copilot.copilot_extension_short %} from {% data variables.product.prodname_marketplace %}.
 
 You can interact with your custom-built or installed extension in a {% data variables.copilot.copilot_chat_short %} conversation, asking questions and performing actions that combine the capabilities of the external tool and {% data variables.product.prodname_dotcom %}. For example, if you install the Sentry extension for {% data variables.product.prodname_copilot %}, you can use the extension to get information about Sentry issues, then create and assign related tracking issues on {% data variables.product.prodname_dotcom %}.
@@ -79,10 +79,10 @@ For questions and issues related to {% data variables.copilot.copilot_extensions
 * **Requests or feedback for {% data variables.product.github %}:** Use the [{% data variables.product.github %} Community Discussion Thread](https://gh.io/community-feedback).
 * **Requests or feedback for third-party extension publishers:** File an issue in the [User Feedback Repo](https://github.com/copilot-extensions/user-feedback) and add a label with the extension's slug name.
 * **{% data variables.product.github %} Technology Partners:** Email the partnerships team directly for assistance.
-* **{% data variables.copilot.copilot_extensions_vsc %}:** For more information on this type of {% data variables.copilot.copilot_extension_short %}, see [Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the {% data variables.product.prodname_vscode %} documentation.
+* **{% data variables.copilot.copilot_vsc_chat_participants %}:** For more information on this type of {% data variables.copilot.copilot_extension_short %}, see [Chat extensions](https://code.visualstudio.com/api/extension-guides/chat) in the {% data variables.product.prodname_vscode %} documentation.
 
-> [!NOTE] {% data variables.contact.github_support %} is not able to answer questions regarding {% data variables.copilot.copilot_extensions_vsc %}, as this implementation path is owned and maintained by the {% data variables.product.prodname_vscode_shortname %} team.
+> [!NOTE] {% data variables.contact.github_support %} is not able to answer questions regarding {% data variables.copilot.copilot_vsc_chat_participants %}, as this implementation path is owned and maintained by the {% data variables.product.prodname_vscode_shortname %} team.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions)
+* [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions)
