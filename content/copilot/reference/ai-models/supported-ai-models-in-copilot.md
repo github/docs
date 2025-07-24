@@ -1,5 +1,7 @@
 ---
 title: Supported AI models in Copilot
+shortTitle: Supported models
+allowTitleToDifferFromFilename: true
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'
 type: reference
 versions:
@@ -102,8 +104,8 @@ For more information about premium requests, see [AUTOTITLE](/copilot/managing-c
 
 ## Next steps
 
-* For task-based guidance on selecting a model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+* For task-based guidance on selecting a model, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 * To configure which models are available to you, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot).
 * To learn how to change your current model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 * To learn more about Responsible Use and Responsible AI, see [{% data variables.product.prodname_copilot_short %} Trust Center](https://copilot.github.trust.page/) and [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features).
-* To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/how-copilot-serves-ai-models).
+* To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).

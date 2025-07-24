@@ -75,7 +75,7 @@ See [About Billing for GitHub Models](https://docs.github.com/billing/managing-b
 
 **23 June 2025**
 
-We’ve restructured our documentation around Copilot’s AI models to make it easier for users to understand, choose, and configure models across clients and plans. See [Supported AI models in Copilot](https://docs.github.com/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot) and [Choosing the right AI model for your task](https://docs.github.com/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+We’ve restructured our documentation around Copilot’s AI models to make it easier for users to understand, choose, and configure models across clients and plans. See [Supported AI models in Copilot](https://docs.github.com/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot) and [Choosing the right AI model for your task](https://docs.github.com/copilot/reference/ai-models/model-comparison).
 
 <hr>
 

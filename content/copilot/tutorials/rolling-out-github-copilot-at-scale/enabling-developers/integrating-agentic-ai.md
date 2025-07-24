@@ -53,7 +53,7 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 ## 2. Create with {% data variables.product.prodname_github_models %} and agent mode
 
 1. The PM asks the developer to start by finding the best AI model to provide the tailored umbrella recommendations, based on the cost and effectiveness of the models.
-1. The developer asks **{% data variables.copilot.copilot_chat_short %}** to recommend several AI models for the job and the pros and cons of each. To provide useful context, they ask Copilot to consider the information in the [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task) {% data variables.product.prodname_docs %} article.
+1. The developer asks **{% data variables.copilot.copilot_chat_short %}** to recommend several AI models for the job and the pros and cons of each. To provide useful context, they ask Copilot to consider the information in the [AUTOTITLE](/copilot/reference/ai-models/model-comparison) {% data variables.product.prodname_docs %} article.
 1. To settle on a model from the shortlist, the developer uses the **{% data variables.product.prodname_github_models %}** playground to compare results from the same prompt across models. They save time by testing models on a single platform, rather than needing to set up an API key for each model separately.
 
    ![Screenshot of the GitHub Models playground, with windows for sending prompts to two models side by side.](/assets/images/help/copilot/sdlc-guide/model-compare.png)

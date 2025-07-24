@@ -1,13 +1,14 @@
 ---
-title: Proxy server and firewall settings for Copilot
+title: Allowlist reference
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to allow certain traffic through your firewall or proxy server for {% data variables.product.prodname_copilot_short %} to work as intended in your organization.'
 permissions: Proxy server maintainers or firewall maintainers
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Traffic allowlist for Copilot
 redirect_from:
+  - /copilot/reference/proxy-server-and-firewall-settings-for-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot
   - /copilot/how-tos/administer/organizations/configuring-your-proxy-server-or-firewall-for-copilot
 ---

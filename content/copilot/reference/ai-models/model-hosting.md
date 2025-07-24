@@ -1,13 +1,17 @@
 ---
-title: How Copilot serves AI models
-intro: 'Learn how {% data variables.copilot.copilot_chat_short %} serves different AI models.'
+title: Hosting of models for Copilot Chat
+shortTitle: Model hosting
+allowTitleToDifferFromFilename: true
+intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/reference/ai-models/how-copilot-serves-ai-models
 ---
 
-{% data variables.product.prodname_copilot %} can use a variety of AI models. This article explains how {% data variables.product.prodname_copilot_short %} serves these models.
+{% data variables.product.prodname_copilot %} can use a variety of AI models. This article explains how these models are hosted and served.
 
 ## OpenAI models
 

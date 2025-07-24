@@ -133,4 +133,4 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must ins
 ## Further reading
 
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
+* [AUTOTITLE](/copilot/reference/ai-models/model-comparison)
