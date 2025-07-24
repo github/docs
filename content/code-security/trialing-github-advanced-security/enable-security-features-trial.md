@@ -39,7 +39,7 @@ The new enterprise security configuration is now available for use at the enterp
 
 You can apply an enterprise security configuration either at the enterprise level or at the organization level. The best option for you will depend on whether or not you want to apply the configuration to all repositories in the enterprise, or to a subset of repositories.
 
-> [!NOTE] Although {% data variables.product.prodname_cs_and_sp %} are free of charge during trials, you will be charged for any actions minutes that you use. This includes actions minutes used by the default {% data variables.product.prodname_code_scanning %} setup or by any other workflows you run.
+> [!NOTE] {% data variables.product.prodname_cs_and_sp %} are free of charge during trials. However, you will be charged for Actions minutes used by the default {% data variables.product.prodname_code_scanning %} setup if you have exhausted your allocation of Actions minutes.
 
 * Enterprise-level application:
    * Add an enterprise configuration to all repositories in the enterprise, or all repositories without an existing configuration in the enterprise.
