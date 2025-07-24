@@ -17,4 +17,4 @@ You can use labels to locate a particular type of issue. The examples below show
 | [`engineering`](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Aengineering) | Problems or updates involving the functionality of the docs.github.com website. Fixing these issues will usually require some knowledge of JavaScript/Node.js or YAML. |<!-- markdownlint-disable-line search-replace -->
 | [`codespaces`](https://github.com/github/docs/labels/codespaces)<br> [`desktop`](https://github.com/github/docs/labels/desktop)<br> [`graphql`](https://github.com/github/docs/labels/graphql) | Labels for filtering issues by a product or documentation area. |
 
-> This repository uses over 85 different labels. For a complete list of all available labels, visit the [labels page](https://github.com/github/docs/labels).
+For a complete list of all the labels currently in use in the github/docs repository, visit the [labels page](https://github.com/github/docs/labels).
