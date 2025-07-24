@@ -1,6 +1,6 @@
 ---
-title: Concepts for GitHub Copilot billing
-shortTitle: Copilot billing
+title: GitHub Copilot billing
+shortTitle: Billing
 intro: 'Understand billing and usage for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
@@ -17,4 +17,3 @@ redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage
 ---
-

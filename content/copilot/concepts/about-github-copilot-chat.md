@@ -1,5 +1,6 @@
 ---
 title: About GitHub Copilot Chat
+shortTitle: Chat
 intro: 'Learn how you can use {% data variables.copilot.copilot_chat %} to enhance your coding experience.'
 versions:
   feature: copilot

@@ -1,5 +1,6 @@
 ---
 title: About Copilot Extensions
+shortTitle: About extensions
 intro: 'Learn about the development process for {% data variables.copilot.copilot_extensions_short %}.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.copilot-extensions %}'

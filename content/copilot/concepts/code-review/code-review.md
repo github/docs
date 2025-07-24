@@ -1,6 +1,6 @@
 ---
 title: About Copilot code review
-shortTitle: About code review
+shortTitle: Code review
 allowTitleToDifferFromFilename: true
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can review pull requests for you.'
 versions:
