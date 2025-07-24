@@ -49,18 +49,18 @@ If your repository already uses an integration for dependency management, you wi
 
 If your repository contains multiple GitHub Actions (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
 
-- **Dash (-) separator (e.g. my-action-v0.1.0):**
-  - {% data variables.product.prodname_dependabot %} may incorrectly update multiple actions or fail to detect new versions. This occurs because {% data variables.product.prodname_dependabot %} relies on Git’s hierarchical tag structure (using slashes) to distinguish between actions.
-- **Slash (`/`) separator (e.g., `my-action/v0.1.0`):**
-  - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag that aligns with Git’s ref format rules.
+- **Dash (-) separator (e.g., `@my-action-v0.1.0`):**
+  - {% data variables.product.prodname_dependabot %} may group multiple actions under a single dependency entry or fail to detect new versions correctly. This occurs because {% data variables.product.prodname_dependabot %} relies on slash-based tag parsing to distinguish between actions.
+- **Slash (`/`) separator (e.g., `@my-action/v0.1.0`):**
+  - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag structure that aligns with {% data variables.product.prodname_dependabot %}'s parsing logic.
 
- **Example**:
+**Example**:
 ```yaml
 # Recommended: namespaced with slash
-uses: my-org/my-action-a/v0.1.0
+uses: my-org/monorepo/my-action@my-action/v0.1.0
 
 # Not recommended: dash
-uses: my-org/my-action-a-v0.1.0
+uses: my-org/monorepo@my-action-v0.1.0
 ```
 
 **Recommendation:**  
