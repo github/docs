@@ -1,5 +1,6 @@
 ---
 title: Requests in GitHub Copilot
+shortTitle: Copilot requests
 intro: 'Learn about requests in {% data variables.product.prodname_copilot_short %}, including premium requests, how they work, and how to manage your usage effectively.'
 versions:
   feature: copilot

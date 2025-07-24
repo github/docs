@@ -1,6 +1,6 @@
 ---
-title: Concepts for Copilot Extensions
-shortTitle: Copilot Extensions
+title: GitHub Copilot Extensions
+shortTitle: Extensions
 intro: 'Understand components for building {% data variables.copilot.copilot_extensions_short %}.'
 versions:
   feature: copilot

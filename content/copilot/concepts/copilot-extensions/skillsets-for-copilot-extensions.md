@@ -1,12 +1,12 @@
 ---
 title: About skillsets for Copilot Extensions
+shortTitle: Skillsets
+allowTitleToDifferFromFilename: true
 intro: 'Learn what {% data variables.copilot.copilot_skillsets %} are and how they simplify integrating third-party tools and functions into your {% data variables.product.prodname_copilot_short %} experience.'
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Skillsets for Copilot Extensions
-allowTitleToDifferFromFilename: true
 type: overview
 redirect_from:
   - /copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/about-copilot-skillsets
