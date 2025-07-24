@@ -12,6 +12,7 @@ children:
   - /about-github-copilot-chat
   - /coding-agent
   - /code-review
+  - /about-mcp
   - /about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot-billing
   - /prompt-engineering-for-copilot-chat
