@@ -1,6 +1,7 @@
 ---
 title: Best practices for using Copilot to work on tasks
 shortTitle: Get the best results
+allowTitleToDifferFromFilename: true
 intro: 'Learn how to get the best results from {% data variables.copilot.copilot_coding_agent %}.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=best+practices+for+using+copilot+to+work+on+tasks&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
@@ -14,6 +15,7 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-tasks
   - /early-access/copilot/coding-agent/best-practices-for-using-copilot-coding-agent
   - /copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks
+  - /copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks
 ---
 
 > [!NOTE]

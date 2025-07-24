@@ -10,9 +10,9 @@ children:
   - /copilot-billing
   - /choosing-the-right-ai-tool-for-your-task
   - /completions
+  - /coding-agent
   - /prompt-engineering-for-copilot-chat
   - /about-customizing-github-copilot-chat-responses
-  - /about-copilot-coding-agent
   - /code-review
   - /about-github-copilot-chat
   - /content-exclusion-for-github-copilot
@@ -24,4 +24,3 @@ children:
   - /rate-limits
   - /network-settings-for-github-copilot
 ---
-

@@ -24,7 +24,7 @@ redirect_from:
 
 You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, raise a pull request and when it's finished working, request a review from you. For more information, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks).
+If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices).
 
 ## Assigning an issue to {% data variables.product.prodname_copilot_short %}
 
@@ -212,5 +212,5 @@ After {% data variables.product.prodname_copilot_short %} has finished working o
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)
