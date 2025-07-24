@@ -5,7 +5,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Plans for Copilot
+shortTitle: Plans
 redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot
   - /copilot/about-github-copilot/plans-for-github-copilot

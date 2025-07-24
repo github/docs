@@ -1,6 +1,5 @@
 ---
 title: OpenID Connect
-shortTitle: OpenID Connect
 intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
 versions:
   fpt: '*'

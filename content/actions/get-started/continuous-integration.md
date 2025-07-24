@@ -11,6 +11,7 @@ redirect_from:
   - /actions/about-github-actions/about-continuous-integration
   - /actions/about-github-actions/about-continuous-integration-with-github-actions
   - /actions/concepts/overview/about-continuous-integration-with-github-actions
+  - /actions/concepts/overview/continuous-integration
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +19,6 @@ versions:
 type: overview
 topics:
   - CI
-shortTitle: Continuous integration
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

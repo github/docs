@@ -3,13 +3,13 @@ title: '{% data variables.product.prodname_actions %} documentation'
 shortTitle: '{% data variables.product.prodname_actions %}'
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
-  overview: /actions/get-started/understanding-github-actions
+  overview: /actions/get-started/understand-github-actions
   quickstart: /actions/get-started/quickstart
 featuredLinks:
   startHere:
     - /actions/how-tos/writing-workflows
     - /actions/tutorials
-    - /actions/concepts/overview/continuous-integration
+    - /actions/get-started/continuous-integration
     - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
   guideCards:
     - /actions/how-tos/writing-workflows/using-workflow-templates

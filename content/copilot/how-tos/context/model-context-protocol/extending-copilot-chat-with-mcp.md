@@ -18,24 +18,21 @@ redirect_from:
 > * MCP support for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode is in {% data variables.release-phases.public_preview %} and is subject to change.
 > * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply only to {% data variables.product.prodname_copilot_short %} in IDEs where MCP support is still in preview. GA terms apply when using MCP for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}.
 
+## Introduction
+
+The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). For an overview of MCP, see [AUTOTITLE](/copilot/concepts/about-mcp).
+
+For information on currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+
 {% vscode %}
 
-## Overview
-
-The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
-
-You can use MCP to extend the capabilities of {% data variables.copilot.copilot_chat_short %} by integrating it with a wide range of existing tools and services. For example, the {% data variables.product.github %} MCP server allows you to use {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} to perform tasks on {% data variables.product.github %}. You can also use MCP to create new tools and services that work with {% data variables.copilot.copilot_chat_short %}, allowing you to customize and enhance your experience.
-
 Enterprises and organizations can choose to enable or disable use of MCP for members of their organization or enterprise. See [AUTOTITLE](/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise#mcp-servers-on-githubcom). The MCP policy only applies to members with {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_short %} licenses assigned by the organization or enterprise that configures the policy. {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} do not have their MCP access governed by this policy.
-
-For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction).
-
-For information on some of the other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_vscode %} version 1.99 or later**. For information on installing {% data variables.product.prodname_vscode %}, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
+* If you are a member of an organization or enterprise with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the "MCP servers in Copilot" policy must be enabled in order to use MCP.
 
 ## Configuring MCP servers in {% data variables.product.prodname_vscode %}
 
@@ -125,12 +122,6 @@ If you already have an MCP configuration in Claude Desktop, you can use that con
 
 {% jetbrains %}
 
-## Overview
-
-{% data reusables.copilot.mcp-overview-other-ides %}
-
-For information on other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
-
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
@@ -154,12 +145,6 @@ Alternatively, to access the MCP settings, once you're in "Agent Mode," click th
 
 {% xcode %}
 
-## Overview
-
-{% data reusables.copilot.mcp-overview-other-ides %}
-
-For information on other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
-
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
@@ -177,12 +162,6 @@ For information on other currently available MCP servers, see [the MCP servers r
 {% endxcode %}
 
 {% eclipse %}
-
-## Overview
-
-{% data reusables.copilot.mcp-overview-other-ides %}
-
-For information on other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
 ## Prerequisites
 
@@ -211,3 +190,4 @@ For more information on creating and configuring your own MCP servers, see [the 
 
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp)
 * [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server)
+* [AUTOTITLE](/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp)

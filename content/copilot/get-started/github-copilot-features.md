@@ -5,7 +5,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Copilot features
+shortTitle: Features
 redirect_from:
   - /copilot/copilot-business/github-copilot-business-feature-set
   - /copilot/copilot-individual/github-copilot-individual-feature-set

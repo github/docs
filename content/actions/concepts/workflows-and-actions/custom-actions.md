@@ -10,6 +10,7 @@ redirect_from:
   - /actions/creating-actions/about-actions
   - /actions/creating-actions/about-custom-actions
   - /actions/sharing-automations/creating-actions/about-custom-actions
+  - /actions/concepts/workflows-and-actions/about-custom-actions
 versions:
   fpt: '*'
   ghes: '*'
