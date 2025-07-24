@@ -13,7 +13,7 @@ redirect_from:
 defaultTool: vscode
 versions:
   feature: copilot
-shortTitle: Chat in IDE
+shortTitle: Use Chat in IDE
 ---
 
 {% vscode %}

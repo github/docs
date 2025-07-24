@@ -1,6 +1,6 @@
 ---
 title: Code review
-shortTitle: Code review
+shortTitle: Request a code review
 intro: 'Learn how to request a code review from {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
@@ -13,4 +13,3 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/code-review
 ---
-

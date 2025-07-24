@@ -5,7 +5,7 @@ intro: 'Change your enterprise''s plan from {% data variables.copilot.copilot_bu
 permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_business_short %} plan'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 redirect_from:

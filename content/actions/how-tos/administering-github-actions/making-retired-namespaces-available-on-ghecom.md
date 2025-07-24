@@ -10,7 +10,7 @@ redirect_from:
   - /actions/administering-github-actions/making-retired-namespaces-available-on-ghecom
 ---
 
-## About retirement of namespaces
+## Overview
 
 If you use {% data variables.enterprise.data_residency %}, members of your enterprise can create {% data variables.product.prodname_actions %} workflows that use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).
 

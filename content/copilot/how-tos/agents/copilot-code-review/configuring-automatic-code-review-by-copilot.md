@@ -1,6 +1,6 @@
 ---
 title: Configuring automatic code review by Copilot
-shortTitle: Automatic code review
+shortTitle: Configure automatic review
 intro: 'Learn how to configure {% data variables.product.prodname_copilot_short %} to automatically review pull requests.'
 versions:
   feature: copilot

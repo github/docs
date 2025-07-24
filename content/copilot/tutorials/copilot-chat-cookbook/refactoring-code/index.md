@@ -1,5 +1,5 @@
 ---
-title: Refactoring code
+title: Refactor code
 intro: 'Discover ways that you can use {% data variables.product.prodname_copilot %} to refactor your code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code

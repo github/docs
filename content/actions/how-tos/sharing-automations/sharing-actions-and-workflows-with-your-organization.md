@@ -3,7 +3,6 @@ title: Sharing actions and workflows with your organization
 intro: You can share an action or reusable workflow with your organization without publishing the action or workflow publicly.
 versions:
   fpt: '*'
-type: tutorial
 topics:
   - Actions
   - Action development
@@ -13,12 +12,6 @@ redirect_from:
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-organization
 ---
 
-## About {% data variables.product.prodname_actions %} access to private repositories
-
-You can share actions and reusable workflows within your organization, without publishing them publicly, by allowing {% data variables.product.prodname_actions %} workflows to access a private repository that contains the action or reusable workflow.
-
-Any actions or reusable workflows stored in the private repository can be used in workflows defined in other private repositories owned by the same organization. Actions and reusable workflows stored in private repositories cannot be used in public repositories.
-
 > [!WARNING]
 > * {% data reusables.actions.outside-collaborators-actions %}
 > * {% data reusables.actions.scoped-token-note %}
@@ -26,8 +19,12 @@ Any actions or reusable workflows stored in the private repository can be used i
 ## Sharing actions and workflows with your organization
 
 1. Store the action or reusable workflow in a private repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
-1. Configure the repository to allow access to workflows in other private repositories. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. To grant access to other private repositories in the organization, in the **Access** section at the bottom of the page, select **Accessible from repositories in the 'ORGANIZATION-NAME' organization**.
+1. Click **Save** to apply the settings.
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/actions/using-workflows/reusing-workflows)
+To learn how to reuse your shared workflows, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).

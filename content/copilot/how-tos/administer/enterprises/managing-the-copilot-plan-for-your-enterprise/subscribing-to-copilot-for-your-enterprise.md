@@ -5,7 +5,7 @@ intro: 'Enterprise owners can set up a {% data variables.copilot.copilot_enterpr
 permissions: Enterprise owners
 product: 'Enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 redirect_from:
