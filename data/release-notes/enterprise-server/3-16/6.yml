@@ -17,6 +17,8 @@ sections:
       Site administrators running migrations on GitHub Enterprise Server benefit from optimized performance for code scanning, as garbage collection-related `ts_analyses` migrations are combined into a single step. This reduces migration time and minimizes operational disruption during upgrades.
   known_issues:
     - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-23]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.

@@ -4,7 +4,7 @@ intro: 'Control the availability of features for {% data variables.product.prodn
 permissions: Enterprise owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 allowTitleToDifferFromFilename: true
 type: how_to
 topics:

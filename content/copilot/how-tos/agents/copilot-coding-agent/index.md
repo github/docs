@@ -1,13 +1,12 @@
 ---
-title: Coding agent
+title: '{% data variables.copilot.copilot_coding_agent %}'
+shortTitle: '{% data variables.copilot.copilot_coding_agent_short_cap_c %}'
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can work on {% data variables.product.github %} issues and raise pull requests for your to review.'
 versions:
   feature: copilot
 topics:
   - Copilot
 children:
-  - /best-practices-for-using-copilot-to-work-on-tasks
-  - /enabling-copilot-coding-agent
   - /asking-copilot-to-create-a-pull-request
   - /using-copilot-to-work-on-an-issue
   - /tracking-copilots-sessions
@@ -23,4 +22,4 @@ redirect_from:
   - /copilot/using-github-copilot/coding-agent
 ---
 
-For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+These articles provide how-to information for using {% data variables.copilot.copilot_coding_agent %}. For an overview of {% data variables.copilot.copilot_coding_agent %}, see the articles under [AUTOTITLE](/copilot/concepts/coding-agent).

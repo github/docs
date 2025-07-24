@@ -1,5 +1,6 @@
 ---
 title: Using Copilot to work on an issue
+shortTitle: Assign Copilot to an issue
 intro: 'Learn how to assign issues to {% data variables.product.prodname_copilot %}, monitor progress as {% data variables.product.prodname_copilot_short %} works on the issue, and then use pull request review comments to prompt {% data variables.product.prodname_copilot_short %} to iterate on its work.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+copilot+to+work+on+an+issue&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
@@ -23,7 +24,7 @@ redirect_from:
 
 You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, raise a pull request and when it's finished working, request a review from you. For more information, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks).
+If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices).
 
 ## Assigning an issue to {% data variables.product.prodname_copilot_short %}
 
@@ -211,5 +212,5 @@ After {% data variables.product.prodname_copilot_short %} has finished working o
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)

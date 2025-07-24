@@ -7,7 +7,7 @@ topics:
   - Networking
 versions:
   feature: copilot
-shortTitle: Connectivity security settings
+shortTitle: Troubleshoot firewall settings
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot
 ---

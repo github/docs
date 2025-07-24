@@ -17,43 +17,36 @@ redirect_from:
 
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
->
-> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-## Overview
+## Prerequisite
 
-{% data reusables.copilot.coding-agent.mcp-brief-intro %}
+Before setting up an MCP server for {% data variables.copilot.copilot_coding_agent %}, read [AUTOTITLE](/copilot/concepts/coding-agent/mcp-and-coding-agent) to make sure you understand the concepts around MCP servers and {% data variables.copilot.copilot_coding_agent %}.
 
-The agent can use tools provided by local and remote MCP servers. Some MCP servers are configured by default to provide the best experience for getting started.
+## Introduction
 
-For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction). For information on some of the currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
-
-> [!NOTE]
-> * {% data variables.copilot.copilot_coding_agent %} only supports tools provided by MCP servers. It does not support resources or prompts.
-> * {% data variables.copilot.copilot_coding_agent %} does not currently support remote MCP servers that leverage OAuth for authentication and authorization.
-
-## Default MCP servers
-
-The following MCP servers are configured automatically for {% data variables.copilot.copilot_coding_agent %}:
-
-* **{% data variables.product.github %}**: The {% data variables.product.github %} MCP server gives {% data variables.product.prodname_copilot_short %} access to {% data variables.product.github %} data like issues and pull requests. To learn more, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
-  * By default, the {% data variables.product.github %} MCP server connects to {% data variables.product.github %} using a specially scoped token that only has read-only access to the current repository. You can customize it to use a different token with broader access. For more details, see [Customizing the built-in {% data variables.product.github %} MCP server](#customizing-the-built-in-github-mcp-server) below.
-
-* **Playwright**: The [Playwright MCP server](https://github.com/microsoft/playwright-mcp) gives {% data variables.product.prodname_copilot_short %} access to web pages, including the ability to read, interact and take screenshots.
-  * By default, the Playwright MCP server is only able to access web resources hosted within {% data variables.product.prodname_copilot_short %}'s own environment, accessible on `localhost` or `127.0.0.1`.
-
-## Setting up MCP servers in a repository
+As a repository administrator, you can configure MCP servers for use within your repository. You do this using a JSON-formatted configuration that specifies the details of the MCP servers you want to use. You enter the JSON configuration directly into the settings for the repository on {% data variables.product.prodname_dotcom_the_website %}.
 
 > [!WARNING]
 > Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
 
-As a repository administrator, you can configure MCP servers for use within your repository. This is done via a JSON-formatted configuration that specifies the details of the MCP servers you want to use. You enter the JSON configuration directly into the settings for the repository on {% data variables.product.prodname_dotcom_the_website %}.
+## Adding an MCP configuration to your repository
 
-Once MCP servers are configured for use within a repository, the tools specified in the configuration will be available to {% data variables.copilot.copilot_coding_agent %} during each assigned task.
+Repository administrators can configure MCP servers by following these steps:
 
-{% data variables.product.prodname_copilot_short %} will use available tools autonomously, and will not ask for approval before use.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short_cap_c %}**.
+1. Add your configuration in the **MCP configuration** section.
 
-### Creating your JSON MCP configuration
+   The following sections in this article explain how to write the JSON configuration that you need to enter here.
+
+1. Click **Save**.
+
+   Your configuration will be validated to ensure proper syntax.
+
+1. If your MCP server requires a key or secret, add a secret to your {% data variables.product.prodname_copilot_short %} environment. Only secrets with names prefixed with `COPILOT_MCP_` will be available to your MCP configuration. See [Setting up a {% data variables.product.prodname_copilot_short %} environment for {% data variables.copilot.copilot_coding_agent %}](#setting-up-a-copilot-environment-for-copilot-coding-agent).
+
+## Writing a JSON configuration for MCP servers
 
 You configure MCP servers using a special JSON format. The JSON must contain an `mcpServers` object, where the key is the name of the MCP server (for example, `sentry`), and the value is an object with the configuration for that MCP server.
 
@@ -94,9 +87,9 @@ The configuration object can contain the following keys:
   * The name of a {% data variables.product.prodname_actions %} secret you have configured, beginning with `COPILOT_MCP_` preceded by a `$`
   * A string value
 
-### Example configurations
+## Example configurations
 
-#### Example: Sentry
+### Example: Sentry
 
 The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data variables.product.prodname_copilot_short %} authenticated access to exceptions recorded in [Sentry](https://sentry.io).
 
@@ -123,7 +116,7 @@ The [Sentry MCP server](https://github.com/getsentry/sentry-mcp) gives {% data v
 }
 ```
 
-#### Example: Notion
+### Example: Notion
 
 The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {% data variables.product.prodname_copilot_short %} authenticated access to notes and other content from [Notion](https://notion.so).
 
@@ -155,7 +148,7 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
 }
 ```
 
-#### Example: Azure
+### Example: Azure
 
 The [Azure MCP server](https://github.com/Azure/azure-mcp) creates a seamless connection between {% data variables.product.prodname_copilot_short %} and key Azure services such as Azure Cosmos DB and the Azure Storage platform.
 
@@ -210,7 +203,7 @@ To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you
    }
    ```
 
-#### Example: Cloudflare
+### Example: Cloudflare
 
 The [Cloudflare MCP server](https://github.com/cloudflare/mcp-server-cloudflare) creates connections between your Cloudflare services, including processing documentation and data analysis.
 
@@ -226,7 +219,7 @@ The [Cloudflare MCP server](https://github.com/cloudflare/mcp-server-cloudflare)
 }
 ```
 
-### Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
+## Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 
 If you have already configured MCP servers in {% data variables.product.prodname_vscode_shortname %}, you can leverage a similar configuration for {% data variables.copilot.copilot_coding_agent %}.
 
@@ -241,21 +234,7 @@ To adapt the configuration for {% data variables.copilot.copilot_coding_agent %}
 
 For more information on MCP in {% data variables.product.prodname_vscode_shortname %}, see the [{% data variables.product.prodname_vscode_shortname %} docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
-### Adding your configuration to your repository
-
-Repository administrators can configure MCP servers by following these steps:
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
-1. Add your configuration in the **MCP configuration** section.
-1. Click **Save**.
-
-   Your configuration will be validated to ensure proper syntax.
-
-1. If your MCP server requires a key or secret, add a secret to your {% data variables.product.prodname_copilot_short %} environment. Only secrets with names prefixed with `COPILOT_MCP_` will be available to your MCP configuration. See [Setting up a {% data variables.product.prodname_copilot_short %} environment for {% data variables.copilot.copilot_coding_agent %}](#setting-up-a-copilot-environment-for-copilot-coding-agent).
-
-### Setting up a {% data variables.product.prodname_copilot_short %} environment for {% data variables.copilot.copilot_coding_agent %}
+## Setting up a {% data variables.product.prodname_copilot_short %} environment for {% data variables.copilot.copilot_coding_agent %}
 
 Some MCP servers will require keys or secrets. To leverage those servers in {% data variables.copilot.copilot_coding_agent %}, you can add secrets to an environment for {% data variables.product.prodname_copilot_short %}. This ensures the secrets are properly recognized and passed to the applicable MCP server that you have configured.
 
@@ -269,7 +248,7 @@ You must be a repository administrator to configure a {% data variables.product.
 1. Under "Environment secrets", click **Add environment secret**.
 1. Give the secret a name beginning `COPILOT_MCP_`, add the secret value, then click **Add secret**.
 
-### Validating your MCP configuration
+## Validating your MCP configuration
 
 Once you've set up your MCP configuration, you should test it to make sure it is set up correctly.
 
@@ -293,7 +272,7 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 1. Create a {% data variables.product.pat_generic %} with the appropriate permissions. We recommend using a {% data variables.product.pat_v2 %}, where you can limit the token's access to read-only permissions on specific repositories. For more information on {% data variables.product.pat_generic_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
+1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short_cap_c %}**.
 1. Add your configuration in the **MCP configuration** section.
 1. Click **Save**.
 {% data reusables.actions.sidebar-environment %}
@@ -303,15 +282,7 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 
 For information on using the {% data variables.product.github %} MCP server in other environments, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server).
 
-## Best practices
-
-* Enabling third-party MCP servers for use may impact the performance of the agent and the quality of the outputs. Review the third-party MCP server thoroughly and ensure that it meets your organization’s requirements.
-
-* By default, {% data variables.copilot.copilot_coding_agent %} does not have access to write MCP server tools. However, some MCP servers do contain such tools. Be sure to review the tools available in the MCP server you want to use. Update the `tools` field in the MCP configuration with only the necessary tooling.
-
-* Carefully review the configured MCP servers prior to saving the configuration to ensure the correct servers are configured for use.
-
-## Further reading
+## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)

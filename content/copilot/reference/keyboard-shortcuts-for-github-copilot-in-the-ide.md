@@ -1,6 +1,6 @@
 ---
 title: Keyboard shortcuts for GitHub Copilot in the IDE
-shortTitle: Keyboard shortcuts for Copilot
+shortTitle: Keyboard shortcuts
 intro: 'Find a list of keyboard shortcuts for {% data variables.product.prodname_copilot %} in the IDEs that support it.'
 versions:
   feature: copilot

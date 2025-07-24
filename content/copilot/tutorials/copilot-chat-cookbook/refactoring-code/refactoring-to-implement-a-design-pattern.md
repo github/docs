@@ -1,6 +1,6 @@
 ---
 title: Refactoring to implement a design pattern
-shortTitle: Design patterns
+shortTitle: Refactor design patterns
 intro: '{% data variables.copilot.copilot_chat_short %} can suggest design patterns that you can use to improve your code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/refactoring-to-implement-a-design-pattern

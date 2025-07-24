@@ -1,6 +1,6 @@
 ---
 title: Comparing AI models using different tasks
-shortTitle: Examples for AI model comparison
+shortTitle: Compare AI models
 intro: 'Explore real-world examples of common developer tasks along with sample prompts, responses, and guidance to help you choose the right AI model for your workflow.'
 versions:
   feature: copilot
@@ -17,7 +17,7 @@ Each AI model supported in {% data variables.copilot.copilot_chat_short %} has d
 
 These examples show how models vary in their reasoning style, response depth, and ability to handle visual input. Use them to compare output quality and choose the right model for your specific workflow.
 
-For a full list of supported models and side-by-side feature comparisons, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+For a full list of supported models and side-by-side feature comparisons, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
 ## {% data variables.copilot.copilot_gpt_4o %}
 
@@ -198,5 +198,5 @@ For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/tutorials/m
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
+* [AUTOTITLE](/copilot/reference/ai-models/model-comparison)
 * [AUTOTITLE](/copilot/copilot-chat-cookbook)

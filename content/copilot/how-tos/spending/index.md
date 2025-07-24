@@ -1,6 +1,6 @@
 ---
 title: Manage and monitor spending for Copilot
-shortTitle: Spending
+shortTitle: Manage and track spending
 intro: 'Manage and track spending on Copilot for your company.'
 versions:
   feature: copilot
@@ -13,4 +13,3 @@ children:
 redirect_from:
   - /copilot/how-tos/premium-requests
 ---
-

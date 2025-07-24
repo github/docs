@@ -1,8 +1,7 @@
 ---
 title: Using artifact attestations and reusable workflows to achieve SLSA v1 Build Level 3
-shortTitle: Attest with reusable workflows
+shortTitle: Increase security rating
 intro: Building software with reusable workflows and artifact attestations can streamline your supply chain security and help you achieve SLSA v1.0 Build Level 3.
-type: quick_start
 topics:
   - Actions
   - Security
@@ -15,15 +14,10 @@ redirect_from:
   - /actions/security-for-github-actions/using-artifact-attestations/using-artifact-attestations-and-reusable-workflows-to-achieve-slsa-v1-build-level-3
 ---
 
-## Introduction
-
-Artifact attestations are a great way to create unfalsifiable provenance and integrity guarantees for the software you build.
-
-But remember that by itself, artifact attestations provides links, like the build instructions an artifact was built with, which meets SLSA v1.0 Build Level 2. To make an informed risk decision, it's up to you to follow those links and evaluate those build instructions.
-
-You can take this a step further by requiring builds make use of known, vetted build instructions. A great way to do this is to have your build take place in a reusable workflow that many repositories across your organization share. Reusable workflows can provide isolation between the build process and the calling workflow, to meet SLSA v1.0 Build Level 3.
+## Prerequisites
 
 Before starting this guide, you should be familiar with:
+* The usage and security benefits of artifact attestations. See [AUTOTITLE](/actions/concepts/security/artifact-attestations).
 * Generating artifact attestations. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
 * Writing and using reusable workflows. See [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
@@ -33,11 +27,11 @@ First, we need to build with both artifact attestations and a reusable workflow.
 
 ### Building with a reusable workflow
 
-If you aren't already using reusable workflows to build your software, you'll need to take your build steps and move them into a reusable workflow. For more information on how to write and call a reusable workflow, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
+If you aren't already using reusable workflows to build your software, you'll need to take your build steps and move them into a reusable workflow.
 
 ### Building with artifact attestations
 
-The reusable workflow you use to build your software must also generate artifact attestations to establish build provenance. For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
+The reusable workflow you use to build your software must also generate artifact attestations to establish build provenance.
 
 When you use a reusable workflow to generate artifact attestations, both the calling workflow and the reusable workflow need to have the following permissions.
 
@@ -75,7 +69,3 @@ Or if you want to specify the exact workflow:
 ```bash copy
 gh attestation verify -o ORGANIZATION_NAME --signer-workflow REUSABLE_ORGANIZATION_NAME/REUSABLE_REPOSITORY_NAME/.github/workflows/reusable.yml PATH/TO/YOUR/BUILD/ARTIFACT-BINARY
 ```
-
-## Conclusion
-
-You are now building and signing your artifacts in a reusable workflow, which can provide the isolation required by SLSA v1.0 Build Level 3. You can verify artifacts are built with known, vetted build instructions by requiring your artifact was built with a specific workflow, reusable or not.

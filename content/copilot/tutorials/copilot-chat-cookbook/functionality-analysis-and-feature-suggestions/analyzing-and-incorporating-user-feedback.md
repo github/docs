@@ -1,6 +1,6 @@
 ---
 title: Analyzing and incorporating user feedback
-shortTitle: Incorporate feedback
+shortTitle: Analyze feedback
 intro: '{% data variables.copilot.copilot_chat_short %} can enhance the process of incorporating user feedback into your project.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/functionality-analysis-and-feature-suggestions/analyzing-and-incorporating-user-feedback

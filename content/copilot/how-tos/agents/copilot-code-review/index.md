@@ -1,6 +1,6 @@
 ---
 title: Code review
-shortTitle: Code review
+shortTitle: Request a code review
 intro: 'Learn how to request a code review from {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot
@@ -9,8 +9,9 @@ topics:
 children:
   - /using-copilot-code-review
   - /configuring-coding-guidelines
-  - /configuring-automatic-code-review-by-copilot
+  - /automatic-code-review
 redirect_from:
   - /copilot/using-github-copilot/code-review
 ---
 
+These articles provide instructions on configuring and using {% data variables.copilot.copilot_code-review_short %}. For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/code-review).

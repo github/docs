@@ -1,6 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in GitHub
-shortTitle: Chat in GitHub
+shortTitle: Use Chat in GitHub
 intro: 'You can use {% data variables.copilot.copilot_chat_dotcom %} to answer general questions about software development, or specific questions about the issues or code in a repository.'
 versions:
   feature: copilot
@@ -60,7 +60,7 @@ After {% data variables.product.prodname_copilot_short %} responds to your quest
 
 You can switch between responses to compare the results from different models.
 
-For help deciding which model to use, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+For help deciding which model to use, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
 ### Using subthreads in a conversation
 

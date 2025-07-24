@@ -49,7 +49,7 @@ A {% data variables.product.prodname_copilot %} seat is a license to use {% data
 
 If a single user receives a seat from multiple organizations in the same enterprise, the enterprise will only be billed once per billing cycle for that unique user. One of the organizations that assigned {% data variables.product.prodname_copilot_short %} to the user will be chosen at random each month to be billed for the seat.
 
-Seat assignment is managed by owners of organizations{% ifversion ghec %} that have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level{% endif %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
+Seat assignment is managed by owners of organizations that have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
 If you are a member of an organization or enterprise with a {% data variables.product.prodname_copilot %} plan, to use the plan, you will need to be assigned a seat by an organization owner.
 

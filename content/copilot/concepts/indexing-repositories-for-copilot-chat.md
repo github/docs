@@ -1,6 +1,6 @@
 ---
 title: Indexing repositories for Copilot Chat
-shortTitle: Semantic indexing
+shortTitle: Repository indexes
 intro: '{% data variables.copilot.copilot_chat %} improves responses to questions about code by indexing your repositories.'
 versions:
   feature: copilot

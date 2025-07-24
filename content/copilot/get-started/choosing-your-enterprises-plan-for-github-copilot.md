@@ -82,4 +82,4 @@ To summarize:
 ## Further reading
 
 * [AUTOTITLE](/enterprise-cloud@latest/copilot/customizing-copilot/managing-copilot-knowledge-bases)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
+* [AUTOTITLE](/copilot/reference/ai-models/model-comparison)

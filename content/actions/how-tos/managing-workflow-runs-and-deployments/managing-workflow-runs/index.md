@@ -16,8 +16,7 @@ children:
   - /downloading-workflow-artifacts
   - /removing-workflow-artifacts
   - /manage-caches
-  - /approving-workflow-runs-from-public-forks
-  - /approving-workflow-runs-from-private-forks
+  - /approving-workflow-runs-from-forks
 redirect_from:
   - /actions/managing-workflow-runs-and-deployments/managing-workflow-runs
 ---

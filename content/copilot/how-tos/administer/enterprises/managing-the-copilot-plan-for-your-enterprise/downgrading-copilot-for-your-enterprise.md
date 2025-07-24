@@ -5,7 +5,7 @@ intro: 'You can downgrade organizations in your enterprise from {% data variable
 permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short %} plan'
 versions:
-  feature: copilot-enterprise
+  feature: copilot
 topics:
   - Copilot
 redirect_from:

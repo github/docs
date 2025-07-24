@@ -1,6 +1,6 @@
 ---
 title: Choosing the right AI tool for your task
-shortTitle: Choose the right AI tool
+shortTitle: AI tools
 intro: 'Understand {% data variables.product.github %}''s AI tools and how they can be used to help develop software.'
 versions:
   fpt: '*'

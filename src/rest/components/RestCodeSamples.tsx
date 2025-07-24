@@ -71,6 +71,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     javascript: getJSExample(operation, sample, currentVersion, allVersions),
     ghcli: getGHExample(operation, sample, currentVersion, allVersions),
     response: sample.response,
+    request: sample.request,
   }))
 
   // Menu options for the language selector
@@ -98,18 +99,46 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   // there's more than one example and if the media types aren't all the same
   // for the examples (e.g. if all examples have content type `application/json`,
   // we won't show that information in the menu items).
-  const showExampleOptionMediaType =
+  const responseContentTypesDiffer =
     languageExamples.length > 1 &&
     !languageExamples.every(
       (example) => example.response.contentType === languageExamples[0].response.contentType,
     )
-  const exampleSelectOptions = languageExamples.map((example, index) => ({
-    text: showExampleOptionMediaType
-      ? `${example.description} (${example.response.contentType})`
-      : example.description,
-    // maps to the index of the example in the languageExamples array
-    languageIndex: index,
-  }))
+
+  // Check if request content types differ between examples
+  const requestContentTypesDiffer =
+    languageExamples.length > 1 &&
+    !languageExamples.every(
+      (example) => example.request?.contentType === languageExamples[0].request?.contentType,
+    )
+
+  const showExampleOptionMediaType = responseContentTypesDiffer || requestContentTypesDiffer
+
+  const exampleSelectOptions = languageExamples.map((example, index) => {
+    const requestContentType = example.request?.contentType
+    const responseContentType = example.response.contentType
+
+    let text = example.description
+
+    if (showExampleOptionMediaType) {
+      if (requestContentTypesDiffer && responseContentTypesDiffer) {
+        // Show both request and response content types
+        text = `${example.description} (${requestContentType} → ${responseContentType})`
+      } else if (requestContentTypesDiffer) {
+        // Show only request content type
+        text = `${example.description} (${requestContentType})`
+      } else if (responseContentTypesDiffer) {
+        // Show only response content type
+        text = `${example.description} (${responseContentType})`
+      }
+    }
+
+    return {
+      text,
+      // maps to the index of the example in the languageExamples array
+      languageIndex: index,
+    }
+  })
 
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])

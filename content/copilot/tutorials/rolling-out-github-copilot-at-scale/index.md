@@ -1,6 +1,6 @@
 ---
 title: Rolling out GitHub Copilot at scale
-shortTitle: Roll out Copilot at scale
+shortTitle: Roll out at scale
 intro: Learn how to manage a Copilot rollout in your organization or enterprise.
 versions:
   feature: copilot

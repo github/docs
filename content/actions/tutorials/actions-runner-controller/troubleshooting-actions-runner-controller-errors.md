@@ -120,31 +120,32 @@ To fix this, you can do one of the following things.
 * Use a volume type that supports `securityContext.fsGroup`. `hostPath` volumes do not support this property, whereas `local` volumes and other types of volumes do support it. Update the `fsGroup` of your runner pod to match the GID of the runner. You can do this by updating the `gha-runner-scale-set` helm chart values to include the following. Replace `VERSION` with the version of the `actions-runner` container image you want to use.
 
     ```yaml copy
-    spec:
+    template:
+      spec:
         securityContext:
-            fsGroup: 123
+          fsGroup: 123
         containers:
-        - name: runner
-        image: ghcr.io/actions/actions-runner:latest
-        command: ["/home/runner/run.sh"]
+          - name: runner
+            image: ghcr.io/actions/actions-runner:latest
+            command: ["/home/runner/run.sh"]
     ```
 
 * If updating the `securityContext` of your runner pod is not a viable solution, you can work around the issue by using `initContainers` to change the mounted volume's ownership, as follows.
 
     ```yaml copy
     template:
-    spec:
+      spec:
         initContainers:
-        - name: kube-init
-        image: ghcr.io/actions/actions-runner:latest
-        command: ["sudo", "chown", "-R", "1001:123", "/home/runner/_work"]
+          - name: kube-init
+            image: ghcr.io/actions/actions-runner:latest
+            command: ["sudo", "chown", "-R", "1001:123", "/home/runner/_work"]
         volumeMounts:
-            - name: work
+          - name: work
             mountPath: /home/runner/_work
         containers:
-        - name: runner
-        image: ghcr.io/actions/actions-runner:latest
-        command: ["/home/runner/run.sh"]
+          - name: runner
+            image: ghcr.io/actions/actions-runner:latest
+            command: ["/home/runner/run.sh"]
     ```
 
 ## Error: `failed to get access token for {% data variables.product.prodname_github_app %} auth: 401 Unauthorized`

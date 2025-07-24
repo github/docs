@@ -16,7 +16,7 @@ redirect_from:
 
 ## Introduction
 
-You can set up OIDC so that {% data variables.product.prodname_copilot_short %} agents and skillsets can more securely authenticate users and access cloud resources. For more information on OIDC, see [AUTOTITLE](/copilot/concepts/build-copilot-extensions/openid-connect).
+You can set up OIDC so that {% data variables.product.prodname_copilot_short %} agents and skillsets can more securely authenticate users and access cloud resources. For more information on OIDC, see [AUTOTITLE](/copilot/concepts/copilot-extensions/openid-connect).
 
 There are three steps to setting up OIDC for your extension.
 * [Configure your token exchange endpoint](#configure-your-token-exchange-endpoint).
@@ -105,4 +105,4 @@ The following sections outline common problems and best practices for implementi
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/concepts/build-copilot-extensions/openid-connect)
+* [AUTOTITLE](/copilot/concepts/copilot-extensions/openid-connect)

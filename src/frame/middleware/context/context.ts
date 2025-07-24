@@ -17,6 +17,7 @@ import productNames from '@/products/lib/product-names'
 import warmServer from '@/frame/lib/warm-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data'
+import { updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
@@ -106,6 +107,11 @@ export default async function contextualize(
       return context.enPage
     }
   }
+
+  updateLoggerContext({
+    version: req.context.currentVersion,
+    pagePath: req.pagePath,
+  })
 
   return next()
 }

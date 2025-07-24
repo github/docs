@@ -16,8 +16,6 @@ redirect_from:
 
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
->
-> For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
 
@@ -34,8 +32,6 @@ During or after an agent session, you can inspect the session logs to understand
 You can see a list of your running and past agent sessions on the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
 
 You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
-
-![Screenshot of the Agents page with several sessions, including one currently in progress.](/assets/images/help/copilot/coding-agent/agents-page.png)
 
 For each session listed below the prompt field, you can see its status at a glance, or click on it to navigate to the linked pull request.
 
@@ -80,5 +76,5 @@ Reasons you might want to stop a session include:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)
