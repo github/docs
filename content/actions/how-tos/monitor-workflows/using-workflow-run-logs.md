@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
   - /actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/using-workflow-run-logs
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/monitoring-workflows/using-workflow-run-logs
 versions:
   fpt: '*'
   ghes: '*'
