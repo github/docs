@@ -139,7 +139,7 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 | MCP servers ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp#configuring-mcp-servers-in-visual-studio-code) |
 | GitHub Models playground ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground) |
 | Custom instructions | [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode) |
-| Copilot code review | [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot) |
+| Copilot code review | [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review) |
 | {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org) |
 | {% data variables.copilot.copilot_autofix_short %} | [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) |
 

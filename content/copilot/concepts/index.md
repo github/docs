@@ -12,10 +12,11 @@ children:
   - /completions
   - /prompt-engineering-for-copilot-chat
   - /about-customizing-github-copilot-chat-responses
+  - /about-copilot-coding-agent
+  - /code-review
   - /about-github-copilot-chat
   - /content-exclusion-for-github-copilot
   - /indexing-repositories-for-copilot-chat
-  - /about-copilot-coding-agent
   - /about-organizing-and-sharing-context-with-copilot-spaces
   - /policies
   - /copilot-knowledge-bases
