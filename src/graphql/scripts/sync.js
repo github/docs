@@ -1,4 +1,5 @@
 import fs from 'fs/promises'
+import { appendFileSync } from 'fs'
 import path from 'path'
 import { mkdirp } from 'mkdirp'
 import yaml from 'js-yaml'
@@ -8,7 +9,11 @@ import { allVersions } from '@/versions/lib/all-versions'
 import processPreviews from './utils/process-previews'
 import processUpcomingChanges from './utils/process-upcoming-changes'
 import processSchemas from './utils/process-schemas'
-import { prependDatedEntry, createChangelogEntry } from './build-changelog'
+import {
+  prependDatedEntry,
+  createChangelogEntry,
+  getIgnoredChangesSummary,
+} from './build-changelog'
 
 const graphqlStaticDir = 'src/graphql/data'
 const dataFilenames = JSON.parse(await fs.readFile('src/graphql/scripts/utils/data-filenames.json'))
@@ -21,6 +26,8 @@ if (!process.env.GITHUB_TOKEN) {
 const versionsToBuild = Object.keys(allVersions)
 
 main()
+
+let allIgnoredChanges = []
 
 async function main() {
   for (const version of versionsToBuild) {
@@ -77,11 +84,42 @@ async function main() {
           path.join(graphqlStaticDir, graphqlVersion, 'changelog.json'),
         )
       }
+
+      // Capture ignored changes for potential workflow notifications
+      const ignoredSummary = getIgnoredChangesSummary()
+      if (ignoredSummary) {
+        allIgnoredChanges.push({
+          version: graphqlVersion,
+          ...ignoredSummary,
+        })
+      }
     }
   }
 
   // Ensure the YAML linter runs before checkinging in files
   execSync('npx prettier -w "**/*.{yml,yaml}"')
+
+  // Output ignored changes for GitHub Actions
+  if (allIgnoredChanges.length > 0) {
+    const totalIgnored = allIgnoredChanges.reduce((sum, item) => sum + item.totalCount, 0)
+    const uniqueTypes = [
+      ...new Set(allIgnoredChanges.flatMap((item) => item.types.map((t) => t.type))),
+    ]
+
+    console.log(
+      '::notice title=GraphQL Ignored Changes::Found ignored change types that may need review',
+    )
+
+    // Write outputs to GitHub Actions output file
+    if (process.env.GITHUB_OUTPUT) {
+      appendFileSync(
+        process.env.GITHUB_OUTPUT,
+        `ignored-changes=${JSON.stringify(allIgnoredChanges)}\n`,
+      )
+      appendFileSync(process.env.GITHUB_OUTPUT, `ignored-count=${totalIgnored}\n`)
+      appendFileSync(process.env.GITHUB_OUTPUT, `ignored-types=${uniqueTypes.join(', ')}\n`)
+    }
+  }
 }
 
 // get latest from github/github

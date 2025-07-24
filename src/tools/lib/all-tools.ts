@@ -18,6 +18,8 @@ export const allTools: ToolsMapping = {
   curl: 'curl',
   desktop: 'Desktop',
   eclipse: 'Eclipse',
+  github_mobile: 'GitHub Mobile',
+  ides: 'IDEs',
   importer_cli: 'GitHub Enterprise Importer CLI',
   javascript: 'JavaScript',
   jetbrains: 'JetBrains IDEs',

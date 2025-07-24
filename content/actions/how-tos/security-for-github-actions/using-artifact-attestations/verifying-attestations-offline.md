@@ -1,8 +1,7 @@
 ---
 title: Verifying attestations offline
-shortTitle: Verifying attestations offline
+shortTitle: Verify attestations offline
 intro: Artifact attestations can be verified without an internet connection.
-type: quick_start
 topics:
   - Actions
   - Security
@@ -15,15 +14,9 @@ redirect_from:
   - /actions/security-for-github-actions/using-artifact-attestations/verifying-attestations-offline
 ---
 
-## Introduction
+## Prerequisites
 
-Artifact attestations are a great way to create unfalsifiable provenance and integrity guarantees for the software you build.
-
-By default, attestations are stored in GitHub's attestation API, which `gh attestation verify` will query when you go to verify your attestation. That command will also contact GitHub's servers to check for updated key material to use to verify the attestation.
-
-This command can work without internet connectivity, but you need to supply the attestation bundle and the key material in the trusted root manually.
-
-Before starting this guide, you should be building with generating artifact attestations. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
+Before starting this guide, you should be generating artifact attestations for your builds. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
 
 ## Step 1: Download attestation bundle
 
@@ -75,7 +68,3 @@ You can then perform offline verification with the following command:
 ```bash copy
 gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY -R ORGANIZATION_NAME/REPOSITORY_NAME --bundle sha256:ae57936def59bc4c75edd3a837d89bcefc6d3a5e31d55a6fa7a71624f92c3c3b.jsonl --custom-trusted-root trusted_root.jsonl
 ```
-
-## Conclusion
-
-You are now verifying artifact attestations in an offline environment. We recommend importing a new trusted root whenever you are introducing new signed artifacts to your offline environment.

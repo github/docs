@@ -7,12 +7,12 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-github-hosted-runners
-  - /about-larger-runners
-  - /about-private-networking-with-github-hosted-runners
-  - /about-self-hosted-runners
-  - /communicating-with-self-hosted-runners
-  - /about-runner-scale-sets
-  - /about-actions-runner-controller
-  - /about-support-for-actions-runner-controller
+  - /github-hosted-runners
+  - /larger-runners
+  - /self-hosted-runners
+  - /private-networking-with-github-hosted-runners
+  - /runner-groups
+  - /runner-scale-sets
+  - /actions-runner-controller
+  - /support-for-actions-runner-controller
 ---

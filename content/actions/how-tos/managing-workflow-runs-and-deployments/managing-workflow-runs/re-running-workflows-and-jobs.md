@@ -13,11 +13,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## About re-running workflows and jobs
-
-Re-running a workflow or jobs in a workflow uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. The workflow will use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. You can re-run a workflow or jobs in a workflow for up to 30 days after the initial run. You cannot re-run jobs in a workflow once its logs have passed their retention limits. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy). When you re-run a workflow or jobs in a workflow, you can enable debug logging for the re-run. This will enable runner diagnostic logging and step debug logging for the re-run. For more information about debug logging, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)
+> [!NOTE]
+> Re-run workflows use the privileges of the actor who initially triggered the workflow, not the privileges of the actor who initiated the re-run. The workflow will also use the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (git ref) of the original event that triggered the workflow run.
 
 ## Re-running all the jobs in a workflow
 
@@ -30,7 +27,6 @@ Re-running a workflow or jobs in a workflow uses the same `GITHUB_SHA` (commit S
 1. In the upper-right corner of the workflow, re-run jobs.
 
    * If any jobs failed, select the **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
-
    * If no jobs failed, click **Re-run all jobs**.
 
 {% data reusables.actions.enable-debug-logging %}
@@ -39,31 +35,27 @@ Re-running a workflow or jobs in a workflow uses the same `GITHUB_SHA` (commit S
 
 {% cli %}
 
-{% data reusables.cli.cli-learn-more %}
+1. To re-run a failed workflow run, use the `run rerun` subcommand, replacing `RUN_ID` with the ID of the failed run that you want to re-run. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
-To re-run a failed workflow run, use the `run rerun` subcommand. Replace `run-id` with the ID of the failed run that you want to re-run. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
+    ```shell copy
+    gh run rerun RUN_ID
+    ```
 
-```shell
-gh run rerun RUN_ID
-```
+    {% data reusables.actions.enable-debug-logging-cli %}
 
-{% data reusables.actions.enable-debug-logging-cli %}
+    ```shell copy
+    gh run rerun RUN_ID --debug
+    ```
 
-```shell
-gh run rerun RUN_ID --debug
-```
+1. To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
 
-To view the progress of the workflow run, use the `run watch` subcommand and select the run from the interactive list.
-
-```shell
-gh run watch
-```
+    ```shell copy
+    gh run watch
+    ```
 
 {% endcli %}
 
 ## Re-running failed jobs in a workflow
-
-If any jobs in a workflow run failed, you can re-run just the jobs that failed. When you re-run failed jobs in a workflow, a new workflow run will start for all failed jobs and their dependents. Any outputs for any successful jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any deployment protection rules that passed in the previous run will automatically pass in the re-run.
 
 {% webui %}
 
@@ -78,7 +70,7 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 
 {% cli %}
 
-To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `run-id` with the ID of the run for which you want to re-run failed jobs. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
+To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `RUN_ID` with the ID of the run for which you want to re-run failed jobs. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent failed run.
 
 ```shell
 gh run rerun RUN_ID --failed
@@ -94,8 +86,6 @@ gh run rerun RUN_ID --failed --debug
 
 ## Re-running a specific job in a workflow
 
-When you re-run a specific job in a workflow, a new workflow run will start for the job and any dependents. Any outputs for any other jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any deployment protection rules that passed in the previous run will automatically pass in the re-run.
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -110,7 +100,7 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 
 {% cli %}
 
-To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
+To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `JOB_ID` with the ID of the job that you want to re-run.
 
 ```shell
 gh run rerun --job JOB_ID
@@ -124,13 +114,7 @@ gh run rerun --job JOB_ID --debug
 
 {% endcli %}
 
-## Re-running workflows and jobs with reusable workflows
-
-{% data reusables.actions.partial-reruns-with-reusable %}
-
 ## Reviewing previous workflow runs
-
-You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see [AUTOTITLE](/rest/actions/workflow-runs#get-a-workflow-run).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

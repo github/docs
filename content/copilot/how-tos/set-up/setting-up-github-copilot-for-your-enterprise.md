@@ -41,6 +41,6 @@ Enable {% data variables.product.prodname_copilot_short %} for some or all organ
 
 If your enterprise is on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
-## 5. Drive {% data variables.product.prodname_copilot_short %} adoption
+## Next steps
 
-Planning and implementing an effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your enterprise. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company).
+{% data reusables.copilot.setup-next-steps %}

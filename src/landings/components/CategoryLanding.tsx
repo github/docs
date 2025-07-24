@@ -16,7 +16,7 @@ import { ArticleCardItems } from '@/landings/types'
 export const CategoryLanding = () => {
   const { t } = useTranslation('cookbook_landing')
   const router = useRouter()
-  const { title, intro, tocItems } = useCategoryLandingContext()
+  const { title, intro, tocItems, spotlight } = useCategoryLandingContext()
 
   // tocItems contains directories and its children, we only want the child articles
   const onlyFlatItems: ArticleCardItems = tocItems.flatMap((item) => item.childTocItems || [])
@@ -71,6 +71,30 @@ export const CategoryLanding = () => {
     setSelectedCategory('All')
     setSelectedComplexity('All')
   }
+
+  // Helper function to find article data from tocItems
+  const findArticleData = (articlePath: string) => {
+    const cleanPath = articlePath.startsWith('/') ? articlePath.slice(1) : articlePath
+    return onlyFlatItems.find(
+      (item) =>
+        item.fullPath?.endsWith(cleanPath) ||
+        item.fullPath?.includes(cleanPath.split('/').pop() || ''),
+    )
+  }
+
+  // Process spotlight items to get complete data
+  const processedSpotlight =
+    spotlight?.map((spotlightItem) => {
+      const articleData = findArticleData(spotlightItem.article)
+      return {
+        article: spotlightItem.article,
+        title: articleData?.title || 'Unknown Article',
+        description: articleData?.intro || '',
+        url: articleData?.fullPath || spotlightItem.article,
+        image: spotlightItem.image,
+      }
+    }) || []
+
   return (
     <DefaultLayout>
       {router.route === '/[versionId]/rest/[category]' && <RestRedirect />}
@@ -85,39 +109,34 @@ export const CategoryLanding = () => {
         <ArticleTitle>{title}</ArticleTitle>
         {intro && <Lead data-search="lead">{intro}</Lead>}
 
-        <h2 className="py-5">{t('spotlight')}</h2>
-        <div className="d-md-flex d-sm-block col-md-12">
-          <div className="col-md-4">
-            <CookBookArticleCard
-              image={'/assets/images/copilot-landing/generating_unit_tests.png'}
-              title="Generate unit tests"
-              description="Copilot Chat can help with generating unit tests for a function."
-              spotlight={true}
-              url="/copilot/copilot-chat-cookbook/testing-code/generate-unit-tests"
-              tags={[]}
-            />
+        {!spotlight || spotlight.length === 0 ? (
+          <div className="p-4 border border-danger rounded">
+            <h3 className="text-danger">Configuration Error</h3>
+            <p>
+              Category landing pages with <code>layout: category-landing</code> must define a{' '}
+              <code>spotlight</code> property in the frontmatter. Each spotlight item requires both
+              an <code>article</code> path and an <code>image</code> path.
+            </p>
           </div>
-          <div className="col-md-4">
-            <CookBookArticleCard
-              image={'/assets/images/copilot-landing/improving_code_readability.png'}
-              title="Improving code readability and maintainability"
-              description="Learn how to improve your code readability and maintainability."
-              spotlight={true}
-              url="/copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability"
-              tags={[]}
-            />
-          </div>
-          <div className="col-md-4">
-            <CookBookArticleCard
-              image={'/assets/images/copilot-landing/debugging_invalid_json.png'}
-              title="Debugging invalid JSON"
-              description="Copilot can identify and resolve syntax errors or structural issues in JSON data."
-              spotlight={true}
-              tags={[]}
-              url="/copilot/copilot-chat-cookbook/debugging-errors/debugging-invalid-json"
-            />
-          </div>
-        </div>
+        ) : (
+          <>
+            <h2 className="py-5">{t('spotlight')}</h2>
+            <div className="d-md-flex d-sm-block col-md-12">
+              {processedSpotlight.slice(0, 3).map((item) => (
+                <div key={item.article} className="col-md-4">
+                  <CookBookArticleCard
+                    image={item.image}
+                    title={item.title}
+                    description={item.description}
+                    spotlight={true}
+                    url={item.url}
+                    tags={[]}
+                  />
+                </div>
+              ))}
+            </div>
+          </>
+        )}
 
         <div className="pt-8">
           <div className="py-5 border-bottom">

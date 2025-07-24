@@ -23,9 +23,9 @@ children:
   - /openid-connect-reference
   - /dockerfile-support-for-github-actions
   - /github-hosted-runners-reference
+  - /larger-runners-reference
   - /self-hosted-runners-reference
-  - /usage-limits-for-self-hosted-runners
   - /supplemental-arguments-and-settings
   - /extending-github-actions-importer-with-custom-transformers
+  - /workflow-cancellation-reference
 ---
-

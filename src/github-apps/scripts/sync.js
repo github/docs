@@ -103,11 +103,25 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
 
             const excludedActors = progActorResources[permissionName]['excluded_actors']
 
-            const additionalPermissions =
-              progAccessData[operation.operationId].permissions.length > 1 ||
-              progAccessData[operation.operationId].permissions.some(
-                (permissionSet) => Object.keys(permissionSet).length > 1,
+            const additionalPermissions = calculateAdditionalPermissions(
+              progAccessData[operation.operationId].permissions,
+            )
+
+            // Filter out metadata permissions when combined with other permissions
+            // The metadata permission is automatically granted with any other repository permission,
+            // so documenting it for operations that require additional permissions is misleading.
+            // This fixes the issue where mutating operations (PUT, DELETE) incorrectly appeared
+            // to only need metadata access when they actually require write permissions.
+            // See: https://github.com/github/docs-engineering/issues/5212
+            if (
+              shouldFilterMetadataPermission(
+                permissionName,
+                progAccessData[operation.operationId].permissions,
               )
+            ) {
+              continue
+            }
+
             // github app permissions
             if (!isActorExcluded(excludedActors, 'server_to_server', actorTypeMap)) {
               const serverToServerPermissions = githubAppsData['server-to-server-permissions']
@@ -236,7 +250,7 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
 
   const progAccessData = {}
   for (const operation of progAccessDataRaw) {
-    progAccessData[operation.operation_ids] = {
+    const operationData = {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
       fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
@@ -246,6 +260,12 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
       allowPermissionlessAccess: operation.allows_permissionless_access,
       allowsPublicRead: operation.allows_public_read,
       basicAuth: operation.basic_auth,
+    }
+
+    // Handle comma-separated operation IDs
+    const operationIds = operation.operation_ids.split(',').map((id) => id.trim())
+    for (const operationId of operationIds) {
+      progAccessData[operationId] = operationData
     }
   }
 
@@ -326,6 +346,28 @@ function sentenceCase(str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
+/**
+ * Calculates whether an operation has additional permissions beyond a single permission.
+ */
+export function calculateAdditionalPermissions(permissionSets) {
+  return (
+    permissionSets.length > 1 ||
+    permissionSets.some((permissionSet) => Object.keys(permissionSet).length > 1)
+  )
+}
+
+/**
+ * Determines whether a metadata permission should be filtered out when it has additional permissions.
+ * Prevents misleading documentation where mutating operations appear to only need metadata access.
+ */
+export function shouldFilterMetadataPermission(permissionName, permissionSets) {
+  if (permissionName !== 'metadata') {
+    return false
+  }
+
+  return calculateAdditionalPermissions(permissionSets)
+}
+
 export function isActorExcluded(excludedActors, actorType, actorTypeMap = {}) {
   if (!excludedActors || !Array.isArray(excludedActors)) {
     return false
@@ -352,7 +394,6 @@ export function isActorExcluded(excludedActors, actorType, actorTypeMap = {}) {
 
   return false
 }
-
 function addAppData(storage, category, data) {
   if (!storage[category]) {
     storage[category] = []

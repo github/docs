@@ -87,6 +87,80 @@ topics:
 
 {% data variables.product.prodname_copilot %} checks each suggestion for matches with publicly available code. Any matches are discarded or suggested with a code reference, based on the setting of the "Suggestions matching public code" policy for your account or organization. See [AUTOTITLE](/copilot/concepts/completions/code-referencing).
 
+## About the AI model used for {% data variables.product.prodname_copilot_short %} code completion
+
+{% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} model. This is a fine-tuned version of the GPT-4o mini model. The {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} model was trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. See [Programming languages included in the default model](#programming-languages-included-in-the-default-model) below.
+
+{% vscode %}
+
+## Changing the model used for code completion
+
+{% data reusables.copilot.code-completion-switch-prereqs-vscode %}
+
+Changing the model only affects {% data variables.product.prodname_copilot_short %} code completion. It does not affect {% data variables.product.prodname_copilot_short %} next edit suggestions.
+
+{% data reusables.copilot.code-completion-switch-model-affects %}
+
+{% endvscode %}
+
+{% visualstudio %}
+
+## Changing the model used for code completion
+
+{% data reusables.copilot.code-completion-switch-prereqs-vs %}
+
+{% data reusables.copilot.code-completion-switch-model-affects %}
+
+{% endvisualstudio %}
+
+{% jetbrains %}
+
+## Changing the model used for code completion
+
+{% data reusables.copilot.code-completion-switch-prereqs-jetbrains %}
+
+{% data reusables.copilot.code-completion-switch-model-affects %}
+
+{% endjetbrains %}
+
+## Programming languages included in the default model
+
+The following programming languages and technologies are included in the training data for the default LLM used for {% data variables.product.prodname_copilot_short %} code completion:
+
+  * C
+  * C#
+  * C++
+  * Clojure
+  * CSS
+  * Dart
+  * Dockerfile
+  * Elixir
+  * Emacs Lisp
+  * Go
+  * Haskell
+  * HTML
+  * Java
+  * JavaScript
+  * Julia
+  * Jupyter Notebook
+  * Kotlin
+  * Lua
+  * MATLAB
+  * Objective-C
+  * Perl
+  * PHP
+  * PowerShell
+  * Python
+  * R
+  * Ruby
+  * Rust
+  * Scala
+  * Shell
+  * Swift
+  * TeX
+  * TypeScript
+  * Vue
+
 ## Next steps
 
 * [AUTOTITLE](/copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot)

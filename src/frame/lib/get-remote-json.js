@@ -59,7 +59,7 @@ export default async function getRemoteJSON(url, config) {
         }
       }
     } catch (error) {
-      if (!(error instanceof SyntaxError || error.code === 'ENOENT')) {
+      if (!(error instanceof SyntaxError || (error instanceof Error && error.code === 'ENOENT'))) {
         throw error
       }
     }

@@ -1,11 +1,11 @@
 ---
 title: Adding organization custom instructions for GitHub Copilot
-shortTitle: Organization custom instructions
+shortTitle: Add organization instructions
 intro: 'Customize {% data variables.copilot.copilot_chat %} responses for members of your organization.'
 permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} plan'
 versions:
-  feature: copilot-org-instructions
+  feature: copilot
 topics:
   - Copilot
 redirect_from:
@@ -14,7 +14,7 @@ redirect_from:
 
 {% data reusables.copilot.organization-instructions-note %}
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui).
+For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
 
 ## About organization custom instructions for {% data variables.copilot.copilot_chat %}
 

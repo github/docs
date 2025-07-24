@@ -26,7 +26,7 @@ Below are some examples of how to use {% data variables.copilot.copilot_spaces_s
 
 ## Developing a new feature
 
-When working on a specific feature, you can save time and produce higher-quality results by using a space. Add the relevant code, a product spec, and any supporting materials—like notes from a design review or image descriptions of mockups. {% data variables.product.prodname_copilot_short %} can help you:
+When working on a specific feature, you can save time and produce higher-quality results by using a space. Add the relevant code, a product spec, and any supporting materials—like notes from a design review or mockup images. {% data variables.product.prodname_copilot_short %} can help you:
 
 * Summarize how the current implementation works.
 * Suggest changes or additions based on the spec.
@@ -41,7 +41,7 @@ When working on a specific feature, you can save time and produce higher-quality
 
 ## Defining the logic for a small, frequent task
 
-When working on repetitive tasks like tracking telemetry events or handling event emissions, it’s useful to document the logic once and share it with others through {% data variables.copilot.copilot_spaces_short %}. This allows everyone to stay consistent and saves time when performing the task. {% data variables.product.prodname_copilot_short %} can assist by:
+When working on repetitive tasks like tracking telemetry events or handling event emissions, it’s useful to document the logic once and share it with others through {% data variables.copilot.copilot_spaces_short %}. This allows everyone to stay consistent and saves time when performing the task. If you have a process flowchart for a task, you can upload this to your space for reference. {% data variables.product.prodname_copilot_short %} can assist by:
 
 * Suggesting efficient patterns based on your previous work.
 * Helping write reusable functions or templates.

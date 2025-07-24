@@ -44,3 +44,41 @@ Processing new telemetry events and updating a user's `last_activity_at` date ca
 * After 90 days of no new activity, a user's `last_activity_at` value is set to `nil`.
 
 For more information, see [Updating retention period for `last_activity_at` values on the Copilot user management API to 90 days](https://github.blog/changelog/2025-01-17-updating-retention-period-for-last_activity_at-values-on-the-user-management-api-public-preview-to-90-days/) on {% data variables.product.prodname_blog %}.
+
+## Copilot activity report
+
+The Copilot activity report shows user activity data for an organization or enterprise.
+
+Data in the report refreshes automatically every 30 minutes.
+
+### Fields
+
+| Field | Description |
+|-------|-------------|
+| `report_time` | UTC timestamp when the report was generated |
+| `login` | GitHub username of the Copilot user |
+| `last_authenticated_at` | UTC timestamp of the user's most recent authentication |
+| `last_activity_at` | UTC timestamp of the user's most recent Copilot interaction |
+| `last_surface_used` | The Copilot feature used most recently:<br><ul><li>**IDE**: Editor name and version (e.g. "VS Code 1.89.1")</li><li>**GitHub.com**: Feature name (e.g., "Copilot Chat")</li><li>**Unspecified**: When IDE details are unavailable or no recent activity exists</ul> |
+
+### Included features
+
+The activity report provides visibility into usage of all generally available (GA) GitHub Copilot features in the IDE, on GitHub, in GitHub CLI, and on GitHub Mobile.
+
+#### IDE features
+
+* Code completions and Next edit suggestions
+* Copilot Chat
+* Copilot agents
+
+#### GitHub features
+
+* Copilot Chat
+* Copilot for Docs
+* Knowledge base management
+* Copilot pull requests
+* Copilot code reviews
+
+### Retention period
+
+Activity and authentication data are retained for a rolling 90-day period, consistent with the `last_activity_at` field.

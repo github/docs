@@ -1,6 +1,6 @@
 ---
 title: AI models for Copilot
-shortTitle: AI models
+shortTitle: Use AI models
 intro: 'Learn how to use alternative large language models for {% data variables.product.prodname_copilot %}.'
 versions:
   feature: copilot

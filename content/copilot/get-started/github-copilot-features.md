@@ -55,7 +55,7 @@ AI-generated text completion to help you write pull request descriptions quickly
 
 ### {% data variables.product.prodname_copilot_short %} custom instructions
 
-Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses).
+Enhance {% data variables.copilot.copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. See [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses).
 
 ### {% data variables.copilot.copilot_desktop_short %}
 
@@ -68,6 +68,10 @@ Organize and centralize relevant content—like code, docs, specs, and more—in
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.copilot.copilot_enterprise_short %} only)_
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.copilot.copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. See [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
+
+### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
+
+Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes).
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 

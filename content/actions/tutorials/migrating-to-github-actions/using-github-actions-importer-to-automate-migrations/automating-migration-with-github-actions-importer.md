@@ -20,8 +20,6 @@ shortTitle: 'Automate migration with {% data variables.product.prodname_actions_
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-[Legal notice](#legal-notice)
-
 ## About {% data variables.product.prodname_actions_importer %}
 
 You can use {% data variables.product.prodname_actions_importer %} to plan and automatically migrate your CI/CD supported pipelines to {% data variables.product.prodname_actions %}.

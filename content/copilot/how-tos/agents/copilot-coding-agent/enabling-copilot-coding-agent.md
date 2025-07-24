@@ -1,5 +1,6 @@
 ---
 title: Enabling Copilot coding agent
+shortTitle: Enable coding agent
 intro: 'You can allow {% data variables.product.prodname_copilot_short %} to work on code and raise pull requests.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=enabling+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:

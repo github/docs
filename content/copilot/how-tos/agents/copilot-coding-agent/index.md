@@ -1,5 +1,6 @@
 ---
 title: Coding agent
+shortTitle: Use coding agent
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can work on {% data variables.product.github %} issues and raise pull requests for your to review.'
 versions:
   feature: copilot

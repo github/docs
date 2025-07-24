@@ -1,6 +1,6 @@
 ---
 title: Fixing lint errors
-shortTitle: Lint errors
+shortTitle: Fix lint errors
 intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to fix issues identified by a code linter.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/fixing-lint-errors

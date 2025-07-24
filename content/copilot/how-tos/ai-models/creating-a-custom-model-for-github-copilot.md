@@ -5,7 +5,7 @@ intro: 'You can fine-tune {% data variables.product.prodname_copilot_short %} co
 permissions: 'Owners of organizations enrolled in the {% data variables.release-phases.public_preview %}.'
 product: '{% data reusables.copilot.ce-product-callout %}'
 versions:
-  feature: copilot-custom-models
+  feature: copilot
 topics:
   - Copilot
 redirect_from:

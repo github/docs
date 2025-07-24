@@ -15,8 +15,6 @@ redirect_from:
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller
 ---
 
-[Legal notice](#legal-notice)
-
 ## Deploying a runner scale set
 
 To deploy a runner scale set, you must have ARC up and running. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/quickstart-for-actions-runner-controller).

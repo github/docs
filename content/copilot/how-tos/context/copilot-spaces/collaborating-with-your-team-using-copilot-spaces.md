@@ -23,7 +23,7 @@ redirect_from:
 
 ## Use cases for team collaboration
 
-* **Onboarding**: Share a space with key code, docs, and checklists to help new developers get started faster.
+* **Onboarding**: Share a space with code, documentation, diagrams, and checklists to help new developers get started faster.
 * **System knowledge**: Create a space for a complex system or workflow (like authentication or CI pipelines) that other people can reference.
 * **Style guides or review checklists**: Document standards and examples in a space that {% data variables.product.prodname_copilot_short %} can reference when suggesting changes.
 

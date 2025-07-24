@@ -5,7 +5,7 @@ import { NavList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
-import { nonAutomatedRestPaths } from '../../rest/lib/config'
+import { nonAutomatedRestPaths } from '@/rest/lib/config'
 
 export const SidebarProduct = () => {
   const router = useRouter()
@@ -91,13 +91,24 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
       {childPage.title}
       {childPage.childPages.length > 0 && (
         <NavList.SubNav aria-label={`${childPage.title} submenu`} sx={{ '*': { fontSize: 1 } }}>
+          {childPage.sidebarLink && (
+            <NavList.Item
+              href={childPage.sidebarLink.href}
+              as={Link}
+              aria-current={
+                routePath === `/${locale}${childPage.sidebarLink.href}` ? 'page' : false
+              }
+            >
+              {childPage.sidebarLink.text}
+            </NavList.Item>
+          )}
           {specialCategory && (
             <NavList.Item href={childPage.href} as={Link} aria-current={isActive ? 'page' : false}>
               {childPage.title}
             </NavList.Item>
           )}
-          {childPage.childPages.map((childPage) => (
-            <NavListItem key={childPage.href} childPage={childPage} />
+          {childPage.childPages.map((subPage) => (
+            <NavListItem key={subPage.href} childPage={subPage} />
           ))}
         </NavList.SubNav>
       )}

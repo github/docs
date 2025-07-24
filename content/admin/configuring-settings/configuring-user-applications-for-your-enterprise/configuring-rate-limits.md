@@ -113,6 +113,6 @@ By default, a maximum of 100 requests is allowed per minute for each IP address.
 {% data reusables.github-connect.rate-limit-live-dotcom-requests %}
 
 > [!IMPORTANT]
-> This rate limit will not apply until you also enable the global rate limiter using `ghe-config app.github.rate-limiting-enabled 1`. When you enable the global rate limiter, other {% data variables.product.github %} features may also experience rate limits. Monitor your instance closely to check for any unexpected request rejections.
+> This rate limit will not apply until you also enable the global rate limiter directly using `ghe-config app.github.rate-limiting-enabled 1` or indirectly by enabling rate limits for the {% data variables.product.prodname_enterprise_api %}](#enabling-rate-limits-for-the-github-enterprise-server-apis). When you enable the global rate limiter, other {% data variables.product.github %} features may also experience rate limits. Monitor your instance closely to check for any unexpected request rejections.
 
 After you make any changes to the values of these settings, run [ghe-config-apply](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-config-apply) to apply the settings.

@@ -1,6 +1,6 @@
 ---
 title: Exploring potential feature implementations
-shortTitle: Explore feature implementations
+shortTitle: Explore implementations 
 intro: '{% data variables.copilot.copilot_chat_short %} can help explore different approaches for implementing a single feature.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/functionality-analysis-and-feature-suggestions/exploring-potential-feature-implementations

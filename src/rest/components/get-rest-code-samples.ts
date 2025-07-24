@@ -4,6 +4,21 @@ import { stringify } from 'javascript-stringify'
 import type { CodeSample, Operation } from '@/rest/components/types'
 import { type VersionItem } from '@/frame/components/context/MainContext'
 
+// Helper function to determine if authentication should be omitted
+function shouldOmitAuthentication(operation: Operation, currentVersion: string): boolean {
+  // Only omit auth for operations that explicitly allow permissionless access
+  if (!operation?.progAccess?.allowPermissionlessAccess) {
+    return false
+  }
+
+  // Only omit auth on dotcom versions (free-pro-team, enterprise-cloud)
+  // GHES and other versions still require authentication
+  const isDotcomVersion =
+    currentVersion.startsWith('free-pro-team') || currentVersion.startsWith('enterprise-cloud')
+
+  return isDotcomVersion
+}
+
 // Helper function to escape shell values containing single quotes (contractions)
 // This prevents malformed shell commands when contractions like "there's" are used
 function escapeShellValue(value: string): string {
@@ -45,6 +60,9 @@ export function getShellExample(
   } else if (codeSample?.request?.contentType === 'multipart/form-data') {
     contentTypeHeader = '-H "Content-Type: multipart/form-data"'
   }
+
+  // Check if we should omit authentication for this operation
+  const omitAuth = shouldOmitAuthentication(operation, currentVersion)
 
   // GHES Manage API requests differ from the dotcom API requests and make use of multipart/form-data and json content types
   if (operation.subcategory === 'manage-ghes') {
@@ -94,7 +112,7 @@ export function getShellExample(
     }
   }
 
-  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+  let authHeader = omitAuth ? '' : '-H "Authorization: Bearer <YOUR-TOKEN>"'
   let apiVersionHeader =
     allVersions[currentVersion].apiVersions.length > 0 &&
     allVersions[currentVersion].latestApiVersion
@@ -114,6 +132,15 @@ export function getShellExample(
     authHeader = '-u "api_key:your-password"'
     apiVersionHeader = ''
     acceptHeader = acceptHeader === `-H "Accept: application/vnd.github+json"` ? '' : acceptHeader
+  }
+
+  // For unauthenticated endpoints, remove the auth header completely
+  if (
+    omitAuth &&
+    operation.subcategory !== 'management-console' &&
+    operation.subcategory !== 'manage-ghes'
+  ) {
+    authHeader = ''
   }
 
   if (operation?.progAccess?.basicAuth) {
@@ -306,6 +333,8 @@ export function getJSExample(
   currentVersion: string,
   allVersions: Record<string, VersionItem>,
 ) {
+  // Check if we should omit authentication for this operation
+  const omitAuth = shouldOmitAuthentication(operation, currentVersion)
   const parameters: { [key: string]: string | object } = {}
 
   if (codeSample.request) {
@@ -359,9 +388,15 @@ export function getJSExample(
 
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
   const authOctokit = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
+  const unauthenticatedOctokit = `const octokit = new Octokit()\n\n`
   const oauthOctokit = `import { createOAuthAppAuth } from "@octokit/auth-oauth-app"\n\nconst octokit = new Octokit({\n  authStrategy: createOAuthAppAuth,\n  auth:{\n    clientType: 'oauth-app',\n    clientId: '<YOUR_CLIENT ID>',\n    clientSecret: '<YOUR_CLIENT SECRET>'\n  }\n})\n\n`
   const isBasicAuth = operation?.progAccess?.basicAuth
-  const authString = isBasicAuth ? oauthOctokit : authOctokit
+  let authString = isBasicAuth ? oauthOctokit : authOctokit
+
+  // Use unauthenticated Octokit for endpoints that allow permissionless access
+  if (omitAuth) {
+    authString = unauthenticatedOctokit
+  }
 
   return `${comment}${authString}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath

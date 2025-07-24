@@ -1,6 +1,6 @@
 ---
 title: Driving Copilot adoption in your company
-shortTitle: Drive Copilot adoption
+shortTitle: Drive adoption
 intro: Learn how to plan an effective enablement process to drive Copilot adoption.
 versions:
   feature: copilot

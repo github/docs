@@ -5,9 +5,13 @@ versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Common issues with GitHub Copilot
+shortTitle: Troubleshoot common issues
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-common-issues-with-github-copilot
+  - /copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides
+  - /copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat
+  - /copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat
+  - /copilot/how-tos/troubleshoot/troubleshooting-issues-with-github-copilot-chat
 ---
 
 
@@ -71,6 +75,48 @@ Most people see rate limiting for preview models, like OpenAI’s {% data variab
 Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
 In case you experience repeated rate-limiting in {% data variables.product.prodname_copilot_short %}, contact {% data variables.contact.contact_support_page %}.
+
+## Can't find {% data variables.copilot.copilot_chat_short %} in my IDE
+
+If you can't find {% data variables.copilot.copilot_chat_short %} in your editor, make sure you have checked the "Prerequisites" section of [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide).
+
+> [!NOTE]
+> The linked article has tabs for various IDEs.
+
+## Latest {% data variables.copilot.copilot_chat_short %} does not work in {% data variables.product.prodname_vscode %}
+
+{% data reusables.copilot.vscode-version-compatibility %}
+
+To use {% data variables.copilot.copilot_chat_short %}, make sure you are using the [latest version of {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/updates).
+
+## Authentication problems with {% data variables.enterprise.prodname_managed_user %} accounts
+
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+
+## Authentication problems in {% data variables.product.prodname_vscode %}
+
+If you are signed in to {% data variables.product.github %} but {% data variables.product.prodname_copilot_short %} is unavailable in {% data variables.product.prodname_vscode %}, it may be due to an authentication problem. Try the following steps to resolve the issue:
+
+1. In the bottom left corner of the {% data variables.product.prodname_vscode %} window, click the **Accounts** icon, hover over your {% data variables.product.prodname_dotcom %} username, and click the **Sign out** button.
+1. To reload {% data variables.product.prodname_vscode %}, press <kbd>F1</kbd> to open the command palette, and select **Developer: Reload Window**.
+1. After {% data variables.product.prodname_vscode %} reloads, sign back in to your {% data variables.product.prodname_dotcom %} account.
+
+## Authentication problems in {% data variables.product.prodname_vs %}
+
+If you experience authentication issues when you try to use {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, you can try the following steps to resolve the issue.
+
+1. Check that the {% data variables.product.prodname_dotcom %} ID you are signed into {% data variables.product.prodname_vs %} with is the same as the one you have been granted access to {% data variables.copilot.copilot_chat_short %} with.
+1. Check whether your {% data variables.product.prodname_dotcom %} ID/credentials need refreshing in {% data variables.product.prodname_vs %}. For more information, see [Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022) in the {% data variables.product.prodname_vs %} documentation.
+1. Try removing and re-adding your {% data variables.product.prodname_dotcom %} ID to {% data variables.product.prodname_vs %} and restarting {% data variables.product.prodname_vs %}.
+1. If the above steps don't work, click the **Share feedback** button and select **Report a problem** to report the issue to the {% data variables.product.prodname_vs %} team.
+
+    ![Screenshot of the share feedback button in {% data variables.product.prodname_vs %}.](/assets/images/help/copilot/vs-share-feedback-button.png)
+
+## Interrupted chat responses on {% data variables.product.prodname_dotcom_the_website %}
+
+If a chat response terminates unexpectedly, before the response is complete, try resubmitting the question.
+
+In {% data variables.copilot.copilot_chat_short %}'s immersive view (the [github.com/copilot](https://github.com/copilot) page), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
 
 ## Further reading
 

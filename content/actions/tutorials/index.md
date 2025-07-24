@@ -9,8 +9,10 @@ versions:
 children:
   - /migrating-to-github-actions
   - /actions-runner-controller
+  - /project-management
+  - /using-containerized-services
+  - /publishing-packages
   - /creating-an-example-workflow
-  - /creating-a-docker-container-action
   - /use-github_token-in-workflows
   - /creating-a-javascript-action
   - /creating-a-composite-action
@@ -19,5 +21,6 @@ children:
   - /communicating-with-docker-service-containers
 redirect_from:
   - /actions/guides
+  - /actions/how-tos/use-cases-and-examples
 ---
 

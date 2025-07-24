@@ -14,8 +14,6 @@ redirect_from:
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors
 ---
 
-[Legal notice](#legal-notice)
-
 ## Logging
 
 The {% data variables.product.prodname_actions_runner_controller %} (ARC) resources, which include the controller, listener, and runners, write logs to standard output (`stdout`). We recommend you implement a logging solution to collect and store these logs. Having logs available can help you or GitHub support with troubleshooting and debugging. For more information, see [Logging Architecture](https://kubernetes.io/docs/concepts/cluster-administration/logging/) in the Kubernetes documentation.

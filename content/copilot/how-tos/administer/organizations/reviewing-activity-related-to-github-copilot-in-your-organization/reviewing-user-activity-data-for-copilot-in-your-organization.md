@@ -1,6 +1,6 @@
 ---
 title: Reviewing user activity data for Copilot in your organization
-shortTitle: User activity data
+shortTitle: Review user activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
 permissions: Organization owners
 product: 'Organizations with a plan to {% ifversion ghec %}{% data variables.copilot.copilot_enterprise_short %} or{% endif %} {% data variables.copilot.copilot_business_short %}'
@@ -18,8 +18,6 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/reviewing-user-activity-data-for-copilot-in-your-organization
 ---
 
-## Reviewing user activity data for {% data variables.product.prodname_copilot_short %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
@@ -31,11 +29,14 @@ redirect_from:
    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview.png)
    {% endif %}
 
-1. For more detailed information, next to "Access management," click **Get report**.
-
-   {% data variables.product.prodname_dotcom %} generates a report for you, which you can download as a CSV file.
-
 1. Alternatively, under "Access management," you can use the **Sort** options to sort the list of users by when they last used {% data variables.product.prodname_copilot %}.
+1. For more detailed information, you can retrieve the **Activity report**. {% data variables.product.prodname_dotcom %} generates a report for you, which you can download as a CSV file.
+
+   <!-- expires 2025-10-23 -->
+
+   >[!NOTE] This report is replacing the {% data variables.product.prodname_copilot_short %} **usage report**. The new report adds clarity by introducing authentication information and improving timestamp resolution. The old usage report is closing down and will be removed on October 23rd, 2025.
+
+   <!-- end expires 2025-10-23 -->
 
 ## Using the API to retrieve assignment information
 
@@ -45,7 +46,7 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to get detai
 
 If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
 
-For more information about this property, see [AUTOTITLE](/copilot/reference/metrics-data#last_activity_at).
+For more information about this property and other data in the activity report, see [AUTOTITLE](/copilot/reference/metrics-data).
 
 ## Further reading
 
