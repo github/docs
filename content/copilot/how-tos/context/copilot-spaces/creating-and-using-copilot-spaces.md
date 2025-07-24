@@ -50,7 +50,7 @@ You can add two types of context to your space:
 
 Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the chat interface. Your chat will be grounded in the context you've added.
 
-You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information about choosing the right AI model, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
 ## Next steps
 

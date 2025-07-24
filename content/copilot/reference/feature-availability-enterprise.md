@@ -1,6 +1,6 @@
 ---
 title: Feature availability when Copilot policies conflict in organizations
-shortTitle: Feature availability (enterprise)
+shortTitle: Policy conflicts
 allowTitleToDifferFromFilename: true
 intro: 'Learn how delegating {% data variables.product.prodname_copilot_short %} policy decisions to organizations affects users granted a license by organizations with different policies.'
 versions:

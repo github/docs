@@ -1,6 +1,7 @@
 ---
-title: Choosing the right AI model for your task
-shortTitle: Choose the right AI model
+title: AI model comparison
+shortTitle: Model comparison
+allowTitleToDifferFromFilename: true
 intro: 'Compare available AI models in {% data variables.copilot.copilot_chat_short %} and choose the best model for your task.'
 versions:
   feature: copilot
@@ -8,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task
+  - /copilot/reference/ai-models/choosing-the-right-ai-model-for-your-task
 ---
 
 ## Comparison of AI models for {% data variables.product.prodname_copilot %}
@@ -144,4 +146,4 @@ Choosing the right model helps you get the most out of {% data variables.product
 * For detailed model specs and pricing, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot).
 * For more examples of how to use different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
 * To switch between models, refer to [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat) or [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
-* To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/how-copilot-serves-ai-models).
+* To learn how {% data variables.copilot.copilot_chat_short %} serves different AI models, see [AUTOTITLE](/copilot/reference/ai-models/model-hosting).
