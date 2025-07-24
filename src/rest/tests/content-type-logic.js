@@ -1,61 +1,21 @@
 import { describe, expect, test } from 'vitest'
+import {
+  shouldShowRequestContentType,
+  shouldShowResponseContentType,
+  generateExampleOptionTexts,
+} from '@/rest/lib/content-type-utils'
 
 describe('Request Content Type Logic', () => {
-  // Helper function to extract the logic from RestCodeSamples
-  function shouldShowRequestContentType(codeExamples) {
-    const requestContentTypesDiffer =
-      codeExamples.length > 1 &&
-      !codeExamples.every(
-        (example) => example.request?.contentType === codeExamples[0].request?.contentType,
-      )
-    return requestContentTypesDiffer
-  }
-
-  function shouldShowResponseContentType(codeExamples) {
-    const responseContentTypesDiffer =
-      codeExamples.length > 1 &&
-      !codeExamples.every(
-        (example) => example.response?.contentType === codeExamples[0].response?.contentType,
-      )
-    return responseContentTypesDiffer
-  }
-
-  function generateExampleOptions(codeExamples) {
-    const requestContentTypesDiffer = shouldShowRequestContentType(codeExamples)
-    const responseContentTypesDiffer = shouldShowResponseContentType(codeExamples)
-    const showExampleOptionMediaType = responseContentTypesDiffer || requestContentTypesDiffer
-
-    return codeExamples.map((example, index) => {
-      const requestContentType = example.request?.contentType
-      const responseContentType = example.response?.contentType
-
-      let text = example.request?.description || `Example ${index + 1}`
-
-      if (showExampleOptionMediaType) {
-        if (requestContentTypesDiffer && responseContentTypesDiffer) {
-          // Show both request and response content types
-          text = `${text} (${requestContentType} → ${responseContentType})`
-        } else if (requestContentTypesDiffer) {
-          // Show only request content type
-          text = `${text} (${requestContentType})`
-        } else if (responseContentTypesDiffer) {
-          // Show only response content type
-          text = `${text} (${responseContentType})`
-        }
-      }
-
-      return text
-    })
-  }
-
   test('detects request content types differ correctly', () => {
     const codeExamples = [
       {
-        request: { contentType: 'text/plain', description: 'Example' },
+        description: 'Example',
+        request: { contentType: 'text/plain' },
         response: { contentType: 'text/html' },
       },
       {
-        request: { contentType: 'text/x-markdown', description: 'Rendering markdown' },
+        description: 'Rendering markdown',
+        request: { contentType: 'text/x-markdown' },
         response: { contentType: 'text/html' },
       },
     ]
@@ -67,11 +27,13 @@ describe('Request Content Type Logic', () => {
   test('detects response content types differ correctly', () => {
     const codeExamples = [
       {
-        request: { contentType: 'application/json', description: 'JSON example' },
+        description: 'JSON example',
+        request: { contentType: 'application/json' },
         response: { contentType: 'application/json' },
       },
       {
-        request: { contentType: 'application/json', description: 'Another JSON example' },
+        description: 'Another JSON example',
+        request: { contentType: 'application/json' },
         response: { contentType: 'text/html' },
       },
     ]
@@ -83,18 +45,18 @@ describe('Request Content Type Logic', () => {
   test('generates correct options for markdown/raw scenario', () => {
     const markdownRawExamples = [
       {
+        description: 'Example',
         request: {
           contentType: 'text/plain',
-          description: 'Example',
         },
         response: {
           contentType: 'text/html',
         },
       },
       {
+        description: 'Rendering markdown',
         request: {
           contentType: 'text/x-markdown',
-          description: 'Rendering markdown',
         },
         response: {
           contentType: 'text/html',
@@ -102,7 +64,7 @@ describe('Request Content Type Logic', () => {
       },
     ]
 
-    const options = generateExampleOptions(markdownRawExamples)
+    const options = generateExampleOptionTexts(markdownRawExamples)
 
     expect(options).toEqual(['Example (text/plain)', 'Rendering markdown (text/x-markdown)'])
   })
@@ -110,18 +72,18 @@ describe('Request Content Type Logic', () => {
   test('generates correct options when both request and response differ', () => {
     const mixedExamples = [
       {
+        description: 'JSON request',
         request: {
           contentType: 'application/json',
-          description: 'JSON request',
         },
         response: {
           contentType: 'application/json',
         },
       },
       {
+        description: 'Plain text request',
         request: {
           contentType: 'text/plain',
-          description: 'Plain text request',
         },
         response: {
           contentType: 'text/html',
@@ -129,7 +91,7 @@ describe('Request Content Type Logic', () => {
       },
     ]
 
-    const options = generateExampleOptions(mixedExamples)
+    const options = generateExampleOptionTexts(mixedExamples)
 
     expect(options).toEqual([
       'JSON request (application/json → application/json)',
@@ -140,18 +102,18 @@ describe('Request Content Type Logic', () => {
   test('does not show content types when they are all the same', () => {
     const sameContentTypeExamples = [
       {
+        description: 'First example',
         request: {
           contentType: 'application/json',
-          description: 'First example',
         },
         response: {
           contentType: 'application/json',
         },
       },
       {
+        description: 'Second example',
         request: {
           contentType: 'application/json',
-          description: 'Second example',
         },
         response: {
           contentType: 'application/json',
@@ -159,7 +121,7 @@ describe('Request Content Type Logic', () => {
       },
     ]
 
-    const options = generateExampleOptions(sameContentTypeExamples)
+    const options = generateExampleOptionTexts(sameContentTypeExamples)
 
     expect(options).toEqual(['First example', 'Second example'])
   })
@@ -167,9 +129,9 @@ describe('Request Content Type Logic', () => {
   test('handles single example correctly', () => {
     const singleExample = [
       {
+        description: 'Only example',
         request: {
           contentType: 'application/json',
-          description: 'Only example',
         },
         response: {
           contentType: 'application/json',
@@ -180,7 +142,7 @@ describe('Request Content Type Logic', () => {
     expect(shouldShowRequestContentType(singleExample)).toBe(false)
     expect(shouldShowResponseContentType(singleExample)).toBe(false)
 
-    const options = generateExampleOptions(singleExample)
+    const options = generateExampleOptionTexts(singleExample)
     expect(options).toEqual(['Only example'])
   })
 })

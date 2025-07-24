@@ -1,5 +1,5 @@
 ---
-title: 'AI models for Copilot'
+title: AI models for Copilot
 shortTitle: AI models
 intro: 'Find information about large language models you can use to power {% data variables.product.prodname_copilot %}.'
 versions:
@@ -7,7 +7,9 @@ versions:
 topics:
   - Copilot
 children:
-  - /supported-ai-models-in-copilot
+  - /supported-models
   - /model-comparison
   - /model-hosting
+contentType: reference
 ---
+

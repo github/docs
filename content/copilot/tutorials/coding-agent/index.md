@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 children:
-  - /best-practices
+  - /get-the-best-results
   - /pilot-coding-agent
+contentType: tutorials
 ---
+

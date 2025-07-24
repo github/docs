@@ -21,11 +21,12 @@ spotlight:
   - article: /debugging-errors/debugging-invalid-json
     image: /assets/images/copilot-landing/debugging_invalid_json.png
 children:
-  - /debugging-errors
-  - /functionality-analysis-and-feature-suggestions
-  - /refactoring-code
-  - /documenting-code
+  - /debug-errors
+  - /analyze-functionality
+  - /refactor-code
+  - /document-code
   - /testing-code
-  - /security-analysis
+  - /analyze-security
+contentType: tutorials
 ---
 

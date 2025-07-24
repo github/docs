@@ -9,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/reference/ai-models/how-copilot-serves-ai-models
+contentType: reference
 ---
 
 {% data variables.product.prodname_copilot %} can use a variety of AI models. This article explains how these models are hosted and served.
