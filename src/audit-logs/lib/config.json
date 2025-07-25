@@ -9,5 +9,5 @@
     "git": "Note: Git events have special access requirements and retention policies that differ from other audit log events. For GitHub Enterprise Cloud, access Git events via the REST API only with 7-day retention. For GitHub Enterprise Server, Git events must be enabled in audit log configuration and are not included in search results.",
     "sso_redirect": "Note: Automatically redirecting users to sign in is currently in beta for Enterprise Managed Users and subject to change."
   },
-  "sha": "33b69baa355213d39a04223178396f3d0f2614e9"
+  "sha": "b74dd07094cbdc7d8bc60c1485a38c25c2eab0b0"
 }
