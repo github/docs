@@ -474,11 +474,11 @@ When `open-pull-requests-limit` is defined:
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
 | {% ifversion dependabot-bun-support %} |
-| Bun | `bun`         | >=v1.1.39              |
+| Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
-| Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
+| Composer       | `composer`       | v2         |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -497,18 +497,18 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
-| npm            | `npm`            |  v7, v8, v9   |
+| npm            | `npm`            |  v7, v8, v9, v10   |
 | NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
-| pip| `pip`            | v21.1.2          |
-| pip-compile | `pip`            | 6.1.0            |
-| pipenv         | `pip`            | <= 2021-05-29    |
+| pip| `pip`            | v24.2          |
+| pip-compile | `pip`            | 7.4.1            |
+| pipenv         | `pip`            | <= 2024.4.1    |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
 | uv           | `uv`             | v0 |
-| yarn         | `npm`            | v1, v2, v3       |
+| yarn         | `npm`            | v1, v2, v3, v4     |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
