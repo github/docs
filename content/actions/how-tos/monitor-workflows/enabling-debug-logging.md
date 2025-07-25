@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/enabling-debug-logging
   - /actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/enabling-debug-logging
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/enabling-debug-logging
 versions:
   fpt: '*'
   ghes: '*'

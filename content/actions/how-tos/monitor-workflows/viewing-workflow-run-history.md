@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/viewing-workflow-run-history
   - /actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history
 versions:
   fpt: '*'
   ghes: '*'
