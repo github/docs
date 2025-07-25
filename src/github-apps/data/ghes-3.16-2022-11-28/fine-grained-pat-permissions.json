@@ -1403,6 +1403,48 @@
       }
     ]
   },
+  "organization_pre_receive_hooks": {
+    "title": "Organization pre-receive hooks",
+    "displayTitle": "Organization permissions for \"Organization pre-receive hooks\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-pre-receive-hooks-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/pre-receive-hooks",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-pre-receive-hook-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
+        "subcategory": "org-pre-receive-hooks",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_private_registries": {
     "title": "Organization private registries",
     "displayTitle": "Organization permissions for \"Organization private registries\"",
@@ -1449,48 +1491,6 @@
         "subcategory": "organization-configurations",
         "verb": "delete",
         "requestPath": "/orgs/{org}/private-registries/{secret_name}",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
-  "organization_pre_receive_hooks": {
-    "title": "Pre-receive hooks",
-    "displayTitle": "Organization permissions for \"Pre-receive hooks\"",
-    "permissions": [
-      {
-        "category": "enterprise-admin",
-        "slug": "list-pre-receive-hooks-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/pre-receive-hooks",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-a-pre-receive-hook-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-pre-receive-hook-enforcement-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
-        "subcategory": "org-pre-receive-hooks",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}",
         "additional-permissions": false,
         "access": "write"
       }
@@ -5651,48 +5651,6 @@
       }
     ]
   },
-  "repository_pre_receive_hooks": {
-    "title": "Pre-receive hooks",
-    "displayTitle": "Repository permissions for \"Pre-receive hooks\"",
-    "permissions": [
-      {
-        "category": "enterprise-admin",
-        "slug": "list-pre-receive-hooks-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-a-pre-receive-hook-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-pre-receive-hook-enforcement-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "remove-pre-receive-hook-enforcement-for-a-repository",
-        "subcategory": "repo-pre-receive-hooks",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
   "pull_requests": {
     "title": "Pull requests",
     "displayTitle": "Repository permissions for \"Pull requests\"",
@@ -6261,6 +6219,48 @@
         "subcategory": "pulls",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/pulls/{pull_number}/update-branch",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "repository_pre_receive_hooks": {
+    "title": "Repository pre-receive hooks",
+    "displayTitle": "Repository permissions for \"Repository pre-receive hooks\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-pre-receive-hooks-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-a-pre-receive-hook-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "remove-pre-receive-hook-enforcement-for-a-repository",
+        "subcategory": "repo-pre-receive-hooks",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}",
         "additional-permissions": false,
         "access": "write"
       }
