@@ -59,7 +59,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
      reusable_workflow_job:
        runs-on: ubuntu-latest
        steps:
-       - uses: actions/labeler@v4
+       - uses: actions/labeler@v5
          with:
            repo-token: ${{ secrets.personal_access_token }}
            configuration-path: ${{ inputs.config-path }}
@@ -99,7 +99,7 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/labeler@v4
+    - uses: actions/labeler@v5
       with:
         repo-token: ${{ secrets.token }}
         configuration-path: ${{ inputs.config-path }}
