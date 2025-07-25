@@ -11,6 +11,7 @@ children:
   - /actions-runner-controller
   - /project-management
   - /using-containerized-services
+  - /build-and-test-code
   - /publishing-packages
   - /creating-an-example-workflow
   - /use-github_token-in-workflows
@@ -23,4 +24,3 @@ redirect_from:
   - /actions/guides
   - /actions/how-tos/use-cases-and-examples
 ---
-
