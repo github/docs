@@ -3758,9 +3758,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Authorization Code
   secretType: polar_authorization_code
@@ -3770,9 +3770,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Client Registration Token
   secretType: polar_client_registration_token
@@ -3782,9 +3782,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Client Secret
   secretType: polar_client_secret
@@ -3794,7 +3794,18 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Polar
+  supportedSecret: Polar Customer Session Token
+  secretType: polar_customer_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Polar
@@ -3806,9 +3817,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Refresh Token
   secretType: polar_refresh_token
@@ -3818,7 +3829,18 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Polar
+  supportedSecret: Polar User Session Token
+  secretType: polar_user_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Postman

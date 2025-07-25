@@ -1,11 +1,13 @@
 ---
 title: Variables reference
-shortTitle: Variables reference
+shortTitle: Variables
 intro: 'Find information for supported variables, naming conventions, limits, and contexts in {% data variables.product.prodname_actions %} workflows.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /actions/reference/variables-reference
 ---
 
 This article lists the supported variables you can use in {% data variables.product.prodname_actions %} workflows, including environment variables, configuration variables, and default variables provided by {% data variables.product.github %}. Use this reference to look up variable names, naming conventions, limits, and supported contexts when configuring your workflows.

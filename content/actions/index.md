@@ -16,7 +16,7 @@ featuredLinks:
     - /actions/tutorials/publishing-packages/publishing-nodejs-packages
     - /actions/tutorials/build-and-test-code/building-and-testing-powershell
   popular:
-    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/reference/workflows-and-actions/workflow-syntax
     - /actions/how-tos/write-workflows
 changelog:
   label: actions
@@ -39,3 +39,4 @@ children:
   - /reference
   - /tutorials
 ---
+

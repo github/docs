@@ -13,6 +13,7 @@ topics:
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/supplemental-arguments-and-settings
+  - /actions/reference/supplemental-arguments-and-settings
 ---
 
 This article provides general information for configuring {% data variables.product.prodname_actions_importer %}'s supplemental arguments and settings, such as optional parameters, path arguments, and network settings.

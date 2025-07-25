@@ -359,7 +359,12 @@ The listener container inherits the `imagePullPolicy` defined for the controller
 
 #### Configuring the runner image
 
-You can update your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file and set the `template.spec` properties as follows.
+You can update your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file and set the `template.spec` properties to configure the runner pod for your specific use case.
+
+> [!NOTE]
+> The runner container must be named `runner`. Otherwise, it will not be configured properly to connect to {% data variables.product.prodname_dotcom %}.
+
+The following is a sample configuration:
 
 ```yaml
 template:

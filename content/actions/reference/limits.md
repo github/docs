@@ -5,11 +5,12 @@ redirect_from:
   - /actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/actions-limits
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners
   - /actions/reference/usage-limits-for-self-hosted-runners
+  - /actions/reference/actions-limits
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Actions limits
+shortTitle: Limits
 ---
 
 You may be rate limited by {% data variables.product.prodname_actions %} when you scale your usage. Some limits can be increased by contacting {% data variables.contact.contact_support %}.

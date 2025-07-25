@@ -1,6 +1,6 @@
 ---
 title: Self-hosted runners reference
-shortTitle: Self-hosted runners reference
+shortTitle: Self-hosted runners
 intro: Find information about setting up and using self-hosted runners.
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/supported-architectures-and-operating-systems-for-self-hosted-runners
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/communicating-with-self-hosted-runners
   - /actions/concepts/runners/communicating-with-self-hosted-runners
+  - /actions/reference/self-hosted-runners-reference
 versions:
   fpt: '*'
   ghes: '*'

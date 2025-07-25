@@ -1,7 +1,7 @@
 ---
 title: Dependency caching reference
-shortTitle: Dependency caching reference
-intro: 'Find information on the functionality of dependency caching in workflows.'
+shortTitle: Dependency caching
+intro: Find information on the functionality of dependency caching in workflows.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -11,6 +11,7 @@ redirect_from:
   - /actions/using-workflows/caching-dependencies-to-speed-up-workflows
   - /actions/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows
   - /actions/how-tos/writing-workflows/choosing-what-your-workflow-does/caching-dependencies-to-speed-up-workflows
+  - /actions/reference/dependency-caching-reference
 versions:
   fpt: '*'
   ghes: '*'

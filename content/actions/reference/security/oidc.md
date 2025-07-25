@@ -1,13 +1,15 @@
 ---
 title: OpenID Connect reference
-shortTitle: OpenID Connect reference
-intro: Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.
+shortTitle: OIDC
+intro: 'Find information about using OpenID Connect (OIDC) to authenticate {% data variables.product.prodname_actions %} workflows with cloud providers.'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 topics:
   - Security
+redirect_from:
+  - /actions/reference/openid-connect-reference
 ---
 
 ## OIDC token claims
