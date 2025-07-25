@@ -10,11 +10,12 @@ topics:
   - Migration
   - CI
   - CD
-shortTitle: Extending GitHub Actions Importer
+shortTitle: Custom transformers
 redirect_from:
   - /actions/migrating-to-github-actions/automated-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
   - /actions/how-tos/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/extending-github-actions-importer-with-custom-transformers
+  - /actions/reference/extending-github-actions-importer-with-custom-transformers
 ---
 
 ## About custom transformers

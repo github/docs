@@ -6,6 +6,8 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /actions/reference/deployments-and-environments
 ---
 
 ## Deployment protection rules

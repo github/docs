@@ -52,7 +52,7 @@ adopting_github_actions_for_your_enterprise_ghec:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - >-
-      /actions/reference/secure-use-reference
+      /actions/reference/security/secure-use
     - >-
       /billing/managing-billing-for-your-products/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes:
@@ -77,7 +77,7 @@ adopting_github_actions_for_your_enterprise_ghes:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
     - >-
-      /actions/reference/secure-use-reference
+      /actions/reference/security/secure-use
     - >-
       /billing/managing-billing-for-your-products/about-billing-for-github-actions
 increase_fault_tolerance:

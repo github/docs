@@ -8,11 +8,11 @@ redirect_from:
   - /actions/learn-github-actions/events-that-trigger-workflows
   - /actions/using-workflows/events-that-trigger-workflows
   - /actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+  - /actions/reference/events-that-trigger-workflows
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-shortTitle: Events that trigger workflows
 ---
 
 ## About events that trigger workflows

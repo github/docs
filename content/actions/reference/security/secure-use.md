@@ -11,6 +11,7 @@ redirect_from:
   - /actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions
   - /actions/security-for-github-actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions
   - /actions/how-tos/security-for-github-actions/security-guides/using-githubs-security-features-to-secure-your-use-of-github-actions
+  - /actions/reference/secure-use-reference
 versions:
   fpt: '*'
   ghes: '*'
