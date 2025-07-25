@@ -14850,7 +14850,7 @@
       "programmatic_access_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Canceling a workflow"
+    "docs_reference_titles": "Canceling a workflow run"
   },
   {
     "action": "workflows.comment_workflow_job",
