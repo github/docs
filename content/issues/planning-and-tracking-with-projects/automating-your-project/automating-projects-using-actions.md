@@ -67,7 +67,7 @@ jobs:
     # Replace `APP_PEM` with the name of the secret that contains your app private key.
       - name: Generate token
         id: generate-token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         with:
           app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
           private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
