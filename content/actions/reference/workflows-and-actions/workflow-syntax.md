@@ -10,6 +10,7 @@ redirect_from:
   - /actions/using-workflows/workflow-syntax-for-github-actions
   - /actions/writing-workflows/workflow-syntax-for-github-actions
   - /actions/reference/github_token-reference
+  - /actions/reference/workflow-syntax-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

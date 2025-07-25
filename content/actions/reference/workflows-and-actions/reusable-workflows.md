@@ -1,11 +1,13 @@
 ---
 title: Reusable workflows reference
-shortTitle: Reusable workflows reference
+shortTitle: Reusable workflows
 intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+redirect_from:
+  - /actions/reference/reusable-workflows-reference
 ---
 
 ## Access to reusable workflows

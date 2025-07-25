@@ -10,6 +10,7 @@ redirect_from:
   - /actions/creating-actions/metadata-syntax-for-github-actions
   - /actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions
   - /actions/reference/metadata-syntax-for-github-actions
+  - /actions/reference/metadata-syntax-reference
 versions:
   fpt: '*'
   ghes: '*'

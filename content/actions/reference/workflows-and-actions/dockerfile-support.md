@@ -6,6 +6,7 @@ redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
   - /actions/creating-actions/dockerfile-support-for-github-actions
   - /actions/sharing-automations/creating-actions/dockerfile-support-for-github-actions
+  - /actions/reference/dockerfile-support-for-github-actions
 versions:
   fpt: '*'
   ghes: '*'

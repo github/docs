@@ -1,7 +1,7 @@
 ---
 title: Evaluate expressions in workflows and actions
-shortTitle: Expressions reference
-intro: Find information for expressions in {% data variables.product.prodname_actions %}.
+shortTitle: Expressions
+intro: 'Find information for expressions in {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,7 @@ redirect_from:
   - /actions/learn-github-actions/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/expressions
   - /actions/writing-workflows/choosing-what-your-workflow-does/evaluate-expressions-in-workflows-and-actions
+  - /actions/reference/evaluate-expressions-in-workflows-and-actions
 ---
 
 ## Literals
