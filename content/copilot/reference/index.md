@@ -7,6 +7,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /copilot-billing
   - /cheat-sheet
   - /keyboard-shortcuts
   - /policy-conflicts
