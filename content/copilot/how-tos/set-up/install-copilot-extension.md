@@ -237,7 +237,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ### Version compatibility
 
-To use the {% data variables.product.prodname_copilot %} extension, you must have Eclipse version 2024-09 or above. See the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
+To use the {% data variables.product.prodname_copilot %} extension, you must have Eclipse version 2024-03 or above. See the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
 
 ## Installing {% data variables.product.prodname_copilot %} in Eclipse
 
