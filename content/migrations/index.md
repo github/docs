@@ -9,7 +9,7 @@ featuredLinks:
   startHere:
     - /migrations/importing-source-code/using-github-importer/about-github-importer
     - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer
-    - /actions/tutorials/migrating-to-github-actions/using-github-actions-importer-to-automate-migrations/automating-migration-with-github-actions-importer
+    - /actions/tutorials/migrate-to-github-actions/automated-migrations/use-github-actions-importer
   popular:
     - /migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer
     - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
@@ -34,4 +34,3 @@ children:
   - /using-github-enterprise-importer
   - /using-ghe-migrator
 ---
-

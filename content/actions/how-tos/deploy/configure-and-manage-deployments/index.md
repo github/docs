@@ -12,6 +12,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /control-deployments
   - /view-deployment-history
   - /manage-environments
   - /review-deployments

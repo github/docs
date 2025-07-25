@@ -13,8 +13,8 @@ featuredLinks:
     - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
   guideCards:
     - /actions/how-tos/write-workflows/use-workflow-templates
-    - /actions/tutorials/publishing-packages/publishing-nodejs-packages
-    - /actions/tutorials/build-and-test-code/building-and-testing-powershell
+    - /actions/tutorials/publish-packages/publish-nodejs-packages
+    - /actions/tutorials/build-and-test-code/powershell
   popular:
     - /actions/reference/workflows-and-actions/workflow-syntax
     - /actions/how-tos/write-workflows
