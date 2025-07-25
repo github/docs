@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/viewing-job-execution-time
   - /actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-job-execution-time
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-job-execution-time
 versions:
   fpt: '*'
   ghec: '*'

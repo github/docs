@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/adding-a-workflow-status-badge
   - /actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge
 versions:
   fpt: '*'
   ghes: '*'

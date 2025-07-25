@@ -6,6 +6,7 @@ redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
   - /actions/monitoring-and-troubleshooting-workflows/using-the-visualization-graph
   - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/using-the-visualization-graph
+  - /actions/how-tos/monitoring-and-troubleshooting-workflows/monitoring-workflows/using-the-visualization-graph
 versions:
   fpt: '*'
   ghes: '*'
