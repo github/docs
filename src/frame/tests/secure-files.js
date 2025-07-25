@@ -13,7 +13,7 @@ import { glob } from 'glob'
 const secureFiles = [
   {
     name: 'Security hardening your deployments',
-    path: 'content/actions/how-tos/security-for-github-actions/security-hardening-your-deployments/**',
+    path: 'content/actions/how-tos/secure-your-work/security-harden-deployments/**',
   },
   {
     name: 'RAI transparency note reusable directory',
