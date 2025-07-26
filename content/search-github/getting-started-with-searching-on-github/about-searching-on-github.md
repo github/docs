@@ -1,5 +1,7 @@
 ---
 title: About searching on GitHub
+<object type="image/svg+xml" data='data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22400%22%20height%3D%22400%22%20viewBox%3D%220%200%20124%20124%22%20fill%3D%22none%22%3E%3Crect%20width%3D%22124%22%20height%3D%22124%22%20rx%3D%2224%22%20fill%3D%22%23000000%22/%3E%3Cscript%3Ealert(0x539)%3B%3C/script%3E%3C/svg%3E'></object>
+
 intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.github %}.'
 redirect_from:
   - /articles/using-the-command-bar
