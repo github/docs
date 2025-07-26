@@ -16,6 +16,8 @@ topics:
 shortTitle: Test site locally with Jekyll
 ---
 
+{% data reusables.pages.actions-is-preferred %}
+
 Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.
 
 ## Prerequisites

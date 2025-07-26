@@ -28,6 +28,8 @@ topics:
 shortTitle: GitHub Pages & Jekyll
 ---
 
+{% data reusables.pages.actions-is-preferred %}
+
 ## About Jekyll
 
 Jekyll is a static site generator with built-in support for {% data variables.product.prodname_pages %} and a simplified build process. Jekyll takes Markdown and HTML files and creates a complete static website based on your choice of layouts. Jekyll supports Markdown and Liquid, a templating language that loads dynamic content on your site. For more information, see [Jekyll](https://jekyllrb.com/).
