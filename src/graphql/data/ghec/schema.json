@@ -55356,7 +55356,7 @@
         },
         {
           "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -104857,7 +104857,7 @@
         },
         {
           "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
