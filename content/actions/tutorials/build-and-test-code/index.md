@@ -21,16 +21,17 @@ redirect_from:
   - /actions/how-tos/use-cases-and-examples/building-and-testing
   - /actions/how-tos/writing-workflows/building-and-testing
 children:
-  - /building-and-testing-go
-  - /building-and-testing-java-with-ant
-  - /building-and-testing-java-with-gradle
-  - /building-and-testing-java-with-maven
-  - /building-and-testing-net
-  - /building-and-testing-nodejs
-  - /building-and-testing-powershell
-  - /building-and-testing-python
-  - /building-and-testing-ruby
-  - /building-and-testing-rust
-  - /building-and-testing-swift
-  - /building-and-testing-xamarin-applications
+  - /go
+  - /java-with-ant
+  - /java-with-gradle
+  - /java-with-maven
+  - /net
+  - /nodejs
+  - /powershell
+  - /python
+  - /ruby
+  - /rust
+  - /swift
+  - /xamarin-apps
 ---
+
