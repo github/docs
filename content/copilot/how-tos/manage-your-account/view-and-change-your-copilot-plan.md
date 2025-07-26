@@ -1,7 +1,7 @@
 ---
 title: Viewing and changing your Copilot plan
 shortTitle: View and change your Copilot plan
-intro: 'Learn how to view, cancel, or update your your {% data variables.product.prodname_copilot_short %} plan, and update your billing cycle.'
+intro: 'Learn how to view, cancel, or update your {% data variables.product.prodname_copilot_short %} plan, and update your billing cycle.'
 versions:
   feature: copilot
 topics:
@@ -27,7 +27,7 @@ contentType: how-tos
 
 You can view your current plan details in your {% data variables.product.github %} account settings. From there, you can change or cancel your plan, or switch between monthly and yearly billing based on your needs.
 
-If you have access to {% data variables.product.prodname_copilot %} through an organization {% ifversion ghec %}or enterprise {% endif %}, you will not be able to modify your plan or billing cycle.
+If you have access to {% data variables.product.prodname_copilot %} through an organization{% ifversion ghec %} or enterprise{% endif %}, you will not be able to modify your plan or billing cycle.
 
 ## Viewing your {% data variables.product.prodname_copilot_short %} plan
 
@@ -86,9 +86,7 @@ You can cancel your {% data variables.copilot.copilot_pro_short %} trial at any 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
-1. Under "Add-ons", in the "{% data variables.product.prodname_copilot %}" section, click **Cancel trial**.
-
-   ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The "Cancel trial" option is highlighted in dark orange.](/assets/images/help/copilot/copilot-cancel-trial.png)
+1. In the "{% data variables.product.prodname_copilot_short %}" section, click **Cancel trial**.
 
 ## Changing your billing cycle
 
