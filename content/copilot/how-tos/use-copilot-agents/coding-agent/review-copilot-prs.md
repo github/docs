@@ -26,7 +26,9 @@ contentType: how-tos
 After {% data variables.product.prodname_copilot_short %} has finished working on a coding task, and has requested a pull request review from you, you should review {% data variables.product.prodname_copilot_short %}'s work thoroughly before merging the pull request.
 
 > [!IMPORTANT]
-> If you have the "Required approvals" rule or branch protection enabled, you won't be able to approve pull requests that you initiated by assigning the related issue to {% data variables.product.prodname_copilot_short %}. Someone else must approve the pull request before it can be merged.
+> If you have branch protection rules that require pull request approvals, and you initiate a pull request by assigning an issue to {% data variables.product.prodname_copilot_short %}, you can approve the pull request, but **your approval won't count** toward the required number of approvals. Someone else must approve the pull request for it to be merged.
+>
+> Additionally, if the "Require approval of the most recent reviewable push" setting is enabled, the final push to the pull request will require **n + 1 approvals**, where _n_ is the number of required approvals. The person who initiated the original {% data variables.product.prodname_copilot_short %} pull request can't be counted among the required reviewers for that final push—but if someone else requested the latest {% data variables.product.prodname_copilot_short %}-generated change, their approval **can** count.
 
 You can ask {% data variables.product.prodname_copilot_short %} to make changes using pull request comments, or you can check out {% data variables.product.prodname_copilot_short %}'s branch and make changes yourself.
 
