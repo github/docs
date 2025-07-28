@@ -19,6 +19,8 @@ sections:
       The babeld service no longer reports log messages about some common client-induced networking errors, reducing noise in the logs.
   known_issues:
     - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
+    - |
       Applying a new GitHub Enterprise Server license using the Management Console can sometimes fail with an HTTP 500 error.
     - |
       Custom firewall rules are removed during the upgrade process.
