@@ -131,7 +131,6 @@ If you already have an MCP configuration in Claude Desktop, you can use that con
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
-{% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
 ## Configuring MCP servers in JetBrains IDEs
 
@@ -169,8 +168,6 @@ Alternatively, to access the MCP settings, once you're in "Agent Mode," click th
 ## Prerequisites
 
 {% data reusables.copilot.eclipse-prerequisites %}
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
-* **Sign in to {% data variables.product.company_short %} from Eclipse**.
 
 ## Configuring MCP servers in Eclipse
 
