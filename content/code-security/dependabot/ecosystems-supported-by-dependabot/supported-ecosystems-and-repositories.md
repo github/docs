@@ -49,7 +49,7 @@ If your repository already uses an integration for dependency management, you wi
 
 If your repository contains multiple GitHub Actions (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
 
-- **Dash (-) separator (e.g., `@my-action-v0.1.0`):**
+- **Dash (-) separator (for example, `@my-action-v0.1.0`):**
   - {% data variables.product.prodname_dependabot %} may group multiple actions under a single dependency entry or fail to detect new versions correctly. This occurs because {% data variables.product.prodname_dependabot %} relies on slash-based tag parsing to distinguish between actions.
 - **Slash (`/`) separator (e.g., `@my-action/v0.1.0`):**
   - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag structure that aligns with {% data variables.product.prodname_dependabot %}'s parsing logic.
