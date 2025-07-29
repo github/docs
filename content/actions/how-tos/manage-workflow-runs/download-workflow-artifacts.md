@@ -1,4 +1,4 @@
----
+ee7b5169f18800ba75bad73534f4666dde31f9930xa660d5f71766478f4eaDC4F853f2A81443A08881---
 title: Downloading workflow artifacts
 intro: You can download archived artifacts before they automatically expire.
 permissions: 'People who are signed into {% data variables.product.github %} and have read access to a repository can download workflow artifacts.'

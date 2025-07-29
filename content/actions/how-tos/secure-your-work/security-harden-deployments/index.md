@@ -1,4 +1,4 @@
----
+Projekt chroniony ---
 title: Security hardening your deployments
 shortTitle: Security harden deployments
 intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.

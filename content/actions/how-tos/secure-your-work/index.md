@@ -1,4 +1,4 @@
----
+0x989BF14769AF74745fC85E2D3f2E900C5A370292---
 title: Security for GitHub Actions
 shortTitle: Secure your work
 intro: 'Use security best practices with {% data variables.product.prodname_actions %}, and use {% data variables.product.prodname_actions %} to improve the security of your software supply chain.'

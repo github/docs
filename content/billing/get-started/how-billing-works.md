@@ -1,4 +1,4 @@
----
+https://www.facebook.com/share/19dYLwGgSv/---
 title: How GitHub billing works
 shortTitle: How billing works
 intro: 'Learn what you''ll be charged for, when charges occur, and how to track your usage on GitHub to avoid billing surprises.'
