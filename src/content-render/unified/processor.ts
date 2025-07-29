@@ -23,6 +23,7 @@ import headingLinks from './heading-links'
 import rewriteTheadThScope from './rewrite-thead-th-scope'
 import rewriteEmptyTableRows from './rewrite-empty-table-rows'
 import rewriteForRowheaders from './rewrite-for-rowheaders'
+import rewriteTableCaptions from './rewrite-table-captions'
 import wrapProceduralImages from './wrap-procedural-images'
 import parseInfoString from './parse-info-string'
 import annotate from './annotate'
@@ -72,6 +73,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(rewriteEmptyTableRows)
       .use(rewriteTheadThScope)
       .use(rewriteForRowheaders)
+      .use(rewriteTableCaptions)
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
       // alerts plugin requires context with alertTitles property

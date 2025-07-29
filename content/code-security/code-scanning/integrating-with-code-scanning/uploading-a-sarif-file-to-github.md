@@ -53,7 +53,7 @@ To use {% data variables.product.prodname_actions %} to upload a third-party SAR
 
 Your workflow will need to use the `upload-sarif` action, which is part of the `github/codeql-action` repository. It has input parameters that you can use to configure the upload. The main input parameters you'll use are:
 
-* `sarif-file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository.
+* `sarif_file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository.
 * `category` (optional), which assigns a category for results in the SARIF file. This enables you to analyze the same commit in multiple ways and review the results using the {% data variables.product.prodname_code_scanning %} views in {% data variables.product.prodname_dotcom %}. For example, you can analyze using multiple tools, and in mono-repos, you can analyze different slices of the repository based on the subset of changed files.
 
 For more information, see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/v3/upload-sarif).

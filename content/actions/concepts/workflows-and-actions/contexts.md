@@ -1,6 +1,5 @@
 ---
 title: Contexts
-shortTitle: Contexts
 intro: 'Learn about contexts in {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'

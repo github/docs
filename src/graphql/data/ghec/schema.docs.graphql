@@ -41303,7 +41303,7 @@ type PullRequestParameters {
   allowedMergeMethods: [PullRequestAllowedMergeMethods!]
 
   """
-  Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
   """
   automaticCopilotCodeReviewEnabled: Boolean!
 
@@ -41344,7 +41344,7 @@ input PullRequestParametersInput {
   allowedMergeMethods: [PullRequestAllowedMergeMethods!]
 
   """
-  Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
   """
   automaticCopilotCodeReviewEnabled: Boolean
 

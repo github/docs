@@ -7,7 +7,6 @@ import timeout from 'connect-timeout'
 
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
-import morgan from 'morgan'
 import helmet from './helmet'
 import cookieParser from './cookie-parser'
 import {
@@ -64,16 +63,11 @@ import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
+import { initLoggerContext } from '@/observability/logger/lib/logger-context'
+import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
 
 const { NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
-
-// By default, logging each request (with morgan), is on. And by default
-// it's off if you're in a production environment or running automated tests.
-// But if you set the env var, that takes precedence.
-const ENABLE_DEV_LOGGING = Boolean(
-  process.env.ENABLE_DEV_LOGGING ? JSON.parse(process.env.ENABLE_DEV_LOGGING) : !isTest,
-)
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
@@ -104,10 +98,9 @@ export default function (app: Express) {
   //
   app.set('trust proxy', true)
 
-  // *** Request logging ***
-  if (ENABLE_DEV_LOGGING) {
-    app.use(morgan('dev'))
-  }
+  // *** Logging ***
+  app.use(initLoggerContext) // Context for both inline logs (e.g. logger.info) and automatic logs
+  app.use(getAutomaticRequestLogger()) // Automatic logging for all requests e.g. "GET /path 200"
 
   // Put this early to make it as fast as possible because it's used
   // to check the health of each cluster.

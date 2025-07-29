@@ -6,7 +6,7 @@ redirect_from:
   - /code-security/guides
 introLinks:
   overview: /code-security/getting-started/github-security-features
-  try_ghas_for_free: '{% ifversion ghec %}/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security{% endif %}'
+  try_ghas_for_free: '{% ifversion ghec %}/billing/how-tos/products/trial-advanced-security{% endif %}'
   generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization{% endif %}'
 featuredLinks:
   startHere: # Links aimed at the builder audience

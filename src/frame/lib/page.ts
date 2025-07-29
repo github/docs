@@ -187,8 +187,12 @@ class Page {
 
   constructor(opts: PageReadResult) {
     if (opts.frontmatterErrors && opts.frontmatterErrors.length) {
+      console.error(
+        `${opts.frontmatterErrors.length} frontmatter errors trying to load ${opts.fullPath}:`,
+      )
+      console.error(opts.frontmatterErrors)
       throw new FrontmatterErrorsError(
-        `${opts.frontmatterErrors.length} frontmatter errors trying to load ${opts.fullPath}`,
+        `${opts.frontmatterErrors.length} frontmatter errors in ${opts.fullPath}`,
         opts.frontmatterErrors,
       )
     }

@@ -35,7 +35,7 @@
       "user_id",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/billing/managing-the-plan-for-your-github-account/about-billing-for-plans"
+    "docs_reference_titles": "How GitHub billing works"
   },
   {
     "action": "account_recovery_token.confirm",
@@ -3645,7 +3645,7 @@
       "created_at",
       "@timestamp"
     ],
-    "docs_reference_titles": "About self-hosted runners"
+    "docs_reference_titles": "Self-hosted runners"
   },
   {
     "action": "enterprise_team.add_member",
@@ -8427,7 +8427,7 @@
       "runner_group_id",
       "runner_group_name"
     ],
-    "docs_reference_titles": "About self-hosted runners"
+    "docs_reference_titles": "Self-hosted runners"
   },
   {
     "action": "org.set_actions_fork_pr_approvals_policy",
@@ -12639,7 +12639,7 @@
       "runner_group_id",
       "runner_group_name"
     ],
-    "docs_reference_titles": "About self-hosted runners"
+    "docs_reference_titles": "Self-hosted runners"
   },
   {
     "action": "repo.set_actions_fork_pr_approvals_policy",
@@ -17395,7 +17395,7 @@
       "programmatic_access_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Canceling a workflow"
+    "docs_reference_titles": "Canceling a workflow run"
   },
   {
     "action": "workflows.comment_workflow_job",

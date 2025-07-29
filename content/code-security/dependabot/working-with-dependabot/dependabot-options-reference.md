@@ -169,9 +169,6 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-> [!NOTE]
-> `cooldown` is not available for the NuGet ecosystem.
-
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
 
 This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
@@ -208,28 +205,29 @@ The table below shows the package managers for which SemVer is supported.
 
 | Package manager        | SemVer supported |
 |-----------------------|------------------|
-| Bundler          | {% octicon "check" aria-label="Supported" %}              |
-| Bun               | {% octicon "check" aria-label="Supported" %}              |
-| Cargo             | {% octicon "check" aria-label="Supported" %}              |
-| Composer          | {% octicon "check" aria-label="Supported" %}              |
-| Devcontainers     | {% octicon "x" aria-label="Not supported" %}               |
-| Docker            | {% octicon "x" aria-label="Not supported" %}               |
-| Docker Compose    | {% octicon "x" aria-label="Not supported" %}               |
-| Dotnet SDK        | {% octicon "check" aria-label="Supported" %}              |
-| Elm               | {% octicon "check" aria-label="Supported" %}              |
-| {% data variables.product.prodname_actions %}    | {% octicon "x" aria-label="Not supported" %}               |
-| Gitsubmodule      | {% octicon "x" aria-label="Not supported" %}               |
-| Gomod (Go Modules)| {% octicon "check" aria-label="Supported" %}              |
-| Gradle            | {% octicon "check" aria-label="Supported" %}              |
-| Helm              | {% octicon "x" aria-label="Not supported" %}               |
-| Hex (Hex)         | {% octicon "check" aria-label="Supported" %}              |
-| Maven             | {% octicon "check" aria-label="Supported" %}              |
-| NPM and Yarn      | {% octicon "check" aria-label="Supported" %}              |
-| Pip               | {% octicon "check" aria-label="Supported" %}              |
-| Pub              | {% octicon "check" aria-label="Supported" %}              |
-| Swift             | {% octicon "check" aria-label="Supported" %}              |
-| Terraform         | {% octicon "x" aria-label="Not supported" %}               |
-| UV                | {% octicon "check" aria-label="Supported" %}              |
+| Bundler               | {% octicon "check" aria-label="Supported" %}              |
+| Bun                   | {% octicon "check" aria-label="Supported" %}              |
+| Cargo                 | {% octicon "check" aria-label="Supported" %}              |
+| Composer              | {% octicon "check" aria-label="Supported" %}              |
+| Devcontainers         | {% octicon "x" aria-label="Not supported" %}              |
+| Docker                | {% octicon "x" aria-label="Not supported" %}              |
+| Docker Compose        | {% octicon "x" aria-label="Not supported" %}              |
+| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              |
+| Elm                   | {% octicon "check" aria-label="Supported" %}              |
+| {% data variables.product.prodname_actions %} | {% octicon "x" aria-label="Not supported" %} |
+| Gitsubmodule          | {% octicon "x" aria-label="Not supported" %}              |
+| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              |
+| Gradle                | {% octicon "check" aria-label="Supported" %}              |
+| Helm                  | {% octicon "x" aria-label="Not supported" %}              |
+| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| Maven                 | {% octicon "check" aria-label="Supported" %}              |
+| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
+| NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| Pip                   | {% octicon "check" aria-label="Supported" %}              |
+| Pub                   | {% octicon "check" aria-label="Supported" %}              |
+| Swift                 | {% octicon "check" aria-label="Supported" %}              |
+| Terraform             | {% octicon "x" aria-label="Not supported" %}              |
+| UV                    | {% octicon "check" aria-label="Supported" %}              |
 
 > [!NOTE]
 >
@@ -474,11 +472,11 @@ When `open-pull-requests-limit` is defined:
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
 | {% ifversion dependabot-bun-support %} |
-| Bun | `bun`         | >=v1.1.39              |
+| Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
-| Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
+| Composer       | `composer`       | v2         |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -497,18 +495,18 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
-| npm            | `npm`            |  v7, v8, v9   |
+| npm            | `npm`            |  v7, v8, v9, v10   |
 | NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
-| pip| `pip`            | v21.1.2          |
-| pip-compile | `pip`            | 6.1.0            |
-| pipenv         | `pip`            | <= 2021-05-29    |
+| pip| `pip`            | v24.2          |
+| pip-compile | `pip`            | 7.4.1            |
+| pipenv         | `pip`            | <= 2024.4.1    |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
 | uv           | `uv`             | v0 |
-| yarn         | `npm`            | v1, v2, v3       |
+| yarn         | `npm`            | v1, v2, v3, v4     |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -818,8 +816,6 @@ updates:
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
-{% data reusables.dependabot.dependabot-replaces-base-nuget %}
-
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 ### `type` and authentication details
@@ -850,5 +846,3 @@ All sensitive data used for authentication should be stored securely and referen
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
-
-{% data reusables.dependabot.dependabot-replaces-base-nuget %}
