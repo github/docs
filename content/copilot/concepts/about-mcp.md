@@ -25,7 +25,7 @@ For more information on MCP, see [the official MCP documentation](https://modelc
 
 To learn how to configure and use MCP servers with {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp).
 
-Enterprises and organizations can choose to enable or disable use of MCP for members of their organization or enterprise. See [AUTOTITLE](/copilot/how-tos/administer/enterprises/managing-policies-and-features-for-copilot-in-your-enterprise#mcp-servers-on-githubcom). The MCP policy only applies to members with {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_short %} licenses assigned by the organization or enterprise that configures the policy. {% data variables.copilot.copilot_free_short %}, {% data variables.copilot.copilot_pro_short %}, or {% data variables.copilot.copilot_pro_plus_short %} do not have their MCP access governed by this policy.
+{% data reusables.copilot.mcp.mcp-policy %}
 
 ## About the {% data variables.product.github %} MCP server
 

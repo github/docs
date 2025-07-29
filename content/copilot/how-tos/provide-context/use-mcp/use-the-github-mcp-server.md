@@ -4,6 +4,7 @@ intro: 'Learn how to use the GitHub Model Context Protocol (MCP) server to exten
 shortTitle: Use the GitHub MCP Server
 versions:
   feature: copilot
+defaultTool: vscode
 topics:
   - Copilot
 redirect_from:
