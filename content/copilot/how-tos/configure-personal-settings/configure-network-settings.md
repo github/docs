@@ -71,7 +71,11 @@ If you have configured a proxy but are still encountering connection errors, see
 
 ### Basic authentication
 
-{% data variables.product.prodname_copilot_short %} for {% data variables.product.prodname_vs %} does not retrieve authentication credentials from the Windows settings. If you need to authenticate to a proxy, you can include your credentials in the proxy URL (for example: `http://USERNAME:PASSWORD@10.203.0.1:5187/`), then set this URL as one of the supported environment variables listed in [Proxy settings for {% data variables.product.prodname_copilot_short %}](/copilot/concepts/network-settings-for-github-copilot#proxy-settings-for-copilot).
+{% data variables.product.prodname_copilot_short %} for {% data variables.product.prodname_vs %} does not retrieve authentication credentials from the Windows settings. 
+
+If you need to authenticate to a proxy, you can try one of the below:
+1. Enable passing default proxy credentials by setting the environment variable COPILOT_USE_DEFAULTPROXY to true.
+2. You can include your credentials in the proxy URL (for example: `http://USERNAME:PASSWORD@10.203.0.1:5187/`), then set this URL as one of the supported environment variables listed in [Proxy settings for {% data variables.product.prodname_copilot_short %}](/copilot/concepts/network-settings-for-github-copilot#proxy-settings-for-copilot).
 
 {% endvisualstudio %}
 
