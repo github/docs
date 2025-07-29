@@ -51,7 +51,7 @@ If your repository contains multiple GitHub Actions (for example, in a monorepo)
 
 - **Dash (-) separator (for example, `@my-action-v0.1.0`):**
   - {% data variables.product.prodname_dependabot %} may group multiple actions under a single dependency entry or fail to detect new versions correctly. This occurs because {% data variables.product.prodname_dependabot %} relies on slash-based tag parsing to distinguish between actions.
-- **Slash (`/`) separator (e.g., `@my-action/v0.1.0`):**
+- **Slash (`/`) separator (for example, `@my-action/v0.1.0`):**
   - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag structure that aligns with {% data variables.product.prodname_dependabot %}'s parsing logic.
 
 **Example**:
