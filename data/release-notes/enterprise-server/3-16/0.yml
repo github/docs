@@ -182,6 +182,8 @@ sections:
 
   known_issues:
     - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
+    - |
       {% data reusables.release-notes.2025-03-security-product-transition-bug %} [Updated: 2025-03-17]
     - |
       Custom firewall rules are removed during the upgrade process.

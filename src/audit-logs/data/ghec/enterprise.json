@@ -35,7 +35,7 @@
       "user_id",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/billing/managing-the-plan-for-your-github-account/about-billing-for-plans"
+    "docs_reference_titles": "How GitHub billing works"
   },
   {
     "action": "actions_cache.delete",
@@ -1586,7 +1586,7 @@
       "_document_id",
       "actor_id"
     ],
-    "docs_reference_titles": "Syncing license usage between GitHub Enterprise Server and GitHub Enterprise Cloud"
+    "docs_reference_titles": "Syncing license usage from GitHub Enterprise Server to Cloud"
   },
   {
     "action": "business.invite_admin",
@@ -3063,7 +3063,7 @@
       "business_id",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan"
+    "docs_reference_titles": "Upgrading your account's plan"
   },
   {
     "action": "checks.auto_trigger_disabled",
@@ -4094,7 +4094,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About billing for GitHub Copilot"
+    "docs_reference_titles": "GitHub Copilot billing"
   },
   {
     "action": "copilot.plan_downgrade_scheduled",

@@ -35,7 +35,7 @@
       "user_id",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/billing/managing-the-plan-for-your-github-account/about-billing-for-plans"
+    "docs_reference_titles": "How GitHub billing works"
   },
   {
     "action": "account_recovery_token.confirm",

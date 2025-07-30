@@ -7,6 +7,7 @@ redirect_from:
   - /copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability
   - /copilot/tutorials/copilot-chat-cookbook/refactoring-code/improve-code-readability
+  - /copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability
 versions:
   feature: copilot
 category:
