@@ -22,6 +22,7 @@ redirect_from:
   - /actions/how-tos/hosting-your-own-runners
   - /actions/how-tos/managing-self-hosted-runners
   - /actions/how-tos/hosting-your-own-runners/managing-self-hosted-runners
+  - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
