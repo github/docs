@@ -48,6 +48,8 @@ If {% data variables.product.prodname_copilot_short %} starts a new agent sessio
 > [!TIP]
 > If you don't want {% data variables.product.prodname_copilot_short %} to respond to comments on a pull request, you can unassign {% data variables.product.prodname_copilot_short %} from the pull request. If you later reassign {% data variables.product.prodname_copilot_short %} to the same pull request it will respond to new comments and push more changes. It will not respond to comments that were added while it was not assigned.
 
+As {% data variables.product.prodname_copilot_short %} makes changes to the pull request, it will keep the title and body up to date so they reflect the current changes.
+
 For more information, see the section "Use comments to iterate on a pull request" in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices#using-comments-to-iterate-on-a-pull-request).
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs

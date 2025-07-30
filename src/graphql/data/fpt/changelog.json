@@ -4,6 +4,32 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>AddBlockedByInput</code> was added</p>",
+          "<p>Type <code>AddBlockedByPayload</code> was added</p>",
+          "<p>Type <code>IssueDependenciesSummary</code> was added</p>",
+          "<p>Type <code>IssueDependencyOrder</code> was added</p>",
+          "<p>Type <code>IssueDependencyOrderField</code> was added</p>",
+          "<p>Type <code>RemoveBlockedByInput</code> was added</p>",
+          "<p>Type <code>RemoveBlockedByPayload</code> was added</p>",
+          "<p>Field <code>blockedBy</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>blocking</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>issueDependenciesSummary</code> was added to object type <code>Issue</code></p>",
+          "<p>Enum value 'BLOCKED_BY_ADDED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Field <code>addBlockedBy</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>removeBlockedBy</code> was added to object type <code>Mutation</code></p>",
+          "<p>Enum value 'BLOCKED_BY_ADDED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-07-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Directive <code>deprecated</code> was removed from field <code>ClosedEvent.stateReason</code></p>",
           "<p>Directive <code>deprecated</code> was removed from field <code>Issue.stateReason</code></p>"
         ]
