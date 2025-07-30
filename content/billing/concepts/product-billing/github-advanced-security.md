@@ -25,7 +25,7 @@ contentType: concepts
 {% ifversion fpt or ghec %}
 {% data variables.product.github %} makes a subset of {% data variables.product.prodname_AS %} features available, free of charge, to all public repositories on {% data variables.product.prodname_dotcom_the_website %}. In addition, you can get insight into your exposure to leaked secrets with a free {% data variables.product.prodname_secret_risk_assessment %}. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
 
-You need pay to use {% data variables.product.prodname_AS %} features in private repositories. If you change the visibility of a public repository to private and don't pay for {% data variables.product.prodname_AS %}, {% data variables.product.prodname_AS %} features will be disabled for that repository.
+You need to pay to use {% data variables.product.prodname_AS %} features in private repositories. If you change the visibility of a public repository to private and don't pay for {% data variables.product.prodname_AS %}, {% data variables.product.prodname_AS %} features will be disabled for that repository.
 
 {% endif %}
 

@@ -131,6 +131,17 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Amazon AWS
+  supportedSecret: Amazon AWS API Key ID
+  secretType: aws_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Amazon AWS
   supportedSecret: Amazon AWS Session Token
   secretType: >-
     aws_secret_access_key </br>aws_session_token
@@ -1809,7 +1820,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean Personal Access Token
@@ -1821,7 +1832,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean Refresh Token
@@ -2313,7 +2324,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
@@ -2545,7 +2556,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Heroku
   supportedSecret: Heroku Platform API OAuth2 Token
@@ -3351,6 +3362,17 @@
     ghec: '*'
     ghes: '>=3.5'
   isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Notion
+  supportedSecret: Notion API Token
+  secretType: notion_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -4424,7 +4446,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
@@ -4655,7 +4677,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Telegram
   supportedSecret: Telegram Bot Token

@@ -41,12 +41,12 @@ contentType: how-tos
 
 Anyone can view usage for their own personal account.
 
-If you have an owner or billing manager role for an organization, an organization account, or enterprise account, you will also have access to usage data for that organization or account.
+If you are an owner or billing manager of an organization or enterprise, you will also have access to usage data for that organization or account.
 
 ### Personal accounts
 
 {% data reusables.user-settings.access_billing_settings_url %}
-1. Scroll to the bottom of the page and use the tabbed view to see a summary of consumed use for each product that you use (in this example, the "{% data variables.product.prodname_AS %}" tab is shown).
+1. Use the tabbed view to see a summary of consumed use for each product that you use (in this example, the "{% data variables.product.prodname_AS %}" tab is shown).
 
    ![Screenshot of the tabbed view showing "{% data variables.product.prodname_AS %}" with the "View details" links outlined in dark orange.](/assets/images/help/billing/overview-product-summary.png)
 
