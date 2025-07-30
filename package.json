@@ -371,7 +371,7 @@
     "chalk": "^5.0.1",
     "change-case": "^5.4.4",
     "commander": "^14.0.0",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "csp-parse": "0.0.2",
     "csv-parse": "6.1.0",
     "eslint": "^8.57.1",
