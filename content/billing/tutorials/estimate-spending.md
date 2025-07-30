@@ -30,14 +30,10 @@ The new billing platform provides a high-level view of your spending trends base
 On this page, you can view your usage in the following categories:
 
 * **Current metered usage:** The card on the top left shows the gross metered usage for your personal account.
-* **Metered usage:** The graph shows the gross metered usage for your personal account.
 
-   To view a different time period, select **Time Frame**, then choose a time period. You can also download an image or CSV of the graph by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} on the right.
-
-* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage versus billable usage (minus any discounts that may apply).
 * **By products:** You can use the product tabs to view usage and discounts for different products.
 
-    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
+* **By repository:** The card at the bottom of the page shows the top five repositories that generate the most usage for your personal account. This helps you identify which repositories are consuming the most resources across {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_actions %}, {% data variables.product.prodname_codespaces %}, and other billable features. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a breakdown by gross usage versus billable usage (minus any discounts that may apply).
 
 Additionally, you can change your plan by clicking **Upgrade to Pro** or **Downgrade to Free** in the "Current plan" section.
 
@@ -65,40 +61,30 @@ The "Overview" page provides a high-level view of your spending and budgets.
 On this page, you can view your usage in the following categories:
 
 * **Current metered usage:** The card on the top left shows the gross metered usage for your {% data variables.enterprise.enterprise_or_org %}{% ifversion ghec %} including all cost centers. Click **More details** to view a breakdown of the usage by cost center{% endif %}.
-* **Metered usage:** The graph shows the gross metered usage for your {% data variables.enterprise.enterprise_or_org %}{% ifversion ghec %} including cost centers{% endif %}.
 
-   To view a different time period, select **Time Frame**, then choose a time period. You can also download an image or CSV of the graph by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} on the right.
-
-{% ifversion fpt %}
-* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage verse billable usage (minus any discounts that may apply).
-{% elsif ghec %}
-* **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage verse billable usage (minus any discounts that may apply).
-{% endif %}
 * **By products:** You can use the product tabs to view usage and discounts for different products.
 
-    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
-
    {% data reusables.billing.actions-usage-delay %}
+
+{% ifversion fpt %}
+* **By repository:** The card at the bottom of the page shows the top five repositories that generate the most usage. You can click **View details** in the upper-right corner of the card to view all usage, including a breakdown by gross usage versus billable usage (minus any discounts that may apply).
+{% elsif ghec %}
+* **By organization** and **by repository:** The two cards at the bottom of the page show the top five organizations and repositories that generate the most usage. You can click **View details** in the upper-right corner of each card to view all usage, including a breakdown by gross usage versus billable usage (minus any discounts that may apply).
+{% endif %}
 
 {% ifversion ghec %}
 
 ## Viewing prepaid credits
 
-Your prepaid credits are shown above the "Metered usage" graph. To add more prepaid credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
+Your prepaid credits are shown at the top of the page in the **Current included usage** card. To add more prepaid credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}.
 
 If you don't currently use prepaid credits, but have a volume subscription and would like to use credits, you can contact your account manager in {% data variables.contact.contact_enterprise_sales %}. Prepaid credits are only available to customers who are invoiced (with or without metered add-ons). Prepaid credits can't be used if your account _only_ includes metered add-ons.
 
 ## Viewing promotion and discounts
 
-In the "Current promotions and discounts" section in the top right, you can see the total amount of promotions and discounts applied to your account. Click **More details** to view a breakdown of the promotions and discounts.
+You can see the total amount of promotions and discounts applied to your account on the Overview page. In the top right-hand corner of the **Current included usage** card, click **More details** to view a breakdown of your promotions and discounts.
 
 {% endif %}
-
-## Tracking budgets
-
-At the bottom of the page, under "Budgets", you can see your current budgets, and how much you have spent against those budgets. If your role provides access, you can edit or delete a budget by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} to the right of a budget. See [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform).
-
-If you have used all of your budget, a red banner appears at the top of the page. You can click **Update your budget** to increase your budget.
 
 ## Creating a budget
 
