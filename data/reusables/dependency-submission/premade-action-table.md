@@ -40,7 +40,7 @@ jobs:
           go-version: ">=1.18.0"
 
       - name: Run snapshot action
-        uses: actions/go-dependency-submission@v1
+        uses: actions/go-dependency-submission@v2
         with:
             # Required: Define the repo path to the go.mod file used by the
             # build target

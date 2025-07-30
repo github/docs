@@ -41,7 +41,7 @@ contentType: how-tos
 
 Anyone can view usage for their own personal account.
 
-If you have an owner or billing manager role for an organization, an organization account, or enterprise account, you will also have access to usage data for that organization or account.
+If you are an owner or billing manager of an organization or enterprise, you will also have access to usage data for that organization or account.
 
 ### Personal accounts
 
