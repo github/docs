@@ -28,12 +28,12 @@ This property is consistent across the following surfaces:
 The following interactions count as activity:
 
 * Receiving a code suggestion in an IDE
-* Chatting with Copilot Chat in an IDE
+* Chatting with {% data variables.copilot.copilot_chat_short %} in an IDE
 * Creating or updating a knowledge base
-* Creating a pull request summary
-* Interacting with Copilot Chat in GitHub
+* Generating a pull request summary
+* Interacting with {% data variables.copilot.copilot_chat_short %} in GitHub
 * Interacting with Copilot on a mobile device
-* Interacting with Copilot Chat for CLI
+* Interacting with {% data variables.copilot.copilot_chat_short %} for CLI
 
 The tracked events come from both client- and server-side telemetry, ensuring the timestamp is durable if network conditions affect client-side telemetry.
 
@@ -62,24 +62,36 @@ Data in the report refreshes automatically every 30 minutes.
 | `last_activity_at` | UTC timestamp of the user's most recent Copilot interaction |
 | `last_surface_used` | The Copilot feature used most recently:<br><ul><li>**IDE**: Editor name and version (e.g. "VS Code 1.89.1")</li><li>**GitHub.com**: Feature name (e.g., "Copilot Chat")</li><li>**Unspecified**: When IDE details are unavailable or no recent activity exists</ul> |
 
+### Retention period
+
+Activity and authentication data are retained for a rolling 90-day period, consistent with the `last_activity_at` field.
+
 ### Included features
 
 The activity report provides visibility into usage of all generally available (GA) GitHub Copilot features in the IDE, on GitHub, in GitHub CLI, and on GitHub Mobile.
 
 #### IDE features
 
-* Code completions and Next edit suggestions
-* Copilot Chat
-* Copilot agents
+* Code completions
+* {% data variables.copilot.next_edit_suggestions_caps %}
+* {% data variables.copilot.copilot_chat_short %}
+* Agent mode
+* {% data variables.copilot.copilot_edits_short %} in VS Code
 
 #### GitHub features
 
-* Copilot Chat
+* {% data variables.copilot.copilot_chat_short %}
+* {% data variables.copilot.copilot_coding_agent %}
 * Copilot for Docs
 * Knowledge base management
-* Copilot pull requests
-* Copilot code reviews
+* {% data variables.copilot.copilot_for_prs %}
+* {% data variables.copilot.copilot_code-review_short %}
 
-### Retention period
+### Limitations
 
-Activity and authentication data are retained for a rolling 90-day period, consistent with the `last_activity_at` field.
+There is a possibility that {% data variables.product.github %} lacks consistent telemetry from some third party IDEs outside of VS Code (such as JetBrains and Xcode). Users should ensure they're running the latest version of their IDE.
+
+The activity report may exclude usage of {% data variables.product.prodname_copilot %} features that are not yet generally available (GA). Currently, the following features are not fully recorded:
+
+* {% data variables.copilot.copilot_spaces %}
+* Copilot Spark

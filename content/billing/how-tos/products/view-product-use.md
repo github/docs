@@ -46,7 +46,7 @@ If you are an owner or billing manager of an organization or enterprise, you wil
 ### Personal accounts
 
 {% data reusables.user-settings.access_billing_settings_url %}
-1. Scroll to the bottom of the page and use the tabbed view to see a summary of consumed use for each product that you use (in this example, the "{% data variables.product.prodname_AS %}" tab is shown).
+1. Use the tabbed view to see a summary of consumed use for each product that you use (in this example, the "{% data variables.product.prodname_AS %}" tab is shown).
 
    ![Screenshot of the tabbed view showing "{% data variables.product.prodname_AS %}" with the "View details" links outlined in dark orange.](/assets/images/help/billing/overview-product-summary.png)
 
