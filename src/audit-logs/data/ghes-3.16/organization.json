@@ -35,7 +35,7 @@
       "user_id",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/billing/managing-the-plan-for-your-github-account/about-billing-for-plans"
+    "docs_reference_titles": "How GitHub billing works"
   },
   {
     "action": "actions_cache.delete",
@@ -1147,7 +1147,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "About billing for GitHub Copilot"
+    "docs_reference_titles": "GitHub Copilot billing"
   },
   {
     "action": "copilot.plan_downgrade_scheduled",

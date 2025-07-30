@@ -7,6 +7,7 @@ redirect_from:
   - /copilot/copilot-chat-cookbook/debugging-errors/debugging-invalid-json
   - /copilot/tutorials/copilot-chat-cookbook/debugging-errors/debugging-invalid-json
   - /copilot/tutorials/copilot-chat-cookbook/debugging-errors/debug-invalid-json
+  - /copilot/copilot-chat-cookbook/debugging-errors/debugging-invalid-json
 versions:
   feature: copilot
 category:

@@ -1,5 +1,11 @@
 # Docs changelog
 
+**28 July 2025**
+
+We have restructured the general "[Billing and payments](https://docs.github.com/en/billing)" articles to align with the Copilot and Actions docs. In addition, we've combined a few old "About" articles to directly answer common questions that new users have: [How GitHub billing works](https://docs.github.com/en/billing/get-started/how-billing-works) and [Introduction to billing and licensing](https://docs.github.com/en/billing/get-started/introduction-to-billing).
+
+<hr>
+
 **16 July 2025**
 
 We've added documentation describing how to use the GraphQL API to create a new issue and, in the same request, assign the issue to Copilot coding agent.

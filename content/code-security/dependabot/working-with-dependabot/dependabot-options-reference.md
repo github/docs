@@ -169,9 +169,6 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-> [!NOTE]
-> `cooldown` is not available for the NuGet ecosystem.
-
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
 
 This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
@@ -208,28 +205,29 @@ The table below shows the package managers for which SemVer is supported.
 
 | Package manager        | SemVer supported |
 |-----------------------|------------------|
-| Bundler          | {% octicon "check" aria-label="Supported" %}              |
-| Bun               | {% octicon "check" aria-label="Supported" %}              |
-| Cargo             | {% octicon "check" aria-label="Supported" %}              |
-| Composer          | {% octicon "check" aria-label="Supported" %}              |
-| Devcontainers     | {% octicon "x" aria-label="Not supported" %}               |
-| Docker            | {% octicon "x" aria-label="Not supported" %}               |
-| Docker Compose    | {% octicon "x" aria-label="Not supported" %}               |
-| Dotnet SDK        | {% octicon "check" aria-label="Supported" %}              |
-| Elm               | {% octicon "check" aria-label="Supported" %}              |
-| {% data variables.product.prodname_actions %}    | {% octicon "x" aria-label="Not supported" %}               |
-| Gitsubmodule      | {% octicon "x" aria-label="Not supported" %}               |
-| Gomod (Go Modules)| {% octicon "check" aria-label="Supported" %}              |
-| Gradle            | {% octicon "check" aria-label="Supported" %}              |
-| Helm              | {% octicon "x" aria-label="Not supported" %}               |
-| Hex (Hex)         | {% octicon "check" aria-label="Supported" %}              |
-| Maven             | {% octicon "check" aria-label="Supported" %}              |
-| NPM and Yarn      | {% octicon "check" aria-label="Supported" %}              |
-| Pip               | {% octicon "check" aria-label="Supported" %}              |
-| Pub              | {% octicon "check" aria-label="Supported" %}              |
-| Swift             | {% octicon "check" aria-label="Supported" %}              |
-| Terraform         | {% octicon "x" aria-label="Not supported" %}               |
-| UV                | {% octicon "check" aria-label="Supported" %}              |
+| Bundler               | {% octicon "check" aria-label="Supported" %}              |
+| Bun                   | {% octicon "check" aria-label="Supported" %}              |
+| Cargo                 | {% octicon "check" aria-label="Supported" %}              |
+| Composer              | {% octicon "check" aria-label="Supported" %}              |
+| Devcontainers         | {% octicon "x" aria-label="Not supported" %}              |
+| Docker                | {% octicon "x" aria-label="Not supported" %}              |
+| Docker Compose        | {% octicon "x" aria-label="Not supported" %}              |
+| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              |
+| Elm                   | {% octicon "check" aria-label="Supported" %}              |
+| {% data variables.product.prodname_actions %} | {% octicon "x" aria-label="Not supported" %} |
+| Gitsubmodule          | {% octicon "x" aria-label="Not supported" %}              |
+| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              |
+| Gradle                | {% octicon "check" aria-label="Supported" %}              |
+| Helm                  | {% octicon "x" aria-label="Not supported" %}              |
+| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| Maven                 | {% octicon "check" aria-label="Supported" %}              |
+| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
+| NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| Pip                   | {% octicon "check" aria-label="Supported" %}              |
+| Pub                   | {% octicon "check" aria-label="Supported" %}              |
+| Swift                 | {% octicon "check" aria-label="Supported" %}              |
+| Terraform             | {% octicon "x" aria-label="Not supported" %}              |
+| UV                    | {% octicon "check" aria-label="Supported" %}              |
 
 > [!NOTE]
 >
