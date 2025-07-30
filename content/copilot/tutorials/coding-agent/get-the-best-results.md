@@ -67,6 +67,8 @@ Working with {% data variables.product.prodname_copilot_short %} on a pull reque
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.write-access-required %}
 
+As {% data variables.product.prodname_copilot_short %} makes changes to the pull request, it will keep the title and body up to date so they reflect the current changes.
+
 ## Adding custom instructions to your repository
 
 By adding custom instructions to your repository, you can guide {% data variables.product.prodname_copilot_short %} on how to understand your project and how to build, test and validate its changes.
