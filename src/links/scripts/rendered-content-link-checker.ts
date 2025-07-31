@@ -12,22 +12,22 @@ import { type Octokit } from '@octokit/rest'
 import type { Response } from 'express'
 
 import type { ExtendedRequest, Page, Permalink, Context } from '@/types'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import shortVersions from '@/versions/middleware/short-versions'
 import contextualize from '@/frame/middleware/context/context'
-import features from '@/versions/middleware/features.js'
-import getRedirect from '@/redirects/lib/get-redirect.js'
+import features from '@/versions/middleware/features'
+import getRedirect from '@/redirects/lib/get-redirect'
 import warmServer from '@/frame/lib/warm-server'
-import { liquid } from '@/content-render/index.js'
-import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
-import excludedLinks from '@/links/lib/excluded-links.js'
-import { getEnvInputs, boolEnvVar } from '@/workflows/get-env-inputs.js'
-import { debugTimeEnd, debugTimeStart } from './debug-time-taken.js'
-import { uploadArtifact as uploadArtifactLib } from './upload-artifact.js'
-import github from '@/workflows/github.js'
-import { getActionContext } from '@/workflows/action-context.js'
-import { createMinimalProcessor } from '@/content-render/unified/processor.js'
-import { createReportIssue, linkReports } from '@/workflows/issue-report.js'
-import { type CoreInject } from '@/links/scripts/action-injections.js'
+import { liquid } from '@/content-render/index'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
+import excludedLinks from '@/links/lib/excluded-links'
+import { getEnvInputs, boolEnvVar } from '@/workflows/get-env-inputs'
+import { debugTimeEnd, debugTimeStart } from './debug-time-taken'
+import { uploadArtifact as uploadArtifactLib } from './upload-artifact'
+import github from '@/workflows/github'
+import { getActionContext } from '@/workflows/action-context'
+import { createMinimalProcessor } from '@/content-render/unified/processor'
+import { createReportIssue, linkReports } from '@/workflows/issue-report'
+import { type CoreInject } from '@/links/scripts/action-injections'
 
 type Flaw = {
   WARNING?: string
@@ -1152,7 +1152,7 @@ async function innerFetch(
   //   3. ~4000ms
   //
   // ...if the limit we set is 3.
-  // Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
+  // Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
   // So there's no point in trying more attempts than 3 because it would
   // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
   const retry = {

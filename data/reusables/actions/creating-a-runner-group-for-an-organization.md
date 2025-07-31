@@ -12,7 +12,7 @@ Always include a security admonition above this procedure. This is either one of
 
 All organizations have a single default runner group. {% ifversion fpt %}Organization owners using the {% data variables.product.prodname_team %} plan{% else %}Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %}{% endif %} can create additional organization-level runner groups. {% ifversion custom-org-roles %}For more information about custom organization roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
 
-If no group is specified during the registration process, runners are automatically added to the default group. You can later move the runner from the default group to a custom group. For more information, see [Moving a runner to a group](#moving-a-runner-to-a-group).
+If no group is specified during the registration process, runners are automatically added to the default group. You can later move the runner from the default group to a custom group.
 
 For information about how to create a runner group with the REST API, see [AUTOTITLE](/rest/actions#self-hosted-runner-groups).
 

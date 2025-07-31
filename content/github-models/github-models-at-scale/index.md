@@ -6,4 +6,6 @@ versions:
 children:
   - /use-models-at-scale
   - /manage-models-at-scale
+  - /using-your-own-api-keys-in-github-models
 ---
+

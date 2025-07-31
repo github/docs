@@ -9,8 +9,10 @@ import {
   cleanPreviewTitle,
   previewAnchor,
   prependDatedEntry,
-} from '../scripts/build-changelog.js'
-import readJsonFile from '#src/frame/lib/read-json-file.js'
+  getLastIgnoredChanges,
+  getIgnoredChangesSummary,
+} from '../scripts/build-changelog'
+import readJsonFile from '@/frame/lib/read-json-file'
 
 const expectedChangelogEntry = readJsonFile('src/graphql/tests/fixtures/changelog-entry.json')
 const expectedUpdatedChangelogFile = readJsonFile(
@@ -20,6 +22,60 @@ const expectedUpdatedChangelogFile = readJsonFile(
 describe('creating a changelog from old schema and new schema', () => {
   afterEach(() => {
     MockDate.reset()
+  })
+
+  test('ignores unknown change types without throwing errors', async () => {
+    // Create a minimal test that would generate an unknown change type
+    // This test ensures the system gracefully handles new change types
+    const oldSchemaString = `
+    type Query {
+      field: String
+    }
+    `
+
+    const newSchemaString = `
+    """
+    Updated description for Query type
+    """
+    type Query {
+      field: String
+    }
+    `
+
+    // This should generate TypeDescriptionAdded change type
+    // which should be silently ignored if not in CHANGES_TO_REPORT
+    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
+
+    // Should return null since TypeDescriptionAdded is not in CHANGES_TO_REPORT
+    // and will be silently ignored without throwing an error
+    expect(entry).toBeNull()
+  })
+
+  test('handles new directive usage change types gracefully', async () => {
+    // Test that verifies the system can handle new directive-related change types
+    // that were previously causing errors in the pipeline
+    const oldSchemaString = `
+    directive @example on FIELD_DEFINITION
+
+    type Query {
+      field: String
+    }
+    `
+
+    const newSchemaString = `
+    directive @example on FIELD_DEFINITION
+
+    type Query {
+      field: String @example
+    }
+    `
+
+    // This should generate DirectiveUsage* change types that are not in CHANGES_TO_REPORT
+    // The system should silently ignore these and not throw errors
+    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
+
+    // Should return null since directive usage changes are typically ignored
+    expect(entry).toBeNull()
   })
 
   test('finds a diff of schema changes, upcoming changes, and preview changes', async () => {
@@ -144,5 +200,73 @@ describe('updating the changelog file', () => {
 
     expect(exampleEntry).toEqual({ someStuff: true, date: expectedDate })
     expect(JSON.parse(newContents)).toEqual(expectedUpdatedChangelogFile)
+  })
+})
+
+describe('ignored changes tracking', () => {
+  test('tracks ignored change types', async () => {
+    const oldSchemaString = `
+    type Query {
+      field: String
+    }
+    `
+
+    const newSchemaString = `
+    """
+    Updated description for Query type
+    """
+    type Query {
+      field: String
+    }
+    `
+
+    // This should generate a TypeDescriptionAdded change type that gets ignored
+    await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
+
+    const ignoredChanges = getLastIgnoredChanges()
+    expect(ignoredChanges.length).toBe(1)
+    expect(ignoredChanges[0].type).toBe('TYPE_DESCRIPTION_ADDED')
+  })
+
+  test('provides ignored changes summary', async () => {
+    const oldSchemaString = `
+    directive @example on FIELD_DEFINITION
+    type Query {
+      field1: String
+      field2: Int
+    }
+    `
+
+    const newSchemaString = `
+    directive @example on FIELD_DEFINITION
+    type Query {
+      field1: String @example
+      field2: Int @example
+    }
+    `
+
+    // This should generate multiple DirectiveUsage changes that get ignored
+    await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
+
+    const summary = getIgnoredChangesSummary()
+    expect(summary).toBeTruthy()
+    expect(summary.totalCount).toBe(2)
+    expect(summary.typeCount).toBe(1)
+    expect(summary.types[0].type).toBe('DIRECTIVE_USAGE_FIELD_DEFINITION_ADDED')
+    expect(summary.types[0].count).toBe(2)
+  })
+
+  test('returns null summary when no changes ignored', async () => {
+    const schemaString = `
+    type Query {
+      field: String
+    }
+    `
+
+    // No changes should be generated
+    await createChangelogEntry(schemaString, schemaString, [], [], [])
+
+    const summary = getIgnoredChangesSummary()
+    expect(summary).toBeNull()
   })
 })

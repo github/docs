@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
-import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
+import { turnOffExperimentsInPage, dismissCTAPopover } from '../helpers/turn-off-experiments'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -9,7 +9,7 @@ import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 // The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
-dotenv.config()
+dotenv.config({ quiet: true })
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -20,6 +20,8 @@ test('view home page', async ({ page }) => {
 
 test('logo link keeps current version', async ({ page }) => {
   await page.goto('/enterprise-cloud@latest')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
   // Basically clicking into any page that isn't the home page for this version.
   await page.getByTestId('product').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest\/get-started/)
@@ -55,10 +57,19 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
 
   await page.goto('/')
   await turnOffExperimentsInPage(page)
-  await page.getByTestId('site-search-input').click()
-  await page.getByTestId('site-search-input').fill('serve playwright')
-  await page.keyboard.press('Enter')
-  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+  await dismissCTAPopover(page)
+
+  // Use the search overlay
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Wait for search results to load
+  await page.waitForTimeout(1000)
+  // Click "View more results" to get to the search page
+  await page.getByText('View more results').click()
+
+  await expect(page).toHaveURL(
+    /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+  )
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
   await page.getByRole('link', { name: 'For Playwright' }).click()
@@ -67,19 +78,14 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
-test('open new search, and perform a general search', async ({ page }) => {
+test('open search, and perform a general search', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
-
-  // Enable the AI search experiment by overriding the control group
-  await page.evaluate(() => {
-    // @ts-expect-error overrideControlGroup is a custom function added to the window object
-    window.overrideControlGroup('ai_search_experiment', 'treatment')
-  })
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
 
   await page.locator('[data-testid="search"]:visible').click()
-
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Wait for the results to load
   // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
@@ -100,16 +106,10 @@ test('open new search, and perform a general search', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
-test('open new search, and select a general search article', async ({ page }) => {
+test('open search, and select a general search article', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
-
-  // Enable the AI search experiment by overriding the control group
-  await page.evaluate(() => {
-    // @ts-expect-error overrideControlGroup is a custom function added to the window object
-    window.overrideControlGroup('ai_search_experiment', 'treatment')
-  })
 
   await page.locator('[data-testid="search"]:visible').click()
 
@@ -126,16 +126,10 @@ test('open new search, and select a general search article', async ({ page }) =>
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
-test('open new search, and get auto-complete results', async ({ page }) => {
+test('open search, and get auto-complete results', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
-
-  // Enable the AI search experiment by overriding the control group
-  await page.evaluate(() => {
-    // @ts-expect-error overrideControlGroup is a custom function added to the window object
-    window.overrideControlGroup('ai_search_experiment', 'treatment')
-  })
 
   await page.locator('[data-testid="search"]:visible').click()
 
@@ -186,9 +180,17 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
 
   await page.goto('/enterprise-cloud@latest')
   await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
 
-  await page.getByTestId('site-search-input').fill('fixture')
-  await page.getByTestId('site-search-input').press('Enter')
+  // Use the search overlay
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('fixture')
+  // Wait for search results to load
+  await page.waitForTimeout(1000)
+  // Click "View more results" to get to the search page
+  await page.getByText('View more results').click()
+
+  // Now we're on the search results page, apply the filter
   await page.getByText('Fooing (1)').click()
   await page.getByRole('link', { name: 'Clear' }).click()
 
@@ -201,6 +203,7 @@ test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Mac' }).click()
     await expect(page).toHaveURL(/\?platform=mac/)
@@ -217,6 +220,7 @@ test.describe('platform picker', () => {
     // default platform set to windows in fixture fronmatter
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
     ).not.toBeVisible()
@@ -235,6 +239,7 @@ test.describe('platform picker', () => {
   test('remember last clicked OS', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
 
     // Return and now the cookie should start us off on Windows again
@@ -248,78 +253,95 @@ test.describe('tool picker', () => {
   test('switch tools', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
     await expect(page).toHaveURL(/\?tool=cli/)
-    await expect(page.getByText('this is cli content')).toBeVisible()
-    await expect(page.getByText('this is webui content')).not.toBeVisible()
+    await expect(page.getByText('This is cli content')).toBeVisible()
+    await expect(page.getByText('This is webui content')).not.toBeVisible()
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
     await expect(page).toHaveURL(/\?tool=webui/)
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
-    await expect(page.getByText('this is desktop content')).not.toBeVisible()
-    await expect(page.getByText('this is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
   test('prefer default tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
 
-    // defaultTool is set in the fixture frontmatter
-    await expect(page.getByText('this is desktop content')).toBeVisible()
-    await expect(page.getByText('this is webui content')).not.toBeVisible()
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    // defaultTool is set in the fixture frontmatter to webui
+    await expect(page.getByText('This is webui content')).toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
   })
 
   test('remember last clicked tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
 
     // Return and now the cookie should start us off with Web UI content again
     await page.goto('/get-started/liquid/tool-specific')
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
-    await expect(page.getByText('this is desktop content')).not.toBeVisible()
-    await expect(page.getByText('this is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
   test('minitoc matches picker', async ({ page }) => {
-    // default tool set to desktop in fixture fronmatter
+    // default tool set to webui in fixture frontmatter
     await page.goto('/get-started/liquid/tool-specific')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
     ).toBeVisible()
     await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
-    ).not.toBeVisible()
-    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
-    await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Desktop' }).click()
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).toBeVisible()
   })
 })
 
-test('navigate with side bar into article inside a map-topic inside a category', async ({
+test('navigate with side bar into article inside a subcategory inside a category', async ({
   page,
 }) => {
   // Our TreeView sidebar only shows "2 levels". If you click and expand
-  // the category, you'll be able to see the map-topic and the article
+  // the category, you'll be able to see the subcategory and the article
   // within.
   await page.goto('/actions')
-  await page.getByTestId('sidebar').getByText('Category').click()
-  await page.getByText('Map & Topic').click()
+  await page.getByTestId('sidebar').getByText('Category', { exact: true }).click()
+  await page.getByTestId('sidebar').getByText('Subcategory').click()
   await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
-  await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
+  await expect(page).toHaveURL(/actions\/category\/subcategory\/article/)
+})
+
+test('sidebar custom link functionality works', async ({ page }) => {
+  // Test that sidebar functionality is not broken by custom links feature
+  await page.goto('/get-started')
+
+  await expect(page).toHaveTitle(/Getting started with HubGit/)
+
+  // Verify that regular sidebar navigation still works by clicking on known sections
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+  await page.getByTestId('product-sidebar').getByText('Hello World').click()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
 test.describe('hover cards', () => {
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -382,6 +404,7 @@ test.describe('hover cards', () => {
   test('use keyboard shortcut to open hover card', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // Simply putting focus on the link should not open the hovercard
     await page
@@ -414,6 +437,7 @@ test.describe('hover cards', () => {
   test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -574,6 +598,7 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
@@ -614,11 +639,19 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
-    await page.getByRole('button', { name: 'Open Search Bar' }).click()
-    await page.getByTestId('site-search-input').click()
-    await page.getByTestId('site-search-input').fill('serve playwright')
-    await page.getByTestId('site-search-input').press('Enter')
-    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await dismissCTAPopover(page)
+
+    // Use the search overlay
+    await page.locator('[data-testid="mobile-search-button"]:visible').click()
+    await page.getByTestId('overlay-search-input').fill('serve playwright')
+    // Wait for search results to load
+    await page.waitForTimeout(1000)
+    // Click "View more results" to get to the search page
+    await page.getByText('View more results').click()
+
+    await expect(page).toHaveURL(
+      /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+    )
     await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
   })
 
@@ -631,10 +664,19 @@ test.describe('test nav at different viewports', () => {
     })
     await page.goto('/get-started/foo/bar')
     await turnOffExperimentsInPage(page)
-    await page.getByTestId('site-search-input').click()
-    await page.getByTestId('site-search-input').fill('serve playwright')
-    await page.getByTestId('site-search-input').press('Enter')
-    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await dismissCTAPopover(page)
+
+    // Use the search overlay
+    await page.locator('[data-testid="mobile-search-button"]:visible').click()
+    await page.getByTestId('overlay-search-input').fill('serve playwright')
+    // Wait for search results to load
+    await page.waitForTimeout(1000)
+    // Click "View more results" to get to the search page
+    await page.getByText('View more results').click()
+
+    await expect(page).toHaveURL(
+      /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+    )
     await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
   })
 })
@@ -843,4 +885,115 @@ test.describe('translations', () => {
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
   })
+})
+
+test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  // Mock the CSE Copilot endpoint
+  await page.route('**/api/ai-search/v1', async (route) => {
+    // Simulate the streaming response from CSE Copilot
+    const mockResponse = `{"chunkType":"SOURCES","sources":[{"title":"Creating a new repository","index":"/en/get-started","url":"http://localhost:4000/en/get-started"}]}
+
+{"chunkType":"MESSAGE_CHUNK","text":"Creating "}
+{"chunkType":"MESSAGE_CHUNK","text":"a "}
+{"chunkType":"MESSAGE_CHUNK","text":"repository "}
+{"chunkType":"MESSAGE_CHUNK","text":"on "}
+{"chunkType":"MESSAGE_CHUNK","text":"GitHub "}
+{"chunkType":"MESSAGE_CHUNK","text":"is "}
+{"chunkType":"MESSAGE_CHUNK","text":"something "}
+{"chunkType":"MESSAGE_CHUNK","text":"you "}
+{"chunkType":"MESSAGE_CHUNK","text":"should "}
+{"chunkType":"MESSAGE_CHUNK","text":"already "}
+{"chunkType":"MESSAGE_CHUNK","text":"know "}
+{"chunkType":"MESSAGE_CHUNK","text":"how "}
+{"chunkType":"MESSAGE_CHUNK","text":"to "}
+{"chunkType":"MESSAGE_CHUNK","text":"do "}
+{"chunkType":"MESSAGE_CHUNK","text":":shrug:"}`
+
+    await route.fulfill({
+      status: 200,
+      headers: {
+        'Content-Type': 'application/x-ndjson',
+        'Transfer-Encoding': 'chunked',
+      },
+      body: mockResponse,
+    })
+  })
+
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
+
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('How do I create a Repository?')
+  // Pressing enter should ask AI the question
+  await page.keyboard.press('Enter')
+
+  // Wait for the AI response to appear
+  await expect(page.getByText('Creating a repository on GitHub')).toBeVisible()
+
+  // Verify that sources are displayed
+  await expect(page.getByText('Creating a new repository')).toBeVisible()
+
+  // Verify the full response appears
+  await expect(page.getByText('something you should already know how to do')).toBeVisible()
+
+  // Open the "Creating new repository" source link list item
+  // Find the references section first
+  const aiReferencesSection = page.getByTestId('ai-references')
+  await expect(aiReferencesSection).toBeVisible()
+
+  // Wait for the reference list to be populated
+  await expect(page.getByText('Creating a new repository')).toBeVisible()
+})
+
+test('open search, Ask AI returns 400 error and shows general search results', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  // Mock the CSE Copilot endpoint to return a 400 error
+  await page.route('**/api/ai-search/v1', async (route) => {
+    await route.fulfill({
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        upstreamStatus: 400,
+      }),
+    })
+  })
+
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
+
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('foo')
+  // Pressing enter should trigger Ask AI, get 400 error, and show general search results
+  await page.keyboard.press('Enter')
+
+  // Wait for general search results to appear
+  await expect(page.getByRole('link', { name: 'Foo' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Bar' })).toBeVisible()
+
+  // Wait for the AI error message to appear
+  // This is a canned response for the 400 error
+  await page.waitForTimeout(1000) // Wait for the AI error message to appear
+
+  // Verify the AI error message appears (canned response for 400 error)
+  await expect(
+    page
+      .getByRole('paragraph')
+      .getByText(
+        /Sorry, I'm unable to answer that question. Please try asking a different question./,
+      ),
+  ).toBeVisible()
+
+  // Verify general search results appear above the AI section
+  const searchResults = page.getByTestId('general-autocomplete-suggestions')
+  const aiSection = page.locator('#ask-ai-result-container')
+
+  await expect(searchResults).toBeVisible()
+  await expect(aiSection).toBeVisible()
 })

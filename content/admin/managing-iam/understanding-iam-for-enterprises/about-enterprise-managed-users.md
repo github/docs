@@ -74,7 +74,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is provided by the IdP:
 * {% data variables.enterprise.prodname_managed_users_caps %} _cannot_ change their profile name or email address on {% data variables.product.prodname_dotcom %}.
 * The IdP can only provide one email address.
-* Changing a user's email address in your IdP will delink the user from the contribution history associated with the old email address.
+* Changing a user's email address in your IdP will unlink the user from the contribution history associated with the old email address.
 
 ## Managing roles and access
 
@@ -84,7 +84,7 @@ Organization memberships (and repository access) can be managed manually, or you
 
 ## Authentication for {% data variables.enterprise.prodname_managed_users %}
 
-The locations where {% data variables.enterprise.prodname_managed_users %} can authenticate to {% data variables.product.prodname_dotcom %} depends on how you configure authentication (SAML or OIDC). See [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authenticating-with-a-managed-user-account).
+The locations where {% data variables.enterprise.prodname_managed_users %} can authenticate to {% data variables.product.prodname_dotcom %} depends on how you configure authentication (SAML or OIDC). See [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authenticating-with-a-managed-user-account).
 
 By default, when an unauthenticated user attempts to access your enterprise, {% data variables.product.company_short %} displays a 404 error. You can optionally enable automatic redirects to single sign-on (SSO) instead. See [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users).
 

@@ -151,7 +151,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 
 ## Closing a discussion
 
-{% data reusables.discussions.closing-discussions %}
+You can close a discussion when the discussion has been resolved, is no longer relevant, or is a duplicate.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

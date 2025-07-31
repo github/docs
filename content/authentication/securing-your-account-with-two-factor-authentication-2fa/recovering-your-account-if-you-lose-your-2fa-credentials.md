@@ -34,16 +34,12 @@ Use one of your recovery codes to automatically regain entry into your account. 
     > [!NOTE]
     > If you do not know your password, you can use a recovery code after requesting a new password. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials#requesting-a-new-password).
 
-1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or begin 2FA account recovery{% endif %}**.
+1. Under "Having problems?," click **Use a recovery code{% ifversion fpt or ghec %} or begin 2FA account recovery{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
-
-{% ifversion passkeys %}
 
 ## Authenticating with a passkey
 
 If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
-
-{% endif %}
 
 ## Authenticating with a security key
 
@@ -72,11 +68,11 @@ You can use your two-factor authentication credentials or two-factor authenticat
     > [!WARNING]
     > {% data reusables.accounts.you-must-know-your-password %}
 
-1. Under "Having problems?", click **Use a recovery code or begin 2FA account recovery**.
-1. Under "Locked out?", click **Try 2FA account recovery, or unlink your account email address(es)**.
+1. Under "Having problems?," click **Use a recovery code or begin 2FA account recovery**.
+1. Under "Locked out?," click **Try 2FA account recovery, or unlink your account email address(es)**.
 1. Click **I understand, get started** to request a reset of your authentication settings.
 1. Click **Send one-time password** to send a one-time password to all eligible addresses associated with your account. Only verified emails are eligible for account recovery. If you've restricted password resets to your primary and/or backup addresses, these addresses are the only addresses eligible for account recovery.
-1. Under "One-time password", type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent, then click **Verify email address**.
+1. Under "One-time password," type the temporary password from the recovery email {% data variables.product.prodname_dotcom %} sent, then click **Verify email address**.
 1. {% data reusables.accounts.alternative-authentication %}
     {% data reusables.accounts.alternative-authentication-note %}
 1. {% data reusables.accounts.support-request-recovery %}
@@ -95,7 +91,7 @@ If you have lost access to your two-factor authentication credentials and your r
 
 {% data reusables.accounts.request-password-reset-link %}
 
-1. On {% data variables.product.prodname_dotcom %}, you will be prompted for your 2FA credentials. Under "Having problems?", click **Start a 2FA recovery request or unlink your account email address(es)**.
+1. On {% data variables.product.prodname_dotcom %}, you will be prompted for your 2FA credentials. Under "Having problems?," click **Start a 2FA recovery request or unlink your account email address(es)**.
 1. To complete your recovery request, you'll need to verify an alternative authentication factor.
 {% data reusables.accounts.alternative-authentication %}
     {% data reusables.accounts.alternative-authentication-note %}

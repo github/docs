@@ -25,7 +25,7 @@ import fs from 'fs'
 import type { Response, NextFunction } from 'express'
 
 import { ExtendedRequest } from '@/types'
-import { errorCacheControl } from '@/frame/middleware/cache-control.js'
+import { errorCacheControl } from '@/frame/middleware/cache-control'
 
 export default function handleOldNextDataPaths(
   req: ExtendedRequest,

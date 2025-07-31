@@ -8883,16 +8883,8 @@
       "owner": "github/advisory-database"
     },
     {
-      "location": "Issue.stateReason",
-      "description": "<p><code>stateReason</code> will be removed.</p>",
-      "reason": "<p>The state reason for duplicate issue is now returned by default.</p>",
-      "date": "2025-10-01",
-      "criticality": "breaking",
-      "owner": "issues"
-    },
-    {
-      "location": "ClosedEvent.stateReason",
-      "description": "<p><code>stateReason</code> will be removed.</p>",
+      "location": "Issue.stateReason.enableDuplicate",
+      "description": "<p><code>enableDuplicate</code> will be removed.</p>",
       "reason": "<p>The state reason for duplicate issue is now returned by default.</p>",
       "date": "2025-10-01",
       "criticality": "breaking",

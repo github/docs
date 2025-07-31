@@ -1,14 +1,14 @@
 import CspParse from 'csp-parse'
 import { beforeAll, describe, expect, test, vi } from 'vitest'
 
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get, getDOM, head, post } from '#src/tests/helpers/e2etest.js'
-import { describeViaActionsOnly } from '#src/tests/helpers/conditional-runs.js'
-import { loadPages } from '#src/frame/lib/page-data.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { get, getDOM, head, post } from '@/tests/helpers/e2etest'
+import { describeViaActionsOnly } from '@/tests/helpers/conditional-runs'
+import { loadPages } from '@/frame/lib/page-data'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '#src/frame/middleware/set-fastly-surrogate-key.js'
+} from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('server', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -122,7 +122,7 @@ describe('server', () => {
   })
 
   // see issue 9678
-  test('does not use cached intros in map topics', async () => {
+  test('does not use cached intros in subcategories', async () => {
     let $ = await getDOM(
       '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
     )
@@ -130,8 +130,8 @@ describe('server', () => {
     $ = await getDOM(
       '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github',
     )
-    const mapTopicIntro = $('.map-topic').first().next().text()
-    expect(articleIntro).not.toEqual(mapTopicIntro)
+    const subcategoryIntro = $('.subcategory').first().next().text()
+    expect(articleIntro).not.toEqual(subcategoryIntro)
   })
 
   test('serves /categories.json for support team usage', async () => {

@@ -40,7 +40,7 @@ You must store this file in the `.github` directory of your repository in the de
 | `version` | Top level| {% data variables.product.prodname_dependabot %} configuration syntax to use. Always: `2`.|
 | `updates` | Top level| Section where you define each `package-ecosystem` to update.|
 | [`package-ecosystem`](#package-ecosystem-) | Under `updates` | Define a package manager to update. |
-| {% ifversion dependabot-updates-multidirectory-support %}[`directories` or `directory`](#directories-or-directory--){% else %}[`directory`](#directory--){% endif %} | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
+| [`directories` or `directory`](#directories-or-directory--) | Under each `package-ecosystem` entry | Define the location of the manifest or other definition files to update. |
 | [`schedule.interval`](#schedule-) | Under each `package-ecosystem` entry | Define whether to look for version updates: `daily`, `weekly`, or `monthly`. |
 
 Optionally, you can also include a top-level `registries` key to define access details for private registries, see [Top-level `registries` key](#top-level-registries-key).
@@ -146,7 +146,7 @@ When `commit-message` is defined:
 | `include` | Follow the commit message prefix with additional information. |
 
 > [!TIP]
-> When pull requests are raised for grouped updates, the branch name and pull request title are defined by the group `IDENTIFIER`, see {% ifversion dependabot-grouped-security-updates-config %}[`groups`](#groups--){% else %}[`groups`](#groups-){% endif %}.
+> When pull requests are raised for grouped updates, the branch name and pull request title are defined by the group `IDENTIFIER`, see [`groups`](#groups--).
 
 ### `prefix`
 
@@ -167,50 +167,110 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 * Supports only the value `scope`
 * When defined any prefix is followed by the type of dependencies updated in the commit: `deps` or `deps-dev`.
 
-## {% ifversion dependabot-updates-multidirectory-support %}`directories` or {% endif %}`directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-**Required option**. Use to define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). Without this information {% data variables.product.prodname_dependabot %} cannot create pull requests for version updates. For examples, see {% ifversion dependabot-updates-multidirectory-support %}[Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files){% else %}[Example dependabot.yml file](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file){% endif %}.
+Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
 
-{% ifversion dependabot-updates-multidirectory-support %}
+This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Check for updates according to the scheduled defined via `schedule.interval`.
+* Consider all new versions **immediately** for updates.
+
+When **`cooldown`** is defined:
+
+1. {% data variables.product.prodname_dependabot %} checks for updates according to the defined `schedule.interval` settings.
+1. {% data variables.product.prodname_dependabot %} checks for any cooldown settings.
+1. If a dependency’s new release falls within its cooldown period, {% data variables.product.prodname_dependabot %} skips updating the version for that dependency.
+1. Dependencies without a cooldown period, or those past their cooldown period, are updated to the latest version as per the configured `versioning-strategy` setting.
+1. After a cooldown ends for a dependency, {% data variables.product.prodname_dependabot %} resumes updating the dependency following the standard update strategy defined in `dependabot.yml`.
+
+{% data reusables.dependabot.option-affects-security-updates %}
+
+### **Configuration of `cooldown`**
+
+You can specify the duration of the cooldown using the options below.
+
+| Parameter | Description |
+|-----------|-------------|
+| `default-days` | **Default cooldown period for dependencies** without specific rules (optional). |
+| `semver-major-days` | Cooldown period for **major version updates** (optional, applies only to package managers supporting SemVer). |
+| `semver-minor-days` | Cooldown period for **minor version updates** (optional, applies only to package managers supporting SemVer). |
+| `semver-patch-days` | Cooldown period for **patch version updates** (optional, applies only to package managers supporting SemVer). |
+| `include` | List of dependencies to **apply cooldown** (up to **150 items**). Supports wildcards (`*`). |
+| `exclude` | List of dependencies **excluded from cooldown** (up to **150 items**). Supports wildcards (`*`). |
+
+The table below shows the package managers for which SemVer is supported.
+
+| Package manager        | SemVer supported |
+|-----------------------|------------------|
+| Bundler               | {% octicon "check" aria-label="Supported" %}              |
+| Bun                   | {% octicon "check" aria-label="Supported" %}              |
+| Cargo                 | {% octicon "check" aria-label="Supported" %}              |
+| Composer              | {% octicon "check" aria-label="Supported" %}              |
+| Devcontainers         | {% octicon "x" aria-label="Not supported" %}              |
+| Docker                | {% octicon "x" aria-label="Not supported" %}              |
+| Docker Compose        | {% octicon "x" aria-label="Not supported" %}              |
+| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              |
+| Elm                   | {% octicon "check" aria-label="Supported" %}              |
+| {% data variables.product.prodname_actions %} | {% octicon "x" aria-label="Not supported" %} |
+| Gitsubmodule          | {% octicon "x" aria-label="Not supported" %}              |
+| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              |
+| Gradle                | {% octicon "check" aria-label="Supported" %}              |
+| Helm                  | {% octicon "x" aria-label="Not supported" %}              |
+| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| Maven                 | {% octicon "check" aria-label="Supported" %}              |
+| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
+| NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| Pip                   | {% octicon "check" aria-label="Supported" %}              |
+| Pub                   | {% octicon "check" aria-label="Supported" %}              |
+| Swift                 | {% octicon "check" aria-label="Supported" %}              |
+| Terraform             | {% octicon "x" aria-label="Not supported" %}              |
+| UV                    | {% octicon "check" aria-label="Supported" %}              |
+
+> [!NOTE]
+>
+> * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
+> * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
+
+## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+
+**Required option**. Use to define the location of the package manifests for each package manager (for example, the _package.json_ or _Gemfile_). Without this information {% data variables.product.prodname_dependabot %} cannot create pull requests for version updates. For examples, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
+
 * Use `directory` to define a single directory of manifests.
 * Use `directories` to define a list of multiple directories of manifests.
-* Define directories relative to the root of the repository for most package managers.{% else %}
-* Define the directory relative to the root of the repository for most package managers.{% endif %}
+* Define directories relative to the root of the repository for most package managers.
+
 * For {% data variables.product.prodname_actions %}, use the value `/`. {% data variables.product.prodname_dependabot %} will search the `/.github/workflows` directory, as well as the `action.yml/action.yaml` file from the root directory.
 
 If you need to use more than one block in the configuration file to define updates for a single target branch of an ecosystem, you must ensure that all values are unique and there is no overlap in directories defined.
 
-{% ifversion dependabot-updates-multidirectory-support %}
-
 > [!NOTE]
 > The `directories` key supports globbing and the wildcard character `*`. These features are not supported by the `directory` key.
-
-{% endif %}
 
 ## `enable-beta-ecosystems` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Not currently in use.
 
-## `groups` {% ifversion dependabot-grouped-security-updates-config %}{% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}{% else %}{% octicon "versions" aria-label="Version updates only" height="24" %}{% endif %}
+## `groups` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
 Define rules to create one or more sets of dependencies managed by a package manager, to group updates into fewer, targeted pull requests. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* Open a single pull request for each dependency that needs to be updated to a newer version for version updates{% ifversion dependabot-grouped-security-updates-config %} and for security updates{% endif %}.
+* Open a single pull request for each dependency that needs to be updated to a newer version for version updates and for security updates.
 
 When `groups` is used to define rules:
 
-* All {% ifversion dependabot-grouped-security-updates-config %}{% else %}version {% endif %}updates for dependencies that match a rule are combined in a single pull request.
+* All updates for dependencies that match a rule are combined in a single pull request.
 * If a dependency matches more than one rule, it's included in the first group that it matches.
 * Any outdated dependencies that do not match a rule are updated in individual pull requests.
 
 Parameters | Purpose |
 -------|-------------|
 | `IDENTIFIER` | Define an identifier for the group to use in branch names and pull request titles. This must start and end with a letter, and can contain letters, pipes `\|`, underscores `_`, or hyphens `-`. |
-| {% ifversion dependabot-grouped-security-updates-config %} |
 | `applies-to` | Specify which type of update the group applies to. When undefined, defaults to version updates. Supported values: `version-updates` or `security-updates`. |
-| {% endif %} |
 | `dependency-type` | Limit the group to a type. Supported values: `development` or `production`. |
 | `patterns` | Define one or more patterns to include dependencies with matching names. |
 | `exclude-patterns` | Define one or more patterns to exclude dependencies from the group. |
@@ -222,8 +282,8 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 By default, a group will include all types of dependencies.
 
-* Use `development` to include only dependencies in the "Development dependency group".
-* Use `production` to include only dependencies in the "Production dependency group".
+* Use `development` to include only dependencies in the "Development dependency group."
+* Use `production` to include only dependencies in the "Production dependency group."
 
 ### `patterns` and `exclude-patterns` (`groups`)
 
@@ -344,6 +404,51 @@ Supported value: the numeric identifier of a milestone.
 >[!TIP]
 >If you view a milestone, the final part of the page URL, after `milestone`, is the identifier. For example: `https://github.com/<org>/<repo>/milestone/3`, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
+{% ifversion not ghes %}
+
+## `multi-ecosystem-groups` {% octicon "versions" aria-label="Version updates" height="24" %}
+
+Define groups that span multiple package ecosystems to get a single {% data variables.product.prodname_dependabot %} pull request that updates all supported package ecosystems. This approach helps reduce the number of {% data variables.product.prodname_dependabot %} pull requests you receive and streamlines your dependency update workflow.
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* Create separate pull requests for each package ecosystem that has dependency updates.
+
+When `multi-ecosystem-groups` is used:
+
+* Updates across multiple package ecosystems in the same group are combined into a single pull request.
+* Groups have their own schedules and can inherit or override individual ecosystem settings.
+
+### `multi-ecosystem-group`
+
+Assign individual package ecosystems to a multi-ecosystem group using the `multi-ecosystem-group` parameter in your `updates` configuration.
+
+> [!IMPORTANT]
+> Multi-ecosystem updates require specific configuration patterns and have unique parameter merging behavior. For complete setup instructions, configuration examples, and detailed parameter reference, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-multi-ecosystem-updates).
+
+```yaml copy
+# Basic `dependabot.yml` file defining a multi-ecosystem-group
+version: 2
+
+multi-ecosystem-groups:
+  infrastructure:
+    schedule:
+      interval: "weekly"
+
+updates:
+  - package-ecosystem: "docker"
+    directory: "/"
+    patterns: ["nginx", "redis"]
+    multi-ecosystem-group: "infrastructure"
+
+  - package-ecosystem: "terraform"
+    directory: "/"
+    patterns: ["aws"]
+    multi-ecosystem-group: "infrastructure"
+```
+
+{% endif %}
+
 ## `open-pull-requests-limit` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Change the limit on the maximum number of pull requests for version updates open at any time.
@@ -367,11 +472,11 @@ When `open-pull-requests-limit` is defined:
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
 | {% ifversion dependabot-bun-support %} |
-| Bun | `bun`         | >=v1.1.39              |
+| Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
-| Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
+| Composer       | `composer`       | v2         |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -390,18 +495,18 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
-| npm            | `npm`            |  v7, v8, v9   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0 {% endif %} |
-| pip| `pip`            | v21.1.2          |
-| pip-compile | `pip`            | 6.1.0            |
-| pipenv         | `pip`            | <= 2021-05-29    |
+| npm            | `npm`            |  v7, v8, v9, v10   |
+| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
+| pip| `pip`            | v24.2          |
+| pip-compile | `pip`            | 7.4.1            |
+| pipenv         | `pip`            | <= 2024.4.1    |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
 | uv           | `uv`             | v0 |
-| yarn         | `npm`            | v1, v2, v3       |
+| yarn         | `npm`            | v1, v2, v3, v4     |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -456,7 +561,12 @@ When `registries` is defined for a package manager:
 
 Supported values: `REGISTRY_NAME` or `"*"`
 
+{% ifversion dependabot-reviewers-deprecation %}{% else %}
+
 ## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
+
+> [!NOTE]
+> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
 
 Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
@@ -470,6 +580,11 @@ When `reviewers` is defined:
 * {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
+
+> [!NOTE]
+> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+{% endif %}
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
@@ -562,7 +677,7 @@ Define a specific branch to check for version updates and to target pull request
 When `target-branch` is defined:
 
 * Only manifest files on the target branch are checked for version updates.
-* All pull requests for version updates are opened targetting the specified branch.
+* All pull requests for version updates are opened targeting the specified branch.
 * Options defined for this `package-ecosystem` no longer apply to security updates because security updates always use the default branch for the repository.
 
 ## `vendor` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
@@ -661,8 +776,8 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 > [!NOTE]
 > Private registries behind firewalls on private networks are supported for the following ecosystems:
 >
-> * Bundler{% ifversion dependabot-updates-cargo-private-registry-support %}
-> * Cargo{% endif %}
+> * Bundler
+> * Cargo
 > * Docker
 > * Gradle
 > * Maven
@@ -701,8 +816,6 @@ updates:
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
-{% data reusables.dependabot.dependabot-replaces-base-nuget %}
-
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 ### `type` and authentication details
@@ -711,9 +824,7 @@ The parameters used to provide authentication details for access to a private re
 
 | Registry `type` | Required authentication parameters |
 |--|--|
-| {% ifversion dependabot-updates-cargo-private-registry-support %} |
 | `cargo-registry` | `token` |
-| {% endif %} |
 | `composer-repository` | `username` and `password` |
 | `docker-registry` | `username` and `password` |
 | `git` | `username` and `password` |
@@ -735,5 +846,3 @@ All sensitive data used for authentication should be stored securely and referen
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
-
-{% data reusables.dependabot.dependabot-replaces-base-nuget %}

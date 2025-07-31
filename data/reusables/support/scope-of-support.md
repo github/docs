@@ -2,8 +2,10 @@ If your support request is outside of the scope of what our team can help you wi
 
 * Third party integrations, such as Jira{% ifversion ghes %}
 * Hardware setup
-* Hypervisor-related issues, such as OS disk detection, network setup, boot failure, VM console access, etc{% endif %}
+* Hypervisor-related issues, such as OS disk detection, network setup, boot failure, VM console access, etc.
+* Migration assistance between specific hardware platforms or storage providers{% endif %}
 * CI/CD, such as Jenkins
+* Azure DevOps (please contact Azure Support)
 * Writing scripts
 * Configuration of external authentication systems, such as SAML identity providers
 * Open source projects

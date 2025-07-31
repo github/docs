@@ -1,8 +1,8 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 
-import { liquid } from '#src/content-render/index.js'
-import languages from '#src/languages/lib/languages.js'
-import { DataDirectory } from '#src/tests/helpers/data-directory.js'
+import { liquid } from '@/content-render/index'
+import languages from '@/languages/lib/languages'
+import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('liquid helper tags', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

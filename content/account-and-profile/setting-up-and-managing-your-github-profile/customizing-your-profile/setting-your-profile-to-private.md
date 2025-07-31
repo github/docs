@@ -29,7 +29,7 @@ When your profile is private, the following content is hidden from your profile 
 * Your pronouns
 
 > [!NOTE]
-> When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile photo.
+> When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile picture.
 
 ## Changes to reporting on your activities
 

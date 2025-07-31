@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import filenameToKey from '#src/data-directory/lib/filename-to-key.js'
+import filenameToKey from '@/data-directory/lib/filename-to-key'
 
 describe('filename-to-key', () => {
   test('converts filenames to object keys', () => {

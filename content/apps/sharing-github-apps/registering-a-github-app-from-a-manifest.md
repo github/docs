@@ -19,7 +19,7 @@ shortTitle: App manifest
 ## About {% data variables.product.prodname_github_app %} Manifests
 
 {% ifversion enterprise-apps-public-beta %}
->[!NOTE] {% data variables.product.prodname_github_app %} Manifests are not available for enterprise-owned {% data variables.product.prodname_github_apps %}.
+>[!NOTE] {% data variables.product.prodname_github_app %} Manifests are not available for enterprise-owned {% data variables.product.prodname_github_apps %}.{% ifversion enterprise-installed-apps %} They do not support enterprise permissions at this time.{% endif %}
 {% endif %}
 
 When someone registers a {% data variables.product.prodname_github_app %} from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the {% data variables.product.prodname_github_app %} registration and generates the app's webhook secret, private key (PEM file), client secret, and {% data variables.product.prodname_github_app %} ID. The person who creates the {% data variables.product.prodname_github_app %} registration from the manifest will own the {% data variables.product.prodname_github_app %} registration and can choose to edit the registration's settings, delete it, or transfer it to another person on {% data variables.product.prodname_dotcom %}.
@@ -179,7 +179,7 @@ You must complete this step of the {% data variables.product.prodname_github_app
 
 For more information about the endpoint's response, see [Create a {% data variables.product.prodname_github_app %} from a manifest](/rest/apps/apps#create-a-github-app-from-a-manifest).
 
-When the final step in the manifest flow is completed, the person registering the app from the flow will be an owner of a registered {% data variables.product.prodname_github_app %} that they can install on any of their personal repositories. They can choose to extend the app using the {% data variables.product.prodname_dotcom %} APIs, transfer ownership to someone else, or delete it at any time.
+When the final step in the manifest flow is completed, the person registering the app from the flow will be an owner of a registered {% data variables.product.prodname_github_app %} that they can install on any of their accounts. They can choose to extend the app using the {% data variables.product.prodname_dotcom %} APIs, transfer ownership to someone else, or delete it at any time.
 
 ## Using Probot to implement the {% data variables.product.prodname_github_app %} Manifest flow
 

@@ -46,7 +46,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 
 ### `versions`
 
-* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
+* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.ts) to which a page applies.
 For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
 * Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 * This frontmatter value is currently **required** for all pages.

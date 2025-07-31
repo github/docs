@@ -1,6 +1,6 @@
 import { addError, ellipsify } from 'markdownlint-rule-helpers'
 
-import { getRange } from '../helpers/utils.js'
+import { getRange } from '../helpers/utils'
 /*
   This rule currently only checks for one hardcoded string but
   can be generalized in the future to check for strings that 

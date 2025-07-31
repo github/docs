@@ -3,8 +3,8 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import type { NextFunction, Response } from 'express'
 
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import { liquid } from '@/content-render/index.js'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { liquid } from '@/content-render/index'
 import { ExtendedRequest, SecretScanningData } from '@/types'
 
 const secretScanningPath = 'src/secret-scanning/data/public-docs.yml'

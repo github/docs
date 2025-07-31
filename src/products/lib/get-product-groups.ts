@@ -1,9 +1,12 @@
 import path from 'path'
+import fs from 'fs/promises'
 
 import type { Page, ProductGroup, ProductGroupChild, Context } from '@/types'
-import { productMap, data } from './all-products.js'
-import { renderContentWithFallback } from '@/languages/lib/render-with-fallback.js'
-import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
+import { productMap, data } from '@/products/lib/all-products'
+import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import languages from '@/languages/lib/languages'
 
 type PageMap = Record<string, Page>
 
@@ -93,18 +96,76 @@ interface ProductGroupData {
   children: string[]
 }
 
+export async function getLocalizedGroupNames(lang: string): Promise<{ [key: string]: string }> {
+  if (lang === 'en') {
+    return {}
+  }
+
+  const translationRoot = languages[lang as keyof typeof languages]?.dir
+  if (!translationRoot) {
+    return {}
+  }
+
+  try {
+    const localizedHomepage = path.join(translationRoot, 'content', 'index.md')
+    const localizedContent = await fs.readFile(localizedHomepage, 'utf8')
+    const { data: localizedData } = frontmatter(localizedContent)
+
+    if (!localizedData?.childGroups) {
+      return {}
+    }
+
+    return createOcticonToNameMap(localizedData.childGroups)
+  } catch {
+    // If localized file doesn't exist or can't be read, return empty map
+    return {}
+  }
+}
+
+export function createOcticonToNameMap(childGroups: ProductGroupData[]): { [key: string]: string } {
+  const octiconToName: { [key: string]: string } = {}
+
+  childGroups.forEach((group: ProductGroupData) => {
+    if (group.octicon && group.name) {
+      octiconToName[group.octicon] = group.name
+    }
+  })
+
+  return octiconToName
+}
+
+export function mapEnglishToLocalizedNames(
+  englishGroups: ProductGroupData[],
+  localizedByOcticon: { [key: string]: string },
+): { [key: string]: string } {
+  const nameMap: { [key: string]: string } = {}
+
+  englishGroups.forEach((englishGroup: ProductGroupData) => {
+    if (englishGroup.octicon && localizedByOcticon[englishGroup.octicon]) {
+      nameMap[englishGroup.name] = localizedByOcticon[englishGroup.octicon]
+    }
+  })
+
+  return nameMap
+}
+
 export async function getProductGroups(
   pageMap: PageMap,
   lang: string,
   context: Context,
 ): Promise<ProductGroup[]> {
-  // Handle case where data or childGroups might be undefined
-  const childGroups = data?.childGroups || []
+  // Always use English version for structure (octicon, children)
+  const englishChildGroups = data?.childGroups || []
+
+  // Get localized names if available
+  const localizedByOcticon = await getLocalizedGroupNames(lang)
+  const localizedNames = mapEnglishToLocalizedNames(englishChildGroups, localizedByOcticon)
 
   return await Promise.all(
-    childGroups.map(async (group: ProductGroupData) => {
+    englishChildGroups.map(async (group: ProductGroupData) => {
+      const localizedName = localizedNames[group.name] || group.name
       return {
-        name: group.name,
+        name: localizedName,
         icon: group.icon || null,
         octicon: group.octicon || null,
         // Typically the children are product IDs, but we support deeper page paths too

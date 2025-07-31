@@ -1,4 +1,4 @@
-import { term } from './glossaries-candidates.js'
+import { term } from './glossaries-candidates'
 
 export default {
   type: 'array',

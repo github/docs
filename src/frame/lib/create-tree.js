@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs/promises'
 
-import Page from './page.js'
+import Page from './page'
 
 export default async function createTree(originalPath, rootPath, previousTree) {
   const basePath = rootPath || originalPath

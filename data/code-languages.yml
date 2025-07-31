@@ -55,6 +55,9 @@ python:
 ruby:
   name: Ruby
   comment: number
+rust:
+  name: Rust
+  comment: number
 scss:
   name: SCSS
   comment: slash

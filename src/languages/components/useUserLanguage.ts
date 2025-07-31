@@ -3,7 +3,7 @@ import Cookies from '@/frame/components/lib/cookies'
 import { useRouter } from 'next/router'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
-import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 
 export function useUserLanguage() {
   const { locale } = useRouter()

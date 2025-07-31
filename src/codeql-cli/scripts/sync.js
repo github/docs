@@ -7,8 +7,8 @@ import path from 'path'
 import matter from 'gray-matter'
 import { rimraf } from 'rimraf'
 
-import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown.js'
-import { convertContentToDocs } from './convert-markdown-for-docs.js'
+import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown'
+import { convertContentToDocs } from './convert-markdown-for-docs'
 
 const { targetDirectory, sourceDirectory, frontmatterDefaults, markdownPrefix } = JSON.parse(
   await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
@@ -43,7 +43,12 @@ async function main() {
       matchHeading,
       matchHeading + '\n### Primary Options\n',
     )
-    const { data, content } = await convertContentToDocs(primaryHeadingSourceContent)
+    const currentFileName = path.basename(file)
+    const { data, content } = await convertContentToDocs(
+      primaryHeadingSourceContent,
+      {},
+      currentFileName,
+    )
     await writeFile(file, matter.stringify(content, data))
     const targetFilename = path.join(targetDirectory, path.basename(file))
     const sourceData = { ...data, ...frontmatterDefaults }

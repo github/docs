@@ -3,7 +3,7 @@ You can grant certain roles, teams, or apps bypass permissions {% ifversion push
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or custom repository roles based on the write role
 * Teams
-{%- ifversion ghes > 3.13 %}
+{%- ifversion ghes %}
 * Deploy keys
 {%- endif %}
 * {% data variables.product.prodname_github_apps %}

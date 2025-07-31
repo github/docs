@@ -59,7 +59,7 @@ You can use the {% data variables.product.github %} web interface to manage glob
 
 ## {% data variables.product.prodname_marketplace %} webhooks
 
-You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. You can only create one webhook for each app in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager for the organization that owns the app, can create and manage a {% data variables.product.prodname_marketplace %} webhook.
+You can create a webhook to subscribe to events relating to an app that you published in {% data variables.product.prodname_marketplace %}. You can only create one webhook for each app in {% data variables.product.prodname_marketplace %}. Only the owner of the app, or an app manager with access to the app, can create and manage a {% data variables.product.prodname_marketplace %} webhook.
 
 A {% data variables.product.prodname_marketplace %} webhook cannot be deleted, but you can deactivate it to stop receiving webhook deliveries.
 
@@ -77,7 +77,7 @@ You can use the {% data variables.product.github %} web interface to manage {% d
 
 ## {% data variables.product.prodname_github_app %} webhooks
 
-You can configure a {% data variables.product.prodname_github_app %} to receive webhooks when specific events occur in a repository or organization that the app has been granted access to.
+You can configure a {% data variables.product.prodname_github_app %} to receive webhooks when specific events occur in a repository or organization that the app has been granted access to.{% ifversion enterprise-installed-apps %}Apps installed on an enterprise cannot receive webhooks at this time - they must be installed on each organization in the enterprise to get the events.{% endif %}
 
 Each {% data variables.product.prodname_github_app %} has a single webhook that is automatically created by {% data variables.product.github %}. By default, the webhook is not subscribed to any events. You can configure the events that the webhook subscribes to. A {% data variables.product.prodname_github_app %} webhook cannot be deleted, but you can deactivate it to stop receiving webhook deliveries.
 

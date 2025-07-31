@@ -6,6 +6,7 @@ import { getBodyParams, TransformedParam } from '../../rest/scripts/utils/get-bo
 
 const NO_CHILD_PROPERTIES = [
   'action',
+  'comment',
   'enterprise',
   'installation',
   'organization',

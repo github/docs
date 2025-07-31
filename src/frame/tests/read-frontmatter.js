@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import parse from '#src/frame/lib/read-frontmatter.js'
-import { schema as frontmatterSchema } from '#src/frame/lib/frontmatter.js'
+import parse from '@/frame/lib/read-frontmatter'
+import { schema as frontmatterSchema } from '@/frame/lib/frontmatter'
 
 const filepath = 'path/to/file.md'
 const fixture1 = `---
