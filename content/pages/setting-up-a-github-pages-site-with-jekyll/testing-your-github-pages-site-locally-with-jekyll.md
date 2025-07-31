@@ -16,8 +16,6 @@ topics:
 shortTitle: Test site locally with Jekyll
 ---
 
-{% data reusables.pages.actions-is-preferred %}
-
 Anyone with read permissions for a repository can test a {% data variables.product.prodname_pages %} site locally.
 
 ## Prerequisites
@@ -65,6 +63,8 @@ Before you can use Jekyll to test a site, you must:
 1. To preview your site, in your web browser, navigate to `http://localhost:4000`.
 
 ## Updating the {% data variables.product.prodname_pages %} gem
+
+{% data reusables.pages.actions-is-preferred %}
 
 Jekyll is an active open source project that is updated frequently. If the `github-pages` gem on your computer is out of date with the `github-pages` gem on the {% data variables.product.prodname_pages %} server, your site may look different when built locally than when published on {% data variables.product.github %}. To avoid this, regularly update the `github-pages` gem on your computer.
 
