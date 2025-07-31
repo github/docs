@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Enum value 'BLOCKED_BY_REMOVED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'BLOCKING_ADDED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'BLOCKING_REMOVED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'BLOCKED_BY_REMOVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'BLOCKING_ADDED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'BLOCKING_REMOVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-07-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AddBlockedByInput</code> was added</p>",
           "<p>Type <code>AddBlockedByPayload</code> was added</p>",
           "<p>Type <code>IssueDependenciesSummary</code> was added</p>",
