@@ -50,7 +50,7 @@ To call models programmatically, you’ll need:
       -H "Content-Type: application/json" \
       https://models.github.ai/inference/chat/completions \
       -d '{"model":"openai/gpt-4.1","messages":[{"role":"user","content":"What is the capital of France?"}]}'
-       ```
+    ```
 
 1. You’ll receive a response like this:
 
