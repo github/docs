@@ -28,17 +28,17 @@ For more information about billing for {% data variables.product.prodname_AS %},
 
 ## Viewing committer information
 
-1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %}.
-1. In the left sidebar, click **Advanced Security Committers**.
-1. To the right of "Current active committer count", view the number of active committers for repositories with {% data variables.product.prodname_cs_or_sp %} enabled. This is the number of licenses that are currently being used.
-1. To the right of "Total billable committers if GHAS is enabled for all repositories", you can see the number of active committers across all the repositories in your enterprise. This is the number of licenses that would be used if you enabled {% data variables.product.prodname_cs_or_sp %} for every repository in your enterprise.
+1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %} to display the "Site admin" pages.
+1. In the left sidebar, click **Advanced Security Committers**. If this option is not displayed, at the top of the page, click {% octicon "rocket" aria-hidden="true" aria-label="Site admin" %} **Site admin** to show the top-level "Site admin" page.
+
+The page shows the number of licenses currently being used and the number of licenses you would use if you enabled {% data variables.product.prodname_AS %} for all repositories.
 
 ## Calculating the cost to add committers
 
-Under "Calculate Additional Advanced Committers", you can calculate how many more new or additional licenses will be used if you enable {% data variables.product.prodname_cs_or_sp %} for specific organizations and repositories.
+Under "Calculate Additional Advanced Licenses", you can calculate how many more new or additional licenses will be used if you enable {% data variables.product.prodname_cs_or_sp %} for specific organizations and repositories.
 
-1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %}.
-1. In the left sidebar, click **Advanced Security Committers**.
+1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %} to display the "Site admin" pages.
+1. In the left sidebar, click **Advanced Security Committers**. If this option is not displayed, at the top of the page, click {% octicon "rocket" aria-hidden="true" aria-label="Site admin" %} **Site admin** to show the top-level "Site admin" page.
 1. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. For example:
 
    ```text
