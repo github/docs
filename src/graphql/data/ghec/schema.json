@@ -89628,6 +89628,18 @@
           "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
         },
         {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "CLOSED_EVENT",
           "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
         },
@@ -91757,6 +91769,18 @@
         {
           "name": "BLOCKED_BY_ADDED_EVENT",
           "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
         },
         {
           "name": "CLOSED_EVENT",
