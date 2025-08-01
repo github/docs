@@ -1,7 +1,10 @@
 ---
 title: About secret scanning
 intro: '{% data variables.product.github %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: |
+  {% data reusables.gated-features.secret-scanning %}{% ifversion secret-risk-assessment %}
+
+  {% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
