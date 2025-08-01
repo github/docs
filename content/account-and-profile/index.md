@@ -7,7 +7,7 @@ introLinks:
     - /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
   startHere:
-    - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username
+    - /account-and-profile/concepts/changing-your-github-username
     - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications
   popular:
@@ -37,6 +37,7 @@ children:
   - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
+  - /concepts
   - /reference
 ---
 

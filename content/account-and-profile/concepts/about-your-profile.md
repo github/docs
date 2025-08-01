@@ -7,6 +7,7 @@ redirect_from:
   - /articles/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/about-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile
+  - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile
 versions:
   fpt: '*'
   ghes: '*'
