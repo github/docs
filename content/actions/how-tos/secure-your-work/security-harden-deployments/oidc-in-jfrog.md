@@ -55,6 +55,8 @@ In your {% data variables.product.prodname_actions %} workflow file, ensure you 
 
 The following example uses the placeholders `YOUR_PROVIDER_NAME` and `YOUR_AUDIENCE`.
 
+{% raw %}
+
 ```yaml
 permissions:
   id-token: write
@@ -77,12 +79,16 @@ jobs:
 
 ```
 
+{% endraw %}
+
 > [!TIP]
 > When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides `oidc-user` and `oidc-token` as step outputs.
 > These can be used for other integrations that require authentication with JFrog.
 > To reference these outputs, ensure the step has an explicit `id` defined (for example `id: setup-jfrog-cli`).
 
 ### Using OIDC Credentials in other steps
+
+{% raw %}
 
 ```yaml
       - name: Sign in to Artifactory Docker registry
@@ -92,6 +98,8 @@ jobs:
           username: ${{ steps.setup-jfrog-cli.outputs.oidc-user }}
           password: ${{ steps.setup-jfrog-cli.outputs.oidc-token }}
 ```
+
+{% endraw %}
 
 ## Further reading
 
