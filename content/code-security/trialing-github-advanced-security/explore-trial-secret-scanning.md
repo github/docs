@@ -22,6 +22,8 @@ This guide assumes that you have planned and started a trial of {% data variable
 * Control and audit the bypass process for push protection and {% data variables.secret-scanning.alerts %}.
 * Enable validity checks for exposed tokens.
 
+To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment).
+
 If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the organization.
 
 For full details of the features available, see [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
