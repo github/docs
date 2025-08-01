@@ -15,7 +15,7 @@ featuredLinks:
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
   guideCards:
-    - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
+    - /account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile
     - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
     - '{% ifversion ghes %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories{% endif %}'
@@ -37,4 +37,6 @@ children:
   - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
+  - /reference
 ---
+

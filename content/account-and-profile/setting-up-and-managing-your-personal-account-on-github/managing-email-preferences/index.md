@@ -21,7 +21,7 @@ children:
   - /setting-your-commit-email-address
   - /blocking-command-line-pushes-that-expose-your-personal-email-address
   - /remembering-your-github-username-or-email
-  - /types-of-emails-github-sends
   - /managing-marketing-emails-from-github
 shortTitle: Manage email preferences
 ---
+
