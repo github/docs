@@ -12,7 +12,6 @@ versions:
 topics:
   - Accounts
 children:
-  - /about-organization-membership
   - /accessing-an-organization
   - /viewing-peoples-roles-in-an-organization
   - /requesting-organization-approval-for-oauth-apps

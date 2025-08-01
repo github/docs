@@ -17,8 +17,6 @@ topics:
 children:
   - /about-your-personal-dashboard
   - /managing-your-tab-size-rendering-preference
-  - /changing-your-github-username
-  - /permission-levels-for-a-personal-account-repository
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
@@ -29,3 +27,4 @@ children:
   - /about-available-for-hire
 shortTitle: Personal account settings
 ---
+

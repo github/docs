@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/types-of-emails-github-sends
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/types-of-emails-github-sends
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/types-of-emails-github-sends
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/types-of-emails-github-sends
 versions:
   fpt: '*'
   ghec: '*'
