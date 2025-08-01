@@ -33,7 +33,9 @@ shortTitle: Secret scanning
 
 {% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
 > [!TIP]
-> Regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% else %}{% endif %}
+> Regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets.
+>
+> To generate a report, open {% data reusables.security-overview.navigate-to-risk-assessment %}.{% endif %}{% else %}{% endif %}
 
 When a supported secret is leaked, {% data variables.product.github %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.github %}, where you can view, evaluate, and resolve them. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
 

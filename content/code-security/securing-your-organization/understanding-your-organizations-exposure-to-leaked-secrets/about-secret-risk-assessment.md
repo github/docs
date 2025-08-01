@@ -60,6 +60,6 @@ Because the {% data variables.product.prodname_secret_risk_assessment %} report 
 
 Now that you know about the {% data variables.product.prodname_secret_risk_assessment %} report, you may want to learn how to:
 
-* Generate the report to see your organization risk. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization).
+* Generate the report to see your organization risk. Navigate to {% data reusables.security-overview.navigate-to-risk-assessment %}.
 * Interpret the results of the report. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/interpreting-secret-risk-assessment-results).
 * Enable {% data variables.product.prodname_GH_secret_protection %} to improve your secret leak footprint. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/choosing-github-secret-protection#enabling-secret-protection).
