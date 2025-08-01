@@ -76,41 +76,34 @@ To call models programmatically, you’ll need:
 
 1. Paste the following workflow into the file you just created.
 
-    ```yaml
-    name: GitHub Models Demo
+    ```yaml copy
+    name: Use GitHub Models
 
     on: [push]
 
     permissions:
-      contents: read
       models: read
 
     jobs:
-      summarize-repo:
+      call-model:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout code
-            uses: {% data reusables.actions.action-checkout %}
-
-          - name: Summarize the repository README
+          - name: Call AI model
+            env:
+              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
             run: |
-              SUMMARY_INPUT=$(head -c 4000 README.md)
-              PROMPT="Summarize this repository in one sentence. Here is the README:\n$SUMMARY_INPUT"
-              PAYLOAD=$(jq -n --arg prompt "$PROMPT" '{
-                model: "openai/gpt-4.1",
-                messages: [
-                  {role: "user", content: $prompt}
-                ]
-              }')
-              RESPONSE=$(curl -sL \
-                -X POST \
-                -H "Accept: application/vnd.github+json" \
-                -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-                -H "X-GitHub-Api-Version: 2022-11-28" \
-                -H "Content-Type: application/json" \
-                https://models.github.ai/inference/chat/completions \
-                -d "$PAYLOAD")
-              echo "$RESPONSE" | jq -r '.choices[0].message.content'
+              curl "https://models.github.ai/inference/chat/completions" \
+                 -H "Content-Type: application/json" \
+                 -H "Authorization: Bearer $GITHUB_TOKEN" \
+                 -d '{
+                  "messages": [
+                      {
+                         "role": "user",
+                         "content": "Explain the concept of recursion."
+                      }
+                   ],
+                   "model": "openai/gpt-4o"
+                }'
     ```
 
      > [!NOTE]
@@ -128,13 +121,21 @@ This example shows how to send a prompt to a model and use the response in your 
 
 1. Paste the following example prompt into the file you just created.
 
-    ```yaml
-    name: One-line summary
-    description: Ask the model to summarize a paragraph in one sentence.
+    ```yaml copy
+    name: Text Summarizer
+    description: Summarizes input text concisely
+    model: gpt-4o-mini
+    modelParameters:
+      temperature: 0.5
     messages:
+      - role: system
+        content: You are a text summarizer. Your only job is to summarize text given to you.
       - role: user
-        content: 'Summarize the following text in one sentence: {{input}}'
-    model: openai/gpt-4o
+        content: |
+          Summarize the given text, beginning with "Summary -":
+          <text>
+          {% raw %}{{input}}{% endraw %}
+          </text>
     ```
 
 1. Commit and push the file to your repository.
@@ -156,28 +157,37 @@ Evaluations help you measure how different models respond to the same inputs so 
 
 1. Update the file to match the following example.
 
-   ```yaml
-     name: One-line summary
-     description: Ask the model to summarize a paragraph in one sentence.
-     messages:
-       - role: user
-         content: 'Summarize the following text in one sentence: {{input}}'
-     model: openai/gpt-4o
-     testData:
-       - input: >-
-           The museum opened a new dinosaur exhibit this weekend. Families from all
-           over the city came to see the life-sized fossils and interactive displays.
-         expected: >-
-           The museum's new dinosaur exhibit attracted many families with its fossils
-           and interactive displays.
-       - input: >-
-           Lucy baked cookies for the school fundraiser. She spent the entire evening
-           in the kitchen to make sure there were enough for everyone.
-         expected: Lucy baked cookies all evening to support the school fundraiser.
-     evaluators:
-       - name: Similarity
-         uses: github/similarity
-     ```
+   ```yaml copy
+   name: Text Summarizer
+   description: Summarizes input text concisely
+   model: gpt-4o-mini
+   modelParameters:
+     temperature: 0.5
+   messages:
+     - role: system
+       content: You are a text summarizer. Your only job is to summarize text given to you.
+     - role: user
+       content: |
+         Summarize the given text, beginning with "Summary -":
+         <text>
+         {% raw %}{{input}}{% endraw %}
+         </text>
+   testData:
+     - input: |
+         The quick brown fox jumped over the lazy dog.
+         The dog was too tired to react.
+       expected: Summary - A fox jumped over a lazy, unresponsive dog.
+     - input: |
+         The museum opened a new dinosaur exhibit this weekend. Families from all
+         over the city came to see the life-sized fossils and interactive displays.
+       expected: Summary - The museum's new dinosaur exhibit attracted many families with its fossils and interactive displays.
+   evaluators:
+     - name: Output should start with 'Summary -'
+       string:
+         startsWith: 'Summary -'
+     - name: Similarity
+       uses: github/similarity
+   ```
 
 1. Commit and push the file to your repository.
 
