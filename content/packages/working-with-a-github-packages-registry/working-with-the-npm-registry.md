@@ -221,6 +221,12 @@ You also need to add the `.npmrc` file to your project so that all requests to i
    npm install
    ```
 
+2. Install the package globally.
+
+   ````shell
+   npm install -g
+   ````
+
 ### Installing packages from other organizations
 
 By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `.npmrc` file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
