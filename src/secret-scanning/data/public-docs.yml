@@ -117,6 +117,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Akamai
+  supportedSecret: Akamai API Credentials
+  secretType: akamai_api_credentials
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Alibaba
   supportedSecret: Alibaba Cloud AccessKey ID
   secretType: alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
@@ -1620,7 +1631,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Cohere
   supportedSecret: Cohere API Key
@@ -2250,7 +2261,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub App Installation Access Token
@@ -2494,7 +2505,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Grafana
   supportedSecret: Grafana Project API Key
@@ -2758,7 +2769,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Intercom
   supportedSecret: Intercom Access Token
@@ -4146,7 +4157,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Salesforce
   supportedSecret: Salesforce OAuth2 Consumer Key
