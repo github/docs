@@ -37,8 +37,6 @@ To track premium request usage, download the premium request usage report for yo
 
 This report includes all premium request usage by user, both within and beyond the allowance, so you can use the report to understand general patterns and identify users who would benefit from more premium requests.
 
-By contrast, other metered billing usage reports only reflect costs for premium requests beyond the allowance.
-
 ### Granting more premium requests to members
 
 By default, enterprises have a $0 budget for the Premium Request SKU. This means that when users exhaust their allowance, they cannot make any more premium requests for the rest of the month. Deleting this budget allows for **unlimited spending**.
