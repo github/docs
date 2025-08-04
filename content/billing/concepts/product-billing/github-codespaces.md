@@ -81,7 +81,7 @@ You can view details of your usage for the current month at any time. See [AUTOT
 
 If you are blocked from resuming a codespace and you want to continue to work on changes you have made in your codespace, you can do any of the following:
 
-* Add a payment method and set a budget greater than $0 USD.
+* Add a payment method and review your budget settings to ensure they meet your usage needs. See [AUTOTITLE](/billing/tutorials/set-up-budgets#viewing-budgets).
 * Export the changes from the codespace to a branch. See [AUTOTITLE](/codespaces/troubleshooting/exporting-changes-to-a-branch).
 * Wait for your monthly included usage to reset at the start of the next monthly billing cycle.
 
@@ -203,6 +203,8 @@ Use of codespaces created using prebuilds is charged at the same rate as regular
 ## Managing your budget for {% data variables.product.prodname_github_codespaces %}
 
 {% data reusables.billing.default-over-quota-behavior %}
+
+{% data reusables.billing.migrated-budgets %}
 
 {% data reusables.codespaces.exporting-changes %}
 

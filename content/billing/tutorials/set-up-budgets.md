@@ -34,9 +34,9 @@ Budgets and alerts allow you to track spending on metered products for your acco
 
 If your account does not have a valid payment method on file, usage is blocked once you use up your quota.
 
-By default, if you have a valid payment method on file, spending is limited to $0 USD until you set a budget. You can set and manage a budget to limit spending for a product or SKU.
+If you have a valid payment method on file, spending may be limited by one or more budgets. Check the budgets set for your account to ensure they are appropriate for your usage needs.
 
-<!--Billing: default budget-->
+{% data reusables.billing.migrated-budgets %}
 
 ## About budgets
 
@@ -126,7 +126,7 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
 ### Editing or deleting a budget
 
->[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets. For example, deleting the default $0 budget for {% data variables.product.prodname_copilot_short %} premium requests allows for unlimited usage.
+>[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets. For example, deleting the only budget that limits {% data variables.product.prodname_copilot_short %} premium requests allows for unlimited usage.
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
 

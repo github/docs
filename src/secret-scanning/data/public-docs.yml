@@ -2121,6 +2121,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Elastic
+  supportedSecret: Elastic Cloud API Key
+  secretType: elastic_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Facebook
   supportedSecret: Facebook Access Token
   secretType: facebook_access_token
@@ -2830,6 +2841,28 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: Langchain API Personal Key
+  secretType: langchain_api_personal_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: Langchain API Server Key
+  secretType: langchain_api_server_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: LaunchDarkly
@@ -3567,6 +3600,17 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  isduplicate: false
+- provider: Openweather
+  supportedSecret: Openweather API Key
+  secretType: openweather_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   isduplicate: false
 - provider: Oracle
   supportedSecret: Oracle API Key

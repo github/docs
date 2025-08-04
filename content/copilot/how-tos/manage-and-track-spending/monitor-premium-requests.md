@@ -57,7 +57,7 @@ You can view your premium request usage at any time from your {% data variables.
 
 ### Downloading a {% data variables.product.prodname_copilot_short %} premium request usage report
 
-The premium request usage report includes all premium request usage, both within and beyond the allowance. By contrast, other metered billing reports only reflect costs for premium requests beyond the allowance.
+The premium request usage report includes all premium request usage, both within and beyond the allowance.
 
 >[!NOTE]
 > For organizations and enterprises, only admins can download a usage report to understand {% data variables.product.prodname_copilot_short %} usage across their business. Individual members of the organization or enterprise cannot download the report for themselves.
