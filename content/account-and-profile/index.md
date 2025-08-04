@@ -34,6 +34,7 @@ topics:
   - Profiles
   - Notifications
 children:
+  - /get-started
   - /concepts
   - /tutorials
   - /reference

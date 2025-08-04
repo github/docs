@@ -1,6 +1,6 @@
 ---
 title: Personalizing your profile
-intro: 'You can share information about yourself with other users by setting a profile picture and adding a bio to your profile.'
+intro: You can share information about yourself with other users by setting a profile picture and adding a bio to your profile.
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
@@ -10,6 +10,7 @@ redirect_from:
   - /articles/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
   - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
+  - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
 versions:
   fpt: '*'
   ghes: '*'

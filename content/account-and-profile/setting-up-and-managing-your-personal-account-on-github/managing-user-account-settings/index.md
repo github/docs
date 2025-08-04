@@ -15,7 +15,6 @@ versions:
 topics:
   - Accounts
 children:
-  - /about-your-personal-dashboard
   - /managing-your-tab-size-rendering-preference
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /managing-accessibility-settings
