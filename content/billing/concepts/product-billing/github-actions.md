@@ -162,3 +162,5 @@ Your {% data variables.product.prodname_actions %} usage shares your account's e
 ## Managing your budget for {% data variables.product.prodname_actions %}
 
 {% data reusables.billing.default-over-quota-behavior %}
+
+{% data reusables.billing.migrated-budgets %}
