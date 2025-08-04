@@ -1,1 +1,0 @@
-Monthly-billed customers may have spending limits in place that prevent additional usage of storage or data transfer after you reach the included amounts. Invoice-billed customers typically have unlimited spending. Check your account's budgets to ensure they are appropriate for your usage needs. See [AUTOTITLE](/billing/tutorials/set-up-budgets#viewing-budgets).

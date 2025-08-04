@@ -34,10 +34,12 @@ topics:
   - Profiles
   - Notifications
 children:
+  - /get-started
+  - /concepts
+  - /tutorials
+  - /reference
   - /setting-up-and-managing-your-personal-account-on-github
   - /setting-up-and-managing-your-github-profile
   - /managing-subscriptions-and-notifications-on-github
-  - /concepts
-  - /reference
 ---
 

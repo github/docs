@@ -6,6 +6,8 @@ versions:
 topics:
   - Profiles
 shortTitle: Enhance your resume
+redirect_from:
+  - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/using-your-github-profile-to-enhance-your-resume
 ---
 
 ## How can my {% data variables.product.github %} profile help with my job search?
