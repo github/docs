@@ -56,6 +56,9 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
+> [!NOTE]
+> To prevent recursive workflows, this event does not trigger workflows if the check run's check suite was created by {% data variables.product.prodname_actions %} or if the check suite's head SHA is associated with {% data variables.product.prodname_actions %}.
+
 Runs your workflow when activity related to a check run occurs. A check run is an individual test that is part of a check suite. For information, see [AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check run APIs, see [AUTOTITLE](/graphql/reference/objects#checkrun) in the GraphQL API documentation or [AUTOTITLE](/rest/checks/runs).
 
 For example, you can run a workflow when a check run has been `rerequested` or `completed`.
@@ -78,7 +81,7 @@ on:
 {% data reusables.actions.branch-requirement %}
 
 > [!NOTE]
-> To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %}.
+> To prevent recursive workflows, this event does not trigger workflows if the check suite was created by {% data variables.product.prodname_actions %} or if the check suite's head SHA is associated with {% data variables.product.prodname_actions %}.
 
 Runs your workflow when check suite activity occurs. A check suite is a collection of the check runs created for a specific commit. Check suites summarize the status and conclusion of the check runs that are in the suite. For information, see [AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks). For information about the check suite APIs, see [AUTOTITLE](/graphql/reference/objects#checksuite) in the GraphQL API documentation or [AUTOTITLE](/rest/checks/suites).
 

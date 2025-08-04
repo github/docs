@@ -91,3 +91,5 @@ Your {% data variables.product.prodname_registry %} usage shares your account's 
 ## Managing your budget for {% data variables.product.prodname_registry %}
 
 {% data reusables.billing.default-over-quota-behavior %}
+
+{% data reusables.billing.migrated-budgets %}

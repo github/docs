@@ -70,6 +70,8 @@ In this example, {% data variables.product.company_short %} would bill for 1.5 G
 
 {% data reusables.billing.default-over-quota-behavior %}
 
+{% data reusables.billing.migrated-budgets %}
+
 ## Further reading
 
 * [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)

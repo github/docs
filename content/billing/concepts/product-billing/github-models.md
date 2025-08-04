@@ -65,7 +65,9 @@ For accounts that use a custom model with a third-party model provider, billing 
 
 Enterprises and organizations can opt in to paid usage to access expanded model capabilities, including increased request allowances and larger context windows. You can manage their spending by setting a budget.
 
-By default, organizations and personal accounts that opt in to paid usage have a spending limit of $0 US dollars (USD) until the budget is increased.
+Organizations and personal accounts may have default budgets to limit spending. Check the budgets for your account to ensure they are appropriate for your usage needs. See [AUTOTITLE](/billing/tutorials/set-up-budgets#viewing-budgets).
+
+{% data reusables.billing.migrated-budgets %}
 
 For more information, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 
@@ -105,24 +107,24 @@ The following table displays how the total cost is calculated for a request usin
 
 The following steps demonstrate how the total cost is calculated:
 
-1. **Calculate input tokens:**  
-    Multiply the number of input tokens by the input multiplier.  
+1. **Calculate input tokens:**
+    Multiply the number of input tokens by the input multiplier.
     `1,000,000 tokens × 0.25 = 250,000 input token units`
 
-1. **Calculate billable output tokens:**  
-    Multiply the number of output tokens by the output multiplier.  
+1. **Calculate billable output tokens:**
+    Multiply the number of output tokens by the output multiplier.
     `1,000,000 tokens × 1 = 1,000,000 output token units`
 
-1. **Add billable tokens:**  
-    Add the billable input and output tokens.  
+1. **Add billable tokens:**
+    Add the billable input and output tokens.
     `250,000 (input) + 1,000,000 (output) = 1,250,000 total token units`
 
-1. **Charges by type:**  
-   * **Input charge:** `250,000 × $0.00001 = $2.50`  
+1. **Charges by type:**
+   * **Input charge:** `250,000 × $0.00001 = $2.50`
    * **Output charge:** `1,000,000 × $0.00001 = $10.00`
 
-1. **Calculate the total cost:**  
-    Multiply the total token units by the token unit price.  
+1. **Calculate the total cost:**
+    Multiply the total token units by the token unit price.
     `1,250,000 × $0.00001 = $12.50 for this request`
 
 ## Opting out of paid usage
