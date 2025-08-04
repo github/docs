@@ -20,9 +20,7 @@ children:
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
-  - /managing-security-and-analysis-settings-for-your-personal-account
   - /managing-access-to-your-personal-accounts-project-boards
-  - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
   - /about-available-for-hire
 shortTitle: Personal account settings
