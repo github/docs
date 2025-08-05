@@ -211,7 +211,7 @@ Once {% data variables.product.prodname_copilot_short %} has finished, the agent
 
 ## Working with {% data variables.product.prodname_copilot_short %} on a pull request
 
-After {% data variables.product.prodname_copilot_short %} has finished working on the issue, you should review the pull request thoroughly and comment on anything that needs changed. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
+After {% data variables.product.prodname_copilot_short %} has finished working on the issue, you should review the pull request thoroughly and mention `@copilot` in a comment if anything needs to be changed. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
 
 ## Further reading
 
