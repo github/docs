@@ -22193,6 +22193,14 @@
           ]
         },
         {
+          "name": "securityContactEmail",
+          "description": "<p>The enterprise's security contact email address.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "slug",
           "description": "<p>The URL-friendly identifier for the enterprise.</p>",
           "type": "String!",
@@ -109368,6 +109376,14 @@
         {
           "name": "name",
           "description": "<p>The name of the enterprise.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "securityContactEmail",
+          "description": "<p>The security contact email address of the enterprise.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",

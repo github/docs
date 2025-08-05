@@ -13468,6 +13468,11 @@ type Enterprise implements Node {
   ): RepositoryRulesetConnection
 
   """
+  The enterprise's security contact email address.
+  """
+  securityContactEmail: String
+
+  """
   The URL-friendly identifier for the enterprise.
   """
   slug: String!
@@ -64663,6 +64668,11 @@ input UpdateEnterpriseProfileInput {
   The name of the enterprise.
   """
   name: String
+
+  """
+  The security contact email address of the enterprise.
+  """
+  securityContactEmail: String
 
   """
   The URL of the enterprise's website.
