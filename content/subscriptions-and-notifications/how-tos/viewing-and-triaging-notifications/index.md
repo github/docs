@@ -5,6 +5,8 @@ redirect_from:
   - /articles/managing-notifications
   - /articles/managing-your-notifications
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications
+  - /subscriptions-and-notifications/viewing-and-triaging-notifications
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +16,6 @@ topics:
 children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
-  - /customizing-a-workflow-for-triaging-your-notifications
 shortTitle: Customize a workflow
 ---
 

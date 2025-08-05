@@ -15,6 +15,8 @@ redirect_from:
   - /articles/choosing-the-types-of-notifications-you-receive
   - /github/managing-subscriptions-and-notifications-on-github/configuring-notifications
   - /github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications
+  - /subscriptions-and-notifications/setting-up-notifications/configuring-notifications
 versions:
   fpt: '*'
   ghes: '*'

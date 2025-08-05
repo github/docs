@@ -16,6 +16,8 @@ redirect_from:
   - /articles/listing-the-repositories-youre-watching
   - /github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions
   - /github/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions
+  - /subscriptions-and-notifications/managing-subscriptions-for-activity-on-github/viewing-your-subscriptions
 versions:
   fpt: '*'
   ghes: '*'

@@ -7,6 +7,8 @@ redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications-beta
   - /github/managing-subscriptions-and-notifications-on-github/about-notifications
   - /github/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications
+  - /subscriptions-and-notifications/setting-up-notifications/about-notifications
 versions:
   fpt: '*'
   ghes: '*'

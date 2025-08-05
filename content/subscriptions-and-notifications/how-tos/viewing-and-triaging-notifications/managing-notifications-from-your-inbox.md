@@ -1,11 +1,13 @@
 ---
 title: Managing notifications from your inbox
-intro: 'Use your inbox to quickly triage and sync your notifications across email and mobile.'
+intro: Use your inbox to quickly triage and sync your notifications across email and mobile.
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
   - /github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
+  - /subscriptions-and-notifications/viewing-and-triaging-notifications/managing-notifications-from-your-inbox
 versions:
   fpt: '*'
   ghes: '*'

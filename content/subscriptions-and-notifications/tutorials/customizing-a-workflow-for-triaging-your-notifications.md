@@ -10,6 +10,8 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/customizing-a-workflow-for-triaging-your-notifications
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
+  - /subscriptions-and-notifications/viewing-and-triaging-notifications/customizing-a-workflow-for-triaging-your-notifications
 shortTitle: Triage your notifications
 ---
 ## Starting your inbox triage

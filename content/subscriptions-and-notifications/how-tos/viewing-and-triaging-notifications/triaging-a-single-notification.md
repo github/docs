@@ -10,6 +10,8 @@ topics:
 redirect_from:
   - /github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification
   - /github/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification
+  - /account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification
+  - /subscriptions-and-notifications/viewing-and-triaging-notifications/triaging-a-single-notification
 shortTitle: Triage a notification
 ---
 ## Saving a single notification
