@@ -71,7 +71,7 @@ If you have configured a proxy but are still encountering connection errors, see
 
 ### Basic authentication
 
-{% data variables.product.prodname_copilot_short %} for {% data variables.product.prodname_vs %} does not retrieve authentication credentials from the Windows settings. 
+While {% data variables.product.prodname_copilot_short %} for {% data variables.product.prodname_vs %} reads the proxy settings from Windows, it does not retrieve authentication credentials from those Windows settings.
 
 If you need to authenticate to a proxy, you can try one of the below:
 1. Enable passing default proxy credentials by setting the environment variable `COPILOT_USE_DEFAULTPROXY` to `true`. 
