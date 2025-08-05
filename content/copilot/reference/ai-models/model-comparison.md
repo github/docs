@@ -23,18 +23,19 @@ contentType: reference
 
 Use this table to find a suitable model quickly, see more detail in the sections below.
 
-| Model | Task area | Excels at (primary use case) | Additional capabilities |
-|-------|-----------|-------------------------------|--------------------------|
-| {% data variables.copilot.copilot_gpt_41 %} | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, vision |
-| {% data variables.copilot.copilot_gpt_4o %} | General-purpose coding and writing | Fast completions and visual input understanding | Agent mode, vision |
-| {% data variables.copilot.copilot_o3 %} | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
-| {% data variables.copilot.copilot_o4_mini %} | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
-| {% data variables.copilot.copilot_claude_opus %} | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
+| Model                                                 | Task area | Excels at (primary use case) | Additional capabilities |
+|-------------------------------------------------------|-----------|-------------------------------|--------------------------|
+| {% data variables.copilot.copilot_gpt_41 %}           | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, vision |
+| {% data variables.copilot.copilot_gpt_4o %}           | General-purpose coding and writing | Fast completions and visual input understanding | Agent mode, vision |
+| {% data variables.copilot.copilot_o3 %}               | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
+| {% data variables.copilot.copilot_o4_mini %}          | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
+| {% data variables.copilot.copilot_claude_opus_41 %}   | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
+| {% data variables.copilot.copilot_claude_opus %}      | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
 | {% data variables.copilot.copilot_claude_sonnet_35 %} | Fast help with simple or repetitive tasks | Quick responses for code, syntax, and documentation | Agent mode, vision |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} | Deep reasoning and debugging | Structured reasoning across large, complex codebases | Agent mode, vision |
 | {% data variables.copilot.copilot_claude_sonnet_40 %} | Deep reasoning and debugging | Performance and practicality, perfectly balanced for coding workflows | Agent mode, vision |
-| {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging | Complex code generation, debugging, and research workflows | Reasoning, vision |
-| {% data variables.copilot.copilot_gemini_flash %} | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Vision |
+| {% data variables.copilot.copilot_gemini_25_pro %}    | Deep reasoning and debugging | Complex code generation, debugging, and research workflows | Reasoning, vision |
+| {% data variables.copilot.copilot_gemini_flash %}     | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Vision |
 
 ## Task: General-purpose coding and writing
 
@@ -93,13 +94,14 @@ These models are designed for tasks that require step-by-step reasoning, complex
 
 ### Recommended models
 
-| Model | Why it's a good fit |
-|-------|---------------------|
-| {% data variables.copilot.copilot_o3 %} | Strong at algorithm design, system debugging, and architecture decisions. Balances performance and reasoning. |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} | Provides hybrid reasoning that adapts to both fast tasks and deeper thinking. |
-| {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure. |
-| {% data variables.copilot.copilot_claude_opus %} | Anthropic’s most powerful model. Strong at strategy, debugging, and multi-layered logic. |
-| {% data variables.copilot.copilot_gemini_25_pro %} | Advanced reasoning across long contexts and scientific or technical analysis. |
+| Model                                                 | Why it's a good fit                                                                                             |
+|-------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_o3 %}               | Strong at algorithm design, system debugging, and architecture decisions. Balances performance and reasoning.   |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} | Provides hybrid reasoning that adapts to both fast tasks and deeper thinking.                                   |
+| {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure.                            |
+| {% data variables.copilot.copilot_claude_opus_41 %}   | Anthropic’s most powerful model. Improves on {% data variables.copilot.copilot_claude_opus %}.                  |
+| {% data variables.copilot.copilot_claude_opus %}      | Strong at strategy, debugging, and multi-layered logic.                                                         |
+| {% data variables.copilot.copilot_gemini_25_pro %}    | Advanced reasoning across long contexts and scientific or technical analysis.                                   |
 
 ### When to use these models
 
