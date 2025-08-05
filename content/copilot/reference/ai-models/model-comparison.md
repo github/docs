@@ -25,16 +25,16 @@ Use this table to find a suitable model quickly, see more detail in the sections
 
 | Model | Task area | Excels at (primary use case) | Additional capabilities |
 |-------|-----------|-------------------------------|--------------------------|
-| {% data variables.copilot.copilot_gpt_41 %} | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, visual |
-| {% data variables.copilot.copilot_gpt_4o %} | General-purpose coding and writing | Fast completions and visual input understanding | Agent mode, visual |
+| {% data variables.copilot.copilot_gpt_41 %} | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, vision |
+| {% data variables.copilot.copilot_gpt_4o %} | General-purpose coding and writing | Fast completions and visual input understanding | Agent mode, vision |
 | {% data variables.copilot.copilot_o3 %} | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
 | {% data variables.copilot.copilot_o4_mini %} | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
 | {% data variables.copilot.copilot_claude_opus %} | Deep reasoning and debugging | Complex problem-solving challenges, sophisticated reasoning | Reasoning, vision |
-| {% data variables.copilot.copilot_claude_sonnet_35 %} | Fast help with simple or repetitive tasks | Quick responses for code, syntax, and documentation | Agent mode |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} | Deep reasoning and debugging | Structured reasoning across large, complex codebases | Agent mode |
+| {% data variables.copilot.copilot_claude_sonnet_35 %} | Fast help with simple or repetitive tasks | Quick responses for code, syntax, and documentation | Agent mode, vision |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} | Deep reasoning and debugging | Structured reasoning across large, complex codebases | Agent mode, vision |
 | {% data variables.copilot.copilot_claude_sonnet_40 %} | Deep reasoning and debugging | Performance and practicality, perfectly balanced for coding workflows | Agent mode, vision |
-| {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging | Complex code generation, debugging, and research workflows | Reasoning |
-| {% data variables.copilot.copilot_gemini_flash %} | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Visual |
+| {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging | Complex code generation, debugging, and research workflows | Reasoning, vision |
+| {% data variables.copilot.copilot_gemini_flash %} | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Vision |
 
 ## Task: General-purpose coding and writing
 
@@ -122,8 +122,11 @@ Use these models when you want to ask questions about screenshots, diagrams, UI 
 
 | Model | Why it's a good fit |
 |-------|---------------------|
-| {% data variables.copilot.copilot_gpt_4o %} | Supports image input. Great for interpreting screenshots or debugging UI issues with visual context. |
+| {% data variables.copilot.copilot_gpt_41 %} | Reliable default for most coding and writing tasks. Fast, accurate, and supports multimodal input for visual reasoning tasks. Works well across languages and frameworks. |
+| {% data variables.copilot.copilot_claude_opus %} | Anthropic’s most powerful model. Strong at strategy, debugging, and multi-layered logic. |
+| {% data variables.copilot.copilot_claude_sonnet_40 %} | Improves on 3.7 with more reliable completions and smarter reasoning under pressure. |
 | {% data variables.copilot.copilot_gemini_flash %} | Fast, multimodal model optimized for real-time interaction. Useful for feedback on diagrams, visual prototypes, and UI layouts. |
+| {% data variables.copilot.copilot_gemini_25_pro %} | Deep reasoning and debugging, ideal for complex code generation, debugging, and research workflows. |
 
 ### When to use these models
 
