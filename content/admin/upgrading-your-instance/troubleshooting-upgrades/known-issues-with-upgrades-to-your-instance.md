@@ -21,6 +21,14 @@ redirect_from:
 
 {% data variables.product.company_short %} strongly recommends regular backups of your instance's configuration and data. Before you proceed with any upgrade, back up your instance, then validate the backup in a staging environment. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance) and [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
+## Hold off on upgrading to 3.15 and above
+
+We have received a few reports of performance issues with {% data variables.product.prodname_ghe_server %} versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice.
+
+We are extending the support window for versions 3.14, 3.15, 3.16, and 3.17. The support window for 3.13 remains unchanged. The closing down date for each of 3.14, 3.15, 3.16, and 3.17 has been updated to "Support temporarily extended until further notice". For more information, see [AUTOTITLE](/admin/all-releases#releases-of-github-enterprise-server).
+
+We will continue to release patches for 3.14, 3.15, 3.16, and 3.17 throughout this extended support window.
+
 {% ifversion ghes < 3.15 %}
 
 ## Elasticsearch Upgrade
