@@ -21,6 +21,7 @@ spotlight:
   - article: /debug-errors/debug-invalid-json
     image: /assets/images/copilot-landing/debugging_invalid_json.png
 children:
+  - /communicate-effectively
   - /debug-errors
   - /analyze-functionality
   - /refactor-code
