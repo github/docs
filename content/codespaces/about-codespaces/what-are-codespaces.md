@@ -67,6 +67,6 @@ See [AUTOTITLE](/codespaces/customizing-your-codespace).
 
 For information on pricing, storage, and usage for {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
-{% data reusables.codespaces.codespaces-spending-limit-requirement %}
+{% data reusables.billing.default-over-quota-behavior %}
 
 {% data reusables.codespaces.codespaces-monthly-billing %} For information on how organizations owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an organization, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).

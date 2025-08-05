@@ -15,7 +15,9 @@ topics:
 
 ## About the problem
 
-You cannot successfully apply a {% data variables.product.prodname_security_configuration %} with {% data variables.product.prodname_code_scanning %} default setup set to "Enabled" to a target repository that uses advanced setup for {% data variables.product.prodname_code_scanning %}. Advanced setups are tailored to the specific security needs of their repositories, so they are not intended to be overridden at scale.
+You cannot successfully apply a {% data variables.product.prodname_security_configuration %} with {% data variables.product.prodname_code_scanning %} default setup set to "Enabled" to a target repository that has an active configuration of advanced setup for {% data variables.product.prodname_code_scanning %}. Advanced setups are tailored to the specific security needs of the repositories they are applied to, so they are not intended to be overridden at scale.
+
+### Active advanced setup
 
 If you try to attach a {% data variables.product.prodname_security_configuration %} with {% data variables.product.prodname_code_scanning %} set to "Enabled" to a repository that already uses advanced setup, security settings will be applied as follows:
 
@@ -23,13 +25,11 @@ If you try to attach a {% data variables.product.prodname_security_configuration
 * **All other security features enabled in the configuration will be enabled.**
 * **The {% data variables.product.prodname_security_configuration %} will not be attached** to the repository, since only some features from the configuration are enabled.
 
-For all repositories without an active advanced setup, the {% data variables.product.prodname_security_configuration %} will be applied as expected, and {% data variables.product.prodname_code_scanning %} default setup will be enabled.
+### Inactive or absent advanced setup
 
-> [!NOTE]
-> If advanced setup is considered inactive for a repository, default setup _will_ still be enabled for that repository. Advanced setup is considered inactive for a repository if the repository meets any of the following criteria:
-> * The latest {% data variables.product.prodname_codeql %} analysis is more than 90 days old
-> * All {% data variables.product.prodname_codeql %} configurations have been deleted
-> * The workflow file has been deleted or disabled (exclusively for YAML-based advanced setup)
+{% data reusables.code-scanning.inactive-advanced-setup %}
+
+If there is no advanced setup or the advanced setup is inactive, then default setup is enabled and the {% data variables.product.prodname_security_configuration %} applied as expected.
 
 ## Solving the problem
 

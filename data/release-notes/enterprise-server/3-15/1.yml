@@ -1,4 +1,10 @@
 date: '2024-12-17'
+intro: |
+  {% warning %}
+
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -103,6 +109,5 @@ sections:
   errata:
     - |
       These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.15.1, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
+
       The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
-      

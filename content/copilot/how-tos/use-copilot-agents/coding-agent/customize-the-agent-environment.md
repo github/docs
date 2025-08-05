@@ -99,6 +99,10 @@ Your `copilot-setup-steps.yml` file will automatically be run as a normal {% dat
 
 Once you have merged the yml file into your default branch, you can manually run the workflow from the repository's **Actions** tab at any time to check that everything works as expected. For more information, see [AUTOTITLE](/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow).
 
+When {% data variables.product.prodname_copilot_short %} starts work, your setup steps will be run, and updates will show in the session logs. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
+
+If any setup step fails by returning a non-zero exit code, {% data variables.product.prodname_copilot_short %} will skip the remaining setup steps and begin working with the current state of its development environment.
+
 ## Setting environment variables in {% data variables.product.prodname_copilot_short %}'s environment
 
 You may want to set environment variables in {% data variables.product.prodname_copilot_short %}'s environment to configure or authenticate tools or dependencies that it has access to.

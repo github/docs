@@ -1,3 +1,2 @@
 > [!NOTE]
-> To create a configuration that you can apply to a repository that uses advanced setup for {% data variables.product.prodname_codeql %}, choose "Enabled with advanced setup allowed". This setting enables default setup in repositories where advanced setup for {% data variables.product.prodname_codeql %} is not detected.
-> _Option available from {% data variables.product.prodname_ghe_server %} 3.19._
+> To create a configuration that you can apply to all repositories regardless of current {% data variables.product.prodname_code_scanning %} setup, choose "Enabled with advanced setup allowed". This setting enables default setup only in repositories where {% data variables.product.prodname_codeql %} analysis is not actively run. _Option available from {% data variables.product.prodname_ghe_server %} 3.19._

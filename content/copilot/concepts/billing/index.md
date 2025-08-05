@@ -10,8 +10,7 @@ children:
   - /copilot-requests
   - /individual-plans
   - /billing-for-individuals
-  - /billing-for-organizations
-  - /billing-for-enterprises
+  - /organizations-and-enterprises
   - /billing-for-spark
 redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments

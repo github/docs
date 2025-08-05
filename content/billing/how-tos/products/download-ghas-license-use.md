@@ -77,7 +77,7 @@ You can download a CSV report for a repository, an organization, or an enterpris
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.license-tab %}
+{% data reusables.enterprise-accounts.license-tab-ghes %}
 1. Under "{% data variables.product.prodname_GHAS %}," click **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**.
 
    ![Screenshot of the licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)

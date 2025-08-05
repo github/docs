@@ -53,6 +53,7 @@ children:
   - get-started
   - enterprise-onboarding
   - account-and-profile
+  - subscriptions-and-notifications
   - authentication
   - repositories
   - admin
@@ -92,6 +93,7 @@ childGroups:
       - get-started
       - migrations
       - account-and-profile
+      - subscriptions-and-notifications
       - authentication
       - billing
       - site-policy
