@@ -3,7 +3,7 @@ import {
   shouldShowRequestContentType,
   shouldShowResponseContentType,
   generateExampleOptionTexts,
-} from '@/rest/lib/content-type-utils'
+} from '@/rest/lib/code-example-utils'
 
 describe('Request Content Type Logic', () => {
   test('detects request content types differ correctly', () => {
