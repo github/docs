@@ -25,7 +25,7 @@ For information about the latest release, see the [{% data variables.product.pro
 {%- for version in enterpriseServerReleases.supported %}
 {%- assign currentDate = 'now' | date: '%s' %}
 {%- assign deprecationDate = enterpriseServerReleases.dates[version].deprecationDate | date: '%s' %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% if currentDate < deprecationDate %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | Support temporarily extended until further notice | {% octicon "check" aria-label="Supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |

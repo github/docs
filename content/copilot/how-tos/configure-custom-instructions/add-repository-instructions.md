@@ -30,8 +30,6 @@ This version of this article is for using repository custom instructions and pro
 
 {% visualstudio %}
 
-> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% endvisualstudio %}
@@ -78,7 +76,7 @@ Repository custom instructions let you provide {% data variables.product.prodnam
 
 {% visualstudio %}
 
-* The **Enable custom instructions** option must be enabled in your settings. This is disabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+* The **Enable custom instructions** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
 
 {% endvisualstudio %}
 

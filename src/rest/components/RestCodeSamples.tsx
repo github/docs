@@ -8,7 +8,7 @@ import cx from 'classnames'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
-import { generateExampleOptions } from '@/rest/lib/content-type-utils'
+import { generateExampleOptions } from '@/rest/lib/code-example-utils'
 import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from '@/languages/components/useTranslation'

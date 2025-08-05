@@ -9097,7 +9097,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile"
+    "docs_reference_titles": "Personalizing your profile"
   },
   {
     "action": "project.access",
@@ -10768,7 +10768,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository"
+    "docs_reference_titles": "Inviting collaborators to a personal repository"
   },
   {
     "action": "repo.add_topic",
@@ -11854,7 +11854,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository"
+    "docs_reference_titles": "Removing a collaborator from a personal repository"
   },
   {
     "action": "repo.remove_self_hosted_runner",
