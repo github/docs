@@ -49,7 +49,7 @@ Anyone with a {% data variables.product.prodname_copilot_short %} license, inclu
 
 During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
 
-{% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members (read-only) or kept private to the person who created the space.
+{% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members or kept private to the person who created the space.
 
 ## How does using {% data variables.copilot.copilot_spaces_short %} affect my usage?
 
