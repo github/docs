@@ -140,7 +140,6 @@ You can attach an image to {% data variables.product.prodname_copilot_short %} a
 1. If you see the AI model picker at the top of the page, select one of the models that supports adding images to prompts:
 
    * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_gpt_4o %}
    * {% data variables.copilot.copilot_claude_sonnet_35 %}
    * {% data variables.copilot.copilot_claude_sonnet_37 %}
    * {% data variables.copilot.copilot_gemini_flash %}
