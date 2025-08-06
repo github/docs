@@ -16,8 +16,6 @@ contentType: how-tos
 
 {% webui %}
 
-> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% endwebui %}
@@ -36,15 +34,11 @@ This version of this article is for using repository custom instructions in {% d
 
 {% jetbrains %}
 
-> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% endjetbrains %}
 
 {% xcode %}
-
-> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 This version of this article is for using repository custom instructions in Xcode. Click the tabs above for instructions on using custom instructions in other environments.
 
@@ -64,8 +58,6 @@ Repository custom instructions let you provide {% data variables.product.prodnam
 
 * Your personal choice of whether to use custom instructions must be set to enabled. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
 
-* During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} {% ifversion ghec %}or {% data variables.copilot.copilot_enterprise_short %}{% endif %} plan, the organization {% ifversion ghec %}or enterprise{% endif %} that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
-
 {% endwebui %}
 
 {% vscode %}
@@ -76,7 +68,7 @@ Repository custom instructions let you provide {% data variables.product.prodnam
 
 {% visualstudio %}
 
-* The **Enable custom instructions** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
 
 {% endvisualstudio %}
 
@@ -496,7 +488,7 @@ Your choice persists, for all repositories containing a custom instructions file
    ![Screenshot of the {% data variables.product.prodname_vs %} menu bar. The "Tools" menu is expanded, and the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 
 1. In the "Options" dialog, type `custom instructions` in the search box, then click **{% data variables.product.prodname_copilot_short %}**.
-1. Select or clear the checkbox for **(Preview) Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
+1. Select or clear the checkbox for **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
 
