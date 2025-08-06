@@ -109,8 +109,8 @@ copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 # OpenAI GPT series:
-copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_41: 'GPT-4.1'
+copilot_gpt_4o: 'GPT-4o'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
