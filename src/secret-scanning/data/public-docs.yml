@@ -94,17 +94,6 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Airtable
-  supportedSecret: Airtable API Key
-  secretType: airtable_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Airtable
   supportedSecret: Airtable Personal Access Token
   secretType: airtable_personal_access_token
   versions:
@@ -1654,17 +1643,6 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  isduplicate: false
-- provider: Cohere
-  supportedSecret: Cohere API Key
-  secretType: cohere_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
   isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Personal Access Token
@@ -3230,17 +3208,6 @@
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
-- provider: Mistral AI
-  supportedSecret: Mistral AI API Key
-  secretType: mistral_ai_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
 - provider: MongoDB
   supportedSecret: MongoDB Atlas Database URI with credentials
   secretType: mongodb_atlas_db_uri_with_credentials
@@ -3633,17 +3600,6 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  isduplicate: false
-- provider: Openweather
-  supportedSecret: Openweather API Key
-  secretType: openweather_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
   isduplicate: false
 - provider: Oracle
   supportedSecret: Oracle API Key
