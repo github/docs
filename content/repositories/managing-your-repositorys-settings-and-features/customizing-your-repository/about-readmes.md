@@ -1,5 +1,5 @@
 ---
-title: About READMEs
+title: Repository README file
 intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages
@@ -14,7 +14,7 @@ versions:
 topics:
   - Repositories
 ---
-## About READMEs
+## About the repository README file
 
 {% data reusables.repositories.about-READMEs %}
 
