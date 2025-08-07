@@ -18,7 +18,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 1. Pre-Release Software.
 
-  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as alpha, beta, early access, technical preview, or similar versions.
+  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as private preview, public preview, early access, technical preview, or similar versions.
 
   Pre-release software may not operate correctly. It may delete your data, corrupt your data, or have other bugs. It also may not work the way a final commercial version of the software will.
 

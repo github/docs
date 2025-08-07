@@ -77,7 +77,13 @@ By adding custom instructions to your repository, you can guide {% data variable
 
 If {% data variables.product.prodname_copilot_short %} is able to build, test and validate its changes in its own development environment, it is more likely to produce good pull requests which can be merged quickly.
 
-You can add instructions in a single `.github/copilot-instructions.md` file in the repository, or create one or more `.github/instructions/**/*.instructions.md` files applying to different files or directories in your repository. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
+You can add instructions in a single `.github/copilot-instructions.md` file in the repository, or create one or more `.github/instructions/**/*.instructions.md` files applying to different files or directories in your repository.
+
+For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
+
+### Repository-wide instructions
+
+To add instructions that apply to all tasks assigned to {% data variables.product.prodname_copilot_short %} in your repository, create a `.github/copilot-instructions.md` file in the root of your repository. This file should contain information about your project, such as how to build and test it, and any coding standards or conventions you want {% data variables.product.prodname_copilot_short %} to follow. Note that the instructions will also apply to {% data variables.copilot.copilot_chat_short %} and {% data variables.copilot.copilot_code-review_short %}.
 
 The first time you ask {% data variables.product.prodname_copilot_short %} to create a pull request in a given repository, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions. You can also ask {% data variables.product.prodname_copilot_short %} to generate custom instructions for you at any time using our recommended prompt. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui#asking-copilot-coding-agent-to-generate-a-githubcopilot-instructionsmd-file).
 
@@ -116,7 +122,33 @@ This is a Go based repository with a Ruby client for certain API endpoints. It i
 5. Document public APIs and complex logic. Suggest changes to the `docs/` folder when appropriate
 ```
 
-If you choose not to include any {% data variables.product.prodname_copilot_short %} instructions files in your repository, {% data variables.product.prodname_copilot_short %} will fall back to pre-existing custom instructions including `CLAUDE.md`, `AGENTS.md` and `GEMINI.md`.
+### Path-specific instructions
+
+To add instructions that apply to specific types of files {% data variables.product.prodname_copilot_short %} will work on, like unit tests or React components, create one or more `.github/instructions/**/*.instructions.md` files in your repository.
+In these files, include information about the file types, such as how to build and test them, and any coding standards or conventions you want {% data variables.product.prodname_copilot_short %} to follow.
+
+Using the glob pattern in the front matter of the instructions file, you can specify the file types to which they should apply. For example, to create instructions for Playwright tests you could create an instructions file called `.github/instructions/playwright-tests.instructions.md` with the following content:
+
+```markdown
+---
+applyTo: "**/tests/*.spec.ts"
+---
+
+## Playwright test requirements
+
+When writing Playwright tests, please follow these guidelines to ensure consistency and maintainability:
+
+1. **Use stable locators** - Prefer `getByRole()`, `getByText()`, and `getByTestId()` over CSS selectors or XPath
+1. **Write isolated tests** - Each test should be independent and not rely on other tests' state
+1. **Follow naming conventions** - Use descriptive test names and `*.spec.ts` file naming
+1. **Implement proper assertions** - Use Playwright's `expect()` with specific matchers like `toHaveText()`, `toBeVisible()`
+1. **Leverage auto-wait** - Avoid manual `setTimeout()` and rely on Playwright's built-in waiting mechanisms
+1. **Configure cross-browser testing** - Test across Chromium, Firefox, and WebKit browsers
+1. **Use Page Object Model** - Organize selectors and actions into reusable page classes for maintainability
+1. **Handle dynamic content** - Properly wait for elements to load and handle loading states
+1. **Set up proper test data** - Use beforeEach/afterEach hooks for test setup and cleanup
+1. **Configure CI/CD integration** - Set up headless mode, screenshots on failure, and parallel execution
+```
 
 ## Using the Model Context Protocol (MCP)
 
