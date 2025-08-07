@@ -40,6 +40,9 @@ Instead, you can preconfigure {% data variables.product.prodname_copilot_short %
 
 A `copilot-setup-steps.yml` file looks like a normal {% data variables.product.prodname_actions %} workflow file, but must contain a single `copilot-setup-steps` job. This job will be executed in {% data variables.product.prodname_actions %} before {% data variables.product.prodname_copilot_short %} starts working. For more information on {% data variables.product.prodname_actions %} workflow files, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 
+> [!NOTE]
+> You must have merged the yml file into your default branch
+
 Here is a simple example of a `copilot-setup-steps.yml` file for a TypeScript project that clones the project, installs Node.js and downloads and caches the project's dependencies. You should customize this to fit your own project's language(s) and dependencies:
 
 ```yaml copy
