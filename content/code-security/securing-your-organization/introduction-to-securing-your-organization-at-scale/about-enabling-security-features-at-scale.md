@@ -48,6 +48,8 @@ You can customize {% data variables.product.prodname_security_configurations %},
 
 You will only ever see enablement settings for features that have been installed on your {% data variables.product.prodname_ghe_server %} instance by an enterprise administrator.
 
+To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+
 {% endif %}
 
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
