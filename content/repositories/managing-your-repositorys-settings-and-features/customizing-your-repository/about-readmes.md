@@ -1,5 +1,6 @@
 ---
 title: Repository README file
+shortTitle: About READMEs
 intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages
