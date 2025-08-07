@@ -29,17 +29,6 @@ export const generalSearchMappings: estypes.MappingTypeMapping = {
   },
 }
 
-export const generalAutocompleteMappings: estypes.MappingTypeMapping = {
-  properties: {
-    term: {
-      type: 'text',
-      analyzer: 'text_analyzer',
-      term_vector: 'with_positions_offsets',
-    },
-    popularity: { type: 'float' },
-  },
-}
-
 export const aiSearchAutocompleteMappings: estypes.MappingTypeMapping = {
   properties: {
     term: {

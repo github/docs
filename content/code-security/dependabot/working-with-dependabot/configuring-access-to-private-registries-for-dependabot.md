@@ -33,7 +33,13 @@ For specific ecosystems, you can configure {% data variables.product.prodname_de
 
 ## Configuring private registries
 
-You configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
+{% ifversion org-private-registry %}
+
+You can configure {% data variables.product.prodname_dependabot %}'s access to private registries at the org-level. For more information on how to configure that, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+
+{% endif %}
+
+You can also configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
 The top-level `registries` key is optional and specifies authentication details.
 
 {% data reusables.dependabot.dependabot-updates-registries %}
@@ -151,12 +157,11 @@ updates:
 
 {% endraw %}
 
-## Supported private registeries
+## Supported private registries
 
 Examples of how to configure access to the private registries supported by {% data variables.product.prodname_dependabot %}.
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}
-* [`cargo-registry`](#cargo-registry){% endif %}
+* [`cargo-registry`](#cargo-registry)
 * [`composer-repository`](#composer-repository)
 * [`docker-registry`](#docker-registry)
 * [`git`](#git)
@@ -164,13 +169,11 @@ Examples of how to configure access to the private registries supported by {% da
 * [`hex-repository`](#hex-repository)
 * [`maven-repository`](#maven-repository)
 * [`npm-registry`](#npm-registry)
-* [`nuget-feed`](#nuget-feed){% ifversion dependabot-updates-pub-private-registry %}
-* [`pub-repository`](#pub-repository){% endif %}
+* [`nuget-feed`](#nuget-feed)
+* [`pub-repository`](#pub-repository)
 * [`python-index`](#python-index)
 * [`rubygems-server`](#rubygems-server)
 * [`terraform-registry`](#terraform-registry)
-
-{% ifversion dependabot-updates-cargo-private-registry-support %}
 
 ### `cargo-registry`
 
@@ -179,8 +182,6 @@ The `cargo-registry` type supports a token.
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% data reusables.dependabot.cargo-private-registry-config-example %}
-
-{% endif %}
 
 ### `composer-repository`
 
@@ -382,6 +383,8 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
+`nuget-feed` doesn't support the `replaces-base` parameter.
+
 {% raw %}
 
 ```yaml copy
@@ -408,8 +411,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### `pub-repository`
 
 The `pub-repository` type supports a URL and a token.
@@ -432,8 +433,6 @@ updates:
 ```
 
 {% endraw %}
-
-{% endif %}
 
 ### `python-index`
 

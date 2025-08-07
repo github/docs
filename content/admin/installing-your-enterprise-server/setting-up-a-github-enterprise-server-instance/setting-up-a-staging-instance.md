@@ -149,7 +149,7 @@ To apply the configuration from the {% data variables.enterprise.management_cons
 
 You may want to power off a staging instance to save costs and power it back on when needed.
 
-An instance can stay offline for {% ifversion ghes < 3.14 %}60 days as of the latest patch release of this version, increased from 7 days{% else %}60 days{% endif %}.
+An instance can stay offline for 60 days.
 
 If you bring the instance back online within the allowed offline time period, {% data variables.product.prodname_ghe_server %} instantiates successfully. If the instance stays offline for longer than the allowed period, {% data variables.product.prodname_ghe_server %} fails to instantiate successfully, and an error message with the text `server has been offline for more than the configured server_rejoin_age_max` may appear in the system logs. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs).
 

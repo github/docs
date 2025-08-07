@@ -2,18 +2,13 @@ import semver from 'semver'
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getRange, addFixErrorDetail } from '../helpers/utils.js'
-import { allVersions, allVersionShortnames } from '#src/versions/lib/all-versions.js'
-import {
-  supported,
-  next,
-  nextNext,
-  deprecated,
-} from '#src/versions/lib/enterprise-server-releases.js'
-import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
-import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
+import { getRange, addFixErrorDetail } from '../helpers/utils'
+import { allVersions, allVersionShortnames } from '@/versions/lib/all-versions'
+import { supported, next, nextNext, deprecated } from '@/versions/lib/enterprise-server-releases'
+import allowedVersionOperators from '@/content-render/liquid/ifversion-supported-operators'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 
 const allShortnames = Object.keys(allVersionShortnames)
 const getAllPossibleVersionNames = memoize(() => {
@@ -110,44 +105,6 @@ export const liquidIfVersionTags = {
   },
 }
 
-export const liquidIfVersionVersions = {
-  names: ['GHD022', 'liquid-ifversion-versions'],
-  description: 'Liquid `ifversion` (and `elsif`) should not always be true',
-  tags: ['liquid', 'versioning'],
-  function: (params, onError) => {
-    const content = params.lines.join('\n')
-    const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
-      .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
-
-    const { name } = params
-    for (const token of tokens) {
-      const args = token.args
-      const { lineNumber } = getPositionData(token, params.lines)
-      try {
-        const errors = validateIfversionConditionalsVersions(args, getAllFeatures())
-        if (errors.length === 0) continue
-
-        if (errors.length) {
-          addError(
-            onError,
-            lineNumber,
-            errors.join('. '),
-            token.content,
-            null, // getRange(token.content, args),
-            null, // No fix possible
-          )
-        }
-      } catch (error) {
-        console.error(
-          `Name that caused the error: ${name}, Token args: '${args}', Line number: ${lineNumber}`,
-        )
-        throw error
-      }
-    }
-  },
-}
-
 function validateIfversionConditionals(cond, possibleVersionNames) {
   const validateVersion = (version) => possibleVersionNames.has(version)
 
@@ -176,9 +133,14 @@ function validateIfversionConditionals(cond, possibleVersionNames) {
     if (strParts.length === 2) {
       const [notKeyword, version] = strParts
       const isValidVersion = validateVersion(version)
-      const isValid = notKeyword === 'not' && isValidVersion
-      if (!isValid) {
+      const isFeatureBasedVersion = Object.keys(getAllFeatures()).includes(version)
+
+      if (notKeyword !== 'not' || !isValidVersion) {
         errors.push(`"${cond}" is not a valid conditional`)
+      } else if (isFeatureBasedVersion) {
+        errors.push(
+          `"${cond}" is not valid - the 'not' keyword cannot be used with feature-based version "${version}"`,
+        )
       }
     }
 
@@ -264,8 +226,8 @@ export function validateIfversionConditionalsVersions(cond, allFeatures) {
   const applicableVersions = []
   try {
     applicableVersions.push(...getApplicableVersions(versions))
-  } catch (error) {
-    console.warn(`Condition '${cond}' throws an error when trying to get applicable versions`)
+  } catch {
+    // Do nothing
   }
 
   if (isAllVersions(applicableVersions) && !hasFutureLessThan) {

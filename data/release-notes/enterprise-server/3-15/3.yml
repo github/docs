@@ -2,6 +2,11 @@ date: '2025-02-18'
 intro: |
   {% warning %}
 
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
+  {% warning %}
+
   **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.15.3` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.15 version instead. [Updated: 2025-03-11]
 
   {% endwarning %}
@@ -95,6 +100,5 @@ sections:
       The warning and known issues section have been updated to accurately reflect that instances installed on GCP will face issues while hotpatching to 3.15.3. Previously, the warning and known issue indicated that customers would face issues either while upgrading or hotpatching to version 3.15.3. [Updated: 2025-03-11]
     - |
       These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.15.3, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
+
       The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
-      

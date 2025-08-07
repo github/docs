@@ -14,7 +14,10 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
-If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% ifversion ghec or ghes %} You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
+* If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork.
+* If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not.
+* {% ifversion ghes %} You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% endif %}{% ifversion fpt or ghec %} You can add an external collaborator to a fork of a private repository owned by an organization if you are an organization owner, or if your organization allows repository administrators to invite external collaborators, and the external collaborator also has access to the upstream repository.{% endif %}
+{% ifversion ghec or ghes %} * You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -64,7 +67,16 @@ If you work with forks, or if you're the owner of a repository or organization t
 ### About forks within an organization
 
 Forks within the same organization copy the collaborators and team settings of their upstream repositories. If a repository is owned by an organization:
+
 * That organization controls the permissions of its forks.
 * Any teams from the upstream permission structure that exist and are visible in the target organization or user namespace will have their permissions copied.
 * Admin permissions remain with the upstream owner, except when a user forks into a different organization.
 * If that repository is forked to a user namespace, the organization maintains admin permissions and any teams with access maintain access.
+
+{% ifversion ghec or ghes %}
+
+### About forks within an enterprise
+
+Internal repositories only support a single level of forking, it is not possible to fork a private fork of an internal repository. This is intentional to simplify access and management for internal repositories which have enterprise-wide access. This differs from the behavior of public and private repositories, that allow nested forking.
+
+{% endif %}

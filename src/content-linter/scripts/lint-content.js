@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -8,14 +7,14 @@ import { applyFixes } from 'markdownlint-rule-helpers'
 import boxen from 'boxen'
 import ora from 'ora'
 
-import walkFiles from '#src/workflows/walk-files.ts'
-import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
-import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
-import { defaultConfig } from '../lib/default-markdownlint-options.js'
-import { prettyPrintResults } from './pretty-print-results.js'
-import { getLintableYml } from '#src/content-linter/lib/helpers/get-lintable-yml.js'
-import { printAnnotationResults } from '../lib/helpers/print-annotations.js'
-import languages from '#src/languages/lib/languages.js'
+import walkFiles from '@/workflows/walk-files'
+import { allConfig, allRules, customRules } from '../lib/helpers/get-rules'
+import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs'
+import { defaultConfig } from '../lib/default-markdownlint-options'
+import { prettyPrintResults } from './pretty-print-results'
+import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
+import { printAnnotationResults } from '../lib/helpers/print-annotations'
+import languages from '@/languages/lib/languages'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -410,8 +409,6 @@ function reportSummaryByRule(results, config) {
       }
     }
   })
-
-  console.log(JSON.stringify(ruleCount, null, 2))
 }
 
 /*
@@ -556,11 +553,13 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     if (runRules && !runRules.includes(ruleName)) continue
 
+    // Skip british-english-quotes rule in CI/PRs (only run in pre-commit)
+    if (ruleName === 'british-english-quotes' && !isPrecommit) continue
+
     // There are a subset of rules run on just the frontmatter in files
     if (githubDocsFrontmatterConfig[ruleName]) {
       config.frontMatter[ruleName] = ruleConfig
       if (customRule) configuredRules.frontMatter.push(customRule)
-      continue
     }
     // Handle the special case of the search-replace rule
     // which has nested rules each with their own
@@ -569,6 +568,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       const searchReplaceRules = []
       const dataSearchReplaceRules = []
       const ymlSearchReplaceRules = []
+      const frontmatterSearchReplaceRules = []
 
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
@@ -579,6 +579,11 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
         }
         if (searchRule['yml-files']) {
           ymlSearchReplaceRules.push(searchRule)
+        }
+        // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
+        // This ensures rules like TODOCS detection work in frontmatter
+        if (searchRule.applyToFrontmatter) {
+          frontmatterSearchReplaceRules.push(searchRule)
         }
       }
 
@@ -594,6 +599,10 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
         config.yml[ruleName] = { ...ruleConfig, rules: ymlSearchReplaceRules }
         if (customRule) configuredRules.yml.push(customRule)
       }
+      if (frontmatterSearchReplaceRules.length > 0) {
+        config.frontMatter[ruleName] = { ...ruleConfig, rules: frontmatterSearchReplaceRules }
+        if (customRule) configuredRules.frontMatter.push(customRule)
+      }
       continue
     }
 
@@ -608,7 +617,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       if (customRule) configuredRules.yml.push(customRule)
     }
   }
-
   return { config, configuredRules }
 }
 

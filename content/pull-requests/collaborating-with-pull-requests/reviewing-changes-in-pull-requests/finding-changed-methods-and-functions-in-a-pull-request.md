@@ -26,7 +26,7 @@ The summary list of methods and functions is created from these supported file t
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request where you'd like to find the changed functions and methods.
 {% data reusables.repositories.changed-files %}
-1. To see a summary list of the changed functions and methods, click **Jump to {% octicon "triangle-down" aria-hidden="true" %}**.
+1. To see a summary list of the changed functions and methods, click **Jump to {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}**.
 
    ![Screenshot of the "Files changed" tab for a pull request. The "Jump to" option is outlined in dark orange.](/assets/images/help/pull_requests/jump-to-menu.png)
 

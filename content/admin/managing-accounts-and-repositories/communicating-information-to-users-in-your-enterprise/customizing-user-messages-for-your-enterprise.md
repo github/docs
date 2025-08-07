@@ -25,7 +25,7 @@ You can create global announcement banners, which appear at the top of every pag
 {% else %}
 
 There are several types of user messages.
-* Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page
+* Messages that appear on the sign in or sign out page
 * Mandatory messages, which appear once in a pop-up window that must be dismissed
 * Announcement banners, which appear at the top of every page
 
@@ -58,15 +58,12 @@ There are several types of user messages.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. {% ifversion ghes %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
+1. To the right of "Sign out page", click **Add message** or **Edit message**.
 
    ![Screenshot of the "Sign out page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is outlined.](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
 1. Under **Sign out message**, type the message you'd like users to see.
-{% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
-{% data reusables.enterprise_site_admin_settings.click-preview %}
-1. Review the rendered message.
-{% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}{% endif %}
+{% data reusables.enterprise_site_admin_settings.message-preview-save %}
+{% endif %}
 
 {% ifversion ghes %}
 
@@ -101,7 +98,7 @@ You can set a global announcement banner to be displayed to all users at the top
 You can also create announcement banners at the organization level. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-an-announcement-banner-for-your-organization).
 
 {% ifversion ghes %}
-You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-announce) and {% endif %}[AUTOTITLE](/rest/enterprise-admin#announcements).
+You can also set an announcement banner in the administrative shell using a command line utility or using the API. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-announce) and [AUTOTITLE](/rest/enterprise-admin#announcements).
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

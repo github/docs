@@ -16,12 +16,13 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-bundle
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
 {% data reusables.codeql-cli.man-pages-version-note %}
-
-{% data reusables.code-scanning.codeql-database-archive-contains-source-code %}
 
 ## Synopsis
 
@@ -123,6 +124,9 @@ predicates.
 
 `fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
+
+`overlay`: Trim to just the data that will be useful when evaluating
+against an overlay.
 
 #### `--cleanup-upgrade-backups`
 

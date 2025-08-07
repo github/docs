@@ -42,24 +42,21 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 ## Confirming access for sudo mode
 
-To confirm access for sudo mode, you can authenticate with your password. Optionally, you can use a different authentication method, like {% ifversion passkeys %}a passkey, {% endif %}{% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.
+To confirm access for sudo mode, you can authenticate with your password. Optionally, you can use a different authentication method, like a passkey, {% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.
 
-{%- ifversion passkeys %}
 * [Confirming access using a passkey](#confirming-access-using-a-passkey)
-{%- endif %}
+
 * [Confirming access using a security key](#confirming-access-using-a-security-key)
 {%- ifversion fpt or ghec %}
 * [Confirming access using GitHub Mobile](#confirming-access-using-github-mobile)
 {%- endif %}
 * [Confirming access using a 2FA code](#confirming-access-using-a-2fa-code)
 * [Confirming access using your password](#confirming-access-using-your-password)
-
-{% ifversion passkeys %}
+* [Confirming access using your social login email](#confirming-access-using-your-social-login-email)
 
 ### Confirming access using a passkey
 
 You must have a passkey registered to your account to confirm access to your account for sudo mode using a passkey. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
-{% endif %}
 
 ### Confirming access using a security key
 
@@ -91,3 +88,9 @@ When prompted to authenticate for sudo mode, type the authentication code from y
 ### Confirming access using your password
 
 When prompted to authenticate for sudo mode, type your password, then click **Confirm**.
+
+### Confirming access using your social login email
+
+Before you can access sudo mode, you must first configure social login. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
+
+When prompted to authenticate for sudo mode, type the authentication code sent to your social login email account, then click **Verify**.

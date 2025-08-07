@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/audit-logs/pages/audit-log-events'
+export { default, getServerSideProps } from '@/audit-logs/pages/audit-log-events'

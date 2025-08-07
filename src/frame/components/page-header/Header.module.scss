@@ -41,3 +41,13 @@
     display: none;
   }
 }
+
+.displayOverLarge {
+  display: none;
+  visibility: none;
+
+  @include breakpoint(lg) {
+    display: flex !important;
+    visibility: visible !important;
+  }
+}

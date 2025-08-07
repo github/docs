@@ -1,7 +1,0 @@
-# Reference: #7114.
-# Documentation for security overview availability to all enterprise accounts.
-# Ref 17108 Advanced Security available to Team plans
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.7'

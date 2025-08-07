@@ -1,7 +1,7 @@
 ---
 title: Managing {% data variables.product.prodname_GHAS %} features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GHAS %} features that secure and analyze code across all organizations owned by your enterprise.'
-permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_AS %} features for organizations in an enterprise.'
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '<= 3.15'
@@ -17,13 +17,13 @@ redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise
 ---
 
-## About management of {% data variables.product.prodname_advanced_security %} features
+## About management of {% data variables.product.prodname_AS %} features
 
-You can use {% data variables.product.prodname_advanced_security %} features to harden security for the organizations in your enterprise.
+You can use {% data variables.product.prodname_AS %} features to harden security for the organizations in your enterprise.
 
 {% ifversion security-configurations %}{% data reusables.security-configurations.enable-security-features-with-gh-config %}
 
-To manage individual {% data variables.product.prodname_GHAS %} features, {% else %}To streamline management of {% data variables.product.prodname_advanced_security %}, {% endif %}you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
+To manage individual {% data variables.product.prodname_GHAS %} features, {% else %}To streamline management of {% data variables.product.prodname_AS %}, {% endif %}you can enable or disable each feature for all existing and/or new repositories within the organizations owned by your enterprise.
 
 {% ifversion security-configurations-ghes-only %}
 
@@ -42,7 +42,7 @@ When you enable one or more security and analysis features for existing reposito
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-## Managing {% data variables.product.prodname_advanced_security %} features
+## Managing {% data variables.product.prodname_AS %} features
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 

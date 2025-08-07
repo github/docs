@@ -134,7 +134,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to {% ifversion management-console-manage-ghes-parity %}[the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run){% else %}[the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console){% endif %}. {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
 
 ```shell
 ghe-config-apply
@@ -288,8 +288,10 @@ ghe-reactivate-admin-login
 ### ghe-saml-mapping-csv
 
 {% ifversion scim-for-ghes-ga %}
+
 > [!NOTE]
 > This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+
 {% endif %}
 
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
@@ -662,8 +664,6 @@ $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
 
-{% ifversion cluster-ha-tooling-improvements %}
-
 ### ghe-cluster-repl-bootstrap
 
 This utility configures high availability replication to a secondary set of cluster nodes. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster).
@@ -679,8 +679,6 @@ This utility disables replication to replica nodes for a cluster in a high avail
 ```shell
 ghe-cluster-repl-teardown
 ```
-
-{% endif %}
 
 ### ghe-cluster-status
 
@@ -728,55 +726,11 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 
 ### ghe-cluster-failover
 
-{% ifversion ghes < 3.13 %}
-
-{% data reusables.enterprise_clustering.cluster-ip-note %}
-
-{% endif %}
-
 With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster).
 
 ```shell
 ghe-cluster-failover
 ```
-
-{% ifversion ghes < 3.13 %}
-
-### ghe-cluster-block-ips
-
-This utility allows you to block all the IPs in the `/data/user/common/cluster-ip-blocklist` file. The command reads the list of IPs and blocks each IP by calling `ghe-cluster-block-ip` on each node in the current cluster.
-
-The `/data/user/common/cluster-ip-blocklist` file only supports IPv4 addresses.
-
-```shell
-ghe-cluster-block-ips
-```
-
-### ghe-cluster-block-ip
-
-This utility allows you to block a specific IP address on a specific node. You can't block the IP of the current host, or any of the IPs for the hosts in the current `cluster.conf`.
-
-```shell
-ghe-cluster-block-ip IPV4 ADDRESS
-```
-
-### ghe-cluster-unblock-ips
-
-This utility allows you to unblock all the IPs currently blocked on each node in the cluster.
-
-```shell
-ghe-cluster-unblock-ips
-```
-
-### ghe-cluster-unblock-ip
-
-This utility allows you to unblock a specific IP address on a specific node.
-
-```shell
-ghe-cluster-unblock-ip IPV4 ADDRESS
-```
-
-{% endif %}
 
 ### ghe-dpages
 
@@ -797,8 +751,6 @@ To evacuate a {% data variables.product.prodname_pages %} storage service before
 ```shell
 ghe-dpages evacuate pages-server-UUID
 ```
-
-{% ifversion cluster-node-removal %}
 
 ### ghe-remove-node
 
@@ -825,8 +777,6 @@ Flag | Description
 > [!NOTE]
 > * This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
 > * This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
-
-{% endif %}
 
 ### ghe-spokesctl
 
@@ -901,7 +851,7 @@ nes set-node-adminaction approved HOSTNAME
 To revoke {% data variables.product.prodname_nes %}'s ability to take the node with hostname HOSTNAME offline:
 
 ```shell
-nes set-node-adminaction approved HOSTNAME
+nes set-node-adminaction none HOSTNAME
 ```
 
 To manually update a node's eligibility for re-addition to the cluster:
@@ -1124,8 +1074,6 @@ This utility completely disables replication on an existing replica node, removi
 ghe-repl-teardown
 ```
 
-{% ifversion ghes > 3.13 %}
-
 ### ghe-repl-stop-all
 
 This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
@@ -1133,7 +1081,6 @@ This utility disables replication of all datastores on all replica nodes. Run th
 ### ghe-repl-start-all
 
 This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
-{% endif %}
 
 ## Import and export
 
@@ -1182,8 +1129,6 @@ This utility rewrites the imported repository. This gives you a chance to rename
 ```shell
 git-import-rewrite
 ```
-
-{% ifversion ghes > 3.12 %}
 
 ## License
 
@@ -1241,8 +1186,6 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 # License imported at /data/user/common/enterprise.ghl.
 # License synchronized.
 ```
-
-{% endif %}
 
 ## Security
 
@@ -1410,14 +1353,14 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ## User management
 
-### {% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
+### ghe-license usage
 
 This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
 
-By default, the list of users in the resulting JSON file is encrypted. {% ifversion ghes > 3.12 %}Review optional flags via `ghe-license --help`{% else %}Use the `-h` flag for more options{% endif %}.
+By default, the list of users in the resulting JSON file is encrypted. Review optional flags via `ghe-license --help`.
 
 ```shell
-{% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
+ghe-license usage
 ```
 
 ### ghe-org-membership-update

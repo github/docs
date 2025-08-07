@@ -95,10 +95,8 @@ The following log files contain events related to the configuration of your inst
 
 | Path | Description |
 | :- | :- |
-| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with {% ifversion unique-config-run-logs %}the latest{% else %}each{% endif %} configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply). |
-|  {% ifversion unique-config-run-logs %} |
+| <pre>/data/user/common/ghe-config.log</pre> | Records events associated with the latest configuration run. If a configuration run fails, output to the log stops. This log also records information about migrations that run during the process of upgrading an instance's software. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config-apply). |
 | <pre>/data/user/config-apply/logs/YYYYMMDD/*</pre> | Stores log files for previous configuration runs. The instance stores the files in a directory that reflects the date, and each file name reflects the node and the ID of the run. |
-|  {% endif %} |
 
 ### Log files for search
 

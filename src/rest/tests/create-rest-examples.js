@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import getCodeSamples, { mergeExamples } from '../scripts/utils/create-rest-examples.js'
+import getCodeSamples, { mergeExamples } from '../scripts/utils/create-rest-examples'
 import {
   operation,
   noContent,
@@ -8,7 +8,7 @@ import {
   noResponse,
   oneToOne,
   matchingTags,
-} from '../fixtures/create-rest-examples.js'
+} from '../fixtures/create-rest-examples'
 
 describe('rest example requests and responses', () => {
   // If there is a request with no request body parameters and all of

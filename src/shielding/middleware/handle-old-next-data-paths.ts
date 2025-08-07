@@ -25,7 +25,7 @@ import fs from 'fs'
 import type { Response, NextFunction } from 'express'
 
 import { ExtendedRequest } from '@/types'
-import { errorCacheControl } from '@/frame/middleware/cache-control.js'
+import { errorCacheControl } from '@/frame/middleware/cache-control'
 
 export default function handleOldNextDataPaths(
   req: ExtendedRequest,
@@ -36,7 +36,8 @@ export default function handleOldNextDataPaths(
     const requestBuildId = req.path.split('/')[3]
     if (requestBuildId !== getCurrentBuildID()) {
       errorCacheControl(res)
-      return res.status(404).type('text').send('build ID mismatch')
+      res.status(404).type('text').send('build ID mismatch')
+      return
     }
   }
   return next()

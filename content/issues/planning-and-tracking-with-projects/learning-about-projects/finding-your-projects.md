@@ -16,7 +16,7 @@ topics:
 You can browse all of your projects, regardless of where they are located. You can see the projects you have recently viewed and the projects you have created, and apply your own filters.
 
 1. In the top left of any page, click {% octicon "three-bars" aria-label="Open global navigation menu" %} to open the global navigation menu.
-1. In the menu, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. In the menu, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 {% data reusables.projects.index-select %}
 
 ## Finding an organization's projects
@@ -25,7 +25,7 @@ You can view and filter all the projects owned by an organization that you have 
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under the organization name, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Under the organization name, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 {% data reusables.projects.index-select %}
 
 ## Finding projects owned by your personal account
@@ -33,7 +33,7 @@ You can view and filter all the projects owned by an organization that you have 
 You can view and filter projects that you have created under your personal account.
 
 {% data reusables.profile.access_profile %}
-1. On your profile, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. On your profile, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 {% data reusables.projects.index-select %}
 
 ## Finding projects linked to a repository
@@ -41,7 +41,7 @@ You can view and filter projects that you have created under your personal accou
 Repositories can be linked to organization-level and user-level projects. You can browse and filter the projects that are linked to a specific repository. For more information on linking projects to a repository, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository).
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
-1. Click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 
    ![Screenshot showing a repository's tabs. The "Projects" tab is highlighted with an orange outline.](/assets/images/help/projects-v2/repo-tab.png)
 
@@ -54,7 +54,7 @@ You can also link a project to specific teams in an organization and then browse
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-1. Click **{% octicon "project" aria-hidden="true" %} Projects**.
+1. Click **{% octicon "project" aria-hidden="true" aria-label="project" %} Projects**.
 
    ![Screenshot of the main page for a team. In the horizontal navigation bar, the "Projects" tab is outlined in dark orange.](/assets/images/help/organizations/team-project-board-button.png)
 

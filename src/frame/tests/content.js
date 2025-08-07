@@ -3,7 +3,7 @@ import path from 'path'
 import { describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 
-import createTree from '#src/frame/lib/create-tree.js'
+import createTree from '@/frame/lib/create-tree'
 
 describe('content files', () => {
   test.each(['content', 'src/fixtures/fixtures/content'])(

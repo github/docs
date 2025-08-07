@@ -39,7 +39,7 @@ Billing managers **are not** able to:
 * See private members of your organization
 * Be seen in the list of organization members
 * Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
-* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
+* Purchase, edit, or cancel subscriptions for {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}
 
 > [!TIP]
 > If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
@@ -50,7 +50,7 @@ Billing managers **are not** able to:
 
 >[!NOTE] Enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024, have access to the new billing platform. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the new billing platform.
 >
-> If you are on the new billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform#inviting-a-billing-manager).
+> If you are on the new billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform#inviting-a-billing-manager).
 
 {% endif %}
 

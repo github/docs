@@ -18,4 +18,6 @@ You can submit dependencies in the form of a snapshot. A snapshot is a set of de
 
 You can submit multiple sets of dependencies to be included in your dependency graph. The REST API uses the `job.correlator` property and the `detector.name` category of the snapshot to ensure the latest submissions for each workflow get shown. The `correlator` property itself is the primary field you will use to keep independent submissions distinct. An example `correlator` could be a simple combination of two variables available in actions runs: `<GITHUB_WORKFLOW> <GITHUB_JOB>`.
 
+{% data reusables.dependency-graph.deduplication %}
+
 <!-- Content after this section is automatically generated -->

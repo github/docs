@@ -32,11 +32,11 @@ For prices and monthly allowances, see {% data variables.product.pricing_link %}
 
 ## Adding a payment method
 
-To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription. For instructions, see [AUTOTITLE](/billing/using-the-new-billing-platform/managing-your-payment-and-billing-information).
+To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription. For instructions, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 
 ## Next steps
 
-* To learn more about options for managing billing, see [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform).
+* To learn more about options for managing billing, see [AUTOTITLE](/billing/managing-your-billing/about-the-new-billing-platform).
 * To get started with migrating data to your enterprise, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud).
 
 ## Next steps

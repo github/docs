@@ -1,5 +1,5 @@
-import getRedirect from '#src/redirects/lib/get-redirect.js'
-import { getPathWithoutLanguage, getPathWithoutVersion } from '#src/frame/lib/path-utils.js'
+import getRedirect from '@/redirects/lib/get-redirect'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils'
 
 const liquidStartRex = /^{%-?\s*ifversion .+?\s*%}/
 const liquidEndRex = /{%-?\s*endif\s*-?%}$/

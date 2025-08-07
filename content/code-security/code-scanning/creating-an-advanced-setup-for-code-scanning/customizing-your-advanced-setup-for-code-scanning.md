@@ -38,7 +38,7 @@ You can run {% data variables.product.prodname_code_scanning %} on {% data varia
 
 With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
 
-{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-hidden="true" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
+{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
 
 ## Editing a {% data variables.product.prodname_code_scanning %} workflow
 
@@ -207,23 +207,16 @@ If your workflow does not contain a matrix called `language`, then {% data varia
     languages: c-cpp, csharp, python
 ```
 
-## Defining the alert severities that cause a check failure for a pull request
+> [!NOTE]
+> When analyzing languages sequentially, the default build-mode for every language will be used. Alternatively, if you provide an explicit `autobuild` step, then every language that supports the `autobuild` mode will use it while other languages use their default mode. If a more complex build-mode configuration than this is required, then you will need to use a `language` matrix.
 
-{% ifversion code-scanning-merge-protection-rulesets %}
+## Defining the alert severities that cause a check failure for a pull request
 
 You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% else %}
-
-{% data reusables.code-scanning.pull-request-checks %}
-
-You can edit which severity and security severity alert levels cause a check failure. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#defining-the-alert-severities-that-cause-a-check-failure-for-a-pull-request).
-
-{% endif %}
 
 ## Configuring a category for the analysis
 
@@ -255,11 +248,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models %}
-
 ### Using {% data variables.product.prodname_codeql %} model packs
-
-{% endif %}
 
 To add one or more published {% data variables.product.prodname_codeql %} model packs, specify them inside the `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication) and [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 
@@ -440,15 +429,11 @@ packs:
 
 {% endraw %}
 
-{% ifversion codeql-threat-models %}
-
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 
 {% data reusables.code-scanning.beta-threat-models %}
 
 The default threat model includes remote sources of untrusted data. You can extend the {% data variables.product.prodname_codeql %} threat model to include local sources of untrusted data (for example: command-line arguments, environment variables, file systems, and databases) by specifying `threat-models: local` in a custom configuration file. If you extend the threat model, the default threat model will also be used.
-
-{% endif %}
 
 ### Specifying additional queries
 
@@ -498,7 +483,7 @@ For more information about using `exclude` and `include` filters in your custom 
 
 ### Specifying directories to scan
 
-When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript){% ifversion codeql-no-build %} or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}){% endif %}.
+When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript) or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}).
 
 ``` yaml copy
 paths:
@@ -558,15 +543,7 @@ You can use the same approach to specify any valid configuration options in the 
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
-{% ifversion codeql-no-build %}
-
 For compiled languages, you can decide how the {% data variables.product.prodname_codeql %} action creates a {% data variables.product.prodname_codeql %} database for analysis. For information about the build options available, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
-
-{% else %}
-
-For compiled languages, the {% data variables.product.prodname_codeql %} action builds the codebase to create a {% data variables.product.prodname_codeql %} database for analysis. By default, {% data variables.product.prodname_codeql %} uses `autobuild` steps to identify the most likely build method for the codebase. {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
-
-{% endif %}
 
 ## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 

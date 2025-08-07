@@ -8,7 +8,6 @@ versions:
 children:
   - /about-the-graphql-api
   - /public-schema
-  - /schema-previews
   - /breaking-changes
   - /changelog
   - /explorer

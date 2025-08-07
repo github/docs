@@ -1,6 +1,6 @@
 import { expect } from 'vitest'
 
-import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 export function checkCachingHeaders(res, defaultSurrogateKey = false, minMaxAge = 60 * 60) {
   expect(res.headers['set-cookie']).toBeUndefined()

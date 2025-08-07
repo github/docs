@@ -31,7 +31,7 @@ Once {% data variables.product.prodname_github_connect %} is configured, you can
 
 1. From an enterprise owner account on {% data variables.product.prodname_ghe_server %}, navigate to the repository you want to delete from the _actions_ organization (in this example `checkout`).
 1. By default, site administrators are not owners of the bundled _actions_ organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-label="Site admin" %} in the upper-right corner of any page in that repository.
-1. Click **{% octicon "shield-lock" aria-hidden="true" %} Security** to see an overview of the security for the repository.
+1. Click **{% octicon "shield-lock" aria-hidden="true" aria-label="shield-lock" %} Security** to see an overview of the security for the repository.
 
    ![Screenshot of the site admin details for a repository. The "Security" link is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
 1. Under "Privileged access", click **Unlock**.

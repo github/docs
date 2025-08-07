@@ -1,5 +1,5 @@
 import express from 'express'
-import { noCacheControl } from './cache-control.js'
+import { noCacheControl } from './cache-control'
 
 const router = express.Router()
 

@@ -25,7 +25,7 @@ For information about the latest release, see the [{% data variables.product.pro
 {%- for version in enterpriseServerReleases.supported %}
 {%- assign currentDate = 'now' | date: '%s' %}
 {%- assign deprecationDate = enterpriseServerReleases.dates[version].deprecationDate | date: '%s' %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% if currentDate < deprecationDate %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | Support temporarily extended until further notice | {% octicon "check" aria-label="Supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
@@ -52,6 +52,8 @@ If you run analysis in an external CI system, we recommend using the same versio
 
 | {% data variables.product.prodname_ghe_server %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
+| 3.17 | 2.20.7 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.20.7/)) |
+| 3.16 | 2.20.3 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.20.3/)) |
 | 3.15 | 2.18.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.18.4/)) |
 | 3.14 | 2.17.6 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.17.6/)) |
 | 3.13 | 2.16.5 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.5/)) |
@@ -69,6 +71,7 @@ For instances with {% data variables.product.prodname_actions %} enabled, self-h
 
 | {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
+| 3.17 | 2.322.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.322.0)) |
 | 3.16 | 2.321.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.321.0)) |
 | 3.15 | 2.319.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.319.1)) |
 | 3.14 | 2.317.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.317.0)) |

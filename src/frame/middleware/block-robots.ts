@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from 'express'
 
-import { productMap } from '@/products/lib/all-products.js'
-import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
+import { productMap } from '@/products/lib/all-products'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 const pathRegExps: RegExp[] = [
   // Disallow indexing of WIP products

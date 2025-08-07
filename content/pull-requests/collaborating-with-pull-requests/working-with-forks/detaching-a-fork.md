@@ -10,6 +10,8 @@ topics:
 permissions: People with admin access for a forked repository can delete the forked repository.
 ---
 
+{% ifversion ghes > 3.16 %}
+
 ## Converting a fork into a standalone repository
 
 To turn your fork into a standalone repository, you can leave the fork network ensuring the new repository will no longer automatically sync with changes from the original repository. This is useful when you want to take the work you are doing in a different direction or maintain distinct versions.
@@ -19,12 +21,8 @@ To turn your fork into a standalone repository, you can leave the fork network e
 > * All git commit metadata will be preserved. Commits may become eligible to be counted as contributions if they meet certain criteria. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
 > * Leaving the fork network is **permanent** and the new repository **cannot** be reconnected to the fork network.
 
-{% ifversion ghes %}
-
 > [!NOTE]
 > If you are unable to detach a fork, contact your site administrator.
-
-{% endif %}
 
 ## Leaving the fork network
 
@@ -41,6 +39,8 @@ You can only detach forks with the leave network option when:
 1. Click **Leave fork network**.
 
 While the fork is being detached, some operations will be briefly unavailable until the fork has been transitioned to a standalone repository.
+
+{% endif %}
 
 ## Manually Leaving the fork network
 

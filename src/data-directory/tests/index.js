@@ -3,7 +3,7 @@ import path from 'path'
 
 import { describe, expect, test } from 'vitest'
 
-import dataDirectory from '#src/data-directory/lib/data-directory.js'
+import dataDirectory from '@/data-directory/lib/data-directory'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const fixturesDir = path.join(__dirname, 'fixtures')

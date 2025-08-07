@@ -2,8 +2,8 @@ import { addError } from 'markdownlint-rule-helpers'
 import { TokenKind } from 'liquidjs'
 import path from 'path'
 
-import { getFrontmatter } from '../helpers/utils.js'
-import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils.js'
+import { getFrontmatter } from '../helpers/utils'
+import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 
 export const raiReusableUsage = {
   names: ['GHD035', 'rai-reusable-usage'],

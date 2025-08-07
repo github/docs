@@ -46,6 +46,8 @@ If you are using a {% data variables.product.pat_v2 %}, your {% data variables.p
 
 If you are using a {% data variables.product.pat_v1 %}, it requires specific scopes in order to access each REST API endpoint. For general guidance about what scopes to choose, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes).
 
+{% data variables.product.pat_generic_caps_plural %} act as your identity (limited by the scopes or permissions you selected) when you make requests to the REST API. As such, it is important to keep your {% data variables.product.pat_generic_plural %} secure. For more information about keeping your {% data variables.product.pat_generic_plural %} secure, see [AUTOTITLE](/rest/authentication/keeping-your-api-credentials-secure?apiVersion=2022-11-28).
+
 ### {% data variables.product.pat_generic_caps_plural %} and SAML SSO
 
 {% ifversion fpt or ghec %}If you use a {% data variables.product.pat_v1 %} to access an organization that enforces SAML single sign-on (SSO) for authentication, you will need to authorize your token after creation. {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
@@ -87,7 +89,7 @@ The client ID and client secret are associated with the app, not with the owner 
 
 If you are the owner of a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, or if you are an app manager for a {% data variables.product.prodname_github_app %}, you can find the client ID and generate a client secret on the settings page for your app. To navigate to your app's settings page:
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile photo.
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
 1. Navigate to your account settings.
    * For an app owned by a personal account, click **Settings**.
    * For an app owned by an organization:

@@ -32,7 +32,7 @@ This view shows the alerts in the current repository for a campaign called "SQL 
 If you want to see the code that triggered the security alert and the suggested fix, click on the alert name to show the alert view.
 
 1. When you are ready to work on one or more security alerts, check that no one else is working on those alerts already. In the campaign view, git icons are displayed on alerts where a fix may already be in progress. Click an icon to display the linked work:
-   * {% octicon "git-pull-request-draft" aria-hidden="Draft pull request" %} an open draft pull request may fix this alert.
+   * {% octicon "git-pull-request-draft" aria-hidden="Draft pull request" aria-label="git-pull-request-draft" %} an open draft pull request may fix this alert.
    * {% octicon "git-pull-request" aria-label="Pull request" %} an open pull request may fix this alert.
    * {% octicon "git-branch" aria-label="Branch" %} a branch may contain changes to fix this alert.
 
@@ -47,9 +47,9 @@ If you want to see the code that triggered the security alert and the suggested 
 
 {% ifversion copilot %}
 
-## Using {% data variables.product.prodname_copilot_chat %} for secure coding
+## Using {% data variables.copilot.copilot_chat %} for secure coding
 
-If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
+If you have access to {% data variables.copilot.copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}

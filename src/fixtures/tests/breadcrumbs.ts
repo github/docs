@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('breadcrumbs', () => {
   test('links always prefixed with language', async () => {
@@ -26,7 +26,7 @@ describe('breadcrumbs', () => {
     expect(links.text()).toBe('Bar')
   })
 
-  test('article pages have breadcrumbs in article with product, category, maptopic, and article and last breadcrumb is not viewable', async () => {
+  test('article pages have breadcrumbs in article with product, category, subcategory, and article and last breadcrumb is not viewable', async () => {
     const $ = await getDOM('/get-started/start-your-journey/hello-world')
     const links = $('[data-testid=breadcrumbs-in-article] a')
     expect(links.length).toBe(3)

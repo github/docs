@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Use this script to help you move or rename a single file or a folder. The script will move or rename the file or folder for you, update relevant `children` in the index.md file(s), and add a `redirect_from` to frontmatter in the renamed file(s). Note: You will still need to manually update the `title` if necessary.
@@ -29,8 +27,8 @@ import walk from 'walk-sync'
 import yaml from 'js-yaml'
 import escapeStringRegexp from 'escape-string-regexp'
 
-import fm from '#src/frame/lib/frontmatter.js'
-import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
+import fm from '@/frame/lib/frontmatter'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 
 // This is so you can optionally run it again the test fixtures root.
 const ROOT = process.env.ROOT || '.'
@@ -173,6 +171,9 @@ async function main(opts, nameTuple) {
   // Updating featuredLinks front matter actually doesn't care if
   // the file is a folder or not. It just needs to know the old and new hrefs.
   changeFeaturedLinks(oldHref, newHref)
+
+  // Update any links in ChildGroups on the homepage.
+  changeHomepageLinks(oldHref, newHref, verbose)
 
   if (!undo) {
     if (verbose) {
@@ -583,6 +584,23 @@ function changeLearningTracks(filePath, oldHref, newHref) {
   fs.writeFileSync(filePath, newContent, 'utf-8')
 }
 
+function changeHomepageLinks(oldHref, newHref, verbose) {
+  // Can't deserialize and serialize the Yaml because it would lose
+  // formatting and comments. So regex replace it.
+  // Homepage childGroup links do not have a leading '/', so we need to remove that.
+  const homepageOldHref = oldHref.replace('/', '')
+  const homepageNewHref = newHref.replace('/', '')
+  const escapedHomepageOldHref = escapeStringRegexp(homepageOldHref)
+  const regex = new RegExp(`- ${escapedHomepageOldHref}$`, 'gm')
+  const homepage = path.join(CONTENT_ROOT, 'index.md')
+  const oldContent = fs.readFileSync(homepage, 'utf-8')
+  const newContent = oldContent.replace(regex, `- ${homepageNewHref}`)
+  if (oldContent !== newContent) {
+    fs.writeFileSync(homepage, newContent, 'utf-8')
+    if (verbose) console.log(`Updated homepage links`)
+  }
+}
+
 function changeFeaturedLinks(oldHref, newHref) {
   const allFiles = walk(CONTENT_ROOT, {
     globs: ['**/*.md'],
@@ -590,7 +608,7 @@ function changeFeaturedLinks(oldHref, newHref) {
     directories: false,
   }).filter((file) => !file.includes('README.md'))
 
-  const regex = new RegExp(`(^|%})${escapeStringRegexp(oldHref)}($|{%)`)
+  const regex = new RegExp(`(^|%} )${escapeStringRegexp(oldHref)}($| {%)`)
 
   for (const file of allFiles) {
     let changed = false

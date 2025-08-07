@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { linkQuotation } from '../../lib/linting-rules/link-quotation.js'
+import { runRule } from '../../lib/init-test'
+import { linkQuotation } from '../../lib/linting-rules/link-quotation'
 
 describe(linkQuotation.names.join(' - '), () => {
   test('links that are formatted correctly should not generate an error', async () => {

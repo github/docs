@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Run this script to get all broken docs.github.com links in github/github
@@ -17,7 +15,7 @@ import fs from 'fs/promises'
 import got, { RequestError } from 'got'
 import { program } from 'commander'
 
-import { getContents, getPathsWithMatchingStrings } from 'src/workflows/git-utils'
+import { getContents, getPathsWithMatchingStrings } from '@/workflows/git-utils'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
@@ -47,7 +45,7 @@ main(program.opts(), program.args)
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = {

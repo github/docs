@@ -35,6 +35,9 @@ redirect_from:
 
 ### 1. Obtain the `databaseId` for your enterprise
 
+> [!TIP]
+> Your token will require at minimum `read:enterprise` permissions to perform a successful query.
+
 You can use the following GraphQL query to retrieve your enterprise `databaseId`. You will use the enterprise `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
 
 {% data reusables.enterprise_migrations.retrieve-enterprise-id-graphql %}

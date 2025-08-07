@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import boxen from 'boxen'
 import { HTTPError } from 'got'
 
-import languages from '@/languages/lib/languages.js'
+import languages from '@/languages/lib/languages'
 import parsePageSectionsIntoRecords from '@/search/scripts/scrape/lib/parse-page-sections-into-records'
 import getPopularPages from '@/search/scripts/scrape/lib/popular-pages'
 import domwaiter from '@/search/scripts/scrape/lib/domwaiter'

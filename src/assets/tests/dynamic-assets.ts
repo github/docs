@@ -3,8 +3,8 @@ import { describe, expect, test, vi } from 'vitest'
 import sharp from 'sharp'
 import { fileTypeFromBuffer } from 'file-type'
 
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { get, head } from '@/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { get, head } from '@/tests/helpers/e2etest'
 
 describe('dynamic assets', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })

@@ -17,7 +17,7 @@ shortTitle: Transfer ownership
 
 ## About transferring {% data variables.product.prodname_github_apps %}
 
-The owner of a {% data variables.product.prodname_github_app %} registration can transfer ownership of the {% data variables.product.prodname_github_app %} registration to another account. If an organization has designated any app managers for an app owned by the organization, the app managers can also transfer ownership of the {% data variables.product.prodname_github_app %} registration. For more information about app managers, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization).
+The owner of a {% data variables.product.prodname_github_app %} registration can transfer ownership of the {% data variables.product.prodname_github_app %} registration to another account. App managers can also transfer ownership of the {% data variables.product.prodname_github_app %} registration. For more information about app managers, see [AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers).
 
 You can transfer apps from a user or organization to another account. You cannot transfer ownership to a team.
 

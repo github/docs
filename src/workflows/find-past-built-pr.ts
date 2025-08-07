@@ -1,10 +1,9 @@
-#!/usr/bin/env node
 import got from 'got'
 
 import { setOutput } from '@actions/core'
 
-import github from './github.js'
-import { getActionContext } from './action-context.js'
+import github from './github'
+import { getActionContext } from './action-context'
 import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry'
 
 async function main() {

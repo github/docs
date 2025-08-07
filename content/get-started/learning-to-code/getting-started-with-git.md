@@ -63,7 +63,7 @@ When you create a new branch, you're creating a safe space to work on a new feat
 
 Let's create a branch to work on changes in our repository:
 
-1. In {% data variables.product.prodname_desktop %}, select the {% octicon "git-branch" aria-hidden="true" %} **Current Branch** dropdown menu, then click **New Branch**.
+1. In {% data variables.product.prodname_desktop %}, select the {% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} **Current Branch** dropdown menu, then click **New Branch**.
 1. Name your new branch `readme-updates`, then click **Create Branch**.
 
 ### Saving snapshots of your project
@@ -103,7 +103,7 @@ When you're happy with the changes you've made on a branch, you can publish your
 
 Congratulations on merging your first pull request! Now that you've successfully brought your changes into the `main` branch, there are a few steps you should take to get ready for your next round of changes:
 
-1. In {% data variables.product.prodname_desktop %}, if you aren't on the `main` branch, select the {% octicon "git-branch" aria-hidden="true" %} **Current Branch** dropdown menu, then click **main**.
+1. In {% data variables.product.prodname_desktop %}, if you aren't on the `main` branch, select the {% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} **Current Branch** dropdown menu, then click **main**.
 
    You should almost always switch back to the `main` branch before creating a new branch, since new branches are created as copies of the currently selected branch.
 1. To check if any changes have been made to your remote `main` branch, click **Fetch origin**.
@@ -129,7 +129,7 @@ Before you start working with the command line, you need to set up a few tools.
     ```
 
     Choose to authenticate with **{% data variables.product.prodname_dotcom_the_website %}**, then follow the on-screen prompts.
-1. Install {% data variables.product.prodname_copilot_cli %}, a powerful extension for the {% data variables.product.prodname_cli %} that helps you find and understand commands, by running the following command:
+1. Install {% data variables.copilot.copilot_cli %}, a powerful extension for the {% data variables.product.prodname_cli %} that helps you find and understand commands, by running the following command:
 
     ```shell copy
     gh extension install github/gh-copilot

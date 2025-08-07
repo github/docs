@@ -4,7 +4,7 @@ import { readFile } from 'fs/promises'
 import walk from 'walk-sync'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import { liquid } from '#src/content-render/index.js'
+import { liquid } from '@/content-render/index'
 
 const learningTrackRootPath = 'data/learning-tracks'
 const yamlWalkOptions = {

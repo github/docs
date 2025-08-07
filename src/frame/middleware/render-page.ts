@@ -5,16 +5,16 @@ import type { Response } from 'express'
 import type { Failbot } from '@github/failbot'
 
 import type { ExtendedRequest } from '@/types'
-import FailBot from '@/observability/lib/failbot.js'
-import patterns from '@/frame/lib/patterns.js'
-import getMiniTocItems from '@/frame/lib/get-mini-toc-items.js'
-import { pathLanguagePrefixed } from '@/languages/lib/languages.js'
-import statsd from '@/observability/lib/statsd.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import FailBot from '@/observability/lib/failbot'
+import patterns from '@/frame/lib/patterns'
+import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
+import { pathLanguagePrefixed } from '@/languages/lib/languages'
+import statsd from '@/observability/lib/statsd'
+import { allVersions } from '@/versions/lib/all-versions'
 import { isConnectionDropped } from './halt-on-dropped-connection'
-import { nextHandleRequest } from './next.js'
-import { defaultCacheControl } from './cache-control.js'
-import { minimumNotFoundHtml } from '../lib/constants.js'
+import { nextHandleRequest } from './next'
+import { defaultCacheControl } from './cache-control'
+import { minimumNotFoundHtml } from '../lib/constants'
 
 const STATSD_KEY_RENDER = 'middleware.render_page'
 const STATSD_KEY_404 = 'middleware.render_404'
@@ -75,7 +75,6 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
 
     statsd.increment(STATSD_KEY_404, 1, [
       `url:${req.url}`,
-      `ip:${req.ip}`,
       `path:${req.path}`,
       `referer:${req.headers.referer || ''}`,
     ])
@@ -109,7 +108,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
     // It's important to not use `src/pages/404.txt` (or `/404` as the path)
     // here because then it will set the wrong Cache-Control header.
     tempReq.url = '/_notfound'
-    tempReq.path = '/_notfound'
+    Object.defineProperty(tempReq, 'path', { value: '/_notfound', writable: true })
     tempReq.cookies = {}
     tempReq.headers = {}
     // By default, since the lookup for a `src/pages/*.tsx` file will work,
