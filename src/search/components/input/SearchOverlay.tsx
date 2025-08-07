@@ -33,7 +33,7 @@ import {
 } from '../helpers/execute-search-actions'
 
 import styles from './SearchOverlay.module.scss'
-import { Banner } from '@primer/react/drafts'
+import { Banner } from '@primer/react/experimental'
 import { useCombinedSearchResults } from '@/search/components/hooks/useAISearchAutocomplete'
 import { AskAIResults } from './AskAIResults'
 import { sendEvent, uuidv4 } from '@/events/components/events'

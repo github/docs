@@ -36,6 +36,8 @@ export default {
       'color-4-api',
       'mixed-decls',
     ],
+    // Allow resolving our local stubs for removed @primer/view-components sass partials
+    includePaths: [path.join(process.cwd(), 'src/frame/stylesheets/vendor')],
   },
   // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
   // See `src/observability/logger/README.md` for log levels
@@ -53,6 +55,16 @@ export default {
     config.experiments = config.experiments || {}
     config.experiments.topLevelAwait = true
     config.resolve.fallback = { fs: false, async_hooks: false }
+    // Alias missing Ruby view-components SCSS imports to local empty stubs
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      '@primer/view-components': path.join(
+        process.cwd(),
+        'src/frame/stylesheets/vendor/@primer/view-components',
+      ),
+      // Force ESM build of @primer/react so restored TabNav export is used and to avoid CJS CSS requires
+      '@primer/react$': path.join(process.cwd(), 'node_modules/@primer/react/lib-esm/index.js'),
+    }
     return config
   },
 
