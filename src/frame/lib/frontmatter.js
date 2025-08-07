@@ -14,6 +14,9 @@ const layoutNames = [
   'release-notes',
   'inline',
   'category-landing',
+  'bespoke-landing',
+  'discovery-landing',
+  'journey-landing',
   false,
 ]
 
@@ -324,6 +327,11 @@ export const schema = {
         additionalProperties: false,
       },
       description: 'Array of articles to feature in the spotlight section',
+    },
+    // Recommended configuration for category landing pages
+    recommended: {
+      type: 'array',
+      description: 'Array of articles to feature in the carousel section',
     },
   },
 }
