@@ -286,6 +286,9 @@ predicates.
 `fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
+`overlay`: Trim to just the data that will be useful when evaluating
+against an overlay.
+
 #### `--cleanup-upgrade-backups`
 
 Delete any backup directories resulting from database upgrades.
@@ -311,7 +314,7 @@ configuration files that should work in most situations.
 
 \[Advanced] The directory in which the specified command should be
 executed. If this argument is not provided, the command is executed in
-the value of `--source-root` passed to [codeql database create](/code-security/codeql-cli/codeql-cli-manual/database-create), if one exists. If no `--source-root` argument is provided, the command is executed in the
+the value of `--source-root` passed to codeql database create, if one exists. If no `--source-root` argument is provided, the command is executed in the
 current working directory.
 
 #### `--no-run-unnecessary-builds`

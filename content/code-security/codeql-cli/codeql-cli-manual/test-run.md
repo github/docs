@@ -275,7 +275,7 @@ timed parts are "RA layers" of the optimized query, but that might
 change in the future.
 
 If no timeout is specified, or is given as 0, no timeout will be set
-(except for [codeql test run](/code-security/codeql-cli/codeql-cli-manual/test-run), where the default timeout is 5 minutes).
+(except for codeql test run, where the default timeout is 5 minutes).
 
 #### `-j, --threads=<num>`
 

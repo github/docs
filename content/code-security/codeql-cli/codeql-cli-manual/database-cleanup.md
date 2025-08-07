@@ -84,6 +84,9 @@ predicates.
 `fit`: Simply make sure the defined size limits for the disk cache are
 observed, deleting as many intermediates as necessary.
 
+`overlay`: Trim to just the data that will be useful when evaluating
+against an overlay.
+
 #### `--cleanup-upgrade-backups`
 
 Delete any backup directories resulting from database upgrades.
