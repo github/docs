@@ -22193,6 +22193,14 @@
           ]
         },
         {
+          "name": "securityContactEmail",
+          "description": "<p>The enterprise's security contact email address.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "slug",
           "description": "<p>The URL-friendly identifier for the enterprise.</p>",
           "type": "String!",
@@ -89628,6 +89636,18 @@
           "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
         },
         {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "CLOSED_EVENT",
           "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
         },
@@ -91757,6 +91777,18 @@
         {
           "name": "BLOCKED_BY_ADDED_EVENT",
           "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
         },
         {
           "name": "CLOSED_EVENT",
@@ -109344,6 +109376,14 @@
         {
           "name": "name",
           "description": "<p>The name of the enterprise.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "securityContactEmail",
+          "description": "<p>The security contact email address of the enterprise.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",

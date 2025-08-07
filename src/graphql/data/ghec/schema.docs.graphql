@@ -13468,6 +13468,11 @@ type Enterprise implements Node {
   ): RepositoryRulesetConnection
 
   """
+  The enterprise's security contact email address.
+  """
+  securityContactEmail: String
+
+  """
   The URL-friendly identifier for the enterprise.
   """
   slug: String!
@@ -20310,6 +20315,21 @@ enum IssueTimelineItemsItemType {
   Represents a 'blocked_by_added' event on a given issue.
   """
   BLOCKED_BY_ADDED_EVENT
+
+  """
+  Represents a 'blocked_by_removed' event on a given issue.
+  """
+  BLOCKED_BY_REMOVED_EVENT
+
+  """
+  Represents a 'blocking_added' event on a given issue.
+  """
+  BLOCKING_ADDED_EVENT
+
+  """
+  Represents a 'blocking_removed' event on a given issue.
+  """
+  BLOCKING_REMOVED_EVENT
 
   """
   Represents a 'closed' event on any `Closable`.
@@ -42961,6 +42981,21 @@ enum PullRequestTimelineItemsItemType {
   BLOCKED_BY_ADDED_EVENT
 
   """
+  Represents a 'blocked_by_removed' event on a given issue.
+  """
+  BLOCKED_BY_REMOVED_EVENT
+
+  """
+  Represents a 'blocking_added' event on a given issue.
+  """
+  BLOCKING_ADDED_EVENT
+
+  """
+  Represents a 'blocking_removed' event on a given issue.
+  """
+  BLOCKING_REMOVED_EVENT
+
+  """
   Represents a 'closed' event on any `Closable`.
   """
   CLOSED_EVENT
@@ -64633,6 +64668,11 @@ input UpdateEnterpriseProfileInput {
   The name of the enterprise.
   """
   name: String
+
+  """
+  The security contact email address of the enterprise.
+  """
+  securityContactEmail: String
 
   """
   The URL of the enterprise's website.

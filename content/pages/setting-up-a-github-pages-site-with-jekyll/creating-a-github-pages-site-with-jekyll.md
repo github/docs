@@ -17,6 +17,8 @@ shortTitle: Create site with Jekyll
 
 
 
+{% data reusables.pages.actions-is-preferred %}
+
 ## Prerequisites
 
 Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and [AUTOTITLE](/get-started/git-basics/set-up-git).

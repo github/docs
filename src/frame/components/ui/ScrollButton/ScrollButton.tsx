@@ -18,6 +18,14 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
     // We cannot determine document.documentElement.scrollTop height because we set the height: 100vh and set overflow to auto to keep the header sticky
     // That means window.scrollTop height is always 0
     // Using IntersectionObserver we can determine if the h1 header is in view or not. If not, we show the scroll to top button, if so, we hide it
+    const h1Element = document.getElementsByTagName('h1')[0]
+    if (!h1Element) {
+      if (process.env.NODE_ENV !== 'production') {
+        throw new Error('No h1 element found in the document.')
+      }
+      return
+    }
+
     const observer = new IntersectionObserver(
       function (entries) {
         if (entries[0].isIntersecting === false) {
@@ -28,7 +36,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
       },
       { threshold: [0] },
     )
-    observer.observe(document.getElementsByTagName('h1')[0])
+    observer.observe(h1Element)
     return () => {
       observer.disconnect()
     }

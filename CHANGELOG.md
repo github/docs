@@ -1,5 +1,15 @@
 # Docs changelog
 
+**4 August 2025**
+
+To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)". 
+
+The new guide incorporates cross-platform GitHub tools, as well as opinionated guidance from GitHub's secret scanning team, to walk the developer through a thorough remediation process.
+
+It also clearly communicates the risks of leaked secrets, the challenges of remediation, and the value of enabling [GitHub Secret Protection](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
+
+<hr>
+
 **28 July 2025**
 
 We have restructured the general "[Billing and payments](https://docs.github.com/en/billing)" articles to align with the Copilot and Actions docs. In addition, we've combined a few old "About" articles to directly answer common questions that new users have: [How GitHub billing works](https://docs.github.com/en/billing/get-started/how-billing-works) and [Introduction to billing and licensing](https://docs.github.com/en/billing/get-started/introduction-to-billing).

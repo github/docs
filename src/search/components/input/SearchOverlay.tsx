@@ -5,13 +5,11 @@ import {
   ActionList,
   Box,
   IconButton,
-  Link,
   Overlay,
   Spinner,
   Stack,
   Text,
   TextInput,
-  Token,
 } from '@primer/react'
 import {
   SearchIcon,
@@ -31,18 +29,18 @@ import {
   executeGeneralSearch,
   GENERAL_SEARCH_CONTEXT,
 } from '../helpers/execute-search-actions'
-
-import styles from './SearchOverlay.module.scss'
 import { Banner } from '@primer/react/drafts'
 import { useCombinedSearchResults } from '@/search/components/hooks/useAISearchAutocomplete'
 import { AskAIResults } from './AskAIResults'
 import { sendEvent, uuidv4 } from '@/events/components/events'
-import { getIsStaff } from '@/events/components/dotcom-cookies'
 import { EventType } from '@/events/types'
 import { ASK_AI_EVENT_GROUP, SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
+import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
+
 import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
-import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
+
+import styles from './SearchOverlay.module.scss'
 
 type Props = {
   searchOverlayOpen: boolean
@@ -783,36 +781,6 @@ export function SearchOverlay({
           }}
         />
         <div key="description" className={styles.footer}>
-          <Box
-            sx={{
-              display: 'flex',
-              alignContent: 'start',
-              alignItems: 'start',
-            }}
-          >
-            <Token
-              as="span"
-              text="Beta"
-              className={styles.betaToken}
-              sx={{
-                backgroundColor: 'var(--overlay-bg-color)',
-              }}
-            />
-            <Link
-              onClick={async () => {
-                if (await getIsStaff()) {
-                  // Hubbers users use an internal discussion for feedback
-                  window.open('https://github.com/github/docs-team/discussions/5172', '_blank')
-                } else {
-                  // public discussion for feedback
-                  window.open('https://github.com/orgs/community/discussions/164214', '_blank')
-                }
-              }}
-              as="button"
-            >
-              <u>{t('search.overlay.give_feedback')}</u>
-            </Link>
-          </Box>
           <Text
             as="p"
             sx={{
