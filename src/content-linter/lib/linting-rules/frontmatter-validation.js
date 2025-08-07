@@ -1,6 +1,13 @@
 import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
 
+// Strip liquid tags from text for character counting purposes
+function stripLiquidTags(text) {
+  if (typeof text !== 'string') return text
+  // Remove both {% %} and {{ }} liquid tags
+  return text.replace(/\{%.*?%\}/g, '').replace(/\{\{.*?\}\}/g, '')
+}
+
 export const frontmatterValidation = {
   names: ['GHD055', 'frontmatter-validation'],
   description:
@@ -75,12 +82,13 @@ export const frontmatterValidation = {
     }
 
     // Cross-property validation: if title is longer than shortTitle limit, shortTitle must exist
-    if (fm.title && fm.title.length > rules.shortTitle.max && !fm.shortTitle) {
+    const strippedTitle = stripLiquidTags(fm.title)
+    if (fm.title && strippedTitle.length > rules.shortTitle.max && !fm.shortTitle) {
       const titleLine = findPropertyLine(params.lines, 'title')
       addError(
         onError,
         titleLine,
-        `Title is ${fm.title.length} characters, which exceeds the shortTitle limit of ${rules.shortTitle.max} characters. A shortTitle must be provided.`,
+        `Title is ${strippedTitle.length} characters, which exceeds the shortTitle limit of ${rules.shortTitle.max} characters. A shortTitle must be provided.`,
         fm.title,
         null,
         null,
@@ -108,7 +116,8 @@ export const frontmatterValidation = {
 }
 
 function validatePropertyLength(onError, lines, propertyName, propertyValue, limits, displayName) {
-  const propertyLength = propertyValue.length
+  const strippedValue = stripLiquidTags(propertyValue)
+  const propertyLength = strippedValue.length
   const propertyLine = findPropertyLine(lines, propertyName)
 
   // Only report the most severe error - maximum takes precedence over recommended
