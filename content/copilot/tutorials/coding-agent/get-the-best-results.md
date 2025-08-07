@@ -79,7 +79,9 @@ If {% data variables.product.prodname_copilot_short %} is able to build, test an
 
 You can add instructions in a single `.github/copilot-instructions.md` file in the repository, or create one or more `.github/instructions/**/*.instructions.md` files applying to different files or directories in your repository. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
 
-Here is an example of an effective `copilot-instructions.md` file:
+The first time you ask {% data variables.product.prodname_copilot_short %} to create a pull request in a given repository, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions. You can also ask {% data variables.product.prodname_copilot_short %} to generate custom instructions for you at any time using our recommended prompt. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui#asking-copilot-coding-agent-to-generate-a-githubcopilot-instructionsmd-file).
+
+You can also choose to write your own custom instructions at any time. Here is an example of an effective `copilot-instructions.md` file:
 
 ```markdown
 This is a Go based repository with a Ruby client for certain API endpoints. It is primarily responsible for ingesting metered usage for GitHub and recording that usage. Please follow these guidelines when contributing:

@@ -26,7 +26,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 2. Installation and Use Rights.
 
-  a. **General**. GitHub grants you a limited right to use a non-production instance of the software. You may use any number of copies of the software to develop and test your applications, including deployment within your internal corporate network. You may also use the software in demonstrating your applications.
+  a. **General**. GitHub grants you a limited right to use a non-production instance of the software for evaluation and testing. This means you may use any number of copies of the software to evaluate its functionality and internally develop and test your applications, including deployment of the software within your internal corporate network for evaluation but not external distribution. You may also use the software in internally demonstrating your applications, but may not use the pre-release software in any active production environment, including any use to process live customer data.
 
   b. **Inclusion of Third-Party Components.** The software may include third-party components with separate legal notices or governed by other agreements, as may be described in a license file accompanying the software.
 

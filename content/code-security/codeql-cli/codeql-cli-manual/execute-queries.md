@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/execute-queries
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -32,7 +35,7 @@ codeql execute queries [--output=<dir|file.bqrs>] [--threads=<num>] <options>...
 \[Plumbing] Run one or more queries against a dataset.
 
 This command should not normally be invoked directly. Instead use either
-[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries) or [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which will start [codeql execute queries](/code-security/codeql-cli/codeql-cli-manual/execute-queries) with specific JVM options to tune the performance of the QL evaluator.
+[codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries) or [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which will start codeql execute queries with specific JVM options to tune the performance of the QL evaluator.
 
 ## Options
 
