@@ -24,7 +24,7 @@ contentType: how-tos
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}
 
-When you upgrade an app, your payment method is charged a prorated amount based on the time remaining until your next billing date. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
+**When you upgrade an app, your payment method is charged a prorated amount based on the time remaining until your next billing date**. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
 
 ## Upgrading an app for your personal account
 
