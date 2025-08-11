@@ -40,6 +40,11 @@ contentType: concepts
 > [!NOTE] This version of this article is about custom instructions in Xcode. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
 {% endxcode %}
 
+{% eclipse %}
+
+> [!NOTE] This version of this article is about custom instructions in Eclipse. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
+{% endeclipse %}
+
 ## About customizing {% data variables.copilot.copilot_chat %} responses
 
 {% webui %}
@@ -94,6 +99,17 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 {% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
 {% endxcode %}
+
+{% eclipse %}
+
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+There are two types of repository custom instructions you can use to provide context and instructions to {% data variables.copilot.copilot_chat_short %} in Eclipse:
+
+* **Workspace custom instructions** which apply to all projects in a workspace, and allow you to specify workspace-wide instructions and preferences, in a single file.
+* **Project custom instructions** which apply to a specific project.
+
+{% endeclipse %}
 
 {% webui %}
 
@@ -243,6 +259,26 @@ Common use cases include:
 
 {% endxcode %}
 
+{% eclipse %}
+
+## About repository custom instructions
+
+**Workspace custom instructions** apply to all projects in a workspace, and allow you to specify workspace-wide instructions and preferences. You can use workspace custom instructions to provide context and instructions to {% data variables.copilot.copilot_chat_short %} in Eclipse.
+
+**Project custom instructions** consist of a single file, `.github/copilot-instructions.md`, that you create in a project. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+
+Common use cases include:
+
+* **Test generation.** Create instructions for test generation, such as specifying the use of a certain test framework.
+* **Code review.** Specify instructions for reviewing code, such as telling a reviewer to look for a specific error in the code.
+* **Commit message generation.** Write instructions for generating commit messages, such as format or the type of information to include.
+
+### Example
+
+{% data reusables.copilot.repository-custom-instructions-example %}
+
+{% endeclipse %}
+
 ## Writing effective custom instructions
 
 The instructions you add should ideally be short, self-contained statements provide {% data variables.product.prodname_copilot_short %} with relevant information to help it work.
@@ -292,3 +328,15 @@ Answer all questions in less than 1000 characters, and words of no more than 12 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
 
 {% endjetbrains %}
+
+{% xcode %}
+
+* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+
+{% endxcode %}
+
+{% eclipse %}
+
+* [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+
+{% endeclipse %}
