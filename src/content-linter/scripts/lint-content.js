@@ -551,7 +551,8 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       continue
     }
 
-    if (runRules && !runRules.includes(ruleName)) continue
+    // Check if the rule should be included based on user-specified rules
+    if (runRules && !shouldIncludeRule(ruleName, runRules)) continue
 
     // Skip british-english-quotes rule in CI/PRs (only run in pre-commit)
     if (ruleName === 'british-english-quotes' && !isPrecommit) continue
@@ -638,6 +639,29 @@ function getCustomRule(ruleName) {
   return rule
 }
 
+// Check if a rule should be included based on user-specified rules
+// Handles both short names (e.g., GHD053, MD001) and long names (e.g., header-content-requirement, heading-increment)
+export function shouldIncludeRule(ruleName, runRules) {
+  // First check if the rule name itself is in the list
+  if (runRules.includes(ruleName)) {
+    return true
+  }
+
+  // For custom rules, check if any of the rule's names (short or long) are in the runRules list
+  const customRule = customRules.find((rule) => rule.names.includes(ruleName))
+  if (customRule) {
+    return customRule.names.some((name) => runRules.includes(name))
+  }
+
+  // For built-in markdownlint rules, check if any of the rule's names are in the runRules list
+  const builtinRule = allRules.find((rule) => rule.names.includes(ruleName))
+  if (builtinRule) {
+    return builtinRule.names.some((name) => runRules.includes(name))
+  }
+
+  return false
+}
+
 /*
   The severity of the search-replace custom rule is embedded in
   each individual search rule. This function returns the severity
@@ -681,9 +705,7 @@ function isOptionsValid() {
   }
 
   // rules should only contain existing, correctly spelled rules
-  const allRulesList = Object.values(allRules)
-    .map((rule) => rule.names)
-    .flat()
+  const allRulesList = [...allRules.map((rule) => rule.names).flat(), ...Object.keys(allConfig)]
   const rules = program.opts().rules || []
   for (const rule of rules) {
     if (!allRulesList.includes(rule)) {

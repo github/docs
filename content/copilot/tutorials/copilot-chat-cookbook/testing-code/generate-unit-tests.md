@@ -14,6 +14,7 @@ complexity:
 octicon: beaker
 topics:
   - Copilot
+contentType: tutorials
 ---
 
 A good suite of unit tests is critical to the success of any project. However, writing these tests can be time-consuming and are often neglected. {% data variables.copilot.copilot_chat_short %} can help generate these tests for you.

@@ -1,3 +1,14 @@
+- provider: 1Password
+  supportedSecret: 1Password Service Account Token
+  secretType: 1password_service_account_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Adafruit
   supportedSecret: Adafruit IO Key
   secretType: adafruit_io_key
@@ -82,6 +93,28 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Airtable
+  supportedSecret: Airtable API Key
+  secretType: airtable_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Airtable
+  supportedSecret: Airtable Personal Access Token
+  secretType: airtable_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Aiven
   supportedSecret: Aiven Auth Token
   secretType: aiven_auth_token
@@ -104,6 +137,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Akamai
+  supportedSecret: Akamai API Credentials
+  secretType: akamai_api_credentials
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Alibaba
@@ -131,6 +175,17 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Amazon AWS
+  supportedSecret: Amazon AWS API Key ID
+  secretType: aws_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Amazon AWS
   supportedSecret: Amazon AWS Session Token
   secretType: >-
     aws_secret_access_key </br>aws_session_token
@@ -154,7 +209,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Anthropic
   supportedSecret: Anthropic API Key
@@ -166,7 +221,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Anthropic
   supportedSecret: Anthropic Session ID
@@ -211,7 +266,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify Integration API Token
@@ -267,7 +322,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Asana
   supportedSecret: Asana Legacy Format Personal Access Token
@@ -1247,7 +1302,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Bitrise
   supportedSecret: Bitrise Workspace API Token
@@ -1598,6 +1653,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  isduplicate: false
+- provider: Cohere
+  supportedSecret: Cohere API Key
+  secretType: cohere_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Contentful
@@ -1610,7 +1676,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Web Token
@@ -1740,6 +1806,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: DeepSeek
+  supportedSecret: DeepSeek API Key
+  secretType: deepseek_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Defined Networking
   supportedSecret: Defined Networking Managed Nebula API Key
   secretType: defined_networking_nebula_api_key
@@ -1798,7 +1875,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean Personal Access Token
@@ -1810,7 +1887,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean Refresh Token
@@ -1978,7 +2055,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Dropbox
   supportedSecret: Dropbox Short-Lived Access Token
@@ -2002,7 +2079,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Duffel
   supportedSecret: Duffel Test Access Token
@@ -2014,7 +2091,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Dynatrace
   supportedSecret: Dynatrace API Token
@@ -2086,6 +2163,17 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Elastic
+  supportedSecret: Elastic Cloud API Key
+  secretType: elastic_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Facebook
@@ -2206,7 +2294,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub App Installation Access Token
@@ -2302,7 +2390,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
@@ -2393,6 +2481,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Google
+  supportedSecret: Google Gemini API Key
+  secretType: google_gemini_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Google
   supportedSecret: Google OAuth Access Token
   secretType: google_oauth_access_token
   versions:
@@ -2450,7 +2549,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Grafana
   supportedSecret: Grafana Project API Key
@@ -2534,7 +2633,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Heroku
   supportedSecret: Heroku Platform API OAuth2 Token
@@ -2714,7 +2813,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Intercom
   supportedSecret: Intercom Access Token
@@ -2797,6 +2896,28 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: Langchain API Personal Key
+  secretType: langchain_api_personal_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: Langchain API Server Key
+  secretType: langchain_api_server_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: LaunchDarkly
@@ -3131,6 +3252,17 @@
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
+- provider: Mistral AI
+  supportedSecret: Mistral AI API Key
+  secretType: mistral_ai_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: MongoDB
   supportedSecret: MongoDB Atlas Database URI with credentials
   secretType: mongodb_atlas_db_uri_with_credentials
@@ -3334,6 +3466,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Notion
+  supportedSecret: Notion API Token
+  secretType: notion_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Notion
   supportedSecret: Notion Integration Token
   secretType: notion_integration_token
   versions:
@@ -3513,6 +3656,17 @@
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
+- provider: Openweather
+  supportedSecret: Openweather API Key
+  secretType: openweather_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Oracle
   supportedSecret: Oracle API Key
   secretType: oracle_api_key
@@ -3579,6 +3733,17 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.18'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Perplexity
+  supportedSecret: Perplexity API Key
+  secretType: perplexity_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3725,9 +3890,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  isduplicate: false
+  hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Authorization Code
   secretType: polar_authorization_code
@@ -3737,9 +3902,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Client Registration Token
   secretType: polar_client_registration_token
@@ -3749,9 +3914,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Client Secret
   secretType: polar_client_secret
@@ -3761,7 +3926,18 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Polar
+  supportedSecret: Polar Customer Session Token
+  secretType: polar_customer_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Polar
@@ -3773,9 +3949,9 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Polar
   supportedSecret: Polar Refresh Token
   secretType: polar_refresh_token
@@ -3785,7 +3961,18 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: true
+- provider: Polar
+  supportedSecret: Polar User Session Token
+  secretType: polar_user_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Postman
@@ -3954,7 +4141,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: redirect.pizza
   supportedSecret: redirect.pizza API Token
@@ -4014,7 +4201,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Salesforce
   supportedSecret: Salesforce OAuth2 Consumer Key
@@ -4369,7 +4556,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
@@ -4384,7 +4571,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph Dotcom User Gateway Access Token
@@ -4408,7 +4595,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph License Key Token
@@ -4600,7 +4787,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Telegram
   supportedSecret: Telegram Bot Token
@@ -4624,7 +4811,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Tencent
   supportedSecret: Tencent Cloud International Access Token
@@ -4754,7 +4941,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: VolcEngine
   supportedSecret: VolcEngine Access Key ID
@@ -4816,6 +5003,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Weights & Biases
+  supportedSecret: Weights & Biases API Key
+  secretType: wandb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Workato
   supportedSecret: Workato Developer API Token
   secretType: workato_developer_api_token
@@ -4826,7 +5024,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: WorkOS
   supportedSecret: WorkOS Production API Key
@@ -4874,7 +5072,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud Access Secret

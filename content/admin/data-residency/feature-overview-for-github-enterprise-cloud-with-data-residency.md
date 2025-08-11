@@ -25,12 +25,9 @@ The following features are currently unavailable on {% data variables.enterprise
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
 | {% data variables.product.prodname_importer %} (the "Import repository" button on {% data variables.product.prodname_dotcom_the_website %}) | Instead, the **{% data variables.product.prodname_importer_proper_name %}** is available to migrate data. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer). | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
-| {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | N/A |
-| {% data variables.copilot.copilot_extensions %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat) |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable | [AUTOTITLE](/rest/copilot/copilot-metrics) |
 | {% data variables.copilot.copilot_coding_agent %} | Currently unavailable | [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent) |
 | Restricting {% data variables.product.prodname_actions %} policies to verified creators | Currently unavailable | [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allow-enterprise-and-select-non-enterprise-actions-and-reusable-workflows) |
-| Billing for premium requests in {% data variables.product.prodname_copilot_short %} | Currently unavailable | [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/understanding-and-managing-requests-in-copilot) |
 | {% data variables.product.prodname_github_models %} |  Currently unavailable | [AUTOTITLE](/github-models/about-github-models) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} | |
 

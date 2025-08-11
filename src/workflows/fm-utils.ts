@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
 // Filters out files from a list of filePaths
 // that have a type property in their frontmatter

@@ -2,6 +2,7 @@
 title: 'Viewing the secret risk assessment report for your organization'
 shortTitle: 'View secret risk assessment'
 intro: 'You can generate and view the {% data variables.product.prodname_secret_risk_assessment %} report for your organization from the "Security" tab.'
+product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 allowTitleToDifferFromFilename: true
 type: how_to

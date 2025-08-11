@@ -33,6 +33,8 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | CoreWeave, Inc.                 | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Fastly                          | Content delivery service                                                       | United States                                     | United States      |
 | Google Cloud Platform (GCP)     | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium, Singapore                 | United States      |
+| Hewlett-Packard Limited         | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
+| LambdaTest                      | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Microsoft (Azure)               | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
 | Microsoft (Azure)               | Cognitive Services and customer support ticketing analysis                     | United States                                     | United States      |
 | Microsoft                       | Technical Services                                                             | Australia, Brazil, Canada, France, Japan, Norway, Spain, Sweden, Switzerland, United Kingdom, United States | United States|
@@ -40,6 +42,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | NexMo Inc (aka Vonage)          | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | Obsidian Security               | Security management                                                            | United States                                     | United States      |
 | OpenAI                          | AI Inference and AI Services                                                   | United States                                     | United States      |
+| Oracle America, Inc.            | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Pusher                          | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
 | Twilio     (SendGrid)           | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | Zendesk                         | Customer support ticketing system                                              | United States                                     | United States      |

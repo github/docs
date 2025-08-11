@@ -102,7 +102,7 @@ For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-gi
 
 * Purpose: Set a human-friendly title for use in the rendered page's `<title>` tag and an `h1` element at the top of the page.
 * Type: `String`
-* Optional. If omitted, the page `<title>` will still be set, albeit with a generic value like `GitHub.com` or `GitHub Enterprise`.
+* **Required**.
 
 ### `shortTitle`
 

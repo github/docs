@@ -18,6 +18,10 @@
 - startsWith: https://classroom.github.com/videos
 - startsWith: https://developer.anthology.com/portal
 
+# Links to github.com/github-early-access that will 404 unless you are
+# an organization member. Should only be used on early-access docs.
+- startsWith: https://github.com/github-early-access
+
 # Oneoff links that link checkers think are broken but are not.
 - is: https://haveibeenpwned.com/
 - is: https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029

@@ -8,7 +8,7 @@ topics:
   - Copilot
 versions:
   feature: copilot
-type: overview
+contentType: concepts
 ---
 
 {% jetbrains %}

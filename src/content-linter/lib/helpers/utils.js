@@ -1,5 +1,5 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
 // Adds an error object with details conditionally via the onError callback
 export function addFixErrorDetail(onError, lineNumber, expected, actual, range, fixInfo) {

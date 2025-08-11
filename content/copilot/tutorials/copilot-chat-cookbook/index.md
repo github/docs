@@ -16,16 +16,17 @@ sidebarLink:
 spotlight:
   - article: /testing-code/generate-unit-tests
     image: /assets/images/copilot-landing/generating_unit_tests.png
-  - article: /refactoring-code/improving-code-readability-and-maintainability
+  - article: /refactor-code/improve-code-readability
     image: /assets/images/copilot-landing/improving_code_readability.png
-  - article: /debugging-errors/debugging-invalid-json
+  - article: /debug-errors/debug-invalid-json
     image: /assets/images/copilot-landing/debugging_invalid_json.png
 children:
-  - /debugging-errors
-  - /functionality-analysis-and-feature-suggestions
-  - /refactoring-code
-  - /documenting-code
+  - /communicate-effectively
+  - /debug-errors
+  - /analyze-functionality
+  - /refactor-code
+  - /document-code
   - /testing-code
-  - /security-analysis
+  - /analyze-security
+contentType: tutorials
 ---
-

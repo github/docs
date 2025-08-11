@@ -1,4 +1,10 @@
 date: '2025-05-27'
+intro: |
+  {% warning %}
+
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -53,6 +59,8 @@ sections:
     - |
       Microsoft Exchange Online is retiring SMTP basic authentication in September 2025. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy’s [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config).
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
