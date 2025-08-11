@@ -42,12 +42,6 @@ If the personal account for an enterprise member does not correspond with the em
 
 For more information about {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-enterprise). For more information about accounts on {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 
-You can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise on {% data variables.location.product_location %}. The list of pending invitations includes subscribers who are not yet members of at least one organization in your enterprise. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account) and [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators).
-
-> [!TIP] If you download a CSV file with your enterprise's license usage in step 6 of [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account#viewing-the-subscription-and-usage-for-your-enterprise-account), any members with a missing value for the "Name" or "Profile" columns have not yet accepted an invitation to join an organization within the enterprise.
-
-You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
-
 ## About licenses for {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information, see [AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options).

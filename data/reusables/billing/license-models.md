@@ -1,10 +1,7 @@
-### Comparison of licensing models
-
 {% rowheaders %}
 
-| License model                          | GHE (Metered)                          | GHE (Volume/subscription)                                                                     |
+| License model                          | Usage-based                        | Volume or subscription                                                                     |
 |----------------------------------|-------------------------------------|-----------------------------------------------------------------------------------------------|
-| **Billing type**                | Usage-based | Volume-based                                                                                  |
 | **Cloud vs. Server**             | Cloud-first, with a Server use right for Cloud users | 1 user license covers both Cloud and Server (hybrid, Cloud-only, or Server-only)              |
 | **Setup**            | Self-service | Manual setup via {% data variables.product.github %} Sales                                    |
 | **Server license generation**    | Users generate their own {% data variables.product.prodname_ghe_server %} license | Enterprise owners download their own {% data variables.product.prodname_ghe_server %} license |

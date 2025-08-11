@@ -23,14 +23,21 @@ shortTitle: Usage-based licenses
 contentType: concepts
 ---
 
-## About usage-based billing
+With usage-based billing, you pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_cs_and_sp %} licenses you use. You do not need to buy a predefined number of licenses in advance.
 
-You pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_cs_and_sp %} licenses you use. You do not need to buy a predefined number of licenses in advance. Usage-based billing for licenses provides flexibility and cost savings compared to more traditional licensing models, such as volume or subscription models.
+Usage-based billing for licenses provides flexibility and cost savings compared to more traditional licensing models, such as volume or subscription models.
 
-{% data reusables.billing.license-type-overview %}
-{% data reusables.billing.license-models %}
+## Do I have usage-based billing?
+
+{% data reusables.billing.do-i-have-usage-based %}
 
 {% data variables.visual_studio.prodname_vss_ghe %} is currently not supported for usage-based billing.
+
+## Can I use {% data variables.product.prodname_ghe_server %}?
+
+Although you can sync licenses with {% data variables.product.prodname_ghe_server %}, usage-based licensing is a cloud-first license model where users must first be added to an organization on {% data variables.product.prodname_ghe_cloud %}.
+
+For a detailed comparison between usage-based and volume licensing models, see [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use#about-licensing-models).
 
 ## How are metered licenses measured?
 
