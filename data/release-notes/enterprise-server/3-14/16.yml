@@ -43,3 +43,7 @@ sections:
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
       Unexpected elements may appear in the UI on the repo overview page for locked repositories.
+    - |
+      The autolink references feature is missing from the repository settings page.
+    - |
+      When attempting to open a pull request as a draft in a private or internal repository, users are incorrectly prompted to upgrade their plan.[Updated: 2025-08-11]
