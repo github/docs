@@ -167,7 +167,8 @@ You can check which access policies are being applied to a secret in your organi
 > [!NOTE]
 > * {% data reusables.actions.forked-secrets %}
 > * Secrets are not automatically passed to reusable workflows. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow).
-> {% data reusables.actions.about-oidc-short-overview %}
+> * Secrets are not available to workflows triggered by {% data variables.product.prodname_dependabot %} events. For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions#accessing-secrets).
+> * {% data reusables.actions.about-oidc-short-overview %}
 
 > [!WARNING] Mask all sensitive information that is not a {% data variables.product.prodname_dotcom %} secret by using `::add-mask::VALUE`. This causes the value to be treated as a secret and redacted from logs.
 
