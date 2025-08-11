@@ -282,7 +282,7 @@
     "github-slugger": "^2.0.0",
     "glob": "11.0.2",
     "got": "^14.4.7",
-    "gray-matter": "^4.0.3",
+    "@gr2m/gray-matter": "4.0.3-with-pr-137",
     "hast-util-from-parse5": "^8.0.3",
     "hast-util-to-string": "^3.0.1",
     "hastscript": "^9.0.1",
