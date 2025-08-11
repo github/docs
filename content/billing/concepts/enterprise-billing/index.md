@@ -11,7 +11,9 @@ children:
   - /billing-for-enterprises
   - /usage-based-licenses
   - /combined-enterprise-use
+  - /ghes-license-files
   - /visual-studio-subs
+  - /azure-devops-licenses
 contentType: concepts
 ---
 

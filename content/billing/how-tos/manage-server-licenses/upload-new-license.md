@@ -18,7 +18,7 @@ contentType: how-tos
 
 When you purchase or download a new license for {% data variables.product.prodname_ghe_server %} you must upload the new license file to {% data variables.product.prodname_ghe_server %} to unlock your new user licenses.
 
-If you use {% data variables.product.prodname_ghe_cloud %}, you can download a license from your enterprise. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
+If you use {% data variables.product.prodname_ghe_cloud %}, you can download a license from your enterprise. For more information, see [AUTOTITLE](/billing/concepts/enterprise-billing/ghes-license-files) and [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 

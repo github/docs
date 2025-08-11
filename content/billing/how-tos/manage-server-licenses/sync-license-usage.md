@@ -1,7 +1,6 @@
 ---
 title: Syncing license usage from GitHub Enterprise Server to Cloud
-intro: 'You can sync license usage from GitHub Enterprise Server to GitHub Enterprise Cloud to view all license usage across your enterprise in one place and ensure that people with accounts in both environments only consume one user license.'
-permissions: 'Enterprise owners can sync license usage between enterprise accounts on {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.'
+intro: 'Sync licenses manually or with {% data variables.product.prodname_github_connect %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -15,27 +14,27 @@ redirect_from:
 contentType: how-tos
 ---
 
-## About synchronization of license usage
+A {% data variables.product.prodname_enterprise %} license allows a user to use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use).
 
-{% data reusables.enterprise-licensing.unique-user-licensing-model %}
+To view combined license details on {% data variables.product.prodname_ghe_cloud %} and ensure users only consume one license, you must sync licenses between deployments. You can do this:
 
-{% data reusables.enterprise-licensing.about-license-sync %}
-
-To ensure that you see up-to-date license details on {% data variables.product.prodname_ghe_cloud %}, you can sync license usage to {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghecom-license-sync %} or {% data variables.enterprise.data_residency_site %}{% endif %} automatically, using {% data variables.product.prodname_github_connect %}. For more information about {% data variables.product.prodname_github_connect %}, see [About {% data variables.product.prodname_github_connect %}]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/about-github-connect){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}.{% endif %}
-
-If you don't want to enable {% data variables.product.prodname_github_connect %}, you can manually sync license usage by uploading a file from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %}.
+* Automatically, using {% data variables.product.prodname_github_connect %}.
+* Manually, by uploading a license file from from {% data variables.product.prodname_ghe_server %} to {% data variables.product.github %}.
 
 When you synchronize license usage, only the user ID and email addresses for each user account on {% data variables.product.prodname_ghe_server %} are transmitted to {% data variables.product.prodname_ghe_cloud %}.
-
-{% data reusables.enterprise-licensing.view-consumed-licenses %}
-
-{% data reusables.enterprise-licensing.verified-domains-license-sync %}
 
 ## Automatically syncing license usage
 
 You can use {% data variables.product.prodname_github_connect %} to automatically synchronize user license count and usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} weekly.
 
 After you enable {% data variables.product.prodname_github_connect %}, license data will be automatically synchronized weekly. You can also manually synchronize your license data at any time, by triggering a license sync job.
+
+### Enabling automatic license sync
+
+To enable license sync, you must:
+
+1. Enable {% data variables.product.prodname_github_connect %}. See {% ifversion ghes %}[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom) or [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom){% else %}[AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom) or [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom) in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}.
+1. Enable license sync. See {% ifversion ghes %}[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% else %}[AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom) in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}.
 
 ### Triggering a license sync job
 
@@ -45,9 +44,7 @@ After you enable {% data variables.product.prodname_github_connect %}, license d
 {% data reusables.enterprise-accounts.license-tab-ghes %}
 1. Under "License sync", click **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Sync now**.
 
-If there is no **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Sync now** button, you need to enable license synchronization. An information message, "License sync is disabled. You can enable it in the GitHub Connect settings" is shown. Click the "GitHub Connect settings" link. For more information, see [Enabling automatic user license sync for your enterprise]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-automatic-user-license-sync-for-your-enterprise){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}.{% endif %}
-
-## Manually uploading GitHub Enterprise Server license usage
+## Manually uploading {% data variables.product.prodname_ghe_server %} license usage
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
@@ -62,3 +59,9 @@ You can download a JSON file from {% data variables.product.prodname_ghe_server 
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. Next to "Enterprise Server instances", click **Add server usage**.
 1. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}.
+
+## Next steps
+
+{% data reusables.enterprise-licensing.view-consumed-licenses %}
+
+To make troubleshooting easier, if you synchronize license usage and do not use {% data variables.product.prodname_emus %}, we highly recommend enabling verified domains for your enterprise account on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
