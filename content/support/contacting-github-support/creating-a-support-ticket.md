@@ -83,7 +83,7 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 1. Navigate to the {% data variables.contact.contact_landing_page_portal %} and choose one of the following options:
 
    * To sign in with your {% data variables.product.github %} account, click **Sign in with {% data variables.product.github %}**.
-   * If your organization uses Data Residency or Enterprise Managed Users (accounts ending in `.ghe`):
+   * If your organization uses {% data variables.enterprise.data_residency_short %} or {% data variables.enterprise.prodname_managed_users %} (accounts ending in `.ghe`):
       1. In the sign-in dialog, click **Sign in to your .ghe account**.
       1. Enter your enterprise or tenant name (provided by your administrator) and continue.
       1. Complete the SAML authentication process as prompted. This will sign you in to your .ghe enterprise-managed account.
