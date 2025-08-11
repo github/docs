@@ -4,7 +4,7 @@ import walk from 'walk-sync'
 import { mkdirp } from 'mkdirp'
 import { execFileSync, execSync } from 'child_process'
 import path from 'path'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 import { rimraf } from 'rimraf'
 
 import { updateContentDirectory } from '../../automated-pipelines/lib/update-markdown'
