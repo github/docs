@@ -1,78 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-artifact-and-log-retention-settings-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/actions/permissions/artifact-and-log-retention"
-    },
-    {
-      "slug": "set-artifact-and-log-retention-settings-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/organizations/{org}/actions/permissions/artifact-and-log-retention"
-    },
-    {
-      "slug": "get-fork-pr-contributor-approval-permissions-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/actions/permissions/fork-pr-contributor-approval"
-    },
-    {
-      "slug": "set-fork-pr-contributor-approval-permissions-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/organizations/{org}/actions/permissions/fork-pr-contributor-approval"
-    },
-    {
-      "slug": "get-private-repo-fork-pr-workflow-settings-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/actions/permissions/fork-pr-workflows-private-repos"
-    },
-    {
-      "slug": "set-private-repo-fork-pr-workflow-settings-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/organizations/{org}/actions/permissions/fork-pr-workflows-private-repos"
-    },
-    {
-      "slug": "get-self-hosted-runners-settings-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/actions/permissions/self-hosted-runners"
-    },
-    {
-      "slug": "set-self-hosted-runners-settings-for-an-organization",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/organizations/{org}/actions/permissions/self-hosted-runners"
-    },
-    {
-      "slug": "list-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/actions/permissions/self-hosted-runners/repositories"
-    },
-    {
-      "slug": "set-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/organizations/{org}/actions/permissions/self-hosted-runners/repositories"
-    },
-    {
-      "slug": "add-a-repository-to-the-list-of-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/organizations/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
-    },
-    {
-      "slug": "remove-a-repository-from-the-list-of-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
-      "subcategory": "permissions",
-      "verb": "delete",
-      "requestPath": "/organizations/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -169,6 +97,42 @@
       "requestPath": "/orgs/{org}/actions/permissions"
     },
     {
+      "slug": "get-artifact-and-log-retention-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/artifact-and-log-retention"
+    },
+    {
+      "slug": "set-artifact-and-log-retention-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/artifact-and-log-retention"
+    },
+    {
+      "slug": "get-fork-pr-contributor-approval-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-contributor-approval"
+    },
+    {
+      "slug": "set-fork-pr-contributor-approval-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-contributor-approval"
+    },
+    {
+      "slug": "get-private-repo-fork-pr-workflow-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos"
+    },
+    {
+      "slug": "set-private-repo-fork-pr-workflow-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos"
+    },
+    {
       "slug": "list-selected-repositories-enabled-for-github-actions-in-an-organization",
       "subcategory": "permissions",
       "verb": "get",
@@ -203,6 +167,42 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
+    },
+    {
+      "slug": "get-self-hosted-runners-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners"
+    },
+    {
+      "slug": "set-self-hosted-runners-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners"
+    },
+    {
+      "slug": "list-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories"
+    },
+    {
+      "slug": "set-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories"
+    },
+    {
+      "slug": "add-a-repository-to-the-list-of-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-the-list-of-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
     },
     {
       "slug": "get-default-workflow-permissions-for-an-organization",

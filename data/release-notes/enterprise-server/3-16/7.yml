@@ -74,3 +74,7 @@ sections:
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
       Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.16 %}3.16{% endif %} {% ifversion ghes = 3.17 %}3.17{% endif %} with caution.
+    - |
+      The autolink references feature is missing from the repository settings page.
+    - |
+      When attempting to open a pull request as a draft in a private or internal repository, users are incorrectly prompted to upgrade their plan.[Updated: 2025-08-11]

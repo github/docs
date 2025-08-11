@@ -88,6 +88,14 @@ When you've identified {% data variables.product.github %} users who aren't corr
 1. To match a user to their {% data variables.product.prodname_vs %} account, click {% octicon "kebab-horizontal" aria-label="More options" %}, then click **Change to {% data variables.product.prodname_vs %} license**.
 1. Select the user's {% data variables.product.prodname_vs %} login email, then click **Confirm change**.
 
+## Viewing available licenses
+
+You can view the number of {% data variables.product.prodname_enterprise %} licenses available to your enterprise on {% data variables.location.product_location %}. The list of pending invitations includes subscribers who are not yet members of at least one organization in your enterprise. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account) and [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-members-and-outside-collaborators).
+
+> [!TIP] If you download a CSV file with your enterprise's license usage in step 6 of [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account#viewing-the-subscription-and-usage-for-your-enterprise-account), any members with a missing value for the "Name" or "Profile" columns have not yet accepted an invitation to join an organization within the enterprise.
+
+You can also see pending {% data variables.product.prodname_enterprise %} invitations to subscribers in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}.
+
 ## Further reading
 
 * [AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)
