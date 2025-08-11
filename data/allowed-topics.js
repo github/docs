@@ -32,6 +32,7 @@ export default [
   'Azure Kubernetes Service',
   'Azure Pipelines',
   'Azure Static Web Apps',
+  'Azure subscription',
   'Azure Virtual Network',
   'Backups',
   'Billing',

@@ -498,8 +498,11 @@ function getRequiredQueryParamsPath(operation: Operation, codeSample: CodeSample
 }
 
 function getAcceptHeader(codeSample: CodeSample) {
-  // This allows us to display custom media types like application/sarif+json
-  return codeSample?.response?.contentType?.includes('+json')
-    ? codeSample.response.contentType
-    : 'application/vnd.github+json'
+  const contentType = codeSample?.response?.contentType
+
+  if (!contentType || contentType === 'application/json') {
+    return 'application/vnd.github+json'
+  }
+
+  return contentType
 }

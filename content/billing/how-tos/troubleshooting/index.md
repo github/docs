@@ -11,7 +11,7 @@ topics:
 children:
   - /declined-card
   - /locked-account
+  - /azure-sub-connection
   - /enterprise-license-usage
 contentType: how-tos
 ---
-
