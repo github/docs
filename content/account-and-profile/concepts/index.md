@@ -10,10 +10,9 @@ topics:
   - Accounts
   - Profiles
 children:
+  - /about-your-profile
   - /viewing-contributions-on-your-profile
   - /about-your-organizations-profile
-  - /about-your-profile
   - /about-organization-membership
   - /changing-your-github-username
 ---
-
