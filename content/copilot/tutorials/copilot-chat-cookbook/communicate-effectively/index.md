@@ -7,5 +7,6 @@ topics:
   - Copilot
 children:
   - /creating-diagrams
+  - /extracting-information
 contentType: tutorials
 ---
