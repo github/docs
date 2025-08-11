@@ -105,9 +105,8 @@ The .NET autosubmission action uses the open source [component-detection](https:
 
 Python uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as its underlying graph generation engine. The autosubmission action for Python will only run if there is a `requirements.txt` file in the root directory of the repository. Python autosubmission does not currently support private packages; packages referenced in `requirements.txt` which are not publicly available will cause the autosubmission action to fail.
 
-> [!NOTE] 
+> [!NOTE]
 > This action uses [actions/setup-python](https://github.com/actions/setup-python) to install Python. You must include a .python-version file in your repository to specify the Python version to be installed.
-
 
 ## Further reading
 
