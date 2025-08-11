@@ -22,6 +22,7 @@ children:
   - /cancel-marketplace-app
   - /upgrade-sponsorship
   - /downgrade-sponsorship
+  - /cancel-sponsorship
   - /end-sponsorship
 contentType: how-tos
 ---

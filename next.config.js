@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import frontmatter from 'gray-matter'
+import frontmatter from '@gr2m/gray-matter'
 import { getLogLevelNumber } from '#src/observability/logger/lib/log-levels.js'
 
 // Replace imports with hardcoded values

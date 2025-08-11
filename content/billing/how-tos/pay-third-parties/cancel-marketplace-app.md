@@ -25,9 +25,7 @@ contentType: how-tos
 
 {% ifversion fpt %}{% data reusables.marketplace.marketplace-app-page %}{% endif %}
 
-When you cancel an app, your subscription remains active until the end of your current billing cycle. The cancellation takes effect on your next billing date. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
-
-When you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. If you don't cancel your free trial within the trial period, the payment method on file for your account will be charged for the plan you chose at the end of the trial period. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
+**When you cancel a paid app, your access and subscription will end on your next billing date. If you cancel during a free trial, you will lose access immediately**. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 

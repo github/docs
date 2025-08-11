@@ -11,8 +11,9 @@ topics:
 children:
   - /product-usage-included
   - /usage-reports
+  - /supported-payment-methods
+  - /azure-subscription
   - /billing-roles
   - /license-usage-calculation
 contentType: reference
 ---
-

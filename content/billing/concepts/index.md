@@ -11,6 +11,7 @@ topics:
 children:
   - /billing-cycles
   - /license-consumption
+  - /azure-subscriptions
   - /impact-of-plan-changes
   - /discounted-plans
   - /enterprise-billing
@@ -18,4 +19,3 @@ children:
   - /third-party-payments
 contentType: concepts
 ---
-
