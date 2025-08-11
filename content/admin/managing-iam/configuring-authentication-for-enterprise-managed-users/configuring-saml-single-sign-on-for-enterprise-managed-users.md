@@ -108,11 +108,14 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 
-1. Under "SAML single sign-on", select **Add SAML configuration**.
+1. Under "SAML single sign-on," select **Add SAML configuration**.
 1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for SSO requests that you noted while configuring your IdP.
 1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
-1. Under **Public Certificate**, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
+
+   > [!NOTE]
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+1. Under the same **Public Certificate** section, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save SAML settings**.
 
