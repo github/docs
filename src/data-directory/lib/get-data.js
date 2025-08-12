@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import yaml from 'js-yaml'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
 import languages from '@/languages/lib/languages'

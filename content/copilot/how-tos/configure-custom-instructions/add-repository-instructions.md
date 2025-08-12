@@ -44,6 +44,14 @@ This version of this article is for using repository custom instructions in Xcod
 
 {% endxcode %}
 
+{% eclipse %}
+
+> [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+This version of this article is for using repository custom instructions in Eclipse. Click the tabs above for instructions on using custom instructions in other environments.
+
+{% endeclipse %}
+
 ## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
 
 Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences.
@@ -83,6 +91,12 @@ Repository custom instructions let you provide {% data variables.product.prodnam
 * The latest version of the {% data variables.product.prodname_copilot_short %} extension must be installed in Xcode.
 
 {% endxcode %}
+
+{% eclipse %}
+
+* The latest version of the {% data variables.product.prodname_copilot_short %} extension must be installed in Eclipse.
+
+{% endeclipse %}
 
 ## Creating a repository custom instructions file
 
@@ -142,6 +156,31 @@ Whitespace between instructions is ignored, so the instructions can be written a
 1. To the right of "Custom Instructions", click **Current Workspace** or **Global** to choose whether the custom instructions apply to the current workspace or all workspaces.
 
 {% endxcode %}
+
+{% eclipse %}
+
+Eclipse supports two types of repository custom instructions: workspace and project custom instructions.
+
+To create a workspace custom instructions file, you can use the {% data variables.product.prodname_copilot_short %} settings page. To create a project custom instructions file, you can create the file manually in the project directory.
+
+Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+### Creating a workspace custom instructions file
+
+1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
+1. From the menu, select "Edit preferences".
+1. In the left pane, expand {% data variables.product.prodname_copilot %} and click **Custom Instructions**.
+1. Select **Enable workspace instructions**.
+1. In the "Workspace" section, under "Set custom instructions to guide {% data variables.product.prodname_copilot_short %}'s code suggestions in this workspace", add natural language instructions to the file, in Markdown format.
+
+### Creating a project custom instructions file
+
+1. In the root of your project directory, create a file named `.github/copilot-instructions.md`.
+1. Add your custom instructions in natural language, using Markdown format.
+
+Once saved, these instructions will apply to the current project in Eclipse that you open with {% data variables.product.prodname_copilot_short %} enabled.
+
+{% endeclipse %}
 
 {% vscode %}
 
