@@ -7,11 +7,14 @@ versions:
 topics:
   - Copilot
 children:
-  - /github-copilot-chat-cheat-sheet
-  - /keyboard-shortcuts-for-github-copilot-in-the-ide
-  - /feature-availability-enterprise
+  - /copilot-billing
+  - /cheat-sheet
+  - /keyboard-shortcuts
+  - /policy-conflicts
   - /ai-models
-  - /proxy-server-and-firewall-settings-for-copilot
-  - /copilot-extensions
+  - /allowlist-reference
+  - /extensions-glossary
   - /metrics-data
+contentType: reference
 ---
+

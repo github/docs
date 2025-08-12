@@ -3305,7 +3305,7 @@
       "requestPath": "/orgs/{org}/private-registries/{secret_name}"
     }
   ],
-  "projects": [
+  "projects-classic": [
     {
       "slug": "list-organization-projects",
       "subcategory": "projects",

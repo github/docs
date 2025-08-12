@@ -1,7 +1,6 @@
 ---
 title: Compromised runners
 intro: 'Understand the security risks associated with compromised {% data variables.product.prodname_actions %} runners.'
-shortTitle: Compromised runners
 versions:
   fpt: '*'
   ghes: '*'

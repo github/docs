@@ -1,7 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 
-import frontmatter from 'gray-matter'
+import frontmatter from '@gr2m/gray-matter'
+import { getLogLevelNumber } from '#src/observability/logger/lib/log-levels.js'
+
 // Replace imports with hardcoded values
 const ROOT = process.env.ROOT || '.'
 
@@ -35,6 +37,9 @@ export default {
       'mixed-decls',
     ],
   },
+  // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
+  // See `src/observability/logger/README.md` for log levels
+  logging: getLogLevelNumber() < 3 ? false : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -47,7 +52,7 @@ export default {
   webpack: (config) => {
     config.experiments = config.experiments || {}
     config.experiments.topLevelAwait = true
-    config.resolve.fallback = { fs: false }
+    config.resolve.fallback = { fs: false, async_hooks: false }
     return config
   },
 

@@ -1,4 +1,10 @@
 date: '2025-04-17'
+intro: |
+  {% warning %}
+
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -32,6 +38,8 @@ sections:
     - |
       The `spokesctl info` and `spokesctl repos` commands now also show wikis that are part of a network.
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |

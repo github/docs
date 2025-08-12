@@ -119,7 +119,7 @@ describe('pages module', () => {
     nonMatches.length === 1 ? 'file' : 'files'
   } that do not match their slugified titles.\n
   ${nonMatches.join('\n')}\n
-  To fix, run src/content-render/scripts/reconcile-filenames-with-ids.js\n\n`
+  To fix, run: npm run-script update-filepaths --paths [FILEPATHS]\n\n`
 
       expect(nonMatches.length, message).toBe(0)
     })

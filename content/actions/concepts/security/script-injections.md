@@ -1,7 +1,6 @@
 ---
 title: Script injections
 intro: Understand the security risks associated with script injections and {% data variables.product.prodname_actions %} workflows.
-shortTitle: Script injections
 versions:
   fpt: '*'
   ghes: '*'

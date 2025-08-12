@@ -1,4 +1,10 @@
 date: '2025-07-01'
+intro: |
+  {% warning %}
+
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -18,6 +24,8 @@ sections:
     - |
       The babeld service no longer reports log messages about some common client-induced networking errors, reducing noise in the logs.
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
     - |
       Applying a new GitHub Enterprise Server license using the Management Console can sometimes fail with an HTTP 500 error.
     - |

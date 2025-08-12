@@ -39,7 +39,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       </td>
     </tr>
     <tr>
-      <td>Linux [Public preview]</td>
+      <td>Linux</td>
       <td>4</td>
       <td>16 GB</td>
       <td>14 GB</td>
@@ -50,7 +50,7 @@ For public repositories, jobs using the workflow labels shown in the table below
       </td>
     </tr>
     <tr>
-      <td>Windows [Public preview]</td>
+      <td>Windows</td>
       <td>4</td>
       <td>16 GB</td>
       <td>14 GB</td>
@@ -84,8 +84,6 @@ For public repositories, jobs using the workflow labels shown in the table below
   </tbody>
 
 </table>
-
->[!NOTE] The arm64 Linux and Windows runners are in {% data variables.release-phases.public_preview %} and subject to change.
 
 ### Standard {% data variables.product.prodname_dotcom %}-hosted runners for {% ifversion ghec %}internal and{% endif %} private repositories
 

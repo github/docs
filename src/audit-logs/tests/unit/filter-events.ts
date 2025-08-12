@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest'
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../../lib'
 import type { RawAuditLogEventT, VersionedAuditLogData } from '../../types'
 
-describe('audit log event fitering', () => {
+describe('audit log event filtering', () => {
   test('matches single allowlist value', async () => {
     const eventsToProcess: RawAuditLogEventT[] = [
       {

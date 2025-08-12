@@ -76,7 +76,7 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
     - '{% ifversion ghes %}/admin/getting-started-with-enterprise/about-upgrades-to-new-releases{% endif %}'
-    - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
+    - '{% ifversion ghes %}/billing/how-tos/set-up-payment/manage-enterprise-invoice{% endif %}'
   guideCards:
     - '{% ifversion ghes %}/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
@@ -91,7 +91,7 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
     - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
-    - '{% ifversion ghec %}/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise{% endif %}'
+    - '{% ifversion ghec %}/billing/how-tos/set-up-payment/set-up-vs-subscription{% endif %}'
     - /support/learning-about-github-support/about-github-support
     - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
 layout: product-landing

@@ -2,7 +2,7 @@ You can grant certain roles, teams, or apps bypass permissions {% ifversion push
 
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or custom repository roles based on the write role
-* Teams
+* Teams, excluding secret teams. See [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-visibility).
 {%- ifversion ghes %}
 * Deploy keys
 {%- endif %}

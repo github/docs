@@ -2713,7 +2713,7 @@
       "requestPath": "/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel"
     }
   ],
-  "projects": [
+  "projects-classic": [
     {
       "slug": "list-organization-projects",
       "subcategory": "projects",
