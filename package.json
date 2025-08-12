@@ -375,7 +375,7 @@
     "cross-env": "^10.0.0",
     "csp-parse": "0.0.2",
     "csv-parse": "6.1.0",
-    "eslint": "^8.57.1",
+    "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.0.3",
     "eslint-import-resolver-typescript": "^4.4.2",
     "eslint-plugin-github": "^5.0.2",
