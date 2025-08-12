@@ -14,6 +14,7 @@ children:
   - /supported-payment-methods
   - /azure-subscription
   - /billing-roles
+  - /roles-for-visual-studio
   - /license-consumption
   - /enterprise-license-troubleshooting
 contentType: reference
