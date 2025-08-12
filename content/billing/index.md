@@ -29,7 +29,7 @@ featuredLinks:
     - /billing/how-tos/manage-plan-and-licenses/upgrade-plan
     - /billing/concepts/impact-of-plan-changes
     - '{% ifversion ghes %}/billing/how-tos/manage-server-licenses/sync-license-usage{% endif %}'
-    - '{% ifversion ghes %}/billing/reference/license-usage-calculation{% endif %}'
+    - '{% ifversion ghes %}/billing/reference/enterprise-license-troubleshooting{% endif %}'
 changelog:
   label: account-management
 layout: product-landing

@@ -14,6 +14,7 @@ children:
   - /supported-payment-methods
   - /azure-subscription
   - /billing-roles
-  - /license-usage-calculation
+  - /enterprise-license-troubleshooting
 contentType: reference
 ---
+
