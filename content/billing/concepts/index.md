@@ -10,7 +10,6 @@ topics:
   - Billing
 children:
   - /billing-cycles
-  - /license-consumption
   - /azure-subscriptions
   - /impact-of-plan-changes
   - /discounted-plans
@@ -19,3 +18,4 @@ children:
   - /third-party-payments
 contentType: concepts
 ---
+
