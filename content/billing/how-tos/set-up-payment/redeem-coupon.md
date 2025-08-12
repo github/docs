@@ -15,6 +15,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+product: 'Personal, organization, and enterprise account owners<br>Organization and enterprise billing managers'
 topics:
   - Billing
   - Discounts
@@ -24,28 +25,22 @@ topics:
 shortTitle: Redeem coupon
 contentType: how-tos
 ---
-{% data variables.product.company_short %} can't issue a refund if you pay for an account before applying a coupon. We also can't transfer a redeemed coupon or give you a new coupon if you apply it to the wrong account. Confirm that you're applying the coupon to the correct account before you redeem a coupon.
 
-{% data reusables.dotcom_billing.coupon-expires %}
+## Prerequisites
 
-> [!NOTE]
-> You cannot apply coupons to paid plans for {% data variables.product.prodname_marketplace %} apps.
+> [!IMPORTANT]
+> {% data variables.product.company_short %} can't issue a refund if you apply a coupon to the wrong account or to an account that you have already paid for.
 
-## Redeeming a coupon for your personal account
+Before you redeem a coupon:
+1. Confirm which account the coupon is intended for.
+1. Verify that the account you want to apply the coupon to is not already paid for, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
+1. Be aware that coupons cannot be used for paid plans for {% data variables.product.prodname_marketplace %} apps.
 
-{% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-1. Under "Redeem your coupon", click **Choose** next to your _personal_ account's username.
-{% data reusables.dotcom_billing.redeem_coupon %}
-
-## Redeeming a coupon for your organization
-
-{% data reusables.dotcom_billing.org-billing-perms %}
+## Redeeming a coupon for your personal or organization account
 
 {% data reusables.dotcom_billing.enter_coupon_code_on_redeem_page %}
-1. Under "Redeem your coupon", click **Choose** next to the _organization_ you want to apply the coupon to. If you'd like to apply your coupon to a new organization that doesn't exist yet, click **Create a new organization**.
+1. Under "Redeem your coupon", click **Choose** next to the username of the account to apply the coupon to.
 {% data reusables.dotcom_billing.redeem_coupon %}
-
-{% ifversion ghec %}
 
 ## Redeeming a coupon for your enterprise
 
@@ -55,4 +50,11 @@ Redeeming a {% data variables.product.prodname_ghe_cloud %} coupon will create a
 1. Select the organization that you would like to add to your new enterprise.
 {% data reusables.dotcom_billing.redeem_coupon %}
 
-{% endif %}
+## When the coupon expires
+
+If you use a coupon to pay for a subscription, when the coupon expires you will be charged the **full cost** for that subscription if you have a **payment method defined**.
+
+If you **do not have a payment method defined**, your account will be affected:
+* Personal accounts are downgraded to {% data variables.product.prodname_free_user %}
+* Organization accounts are downgraded to {% data variables.product.prodname_free_team %}
+* Enterprise accounts are locked until you add a payment method

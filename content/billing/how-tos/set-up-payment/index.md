@@ -1,7 +1,7 @@
 ---
 title: Setting up and managing payment
 shortTitle: Set up payment
-intro: Learn how to change your payment method and manage invoices.
+intro: Learn how to change your payment method, view your payment history, and manage invoices.
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,4 +18,3 @@ children:
   - /india-one-time-payments
 contentType: how-tos
 ---
-
