@@ -169,6 +169,8 @@ async function getProxySearch(
       url.searchParams.set(key, value)
     }
   }
+  // Add client_name for external API requests
+  url.searchParams.set('client_name', 'docs.github.com-client')
   console.log(`Proxying search to ${url}`)
   return got(url).json<GeneralSearchResponse>()
 }
