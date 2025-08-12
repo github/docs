@@ -662,17 +662,6 @@
   hasValidityCheck: false
   isduplicate: true
 - provider: Azure
-  supportedSecret: Azure Dummy Key
-  secretType: azure_dummy_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Azure
   supportedSecret: Azure Event Grid Key Identifiable
   secretType: azure_event_grid_key_identifiable
   versions:
