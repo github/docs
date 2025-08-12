@@ -6,14 +6,14 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 introLinks:
-  overview: '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works {% elsif ghes %}/billing/concepts/license-consumption {% endif %}'
+  overview: '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works {% elsif ghes %}/billing/concepts/enterprise-billing/billing-for-enterprises{% endif %}'
 featuredLinks:
   startHere:
     - '{% ifversion fpt or ghec %}/billing/get-started/introduction-to-billing{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/how-tos/set-up-payment/manage-payment-info{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/tutorials/set-up-budgets{% endif %}'
-    - '{% ifversion ghes %}/billing/concepts/license-consumption{% endif %}'
+    - '{% ifversion ghes %}/billing/concepts/enterprise-billing/billing-for-enterprises{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'
     - '{% ifversion ghes %}/billing/concepts/enterprise-billing/combined-enterprise-use{% endif %}'
   popular:
