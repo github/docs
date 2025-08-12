@@ -1,6 +1,6 @@
 ---
 title: Requesting organization approval for OAuth apps
-intro: 'Organization members and outside collaborators can request that an owner approve access to organization resources for {% data variables.product.prodname_oauth_apps %}.'
+intro: 'You can request approval for {% data variables.product.prodname_oauth_apps %} to access organization resources.'
 redirect_from:
   - /articles/requesting-organization-approval-for-third-party-applications
   - /articles/requesting-organization-approval-for-your-authorized-applications
@@ -14,14 +14,15 @@ versions:
   ghec: '*'
 topics:
   - Accounts
+permissions: Organization members can request owner approval for {% data variables.product.prodname_oauth_apps %}. Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} if integration access requests are enabled. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
 shortTitle: 'Request {% data variables.product.prodname_oauth_app %} approval'
 ---
 
-## About requesting organization approval for an {% data variables.product.prodname_oauth_app %}
+## Prerequisites
 
-Organization members can always request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests. Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use if integration access requests are enabled. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
+Before you can request organization approval for an {% data variables.product.prodname_oauth_app %}, you need to authorize it for your personal account. See [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account#installing-an-oauth-app-in-your-personal-account).
 
-## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
+## Requesting organization approval for an {% data variables.product.prodname_oauth_app %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.access_applications %}

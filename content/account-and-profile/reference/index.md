@@ -12,4 +12,3 @@ children:
   - /types-of-emails-github-sends
   - /why-are-my-contributions-not-showing-up-on-my-profile
 ---
-
