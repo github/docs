@@ -35,6 +35,9 @@ poetry         | `pip`            | v1               | {% octicon "check" aria-l
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.10.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% ifversion dependabot-vcpkg-support %} |
+[vcpkg](#vcpkg) | `vcpkg`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable |
+| {% endif %} |
 [yarn](#yarn)           | `npm`            | v1, v2, v3       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}|
 
 > [!TIP]
@@ -160,6 +163,14 @@ Terraform support includes:
 * Modules hosted on Terraform Registry or a publicly reachable Git repository.
 * Terraform providers.
 * Private Terraform Registry. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. For more information, see [`git`](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#git).
+
+{% ifversion dependabot-vcpkg-support %}
+
+#### vcpkg
+
+vcpkg support includes updating the `builtin-baseline` commit SHA from the vcpkg ports repository in your `vcpkg.json` manifest file. For more information visit the [`microsoft/vcpkg` repository](https://github.com/microsoft/vcpkg) on  {% data variables.product.prodname_dotcom_the_website %} and see [What is manifest mode?](https://learn.microsoft.com/vcpkg/concepts/manifest-mode) in the Microsoft documentation.
+
+{% endif %}
 
 #### yarn
 

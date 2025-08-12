@@ -26,7 +26,7 @@ children:
   - /downgrade-plan
   - /manage-pending-changes
   - /view-enterprise-usage
-  - /add-licenses
+  - /manage-user-licenses
 contentType: how-tos
 ---
 

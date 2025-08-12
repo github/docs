@@ -412,7 +412,7 @@
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^20 || ^22"
+    "node": "^20 || >=22.0.0 <22.18.0"
   },
   "cacheDirectories": [
     "node_modules",
