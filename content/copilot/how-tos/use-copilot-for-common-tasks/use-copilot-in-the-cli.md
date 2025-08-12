@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/using-github-copilot/using-github-copilot-in-the-command-line
   - /copilot/how-tos/github-flow/using-github-copilot-in-the-command-line
   - /copilot/how-tos/github-flow/use-copilot-in-the-cli
+  - /copilot/github-copilot-in-the-cli
 contentType: how-tos
 ---
 
