@@ -18,7 +18,7 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20250805-204228-g50c20871f AS ba
 # Must run as root
 RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
   && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
-  && apt-get install -y nodejs \
+  && apt-get install -y nodejs=22.17.0-1nodesource1 \
   && node --version
 
 # Create the node user and home directory
