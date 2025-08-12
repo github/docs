@@ -1,6 +1,6 @@
 ---
 title: Upgrading your account's plan
-intro: 'You can upgrade the plan for any type of account on {% data variables.product.prodname_dotcom %} at any time.'
+intro: 'You can upgrade the plan for a personal account or organization on {% data variables.product.prodname_dotcom %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /articles/upgrading-your-personal-account-s-billing-plan
@@ -34,14 +34,6 @@ shortTitle: Upgrade plan
 contentType: how-tos
 ---
 
-{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
-
-## About upgrades
-
-{% data reusables.accounts.accounts-billed-separately %}
-
-Upgrading your plan does not affect other subscriptions or usage-based billing for your account. See [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
-
 ## Upgrading your personal account's plan
 
 You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your personal account.
@@ -58,19 +50,13 @@ Upgrading your personal account does not affect any organizations you may manage
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Managing your organization's plan
-
-You can upgrade your organization's plan, add seats to your existing plan, or switch from per-repository to per-user pricing.
-
-### Upgrading your organization's plan
+## Upgrading your organization's plan
 
 You can upgrade your organization from {% data variables.product.prodname_free_team %} for an organization to {% data variables.product.prodname_team %} to access advanced collaboration and management tools for teams, or upgrade your organization to {% data variables.product.prodname_ghe_cloud %} for additional security, compliance, and deployment controls.
 
 Upgrading an organization does not affect your personal account or repositories owned by your personal account. {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
-
->[!NOTE] {% data reusables.actions.org-to-enterprise-actions-permissions %}
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.upgrade_org %}
@@ -87,16 +73,13 @@ As part of your upgrade to {% data variables.product.prodname_ghe_cloud %}, you 
 
 {% data reusables.enterprise.create-an-enterprise-account %} See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
-### Adding seats to your organization
+>[!NOTE] {% data reusables.actions.org-to-enterprise-actions-permissions %}
 
-If you'd like additional users to have access to your {% data variables.product.prodname_team %} organization's private repositories, you can purchase more seats anytime.
+## Troubleshooting a 500 error when upgrading
 
-{% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.add-seats %}
-{% data reusables.dotcom_billing.number-of-seats %}
-{% data reusables.dotcom_billing.confirm-add-seats %}
+{% data reusables.dotcom_billing.500-error %}
 
-### Switching your organization from per-repository to per-user pricing
+## Switching your organization from per-repository to per-user pricing
 
 {% data reusables.dotcom_billing.switch-legacy-billing %} See [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing).
 
@@ -108,29 +91,9 @@ If you'd like additional users to have access to your {% data variables.product.
 {% data reusables.dotcom_billing.owned_by_business %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-{% ifversion ghec %}
-
-## Adding seats to your enterprise account
-
-You can add seats to your enterprise account through the "Licensing" page. See, [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization).
-
-{% data reusables.enterprise-accounts.billing-perms %}
-
->[!NOTE] If your enterprise account is invoiced, you cannot add seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.manage-seats %}
-
-{% endif %}
-
-## Troubleshooting a 500 error when upgrading
-
-{% data reusables.dotcom_billing.500-error %}
-
 ## Further reading
 
+* [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/manage-user-licenses)
 * [AUTOTITLE](/get-started/learning-about-github/githubs-plans)
 * [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)
-* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github)
