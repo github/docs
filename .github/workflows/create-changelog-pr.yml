@@ -137,6 +137,27 @@ jobs:
               labels: ['ready-for-doc-review']
             });
 
+      - name: Assign PR to commenter
+        if: env.CONTINUE_WORKFLOW == 'true'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        env:
+          # Reuse the PR number captured earlier
+          PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            try {
+              const username = context.payload.comment.user.login;
+              await github.rest.issues.addAssignees({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: Number(process.env.PULL_REQUEST_NUMBER),
+                assignees: [username]
+              });
+            } catch (err) {
+              core.info(`Failed to assign PR to @${context.payload.comment.user.login}: ${err.message}`);
+            }
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
         with:
