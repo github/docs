@@ -16,6 +16,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+product: '{% data variables.product.github %} partners setting up {% data variables.product.prodname_team %}'
 topics:
   - Billing
   - User account
@@ -25,14 +26,15 @@ shortTitle: Create client org
 contentType: how-tos
 ---
 
-## Requirements
+If you want to create an enterprise account for a client, see [AUTOTITLE](/billing/how-tos/manage-for-client/create-client-enterprise) or [AUTOTITLE](/billing/how-tos/manage-for-client/create-as-csp-partner).
+
+## Prerequisites
 
 Before you start, make sure you know:
-* The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the organization you create
-* The name your client would like to use for the organization
-* The email address where you would like receipts to be sent
-* The [product](/get-started/learning-about-github/githubs-plans) your client would like to purchase
-* The number of [paid seats](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing) your client would like you to purchase for the organization
+* {% data variables.product.github %} username of the client who will become the owner of the organization you create
+* Organization name your client would like to use
+* Email address for receipts
+* Number of seats your client needs in the organization
 
 ## Step 1: Create your personal {% data variables.product.prodname_dotcom %} account
 
@@ -53,27 +55,18 @@ If you already have a personal account on {% data variables.product.prodname_dot
 {% data reusables.dotcom_billing.owned_by_business %}
 1. Click **Next**.
 
-## Step 3: Upgrade the organization to a yearly paid subscription
+## Step 3: Upgrade the organization to a paid plan with yearly payment
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
+{% data reusables.organizations.billing_plans_or_licensing %}
 {% data reusables.dotcom_billing.upgrade_org %}
-{% data reusables.dotcom_billing.choose_org_plan %} (You can add more seats to the organization in the next step.)
-1. Under "Upgrade summary", select **Pay yearly** to pay for the organization yearly.
+1. Under "How often do you want to be billed?", select **Pay yearly** to pay for the organization yearly.
+1. Under "How many seats do you want to include?", define the number of seats you require.
 {% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.finish_upgrade %}
+1. Review the information, then click **Save** to confirm the changes.
 
-## Step 4: Upgrade the number of paid seats in the organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.billing_plans %}
-{% data reusables.dotcom_billing.add-seats %}
-{% data reusables.dotcom_billing.number-of-seats %}
-{% data reusables.dotcom_billing.confirm-add-seats %}
-
-## Step 5: Invite your client to join the organization
+## Step 4: Invite your client to join the organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -81,9 +74,12 @@ If you already have a personal account on {% data variables.product.prodname_dot
 {% data reusables.organizations.invite_member_from_people_tab %}
 1. In the search field, type your client's {% data variables.product.prodname_dotcom %} username and press **Enter**.
 1. Select **Owner**, then click **Send invitation**.
-1. Your client will receive an email inviting them to the organization. They will need to accept the invitation before you can move on to the next step.
+1. Your client will receive an email inviting them to the organization.
 
-## Step 6: Transfer organization ownership to your client
+>[!NOTE]
+> You cannot move on to the next step until your client accepts the invitation to become an organization owner.
+
+## Step 5: Transfer organization ownership to your client
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -97,6 +93,6 @@ If you already have a personal account on {% data variables.product.prodname_dot
 
 ## Next steps
 
-1. Contact your client and ask them to [add you to the organization as a billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
-1. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
-1. When it's time to renew your client's paid subscription, see [AUTOTITLE](/articles/renewing-your-client-s-paid-organization).
+1. Contact your client and ask them to add you to the organization as a billing manager. You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
+1. Your client's paid subscription will automatically renew unless you remove your company's payment method from the organization. See [AUTOTITLE](/billing/how-tos/manage-for-client/manage-client-org).
+1. If you want to remove your company's credit card from the organization so that it's not automatically charged for renewals and any other costs, contact {% data variables.contact.contact_support %}.

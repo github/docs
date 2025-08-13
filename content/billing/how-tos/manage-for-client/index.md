@@ -14,16 +14,12 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
 topics:
   - Billing
 children:
   - create-client-org
   - create-client-enterprise
   - create-as-csp-partner
-  - renew-client-enterprise
-  - renew-client-organization
   - manage-client-org
 contentType: how-tos
 ---
-
