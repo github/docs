@@ -1,5 +1,5 @@
 ---
-title: Viewing and changing your Copilot plan
+title: Viewing and changing your GitHub Copilot plan
 shortTitle: View and change your Copilot plan
 intro: 'Learn how to view, cancel, or update your {% data variables.product.prodname_copilot_short %} plan, and update your billing cycle.'
 versions:

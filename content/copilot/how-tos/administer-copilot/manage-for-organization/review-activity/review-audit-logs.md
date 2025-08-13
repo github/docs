@@ -1,5 +1,5 @@
 ---
-title: Reviewing audit logs for Copilot Business
+title: Reviewing audit logs for GitHub Copilot Business
 shortTitle: Review audit logs
 intro: 'Review the audit logs for your {% data variables.copilot.copilot_business_short %} plan to understand what actions have been taken by which users.'
 redirect_from:

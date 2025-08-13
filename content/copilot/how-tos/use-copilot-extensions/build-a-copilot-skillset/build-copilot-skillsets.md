@@ -1,5 +1,5 @@
 ---
-title: Building Copilot skillsets
+title: Building GitHub Copilot skillsets
 intro: 'Learn the steps to build {% data variables.copilot.copilot_skillsets %} and integrate custom tools and functions into your Copilot environment.'
 versions:
   feature: copilot-extensions

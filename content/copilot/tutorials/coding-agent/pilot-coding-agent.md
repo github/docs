@@ -1,5 +1,5 @@
 ---
-title: 'Piloting {% data variables.copilot.copilot_coding_agent %} in your organization'
+title: 'Piloting GitHub Copilot coding agent in your organization'
 shortTitle: 'Pilot {% data variables.copilot.copilot_coding_agent_short %}'
 intro: 'Follow best practices to enable {% data variables.copilot.copilot_coding_agent %} in your organization.'
 allowTitleToDifferFromFilename: true

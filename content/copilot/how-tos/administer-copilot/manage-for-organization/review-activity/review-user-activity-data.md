@@ -1,5 +1,5 @@
 ---
-title: Reviewing user activity data for Copilot in your organization
+title: Reviewing user activity data for GitHub Copilot in your organization
 shortTitle: Review user activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
 permissions: Organization owners

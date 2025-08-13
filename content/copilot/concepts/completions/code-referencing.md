@@ -1,5 +1,5 @@
 ---
-title: Copilot code referencing
+title: GitHub Copilot code referencing
 shortTitle: Code referencing
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.product.prodname_copilot %} checks suggestions for matches with publicly available code. Any matches are discarded or suggested with a code reference.'

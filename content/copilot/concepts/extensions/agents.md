@@ -1,5 +1,5 @@
 ---
-title: About agents for Copilot Extensions
+title: About agents for GitHub Copilot Extensions
 shortTitle: Agents
 intro: 'Learn what {% data variables.copilot.copilot_agents %} are and how they can enhance your {% data variables.copilot.copilot_chat %} experience.'
 allowTitleToDifferFromFilename: true

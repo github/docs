@@ -1,5 +1,5 @@
 ---
-title: About skillsets for Copilot Extensions
+title: About skillsets for GitHub Copilot Extensions
 shortTitle: Skillsets
 allowTitleToDifferFromFilename: true
 intro: 'Learn what {% data variables.copilot.copilot_skillsets %} are and how they simplify integrating third-party tools and functions into your {% data variables.product.prodname_copilot_short %} experience.'

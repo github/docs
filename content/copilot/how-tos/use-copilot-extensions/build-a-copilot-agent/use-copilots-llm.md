@@ -1,5 +1,5 @@
 ---
-title: Using Copilot's LLM for your agent
+title: Using GitHub Copilot's LLM for your agent
 intro: 'Learn how to use {% data variables.product.prodname_copilot_short %}''s LLM for your agent.'
 versions:
   feature: copilot-extensions

@@ -1,5 +1,5 @@
 ---
-title: Configuring access to AI models in Copilot
+title: Configuring access to AI models in GitHub Copilot
 shortTitle: Configure access to AI models
 intro: 'Learn how to configure access to AI models in {% data variables.product.prodname_copilot_short %}.'
 versions:

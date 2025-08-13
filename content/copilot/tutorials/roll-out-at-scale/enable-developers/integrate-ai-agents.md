@@ -91,7 +91,9 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
 1. When they're satisfied with the tests, the developer asks agent mode to open a pull request for the work on {% data variables.product.github %}.
 
-   >[!TIP] With the **{% data variables.product.github %} MCP server** enabled, {% data variables.product.prodname_copilot_short %} can run the command to open a pull request directly from {% data variables.product.prodname_vscode_shortname %}, with the title and description already filled in.
+   >[!TIP]
+   > * With the **{% data variables.product.github %} MCP server** enabled, {% data variables.product.prodname_copilot_short %} can run the command to open a pull request directly from {% data variables.product.prodname_vscode_shortname %}, with the title and description already filled in.
+   > * Interactions with the {% data variables.product.github %} MCP server are secured by **push protection**, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server (public repositories only). See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
 ## 4. Review with {% data variables.copilot.copilot_code-review_short %}
 
