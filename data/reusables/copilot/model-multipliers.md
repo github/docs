@@ -3,6 +3,7 @@
 | Model                                                          | Multiplier for **paid plans** | Multiplier for **{% data variables.copilot.copilot_free_short %}** |
 |----------------------------------------------------------------|-------------------------------|--------------------------------------------------------------------|
 | {% data variables.copilot.copilot_gpt_41 %}                    | 0                             | 1                                                                  |
+| {% data variables.copilot.copilot_gpt_5_mini %}                | 0                             | 1                                                     |
 | {% data variables.copilot.copilot_gpt_5 %}                     | 1                             | Not applicable                                                     |
 | {% data variables.copilot.copilot_gpt_4o %}                    | 0                             | 1                                                                  |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}          | 1                             | 1                                                                  |

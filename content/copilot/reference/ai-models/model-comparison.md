@@ -26,6 +26,7 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | Model                                                 | Task area | Excels at (primary use case) | Additional capabilities |
 |-------------------------------------------------------|-----------|-------------------------------|--------------------------|
 | {% data variables.copilot.copilot_gpt_41 %}           | General-purpose coding and writing | Fast, accurate code completions and explanations | Agent mode, vision |
+| {% data variables.copilot.copilot_gpt_5_mini %}       | Deep reasoning and debugging | Well-defined tasks and precise prompts | Reasoning |
 | {% data variables.copilot.copilot_gpt_5 %}            | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
 | {% data variables.copilot.copilot_o3 %}               | Deep reasoning and debugging | Multi-step problem solving and architecture-level code analysis | Reasoning |
 | {% data variables.copilot.copilot_o4_mini %}          | Fast help with simple or repetitive tasks | Fast, reliable answers to lightweight coding questions | Lower latency |
@@ -95,6 +96,7 @@ These models are designed for tasks that require step-by-step reasoning, complex
 
 | Model                                                 | Why it's a good fit                                                                                           |
 |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_5_mini %}            | Delivers deep reasoning and debugging with faster responses and lower resource usage than GPT-5. Ideal for interactive sessions and step-by-step code analysis. |
 | {% data variables.copilot.copilot_gpt_5 %}            | Great at complex reasoning, code analysis, and technical decision-making.                                     |
 | {% data variables.copilot.copilot_o3 %}               | Strong at algorithm design, system debugging, and architecture decisions. Balances performance and reasoning. |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} | Provides hybrid reasoning that adapts to both fast tasks and deeper thinking.                                 |
