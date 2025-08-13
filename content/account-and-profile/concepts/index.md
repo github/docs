@@ -15,5 +15,6 @@ children:
   - /about-your-organizations-profile
   - /about-organization-membership
   - /changing-your-github-username
+  - /email-addresses
   - /scheduled-reminders
 ---
