@@ -1,5 +1,5 @@
 ---
-title: Extending Copilot Chat with the Model Context Protocol (MCP)
+title: Extending GitHub Copilot Chat with the Model Context Protocol (MCP)
 allowTitleToDifferFromFilename: true
 shortTitle: Extend Copilot Chat with MCP
 intro: 'Learn how to use the Model Context Protocol (MCP) to extend {% data variables.copilot.copilot_chat_short %}.'

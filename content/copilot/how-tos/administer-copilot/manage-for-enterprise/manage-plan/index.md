@@ -1,5 +1,5 @@
 ---
-title: Managing the Copilot plan for your enterprise
+title: Managing the GitHub Copilot plan for your enterprise
 shortTitle: Manage plan
 intro: 'Enterprise owners can manage the {% data variables.product.prodname_copilot_short %} plan for the enterprise.'
 versions:
@@ -20,4 +20,3 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-enterprise/manage-plan
 contentType: how-tos
 ---
-

@@ -1,5 +1,5 @@
 ---
-title: Creating a GitHub App for your Copilot Extension
+title: Creating a GitHub App for your GitHub Copilot Extension
 intro: 'Learn how to create a {% data variables.product.prodname_github_app %} for your {% data variables.copilot.copilot_extension_short %}.'
 versions:
   feature: copilot-extensions

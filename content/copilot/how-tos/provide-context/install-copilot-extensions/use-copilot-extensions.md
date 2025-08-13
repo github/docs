@@ -1,5 +1,5 @@
 ---
-title: Using extensions to integrate external tools with Copilot Chat
+title: Using extensions to integrate external tools with GitHub Copilot Chat
 intro: 'You can use {% data variables.copilot.copilot_extensions_short %} to interact with external tools in {% data variables.copilot.copilot_chat %}.'
 product: '{% data reusables.gated-features.copilot-extensions %}'
 versions:

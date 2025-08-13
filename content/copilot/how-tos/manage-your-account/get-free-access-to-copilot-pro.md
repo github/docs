@@ -1,5 +1,5 @@
 ---
-title: 'Getting free access to Copilot Pro as a student, teacher, or maintainer'
+title: 'Getting free access to GitHub Copilot Pro as a student, teacher, or maintainer'
 shortTitle: Get free access to Copilot Pro
 intro: 'Learn how to use {% data variables.copilot.copilot_pro_short %} for free as a student, teacher, or open-source maintainer.'
 versions:

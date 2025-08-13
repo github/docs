@@ -1,5 +1,5 @@
 ---
-title: Creating and managing Copilot knowledge bases
+title: Creating and managing GitHub Copilot knowledge bases
 shortTitle: Create knowledge bases
 intro: 'Learn how to create and manage knowledge bases, which allow you to bring together Markdown documentation across one or more repositories, and then use that knowledge base as context for {% data variables.copilot.copilot_chat_short %}.'
 versions:

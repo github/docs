@@ -1,5 +1,5 @@
 ---
-title: Building a Copilot agent for your Copilot Extension
+title: Building a GitHub Copilot agent for your GitHub Copilot Extension
 shortTitle: Build a Copilot agent
 intro: 'Learn how to build a custom {% data variables.copilot.copilot_agent_short %} that determines the functionality of your {% data variables.copilot.copilot_extension_short %}.'
 versions:
@@ -17,4 +17,3 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/build-a-copilot-agent
 contentType: how-tos
 ---
-

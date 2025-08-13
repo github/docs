@@ -1,5 +1,5 @@
 ---
-title: Making changes to your Copilot license
+title: Making changes to your GitHub Copilot license
 shortTitle: License changes
 intro: 'Learn how changes to {% data variables.product.prodname_copilot %} licenses affect billing and user access for organizations, enterprises, and personal accounts.'
 versions:

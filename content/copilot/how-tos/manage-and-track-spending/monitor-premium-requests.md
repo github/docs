@@ -1,5 +1,5 @@
 ---
-title: Monitoring your Copilot usage and entitlements
+title: Monitoring your GitHub Copilot usage and entitlements
 shortTitle: Monitor premium requests
 intro: 'Learn how you can monitor your monthly usage of {% data variables.product.prodname_copilot_short %} and get the most value out of your {% data variables.product.prodname_copilot_short %} plan.'
 permissions: 'Individual users on a paid {% data variables.product.prodname_copilot_short %} plan can view their own usage and entitlements. For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, organization admins and billing managers can view usage reports for members.'

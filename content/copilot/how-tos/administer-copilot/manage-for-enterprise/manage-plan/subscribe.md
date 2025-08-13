@@ -1,5 +1,5 @@
 ---
-title: Subscribing to Copilot for your enterprise
+title: Subscribing to GitHub Copilot for your enterprise
 shortTitle: Subscribe
 intro: 'Enterprise owners can set up a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan for their enterprise.'
 permissions: Enterprise owners

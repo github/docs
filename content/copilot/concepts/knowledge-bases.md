@@ -1,5 +1,5 @@
 ---
-title: Copilot knowledge bases
+title: GitHub Copilot knowledge bases
 shortTitle: Knowledge bases
 intro: 'Knowledge bases allow you to bring together Markdown documentation across one or more repositories, which can then be used as context for {% data variables.copilot.copilot_chat_short %}.'
 versions:

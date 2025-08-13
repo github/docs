@@ -1,5 +1,5 @@
 ---
-title: Enhancing Copilot agent mode with MCP
+title: Enhancing GitHub Copilot agent mode with MCP
 allowTitleToDifferFromFilename: true
 shortTitle: Enhance agent mode with MCP
 intro: 'Learn how to use the Model Context Protocol (MCP) to expand the agentic capabilities of {% data variables.copilot.copilot_chat_short %}.'
@@ -48,7 +48,7 @@ Follow these best practices to get the most out of combining MCP servers with ag
 * **Choose relevant servers**: Select and enable MCP servers that align with your specific workflow needs.
 * **Start simple**: Begin with a few well-established MCP servers before adding more complex integrations.
 * **Test connectivity**: Ensure all MCP servers are properly configured and accessible before starting agent mode tasks.
-  
+
 ### Security considerations
 
 * **Use OAuth when available**: For MCP servers like {% data variables.product.prodname_dotcom %} MCP, prefer OAuth authentication over {% data variables.product.pat_generic_plural %}. See [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/using-the-github-mcp-server#remote-mcp-server-configuration-with-oauth).
