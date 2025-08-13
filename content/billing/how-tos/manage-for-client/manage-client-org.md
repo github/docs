@@ -1,17 +1,26 @@
 ---
-title: Upgrading or downgrading your client's paid organization
-intro: Billing managers can upgrade or downgrade a client's paid organization at any time.
+title: Managing your client's paid organization
+intro: Billing managers can upgrade or downgrade a client's paid organization at any time, and set their plan to renew.
 redirect_from:
+## Renewing article's redirects
+  - /github/setting-up-and-managing-billing-and-payments-on-github/renewing-your-clients-paid-organization
+  - /articles/renewing-your-client-s-paid-organization
+  - /articles/renewing-your-clients-paid-organization
+  - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
+  - /billing/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
+  - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-paid-organizations-for-procurement-companies/renewing-your-clients-paid-organization
+  - /billing/how-tos/manage-for-client/renew-client-organization
+## Original article's redirects
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-or-downgrading-your-clients-paid-organization
   - /articles/upgrading-or-downgrading-your-client-s-paid-organization
   - /articles/upgrading-or-downgrading-your-clients-paid-organization
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
   - /billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization
-
 versions:
   fpt: '*'
   ghec: '*'
+permissions: 'Billing manager or organization owner'
 topics:
   - Billing
   - Organizations
@@ -19,13 +28,20 @@ topics:
 shortTitle: Manage client org
 contentType: how-tos
 ---
-{% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 
-> [!TIP]
-> * Before you upgrade your client's organization, you can [view or update the payment method on file for the organization](/billing/managing-your-billing/managing-your-payment-and-billing-information).
-> * These instructions are for upgrading and downgrading organizations on the _per-seat subscription_. If your client pays for {% data variables.product.github %} using a _legacy per-repository_ plan, you can upgrade or [downgrade](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) their legacy plan, or [switch their organization to per-seat pricing](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan).
+If you're not already billing manager for the organization, an organization owner at your client will need to add you to the organization as a billing manager. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
 
-## Upgrading an organization's number of paid seats
+## Renewing a client's paid plan
+
+If your client's organization already has a valid payment method, the plan will automatically renew at the start of each billing cycle. Otherwise, you or the client will need to add a payment method.
+
+{% data reusables.organizations.billing-settings %}
+{% data reusables.dotcom_billing.update_payment_method_organization_account %}
+1. Under "Payment method", click **New Card**.
+![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
+{% data reusables.dotcom_billing.enter-payment-info %}
+
+## Upgrading the number of paid seats
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.add-seats %}
@@ -34,7 +50,7 @@ contentType: how-tos
 
 After you add seats, the payment method on file for the organization will be charged a pro-rated amount based on the number of seats you're adding and the amount of time left in your billing cycle.
 
-## Downgrading an organization's number of paid seats to free
+## Downgrading an organization's plan to free
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.downgrade-org-to-free %}
