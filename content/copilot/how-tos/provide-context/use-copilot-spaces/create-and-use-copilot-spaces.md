@@ -38,7 +38,7 @@ You can add two types of context to your space:
 
    For example:
 
-   > You are a SQL generator. Your job is to take the sample queries and data schemas defined in the attached files and and generate SQL queries based on the user's goals.
+   > You are a SQL generator. Your job is to take the sample queries and data schemas defined in the attached files and generate SQL queries based on the user's goals.
 
 * **Attachments**: This context will be used to provide more relevant answers to your questions. Additionally, {% data variables.copilot.copilot_spaces_short %} will always refer to the latest version of the code on the `main` branch of the repository.
 
