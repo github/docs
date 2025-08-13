@@ -1,5 +1,5 @@
 ---
-title: Copilot Extensions
+title: GitHub Copilot Extensions
 shortTitle: Use Copilot Extensions
 intro: 'Learn how to integrate external tools with {% data variables.product.prodname_copilot_short %}.'
 versions:
@@ -19,4 +19,3 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions
 contentType: how-tos
 ---
-

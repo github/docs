@@ -1,5 +1,5 @@
 ---
-title: Managing policies and features for Copilot in your organization
+title: Managing policies and features for GitHub Copilot in your organization
 intro: 'Control the availability of {% data variables.product.prodname_copilot %} features and models for users granted a license by your organization.'
 permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} plan'

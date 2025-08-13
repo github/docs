@@ -1,5 +1,5 @@
 ---
-title: Copilot billing cycle
+title: GitHub Copilot billing cycle
 intro: 'Learn about the billing cycle for {% data variables.product.prodname_copilot %} in organizations and enterprises.'
 shortTitle: Billing cycle
 versions:

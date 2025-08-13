@@ -1,5 +1,5 @@
 ---
-title: Copilot Extensions glossary
+title: GitHub Copilot Extensions glossary
 shortTitle: Extensions glossary
 allowTitleToDifferFromFilename: true
 intro: 'Understand the terminology used in {% data variables.copilot.copilot_extensions_short %}.'

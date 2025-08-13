@@ -1,5 +1,5 @@
 ---
-title: 'Adding {% data variables.copilot.copilot_coding_agent %} to your organization'
+title: Adding GitHub Copilot coding agent to your organization
 intro: 'Enable {% data variables.copilot.copilot_coding_agent %} for your members and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
 permissions: Organization owners

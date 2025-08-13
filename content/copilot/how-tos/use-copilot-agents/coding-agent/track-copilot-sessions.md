@@ -1,5 +1,5 @@
 ---
-title: Tracking Copilot's sessions
+title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
 intro: 'You can use the Agents page, {% data variables.product.prodname_vscode %} and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'

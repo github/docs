@@ -1,5 +1,5 @@
 ---
-title: 'About enabling {% data variables.copilot.copilot_coding_agent %}'
+title: About enabling GitHub Copilot coding agent
 shortTitle: 'Enable {% data variables.copilot.copilot_coding_agent_short %}'
 allowTitleToDifferFromFilename: true
 intro: 'Find out about enabling {% data variables.copilot.copilot_coding_agent %} for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.'

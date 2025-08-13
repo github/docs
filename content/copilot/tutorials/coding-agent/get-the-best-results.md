@@ -1,5 +1,5 @@
 ---
-title: Best practices for using Copilot to work on tasks
+title: Best practices for using GitHub Copilot to work on tasks
 shortTitle: Get the best results
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to get the best results from {% data variables.copilot.copilot_coding_agent %}.'

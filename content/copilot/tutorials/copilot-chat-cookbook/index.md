@@ -1,5 +1,5 @@
 ---
-title: Copilot Chat Cookbook
+title: GitHub Copilot Chat Cookbook
 intro: 'Find examples of prompts to use with {% data variables.copilot.copilot_chat %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
