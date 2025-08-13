@@ -37,6 +37,8 @@ The {% data variables.product.github %} MCP server is a Model Context Protocol (
 * Connect third-party tools (like Cursor, Windsurf, or future integrations) to leverage {% data variables.product.github %}’s context and AI capabilities.
 * Enable cloud-based workflows that work from any device, without local setup.
 
+For public repositories, interactions with the {% data variables.product.github %} MCP server are secured by push protection, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server, such as creating an issue. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
+
 You can access the {% data variables.product.github %} MCP server remotely through {% data variables.product.prodname_vscode %}, or other editors that support remote MCP; or you can run it locally in any MCP-compatible editor, allowing you to choose between the convenience of a hosted solution or the customizability of a self-hosted setup.
 
 If you want to utilize the remote {% data variables.product.github %} MCP server, you can do so in a few steps, without any local setup. This is particularly useful for users who want to quickly leverage {% data variables.product.github %}’s AI capabilities without the overhead of managing a local MCP server.
