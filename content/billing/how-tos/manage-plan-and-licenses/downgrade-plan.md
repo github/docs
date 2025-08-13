@@ -33,12 +33,6 @@ shortTitle: Downgrade plan
 contentType: how-tos
 ---
 
-{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
-
-## About downgrades
-
-When you downgrade your personal account, organization, or enterprise account's subscription, pricing and account feature changes take effect on your next billing date. Downgrading your plan does not affect other subscriptions or usage-based billing for your account. For more information, see [AUTOTITLE](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process).
-
 ## Downgrading your personal account's plan
 
 If you downgrade your personal account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
@@ -78,43 +72,20 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 1. Under "Billing/Plans", next to the plan you want to change, click **Downgrade**.
 1. Enter the reason you're downgrading your account, then click **Downgrade plan**.
 
-## Removing paid seats from your organization
-
-To reduce the number of paid seats your organization uses, you can remove members from your organization or convert members to outside collaborators and give them access to only public repositories. For more information, see:
-* [AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)
-
-{% data reusables.organizations.billing-settings %}
-1. Under "Current plan", next to your current plan, select the **Edit** dropdown menu, then click **Remove seats**.
-1. Under "Remove seats", select the number of seats you'd like to downgrade to.
-1. Review the information about your new payment on your next billing date, then click **Remove seats**.
-
-{% ifversion ghec %}
-
 ## Downgrading your enterprise account's plan
 
 Enterprise accounts are only available with {% data variables.product.prodname_enterprise %}, so it's not possible to downgrade an enterprise account to another plan.
 
-If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether and your company pays via invoice, contact {% data variables.contact.contact_enterprise_sales %}. If you have a self-serve enterprise account, an enterprise account owner must remove or delete all organizations from the enterprise first. Removing an organization from an enterprise automatically downgrades the organization to {% data variables.product.prodname_free_team %}. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether and your company pays via invoice, contact {% data variables.contact.contact_enterprise_sales %}.
 
-Once all organizations have been removed or deleted, an enterprise owner can delete the enterprise account to cancel the {% data variables.product.prodname_enterprise %} subscription. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).
+If you have a self-serve enterprise account, an enterprise account owner can:
 
-## Removing paid seats for your enterprise account
-
-{% data reusables.enterprise-accounts.billing-perms %}
-
-> [!NOTE]
-> If your enterprise account is invoiced, you cannot remove seats on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.manage-seats %}
-{% endif %}
+1. Remove or delete all organizations from the enterprise. Removing an organization from an enterprise automatically downgrades the organization to {% data variables.product.prodname_free_team %}. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+1. Delete the enterprise account to cancel the {% data variables.product.prodname_enterprise %} subscription. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).
 
 ## Further reading
 
+* [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/manage-user-licenses)
 * [AUTOTITLE](/get-started/learning-about-github/githubs-plans)
 * [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)
 * [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).

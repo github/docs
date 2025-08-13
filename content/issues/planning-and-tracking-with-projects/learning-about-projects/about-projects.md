@@ -35,7 +35,7 @@ You can use custom fields to add metadata to your issues, pull requests, and dra
 * A text field to add a quick note.
 * An iteration field to plan work week-by-week, including support for breaks.
 
-To learn more about the different fields you can add to a project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields).
+You can use up to 50 fields in a project, including built-in metadata and custom fields. To learn more about the different fields you can add to a project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields).
 
 ### Automating your projects
 

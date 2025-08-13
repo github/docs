@@ -83,7 +83,9 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 
 1. Create a built-in user account{% ifversion scim-for-ghes-ga %} with the username `scim-admin`{% endif %} to perform provisioning actions on your instance. See [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
 
-   >[!NOTE] Ensure the user's email and username are different from any user you plan on provisioning through SCIM. If your email provider supports it, you can modify an email address by adding `+admin`, for example `johndoe+admin@example.com`.{% ifversion scim-for-ghes-ga %} You can use any username you would like for your setup user, but the `scim-admin` user will not be included in your [{% data variables.product.prodname_github_connect %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise#viewing-license-usage-on-github-enterprise-cloud) license counts, while other users will.{% endif %}
+   Ensure the user's email and username are different from any user you plan on provisioning through SCIM. If your email provider supports it, you can modify an email address by adding `+admin`, for example `johndoe+admin@example.com`.
+
+   {% ifversion scim-for-ghes-ga %}You can use any username for your setup user, but we recommend using `scim-admin`. Although the `scim-admin` user consumes a license when first created, the license is freed once SCIM is enabled. With any other username, the user will continue to consume a license after SCIM is enabled.{% endif %}
 
 1. Promote the user to an enterprise owner. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#promoting-a-user-from-the-enterprise-settings).
 

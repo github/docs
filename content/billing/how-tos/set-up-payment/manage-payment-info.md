@@ -4,6 +4,8 @@ intro: 'Learn how to view and manage your payment information and billing contac
 versions:
   feature: enhanced-billing-platform
 redirect_from:
+  - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/renewing-your-clients-enterprise-account
+  - /billing/how-tos/manage-for-client/renew-client-enterprise
   - /billing/using-the-enhanced-billing-platform-for-enterprises/managing-your-payment-and-billing-information
   - /billing/using-the-billing-platform/adding-or-editing-a-payment-method
   - /billing/using-the-billing-platform/viewing-your-payment-history-and-receipts
