@@ -1,5 +1,8 @@
 import { publish } from '@/events/lib/hydro'
 import { hydroNames } from '@/events/lib/schema'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 /**
  * Handles search analytics and client_name validation for external requests
@@ -40,7 +43,6 @@ export async function handleExternalSearchAnalytics(
     else if (normalizedHost.endsWith('.github.net') || normalizedHost.endsWith('.githubapp.com')) {
       return null
     }
-    // For localhost development without client_name, we'll still send analytics below
   }
 
   // For localhost, ensure we have a client_name for analytics
@@ -48,12 +50,22 @@ export async function handleExternalSearchAnalytics(
     client_name = 'localhost'
   }
 
+  // Log when we detect an external request that we will send analytics for
+  if (client_name && client_name !== 'docs.github.com-client') {
+    logger.info('External search analytics: Sending analytics for external client', {
+      client_name,
+      searchContext,
+      isLikelyExternalAPI,
+      normalizedHost,
+      userAgent: sanitizeUserAgent(req.headers['user-agent']),
+    })
+  }
+
   // Send search event with client identifier
   try {
-    await publish({
+    const analyticsPayload = {
       schema: hydroNames.search,
       value: {
-        type: 'search',
         version: '1.0.0',
         context: {
           event_id: crypto.randomUUID(),
@@ -73,13 +85,43 @@ export async function handleExternalSearchAnalytics(
         search_context: searchContext,
         search_client: client_name as string,
       },
-    })
+    }
+
+    await publish(analyticsPayload)
   } catch (error) {
     // Don't fail the request if analytics fails
     console.error('Failed to send search analytics:', error)
   }
 
   return null
+}
+
+/**
+ * Sanitizes user agent by extracting only the main client type
+ * Returns a safe string with just the primary client identifier
+ */
+function sanitizeUserAgent(userAgent: string | undefined): string {
+  if (!userAgent) return 'unknown'
+
+  // Extract common client types while removing version numbers and detailed info
+  const patterns = [
+    { regex: /^curl/i, name: 'curl' },
+    { regex: /^wget/i, name: 'wget' },
+    { regex: /python-requests/i, name: 'python-requests' },
+    { regex: /axios/i, name: 'axios' },
+    { regex: /node-fetch/i, name: 'node-fetch' },
+    { regex: /Go-http-client/i, name: 'go-http-client' },
+    { regex: /okhttp/i, name: 'okhttp' },
+    { regex: /Mozilla/i, name: 'browser' },
+  ]
+
+  for (const pattern of patterns) {
+    if (pattern.regex.test(userAgent)) {
+      return pattern.name
+    }
+  }
+
+  return 'other'
 }
 
 /**
