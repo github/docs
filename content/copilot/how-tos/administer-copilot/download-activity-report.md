@@ -1,5 +1,5 @@
 ---
-title: Downloading a Copilot activity report for your organization or enterprise
+title: Downloading a GitHub Copilot activity report for your organization or enterprise
 intro: Monitor Copilot license usage with a detailed report.
 permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'

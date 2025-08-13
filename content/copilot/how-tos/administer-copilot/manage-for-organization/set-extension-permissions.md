@@ -1,5 +1,5 @@
 ---
-title: Setting permissions for a Copilot extension in your organization
+title: Setting permissions for a GitHub Copilot extension in your organization
 intro: 'Learn how to control access to {% data variables.copilot.copilot_extensions %}.'
 permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} plan'

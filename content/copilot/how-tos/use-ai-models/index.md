@@ -1,5 +1,5 @@
 ---
-title: AI models for Copilot
+title: AI models for GitHub Copilot
 shortTitle: Use AI models
 intro: 'Learn how to use alternative large language models for {% data variables.product.prodname_copilot %}.'
 versions:
@@ -16,4 +16,3 @@ redirect_from:
   - /copilot/how-tos/ai-models
 contentType: how-tos
 ---
-

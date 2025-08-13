@@ -1,5 +1,5 @@
 ---
-title: Creating and using Copilot Spaces
+title: Creating and using GitHub Copilot Spaces
 shortTitle: Create and use Copilot Spaces
 intro: 'Create spaces to organize and centralize relevant content that grounds {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'

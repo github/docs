@@ -1,5 +1,5 @@
 ---
-title: Analyzing usage over time with the Copilot metrics API
+title: Analyzing usage over time with the GitHub Copilot metrics API
 shortTitle: Analyze usage over time
 intro: 'Learn how to connect to the API, store data, and analyze usage trends.'
 versions:

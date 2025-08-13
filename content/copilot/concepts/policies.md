@@ -1,5 +1,5 @@
 ---
-title: Copilot policies to control availability of features and models
+title: GitHub Copilot policies to control availability of features and models
 shortTitle: Policies
 allowTitleToDifferFromFilename: true
 intro: 'Learn about the policies that control the availability of {% data variables.product.prodname_copilot %} features and models for users granted a license through your organization or an organization in your enterprise.'

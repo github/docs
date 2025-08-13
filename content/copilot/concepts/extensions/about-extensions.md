@@ -1,5 +1,5 @@
 ---
-title: About Copilot Extensions
+title: About GitHub Copilot Extensions
 shortTitle: About extensions
 intro: 'Learn about the development process for {% data variables.copilot.copilot_extensions_short %}.'
 allowTitleToDifferFromFilename: true

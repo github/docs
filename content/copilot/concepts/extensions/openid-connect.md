@@ -1,5 +1,5 @@
 ---
-title: OpenID Connect (OIDC) for Copilot Extensions
+title: OpenID Connect (OIDC) for GitHub Copilot Extensions
 shortTitle: OpenID Connect
 allowTitleToDifferFromFilename: true
 intro: 'Learn how OpenID Connect (OIDC) enables {% data variables.copilot.copilot_extensions_short %} to securely authenticate users and access cloud resources without storing long-lived credentials.'

@@ -1,5 +1,5 @@
 ---
-title: Prompt engineering for Copilot Chat
+title: Prompt engineering for GitHub Copilot Chat
 shortTitle: Prompt engineering
 intro: 'Follow these strategies to improve your {% data variables.product.prodname_copilot_short %} results.'
 versions:

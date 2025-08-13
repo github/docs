@@ -1,5 +1,5 @@
 ---
-title: About Copilot coding agent
+title: About GitHub Copilot coding agent
 shortTitle: Coding agent
 intro: 'You can assign {% data variables.product.github %} issues to {% data variables.product.prodname_copilot_short %}, or ask {% data variables.product.prodname_copilot_short %} to create a pull request.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=about+assigning+issues+to+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'

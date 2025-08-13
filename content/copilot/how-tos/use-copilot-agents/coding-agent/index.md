@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.copilot.copilot_coding_agent %}'
+title: GitHub Copilot coding agent
 shortTitle: '{% data variables.copilot.copilot_coding_agent_short_cap_c %}'
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can work on {% data variables.product.github %} issues and raise pull requests for you to review.'
 versions:

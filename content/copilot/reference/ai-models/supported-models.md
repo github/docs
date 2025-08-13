@@ -1,5 +1,5 @@
 ---
-title: Supported AI models in Copilot
+title: Supported AI models in GitHub Copilot
 shortTitle: Supported models
 allowTitleToDifferFromFilename: true
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'

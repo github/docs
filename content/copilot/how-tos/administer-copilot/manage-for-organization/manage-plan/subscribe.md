@@ -1,5 +1,5 @@
 ---
-title: Subscribing to Copilot for your organization
+title: Subscribing to GitHub Copilot for your organization
 shortTitle: Subscribe
 intro: 'Organization owners can set up a {% data variables.copilot.copilot_business_short %} plan for their organization.'
 permissions: Organization owners

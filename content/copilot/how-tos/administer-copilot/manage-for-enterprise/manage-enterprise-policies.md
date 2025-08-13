@@ -1,5 +1,5 @@
 ---
-title: Managing policies and features for Copilot in your enterprise
+title: Managing policies and features for GitHub Copilot in your enterprise
 intro: 'Control the availability of features for {% data variables.product.prodname_copilot %} in your enterprise using policies.'
 permissions: Enterprise owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'

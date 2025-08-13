@@ -1,5 +1,5 @@
 ---
-title: Hosting of models for Copilot Chat
+title: Hosting of models for GitHub Copilot Chat
 shortTitle: Model hosting
 allowTitleToDifferFromFilename: true
 intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
