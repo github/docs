@@ -1,0 +1,68 @@
+   - name: Client apps
+    octicon: DeviceMobileIcon
+    children:
+      - github-cli
+      - get-started/using-github/github-mobile
+      - desktop
+  - name: Project management
+    octicon: ProjectIcon
+    children:
+      - issues
+      - issues/planning-and-tracking-with-projects
+      - search-github
+  - name: Enterprise and Teams
+    octicon: OrganizationIcon
+    children:
+      - organizations
+      - code-security/securing-your-organization
+      - enterprise-onboarding
+      - admin
+      - gh-wa
+  - name: Developers
+    octicon: CodeSquareIcon
+    children:
+      - apps
+      - rest
+      - graphql
+      - webhooks
+      - copilot/how-tos/use-copilot-extensions
+      - github-models
+  - name: Community
+    octicon: GlobeIcon
+    children:
+      - communities
+      - sponsors
+      - education
+      - nonprofit
+      - support
+      - contributing
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - codeql
+      - electron
+      - npm
+      - gh-wa
+externalProducts:
+  electron:
+    id: electron
+    name: Electron
+    href: 'https://electronjs.org/docs/latest'
+    external: true
+  codeql:
+    id: codeql
+    name: CodeQL query writing
+    href: 'https://codeql.github.com/docs'
+    external: true
+  npm:
+    id: npm
+    name: npm
+    href: 'https://docs.npmjs.com/'
+    external: true
+  gh-wa:
+    id: gh-wa
+    name: GitHub Well-Architected
+    href: 'https://wellarchitected.github.com/'
+    external: true
+---
+
