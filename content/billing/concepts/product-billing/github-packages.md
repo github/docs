@@ -1,7 +1,6 @@
 ---
 title: GitHub Packages billing
-intro: 'If you want to use {% data variables.product.prodname_registry %} beyond the storage or data transfer included in your account, you will be billed for additional usage.'
-product: '{% data reusables.gated-features.packages %}'
+intro: 'Learn how usage of {% data variables.product.prodname_registry %} is measured against your free allowance and how to pay for additional use.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-packages/about-billing-for-github-packages
@@ -22,15 +21,29 @@ shortTitle: GitHub Packages
 contentType: concepts
 ---
 
-## About billing for {% data variables.product.prodname_registry %}
+## How use of {% data variables.product.prodname_registry %} is measured
 
-{% data reusables.billing.authorization-charge %}
+{% data variables.product.prodname_registry %} usage is **free** for **public packages**. In addition, data transferred in from any source is free.
 
-{% data reusables.package_registry.packages-billing %}
+For **private** repositories, each {% data variables.product.github %} account receives a quota of storage and data transfer for use with {% data variables.product.prodname_registry %}, depending on the account's plan. Any usage beyond the included amounts is billed to your account. Data transfer resets every month, while storage usage does not.
 
-If you are an organization or enterprise owner, you can connect an Azure Subscription ID to your organization or enterprise account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts included with your account. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
+Working in a private repository with packages:
 
-Data transfer resets every month, while storage usage does not.
+* When you **publish a private package**, the total file size is included in the **repository owner's storage use**.
+* When you **download** a private package, the transfer of data is included in the **repository owner's data transfer usage**.
+
+> [!TIP]
+> Anyone with write access to a repository can publish packages without increasing usage for their personal account.
+
+### Examples of how usage is measured
+
+* If you publish a 500 MB package in a private repository, you'll use 500 MB of the repository owner's storage and none of their data transfer allowance. If you find a bug and publish an updated 500 MB package without deleting the original package, you are now using 1 GB of the owner's storage.
+* If you download a 500 MB package from a private repository, you'll use 500 MB of the repository owner's data transfer. If a security fix is released and you download the new package, you'll add another 500 MB of data transfer, bringing the total transfer for these two downloads to 1 GB of data.
+* If {% data variables.product.prodname_actions %} downloads a 500 MB package from a private repository using a `GITHUB_TOKEN`, this does not count against the repository owner's data transfer allowance, see [Package downloads by {% data variables.product.prodname_actions %}](#package-downloads-by-github-actions).
+
+## Free use of {% data variables.product.prodname_registry %}
+
+The following amounts of storage and data transfer are included in your {% data variables.product.github %} plan. At the start of each month, the data transfer for the account is reset to zero.
 
 {% rowheaders %}
 
@@ -44,7 +57,9 @@ Plan | Storage | Data transfer (per month)
 
 {% endrowheaders %}
 
-All data transferred out, when triggered by {% data variables.product.prodname_actions %}, and data transferred in from any source is free. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.
+### Package downloads by {% data variables.product.prodname_actions %}
+
+When a workflow uses {% data variables.product.prodname_actions %} to download a package, the data transfer does not count against the usage for the hosting repository. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.
 
 {% rowheaders %}
 
@@ -55,24 +70,33 @@ All data transferred out, when triggered by {% data variables.product.prodname_a
 
 {% endrowheaders %}
 
-Storage usage is shared with build artifacts produced by {% data variables.product.prodname_actions %} for repositories owned by your account. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
+## Using more than your included quota
 
-{% data variables.product.prodname_dotcom %} charges usage to the account that owns the repository where the package is published. If your account's usage surpasses these limits and you have a valid payment method on file, you will pay $0.008 USD per GB of storage per day and $0.50 USD per GB of data transfer.
+If your account does not have a valid payment method on file, usage is blocked once you use up your quota.
 
-For example, if your organization uses {% data variables.product.prodname_team %}, allows unlimited spending, uses 150GB of storage, and has 50GB of data transfer out during a month, the organization would use 148GB for storage and 40GB for data transfer for that month beyond their included quota. The additional storage would cost $0.008 USD per GB per day or approximately $37 USD for a 31-day month. The additional data transfer would cost $0.50 USD per GB or $20 USD.
+## Paying for additional {% data variables.product.prodname_registry %} use
 
-{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
+You pay for any additional use above your quota using the payment method set up for your {% data variables.product.github %} account. See [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.
+Data transfer is billed for each GB of data transfered. Storage is billed by calculating an hourly usage rate.
 
-{% data variables.product.prodname_dotcom %} calculates your storage usage for each month based on hourly usage per GB during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
+* {% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
+* To view your current storage and bandwidth, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
+
+### Example of how usage is calculated over a month
+
+At the end of the month, {% data variables.product.github %} rounds your data transfer to the nearest GB.
+
+{% data variables.product.github %} calculates your storage usage for each month based on hourly usage per GB during that month. For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 days of March, your storage usage would be:
 
 * 3 GB x 10 days x (24 hours per day) = 720 GB-Hours
 * 12 GB x 21 days x (24 hours per day) = 6,048 GB-Hours
 * 720 GB-Hours + 6,048 GB-Hours = 6,768 total GB-Hours
 * 6,768 GB-Hours / (744 hours per month) = 9.0967 GB-Months
 
-At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
+At the end of the month, {% data variables.product.github %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
+
+### Example of estimating usage
 
 You can also use this calculation in the middle of a billing cycle, to estimate what your total usage might be for the month. For example, if you have an organization that uses {% data variables.product.prodname_team %}, which provides 2 GB of free storage, and you use 0 GB for the first 5 days of April, 1.5 GB for the following 10 days, and you plan to use 3 GB for the last 15 days of the billing cycle, your projected storage usage for the month would be:
 
@@ -82,14 +106,16 @@ You can also use this calculation in the middle of a billing cycle, to estimate 
 * 0 GB-Hours + 120 GB-Hours + 1080 GB-Hours = 1200 total GB-Hours
 * 1200 GB-Hours / (744 hours per month) = 1.6 GB-Months
 
-The projected 1.6 GB of storage usage for the month would not exceed your 2 GB limit, even though your actual storage amount briefly exceeded 2 GB.
-
-Your {% data variables.product.prodname_registry %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
-
-{% data reusables.user-settings.context_switcher %}
+The projected 1.6 GB of storage usage for the month would not exceed your 2 GB limit, even though your actual storage amount exceeded 2 GB for half the month.
 
 ## Managing your budget for {% data variables.product.prodname_registry %}
 
 {% data reusables.billing.default-over-quota-behavior %}
 
 {% data reusables.billing.migrated-budgets %}
+
+## Further reading
+
+* [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages)
+* [AUTOTITLE](/packages/quickstart)
+* [AUTOTITLE](/packages/learn-github-packages/publishing-a-package)
