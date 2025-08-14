@@ -17,4 +17,5 @@ children:
   - /changing-your-github-username
   - /email-addresses
   - /scheduled-reminders
+  - /personal-repository-access-and-collaboration
 ---
