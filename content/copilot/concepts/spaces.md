@@ -15,7 +15,7 @@ contentType: concepts
 
 {% data reusables.copilot.copilot-spaces.preview-note %}
 
-{% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. {% data variables.copilot.copilot_spaces_short %} can include code, pull requests, or issues from repositories, free-text content like transcripts or notes, images, and file uploads. You can ask {% data variables.product.prodname_copilot_short %} questions grounded in that context, or share the space with your team to support collaboration and knowledge sharing.
+{% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. {% data variables.copilot.copilot_spaces_short %} can include repositories, code, pull requests, issues, free-text content like transcripts or notes, images, and file uploads. You can ask {% data variables.product.prodname_copilot_short %} questions grounded in that context, or share the space with your team to support collaboration and knowledge sharing.
 
 ## Why use {% data variables.copilot.copilot_spaces %}?
 
@@ -38,7 +38,7 @@ With {% data variables.copilot.copilot_spaces %} you can:
 | -------------------- | --------------------------- | -------------------------------------------------------------- |
 | Who can create   | Anyone with a {% data variables.product.prodname_copilot_short %} license             | Organization owners                                              |
 | Owned by   | Organizations or individual users              | Organizations                             |
-| Content type     | Files and directories from {% data variables.product.github %} repositories, pull requests and issues, uploaded files including images, text files, rich documents, and spreadsheets, and free-text content                   | Markdown files hosted in {% data variables.product.github %} |
+| Content type     | Entire {% data variables.product.github %} repositories, specific files, pull requests and issues, uploaded files including images, text files, rich documents, and spreadsheets, and free-text content                   | Markdown files hosted in {% data variables.product.github %} |
 | Context handling | Limited in size, which guarantees higher response quality given the focused selection | Unlimited, but that comes with reduced response quality |
 
 {% endrowheaders %}

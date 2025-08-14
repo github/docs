@@ -12,10 +12,7 @@ redirect_from:
 contentType: tutorials
 ---
 
->[!NOTE]
-> * MCP support is generally available (GA) in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}.
-> * MCP support for Copilot in {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+{% data reusables.copilot.mcp-availability-and-preview-note %}
 
 ## About {% data variables.product.prodname_copilot_short %}'s agentic capabilities and MCP
 

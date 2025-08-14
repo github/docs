@@ -49,15 +49,7 @@ You can create cost centers to map spending to individual business units or grou
 
 For example, if you were running a pilot program for {% data variables.copilot.copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
 
-### Create a cost center
-
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-1. In the left sidebar, click **Cost centers**, then click **New cost center**.
-1. Create the cost center. You don't need to add any repositories or organizations, because you will add users to the cost center directly in the next step.
-
-   >[!NOTE] As a priority, a cost center is charged for a {% data variables.product.prodname_copilot_short %} license if the assigned **user** has been added to the cost center directly. As a fallback, a cost center is charged for the license if the **organization where the user receives access** has been added to the cost center.
-
-1. After creating the cost center, use the REST API to add the users whose usage you want to track. See [AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/billing#add-users-to-a-cost-center).
+For more information, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
 
 ## Preventing overspending
 

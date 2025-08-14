@@ -40,8 +40,7 @@ contentType: how-tos
    * Click **Models** to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
 
-> [!NOTE]
-> The **MCP servers in {% data variables.product.prodname_copilot_short %}** policy controls use where MCP server support is generally available (GA). In features where MCP support is in preview, for example {% data variables.product.prodname_copilot_short %} editors, availability is controlled by the **Editor preview features** policy.
+{% data reusables.copilot.mcp-servers-policy-note %}
 
 ## Opting in to to previews or feedback
 

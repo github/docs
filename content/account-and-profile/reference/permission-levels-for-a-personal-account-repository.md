@@ -66,6 +66,12 @@ The repository owner has full control of the repository. In addition to the acti
 
 ## Collaborator access for a repository owned by a personal account
 
+{% ifversion fpt or ghec %}
+
+{% data variables.product.company_short %} limits the number of people who can be invited to a repository within a 24-hour period. If you exceed this limit, either wait 24 hours or create an organization to collaborate with more people. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
+
+{% endif %}
+
 Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
 > [!NOTE]
@@ -95,6 +101,10 @@ Collaborators can also perform the following actions.
 | {% endif %} |
 | Remove themselves as collaborators on the repository | [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository) |
 
-## Further reading
+If you want more granular control of permissions to the repository, you can create a repository within an organization. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
 
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)
+## Removing a collaborator
+
+While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
+
+When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.
