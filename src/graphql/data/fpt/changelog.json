@@ -3,6 +3,30 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>BlockedByAddedEvent</code> was added</p>",
+          "<p>Type <code>BlockedByRemovedEvent</code> was added</p>",
+          "<p>Type <code>BlockingAddedEvent</code> was added</p>",
+          "<p>Type <code>BlockingRemovedEvent</code> was added</p>",
+          "<p>Member <code>BlockedByAddedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockedByRemovedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockingAddedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockingRemovedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockedByAddedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>BlockedByRemovedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>BlockingAddedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>BlockingRemovedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-08-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],
