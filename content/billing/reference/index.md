@@ -17,7 +17,7 @@ children:
   - /billing-roles
   - /roles-for-visual-studio
   - /license-consumption
+  - /models-multipliers-and-costs
   - /enterprise-license-troubleshooting
 contentType: reference
 ---
-
