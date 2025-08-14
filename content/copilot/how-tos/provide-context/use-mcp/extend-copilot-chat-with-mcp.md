@@ -17,10 +17,7 @@ redirect_from:
 contentType: how-tos
 ---
 
->[!NOTE]
-> * MCP support is generally available (GA) in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}.
-> * MCP support for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply only to {% data variables.product.prodname_copilot_short %} in IDEs where MCP support is still in preview. GA terms apply when using MCP for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}.
+{% data reusables.copilot.mcp-availability-and-preview-note %}
 
 ## Introduction
 
@@ -28,15 +25,15 @@ The Model Context Protocol (MCP) is an open standard that defines how applicatio
 
 For information on currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
 
-{% vscode %}
-
 {% data reusables.copilot.mcp.mcp-policy %}
+
+{% vscode %}
 
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_vscode %} version 1.99 or later**. For information on installing {% data variables.product.prodname_vscode %}, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
-* If you are a member of an organization or enterprise with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the "MCP servers in Copilot" policy must be enabled in order to use MCP.
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Configuring MCP servers in {% data variables.product.prodname_vscode %}
 
@@ -132,17 +129,22 @@ If you already have an MCP configuration in Claude Desktop, you can use that con
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Configuring MCP servers in JetBrains IDEs
 
-1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
-1. From the menu, select "Edit settings."
-1. Under the MCP section, click "Edit in `mcp.json`."
-1. Define your MCP servers. You can use the following configuration as an example:
+{% data reusables.copilot.jetbrains-mcp-setup-steps %}
+1. In the `mcp.json` file, define your MCP servers. JetBrains IDEs support both remote and local servers. Remote servers are hosted externally for easier setup and sharing, while local servers run on your local machine and can access local resources.
 
-   {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
+You can use the following configurations as examples:
 
-Alternatively, to access the MCP settings, once you're in "Agent Mode," click the tools icon, then click **Add more tools**.
+### Remote server configuration example with PAT
+
+  {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides-remote %}
+
+### Local server configuration example
+
+  {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides-local %}
 
 {% endjetbrains %}
 
@@ -152,15 +154,22 @@ Alternatively, to access the MCP settings, once you're in "Agent Mode," click th
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Configuring MCP servers in Xcode
 
-1. Open the {% data variables.product.prodname_copilot %} for Xcode extension.
-1. In agent mode, click the tools icon.
-1. Select "Edit config."
-1. Define your MCP servers, editing `mcp.json`. You can use the following configuration as an example:
+{% data reusables.copilot.xcode-mcp-setup-steps %}
+1. Define your MCP servers, editing `mcp.json`. Xcode supports both remote and local servers. Remote servers are hosted externally for easier setup and sharing, while local servers run on your local machine and can access local resources.
 
-   {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
+You can use the following configurations as examples:
+
+### Remote server configuration example with PAT
+
+  {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides-remote %}
+
+### Local server configuration example
+
+  {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides-local %}
 
 {% endxcode %}
 
@@ -172,12 +181,18 @@ Alternatively, to access the MCP settings, once you're in "Agent Mode," click th
 
 ## Configuring MCP servers in Eclipse
 
-1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
-1. From the menu, select "Edit preferences."
-1. In the left pane, expand {% data variables.copilot.copilot_chat_short %} and click **MCP**.
-1. Define your MCP servers. You can use the following configuration as an example:
+{% data reusables.copilot.eclipse-mcp-setup-steps %}
+1. Under "Server Configurations", define your MCP servers. Eclipse supports both remote and local servers. Remote servers are hosted externally for easier setup and sharing, while local servers run on your local machine and can access local resources.
 
-   {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
+You can use the following configurations as examples:
+
+### Remote server configuration example with PAT
+
+  {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides-remote %}
+
+### Local server configuration example
+
+  {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides-local %}
 
 {% endeclipse %}
 
