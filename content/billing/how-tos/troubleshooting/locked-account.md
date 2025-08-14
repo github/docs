@@ -34,6 +34,8 @@ You can downgrade your user account or organization to {% data variables.product
 
 ## Unlocking an organization's features due to a declined payment
 
-If your account's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
+If your account's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge.
+
+{% data reusables.billing.manage-payment-info %}
 
 If the new billing information is approved, we will immediately charge you for the paid product you chose. The account will automatically unlock when a payment has been successfully processed. Payments may take up to 24 hours to process.
