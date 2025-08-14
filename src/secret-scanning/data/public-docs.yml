@@ -4802,6 +4802,17 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
+- provider: Temporal
+  supportedSecret: Temporal Cloud API Key
+  secretType: temporal_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Tencent
   supportedSecret: Tencent Cloud International Access Token
   secretType: tencent_cloud_intl_access_token
