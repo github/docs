@@ -987,7 +987,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing Copilot knowledge bases"
+    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
   },
   {
     "action": "copilot.knowledge_base_deleted",
@@ -1011,7 +1011,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing Copilot knowledge bases"
+    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
   },
   {
     "action": "copilot.knowledge_base_updated",
@@ -1035,7 +1035,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing Copilot knowledge bases"
+    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
   },
   {
     "action": "copilot.plan_changed",
