@@ -40,12 +40,12 @@ You can add two types of context to your space:
 
    > You are a SQL generator. Your job is to take the sample queries and data schemas defined in the attached files and generate SQL queries based on the user's goals.
 
-* **Attachments**: This context will be used to provide more relevant answers to your questions. Additionally, {% data variables.copilot.copilot_spaces_short %} will always refer to the latest version of the code on the `main` branch of the repository.
+* **Sources**: This context will be used to provide more relevant answers to your questions. Additionally, {% data variables.copilot.copilot_spaces_short %} will always refer to the latest version of the code on the `main` branch of the repository.
 
-  To add attachments, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add** to the right of "Attachments", then choose one of the following options:
+  To add sources, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add sources**, then choose one of the following options:
 
-  * **{% octicon "file-code" aria-hidden="true" aria-label="file-code" %} Attach files and folders**: You can add files and folders from your {% data variables.product.github %} repositories. This includes code files, documentation, and other relevant content that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
-  * **{% octicon "link" aria-hidden="true" aria-label="link" %} Link pull requests and issues**: You can paste the URLs of the {% data variables.product.github %} issues and pull requests.
+  * **{% octicon "file-code" aria-hidden="true" aria-label="file-code" %} Add files and repositories**: You can add files, folders, and entire {% data variables.product.github %} repositories. When you add a repository, {% data variables.product.prodname_copilot_short %} searches its contents to find relevant information, but adding specific files or folders that are most relevant to your work will give you the best results. This can include code files, documentation, and other content that helps {% data variables.product.prodname_copilot_short %} understand the context of your space.
+  * **{% octicon "link" aria-hidden="true" aria-label="link" %} Link files, pull requests, and issues**: You can paste the URLs of the {% data variables.product.github %} content, including pull requests and issues.
   * **{% octicon "upload" aria-hidden="true" aria-label="upload" %} Upload a file**: You can upload files directly from your local machine. This includes images, text files, rich documents, and spreadsheets.
   * **{% octicon "paste" aria-hidden="true" aria-label="paste" %} Add text content**: You can type or paste free-text content, such as transcripts, notes, or any other relevant information that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
 
