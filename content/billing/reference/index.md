@@ -10,13 +10,14 @@ topics:
   - Billing
 children:
   - /product-usage-included
+  - /actions-minute-multipliers
   - /usage-reports
   - /supported-payment-methods
   - /azure-subscription
   - /billing-roles
   - /roles-for-visual-studio
   - /license-consumption
+  - /models-multipliers-and-costs
   - /enterprise-license-troubleshooting
 contentType: reference
 ---
-
