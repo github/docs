@@ -16,9 +16,9 @@ shortTitle: Use cost centers
 contentType: tutorials
 ---
 
-To drive accountability and control costs, the new billing platform lets you create cost centers. A cost center manages expenses without generating revenue. You can create cost centers and assign users, organizations, and repositories to them, and set budgets. This enhances spending control and resource allocation.
+Cost centers let you attribute usage and spend by business unit to improve accountability, forecasting, and cost allocation. You can assign users, organizations, and repositories within your enterprise to a cost center.
 
-If your account is billed to Azure, you will have the option to add an Azure subscription ID. Cost centers allows for multiple Azure subscription IDs so that different business units, within an enterprise, can directly pay for their usage.
+If your account is billed through Azure, you can add an Azure subscription to a cost center to bill usage to a different Azure subscription than the enterprise default.
 
 To learn more about roles authorized to create and manage cost centers, see [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform).
 
@@ -29,7 +29,7 @@ To learn more about roles authorized to create and manage cost centers, see [AUT
 
 Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, and users can be assigned to one cost center.
 
-When you create a cost center, you can add **organizations** or **repositories**—which track spending for usage-based products like {% data variables.product.prodname_actions %}—via the user interface. To track spending for license-based products like {% data variables.product.prodname_copilot %}, you will need to add **users** to the cost center via the API after the cost center has been created. For guidance by product, see [Allocating spending to a cost center](#allocating-spending-to-a-cost-center).
+When you create a cost center, you can add **organizations**, **repositories**, or **users**. The cost center will then track spending for the selected entities.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
@@ -37,9 +37,9 @@ When you create a cost center, you can add **organizations** or **repositories**
 1. Click **New cost center** in the upper-right corner.
 1. In the text box under "Name", enter a name for your cost center.
 1. If your account is billed to Azure, you have the option to add an Azure ID. Your credentials will be verified against Azure to ensure the Azure IDs associated to your account are available.
-1. If the cost center will track spending for usage-based products like {% data variables.product.prodname_actions %}, under "Resources", select the organizations and/or repositories that will be a part of the cost center.
+1. Under **Resources**, select the organizations, repositories, and/or users that will be a part of the cost center.
 
-   >[!NOTE] An organization or repository can only be assigned to one cost center at a time.
+   >[!NOTE] A resource (organization, repository, or user) can only be assigned to one cost center at a time. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
 
 1. Click **Create cost center**.
 
@@ -47,9 +47,9 @@ When you create a cost center, you can add **organizations** or **repositories**
 
 To allocate spending to a cost center, you add repositories, organizations, or users to the cost center. Any usage that is not assigned to a specific cost center is categorized as "Enterprise Only" spending on your enterprise's "Usage" page.
 
-* For **usage-based** products like {% data variables.product.prodname_actions %}, cost centers are charged based on the repositories or organizations that you add. You can add these to a cost center in the UI. See [Creating a cost center](#creating-a-cost-center).
+* For **usage-based** products like {% data variables.product.prodname_actions %}, cost centers are charged based on the repositories or organizations that you add. See [Creating a cost center](#creating-a-cost-center).
 * For **license-based** products like {% data variables.product.prodname_copilot %}, cost centers are charged based on the users that you add.
-  * You must add users to a cost center with the API. See [AUTOTITLE](/rest/enterprise-admin/billing#add-users-to-a-cost-center). Note that the API currently supports adding or removing up to **50** resources in a single operation.
+  * You can add repositories, organizations, and/or users to a cost center with the API. See [AUTOTITLE](/rest/enterprise-admin/billing#add-resources-to-a-cost-center). Note that the API currently supports adding or removing up to **50** resources in a single operation.
   * If a licensed user isn't assigned to cost center, costs either default to "Enterprise Only" spending or are assigned to a cost center based on the user's organization membership. This depends on the product. For a detailed explanation, see [Cost center allocation for license-based products](#cost-center-allocation-for-license-based-products).
 
 ### Breakdown by product
@@ -75,8 +75,6 @@ You can view the usage of your cost centers and download the usage data for furt
 ## Viewing, editing, and deleting cost centers
 
 You can view, edit, and delete cost centers to manage your business units effectively.
-
-To add or remove members from a cost center, you can use the API. See [AUTOTITLE](/rest/enterprise-admin/billing).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
@@ -182,8 +180,7 @@ There are a few current limitations when working with cost centers and the API:
 
 * There is a maximum of 250 cost centers per enterprise.
 * You can add or remove up to 50 resources at a time from a cost center using the API.
-* Azure subscriptions can only be added to or removed from cost centers via the UI.
-* Users can only be added to or removed from cost centers via the API.
+* Azure subscriptions can only be added to or removed from cost centers through the UI.
 
 ## Further reading
 
