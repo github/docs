@@ -1,4 +1,4 @@
----
+---https://chat.whatsapp.com/L9jowDJMRSSIoPDpee7QyU?mode=ac_t
 title: GitHub General Privacy Statement
 redirect_from:
   - /privacy
