@@ -22,29 +22,48 @@ Your profile contributions graph is a record of contributions you've made to rep
 
 If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
 
-## Contributions that are counted
+## What counts as a contribution
 
-### Issues, pull requests and discussions
+On your profile page, the following actions **always** count as contributions:
+
+* Creating a new repository
+* Forking an existing repository
+
+The following actions **sometimes** count as contributions:
+* Opening an issue
+* Proposing a pull request
+* Submitting a pull request review
+* Opening a discussion
+* Answering a discussion
+* Making a commit
+
+For more information, see [Contribution criteria for issues, pull requests and discussions](#contribution-criteria-for-issues-pull-requests-and-discussions) and [Contribution criteria for commits](#contribution-criteria-for-commits).
+
+### Contribution criteria for issues, pull requests and discussions
 
 Issues, pull requests, and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
 
-{% data variables.product.company_short %} limits the number of these items when displaying the contribution graph. If you've reached the limit, the contribution graph may not display all of your contributions.
+Additionally, {% data variables.product.company_short %} limits the number of these items when displaying the contribution graph. If you've reached the limit, the contribution graph may not display all of your contributions.
 
-### Commits
+### Contribution criteria for commits
 
 Commits will appear on your contributions graph if they meet **all** of the following conditions:
-* The email address used for the commits is associated with your account on {% data variables.product.prodname_dotcom %}.
+* The email address used to make {% ifversion ghes %}or co-author {% endif %} the commits is associated with your account on {% data variables.product.prodname_dotcom %}.
 * The commits were made in a standalone repository, not a fork.
-* The commits were made:
-  * In the repository's default branch
-  * In the `gh-pages` branch (for repositories with project sites)
-
-For more information on project sites, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites).
+* The commits were made in one of two branches:
+  * The repository's default branch
+  * The `gh-pages` branch (for repositories with project sites). For more information on project sites, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites)
 
 In addition, **at least one** of the following must be true:
 * You are a collaborator on the repository or are a member of the organization that owns the repository.
 * You have forked the repository.
 * You have opened a pull request or issue in the repository.
+
+## How contribution event times are calculated
+
+Timestamps are calculated differently for commits and pull requests:
+* **Commits** use the time zone information in the commit timestamp. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
+* **Pull requests** and **issues** opened on {% data variables.product.github %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ## Common reasons that contributions are not counted
 
@@ -52,7 +71,7 @@ In addition, **at least one** of the following must be true:
 
 ### Commit was made less than 24 hours ago
 
-After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph.
+After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
 
 ### Your local Git commit email isn't connected to your account
 
