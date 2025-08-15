@@ -1,0 +1,4 @@
+To allocate spending to a cost center, you add repositories, organizations, or users to the cost center. Any usage that is not assigned to a specific cost center is categorized as "Enterprise Only" spending on your enterprise's "Usage" page.
+
+* For **metered** products like {% data variables.product.prodname_actions %}, cost centers are charged based on the **repositories or organizations** in the cost center, as this is where the usage takes place.
+* For **license-based** products like {% data variables.product.prodname_copilot %}, cost centers are charged based on the **users** in the cost center. If a licensed user isn't assigned to a cost center, costs for the license either default to "Enterprise Only" spending or are assigned to a cost center based on the user's organization membership. This depends on the product.
