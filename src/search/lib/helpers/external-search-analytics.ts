@@ -1,3 +1,4 @@
+import { ExtendedRequest } from '@/types'
 import { publish } from '@/events/lib/hydro'
 import { hydroNames } from '@/events/lib/schema'
 import { createLogger } from '@/observability/logger'
@@ -9,7 +10,7 @@ const logger = createLogger(import.meta.url)
  * Returns null if the request should continue, or an error response object if validation failed
  */
 export async function handleExternalSearchAnalytics(
-  req: any,
+  req: ExtendedRequest,
   searchContext: string,
 ): Promise<{ error: string; status: number } | null> {
   const host = req.headers['x-host'] || req.headers.host
@@ -73,12 +74,12 @@ export async function handleExternalSearchAnalytics(
           version: '1.0.0',
           created: new Date().toISOString(),
           hostname: normalizedHost,
-          path: '',
-          search: '',
+          path: req?.context?.path || '',
+          search: 'REDACTED',
           hash: '',
-          path_language: 'en',
-          path_version: '',
-          path_product: '',
+          path_language: req?.context?.language || 'en',
+          path_version: req?.context?.version || '',
+          path_product: req?.context?.product || '',
           path_article: '',
         },
         search_query: 'REDACTED',
@@ -90,7 +91,7 @@ export async function handleExternalSearchAnalytics(
     await publish(analyticsPayload)
   } catch (error) {
     // Don't fail the request if analytics fails
-    console.error('Failed to send search analytics:', error)
+    logger.error('Failed to send search analytics:', { error })
   }
 
   return null
@@ -146,16 +147,12 @@ function stripPort(host: string): string {
   return hostname
 }
 
-interface ExternalAPIRequestLike {
-  headers: Record<string, string | undefined>
-}
-
 /**
  * Determines if a request is likely from an external API client rather than a browser
  * Uses multiple heuristics to detect programmatic vs browser requests
  */
 const userAgentRegex = /^(curl|wget|python-requests|axios|node-fetch|Go-http-client|okhttp)/i
-function isExternalAPIRequest(req: ExternalAPIRequestLike): boolean {
+function isExternalAPIRequest(req: ExtendedRequest): boolean {
   const headers = req.headers
 
   // Browser security headers that APIs typically don't send
