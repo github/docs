@@ -22,6 +22,7 @@ This guide helps you try out models quickly in the playground, then shows you ho
 ## Step 1: Try models in the playground
 
 1. Go to **[https://github.com/marketplace/models](https://github.com/marketplace/models)**.
+
 1. In the playground, select at least one model from the dropdown menu.
 1. Test out different prompts using the **Chat** view, and compare responses from different models.
 1. Use the **Parameters** view to customize the parameters for the models you are testing, then see how they impact responses.
@@ -69,9 +70,10 @@ To call models programmatically, you’ll need:
 
 1. To try other models, change the value of the `model` field in the JSON payload to one from the [marketplace](https://github.com/marketplace/models).
 
-## Step 3: Run models in {% data variables.product.prodname_actions %}
+## Step 3: Run models in GitHub Actions
 
 1. In your repository, create a workflow file at `.github/workflows/models-demo.yml`.
+
 1. Paste the following workflow into the file you just created.
 
     ```yaml copy
@@ -116,12 +118,13 @@ This example shows how to send a prompt to a model and use the response in your 
 {% data variables.product.prodname_github_models %} supports reusable prompts defined in `.prompt.yml` files. Once you add this file to your repository, it will appear in the Models page of your repository and can be run directly in the Prompt Editor and evaluation tooling. Learn more about [AUTOTITLE](/github-models/use-github-models/storing-prompts-in-github-repositories).
 
 1. In your repository, create a file named `summarize.prompt.yml`. You can save it in any directory.
+
 1. Paste the following example prompt into the file you just created.
 
     ```yaml copy
     name: Text Summarizer
     description: Summarizes input text concisely
-    model: openai/gpt-4o-mini
+    model: gpt-4o-mini
     modelParameters:
       temperature: 0.5
     messages:
@@ -136,8 +139,11 @@ This example shows how to send a prompt to a model and use the response in your 
     ```
 
 1. Commit and push the file to your repository.
+
 1. Go to the **Models** tab in your repository.
+
 1. In the navigation menu, click **{% octicon "note" aria-hidden="true" aria-label="none" %} Prompts**, then click on the prompt file.
+
 1. The prompt will open in the prompt editor. Click **Run**. A right-hand sidebar will appear asking you to enter input text. Enter any input text, then click **Run** again in the bottom right corner to test it out.
 
    > [!NOTE]
@@ -148,12 +154,13 @@ This example shows how to send a prompt to a model and use the response in your 
 Evaluations help you measure how different models respond to the same inputs so you can choose the best one for your use case.
 
 1. Go back to the `summarize.prompt.yml` file you created in the previous step.
+
 1. Update the file to match the following example.
 
    ```yaml copy
    name: Text Summarizer
    description: Summarizes input text concisely
-   model: openai/gpt-4o-mini
+   model: gpt-4o-mini
    modelParameters:
      temperature: 0.5
    messages:
@@ -183,8 +190,11 @@ Evaluations help you measure how different models respond to the same inputs so 
    ```
 
 1. Commit and push the file to your repository.
+
 1. In your repository, click the **Models** tab. Then click **{% octicon "note" aria-hidden="true" aria-label="none" %} Prompts** and reopen the same prompt in the prompt editor.
+
 1. In the top left-hand corner, you can toggle the view from **Edit** to **Compare**. Click **Compare**.
+
 1. Your evaluation will be set up automatically. Click **Run** to see results.
 
    > [!TIP]

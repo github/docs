@@ -32,7 +32,7 @@ When you call a `/usage` endpoint, you must specify the enterprise or organizati
 
 For more detailed information and an example call and response, see [Get billing usage report for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) or [Get billing usage report for an organization](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-organization) .
 
-<!-- expires 2025-12-01 -->
+<!-- expires 2025-07-01 -->
 ## Migrating from the endpoints used for the previous billing platform
 
 The previous billing platform provided three different endpoints for usage data:
@@ -124,4 +124,4 @@ Example of the new response
 
 {% endrowheaders %}
 
-<!-- end expires 2025-12-01 -->
+<!-- end expires 2025-07-01 -->
