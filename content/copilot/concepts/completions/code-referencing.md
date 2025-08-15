@@ -78,7 +78,7 @@ Code in private {% data variables.product.prodname_dotcom %} repositories, or co
 
 ## Limitations
 
-The search index is refreshed every few months. As a result, newly committed code, and code from public repositories deleted before the index was created, may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
+The search index is refreshed every few months. As a result, newly committed code may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
 
 References to matching code are currently available in JetBrains IDEs, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, and on the {% data variables.product.github %} website.
 
