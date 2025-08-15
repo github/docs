@@ -10,6 +10,7 @@ topics:
   - Billing
 children:
   - /billing-cycles
+  - /budgets-and-alerts
   - /azure-subscriptions
   - /impact-of-plan-changes
   - /discounted-plans
