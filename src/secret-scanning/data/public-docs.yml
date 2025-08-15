@@ -2576,6 +2576,39 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare AppSweep API Key
+  secretType: guardsquare_appsweep_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare CLI Access Token
+  secretType: guardsquare_cli_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare Maven Token
+  secretType: guardsquare_maven_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: HashiCorp
   supportedSecret: HashiCorp Vault Batch Token
   secretType: hashicorp_vault_batch_token
@@ -4213,7 +4246,7 @@
     ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Samsara
