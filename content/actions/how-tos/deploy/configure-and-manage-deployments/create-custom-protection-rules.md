@@ -43,11 +43,11 @@ Once a workflow reaches a job that references an environment that has the custom
 
 1. Validate the incoming `POST` request. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks#validating-payloads-from-github).
 1. Use a JSON Web Token to authenticate as a {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app#about-authentication-as-a-github-app).
-1. Using the installation ID from the `deployment_protection_rule` webhook payload, generate an install token. For more information, see [AUTOTITLE](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app).
+1. Use the installation ID from the `deployment_protection_rule` webhook payload to generate an install token. For more information, see [AUTOTITLE](/developers/apps/building-github-apps/authenticating-with-github-apps#authenticating-as-a-github-app).
 
    ```shell
    curl --request POST \
-   --url "{% data variables.product.rest_url %}/app/installations/INSTALLATION_ID/ACCESS_TOKENS" \
+   --url "{% data variables.product.rest_url %}/app/installations/INSTALLATION_ID/access_tokens" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer {jwt}" \
    --header "Content-Type: application/json" \
@@ -62,7 +62,7 @@ Once a workflow reaches a job that references an environment that has the custom
 
 1. Optionally, to add a status report without taking any other action to {% data variables.product.prodname_dotcom %}, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, omit the `state`. For more information, see [AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run). You can post a status report on the same deployment up to 10 times. Status reports support Markdown formatting and can be up to 1024 characters long.
 
-1. To approve or reject a request, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, set the `state` property to either `approved` or `rejected`. For more information, see [AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run).
+1. To approve or reject a request, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, set the `state` property to either `approved` or `rejected`. Set the property `environment_name` to `environment` from the webhook payload, and set a `comment`. Use the previously generated install token to authorize the `POST` request. Response code `204` indicates a successful `POST` request. For more information, see [AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run).
 
 1. Optionally, request the status of an approval for a workflow run by sending a `GET` request to `/repos/OWNER/REPOSITORY_ID/actions/runs/RUN_ID/approvals`. For more information, see [AUTOTITLE](/rest/actions/workflow-runs#get-the-review-history-for-a-workflow-run).
 
