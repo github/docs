@@ -16,11 +16,7 @@ shortTitle: Use cost centers
 contentType: tutorials
 ---
 
-Cost centers let you attribute usage and spend by business unit to improve accountability, forecasting, and cost allocation. You can assign users, organizations, and repositories within your enterprise to a cost center.
-
-If your account is billed through Azure, you can add an Azure subscription to a cost center to bill usage to a different Azure subscription than the enterprise default.
-
-To learn more about roles authorized to create and manage cost centers, see [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform).
+>[!NOTE] Before you create or update a cost center, if you're unsure of how spending will be allocated to the cost center, see [AUTOTITLE](/billing/reference/cost-center-allocation).
 
 ## Creating a cost center
 
@@ -43,27 +39,6 @@ When you create a cost center, you can add **organizations**, **repositories**, 
 
 1. Click **Create cost center**.
 
-## Allocating spending to a cost center
-
-To allocate spending to a cost center, you add repositories, organizations, or users to the cost center. Any usage that is not assigned to a specific cost center is categorized as "Enterprise Only" spending on your enterprise's "Usage" page.
-
-* For **usage-based** products like {% data variables.product.prodname_actions %}, cost centers are charged based on the repositories or organizations that you add. See [Creating a cost center](#creating-a-cost-center).
-* For **license-based** products like {% data variables.product.prodname_copilot %}, cost centers are charged based on the users that you add.
-  * You can add repositories, organizations, and/or users to a cost center with the API. See [AUTOTITLE](/rest/enterprise-admin/billing#add-resources-to-a-cost-center). Note that the API currently supports adding or removing up to **50** resources in a single operation.
-  * If a licensed user isn't assigned to cost center, costs either default to "Enterprise Only" spending or are assigned to a cost center based on the user's organization membership. This depends on the product. For a detailed explanation, see [Cost center allocation for license-based products](#cost-center-allocation-for-license-based-products).
-
-### Breakdown by product
-
-| Product | A cost center is charged if it contains this resource |
-| ------- | ----------------------------------------------------- |
-| {% data variables.product.prodname_actions %} | The repository or organization where the workflow runs. |
-| {% data variables.product.prodname_github_codespaces %} | The repository or organization where the codespace is created. |
-| {% data variables.product.prodname_copilot %} | The user who receives the license (priority), or the organization where they are a member. |
-| Git Large File Storage | The repository or organization where Git LFS is used. |
-| {% data variables.product.prodname_GH_cs_and_sp %} | The user who receives the license. |
-| {% data variables.product.prodname_enterprise %} | The user who receives the license. |
-| {% data variables.product.prodname_registry %} | The repository or organization that owns the package. |
-
 ## Adding a budget to a cost center
 
 After you create a cost center, you can add a monthly budget and receive alerts from the cost center to monitor your spending and usage. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
@@ -81,98 +56,6 @@ You can view, edit, and delete cost centers to manage your business units effect
 1. Click **Cost centers**.
 1. Select {% octicon "kebab-horizontal" aria-label="Cost center dropdown" %} to the right of a cost center, then click **View details**, **Edit**, or **Delete**.
 1. Follow the prompts.
-
-### Effects of removing a member from a cost center
-
-If you add a member to a cost center, any usage accrued (for example, a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}) will immediately start being billed against the cost center. If you remove a member from a cost center, any usage from that point will be billed against the enterprise. For example:
-
-* On May 1st, an enterprise has three {% data variables.product.prodname_copilot_short %} users. The charges for all three users ($39 each) are billed to the enterprise.
-* On May 10th, you create two cost centers: Cost Center 1 and Cost Center 2. User A and User B are assigned to Cost Center 1, and User C to Cost Center 2. Future charges for Users A and B go to Cost Center 1, and for User C to Cost Center 2.
-* On May 20th, you remove User A from Cost Center 1. From then on, User A's charges are billed to the enterprise, while User B's charges remain with Cost Center 1, and User C's charges with Cost Center 2.
-
-The "{% data variables.product.prodname_copilot_short %} Seats Used" tile on the "Overview" page will show fractional usage instead of whole numbers.
-
-### Effects of deleting a cost center
-
-If a cost center is deleted, future usage of its resources will be charged to the enterprise. Usage before deletion is billed to the cost center until the end of the billing cycle.
-
-You can still view the cost center even after you delete it. To do so, select the "Deleted" tab on the cost center page.
-
-## Cost center allocation for license-based products
-
-To ensure your cost centers reflect spending as intended, it's important to understand how spending is allocated to cost centers for license-based products like {% data variables.product.prodname_copilot %}, and how changes are reflected in your bill.
-
-### Cost center allocation for {% data variables.product.prodname_copilot %}
-
-* If a user belongs to a cost center, all charges associated with the user are billed to the cost center.
-* If a user does not belong to any cost center, usage is billed to the organization where the user receives their {% data variables.product.prodname_copilot_short %} license. If _that organization_ is part of a cost center, the charges are billed to that cost center.
-* If the user receives access to {% data variables.product.prodname_copilot_short %} through **multiple organizations**, one of the organizations is chosen at random each month to be billed, and the cost center that contains the organization is charged accordingly. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise).
-
-### Cost center allocation for {% data variables.product.prodname_GH_cs_and_sp %}
-
-* If a user belongs to a cost center, all charges associated with the user are billed to the cost center.
-* If a user does not belong to any cost center, usage is charged to the enterprise's default payment method and grouped under "Enterprise Only" spending on the usage page.
-
-### Cost center allocation for {% data variables.product.prodname_enterprise %}
-
-* If a user belongs to a cost center, all charges associated with that user are billed to the cost center.
-* If a user does not belong to any cost center, usage is billed to the enterprise's default payment method and grouped under "Enterprise Only" spending on the usage page.
-
-### How changes are reflected in cost centers
-
-Adding or removing users from a cost center affects billing for license-based products in different ways.
-
-* For {% data variables.product.prodname_copilot %}: A change to add or remove a user from a cost center is reflected the **next day**.
-* For {% data variables.product.prodname_GH_cs_and_sp %}: A change to add or remove a user from a cost center is reflected in the **next billing cycle**.
-* For {% data variables.product.prodname_enterprise %}: A change to add or remove a user from a cost center is reflected the **next day**.
-
-If a user is already part of a cost center and _then_ receives a license, the license is immediately billed to the cost center.
-
-If a user who already has a license is added to a cost center, the license will be billed to the cost center from the next billing cycle.
-
-## Example for license-based products
-
-The following example illustrates how usage is assigned to cost centers for license-based products. Based on four licensed users, their organization membership, and how cost centers are set up, you will see how usage is allocated to cost centers.
-
-### The users
-
-There are four users, each a member of one or more organizations in the enterprise.
-
-| User | Organization membership |
-| ---- | ----------------------- |
-| `user-1` | `org-1`, `org-2` |
-| `user-2` | `org-1` |
-| `user-3` | `org-1` |
-| `user-4` | `org-1`, `org-2` |
-
-All users have a license for **{% data variables.product.prodname_copilot %}** and **{% data variables.product.prodname_enterprise %}** (GHE).
-
-**{% data variables.product.prodname_GH_secret_protection %}** (GHSP) is enabled in `org-1`, where all users are active committers.
-
-### The cost centers
-
-There are two cost centers in the enterprise, each with different users or organizations assigned.
-
-| Cost center | Assigned resources |
-| ---- | ----------------------- |
-| Cost Center A | `user-1`, `user-3` |
-| Cost Center B | `org-1` |
-
-`user-2`, `user-4`, and `org-2` are **not** assigned to any cost center.
-
-### How usage is allocated
-
-The following table illustrates how spending for each user is allocated to a cost center based on their membership of an organization or cost center. Any usage not assigned to a cost center is categorized as "Enterprise Only" spending.
-
-{% rowheaders %}
-
-|             | Copilot charges | GHSP charges | GHE charges | Explanation |
-| ----------- | --------------- | ------------ | ----------- | ----------- |
-| Cost Center A | `user-1`, `user-3` | `user-1`, `user-3` | `user-1`, `user-3` | These users are assigned directly to the cost center. |
-| Cost Center B | `user-2`, `user-4` | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} | These users aren't directly assigned to a cost center, so Copilot charges are assigned based on organization membership, whereas GHSP and GHE default to enterprise spending.
-| Enterprise Only (default) | {% octicon "dash" aria-label="Not applicable" %} | `user-2`, `user-4` | `user-2`, `user-4` | These users aren't directly assigned to a cost center, so GHSP and GHE default to enterprise spending. |
-
-{% endrowheaders %}
 
 ## Limitations of the cost center API
 

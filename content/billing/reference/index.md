@@ -15,6 +15,7 @@ children:
   - /supported-payment-methods
   - /azure-subscription
   - /billing-roles
+  - /cost-center-allocation
   - /roles-for-visual-studio
   - /license-consumption
   - /models-multipliers-and-costs
