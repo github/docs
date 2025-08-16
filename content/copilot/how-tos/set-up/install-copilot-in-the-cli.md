@@ -1,9 +1,8 @@
 ---
-title: Installing GitHub Copilot in the CLI
-intro: 'Learn how to install {% data variables.copilot.copilot_cli_short %} so that you can get suggestions and explanations for the command line.'
+Title: Installing GitHub Copilot in the CLI
+intro: 'Learn how to install {% data variables. copilot.copilot_cli_short %} so that you can get suggestions and explanations for the command line.'
 versions:
-  feature: copilot-in-the-cli
-topics:
+  feature: copilot-in-the-cli Topics:
   - Copilot
   - CLI
 shortTitle: Install Copilot in the CLI
@@ -22,11 +21,11 @@ contentType: how-tos
 * **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_cli %} installed.** {% data reusables.cli.cli-installation %}
 
-If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+If you have access to {% data variables. Product.prodname_copilot %} via organisation or enterprise, you cannot use {% data variables. Copilot.copilot_cli_short %} if your organisation owner or enterprise administrator has disabled {% data variables. Copilot.copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
 
 ## Installing {% data variables.copilot.copilot_cli_short %}
 
-1. If you have not already authenticated to the {% data variables.product.prodname_cli %}, run the following command in your terminal.
+1. If you have not already authenticated to the {% data variables. Product.prodname_cli %}, run the following command in your terminal.
 
    ```shell copy
    gh auth login
@@ -40,7 +39,7 @@ If you have access to {% data variables.product.prodname_copilot %} via your org
 
 ## Updating {% data variables.copilot.copilot_cli_short %}
 
-After installing the {% data variables.copilot.copilot_cli_short %} extension, you can update at any time by running:
+After installing the {% data variables .copilot.copilot_cli_short %} extension, you can update at any time by running:
 
 ```shell copy
 gh extension upgrade gh-copilot
