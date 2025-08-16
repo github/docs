@@ -125,7 +125,7 @@ If you don't add a dev container configuration to your repository, or if your co
 The default configuration is a good option if you're working on a small project that uses the languages and tools that {% data variables.product.prodname_github_codespaces %} provides.
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage). {% data reusables.codespaces.check-for-default-image %}
+> {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default dev container image. For more information about billing for codespace storage, see [AUTOTITLE](/billing/concepts/product-billing/github-codespaces). {% data reusables.codespaces.check-for-default-image %}
 
 ## Using a predefined dev container configuration
 

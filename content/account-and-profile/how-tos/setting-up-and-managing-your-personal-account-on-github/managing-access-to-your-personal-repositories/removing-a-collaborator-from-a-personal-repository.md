@@ -1,6 +1,6 @@
 ---
 title: Removing a collaborator from a personal repository
-intro: 'When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.'
+intro: 'You can remove a collaborator from your personal repository at any time.'
 redirect_from:
   - /articles/how-do-i-remove-a-collaborator
   - /articles/what-happens-when-i-remove-a-collaborator-from-my-private-repository
@@ -22,9 +22,6 @@ topics:
   - Repositories
 shortTitle: Remove a collaborator
 ---
-## Deleting forks of private repositories
-
-While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
 ## Removing collaborator permissions from a person contributing to a repository
 
@@ -33,7 +30,6 @@ While forks of private repositories are deleted when a collaborator is removed, 
 {% data reusables.repositories.click-collaborators-teams %}
 1. To the right of the collaborator you want to remove, click **Remove**.
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
-* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository)
+* For reference information, see [AUTOTITLE](/account-and-profile/reference/permission-levels-for-a-personal-account-repository#removing-a-collaborator).

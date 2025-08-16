@@ -20,6 +20,8 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `epss_percentage` | Displays alerts based on their EPSS-predicted probability of exploitation | Use `epss_percentage:>0.01` to see alerts with an EPSS percentage greater than 1% |
 |{% endif %}|
 | `sort` | Displays alerts according to the selected sort order | The default sorting option for alerts is `sort:most-important`, which ranks alerts by importance</br>Use `sort:newest` to show the latest alerts reported by {% data variables.product.prodname_dependabot %}{% ifversion dependabot-alerts-epss-score %}</br>Use `sort:epss-percentage` to show alerts ordered by descending EPSS score.{% endif %} |
+| `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). | Use `team:octo-team` to show alerts for repositories that the `octo-team` team has write access to. |
+| `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). | Use `topic:nextjs` to show alerts for repositories that are classified with the `nextjs` topic. |
 
 {% ifversion dependabot-alerts-epss-score %}
 

@@ -66,7 +66,7 @@ To analyze the efficiency and reliability of your workflows using metrics, see [
 
 ## Troubleshooting workflow triggers
 
-You can review your workflow’s `on:` field to understand what is expected to trigger the workflow. For more information, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow).
+You can review your workflow's `on:` field to understand what is expected to trigger the workflow. For more information, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow).
 
 For a full list of available events, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows).
 
@@ -118,4 +118,74 @@ We recommend using unique label names for larger and self-hosted runners. If a l
 
 If you use self-hosted runners, you can view their activity and diagnose common issues.
 
-For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners).
+For more information, see [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/monitor-and-troubleshoot).
+
+## Networking troubleshooting suggestions
+
+Our support is limited for network issues that involve:
+
+* Your networks
+* External networks
+* Third-party systems
+* General internet connectivity
+
+To view {% data variables.product.github %}'s realtime platform status, check [{% data variables.product.github %} Status](https://githubstatus.com/).
+
+For other network-related issues, review your organization's network settings and verify the status of any third-party services you're accessing. If problems persist, consider reaching out to your network administrators for further assistance.
+
+If you're unsure about the issue, contact {% data variables.contact.github_support %}. For details on how to contact support, see [AUTOTITLE](/support/contacting-github-support).
+
+### DNS
+
+Issues may occur from Domain Name System (DNS) configuration, resolution, or resolver problems. We recommend you review available logs, vendor documentation, or consult with your administrators for additional assistance.
+
+### Firewalls
+
+Activities may become blocked by firewalls. If this occurs, you may want to review available logs, vendor documentation, or consult with your administrators for additional assistance.
+
+### Proxies
+
+Activities could fail when using a proxy for communications. It's good practice to review available logs, vendor documentation, or consult with your administrators for additional assistance.
+
+Refer to [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-proxy-servers) for information about configuring the runner application to utilize a proxy.
+
+### Subnets
+
+It is possible to encounter issues with subnets in use or overlaps with an existing network, such as within virtual cloud provider or Docker networks. In such cases, we recommend you review your network topology and subnets in use.
+
+### Certificates
+
+Issues may occur from self-signed or custom certificate chains and certificate stores. You can check that a certificate in use has not expired and is currently trusted. Certificates may be inspected with `curl` or similar tools. You can also review available logs, vendor documentation, or consult with your administrators for additional assistance.
+
+### IP lists
+
+IP allow or deny lists may disrupt expected communications. If there is a problem, you should review available logs, vendor documentation, or consult with your administrators for additional assistance.
+
+{% ifversion ghec %}
+If your {% data variables.product.github %} account is configured with an IP allowlist, workflows will fail if a runner uses an IP address that isn’t included in the allowlist. To resolve this, verify that the runner's IP addresses are added to your organization's or enterprise's allowlist. For more details, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization) and/or [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list).
+{% endif %}
+
+{% ifversion fpt or ghec %}
+For information on {% data variables.product.github %}'s IP addresses, such as those used by {% data variables.product.github %}-hosted runners, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses).
+
+Static IP addresses are available for use with {% data variables.product.github %}-hosted larger runners. See [AUTOTITLE](/actions/how-tos/manage-runners/larger-runners/manage-larger-runners) for more information.
+{% endif %}
+
+### Operating systems and software applications
+
+In addition to firewalls or proxies, customizations performed to {% data variables.product.github %}-hosted runners, such as installing additional software packages, may result in communication disruptions. For information about available customization options, see [AUTOTITLE](/actions/how-tos/manage-runners/github-hosted-runners/customize-runners).
+
+* For self-hosted runners, learn more about necessary endpoints in [AUTOTITLE](/actions/reference/runners/self-hosted-runners).
+
+* For help configuring WireGuard, see [AUTOTITLE](/actions/how-tos/manage-runners/github-hosted-runners/connect-to-a-private-network/connect-with-wireguard).
+
+* For details about configuring OpenID Connect (OIDC), see [AUTOTITLE](/actions/how-tos/manage-runners/github-hosted-runners/connect-to-a-private-network/connect-with-oidc).
+{% ifversion fpt or ghec %}
+
+### Azure private networking for {% data variables.product.github %}-hosted runners
+
+Issues may arise from the use of {% data variables.product.github %}-hosted runners within your configured Azure Virtual Networks (VNETs) settings.
+
+For troubleshooting advice, see [AUTOTITLE](/organizations/managing-organization-settings/troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-organization) or {% ifversion ghec %}[AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-enterprise){% else %}[AUTOTITLE](/enterprise-cloud@latest/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-enterprise) in the {% data variables.product.prodname_ghe_cloud %} docs{% endif %}.
+
+{% endif %}

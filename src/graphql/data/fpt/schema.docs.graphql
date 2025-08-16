@@ -2404,6 +2404,106 @@ type Blob implements GitObject & Node {
 }
 
 """
+Represents a 'blocked_by_added' event on a given issue.
+"""
+type BlockedByAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocking issue that was added.
+  """
+  blockingIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockedByAddedEvent object
+  """
+  id: ID!
+}
+
+"""
+Represents a 'blocked_by_removed' event on a given issue.
+"""
+type BlockedByRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocking issue that was removed.
+  """
+  blockingIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockedByRemovedEvent object
+  """
+  id: ID!
+}
+
+"""
+Represents a 'blocking_added' event on a given issue.
+"""
+type BlockingAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocked issue that was added.
+  """
+  blockedIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockingAddedEvent object
+  """
+  id: ID!
+}
+
+"""
+Represents a 'blocking_removed' event on a given issue.
+"""
+type BlockingRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocked issue that was removed.
+  """
+  blockedIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockingRemovedEvent object
+  """
+  id: ID!
+}
+
+"""
 A special type of user which takes actions on behalf of GitHub Apps.
 """
 type Bot implements Actor & Node & UniformResourceLocatable {
@@ -20205,6 +20305,10 @@ An item in an issue timeline
 union IssueTimelineItems =
     AddedToProjectEvent
   | AssignedEvent
+  | BlockedByAddedEvent
+  | BlockedByRemovedEvent
+  | BlockingAddedEvent
+  | BlockingRemovedEvent
   | ClosedEvent
   | CommentDeletedEvent
   | ConnectedEvent
@@ -42802,6 +42906,10 @@ union PullRequestTimelineItems =
   | BaseRefChangedEvent
   | BaseRefDeletedEvent
   | BaseRefForcePushedEvent
+  | BlockedByAddedEvent
+  | BlockedByRemovedEvent
+  | BlockingAddedEvent
+  | BlockingRemovedEvent
   | ClosedEvent
   | CommentDeletedEvent
   | ConnectedEvent
