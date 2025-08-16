@@ -65,7 +65,7 @@ I am content.
       const expectedError = {
         filepath: 'path/to/file.md',
         message: 'YML parsing error!',
-        reason: 'bad indentation of a mapping entry',
+        reason: 'invalid frontmatter entry',
       }
       expect(errors[0]).toEqual(expectedError)
     })

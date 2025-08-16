@@ -505,8 +505,27 @@ function editFiles(files, updateParent, opts) {
     }
   }
 
+  // Add contentType frontmatter to moved files
+  if (files.length > 0) {
+    const filePaths = files.map(([oldPath, newPath, oldHref, newHref]) => newPath)
+    try {
+      const cmd = ['run', 'add-content-type', '--', '--paths', ...filePaths]
+      const result = execFileSync('npm', cmd, { cwd: process.cwd(), encoding: 'utf8' })
+      if (result.trim()) {
+        console.log(result.trim())
+      }
+    } catch (error) {
+      console.warn(`Warning: Failed to add contentType frontmatter: ${error.message}`)
+    }
+  }
+
   if (useGit) {
-    const cmd = ['commit', '-a', '-m', `set ${REDIRECT_FROM_KEY} on ${files.length} files`]
+    const cmd = [
+      'commit',
+      '-a',
+      '-m',
+      `set ${REDIRECT_FROM_KEY} and contentType on ${files.length} files`,
+    ]
     execFileSync('git', cmd)
     if (verbose) {
       console.log(`git commit command: ${chalk.grey(cmd.join(' '))}`)

@@ -1,6 +1,6 @@
 ---
 title: Billing for GitHub Enterprise
-intro: 'You can view billing information for your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: 'Learn how your bill is calculated based on how many {% data variables.product.prodname_enterprise %} licenses you use.'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -36,9 +36,23 @@ If you have an enterprise account on {% data variables.product.prodname_ghe_clou
 > {% data reusables.billing.ghes-with-no-enterprise-account %}
 > {% endif %}
 
+To learn which people consume a license in your enterprise, see [AUTOTITLE](/billing/reference/license-consumption).
+
 ## Invoiced customers
 
 For invoiced customers, each invoice includes a single bill that covers the cost of {% data variables.product.prodname_enterprise %} licenses used, as well as your use of paid services. For example, in addition to your usage for {% data variables.product.prodname_enterprise %}, you may also use {% data variables.product.prodname_GH_secret_protection %}.
+
+## Billing models for {% data variables.product.prodname_enterprise %} licenses
+
+There are two billing models for {% data variables.product.prodname_enterprise %} licenses: **usage-based** and **volume**.
+
+{% data reusables.billing.do-i-have-usage-based %}
+
+## License usage across deployments
+
+{% data reusables.enterprise-licensing.unique-user-licensing-model %}
+
+To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
 
 ## Further reading
 

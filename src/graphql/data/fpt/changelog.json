@@ -4,6 +4,49 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>BlockedByAddedEvent</code> was added</p>",
+          "<p>Type <code>BlockedByRemovedEvent</code> was added</p>",
+          "<p>Type <code>BlockingAddedEvent</code> was added</p>",
+          "<p>Type <code>BlockingRemovedEvent</code> was added</p>",
+          "<p>Member <code>BlockedByAddedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockedByRemovedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockingAddedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockingRemovedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>BlockedByAddedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>BlockedByRemovedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>BlockingAddedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>BlockingRemovedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-08-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": []
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>NotificationThread.list</code>:<code>list</code> will be removed. Use the <code>optionalList</code> field instead. <strong>Effective 2026-01-01</strong>.</p>",
+          "<p>On member <code>NotificationThread.subject</code>:<code>subject</code> will be removed. Use the <code>optionalSubject</code> field instead. <strong>Effective 2026-01-01</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2025-08-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>securityContactEmail</code> was added to object type <code>Enterprise</code></p>",
           "<p>Input field <code>securityContactEmail</code> of type <code>String</code> was added to input object type <code>UpdateEnterpriseProfileInput</code></p>"
         ]

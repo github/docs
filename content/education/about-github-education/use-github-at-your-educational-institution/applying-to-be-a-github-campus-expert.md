@@ -10,7 +10,7 @@ redirect_from:
 
 ## Applying to the {% data variables.product.prodname_student_leader_program %} program
 
-To apply to the {% data variables.product.prodname_student_leader_program %} program, you must first submit an application form, then submit a video resume. Applications to the program open in February and August, and you’ll have a full month to apply.
+To apply to the {% data variables.product.prodname_student_leader_program %} program, you must first submit an application form, then submit a video resume. Applications to the program open every July, and you’ll have a full month to apply.
 
 > [!NOTE]
 > The application process helps us get to know the applicant. Here are some things we want to learn about you:

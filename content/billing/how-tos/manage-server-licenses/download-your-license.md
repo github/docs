@@ -32,7 +32,7 @@ contentType: how-tos
 
 ## About license files for {% data variables.product.prodname_enterprise %}
 
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
+After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/concepts/enterprise-billing/ghes-license-files).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 

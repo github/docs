@@ -10,21 +10,21 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Create client enterprise
+product: '{% data variables.product.github %} partners setting up {% data variables.product.prodname_enterprise %}. <br> Microsoft Cloud Solution Provider (CSP) partners should see [AUTOTITLE](/billing/how-tos/manage-for-client/create-as-csp-partner).'
 redirect_from:
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/about-enterprise-accounts-for-procurement-companies
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-and-paying-for-an-enterprise-account-on-behalf-of-a-client
 contentType: how-tos
 ---
 
->[!NOTE] If you are a Microsoft Cloud Solution Provider (CSP) partner and want to create an enterprise account for your customer, see [AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner).
-
-## Requirements
+## Prerequisites
 
 Before you start, make sure you know:
-* The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
-* The name your client would like to use for the enterprise account
-* The email address where you would like receipts to be sent
-* The number of paid seats your client would like you to purchase for the enterprise account (see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing))
+* {% data variables.product.github %} username of the client who will become the owner of the enterprise you create
+* Enterprise name your client would like to use
+* Email address for receipts
+* Number of seats your client needs in the enterprise
+* Enterprise account type required by your client, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)
 
 ## Step 1: Create your personal account on {% data variables.product.prodname_dotcom %}
 
@@ -37,7 +37,12 @@ If you already have a personal account on {% data variables.product.prodname_dot
 ## Step 2: Create the enterprise account
 
 {% data reusables.enterprise.create-enterprise-account %}
+1. Depending on your client's requirements:
+   * Enterprise with personal accounts on {% data variables.product.prodname_dotcom_the_website %}: click **Get started with personal accounts**
+   * Enterprise with managed users, and optional data residence: click **Get started with managed users**
 1. Complete the form with your client's information.
+
+   If you chose Enterprise managed users, define your data hosting requirements [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency).
 1. Click **Create your enterprise**.
 
 ## Step 3: Upgrade the enterprise to a yearly paid subscription
@@ -64,5 +69,6 @@ Invite your client to become an enterprise owner. For more information, see [AUT
 
 ## Next steps
 
-{% ifversion fpt %}1. If you would like your credit card to be removed from the enterprise account so that it's not charged again, contact {% data variables.contact.contact_support %}.
-1. {% endif %}When it's time to renew your client's paid subscription, see [AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/renewing-your-clients-enterprise-account).
+1. Contact your client and ask them to add you to the enterprise as a billing manager. You'll need to be a billing manager for the enterprise so that you can renew or make changes to your client's subscription in the future. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
+1. Your client's paid subscription will automatically renew unless you remove your company's payment method from the enterprise, see [AUTOTITLE](/billing/how-tos/set-up-payment/manage-payment-info).
+1. If you want to remove your company's credit card from the enterprise so that it's not automatically charged for renewals and any other costs, contact {% data variables.contact.contact_support %}.

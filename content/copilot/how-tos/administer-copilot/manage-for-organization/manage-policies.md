@@ -1,5 +1,5 @@
 ---
-title: Managing policies and features for Copilot in your organization
+title: Managing policies and features for GitHub Copilot in your organization
 intro: 'Control the availability of {% data variables.product.prodname_copilot %} features and models for users granted a license by your organization.'
 permissions: Organization owners
 product: 'Organizations with a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} plan'
@@ -40,8 +40,7 @@ contentType: how-tos
    * Click **Models** to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option.
 
-> [!NOTE]
-> The **MCP servers in {% data variables.product.prodname_copilot_short %}** policy controls use where MCP server support is generally available (GA). In features where MCP support is in preview, for example {% data variables.product.prodname_copilot_short %} editors, availability is controlled by the **Editor preview features** policy.
+{% data reusables.copilot.mcp-servers-policy-note %}
 
 ## Opting in to to previews or feedback
 

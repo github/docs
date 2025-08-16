@@ -1,5 +1,5 @@
 ---
-title: Downgrading Copilot for your enterprise
+title: Downgrading GitHub Copilot for your enterprise
 shortTitle: Downgrade subscription
 intro: 'You can downgrade organizations in your enterprise from {% data variables.copilot.copilot_enterprise_short %} to {% data variables.copilot.copilot_business_short %}.'
 permissions: Enterprise owners

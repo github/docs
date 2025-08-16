@@ -260,6 +260,17 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
+bespoke_landing:
+  articles: Articles
+  all_categories: All categories
+  search_articles: Search articles
+discovery_landing:
+  recommended: Recommended
+  articles: Articles
+  all_categories: All categories
+  search_articles: Search articles
+journey_landing:
+  articles: '{{ number }} Articles'
 product_landing:
   quickstart: Quickstart
   reference: Reference

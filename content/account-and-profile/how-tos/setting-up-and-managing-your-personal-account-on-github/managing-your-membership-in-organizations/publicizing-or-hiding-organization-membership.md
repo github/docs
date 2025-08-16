@@ -17,8 +17,6 @@ topics:
 shortTitle: Show or hide membership
 ---
 
-## Changing the visibility of your organization membership
-
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}

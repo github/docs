@@ -11,5 +11,5 @@ children:
   - /best-practices-for-leaving-your-company
   - /types-of-emails-github-sends
   - /why-are-my-contributions-not-showing-up-on-my-profile
+  - /email-addresses-reference
 ---
-

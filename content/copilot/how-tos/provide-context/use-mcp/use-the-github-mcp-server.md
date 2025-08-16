@@ -16,9 +16,10 @@ contentType: how-tos
 ---
 
 >[!NOTE]
-> The remote {% data variables.product.github %} MCP server is currently in {% data variables.release-phases.public_preview %} and subject to change; use of the {% data variables.product.github %} MCP server locally is generally available (GA).
->
-> While in {% data variables.release-phases.public_preview %}, access to the remote {% data variables.product.github %} MCP server through OAuth in {% data variables.product.prodname_copilot_short %} is governed by the {% data variables.product.prodname_copilot_short %} **Editor preview features** policy at the organization or enterprise level. PAT access to the server is managed by PAT policies.
+> * The remote {% data variables.product.github %} MCP server is currently in {% data variables.release-phases.public_preview %} and subject to change; use of the {% data variables.product.github %} MCP server locally is generally available (GA).
+> * MCP support is generally available (GA) in {% data variables.product.prodname_copilot_short %} for {% data variables.product.prodname_vscode %}, JetBrains, Eclipse, and Xcode.
+> * The **MCP servers in {% data variables.product.prodname_copilot_short %}** policy for enterprises and organizations, disabled by default, controls use of MCP where MCP server support is generally available (GA).
+> * While in {% data variables.release-phases.public_preview %}, access to the remote {% data variables.product.github %} MCP server through OAuth in {% data variables.product.prodname_copilot_short %} is governed by the {% data variables.product.prodname_copilot_short %} **Editor preview features** policy at the organization or enterprise level. PAT access to the server is managed by PAT policies.
 
 {% vscode %}
 
@@ -28,6 +29,7 @@ contentType: how-tos
 
 * A {% data variables.product.github %} account.
 * {% data variables.product.prodname_vscode %}, or another MCP-compatible editor.
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Setting up the {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %}
 
@@ -220,26 +222,37 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
   {% data reusables.copilot.jetbrains-compatible-ides %}
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Setting up the {% data variables.product.github %} MCP server in JetBrains IDEs
 
 The instructions below guide you through setting up the {% data variables.product.github %} MCP server in JetBrains IDEs. Other MCP-compatible editors may have similar steps, but the exact process may vary.
 
-We recommend setting up the {% data variables.product.github %} MCP server remotely. JetBrains IDEs only support using a {% data variables.product.pat_generic %} (PAT) for authentication with the {% data variables.product.github %} MCP server.
+We recommend setting up the {% data variables.product.github %} MCP server remotely. The remote {% data variables.product.github %} MCP server uses one-click OAuth authentication by default, but you can also manually configure it to use a {% data variables.product.pat_generic %} (PAT) for authentication. If you use OAuth, the MCP server will have the same access as your {% data variables.product.github %} account. If you use a PAT, the MCP server will have access to the scopes granted by the PAT.
 
 > [!NOTE]
 > If you are an {% data variables.product.prodname_emu %} with PAT restrictions, you won't be able to use PAT authentication.
 
 For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server repository](https://github.com/github/github-mcp-server#usage-in-other-mcp-hosts-1).
 
+### Remote MCP server configuration with OAuth
+
+You do not need to create a PAT or install any additional software to use the remote {% data variables.product.github %} MCP server with OAuth. You can set it up directly in JetBrains IDEs.
+
+{% data reusables.copilot.jetbrains-mcp-setup-steps %}
+1. In the `mcp.json` file, add the following configuration:
+
+    {% data reusables.copilot.github-mcp-oauth-config-other-ides %}
+
+1. In the "{% data variables.product.prodname_copilot %}" popup that says the "MCP server definition wants to authenticate to {% data variables.product.github %}, click **Allow**.
+1. If you have not yet authorized the {% data variables.product.prodname_copilot %} plugin, in the browser popup, click **Continue** next to your personal account.
+
 ### Remote MCP server configuration with PAT
 
 To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
-1. From the menu, select "Edit settings".
-1. Under the MCP section, click "Edit in `mcp.json`".
-1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
+{% data reusables.copilot.jetbrains-mcp-setup-steps %}
+1. In the `mcp.json` file, add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
 
   ```json copy
     {
@@ -282,25 +295,36 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Setting up the {% data variables.product.github %} MCP server in Xcode
 
 The instructions below guide you through setting up the {% data variables.product.github %} MCP server in Xcode. Other MCP-compatible editors may have similar steps, but the exact process may vary.
 
-We recommend setting up the {% data variables.product.github %} MCP server remotely. Xcode only supports using a {% data variables.product.pat_generic %} (PAT) for authentication with the {% data variables.product.github %} MCP server.
+We recommend setting up the {% data variables.product.github %} MCP server remotely. The remote {% data variables.product.github %} MCP server uses one-click OAuth authentication by default, but you can also manually configure it to use a {% data variables.product.pat_generic %} (PAT) for authentication. If you use OAuth, the MCP server will have the same access as your {% data variables.product.github %} account. If you use a PAT, the MCP server will have access to the scopes granted by the PAT.
 
 > [!NOTE]
 > If you are an {% data variables.product.prodname_emu %} with PAT restrictions, you won't be able to use PAT authentication.
 
 For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server repository](https://github.com/github/github-mcp-server#usage-in-other-mcp-hosts-1).
 
+### Remote MCP server configuration with OAuth
+
+You do not need to create a PAT or install any additional software to use the remote {% data variables.product.github %} MCP server with OAuth. You can set it up directly in Xcode.
+
+{% data reusables.copilot.xcode-mcp-setup-steps %}
+1. Add the following configuration:
+
+    {% data reusables.copilot.github-mcp-oauth-config-other-ides %}
+
+1. In the "{% data variables.product.prodname_copilot %}" popup that says the "MCP Server Definition wants to authenticate to {% data variables.product.github %}", click **Continue**.
+1. If you have not yet authorized the {% data variables.product.prodname_copilot %} plugin, in the browser popup, click **Continue** next to your personal account.
+
 ### Remote MCP server configuration with PAT
 
 To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-1. Open the {% data variables.product.prodname_copilot %} for Xcode extension.
-1. In agent mode, click the tools icon.
-1. Select "Edit config".
+{% data reusables.copilot.xcode-mcp-setup-steps %}
 1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
 
 ```json copy
@@ -348,21 +372,32 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 The instructions below guide you through setting up the {% data variables.product.github %} MCP server in Eclipse. Other MCP-compatible editors may have similar steps, but the exact process may vary.
 
-We recommend setting up the {% data variables.product.github %} MCP server remotely. Eclipse only supports using a {% data variables.product.pat_generic %} (PAT) for authentication with the {% data variables.product.github %} MCP server.
+We recommend setting up the {% data variables.product.github %} MCP server remotely. The remote {% data variables.product.github %} MCP server uses one-click OAuth authentication by default, but you can also manually configure it to use a {% data variables.product.pat_generic %} (PAT) for authentication. If you use OAuth, the MCP server will have the same access as your {% data variables.product.github %} account. If you use a PAT, the MCP server will have access to the scopes granted by the PAT.
 
 > [!NOTE]
 > If you are an {% data variables.product.prodname_emu %} with PAT restrictions, you won't be able to use PAT authentication.
 
 For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server repository](https://github.com/github/github-mcp-server#usage-in-other-mcp-hosts-1).
 
+### Remote MCP server configuration with OAuth
+
+You do not need to create a PAT or install any additional software to use the remote {% data variables.product.github %} MCP server with OAuth. You can set it up directly in Eclipse.
+
+{% data reusables.copilot.eclipse-mcp-setup-steps %}
+1. Add the following configuration under "Server Configurations":
+
+    {% data reusables.copilot.github-mcp-oauth-config-other-ides %}
+
+1. Click **Apply**.
+1. In the "{% data variables.product.prodname_copilot %}" popup that says the "MCP Server Definition wants to authenticate to {% data variables.product.github %}", click **OK**.
+1. If you have not yet authorized the {% data variables.product.prodname_copilot %} plugin, in the browser popup, click **Continue** next to your personal account.
+
 ### Remote MCP server configuration with PAT
 
 To configure the remote {% data variables.product.github %} MCP server with a PAT, ensure you have created a PAT with the necessary scopes for the access you want to grant to the MCP server. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
-1. To open the {% data variables.copilot.copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
-1. From the menu, select "Edit preferences".
-1. In the left pane, expand {% data variables.product.prodname_copilot %} and click **MCP**.
-1. Add the following configuration, replacing `YOUR_GITHUB_PAT` with the PAT you created:
+{% data reusables.copilot.eclipse-mcp-setup-steps %}
+1. Add the following configuration under "Server Configurations", replacing `YOUR_GITHUB_PAT` with the PAT you created:
 
   ```json copy
     {

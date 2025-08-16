@@ -9,7 +9,7 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
 
 * **Allow actions created by {% data variables.product.prodname_dotcom %}:** You can allow all actions created by {% data variables.product.prodname_dotcom %} to be used by workflows. Actions created by {% data variables.product.prodname_dotcom %} are located in the `actions` and `github` organizations. For more information, see the [`actions`](https://github.com/actions) and [`github`](https://github.com/github) organizations.
 * **Allow Marketplace actions by verified creators:** {% ifversion ghes %}This option is available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).{% endif %} You can allow all {% data variables.product.prodname_marketplace %} actions created by verified creators to be used by workflows. When GitHub has verified the creator of the action as a partner organization, the {% octicon "verified" aria-label="The verified badge" %} badge is displayed next to the action in {% data variables.product.prodname_marketplace %}.
-* **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** You can restrict workflows to use actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in specific organizations and repositories. Specified actions cannot be set to more than 1000.
+* **Allow{% ifversion actions-blocklist-sha-pinning %} or block{% endif %} specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** You can restrict workflows to use actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in specific organizations and repositories. Specified actions cannot be set to more than 1000.
 
   To restrict access to specific tags or commit SHAs of an action{% ifversion actions-workflow-policy %} or reusable workflow{% endif %}, use the same syntax used in the workflow to select the action{% ifversion actions-workflow-policy %} or reusable workflow{% endif %}.
 
@@ -20,7 +20,11 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
 
   You can use the `*` wildcard character to match patterns. For example, to allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, you can specify `space-org*/*`. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, you can use `*/octocat**@*`. For more information about using the `*` wildcard, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
 
-  Use `,` to separate patterns. For example, to allow `octocat` and `octokit`, you can specify `octocat/*, octokit/*`.
+  Use `,` to separate patterns. For example, to allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} from the `octocat` and `octokit` organizations, you can specify `octocat/*, octokit/*`.
+
+  {% ifversion actions-blocklist-sha-pinning %}
+  Use the `!` prefix to block patterns. For example, to allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} from the `space-org` organization, but block a specific action like `space-org/action`, you can specify `space-org/*, !space-org/action@*`. By default, only actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} specified in the list will be allowed. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} while also blocking specific actions, you can specify `*, !space-org/action@*`.
+  {% endif %}
 
   {% ifversion fpt or ghec %}
 
@@ -29,4 +33,4 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
 
   {% endif %}
 
-This procedure demonstrates how to add specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the allow list.
+This procedure demonstrates how to add specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to the list.

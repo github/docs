@@ -1,5 +1,5 @@
 ---
-title: Hosting of models for Copilot Chat
+title: Hosting of models for GitHub Copilot Chat
 shortTitle: Model hosting
 allowTitleToDifferFromFilename: true
 intro: 'Learn how different AI models are hosted for {% data variables.copilot.copilot_chat_short %}.'
@@ -19,10 +19,14 @@ contentType: reference
 Used for:
 
 * {% data variables.copilot.copilot_gpt_41 %}
+* {% data variables.copilot.copilot_gpt_5_mini %}
+* {% data variables.copilot.copilot_gpt_5 %}
 * {% data variables.copilot.copilot_o3 %}
 * {% data variables.copilot.copilot_o4_mini %}
 
-{% data variables.copilot.copilot_gpt_41 %} is hosted by {% data variables.product.github %}'s Azure tenant when used in {% data variables.product.prodname_copilot %}. {% data variables.copilot.copilot_o3 %} and {% data variables.copilot.copilot_o4_mini %} models are hosted by OpenAI and {% data variables.product.github %}'s Azure tenant. OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train our models on your business data by default_. {% data variables.product.github %} maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
+{% data variables.copilot.copilot_gpt_41 %} is hosted by {% data variables.product.github %}'s Azure tenant when used in {% data variables.product.prodname_copilot %}.
+
+{% data variables.copilot.copilot_gpt_5 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_o3 %} and {% data variables.copilot.copilot_o4_mini %} models are hosted by OpenAI and {% data variables.product.github %}'s Azure tenant. OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train our models on your business data by default_. {% data variables.product.github %} maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
 
 When using OpenAI's models, input requests and output responses continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 

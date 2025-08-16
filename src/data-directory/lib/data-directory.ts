@@ -5,7 +5,7 @@ import walk from 'walk-sync'
 import yaml from 'js-yaml'
 import { isRegExp, setWith } from 'lodash-es'
 import filenameToKey from './filename-to-key'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
 interface DataDirectoryOptions {
   preprocess?: (content: string) => string

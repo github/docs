@@ -1,5 +1,5 @@
 ---
-title: Canceling Copilot for your enterprise
+title: Canceling GitHub Copilot for your enterprise
 shortTitle: Cancel plan
 intro: 'Disabling {% data variables.product.prodname_copilot %} for all organizations in your enterprise will cancel your enterprise''s {% data variables.product.prodname_copilot_short %} plan.'
 permissions: Enterprise admins

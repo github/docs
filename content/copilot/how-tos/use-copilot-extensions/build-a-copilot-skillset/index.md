@@ -1,5 +1,5 @@
 ---
-title: Building a Copilot skillset for your Copilot Extension
+title: Building a GitHub Copilot skillset for your GitHub Copilot Extension
 shortTitle: Build a Copilot skillset
 intro: 'Learn how to build a custom {% data variables.copilot.copilot_skillset_short %} to combine custom skills and extend the capabilities of {% data variables.product.prodname_copilot_short %}.'
 versions:
@@ -14,4 +14,3 @@ children:
   - /build-copilot-skillsets
 contentType: how-tos
 ---
-

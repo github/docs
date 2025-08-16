@@ -113,9 +113,21 @@ This means that a compromise of a single action within a workflow can be very si
 
 You can help mitigate this risk by following these good practices:
 
-* **Pin actions to a full length commit SHA**
+* **Pin actions to a full-length commit SHA**
 
-  Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload. {% data reusables.actions.actions-pin-commit-sha %}
+  Pinning an action to a full-length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload. {% data reusables.actions.actions-pin-commit-sha %}
+
+  For an example of using a full-length commit SHA in a workflow, see [AUTOTITLE](/actions/how-tos/write-workflows/choose-what-workflows-do/find-and-customize-actions#using-shas).
+  
+  {%- ifversion actions-blocklist-sha-pinning %}
+  
+  {% data variables.product.github %} offers policies at the {% ifversion ghec or ghes %}repository, organization, and enterprise{% else %}repository and organization{% endif %} level to require actions to be pinned to a full-length commit SHA:
+    * To configure the policy at the repository level, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository).
+    * To configure the policy at the organization level, see [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization).
+    {%- ifversion ghec or ghes %}
+    * To configure the policy at the enterprise level, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#policies).
+    {%- endif %}
+  {%- endif %}
 
 * **Audit the source code of the action**
 

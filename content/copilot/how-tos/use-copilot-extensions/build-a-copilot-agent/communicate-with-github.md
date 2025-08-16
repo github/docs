@@ -1,5 +1,5 @@
 ---
-title: Configuring your Copilot agent to communicate with GitHub
+title: Configuring your GitHub Copilot agent to communicate with GitHub
 intro: 'Learn how to verify payloads and get resources from {% data variables.product.github %} with your {% data variables.copilot.copilot_agent_short %}.'
 versions:
   feature: copilot-extensions

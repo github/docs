@@ -74,14 +74,61 @@ The following image and media file types are supported in all contexts.
 
 ### Additional file types
 
-The following file types are supported when uploading to issue and pull request comments in repositories.
+The following file types are supported for uploads in issue comments, pull request comments, and discussion comments within repositories. This list of file types is also supported in organization discussions.
+
+### Supported file types for uploads
+
+#### Documents
 
 * PDFs (`.pdf`)
-* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`)
+* Microsoft Office documents (`.docx`, `.pptx`, `.xlsx`, `.xls`, `.xlsm`)
 * OpenDocument formats (`.odt`, `.fodt`, `.ods`, `.fods`, `.odp`, `.fodp`, `.odg`, `.fodg`, `.odf`)
-* Text and data files (`.txt`, `.csv`, `.log`, `.md`, `.json`, `.jsonc`)
-* Archive files (`.zip`, `.gz`, `.tgz`)
-* Development files (`.patch`, `.cpuprofile`, `.dmp`)
+* Rich text and word processing files (`.rtf`, `.doc`)
 
-  > [!NOTE]
-  > If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
+#### Text and data files
+
+* Plain text and markup (`.txt`, `.md`, `.copilotmd`)
+* Data and tabular files (`.csv`, `.tsv`, `.log`, `.json`, `.jsonc`)
+
+#### Development and code files
+
+* Binary files (`.bin`)
+* C files (`.c`)
+* C# files (`.cs`)
+* C++ files (`.cpp`)
+* CSS files (`.css`)
+* Diagrams (`.drawio`)
+* Dump files (`.dmp`)
+* HTML files (`.html`, `.htm`)
+* Java files (`.java`)
+* JavaScript files (`.js`)
+* Jupyter notebooks (`.ipynb`)
+* Patch files (`.patch`)
+* PHP files (`.php`)
+* Profiling files (`.cpuprofile`)
+* Program database files (`.pdb`)
+* Python files (`.py`)
+* Shell scripts (`.sh`)
+* SQL files (`.sql`)
+* TypeScript files (`.ts`, `.tsx`)
+* XML files (`.xml`)
+* YAML files (`.yaml`, `.yml`)
+
+> [!NOTE]
+> If you use Linux and try to upload a `.patch` file, you will receive an error message. This is a known issue.
+
+#### Archive and compressed files
+
+* Archives and packages (`.zip`, `.gz`, `.tgz`)
+
+#### Communication and logs
+
+* Text and email files (`.debug`, `.msg`, `.eml`)
+
+#### Images
+
+* Bitmap and TIFF images (`.bmp`, `.tif`, `.tiff`)
+
+#### Audio
+
+* Audio files (`.mp3`, `.wav`)

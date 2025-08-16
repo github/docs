@@ -101,6 +101,13 @@ Start the service with the following command:
 sudo ./svc.sh start
 ```
 
+> [!NOTE]
+> On Debian-based Linux systems (such as Debian or Ubuntu) with `needrestart` enabled, you can prevent `needrestart` from restarting the runner service during a workflow job by configuring it to ignore the runner service. Run the following command:
+>
+> ```bash
+> echo '$nrconf{override_rc}{qr(^actions\.runner\..+\.service$)} = 0;' | sudo tee /etc/needrestart/conf.d/actions_runner_services.conf
+> ```
+
 {% endlinux %}
 {% windows %}
 

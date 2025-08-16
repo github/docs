@@ -1,5 +1,5 @@
 ---
-title: Configuring your server to host your Copilot extension
+title: Configuring your server to host your GitHub Copilot extension
 intro: 'Learn how to make your {% data variables.product.prodname_copilot_short %} extension accessible to the internet.'
 versions:
   feature: copilot-extensions

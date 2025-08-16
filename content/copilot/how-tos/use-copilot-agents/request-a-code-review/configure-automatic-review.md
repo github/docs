@@ -1,5 +1,5 @@
 ---
-title: Configuring automatic code review by Copilot
+title: Configuring automatic code review by GitHub Copilot
 shortTitle: Configure automatic review
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to configure {% data variables.product.prodname_copilot_short %} to automatically review pull requests.'
