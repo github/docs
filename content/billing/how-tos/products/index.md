@@ -30,8 +30,6 @@ children:
   - manage-ghas-license
   - migrate-from-ghas
   - view-ghas-committers
-  - upgrade-git-lfs-storage
-  - downgrade-git-lfs-storage
 contentType: how-tos
 ---
 
