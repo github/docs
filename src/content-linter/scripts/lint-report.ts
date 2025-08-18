@@ -10,20 +10,21 @@ import { reportingConfig } from '@/content-linter/style/github-docs'
 // GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
 const MAX_ISSUE_BODY_SIZE = 60000
 
+interface LintFlaw {
+  severity: string
+  ruleNames: string[]
+}
+
 /**
  * Determines if a lint result should be included in the automated report
- * @param {Object} flaw - The lint result object
- * @param {string} flaw.severity - 'error' or 'warning'
- * @param {string[]} flaw.ruleNames - Array of rule names for this flaw
- * @returns {boolean} - True if this flaw should be included in the report
  */
-function shouldIncludeInReport(flaw) {
+function shouldIncludeInReport(flaw: LintFlaw): boolean {
   if (!flaw.ruleNames || !Array.isArray(flaw.ruleNames)) {
     return false
   }
 
   // Check if any rule name is in the exclude list
-  const hasExcludedRule = flaw.ruleNames.some((ruleName) =>
+  const hasExcludedRule = flaw.ruleNames.some((ruleName: string) =>
     reportingConfig.excludeRules.includes(ruleName),
   )
   if (hasExcludedRule) {
@@ -36,7 +37,7 @@ function shouldIncludeInReport(flaw) {
   }
 
   // Check if any rule name is in the include list
-  const hasIncludedRule = flaw.ruleNames.some((ruleName) =>
+  const hasIncludedRule = flaw.ruleNames.some((ruleName: string) =>
     reportingConfig.includeRules.includes(ruleName),
   )
   if (hasIncludedRule) {
@@ -88,9 +89,9 @@ async function main() {
   const parsedResults = JSON.parse(lintResults)
 
   // Filter results based on reporting configuration
-  const filteredResults = {}
+  const filteredResults: Record<string, LintFlaw[]> = {}
   for (const [file, flaws] of Object.entries(parsedResults)) {
-    const filteredFlaws = flaws.filter(shouldIncludeInReport)
+    const filteredFlaws = (flaws as LintFlaw[]).filter(shouldIncludeInReport)
 
     // Only include files that have remaining flaws after filtering
     if (filteredFlaws.length > 0) {
@@ -127,8 +128,8 @@ async function main() {
     octokit,
     reportTitle: `Content linting issues requiring attention`,
     reportBody,
-    reportRepository: REPORT_REPOSITORY,
-    reportLabel: REPORT_LABEL,
+    reportRepository: REPORT_REPOSITORY!,
+    reportLabel: REPORT_LABEL!,
   }
 
   await createReportIssue(reportProps)
@@ -137,9 +138,9 @@ async function main() {
     core,
     octokit,
     newReport: await createReportIssue(reportProps),
-    reportRepository: REPORT_REPOSITORY,
-    reportAuthor: REPORT_AUTHOR,
-    reportLabel: REPORT_LABEL,
+    reportRepository: REPORT_REPOSITORY!,
+    reportAuthor: REPORT_AUTHOR!,
+    reportLabel: REPORT_LABEL!,
   }
 
   await linkReports(linkProps)

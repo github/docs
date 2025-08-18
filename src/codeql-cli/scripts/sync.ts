@@ -29,7 +29,7 @@ async function main() {
     includeBasePath: true,
     globs: ['**/*.md'],
   })
-  const cliMarkdownContents = {}
+  const cliMarkdownContents: Record<string, { data: any; content: string }> = {}
 
   for (const file of markdownFiles) {
     const sourceContent = await readFile(file, 'utf8')
@@ -83,7 +83,7 @@ async function setupEnvironment() {
 
 // copy the raw rst files to the temp directory and convert them
 // to Markdownusing pandoc
-async function rstToMarkdown(sourceDirectory) {
+async function rstToMarkdown(sourceDirectory: string) {
   const sourceFiles = walk(sourceDirectory, {
     includeBasePath: true,
     globs: ['**/*.rst'],

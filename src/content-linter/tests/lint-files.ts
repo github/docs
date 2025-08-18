@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { fileURLToPath } from 'url'
 import path from 'path'
 import yaml from 'js-yaml'
