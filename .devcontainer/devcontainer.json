@@ -26,7 +26,7 @@
       // Visual Studio Code extensions which help authoring for docs.github.com.
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "sissel.shopify-liquid",
+        "kainatsel.shopify-liquid",
         "davidanson.vscode-markdownlint",
         "bierner.markdown-preview-github-styles",
         "streetsidesoftware.code-spell-checker",
