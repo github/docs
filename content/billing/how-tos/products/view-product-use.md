@@ -1,6 +1,6 @@
 ---
-title: Viewing your usage of metered products
-intro: You can explore your use of different products that are billed by usage and see how each product contributes to your bill.
+title: Viewing your usage of metered products and licenses
+intro: Explore your use of features that are billed by usage and see how they contribute to your bill.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-git-large-file-storage-usage
   - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account
@@ -31,17 +31,29 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - Billing
-shortTitle: View product use
+shortTitle: View product/license use
+allowTitleToDifferFromFilename: true
+permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
+product: 'Cloud only'
 contentType: how-tos
 ---
 
-## Viewing a summary of usage for billed products
+> [!TIP]
+> **{% data variables.product.prodname_ghe_server %}** administrators should instead see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
 
-Anyone can view usage for their own personal account.
+## Viewing a summary of usage
 
-If you are an owner or billing manager of an organization or enterprise, you will also have access to usage data for that organization or account.
+The options available to you vary according to your role and {% data variables.product.github %} plan.
+
+{% data variables.product.github %} cloud:
+* Anyone can view usage data for their own personal account unless their account is managed by their enterprise (EMU).
+* If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
+
+{% data variables.product.prodname_ghe_server %}:
+* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
 
 ### Personal accounts
 
@@ -74,17 +86,30 @@ The metered usage chart and usage break down table both show your current choice
 
 ![Screenshot of the metered usage chart showing "Actions grouped by SKU" with the three control fields outlined in dark orange.](/assets/images/help/billing/product-usage-chart.png)
 
+{% ifversion fpt or ghec %}
 > [!TIP]
 > For GitHub Actions, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
+{% endif %}
 
-## Downloading the data displayed
+## Downloading usage reports
 
-You can download the data plotted on the billing charts shown on the "Overview" or "Usage" page as a table or an image. Click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} "Chart options" button and select your preferred format.
+You can download two different types of usage report from the "Usage" page.
 
-![Screenshot of the metered usage chart on the "Overview" page with the "Chart options" outlined in dark orange.](/assets/images/help/billing/overview-chart-download-button.png)
+### General usage reports
 
-## Further reading
+1. At the top of the "Usage" page, click **Get usage report**.
+1. Choose the report that you want to download.
 
-* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github)
+For details of the fields included in the report, see [AUTOTITLE](/billing/reference/usage-reports).
+
+### Downloading the data plotted in the usage chart
+
+When the chart on the "Usage" page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} "Chart options" button and select your preferred format.
+
+![Screenshot of the metered usage chart on the "Usage" page with the "Chart options" outlined in dark orange.](/assets/images/help/billing/overview-chart-download-button.png)
+
+## Next steps
+
+* [AUTOTITLE](/billing/reference/usage-reports){% ifversion fpt or ghec %}
 * [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending)
-* [AUTOTITLE](/billing/managing-your-billing/automating-usage-reporting)
+* [AUTOTITLE](/billing/managing-your-billing/automating-usage-reporting){% endif %}

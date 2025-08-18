@@ -1,13 +1,16 @@
 ---
 title: Setting up a trial of GitHub Advanced Security
 intro: 'You can try the full set of {% data variables.product.prodname_GHAS %} features for free.'
-product: 'Enterprise owners <br> Otherwise, you need a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the {% data variables.product.prodname_ghe_cloud %} docs.'
+permissions: '{% data reusables.advanced-security.ghas-trial-permission %}'
+product: '{% data reusables.gated-features.ghas-trial %}'
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.15'
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security
+  - /billing/how-tos/products/trial-advanced-security
 topics:
   - Billing
   - Advanced Security
@@ -23,7 +26,7 @@ To set up a trial of {% data variables.product.prodname_GHAS %} using this metho
 1. Be an owner of an enterprise account. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).
 1. Pay by credit card or PayPal.
 1. Have not previously purchased or had a trial of {% data variables.product.prodname_GHAS %}.
-1. You must not use metered billing for {% data variables.product.prodname_GHAS %}.
+1. You are not already using metered billing for {% data variables.product.prodname_GHAS %}.
 
 > [!TIP]
 > * **No enterprise account?** Start a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
@@ -50,8 +53,8 @@ If you pay for {% data variables.product.prodname_ghe_cloud %} with metered bill
 1. To the right of "{% data variables.product.prodname_GHAS %} trial", select the **Manage** dropdown menu and click **Purchase**.
 {% data reusables.advanced-security.purchase-ghas %}
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
-* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)
-* [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)
+1. [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial)
+1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning)
+1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)

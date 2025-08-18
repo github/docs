@@ -1,40 +1,42 @@
 ---
 title: Usage reports reference
 shortTitle: Usage reports
-intro: 'Learn how to request and understand a report that shows detailed {% data variables.product.github %} usage and billing information for your account.'
+intro: 'Usage reports show detailed {% data variables.product.github %} usage and billing information for your account.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: enhanced-billing-platform
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Billing
   - Enterprise
   - Team
-permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
-product: '{% data reusables.billing.enhanced-billing-platform-product %}'
+permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 redirect_from:
   - /billing/managing-your-billing/about-usage-reports
 contentType: reference
 ---
 
-The usage report shows detailed information about your account’s {% data variables.product.github %} usage, including how much of each SKU was used and the resulting billable amount.  
+The usage report shows detailed information about your account’s {% data variables.product.github %} usage, including how much of each SKU was used and the resulting billable amount.
 
-To generate a usage report, see [AUTOTITLE](/billing/managing-your-billing/gathering-insights-on-your-spending).
+To generate a usage report, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/gathering-insights-on-your-spending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/gathering-insights-on-your-spending) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Usage report types
+
+There are two different types of report.
+
+* Summarized reports can be requested for a maximum time frame of one year.
+* Detailed reports can be requested for a maximum time frame of 31 days.
 
 ### Summarized report
 
 The summarized usage report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amount` fields based on the combination of the following values: `date`, `sku`, `repository`, `cost_center_name`. If the usage report is for an enterprise with organizations, the amounts will be summarized by the organization value as well.
-
-Summarized reports can be requested for a maximum time frame of one year.
 
 ### Detailed report
 
 The detailed usage report includes the same fields as the summarized report and adds `username` and `workflow_path`.
 
 The detailed usage report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amount` fields based on the combination of the following values:  `date`, `sku`, `organization`, `repository`, `cost_center_name`, `username`, `workflow_path`.
-
-Detailed reports can be requested for a maximum time frame of 31 days.
 
 ## Usage report fields
 
@@ -57,11 +59,11 @@ The usage report contains the following fields.
 | `workflow_path`          | The path of the {% data variables.product.prodname_actions %} workflow that generated the usage, if applicable. Only available in the detailed report. |
 | `cost_center_name`       | The cost center associated with the usage, if applicable. |
 
-### Deprecated report fields
+### Report fields closing down
 
 {% data variables.product.github %} aims to minimize changes to the usage report structure, however at times the report structure or fields may change.
 
-| Deprecated field   | Replacement         |
+| Closing down   | Replacement         |
 |--------------------|---------------------|
 | `usage_at`         | Refer to `date` instead. |
 | `workflow_name`    | Refer to `workflow_path` instead. |

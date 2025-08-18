@@ -11,6 +11,24 @@ redirect_from:
   - /github/managing-large-files/about-storage-and-bandwidth-usage
   - /github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage
   - /repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage
+# Redirects from upgrading Git LFS storage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-git-large-file-storage
+  - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account
+  - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization
+  - /articles/upgrading-git-large-file-storage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
+  - /billing/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
+  - /billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage
+  - /billing/how-tos/products/upgrade-git-lfs-storage
+# Redirects from downgrading Git LFS storage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
+  - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
+  - /articles/downgrading-storage-and-bandwidth-for-an-organization
+  - /articles/downgrading-git-large-file-storage
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
+  - /billing/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
+  - /billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/downgrading-git-large-file-storage
+  - /billing/how-tos/products/downgrade-git-lfs-storage
 # Original redirects
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-git-large-file-storage
   - /articles/about-billing-for-git-large-file-storage
