@@ -106,3 +106,7 @@
 - is: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1375604
 - is: https://developers.redhat.com/articles/2025/02/17/how-securely-deploy-github-arc-openshift#arc_architecture
 - startsWith: https://creativecommons.org/
+- is: https://www.adobe.com/privacy/policy.html
+- is: https://www.facebook.com/policies/cookies/
+- is: https://help.fullstory.com/hc/en-us/articles/360020623394-GDPR-FAQs
+- is: https://collectd.org/documentation/manpages/collectd.conf.html#plugin-fhcount
