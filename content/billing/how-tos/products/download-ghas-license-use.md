@@ -1,97 +1,62 @@
 ---
-title: 'Downloading licensed use of Advanced Security'
-intro: 'You can download consumption of {% data variables.product.prodname_GHAS %} licenses by your {% data variables.enterprise.enterprise_or_org %}: volume/subscription licenses or metered usage.'
-permissions: '{% ifversion fpt %}Organization{% else %}Enterprise{% endif %} owners with {% data variables.product.prodname_AS %}'
-product: '{% data reusables.gated-features.ghas-billing %}'
+title: 'Downloading license use for your enterprise or organization'
+intro: 'Get data on consumption of {% data variables.product.github %}, {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_AS %} licenses.'
+permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 versions:
   fpt: '*'
-  ghes: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - Billing
   - Advanced Security
   - Enterprise
-shortTitle: Download GHAS license use
+shortTitle: Download license use
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/downloading-your-github-advanced-security-usage
 contentType: how-tos
 ---
 
-## Downloading {% data variables.product.prodname_AS %} license usage information
+You can download CSV files with details of paid license use through the {% data variables.product.github %} user interface or the REST API.
 
-You can download a CSV file with details of paid use of {% data variables.product.prodname_GHAS %} products at both the {% data variables.enterprise.enterprise_and_org %} level. The CSV file contains information about each {% data variables.product.prodname_AS %} license that is in use, including:
+For more detailed reports on usage of all paid products, see [AUTOTITLE](/billing/how-tos/products/view-product-use).
 
-* The username of the person using the {% data variables.product.prodname_GHAS_cs_or_sp %} license
-* The {% data variables.product.prodname_GH_cs_and_sp %}-enabled repositories where commits were made
-* The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using licenses belong to
-* The most recent commit dates and associated email addresses
+## On {% data variables.product.prodname_ghe_cloud %}
 
-You can use this information for insights into your paid use of {% data variables.product.prodname_AS %}, such as which members of your enterprise are using a license or how licenses are being consumed across your organizations.
+1. In the upper-right corner of any page on {% data variables.product.github %}, click your profile picture.
 
-You can download a CSV report of license usage through the {% data variables.product.github %} user interface or the REST API.
+1. Select the account you want to view and then access the "Billing & Licensing" pages:
 
-## Using the UI to download license and metered usage
+   * **Organizations**: Click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
-You can download a CSV report for a repository, an organization, or an enterprise.
+   * **Enterprises**: Click **Your enterprises**, then click the enterprise name. Click the **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** tab at the top of the page.
 
-{% ifversion fpt or ghec %}
+1. From the list of "Billing & licensing" pages, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing** to display the licensing page.
 
-### For a repository
+1. In the license area of interest, click **Download CSV report**. If offered a choice, choose your preferred report.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, select the {% data variables.product.UI_advanced_security %} dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
-1. In the "{% data variables.product.prodname_GH_cs_or_sp %} repositories" section, next to the repository you want usage information for, select {% octicon "kebab-horizontal" aria-label="GHAS repository actions" %}, then click **Download CSV report**.
+The report will be emailed to the default email address associated with your {% data variables.product.github %} account. For information about the fields, see [AUTOTITLE](/billing/reference/license-reports).
 
-   ![Screenshot of the table for {% data variables.product.prodname_GH_secret_protection %} usage. The horizontal kebab icon and "Download CSV report" button are outlined in orange.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
-
-### For an organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing** to display an overview.
-1. For metered usage, in the sidebar click **Usage**.
-   1. To display only {% data variables.product.prodname_AS %} usage within the graph, click the search bar, then click **Product**. Within the list of products displayed, click **GHAS**.
-   1. To further filter the usage graph, use the dropdown menus:
-      * To view usage by SKU, select the **Group** dropdown, then click **SKU**. This will allow you to view usage for both {% data variables.product.prodname_GH_cs_and_sp %}.
-      * To filter by time, select **Time Frame**, then click a time period.
-      * Below the graph, you can see a more granular overview of the usage. Click the arrow next to a specific date to see a nested table with usage per SKU, units, price/unit, gross amount (the amount actually used), and billed amount (the amount you are charged).
-   1. To download the data, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report**.
-1. For license consumption, in the sidebar click **{% octicon "law" aria-hidden="true" aria-label="law" %} Licensing**.
-   1. Under "{% data variables.product.prodname_GHAS %}," click the **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report** dropdown and then click either **{% data variables.product.prodname_code_security %}** or **{% data variables.product.prodname_secret_protection %}**.
-
-### For an enterprise
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-1. Click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & licensing** to display an overview.
-1. For metered usage, click {% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} **Usage**.
-   1. To display only {% data variables.product.prodname_AS %} usage within the graph, click the search bar, then click **Product**. Within the list of products displayed, click **GHAS**.
-   1. To further filter the usage graph, use the dropdown menus:
-        * To view usage by SKU, select the **Group** dropdown, then click **SKU**. This will allow you to view usage for both {% data variables.product.prodname_GH_cs_and_sp %}.
-        * To filter by time, select **Time Frame**, then click a time period.
-        * Below the graph, you can see a more granular overview of the usage. Click the arrow next to a specific date to see a nested table with usage per SKU, units, price/unit, gross amount (the amount actually used), and billed amount (the amount you are charged).
-   1. To download the data, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report**.
-1. For license consumption, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing**.
-   * Under "{% data variables.product.prodname_GHAS %}," click the **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report** dropdown and then click either **{% data variables.product.prodname_code_security %}** or **{% data variables.product.prodname_secret_protection %}**.
-
-{% elsif ghes %}
+## On {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.license-tab-ghes %}
-1. Under "{% data variables.product.prodname_GHAS %}," click **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**.
 
-   ![Screenshot of the licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)
+The page shows a summary of the licenses your enterprise is using for {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GHAS %}. Use links on the page to view more detailed information.
 
-{% endif %}
+To download a license usage report for {% data variables.product.prodname_GHAS %}:
 
-## Using the REST API to download license and metered usage
+   * **Enterprise**: In "{% data variables.product.prodname_GHAS %}", click {% octicon "download" aria-hidden="true" aria-label="download" %} **CSV report**.
+   * **Organization**: In the "ORGANIZATION" table, click {% octicon "download" aria-label="Download CSV report" %} associated with the organization that you want to download a CSV report for.
+   * **User namespace**: In the "USER NAMESPACED" table, click {% octicon "download" aria-label="Download CSV report" %} associated with the user that you want to download a CSV report for.
+   * **Repository**: In the "ORGANIZATION" table, click the name of an organization to show a settings page for the organization. In the {% data variables.product.prodname_GHAS %} repositories table, click {% octicon "kebab-horizontal" aria-label="GHAS repository actions" %} and select **Download CSV report**.
+
+For details of the fields included in the report, see [AUTOTITLE](/billing/reference/license-reports).
+
+## Using the REST API
 
 You can retrieve information on paid use of {% data variables.product.prodname_AS %} with the billing API.
 
-{% ifversion fpt or ghec %}
+* Organization-level data (cloud only), use the `/organizations/{org}/settings/billing/usage` endpoint.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/rest/billing/enhanced-billing?apiVersion=2022-11-28).{% endif %}
 
-For organization-level data, use the `/organizations/{org}/settings/billing/usage` endpoint. For more information, see [AUTOTITLE](/rest/billing/enhanced-billing?apiVersion=2022-11-28).
-
-{% endif %}
-
-For enterprise-level data, use the `/enterprises/{enterprise}/settings/billing/usage` endpoint. For more information, see [AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+* Enterprise-level data, use the `/enterprises/{enterprise}/settings/billing/usage` endpoint. For more information, see [AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.

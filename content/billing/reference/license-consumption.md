@@ -1,7 +1,8 @@
 ---
 title: People who consume a license in an organization
 intro: 'Learn how consumption of {% data variables.product.github %} licenses is determined for paid organizations and enterprises.'
-shortTitle: License consumption
+shortTitle: GitHub license users
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing

@@ -1,8 +1,9 @@
 ---
 title: 'Managing volume licenses for GitHub Advanced Security'
 intro: 'You can monitor and control the availability and consumption of licenses for {% data variables.product.prodname_AS %} in repositories in your enterprise.'
-permissions: 'Enterprise owners with **volume/subscription licenses** for {% data variables.product.prodname_AS %}. </br>For metered usage on the new platform, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).'
+permissions: 'Enterprise owners with **volume/subscription licenses** for {% data variables.product.prodname_AS %}. </br>For metered usage, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).'
 versions:
+  fpt: '*'
   ghec: '*'
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing
@@ -11,7 +12,8 @@ topics:
   - Billing
   - Advanced Security
   - Enterprise
-shortTitle: Manage GHAS license
+shortTitle: Manage GHAS licenses
+allowTitleToDifferFromFilename: true
 contentType: how-tos
 ---
 

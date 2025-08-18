@@ -18,6 +18,7 @@ children:
   - /cost-center-allocation
   - /roles-for-visual-studio
   - /license-consumption
+  - /license-reports
   - /models-multipliers-and-costs
   - /enterprise-license-troubleshooting
 contentType: reference

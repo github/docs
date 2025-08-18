@@ -32,4 +32,3 @@ children:
   - view-ghas-committers
 contentType: how-tos
 ---
-
