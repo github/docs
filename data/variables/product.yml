@@ -51,6 +51,7 @@ prodname_ado2gh_cli_short: ADO2GH extension
 prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
+prodname_ghos: GitHub-owned blob storage
 
 # GitHub Education
 prodname_education: 'GitHub Education'
