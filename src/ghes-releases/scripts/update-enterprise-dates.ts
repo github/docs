@@ -13,8 +13,10 @@ import { getContents } from '@/workflows/git-utils'
 
 interface EnterpriseDates {
   [releaseNumber: string]: {
-    releaseDate: string
+    releaseDate: string // For backward compatibility - RC date initially, then GA date once available
     deprecationDate: string
+    releaseCandidateDate?: string // Release Candidate date
+    generalAvailabilityDate?: string // General Availability date
   }
 }
 
@@ -54,8 +56,11 @@ async function main(): Promise<void> {
   const formattedDates: EnterpriseDates = {}
   Object.entries(rawDates).forEach(([releaseNumber, releaseObject]) => {
     formattedDates[releaseNumber] = {
+      // For backward compatibility, keep releaseDate as RC date initially, then GA date once available
       releaseDate: releaseObject.release_candidate || releaseObject.start,
       deprecationDate: releaseObject.end,
+      releaseCandidateDate: releaseObject.release_candidate,
+      generalAvailabilityDate: releaseObject.start,
     }
   })
 

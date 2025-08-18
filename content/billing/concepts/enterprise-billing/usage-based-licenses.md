@@ -31,13 +31,27 @@ Usage-based billing for licenses provides flexibility and cost savings compared 
 
 {% data reusables.billing.do-i-have-usage-based %}
 
-{% data variables.visual_studio.prodname_vss_ghe %} is currently not supported for usage-based billing.
-
 ## Can I use {% data variables.product.prodname_ghe_server %}?
 
 Although you can sync licenses with {% data variables.product.prodname_ghe_server %}, usage-based licensing is a cloud-first license model where users must first be added to an organization on {% data variables.product.prodname_ghe_cloud %}.
 
 For a detailed comparison between usage-based and volume licensing models, see [AUTOTITLE](/billing/concepts/enterprise-billing/combined-enterprise-use#about-licensing-models).
+
+## Can I use a {% data variables.product.prodname_vs %} bundle?
+
+If you have a {% data variables.product.prodname_vs %} bundle with {% data variables.product.prodname_ghe_cloud %}, you can switch to usage-based billing by contacting your account manager or {% data variables.contact.contact_enterprise_sales %} ahead of contract renewal.
+
+Usage-based billing will apply to non-bundled licenses, categorized as "GitHub Enterprise licenses" on your enterprise's Licensing page. These licenses include:
+
+* Licenses for enterprise members who are not matched to a {% data variables.product.prodname_vs %} account.
+* Any extra {% data variables.product.prodname_enterprise %} licenses you consume beyond the number of licenses purchased in your volume agreement.
+
+Bundled licenses ({% data variables.product.prodname_vs %} plus {% data variables.product.prodname_enterprise %}) **remain on a volume agreement**.
+
+Before switching to usage-based billing, to ensure you are not charged extra for {% data variables.product.prodname_vs %} users who should consume a bundled license:
+
+* Ensure all {% data variables.product.prodname_vs %} users are correctly matched to their account on {% data variables.product.github %}. See [AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/set-up-payment/set-up-vs-subscription#reconciling-users-across-visual-studio-and-github).
+* Add all {% data variables.product.prodname_vs %} users to your enterprise on **{% data variables.product.prodname_ghe_cloud %}** before adding them to {% data variables.product.prodname_ghe_server %}. Users who are only on {% data variables.product.prodname_ghe_server %} will consume a "{% data variables.product.prodname_enterprise %}" license once you switch to usage-based billing.
 
 ## How are metered licenses measured?
 

@@ -20,28 +20,32 @@ We provide documentation for both supported and unsupported versions of {% data 
 
 For information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
 
-| Version | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Documentation |
-| :- | :- | :- | :-: | :- | :- |
+| Version | Candidate | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Docs |
+| :- | :- | :- | :- | :-: | :- | :- |
 {%- for version in enterpriseServerReleases.supported %}
-{%- assign currentDate = 'now' | date: '%s' %}
-{%- assign deprecationDate = enterpriseServerReleases.dates[version].deprecationDate | date: '%s' %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | Support temporarily extended until further notice | {% octicon "check" aria-label="Supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+| {{version}} | {{enterpriseServerReleases.dates[version].displayCandidateDate}} | {{enterpriseServerReleases.dates[version].displayReleaseDate}} | Support temporarily extended until further notice | {% octicon "check" aria-label="Supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} docs](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+{%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+{%- assign releaseDisplay = enterpriseServerReleases.dates[version].displayReleaseDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+| {{version}} | {{candidateDisplay}} | {{releaseDisplay}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} docs](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} documentation](/enterprise/{{version}}) |
+{%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+{%- assign releaseDisplay = enterpriseServerReleases.dates[version].displayReleaseDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+| {{version}} | {{candidateDisplay}} | {{releaseDisplay}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} docs](/enterprise/{{version}}) |
 {%- endfor %}
 
 ### Developer documentation that is {% data variables.release-phases.closing_down %}
 
 We hosted developer documentation for {% data variables.product.prodname_ghe_server %} on a separate site until the 2.17 release. We provide developer documentation for version 2.16 and earlier, but do not maintain or update the documentation.
 
-| Version | Release | {% data variables.release-phases.closing_down_caps %} date | Developer documentation |
-| :- | :- | :- | :- |
+| Version | Candidate | Release | {% data variables.release-phases.closing_down_caps %} date | Developer docs |
+| :- | :- | :- | :- | :- |
 {%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer documentation](https://developer.github.com/enterprise/{{version}}) |
+{%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+{%- assign releaseDisplay = enterpriseServerReleases.dates[version].displayReleaseDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+| {{version}} | {{candidateDisplay}} | {{releaseDisplay}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer docs](https://developer.github.com/enterprise/{{version}}) |
 {%- endfor %}
 
 ## Recommended {% data variables.product.prodname_codeql_cli %} versions for code scanning
