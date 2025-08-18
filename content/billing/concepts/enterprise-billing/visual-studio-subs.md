@@ -22,7 +22,7 @@ shortTitle: Visual Studio subs
 contentType: concepts
 ---
 
-> [!NOTE] Usage-based billing is not currently supported for {% data variables.visual_studio.prodname_vss_ghe %}.
+> [!NOTE] Customers with a {% data variables.product.prodname_vs %} bundle can **switch to usage-based billing** for {% data variables.product.prodname_enterprise %} licenses. This allows you to pay for licenses on a flexible monthly cycle for users who are not part of your {% data variables.product.prodname_vs %} subscription. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
 
 {% data reusables.enterprise-accounts.vss-ghe-description %} {% data variables.visual_studio.prodname_vss_ghe %} is available from Microsoft under the terms of the Microsoft Enterprise Agreement. For more information, see [{% data variables.visual_studio.prodname_vss_ghe %}](https://visualstudio.microsoft.com/subscriptions/visual-studio-github/) on the {% data variables.product.prodname_vs %} website.
 
@@ -46,7 +46,9 @@ For more information about {% data variables.product.prodname_enterprise %}, see
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} For more information, see [AUTOTITLE](/admin/overview/about-github-for-enterprises#about-deployment-options).
 
-For users only on {% data variables.product.prodname_ghe_server %}, each {% data variables.product.prodname_vs %} subscriber will only consume one license as long as the email address associated with their {% data variables.product.prodname_ghe_server %} account matches their {% data variables.product.prodname_vs %} UPN. For users on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, only one license will be consumed as long as you follow the instructions in the 'About licenses for {% data variables.visual_studio.prodname_vss_ghec %}' section, and the user's accounts are linked as described in [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
+For users only on {% data variables.product.prodname_ghe_server %}, each {% data variables.product.prodname_vs %} subscriber will only consume one license as long as the email address associated with their {% data variables.product.prodname_ghe_server %} account matches their {% data variables.product.prodname_vs %} UPN. This does not apply if you have switched to **usage-based billing**, in which case users must also be on {% data variables.product.prodname_ghe_cloud %} to consume a bundled license.
+
+For users on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, only one license will be consumed as long as you follow the instructions in the 'About licenses for {% data variables.visual_studio.prodname_vss_ghec %}' section, and the user's accounts are linked as described in [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
 
 ## Further reading
 
