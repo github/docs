@@ -1,6 +1,6 @@
 ---
 title: Viewing your usage of metered products and licenses
-intro: Explore your use of features billed by usage on {% data variables.product.github %} cloud and see how they contribute to your bill.
+intro: Explore your use of features that are billed by usage and see how they contribute to your bill.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-git-large-file-storage-usage
   - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account
@@ -48,8 +48,12 @@ contentType: how-tos
 
 The options available to you vary according to your role and {% data variables.product.github %} plan.
 
+{% data variables.product.github %} cloud:
 * Anyone can view usage data for their own personal account unless their account is managed by their enterprise (EMU).
 * If you are an **owner** or **billing manager** of an enterprise, or an organization on {% data variables.product.prodname_team %}, you will also have access to usage data for that organization or enterprise account.
+
+{% data variables.product.prodname_ghe_server %}:
+* Enterprise owners can access and download usage data for licenses, see [AUTOTITLE](/billing/how-tos/products/download-ghas-license-use).
 
 ### Personal accounts
 

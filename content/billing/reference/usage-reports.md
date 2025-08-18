@@ -19,7 +19,7 @@ contentType: reference
 
 The usage report shows detailed information about your account’s {% data variables.product.github %} usage, including how much of each SKU was used and the resulting billable amount.
 
-To generate a usage report, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/gathering-insights-on-your-spending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/gathering-insights-on-your-spending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}.
+To generate a usage report, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/gathering-insights-on-your-spending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/gathering-insights-on-your-spending) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Usage report types
 

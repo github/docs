@@ -3,6 +3,10 @@ title: '{% data variables.product.prodname_GHAS %} license billing'
 intro: 'Learn how usage of {% data variables.product.prodname_AS %} features is measured and how to pay for additional licenses.'
 product: '{% data reusables.gated-features.ghas-billing %}'
 redirect_from:
+# Article on migrating to two separate SKUs
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/migrating-from-ghas-to-cs-and-sp
+  - /billing/how-tos/products/migrate-from-ghas
+# This article
   - /admin/advanced-security/about-licensing-for-github-advanced-security
   - /billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-licensing-for-github-advanced-security
@@ -89,10 +93,8 @@ There are two different ways to pay for licenses.
 
 * **Volume/subscription billing** available for {% data variables.product.prodname_enterprise %} plans only
 
-  * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year.
+  * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/how-tos/products/add-advanced-security){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/add-advanced-security) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
   * If the usage of {% data variables.product.prodname_AS %} by active committers exceeds the number of licenses purchased, you need to purchase additional licenses to cover this overage usage.
-
-   If you want to purchase volume/subscription-based licenses, contact your account manager in {% data variables.contact.contact_enterprise_sales %} or contact {% data variables.contact.contact_support_page %}.
 
 <!-- expires 2025-08-31 -->
 <!--This versioning is not needed once the related EDI PR for this article is merged (#57129).-->
@@ -146,7 +148,9 @@ You can enforce policies to allow or disallow the use of {% data variables.produ
 
 ## Further reading
 
-{% ifversion fpt or ghec or ghes > 3.14 %}
+{%- ifversion fpt or ghec or ghes > 3.15 %}
+* [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas){% endif %}
+{%- ifversion fpt or ghec or ghes > 3.14 %}
 * [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale){% endif %}
 {%- ifversion fpt or ghec or ghes > 3.15 %}
 * [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations){% else %}
