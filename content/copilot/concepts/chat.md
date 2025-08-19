@@ -43,6 +43,16 @@ For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-reposi
 
 {% data reusables.copilot.change-the-ai-model %}
 
-## Extending {% data variables.copilot.copilot_chat_dotcom_short %}
+## Extending {% data variables.copilot.copilot_chat_short %}
+
+{% data variables.copilot.copilot_chat_short %} can be extended in a variety of ways to enhance its functionality and integrate it with other tools and services. This can include using the Model Context Protocol (MCP) to provide context-aware AI assistance, or connecting third-party tools to leverage {% data variables.product.github %}’s AI capabilities.
+
+### Extending {% data variables.copilot.copilot_chat_short %} with MCP
+
+MCP is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
+
+You can configure MCP servers to provide context to {% data variables.copilot.copilot_chat_short %} in various IDEs, such as {% data variables.product.prodname_vscode %} and JetBrains IDEs. For {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, enabling {% data variables.copilot.copilot_chat_short %} to perform a limited set of tasks, at your request, such as creating branches or merging pull requests. For more information, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+
+### Extending {% data variables.copilot.copilot_chat_short %} with external tools
 
 {% data reusables.copilot.copilot-extensions.extending-copilot-chat %}

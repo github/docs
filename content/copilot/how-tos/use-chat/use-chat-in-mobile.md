@@ -20,7 +20,7 @@ contentType: how-tos
 
 ## Overview
 
-{% data variables.copilot.copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions in {% data variables.product.prodname_mobile %}. You can also use {% data variables.copilot.copilot_chat %} on either {% data variables.product.github %} or within a supported IDE. For information on using {% data variables.copilot.copilot_chat %} in an IDE, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide).
+{% data variables.copilot.copilot_chat %} is a chat interface that lets you ask and receive answers to coding-related questions in {% data variables.product.prodname_mobile %}. You can also use {% data variables.copilot.copilot_chat %} on either {% data variables.product.github %} or within a supported IDE. For information about {% data variables.copilot.copilot_chat %}, see [AUTOTITLE](/copilot/concepts/about-github-copilot-chat).
 
 {% data variables.copilot.copilot_mobile_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/about-github-copilot-chat-in-github-mobile).
 

@@ -23,6 +23,8 @@ contentType: how-tos
 
 {% vscode %}
 
+{% data reusables.copilot.mcp.mcp-ide-preview-note %}
+
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
 ## Prerequisites
@@ -209,9 +211,13 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
     * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
 1. Follow the prompts to complete the action.
 
+{% data reusables.copilot.mcp.troubleshooting-mcp-server %}
+
 {% endvscode %}
 
 {% jetbrains %}
+
+{% data reusables.copilot.mcp.mcp-ide-preview-note %}
 
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
@@ -285,9 +291,13 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
     * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
 1. Follow the prompts to complete the action.
 
+{% data reusables.copilot.mcp.troubleshooting-mcp-server %}
+
 {% endjetbrains %}
 
 {% xcode %}
+
+{% data reusables.copilot.mcp.mcp-ide-preview-note %}
 
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
@@ -356,9 +366,13 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
     * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
 1. Follow the prompts to complete the action.
 
+{% data reusables.copilot.mcp.troubleshooting-mcp-server %}
+
 {% endxcode %}
 
 {% eclipse %}
+
+{% data reusables.copilot.mcp.mcp-ide-preview-note %}
 
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
@@ -428,9 +442,42 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
     * In the {% data variables.copilot.copilot_chat_short %} box, you may be asked to give additional permissions or provide more information to complete the action.
 1. Follow the prompts to complete the action.
 
+{% data reusables.copilot.mcp.troubleshooting-mcp-server %}
+
 {% endeclipse %}
 
-{% data reusables.copilot.mcp.troubleshooting-mcp-server %}
+{% webui %}
+
+>[!NOTE] MCP in {% data variables.copilot.copilot_chat_dotcom_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+## About MCP in {% data variables.copilot.copilot_chat_dotcom_short %}
+
+The {% data variables.product.github %} MCP server is a Model Context Protocol (MCP) server provided and maintained by {% data variables.product.github %}. MCP allows you to integrate AI capabilities with other tools and services, enhancing your development experience by providing context-aware AI assistance.
+
+For more information on MCP, see [the official MCP documentation](https://modelcontextprotocol.io/introduction).
+
+Within {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, with a limited set of skills available. This allows you to instruct {% data variables.copilot.copilot_chat_short %} to perform tasks such as creating branches or merging pull requests on your behalf. For a full list of available skills, see [AUTOTITLE](/copilot/reference/github-copilot-chat-cheat-sheet#mcp-skills).
+
+## Using the {% data variables.product.github %} MCP server in {% data variables.copilot.copilot_chat_dotcom_short %}
+
+The {% data variables.product.github %} MCP server is automatically configured in {% data variables.copilot.copilot_chat_dotcom_short %}. You can start using it immediately without any additional setup.
+
+{% data reusables.copilot.immersive-mode-instructions %}
+1. In the prompt box, type a request related to the skill you want {% data variables.copilot.copilot_chat_short %} to perform, and press **Enter**.
+
+    Some examples of requests you can make are:
+    * `Create a new branch called [BRANCH-NAME] in the repository [USERNAME/REPO-NAME].`
+    * `Create a new branch called [BRANCH-NAME] in the repository [USERNAME/REPO-NAME].`
+    * `Merge the pull request [PULL-REQUEST-NUMBER] in the repository [USERNAME/REPO-NAME].`
+
+1. {% data variables.copilot.copilot_chat_short %} will ask you to confirm that you want to proceed with the action. Click **Allow** to confirm.
+1. {% data variables.copilot.copilot_chat_short %} will use the relevant skill from the {% data variables.product.github %} MCP server to perform the action you requested. {% data variables.copilot.copilot_chat_short %} will show you the result of the action in the chat interface.
+
+## Limitations
+
+The {% data variables.product.github %} MCP server in {% data variables.copilot.copilot_chat_dotcom_short %} is currently limited to a set of predefined skills. If you ask {% data variables.copilot.copilot_chat_short %} to perform an action that is not supported by the MCP server, it will still attempt to provide a helpful response, but it may not be able to perform the action as expected. For example, if you ask {% data variables.copilot.copilot_chat_short %} to create a new issue, it may provide you with a draft issue template, but you will still need to manually create the issue.
+
+{% endwebui %}
 
 ## Further reading
 
