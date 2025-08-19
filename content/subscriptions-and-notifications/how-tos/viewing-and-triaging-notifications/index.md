@@ -16,7 +16,6 @@ topics:
 children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
-  - /managing-marketing-emails-from-github
 shortTitle: Customize a workflow
 ---
 
