@@ -2,7 +2,6 @@
 title: License reports reference
 shortTitle: License reports
 intro: 'License reports show details of the users consuming licenses that you pay for.'
-allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'

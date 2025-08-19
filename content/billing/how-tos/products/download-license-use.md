@@ -1,6 +1,6 @@
 ---
-title: 'Downloading license use for your enterprise or organization'
-intro: 'Get data on consumption of {% data variables.product.github %}, {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_AS %} licenses.'
+title: Downloading license use for your enterprise or organization
+intro: Get data on consumption of {% data variables.product.github %}, {% data variables.product.prodname_copilot_short %}, and {% data variables.product.prodname_AS %} licenses.
 permissions: '{% data reusables.permissions.enhanced-billing-enterprise %}'
 versions:
   fpt: '*'
@@ -11,9 +11,9 @@ topics:
   - Advanced Security
   - Enterprise
 shortTitle: Download license use
-allowTitleToDifferFromFilename: true
 redirect_from:
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/downloading-your-github-advanced-security-usage
+  - /billing/how-tos/products/download-ghas-license-use
 contentType: how-tos
 ---
 

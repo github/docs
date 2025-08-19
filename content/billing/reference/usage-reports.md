@@ -2,7 +2,6 @@
 title: Usage reports reference
 shortTitle: Usage reports
 intro: 'Usage reports show detailed {% data variables.product.github %} usage and billing information for your account.'
-allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'

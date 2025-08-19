@@ -1,13 +1,14 @@
 ---
 title: Costs and multipliers for using GitHub Models directly
 shortTitle: Costs for GitHub Models
-allowTitleToDifferFromFilename: true
-intro: 'Reference information for calculating the cost of using different {% data variables.product.prodname_github_models %} directly (outside {% data variables.product.prodname_copilot %}).'
+intro: Reference information for calculating the cost of using different {% data variables.product.prodname_github_models %} directly (outside {% data variables.product.prodname_copilot %}).
 versions:
   feature: github-models
 topics:
   - Billing
 contentType: reference
+redirect_from:
+  - /billing/reference/models-multipliers-and-costs
 ---
 
 ## Use of models in {% data variables.product.github %}
