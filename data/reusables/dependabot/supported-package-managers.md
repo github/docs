@@ -32,6 +32,9 @@ pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-l
 | {% ifversion dependabot-updates-pnpmv9-support %}pnpm{% else %}[pnpm](#pnpm){% endif %}   | `npm`            | v7, v8, v9, v10      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} {% ifversion dependabot-updates-pnpmv9-support %}{% else %}(v7 and v8 only){% endif %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 poetry         | `pip`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pub](#pub)           | `pub`            | v2  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-rust-toolchain-support %} |
+[Rust toolchain](#rust-toolchain) | `rust-toolchain` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable   | Not applicable   |
+| {% endif %} |
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.10.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -152,6 +155,19 @@ The PEP 621 `project` section isn't currently supported for `poetry`.
 {% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.
 
 You can use {% data variables.product.prodname_dependabot %} to keep Dart dependencies up-to-date if you use private hosted pub repositories. For information about allowing {% data variables.product.prodname_dependabot %} to access private {% data variables.product.prodname_dotcom %} dependencies, see [Allowing {% data variables.product.prodname_dependabot %} to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies).
+
+{% ifversion dependabot-rust-toolchain-support %}
+
+#### Rust toolchain
+
+{% data variables.product.prodname_dependabot %} supports automatic updates for Rust toolchain versions defined in `rust-toolchain.toml` and `rust-toolchain` files.
+
+Supported update patterns {% data variables.product.prodname_dependabot %} can update:
+
+* Versioned toolchains such as `channel = "1.xx.yy"` and `channel = "1.xx"`.
+* Dated toolchains such as `channel = "nightly-YYYY-MM-DD"` and `channel = "beta-YYYY-MM-DD"`.
+
+{% endif %}
 
 #### Swift
 
