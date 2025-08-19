@@ -2,12 +2,13 @@
  * Utility functions for fetch with retry and timeout functionality
  * to replace got library functionality
  */
-
 export interface FetchWithRetryOptions {
   retries?: number
   retryDelay?: number
   timeout?: number
   throwHttpErrors?: boolean
+  // Note: Custom HTTPS agents are not supported in native fetch
+  // Consider using undici or node-fetch if custom agent support is critical
 }
 
 /**

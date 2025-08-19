@@ -39,7 +39,7 @@ import fs from 'fs'
 import path from 'path'
 
 import cheerio from 'cheerio'
-import got from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
 interface ReadabilityMetrics {
   fleschReadingEase: number
@@ -174,7 +174,12 @@ async function waitForServer(): Promise<void> {
 
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      await got(makeURL('/'), { timeout: { request: 5000 } })
+      const response = await fetchWithRetry(makeURL('/'), undefined, {
+        timeout: 5000,
+      })
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+      }
       console.log('Server is ready!')
       return
     } catch (error) {
@@ -202,18 +207,19 @@ async function analyzeFile(filePath: string): Promise<PageReadability | null> {
 
   try {
     // Fetch the rendered page
-    const response = await got(makeURL(urlPath), {
-      timeout: { request: 30000 },
+    const response = await fetchWithRetry(makeURL(urlPath), undefined, {
+      timeout: 30000,
       throwHttpErrors: false,
     })
 
-    if (response.statusCode !== 200) {
-      console.warn(`Skipping ${urlPath}: HTTP ${response.statusCode}`)
+    if (response.status !== 200) {
+      console.warn(`Skipping ${urlPath}: HTTP ${response.status}`)
       return null
     }
 
     // Parse HTML and extract content
-    const $ = cheerio.load(response.body)
+    const body = await response.text()
+    const $ = cheerio.load(body)
 
     // Get page title
     const title = $('h1').first().text().trim() || $('title').text().trim() || 'Untitled'
