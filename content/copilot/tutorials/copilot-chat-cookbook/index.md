@@ -12,7 +12,7 @@ topics:
 layout: category-landing
 sidebarLink:
   text: All prompts
-  href: /copilot/copilot-chat-cookbook
+  href: /copilot/tutorials/copilot-chat-cookbook
 spotlight:
   - article: /testing-code/generate-unit-tests
     image: /assets/images/copilot-landing/generating_unit_tests.png
