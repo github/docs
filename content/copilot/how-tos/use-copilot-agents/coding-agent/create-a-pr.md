@@ -1,7 +1,7 @@
 ---
 title: Asking GitHub Copilot to create a pull request
 shortTitle: Create a PR
-intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents page, {% data variables.copilot.copilot_chat_short %}, or agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
+intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents panel or page, {% data variables.copilot.copilot_chat_short %}, or agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=asking+copilot+to+create+a+pull+request&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -25,35 +25,27 @@ contentType: how-tos
 
 You can ask {% data variables.product.prodname_copilot_short %} to work on a task from:
 
+* The Agents panel, available across {% data variables.product.github %}
 * The Agents page on {% data variables.product.github %}
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs and {% data variables.product.prodname_dotcom_the_website %}
 * Your preferred IDE or agentic coding tool with Model Context Protocol (MCP) support
 
 {% data variables.product.prodname_copilot_short %} will start working on the task, raise a pull request, then request a review from you when it's finished working. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
-## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents page
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents panel or page
 
-1. Navigate to the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+You can ask {% data variables.product.prodname_copilot_short %} to open a pull request from either the Agents panel or the Agents page. The only difference is the entry point - once you see the "New agent task" form, the steps are the same.
 
-    You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
+1. Open the Agents panel or page:
 
-1. Using the dropdown menu in the prompt field, select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
+   * **Open the Agents panel**: Click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar at the top right of {% data variables.product.github %}.
+   * **Navigate to the Agents page**: Go to [github.com/copilot/agents](https://github.com/copilot/agents). You can also get here by opening the Agents panel, then clicking **View all**.
 
-1. Type a prompt describing your request.
-
-    For example, `Implement a user friendly message for common errors.`
-
-  ![Screenshot of asking Copilot to create a pull request from the Agents page.](/assets/images/help/copilot/coding-agent/agents-page-input.png)
-
-1. Optionally, select a base branch for {% data variables.product.prodname_copilot_short %}'s pull request. {% data variables.product.prodname_copilot_short %} will create a new branch based on this branch, then push its changes to a pull request targeting that branch.
-
-1. Click the **Send now** button or press <kbd>Return</kbd>.
-
-    {% data variables.product.prodname_copilot_short %} will start a new session, which will appear in the list below the prompt box. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
+{% data reusables.copilot.coding-agent.new-agent-task-form-instructions %}
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 
-1. Install the [GitHub Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for {% data variables.product.prodname_vscode %}.
+1. Install the [{% data variables.product.github %} Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for {% data variables.product.prodname_vscode %}.
 1. Open {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode %}.
 1. Type a prompt explaining what you want {% data variables.product.prodname_copilot_short %} to do, and add `#copilotCodingAgent` to the prompt.
 
