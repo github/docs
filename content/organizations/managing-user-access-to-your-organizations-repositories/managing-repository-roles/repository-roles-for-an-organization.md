@@ -99,17 +99,17 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion fpt or ghec %} |
 | Create, edit, run, re-run, and cancel [GitHub Actions workflows](/actions) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
-| {% ifversion ghec %} |
+| {% ifversion fpt or ghec %} |
 | Create, update, and delete [GitHub Actions secrets](/actions/security-guides/using-secrets-in-github-actions) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
-| {% ifversion fpt or ghes %} |
+| {% ifversion ghes %} |
 | Create, update, and delete [GitHub Actions secrets](/actions/security-guides/using-secrets-in-github-actions) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | Create, update, and delete [GitHub Actions secrets](/rest/actions/secrets) using the REST API | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% ifversion ghec %} |
+| {% ifversion fpt or ghec %} |
 | Create, update, and delete [GitHub Actions variables](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
-| {% ifversion fpt or ghes %} |
+| {% ifversion ghes %} |
 | Create, update, and delete [GitHub Actions variables](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | Create, update, and delete [GitHub Actions variables](/rest/actions/variables) using the REST API | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
