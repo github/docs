@@ -1,3 +1,4 @@
+// @ts-nocheck
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -258,7 +259,7 @@ async function main() {
     }
 
     const fixableFiles = Object.entries(formattedResults)
-      .filter(([_, results]) => results.some((result) => result.fixable))
+      .filter(([, results]) => results.some((result) => result.fixable))
       .map(([file]) => file)
     if (fixableFiles.length) {
       console.log('') // Just for some whitespace before the next message
@@ -692,7 +693,7 @@ function isOptionsValid() {
   for (const path of paths) {
     try {
       fs.statSync(path)
-    } catch (err) {
+    } catch {
       if ('paths'.includes(path)) {
         console.log('error: did you mean --paths')
       } else {

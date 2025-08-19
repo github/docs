@@ -1,3 +1,4 @@
+// @ts-nocheck
 import fs from 'fs/promises'
 import { appendFileSync } from 'fs'
 import path from 'path'

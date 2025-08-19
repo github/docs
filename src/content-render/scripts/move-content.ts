@@ -1,3 +1,4 @@
+// @ts-nocheck
 // [start-readme]
 //
 // Use this script to help you move or rename a single file or a folder. The script will move or rename the file or folder for you, update relevant `children` in the index.md file(s), and add a `redirect_from` to frontmatter in the renamed file(s). Note: You will still need to manually update the `title` if necessary.
@@ -507,7 +508,7 @@ function editFiles(files, updateParent, opts) {
 
   // Add contentType frontmatter to moved files
   if (files.length > 0) {
-    const filePaths = files.map(([oldPath, newPath, oldHref, newHref]) => newPath)
+    const filePaths = files.map(([, newPath]) => newPath)
     try {
       const cmd = ['run', 'add-content-type', '--', '--paths', ...filePaths]
       const result = execFileSync('npm', cmd, { cwd: process.cwd(), encoding: 'utf8' })

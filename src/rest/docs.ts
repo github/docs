@@ -3,11 +3,13 @@ import { readFile } from 'fs/promises'
 import { allVersions } from '@/versions/lib/all-versions'
 
 // Translate the docs versioning nomenclature back to the OpenAPI names
-const invertedVersionMapping = JSON.parse(await readFile('src/rest/lib/config.json')).versionMapping
-const versionMapping = {}
+const invertedVersionMapping = JSON.parse(
+  await readFile('src/rest/lib/config.json', 'utf8'),
+).versionMapping
+const versionMapping: Record<string, string> = {}
 Object.assign(
   versionMapping,
-  ...Object.entries(invertedVersionMapping).map(([a, b]) => ({ [b]: a })),
+  ...Object.entries(invertedVersionMapping).map(([a, b]) => ({ [b as string]: a })),
 )
 const openApiVersions = Object.values(allVersions)
   .map((version) => version.openApiVersionName)

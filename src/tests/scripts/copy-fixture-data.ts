@@ -37,7 +37,7 @@ program
 
 main(program.opts())
 
-async function main(opts) {
+async function main(opts: { check?: boolean; dryRun?: boolean; verbose?: boolean }) {
   let errors = 0
   for (const file of MANDATORY_FILES) {
     const source = fs.readFileSync(file, 'utf-8')
@@ -54,7 +54,7 @@ async function main(opts) {
         } else if (opts.verbose) {
           console.log(`The file ${chalk.green(destination)} is up-to-date 🥰`)
         }
-      } catch (error) {
+      } catch (error: any) {
         if (error.code === 'ENOENT') {
           console.warn(`The file ${chalk.red(destination)} does not exist`)
           errors++
@@ -71,7 +71,7 @@ async function main(opts) {
           }
           continue
         }
-      } catch (error) {
+      } catch (error: any) {
         if (error.code !== 'ENOENT') throw error
       }
       if (!opts.dryRun) {
