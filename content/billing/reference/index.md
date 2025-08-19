@@ -17,9 +17,10 @@ children:
   - /billing-roles
   - /cost-center-allocation
   - /roles-for-visual-studio
-  - /license-consumption
+  - /github-license-users
   - /license-reports
-  - /models-multipliers-and-costs
+  - /costs-for-github-models
   - /enterprise-license-troubleshooting
 contentType: reference
 ---
+

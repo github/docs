@@ -1,7 +1,7 @@
 ---
 title: Buying Advanced Security for your organization or enterprise
-intro: 'How to buy licenses for {% data variables.product.prodname_GHAS %} whether you have usage-based or volume/subscription billing.'
-permissions: 'Organization or enterprise owners can sign up for {% data variables.product.prodname_GH_cs_or_sp %}'
+intro: How to buy licenses for {% data variables.product.prodname_GHAS %} whether you have usage-based or volume/subscription billing.
+permissions: Organization or enterprise owners can sign up for {% data variables.product.prodname_GH_cs_or_sp %}
 product: '{% data reusables.gated-features.ghas-billing %}'
 versions:
   fpt: '*'
@@ -9,12 +9,12 @@ versions:
 redirect_from:
   - /billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security
   - /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security
+  - /billing/how-tos/products/add-advanced-security
 topics:
   - Billing
   - Advanced Security
   - Enterprise
 shortTitle: Buy Advanced Security
-allowTitleToDifferFromFilename: true
 contentType: how-tos
 ---
 

@@ -28,6 +28,7 @@ redirect_from:
   - /billing/managing-billing-for-github-packages/viewing-your-github-packages-usage
   - /billing/managing-billing-for-your-products/managing-billing-for-github-packages/viewing-your-github-packages-usage
   - /billing/managing-billing-for-your-products/viewing-your-product-usage
+  - /billing/how-tos/products/view-product-use
 versions:
   fpt: '*'
   ghec: '*'
@@ -35,9 +36,8 @@ versions:
 topics:
   - Billing
 shortTitle: View product/license use
-allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.enhanced-billing-cloud-all %}'
-product: 'Cloud only'
+product: Cloud only
 contentType: how-tos
 ---
 

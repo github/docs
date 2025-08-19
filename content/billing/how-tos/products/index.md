@@ -23,10 +23,11 @@ versions:
 topics:
   - Billing
 children:
-  - /view-product-use
-  - /download-ghas-license-use
-  - /add-advanced-security
-  - /manage-ghas-license
+  - /view-productlicense-use
+  - /download-license-use
+  - /buy-advanced-security
+  - /manage-ghas-licenses
   - /view-ghas-committers
 contentType: how-tos
 ---
+

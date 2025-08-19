@@ -18,7 +18,7 @@ featuredLinks:
     - '{% ifversion ghes %}/billing/concepts/enterprise-billing/combined-enterprise-use{% endif %}'
   popular:
     - '{% ifversion ghec %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/how-tos/products/view-product-use{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/how-tos/products/view-productlicense-use{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-actions{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-copilot{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-codespaces{% endif %}'
