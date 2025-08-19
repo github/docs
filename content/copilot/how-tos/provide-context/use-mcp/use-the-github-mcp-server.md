@@ -23,8 +23,6 @@ contentType: how-tos
 
 {% vscode %}
 
-{% data reusables.copilot.mcp.mcp-ide-preview-note %}
-
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
 ## Prerequisites
@@ -311,8 +309,6 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 {% jetbrains %}
 
-{% data reusables.copilot.mcp.mcp-ide-preview-note %}
-
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
 ## Prerequisites
@@ -391,8 +387,6 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 {% xcode %}
 
-{% data reusables.copilot.mcp.mcp-ide-preview-note %}
-
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
 ## Prerequisites
@@ -465,8 +459,6 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 {% endxcode %}
 
 {% eclipse %}
-
-{% data reusables.copilot.mcp.mcp-ide-preview-note %}
 
 {% data reusables.copilot.mcp.about-github-mcp-server %}
 
