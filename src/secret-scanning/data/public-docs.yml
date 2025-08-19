@@ -2690,6 +2690,17 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
+- provider: hCaptcha
+  supportedSecret: hCaptcha Siteverify Secret
+  secretType: hcaptcha_siteverify_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Heroku
   supportedSecret: Heroku Platform API OAuth2 Token
   secretType: heroku_platform_api_oauth2_token
@@ -4921,6 +4932,17 @@
     ghec: '*'
     ghes: '>3.7'
   isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Tencent
+  supportedSecret: Tencent WeChat Pay Token
+  secretType: tencent_wechat_pay_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
