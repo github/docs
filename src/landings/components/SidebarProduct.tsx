@@ -102,7 +102,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
               {childPage.sidebarLink.text}
             </NavList.Item>
           )}
-          {specialCategory && (
+          {specialCategory && !childPage.sidebarLink && (
             <NavList.Item href={childPage.href} as={Link} aria-current={isActive ? 'page' : false}>
               {childPage.title}
             </NavList.Item>

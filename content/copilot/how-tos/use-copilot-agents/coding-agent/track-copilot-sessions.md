@@ -1,7 +1,7 @@
 ---
 title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
-intro: 'You can use the Agents page, {% data variables.product.prodname_vscode %} and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
+intro: 'You can use the Agents panel or page, {% data variables.product.prodname_vscode %} and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -24,25 +24,27 @@ contentType: how-tos
 
 After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-The [Agents page](https://github.com/copilot/agents) provides an overview of your agent sessions across repositories. From this page, you can kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
+The Agents panel and [Agents page](https://github.com/copilot/agents) provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 
 You can also track {% data variables.product.prodname_copilot_short %}'s sessions in a specific repository from {% data variables.product.prodname_vscode %}.
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 
-## Tracking agent sessions from the Agents page
+## Tracking agent sessions from the Agents panel or page
 
-You can see a list of your running and past agent sessions on the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+You can see a list of your running and past agent sessions in the Agents panel, available from every page on {% data variables.product.github %}, or on the dedicated Agents page.
 
-You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
+To open the Agents panel, click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar on any page.
 
-For each session listed below the prompt field, you can see its status at a glance, or click on it to navigate to the linked pull request.
+To open the Agents page, open the Agents panel, then click **View all**.
+
+For each session listed below, you can see its status at a glance, or click on it to navigate to the linked pull request.
 
 To view the session logs, click through to the pull request in the list, then find the "{% data variables.product.prodname_copilot_short %} started work..." event in the timeline, and then click **View session**.
 
 ![Screenshot of a section of a pull request with the 'View session' button highlighted.](/assets/images/help/copilot/coding-agent/log-view-session.png)
 
-You can also start new agent sessions from this page. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request).
+You can also start new agent sessions from the page and panel. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request).
 
 ## Tracking sessions from {% data variables.product.prodname_vscode %}
 

@@ -503,6 +503,9 @@ Package manager | YAML value      | Supported versions |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
+| {% ifversion dependabot-rust-toolchain-support %} |
+| Rust toolchain | `rust-toolchain` | Not applicable   |
+| {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
 | uv           | `uv`             | v0 |
