@@ -1,6 +1,5 @@
 import { createHmac } from 'crypto'
-import { Agent } from 'node:https'
-import got from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { isNil } from 'lodash-es'
 import statsd from '@/observability/lib/statsd'
 import { report } from '@/observability/lib/failbot'
@@ -15,7 +14,6 @@ const X_HYDRO_APP = 'docs-production'
 const CLUSTER = 'potomac' // We only have ability to publish externally to potomac cluster
 const TIMEOUT = MAX_REQUEST_TIMEOUT - 1000 // Limit because Express will terminate at MAX_REQUEST_TIMEOUT
 const RETRIES = 0 // We care about aggregate statistics; a few dropped events isn't a big deal
-const httpsAgent = new Agent({ keepAlive: true, maxSockets: 32 }) // keepAlive: https://gh.io/AAk2qio -- 32: https://bit.ly/3Tywd1U
 const { NODE_ENV, HYDRO_SECRET, HYDRO_ENDPOINT } = process.env
 const inProd = NODE_ENV === 'production'
 
@@ -48,19 +46,27 @@ async function _publish(
   })
   const token = createHmac('sha256', secret).update(requestBody).digest('hex')
 
-  const response = await got.post(endpoint, {
-    body: requestBody,
-    agent: { https: httpsAgent },
-    headers: {
-      Authorization: `Hydro ${token}`,
-      'Content-Type': 'application/json',
-      'X-Hydro-App': X_HYDRO_APP,
+  // Note: Custom HTTPS agent (keepAlive, maxSockets) not supported with native fetch
+  // Consider using undici.fetch() if custom agent behavior is critical
+  const response = await fetchWithRetry(
+    endpoint,
+    {
+      method: 'POST',
+      body: requestBody,
+      headers: {
+        Authorization: `Hydro ${token}`,
+        'Content-Type': 'application/json',
+        'X-Hydro-App': X_HYDRO_APP,
+      },
     },
-    throwHttpErrors: false,
-    retry: { limit: RETRIES },
-    timeout: { request: TIMEOUT },
-  })
-  const { statusCode, body } = response
+    {
+      retries: RETRIES,
+      timeout: TIMEOUT,
+      throwHttpErrors: false,
+    },
+  )
+  const statusCode = response.status
+  const body = await response.text()
 
   statsd.increment('hydro.response_code.all', 1, [`response_code:${statusCode}`])
 
