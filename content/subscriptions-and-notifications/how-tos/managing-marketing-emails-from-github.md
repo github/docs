@@ -8,6 +8,7 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/managing-marketing-emails-from-github
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/managing-marketing-emails-from-github
   - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/managing-marketing-emails-from-github
+  - /subscriptions-and-notifications/how-tos/viewing-and-triaging-notifications/managing-marketing-emails-from-github
 versions:
   fpt: '*'
   ghec: '*'

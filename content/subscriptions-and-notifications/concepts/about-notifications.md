@@ -59,6 +59,8 @@ To keep your subscriptions manageable, review your subscriptions and watched rep
 
 To customize how you'd like to receive updates for specific pull requests or issues, you can configure your preferences within the issue or pull request. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).
 
+Each email notification that {% data variables.product.prodname_dotcom %} sends contains header information that you can use to filter notifications in your email client. For information about the headers included, see [AUTOTITLE](/subscriptions-and-notifications/reference/email-notification-headers).
+
 You can customize and schedule push notifications in the {% data variables.product.prodname_mobile %} app. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#managing-your-notification-settings-with-github-mobile).
 
 ## Reasons for receiving notifications
