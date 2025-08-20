@@ -329,6 +329,7 @@ If you live in Colorado, Connecticut, or Virginia you have some additional right
 
 * If we deny your rights request, you have the right to appeal that decision. We will provide you with the necessary information to submit an appeal at that time.
 * You have the right to opt out of profiling in furtherance of decisions that produce legal or similarly significant effects concerning the consumer. GitHub does not engage in such profiling as defined by Colorado law, so there’s no need to opt out.
+<img width="529" height="245" alt="accessibility-permission-request" src="https://github.com/user-attachments/assets/de1263e2-a790-467c-9377-65db0028c166" />
 
 ### Nevada
 
