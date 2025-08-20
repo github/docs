@@ -21,7 +21,7 @@ You can have more granular, scalable control over the access you grant to your o
 
 {% ifversion ghec or ghes %}
 
-In addition to pre-defined roles, you can also create up to 10 custom roles that define groups of permissions. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
+In addition to pre-defined roles, you can also create up to 20 custom roles that define groups of permissions. Your enterprise owner can also create organization roles for you to use. On {% data variables.product.prodname_ghe_server %} earlier than 3.19, you can create up to 10 custom roles. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
 {% endif %}
 
