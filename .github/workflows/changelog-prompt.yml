@@ -55,7 +55,7 @@ jobs:
               " - Did this PR add noteworthy changes to the GitHub docs? If so, you might want to publicize this by adding an entry to " +
               "the [Docs changelog](https://github.com/github/docs-internal/blob/main/CHANGELOG.md).\n\n" +
               "To do this, type `/changelog` in a new comment on this PR and complete the fields.\n\n" +
-              "A message will be posted to the **#docs-changelog** channel and a PR will be raised to update the [CHANGELOG.md](/CHANGELOG.md) file.";
+              "A message will be posted to the **#docs-changelog** channel and a PR will be raised to update the [CHANGELOG.md](https://github.com/github/docs-internal/blob/main/CHANGELOG.md) file.";
 
             // Post the comment
             await github.rest.issues.createComment({
