@@ -18,4 +18,6 @@ children:
   - /troubleshoot-workflows
   - /administer
   - /get-support
+redirect_from:
+  - /actions/monitoring-and-troubleshooting-workflows
 ---
