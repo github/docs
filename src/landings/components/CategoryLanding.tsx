@@ -102,7 +102,7 @@ export const CategoryLanding = () => {
       never render anything. It always just return null. */}
       <ClientSideRedirects />
 
-      <div className="container-xl px-3 px-md-6 my-4">
+      <div className="container-xl px-3 px-md-6 my-4" data-search="article-body">
         <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
           <Breadcrumbs />
         </div>
