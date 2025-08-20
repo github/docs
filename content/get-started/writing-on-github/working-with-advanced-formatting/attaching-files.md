@@ -92,7 +92,6 @@ The following file types are supported for uploads in issue comments, pull reque
 
 #### Development and code files
 
-* Binary files (`.bin`)
 * C files (`.c`)
 * C# files (`.cs`)
 * C++ files (`.cpp`)
