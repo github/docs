@@ -20,6 +20,10 @@ redirect_from:
 contentType: how-tos
 ---
 
+## Introduction
+
+This guide describes how to use {% data variables.copilot.copilot_chat_short %} to ask questions about software development in {% data variables.product.github %}. You can ask general questions about software development, or specific questions about the issues or code in a repository. For more information, see [AUTOTITLE](/copilot/concepts/about-github-copilot-chat).
+
 ## Submitting a question to {% data variables.copilot.copilot_chat_short %}
 
 You can open {% data variables.copilot.copilot_chat_short %} from any page on {% data variables.product.github %}. Certain questions may require you to be in a specific context, such as a repository, issue, or pull request. The following procedure describes how to ask a general software related question, and demonstrates the core functionality of {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}. For more information on other scenarios, see [Asking {% data variables.copilot.copilot_chat_short %} questions in different contexts](/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-copilot-chat-questions-in-different-contexts).

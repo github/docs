@@ -5,7 +5,7 @@ import path from 'path'
 
 import cheerio from 'cheerio'
 import coreLib from '@actions/core'
-import got, { RequestError } from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import chalk from 'chalk'
 import { JSONFilePreset } from 'lowdb/node'
 import { type Octokit } from '@octokit/rest'
@@ -1166,31 +1166,35 @@ async function innerFetch(
   }
 
   const retries = config.retries || 0
-  const httpFunction = useGET ? got.get : got.head
+  const method = useGET ? 'GET' : 'HEAD'
 
-  if (verbose) core.info(`External URL ${useGET ? 'GET' : 'HEAD'}: ${url} (retries: ${retries})`)
+  if (verbose) core.info(`External URL ${method}: ${url} (retries: ${retries})`)
   try {
-    const r = await httpFunction(url, {
-      headers,
-      throwHttpErrors: false,
-      retry,
-      timeout,
-    })
+    const r = await fetchWithRetry(
+      url,
+      {
+        method,
+        headers,
+      },
+      {
+        retries: retry.limit,
+        timeout: timeout.request,
+        throwHttpErrors: false,
+      },
+    )
     if (verbose) {
-      core.info(
-        `External URL ${useGET ? 'GET' : 'HEAD'} ${url}: ${r.statusCode} (retries: ${retries})`,
-      )
+      core.info(`External URL ${method} ${url}: ${r.status} (retries: ${retries})`)
     }
 
     // If we get rate limited, remember that this hostname is now all
     // rate limited. And sleep for the number of seconds that the
     // `retry-after` header indicated.
-    if (r.statusCode === 429) {
+    if (r.status === 429) {
       let sleepTime = Math.min(
         60_000,
         Math.max(
           10_000,
-          r.headers['retry-after'] ? getRetryAfterSleep(r.headers['retry-after']) : 1_000,
+          r.headers.get('retry-after') ? getRetryAfterSleep(r.headers.get('retry-after')) : 1_000,
         ),
       )
       // Sprinkle a little jitter so it doesn't all start again all
@@ -1214,17 +1218,17 @@ async function innerFetch(
 
     // Perhaps the server doesn't support HEAD requests.
     // If so, try again with a regular GET.
-    if ((r.statusCode === 405 || r.statusCode === 404 || r.statusCode === 403) && !useGET) {
+    if ((r.status === 405 || r.status === 404 || r.status === 403) && !useGET) {
       return innerFetch(core, url, Object.assign({}, config, { useGET: true }))
     }
     if (verbose) {
-      core.info((r.ok ? chalk.green : chalk.red)(`${r.statusCode} on ${url}`))
+      core.info((r.ok ? chalk.green : chalk.red)(`${r.status} on ${url}`))
     }
-    return { ok: r.ok, statusCode: r.statusCode }
+    return { ok: r.ok, statusCode: r.status }
   } catch (err) {
-    if (err instanceof RequestError) {
+    if (err instanceof Error) {
       if (verbose) {
-        core.info(chalk.yellow(`RequestError (${err.message}) on ${url}`))
+        core.info(chalk.yellow(`Request Error (${err.message}) on ${url}`))
       }
       return { ok: false, requestError: err.message }
     }
@@ -1233,7 +1237,7 @@ async function innerFetch(
 }
 
 // Return number of milliseconds from a `Retry-After` header value
-function getRetryAfterSleep(headerValue: string) {
+function getRetryAfterSleep(headerValue: string | null) {
   if (!headerValue) return 0
   let ms = Math.round(parseFloat(headerValue) * 1000)
   if (isNaN(ms)) {

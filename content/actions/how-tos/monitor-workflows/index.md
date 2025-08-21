@@ -17,5 +17,6 @@ redirect_from:
   - /actions/concepts/workflows-and-actions/about-monitoring-workflows
   - /actions/how-tos/monitoring-and-troubleshooting-workflows
   - /actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting
+  - /actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/about-monitoring-workflows
 ---
 

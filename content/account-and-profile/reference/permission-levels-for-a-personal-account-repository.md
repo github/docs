@@ -16,18 +16,13 @@ topics:
   - Accounts
 shortTitle: Repository permissions
 ---
-## About permissions levels for a personal account repository
-
-Repositories owned by personal accounts have one owner. Ownership permissions can't be shared with another personal account.
-
-You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users to your repository as collaborators. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 
 > [!TIP]
 > If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account).
 
 ## Owner access for a repository owned by a personal account
 
-The repository owner has full control of the repository. In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
+Repositories owned by personal accounts have a single owner who has full control of the repository. In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
 | Action | More information |
 | :- | :- |
@@ -101,10 +96,14 @@ Collaborators can also perform the following actions.
 | {% endif %} |
 | Remove themselves as collaborators on the repository | [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository) |
 
-If you want more granular control of permissions to the repository, you can create a repository within an organization. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
+If you want more granular control of repository permissions, you can create a repository within an organization. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
 
-## Removing a collaborator
+### Access after removing a collaborator
 
 While forks of private repositories are deleted when a collaborator is removed, the person will still retain any local clones of your repository.
 
 When you remove a collaborator from your project, they lose read/write access to your repository. If the repository is private and the person has created a fork, then that fork is also deleted.
+
+## Next steps
+
+To learn how to add collaborators to your personal repository, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).

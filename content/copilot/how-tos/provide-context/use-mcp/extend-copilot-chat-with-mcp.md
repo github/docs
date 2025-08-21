@@ -17,8 +17,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-{% data reusables.copilot.mcp-availability-and-preview-note %}
-
 ## Introduction
 
 The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). For an overview of MCP, see [AUTOTITLE](/copilot/concepts/about-mcp).
@@ -120,6 +118,77 @@ If you already have an MCP configuration in Claude Desktop, you can use that con
 {% data variables.product.prodname_vscode %} will automatically find your existing configuration and use it in your {% data variables.product.prodname_vscode %} instance.
 
 {% endvscode %}
+
+{% visualstudio %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **{% data variables.product.prodname_vs %} version 17.14 or later**. For more information on installing {% data variables.product.prodname_vs %}, see the [{% data variables.product.prodname_vs %} downloads page](https://visualstudio.microsoft.com/downloads/).
+* **Sign in to {% data variables.product.company_short %} from {% data variables.product.prodname_vs %}**.
+* {% data reusables.copilot.mcp-policy-requirement %}
+
+## Configuring MCP servers in {% data variables.product.prodname_vs %}
+
+1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
+1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon, then click the plus icon in the tool picker window.
+1. In the "Configure MCP server" pop-up window, fill out the fields, including server ID, type, and any additional fields required for the specific MCP server configuration.
+
+   {% data variables.product.prodname_vs %} supports both remote and local servers. Remote servers, defined with a URL and credentials, are hosted externally for easier setup and sharing, while local servers, defined with command-line invocation, run on your local machine and can access local resources. See example configurations below, using the {% data variables.product.github %} MCP server as an example.
+
+1. Click **Save**.
+1. If you are using a remote server with OAuth authentication, in the `mcp.json` file, click **Auth** from the CodeLens above the server to authenticate to the server. A pop-up or new window will appear, allowing you to authenticate with your account. The server will only be able to access the scopes you approve, and that your organization policies allow.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon. You should now see additional tools from the MCP server that you configured.
+
+### Remote server configuration example with OAuth
+
+  1. For "Server ID", type `github`.
+  1. For "Type", select "HTTP/SSE" from the dropdown.
+  1. For "URL", type `https://api.githubcopilot.com/mcp/`.
+  1. After clicking **Save**, the configuration in the `mcp.json` file should look like this:
+
+      ```json copy
+          {
+            "servers": {
+              "github": {
+                "url": "https://api.githubcopilot.com/mcp/"
+              }
+            }
+          }
+      ```
+
+  1. In the `mcp.json` file, click **Auth** from the CodeLens above the server to authenticate to the server. A pop-up will come up allowing you to authenticate with your {% data variables.product.github %} account.
+
+### Local server configuration example
+
+  1. For "Server ID", type `github`.
+  1. For "Type", select "stdio" from the dropdown.
+  1. For "Command (with optional arguments)", type `docker "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN", "ghcr.io/github/github-mcp-server"`
+  1. Add an environment variable "GITHUB_PERSONAL_ACCESS_TOKEN" set to your {% data variables.product.pat_generic %}.
+  1. After clicking **Save**, the configuration in the `mcp.json` file should look like this:
+
+        ```json copy
+            {
+              "servers": {
+                "github": {
+                  "type": "stdio",
+                  "command": "docker",
+                  "args": [
+                    "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+                    "ghcr.io/github/github-mcp-server"
+                  ],
+                  "env": {
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PAT"
+                  }
+                }
+              }
+            }
+        ```
+
+For more information on configuring MCP servers in {% data variables.product.prodname_vs %}, see [Use MCP servers in {% data variables.product.prodname_vs %} (Preview)](https://learn.microsoft.com/en-us/visualstudio/ide/mcp-servers?view=vs-2022) in the {% data variables.product.prodname_vs %} documentation.
+
+{% endvisualstudio %}
 
 {% jetbrains %}
 

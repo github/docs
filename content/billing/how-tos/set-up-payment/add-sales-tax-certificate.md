@@ -9,7 +9,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-product: 'US-based organization and enterprise accounts that use the {% data variables.product.github %} Customer Agreement, see {% ifversion fpt or ghec %}[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement) in the {% data variables.product.prodname_ghe_cloud %} docs{% endif %}'
+product: 'US-based organization and enterprise accounts that use the {% data variables.product.github %} Customer Agreement, see {% ifversion fpt or ghec %}[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}'
 topics:
   - Billing
   - Organizations

@@ -126,21 +126,7 @@ You can also send notifications for a specific repository to an email address. F
 
 {% data reusables.notifications-v2.email-notification-caveats %}
 
-## Filtering email notifications
-
-Each email notification that {% data variables.product.prodname_dotcom %} sends contains header information. The header information in every email is consistent, so you can use it in your email client to filter or forward all {% data variables.product.prodname_dotcom %} notifications, or certain types of {% data variables.product.prodname_dotcom %} notifications.
-
-If you believe you're receiving notifications that don't belong to you, examine the `X-GitHub-Recipient` and `X-GitHub-Recipient-Address` headers. These headers show who the intended recipient is. Depending on your email setup, you may receive notifications intended for another user.
-
-Email notifications from {% data variables.product.prodname_dotcom %} contain header information.
-
-| Header | Information |
-| --- | --- |
-| `From` address | This address will always be {% ifversion fpt %}`notifications@github.com`{% elsif ghec %}`notifications@github.com` or `notifications@SUBDOMAIN.ghe.com`{% else %}the no-reply email address configured by your site administrator{% endif %}. |
-| `To` field | This field connects directly to the thread. If you reply to the email, you'll add a new comment to the conversation. |
-| `Cc` address | {% data variables.product.github %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% ifversion fpt %}`@noreply.github.com`{% elsif ghec %}`@noreply.github.com` or `@noreply.SUBDOMAIN.ghe.com`{% else %}based on the no-reply email address configured by your site administrator{% endif %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
-| `List-Id` field | This field identifies the name of the repository and its owner. The format of this address is always `OWNER/REPOSITORY <REPOSITORY.OWNER>`, e.g. `List-Id: grain-lang/grain <grain.grain-lang.{% data variables.product.product_url %}>`. |
-| `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts). |
+Each email notification that {% data variables.product.prodname_dotcom %} sends contains header information that you can use to filter notifications in your email client. For information about the headers included, see [AUTOTITLE](/subscriptions-and-notifications/reference/email-notification-headers).
 
 ## Replying to email notifications
 
@@ -163,9 +149,9 @@ The `reply-to` address on each email notification identifies the thread and the 
 1. On the notifications settings page, choose how you receive notifications when:
     * There are updates in repositories you're watching or in a conversation you're participating in. For more information, see [About participating and watching notifications](#about-participating-and-watching-notifications).{% ifversion automatic-watching %}
     * You gain access to a new repository or you've joined a new team. For more information, see [Automatic watching](#automatic-watching).{% endif %}
-    * There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see [{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options).  {% ifversion fpt or ghec %}
-    * There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see [{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options).{% endif %}
-    * There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see [Organization alerts notification options](#organization-alerts-notification-options).
+    * There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-security-notifications).  {% ifversion fpt or ghec %}
+    * There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-github-actions-notifications).{% endif %}
+    * There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see [AUTOTITLE](/subscriptions-and-notifications/how-tos/managing-organization-notifications).
 
 {% ifversion automatic-watching %}
 
@@ -194,82 +180,6 @@ You can choose whether to watch or unwatch an individual repository. You can als
    If you want to further customize notifications, click **Custom**, then select specific events that you want to be notified of, such as Issues or Pull Requests, in addition to participating and @mentions.
 
    For example, if you select "Issues", you will be notified about, and subscribed to, updates on every issue (including those that existed prior to you selecting this option) in the repository. If you're @mentioned in a pull request in this repository, you'll receive notifications for that too, and you'll be subscribed to updates on that specific pull request, in addition to being notified about issues.
-
-## Choosing where your organization’s email notifications are sent
-
-If you belong to an organization, you can choose the email account you want notifications for organization activity sent to. For example, if you belong to an organization for work, you may want your notifications sent to your work email address, rather than your personal address.
-
-{% data reusables.notifications-v2.email-notification-caveats %}
-
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
-1. Under "Default notifications email", select the email address you'd like notifications sent to.
-{% ifversion ghes %}
-1. Click **Save**.{% endif %}
-
-### Customizing email routes per organization
-
-If you are a member of more than one organization, you can configure each one to send notifications to any of{% ifversion fpt or ghec %} your verified email addresses{% else %} the email addresses for your account{% endif %}. {% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).{% endif %}
-
-{% data reusables.notifications.access_notifications %}
-{% data reusables.notifications-v2.manage-notifications %}
-{% ifversion update-notification-settings-22 %}
-1. Under "Default notifications email", click **Custom routing**.
-
-   ![Screenshot of the "Default notifications email" section. A button, titled "Custom routing", is highlighted with an orange outline.](/assets/images/help/notifications/custom-router-emphasized.png)
-
-1. Click **Add new route**.
-
-1. Select the **Pick organization** dropdown, then click the organization you want to customize.
-1. Select one of your verified email addresses, then click **Save**.
-
-   ![Screenshot of the "Custom Routing" page. A dropdown menu, showing a user's available email addresses, is highlighted with an orange outline.](/assets/images/help/notifications/select-email-address-custom-routing-and-save.png)
-{% else %}
-1. Under "Custom routing," find your organization's name in the list.
-
-1. Click **Edit** next to the email address you want to change.
-
-1. Select one of your verified email addresses, then click **Save**.
-
-{% endif %}
-
-## {% data variables.product.prodname_dependabot_alerts %} notification options
-
-The notification options for your user account are available at [https://github.com/settings/notifications](https://github.com/settings/notifications). You can configure notification settings for each repository, in the repository watch settings.
-
-{% data reusables.notifications.vulnerable-dependency-notification-enable %}
-{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization2 %}
-{% data reusables.notifications.vulnerable-dependency-notification-options %}
-
-For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts).
-
-## {% data variables.product.prodname_secret_scanning_caps %} notification options
-
-{% data reusables.secret-scanning.secret-scanning-configure-notifications %}
-
-For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts).
-
-## {% data variables.product.prodname_actions %} notification options
-
-For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates.
-
-{% ifversion update-notification-settings-22 %}
-1. On the "Notification settings" page, under "System", then under "Actions", select the **Don't notify** dropdown menu.
-
-   ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is outlined in orange.](/assets/images/help/notifications/github-actions-customize-notifications.png)
-1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}."
-
-   To opt into email notifications, from the dropdown menu, select "Email."
-1. Optionally, to only receive notifications for failed workflow runs, from the dropdown menu, select "Only notify for failed workflows", then click **Save**.{% endif %}
-
-{% ifversion ghes %}
-On the "Notification settings" page, select "Email" or "Web" notifications. Optionally, to only receive notifications for failed workflow runs, select "Send notifications for failed workflows only".
-
-![Screenshot of the "Actions" section of "Notification settings" with checkboxes: "Email", "Web", and "Send notifications for failed workflows only."](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
-
-## Organization alerts notification options
-
-If you're an organization owner, you'll receive email notifications by default when organization members add new deploy keys to repositories within the organization. You can unsubscribe from these notifications. On the notification settings page, under "Organization alerts", deselect **Email**.
 
 ## Managing your notification settings with {% data variables.product.prodname_mobile %}
 

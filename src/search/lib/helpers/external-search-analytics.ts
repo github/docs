@@ -67,7 +67,6 @@ export async function handleExternalSearchAnalytics(
     const analyticsPayload = {
       schema: hydroNames.search,
       value: {
-        version: '1.0.0',
         context: {
           event_id: crypto.randomUUID(),
           user: 'server-side',
