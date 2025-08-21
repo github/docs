@@ -10,6 +10,7 @@ topics:
 children:
   - /creating-an-issue
   - /adding-sub-issues
+  - /creating-issue-dependencies
   - /assigning-issues-and-pull-requests-to-other-github-users
   - /editing-an-issue
   - /viewing-all-of-your-issues-and-pull-requests
