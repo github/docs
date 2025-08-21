@@ -48,6 +48,7 @@ export default function appRouterGateway(req: ExtendedRequest, res: Response, ne
 
   if (
     path.startsWith('/_next/') ||
+    path.startsWith('/_build') ||
     path.startsWith('/assets/') ||
     path.startsWith('/public/') ||
     path.startsWith('/api/') ||
