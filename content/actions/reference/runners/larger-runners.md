@@ -80,6 +80,6 @@ When enabled, instances of the {% data variables.actions.hosted_runner %} will r
 {% data reusables.actions.larger-runner-static-ip-contact-support %}
 
 > [!NOTE]
-> If runners are unused for more than 30 days, their IP address ranges are automatically removed and cannot be recovered.
+> If runners are unused for more than 90 days, their IP address ranges are automatically removed and cannot be recovered.
 
 {% endif %}
