@@ -116,7 +116,8 @@ With {% data variables.product.prodname_ghe_cloud %} and starting from {% data v
 
 When creating an organization role, enterprise owners can use the same organization and repository permissions and base roles as organization owners—there is no difference in how these roles function or what they can allow.
 
-{% data reusables.enterprise-accounts.access-enterprise %} {% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 1. Select the "Organization Roles" section in the left-hand menu.
 1. Create a new role using the "Create custom role" button, or edit an existing role using the ellipsis menu (...).
 
