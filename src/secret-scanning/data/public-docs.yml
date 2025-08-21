@@ -369,7 +369,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Atlassian
   supportedSecret: Atlassian API Token
   secretType: atlassian_api_token
@@ -2607,7 +2607,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: GuardSquare
   supportedSecret: GuardSquare AppSweep API Key
@@ -4708,7 +4708,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: Square
   supportedSecret: Square Production Application Secret
@@ -5017,7 +5017,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Unkey
   supportedSecret: Unkey Root Key
@@ -5064,7 +5064,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime App Secret
@@ -5088,7 +5088,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime OAuth Refresh Token
@@ -5207,7 +5207,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud Smartchapta Server Key
