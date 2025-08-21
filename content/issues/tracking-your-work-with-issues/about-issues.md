@@ -35,6 +35,10 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 {% endif %}
 
+## About issue dependencies
+
+You can define blocking relationships between issues using issue dependencies. Issue dependencies let you identify issues that are blocked by, or blocking, other work. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
+
 ## About integration with {% data variables.product.github %}
 
 Issues integrate with your work all across {% data variables.product.github %}. Mentioning an issue in another issue or pull request will create references between them and using keywords, like `fixes:`, in your pull requests will automatically close the associated issues. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
