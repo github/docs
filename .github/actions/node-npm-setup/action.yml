@@ -5,6 +5,12 @@ description: Will set up Node and install all packages by caching node_modules
 runs:
   using: 'composite'
   steps:
+    # Set this in GITHUB_ENV so it's set in the environment for users of this
+    # action as a workaround for https://github.com/nodejs/node/issues/59364
+    - name: Set -no-experimental-strip-types in NODE_OPTIONS
+      shell: bash
+      run: echo "NODE_OPTIONS=--no-experimental-strip-types" >> $GITHUB_ENV
+
     - name: Cache node_modules
       uses: actions/cache@v4
       id: cache-node_modules
