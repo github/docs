@@ -104,7 +104,7 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
 ### Editing or deleting a budget
 
->[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets. For example, deleting the only budget that limits {% data variables.product.prodname_copilot_short %} premium requests allows for unlimited usage.
+>[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets.
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
 

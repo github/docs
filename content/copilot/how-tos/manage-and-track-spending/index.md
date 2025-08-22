@@ -8,7 +8,7 @@ topics:
   - Copilot
 children:
   - /monitor-premium-requests
-  - /manage-for-your-enterprise
+  - /manage-request-allowances
   - /manage-company-spending
 redirect_from:
   - /copilot/how-tos/premium-requests
