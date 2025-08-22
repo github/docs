@@ -10,6 +10,9 @@
 # "403 Forbidden" every time.
 - startsWith: https://support.github.com
 
+# GitHub Marketplace
+- startsWith: https://github.com/marketplace
+
 # These links require auth.
 - startsWith: https://github.com/settings/profile
 - startsWith: https://github.com/settings/billing
