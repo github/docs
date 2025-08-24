@@ -25,7 +25,7 @@ You can use the [AUTOTITLE](/rest/copilot/copilot-metrics) to see trends in how 
 
 The API includes:
 
-* Data for the last 100 days
+* Data for the last 28 days
 * Numbers of active users and engaged users
 * Breakdowns by language and IDE
 * The option to view metrics for an enterprise, organization, or team
@@ -125,7 +125,7 @@ In your terminal, you should see output with a JSON array like the following.
 
 ## 3. Store the data
 
-To analyze trends over longer than 100 days, you will need to:
+To analyze trends over longer than 28 days, you will need to:
 
 * Call the API daily, using a cron job or scheduled {% data variables.product.prodname_actions %} workflow.
 * Store data locally or with a database service such as MySQL.
@@ -208,7 +208,7 @@ If you run the script again tomorrow, it should only save data for one new day t
 
 ## 4. Analyze trends
 
-You can work with the data from the API to identify trends over the last 100 days or, if you've stored data from previous API calls, over a longer period.
+You can work with the data from the API to identify trends over the last 28 days or, if you've stored data from previous API calls, over a longer period.
 
 ### Example
 
