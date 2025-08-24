@@ -62,7 +62,7 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
 
   if (opts.json) {
     try {
-      const response = await fetchWithRetry(page.url!)
+      const response = await fetchWithRetry(page.url!, undefined, { retries: 3 })
       if (!response.ok) {
         throw new HTTPError(
           `HTTP ${response.status}: ${response.statusText}`,
@@ -78,7 +78,7 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
     }
   } else {
     try {
-      const response = await fetchWithRetry(page.url!)
+      const response = await fetchWithRetry(page.url!, undefined, { retries: 3 })
       if (!response.ok) {
         throw new HTTPError(
           `HTTP ${response.status}: ${response.statusText}`,
