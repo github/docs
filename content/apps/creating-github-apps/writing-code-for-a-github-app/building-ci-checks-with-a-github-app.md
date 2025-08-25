@@ -937,7 +937,7 @@ The following steps will show you how to test that the code works and view the e
    ```
 
 1. In the repository where you added the `myfile.rb` file, create a new pull request.
-1. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can copy and paste your debug output into a web tool like [JSON formatter](https://jsonformatter.org/), to format your JSON output like the following example:
+1. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can copy and paste your debug output into a web tool like [JSON formatter](https://jsonformatter.org/) or [JSON validator](https://validatejson.com/), to format your JSON output like the following example:
 
    ```json
    {
