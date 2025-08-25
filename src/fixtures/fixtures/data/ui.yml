@@ -343,3 +343,9 @@ cookbook_landing:
   search_articles: Search articles
   category: Category
   complexity: Complexity
+
+not_found:
+  title: Ooops!
+  message: It looks like this page doesn't exist.
+  contact: We track these errors automatically, but if the problem persists please feel free to contact us.
+  contact_cta: Contact support
