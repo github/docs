@@ -1,4 +1,10 @@
 date: '2025-06-18'
+intro: |
+  {% warning %}
+
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -30,6 +36,8 @@ sections:
       On instances with dangling commit graph lock files, recompute checksum operations were unexpectedly triggered.
     - |
       After an appliance reboot, code scanning did not always trigger or process analyses.
+    - |
+      In some situations, the kafka-lite service could cause client timeouts when processing consumer group membership sessions and expirations. [Updated: 2025-07-14]
   changes:
     - |
       Site administrators who test the Prometheus endpoint can now use 127.0.0.1 as a trusted IP address. Previously, only specific IPs were allowed for testing.
@@ -41,6 +49,8 @@ sections:
     - |
       Site administrators who manage dependencies with the base-pinned image should no longer rely on the vulcanizer CLI, as it is in the process of being retired and replaced with vulcancli. Transition to vulcancli to ensure continued support and compatibility.
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.17 with caution. [Updated: 2025-07-28]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |

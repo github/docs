@@ -1,5 +1,108 @@
 # Docs changelog
 
+**15 August 2025**
+
+When interacting with the GitHub MCP server for a public repository, push protection blocks secrets from appearing in AI-generated responses and also prevents secrets from being included in any actions you perform, such as creating an issue.
+
+See [Working with push protection and the GitHub MCP server](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
+
+<hr>
+
+**12 August 2025**
+
+OpenAI GPT-5 is now available in public preview for GitHub Copilot. GPT-5 is slowly rolling out to all paid Copilot plans and you will be able to access the model in GitHub Copilot Chat on github.com and Visual Studio Code (Agent, Ask, and Edit modes). 
+
+See [Supported AI models in Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+
+<hr>
+
+**12 August 2025**
+
+We’ve updated the documentation for Copilot repository custom instructions to go with the release that now brings this feature to the Eclipse IDE.
+
+See: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=eclipse) and [About customizing GitHub Copilot Chat responses](https://docs.github.com/en/copilot/concepts/response-customization?tool=eclipse).
+
+<hr>
+
+**12 August 2025**
+
+We have added a tutorial for using Copilot to create Mermaid diagrams at [Creating Diagrams](https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-diagrams).
+
+<hr>
+
+**4 August 2025**
+
+To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)". 
+
+The new guide incorporates cross-platform GitHub tools, as well as opinionated guidance from GitHub's secret scanning team, to walk the developer through a thorough remediation process.
+
+It also clearly communicates the risks of leaked secrets, the challenges of remediation, and the value of enabling [GitHub Secret Protection](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
+
+<hr>
+
+**28 July 2025**
+
+We have restructured the general "[Billing and payments](https://docs.github.com/en/billing)" articles to align with the Copilot and Actions docs. In addition, we've combined a few old "About" articles to directly answer common questions that new users have: [How GitHub billing works](https://docs.github.com/en/billing/get-started/how-billing-works) and [Introduction to billing and licensing](https://docs.github.com/en/billing/get-started/introduction-to-billing).
+
+<hr>
+
+**16 July 2025**
+
+We've added documentation describing how to use the GraphQL API to create a new issue and, in the same request, assign the issue to Copilot coding agent.
+
+See: [Using Copilot to work on an issue](https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/using-copilot-to-work-on-an-issue#assigning-an-issue-to-copilot-via-the-github-api).
+
+<hr>
+
+**16 July 2025**
+
+We've updated the Copilot documentation to coincide with the release of an improved user interface for configuring the firewall for Copilot coding agent.
+
+See: [Customizing or disabling the firewall for Copilot coding agent](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+
+<hr>
+
+**16 July 2025**
+
+We've updated the Copilot docs to coincide with the release of issue form support for Copilot Chat. When you use Copilot Chat to create an issue, an issue form will be used if there's an appropriate one in the repo. Previously only issue templates were supported.
+
+See [Using GitHub Copilot to create issues](https://docs.github.com/copilot/how-tos/github-flow/using-github-copilot-to-create-issues).
+
+<hr>
+
+**30 June 2025**
+
+Many enterprise customers want to measure the downstream impact of Copilot on their company, looking beyond leading metrics like adoption and usage.
+
+Inspired by [GitHub's latest guidance](https://resources.github.com/engineering-system-success-playbook/), we've published three guides that provide usecases, training resources, and metrics to help you plan and measure your rollout to achieve real-world goals, such as increasing test coverage.
+
+Get started at [Achieving your company's engineering goals with GitHub Copilot](https://docs.github.com/en/copilot/get-started/achieve-engineering-goals).
+
+<hr>
+
+**27 June 2025**
+
+We've published a new guide about how to combine use of GitHub Copilot's agent mode with Model Context Protocol (MCP) servers to complete complex tasks through agentic "loops" - illustrated through an accessibility compliance example. The guide also discusses best practices and benefits around using these two features together. See [Enhancing Copilot agent mode with MCP](https://docs.github.com/copilot/tutorials/enhancing-copilot-agent-mode-with-mcp).
+
+<hr>
+
+**27 June 2025**
+
+We’ve published a new set of new documentation articles designed to help users make the most of the **Dependabot metrics page** in the organization’s security overview.
+
+These clear, actionable guides help users:
+
+- **[View metrics for Dependabot alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-dependabot-alerts)**
+  This article is aimed at security and engineering leads who want to learn how to access and interpret key metrics, so they can quickly assess their organization’s exposure and remediation progress.
+
+- **[Understand your organization’s exposure to vulnerable dependencies](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/about-your-exposure-to-vulnerable-dependencies)**
+  In this article, security analysts and compliance teams get a deep dive into how vulnerable dependencies are tracked and what these numbers mean for their risk landscape.
+
+- **[Prioritize Dependabot alerts using metrics](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics)**
+  This guide provides engineering managers and remediation teams with strategies for using metrics to focus the team’s efforts where they matter most, making remediation more efficient.
+
+<hr>
+
 **27 June 2025**
 
 We've published a new scenario-based guide for Copilot: [Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot).
@@ -18,7 +121,7 @@ See [About Billing for GitHub Models](https://docs.github.com/billing/managing-b
 
 **23 June 2025**
 
-We’ve restructured our documentation around Copilot’s AI models to make it easier for users to understand, choose, and configure models across clients and plans. See [Supported AI models in Copilot](https://docs.github.com/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot) and [Choosing the right AI model for your task](https://docs.github.com/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+We’ve restructured our documentation around Copilot’s AI models to make it easier for users to understand, choose, and configure models across clients and plans. See [Supported AI models in Copilot](https://docs.github.com/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot) and [Choosing the right AI model for your task](https://docs.github.com/copilot/reference/ai-models/model-comparison).
 
 <hr>
 

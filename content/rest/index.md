@@ -79,7 +79,7 @@ children:
   - /packages
   - /pages
   - /private-registries
-  - /projects
+  - /projects-classic
   - /pulls
   - /rate-limit
   - /reactions

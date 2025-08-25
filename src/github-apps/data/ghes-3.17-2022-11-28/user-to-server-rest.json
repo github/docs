@@ -3305,7 +3305,7 @@
       "requestPath": "/orgs/{org}/private-registries/{secret_name}"
     }
   ],
-  "projects": [
+  "projects-classic": [
     {
       "slug": "list-organization-projects",
       "subcategory": "projects",
@@ -3619,10 +3619,34 @@
   ],
   "reactions": [
     {
+      "slug": "list-reactions-for-a-team-discussion-comment",
+      "subcategory": "reactions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
+    },
+    {
+      "slug": "create-reaction-for-a-team-discussion-comment",
+      "subcategory": "reactions",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions"
+    },
+    {
       "slug": "delete-team-discussion-comment-reaction",
       "subcategory": "reactions",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}"
+    },
+    {
+      "slug": "list-reactions-for-a-team-discussion",
+      "subcategory": "reactions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
+    },
+    {
+      "slug": "create-reaction-for-a-team-discussion",
+      "subcategory": "reactions",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions"
     },
     {
       "slug": "delete-team-discussion-reaction",
@@ -3719,6 +3743,30 @@
       "subcategory": "reactions",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
+    },
+    {
+      "slug": "list-reactions-for-a-team-discussion-comment-legacy",
+      "subcategory": "reactions",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
+    },
+    {
+      "slug": "create-reaction-for-a-team-discussion-comment-legacy",
+      "subcategory": "reactions",
+      "verb": "post",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
+    },
+    {
+      "slug": "list-reactions-for-a-team-discussion-legacy",
+      "subcategory": "reactions",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
+    },
+    {
+      "slug": "create-reaction-for-a-team-discussion-legacy",
+      "subcategory": "reactions",
+      "verb": "post",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
     }
   ],
   "releases": [
@@ -4011,6 +4059,18 @@
       "subcategory": "custom-properties",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "get-a-repository-readme",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/readme"
+    },
+    {
+      "slug": "get-a-repository-readme-for-a-directory",
+      "subcategory": "contents",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/readme/{dir}"
     },
     {
       "slug": "list-repository-cache-replication-status",
@@ -4333,6 +4393,84 @@
       "requestPath": "/orgs/{org}/teams"
     },
     {
+      "slug": "get-a-team-by-name",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}"
+    },
+    {
+      "slug": "update-a-team",
+      "subcategory": "teams",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/teams/{team_slug}"
+    },
+    {
+      "slug": "delete-a-team",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}"
+    },
+    {
+      "slug": "list-discussions",
+      "subcategory": "discussions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions"
+    },
+    {
+      "slug": "create-a-discussion",
+      "subcategory": "discussions",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions"
+    },
+    {
+      "slug": "get-a-discussion",
+      "subcategory": "discussions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}"
+    },
+    {
+      "slug": "update-a-discussion",
+      "subcategory": "discussions",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}"
+    },
+    {
+      "slug": "delete-a-discussion",
+      "subcategory": "discussions",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}"
+    },
+    {
+      "slug": "list-discussion-comments",
+      "subcategory": "discussion-comments",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments"
+    },
+    {
+      "slug": "create-a-discussion-comment",
+      "subcategory": "discussion-comments",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments"
+    },
+    {
+      "slug": "get-a-discussion-comment",
+      "subcategory": "discussion-comments",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+    },
+    {
+      "slug": "update-a-discussion-comment",
+      "subcategory": "discussion-comments",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+    },
+    {
+      "slug": "delete-a-discussion-comment",
+      "subcategory": "discussion-comments",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+    },
+    {
       "slug": "list-a-connection-between-an-external-group-and-a-team",
       "subcategory": "external-groups",
       "verb": "get",
@@ -4349,6 +4487,30 @@
       "subcategory": "external-groups",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
+    },
+    {
+      "slug": "list-team-members",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/members"
+    },
+    {
+      "slug": "get-team-membership-for-a-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}"
+    },
+    {
+      "slug": "add-or-update-team-membership-for-a-user",
+      "subcategory": "members",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}"
+    },
+    {
+      "slug": "remove-team-membership-for-a-user",
+      "subcategory": "members",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/memberships/{username}"
     },
     {
       "slug": "list-team-projects",
@@ -4375,6 +4537,120 @@
       "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
+      "slug": "list-team-repositories",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/repos"
+    },
+    {
+      "slug": "check-team-permissions-for-a-repository",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}"
+    },
+    {
+      "slug": "add-or-update-team-repository-permissions",
+      "subcategory": "teams",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}"
+    },
+    {
+      "slug": "remove-a-repository-from-a-team",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/repos/{owner}/{repo}"
+    },
+    {
+      "slug": "list-child-teams",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/teams"
+    },
+    {
+      "slug": "get-a-team-legacy",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}"
+    },
+    {
+      "slug": "update-a-team-legacy",
+      "subcategory": "teams",
+      "verb": "patch",
+      "requestPath": "/teams/{team_id}"
+    },
+    {
+      "slug": "delete-a-team-legacy",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/teams/{team_id}"
+    },
+    {
+      "slug": "list-discussions-legacy",
+      "subcategory": "discussions",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/discussions"
+    },
+    {
+      "slug": "create-a-discussion-legacy",
+      "subcategory": "discussions",
+      "verb": "post",
+      "requestPath": "/teams/{team_id}/discussions"
+    },
+    {
+      "slug": "get-a-discussion-legacy",
+      "subcategory": "discussions",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}"
+    },
+    {
+      "slug": "update-a-discussion-legacy",
+      "subcategory": "discussions",
+      "verb": "patch",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}"
+    },
+    {
+      "slug": "delete-a-discussion-legacy",
+      "subcategory": "discussions",
+      "verb": "delete",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}"
+    },
+    {
+      "slug": "list-discussion-comments-legacy",
+      "subcategory": "discussion-comments",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments"
+    },
+    {
+      "slug": "create-a-discussion-comment-legacy",
+      "subcategory": "discussion-comments",
+      "verb": "post",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments"
+    },
+    {
+      "slug": "get-a-discussion-comment-legacy",
+      "subcategory": "discussion-comments",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}"
+    },
+    {
+      "slug": "update-a-discussion-comment-legacy",
+      "subcategory": "discussion-comments",
+      "verb": "patch",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}"
+    },
+    {
+      "slug": "delete-a-discussion-comment-legacy",
+      "subcategory": "discussion-comments",
+      "verb": "delete",
+      "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}"
+    },
+    {
+      "slug": "list-team-members-legacy",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/members"
+    },
+    {
       "slug": "get-team-member-legacy",
       "subcategory": "members",
       "verb": "get",
@@ -4391,6 +4667,54 @@
       "subcategory": "members",
       "verb": "delete",
       "requestPath": "/teams/{team_id}/members/{username}"
+    },
+    {
+      "slug": "get-team-membership-for-a-user-legacy",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/memberships/{username}"
+    },
+    {
+      "slug": "add-or-update-team-membership-for-a-user-legacy",
+      "subcategory": "members",
+      "verb": "put",
+      "requestPath": "/teams/{team_id}/memberships/{username}"
+    },
+    {
+      "slug": "remove-team-membership-for-a-user-legacy",
+      "subcategory": "members",
+      "verb": "delete",
+      "requestPath": "/teams/{team_id}/memberships/{username}"
+    },
+    {
+      "slug": "list-team-repositories-legacy",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/repos"
+    },
+    {
+      "slug": "check-team-permissions-for-a-repository-legacy",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/repos/{owner}/{repo}"
+    },
+    {
+      "slug": "add-or-update-team-repository-permissions-legacy",
+      "subcategory": "teams",
+      "verb": "put",
+      "requestPath": "/teams/{team_id}/repos/{owner}/{repo}"
+    },
+    {
+      "slug": "remove-a-repository-from-a-team-legacy",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/teams/{team_id}/repos/{owner}/{repo}"
+    },
+    {
+      "slug": "list-child-teams-legacy",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/teams/{team_id}/teams"
     },
     {
       "slug": "list-teams-for-the-authenticated-user",
@@ -4557,10 +4881,22 @@
       "requestPath": "/user/ssh_signing_keys/{ssh_signing_key_id}"
     },
     {
+      "slug": "get-a-user-using-their-id",
+      "subcategory": "users",
+      "verb": "get",
+      "requestPath": "/user/{account_id}"
+    },
+    {
       "slug": "list-users",
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
+    },
+    {
+      "slug": "get-a-user",
+      "subcategory": "users",
+      "verb": "get",
+      "requestPath": "/users/{username}"
     },
     {
       "slug": "list-followers-of-a-user",

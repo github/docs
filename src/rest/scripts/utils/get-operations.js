@@ -1,4 +1,4 @@
-import Operation from './operation.js'
+import Operation from './operation'
 
 // The module accepts a JSON schema object as input
 // and returns an array of its operation objects with their

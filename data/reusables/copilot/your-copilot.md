@@ -1,1 +1,1 @@
-1. In the upper-right corner of any page, click your profile photo, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.
+1. In the upper-right corner of any page, click your profile picture, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.

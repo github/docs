@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { noteWarningFormatting } from '../../lib/linting-rules/note-warning-formatting.js'
+import { runRule } from '../../lib/init-test'
+import { noteWarningFormatting } from '../../lib/linting-rules/note-warning-formatting'
 
 describe(noteWarningFormatting.names.join(' - '), () => {
   test('Correctly formatted legacy notes pass', async () => {

@@ -10,7 +10,8 @@ topics:
   - Copilot
 children:
   - /generate-unit-tests
-  - /create-mock-objects-to-abstract-layers
-  - /create-end-to-end-tests-for-a-webpage
+  - /create-mock-objects
+  - /create-end-to-end-tests
+contentType: tutorials
 ---
 

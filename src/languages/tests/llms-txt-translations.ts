@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
-import { get } from '@/tests/helpers/e2etest.js'
-import { languageKeys } from '@/languages/lib/languages.js'
+import { get } from '@/tests/helpers/e2etest'
+import { languageKeys } from '@/languages/lib/languages'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 

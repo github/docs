@@ -2,9 +2,9 @@ import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'
 import walk from 'walk-sync'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
-import { latest, oldestSupported } from '@/versions/lib/enterprise-server-releases.js'
+import { latest, oldestSupported } from '@/versions/lib/enterprise-server-releases'
 import { getContents } from '@/workflows/git-utils'
 import github from '@/workflows/github'
 

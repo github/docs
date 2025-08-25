@@ -15,7 +15,9 @@ topics:
 shortTitle: Create site with Jekyll
 ---
 
-{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
+
+{% data reusables.pages.actions-is-preferred %}
 
 ## Prerequisites
 
@@ -97,7 +99,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   Replace GITHUB-PAGES-VERSION with the latest supported version of the `github-pages` gem. You can find this version here: [Dependency versions](https://pages.github.com/versions/).
+   Replace GITHUB-PAGES-VERSION with the latest supported version of the `github-pages` gem. You can find this version here: [Dependency versions](https://pages.github.com/versions.json).
 
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.

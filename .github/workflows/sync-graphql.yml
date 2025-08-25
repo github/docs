@@ -17,11 +17,16 @@ jobs:
   update_graphql_files:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
+    outputs:
+      ignored-changes: ${{ steps.sync.outputs.ignored-changes }}
+      ignored-count: ${{ steps.sync.outputs.ignored-count }}
+      ignored-types: ${{ steps.sync.outputs.ignored-types }}
     steps:
       - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/node-npm-setup
       - name: Run updater scripts
+        id: sync
         env:
           # need to use a token from a user with access to github/github for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -70,3 +75,22 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  notify_ignored_changes:
+    if: github.repository == 'github/docs-internal' && needs.update_graphql_files.outputs.ignored-count > 0 && github.event_name != 'workflow_dispatch'
+    needs: update_graphql_files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: warning
+          message: |
+            ⚠️ GraphQL Sync found ${{ needs.update_graphql_files.outputs.ignored-count }} ignored change types: ${{ needs.update_graphql_files.outputs.ignored-types }}
+
+            These change types are not in CHANGES_TO_REPORT and were silently ignored. Consider reviewing if they should be added to the changelog.
+
+            See workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

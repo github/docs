@@ -35,7 +35,11 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '')}
       style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
     >
-      <nav aria-labelledby="allproducts-menu">
+      <nav
+        aria-labelledby="allproducts-menu"
+        role="navigation"
+        aria-label="Documentation navigation"
+      >
         {variant === 'full' && currentProduct && (
           <div className={cx('d-none px-4 pb-3 border-bottom d-xxl-block')}>
             <AllProductsLink />
@@ -47,6 +51,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
                   // Note the `_product-title` is used by the popover preview cards
                   // when it needs this text for in-page links.
                   className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
+                  aria-describedby="allproducts-menu"
                 >
                   {currentProductName || currentProduct.name}
                 </Link>
@@ -61,6 +66,8 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
             'bg-primary overflow-y-auto flex-shrink-0',
           )}
           style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
+          role="region"
+          aria-label="Page navigation content"
         >
           <SidebarProduct key={router.asPath} />
 

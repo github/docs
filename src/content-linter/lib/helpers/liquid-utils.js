@@ -1,6 +1,6 @@
 import { Tokenizer, TokenKind } from 'liquidjs'
 
-import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 const liquidTokenCache = new Map()
 

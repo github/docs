@@ -1,5 +1,5 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
-import { getRange, quotePrecedesLinkOpen } from '../helpers/utils.js'
+import { getRange, quotePrecedesLinkOpen } from '../helpers/utils'
 import { escapeRegExp } from 'lodash-es'
 
 export const linkQuotation = {

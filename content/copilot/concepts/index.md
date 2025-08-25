@@ -1,5 +1,5 @@
 ---
-title: 'Concepts for GitHub Copilot'
+title: Concepts for GitHub Copilot
 shortTitle: Concepts
 intro: 'Learn the core concepts that you''ll need to understand {% data variables.product.prodname_copilot %}.'
 versions:
@@ -7,12 +7,23 @@ versions:
 topics:
   - Copilot
 children:
-  - /copilot-billing
-  - /prompt-engineering-for-copilot-chat
-  - /about-customizing-github-copilot-chat-responses
-  - /about-assigning-tasks-to-copilot
-  - /indexing-repositories-for-copilot-chat
-  - /about-organizing-and-sharing-context-with-copilot-spaces
-  - /build-copilot-extensions
+  - /ai-tools
+  - /completions
+  - /chat
+  - /coding-agent
+  - /code-review
+  - /about-mcp
+  - /spaces
+  - /billing
+  - /prompt-engineering
+  - /response-customization
+  - /content-exclusion
+  - /knowledge-bases
+  - /extensions
+  - /policies
+  - /rate-limits
+  - /network-settings
+  - /repository-indexes
+contentType: concepts
 ---
 

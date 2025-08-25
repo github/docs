@@ -1,8 +1,8 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
-import { get, getDOM } from '@/tests/helpers/e2etest-ts'
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { get, getDOM } from '@/tests/helpers/e2etest'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('enterprise deprecation', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -138,7 +138,8 @@ describe('recently deprecated redirects', () => {
 })
 
 describe('deprecation banner', () => {
-  test('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
+  // The deprecation banner is temporarily hidden for supported versions
+  test.skip('renders a deprecation warning banner on oldest supported Enterprise version', async () => {
     const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     expect($('[data-testid=deprecation-banner]').length).toBe(1)
   })
@@ -153,7 +154,8 @@ describe('deprecation banner', () => {
     expect($('[data-testid=deprecation-banner] b').text().endsWith('discontinued on .')).toBe(false)
   })
 
-  test('deprecation warning banner includes the right text depending on the date', async () => {
+  // The deprecation banner is temporarily hidden for supported versions
+  test.skip('deprecation warning banner includes the right text depending on the date', async () => {
     const { $ } = await getDOM(`/en/enterprise/${enterpriseServerReleases.oldestSupported}`)
     const expectedString = enterpriseServerReleases.isOldestReleaseDeprecated
       ? 'was discontinued'

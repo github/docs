@@ -8,6 +8,7 @@ import cx from 'classnames'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
+import { generateExampleOptions } from '@/rest/lib/code-example-utils'
 import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -71,6 +72,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     javascript: getJSExample(operation, sample, currentVersion, allVersions),
     ghcli: getGHExample(operation, sample, currentVersion, allVersions),
     response: sample.response,
+    request: sample.request,
   }))
 
   // Menu options for the language selector
@@ -93,23 +95,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   }
 
   // Menu options for the example selector
-
-  // We show the media type in the examples menu items for each example if
-  // there's more than one example and if the media types aren't all the same
-  // for the examples (e.g. if all examples have content type `application/json`,
-  // we won't show that information in the menu items).
-  const showExampleOptionMediaType =
-    languageExamples.length > 1 &&
-    !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType,
-    )
-  const exampleSelectOptions = languageExamples.map((example, index) => ({
-    text: showExampleOptionMediaType
-      ? `${example.description} (${example.response.contentType})`
-      : example.description,
-    // maps to the index of the example in the languageExamples array
-    languageIndex: index,
-  }))
+  const exampleSelectOptions = generateExampleOptions(languageExamples)
 
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])

@@ -14,14 +14,14 @@ featuredLinks:
   startHere:
     - /copilot/get-started/what-is-github-copilot
     - /copilot/get-started/quickstart
-    - /copilot/how-tos/build-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
-    - /copilot/concepts/about-assigning-tasks-to-copilot
+    - /copilot/tutorials/try-extensions
+    - /copilot/concepts/coding-agent/coding-agent
   popular:
-    - /copilot/get-started/github-copilot-features
+    - /copilot/get-started/features
     - /copilot/tutorials/copilot-chat-cookbook
-    - /copilot/how-tos/completions/getting-code-suggestions-in-your-ide-with-github-copilot
-    - /copilot/how-tos/chat/asking-github-copilot-questions-in-your-ide
-    - /copilot/how-tos/github-flow/using-github-copilot-in-the-command-line
+    - /copilot/how-tos/get-code-suggestions/get-code-suggestions
+    - /copilot/how-tos/use-chat/use-chat-in-ide
+    - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
 layout: product-landing
 versions:
   feature: copilot
@@ -31,8 +31,9 @@ children:
   - /how-tos
   - /reference
   - /tutorials
-  - /responsible-use-of-github-copilot-features
+  - /responsible-use
 topics:
   - Copilot
+contentType: landing
 ---
 

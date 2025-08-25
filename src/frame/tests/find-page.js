@@ -3,8 +3,8 @@ import path from 'path'
 
 import { describe, expect, test, vi } from 'vitest'
 
-import Page from '#src/frame/lib/page.js'
-import findPage from '#src/frame/lib/find-page.js'
+import Page from '@/frame/lib/page'
+import findPage from '@/frame/lib/find-page'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 

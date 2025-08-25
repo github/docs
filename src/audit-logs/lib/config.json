@@ -3,5 +3,11 @@
     "apiOnlyEvents": "This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "apiRequestEvent": "This event is only available via audit log streaming."
   },
-  "sha": "eba0af9fafae7ac460e7063e153b06b7bc5ab300"
+  "_categoryNotesDocumentation": "Category notes provide additional context for audit log event categories. Currently, notes are plain text and not version-specific. Future enhancement: add versioning support for different deployment types (GHEC, GHES, FPT).",
+  "categoryNotes": {
+    "members_can_create_pages": "For more information, see \"Managing the publication of GitHub Pages sites for your organization.\"",
+    "git": "Note: Git events have special access requirements and retention policies that differ from other audit log events. For GitHub Enterprise Cloud, access Git events via the REST API only with 7-day retention. For GitHub Enterprise Server, Git events must be enabled in audit log configuration and are not included in search results.",
+    "sso_redirect": "Note: Automatically redirecting users to sign in is currently in beta for Enterprise Managed Users and subject to change."
+  },
+  "sha": "19cd54f06382e76031a46d1d8373c57fb98181db"
 }

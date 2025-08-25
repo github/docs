@@ -1,7 +1,7 @@
 import cheerio from 'cheerio'
 import { describe, expect, test } from 'vitest'
 
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have

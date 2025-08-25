@@ -10,7 +10,7 @@ import path from 'path'
 import { program } from 'commander'
 import walkFiles from '@/workflows/walk-files'
 import { escapeRegExp } from 'lodash-es'
-import patterns from '@/frame/lib/patterns.js'
+import patterns from '@/frame/lib/patterns'
 
 interface ProgramOptions {
   add?: boolean

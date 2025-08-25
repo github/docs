@@ -2,8 +2,11 @@ date: '2025-06-03'
 release_candidate: false
 deprecated: false
 intro: |
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+  {% warning %}
 
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -178,6 +181,8 @@ sections:
       Users see a horizontal navigation bar at the top of their enterprise account. This update is designed to improve the user experience by providing a consistent, intuitive navigation structure that mirrors the rest of the GitHub experience.
 
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.17 with caution. [Updated: 2025-07-28]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |

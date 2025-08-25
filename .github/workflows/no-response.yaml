@@ -1,18 +1,18 @@
-name: No Response
+name: Stale check for no response from author
 
-# **What it does**: Closes issues that don't have enough information to be
+# **What it does**: Runs only in the OS repository to close issues that don't have enough information to be
 #                   actionable.
 # **Why we have it**: To remove the need for maintainers to remember to check
 #                     back on issues periodically to see if contributors have
 #                     responded.
-# **Who does it impact**: Everyone that works on docs or docs-internal.
+# **Who does it impact**: Everyone that works in the docs repository.
 
 on:
   issue_comment:
     types: [created]
 
   schedule:
-    - cron: '20 * * * *' # Run each hour at 20 minutes past
+    - cron: '20 16 * * 1' # Run each Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -28,10 +28,11 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: 'more-information-needed'
-          days-before-stale: -1
-          days-before-issue-stale: 14
-          days-before-close: -1
-          days-before-issue-close: 0
+
+          # Define behavior for issues
+          days-before-issue-stale: 21
+          days-before-issue-close: 1 # close after 1 day if the issue is not updated
+          stale-issue-label: 'Waiting on contributor'
           close-issue-message: >
             This issue has been automatically closed because there has been no response
             to our request for more information from the original author. With only the
@@ -40,17 +41,23 @@ jobs:
             that we can investigate further. See [this blog post on bug reports and the
             importance of repro steps](https://www.lee-dohm.com/2015/01/04/writing-good-bug-reports/)
             for more information about the kind of information that may be helpful.
-          days-before-pr-stale: 7
-          days-before-pr-close: 0
+
+          # Define behavior for pull requests
+          days-before-pr-stale: 21
+          days-before-pr-close: 1 # close after a day if no activity is detected
+          stale-pr-label: 'Waiting on contributor'
           close-pr-message: >
             This PR has been automatically closed because there has been no response to
             to our request for more information from the original author. Please reach out
-            if you have the information we requested, or open a [new issue](https://github.com/github/docs/issues/new/choose)
-            to describe your changes. Then we can begin the review process.
+            if you have the information we requested, or open an [issue](https://github.com/github/docs/issues/new/choose)
+            to describe your changes. Then we can reopen this PR and begin the review process.
+
+      - name: Print outputs
+        run: echo "Staled issues/PRs:${{ steps.stale.outputs.staled-issues-prs || '0' }}, Closed issues/PRs:${{ steps.stale.outputs.closed-issues-prs || '0' }}"
 
       - name: Check out repo
         if: ${{ failure() }}
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:

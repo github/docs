@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import { getGHExample, getShellExample } from '../components/get-rest-code-samples.ts'
+import { getGHExample, getShellExample } from '../components/get-rest-code-samples'
 
 describe('CLI examples generation', () => {
   const mockOperation = {

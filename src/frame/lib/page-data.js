@@ -1,14 +1,14 @@
 import path from 'path'
 
-import languages from '#src/languages/lib/languages.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import createTree from './create-tree.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import readFileContents from './read-file-contents.js'
-import Page from './page.js'
-import Permalink from './permalink.js'
-import frontmatterSchema from './frontmatter.js'
-import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
+import languages from '@/languages/lib/languages'
+import { allVersions } from '@/versions/lib/all-versions'
+import createTree from './create-tree'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import readFileContents from './read-file-contents'
+import Page from './page'
+import Permalink from './permalink'
+import frontmatterSchema from './frontmatter'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 // If you run `export DEBUG_TRANSLATION_FALLBACKS=true` in your terminal,
 // every time a translation file fails to initialize we fall back to English

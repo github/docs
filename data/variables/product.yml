@@ -51,6 +51,7 @@ prodname_ado2gh_cli_short: ADO2GH extension
 prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
+prodname_ghos: GitHub-owned blob storage
 
 # GitHub Education
 prodname_education: 'GitHub Education'
@@ -95,7 +96,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% endif %}
+  {% ifversion ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -148,7 +149,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% endif %}
+  {% ifversion ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -186,6 +187,9 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 prodname_GHAS: 'GitHub Advanced Security'
 prodname_GH_code_security: '{% ifversion ghas-products %}GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
 prodname_GH_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection{% else %}GitHub Advanced Security{% endif %}'
+### Useful in unversioned docs
+prodname_GH_code_security_always: 'GitHub Code Security'
+prodname_GH_secret_protection_always: 'GitHub Secret Protection'
 
 ## GHAS or GHAS products
 prodname_GHAS_or_code_security: '{% ifversion ghas-products %}GitHub Code Security or {% endif %}GitHub Advanced Security'
@@ -300,6 +304,10 @@ prodname_arctic_vault: 'Arctic Code Vault'
 # GitHub Copilot (product)
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
+
+# GitHub Spark
+prodname_spark: 'GitHub Spark'
+prodname_spark_short: 'Spark'
 
 # Windows
 prodname_windows_terminal: 'Windows Terminal'

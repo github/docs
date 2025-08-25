@@ -28,7 +28,7 @@ topics:
 
 ## Customizing excluded files
 
-By default, file finder results do not include files in the following directories if they exist at your repository root:
+By default, file finder results do not include files in the following directories:
 
 * `.git`
 * `.hg`

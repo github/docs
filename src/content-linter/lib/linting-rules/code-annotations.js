@@ -1,6 +1,6 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
-import { getFrontmatter } from '../helpers/utils.js'
+import { getFrontmatter } from '../helpers/utils'
 
 export const codeAnnotations = {
   names: ['GHD007', 'code-annotations'],

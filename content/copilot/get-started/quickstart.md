@@ -19,6 +19,7 @@ redirect_from:
 shortTitle: Quickstart
 topics:
   - Copilot
+contentType: get-started
 ---
 
 ## Introduction

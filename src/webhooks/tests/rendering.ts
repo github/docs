@@ -1,8 +1,8 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
-import { getWebhooks } from '../lib/index.js'
+import { getDOM } from '@/tests/helpers/e2etest'
+import { allVersions } from '@/versions/lib/all-versions'
+import { getWebhooks } from '../lib/index'
 
 describe('webhooks events and payloads', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })

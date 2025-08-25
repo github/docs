@@ -1,7 +1,25 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, Context, Tree, ToC } from '@/types'
-import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree.js'
+import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
+
+function isNewLandingPage(currentLayoutName: string): boolean {
+  return (
+    currentLayoutName === 'category-landing' ||
+    currentLayoutName === 'bespoke_landing' ||
+    currentLayoutName === 'discovery_landing' ||
+    currentLayoutName === 'journey_landing'
+  )
+}
+
+// TODO: TEMP: This is a temporary solution to turn off/on new landing pages while we develop them.
+function isNewLandingPageFeature(req: ExtendedRequest): boolean {
+  return (
+    req.query?.feature === 'bespoke-landing' ||
+    req.query?.feature === 'journey-landing' ||
+    req.query?.feature === 'discovery-landing'
+  )
+}
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, category, and subcategory TOCs that don't have other layouts specified.
@@ -10,8 +28,9 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
   if (!req.context) throw new Error('request not contextualized')
   if (!req.context.page) return next()
   if (
+    !isNewLandingPageFeature(req) &&
     req.context.currentLayoutName !== 'default' &&
-    req.context.currentLayoutName !== 'category-landing'
+    !isNewLandingPage(req.context.currentLayoutName || '')
   )
     return next()
   // This middleware can only run on product, category, and subcategories.
@@ -96,7 +115,10 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
     renderIntros = false
     req.context.genericTocNested = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
-      renderIntros: req.context.currentLayoutName === 'category-landing' ? true : false,
+      renderIntros:
+        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || '')
+          ? true
+          : false,
       includeHidden,
     })
   }

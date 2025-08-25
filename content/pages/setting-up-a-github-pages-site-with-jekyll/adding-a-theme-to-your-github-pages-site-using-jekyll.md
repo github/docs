@@ -17,9 +17,31 @@ topics:
 shortTitle: Add theme to Pages site
 ---
 
+{% data reusables.pages.actions-is-preferred %}
+
 People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.
 
 {% data reusables.pages.test-locally %}
+
+## Supported themes
+
+Out of the box, the following themes are supported:
+
+* [Architect](https://github.com/pages-themes/architect)
+* [Cayman](https://github.com/pages-themes/cayman)
+* [Dinky](https://github.com/pages-themes/dinky)
+* [Hacker](https://github.com/pages-themes/hacker)
+* [Leap day](https://github.com/pages-themes/leap-day)
+* [Merlot](https://github.com/pages-themes/merlot)
+* [Midnight](https://github.com/pages-themes/midnight)
+* [Minima](https://github.com/jekyll/minima)
+* [Minimal](https://github.com/pages-themes/minimal)
+* [Modernist](https://github.com/pages-themes/modernist)
+* [Slate](https://github.com/pages-themes/slate)
+* [Tactile](https://github.com/pages-themes/tactile)
+* [Time machine](https://github.com/pages-themes/time-machine)
+
+The [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme) Jekyll plugin is also available and lets you load other themes.
 
 ## Adding a theme
 
@@ -28,7 +50,7 @@ People with write permissions for a repository can add a theme to a {% data vari
 1. Navigate to `_config.yml`.
 {% data reusables.repositories.edit-file %}
 1. Add a new line to the file for the theme name.
-   * To use a supported theme, type `theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the `_config.yml` of the theme's repository (most themes follow a `jekyll-theme-NAME` naming convention). For a list of supported themes, see [Supported themes](https://pages.github.com/themes/) on the {% data variables.product.prodname_pages %} site. For example, to select the Minimal theme, type `theme: jekyll-theme-minimal`.
+   * To use a supported theme, type `theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the `_config.yml` of the theme's repository (most themes follow a `jekyll-theme-NAME` naming convention). For a list of supported themes, see [Supported themes](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#supported-themes) on the {% data variables.product.prodname_pages %} site. For example, to select the Minimal theme, type `theme: jekyll-theme-minimal`.
    * To use any other Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, type `remote_theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

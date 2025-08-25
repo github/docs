@@ -1,5 +1,5 @@
-import { fastTextOnly } from './text-only.js'
-import { createProcessor, createMarkdownOnlyProcessor } from './processor.js'
+import { fastTextOnly } from './text-only'
+import { createProcessor, createMarkdownOnlyProcessor } from './processor'
 
 export async function renderUnified(template, context, options) {
   const processor = createProcessor(context)

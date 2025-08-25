@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { frontmatterVideoTranscripts } from '../../lib/linting-rules/frontmatter-video-transcripts.js'
+import { runRule } from '../../lib/init-test'
+import { frontmatterVideoTranscripts } from '../../lib/linting-rules/frontmatter-video-transcripts'
 
 const GOOD_FIXTURE_LANDING = 'src/content-linter/tests/fixtures/actions/index.md'
 const BAD_FIXTURE_LANDING = 'src/content-linter/tests/fixtures/early-access/index.md'

@@ -3,6 +3,7 @@ import { getAISearchAutocompleteResults } from '@/search/lib/get-elasticsearch-r
 import { searchCacheControl } from '@/frame/middleware/cache-control'
 import { SURROGATE_ENUMS, setFastlySurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import { handleGetSearchResultsError } from '@/search/middleware/search-routes'
+import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
 import type { Request, Response } from 'express'
 import type { CombinedSearchResponse, GeneralSearchResponse } from '@/search/types'
@@ -33,6 +34,14 @@ export async function combinedSearchRoute(req: Request, res: Response) {
   const combinedValidationErrors = aiValidationErrors.concat(generalValidationErrors)
   if (combinedValidationErrors.length) {
     return res.status(400).json(combinedValidationErrors[0])
+  }
+
+  // Handle search analytics and client_name validation
+  const analyticsError = await handleExternalSearchAnalytics(req, 'combined-search')
+  if (analyticsError) {
+    return res.status(analyticsError.status).json({
+      error: analyticsError.error,
+    })
   }
 
   try {

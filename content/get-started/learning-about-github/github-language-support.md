@@ -21,7 +21,7 @@ Some {% data variables.product.prodname_dotcom %} products have features that ar
 
 ## Core languages supported by {% data variables.product.prodname_dotcom %} features
 
-Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript,{% ifversion kotlin-supported-language %} Kotlin,{% endif %} PHP, Python, Ruby,{% ifversion dependabot-updates-cargo-private-registry-support %} Rust,{% endif %} Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
+Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript,{% ifversion kotlin-supported-language %} Kotlin,{% endif %} PHP, Python, Ruby, Rust, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
 
 Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit {% data variables.contact.community_support_forum %}.
 
@@ -45,4 +45,4 @@ Some features are supported for additional languages or package managers. If you
 > {% ifversion fpt or ghec %}The language support for {% data variables.product.prodname_copilot %} varies depending on the volume and diversity of training data for that language.{% endif %}
 > The support of Gradle for the dependency graph and {% data variables.product.prodname_dependabot_alerts %} is limited to the upload of data obtained using the {% data variables.dependency-submission-api.name %}.
 
-[^1]: PHP, Rust, and Scala are supported for code scanning by third-party actions, but not by {% data variables.product.prodname_codeql %}.
+[^1]: {% ifversion codeql-rust-public-preview %}PHP and Scala {% else %}PHP, Rust, and Scala {% endif %}are supported for code scanning by third-party actions, but not by {% data variables.product.prodname_codeql %}.

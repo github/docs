@@ -25,8 +25,7 @@ When you enable automatic dependency submission for a repository, {% data variab
 
 Using automatic dependency submission counts toward your {% data variables.product.prodname_actions %} minutes. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
-Optionally, you can choose to configure self-hosted runners or {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission. For more information, see [Using self-hosted runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-self-hosted-runners-for-automatic-dependency-submission
-) and [Using GitHub-hosted larger runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-github-hosted-larger-runners-for-automatic-dependency-submission
+Optionally, you can choose to configure self-hosted runners or {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission. For more information, see [Accessing private registries with self-hosted runners](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#accessing-private-registries-with-self-hosted-runners) and [Using GitHub-hosted larger runners for automatic dependency submission](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository#using-github-hosted-larger-runners-for-automatic-dependency-submission
 ).
 
 ## Prerequisites
@@ -55,11 +54,11 @@ You can view details about the automatic workflows run by viewing the **Actions*
 
 > [!NOTE] After you enable automatic dependency submission, we'll automatically trigger a run of the action. Once enabled, it'll run each time a commit to the default branch updates a manifest.
 
-## Using self-hosted runners for automatic dependency submission
+## Accessing private registries with self-hosted runners
 
-You can configure self-hosted runners to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure.
+You can configure self-hosted runners to run automatic dependency submission jobs, instead of using the {% data variables.product.prodname_actions %} infrastructure. This is necessary to access private Maven registries. The self-hosted runners must be running on Linux or macOS. For .NET and Python auto-submission, they must have access to the public internet in order to download the latest component-detection release.
 
-1. Provision one or more self-hosted runners, at the repository or organization level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners). The self-hosted runners must be running on Linux or macOS, and must have Docker installed.
+1. Provision one or more self-hosted runners, at the repository or organization level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 1. Assign a `dependency-submission` label to each runner you want automatic dependency submission to use. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners#assigning-a-label-to-a-self-hosted-runner).
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Dependency graph", click the dropdown menu next to “Automatic dependency submission”, then select **Enabled for labeled runners**.
@@ -86,6 +85,8 @@ Automatic dependency submission makes a best effort to cache package downloads b
 
 {% data reusables.dependency-graph.deduplication %}
 
+## Package ecosystem-specific information
+
 ### Maven projects
 
 For Maven projects, automatic dependency submission runs an open source fork of the [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission). The fork allows {% data variables.product.github %} to stay in sync with the upstream repository plus maintain some changes that are only applicable to automatic submission. The fork's source is available at [advanced-security/maven-dependency-submission-action](https://github.com/advanced-security/maven-dependency-submission-action).
@@ -95,6 +96,17 @@ If your repository's dependencies seem inaccurate, check that the timestamp of t
 ### Gradle projects
 
 For Gradle projects, automatic dependency submission runs a fork of the open source Gradle actions from [gradle/actions](https://github.com/gradle/actions). The fork is available at [actions/gradle-build-tools-actions](https://github.com/actions/gradle-build-tools-actions). You can view the results of the autosubmission action under your repository's **Actions** tab. Each run will be labeled "Automatic Dependency Submission (Gradle)" and its output will contain the JSON payload which the action submitted to the API.
+
+### .NET projects
+
+The .NET autosubmission action uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as the engine for its dependency detection. It supports .NET 8.x, 9.x, and 10.x. .NET autosubmission runs if the repository's `dependabot.yml` defines `nuget` as a [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-) or when there is a supported manifest file in the root directory of the repository. Supported manifest files include `.sln`, `.csproj`, `packages.config`, `.vbproj`, `.vcxproj`, and `.fsproj`.
+
+### Python projects
+
+Python uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as its underlying graph generation engine. The autosubmission action for Python will only run if there is a `requirements.txt` file in the root directory of the repository. Python autosubmission does not currently support private packages; packages referenced in `requirements.txt` which are not publicly available will cause the autosubmission action to fail.
+
+> [!NOTE]
+> This action uses [actions/setup-python](https://github.com/actions/setup-python) to install Python. You must include a .python-version file in your repository to specify the Python version to be installed.
 
 ## Further reading
 

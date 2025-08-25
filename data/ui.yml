@@ -144,6 +144,8 @@ parameter_table:
 audit_logs:
   action: Action
   description: Description
+  fields: Fields
+  reference: Reference
 graphql:
   reference:
     implements: <code>{{ GraphQLItemTitle }}</code> Implements
@@ -258,13 +260,24 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
+bespoke_landing:
+  articles: Articles
+  all_categories: All categories
+  search_articles: Search articles
+discovery_landing:
+  recommended: Recommended
+  articles: Articles
+  all_categories: All categories
+  search_articles: Search articles
+journey_landing:
+  articles: '{{ number }} Articles'
 product_landing:
   quickstart: Quickstart
   reference: Reference
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
-  generate_secret_risk_assessment_report_for_free: Run a point-in-time scan to assess your organization's exposure to secret leaks
+  generate_secret_risk_assessment_report_for_free: Find out how to run a free secret risk assessment
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides

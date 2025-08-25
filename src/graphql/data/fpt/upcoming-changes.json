@@ -8873,6 +8873,24 @@
       "owner": "audit_logs"
     }
   ],
+  "2026-01-01": [
+    {
+      "location": "NotificationThread.subject",
+      "description": "<p><code>subject</code> will be removed. Use the <code>optionalSubject</code> field instead.</p>",
+      "reason": "<p>Null values are possible for this field.</p>",
+      "date": "2026-01-01",
+      "criticality": "breaking",
+      "owner": "github/notifications"
+    },
+    {
+      "location": "NotificationThread.list",
+      "description": "<p><code>list</code> will be removed. Use the <code>optionalList</code> field instead.</p>",
+      "reason": "<p>Null values are possible for this field.</p>",
+      "date": "2026-01-01",
+      "criticality": "breaking",
+      "owner": "github/notifications"
+    }
+  ],
   "2025-10-01": [
     {
       "location": "SecurityAdvisory.cvss",
@@ -8883,16 +8901,8 @@
       "owner": "github/advisory-database"
     },
     {
-      "location": "Issue.stateReason",
-      "description": "<p><code>stateReason</code> will be removed.</p>",
-      "reason": "<p>The state reason for duplicate issue is now returned by default.</p>",
-      "date": "2025-10-01",
-      "criticality": "breaking",
-      "owner": "issues"
-    },
-    {
-      "location": "ClosedEvent.stateReason",
-      "description": "<p><code>stateReason</code> will be removed.</p>",
+      "location": "Issue.stateReason.enableDuplicate",
+      "description": "<p><code>enableDuplicate</code> will be removed.</p>",
       "reason": "<p>The state reason for duplicate issue is now returned by default.</p>",
       "date": "2025-10-01",
       "criticality": "breaking",

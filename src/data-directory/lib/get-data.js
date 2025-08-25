@@ -2,11 +2,11 @@ import fs from 'fs'
 import path from 'path'
 
 import yaml from 'js-yaml'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
-import languages from '#src/languages/lib/languages.js'
-import { correctTranslatedContentStrings } from '#src/languages/lib/correct-translation-content.js'
+import languages from '@/languages/lib/languages'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 // If you run `export DEBUG_JIT_DATA_READS=true` in your terminal,
 // next time it will mention every file it reads from disk.

@@ -24,6 +24,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise
   - /copilot/copilot-business
   - /copilot/about-github-copilot/what-is-github-copilot
+contentType: get-started
 ---
 
 {% data variables.product.prodname_copilot %} is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration.
@@ -38,9 +39,9 @@ redirect_from:
 * Chat with {% data variables.product.prodname_copilot_short %} to ask for help with your code
 * Ask {% data variables.product.prodname_copilot_short %} for help using the command line
 * Organize and share task-specific context with {% data variables.copilot.copilot_spaces %} to get more relevant answers
-* Generate a description of the changes in a pull request _({% data variables.copilot.copilot_enterprise_short %} only)_
+* Generate a description of the changes in a pull request
 * Create and manage collections of documentation, called knowledge bases, to use as a context for chatting with {% data variables.product.prodname_copilot_short %} _({% data variables.copilot.copilot_enterprise_short %} only)_
-* Work on code changes and create a pull request for you to review _({% data variables.copilot.copilot_pro_plus_short %} and {% data variables.copilot.copilot_enterprise_short %} only)_
+* Work on code changes and create a pull request for you to review _({% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} only)_
 
 {% data variables.product.prodname_copilot_short %} is available:
 

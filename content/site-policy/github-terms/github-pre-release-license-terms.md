@@ -18,7 +18,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 1. Pre-Release Software.
 
-  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as alpha, beta, early access, technical preview, or similar versions.
+  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as private preview, public preview, early access, technical preview, or similar versions.
 
   Pre-release software may not operate correctly. It may delete your data, corrupt your data, or have other bugs. It also may not work the way a final commercial version of the software will.
 
@@ -26,7 +26,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 2. Installation and Use Rights.
 
-  a. **General**. GitHub grants you a limited right to use a non-production instance of the software. You may use any number of copies of the software to develop and test your applications, including deployment within your internal corporate network. You may also use the software in demonstrating your applications.
+  a. **General**. GitHub grants you a limited right to use a non-production instance of the software for evaluation and testing. This means you may use any number of copies of the software to evaluate its functionality and internally develop and test your applications, including deployment of the software within your internal corporate network for evaluation but not external distribution. You may also use the software in internally demonstrating your applications, but may not use the pre-release software in any active production environment, including any use to process live customer data.
 
   b. **Inclusion of Third-Party Components.** The software may include third-party components with separate legal notices or governed by other agreements, as may be described in a license file accompanying the software.
 
@@ -96,9 +96,9 @@ You bear the sole risk of using the pre-release software.
 
   Neither GitHub nor Microsoft give any express warranties, guarantees, or commitments about the pre-release software or its quality, reliability, availability, security, or function. The software may contain errors, may delete or corrupt your data, and may have defects or other bugs.
 
-## 10. No Indemnity.
+## 10. Defense of Third Party Claims.
 
-  Neither GitHub nor Microsoft will have any obligation to defend, indemnify, or hold you harmless from any claim against you relating to your use of the pre-release software.
+  If your Agreement provides for the defense of third party claims, that provision will apply to your use of the pre-release software and the outputs you receive from it. For software that uses artificial intelligence, you must have complied with (a) the Acceptable Use Policies in your Agreement, and (b) the [Microsoft Enterprise AI Services Code of Conduct](https://aka.ms/AIcode), and (c) the [Microsoft Customer Copyright Commitment Required Mitigations](https://aka.ms/AIfilters).
 
 ## 11. No Uptime Guarantees.
 
@@ -106,7 +106,7 @@ You bear the sole risk of using the pre-release software.
 
 ## 12. Limitation of Liability.
 
-  GitHub’s maximum liability for any claim related to your use of the pre-release software is limited to direct damages up to five hundred dollars ($500.00 USD).
+  GitHub’s maximum liability for any claim related to your use of the pre-release software is limited to direct damages up to five hundred dollars ($500.00 USD). This limit will not apply to the defense obligations in Section 10.
 
 ## 13. Compliance with Export Restrictions.
 

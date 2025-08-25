@@ -4,11 +4,14 @@ deprecated: false
 intro: |
   {% warning %}
 
+  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+
+  {% endwarning %}
+  {% warning %}
+
   **Warning**: Customers who have security products enabled by default at the organization level will experience issues when upgrading from 3.14 to 3.16.0. We recommend waiting for the next 3.16 patch to upgrade.
 
   {% endwarning %}
-
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
   features:
@@ -181,6 +184,8 @@ sections:
       Customers who have code scanning enabled may experience slower transitions when upgrading to version 3.16.0, due to changes in the data model that require data migration. We recommend testing this upgrade in a non-production environment first, as it could result in longer downtime than expected. [Updated: 2025-06-12]
 
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
     - |
       {% data reusables.release-notes.2025-03-security-product-transition-bug %} [Updated: 2025-03-17]
     - |
