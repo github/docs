@@ -1,5 +1,5 @@
 ---
-title: Changing the AI model for Copilot Chat
+title: Changing the AI model for GitHub Copilot Chat
 shortTitle: Change the chat model
 intro: 'Learn how to change the default LLM for {% data variables.copilot.copilot_chat_short %} to a different model.'
 versions:

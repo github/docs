@@ -21,6 +21,6 @@ children:
   - /removing-a-collaborator-from-a-personal-repository
   - /removing-yourself-from-a-collaborators-repository
   - /maintaining-ownership-continuity-of-your-personal-accounts-repositories
-shortTitle: Access to your repositories
+shortTitle: Manage repository access
 ---
 

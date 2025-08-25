@@ -1,5 +1,5 @@
 ---
-title: Customizing the development environment for Copilot coding agent
+title: Customizing the development environment for GitHub Copilot coding agent
 shortTitle: Customize the agent environment
 intro: 'Learn how to customize {% data variables.product.prodname_copilot %}''s development environment with additional tools.'
 versions:
@@ -39,6 +39,9 @@ In its ephemeral development environment, {% data variables.product.prodname_cop
 Instead, you can preconfigure {% data variables.product.prodname_copilot_short %}'s environment before the agent starts by creating a special {% data variables.product.prodname_actions %} workflow file, located at `.github/workflows/copilot-setup-steps.yml` within your repository.
 
 A `copilot-setup-steps.yml` file looks like a normal {% data variables.product.prodname_actions %} workflow file, but must contain a single `copilot-setup-steps` job. This job will be executed in {% data variables.product.prodname_actions %} before {% data variables.product.prodname_copilot_short %} starts working. For more information on {% data variables.product.prodname_actions %} workflow files, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
+
+> [!NOTE]
+> The `copilot-setup-steps.yml` workflow won't trigger unless it's present on your main branch.
 
 Here is a simple example of a `copilot-setup-steps.yml` file for a TypeScript project that clones the project, installs Node.js and downloads and caches the project's dependencies. You should customize this to fit your own project's language(s) and dependencies:
 

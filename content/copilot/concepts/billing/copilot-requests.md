@@ -68,15 +68,12 @@ Unused requests for the previous month do not carry over to the following month.
 
 If you're on a **paid plan** and use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with one of the included models for the rest of the month. This is subject to change. Response times for the included models may vary during periods of high usage. Requests to the included models may be subject to rate limiting. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
-If you need more premium requests beyond your monthly allowance, you can:
+If you need more premium requests beyond your monthly allowance:
 
-* Set a spending limit for additional premium requests. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
-* Upgrade your individual subscription to a higher plan.
-* If you're an enterprise owner, edit the default $0 budget or upgrade members to {% data variables.copilot.copilot_enterprise_short %}. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
+* For an individual subscription, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+* If you're an enterprise or organization owner, ensure that the "Premium request paid usage" policy is enabled and that extra spending is not prevented by a budget. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-These actions can be taken by enterprise owners, organization owners, billing managers, and personal account users.
-
-> [!IMPORTANT] By default, all budgets are set to zero and premium requests over the allowance are rejected unless a budget has been created. Additional premium requests beyond your plan’s included amount are billed at {% data variables.copilot.additional_premium_requests %} per request.
+{% data reusables.copilot.zero-budget-changes %}
 
 ## Model multipliers
 

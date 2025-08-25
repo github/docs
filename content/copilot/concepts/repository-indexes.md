@@ -1,5 +1,5 @@
 ---
-title: Indexing repositories for Copilot Chat
+title: Indexing repositories for GitHub Copilot Chat
 shortTitle: Repository indexes
 intro: '{% data variables.copilot.copilot_chat %} improves responses to questions about code by indexing your repositories.'
 versions:

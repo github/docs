@@ -1,5 +1,5 @@
 ---
-title: About Copilot coding agent
+title: About GitHub Copilot coding agent
 shortTitle: Coding agent
 intro: 'You can assign {% data variables.product.github %} issues to {% data variables.product.prodname_copilot_short %}, or ask {% data variables.product.prodname_copilot_short %} to create a pull request.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=about+assigning+issues+to+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
@@ -36,7 +36,7 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 To delegate tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
 * Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
-* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %} or your favorite IDE or agentic coding tool with MCP support. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
+* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents panel or page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %} or your favorite IDE or agentic coding tool with MCP support. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 

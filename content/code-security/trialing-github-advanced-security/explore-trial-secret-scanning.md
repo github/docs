@@ -1,32 +1,33 @@
 ---
-title: 'Exploring your enterprise trial of {% data variables.product.prodname_GH_secret_protection %}'
-shortTitle: 'Trial {% data variables.product.prodname_secret_protection %}'
+title: 'Exploring your enterprise trial of {% data variables.product.prodname_GH_secret_protection_always %}'
+shortTitle: 'Trial Secret Protection'
 allowTitleToDifferFromFilename: true
-intro: 'Introduction to the features available with {% data variables.product.prodname_GH_secret_protection %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
+intro: 'Introduction to the features available with {% data variables.product.prodname_GH_secret_protection_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
 type: quick_start
 topics:
   - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.15'
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account. See [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
 
 ## Introduction
 
-{% data variables.product.prodname_GH_secret_protection %} features work the same way in private and internal repositories as they do in all public repositories. This article focuses on the additional functionality that you can use to protect your business from security leaks when you use {% data variables.product.prodname_GH_secret_protection %}, that is:
+{% data variables.product.prodname_GH_secret_protection_always %} features work the same way in private and internal repositories as they do in all public repositories. This article focuses on the additional functionality that you can use to protect your business from security leaks when you use {% data variables.product.prodname_GH_secret_protection_always %}, that is:
 
 * Identify additional access tokens you use by defining custom patterns.
 * Detect potential passwords using AI.
 * Control and audit the bypass process for push protection and {% data variables.secret-scanning.alerts %}.
 * Enable validity checks for exposed tokens.
 
-To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment).
+To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 If you have already scanned the code in your organization for leaked secrets using the free secret risk assessment, you will also want to explore that data more completely using the additional views on the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the organization.
 
-For full details of the features available, see [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
+For full details of the features available, see [{% data variables.product.prodname_GH_secret_protection_always %}](/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
 
 ### Security configuration for {% data variables.product.prodname_secret_protection %}
 
@@ -56,15 +57,15 @@ Similar to custom patterns, if you enable AI detection both {% data variables.pr
 
 ## Control and audit the bypass process
 
-When push protection blocks a push to {% data variables.product.github %} in a public repository without {% data variables.product.prodname_GH_secret_protection %}, the user has two simple options: bypass the control, or remove the highlighted content from the branch and its history. If they chose to bypass push protection, a {% data variables.product.prodname_secret_scanning %} alert is automatically created. This allows developers to rapidly unblock their work while still providing an audit trail for the content identified by {% data variables.product.prodname_secret_scanning %}.
+When push protection blocks a push to {% data variables.product.github %} in a public repository without {% data variables.product.prodname_GH_secret_protection_always %}, the user has two simple options: bypass the control, or remove the highlighted content from the branch and its history. If they chose to bypass push protection, a {% data variables.product.prodname_secret_scanning %} alert is automatically created. This allows developers to rapidly unblock their work while still providing an audit trail for the content identified by {% data variables.product.prodname_secret_scanning %}.
 
-Larger teams usually want to maintain tighter control over the potential publication of access tokens and other secrets. With {% data variables.product.prodname_GH_secret_protection %}, you can define a reviewers group to approve requests to bypass push protection, reducing the risk of a developer accidentally leaking a token that is still active. You can also define a reviewers group to approve requests to dismiss {% data variables.secret-scanning.alerts %}.
+Larger teams usually want to maintain tighter control over the potential publication of access tokens and other secrets. With {% data variables.product.prodname_GH_secret_protection_always %}, you can define a reviewers group to approve requests to bypass push protection, reducing the risk of a developer accidentally leaking a token that is still active. You can also define a reviewers group to approve requests to dismiss {% data variables.secret-scanning.alerts %}.
 
 Reviewers are defined in an organization-level security configuration or in the settings for a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
 
 ## Enable validity checks
 
-You can enable validity checks to check whether detected tokens are still active at the repository, organization, and enterprise level. Generally, it is worth enabling this feature across the whole enterprise using enterprise or organization-level security configurations. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository).
+You can enable validity checks to check whether detected tokens are still active at the repository, organization, and enterprise level. Generally, it is worth enabling this feature across the whole enterprise using enterprise or organization-level security configurations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Next steps
 

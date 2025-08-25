@@ -1,5 +1,5 @@
 ---
-title: Managing the Copilot plan for your organization
+title: Managing the GitHub Copilot plan for your organization
 shortTitle: Manage plan
 intro: 'Organization owners can manage the {% data variables.product.prodname_copilot_short %} plan for their organization.'
 versions:
@@ -17,4 +17,3 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-organization/manage-plan
 contentType: how-tos
 ---
-

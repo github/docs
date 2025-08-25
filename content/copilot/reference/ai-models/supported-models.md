@@ -1,5 +1,5 @@
 ---
-title: Supported AI models in Copilot
+title: Supported AI models in GitHub Copilot
 shortTitle: Supported models
 allowTitleToDifferFromFilename: true
 intro: 'Learn about the supported AI models in {% data variables.product.prodname_copilot %}.'
@@ -38,6 +38,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | Model name                                                     | Provider | Release status | Agent mode | Ask mode | Edit mode |
 |----------------------------------------------------------------|----------|--------------|------------|----------------------|---------------|
 | {% data variables.copilot.copilot_gpt_41 %}                    | OpenAI | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gpt_5_mini %}                     | OpenAI | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_gpt_5 %}                     | OpenAI | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_o3 %}                        | OpenAI | {% data variables.release-phases.public_preview_caps %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_o4_mini %}                   | OpenAI | {% data variables.release-phases.public_preview_caps %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -47,7 +48,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | {% data variables.copilot.copilot_claude_sonnet_37 %}          | Anthropic | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | Anthropic | GA | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_claude_sonnet_40 %}          | Anthropic | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gemini_25_pro %}             | Google | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gemini_25_pro %}             | Google | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_gemini_flash %}              | Google | GA | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
@@ -61,6 +62,7 @@ The following table shows which models are available in each client.
 | Model                                                          | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %}     | Eclipse                                     | Xcode                                       | JetBrains IDEs                              |
 |----------------------------------------------------------------|------------|---------|----------------------------------------------|---------------------------------------------|---------------------------------------------|---------------------------------------------|
 | {% data variables.copilot.copilot_gpt_41 %}                    | {% octicon "check" aria-label="Included" %}           | {% octicon "check" aria-label="Included" %}       | {% octicon "check" aria-label="Included" %}  | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gpt_5_mini %}                    | {% octicon "check" aria-label="Included" %}           | {% octicon "check" aria-label="Included" %}       | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} |
 | {% data variables.copilot.copilot_gpt_5 %}                    | {% octicon "check" aria-label="Included" %}           | {% octicon "check" aria-label="Included" %}       | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} |
 | {% data variables.copilot.copilot_o3 %}                        | {% octicon "check" aria-label="Included" %}          | {% octicon "check" aria-label="Included" %}       | {% octicon "x" aria-label="Not included" %}  | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_o4_mini %}                   | {% octicon "check" aria-label="Included" %}          | {% octicon "check" aria-label="Included" %}       | {% octicon "x" aria-label="Not included" %}  | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

@@ -1,5 +1,5 @@
 ---
-title: Customizing or disabling the firewall for Copilot coding agent
+title: Customizing or disabling the firewall for GitHub Copilot coding agent
 shortTitle: Customize the agent firewall
 intro: 'Learn how to control the domains and URLs that {% data variables.copilot.copilot_coding_agent %} can access.'
 versions:

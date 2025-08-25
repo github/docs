@@ -92,6 +92,10 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 {% endif %}
 
+### Showing which issues are blocked by, or blocking, other work
+
+By creating issue dependencies, you can easily see and communicate which issues are blocked by, or blocking, other issues. This helps streamline coordination, prevent bottlenecks and increase transparency across the team. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
+
 {% ifversion copilot %}
 
 ## Understanding new issues
@@ -175,7 +179,7 @@ You can also use the existing {% data variables.product.prodname_projects_v1 %} 
 
 Below is a {% data variables.projects.projects_v1_board %} for our example Project Octocat with the issue we created, and the smaller issues we broke it down into, added to it.
 
-![Screenshot of a {% data variables.projects.projects_v1_board %} called "Project Octocat Board," with issues organized into columns for "To do", "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
+![Screenshot of a {% data variables.projects.projects_v1_board %} called "Project Octocat Board," with issues organized into columns for "To do," "In progress," and "Done."](/assets/images/help/issues/quickstart-project-board.png)
 
 {% endif %}
 

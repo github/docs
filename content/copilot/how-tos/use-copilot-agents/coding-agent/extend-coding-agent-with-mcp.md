@@ -1,5 +1,5 @@
 ---
-title: Extending Copilot coding agent with the Model Context Protocol (MCP)
+title: Extending GitHub Copilot coding agent with the Model Context Protocol (MCP)
 shortTitle: Extend coding agent with MCP
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to use the Model Context Protocol (MCP) to extend the capabilities of {% data variables.copilot.copilot_coding_agent %}.'

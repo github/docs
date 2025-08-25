@@ -1,5 +1,5 @@
 ---
-title: Upgrading Copilot for your enterprise
+title: Upgrading GitHub Copilot for your enterprise
 shortTitle: Upgrade plan
 intro: 'Change your enterprise''s plan from {% data variables.copilot.copilot_business_short %} to {% data variables.copilot.copilot_enterprise_short %}.'
 permissions: Enterprise owners

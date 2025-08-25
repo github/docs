@@ -9,5 +9,9 @@ versions:
 children:
   - /managing-subscriptions-for-activity-on-github
   - /viewing-and-triaging-notifications
+  - /managing-organization-notifications
+  - /managing-github-actions-notifications
+  - /managing-security-notifications
+  - /managing-marketing-emails-from-github
 ---
 

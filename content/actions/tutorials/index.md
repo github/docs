@@ -20,4 +20,8 @@ children:
 redirect_from:
   - /actions/guides
   - /actions/how-tos/use-cases-and-examples
+  - /actions/use-cases-and-examples/project-management/using-github-actions-for-project-management
+  - /actions/use-cases-and-examples/project-management/moving-assigned-issues-on-project-boards
+  - /actions/use-cases-and-examples/project-management/removing-a-label-when-a-card-is-added-to-a-project-board-column
+  - /actions/use-cases-and-examples
 ---

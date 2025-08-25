@@ -70,7 +70,7 @@ Each {% data variables.product.prodname_copilot_short %} plan includes a per-use
 
 By ensuring members have access to enough premium requests, you can drive real business outcomes, such as reducing your backlog with {% data variables.copilot.copilot_coding_agent %}, accelerating pull requests with {% data variables.copilot.copilot_code-review_short %}, or increasing code quality with suggestions from more specialized models.
 
-Regardless of your plan, you can set a spending limit for premium requests over your plan's allowance. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
+Regardless of your plan, you can enable or disable premium requests over your plan's allowance. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
 
 ## Making a decision
 

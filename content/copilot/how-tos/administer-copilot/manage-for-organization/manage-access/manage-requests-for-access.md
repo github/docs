@@ -1,5 +1,5 @@
 ---
-title: Managing requests for Copilot Business in your organization
+title: Managing requests for GitHub Copilot Business in your organization
 shortTitle: Manage requests for access
 intro: 'Approve or deny requests for {% data variables.product.prodname_copilot_short %} access in your organization.'
 permissions: Organization owners

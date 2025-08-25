@@ -1,5 +1,3 @@
-import got from 'got'
-
 // Because we use shielding, it's recommended that you purge twice
 // so it purges the edge nodes *and* the origin.
 // The documentation says:
@@ -32,7 +30,17 @@ async function purgeFastlyBySurrogateKey({
     'fastly-soft-purge': '1',
   }
   const requestPath = `https://api.fastly.com/service/${safeServiceId}/purge/${surrogateKey}`
-  return got.post(requestPath, { headers, json: true })
+  const response = await fetch(requestPath, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+  })
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+  }
+  return response
 }
 
 export default async function purgeEdgeCache(

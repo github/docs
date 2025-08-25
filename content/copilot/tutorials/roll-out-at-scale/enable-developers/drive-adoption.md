@@ -1,5 +1,5 @@
 ---
-title: Driving Copilot adoption in your company
+title: Driving GitHub Copilot adoption in your company
 shortTitle: Drive adoption
 intro: Learn how to plan an effective enablement process to drive Copilot adoption.
 versions:

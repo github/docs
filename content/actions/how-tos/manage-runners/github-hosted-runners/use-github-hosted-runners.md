@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /actions/how-tos/using-github-hosted-runners/using-github-hosted-runners
+  - /actions/using-github-hosted-runners/using-github-hosted-runners
 ---
 
 {% ifversion ghes %}

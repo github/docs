@@ -10,11 +10,6 @@ topics:
 contentType: concepts
 ---
 
->[!NOTE]
-> * MCP support is generally available (GA) in {% data variables.copilot.copilot_chat_short %} for {% data variables.product.prodname_vscode %}.
-> * MCP support for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply only to {% data variables.product.prodname_copilot_short %} in IDEs where MCP support is still in preview. GA terms apply when using MCP for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}.
-
 ## Overview of Model Context Protocol (MCP)
 
 The Model Context Protocol (MCP) is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
@@ -36,6 +31,8 @@ The {% data variables.product.github %} MCP server is a Model Context Protocol (
 * Automate and streamline code-related tasks.
 * Connect third-party tools (like Cursor, Windsurf, or future integrations) to leverage {% data variables.product.github %}’s context and AI capabilities.
 * Enable cloud-based workflows that work from any device, without local setup.
+
+For public repositories, interactions with the {% data variables.product.github %} MCP server are secured by push protection, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server, such as creating an issue. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
 
 You can access the {% data variables.product.github %} MCP server remotely through {% data variables.product.prodname_vscode %}, or other editors that support remote MCP; or you can run it locally in any MCP-compatible editor, allowing you to choose between the convenience of a hosted solution or the customizability of a self-hosted setup.
 

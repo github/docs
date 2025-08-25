@@ -1,5 +1,5 @@
 ---
-title: Speeding up development work with Copilot Spaces
+title: Speeding up development work with GitHub Copilot Spaces
 shortTitle: Speed up development work
 intro: 'Learn how to use {% data variables.copilot.copilot_spaces %} to help you with development work.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'

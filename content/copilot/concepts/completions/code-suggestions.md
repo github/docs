@@ -1,5 +1,5 @@
 ---
-title: Copilot code suggestions in your IDE
+title: GitHub Copilot code suggestions in your IDE
 shortTitle: Code suggestions
 allowTitleToDifferFromFilename: true
 intro: 'Learn about {% data variables.product.prodname_copilot_short %} code suggestions in different IDEs.'

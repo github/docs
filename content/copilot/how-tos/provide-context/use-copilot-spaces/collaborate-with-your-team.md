@@ -1,5 +1,5 @@
 ---
-title: Collaborating with your team using Copilot Spaces
+title: Collaborating with your team using GitHub Copilot Spaces
 shortTitle: Collaborate with your team
 intro: 'Learn how to share {% data variables.copilot.copilot_spaces %} with your team to support collaboration and knowledge sharing.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'

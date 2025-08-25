@@ -93,6 +93,28 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Aikido
+  supportedSecret: Aikido API Client Secret
+  secretType: aikido_api_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Aikido
+  supportedSecret: Aikido CI Scanning Token
+  secretType: aikido_ci_scanning_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Airtable
   supportedSecret: Airtable API Key
   secretType: airtable_api_key
@@ -347,7 +369,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  isduplicate: true
 - provider: Atlassian
   supportedSecret: Atlassian API Token
   secretType: atlassian_api_token
@@ -661,17 +683,6 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
-- provider: Azure
-  supportedSecret: Azure Dummy Key
-  secretType: azure_dummy_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
 - provider: Azure
   supportedSecret: Azure Event Grid Key Identifiable
   secretType: azure_event_grid_key_identifiable
@@ -1014,6 +1025,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure Quantum Key
+  secretType: azure_quantum_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Relay Key Identifiable
   secretType: azure_relay_key_identifiable
   versions:
@@ -1314,7 +1336,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Block Protocol
   supportedSecret: Block Protocol API Key
@@ -2585,6 +2607,39 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare AppSweep API Key
+  secretType: guardsquare_appsweep_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare CLI Access Token
+  secretType: guardsquare_cli_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare Maven Token
+  secretType: guardsquare_maven_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: HashiCorp
@@ -2634,6 +2689,17 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  isduplicate: false
+- provider: hCaptcha
+  supportedSecret: hCaptcha Siteverify Secret
+  secretType: hcaptcha_siteverify_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   isduplicate: false
 - provider: Heroku
   supportedSecret: Heroku Platform API OAuth2 Token
@@ -4204,6 +4270,17 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Salesforce
+  supportedSecret: Salesforce Access Token
+  secretType: salesforce_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Salesforce
   supportedSecret: Salesforce OAuth2 Consumer Key
   secretType: salesforce_oauth2_consumer_key </br>salesforce_oauth2_consumer_secret
   versions:
@@ -4224,7 +4301,7 @@
     ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Samsara
@@ -4489,7 +4566,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Siemens
   supportedSecret: Siemens Code Token
@@ -4631,7 +4708,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: Square
   supportedSecret: Square Production Application Secret
@@ -4813,6 +4890,17 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
+- provider: Temporal
+  supportedSecret: Temporal Cloud API Key
+  secretType: temporal_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Tencent
   supportedSecret: Tencent Cloud International Access Token
   secretType: tencent_cloud_intl_access_token
@@ -4844,6 +4932,17 @@
     ghec: '*'
     ghes: '>3.7'
   isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Tencent
+  supportedSecret: Tencent WeChat Pay Token
+  secretType: tencent_wechat_pay_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
@@ -4918,7 +5017,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Unkey
   supportedSecret: Unkey Root Key
@@ -4965,7 +5064,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime App Secret
@@ -4989,7 +5088,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime OAuth Refresh Token
@@ -5036,7 +5135,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: WorkOS
   supportedSecret: WorkOS Staging API Key
@@ -5048,7 +5147,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: xAI
   supportedSecret: xAI API Key
@@ -5108,7 +5207,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud Smartchapta Server Key
@@ -5164,6 +5263,17 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: ZenHub
+  supportedSecret: ZenHub Personal API Key
+  secretType: zenhub_personal_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false

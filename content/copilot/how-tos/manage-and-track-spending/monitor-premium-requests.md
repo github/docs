@@ -1,5 +1,5 @@
 ---
-title: Monitoring your Copilot usage and entitlements
+title: Monitoring your GitHub Copilot usage and entitlements
 shortTitle: Monitor premium requests
 intro: 'Learn how you can monitor your monthly usage of {% data variables.product.prodname_copilot_short %} and get the most value out of your {% data variables.product.prodname_copilot_short %} plan.'
 permissions: 'Individual users on a paid {% data variables.product.prodname_copilot_short %} plan can view their own usage and entitlements. For {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plans, organization admins and billing managers can view usage reports for members.'
@@ -87,8 +87,7 @@ You can use the following strategies to maximize the value of your premium reque
 
 * **Setting a budget**. Set a budget to track your overages and receive alerts when you reach 75%, 90%, or 100% of your budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending#managing-budgets-for-your-personal-account).
 
-  >[!NOTE]
-  > By default, all budgets are set to zero and premium requests over the allowance are rejected unless a budget has been created.
+  {% data reusables.copilot.zero-budget-changes %}
 
 * **Monitor your usage regularly**. Check your usage in your {% data variables.product.github %} account settings to see how many premium requests you’ve used. This helps you plan how much you can use for the rest of the month.
 

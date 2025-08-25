@@ -1,5 +1,5 @@
 ---
-title: Copilot Chat
+title: GitHub Copilot Chat
 shortTitle: Use Chat
 intro: 'Learn how to use {% data variables.copilot.copilot_chat_short %} across different environments.'
 versions:
@@ -18,4 +18,3 @@ children:
   - /use-chat-in-mobile
 contentType: how-tos
 ---
-

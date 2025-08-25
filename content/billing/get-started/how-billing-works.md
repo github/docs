@@ -31,7 +31,7 @@ topics:
 contentType: get-started
 ---
 
-<!-- 
+<!--
 Audience: All users
 JTBD: When I decide I want to pay for increased access, I need to understand what and how GitHub will charge me, so that I feel confident that I have been billed correctly and don't get any surprises. -->
 
@@ -41,7 +41,7 @@ You can use {% data variables.product.github %} without incurring any costs. If 
 
 * **{% data variables.product.github %} plans**: A fixed monthly cost for a paid {% data variables.product.github %} account (for example: {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %}) or {% data variables.product.prodname_copilot_short %} plan.
 * **Subscriptions**: Fixed monthly costs for any additional products you subscribe to (for example: {% data variables.product.prodname_GH_secret_protection %})
-* **Metered usage**: Variable costs that depend on how much you use certain features above the amounts included with your {% data variables.product.github %} plan (for example: {% data variables.product.prodname_actions %}). For more information see, [AUTOTITLE](/billing/reference/product-usage-included) and [AUTOTITLE](/billing/tutorials/set-up-budgets).
+* **Metered usage**: Variable costs that depend on how much you use certain features above the amounts included with your {% data variables.product.github %} plan (for example: {% data variables.product.prodname_actions %}). For more information see, [AUTOTITLE](/billing/reference/product-usage-included) and [AUTOTITLE](/billing/concepts/budgets-and-alerts).
 
 > [!TIP]
 > {% data variables.product.github %} has discounted plans for verified students and academic faculties, and for non-profit organizations. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/discounted-plans-for-github-accounts).
