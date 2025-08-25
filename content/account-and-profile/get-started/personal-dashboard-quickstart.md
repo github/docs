@@ -38,6 +38,10 @@ In the global navigation menu, you can access the top repositories and teams you
 
 You can also find a list of your recently visited repositories, teams, and projects when you click into the search bar at the top of any page on {% data variables.product.github %}.
 
+## Finding repository links
+
+To access a particular repository link, either clock on the the green button named code. A link to the repository will be shown and you can choose the particular format you want the link to be accessed in, either HTTP, SSH or the other, OR else after creating the repo the link shall be available in the main first text area of the current repository
+
 ## Staying up-to-date with activity from the community
 
 {% ifversion feed %}
