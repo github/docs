@@ -1,27 +1,21 @@
-import { AppRouterMainContextProvider } from '@/app/components/AppRouterMainContext'
-import { NotFoundContent } from '@/app/components/NotFoundContent'
-import { getAppRouterContext } from '@/app/lib/app-router-context'
+import { ClientNotFoundWrapper } from '@/app/components/ClientNotFoundWrapper'
+import { createServerAppRouterContext } from '@/app/lib/server-context-utils'
+import { headers } from 'next/headers'
 import type { Metadata } from 'next'
 
-// Force this page to be dynamic so it can access headers()
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: '404 - Page not found',
-  other: {
-    status: '404',
-  },
+  other: { status: '404' },
 }
 
-async function NotFoundPage() {
-  // Get context from headers set by gateway middleware
-  const appContext = await getAppRouterContext()
+export default async function NotFoundPage() {
+  const headersList = await headers()
+  const pathname = headersList.get('x-pathname') || '/'
 
-  return (
-    <AppRouterMainContextProvider context={appContext}>
-      <NotFoundContent />
-    </AppRouterMainContextProvider>
-  )
+  // Create server context using utility function
+  const appContext = createServerAppRouterContext(pathname)
+
+  return <ClientNotFoundWrapper appContext={appContext} />
 }
-
-export default NotFoundPage

@@ -18,7 +18,9 @@ const versionsProps = Object.assign({}, (schema.properties as Record<string, any
 //   "isPublic": true,
 //   "isPrivateWithGhas": true,
 //   "hasPushProtection": false,
-//   "hasValidityCheck": false
+//   "hasValidityCheck": false,
+//   "base64Supported": false,
+//   "isduplicate": false,
 // },
 
 export interface SecretScanningEntry {
@@ -30,6 +32,7 @@ export interface SecretScanningEntry {
   isPrivateWithGhas: boolean | string
   hasPushProtection: boolean | string
   hasValidityCheck: boolean | string
+  base64Supported: boolean | string
   isduplicate: boolean
 }
 
@@ -47,6 +50,7 @@ export default {
       'isPrivateWithGhas',
       'hasPushProtection',
       'hasValidityCheck',
+      'base64Supported',
       'isduplicate',
     ],
     properties: {
@@ -78,6 +82,10 @@ export default {
       },
       hasValidityCheck: {
         description: 'whether the secret has its validation status checked',
+        type: ['boolean', 'string'],
+      },
+      base64Supported: {
+        description: 'whether scanning for base64-encoded versions of this type is supported',
         type: ['boolean', 'string'],
       },
       isduplicate: {
