@@ -11,7 +11,6 @@ import statsd from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
 import { allVersions } from '@/versions/lib/all-versions'
 import { minimumNotFoundHtml } from '../lib/constants'
-import { setAppRouterContextHeaders } from '../lib/header-utils'
 import { defaultCacheControl } from './cache-control'
 import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next'
@@ -47,7 +46,7 @@ async function buildMiniTocItems(req: ExtendedRequest): Promise<string | undefin
 export default async function renderPage(req: ExtendedRequest, res: Response) {
   // Skip if App Router has already handled this request
   if (res.locals?.handledByAppRouter) {
-    return // Request already handled by App Router
+    return
   }
 
   const { context } = req
@@ -75,9 +74,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       return res.status(404).type('html').send(minimumNotFoundHtml)
     }
 
-    // The rest is "unhandled" requests where we don't have the page
-    // but the URL looks like a real page.
-
+    // For App Router migration: All language-prefixed 404s should use App Router
     statsd.increment(STATSD_KEY_404, 1, [
       `url:${req.url}`,
       `path:${req.path}`,
@@ -86,15 +83,14 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
 
     defaultCacheControl(res)
 
-    // For App Router migration: All language-prefixed 404s should use App Router
     // Create a mock request that will be handled by App Router
     const mockReq = Object.create(req)
     mockReq.url = '/404'
     mockReq.path = '/404'
     mockReq.method = 'GET'
 
-    // Set context headers for App Router (preserves Fastly headers)
-    setAppRouterContextHeaders(req, res, true)
+    // Only pass pathname
+    res.setHeader('x-pathname', req.path)
 
     // Import nextApp and handle directly
     const { nextApp } = await import('./next')
