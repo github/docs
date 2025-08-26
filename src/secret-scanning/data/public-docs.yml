@@ -5558,7 +5558,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: true
 - provider: WorkOS
@@ -5571,7 +5571,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: true
 - provider: xAI
