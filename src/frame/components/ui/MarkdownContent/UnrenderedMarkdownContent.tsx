@@ -12,6 +12,21 @@ import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
 
+// Create a unique identifier by sampling characters distributed across content
+function getBlockId(text: string, targetLength: number = 8) {
+  const alphanumeric = text.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase()
+  if (!alphanumeric || alphanumeric.length <= targetLength) {
+    return Math.random().toString(36).substring(2, 10)
+  }
+  const step = alphanumeric.length / targetLength
+  let result = ''
+  for (let i = 0; i < targetLength; i++) {
+    const index = Math.floor(i * step)
+    result += alphanumeric[index]
+  }
+  return result
+}
+
 export type MarkdownContentPropsT = {
   children: string
   className?: string
@@ -35,6 +50,7 @@ export const UnrenderedMarkdownContent = ({
   ...restProps
 }: MarkdownContentPropsT) => {
   const { t } = useTranslation('search')
+
   // Overrides for ReactMarkdown components
   const components = {} as Components
   if (codeBlocksCopyable) {
@@ -50,9 +66,24 @@ export const UnrenderedMarkdownContent = ({
         text = text.replace(/\n$/, '')
       }
 
+      // Extract language from className for better accessibility
+      const language = props.className?.startsWith('language-')
+        ? props.className.replace('language-', '')
+        : ''
+
       const [isCopied, copyToClipboard] = useCopyClipboard(text, {
         successDuration: 2000,
       })
+
+      // Create more descriptive aria-label
+      const getAriaLabel = () => {
+        if (isCopied) {
+          return t('search.ai.response.copied_code')
+        }
+        return t('search.ai.response.copy_code_lang')
+          .replace('{language}', language ? `${language} ` : '')
+          .replace('{block}', getBlockId(text))
+      }
 
       return (
         <div style={{ position: 'relative' }}>
@@ -60,9 +91,7 @@ export const UnrenderedMarkdownContent = ({
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
             className="btn-octicon"
-            aria-label={
-              isCopied ? t('search.ai.response.copied_code') : t('search.ai.response.copy_code')
-            }
+            aria-label={getAriaLabel()}
             onClick={async () => {
               await copyToClipboard()
               announce(t('search.ai.response.copied_code'))

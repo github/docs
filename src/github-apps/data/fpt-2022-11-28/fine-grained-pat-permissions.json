@@ -754,7 +754,7 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/secret-scanning/pattern-configurations",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "secret-scanning",

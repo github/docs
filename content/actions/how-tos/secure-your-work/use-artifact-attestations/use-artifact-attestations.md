@@ -190,3 +190,5 @@ gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \
 ## Next steps
 
 To keep your attestations relevant and manageable, you should delete attestations that are no longer needed. See [AUTOTITLE](/actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations).
+
+You can also generate release attestations to help consumers verify the integrity and origin of your releases. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).
