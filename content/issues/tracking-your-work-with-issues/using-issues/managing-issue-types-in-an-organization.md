@@ -1,8 +1,10 @@
 ---
 title: Managing issue types in an organization
 intro: 'Learn about issue types and how to manage them in your organization.'
+redirect_from:
+  - /issues/tracking-your-work-with-issues/configuring-issues/managing-issue-types-in-an-organization
 versions:
-  feature: 'issue-types'
+  feature: issue-types
 type: overview
 topics:
   - Project management

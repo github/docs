@@ -116,6 +116,8 @@ copilot_gpt_5_mini: 'GPT-5 mini'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
+## xAI:
+copilot_grok_code: 'Grok Code Fast 1'
 
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'

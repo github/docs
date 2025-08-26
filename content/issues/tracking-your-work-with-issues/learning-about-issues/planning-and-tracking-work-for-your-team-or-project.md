@@ -11,12 +11,13 @@ topics:
   - Projects
 redirect_from:
   - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
+  - /issues/tracking-your-work-with-issues/configuring-issues/planning-and-tracking-work-for-your-team-or-project
 ---
 ## Introduction
 
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, projects, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates and forms, open issues and use task lists to break down work, and establish a {% data variables.projects.project_v2 %} for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates and forms, open issues and break down work, and establish a {% data variables.projects.project_v2 %} for organizing and tracking issues.
 
 ## Creating a repository
 
@@ -66,7 +67,7 @@ Now that we created the bug report issue template, you are able to select it whe
 
 ![Screenshot of the "New issue" page for octo-org/project-octocat, with the option to use the "Bug report for Project Octocat" template.](/assets/images/help/issues/quickstart-issue-creation-menu-with-template.png)
 
-## Opening issues and using task lists to track work
+## Opening issues and breaking down work
 
 You can organize and track your work by creating issues. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
@@ -76,6 +77,22 @@ Here is an example of an issue created for a large initiative, front-end work, i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body includes a list of tasks to complete.](/assets/images/help/issues/quickstart-create-large-initiative-issue.png)
 
+{% ifversion sub-issues %}
+
+### Sub-issues example
+
+{% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
+
+{% ifversion issue-types %}
+
+You can use issue types to classify work in repositories across the organization, such as tasks, bugs, and features. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
+
+{% endif %}
+
+   ![Screenshot of the sub-issues section below the issue description.](/assets/images/help/issues/sub-issue.png)
+
+{% endif %}
+
 ### Task list example
 
 You can use task lists to break larger issues down into smaller tasks and to track issues as part of a larger goal. {% ifversion fpt or ghec %} Task lists have additional functionality when added to the body of an issue. You can see the number of tasks completed out of the total at the top of the issue, and if someone closes an issue linked in the task list, the checkbox will automatically be marked as complete.{% endif %} For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
@@ -84,13 +101,17 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body contains a task list, with a checkbox preceding each issue link.](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
-{% ifversion sub-issues %}
+## Using labels to highlight project goals and status
 
-### Breaking down your work with sub-issues
+You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue. See [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label).
 
-{% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
+Once you have created a label in a repository, you can apply it on any issue, pull request, or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. See [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
 
-{% endif %}
+### Label example
+
+Below is an example of a `front-end` label that we created and added to the issue.
+
+![Screenshot of an issue called "Front-end work for Project Octocat." In the right sidebar, in the "Labels" section, the "front-end" label is applied.](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
 ### Showing which issues are blocked by, or blocking, other work
 
@@ -188,10 +209,12 @@ Below is a {% data variables.projects.projects_v1_board %} for our example Proje
 You have now learned about the tools {% data variables.product.prodname_dotcom %} offers for planning and tracking your work, and made a start in setting up your cross-functional team or project repository! Here are some helpful resources for further customizing your repository and organizing your work.
 
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories) for learning more about creating repositories
-* [AUTOTITLE](/issues/tracking-your-work-with-issues) for learning more about different ways to create and manage issues
-* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates) for learning more about issue templates
-* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels
-* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) for learning more about task lists
-* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) for learning more about projects
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects) for learning more about projects
 * [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view) for learning how to customize views for projects
+* [AUTOTITLE](/issues/tracking-your-work-with-issues) for learning more about different ways to create and manage issues
+* [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates) for learning more about issue templates{% ifversion issue-types %}
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization) for managing issue types{% endif %}
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) for learning how to create, edit and delete labels{% ifversion sub-issues %}
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) for learning about adding sub-issues{% endif %}
+* [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists) for learning more about task lists
 {% ifversion projects-v1 %}- [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) for learning how to manage {% data variables.projects.projects_v1_boards %}{% endif %}
