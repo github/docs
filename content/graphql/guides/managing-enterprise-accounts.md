@@ -39,10 +39,7 @@ For a list of the fields available with the Enterprise Accounts API, see [AUTOTI
 
 ## Getting started using GraphQL for enterprise accounts
 
-Follow these steps to get started using GraphQL to manage your enterprise accounts:
-* Authenticating with a {% data variables.product.pat_generic %}
-* Choosing a GraphQL client or using the GraphQL Explorer
-* Setting up Insomnia to use the GraphQL API
+See [AUTOTITLE](/graphql/guides/using-graphql-clients) to get started using GraphQL to manage your enterprise accounts.
 
 For some example queries, see [An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api).
 
@@ -206,5 +203,5 @@ For more information about getting started with GraphQL, see [AUTOTITLE](/graphq
 
 For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/graphql).
 
-You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see [AUTOTITLE](/graphql/guides/using-the-explorer#accessing-the-sidebar-docs).
+You can access the reference docs from within the GraphQL clients. For more information, see [AUTOTITLE](/graphql/guides/using-graphql-clients).
 For other information, such as authentication and rate limit details, check out the [guides](/graphql/guides).

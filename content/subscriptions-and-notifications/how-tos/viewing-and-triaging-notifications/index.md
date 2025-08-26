@@ -1,6 +1,6 @@
 ---
 title: Viewing and triaging notifications
-intro: 'To optimize your notifications workflow, you can customize how you view and triage notifications.'
+intro: To optimize your notifications workflow, you can customize how you view and triage notifications.
 redirect_from:
   - /articles/managing-notifications
   - /articles/managing-your-notifications

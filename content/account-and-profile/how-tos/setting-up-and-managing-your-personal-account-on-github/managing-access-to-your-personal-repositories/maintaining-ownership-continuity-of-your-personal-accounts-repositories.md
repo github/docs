@@ -14,19 +14,6 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories
 shortTitle: Ownership continuity
 ---
-## About successors
-
-We recommend inviting another {% data variables.product.company_short %} user to be your successor, to manage your user owned repositories if you cannot. As a successor, they will have permission to:
-
-* Archive your public repositories.
-* Transfer your public repositories to their own user owned account.
-* Transfer your public repositories to an organization where they can create repositories.
-
-Successors cannot log into your account.
-
-An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see [AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-deceased-user-policy).
-
-To request access to manage repositories as a successor, please contact us through the {% data variables.contact.contact_support_portal %}.
 
 ## Inviting a successor
 

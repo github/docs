@@ -53,9 +53,9 @@ For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-o
 
 {% elsif ghes %}
 
-SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.location.product_location %} in a browser, {% data variables.product.github %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user.
+SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP.
 
-After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.location.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
+If an unauthenticated user attempts to sign in to {% data variables.location.product_location %} and you have disabled [built-in authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider), {% data variables.product.github %} redirects the user to your SAML IdP for authentication. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user. The user's SAML session is active in the browser for 24 hours. After that, the user must authenticate again with your IdP.
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 

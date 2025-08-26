@@ -26,6 +26,7 @@ children:
   - /concepts
   - /how-tos
   - /tutorials
+  - /reference
 shortTitle: Subscriptions & notifications
 ---
 

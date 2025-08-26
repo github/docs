@@ -65,6 +65,7 @@ import shielding from '@/shielding/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 import { initLoggerContext } from '@/observability/logger/lib/logger-context'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
+import appRouterGateway from './app-router-gateway'
 
 const { NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -220,6 +221,9 @@ export default function (app: Express) {
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
+
+  // *** Add App Router Gateway here - before heavy contextualizers ***
+  app.use(asyncMiddleware(appRouterGateway))
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)

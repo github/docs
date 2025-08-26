@@ -225,6 +225,8 @@ For issues, you can also use search to:
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`
 {% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issues-advanced-search %}
+* Filter for issues that have metadata: `has:label`
+* Filter for issues that are missing metadata: `no:project`
 * Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open type:issue org:github OR user:octocat`{% endif %}
 
 For pull requests, you can also use search to:

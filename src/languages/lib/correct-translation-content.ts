@@ -74,6 +74,25 @@ export function correctTranslatedContentStrings(
     content = content.replaceAll('{% необработанные %}', '{% raw %}')
     content = content.replaceAll('{% подсказки %}', '{% tip %}')
 
+    // Fix YAML quote issues in UI files. Specifically the disclaimer href attribute
+    // href="...}> -> href="...">
+    content = content.replace(/href="([^"]*)}>/g, 'href="$1">')
+
+    // Fix double quotes in Russian YAML files that cause parsing errors
+    // ""https:// -> "https://
+    content = content.replace(/href=""https:\/\//g, 'href="https://')
+
+    // Fix empty HTML tags that cause YAML parsing issues
+    content = content.replaceAll('<b></b>', '')
+    content = content.replaceAll('<u></u>', '')
+
+    // Fix specific Russian UI YAML issues causing 502 errors
+    // Remove empty bold tags from early_access notice
+    content = content.replace(/early_access:\s*"([^"]*)<b><\/b>([^"]*)"/, 'early_access: "$1$2"')
+
+    // Remove empty underline tags from privacy disclaimer
+    content = content.replace(/(privacy_disclaimer:[^<]*)<u><\/u>/g, '$1')
+
     // For the rather custom Russian translation of
     // the content/get-started/learning-about-github/github-glossary.md page
     // These string replacements speak for themselves.
@@ -89,6 +108,13 @@ export function correctTranslatedContentStrings(
     // Low-hanging fruit for the data tag
     content = content.replaceAll('{% データ variables', '{% data variables')
     content = content.replaceAll('{% データvariables', '{% data variables')
+
+    // Fix specific issue likely causing 502 errors
+    // Remove trailing quote from the problematic translation
+    content = content.replace(
+      /asked_too_many_times:\s*申し訳ありません。短い時間に質問が多すぎます。\s*しばらく待ってからもう一度やり直してください。"\s*$/gm,
+      'asked_too_many_times: 申し訳ありません。短い時間に質問が多すぎます。 しばらく待ってからもう一度やり直してください。',
+    )
 
     // Internal issue #4160
     content = content.replaceAll(

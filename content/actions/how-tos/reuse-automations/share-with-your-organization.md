@@ -11,6 +11,7 @@ redirect_from:
   - /actions/creating-actions/sharing-actions-and-workflows-with-your-organization
   - /actions/sharing-automations/sharing-actions-and-workflows-with-your-organization
   - /actions/how-tos/sharing-automations/sharing-actions-and-workflows-with-your-organization
+  - /actions/administering-github-actions/sharing-workflows-secrets-and-runners-with-your-organization
 ---
 
 > [!WARNING]

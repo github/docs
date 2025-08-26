@@ -11534,6 +11534,198 @@
       ]
     },
     {
+      "name": "BlockedByAddedEvent",
+      "kind": "objects",
+      "id": "blockedbyaddedevent",
+      "href": "/graphql/reference/objects#blockedbyaddedevent",
+      "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockingIssue",
+          "description": "<p>The blocking issue that was added.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockedByAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "BlockedByRemovedEvent",
+      "kind": "objects",
+      "id": "blockedbyremovedevent",
+      "href": "/graphql/reference/objects#blockedbyremovedevent",
+      "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockingIssue",
+          "description": "<p>The blocking issue that was removed.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockedByRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "BlockingAddedEvent",
+      "kind": "objects",
+      "id": "blockingaddedevent",
+      "href": "/graphql/reference/objects#blockingaddedevent",
+      "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockedIssue",
+          "description": "<p>The blocked issue that was added.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockingAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "BlockingRemovedEvent",
+      "kind": "objects",
+      "id": "blockingremovedevent",
+      "href": "/graphql/reference/objects#blockingremovedevent",
+      "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockedIssue",
+          "description": "<p>The blocked issue that was removed.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockingRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "Bot",
       "kind": "objects",
       "id": "bot",
@@ -95402,6 +95594,26 @@
           "href": "/graphql/reference/objects#assignedevent"
         },
         {
+          "name": "BlockedByAddedEvent",
+          "id": "blockedbyaddedevent",
+          "href": "/graphql/reference/objects#blockedbyaddedevent"
+        },
+        {
+          "name": "BlockedByRemovedEvent",
+          "id": "blockedbyremovedevent",
+          "href": "/graphql/reference/objects#blockedbyremovedevent"
+        },
+        {
+          "name": "BlockingAddedEvent",
+          "id": "blockingaddedevent",
+          "href": "/graphql/reference/objects#blockingaddedevent"
+        },
+        {
+          "name": "BlockingRemovedEvent",
+          "id": "blockingremovedevent",
+          "href": "/graphql/reference/objects#blockingremovedevent"
+        },
+        {
           "name": "ClosedEvent",
           "id": "closedevent",
           "href": "/graphql/reference/objects#closedevent"
@@ -96387,6 +96599,26 @@
           "name": "BaseRefForcePushedEvent",
           "id": "baserefforcepushedevent",
           "href": "/graphql/reference/objects#baserefforcepushedevent"
+        },
+        {
+          "name": "BlockedByAddedEvent",
+          "id": "blockedbyaddedevent",
+          "href": "/graphql/reference/objects#blockedbyaddedevent"
+        },
+        {
+          "name": "BlockedByRemovedEvent",
+          "id": "blockedbyremovedevent",
+          "href": "/graphql/reference/objects#blockedbyremovedevent"
+        },
+        {
+          "name": "BlockingAddedEvent",
+          "id": "blockingaddedevent",
+          "href": "/graphql/reference/objects#blockingaddedevent"
+        },
+        {
+          "name": "BlockingRemovedEvent",
+          "id": "blockingremovedevent",
+          "href": "/graphql/reference/objects#blockingremovedevent"
         },
         {
           "name": "ClosedEvent",

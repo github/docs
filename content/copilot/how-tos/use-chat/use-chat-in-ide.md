@@ -19,6 +19,10 @@ shortTitle: Use Chat in IDE
 contentType: how-tos
 ---
 
+## Introduction
+
+This guide describes how to use {% data variables.copilot.copilot_chat_short %} to ask questions about software development in your IDE. You can ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/about-github-copilot-chat).
+
 {% vscode %}
 
 ## Prerequisites

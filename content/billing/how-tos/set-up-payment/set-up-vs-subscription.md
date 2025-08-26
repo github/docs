@@ -16,6 +16,8 @@ shortTitle: Set up VS subscription
 contentType: how-tos
 ---
 
+> [!NOTE] Customers with a {% data variables.product.prodname_vs %} bundle can **switch to usage-based billing** for {% data variables.product.prodname_enterprise %} licenses. This allows you to pay for licenses on a flexible monthly cycle for users who are not part of your {% data variables.product.prodname_vs %} subscription. See [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses).
+
 {% data reusables.enterprise-accounts.vss-ghe-description %} See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise).
 
 ## Prerequisites
