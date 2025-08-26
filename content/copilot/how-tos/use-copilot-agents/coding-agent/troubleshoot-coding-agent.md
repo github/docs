@@ -106,6 +106,10 @@ If {% data variables.product.prodname_copilot_short %} tries to make a request w
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
+## {% data variables.product.prodname_copilot_short %} is not picking up attached screenshots
+
+The maximum image size allowed by {% data variables.copilot.copilot_coding_agent %} is 3.00 MiB. Images larger than this will be removed from the request.
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices)
