@@ -5,7 +5,6 @@ import { get } from 'lodash-es'
 
 import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
 import patterns from '@/frame/lib/patterns'
-import { pathLanguagePrefixed } from '@/languages/lib/languages'
 import FailBot from '@/observability/lib/failbot'
 import statsd from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
@@ -16,7 +15,6 @@ import { isConnectionDropped } from './halt-on-dropped-connection'
 import { nextHandleRequest } from './next'
 
 const STATSD_KEY_RENDER = 'middleware.render_page'
-const STATSD_KEY_404 = 'middleware.render_404'
 
 async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   const { context } = req
@@ -69,33 +67,10 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       )
     }
 
-    if (!pathLanguagePrefixed(req.path)) {
-      defaultCacheControl(res)
-      return res.status(404).type('html').send(minimumNotFoundHtml)
-    }
-
-    // For App Router migration: All language-prefixed 404s should use App Router
-    statsd.increment(STATSD_KEY_404, 1, [
-      `url:${req.url}`,
-      `path:${req.path}`,
-      `referer:${req.headers.referer || ''}`,
-    ])
-
+    // send minimal 404 at this point since we ran into hydration issues trying to pass
+    // these along to AppRouter 404 handling
     defaultCacheControl(res)
-
-    // Create a mock request that will be handled by App Router
-    const mockReq = Object.create(req)
-    mockReq.url = '/404'
-    mockReq.path = '/404'
-    mockReq.method = 'GET'
-
-    // Only pass pathname
-    res.setHeader('x-pathname', req.path)
-
-    // Import nextApp and handle directly
-    const { nextApp } = await import('./next')
-    res.status(404)
-    return nextApp.getRequestHandler()(mockReq, res)
+    return res.status(404).type('html').send(minimumNotFoundHtml)
   }
 
   // Just finish fast without all the details like Content-Length
