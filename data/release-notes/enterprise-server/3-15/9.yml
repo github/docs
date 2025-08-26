@@ -2,7 +2,7 @@ date: '2025-07-01'
 intro: |
   {% warning %}
 
-  **Warning**: We have received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17. Out of an abundance of caution, we recommend holding off on upgrading to these versions until further notice. [Updated: 2025-08-01]
+  **Warning**: We received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17 and have shipped performance fixes to the affected versions. You can now upgrade to 3.15.12, 3.16.8, 3.17.5, or later. We do not recommend upgrading to earlier releases of 3.15, 3.16, or 3.17. [Updated: 2025-08-25]
 
   {% endwarning %}
 sections:
