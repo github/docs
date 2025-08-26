@@ -7,6 +7,7 @@ redirect_from:
   - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
+  - /issues/tracking-your-work-with-issues/about-issues
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +18,7 @@ topics:
   - Project management
 ---
 
-You can create issues in your repository to plan, discuss, and track work. Issues are quick to create, flexible, and can be used in many ways. Issues can track bug reports, new features and ideas, and anything else you need to write down or discuss with your team. {% ifversion sub-issues %}You can also break your work down further by adding sub-issues and easily browse the full hierarchy of work to be done.{% endif %}
+You can create issues in your repository to plan, discuss, and track work. Issues are quick to create, flexible, and can be used in many ways. Issues can track bug reports, new features and ideas, and anything else you need to write down or discuss with your team, and you can use {% data variables.projects.projects_v2 %} to plan and track the work for your team. {% ifversion sub-issues %}You can also break your work down further by adding sub-issues and easily browse the full hierarchy of work to be done.{% endif %}
 
 Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion sub-issues %} while adding sub-issues,{% endif %} convert a comment in an issue or pull request, create an issue from a specific line of code, or via a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
@@ -43,7 +44,9 @@ You can define blocking relationships between issues using issue dependencies. I
 
 Issues integrate with your work all across {% data variables.product.github %}. Mentioning an issue in another issue or pull request will create references between them and using keywords, like `fixes:`, in your pull requests will automatically close the associated issues. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
 
-{% data variables.projects.projects_v2_caps %} is strongly integrated with issues. All your issue metadata is available in your projects, allowing you to create views and filters to represent your work. See [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+## Using {% data variables.projects.projects_v2_caps %} to plan and track your work
+
+{% data variables.projects.projects_v2_caps %} is strongly integrated with issues to plan and track the work for your team. All your issue metadata is available in your projects, allowing you to create views and filters to represent your work. See [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 ## Staying up to date
 
@@ -63,8 +66,30 @@ You can @mention collaborators who have access to your repository in an issue to
 {% ifversion fpt or ghec %} See [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users).
 {% endif %}
 
+## Metadata on issues
+
+You can add metadata to your issues, including {% ifversion issue-types %}issue types, {% endif %}labels and milestones to organize your issues.
+
+See {% ifversion issue-types %}[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization), {% endif %}[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+
+{% ifversion sub-issues %}
+
+## About sub-issues
+
+{% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
+
+{% endif %}
+
 ## Comparing issues and discussions
 
 Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see [AUTOTITLE](/get-started/using-github/communicating-on-github).
 
 When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.
+
+## Next steps
+
+Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
+
+* To learn about getting started using issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/quickstart).
+* To learn about the essentials for using GitHub's planning and tracking tools, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project).
+* To learn more about how projects can help you with planning and tracking, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects).

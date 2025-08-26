@@ -1,6 +1,6 @@
 ---
-title: Configuring issues
-intro: 'Learn how to configure your repository to start using issues.'
+title: Learning about issues
+intro: 'Learn about issues and how to make the best of this powerful tool.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,7 +8,7 @@ versions:
 topics:
   - Issues
 children:
+  - /about-issues
   - /quickstart
   - /planning-and-tracking-work-for-your-team-or-project
-  - /managing-issue-types-in-an-organization
 ---
