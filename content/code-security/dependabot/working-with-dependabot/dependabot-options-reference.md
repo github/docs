@@ -704,7 +704,7 @@ When `exclude-paths` is defined:
 
 Glob patterns are supported, such as `**` for recursive matching and `*` for single-segment wildcards. Patterns are relative to the `directory` specified for the update configuration. Each ecosystem can have its own `exclude-paths` settings.
 
-## Example
+### Example
 
 ```yaml copy
 version: 2
