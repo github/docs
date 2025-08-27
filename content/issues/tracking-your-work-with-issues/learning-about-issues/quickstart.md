@@ -98,6 +98,10 @@ Click **Submit new issue** to create your issue. You can edit any of the above f
 
 {% endif %}
 
+## Adding issue dependencies
+
+You can define blocking relationships between issues using issue dependencies. Issue dependencies let you identify issues that are blocked by, or blocking, other work. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
+
 ## Communicating
 
 After your issue is created, continue the conversation by adding comments to the issue. You can @mention collaborators or teams to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. For more information, see [AUTOTITLE](/get-started/writing-on-github).

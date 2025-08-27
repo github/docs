@@ -50,7 +50,7 @@ The [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme) Je
 1. Navigate to `_config.yml`.
 {% data reusables.repositories.edit-file %}
 1. Add a new line to the file for the theme name.
-   * To use a supported theme, type `theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the `_config.yml` of the theme's repository (most themes follow a `jekyll-theme-NAME` naming convention). For a list of supported themes, see [Supported themes](/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll#supported-themes) on the {% data variables.product.prodname_pages %} site. For example, to select the Minimal theme, type `theme: jekyll-theme-minimal`.
+   * To use a supported theme, type `theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the `_config.yml` of the theme's repository (most themes follow a `jekyll-theme-NAME` naming convention). For a list of supported themes, see [Supported themes](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll#supported-themes) on the {% data variables.product.prodname_pages %} site. For example, to select the Minimal theme, type `theme: jekyll-theme-minimal`.
    * To use any other Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, type `remote_theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

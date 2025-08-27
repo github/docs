@@ -113,7 +113,7 @@ Below is an example of a `front-end` label that we created and added to the issu
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." In the right sidebar, in the "Labels" section, the "front-end" label is applied.](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-### Showing which issues are blocked by, or blocking, other work
+## Showing which issues are blocked by, or blocking, other work
 
 By creating issue dependencies, you can easily see and communicate which issues are blocked by, or blocking, other issues. This helps streamline coordination, prevent bottlenecks and increase transparency across the team. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
 

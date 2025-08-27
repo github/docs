@@ -17,6 +17,7 @@ includeGuides:
   - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
   - /issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization
   - /issues/tracking-your-work-with-issues/using-issues/adding-sub-issues
+  - /issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies
   - /issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests
   - /issues/tracking-your-work-with-issues/using-issues/viewing-all-of-your-issues-and-pull-requests
   - /issues/using-labels-and-milestones-to-track-work/managing-labels
