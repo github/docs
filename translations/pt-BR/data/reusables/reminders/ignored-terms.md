@@ -1,1 +1,0 @@
-1. Em "Ignorados termos", digite uma lista de termos separados por vírgulas que podem aparecer em títulos de pull requests. Os lembretes agendados não incluirão quaisquer pull requests que contenham um ou mais destes termos nos seus títulos. ![Campo de termos ignorados](/assets/images/help/settings/scheduled-reminders-ignored-terms-field.png)

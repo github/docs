@@ -1,0 +1,7 @@
+# Variables used in Dependabot that are not product names
+
+auto_triage_rules: 'Dependabot auto-triage rules'
+auto_triage_rules_short: 'auto-triage rules'
+github_presets: 'GitHub presets'
+custom_rules_caps: 'Custom auto-triage rules'
+custom_rules: 'custom auto-triage rules'

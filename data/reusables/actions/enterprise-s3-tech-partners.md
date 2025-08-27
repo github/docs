@@ -1,0 +1,3 @@
+There are other S3 API-compatible storage products that {% data variables.product.prodname_dotcom %} partners have self-validated as working with {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}. For more information, see the [GHES Storage Partners](https://github.com/github-technology-partners/ghes-storage-partners) repository.
+
+For storage products validated through the {% data variables.product.prodname_dotcom %} Technology Partnership program, the storage provider is responsible for support and documentation for using the storage product with {% data variables.product.prodname_actions %}.

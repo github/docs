@@ -1,0 +1,1 @@
+>[!NOTE] If you're the granting the migrator role for {% data variables.enterprise.data_residency_site %}, you must also include the target API URL for your enterprise's subdomain. For example: `--target-api-url https://api.{% data variables.enterprise.data_residency_example_domain %}`.

@@ -1,1 +1,0 @@
-Você deve estar familiarizado com como os contêineres de serviço funcionam com {% data variables.product.prodname_actions %} e as diferenças de rede entre trabalhos em execução diretamente no executor ou em um contêiner. Para obter mais informações, consulte "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."

@@ -1,6 +1,0 @@
-| Tecla        | Tipo     | Descrição                                                                                                                                                                              |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Ação`       | `string` | A ação que foi executada. Isto pode ser: `created`, `reopened_by_user`, `closed_by_user`, `fixed`, `appeared_in_branch` ou `reopened`.                                                 |
-| `alerta`     | `objeto` | O alerta de varredura de código envolvido no evento.                                                                                                                                   |
-| `ref`        | `string` | A referência do Git do alerta de varredura de código. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty. |
-| `commit_oid` | `string` | O SHA de commit do alerta de varredura de código. When the action is `reopened_by_user` or `closed_by_user`, the event was triggered by the `sender` and this value will be empty.     |

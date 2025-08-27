@@ -1,1 +1,0 @@
-Se o seu site de projeto for publicado de um repositório privado ou interno pertencente a uma organização que usa {% data variables.product.prodname_ghe_cloud %}, você poderá gerenciar o controle de acesso para o site.

@@ -1,0 +1,1 @@
+To allow runners to download these actions, {% data variables.product.prodname_dotcom %} passes a scoped installation token to the runner. This token has read access to the repository, and automatically expires after one hour.

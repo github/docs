@@ -1,0 +1,5 @@
+# Reference #16278
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.15'

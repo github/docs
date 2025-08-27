@@ -1,0 +1,5 @@
+# Reference: #14635
+# Documentation for security configurations API
+versions:
+  fpt: '*'
+  ghec: '*'

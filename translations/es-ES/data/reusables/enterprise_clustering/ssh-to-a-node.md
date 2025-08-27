@@ -1,1 +1,0 @@
-1. Ingresa por SSH a cualquier nodo dentro de tu clúster. Para obtener más información, consulta "[Acceder al shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."

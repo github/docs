@@ -1,0 +1,6 @@
+# Issue 10175
+# Passkeys opt-in public beta
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'

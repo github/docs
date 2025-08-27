@@ -1,1 +1,0 @@
-1. 在{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} {% octicon "law" aria-label="The law icon" %} **Policies（政策）**{% else %}“{% octicon "gear" aria-label="The Settings gear" %} Settings（设置）”{% endif %} 下，单击 **Options（选项）**。 ![企业帐户设置侧边栏中的 Options（选项）选项卡](/assets/images/enterprise/business-accounts/settings-options-tab.png)

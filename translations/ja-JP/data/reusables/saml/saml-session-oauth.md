@@ -1,1 +1,0 @@
-SAML シングルサインオンを実施する Organization に所属している場合は、{% data variables.product.prodname_oauth_app %}を認可する前に、アイデンティティプロバイダを通じて認証を求められることがあります。 SAMLに関する詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」を参照してください。

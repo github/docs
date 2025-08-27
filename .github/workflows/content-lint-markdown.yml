@@ -1,0 +1,58 @@
+name: 'Content Lint Markdown'
+
+# **What it does**: Lints our content markdown to ensure the content matches the specified styleguide.
+# **Why we have it**: We want some level of consistency to our content markdown files.
+# **Who does it impact**: Docs content writers.
+
+on:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: The branch containing the changes we want to lint.
+        required: true
+        type: string
+        default: main
+permissions:
+  contents: read
+
+jobs:
+  lint-content:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Set up Node and dependencies
+        uses: ./.github/actions/node-npm-setup
+
+      - name: Get changed content/data files
+        id: changed_files
+        uses: ./.github/actions/get-changed-files
+        with:
+          files: |
+            content/**
+            data/**
+
+      - name: Print content linter annotations if changed content/data files
+        if: steps.changed_files.outputs.filtered_changed_files
+        env:
+          # Make it an environment variable so that its value doesn't need to be escaped.
+          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+          CHANGED_FILES: |-
+            ${{ steps.changed_files.outputs.filtered_changed_files }}
+        # If there are errors, using `--print-annotations` will make it
+        # so it does *not* exit non-zero.
+        # This is so that all warnings and errors are printed.
+        run: npm run lint-content -- --print-annotations --paths $CHANGED_FILES
+
+      - name: Run content linter if changed content/data files
+        if: steps.changed_files.outputs.filtered_changed_files
+        env:
+          # Make it an environment variable so that its value doesn't need to be escaped.
+          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
+          CHANGED_FILES: |-
+            ${{ steps.changed_files.outputs.filtered_changed_files }}
+        run: npm run lint-content -- --errors-only --paths $CHANGED_FILES

@@ -1,1 +1,0 @@
-Cada licencia de {% data variables.product.prodname_GH_advanced_security %} especifica una cantidad máxima de cuentas o de plazas que pueden utilizar estas características. Debes revisar de vez en cuando que tu uso esté dentro de la capacidad de tu licencia.

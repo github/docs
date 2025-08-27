@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %}が提供するサポートを利用する際には、<a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %}プライバシーに関する声明</a>及び<a href="/github/site-policy/github-supplemental-terms-for-microsoft-volume-licensing" class="dotcom-only">{% data variables.product.prodname_dotcom %}データ保護の補遺</a>が適用されます。

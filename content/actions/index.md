@@ -1,51 +1,42 @@
 ---
-title: GitHub Actions Documentation
-shortTitle: GitHub Actions
+title: '{% data variables.product.prodname_actions %} documentation'
+shortTitle: '{% data variables.product.prodname_actions %}'
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
-  quickstart: /actions/quickstart
-  reference: /actions/reference
+  overview: /actions/get-started/understand-github-actions
+  quickstart: /actions/get-started/quickstart
 featuredLinks:
-  guides:
-    - /actions/learn-github-actions
-    - /actions/guides/about-continuous-integration
-    - /actions/guides/about-packaging-with-github-actions
+  startHere:
+    - /actions/how-tos/write-workflows
+    - /actions/tutorials
+    - /actions/get-started/continuous-integration
+    - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
   guideCards:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-    - /actions/guides/publishing-nodejs-packages
-    - /actions/guides/building-and-testing-powershell
+    - /actions/how-tos/write-workflows/use-workflow-templates
+    - /actions/tutorials/publish-packages/publish-nodejs-packages
+    - /actions/tutorials/build-and-test-code/powershell
   popular:
-    - /actions/reference/workflow-syntax-for-github-actions
-    - /actions/learn-github-actions
-    - /actions/reference/events-that-trigger-workflows
-    - /actions/reference/context-and-expression-syntax-for-github-actions
-    - /actions/reference/environment-variables
-    - /actions/reference/encrypted-secrets
+    - /actions/reference/workflows-and-actions/workflow-syntax
+    - /actions/how-tos/write-workflows
 changelog:
   label: actions
-  prefix: 'GitHub Actions: '
-examples_source: data/product-examples/actions/code-examples.yml
-product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
-  - /articles/automating-your-workflow-with-github-actions/
-  - /articles/customizing-your-project-with-github-actions/
+  - /articles/automating-your-workflow-with-github-actions
+  - /articles/customizing-your-project-with-github-actions
   - /github/automating-your-workflow-with-github-actions
-  - /actions/automating-your-workflow-with-github-actions/
+  - /actions/automating-your-workflow-with-github-actions
   - /categories/automating-your-workflow-with-github-actions
   - /marketplace/actions
 layout: product-landing
 versions:
   fpt: '*'
-  ghes: '>=2.22'
-  ghae: '*'
+  ghes: '*'
+  ghec: '*'
 children:
-  - /quickstart
-  - /guides
-  - /learn-github-actions
-  - /managing-workflow-runs
-  - /creating-actions
-  - /using-github-hosted-runners
-  - /hosting-your-own-runners
+  - /get-started
+  - /concepts
+  - /how-tos
   - /reference
+  - /tutorials
 ---
 

@@ -1,0 +1,5 @@
+{
+    "extends": "../../../tsconfig.json",
+    "include": ["generate-code-scanning-query-list.ts"],
+    "exclude": ["node_modules"]
+}

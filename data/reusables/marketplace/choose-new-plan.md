@@ -1,2 +1,1 @@
-1. Under "Edit your plan," use the drop-down menu, and click on a new plan.
-  ![Drop-down menu listing all of the app's available plans](/assets/images/help/marketplace/marketplace-choose-new-plan.png)
+1. Under "Edit your plan," select the dropdown menu, then click a new plan.

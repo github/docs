@@ -1,1 +1,1 @@
-You can transfer ownership of a GitHub App to another user or organization.
+You can transfer ownership of a GitHub App registration to another user or organization.

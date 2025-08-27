@@ -1,0 +1,1 @@
+   ![Screenshot of a team's "Members" page. Above the list of team members, a dropdown menu, labeled "2 members selected", is outlined in dark orange.](/assets/images/help/teams/team-member-bulk-management.png)

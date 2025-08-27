@@ -1,1 +1,0 @@
-Você pode solicitar publicação com ou sem verificação. Solicitar a publicação sem verificação permite que você inicie uma versão gratuita do seu aplicativo rapidamente. Se você solicitar a publicação com a verificação, o seu anúncio será atualizado para incluir o selo do Marketplace e todos os planos de preços pagos quando você concluir a verificação e integração financeira.

@@ -1,1 +1,0 @@
-Confirma tu archivo de flujo de trabajo en la rama predeterminada de tu repositorio. Para obtener más información, consulta "[Crear nuevos archivos](/github/managing-files-in-a-repository/creating-new-files)."

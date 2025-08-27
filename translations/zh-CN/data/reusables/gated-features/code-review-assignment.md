@@ -1,1 +1,0 @@
-代码审查任务可用于 {% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.20+、{% if currentVersion == "github-ae@latest" %} {% data variables.product.prodname_ghe_managed %},{% endif %} 和 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。

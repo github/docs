@@ -1,1 +1,0 @@
-1. [Enforcement preferences] の下で、[**Restrict email notifications to domain email**] を選択します。 ![メール通知を検証済みドメインのメールに制限するためのチェックボックス](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)

@@ -1,1 +1,10 @@
-translations/
+data/release-notes/
+src/bookmarklets/
+/.next/
+
+/.coverage
+/coverage
+
+# Automated content source
+rest-api-description
+semmle-code

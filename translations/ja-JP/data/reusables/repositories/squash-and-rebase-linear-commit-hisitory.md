@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}直線状のコミット履歴を必要とする保護されたブランチのルールがリポジトリ中にあるなら、squashマージ、リベースマージ、あるいはその両方を許可しなければなりません。 詳しい情報については、「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)」を参照してください。{% endif %}

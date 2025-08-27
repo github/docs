@@ -1,0 +1,116 @@
+name: Sync Audit Log data
+
+# **What it does**: This updates our Audit Logs schema.
+# **Why we have it**: We want our Audit Logs up to date.
+# **Who does it impact**: Docs engineering, people reading Audit Logs.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  update-audit-log-files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Run updater script
+        env:
+          # need to use a token from a user with access to github/audit-log-allowlists for this step
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          npm run sync-audit-log
+
+      - name: Get the audit-log-allowlists SHA being synced
+        id: audit-log-allowlists
+        run: |
+          COMMIT_SHA=$(cat src/audit-logs/lib/config.json | jq -r '.sha')
+          echo "COMMIT_SHA=$COMMIT_SHA" >> $GITHUB_OUTPUT
+          echo "Commit SHA from audit-log-allowlists: $COMMIT_SHA"
+          if [ -z $COMMIT_SHA ]; then
+            echo "audit-log-allowlists commit SHA is empty!"
+            exit 1
+          fi
+
+      - name: Create and merge pull request
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: |
+          echo "Creating a new branch if needed..."
+          branchname=audit-logs-schema-update-${{ steps.audit-log-allowlists.outputs.COMMIT_SHA }}
+          remotesha=$(git ls-remote --heads origin $branchname)
+          if [ -n "$remotesha" ]; then
+            # output is not empty, it means the remote branch exists
+            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
+            exit 0
+          fi
+          git checkout -b $branchname
+          echo "Created a new branch $branchname"
+
+          echo "Preparing commit..."
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+          git add -A .
+          echo "Prepared commit"
+
+          echo "Check if there are changes..."
+          if git diff-index --cached --quiet HEAD -- . ':(exclude)src/audit-logs/lib/config.json'
+          then
+            echo "No real changes (only the SHA in config.json moved). Exiting…"
+            exit 0
+          fi
+          echo "Changes detected, proceeding"
+
+          echo "Creating commit..."
+          git commit -m "Add updated audit log event data"
+          echo "Created commit"
+
+          echo "Pushing commit..."
+          git push origin $branchname
+          echo "Pushed commit"
+
+          echo "Creating pull request..."
+          gh pr create \
+            --title "Update audit log event data" \
+            --body '👋 Docs First Responder. This PR updates the audit log event data with the latest changes, synced from github/audit-log-allowlists.
+            Make sure the PR builds successfully and there are no gross errors (for example, a file is deleted). You do not need to validate the contents (that is the responsibility of product teams).
+            If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
+            --repo github/docs-internal \
+            --label audit-log-pipeline,workflow-generated \
+            --head=$branchname
+          echo "Created pull request"
+
+          # can't approve your own PR, approve with Actions
+          echo "Approving pull request..."
+          unset GITHUB_TOKEN
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh pr review --approve
+          echo "Approved pull request"
+
+          # Actions can't merge the PR so back to docs-bot to merge the PR
+          echo "Setting pull request to auto merge..."
+          unset GITHUB_TOKEN
+          gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_BASE }}"
+          gh pr merge --auto
+          echo "Set pull request to auto merge"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -1,0 +1,4 @@
+prodname_vs_subscriber: '{% data variables.product.prodname_vs %} subscriber'
+prodname_vss_ghe: '{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}'
+prodname_vss_ghec: '{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_ghe_cloud %}'
+prodname_vss_admin_portal_with_url: 'the [administrator portal for {% data variables.product.prodname_vs %} subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'

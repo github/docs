@@ -1,1 +1,0 @@
-Cuando está habilitada la automatización de un tablero de proyecto, aparece una barra de progreso sobre el tablero de proyecto en la página con la lista de proyectos, en la barra lateral de propuestas y en las referencias al proyecto en otros tableros de proyecto.

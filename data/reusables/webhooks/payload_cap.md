@@ -1,0 +1,1 @@
+Payloads are capped at 25 MB. If an event generates a larger payload, {% data variables.product.company_short %} will not deliver a payload for that webhook event. This may happen, for example, on a `create` event if many branches or tags are pushed at once. We suggest monitoring your payload size to ensure delivery.

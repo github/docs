@@ -1,0 +1,36 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+.articleGrid {
+  display: grid;
+  gap: 1.5rem;
+
+  // Mobile: 1 column
+  grid-template-columns: 1fr;
+
+  // Tablet: 2 columns
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Desktop: 3 columns
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.articleCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardFooter {
+  margin-top: auto;
+}

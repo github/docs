@@ -1,0 +1,96 @@
+name: Sync GraphQL schema
+
+# **What it does**: This updates our GraphQL schemas.
+# **Why we have it**: We want our GraphQL docs up to date.
+# **Who does it impact**: Docs engineering, people reading GraphQL docs.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update_graphql_files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    outputs:
+      ignored-changes: ${{ steps.sync.outputs.ignored-changes }}
+      ignored-count: ${{ steps.sync.outputs.ignored-count }}
+      ignored-types: ${{ steps.sync.outputs.ignored-types }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: ./.github/actions/node-npm-setup
+      - name: Run updater scripts
+        id: sync
+        env:
+          # need to use a token from a user with access to github/github for this step
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: npm run sync-graphql
+      - name: Create pull request
+        id: create-pull-request
+        uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79 # pin @v7.0.3
+        env:
+          # Disable pre-commit hooks; they don't play nicely here
+          HUSKY: '0'
+        with:
+          # Need to use a token with repo and workflow scopes for this step.
+          # Token should be a PAT because actions performed with GITHUB_TOKEN
+          # don't trigger other workflows and this action force pushes updates
+          # from the default branch.
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          commit-message: 'Update GraphQL data files'
+          title: GraphQL schema update
+          body:
+            "Hello! Some GraphQL data in github/github was updated recently. This PR
+            syncs up the GraphQL data in this repo.\n\n
+            If CI passes, this PR will be auto-merged. :green_heart:\n\n
+            If CI does not pass or other problems arise, contact #docs-engineering on slack."
+          branch: graphql-schema-update
+
+      - name: Enable GitHub auto-merge
+        if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        run: npm run enable-automerge
+
+      - if: ${{ failure() }}
+        name: Delete remote branch (if previous steps failed)
+        run: git push origin --delete graphql-schema-update
+
+      - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
+        name: Approve
+        uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ steps.create-pull-request.outputs.pull-request-number }}
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  notify_ignored_changes:
+    if: github.repository == 'github/docs-internal' && needs.update_graphql_files.outputs.ignored-count > 0 && github.event_name != 'workflow_dispatch'
+    needs: update_graphql_files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: warning
+          message: |
+            ⚠️ GraphQL Sync found ${{ needs.update_graphql_files.outputs.ignored-count }} ignored change types: ${{ needs.update_graphql_files.outputs.ignored-types }}
+
+            These change types are not in CHANGES_TO_REPORT and were silently ignored. Consider reviewing if they should be added to the changelog.
+
+            See workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

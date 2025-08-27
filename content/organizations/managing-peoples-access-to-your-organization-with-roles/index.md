@@ -1,6 +1,6 @@
 ---
 title: Managing people's access to your organization with roles
-intro: 'A person''s role in your organization defines their level of access to your organization, its settings, and your data. You can make people owners, members, or billing managers for your organization, or you can give them team maintainer permissions.'
+intro: "You can control access to your organizations's settings by giving people organization roles."
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
@@ -8,16 +8,19 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
 children:
-  - /permission-levels-for-an-organization
+  - /roles-in-an-organization
+  - /using-organization-roles
+  - /about-custom-organization-roles
+  - /managing-custom-organization-roles
   - /maintaining-ownership-continuity-for-your-organization
-  - /giving-team-maintainer-permissions-to-an-organization-member
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
-shortTitle: Manage access with roles
+  - /managing-security-managers-in-your-organization
+  - /managing-moderators-in-your-organization
+shortTitle: Manage organization roles
 ---
-

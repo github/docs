@@ -1,1 +1,0 @@
-デプロイキーを使用して、{% data variables.product.product_name %}リポジトリからサーバーへプロジェクトを起動できます。デプロイキーは、単一のリポジトリへのアクセスを許可するSSHキーです。 {% data variables.product.product_name %}は個人ユーザアカウントの代わりに、リポジトリに直接キーのパブリックな部分をアタッチし、キーのプライベートな部分はサーバーに残ります。 詳しい情報については「[デプロイメントのデリバリー](/rest/guides/delivering-deployments)」を参照してください。

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  labels:
+    service: webapp
+  annotations:
+    moda.github.net/domain-name: 'docs-internal-%environment%.service.%region%.github.net'
+    # HTTP app reachable inside GitHub's network (employee website)
+    moda.github.net/load-balancer-type: internal-http
+spec:
+  ports:
+    - name: http
+      port: 4000
+      protocol: TCP
+      targetPort: http
+  selector:
+    app: webapp
+  type: LoadBalancer

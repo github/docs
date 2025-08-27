@@ -1,2 +1,3 @@
-1. Under your organization name, click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
-  ![Projects tab for your organization](/assets/images/help/organizations/organization-projects-tab.png)
+1. Under your organization name, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
+
+   ![Screenshot of the horizontal navigation bar for an organization. A tab, labeled with a table icon and "Projects," is outlined in dark orange.](/assets/images/help/organizations/organization-projects-tab-table.png)

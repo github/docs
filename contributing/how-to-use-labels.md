@@ -1,0 +1,1 @@
+The content in the `contributing` directory has been deprecated. See [Label reference](https://docs.github.com/en/contributing/collaborating-on-github-docs/label-reference) in the GitHub Docs for the maintained version of this content.

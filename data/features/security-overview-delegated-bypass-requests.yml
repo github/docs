@@ -1,0 +1,7 @@
+# Reference: #15792
+# Documentation for the bypass requests page for delegated bypass at the org-level (security overview)
+# Ref 17108 Advanced Security available to Team plans
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.15'

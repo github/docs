@@ -1,0 +1,1 @@
+A prebuild assembles the main components of a codespace for a particular combination of repository, branch, and `devcontainer.json` configuration file. It provides a quick way to create a new codespace. For complex and/or large repositories in particular, you can create a new codespace more quickly by using a prebuild.

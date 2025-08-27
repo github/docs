@@ -1,0 +1,1 @@
+As an organization owner in {% data variables.product.prodname_ghe_cloud %}, use the `GetOrgInfo` query to return the `ownerId`, also called the organization ID, for the organization you want to own the migrated repositories. You'll need the `ownerId` to identify your migration destination.

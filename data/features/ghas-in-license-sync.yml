@@ -1,0 +1,5 @@
+# Reference: #12566
+# GitHub Advanced Security license usage is included in license sync
+versions:
+  ghec: '*'
+  ghes: '>=3.12'

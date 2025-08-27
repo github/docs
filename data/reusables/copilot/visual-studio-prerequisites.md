@@ -1,0 +1,3 @@
+* **Compatible version of {% data variables.product.prodname_vs %}**. {% data reusables.copilot.visual-studio-version %}
+* **{% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vs %}**. {% data reusables.copilot.link-to-vs-install-docs %}
+* **Add your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}**. See [Add your {% data variables.product.prodname_dotcom %} accounts to your {% data variables.product.prodname_vs %} keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts) in the Microsoft documentation.

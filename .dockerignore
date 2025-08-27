@@ -1,0 +1,11 @@
+.devcontainer/
+.git/
+.github/
+.vscode/
+contributing/
+docs/
+node_modules/
+tests/
+# Folder is cloned during the Dockerfile build
+docs-early-access/
+README.md

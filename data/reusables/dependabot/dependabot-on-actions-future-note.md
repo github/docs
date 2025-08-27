@@ -1,0 +1,1 @@
+> [!NOTE] Future releases of {% data variables.product.prodname_dotcom %} will always run {% data variables.product.prodname_dependabot %} using {% data variables.product.prodname_actions %}, and you will no longer have the option to enable or disable this setting.

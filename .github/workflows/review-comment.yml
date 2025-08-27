@@ -1,0 +1,102 @@
+name: Review comment
+
+# **What it does**: When a PR is opened in docs-internal or docs containing code, it comments with instructions on how to deploy and review the changes. it adds the staging review and live article links in a Content Directory Changes table in a comment.
+# **Why we have it**: To help Docs contributors understand how to review their changes.
+# **Who does it impact**: docs-internal and docs maintainers and contributors
+
+on:
+  # Required in lieu of `pull_request` so that the comment can be posted to PRs opened from a fork.
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    paths-ignore:
+      - '.github/workflows/review-comment.yml'
+  # For reviewing changes to this workflow
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - '.github/workflows/review-comment.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }} x ${{ github.event_name }}'
+  cancel-in-progress: true
+
+jobs:
+  review-comment:
+    if: ${{ github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs') }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+    steps:
+      - name: check out repo content
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Set APP_URL
+        run: |
+          if [[ "${{ github.repository }}" == "github/docs-internal" ]]; then
+            echo "APP_URL=https://docs-internal-staging-TREE.githubapp.com/en" >> $GITHUB_ENV
+          elif [[ "${{ github.repository }}" == 'github/docs' ]]; then
+            echo "APP_URL=https://adjective-noun-hash-4000.app.github.dev" >> $GITHUB_ENV
+          fi
+      - name: Find code changes comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
+        id: findComment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- REVIEW_COMMENT -->'
+      - name: Get changes table
+        id: changes
+        timeout-minutes: 30
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APP_URL: ${{ env.APP_URL }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: npm run content-changes-table-comment
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- REVIEW_COMMENT -->
+            ### How to review these changes 👓
+
+            Thank you for your contribution. To review these changes, choose one of the following options:
+
+            * [Spin up a codespace][codespace]
+            * [Set up a local development environment][local]
+            ${{ github.repository == 'github/docs-internal' && '* [Deploy a staging server][staging]' || '' }}
+
+            ${{ fromJSON('["A Hubber will need to deploy your changes internally to review.",""]')[github.repository == 'github/docs-internal'] }}
+
+            <details><summary>Table of review links</summary>
+
+            **Note**: Please update the URL for your staging server or codespace.
+
+            ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on a staging server. Changes to the `data` directory are not included in this table.' || '' }}
+
+            ${{ steps.changes.outputs.changesTable || '_This pull request contains code changes, so we will not generate a table of review links._' }}
+
+            ${{ steps.changes.outputs.changesTable && 'Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server' || '' }}
+
+            </details>
+
+            🤖 This comment is [automatically generated][workflow].
+
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.workflow_sha }}/.github/workflows/review-comment.yml
+            [codespace]: ${{ github.repository == 'github/docs-internal' && 'https://github.com/github/docs-team/blob/main/contributing-to-docs/tips-and-tricks/use-a-codespace-to-review.md' || 'https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace' }}
+            [local]: https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment
+            [staging]: https://github.com/github/docs-team/blob/main/contributing-to-docs/tips-and-tricks/deploying-pr-to-staging-servers.md

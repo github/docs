@@ -1,1 +1,0 @@
-Quando você aplicar novamente, envie uma imagem diferente da que você incluiu na sua primeira candidatura. Certifique-se de que pelo menos uma data que demonstre o seu status acadêmico atual seja claramente visível.

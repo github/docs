@@ -1,1 +1,0 @@
-Habilitar um limite de interação para um repositório restringe certos usuários de comentar, abrir problemas, criar pull requests, reagir com emojis, editar comentários existentes e editar títulos de problemas e pull requests.

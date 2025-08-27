@@ -1,1 +1,0 @@
-{% data variables.product.company_short %} recomienda una instancia con memoria optimizada para {% data variables.product.prodname_ghe_server %}. Para obtener más información, consulta la sección de [Tipos de instancia EC2 de Amazon](https://aws.amazon.com/ec2/instance-types/#Memory_Optimized) en el sitio web de Amazon EC2.

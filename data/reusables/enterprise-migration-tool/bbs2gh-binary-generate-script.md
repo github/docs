@@ -1,0 +1,1 @@
+If you downloaded {% data variables.product.prodname_bbs2gh %} as a standalone binary rather than as an extension for the {% data variables.product.prodname_cli %}, you will need to update your generated script to run the binary instead of `gh bbs2gh`.

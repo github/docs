@@ -1,4 +1,0 @@
-- **Fallo de software**, ya sea debido a una falla en el sistema operativo o a aplicaciones irrecuperables.
-- **Fallas del hardware**, incluido el hardware de almacenamiento, la CPU, la RAM, las interfaces de red, etc.
-- **Fallas del sistema host de virtualización**, incluidos los eventos no planeados y [de mantenimiento programado en AWS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html).
-- **Red cortada lógica o físicamente**, si el error de las aplicación está en una red separada no se ve impactada por la falla.

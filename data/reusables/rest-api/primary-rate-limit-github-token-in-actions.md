@@ -1,0 +1,1 @@
+The rate limit for `GITHUB_TOKEN` is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to a {% data variables.product.prodname_ghe_cloud %} account, the limit is 15,000 requests per hour per repository.{% endif %}

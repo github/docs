@@ -1,1 +1,0 @@
-1. あるいは、サイトに対してHTTPS暗号化を強制したい場合は、**Enforce HTTPS（HTTPSを強制）**を選択してください。 このオプションが利用できるようになるには、最大で24時間かかります。 詳しい情報については[HTTPSで{% data variables.product.prodname_pages %}サイトをセキュアにする](/articles/securing-your-github-pages-site-with-https)を参照してください。 ![カスタムドメインのHTTPS強制オプション](/assets/images/help/pages/enforce-https-custom-domains.png)

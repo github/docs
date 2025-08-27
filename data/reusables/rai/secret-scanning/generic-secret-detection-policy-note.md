@@ -1,0 +1,1 @@
+For users with {% data variables.product.prodname_ghe_cloud %}, an enterprise owner must first set a policy at the enterprise level that controls whether {% data variables.secret-scanning.generic-secret-detection %} can be enabled and disabled for repositories in an organization. This policy is set to "allowed" by default.

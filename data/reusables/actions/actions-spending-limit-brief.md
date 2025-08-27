@@ -1,0 +1,1 @@
+Monthly-billed customers may have budgets that prevent additional usage of minutes or storage for private repositories beyond the quota included with your account. Invoice-billed customers typically have unlimited spending. Check your account's budgets to ensure they are appropriate for your usage needs. See [AUTOTITLE](/billing/tutorials/set-up-budgets#viewing-budgets).

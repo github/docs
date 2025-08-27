@@ -1,1 +1,1 @@
-1. Click the {% ifversion fpt %}**Runners**{% else %}**Self-hosted runners**{% endif %} tab.
+1. Click the **Runners** tab.

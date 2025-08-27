@@ -1,0 +1,5 @@
+# Reference: #49724
+
+versions:
+  ghec: '*'
+  ghes: '>=3.13'

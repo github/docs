@@ -1,7 +1,0 @@
----
-gist_homepage: >-
-  {% if currentVersion == "free-pro-team@latest" %}[página principal del gist](https://gist.github.com/){% elsif currentVersion == "github-ae@latest" %}página principal del gist, `http(s)://gist.[hostname)`,{% else %}página principal del gist, `http(s)://[hostname]/gist` o `http(s)://gist.[hostname]` si se habilitan los subdominios{% endif %}
-gist_search_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Búsqueda de Gists](https://gist.github.com/search){% elsif currentVersion == "github-ae@latest" %}Búsqueda de Gists, `http(s)://gist.[hostname]/search`,{% else %}Búsqueda de Gists, `http(s)://[hostname]/gist/search` o `http(s)://gist.[hostname]/search` si se habilitaron los subdominios{% endif %}
-discover_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% elsif currentVersion == "github-ae@latest" %}Descubre, `http(s)://gist.[hostname]/discover`,{% else %}Descubre, `http(s)://[hostname]/gist/discover` o `http(s)://gist.[hostname]/discover` si se habilitaron los subdominios{% endif %}

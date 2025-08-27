@@ -1,1 +1,0 @@
-1. Debajo de "Individuos", da clic en **Obtén beneficios de docente**. !["Obtén beneficios de docente" en la página principal de {% data variables.product.prodname_education %}](/assets/images/help/education/click-get-teacher-benefits.png)

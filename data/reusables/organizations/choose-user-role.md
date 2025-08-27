@@ -1,1 +1,1 @@
-1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose a role for the user. ![Options to make the user a member or owner](/assets/images/help/organizations/choose-new-member-role.png)
+1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, under "Role in the organization," select an organization role for the user.

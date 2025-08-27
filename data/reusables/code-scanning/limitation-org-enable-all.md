@@ -1,0 +1,1 @@
+If you disable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for all repositories this change is not reflected in the coverage information shown in security overview for the organization. The repositories will still appear to have {% data variables.product.prodname_code_scanning %} enabled in the "Security Coverage" view.

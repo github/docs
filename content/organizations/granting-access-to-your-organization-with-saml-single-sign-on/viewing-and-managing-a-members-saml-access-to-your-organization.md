@@ -2,13 +2,12 @@
 title: Viewing and managing a member's SAML access to your organization
 intro: 'You can view and revoke an organization member''s linked identity, active sessions, and authorized credentials.'
 permissions: Organization owners can view and manage a member's SAML access to an organization.
-product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-revoking-organization-members-authorized-access-tokens
   - /github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization
 versions:
-  fpt: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -17,7 +16,7 @@ shortTitle: Manage SAML access
 
 ## About SAML access to your organization
 
-When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing {% data variables.product.product_name %} account. To access your organization's resources on {% data variables.product.product_name %}, the member must have an active SAML session in their browser. To access your organization's resources using the API or Git, the member must use a personal access token or SSH key that the member has authorized for use with your organization.
+When you enable SAML single sign-on for your organization, each organization member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.github %}. To access your organization's resources on {% data variables.product.github %}, the member must have an active SAML session in their browser. To access your organization's resources using the API or Git, the member must use a {% data variables.product.pat_generic %} or SSH key that the member has authorized for use with your organization.
 
 You can view and revoke each member's linked identity, active sessions, and authorized credentials on the same page.
 
@@ -25,10 +24,18 @@ You can view and revoke each member's linked identity, active sessions, and auth
 
 {% data reusables.saml.about-linked-identities %}
 
+When available, the entry will include SCIM data. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations).
+
+> [!WARNING]
+> For organizations using SCIM:
+> * Revoking a linked user identity on {% data variables.product.github %} will also remove the SAML and SCIM metadata. As a result, the identity provider will not be able to synchronize or deprovision the linked user identity.
+> * An admin must revoke a linked identity through the identity provider.
+> * To revoke a linked identity and link a different account through the identity provider, an admin can remove and re-assign the user to the {% data variables.product.prodname_ghe_cloud %} application. For more information, see your identity provider's documentation.
+
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-identity %}
 {% data reusables.saml.saml-identity-linked %}
@@ -39,7 +46,7 @@ You can view and revoke each member's linked identity, active sessions, and auth
 ## Viewing and revoking an active SAML session
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-session %}
 {% data reusables.saml.saml-identity-linked %}
@@ -51,7 +58,7 @@ You can view and revoke each member's linked identity, active sessions, and auth
 {% data reusables.saml.about-authorized-credentials %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.saml.click-person-revoke-credentials %}
 {% data reusables.saml.saml-identity-linked %}
@@ -61,5 +68,5 @@ You can view and revoke each member's linked identity, active sessions, and auth
 
 ## Further reading
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Viewing and managing a user's SAML access to your enterprise account](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)"
+* [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)
+* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)

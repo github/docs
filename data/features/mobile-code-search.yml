@@ -1,0 +1,5 @@
+# Reference: #12074
+# Documentation for GitHub Code Search on GitHub Mobile GA
+versions:
+  fpt: '*'
+  ghec: '*'

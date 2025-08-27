@@ -1,0 +1,1 @@
+You must ensure that client systems trust {% data variables.product.company_short %}'s SSH key fingerprints and can access certain hostnames and IP addresses. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom).

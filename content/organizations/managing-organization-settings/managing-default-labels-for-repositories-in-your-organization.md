@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -22,13 +22,8 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
-5. Under "Repository labels", click **New label**.
-  ![New label button](/assets/images/help/organizations/new-label-button.png)
+1. Under "Repository labels", click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
@@ -38,11 +33,8 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 {% data reusables.project-management.edit-label %}
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
@@ -53,14 +45,11 @@ Default labels are included in every new repository in your organization, but an
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghes > 2.22 or ghae %}
 {% data reusables.organizations.repository-defaults %}
-{% else %}
-{% data reusables.organizations.repository-labels %}
-{% endif %}
+
 {% data reusables.project-management.delete-label %}
 {% data reusables.project-management.confirm-label-deletion %}
 
 ## Further reading
 
-- "[About labels](/articles/about-labels)"
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)

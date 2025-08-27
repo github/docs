@@ -1,4 +1,1 @@
-you must already have a {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} account.
-
-- For more information on creating a {% data variables.product.prodname_dotcom %} account, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account/)".
-- For a {% data variables.product.prodname_enterprise %} account, contact your {% data variables.product.prodname_enterprise %} site administrator.
+you must already have an account on {% data variables.product.github %}.{% ifversion fpt or ghec %} For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.prodname_ghe_server %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}

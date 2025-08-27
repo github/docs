@@ -1,0 +1,1 @@
+| Unified contributions | Allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_ghe_cloud %}. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise) |

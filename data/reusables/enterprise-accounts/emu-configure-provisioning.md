@@ -1,0 +1,1 @@
+After you configure authentication, you can configure SCIM provisioning, which is how your IdP will create {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.github %}. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).

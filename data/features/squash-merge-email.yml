@@ -1,0 +1,5 @@
+# Reference: #7932
+# Show/choose commit author email address when squash merging a pull request
+versions:
+  fpt: '*'
+  ghec: '*'

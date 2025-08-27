@@ -1,1 +1,0 @@
-Os patrocínios geralmente não são tributáveis, mas podem ser em alguns casos. É responsabilidade do colaborador de código aberto patrocinado — não de {% data variables.product.prodname_dotcom %}—informar aos patrocinadores se as contribuições estão sendo feitas para uma entidade isenta de imposto, como uma entidade 501(c)(3) e se os patrocínios podem ser tributáveis.

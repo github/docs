@@ -1,0 +1,4 @@
+# Adding new OIDC claim - enterprise_id
+versions:
+  ghec: '*'
+  ghes: '>=3.12'

@@ -1,0 +1,62 @@
+name: Reviewers - Legal
+
+# **What it does**: Enforces reviews of Responsible AI (RAI) content by the GitHub legal team. Because RAI content can live anywhere in the content directory, it becomes a maintenance problem to use CODEOWNERS to enforce review on each article.
+# **Why we have it**: RAI content must be reviewed by the GitHub legal team.
+# **Who does it impact**: Content writers and the GitHub legal team.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - 'content/**'
+      - .github/workflows/reviewers-legal.yml
+
+permissions:
+  contents: read
+  pull-requests: write
+  repository-projects: read
+
+jobs:
+  reviewers-legal:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'reviewers-legal') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Get changed files
+        id: changed_files
+        uses: ./.github/actions/get-changed-files
+        with:
+          files: 'content/**'
+
+      - name: Set up Node and dependencies
+        if: steps.changed_files.outputs.filtered_changed_files
+        uses: ./.github/actions/node-npm-setup
+
+      - name: Check content type
+        if: steps.changed_files.outputs.filtered_changed_files
+        id: checkContentType
+        run: npm run check-content-type
+        env:
+          CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.filtered_changed_files }}
+          CONTENT_TYPE: 'rai'
+
+      - name: Add legal as a reviewer
+        if: steps.checkContentType.outputs.containsContentType == 'true'
+        uses: ./.github/actions/retry-command
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          PR: ${{ github.event.pull_request.html_url }}
+        with:
+          command: gh pr edit $PR --add-reviewer github/legal-product --add-label reviewers-legal

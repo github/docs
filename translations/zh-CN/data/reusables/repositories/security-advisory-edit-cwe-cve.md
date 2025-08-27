@@ -1,2 +1,0 @@
-1. 为本安全通告解决的各种安全漏洞添加常见弱点枚举 (CWE)。 有关 CWE 的完整列表，请参阅 MITRE 中的“[常见弱点列举](https://cwe.mitre.org/index.html)”。
-1. 如果您有现有的 CVE 标识符，请选择“I have an existing CVE identifier（我有现有的 CVE 标识符）”，并在文本框中键入 CVE 标识符。 否则，您可以稍后从 {% data variables.product.prodname_dotcom %} 请求 CVE。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)”。

@@ -1,0 +1,1 @@
+This workflow uses actions that are not certified by {% data variables.product.prodname_dotcom %}. They are provided by a third-party and are governed by separate terms of service, privacy policy, and support documentation.

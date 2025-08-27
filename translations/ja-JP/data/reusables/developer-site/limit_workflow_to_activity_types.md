@@ -1,1 +1,0 @@
-デフォルトでは、すべての種類のアクティビティがワークフローを実行させます。 ` types`キーワードを使って、ワークフローが実行されるのを特定の種類のアクティビティに限定できます。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。

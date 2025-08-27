@@ -1,35 +1,74 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// -
 {
-	"name": "docs.github.com",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { "VARIANT": "16" }
-	},
+  "name": "docs.github.com",
+  "build": {
+    "dockerfile": "Dockerfile",
+    // Update 'VARIANT' to pick a Node version
+    "args": { "VARIANT": "22" }
+  },
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en"
-	},
+  // Install features. Type 'feature' in the VS Code command palette for a full list.
+  "features": {
+    "sshd": "latest",
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
 
-	// Visual Studio Code extensions which help authoring for docs.github.com.
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"sissel.shopify-liquid",
-		"davidanson.vscode-markdownlint",
-		"bierner.markdown-preview-github-styles",
-		"yzhang.markdown-all-in-one",
-		"streetsidesoftware.code-spell-checker"
-	],
+  "customizations": {
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "cSpell.language": ",en",
+        "git.autofetch": true
+      },
+      // Visual Studio Code extensions which help authoring for docs.github.com.
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "sissel.shopify-liquid",
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-preview-github-styles",
+        "streetsidesoftware.code-spell-checker",
+        "alistairchristie.open-reusables",
+        "AlistairChristie.version-identifier",
+        "peterbe.ghdocs-goer",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    },
+    "codespaces": {
+      "repositories": {
+        // allow Codespaces to pull from separate repo when user has access
+        "github/docs-early-access": {
+          "permissions": {
+            "contents": "write"
+          }
+        }
+      }
+    }
+  },
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [4000],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	 "postCreateCommand": "npm ci && npm run build",
+  "portsAttributes": {
+    "4000": {
+      "label": "Review"
+    }
+  },
 
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+  // Lifecycle commands
+  "onCreateCommand": "npm ci",
+  "postStartCommand": "nohup bash -c 'npm start &'",
+  // Set the port to be public
+  "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node",
+
+  "hostRequirements": {
+    "memory": "16gb",
+    "cpus": "4"
+  }
 }

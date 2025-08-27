@@ -1,1 +1,0 @@
-1. No canto superior direito de qualquer página, use o menu suspenso {% octicon "plus" aria-label="Plus symbol" %} e selecione **Novo repositório**. ![Menu suspenso com a opção de criar um novo repositório](/assets/images/help/repository/repo-create.png)

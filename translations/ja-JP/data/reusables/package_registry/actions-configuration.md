@@ -1,1 +1,0 @@
-パッケージのクライアントによって、設定のステップは様々です。 {% data variables.product.prodname_actions %}のワークフローの設定に関する一般的な情報については、「[ワークフローの設定](/github/automating-your-workflow-with-github-actions/configuring-a-workflow)」を参照してください。

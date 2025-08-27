@@ -1,0 +1,14 @@
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+.payloadExample {
+  margin-bottom: 1rem;
+  line-height: 1.45;
+  background-color: var(--color-canvas-subtle);
+  font-size: 90%;
+
+  code {
+    background-color: transparent;
+    padding: 8px 8px 16px;
+  }
+}

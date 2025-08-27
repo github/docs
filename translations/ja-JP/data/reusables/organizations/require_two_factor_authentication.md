@@ -1,1 +1,0 @@
-1. "Authentication（認証）"の下で、**Require two-factor authentication for everyone in your organization（Organization内の全員に2要素認証を必須とする）**を選択し、**Save（保存）**をクリックしてください。 ![2FA必須のチェックボックス](/assets/images/help/organizations/require-2fa-checkbox.png)

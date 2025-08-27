@@ -1,0 +1,45 @@
+name: 'Check article-api docs'
+
+# **What it does**: Makes sure changes to the article api are documented.
+# **Why we have it**: So what's documented doesn't fall behind
+# **Who does it impact**: Docs engineering, CGS team
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/article-api/middleware/article.ts'
+      - 'src/article-api/middleware/pagelist.ts'
+      # Self-test
+      - .github/workflows/article-api-docs.yml
+
+permissions:
+  contents: read
+
+jobs:
+  check-content-linter-rules-docs:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Check that src/article-api/README.md is up-to-date
+        run: npm run generate-article-api-docs
+
+      - name: Fail if it isn't up-to-date
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git status
+            git diff
+
+            # Some whitespace for the sake of the message below
+            echo ""
+            echo ""
+
+            echo "src/article-api/README.md is out of date."
+            echo "Please run 'npm run generate-article-api-docs' and commit the changes."
+            exit 1;
+          fi

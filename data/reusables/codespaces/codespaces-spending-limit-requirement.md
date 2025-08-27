@@ -1,0 +1,1 @@
+Accounts may have spending limits that prevent new codespaces being created, or existing codespaces being opened, if doing so would incur a billable cost to your personal, organization, or enterprise account. Check your account's budgets to ensure they are appropriate for your usage needs. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).

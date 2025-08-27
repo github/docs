@@ -1,1 +1,0 @@
-Você pode usar a ação `setup-node` para criar um arquivo local *.npmrc* no executor que configura o escopo e registro padrão. A ação `setup-node` também aceita um token de autenticação como entrada, usada para acessar registros privados ou publicar pacotes de nós. Para obter mais informações, consulte [`setup-node`](https://github.com/actions/setup-node/).

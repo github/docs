@@ -1,2 +1,1 @@
-1. Type a description of the security vulnerability.
-  ![Security advisory vulnerability description](/assets/images/help/security/security-advisory-description.png)
+1. In the **Description** field, type a description of the security vulnerability including its impact, any patches or workarounds available, and any references.
