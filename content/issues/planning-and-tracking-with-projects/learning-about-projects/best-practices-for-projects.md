@@ -25,10 +25,6 @@ Issues and pull requests include built-in features to let you easily communicate
 
 Breaking a large issue into smaller issues makes the work more manageable and enables team members to work in parallel. It also leads to smaller pull requests, which are easier to review.
 
-To ensure efficient progress, clearly define which issues are blocked by, or blocking, other issues. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
-
-To track how smaller issues fit into the larger goal, use milestones or labels. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels).
-
 {% ifversion sub-issues %}
 
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
@@ -40,6 +36,10 @@ You can also use issue types to classify work in repositories across the organiz
 {% endif %}
 
 {% endif %}
+
+To ensure efficient progress, clearly define which issues are blocked by, or blocking, other issues. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
+
+To track how smaller issues fit into the larger goal, use milestones or labels. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels).
 
 ## Make use of the description, README, and status updates to share information about a project
 

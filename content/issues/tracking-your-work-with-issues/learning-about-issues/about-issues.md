@@ -40,6 +40,12 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 You can define blocking relationships between issues using issue dependencies. Issue dependencies let you identify issues that are blocked by, or blocking, other work. See [AUTOTITLE](/free-pro-team@latest/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies).
 
+## Metadata on issues
+
+You can add metadata to your issues, including {% ifversion issue-types %}issue types, {% endif %}labels and milestones to organize your issues.
+
+See {% ifversion issue-types %}[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization), {% endif %}[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+
 ## About integration with {% data variables.product.github %}
 
 Issues integrate with your work all across {% data variables.product.github %}. Mentioning an issue in another issue or pull request will create references between them and using keywords, like `fixes:`, in your pull requests will automatically close the associated issues. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue).
@@ -64,20 +70,6 @@ To help contributors open meaningful issues that provide the information that yo
 
 You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
 {% ifversion fpt or ghec %} See [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users).
-{% endif %}
-
-## Metadata on issues
-
-You can add metadata to your issues, including {% ifversion issue-types %}issue types, {% endif %}labels and milestones to organize your issues.
-
-See {% ifversion issue-types %}[AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization), {% endif %}[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
-
-{% ifversion sub-issues %}
-
-## About sub-issues
-
-{% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
-
 {% endif %}
 
 ## Comparing issues and discussions
