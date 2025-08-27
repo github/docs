@@ -20,8 +20,6 @@ topics:
 
 You can generate the {% data variables.product.prodname_secret_risk_assessment %} report for your organization, review it, and export the results to CSV.
 
-{% data reusables.secret-risk-assessment.public-preview-note %}
-
 ## Generating an initial {% data variables.product.prodname_secret_risk_assessment %}
 
 {% data reusables.organizations.navigate-to-org %}
