@@ -917,7 +917,7 @@
         "subcategory": "push-protection",
         "verb": "get",
         "requestPath": "/orgs/{org}/secret-scanning/pattern-configurations",
-        "access": "write",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false

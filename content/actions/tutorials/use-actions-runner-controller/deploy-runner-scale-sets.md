@@ -415,14 +415,14 @@ template:
 You can customize the PodSpec of the listener pod and the controller will apply the configuration you specify. The following is an example pod specification.
 
 > [!NOTE]
-> It's important to not change the `listenerTemplate.spec.containers.name` value of the listener container. Otherwise, the configuration you specify will be applied to a new side-car container.
+> It's important to not change the `listenerTemplate.spec.containers.name` value of the listener container. Otherwise, the configuration you specify will be applied to a new sidecar container.
 
 ```yaml
 listenerTemplate:
   spec:
     containers:
     # If you change the name of the container, the configuration will not be applied to the listener,
-    # and it will be treated as a side-car container.
+    # and it will be treated as a sidecar container.
     - name: listener
       securityContext:
         runAsUser: 1000
@@ -467,6 +467,70 @@ containerMode:
 ```
 
 The `template.spec` will be updated to the following default configuration.
+
+For versions of Kubernetes `>= v1.29`, sidecar container will be used to run docker daemon.
+
+```yaml
+template:
+  spec:
+    initContainers:
+      - name: init-dind-externals
+        image: ghcr.io/actions/actions-runner:latest
+        command: ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+        volumeMounts:
+          - name: dind-externals
+            mountPath: /home/runner/tmpDir
+      - name: dind
+        image: docker:dind
+        args:
+          - dockerd
+          - --host=unix:///var/run/docker.sock
+          - --group=$(DOCKER_GROUP_GID)
+        env:
+          - name: DOCKER_GROUP_GID
+            value: "123"
+        securityContext:
+          privileged: true
+        restartPolicy: Always
+        startupProbe:
+          exec:
+            command:
+              - docker
+              - info
+          initialDelaySeconds: 0
+          failureThreshold: 24
+          periodSeconds: 5
+        volumeMounts:
+          - name: work
+            mountPath: /home/runner/_work
+          - name: dind-sock
+            mountPath: /var/run
+          - name: dind-externals
+            mountPath: /home/runner/externals
+    containers:
+      - name: runner
+        image: ghcr.io/actions/actions-runner:latest
+        command: ["/home/runner/run.sh"]
+        env:
+          - name: DOCKER_HOST
+            value: unix:///var/run/docker.sock
+          - name: RUNNER_WAIT_FOR_DOCKER_IN_SECONDS
+            value: "120"
+        volumeMounts:
+          - name: work
+            mountPath: /home/runner/_work
+          - name: dind-sock
+            mountPath: /var/run
+    volumes:
+      - name: work
+        emptyDir: {}
+      - name: dind-sock
+        emptyDir: {}
+      - name: dind-externals
+        emptyDir: {}
+```
+
+For versions of Kubernetes `< v1.29`, the following configuration will be applied:
 
 ```yaml
 template:
@@ -592,6 +656,122 @@ To customize the spec, comment out or remove `containerMode`, and append the con
 Before deciding to run `dind-rootless`, make sure you are aware of [known limitations](https://docs.docker.com/engine/security/rootless/#known-limitations).
 {% ifversion not ghes %}
 
+For versions of Kubernetes >= v1.29, sidecar container will be used to run docker daemon.
+
+```yaml
+## githubConfigUrl is the GitHub url for where you want to configure runners
+## ex: https://github.com/myorg/myrepo or https://github.com/myorg
+githubConfigUrl: "https://github.com/actions/actions-runner-controller"
+
+## githubConfigSecret is the k8s secrets to use when auth with GitHub API.
+## You can choose to use GitHub App or a PAT token
+githubConfigSecret: my-super-safe-secret
+
+## maxRunners is the max number of runners the autoscaling runner set will scale up to.
+maxRunners: 5
+
+## minRunners is the min number of idle runners. The target number of runners created will be
+## calculated as a sum of minRunners and the number of jobs assigned to the scale set.
+minRunners: 0
+
+runnerGroup: "my-custom-runner-group"
+
+## name of the runner scale set to create. Defaults to the helm release name
+runnerScaleSetName: "my-awesome-scale-set"
+
+## template is the PodSpec for each runner Pod
+## For reference: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodSpec
+template:
+  spec:
+    initContainers:
+    - name: init-dind-externals
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+      volumeMounts:
+        - name: dind-externals
+          mountPath: /home/runner/tmpDir
+    - name: init-dind-rootless
+      image: docker:dind-rootless
+      command:
+        - sh
+        - -c
+        - |
+          set -x
+          cp -a /etc/. /dind-etc/
+          echo 'runner:x:1001:1001:runner:/home/runner:/bin/ash' >> /dind-etc/passwd
+          echo 'runner:x:1001:' >> /dind-etc/group
+          echo 'runner:100000:65536' >> /dind-etc/subgid
+          echo 'runner:100000:65536' >> /dind-etc/subuid
+          chmod 755 /dind-etc;
+          chmod u=rwx,g=rx+s,o=rx /dind-home
+          chown 1001:1001 /dind-home
+      securityContext:
+        runAsUser: 0
+      volumeMounts:
+        - mountPath: /dind-etc
+          name: dind-etc
+        - mountPath: /dind-home
+          name: dind-home
+    - name: dind
+      image: docker:dind-rootless
+      args:
+        - dockerd
+        - --host=unix:///run/user/1001/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      restartPolicy: Always
+      startupProbe:
+        exec:
+          command:
+            - docker
+            - info
+        initialDelaySeconds: 0
+        failureThreshold: 24
+        periodSeconds: 5
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /run/user/1001
+        - name: dind-externals
+          mountPath: /home/runner/externals
+        - name: dind-etc
+          mountPath: /etc
+        - name: dind-home
+          mountPath: /home/runner
+    containers:
+    - name: runner
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
+      env:
+        - name: DOCKER_HOST
+          value: unix:///run/user/1001/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /run/user/1001
+    volumes:
+    - name: work
+      emptyDir: {}
+    - name: dind-externals
+      emptyDir: {}
+    - name: dind-sock
+      emptyDir: {}
+    - name: dind-etc
+      emptyDir: {}
+    - name: dind-home
+      emptyDir: {}
+```
+
+For versions of Kubernetes `< v1.29`, the following configuration will be applied:
+
 ```yaml
 ## githubConfigUrl is the GitHub url for where you want to configure runners
 ## ex: https://github.com/myorg/myrepo or https://github.com/myorg
@@ -697,6 +877,125 @@ template:
 
 {% endif %}
 {% ifversion ghes %}
+
+For versions of Kubernetes `>= v1.29`, sidecar container will be used to run docker daemon.
+
+```yaml
+## githubConfigUrl is the GitHub url for where you want to configure runners
+## ex: https://<HOSTNAME>/enterprises/my_enterprise or https://<HOSTNAME>/myorg
+githubConfigUrl: "https://<HOSTNAME>/actions/actions-runner-controller"
+
+## githubConfigSecret is the k8s secrets to use when auth with GitHub API.
+## You can choose to use GitHub App or a PAT token
+githubConfigSecret: my-super-safe-secret
+
+## maxRunners is the max number of runners the autoscaling runner set will scale up to.
+maxRunners: 5
+
+## minRunners is the min number of idle runners. The target number of runners created will be
+## calculated as a sum of minRunners and the number of jobs assigned to the scale set.
+minRunners: 0
+
+runnerGroup: "my-custom-runner-group"
+
+## name of the runner scale set to create. Defaults to the helm release name
+runnerScaleSetName: "my-awesome-scale-set"
+
+## template is the PodSpec for each runner Pod
+## For reference: https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#PodSpec
+template:
+  spec:
+    initContainers:
+    - name: init-dind-externals
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["cp", "-r", "/home/runner/externals/.", "/home/runner/tmpDir/"]
+      volumeMounts:
+        - name: dind-externals
+          mountPath: /home/runner/tmpDir
+    - name: init-dind-rootless
+      image: docker:dind-rootless
+      command:
+        - sh
+        - -c
+        - |
+          set -x
+          cp -a /etc/. /dind-etc/
+          echo 'runner:x:1001:1001:runner:/home/runner:/bin/ash' >> /dind-etc/passwd
+          echo 'runner:x:1001:' >> /dind-etc/group
+          echo 'runner:100000:65536' >> /dind-etc/subgid
+          echo 'runner:100000:65536' >> /dind-etc/subuid
+          chmod 755 /dind-etc;
+          chmod u=rwx,g=rx+s,o=rx /dind-home
+          chown 1001:1001 /dind-home
+      securityContext:
+        runAsUser: 0
+      volumeMounts:
+        - mountPath: /dind-etc
+          name: dind-etc
+        - mountPath: /dind-home
+          name: dind-home
+    - name: dind
+      image: docker:dind-rootless
+      args:
+        - dockerd
+        - --host=unix:///run/user/1001/docker.sock
+      env:
+        - name: DOCKER_HOST
+          value: unix:///run/user/1001/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      restartPolicy: Always
+      startupProbe:
+        exec:
+          command:
+            - docker
+            - info
+        initialDelaySeconds: 0
+        failureThreshold: 24
+        periodSeconds: 5
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /run/user/1001
+        - name: dind-externals
+          mountPath: /home/runner/externals
+        - name: dind-etc
+          mountPath: /etc
+        - name: dind-home
+          mountPath: /home/runner
+    containers:
+    - name: runner
+      image: ghcr.io/actions/actions-runner:latest
+      command: ["/home/runner/run.sh"]
+      env:
+        - name: DOCKER_HOST
+          value: unix:///run/user/1001/docker.sock
+      securityContext:
+        privileged: true
+        runAsUser: 1001
+        runAsGroup: 1001
+      volumeMounts:
+        - name: work
+          mountPath: /home/runner/_work
+        - name: dind-sock
+          mountPath: /run/user/1001
+    volumes:
+    - name: work
+      emptyDir: {}
+    - name: dind-externals
+      emptyDir: {}
+    - name: dind-sock
+      emptyDir: {}
+    - name: dind-etc
+      emptyDir: {}
+    - name: dind-home
+      emptyDir: {}
+```
+
+For versions of Kubernetes `< v1.29`, the following configuration can be applied:
 
 ```yaml
 ## githubConfigUrl is the GitHub url for where you want to configure runners

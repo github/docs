@@ -12,11 +12,12 @@ topics:
   - Project management
 redirect_from:
   - /issues/tracking-your-work-with-issues/quickstart
+  - /issues/tracking-your-work-with-issues/configuring-issues/quickstart
 ---
 
 ## Introduction
 
-This guide demonstrates how to use {% data variables.product.prodname_github_issues %} to plan and track a piece of work. In this guide, you will create a new issue and add a task list to track sub-tasks. You'll also learn how to add labels, milestones, assignees, and projects to communicate metadata about your issue.
+This guide demonstrates how to use {% data variables.product.prodname_github_issues %} to plan and track a piece of work. In this guide, you will create a new issue{% ifversion sub-issues %} and break it down into sub-issues{% endif %}. You'll also learn how to add labels{% ifversion issue-types %}, issue types{% endif %}, milestones, assignees, and projects to communicate metadata about your issue.
 
 ## Prerequisites
 
@@ -41,31 +42,37 @@ You can use markdown to add formatting, links, emojis, and more. For more inform
 
 ![Screenshot of the new issue form, with a title and body filled in.](/assets/images/help/issues/issue-title-body.png)
 
+{% ifversion sub-issues %}
+
 ## Adding a task list
 
-It can be helpful to break large issues into smaller tasks, or to track multiple related issues in a single larger issue. Add a task list to your issue by prefacing list items with `[ ]`. Reference existing issues by issue number or URL. You can use plain text to track tasks that don't have a corresponding issue and convert them to issues later. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
+You can also use plain text to track tasks that don't have a corresponding issue and convert them to issues later. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
 
 ![Screenshot of the new issue form, with the title and body filled in. The body includes the Markdown for a task list.](/assets/images/help/issues/issue-task-list-raw.png)
 
+## Assigning the issue
+
+To communicate responsibility, you can assign the issue to a member of your organization. See [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users).
+
+![Screenshot of the new issue form. In the right sidebar, the "Assignees" section is outlined in a dark orange.](/assets/images/help/issues/issue-assignees.png)
+
 ## Adding labels
 
-Add a label to categorize your issue. For example, you might use a `bug` label and a `good first issue` label to indicate that an issue is a bug that a first-time contributor could pick up. Users can filter issues by label to find all issues that have a specific label.
+Add a label to categorize your issue. For example, you might use a `question` label and a `good first issue` label to indicate that an issue is a question that a first-time contributor could pick up. Users can filter issues by label to find all issues that have a specific label.
 
 You can use the default labels, or you can create a new label. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels).
 
 ![Screenshot of the new issue form. In the right sidebar, the "Labels" section is outlined in dark orange.](/assets/images/help/issues/issue-with-label.png)
 
-## Adding milestones
+{% ifversion issue-types %}
 
-You can add a milestone to track the issue as part of a date based target. A milestone will show the progress of the issues as the target date approaches. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+## Adding issue types
 
-![Screenshot of the new issue form. In the right sidebar, the "Milestone" section is outlined in dark orange.](/assets/images/help/issues/issue-milestone.png)
+You can add an issue type to classify work across the organization. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization).
 
-## Assigning the issue
+![Screenshot of the new issue form. In the right sidebar, the "Type" section is outlined in dark orange.](/assets/images/help/issues/issue-type.png)
 
-To communicate responsibility, you can assign the issue to a member of your organization. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users).
-
-![Screenshot of the new issue form. In the right sidebar, the "Assignees" section is outlined in a dark orange.](/assets/images/help/issues/issue-assignees.png)
+{% endif %}
 
 ## Adding the issue to a project
 
@@ -73,9 +80,23 @@ You can add the issue to an existing project and populate metadata for the proje
 
 ![Screenshot of the new issue form. In the right sidebar, the "Projects" section is outlined in dark orange.](/assets/images/help/issues/issue-project.png)
 
+## Adding milestones
+
+You can add a milestone to track the issue as part of a date based target. A milestone shows the progress of the issues as the target date approaches. See [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+
+![Screenshot of the new issue form. In the right sidebar, the "Milestone" section is outlined in dark orange.](/assets/images/help/issues/issue-milestone.png)
+
 ## Submitting your issue
 
 Click **Submit new issue** to create your issue. You can edit any of the above fields after creating the issue. Your issue has a unique URL that you can share with team members, or reference in other issues or pull requests.
+
+## Adding sub-issues
+
+{% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
+
+   ![Screenshot of the sub-issues section below the issue description. The "View more sub-issue options" button is highlighted with an orange rectangle.](/assets/images/help/issues/sub-issue-drop-down.png)
+
+{% endif %}
 
 ## Communicating
 
@@ -101,5 +122,6 @@ To break your issue down into more manageable tasks, you can add multiple levels
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
 * To learn more about issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
-* To learn more about how projects can help you with planning and tracking, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+* To learn about the essentials for using {% data variables.product.github %}'s planning and tracking tools, see [AUTOTITLE](/issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project).
+* To learn more about how projects can help you with planning and tracking, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects).
 * To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
