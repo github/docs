@@ -346,9 +346,9 @@ For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updat
 
 Specify which semantic versions (SemVer) to ignore. SemVer is an accepted standard for defining versions of software packages, in the form `x.y.z`. {% data variables.product.prodname_dependabot %} assumes that versions in this form are always `major.minor.patch`.
 
-* Use `patch` to include patch releases.
-* Use `minor` to include minor releases.
-* Use `major` to include major releases.
+* Use `version-update:semver-patch` to include patch releases.
+* Use `version-update:semver-minor` to include minor releases.
+* Use `version-update:semver-major` to include major releases.
 
 ## `insecure-external-code-execution` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
