@@ -2,7 +2,7 @@ date: '2025-08-25'
 sections:
   security_fixes:
     - |
-      **HIGH:** An improper access control vulnerability was identified that allowed authenticated users to obtain code content from private repositories they did not have permission to access. If a user knew the names of a private repository and its branches, tags, or commit SHAs, they could use the compare/diff functionality to retrieve code from those repositories without authorization. Exploiting this vulnerability also required the attacker to have legitimate access to another repository within the same fork network. This vulnerability has been assigned [CVE-2025-8447](https://www.cve.org/cverecord?id=CVE-2025-8447) and was reported through the [GitHub Bug Bounty program](https://bounty.github.com/).
+      **HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed users with access to any repository to retrieve limited code content from another repository by creating a diff between the repositories. To exploit this vulnerability, an attacker needed to know the name of a private repository along with its branches, tags, or commit SHAs that they could use to trigger compare/diff functionality and retrieve limited code without proper authorization. This vulnerability has been assigned [CVE-2025-8447](https://www.cve.org/cverecord?id=CVE-2025-8447) and was reported through the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       Packages have been updated to the latest security versions.
     - |

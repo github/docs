@@ -33,8 +33,6 @@ Regularly assessing your exposure to leaked secrets is good practice to help ide
 
 ## About {% data variables.product.prodname_secret_risk_assessment %}
 
-{% data reusables.secret-risk-assessment.public-preview-note %}
-
 {% ifversion fpt %}
 
 >[!TIP] This report is only available if you are on the {% data variables.product.prodname_team %} plan. For information about the plan and how to upgrade, see [{% data variables.product.prodname_team %}](/get-started/learning-about-github/githubs-plans#github-team) and [Upgrading your organization's plan](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan).
@@ -45,12 +43,12 @@ Regularly assessing your exposure to leaked secrets is good practice to help ide
 
 The {% data variables.product.prodname_secret_risk_assessment %} report provides the following insights:
 
-   * **Total secrets**—Aggregate count of exposed secrets detected within the organization.
-   * **Public leaks**—Distinct secrets found in your organization's public repositories.
-   * **Preventable leaks**—Secrets that could have been protected, using {% data variables.product.prodname_GH_secret_protection %} features such as {% data variables.product.prodname_secret_scanning %} and push protection.
-   * **Secret locations**—Locations that are scanned for the report. {% data reusables.secret-risk-assessment.what-is-scanned %}
-   * **Secret categories**—Distribution of the types of secrets that are leaked. Secrets can be partner secrets, which are strings that match secrets issued by service providers in our partner program, or generic secrets, which are non-provider patterns such as SSH keys, database connection strings, and JSON web tokens.
-   * **Repositories with leaks**—Repositories where leaked secrets were detected, out of all the repositories scanned.
+* **Total secrets**—Aggregate count of exposed secrets detected within the organization.
+* **Public leaks**—Distinct secrets found in your organization's public repositories.
+* **Preventable leaks**—Secrets that could have been protected, using {% data variables.product.prodname_GH_secret_protection %} features such as {% data variables.product.prodname_secret_scanning %} and push protection.
+* **Secret locations**—Locations that are scanned for the report. {% data reusables.secret-risk-assessment.what-is-scanned %}
+* **Secret categories**—Distribution of the types of secrets that are leaked. Secrets can be partner secrets, which are strings that match secrets issued by service providers in our partner program, or generic secrets, which are non-provider patterns such as SSH keys, database connection strings, and JSON web tokens.
+* **Repositories with leaks**—Repositories where leaked secrets were detected, out of all the repositories scanned.
 
 {% data reusables.security-overview.secret-risk-assessment-report-generation-cadence %}
 

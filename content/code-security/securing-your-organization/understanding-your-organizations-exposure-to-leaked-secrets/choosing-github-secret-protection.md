@@ -69,8 +69,6 @@ In addition, repository administrators can enable security features at the repos
 
 ## Enabling {% data variables.product.prodname_secret_protection %} from the {% data variables.product.prodname_secret_risk_assessment %}
 
-{% data reusables.secret-risk-assessment.public-preview-note %}
-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.security-overview.open-assessments-view %}
