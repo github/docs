@@ -1,10 +1,11 @@
 ---
-title: Rate limits and node limits for the GraphQL API
-shortTitle: Rate and node limits
+title: Rate limits and query limits for the GraphQL API
+shortTitle: Rate and query limits
 intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}''s servers.'
 redirect_from:
   - /v4/guides/resource-limitations
   - /graphql/overview/resource-limitations
+  - /graphql/overview/rate-limits-and-node-limits-for-the-graphql-api
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,122 +13,6 @@ versions:
 topics:
   - API
 ---
-
-## Node limit
-
-To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
-
-* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
-* Values of `first` and `last` must be within 1-100.
-* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
-
-### Calculating nodes in a call
-
-These two examples show how to calculate the total nodes in a call.
-
-1. Simple query:
-
-   <pre>query {
-     viewer {
-       repositories(first: <span class="redbox">50</span>) {
-         edges {
-           repository:node {
-             name
-
-             issues(first: <span class="greenbox">10</span>) {
-               totalCount
-               edges {
-                 node {
-                   title
-                   bodyHTML
-                 }
-               }
-             }
-           }
-         }
-       }
-     }
-   }</pre>
-
-   Calculation:
-
-   <pre><span class="redbox">50</span>         = 50 repositories
-    +
-   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
-
-               = 550 total nodes</pre>
-
-1. Complex query:
-
-   <pre>query {
-     viewer {
-       repositories(first: <span class="redbox">50</span>) {
-         edges {
-           repository:node {
-             name
-
-             pullRequests(first: <span class="greenbox">20</span>) {
-               edges {
-                 pullRequest:node {
-                   title
-
-                   comments(first: <span class="bluebox">10</span>) {
-                     edges {
-                       comment:node {
-                         bodyHTML
-                       }
-                     }
-                   }
-                 }
-               }
-             }
-
-             issues(first: <span class="greenbox">20</span>) {
-               totalCount
-               edges {
-                 issue:node {
-                   title
-                   bodyHTML
-
-                   comments(first: <span class="bluebox">10</span>) {
-                     edges {
-                       comment:node {
-                         bodyHTML
-                       }
-                     }
-                   }
-                 }
-               }
-             }
-           }
-         }
-       }
-
-       followers(first: <span class="bluebox">10</span>) {
-         edges {
-           follower:node {
-             login
-           }
-         }
-       }
-     }
-   }</code></pre>
-
-   Calculation:
-
-   <pre><span class="redbox">50</span>              = 50 repositories
-    +
-   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
-    +
-   <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 pullRequest comments
-    +
-   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 issues
-    +
-   <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 issue comments
-    +
-   <span class="bluebox">10</span>              = 10 followers
-
-                    = 22,060 total nodes</pre>
 
 ## Primary rate limit
 
@@ -278,6 +163,126 @@ You should also subscribe to webhook events instead of polling the API for data.
 
 You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 
+{% endif %}
+
+## Node limit
+
+To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
+
+* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
+* Values of `first` and `last` must be within 1-100.
+* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
+
+### Calculating nodes in a call
+
+These two examples show how to calculate the total nodes in a call.
+
+1. Simple query:
+
+   <pre>query {
+     viewer {
+       repositories(first: <span class="redbox">50</span>) {
+         edges {
+           repository:node {
+             name
+
+             issues(first: <span class="greenbox">10</span>) {
+               totalCount
+               edges {
+                 node {
+                   title
+                   bodyHTML
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   }</pre>
+
+   Calculation:
+
+   <pre><span class="redbox">50</span>         = 50 repositories
+    +
+   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
+
+               = 550 total nodes</pre>
+
+1. Complex query:
+
+   <pre>query {
+     viewer {
+       repositories(first: <span class="redbox">50</span>) {
+         edges {
+           repository:node {
+             name
+
+             pullRequests(first: <span class="greenbox">20</span>) {
+               edges {
+                 pullRequest:node {
+                   title
+
+                   comments(first: <span class="bluebox">10</span>) {
+                     edges {
+                       comment:node {
+                         bodyHTML
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+
+             issues(first: <span class="greenbox">20</span>) {
+               totalCount
+               edges {
+                 issue:node {
+                   title
+                   bodyHTML
+
+                   comments(first: <span class="bluebox">10</span>) {
+                     edges {
+                       comment:node {
+                         bodyHTML
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+
+       followers(first: <span class="bluebox">10</span>) {
+         edges {
+           follower:node {
+             login
+           }
+         }
+       }
+     }
+   }</code></pre>
+
+   Calculation:
+
+   <pre><span class="redbox">50</span>              = 50 repositories
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 pullRequest comments
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 issues
+    +
+   <span class="redbox">50</span> x <span class="greenbox">20</span> x <span class="bluebox">10</span> = 10,000 issue comments
+    +
+   <span class="bluebox">10</span>              = 10 followers
+
+                    = 22,060 total nodes</pre>
+
+  {% ifversion not ghes %}
+
 ## Timeouts
 
 If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a message reporting that "We couldn't respond to your request in time".
@@ -288,4 +293,24 @@ You can check the status of the GraphQL API at [githubstatus.com](https://www.gi
 
 If a timeout occurs for any of your API requests, additional points will be deducted from your primary rate limit for the next hour to protect the speed and reliability of the API.
 
+## Other resource limits
+
+To protect the speed and reliability of the API, {% data variables.product.github %} also enforces other resource limitations. If your GraphQL query consumes too many resources, {% data variables.product.github %} will terminate the request and return partial results along with an error indicating that resource limits were exceeded.
+
+**Examples of queries that may exceed resource limits:**
+
+* Requesting thousands of objects or deeply nested relationships in a single query.
+* Using large `first` or `last` arguments in multiple connections simultaneously.
+* Fetching extensive details for each object, such as all comments, reactions, and related issues for every repository.
+
 {% endif %}
+
+## Query optimization strategies
+
+* **Limit the number of objects**: Use smaller values for `first` or `last` arguments and paginate through results.
+* **Reduce query depth**: Avoid requesting deeply nested objects unless necessary.
+* **Filter results**: Use arguments to filter data and return only what you need.
+* **Split large queries**: Break up complex queries into multiple simpler queries.
+* **Request only required fields**: Select only the fields you need, rather than requesting all available fields.
+
+By following these strategies, you can reduce the likelihood of hitting resource limits and improve the performance and reliability of your API requests.
