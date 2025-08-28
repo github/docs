@@ -1,9 +1,9 @@
-import fs from 'fs/promises'
+import fs from 'fs'
 import semver from 'semver'
 
 import versionSatisfiesRange from './version-satisfies-range'
 
-const rawDates = JSON.parse(await fs.readFile('src/ghes-releases/lib/enterprise-dates.json'))
+const rawDates = JSON.parse(fs.readFileSync('src/ghes-releases/lib/enterprise-dates.json', 'utf8'))
 
 // ============================================================================
 // STATICALLY DEFINED VALUES

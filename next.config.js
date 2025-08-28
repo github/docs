@@ -15,6 +15,9 @@ const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children
 
 export default {
+  // Transpile @primer/react so Next's webpack can process its CSS and other assets
+  // This ensures CSS in node_modules/@primer/react is handled by the app's loaders.
+  transpilePackages: ['@primer/react'],
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
   typescript: {

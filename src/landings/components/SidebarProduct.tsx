@@ -7,6 +7,8 @@ import { ProductTreeNode, useMainContext } from '@/frame/components/context/Main
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
 
+import styles from './SidebarProduct.module.css'
+
 export const SidebarProduct = () => {
   const router = useRouter()
   const {
@@ -32,7 +34,7 @@ export const SidebarProduct = () => {
   }
 
   const productSection = () => (
-    <div className="ml-3" data-testid="product-sidebar">
+    <div data-testid="product-sidebar">
       <NavList aria-label="Product sidebar" role="navigation">
         {sidebarTree &&
           sidebarTree.childPages.map((childPage) => (
@@ -50,7 +52,7 @@ export const SidebarProduct = () => {
       nonAutomatedRestPaths.every((item: string) => !page.href.includes(item)),
     )
     return (
-      <div className="ml-3">
+      <div>
         <NavList aria-label="REST sidebar overview articles" role="navigation">
           {conceptualPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
@@ -69,7 +71,7 @@ export const SidebarProduct = () => {
   }
 
   return (
-    <div data-testid="sidebar" style={{ overflowY: 'auto' }} className="pt-3">
+    <div data-testid="sidebar" className={styles.sidebar}>
       {isRestPage ? restSection() : productSection()}
     </div>
   )
@@ -90,7 +92,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
     >
       {childPage.title}
       {childPage.childPages.length > 0 && (
-        <NavList.SubNav aria-label={`${childPage.title} submenu`} sx={{ '*': { fontSize: 1 } }}>
+        <NavList.SubNav aria-label={`${childPage.title} submenu`}>
           {childPage.sidebarLink && (
             <NavList.Item
               href={childPage.sidebarLink.href}
@@ -166,7 +168,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     >
       {category.title}
       {category.childPages.length > 0 && (
-        <NavList.SubNav aria-label={`${category.title} submenu`} sx={{ '*': { fontSize: 1 } }}>
+        <NavList.SubNav aria-label={`${category.title} submenu`}>
           {category.childPages.map((childPage) => {
             return (
               <NavList.Item

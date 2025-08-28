@@ -526,7 +526,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('medium viewports - 768-1011', async ({ page }) => {
@@ -555,7 +555,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('small viewports - 544-767', async ({ page }) => {
@@ -588,7 +588,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('x-small viewports - 0-544', async ({ page }) => {
@@ -627,7 +627,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('do a search when the viewport is x-small', async ({ page }) => {
