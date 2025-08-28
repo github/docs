@@ -50,6 +50,8 @@ Depending on the question you ask, and your enterprise and organization settings
 1. To start a new conversation, click {% data reusables.copilot.pencil-paper-icon %} at the top left of the page.
 1. To see a list of your previous conversations, click {% octicon "sidebar-collapse" aria-label="Open sidebar" %} at the top left of the page.
 
+{% data variables.copilot.copilot_chat_short %} retains each conversation for up to 28 days from the last activity. After 28 days, the conversation is permanently deleted. You can view up to 100 previous conversations.
+
 ### Viewing and editing generated files within {% data variables.copilot.copilot_chat_short %}
 
 > [!NOTE]
