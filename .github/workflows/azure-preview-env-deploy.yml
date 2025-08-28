@@ -77,7 +77,7 @@ jobs:
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
@@ -112,7 +112,7 @@ jobs:
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Determine which docs-early-access branch to clone
         id: 'check-early-access'
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@3908079ba1e7bce10117ad701c321d07e89017a9
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
