@@ -83,7 +83,7 @@ jobs:
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
       - name: Update comment
-        uses: peter-evans/create-or-update-comment@c9fcb64660bc90ec1cc535646af190c992007c32
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
