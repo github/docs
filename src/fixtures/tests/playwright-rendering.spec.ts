@@ -997,3 +997,54 @@ test('open search, Ask AI returns 400 error and shows general search results', a
   await expect(searchResults).toBeVisible()
   await expect(aiSection).toBeVisible()
 })
+
+test.describe('LandingCarousel component', () => {
+  test('displays carousel on test page', async ({ page }) => {
+    await page.goto('/get-started/carousel?feature=discovery-landing')
+
+    const carousel = page.locator('[data-testid="landing-carousel"]')
+    await expect(carousel).toBeVisible()
+
+    // Check that article cards are present
+    const items = page.locator('[data-testid="carousel-items"]')
+    const cards = items.locator('div')
+    await expect(cards.first()).toBeVisible()
+
+    // Verify cards have real titles (not "Unknown Article" when article not found)
+    const firstCardTitle = cards.first().locator('h3')
+    await expect(firstCardTitle).toBeVisible()
+    await expect(firstCardTitle).not.toHaveText('Unknown Article')
+  })
+
+  test('navigation works on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1200, height: 800 })
+    await page.goto('/get-started/carousel?feature=discovery-landing')
+
+    const carousel = page.locator('[data-testid="landing-carousel"]')
+    await expect(carousel).toBeVisible()
+
+    // Should show 3 cards on desktop
+    const cards = carousel.locator('a')
+    await expect(cards).toHaveCount(3)
+
+    // Check for navigation buttons if there are more than 3 articles
+    const nextButton = carousel.getByRole('button', { name: 'Next articles' })
+    if (await nextButton.isVisible()) {
+      const prevButton = carousel.getByRole('button', { name: 'Previous articles' })
+      await expect(prevButton).toBeDisabled() // Should be disabled on first page
+      await expect(nextButton).toBeEnabled()
+    }
+  })
+
+  test('responsive behavior on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.goto('/get-started/carousel?feature=discovery-landing')
+
+    const carousel = page.locator('[data-testid="landing-carousel"]')
+    await expect(carousel).toBeVisible()
+
+    // Should show 1 card on mobile
+    const cards = carousel.locator('a')
+    await expect(cards).toHaveCount(1)
+  })
+})
