@@ -117,7 +117,7 @@
     "@types/react-syntax-highlighter": "^15.5.2",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "8.33.0",
-    "@typescript-eslint/parser": "5.38.0",
+    "@typescript-eslint/parser": "8.40.0",
     "babel-loader": "^10.0.0",
     "babel-plugin-styled-components": "^2.0.7",
     "babel-preset-env": "^1.7.0",
