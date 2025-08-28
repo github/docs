@@ -40,3 +40,4 @@ If your secret is in the supported list, there are various reasons why push prot
 * If the push results in the detection of over five new secrets, we will only show you the first five (we will always show you a maximum of five secrets at one time).
 * If a push contains over 1,000 existing secrets (that is, secrets for which alerts have already been created), push protection will not block the push. {% ifversion fpt or ghec %}
 * If a push in a public repository is larger than 50 MB, push protection will skip it and won't scan it.{% endif %}
+* If you see a bypass request without commit or file path details, it means that push protection ran out of time. The push was too large or the history too complex to locate the commit that introduced the secret.
