@@ -500,9 +500,6 @@ export function AskAIResults({
                   const refIndex = index + referencesIndexOffset
                   return (
                     <ActionList.Item
-                      sx={{
-                        marginLeft: '0px',
-                      }}
                       key={`reference-${index}`}
                       id={`search-option-reference-${index + referencesIndexOffset}`}
                       tabIndex={-1}

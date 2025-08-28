@@ -1,7 +1,7 @@
 ---
 title: Adding repository custom instructions for GitHub Copilot
 shortTitle: Add repository instructions
-intro: 'Create a file in a repository that gives {% data variables.product.prodname_copilot_short %} additional context for the work it does in that repository.'
+intro: 'Create repository custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
 redirect_from:
   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
   - /copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot
@@ -239,7 +239,11 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 **{% data variables.copilot.copilot_chat_short %}** on the {% data variables.product.github %} website, **{% data variables.copilot.copilot_coding_agent %}** and **{% data variables.copilot.copilot_code-review_short %}** support a single `.github/copilot-instructions.md` custom instructions file stored in the repository.
 
-In addition, **{% data variables.copilot.copilot_coding_agent %}** supports one or more `.instructions.md` files stored within `.github/instructions` in the repository. Each file can specify `applyTo` frontmatter to define what files or directories its instructions apply to.
+In addition, **{% data variables.copilot.copilot_coding_agent %}** supports:
+
+* One or more `.instructions.md` files stored within `.github/instructions` in the repository. Each file can specify `applyTo` frontmatter to define what files or directories its instructions apply to.
+* One or more `AGENTS.md` files stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence.
+* A single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
 ### Using a single `.github/copilot-instructions.md` file
 

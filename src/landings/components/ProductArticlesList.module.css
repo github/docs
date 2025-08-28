@@ -1,0 +1,14 @@
+.linkItem {
+  border-radius: 0;
+
+  &:hover {
+    border-radius: 0;
+  }
+
+  a {
+    span {
+      color: var(--fgColor-accent, var(--color-accent-fg));
+      text-decoration: underline;
+    }
+  }
+}

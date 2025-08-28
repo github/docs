@@ -77,7 +77,13 @@ By adding custom instructions to your repository, you can guide {% data variable
 
 If {% data variables.product.prodname_copilot_short %} is able to build, test and validate its changes in its own development environment, it is more likely to produce good pull requests which can be merged quickly.
 
-You can add instructions in a single `.github/copilot-instructions.md` file in the repository, or create one or more `.github/instructions/**/*.instructions.md` files applying to different files or directories in your repository.
+{% data variables.copilot.copilot_coding_agent %} supports a number of different types of custom instructions files:
+
+* `/.github/copilot-instructions.md`
+* `/.github/instructions/**/*.instructions.md`
+* `**/AGENTS.md`
+* `/CLAUDE.md`
+* `/GEMINI.md`
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui).
 

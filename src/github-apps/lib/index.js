@@ -1,5 +1,5 @@
 import path from 'path'
-import { readFile } from 'fs/promises'
+import fs from 'fs'
 
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
@@ -10,7 +10,7 @@ const githubAppsData = new Map()
 
 // Initialize the Map with the page type keys listed under `pages`
 // in the config.json file.
-const appsDataConfig = JSON.parse(await readFile('src/github-apps/lib/config.json', 'utf8'))
+const appsDataConfig = JSON.parse(fs.readFileSync('src/github-apps/lib/config.json', 'utf8'))
 for (const pageType of Object.keys(appsDataConfig.pages)) {
   githubAppsData.set(pageType, new Map())
 }
