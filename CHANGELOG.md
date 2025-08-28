@@ -1,10 +1,18 @@
 # Docs changelog
 
+**28 August 2025**
+
+We've published an article about the new AI-powered issue intake tool, which automates incoming issue analysis and triage for OS maintainers.
+
+See: [Triaging an issue with AI](https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai).
+
+<hr>
+
 **26 August 2025**
 
 xAI Grok Code Fast 1 is now available in public preview for GitHub Copilot. Grok Code Fast 1 is slowly rolling out to all paid Copilot plans and you will be able to access the model in Visual Studio Code (Agent, Ask, and Edit modes).
 
-See [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+See: [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
 
 <hr>
 
