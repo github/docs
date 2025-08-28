@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.PROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2
 
       - name: Check out repo
         uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
@@ -60,7 +60,7 @@ jobs:
         run: git lfs checkout
 
       - name: Setup node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '16.17.0'
           cache: npm
@@ -98,7 +98,7 @@ jobs:
 
       # Watch canary slot instances to see when all the instances are ready
       - name: Check that canary slot is ready
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@3908079ba1e7bce10117ad701c321d07e89017a9
         env:
           CHECK_INTERVAL: 10000
         with:
