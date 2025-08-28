@@ -520,6 +520,7 @@ This step in a {% data variables.product.prodname_actions %} workflow file uses 
     languages: {% raw %}${{ matrix.language }}{% endraw %}
     config: |
       disable-default-queries: true
+      threat-models: local
       queries:
         - uses: security-extended
       query-filters:
