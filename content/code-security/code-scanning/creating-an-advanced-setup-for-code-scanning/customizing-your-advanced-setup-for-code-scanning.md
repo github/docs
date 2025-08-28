@@ -103,10 +103,10 @@ For more information about using `on:pull_request:paths-ignore` and `on:pull_req
 
 ### Scanning on a schedule
 
-If you use the default {% data variables.code-scanning.codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onschedule).
+If you use the default {% data variables.code-scanning.codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value for the `on.schedule` event in the workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onschedule).
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} only runs scheduled jobs that are in workflows on the default branch. Changing the schedule in a workflow on any other branch has no effect until you merge the branch into the default branch.
+> {% data reusables.actions.branch-requirement %}
 
 ### Example
 
