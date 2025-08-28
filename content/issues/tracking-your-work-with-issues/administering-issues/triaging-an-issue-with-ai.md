@@ -20,7 +20,7 @@ The AI-powered issue intake tool helps you automate the triage process for new i
 The AI-powered issue intake tool is a {% data variables.product.github %} action that you can enable in your repository. For more information about {% data variables.product.github %} actions, see [AUTOTITLE](/actions/get-started/understand-github-actions).
 
 1. Visit the [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
-1. Search for and select "AI-powered issue intake tool."
+1. Search for and select "AI assessment comment labeler."
 1. On the action's {% data variables.product.prodname_marketplace %} page, follow the setup instructions to install the action in your repository.
 1. Optionally, customize the action's configuration file based on the guidance provided on the action's {% data variables.product.prodname_marketplace %} page.
 
