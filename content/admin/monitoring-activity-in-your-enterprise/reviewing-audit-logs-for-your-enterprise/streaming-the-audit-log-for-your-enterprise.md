@@ -316,6 +316,8 @@ To restart streaming, click **Resume stream**.
 
 ## Enabling audit log streaming of API requests
 
+>[!NOTE] Not all API requests are included in the audit log stream after this feature is enabled. The streaming of API requests is limited to security relevant endpoints.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
