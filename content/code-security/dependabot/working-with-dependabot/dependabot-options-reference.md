@@ -634,16 +634,11 @@ Optionally, run all updates for a package manager at a specific time of day. By 
 
 ### `cronjob`
 
-Supported values: Valid cron expression in cron format or natural expression.
+Supported values: Valid cron expression in cron syntax or natural expression.
+
+{% data reusables.repositories.cron %}
 
 Examples : `0 9 * * *`, `every day at 5pm`
-
-cron format is defined as the following:
-* `*` The minute field.
-* `*` The hour field (in 24-hour time).
-* `*` The day of the month (matches any day of the month).
-* `*` The month (matches any month).
-* `*` The day of the week (matches any day of the week).
 
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 

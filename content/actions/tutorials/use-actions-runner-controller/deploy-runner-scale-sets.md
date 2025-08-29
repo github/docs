@@ -249,7 +249,7 @@ ARC supports using anonymous or authenticated proxies. If you use authenticated 
 The `maxRunners` and `minRunners` properties provide you with a range of options to customize your ARC setup.
 
 > [!NOTE]
-> ARC does not support scheduled maximum and minimum configurations. You can use a cronjob or any other scheduling solution to update the configuration on a schedule.
+> ARC does not support scheduled maximum and minimum configurations. You can use a cron job or any other scheduling solution to update the configuration on a schedule.
 
 #### Example: Unbounded number of runners
 

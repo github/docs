@@ -32,6 +32,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Cloudflare                    | Content delivery service                                                       | United States                                     | United States      |
 | CoreWeave, Inc.               | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | Fastly                        | Content delivery service                                                       | United States                                     | United States      |
+| Fireworks AI	               | AI Inference and AI Services                                                    | United States, Iceland, Germany            | United States      |
 | Google Cloud Platform (GCP)   | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium, Singapore                 | United States      |
 | Hewlett-Packard Limited       | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
 | LambdaTest                    | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |

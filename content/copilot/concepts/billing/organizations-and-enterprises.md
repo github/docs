@@ -40,7 +40,7 @@ A {% data variables.product.prodname_copilot_short %} seat is a license to use {
 
 Seat assignment is managed by organization owners. With {% data variables.product.prodname_ghe_cloud %}, an enterprise owner must have enabled {% data variables.product.prodname_copilot %} for the organization before an organization owner can assign seats. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
-If a single user receives a seat from multiple organizations in the same enterprise, the enterprise will only be billed once per billing cycle for that unique user. One of the organizations that assigned {% data variables.product.prodname_copilot_short %} to the user will be chosen at random each month to be billed for the seat.
+If a user receives a seat from multiple organizations in the same enterprise, the enterprise will be billed only once, and one organization is selected and billed for the seat. To determine which organization is billed for a given user, request a detailed usage report and refer to the `organization` column for the user's {% data variables.product.prodname_copilot_short %} license. See [AUTOTITLE](/billing/reference/usage-reports).
 
 ## Billing cycles
 
