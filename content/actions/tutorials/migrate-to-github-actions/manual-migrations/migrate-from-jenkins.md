@@ -126,6 +126,8 @@ on:
     - cron: '*/15 * * * 1-5'
 ```
 
+For more information about `schedule` events and accepted cron syntax, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+
 ### Configuring environment variables in a pipeline
 
 #### Jenkins pipeline with an environment variable
