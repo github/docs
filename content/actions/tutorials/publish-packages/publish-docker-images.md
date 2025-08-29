@@ -117,7 +117,7 @@ jobs:
 
 {% ifversion artifact-attestations %}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-name: index.docker.io/my-docker-hub-namespace/my-docker-hub-repository
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
@@ -229,7 +229,7 @@ jobs:
 
 {% ifversion artifact-attestations %}
       - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-name: {% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
