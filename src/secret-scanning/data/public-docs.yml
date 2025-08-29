@@ -5134,7 +5134,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: SSLMate
@@ -5417,7 +5417,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Uniwise
@@ -5674,7 +5674,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -5700,7 +5700,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: ZenHub
