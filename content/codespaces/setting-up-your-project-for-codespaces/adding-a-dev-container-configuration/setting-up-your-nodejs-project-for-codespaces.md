@@ -147,9 +147,82 @@ With your dev container configuration added and a basic understanding of what ev
 
    After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing npm, and the "Code Spell Checker" extension will be available for use.
 
-## Step 4: Run your application
+## Step 4: Configure port forwarding and security
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via the `npm install` command. With the dependencies now installed, you can run the application.
+Node.js applications typically run on port 3000. You can configure your dev container to automatically forward this port and set appropriate security settings.
+
+1. Add port forwarding configuration by uncommenting and modifying the `forwardPorts` property:
+
+   ```jsonc copy
+   // Use 'forwardPorts' to make a list of ports inside the container available locally.
+   "forwardPorts": [3000],
+   ```
+
+1. Add port attributes to label your forwarded port:
+
+   ```jsonc copy
+   "portsAttributes": {
+     "3000": {
+       "label": "Node.js App"
+     }
+   },
+   ```
+
+1. For enhanced security, you can add a `postAttachCommand` to automatically set port visibility. Add the {% data variables.product.prodname_cli %} feature first:
+
+   ```jsonc copy
+   "features": {
+     "ghcr.io/devcontainers-contrib/features/jshint:2": {},
+     "ghcr.io/devcontainers/features/github-cli:1": {}
+   },
+   ```
+
+1. Then add the `postAttachCommand` to control port visibility:
+
+   ```jsonc copy
+   // Automatically set port visibility when attaching to the codespace
+   "postAttachCommand": "gh cs ports visibility 3000:private -c \"$CODESPACE_NAME\""
+   ```
+
+   Your updated `devcontainer.json` should look similar to this:
+
+   ```jsonc
+   {
+     "name": "Node.js",
+     "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+     "features": {
+       "ghcr.io/devcontainers-contrib/features/jshint:2": {},
+       "ghcr.io/devcontainers/features/github-cli:1": {}
+     },
+
+     "forwardPorts": [3000],
+     
+     "portsAttributes": {
+       "3000": {
+         "label": "Node.js App"
+       }
+     },
+
+     "postCreateCommand": "npm install",
+     
+     "postAttachCommand": "gh cs ports visibility 3000:private -c \"$CODESPACE_NAME\"",
+
+     "customizations": {
+       "vscode": {
+         "extensions": [
+           "streetsidesoftware.code-spell-checker"
+         ]
+       }
+     }
+   }
+   ```
+
+{% data reusables.codespaces.save-changes %}
+{% data reusables.codespaces.rebuild-command %}
+
+## Step 5: Run your application
+
+In the previous section, you configured port forwarding for your Node.js application. Now you can run the application and see it in action.
 
 1. In the Terminal of your codespace, enter `npm start`.
 
@@ -159,12 +232,14 @@ In the previous section, you used the `postCreateCommand` to install a set of pa
 
    ![Screenshot of the port forwarding message, reading "Your application running on port 3000 is available." The "Open in Browser" button is also shown.](/assets/images/help/codespaces/codespaces-port3000-toast.png)
 
-## Step 5: Commit your changes
+## Step 6: Commit your changes
 
 {% data reusables.codespaces.committing-link-to-procedure %}
 
 ## Next steps
 
 You should now be able to add a custom dev container configuration to your own Node.js, JavaScript, or TypeScript project.
+
+For more advanced port security configurations, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/securing-port-forwarding-in-dev-containers).
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

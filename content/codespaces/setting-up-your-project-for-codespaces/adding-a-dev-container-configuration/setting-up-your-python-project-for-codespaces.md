@@ -87,6 +87,7 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
+* Configure port forwarding for the Flask application with security settings.
 * Install a package required by the application.
 * Install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
@@ -101,11 +102,44 @@ With your dev container configuration added and a basic understanding of what ev
    // "features": {},
    ```
 
+1. Uncomment the `forwardPorts` property and configure it for Flask (port 5000):
+
+   ```jsonc copy
+   // Use 'forwardPorts' to make a list of ports inside the container available locally.
+   "forwardPorts": [5000],
+   ```
+
+1. Add port attributes and security configuration:
+
+   ```jsonc copy
+   "portsAttributes": {
+     "5000": {
+       "label": "Flask Application"
+     }
+   },
+   ```
+
+1. Add the {% data variables.product.prodname_cli %} feature for port visibility automation:
+
+   ```jsonc copy
+   "features": {
+     "ghcr.io/devcontainers-contrib/features/coverage-py:2": {},
+     "ghcr.io/devcontainers/features/github-cli:1": {}
+   },
+   ```
+
 1. Uncomment the `postCreateCommand` property.
 
    ```jsonc copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "pip3 install --user -r requirements.txt",
+   ```
+
+1. Add automated port visibility configuration:
+
+   ```jsonc copy
+   // Automatically set port visibility when attaching to the codespace
+   "postAttachCommand": "gh cs ports visibility 5000:private -c \"$CODESPACE_NAME\""
    ```
 
 {% data reusables.codespaces.add-extension-to-devcontainer %}
@@ -118,14 +152,24 @@ With your dev container configuration added and a basic understanding of what ev
      // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
      "image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",
      "features": {
-       "ghcr.io/devcontainers-contrib/features/coverage-py:2": {}
+       "ghcr.io/devcontainers-contrib/features/coverage-py:2": {},
+       "ghcr.io/devcontainers/features/github-cli:1": {}
      },
 
      // Use 'forwardPorts' to make a list of ports inside the container available locally.
-     // "forwardPorts": [],
+     "forwardPorts": [5000],
+     
+     "portsAttributes": {
+       "5000": {
+         "label": "Flask Application"
+       }
+     },
 
      // Use 'postCreateCommand' to run commands after the container is created.
      "postCreateCommand": "pip3 install --user -r requirements.txt",
+     
+     // Automatically set port visibility when attaching to the codespace
+     "postAttachCommand": "gh cs ports visibility 5000:private -c \"$CODESPACE_NAME\"",
 
      // Configure tool-specific properties.
      "customizations": {
@@ -147,7 +191,7 @@ With your dev container configuration added and a basic understanding of what ev
 {% data reusables.codespaces.rebuild-command %}
    {% data reusables.codespaces.rebuild-reason %}
 
-   After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing the package listed in the `requirements.txt` file, and the "Code Spell Checker" extension will be available for use.
+   After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing the package listed in the `requirements.txt` file, the `postAttachCommand` will have configured the port visibility settings, and the "Code Spell Checker" extension will be available for use.
 
 ## Step 4: Run your application
 
@@ -168,5 +212,7 @@ In the previous section, you used the `postCreateCommand` to install a package f
 ## Next steps
 
 You should now be able to add a custom dev container configuration to your own Python project.
+
+For more advanced port security configurations, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/securing-port-forwarding-in-dev-containers).
 
 {% data reusables.codespaces.next-steps-adding-devcontainer %}

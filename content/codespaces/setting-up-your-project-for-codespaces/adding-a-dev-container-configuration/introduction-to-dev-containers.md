@@ -51,6 +51,17 @@ For information about how to choose your preferred dev container configuration w
 
 {% data reusables.codespaces.more-info-devcontainer %}
 
+#### Security considerations for dev containers
+
+When configuring your dev container, consider security implications, especially for port forwarding and network access:
+
+- **Port visibility**: By default, forwarded ports are private to you. Consider whether ports need to be accessible to your organization or publicly accessible
+- **Automated port configuration**: Use `postAttachCommand` with the {% data variables.product.prodname_cli %} to automatically apply consistent port visibility settings
+- **Organization policies**: Work within your organization's port visibility policies if they have restrictions in place
+- **Minimal port exposure**: Only forward ports that are necessary for development and testing
+
+For detailed guidance on secure port forwarding configurations, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/securing-port-forwarding-in-dev-containers).
+
 #### How to use the devcontainer.json
 
 It's useful to think of the `devcontainer.json` file as providing "customization" rather than "personalization." You should only include things that everyone working on your codebase needs as standard elements of the development environment, not things that are personal preferences. Things like linters are good to standardize on, and to require everyone to have installed, so they're good to include in your `devcontainer.json` file. Things like user interface decorators or themes are personal choices that should not be put in the `devcontainer.json` file.
@@ -230,4 +241,5 @@ Changes to a configuration will be applied the next time you create a codespace.
 
 ## Further reading
 
+* [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/securing-port-forwarding-in-dev-containers)
 * [AUTOTITLE](/codespaces/prebuilding-your-codespaces)
