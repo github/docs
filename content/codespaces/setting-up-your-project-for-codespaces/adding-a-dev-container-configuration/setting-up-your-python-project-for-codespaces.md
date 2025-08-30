@@ -169,7 +169,7 @@ With your dev container configuration added and a basic understanding of what ev
      "postCreateCommand": "pip3 install --user -r requirements.txt",
      
      // Automatically set port visibility when attaching to the codespace
-     "postAttachCommand": "gh cs ports visibility 5000:private -c \"$CODESPACE_NAME\"",
+     "postAttachCommand": "gh codespace ports visibility 5000:private -c \"$CODESPACE_NAME\"",
 
      // Configure tool-specific properties.
      "customizations": {
