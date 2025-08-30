@@ -216,7 +216,7 @@
     "mdast-util-to-hast": "^13.2.0",
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
-    "next": "^15.3.3",
+    "next": "^15.4.7",
     "ora": "^8.0.1",
     "parse5": "7.1.2",
     "quick-lru": "7.0.1",
