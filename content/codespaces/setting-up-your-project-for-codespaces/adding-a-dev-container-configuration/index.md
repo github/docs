@@ -10,6 +10,7 @@ redirect_from:
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces
 children:
   - /introduction-to-dev-containers
+  - /securing-port-forwarding-in-dev-containers
   - /setting-up-your-nodejs-project-for-codespaces
   - /setting-up-your-dotnet-project-for-codespaces
   - /setting-up-your-java-project-for-codespaces
