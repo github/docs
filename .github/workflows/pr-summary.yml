@@ -14,8 +14,8 @@ jobs:
         run: |
           base="${{ github.base_ref }}"; head="${{ github.sha }}"
           echo "## Pull request summary" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Changed files: $(git diff --name-only origin/$base...$head | wc -l)" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Docs files: $(git diff --name-only origin/$base...$head | grep -E '(^content/|\\.md$)' | wc -l)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Changed files: $(git diff-tree --no-commit-id --name-only -r $head ^origin/$base | wc -l)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Docs files: $(git diff-tree --no-commit-id --name-only -r $head ^origin/$base | grep -E '(^content/|\\.md$)' | wc -l)" >> "$GITHUB_STEP_SUMMARY"
       - name: Comment on PR (non-forks)
         if: ${{ github.event.pull_request.head.repo.fork == false }}
         env: { GH_TOKEN: ${{ github.token }} }
