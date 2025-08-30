@@ -77,7 +77,7 @@ You can automate port visibility settings using the `postAttachCommand` property
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   
-  "postAttachCommand": "gh cs ports visibility 3000:private 8080:org -c \"$CODESPACE_NAME\""
+  "postAttachCommand": "gh codespace ports visibility 3000:private 8080:org -c \"$CODESPACE_NAME\""
 }
 ```
 
