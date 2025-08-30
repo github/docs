@@ -83,7 +83,7 @@ You can stream audit logs to multiple endpoints. For example, you can stream you
 
 {% ifversion ghes %}
 
->[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work.
+>[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work. Your S3 bucket can reside in other AWS regions.
 
 {% endif %}
 
@@ -141,6 +141,8 @@ From AWS:
 
    * Add the permissions policy you created earlier to allow writes to the bucket.
    * Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+
+        >[!NOTE] The `ENTERPRISE` value is case-sensitive. If the name of your enterprise contains uppercase letters, use the same case in the trust policy.
 
      ```json
      "Condition": {
@@ -313,6 +315,8 @@ To restart streaming, click **Resume stream**.
 {% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
+
+>[!NOTE] Not all API requests are included in the audit log stream after this feature is enabled. The streaming of API requests is limited to security relevant endpoints.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -7,14 +7,16 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/viewing-the-branch-history-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: View branch history
 ---
 Each commit shows:
 
 * The commit message
 * The time the commit was created
-* The committer's username and profile photo (if available)
+* The committer's username and profile picture (if available)
 * The commit's SHA-1 hash (the unique ID)
 
 {% data reusables.desktop.history-tab %}

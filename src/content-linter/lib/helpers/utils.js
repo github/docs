@@ -1,5 +1,5 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
 // Adds an error object with details conditionally via the onError callback
 export function addFixErrorDetail(onError, lineNumber, expected, actual, range, fixInfo) {
@@ -132,4 +132,11 @@ export function getFrontmatter(lines) {
   // no keys, matter will return an empty object.
   if (Object.keys(data).length === 0) return null
   return data
+}
+
+export function getFrontmatterLines(lines) {
+  const indexStart = lines.indexOf('---')
+  if (indexStart === -1) return []
+  const indexEnd = lines.indexOf('---', indexStart + 1)
+  return lines.slice(indexStart, indexEnd + 1)
 }

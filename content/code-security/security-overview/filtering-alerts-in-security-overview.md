@@ -2,14 +2,17 @@
 title: Filtering alerts in security overview
 intro: Use filters to view specific categories of alerts
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 allowTitleToDifferFromFilename: true
 versions:
+  fpt: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
   - Teams
@@ -39,8 +42,8 @@ Currently, there are two logical operators that you can apply to your filters on
 All security views have features to help you define filters. These provide an easy way to set up filters and understand the options available.
 
 * **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
-* **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.{% ifversion security-overview-3-13-overview %}
-* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.{% endif %}
+* **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.
+* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** button, you can use dropdown lists to select the "Qualifier," "Operator," and "Values" for each filter. Supported on the "Overview" and metric views.
 
 ## Repository name, visibility, and status filters
 
@@ -53,9 +56,7 @@ You can also filter by repository visibility (internal, private, or public) and 
 
 | Qualifier | Description | Views |
 |--------|--------|------|
-| {% ifversion security-overview-dashboard %} |
 | `visibility` | Display data for all repositories that are `public`, `private`, or `internal`. | "Overview" and metrics |
-| {% endif %} |
 | `is` | Display data for all repositories that are `public`, `private`, or `internal`. | "Risk" and "Coverage" |
 | `archived` | Display only data for archived (`true`) or active (`false`) repositories. | All except "Alerts" views |
 
@@ -68,8 +69,6 @@ These qualifiers are available in all views.
 | `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). |
 | `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). |
 
-{% ifversion security-overview-repository-properties %}
-
 ## Custom repository property filters
 
 > [!NOTE]
@@ -77,11 +76,9 @@ These qualifiers are available in all views.
 
 Custom repository properties are metadata that organization owners can add to repositories in an organization, providing a way to group repositories by the information you are interested in. For example, you can add custom repository properties for compliance frameworks or data sensitivity. For more information on adding custom repository properties, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
-If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are available in both the organization-level and enterprise-level views.
+If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are currently only available in the organization-level views.
 
 * **`props.CUSTOM_PROPERTY_NAME` qualifier.** The qualifier consists of a `props.` prefix, followed by the name of the custom property. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
-
-{% endif %}
 
 {% ifversion security-overview-dashboard-enterprise %}
 
@@ -116,11 +113,11 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 ### Extra filters for the "Coverage" view
 
-{% data reusables.security-overview.beta-org-risk-coverage %}
-
 | Qualifier | Description |
 | -------- | -------- |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled or not enabled. |
+| {% ifversion ghes < 3.17 %} |
+| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GHAS %} is enabled or not enabled. |
+| {% endif %} |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
@@ -130,44 +127,36 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 In the "Risk" view, you can filter repositories by the number of alerts they have of a specific type.
 
-| Qualifier | Description |
-| -------- | -------- |
-| `code-scanning-alerts` | Display data for repositories that have exactly (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_code_scanning %} alerts. For example: `code-scanning-alerts:>100` for repositories with more than 100 alerts. |
-| `dependabot-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
-| `secret-scanning-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
-
-{% ifversion security-overview-dashboard %}
+|Qualifier|Description|
+|--------|--------|
+|`code-scanning-alerts`|Display data for repositories that have exactly (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_code_scanning %} alerts. For example: `code-scanning-alerts:>100` for repositories with more than 100 alerts.|
+|`dependabot-alerts`|Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
+|`secret-scanning-alerts`|Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
 
 ## Alert type and property filters
 
-You can filter the "Overview" view by the type{% ifversion security-overview-3-14-overview %} and property{% endif %} of alerts. Use the `tool` qualifier to display only data for alerts generated by a specific tool{% ifversion security-overview-3-14-overview %} or type of tool{% endif %}.
+You can filter the "Overview" view by the type and property of alerts. Use the `tool` qualifier to display only data for alerts generated by a specific tool or type of tool.
 
 * `tool:codeql` to show data only for {% data variables.product.prodname_code_scanning %} alerts generated using {% data variables.product.prodname_codeql %}.
 * `tool:dependabot` to show data only for {% data variables.product.prodname_dependabot_alerts %}.
-* `tool:secret-scanning` to show data only for {% data variables.secret-scanning.alerts %}.{% ifversion security-overview-3-14-overview %}
+* `tool:secret-scanning` to show data only for {% data variables.secret-scanning.alerts %}.
 * `tool:github` or `tool:third-party` to show data for all types of alerts generated by {% data variables.product.prodname_dotcom %} tools or by third-party tools.
-* `tool:TOOL-NAME` to show data for all alerts generated by a third-party tool for {% data variables.product.prodname_code_scanning %}.{% endif %}
-
-{% ifversion security-overview-3-14-overview %}
+* `tool:TOOL-NAME` to show data for all alerts generated by a third-party tool for {% data variables.product.prodname_code_scanning %}.
 
 You can also filter the "Overview" view by properties of alerts.
 
-| Qualifier | Description |
-| -------- | -------- |
-| `codeql.rule` | Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for {% data variables.product.prodname_codeql %}.
-| `dependabot.ecosystem` | Display data only for {% data variables.product.prodname_dependabot_alerts %} for a specific ecosystem, for example: `npm`.
-| `dependabot.package` | Display data only for {% data variables.product.prodname_dependabot_alerts %} for a specific package, for example: `tensorflow`.
-| `dependabot.scope` | Display data only for {% data variables.product.prodname_dependabot_alerts %} with a `runtime` or `development` scope.
-| `secret-scanning.bypassed` | Display data only for {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).
-| `secret-scanning.provider` | Display data only for {% data variables.secret-scanning.alerts %} issued by a specific provider, for example: `secret-scanning.provider:adafruit`.
-| `secret-scanning.secret-type` | Display data only for {% data variables.secret-scanning.alerts %} for a specific type of secret, for example: `secret-scanning.secret-type:adafruit_io_key`.
-| `secret-scanning.validity` | Display data only for {% data variables.secret-scanning.alerts %} for a specific validity (`active`, `inactive`, or `unknown`).
-| `severity` | Display data only for alerts of a specific severity (`critical`, `high`, `medium`, or `low`).
-| `third-party.rule`| Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for a tool developed by a third party. For example, `third-party.rule:CVE-2021-26291-maven-artifact` shows only results for the `CVE-2021-26291-maven-artifact` rule of a third-party {% data variables.product.prodname_code_scanning %} tool.
-
-{% endif %}
-
-{% endif %}
+|Qualifier|Description|
+|--------|--------|
+|`codeql.rule`| Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for {% data variables.product.prodname_codeql %}.|
+|`dependabot.ecosystem`| Display data only for {% data variables.product.prodname_dependabot_alerts %} for a specific ecosystem, for example: `npm`.|
+|`dependabot.package`| Display data only for {% data variables.product.prodname_dependabot_alerts %} for a specific package, for example: `tensorflow`.|
+|`dependabot.scope`| Display data only for {% data variables.product.prodname_dependabot_alerts %} with a `runtime` or `development` scope.|
+|`secret-scanning.bypassed`| Display data only for {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
+|`secret-scanning.provider`| Display data only for {% data variables.secret-scanning.alerts %} issued by a specific provider, for example: `secret-scanning.provider:adafruit`.|
+|`secret-scanning.secret-type`| Display data only for {% data variables.secret-scanning.alerts %} for a specific type of secret, for example: `secret-scanning.secret-type:adafruit_io_key`.|
+|`secret-scanning.validity`| Display data only for {% data variables.secret-scanning.alerts %} for a specific validity (`active`, `inactive`, or `unknown`).|
+|`severity`| Display data only for alerts of a specific severity (`critical`, `high`, `medium`, or `low`).|
+|`third-party.rule`| Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for a tool developed by a third party. For example, `third-party.rule:CVE-2021-26291-maven-artifact` shows only results for the `CVE-2021-26291-maven-artifact` rule of a third-party {% data variables.product.prodname_code_scanning %} tool.|
 
 ## {% data variables.product.prodname_dependabot %} alert view filters
 
@@ -176,12 +165,35 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 | Qualifier | Description |
 | -------- | -------- |
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
-|`has`| Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
+|{% ifversion fpt or ghec or ghes > 3.15 %}|
+|`epss_percentage`|Display {% data variables.product.prodname_dependabot_alerts %} whose EPSS score meets the defined criteria, for example: `epss_percentage:>=0.01`|
+|{% endif %}|
+|`has`|Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
 |`is`|Display {% data variables.product.prodname_dependabot_alerts %} that are open (`open`) or closed (`closed`).|
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
-|`resolution`| Display {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed" (`auto-dismissed`), "a fix has already been started" (`fix-started`), "fixed" (`fixed`), "this alert is inaccurate or incorrect" (`inaccurate`), "no bandwidth to fix this" (`no-bandwidth`), "vulnerable code is not actually used" (`not-used`), or "risk is tolerable to this project" (`tolerable-risk`).|
+|`props`|Display {% data variables.product.prodname_dependabot_alerts %} for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`.|
+|{% ifversion fpt or ghec or ghes > 3.17 %}|
+|`relationship`|Display {% data variables.product.prodname_dependabot_alerts %} of the specified relationship, for example: `relationship:indirect`.|
+|{% endif %}|
+|`repo`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified repository, for example: `repo:octo-repository`.|
+|`resolution`|Display {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed" (`auto-dismissed`), "a fix has already been started" (`fix-started`), "fixed" (`fixed`), "this alert is inaccurate or incorrect" (`inaccurate`), "no bandwidth to fix this" (`no-bandwidth`), "vulnerable code is not actually used" (`not-used`), or "risk is tolerable to this project" (`tolerable-risk`).|
 |`scope`|Display {% data variables.product.prodname_dependabot_alerts %} from the development dependency (`development`) or from the runtime dependency (`runtime`).|
-|`sort`| Groups {% data variables.product.prodname_dependabot_alerts %} by the manifest file path the alerts point to (`manifest-path`) or by the name of the package where the alert was detected (`package-name`). Alternatively, displays alerts from most important to least important, as determined by CVSS score, vulnerability impact, relevancy, and actionability (`most-important`), from newest to oldest (`newest`), from oldest to newest (`oldest`), or from most to least severe (`severity`).
+|`severity`|Display {% data variables.product.prodname_dependabot_alerts %} of the specified severity, for example: `severity:critical`.|
+|`sort`|Groups {% data variables.product.prodname_dependabot_alerts %} by the manifest file path the alerts point to (`manifest-path`) or by the name of the package where the alert was detected (`package-name`). Alternatively, displays alerts from most important to least important, as determined by CVSS score, vulnerability impact, relevancy, and actionability (`most-important`), from newest to oldest (`newest`), from oldest to newest (`oldest`), or from most to least severe (`severity`).|
+|`team`|Display {% data variables.product.prodname_dependabot_alerts %} owned by members of the specified team, for example: `team:octocat-dependabot-team`.|
+|`topic`|Display {% data variables.product.prodname_dependabot_alerts %} with the matching repository topic, for example: `topic:asdf`.|
+
+{% ifversion dependabot-metrics %}
+
+## {% data variables.product.prodname_dependabot %} dashboard filters
+
+You can filter the "{% data variables.product.prodname_dependabot %} dashboard" view using these filters.
+
+{% data reusables.security-overview.filter-dependabot-metrics %}
+
+Alternatively, you can use complex filters by clicking **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** and build custom filters to suit your needs.
+
+{% endif %}
 
 ## {% data variables.product.prodname_code_scanning_caps %} alert view filters
 
@@ -190,24 +202,33 @@ All {% data variables.product.prodname_code_scanning %} alerts have one of the c
 | Qualifier | Description |
 | -------- | -------- |
 |`is`|Display {% data variables.product.prodname_code_scanning %} alerts that are open (`open`) or closed (`closed`).|
-|`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-postive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
+|`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-positive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`rule`|Display {% data variables.product.prodname_code_scanning %} alerts identified by the specified rule.|
 |`severity`|Display {% data variables.product.prodname_code_scanning %} alerts categorized as `critical`, `high`, `medium`, or `low` security alerts. Alternatively, displays {% data variables.product.prodname_code_scanning %} alerts categorized as `error`, `warning`, `note` problems.|
-|`sort`| Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).
+|`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
 |`tool`|Display {% data variables.product.prodname_code_scanning %} alerts detected by the specified tool, for example: `tool:CodeQL` for alerts created using the {% data variables.product.prodname_codeql %} application in {% data variables.product.prodname_dotcom %}.|
 
 ## {% data variables.product.prodname_secret_scanning_caps %} alert view filters
 
 | Qualifier | Description |
 | -------- | -------- |
-|`bypassed` | Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
-|{% ifversion secret-scanning-alert-experimental-list %}|
-|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
-|{% else %}|
+|`bypassed`|Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
+|{% ifversion ghes < 3.16 %}|
 |`confidence`|Display {% data variables.secret-scanning.alerts %} of high (`high`) or other (`other`) confidence.|
 |{% endif %}|
-|`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`) or closed (`closed`).|
-|`provider` | Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
-|`resolution`| Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "pattern deleted" (`pattern-deleted`), "pattern edited' (`pattern-edited`), "revoked" (`revoked`) "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
-|`sort`| Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
-|`secret-type` | Display alerts for the specified secret and provider (`provider-pattern`) or custom pattern (`custom-pattern`). |
+|`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`){% ifversion ghes < 3.17 %} or closed (`closed`){% else %}, closed (`closed`), publicly leaked (`publicly-leaked`), or multi-repository (`multi-repository`){% endif %}.|
+|`props`|Display alerts for repositories with a specific custom property set. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
+|`provider`|Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
+|`repo`|Display alerts detected in a specified repository, for example: `repo:octo-repository`.|
+|`resolution`|Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "hidden by config" (`hidden-by-config`), "pattern deleted" (`pattern-deleted`), "pattern edited" (`pattern-edited`), "revoked" (`revoked`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
+|{% ifversion secret-scanning-generic-tab %}|
+|`results`|Display default (`default`) or generic (`generic`) {% data variables.secret-scanning.alerts %}.|
+|{% endif %}|
+|{% ifversion ghes = 3.16 %}|
+|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
+|{% endif %}|
+|`secret-type`|Display alerts for the specified secret and provider (`provider-pattern`) or custom pattern (`custom-pattern`).|
+|`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
+|`team`|Display alerts owned by members of the specified team, for example: `team:octocat-dependabot-team`.|
+|`topic`|Display alerts with the matching repository topic, for example: `topic:asdf`.|
+|`validity`|Display alerts for a specific validity (`active`, `inactive`, or `unknown`).|

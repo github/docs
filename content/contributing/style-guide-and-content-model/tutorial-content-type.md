@@ -1,8 +1,10 @@
 ---
 title: Tutorial content type
-intro: 'Tutorials are useful when someone has a basic understanding of the product and is interested in extending their understanding to solve a specific problem'
+intro: Tutorials are useful when someone has a basic understanding of the product and is interested in extending their understanding to solve a specific problem
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Tutorials help people learn about products and solve real world problems by guiding them through the entire workflow to complete a task. Tutorials are more conversational in tone than other content. A tutorial feels like a developer-to-developer conversation while remaining accessible to readers with varied technical knowledge. Products with tutorials must already have a quickstart. For bite-sized workflows, use the quickstart model instead.
@@ -25,7 +27,7 @@ Contents of tutorials:
 * Procedural sections
   * Based on the tutorial's audience, the steps can be less explicit and formal than those used in procedural content. You do not have to use existing reusables to form these steps if the audience doesn’t require that level of detail.
     * Use: "From your profile, click **Settings**, and then click **Developer settings**.”
-    * Avoid: In the upper-right corner of any page, click your profile photo, then click **Settings**. In the left sidebar, click **Developer settings**.
+    * Avoid: In the upper-right corner of any page, click your profile picture, then click **Settings**. In the left sidebar, click **Developer settings**.
   * Link out to other articles or resources rather than replicating them, to avoid interrupting the flow of information in the tutorial.
   * Give visual cues. Use code blocks and screenshots heavily to help reassure people that they are performing the correct actions.
   * Provide real examples.

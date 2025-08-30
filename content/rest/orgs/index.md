@@ -16,10 +16,12 @@ topics:
   - API
 children:
   - /api-insights
+  - /attestations
   - /blocking
   - /bypass-requests
   - /custom-properties
   - /custom-roles
+  - /issue-types
   - /members
   - /network-configurations
   - /organization-roles

@@ -46,13 +46,13 @@ For more information about adjusting resources for an existing instance, see [AU
 After enabling {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, you'll need to prepare your third-party storage bucket. The amount of storage required depends on your usage of {% data variables.product.prodname_registry %}, and the setup guidelines can vary by storage provider.
 
 Supported external storage providers
-* Amazon Web Services (AWS) S3 {% ifversion ghes %}
-* Azure Blob Storage {% endif %}
+* Amazon Web Services (AWS) S3
+* Azure Blob Storage
 * MinIO
 
 To enable {% data variables.product.prodname_registry %} and configure third-party storage, see:
-* [AUTOTITLE](/admin/packages/enabling-github-packages-with-aws){% ifversion ghes %}
-* [AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage){% endif %}
+* [AUTOTITLE](/admin/packages/enabling-github-packages-with-aws)
+* [AUTOTITLE](/admin/packages/enabling-github-packages-with-azure-blob-storage)
 * [AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)
 
 ## Step 4: Specify the package ecosystems to support on your instance

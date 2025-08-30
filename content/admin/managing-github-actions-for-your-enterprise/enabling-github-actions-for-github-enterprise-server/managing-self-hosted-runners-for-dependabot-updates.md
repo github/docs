@@ -6,7 +6,7 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '> 3.2'
+  ghes: '*'
 topics:
   - Enterprise
   - Security

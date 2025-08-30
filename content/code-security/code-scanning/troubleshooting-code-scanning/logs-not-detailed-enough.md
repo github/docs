@@ -19,6 +19,9 @@ You can enable step debug logging in {% data variables.product.prodname_actions 
 
 ## Creating {% data variables.product.prodname_codeql %} debugging artifacts
 
+> [!WARNING]
+> {% data variables.product.prodname_codeql %} debugging artifacts contain a copy of the source code being analyzed by {% data variables.product.prodname_codeql %}, therefore we suggest sharing these bundles only with people who are authorized to access that source code.
+
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %}.
 The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), extracted source code files, and any SARIF file(s) produced by the workflow. For more information about downloading {% data variables.product.prodname_codeql %} artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
 

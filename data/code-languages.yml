@@ -43,6 +43,9 @@ jsonc:
 markdown:
   name: Markdown
   comment: xml
+perl:
+  name: Perl
+  comment: number
 powershell:
   name: PowerShell
   comment: number
@@ -51,6 +54,9 @@ python:
   comment: number
 ruby:
   name: Ruby
+  comment: number
+rust:
+  name: Rust
   comment: number
 scss:
   name: SCSS

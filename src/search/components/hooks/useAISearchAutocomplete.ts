@@ -1,47 +1,55 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import debounce from 'lodash/debounce'
 import { NextRouter } from 'next/router'
-import { AutocompleteSearchHit } from '@/search/types'
-import { executeAIAutocompleteSearch } from '@/search/components/helpers/execute-search-actions'
+import { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
+import { executeCombinedSearch } from '@/search/components/helpers/execute-search-actions'
 
-type AutocompleteOptions = {
+type SearchOptions = {
   aiAutocompleteOptions: AutocompleteSearchHit[]
+  generalSearchResults: GeneralSearchHit[]
+  totalGeneralSearchResults: number
 }
 
-type UseAutocompleteProps = {
+type UseCombinedSearchProps = {
   router: NextRouter
   currentVersion: string
   debug: boolean
-  eventGroupIdRef: React.MutableRefObject<string>
 }
 
-type UseAutocompleteReturn = {
-  autoCompleteOptions: AutocompleteOptions
+type UseCombinedSearchReturn = {
+  autoCompleteOptions: SearchOptions
   searchLoading: boolean
+  setSearchLoading: (loading: boolean) => void
   searchError: boolean
   updateAutocompleteResults: (query: string) => void
   clearAutocompleteResults: () => void
 }
 
-const DEBOUNCE_TIME = 300 // In milliseconds
+const DEBOUNCE_TIME = 100 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
-let sessionCache = {} as Record<string, AutocompleteOptions>
+let sessionCache = {} as Record<string, SearchOptions>
+
+// Helper to incorporate version & locale into the cache key
+function getCacheKey(query: string, version: string, locale: string) {
+  return `${query}__${version}__${locale}`
+}
 
 // Helpers surrounding the ai-search-autocomplete request to lessen the # of requests made to our API
 // There are 3 methods for reducing the # of requests:
 // 1. Debouncing the request to prevent multiple requests while the user is typing
 // 2. Caching the results of the request so if the user presses backspace, we can show the results immediately without burdening the API
 // 3. Aborting in-flight requests if the user types again before the previous request has completed
-export function useAISearchAutocomplete({
+export function useCombinedSearchResults({
   router,
   currentVersion,
   debug,
-  eventGroupIdRef,
-}: UseAutocompleteProps): UseAutocompleteReturn {
-  const [autoCompleteOptions, setAutoCompleteOptions] = useState<AutocompleteOptions>({
+}: UseCombinedSearchProps): UseCombinedSearchReturn {
+  const [searchOptions, setSearchOptions] = useState<SearchOptions>({
     aiAutocompleteOptions: [],
+    generalSearchResults: [],
+    totalGeneralSearchResults: 0,
   })
   const [searchLoading, setSearchLoading] = useState<boolean>(true)
   const [searchError, setSearchError] = useState<boolean>(false)
@@ -55,7 +63,7 @@ export function useAISearchAutocomplete({
   useEffect(() => {
     debouncedFetchRef.current = debounce((value: string) => {
       fetchAutocompleteResults(value)
-    }, DEBOUNCE_TIME) // 300ms debounce
+    }, DEBOUNCE_TIME) // 1ms debounce
 
     return () => {
       debouncedFetchRef.current?.cancel()
@@ -69,38 +77,53 @@ export function useAISearchAutocomplete({
         abortControllerRef.current.abort()
       }
 
+      setSearchLoading(true)
+
+      // Build cache key based on query, version, and locale
+      const cacheKey = getCacheKey(queryValue, currentVersion, router.locale || 'en')
+
       // Check if the result is in cache
-      if (sessionCache[queryValue]) {
-        setAutoCompleteOptions(sessionCache[queryValue])
+      if (sessionCache[cacheKey]) {
+        setSearchOptions(sessionCache[cacheKey])
         setSearchLoading(false)
         return
       }
 
-      setSearchLoading(true)
+      // If there is an existing search error, don't return any results
+      if (searchError) {
+        setSearchOptions({
+          aiAutocompleteOptions: [],
+          generalSearchResults: [],
+          totalGeneralSearchResults: 0,
+        })
+        setSearchLoading(false)
+        return
+      }
 
       // Create a new AbortController for the new request
       const controller = new AbortController()
       abortControllerRef.current = controller
 
       try {
-        const { aiAutocompleteOptions } = await executeAIAutocompleteSearch(
+        const { aiAutocompleteOptions, generalSearchResults } = await executeCombinedSearch(
           router,
           currentVersion,
           queryValue,
           debug,
           controller.signal, // Pass in the signal to allow the request to be aborted
-          eventGroupIdRef.current,
         )
 
-        const results: AutocompleteOptions = {
-          aiAutocompleteOptions,
+        const results = {
+          aiAutocompleteOptions: aiAutocompleteOptions.hits,
+          generalSearchResults: generalSearchResults?.hits || [],
+          totalGeneralSearchResults: generalSearchResults?.meta?.found?.value || 0,
         }
 
         // Update cache
-        sessionCache[queryValue] = results
+        sessionCache[cacheKey] = results
 
         // Update state with fetched results
-        setAutoCompleteOptions(results)
+        setSearchOptions(results)
         setSearchLoading(false)
       } catch (error: any) {
         if (error.name === 'AbortError') {
@@ -108,6 +131,11 @@ export function useAISearchAutocomplete({
         }
         console.error(error)
         setSearchError(true)
+        setSearchOptions({
+          aiAutocompleteOptions: [],
+          generalSearchResults: [],
+          totalGeneralSearchResults: 0,
+        })
         setSearchLoading(false)
       }
     },
@@ -128,8 +156,10 @@ export function useAISearchAutocomplete({
   }, [])
 
   const clearAutocompleteResults = useCallback(() => {
-    setAutoCompleteOptions({
+    setSearchOptions({
       aiAutocompleteOptions: [],
+      generalSearchResults: [],
+      totalGeneralSearchResults: 0,
     })
     setSearchLoading(false)
     setSearchError(false)
@@ -143,8 +173,9 @@ export function useAISearchAutocomplete({
   }, [])
 
   return {
-    autoCompleteOptions,
+    autoCompleteOptions: searchOptions,
     searchLoading,
+    setSearchLoading,
     searchError,
     updateAutocompleteResults,
     clearAutocompleteResults,

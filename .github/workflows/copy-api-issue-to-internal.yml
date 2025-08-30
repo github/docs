@@ -22,7 +22,7 @@ jobs:
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -45,35 +45,35 @@ jobs:
 
       - name: Create an issue in the docs-content repo
         run: |
-          new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content)"
+          new_issue_url="$(gh issue create --title "$ISSUE_TITLE" --body "$ISSUE_BODY" --repo github/docs-content --label "workflow-generated")"
           echo 'NEW_ISSUE='$new_issue_url >> $GITHUB_ENV
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
 
       - name: Comment on the old issue
         run: gh issue comment $OLD_ISSUE --body "Thank you for opening this issue! Updates to this documentation must be made internally. I have copied your issue to an internal issue, so I will close this issue."
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Close the old issue
         run: gh issue close $OLD_ISSUE
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Comment on the new issue
         run: gh issue comment $NEW_ISSUE --body "This issue was originally opened in the open source repo as $OLD_ISSUE"
         env:
-          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          GITHUB_TOKEN: ${{secrets.DOCS_BOT_PAT_BASE}}
           NEW_ISSUE: ${{ env.NEW_ISSUE }}
           OLD_ISSUE: ${{ github.event.issue.html_url }}
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' && github.repository == 'github/docs-internal' }}
         with:

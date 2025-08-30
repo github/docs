@@ -101,3 +101,7 @@ While running the command to configure Azure resources, ensure you are using the
 ```
 
 If you experience this error, you can see more information by running the command using the `---debug` flag.
+
+### Network settings configured at the wrong level
+
+If network settings were configured using an organization's `databaseId` instead of an enterprise `databaseId`, an error will occur. The error message will indicate that a private network cannot be established with the provided resource ID because it is already associated with a different enterprise or organization. To resolve this, delete the existing network settings and recreate them using the enterprise `databaseId`.

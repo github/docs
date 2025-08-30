@@ -30,6 +30,12 @@ Your instance uses metrics from `collectd` to display graphs in the {% data vari
 
 You can review a list of the metrics that `collectd` gathers on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics-for-github-enterprise-server).
 
+{% ifversion prometheus-metrics-exporter %}
+
+> [!TIP] In {% data variables.product.prodname_ghe_server %} 3.16, support was added for exporting `collectd` metrics in Prometheus format. This update does not change the existing metrics stack in the appliance but provides an easier way to ingest metrics into an observability platform by supporting the Prometheus protocol. An additional option is available to expose collectd metrics in Prometheus format with an endpoint. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics).
+
+{% endif %}
+
 ## Set up an external `collectd` server
 
 If you haven't already set up an external `collectd` server, you will need to do so before enabling `collectd` forwarding on {% data variables.location.product_location %}. Your `collectd` server must be running `collectd` version 5.x or higher.
@@ -57,18 +63,6 @@ By default, `collectd` forwarding is disabled on {% data variables.product.prodn
 1. In the **Port** field, type the port used to connect to the `collectd` server. (Defaults to 25826)
 1. In the **Cryptographic setup** dropdown menu, select the security level of communications with the `collectd` server. (None, signed packets, or encrypted packets.)
 {% data reusables.enterprise_management_console.save-settings %}
-
-## Exporting collectd data with `ghe-export-graphs`
-
-The command-line tool `ghe-export-graphs` will export the data that `collectd` stores in RRD databases. This command turns the data into XML and exports it into a single tarball (`.tgz`).
-
-Its primary use is to provide the {% data variables.contact.contact_ent_support %} team with data about a VM's performance, without the need for downloading a full Support Bundle. It shouldn't be included in your regular backup exports and there is no import counterpart. If you contact us through {% data variables.contact.contact_ent_support %}, we may ask for this data to assist with troubleshooting.
-
-### Usage
-
-```shell
-ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname]:~/graphs.tar.gz .
-```
 
 ## Troubleshooting
 

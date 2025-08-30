@@ -7,7 +7,8 @@ export function sendExperimentSuccess(experimentKey: ExperimentNames, success = 
   return sendEvent({
     type: EventType.experiment,
     experiment_name: experimentKey,
-    experiment_variation: getExperimentControlGroupFromSession(experimentKey).toLowerCase(),
+    experiment_variation:
+      getExperimentControlGroupFromSession(experimentKey)?.toLowerCase() || 'control',
     experiment_success: success,
   })
 }

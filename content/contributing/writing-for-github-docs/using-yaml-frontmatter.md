@@ -1,9 +1,11 @@
 ---
 title: Using YAML frontmatter
-shortTitle: YAML frontmatter # Max 31 characters
+shortTitle: YAML frontmatter
 intro: 'You can use YAML frontmatter to define versioning, add metadata, and control the layout for articles.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter
 ---
@@ -44,7 +46,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 
 ### `versions`
 
-* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
+* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.ts) to which a page applies.
 For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
 * Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 * This frontmatter value is currently **required** for all pages.
@@ -100,7 +102,7 @@ For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-gi
 
 * Purpose: Set a human-friendly title for use in the rendered page's `<title>` tag and an `h1` element at the top of the page.
 * Type: `String`
-* Optional. If omitted, the page `<title>` will still be set, albeit with a generic value like `GitHub.com` or `GitHub Enterprise`.
+* **Required**.
 
 ### `shortTitle`
 

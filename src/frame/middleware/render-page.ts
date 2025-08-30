@@ -1,23 +1,20 @@
-import http from 'http'
-
-import { get } from 'lodash-es'
 import type { Response } from 'express'
-import type { Failbot } from '@github/failbot'
 
+import type { Failbot } from '@github/failbot'
+import { get } from 'lodash-es'
+
+import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
+import patterns from '@/frame/lib/patterns'
+import FailBot from '@/observability/lib/failbot'
+import statsd from '@/observability/lib/statsd'
 import type { ExtendedRequest } from '@/types'
-import FailBot from '@/observability/lib/failbot.js'
-import patterns from '@/frame/lib/patterns.js'
-import getMiniTocItems from '@/frame/lib/get-mini-toc-items.js'
-import { pathLanguagePrefixed } from '@/languages/lib/languages.js'
-import statsd from '@/observability/lib/statsd.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
+import { minimumNotFoundHtml } from '../lib/constants'
+import { defaultCacheControl } from './cache-control'
 import { isConnectionDropped } from './halt-on-dropped-connection'
-import { nextHandleRequest } from './next.js'
-import { defaultCacheControl } from './cache-control.js'
-import { minimumNotFoundHtml } from '../lib/constants.js'
+import { nextHandleRequest } from './next'
 
 const STATSD_KEY_RENDER = 'middleware.render_page'
-const STATSD_KEY_404 = 'middleware.render_404'
 
 async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   const { context } = req
@@ -45,6 +42,11 @@ async function buildMiniTocItems(req: ExtendedRequest): Promise<string | undefin
 }
 
 export default async function renderPage(req: ExtendedRequest, res: Response) {
+  // Skip if App Router has already handled this request
+  if (res.locals?.handledByAppRouter) {
+    return
+  }
+
   const { context } = req
 
   // This is a contextualizing the request so that when this `req` is
@@ -65,58 +67,10 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       )
     }
 
-    if (!pathLanguagePrefixed(req.path)) {
-      defaultCacheControl(res)
-      return res.status(404).type('html').send(minimumNotFoundHtml)
-    }
-
-    // The rest is "unhandled" requests where we don't have the page
-    // but the URL looks like a real page.
-
-    statsd.increment(STATSD_KEY_404, 1, [
-      `url:${req.url}`,
-      `ip:${req.ip}`,
-      `path:${req.path}`,
-      `referer:${req.headers.referer || ''}`,
-    ])
-
-    // This means, we allow the CDN to cache it, but to be purged at the
-    // next deploy. The length isn't very important as long as it gets
-    // a new chance after the next deploy + purge.
-    // This way, we only have to respond with this 404 once per deploy
-    // and the CDN can cache it.
+    // send minimal 404 at this point since we ran into hydration issues trying to pass
+    // these along to AppRouter 404 handling
     defaultCacheControl(res)
-
-    // The reason we're *NOT* using `nextApp.render404` is because, in
-    // Next v13, is for two reasons:
-    //
-    //  1. You cannot control the `cache-control` header. It always
-    //     gets set to `private, no-cache, no-store, max-age=0, must-revalidate`.
-    //     which is causing problems with Fastly because then we can't
-    //     let Fastly cache it till the next purge, even if we do set a
-    //     `Surrogate-Control` header.
-    //  2. In local development, it will always hang and never respond.
-    //     Eventually you get a timeout error (503) after 10 seconds.
-    //
-    // The solution is to render a custom page (which is the
-    // src/pages/404.tsx) but control the status code (and the Cache-Control).
-    //
-    // Create a new request for a real one.
-    const tempReq = new http.IncomingMessage(req as any) as ExtendedRequest
-    tempReq.method = 'GET'
-    // There is a `src/pages/_notfound.txt`. That's why this will render
-    // a working and valid React component.
-    // It's important to not use `src/pages/404.txt` (or `/404` as the path)
-    // here because then it will set the wrong Cache-Control header.
-    tempReq.url = '/_notfound'
-    tempReq.path = '/_notfound'
-    tempReq.cookies = {}
-    tempReq.headers = {}
-    // By default, since the lookup for a `src/pages/*.tsx` file will work,
-    // inside the `nextHandleRequest` function, by default it will
-    // think it all worked with a 200 OK.
-    res.status(404)
-    return nextHandleRequest(tempReq, res)
+    return res.status(404).type('html').send(minimumNotFoundHtml)
   }
 
   // Just finish fast without all the details like Content-Length

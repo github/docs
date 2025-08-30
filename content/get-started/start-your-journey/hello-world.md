@@ -70,15 +70,7 @@ This diagram shows:
 1. Click the **Code** tab of your `hello-world` repository.
 1. Above the file list, click the dropdown menu that says **main**.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
-
-{% else %}
-
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
-
-{% endif %}
 
 1. Type a branch name, `readme-edits`, into the text box.
 1. Click **Create branch: readme-edits from main**.
@@ -96,7 +88,7 @@ You can make and save changes to the files in your repository. On {% data variab
 1. Under the `readme-edits` branch you created, click the `README.md` file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
 1. In the editor, write a bit about yourself.
-{% ifversion code-view-ui %}1. Click **Commit changes**.{% endif %}
+1. Click **Commit changes**.
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
 

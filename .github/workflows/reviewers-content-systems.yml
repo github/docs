@@ -6,6 +6,12 @@ name: Reviewers - Content Systems
 
 on:
   pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
     paths:
       - 'contributing/content-*.md'
       - 'content/contributing/**.md'
@@ -26,16 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR: ${{ github.event.pull_request.html_url }}
-      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
     steps:
-      - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
       - name: Add content systems as a reviewer
-        run: |
-          labels=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name')
-          if ! echo "$labels" | grep -q 'reviewers-content-systems'; then
-            gh pr edit $PR --add-reviewer github/docs-content-systems
-            gh pr edit $PR --add-label reviewers-content-systems
-          fi
+        uses: ./.github/actions/retry-command
+        with:
+          command: gh pr edit $PR --add-reviewer github/docs-content-systems --add-label reviewers-content-systems

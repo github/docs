@@ -30,12 +30,12 @@ If you [configured your SSH passphrase with the macOS keychain](/authentication/
 
 {% windows %}
 
-If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/get-started/git-basics/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
 
 {% endwindows %}
 
 {% linux %}
 
-If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
+If you lose your SSH key passphrase, there's no way to recover it. You'll need to [generate a brand new SSH keypair](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) or [switch to HTTPS cloning](/get-started/git-basics/about-remote-repositories#cloning-with-https-urls) so you can use a {% data variables.product.pat_generic %} instead.
 
 {% endlinux %}

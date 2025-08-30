@@ -10,7 +10,7 @@ type LinksJSON = Array<{
 //
 // We include the JSON string in our analytics events so we can see the
 // most popular sourced references, among other things.
-export function generateAiSearchLinksJson(
+export function generateAISearchLinksJson(
   sourcesBuffer: Array<{ url: string }>,
   aiResponse: string,
 ): string {
@@ -53,12 +53,25 @@ function extractMarkdownLinks(markdownResponse: string) {
     urls.push(match[2])
   }
 
-  return urls
+  // Filter out any invalid URLs
+  return urls.filter((url) => {
+    try {
+      new URL(url)
+      return true
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (e) {
+      return false
+    }
+  })
 }
 
 // Given a Docs URL, extract the product name
 function extractProductFromDocsUrl(url: string): string {
-  const pathname = new URL(url).pathname
+  const urlObject = new URL(url)
+  if (urlObject.hostname !== 'docs.github.com') {
+    return ''
+  }
+  const pathname = urlObject.pathname
 
   const segments = pathname.split('/').filter((segment) => segment)
 
@@ -69,7 +82,14 @@ function extractProductFromDocsUrl(url: string): string {
   }
 
   if (segments[0].length === 2) {
-    return segments[1] || ''
+    if (segments.length < 2) {
+      return ''
+    }
+    // if second segment is a version, then product is the third segment
+    if (segments[1].includes('@')) {
+      return segments[2] || ''
+    }
+    return segments[1]
   }
 
   return segments[0]

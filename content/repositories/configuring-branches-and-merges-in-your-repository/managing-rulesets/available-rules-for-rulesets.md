@@ -1,13 +1,17 @@
 ---
 title: Available rules for rulesets
-intro: 'Learn which rules you can add to a ruleset to protect specific branches and tags in a repository.'
+intro: Learn which rules you can add to a ruleset to protect specific branches and tags in a repository.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories
 shortTitle: Available rules
+redirect_from:
+  - /actions/sharing-automations/required-workflows
 ---
 
 You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. {% ifversion push-rulesets %}You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.{% endif %}
@@ -127,10 +131,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 Optionally, you can require all comments on the pull request to be resolved before it can be merged to a branch. This ensures that all comments are addressed or acknowledged before merge.
 
 {% ifversion repo-rules-merge-type %}
-> [!NOTE]
-> Allowed merge method is currently in public preview, the rule is currently non-bypassable, and subject to change.
-
-Optionally, you can require a merge type of merge, squash or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
+Optionally, you can require a merge type of merge, squash, or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
 {% endif %}
 
 ## Require status checks to pass before merging
@@ -141,7 +142,7 @@ You can use the commit status API to allow external services to mark commits wit
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the branch or tag. {% ifversion repo-rules-ignorecheck %} Optionally, you can select "Do not require status checks on creation" if you wish to allow branch creation regardless of the status check result. {% endif %}
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check rule, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check rule, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source," you can still manually verify the author of each status, listed in the merge box.
 
 To troubleshoot issues with configuring status checks in rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules#troubleshooting-required-status-checks).
 
@@ -161,8 +162,6 @@ You can think of required status checks as being either "loose" or "strict." The
 
 For status check troubleshooting information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks).
 
-{% ifversion code-scanning-merge-protection-rulesets %}
-
 ## Set {% data variables.product.prodname_code_scanning %} merge protection
 
 If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
@@ -170,8 +169,6 @@ If your repositories are configured with {% data variables.product.prodname_code
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
-
-{% endif %}
 
 ## Block force pushes
 
@@ -241,7 +238,7 @@ Metadata restrictions block "ref updates." If a contributor pushes work that inc
 
 Metadata restrictions can increase friction for people contributing to a repository. Generally, if you impose metadata restrictions, you should do so on a limited set of branches to avoid impacting contributors' daily work. For example, instead of requiring consistent commit messages on any topic branch that a contributor might work on, you should require consistent commit messages on `main` only, then require pull requests into `main`.
 
-If you use squash merges, you should be aware that metadata restrictions are evaluated before the merge, so all commits on the pull request must meet the requirements. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
+If you use squash merges, the individual commits in the pull request are ignored. Instead, restrictions are only validated against the metadata of the single, resulting merge commit. The pull request page validates this information before the merge is allowed, ensuring the final commit is compliant. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
 
 When you add metadata restrictions to an existing branch or tag, the rules are enforced for new commits pushed to the branch or tag from that point forward, but they are not enforced against the existing history of the branch or tag.
 
@@ -251,7 +248,7 @@ When you add metadata restrictions to an existing branch or tag, the rules are e
 
 ## Restrict file paths
 
-Prevent commits that include changes in specified file paths from being pushed to the repository.
+Prevent commits that include changes in specified file paths from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
 
 {% data reusables.repositories.rulesets-push-rules-path-example %}
 
@@ -261,7 +258,7 @@ Prevent commits that include file paths that exceed a specified character limit 
 
 ## Restrict file extensions
 
-Prevent commits that include files with specified file extensions from being pushed to the repository.
+Prevent commits that include files with specified file extensions from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
 
 ## Restrict file size
 

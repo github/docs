@@ -1,5 +1,7 @@
 # Reference: #14351.
 # Documentation for security overview dashboard 3-tab view
+# Ref 17108 Advanced Security available to Team plans
 versions:
+  fpt: '*'
   ghes: '>3.15'
   ghec: '*'

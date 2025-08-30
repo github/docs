@@ -29,12 +29,13 @@ topics:
 * If you’re several versions behind, upgrade {% data variables.location.product_location %} as far forward as possible with each step of your upgrade process. Using the latest version possible on each upgrade allows you to take advantage of performance improvements and bug fixes. For example, you could upgrade from {% data variables.product.prodname_enterprise %} 2.7 to 2.8 to 2.10, but upgrading from {% data variables.product.prodname_enterprise %} 2.7 to 2.9 to 2.10 uses a later version in the second step.
 * Use the latest patch release when upgrading. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 * Use a staging instance to test the upgrade steps. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
-* When running multiple upgrades, ensure data migrations and upgrade tasks running in the background are fully complete before proceeding to the next feature upgrade. To check the status of these processes, you can use the `ghe-migrations` and `ghe-check-background-upgrade-jobs` command-line utilities. {% ifversion ghes < 3.12 %} To use `ghe-check-background-upgrade-jobs` with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later. {% endif %}For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#upgrading-github-enterprise-server).
-* Take a snapshot before upgrading your virtual machine. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot).
+* When running multiple upgrades, ensure data migrations and upgrade tasks running in the background are fully complete before proceeding to the next feature upgrade. To check the status of these processes, you can use the `ghe-migrations` and `ghe-check-background-upgrade-jobs` command-line utilities. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#upgrading-github-enterprise-server).
+* Take a snapshot before upgrading your virtual machine. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot). After the snapshot is taken, turn off automatic snapshots to avoid possible performance impacts during upgrade.
 * Ensure you have a recent, successful backup of your instance. For more information, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README.md file](https://github.com/github/backup-utils#readme).
 
 ## Requirements
 
+* You must perform a capacity check. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/check-system-capacity-before-upgrading).
 * You must upgrade from a feature release that's **at most** two releases behind. For example, to upgrade to {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, you must be on {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} or {{ enterpriseServerReleases.supported[2] }}.
 * When upgrading using an upgrade package, schedule a maintenance window for {% data variables.product.prodname_ghe_server %} end users.
 * {% data reusables.enterprise_installation.hotpatching-explanation %}
@@ -50,14 +51,6 @@ curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.
 Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
 
 {% data reusables.enterprise_installation.preflight-checks %}
-
-{% ifversion ghes = 3.10 %}
-
-## Known issues
-
-Review known issues that may apply to your upgrade. For more information, see [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance).
-
-{% endif %}
 
 ## Next steps
 

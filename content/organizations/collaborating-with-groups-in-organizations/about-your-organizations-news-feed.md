@@ -30,12 +30,4 @@ An organization's news feed shows other people's activity on repositories owned 
 1. Open your {% data reusables.user-settings.personal_dashboard %}.
 1. In the upper-left corner of the page, select the dropdown menu that switches account context, then select an organization.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of a user's dashboard page. In the top-left corner, a dropdown menu, labeled with "octocat" and a downwards arrow, is outlined in orange.](/assets/images/help/organizations/account-context-switcher-global-nav-update.png)
-
-{% else %}
-
-   ![Screenshot of a user's dashboard page. In the top-left corner, a dropdown menu, labeled with "octocat" and a downwards arrow, is outlined in orange.](/assets/images/help/organizations/account-context-switcher.png)
-
-{% endif %}

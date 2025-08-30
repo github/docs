@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
-import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
+import { turnOffExperimentsInPage, dismissCTAPopover } from '../helpers/turn-off-experiments'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -9,9 +9,7 @@ import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
 // The `src/frame/start-server.ts` script uses dotenv too, but since Playwright
 // tests only interface with the server via HTTP, we too need to find
 // this out.
-dotenv.config()
-
-turnOffExperimentsBeforeEach(test)
+dotenv.config({ quiet: true })
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -22,6 +20,8 @@ test('view home page', async ({ page }) => {
 
 test('logo link keeps current version', async ({ page }) => {
   await page.goto('/enterprise-cloud@latest')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
   // Basically clicking into any page that isn't the home page for this version.
   await page.getByTestId('product').getByRole('link', { name: 'Get started' }).click()
   await expect(page).toHaveURL(/\/en\/enterprise-cloud@latest\/get-started/)
@@ -56,10 +56,20 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
-  await page.getByTestId('site-search-input').click()
-  await page.getByTestId('site-search-input').fill('serve playwright')
-  await page.keyboard.press('Enter')
-  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
+
+  // Use the search overlay
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Wait for search results to load
+  await page.waitForTimeout(1000)
+  // Click "View more results" to get to the search page
+  await page.getByText('View more results').click()
+
+  await expect(page).toHaveURL(
+    /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+  )
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
   await page.getByRole('link', { name: 'For Playwright' }).click()
@@ -68,62 +78,73 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
-test('open new search, and perform a general search', async ({ page }) => {
+test('open search, and perform a general search', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
+
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Wait for the results to load
+  // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
+  // to allow an unnecessary request when there are no search results. Easier to wait 1 second
+  await page.waitForTimeout(1000)
+  // Scroll down to "View all results" then press enter
+  await page.getByText('View more results').click()
+
+  await expect(page).toHaveURL(
+    /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+  )
+  await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+
+  // The first result should be "For Playwright"
+  await page.getByRole('link', { name: 'For Playwright' }).click()
+
+  await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
+  await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open search, and select a general search article', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
 
-  // Enable the AI search experiment by overriding the control group
-  await page.evaluate(() => {
-    // @ts-expect-error overrideControlGroup is a custom function added to the window object
-    window.overrideControlGroup('ai_search_experiment', 'treatment')
-  })
-
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
   await page.waitForTimeout(1000)
-  // Navigate to general search item, "serve playwright"
+  // Navigate to general search item, "For Playwright"
   await page.keyboard.press('ArrowDown')
-  // Select the general search item, "serve playwright"
+  // Select the general search item, "For Playwright"
   await page.keyboard.press('Enter')
 
-  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
-  await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
-
-  await page.getByRole('link', { name: 'For Playwright' }).click()
-
+  // We should now be on the page for "For Playwright"
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
-test('open new search, and get auto-complete results', async ({ page }) => {
+test('open search, and get auto-complete results', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
 
-  // Enable the AI search experiment by overriding the control group
-  await page.evaluate(() => {
-    // @ts-expect-error overrideControlGroup is a custom function added to the window object
-    window.overrideControlGroup('ai_search_experiment', 'treatment')
-  })
-
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   let listGroup = page.getByTestId('ai-autocomplete-suggestions')
 
   await expect(listGroup).toBeVisible()
   let listItems = listGroup.locator('li')
-  await expect(listItems).toHaveCount(5)
+  await expect(listItems).toHaveCount(4)
 
-  // Top 5 queries from queries.json fixture's 'topQueries'
+  // Top queries from queries.json fixture's 'topQueries'
   let expectedTexts = [
     'What is GitHub and how do I get started?',
     'What is GitHub Copilot and how do I get started?',
     'How do I connect to GitHub with SSH?',
     'How do I generate a personal access token?',
-    'How do I clone a repository?',
   ]
   for (let i = 0; i < expectedTexts.length; i++) {
     await expect(listItems.nth(i)).toHaveText(expectedTexts[i])
@@ -136,6 +157,8 @@ test('open new search, and get auto-complete results', async ({ page }) => {
 
   // Type the text "rest" into the search input
   await searchInput.fill('rest')
+  // For for 1 second for the suggestions to load
+  await page.waitForTimeout(1000)
 
   // Ask AI suggestions
   listGroup = page.getByTestId('ai-autocomplete-suggestions')
@@ -156,9 +179,18 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/enterprise-cloud@latest')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
 
-  await page.getByTestId('site-search-input').fill('fixture')
-  await page.getByTestId('site-search-input').press('Enter')
+  // Use the search overlay
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('fixture')
+  // Wait for search results to load
+  await page.waitForTimeout(1000)
+  // Click "View more results" to get to the search page
+  await page.getByText('View more results').click()
+
+  // Now we're on the search results page, apply the filter
   await page.getByText('Fooing (1)').click()
   await page.getByRole('link', { name: 'Clear' }).click()
 
@@ -170,6 +202,8 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Mac' }).click()
     await expect(page).toHaveURL(/\?platform=mac/)
@@ -185,6 +219,8 @@ test.describe('platform picker', () => {
   test('minitoc matches picker', async ({ page }) => {
     // default platform set to windows in fixture fronmatter
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
     ).not.toBeVisible()
@@ -202,6 +238,8 @@ test.describe('platform picker', () => {
 
   test('remember last clicked OS', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
 
     // Return and now the cookie should start us off on Windows again
@@ -214,75 +252,96 @@ test.describe('platform picker', () => {
 test.describe('tool picker', () => {
   test('switch tools', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
     await expect(page).toHaveURL(/\?tool=cli/)
-    await expect(page.getByText('this is cli content')).toBeVisible()
-    await expect(page.getByText('this is webui content')).not.toBeVisible()
+    await expect(page.getByText('This is cli content')).toBeVisible()
+    await expect(page.getByText('This is webui content')).not.toBeVisible()
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
     await expect(page).toHaveURL(/\?tool=webui/)
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
-    await expect(page.getByText('this is desktop content')).not.toBeVisible()
-    await expect(page.getByText('this is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
   test('prefer default tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
 
-    // defaultTool is set in the fixture frontmatter
-    await expect(page.getByText('this is desktop content')).toBeVisible()
-    await expect(page.getByText('this is webui content')).not.toBeVisible()
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
+    // defaultTool is set in the fixture frontmatter to webui
+    await expect(page.getByText('This is webui content')).toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
   })
 
   test('remember last clicked tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
 
     // Return and now the cookie should start us off with Web UI content again
     await page.goto('/get-started/liquid/tool-specific')
-    await expect(page.getByText('this is cli content')).not.toBeVisible()
-    await expect(page.getByText('this is desktop content')).not.toBeVisible()
-    await expect(page.getByText('this is webui content')).toBeVisible()
+    await expect(page.getByText('This is cli content')).not.toBeVisible()
+    await expect(page.getByText('This is desktop content')).not.toBeVisible()
+    await expect(page.getByText('This is webui content')).toBeVisible()
   })
 
   test('minitoc matches picker', async ({ page }) => {
-    // default tool set to desktop in fixture fronmatter
+    // default tool set to webui in fixture frontmatter
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
     await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
     ).toBeVisible()
     await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
-    ).not.toBeVisible()
-    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
-    await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Desktop' }).click()
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).toBeVisible()
   })
 })
 
-test('navigate with side bar into article inside a map-topic inside a category', async ({
+test('navigate with side bar into article inside a subcategory inside a category', async ({
   page,
 }) => {
   // Our TreeView sidebar only shows "2 levels". If you click and expand
-  // the category, you'll be able to see the map-topic and the article
+  // the category, you'll be able to see the subcategory and the article
   // within.
   await page.goto('/actions')
-  await page.getByTestId('sidebar').getByText('Category').click()
-  await page.getByText('Map & Topic').click()
+  await page.getByTestId('sidebar').getByText('Category', { exact: true }).click()
+  await page.getByTestId('sidebar').getByText('Subcategory').click()
   await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
-  await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
+  await expect(page).toHaveURL(/actions\/category\/subcategory\/article/)
+})
+
+test('sidebar custom link functionality works', async ({ page }) => {
+  // Test that sidebar functionality is not broken by custom links feature
+  await page.goto('/get-started')
+
+  await expect(page).toHaveTitle(/Getting started with HubGit/)
+
+  // Verify that regular sidebar navigation still works by clicking on known sections
+  await page.getByTestId('product-sidebar').getByText('Start your journey').click()
+  await page.getByTestId('product-sidebar').getByText('Hello World').click()
+  await expect(page).toHaveURL(/\/en\/get-started\/start-your-journey\/hello-world/)
+  await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
 
 test.describe('hover cards', () => {
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -344,6 +403,8 @@ test.describe('hover cards', () => {
 
   test('use keyboard shortcut to open hover card', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // Simply putting focus on the link should not open the hovercard
     await page
@@ -375,6 +436,8 @@ test.describe('hover cards', () => {
 
   test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -463,7 +526,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('medium viewports - 768-1011', async ({ page }) => {
@@ -492,7 +555,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('small viewports - 544-767', async ({ page }) => {
@@ -525,7 +588,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('x-small viewports - 0-544', async ({ page }) => {
@@ -534,6 +597,8 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
 
     // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
@@ -562,7 +627,7 @@ test.describe('test nav at different viewports', () => {
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
     await page.getByTestId('sidebar-hamburger').click()
-    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    await expect(page.locator('[role="dialog"][class*="Header_dialog"]')).toBeVisible()
   })
 
   test('do a search when the viewport is x-small', async ({ page }) => {
@@ -573,11 +638,20 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
-    await page.getByRole('button', { name: 'Open Search Bar' }).click()
-    await page.getByTestId('site-search-input').click()
-    await page.getByTestId('site-search-input').fill('serve playwright')
-    await page.getByTestId('site-search-input').press('Enter')
-    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
+
+    // Use the search overlay
+    await page.locator('[data-testid="mobile-search-button"]:visible').click()
+    await page.getByTestId('overlay-search-input').fill('serve playwright')
+    // Wait for search results to load
+    await page.waitForTimeout(1000)
+    // Click "View more results" to get to the search page
+    await page.getByText('View more results').click()
+
+    await expect(page).toHaveURL(
+      /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+    )
     await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
   })
 
@@ -589,10 +663,20 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
-    await page.getByTestId('site-search-input').click()
-    await page.getByTestId('site-search-input').fill('serve playwright')
-    await page.getByTestId('site-search-input').press('Enter')
-    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await turnOffExperimentsInPage(page)
+    await dismissCTAPopover(page)
+
+    // Use the search overlay
+    await page.locator('[data-testid="mobile-search-button"]:visible').click()
+    await page.getByTestId('overlay-search-input').fill('serve playwright')
+    // Wait for search results to load
+    await page.waitForTimeout(1000)
+    // Click "View more results" to get to the search page
+    await page.getByText('View more results').click()
+
+    await expect(page).toHaveURL(
+      /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+    )
     await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
   })
 })
@@ -608,28 +692,36 @@ test.describe('survey', () => {
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
-      }
-      fulfilled++
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyPressedEvent = true
-      }
-      if (
-        postData.type === 'survey' &&
-        postData.survey_vote === true &&
-        postData.survey_comment === surveyComment
-      ) {
-        hasSurveySubmittedEvent = true
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (
+            eventBody.type === 'survey' &&
+            eventBody.survey_vote === true &&
+            eventBody.survey_comment === surveyComment
+          ) {
+            hasSurveySubmittedEvent = true
+          }
+        }
       }
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
     })
 
     await page.goto('/get-started/foo/for-playwright')
@@ -639,16 +731,28 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
-    await page.locator('[for=survey-comment]').click()
     await page.locator('[for=survey-comment]').fill(surveyComment)
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
+
     // Events:
     // 1. page view event when navigating to the page
     // 2. Survey thumbs up event
     // 3. Survey submit event
-    expect(fulfilled).toBe(1 + 1 + 1)
+    // 4. Exit event
+    expect(fulfilled).toBe(1 + 1 + 1 + 1)
     expect(hasSurveyPressedEvent).toBe(true)
     expect(hasSurveySubmittedEvent).toBe(true)
     await expect(page.getByTestId('survey-end')).toBeVisible()
@@ -657,33 +761,51 @@ test.describe('survey', () => {
   test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
     let hasSurveyEvent = false
+
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyEvent = true
+          }
+        }
       }
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyEvent = true
-      }
-      fulfilled++
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
     // Events:
     // 1. page view event when navigating to the page
     // 2. the thumbs up click
-    expect(fulfilled).toBe(1 + 1)
+    // 3. the exit event
+    expect(fulfilled).toBe(1 + 1 + 1)
     expect(hasSurveyEvent).toBe(true)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
@@ -765,87 +887,164 @@ test.describe('translations', () => {
   })
 })
 
-test.describe('domain edit', () => {
-  test('edit a domain (using header nav)', async ({ page }) => {
-    test.skip(true, 'Editing domain from header is disabled')
+test('open search, and ask Copilot (Ask AI) a question', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
-    await page.goto('/')
-    await expect(page.getByText('Domain name:')).not.toBeVisible()
-    await page.getByLabel('Select GitHub product version').click()
-    await page
-      .getByLabel(/Enterprise Server/)
-      .first()
-      .click()
-    await expect(page.getByText('Domain name:')).toBeVisible()
-    await page.getByRole('button', { name: 'Edit' }).click()
+  // Mock the CSE Copilot endpoint
+  await page.route('**/api/ai-search/v1', async (route) => {
+    // Simulate the streaming response from CSE Copilot
+    const mockResponse = `{"chunkType":"SOURCES","sources":[{"title":"Creating a new repository","index":"/en/get-started","url":"http://localhost:4000/en/get-started"}]}
 
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Edit your domain name' })).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('  github.com ')
-    await expect(page.getByText("Can't be github.com")).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('github.peterbe.com ')
-    await expect(page.getByText("Can't be github.com")).not.toBeVisible()
-    await page.getByRole('button', { name: 'Save' }).click()
+{"chunkType":"MESSAGE_CHUNK","text":"Creating "}
+{"chunkType":"MESSAGE_CHUNK","text":"a "}
+{"chunkType":"MESSAGE_CHUNK","text":"repository "}
+{"chunkType":"MESSAGE_CHUNK","text":"on "}
+{"chunkType":"MESSAGE_CHUNK","text":"GitHub "}
+{"chunkType":"MESSAGE_CHUNK","text":"is "}
+{"chunkType":"MESSAGE_CHUNK","text":"something "}
+{"chunkType":"MESSAGE_CHUNK","text":"you "}
+{"chunkType":"MESSAGE_CHUNK","text":"should "}
+{"chunkType":"MESSAGE_CHUNK","text":"already "}
+{"chunkType":"MESSAGE_CHUNK","text":"know "}
+{"chunkType":"MESSAGE_CHUNK","text":"how "}
+{"chunkType":"MESSAGE_CHUNK","text":"to "}
+{"chunkType":"MESSAGE_CHUNK","text":"do "}
+{"chunkType":"MESSAGE_CHUNK","text":":shrug:"}`
 
-    // This tests that the dialog is gone.
-    // XXX Peterbe: These don't work and I don't know why yet.
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
-    await expect(page.getByText('github.peterbe.com')).toBeVisible()
+    await route.fulfill({
+      status: 200,
+      headers: {
+        'Content-Type': 'application/x-ndjson',
+        'Transfer-Encoding': 'chunked',
+      },
+      body: mockResponse,
+    })
   })
 
-  test('edit a domain (clicking HOSTNAME)', async ({ page }) => {
-    await page.goto('/get-started/markdown/replace-domain')
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.12').click() // XXX
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
 
-    // This is generally discourage in Playwright, but necessary here
-    // in this case. Because of the way
-    // the `main.addEventListener('click', ...)` is handled, it's setting
-    // up that event listener too late. In fact, it happens in a useEffect.
-    // Adding a little delay makes is much more likely that the event
-    // listener has been set up my the time we fire the `.click()` on the
-    // next line.
-    await page.waitForTimeout(500)
-    await page.getByText('HOSTNAME', { exact: true }).first().click()
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('How do I create a Repository?')
+  // Pressing enter should ask AI the question
+  await page.keyboard.press('Enter')
 
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await page
-      .getByTestId('domain-name-edit-form')
-      .getByLabel('Your domain name')
-      .fill('peterbe.ghe.com')
-    await page.getByTestId('domain-name-edit-form').getByLabel('Your domain name').press('Enter')
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
-  })
+  // Wait for the AI response to appear
+  await expect(page.getByText('Creating a repository on GitHub')).toBeVisible()
+
+  // Verify that sources are displayed
+  await expect(page.getByText('Creating a new repository')).toBeVisible()
+
+  // Verify the full response appears
+  await expect(page.getByText('something you should already know how to do')).toBeVisible()
+
+  // Open the "Creating new repository" source link list item
+  // Find the references section first
+  const aiReferencesSection = page.getByTestId('ai-references')
+  await expect(aiReferencesSection).toBeVisible()
+
+  // Wait for the reference list to be populated
+  await expect(page.getByText('Creating a new repository')).toBeVisible()
 })
 
-test.describe('view pages with custom domain cookie', () => {
-  test('view article page', async ({ page }) => {
-    await page.goto(
-      '/enterprise-server@latest/get-started/markdown/replace-domain?ghdomain=example.ghe.com',
-    )
+test('open search, Ask AI returns 400 error and shows general search results', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
-    const content = page.locator('pre')
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+  // Mock the CSE Copilot endpoint to return a 400 error
+  await page.route('**/api/ai-search/v1', async (route) => {
+    await route.fulfill({
+      status: 400,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        upstreamStatus: 400,
+      }),
+    })
+  })
 
-    // Now switch to enterprise-cloud, where replacedomain should not be used
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Cloud', { exact: true }).click()
+  await page.goto('/')
+  await turnOffExperimentsInPage(page)
+  await dismissCTAPopover(page)
 
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://HOSTNAME/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+  await page.locator('[data-testid="search"]:visible').click()
+  await page.getByTestId('overlay-search-input').fill('foo')
+  // Pressing enter should trigger Ask AI, get 400 error, and show general search results
+  await page.keyboard.press('Enter')
 
-    // Again switch back to enterprise server again
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.').first().click()
+  // Wait for general search results to appear
+  await expect(page.getByRole('link', { name: 'Foo' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Bar' })).toBeVisible()
 
-    await expect(content.nth(0)).toHaveText(/curl https:\/\/example.ghe.com\/api\/v1/)
-    await expect(content.nth(1)).toHaveText(/curl https:\/\/HOSTNAME\/api\/v2/)
-    await expect(content.nth(2)).toHaveText('await fetch("https://example.ghe.com/api/v1")')
-    await expect(content.nth(3)).toHaveText('await fetch("https://HOSTNAME/api/v2")')
+  // Wait for the AI error message to appear
+  // This is a canned response for the 400 error
+  await page.waitForTimeout(1000) // Wait for the AI error message to appear
+
+  // Verify the AI error message appears (canned response for 400 error)
+  await expect(
+    page
+      .getByRole('paragraph')
+      .getByText(
+        /Sorry, I'm unable to answer that question. Please try asking a different question./,
+      ),
+  ).toBeVisible()
+
+  // Verify general search results appear above the AI section
+  const searchResults = page.getByTestId('general-autocomplete-suggestions')
+  const aiSection = page.locator('#ask-ai-result-container')
+
+  await expect(searchResults).toBeVisible()
+  await expect(aiSection).toBeVisible()
+})
+
+test.describe('LandingCarousel component', () => {
+  test('displays carousel on test page', async ({ page }) => {
+    await page.goto('/get-started/carousel?feature=discovery-landing')
+
+    const carousel = page.locator('[data-testid="landing-carousel"]')
+    await expect(carousel).toBeVisible()
+
+    // Check that article cards are present
+    const items = page.locator('[data-testid="carousel-items"]')
+    const cards = items.locator('div')
+    await expect(cards.first()).toBeVisible()
+
+    // Verify cards have real titles (not "Unknown Article" when article not found)
+    const firstCardTitle = cards.first().locator('h3')
+    await expect(firstCardTitle).toBeVisible()
+    await expect(firstCardTitle).not.toHaveText('Unknown Article')
+  })
+
+  test('navigation works on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1200, height: 800 })
+    await page.goto('/get-started/carousel?feature=discovery-landing')
+
+    const carousel = page.locator('[data-testid="landing-carousel"]')
+    await expect(carousel).toBeVisible()
+
+    // Should show 3 cards on desktop
+    const cards = carousel.locator('a')
+    await expect(cards).toHaveCount(3)
+
+    // Check for navigation buttons if there are more than 3 articles
+    const nextButton = carousel.getByRole('button', { name: 'Next articles' })
+    if (await nextButton.isVisible()) {
+      const prevButton = carousel.getByRole('button', { name: 'Previous articles' })
+      await expect(prevButton).toBeDisabled() // Should be disabled on first page
+      await expect(nextButton).toBeEnabled()
+    }
+  })
+
+  test('responsive behavior on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.goto('/get-started/carousel?feature=discovery-landing')
+
+    const carousel = page.locator('[data-testid="landing-carousel"]')
+    await expect(carousel).toBeVisible()
+
+    // Should show 1 card on mobile
+    const cards = carousel.locator('a')
+    await expect(cards).toHaveCount(1)
   })
 })

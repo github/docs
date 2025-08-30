@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-20.04-xl
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout rest-api-description repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -42,14 +42,25 @@ jobs:
           path: rest-api-description
           ref: ${{ inputs.SOURCE_BRANCH }}
 
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          # By default, only the most recent commit of the `main` branch
+          # will be checked out
+          repository: github/models-gateway
+          path: models-gateway
+          ref: main
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
       - uses: ./.github/actions/node-npm-setup
 
       - name: Sync the REST, Webhooks, and GitHub Apps schemas
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
-          npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+          npm run sync-rest -- \
+            --source-repos rest-api-description models-gateway \
+            --output rest github-apps webhooks rest-redirects
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description
@@ -68,7 +79,7 @@ jobs:
       - name: Create pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
@@ -99,9 +110,11 @@ jobs:
             --title "Update OpenAPI Description" \
             --body '👋 humans. This PR updates the OpenAPI description with the latest changes. (Synced from github/rest-api-description@${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }})
 
+            Docs First Responders should follow [the acting-as-the-first-responder instructions](https://github.com/github/docs-team/blob/main/contributing-to-docs/first-responder/acting-as-the-first-responder.md?plain=1#L156).
+
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label github-openapi-bot \
+            --label github-openapi-bot,workflow-generated \
             --head=$branchname \
 
       - uses: ./.github/actions/slack-alert

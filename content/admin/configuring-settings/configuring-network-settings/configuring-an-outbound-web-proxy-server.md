@@ -32,11 +32,7 @@ When a proxy server is enabled for {% data variables.location.product_location %
 
 You can configure an outbound proxy server {% data variables.location.product_location %}, and you can configure exceptions for connections to specific domains.
 
-{% ifversion ghes %}
-
 Your instance validates the hostnames for proxy exclusion using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
-
-{% endif %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

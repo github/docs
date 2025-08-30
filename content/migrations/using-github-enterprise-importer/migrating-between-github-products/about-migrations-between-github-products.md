@@ -39,17 +39,6 @@ Before you use {% data variables.product.prodname_importer_proper_name %}, under
 
 ## Data that is migrated from {% data variables.product.prodname_ghe_server %}
 
-> [!WARNING]
-> The Wikis migration is currently unavailable.
-> As a workaround, you can migrate manually:
->
-> ```shell copy
-> git clone --mirror OLD-REPOSITORY-URL
-> cd OLD-REPOSITORY-NAME
-> git remote add new-origin NEW-REPOSITORY-URL
-> git push new-origin --mirror
-> ```
-
 To migrate from {% data variables.product.prodname_ghe_server %} (GHES), you must have GHES version 3.4.1 or higher. The data that is migrated depends on the version you're using.
 
 Item | GHES 3.4.1+ | GHES 3.5.0+ |
@@ -68,12 +57,12 @@ User history for the above data | {% octicon "check" aria-label="Can be migrated
 Attachments (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)) | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Releases | {% octicon "x" aria-label="Cannot be migrated" %} | {% octicon "check" aria-label="Can be migrated" %}  |
 
-Different size limits per repository apply depending on your GHES version.
+Different size limits per repository apply to the compressed archive, depending on your GHES version.
 
-Limit | GHES <3.8.0 | GHES 3.8.0+ |
------ | ----------- | ----------- |
-Git source | 2GB | 10GB
-Metadata | 2GB | 10GB
+Limit | GHES <3.8.0 | GHES 3.8.x-3.11.x | GHES 3.12.x | GHES 3.13.0+
+----- | ----------- | ----------------- | ----------- | ------------
+Git source | 2GB | 10GB | 20GB | 40GB (public preview)
+Metadata | 2GB | 10GB | 20GB | 40GB (public preview)
 
 ### Data that is not migrated
 
@@ -127,7 +116,6 @@ When you migrate a repository, either directly or as part of an organization mig
   * Branch protections (see [Branch protections](#branch-protections) for more details)
   * {% data variables.product.prodname_pages %} settings
   * Autolink references
-  * {% data variables.product.prodname_GH_advanced_security %} settings
   * Pull request settings
     * Automatically delete head branches
     * Allow auto-merge
@@ -154,7 +142,13 @@ When you migrate a repository directly, teams and team access to repositories ar
 
 ## Limitations on migrated data
 
-{% data reusables.enterprise-migration-tool.limitations-of-migrated-data %}
+{% data reusables.enterprise-migration-tool.limitations-of-dotcom %}
+
+### Limitations of {% data variables.product.prodname_importer_proper_name %}
+
+* {% data reusables.enterprise-migration-tool.git-repo-size-limit %}
+* **40 GB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
+{% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
 
 ## Getting started
 

@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from 'express'
 
-import languages from '@/languages/lib/languages.js'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import languages from '@/languages/lib/languages'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 const redirectPatterns = Object.values(languages)

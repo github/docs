@@ -1,5 +1,4 @@
-#!/usr/bin/env node
-import { renderContent } from '#src/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 import fs from 'fs/promises'
 import {
   isScalarType,

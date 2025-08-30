@@ -6,26 +6,17 @@
 // TODO: Move the routes implementations in this files to lib/routes so you can at-a-glance see all of the routes without the implementation logic
 import express, { Request, Response } from 'express'
 
-import FailBot from '@/observability/lib/failbot.js'
-import { searchCacheControl } from '@/frame/middleware/cache-control.js'
-import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { getAutocompleteSearchResults } from '@/search/lib/get-elasticsearch-results/general-autocomplete'
+import FailBot from '@/observability/lib/failbot'
+import { searchCacheControl } from '@/frame/middleware/cache-control'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { getAISearchAutocompleteResults } from '@/search/lib/get-elasticsearch-results/ai-search-autocomplete'
 import { getSearchFromRequestParams } from '@/search/lib/search-request-params/get-search-from-request-params'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
-import { combinedAutocompleteRoute } from '@/search/lib/routes/combined-autocomplete-route'
-import { createRateLimiter } from '@/shielding/middleware/rate-limit.js'
+import { combinedSearchRoute } from '@/search/lib/routes/combined-search-route'
+import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
 const router = express.Router()
-if (process.env.NODE_ENV === 'development') {
-  router.use(createRateLimiter(10)) // just 1 worker in dev so 10 requests per minute allowed
-} else if (process.env.NODE_ENV === 'production') {
-  router.use(createRateLimiter(30)) // 30 requests per minute allowed
-}
 
 router.get('/legacy', (req: Request, res: Response) => {
   res.status(410).send('Use /api/search/v1 instead.')
@@ -43,6 +34,14 @@ router.get(
       return res.status(400).json(validationErrors[0])
     }
 
+    // Handle search analytics and client_name validation
+    const analyticsError = await handleExternalSearchAnalytics(req, 'general-search')
+    if (analyticsError) {
+      return res.status(analyticsError.status).json({
+        error: analyticsError.error,
+      })
+    }
+
     const getResultOptions = {
       indexName,
       searchParams,
@@ -54,46 +53,13 @@ router.get(
         searchCacheControl(res)
         // We can cache this without purging it after every deploy
         // because the API search is only used as a proxy for local
-        // and preview environments.
+        // and review environments.
         setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
       }
 
       res.status(200).json({ meta, hits, aggregations })
     } catch (error) {
       await handleGetSearchResultsError(req, res, error, getResultOptions)
-    }
-  }),
-)
-
-router.get(
-  '/autocomplete/v1',
-  catchMiddlewareError(async (req: Request, res: Response) => {
-    const {
-      indexName,
-      validationErrors,
-      searchParams: { query, size, debug },
-    } = getSearchFromRequestParams(req, 'generalAutocomplete')
-    if (validationErrors.length) {
-      return res.status(400).json(validationErrors[0])
-    }
-
-    const options = {
-      indexName,
-      query,
-      size,
-      debug,
-    }
-    try {
-      const { meta, hits } = await getAutocompleteSearchResults(options)
-
-      if (process.env.NODE_ENV !== 'development') {
-        searchCacheControl(res)
-        setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
-      }
-
-      res.status(200).json({ meta, hits })
-    } catch (error) {
-      await handleGetSearchResultsError(req, res, error, options)
     }
   }),
 )
@@ -128,7 +94,7 @@ router.get(
 
       if (process.env.NODE_ENV !== 'development') {
         searchCacheControl(res)
-        setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+        setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
       }
 
       res.status(200).json({ meta, hits })
@@ -138,11 +104,12 @@ router.get(
   }),
 )
 
-// Route used by our frontend to fetch ai & general autocomplete search results in a single request
+// Route used by our frontend to fetch ai autocomplete search suggestions + general search results in a single request
+// Combining this into a single request results in less overall requests to the server
 router.get(
-  '/combined-autocomplete/v1',
+  '/combined-search/v1',
   catchMiddlewareError(async (req: Request, res: Response) => {
-    combinedAutocompleteRoute(req, res)
+    combinedSearchRoute(req, res)
   }),
 )
 
@@ -166,10 +133,6 @@ router.get('/', (req: Request, res: Response) => {
   res.redirect(307, req.originalUrl.replace('/search', '/search/v1'))
 })
 
-router.get('/autocomplete', (req: Request, res: Response) => {
-  res.redirect(307, req.originalUrl.replace('/search/autocomplete', '/search/autocomplete/v1'))
-})
-
 router.get('/ai-search-autocomplete', (req: Request, res: Response) => {
   res.redirect(
     307,
@@ -177,10 +140,10 @@ router.get('/ai-search-autocomplete', (req: Request, res: Response) => {
   )
 })
 
-router.get('/combined-autocomplete', (req: Request, res: Response) => {
+router.get('/combined-search', (req: Request, res: Response) => {
   res.redirect(
     307,
-    req.originalUrl.replace('/search/combined-autocomplete', '/search/combined-autocomplete/v1'),
+    req.originalUrl.replace('/search/combined-search', '/search/combined-search/v1'),
   )
 })
 

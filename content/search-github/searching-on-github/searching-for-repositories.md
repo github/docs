@@ -151,8 +151,6 @@ You can filter your search based on the visibility of the repositories. For more
 |  {% endif %} |
 | `is:private` | [**is:private pages**](https://github.com/search?q=is%3Aprivate+pages&type=Repositories) matches private repositories that you can access and contain the word "pages."
 
-{% ifversion repository-properties %}
-
 ## Search based on repository custom property
 
 You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
@@ -162,8 +160,6 @@ For these qualifiers to work, the search must be limited to a single organizatio
 | Qualifier  | Example
 | ------------- | -------------
 | <code>props.<em>PROPERTY</em>:<em>VALUE</em></code> | [**org:github props.environment:production**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+props.environment%3Atesting&type=Repositories) matches repositories from the `github` organization that have the custom property `environment` set to `production`.
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

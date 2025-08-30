@@ -5,7 +5,7 @@ import type {
   ComputedSearchQueryParamsMap,
 } from '@/search/lib/search-request-params/types'
 
-export type SearchTypes = 'generalSearch' | 'generalAutocomplete' | 'aiSearchAutocomplete'
+export type SearchTypes = 'generalSearch' | 'aiSearchAutocomplete'
 
 // Responses to API routes
 export interface GeneralSearchResponse {
@@ -21,9 +21,9 @@ export interface AutocompleteSearchResponse {
   hits: AutocompleteSearchHit[]
 }
 
-export interface CombinedAutocompleteSearchResponse {
-  aiAutocomplete: AutocompleteSearchResponse
-  generalAutocomplete: AutocompleteSearchResponse
+export interface CombinedSearchResponse {
+  aiAutocompleteSuggestions: AutocompleteSearchResponse
+  generalSearchResults: GeneralSearchResponse
 }
 
 // Response to middleware /search route

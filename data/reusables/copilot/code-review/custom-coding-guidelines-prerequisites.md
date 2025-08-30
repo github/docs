@@ -1,1 +1,3 @@
-> [!NOTE] Custom coding guidelines are currently only available to selected participants in the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_code-review_short %}. Being accepted from the [waitlist](https://gh.io/copilot-code-review-waitlist) does not provide immediate access. In addition, custom coding guidelines are only available as part of a subscription to {% data variables.product.prodname_copilot_enterprise %}.
+> [!NOTE] The custom coding guidelines feature is only available with the {% data variables.copilot.copilot_enterprise_short %} plan, and is currently limited to selected customers.
+>
+> This feature will be deprecated in favor of using {% data variables.product.prodname_copilot_short %} custom instructions to customize {% data variables.copilot.copilot_code-review_short %}.

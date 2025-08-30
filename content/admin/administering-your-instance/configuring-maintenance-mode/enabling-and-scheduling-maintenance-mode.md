@@ -35,7 +35,7 @@ Some types of operations require that you take {% data variables.location.produc
 
 We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
 
-When the instance is in maintenance mode, all normal HTTP and Git access is refused. This includes web and API requests, for which the appliance responds with status code `503` (Service Unavailable). Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable.{% ifversion ghes < 3.13 %} In high availability configurations, Git replication will be paused.{% endif %} GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
+When the instance is in maintenance mode, all normal HTTP and Git access is refused. This includes web and API requests, for which the appliance responds with status code `503` (Service Unavailable). Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
 
 You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.location.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.location.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode.
 
@@ -74,15 +74,11 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode).
 
-{% ifversion ghes-manage-api-cli-extension %}
-
 ## Managing maintenance mode using the {% data variables.product.prodname_cli %}
 
 You can manage maintenance mode on {% data variables.location.product_location %} using the {% data variables.product.prodname_cli %} `gh es` extension. For more information, see the GH ES CLI usage documentation for [`gh es maintenance set`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-set) and [`gh es maintenance get`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-get).
 
 For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
-
-{% endif %}
 
 ## Managing maintenance mode using SSH
 

@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -69,7 +69,7 @@ We only collect the minimal amount of data we need to answer the questions about
 
 ## Disabling telemetry reporting
 
-You can disable telemetry collection by setting the global `telemetry.telemetryLevel` setting to `off`. For more information, see the [Visual Studio Code Telemetry page](https://code.visualstudio.com/docs/getstarted/telemetry) in the {% data variables.product.prodname_vscode %} documentation.
+You can disable telemetry collection by setting the global `telemetry.telemetryLevel` setting to `off`. For more information, see the [Visual Studio Code Telemetry page](https://code.visualstudio.com/docs/configure/telemetry) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Further reading
 

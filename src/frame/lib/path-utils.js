@@ -1,11 +1,19 @@
 import slash from 'slash'
 import path from 'path'
-import patterns from './patterns.js'
-import { latest } from '#src/versions/lib/enterprise-server-releases.js'
-import { productIds } from '#src/products/lib/all-products.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import patterns from './patterns'
+import { latest } from '@/versions/lib/enterprise-server-releases'
+import { productIds } from '@/products/lib/all-products'
+import { allVersions } from '@/versions/lib/all-versions'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 const supportedVersions = new Set(Object.keys(allVersions))
+
+// Extracts the language code from the path
+// if href is '/en/something', returns 'en'
+export function getLangFromPath(href) {
+  // first remove the version from the path so we don't match, say, `/free-pro-team` as `/fr/`
+  const match = getPathWithoutVersion(href).match(patterns.getLanguageCode)
+  return match ? match[1] : null
+}
 
 // Add the language to the given HREF
 // /articles/foo -> /en/articles/foo
@@ -88,12 +96,14 @@ export function getVersionObjectFromPath(href) {
   return allVersions[versionFromPath]
 }
 
+// TODO needs refactoring + tests
 // Return the product segment from the path
 export function getProductStringFromPath(href) {
   href = getPathWithoutLanguage(href)
 
   if (href === '/') return 'homepage'
 
+  // The first segment will always be empty on this split
   const pathParts = href.split('/')
 
   if (pathParts.includes('early-access')) return 'early-access'
@@ -101,8 +111,17 @@ export function getProductStringFromPath(href) {
   // For rest pages the currentProduct should be rest
   // We use this to show SidebarRest, which is a different sidebar than the rest of the site
   if (pathParts[1] === 'rest') return 'rest'
+  if (pathParts[1] === 'copilot') return 'copilot'
+  if (pathParts[1] === 'get-started') return 'get-started'
 
-  return productIds.includes(pathParts[2]) ? pathParts[2] : pathParts[1]
+  // Possible scenarios for href (assume part[0] is an empty string):
+  //
+  // * part[1] is a version and part[2] is undefined, so return part[1] as an enterprise landing page
+  // * part[1] is a version and part[2] is defined, so return part[2] as the product
+  // * part[1] is NOT a version, so return part[1] as the product
+  const isEnterprise = supportedVersions.has(pathParts[1])
+  const productString = isEnterprise && pathParts[2] ? pathParts[2] : pathParts[1]
+  return productString
 }
 
 export function getCategoryStringFromPath(href) {

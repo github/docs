@@ -68,7 +68,7 @@ Make sure that you are on a secure machine before performing these steps since y
 
 ### Create a `.env` file
 
-Your cloned repository includes `.env` in the `.gitignore` file. This will prevent you from accidentally committing your app's credentials. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/getting-started-with-git/ignoring-files).
+Your cloned repository includes `.env` in the `.gitignore` file. This will prevent you from accidentally committing your app's credentials. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/git-basics/ignoring-files).
 
 1. Navigate to the directory where your clone of [github/github-app-js-sample](https://github.com/github/github-app-js-sample) is stored.
 1. Create a file called `.env` at the top level of this directory.

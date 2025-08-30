@@ -25,15 +25,11 @@ New release issues get opened in the `docs-content` repo and use the templates l
 
 Templates can be added and removed by simply adding a new file to the `release-template` directory using the naming convention that already exists. For every template in that directory, a new issue will be created. The issues are linked together using the tasklist in the parent template `release-steps-0.md`. Each template file has a corresponding liquid variable for the issue url created from the template. The liquid variable format is `{{ release-steps-<TEMPLATE NUMBER>-url }}`. The liquid variables can be used in the templates to autopopulate issues and link issues together.
 
-## GHES deprecations
-
-Every day a workflow runs to check whether it's time to create new deprecation tracking issues. New deprecation tracking issues get opened 7 days before the deprecation date. There is only one template used to generate the deprecation tracking issue (`src/ghes-releases/lib/deprecation-steps.md`).
-
-## Template format
+### Template format
 
 Templates in `src/ghes-releases/lib/release-templates` are Markdown, YAML frontmatter, and Liquid. The Liquid variables available to those templates are _not_ the same as liquid variables used by the Docs team for content and data. See the [Template variables](#template-variables) for the available variables.
 
-## Template variables
+### Template variables
 
 - `{{ release-number }}` - The GHES release number. For example, `3.13`.
 - `{{ release-target-date }}` - The target GHES release date. For example, `2021-09-01`.
@@ -54,3 +50,7 @@ Templates in `src/ghes-releases/lib/release-templates` are Markdown, YAML frontm
 - `{{ release-rc-target-date-minus-5 }}` - Five days before the release candidate target date. For example, `2021-08-25`.
 - `{{ release-rc-target-date-minus-6 }}` - Six days before the release candidate target date. For example, `2021-08-24`.
 - `{{ release-rc-target-date-minus-7 }}` - Seven days before the release candidate target date. For example, `2021-08-23`.
+
+## GHES deprecations
+
+Every day a workflow runs to check whether it's time to create new deprecation tracking issues. New deprecation tracking issues get opened 7 days before the deprecation date. There is only one template used to generate the deprecation tracking issue (`src/ghes-releases/lib/deprecation-steps.md`).

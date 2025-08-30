@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // A helper that returns an array of files for a given path and file extension.

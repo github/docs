@@ -1,41 +1,35 @@
 ---
-title: 'Planning a trial of GitHub Advanced Security'
+title: 'Planning a trial of {% data variables.product.prodname_GHAS %}'
 shortTitle: 'Plan GHAS trial'
 allowTitleToDifferFromFilename: true
-intro: 'Ensure that your trial gives you the answers you need to make a decision on whether or not {% data variables.product.prodname_GH_advanced_security %} meets your business needs.'
+intro: 'Make the most of your trial so you can decide whether {% data variables.product.prodname_AS %} products meet your business needs.'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.15'
 ---
 
-## About trialing {% data variables.product.prodname_GH_advanced_security %}
+## About trialing {% data variables.product.prodname_GHAS %}
 
-You can trial {% data variables.product.prodname_GH_advanced_security %} independently, or working with an expert from {% data variables.product.github %} or a partner organization. The primary audience for these articles is people who will plan and run their trial independently, typically small and medium-sized organizations.
+You can trial {% data variables.product.prodname_GHAS %} independently, or working with an expert from {% data variables.product.github %} or a partner organization. The primary audience for these articles is people who will plan and run their trial independently, typically small and medium-sized organizations.
 
-> [!NOTE] Although {% data variables.product.prodname_GH_advanced_security %} is free of charge during trials, you will be charged for any actions minutes that you use. That is, actions minutes used by the {% data variables.product.prodname_code_scanning %} default setup or by any other workflows you run.
+* Existing {% data variables.product.prodname_ghe_cloud %} users can set up a trial if you pay for {% data variables.product.prodname_ghe_cloud %} by credit card or PayPal, or if you are already taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security#setting-up-your-trial-of-github-advanced-security).
 
-### Existing {% data variables.product.prodname_ghe_cloud %} users
+   {% data reusables.advanced-security.ghas-trial-invoiced %}
 
-{% data reusables.advanced-security.ghas-trial-availability %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security#setting-up-your-trial-of-github-advanced-security){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+* Users on other {% data variables.product.github %} plans can trial {% data variables.product.prodname_GHAS %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
-{% data reusables.advanced-security.ghas-trial-invoiced %}
-
-### Users on other GitHub plans
-
-You can trial {% data variables.product.prodname_GH_advanced_security %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
-
-### When the trial ends
-
-You can end your trial at any time by purchasing {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %} if you don't already use it, or by canceling the trial. For more information, see [What happens when the trial ends?](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#what-happens-when-the-trial-ends){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+> [!NOTE] Although {% data variables.product.prodname_GHAS %} is free of charge during trials, you will be charged for any actions minutes that you use. That is, actions minutes used by the {% data variables.product.prodname_code_scanning %} default setup or by any other workflows you run.
 
 ## Define your company goals
 
-Before you start a trial of {% data variables.product.prodname_GH_advanced_security %}, you should define the purpose of the trial and identify the key questions you need to answer. Maintaining a strong focus on these goals will enable you to plan a trial that maximizes discovery and ensures that you have the information needed to decide whether or not to upgrade.
+Before you start a trial, you should define the purpose of the trial and identify the key questions you need to answer. Maintaining a strong focus on these goals will enable you to plan a trial that maximizes discovery and ensures that you have the information needed to decide whether or not to upgrade.
 
-If your company already uses {% data variables.product.github %}, consider what needs are currently unmet that {% data variables.product.prodname_GH_advanced_security %} might address. You should also consider your current application security posture and longer term aims. For inspiration, see [Design Principles for Application security](https://wellarchitected.github.com/library/application-security/design-principles/) in the {% data variables.product.github %} well-architected documentation.
+If your company already uses {% data variables.product.github %}, consider what needs are currently unmet that {% data variables.product.prodname_cs_or_sp %} might address. You should also consider your current application security posture and longer term aims. For inspiration, see [Design Principles for Application security](https://wellarchitected.github.com/library/application-security/design-principles/) in the {% data variables.product.github %} well-architected documentation.
 
 {% rowheaders %}
 
@@ -49,19 +43,23 @@ If your company already uses {% data variables.product.github %}, consider what 
 
 {% endrowheaders %}
 
-If your company doesn't use {% data variables.product.github %} yet, you are likely to have additional questions including how the platform handles data residency, secure account management, and repository migration. For more information, see [AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud).
+If your company doesn't use {% data variables.product.github %} yet, you are likely to have additional questions including how the platform handles data residency, secure account management, and repository migration. For more information, see [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud).
 
 ## Identify the members of your trial team
 
-{% data variables.product.prodname_GH_advanced_security %} enables you to integrate security measures throughout the software development life cycle, so it's important to ensure that you include representatives from all areas of your development cycle. Otherwise you risk making a decision without having all the data you need. A trial includes 50 licenses which provides scope for representation from a wider range of people.
+{% data variables.product.prodname_GHAS %} enables you to integrate security measures throughout the software development life cycle, so it's important to ensure that you include representatives from all areas of your development cycle. Otherwise you risk making a decision without having all the data you need. A trial includes 50 licenses which provides scope for representation from a wide range of people.
 
 You may also find it helpful to identify a champion for each company need that you want to investigate.
 
 ## Determine whether preliminary research is needed
 
-If members of your trial team have not yet used the core features of {% data variables.product.prodname_GH_advanced_security %}, it may be helpful to add an experimentation phase in public repositories before you start a trial. Many of the primary features of {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} can be used on public repositories. Having a good understanding of the core features will allow you to focus your trial period on private repositories, and exploring the additional features and control available with {% data variables.product.prodname_GH_advanced_security %}.
+If members of your trial team have not yet used the core features of {% data variables.product.prodname_GHAS %}, it may be helpful to add an experimentation phase in public repositories before you start a trial. Many of the primary features of {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} can be used on public repositories. Having a good understanding of the core features will allow you to focus your trial period on private repositories, and exploring the additional features and control available with {% data variables.product.prodname_cs_and_sp %}.
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning), [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security), and [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning), [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning), and [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
+
+{% ifversion secret-risk-assessment %}
+
+Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in their organization for leaked secrets. This can help you understand the current exposure of the repositories in your organization to leaked secrets, as well as see how many existing secret leaks could have been prevented by {% data variables.product.prodname_secret_protection %}. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}
 
 ## Agree the organizations and repositories to test
 
@@ -75,7 +73,7 @@ For each company need or goal that you identify, determine what criteria you wil
 
 ## Next steps
 
-1. [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)
+1. [AUTOTITLE](/code-security/trialing-github-advanced-security/trial-advanced-security) or [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) with {% data variables.product.prodname_AS %}
 1. [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial)
 1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning)
 1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)

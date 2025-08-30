@@ -1,10 +1,12 @@
 ---
 title: Annotating code examples
 shortTitle: Annotate code examples
-intro: "You can annotate longer code examples to explain how they work and how people can customize them for other uses."
+intro: You can annotate longer code examples to explain how they work and how people can customize them for other uses.
 layout: inline
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/annotating-code-examples
 ---

@@ -13,15 +13,12 @@ versions:
   fpt: '*'
   ghec: '*'
 type: overview
+product: '{% data reusables.gated-features.private-vulnerability-reporting %}'
 topics:
   - Security advisories
   - Vulnerabilities
   - CVEs
 ---
-
-{% data reusables.repositories.security-advisory-admin-permissions %}
-
-{% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ## About repository security advisories
 

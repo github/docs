@@ -76,7 +76,7 @@ If reported content is enabled for a public repository, you can also report cont
 ## Reporting contact link abuse in the template chooser
 
 1. Navigate to the repository that contains the contact link you'd like to report.
-1. Under the repository name, click **{% octicon "issue-opened" aria-hidden="true" %} Issues**.
+1. Under the repository name, click **{% octicon "issue-opened" aria-hidden="true" aria-label="issue-opened" %} Issues**.
 1. In the lower-right corner of the template chooser, click **Report abuse**.
 1. Complete the contact form to tell {% data variables.contact.github_support %} about the contact link's behavior, then click **Send request**.
 
@@ -88,6 +88,6 @@ If reported content is enabled for a public repository, you can also report cont
 
 * [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)
 * [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)
-* [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments){% ifversion fpt or ghec %}
-* [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository){% endif %}
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/managing-disruptive-comments)
+* [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)
 * [AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)

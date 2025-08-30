@@ -2,7 +2,9 @@
 title: Getting started with GitHub Desktop
 intro: 'Learn how to set up, authenticate, and configure {% data variables.product.prodname_desktop %} to allow you to contribute to projects directly from your machine.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
   - /desktop/guides/getting-started

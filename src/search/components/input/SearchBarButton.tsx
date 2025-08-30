@@ -1,31 +1,30 @@
-import { useRef } from 'react'
 import cx from 'classnames'
-import { IconButton, Token } from '@primer/react'
-import { SearchIcon, SparklesFillIcon } from '@primer/octicons-react'
+import { IconButton } from '@primer/react'
+import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { SearchOverlay } from './SearchOverlay'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
 
 import styles from './SearchBarButton.module.scss'
-import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
 
 type Props = {
   isSearchOpen: boolean
   setIsSearchOpen: (value: boolean) => void
+  params: QueryParams
+  searchButtonRef: React.RefObject<HTMLButtonElement>
+  instanceId?: string
 }
 
-export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
+export function SearchBarButton({
+  isSearchOpen,
+  setIsSearchOpen,
+  params,
+  searchButtonRef,
+  instanceId,
+}: Props) {
   const { t } = useTranslation('search')
-  const {
-    debug,
-    queryParam: urlSearchInputQuery,
-    setQueryParam: setUrlSearchInputQuery,
-  } = useQueryParam('search-overlay-input')
-  const { queryParam: isAskAIState, setQueryParam: setIsAskAIState } = useQueryParam(
-    'search-overlay-ask-ai',
-    true,
-  )
-  const buttonRef = useRef(null)
+
+  const urlSearchInputQuery = params['search-overlay-input']
 
   // Handle click events
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,6 +43,12 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
     }
   }
 
+  const placeHolderElements = t('search.input.placeholder')
+    .split(/({{[^}]+}})/)
+    .filter((item) => item.trim() !== '')
+    .map((item, index) => <span key={`${item.trim()}-${index}`}>{item.trim()}</span>)
+  placeHolderElements[1] = <CopilotIcon key="copilot-icon" aria-hidden className="mr-1 ml-1" />
+
   return (
     <>
       {/* We don't want to show the input when overlay is open */}
@@ -52,22 +57,24 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"
-            ref={buttonRef}
+            data-instance={instanceId}
+            ref={searchButtonRef}
             className={styles.searchIconButton}
             onClick={handleClick}
             tabIndex={0}
-            aria-label={t('search.input.aria_label')}
+            aria-label={t('search.input.placeholder_no_icon')}
             icon={SearchIcon}
           />
           {/* On large and up the SearchBarButton is shown */}
           <button
             data-testid="search"
+            data-instance={instanceId}
             tabIndex={0}
-            aria-label={t`search.input.aria_label`}
+            aria-label={t('search.input.placeholder_no_icon')}
             className={styles.searchInputButton}
             onKeyDown={handleKeyDown}
             onClick={handleClick}
-            ref={buttonRef}
+            ref={searchButtonRef}
           >
             {/* Styled to look like an input */}
             <div
@@ -75,12 +82,16 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
               aria-hidden
               tabIndex={-1}
             >
-              <SparklesFillIcon aria-hidden className="mr-1" />
-              <Token aria-hidden as="span" text={t('search.input.experimental_tag')} />
               <span
                 className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
               >
-                {urlSearchInputQuery ? urlSearchInputQuery : t('search.input.placeholder')}
+                {urlSearchInputQuery ? (
+                  urlSearchInputQuery
+                ) : (
+                  <>
+                    <span className={styles.placeholderText}>{placeHolderElements}</span>
+                  </>
+                )}
               </span>
             </div>
             <span className={styles.searchIconContainer} aria-hidden tabIndex={-1}>
@@ -88,20 +99,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
             </span>
           </button>
         </>
-      ) : (
-        <SearchOverlay
-          searchOverlayOpen={isSearchOpen}
-          parentRef={buttonRef}
-          debug={debug}
-          urlSearchInputQuery={urlSearchInputQuery}
-          setUrlSearchInputQuery={setUrlSearchInputQuery}
-          isAskAIState={isAskAIState}
-          setIsAskAIState={setIsAskAIState}
-          onClose={() => {
-            setIsSearchOpen(false)
-          }}
-        />
-      )}
+      ) : null}
     </>
   )
 }

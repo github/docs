@@ -38,7 +38,6 @@ Ensure your AWS access key ID and secret have the following permissions:
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 {% data reusables.package_registry.enable-enterprise-github-packages %}
-{% ifversion ghes -%}
 1. Under "Packages Storage", select **Amazon S3** and enter your storage bucket's details:
     * **AWS Service URL:** The service URL for your bucket. For example, if your S3 bucket was created in the `us-west-2 region`, this value should be `https://s3.us-west-2.amazonaws.com`.
 
@@ -48,7 +47,6 @@ Ensure your AWS access key ID and secret have the following permissions:
     * **AWS S3 Access Key** and **AWS S3 Secret Key:** The AWS access key ID and secret key to access your bucket.
 
       For more information on managing AWS access keys, see the [AWS Identity and Access Management Documentation](https://docs.aws.amazon.com/iam/index.html).
-{%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Next steps

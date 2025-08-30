@@ -34,21 +34,30 @@ If you haven't yet configured a `dependabot.yml` file for your repository and yo
 
 You can then consider what your needs and priorities are for security updates, and apply a combination of the customization options outlined below.
 
-{% ifversion dependabot-grouped-security-updates-config %}
-
 ## Prioritizing meaningful updates
 
 To create a more **targeted review process** that prioritizes meaningful updates, use `groups` to combine security updates for multiple dependencies into a single pull request.
 
 For detailed guidance, see [Prioritizing meaningful updates](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#prioritizing-meaningful-updates).
 
-{% endif %}
+{% ifversion dependabot-reviewers-deprecation %}
+
+## Automatically adding reviewers
+
+To ensure your project's security updates get addressed promptly by the appropriate team, you can automatically add reviewers to Dependabot pull requests using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
+
+{% else %}
 
 ## Automatically adding reviewers and assignees
+
+> [!NOTE]
+> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
 
 To ensure your project's security updates get **addressed promptly** by the appropriate team, use `reviewers` and `assignees` to automatically add individuals or teams as **reviewers or assignees** to pull requests.
 
 For detailed guidance, see [Automatically adding reviewers and assignees](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs#automatically-adding-reviewers-and-assignees).
+
+{% endif %}
 
 ## Labeling pull requests with custom labels
 
@@ -79,8 +88,57 @@ For detailed guidance, see [Changing the separator in the pull request branch na
 In this example, the `dependabot.yml` file:
 * Uses a private registry for updates to npm dependencies.
 * Disables version updates for dependencies, so that any customizations apply to security updates only.
-* Is customized so that {% data variables.product.prodname_dependabot %} applies custom labels to the pull requests and automatically adds reviewers and assignees.{% ifversion dependabot-grouped-security-updates-config %}
-* Groups security updates for golang dependencies into a single pull request.{% endif %}
+* Is customized so that {% data variables.product.prodname_dependabot %} applies custom labels to the pull requests and automatically adds {% ifversion ghes < 3.19 %}reviewers and {% endif %}assignees.
+* Groups security updates for golang dependencies into a single pull request.
+
+{% ifversion dependabot-reviewers-deprecation %}
+
+```yaml copy
+# Example configuration file that:
+#  - Uses a private registry for npm updates
+#  - Ignores lodash dependency
+#  - Disables version-updates
+#  - Applies custom labels
+#  - Group security updates for golang dependencies into a single pull request
+
+version: 2
+registries:
+  # Define a private npm registry with the name `example`
+  example:
+    type: npm-registry
+    url: https://example.com
+    token: {% raw %}${{secrets.NPM_TOKEN}}{% endraw %}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/src/npm-project"
+    schedule:
+      interval: "daily"
+    # For Lodash, ignore all updates
+    ignore:
+      - dependency-name: "lodash"
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0
+    registries:
+      # Ask Dependabot to use the private registry for npm
+      - example
+    # Raise all npm pull requests for security updates with custom labels
+    labels:
+      - "npm dependencies"
+      - "triage-board"
+    # Raise all npm pull requests for security updates with assignees
+    assignees:
+      - "user-name"
+  - package-ecosystem: "gomod"
+    groups:
+      # Group security updates for golang dependencies
+      # into a single pull request
+      golang:
+        applies-to: security-updates
+        patterns:
+          - "golang.org*"
+```
+
+{% else %}
 
 ```yaml copy
 # Example configuration file that:
@@ -89,7 +147,7 @@ In this example, the `dependabot.yml` file:
 #  - Disables version-updates
 #  - Applies custom labels
 #  - Adds reviewers and assignees
-{% ifversion dependabot-grouped-security-updates-config %}#  - Group security updates for golang dependencies into a single pull request{%- endif %}
+#  - Group security updates for golang dependencies into a single pull request
 
 version: 2
 registries:
@@ -122,23 +180,25 @@ updates:
     # Raise all npm pull requests for security updates with assignees
     assignees:
       - "user-name"
-  {% ifversion dependabot-grouped-security-updates-config %}- package-ecosystem: "gomod"
+  - package-ecosystem: "gomod"
     groups:
       # Group security updates for golang dependencies
       # into a single pull request
       golang:
         applies-to: security-updates
         patterns:
-          - "golang.org*"{% endif %}
+          - "golang.org*"
 ```
+
+{% endif %}
 
 ## Example 2: configuration for version updates and security updates
 
 In this example, the `dependabot.yml` file:
-* Is customized so that {% data variables.product.prodname_dependabot %} adds reviewers and custom labels to both version updates and security updates.{% ifversion dependabot-grouped-security-updates-config %}
+* Is customized so that {% data variables.product.prodname_dependabot %} adds reviewers and custom labels to both version updates and security updates.
 * Uses the `groups` customization option to create two groups ("`angular`" and "`production-dependencies`") in order to group multiple updates into single pull requests.
 * Specifies that the `groups` customization for `angular` applies to security updates only.
-* Specifies that the `groups` customization for `production-dependencies` applies to version updates only.{% endif %}
+* Specifies that the `groups` customization for `production-dependencies` applies to version updates only.
 
 ```yaml copy
 version: 2
@@ -155,7 +215,7 @@ updates:
     # Raise all npm pull requests for security and version updates with reviewers
     reviewers:
       - "my-org/team-name"
-      - "octocat"{% ifversion dependabot-grouped-security-updates-config %}
+      - "octocat"
     groups:
       angular:
         # Group security updates for Angular dependencies into a single pull request
@@ -165,7 +225,7 @@ updates:
       production-dependencies:
         # Group version updates for dependencies of type "production" into a single pull request
         applies-to: version-updates
-        dependency-type: "production"{%- endif %}
+        dependency-type: "production"
 ```
 
 ## Further reading

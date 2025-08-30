@@ -19,6 +19,8 @@ If you need to use a new hostname for {% data variables.location.product_locatio
 
 Migration to a new instance requires downtime. The amount of downtime required depends on how much data you need to back up, as well as the speed of the network connection between the backup host and the instances.
 
+The new instance cannot directly replace an existing instance in a high availability configuration. Ensuring the new instance is configured with a different IP address to the instance with the old hostname is strongly recommended, and can simplify roll back. In high availability environments, once the restore is complete and the state of the new instance has been validated, you can then proceed with using a fresh appliance, or reconfiguring an existing replica. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica).
+
 In this article, the term "source instance" refers to the instance with the old hostname, and "destination instance" refers to the instance with the new hostname.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}

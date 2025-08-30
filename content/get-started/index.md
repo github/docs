@@ -16,6 +16,10 @@ redirect_from:
   - /categories/using-git
   - /github/using-git
   - /github/getting-started-with-github
+  - /get-started/working-with-subversion-on-github
+  - /get-started/working-with-subversion-on-github/subversion-properties-supported-by-github
+  - /get-started/working-with-subversion-on-github/support-for-subversion-clients
+  - /get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git
 versions:
   fpt: '*'
   ghes: '*'
@@ -35,7 +39,7 @@ featuredLinks:
   popular:
     - /get-started/start-your-journey/creating-an-account-on-github
     - /get-started/start-your-journey/hello-world
-    - /get-started/getting-started-with-git/set-up-git
+    - /get-started/git-basics/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
     - /get-started/learning-about-github/github-glossary
     - /get-started/accessibility/keyboard-shortcuts
@@ -57,9 +61,8 @@ children:
   - /accessibility
   - /writing-on-github
   - /exploring-projects-on-github
-  - /getting-started-with-git
+  - /git-basics
   - /using-git
-  - /working-with-subversion-on-github
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs

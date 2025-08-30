@@ -3,7 +3,9 @@ title: Managing rulesets for a repository
 intro: 'You can edit, monitor, and delete existing rulesets in a repository to alter how people can interact with specific branches and tags.'
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories

@@ -8,15 +8,10 @@ on:
   deployment_status:
   workflow_dispatch:
     inputs:
-      nuke_all:
-        description: "Nuke all 'every-deployment' keys independent of language"
-        required: false
-        type: boolean
-        default: false
       languages:
-        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to en)"
         required: false
-        default: ''
+        default: 'en' # Temporary, only purge English on deploy. Set to empty string for all
 
 permissions:
   contents: read
@@ -37,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -58,14 +53,9 @@ jobs:
           done
           echo "Production is up to date with the build commit"
 
-      - name: Purge Fastly edge cache independent of language
-        if: ${{ inputs.nuke_all }}
-        run: npm run purge-fastly-edge-cache
-
       - name: Purge Fastly edge cache per language
-        if: ${{ !inputs.nuke_all }}
         env:
-          LANGUAGES: ${{ inputs.languages }}
+          LANGUAGES: ${{ inputs.languages || 'en' }} # Temporary, only purge English on deploy. Set to empty string for all
         run: npm run purge-fastly-edge-cache-per-language
 
       - uses: ./.github/actions/slack-alert

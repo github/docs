@@ -78,11 +78,15 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 ## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
 > [!NOTE]
-> Before you submit a ticket, you have the option of using {% data variables.product.prodname_copilot_in_support %} to receive an immediate response to your question. If {% data variables.product.prodname_copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
+> Before you submit a ticket, you have the option of using {% data variables.copilot.copilot_in_support %} to receive an immediate response to your question. If {% data variables.copilot.copilot_in_support %} is unable to resolve your issue, you can continue submitting your ticket. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
 
 1. Navigate to the {% data variables.contact.contact_landing_page_portal %} and choose one of the following options:
 
    * To sign in with your {% data variables.product.github %} account, click **Sign in with {% data variables.product.github %}**.
+   * If your organization uses {% data variables.enterprise.data_residency_short %} or {% data variables.enterprise.prodname_managed_users %} (accounts ending in `.ghe`):
+      1. In the sign-in dialog, click **Sign in to your .ghe account**.
+      1. Enter your enterprise or tenant name (provided by your administrator) and continue.
+      1. Complete the SAML authentication process as prompted. This will sign you in to your .ghe enterprise-managed account.
    * To sign up for {% data variables.product.github %}, click **Sign up for {% data variables.product.github %}**.
    * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process.{% ifversion ghec or ghes %} You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).{% endif %}
 

@@ -1,8 +1,7 @@
-import { ReactNode } from 'react'
 import { ActionList } from '@primer/react'
+import { ReactNode } from 'react'
 
 import { PickerItem } from './Picker'
-import { Link } from 'src/frame/components/Link'
 
 import styles from './Fields.module.scss'
 
@@ -16,16 +15,16 @@ export const Fields = (fieldProps: {
   const { open, setOpen, items, onSelect, renderItem } = fieldProps
 
   return (
-    <ActionList selectionVariant="single">
+    <ActionList selectionVariant="single" role="menu">
       {items.map((item, i) =>
         item.divider ? (
           <ActionList.Divider key={`divider${i}`} />
         ) : (
-          <ActionList.Item
-            as={Link}
+          <ActionList.LinkItem
+            as="a"
             key={item.text}
             href={item.href}
-            selected={item.selected === true}
+            active={item.selected === true}
             onSelect={() => {
               if (onSelect) onSelect(item)
               setOpen(!open)
@@ -42,9 +41,10 @@ export const Fields = (fieldProps: {
                 textAlign: 'left',
               },
             }}
+            role={item.extra?.arrow || item.extra?.info ? 'menuitem' : 'menuitemradio'}
           >
             {renderItem ? renderItem(item) : item.text}
-          </ActionList.Item>
+          </ActionList.LinkItem>
         ),
       )}
     </ActionList>

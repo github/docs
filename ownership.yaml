@@ -1,15 +1,15 @@
 ---
 version: 1
 ownership:
-  - team: github/docs-engineering
+  - team: github/docs
     repo: https://github.com/github/docs-internal
     name: docs-internal
     kind: moda
     long_name: Docs on Moda
     description: Please use <https://catalog.githubapp.com/services/docs> instead.
-    exec_sponsor: nerdneha
+    exec_sponsor: ahalliop
     product_manager: docs-bot
-    maintainer: tinabme
+    maintainer: anjuan
     team_slack: docs
     qos: best_effort
     tier: 2

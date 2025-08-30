@@ -2,8 +2,8 @@ import { Heading, NavList } from '@primer/react'
 import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
-import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './Minitocs.module.scss'
 

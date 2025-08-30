@@ -21,8 +21,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 To use {% data variables.product.prodname_emus %}, you need a **separate type of enterprise account** with {% data variables.product.prodname_emus %} enabled.
 
-* To create an enterprise on {% data variables.product.prodname_dotcom_the_website %}, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
-* If you require {% data variables.enterprise.data_residency_short %}, contact {% data variables.contact.contact_enterprise_sales %}.
+You can create an enterprise account by signing up for a trial of {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
 ### Understand where your enterprise is hosted
 
@@ -37,14 +36,25 @@ After we create your enterprise, you will receive an email inviting you to choos
 Using an **incognito or private browsing window**:
 
 1. Set the user's password.
-1. Enable two-factor authentication (2FA), and save the enterprise recovery codes. See [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes#downloading-codes-for-an-enterprise-with-enterprise-managed-users).
+1. Enable two-factor authentication (2FA), and save the recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
    > [!WARNING]
-   > All subsequent login attempts for the setup user account will require a successful 2FA challenge response or the use of an enterprise recovery code to complete authentication. To avoid being locked out of your account, save your enterprise recovery codes.
+   > All subsequent login attempts for the setup user account will require a successful 2FA challenge response.
+
+   > [!IMPORTANT]
+   > If the enterprise account has enabled single sign-on and the setup user hasn’t enabled 2FA, they must use an enterprise recovery code to authenticate. To avoid being locked out of your account, after enabling single sign-on, save your enterprise recovery codes. For more information, see [AUTOTITLE](/admin/managing-iam/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes#downloading-codes-for-an-enterprise-with-enterprise-managed-users) and the related [changelog on {% data variables.product.prodname_blog %}](https://github.blog/changelog/2025-01-17-setup-user-for-emu-enterprises-requires-2fa-or-use-of-a-recovery-code/).
 
 {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
 {% data reusables.enterprise-accounts.emu-recommend-password-manager %}
+
+   > [!NOTE]
+   > Once single sign-on has been configured on the enterprise, the setup user is only intended to be used going forwards for:
+   >
+   > * SCIM provisioning via its {% data variables.product.pat_generic %}.
+   > * To regain access to your enterprise in the event of an issue with your identity provider by utilizing the enterprise's SAML recovery codes.
+   >
+   > For other enterprise administration tasks, you should use a provisioned managed user account with the enterprise owner role.
 
 ## Create a {% data variables.product.pat_generic %}
 

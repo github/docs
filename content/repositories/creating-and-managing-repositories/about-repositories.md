@@ -80,6 +80,18 @@ When you create a repository, you can choose to make the repository public or pr
 * Internal repositories are accessible to all enterprise members. For more information, see [About internal repositories](#about-internal-repositories).
 {%- endif %}
 
+{% ifversion fpt or ghec %}
+
+### Security considerations for repository visibility
+
+Public repositories expose your codebase to everyone, increasing the risk that attackers might exploit vulnerabilities or access sensitive information. You can mitigate these risks by enabling {% data variables.product.github %} security features such as {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning %}, push protection, and {% data variables.product.prodname_code_scanning %} for the repository. Additionally, you should add a security policy (a `SECURITY.md` file) to your repository, that outlines how vulnerabilities should be reported, to ensure that potential threats are addressed efficiently.
+
+Although private repositories restrict access to authorized users, it's still essential to implement strong access controls, multi-factor authentication, and regular audits to mitigate risks.
+
+For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
+
+{% endif %}
+
 Organization owners always have access to every repository created in an organization. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).

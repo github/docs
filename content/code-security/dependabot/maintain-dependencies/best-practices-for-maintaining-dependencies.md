@@ -79,7 +79,7 @@ By following these practices, you can significantly reduce the risk posed by out
 
 {% data variables.product.github %} offers several security features that can help maintain the security of your codebases:
 
-**Dependency Graph**
+**Dependency graph**
 
    * Provides a tabular representation of your project's dependencies.
    * The graph helps you understand the dependencies of your project and {% data variables.product.github %} uses this to identify vulnerable dependencies.
@@ -97,9 +97,9 @@ By following these practices, you can significantly reduce the risk posed by out
 
    * **{% data variables.product.prodname_dependabot_security_updates %}**: Automatically opens pull requests to update vulnerable dependencies to versions that do not have known vulnerabilities. This allows you to quickly review and merge fixes. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
-   * **{% data variables.product.prodname_dependabot_version_updates %}**: Can also be configured to automatically open pull requests to update your dependencies to their latest versions regularly, ensuring you are always using current packages. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).{% ifversion dependabot-grouped-security-updates-config %}
+   * **{% data variables.product.prodname_dependabot_version_updates %}**: Can also be configured to automatically open pull requests to update your dependencies to their latest versions regularly, ensuring you are always using current packages. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates).
 
-   * **Grouped updates**: Makes it easier to review and deploy pull requests for {% data variables.product.prodname_dependabot_updates %} by grouping several updates into a single pull request, see [About grouped security updates](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates) and examples in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#reducing-the-volume-of-dependabot-pull-requests){% endif %}
+   * **Grouped updates**: Makes it easier to review and deploy pull requests for {% data variables.product.prodname_dependabot_updates %} by grouping several updates into a single pull request, see [About grouped security updates](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-grouped-security-updates) and examples in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#reducing-the-volume-of-dependabot-pull-requests)
 
 **Security Advisories**{% ifversion fpt or ghec %}
 
@@ -109,7 +109,7 @@ By following these practices, you can significantly reduce the risk posed by out
 
 **Security overview**
 
-   * You can keep an eye on the dashboards on the security overview page, which provide  insights about your organization or enterprise's security landscape and progress. It helps users identify repositories that need attention and monitor the health of their application security program.{% ifversion ghec or ghes %} For example, you can see a summary of an organization's security risk, trends in detection, remediation, and prevention of security alerts, as well as the enablement status of {% data variables.product.github %}'s security features.{% endif %} For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
+   * You can keep an eye on the dashboards on the security overview page, which provide  insights about your organization or enterprise's security landscape and progress. It helps users identify repositories that need attention and monitor the health of their application security program. For example, you can see a summary of an organization's security risk, trends in detection, remediation, and prevention of security alerts, as well as the enablement status of {% data variables.product.github %}'s security features. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
 
 **Security policy**
 

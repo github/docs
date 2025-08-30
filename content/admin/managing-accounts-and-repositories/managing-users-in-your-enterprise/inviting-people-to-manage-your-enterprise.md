@@ -65,14 +65,9 @@ If the administrator you want to remove is a member of any organizations owned b
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-{%- ifversion ghec or ghes %}
 1. Next to the username of the person you'd like to remove, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Convert to member**{% ifversion ghec %} or **Remove from enterprise**{% endif %}.
    ![Screenshot of a user in the enterprise administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
 1. Read the confirmation, then click **Yes, convert USERNAME to member**{% ifversion ghec %} or **Yes, remove USERNAME**{% endif %}.
-{%- else %}
-1. Next to the username of the person you'd like to remove, select the {% octicon "gear" aria-label="Administrator settings" %} dropdown menu, then click **Remove owner**.
-1. Read the confirmation, then click **Remove owner**.
-{%- endif %}
 
 ## Further reading
 

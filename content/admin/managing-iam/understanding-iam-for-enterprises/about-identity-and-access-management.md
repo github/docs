@@ -32,11 +32,7 @@ Administrators who configure a {% data variables.product.prodname_ghe_server %} 
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## Authentication methods
-
-{% endif %}
 
 {% ifversion ghec %}
 
@@ -85,11 +81,7 @@ If you choose to use external authentication, you can also configure fallback au
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## About provisioning
-
-{% endif %}
 
 {% ifversion ghec %}
 

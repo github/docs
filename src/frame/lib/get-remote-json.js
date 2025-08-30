@@ -2,8 +2,8 @@ import path from 'path'
 import fs from 'fs'
 import crypto from 'crypto'
 
-import got from 'got'
-import statsd from '#src/observability/lib/statsd.js'
+import { fetchWithRetry } from './fetch-utils'
+import statsd from '@/observability/lib/statsd'
 
 // The only reason this is exported is for the sake of the unit tests'
 // ability to test in-memory miss after purging this with a mutation
@@ -59,29 +59,42 @@ export default async function getRemoteJSON(url, config) {
         }
       }
     } catch (error) {
-      if (!(error instanceof SyntaxError || error.code === 'ENOENT')) {
+      if (!(error instanceof SyntaxError || (error instanceof Error && error.code === 'ENOENT'))) {
         throw error
       }
     }
 
     if (!foundOnDisk) {
-      // got will, by default, follow redirects and it will throw if the ultimate
+      // fetch will, by default, follow redirects and fetchWithRetry will throw if the ultimate
       // response is not a 2xx.
       // But it's possible that the page is a 200 OK but it's just not a JSON
       // page at all. Then we can't assume we can deserialize it.
-      const res = await got(url, config)
-      if (!res.headers['content-type'].startsWith('application/json')) {
-        throw new Error(
-          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`,
-        )
-      }
-      cache.set(cacheKey, JSON.parse(res.body))
+      const retries = config?.retry?.limit || 0
+      const timeout = config?.timeout?.response
 
-      // Only write to disk for testing and local preview.
+      const res = await fetchWithRetry(
+        url,
+        {},
+        {
+          retries,
+          timeout,
+          throwHttpErrors: true,
+        },
+      )
+
+      const contentType = res.headers.get('content-type')
+      if (!contentType || !contentType.startsWith('application/json')) {
+        throw new Error(`Fetching '${url}' resulted in a non-JSON response (${contentType})`)
+      }
+
+      const body = await res.text()
+      cache.set(cacheKey, JSON.parse(body))
+
+      // Only write to disk for testing and local review.
       // In production, we never write to disk. Only in-memory.
       if (!inProd) {
         fs.mkdirSync(path.dirname(onDisk), { recursive: true })
-        fs.writeFileSync(onDisk, res.body, 'utf-8')
+        fs.writeFileSync(onDisk, body, 'utf-8')
       }
     }
   }

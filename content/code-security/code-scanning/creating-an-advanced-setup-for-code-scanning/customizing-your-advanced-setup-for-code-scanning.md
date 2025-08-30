@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Actions
   - Repositories
@@ -38,7 +38,7 @@ You can run {% data variables.product.prodname_code_scanning %} on {% data varia
 
 With advanced setup for {% data variables.product.prodname_code_scanning %}, you can customize a {% data variables.product.prodname_code_scanning %} workflow for granular control over your configuration. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
 
-{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-hidden="true" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
+{% data variables.product.prodname_codeql %} analysis is just one type of {% data variables.product.prodname_code_scanning %} you can do in {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_marketplace %}{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %} contains other {% data variables.product.prodname_code_scanning %} workflows you can use. {% ifversion fpt or ghec %}You can find a selection of these on the "Get started with {% data variables.product.prodname_code_scanning %}" page, which you can access from the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab.{% endif %} The specific examples given in this article relate to the {% data variables.code-scanning.codeql_workflow %} file.
 
 ## Editing a {% data variables.product.prodname_code_scanning %} workflow
 
@@ -103,10 +103,10 @@ For more information about using `on:pull_request:paths-ignore` and `on:pull_req
 
 ### Scanning on a schedule
 
-If you use the default {% data variables.code-scanning.codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value in the workflow. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onschedule).
+If you use the default {% data variables.code-scanning.codeql_workflow %}, the workflow will scan the code in your repository once a week, in addition to the scans triggered by events. To adjust this schedule, edit the `cron` value for the `on.schedule` event in the workflow. For more information, see [AUTOTITLE](/actions/reference/workflows-and-actions/workflow-syntax#onschedule).
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} only runs scheduled jobs that are in workflows on the default branch. Changing the schedule in a workflow on any other branch has no effect until you merge the branch into the default branch.
+> {% data reusables.actions.branch-requirement %}
 
 ### Example
 
@@ -196,7 +196,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [{% ifversion codeql-language-identifiers-311 %}'javascript-typescript'{% else %}'javascript'{% endif %}, 'python']
+        language: ['javascript-typescript', 'python']
 ```
 
 If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
@@ -204,26 +204,19 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 ```yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    languages: {% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %}, csharp, python
+    languages: c-cpp, csharp, python
 ```
 
-## Defining the alert severities that cause a check failure for a pull request
+> [!NOTE]
+> When analyzing languages sequentially, the default build-mode for every language will be used. Alternatively, if you provide an explicit `autobuild` step, then every language that supports the `autobuild` mode will use it while other languages use their default mode. If a more complex build-mode configuration than this is required, then you will need to use a `language` matrix.
 
-{% ifversion code-scanning-merge-protection-rulesets %}
+## Defining the alert severities that cause a check failure for a pull request
 
 You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% else %}
-
-{% data reusables.code-scanning.pull-request-checks %}
-
-You can edit which severity and security severity alert levels cause a check failure. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#defining-the-alert-severities-that-cause-a-check-failure-for-a-pull-request).
-
-{% endif %}
 
 ## Configuring a category for the analysis
 
@@ -243,13 +236,11 @@ This parameter is particularly useful if you work with monorepos and have multip
 
 If you don't specify a `category` parameter in your workflow, {% data variables.product.github %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
 * The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-* The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: {% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:{% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}/os:linux`.
+* The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript-typescript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript-typescript/os:linux`.
 
 The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#runautomationdetails-object).
 
 Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
-
-{% ifversion codeql-model-packs %}
 
 ## Extending {% data variables.product.prodname_codeql %} coverage with {% data variables.product.prodname_codeql %} model packs
 
@@ -257,11 +248,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models %}
-
 ### Using {% data variables.product.prodname_codeql %} model packs
-
-{% endif %}
 
 To add one or more published {% data variables.product.prodname_codeql %} model packs, specify them inside the `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication) and [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 
@@ -274,8 +261,6 @@ To add one or more published {% data variables.product.prodname_codeql %} model 
 ```
 
 In this example, the default queries will be run for Java, as well as the queries from a version greater than or equal to `7.8.9` and less than `7.9.0` of the query pack `my-company/my-java-queries`. The dependencies modeled in the latest version of the model pack `my-repo/my-java-model-pack` will be available to both the default queries and those in `my-company/my-java-queries`.
-
-{% endif %}
 
 ## Running additional queries
 
@@ -444,15 +429,11 @@ packs:
 
 {% endraw %}
 
-{% ifversion codeql-threat-models %}
-
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 
 {% data reusables.code-scanning.beta-threat-models %}
 
 The default threat model includes remote sources of untrusted data. You can extend the {% data variables.product.prodname_codeql %} threat model to include local sources of untrusted data (for example: command-line arguments, environment variables, file systems, and databases) by specifying `threat-models: local` in a custom configuration file. If you extend the threat model, the default threat model will also be used.
-
-{% endif %}
 
 ### Specifying additional queries
 
@@ -502,7 +483,7 @@ For more information about using `exclude` and `include` filters in your custom 
 
 ### Specifying directories to scan
 
-When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript){% ifversion codeql-no-build %} or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}){% endif %}.
+When codebases are analyzed without building the code, you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can also exclude the files in specific directories from analysis by adding a `paths-ignore` array. You can use this option when you run the {% data variables.product.prodname_codeql %} actions on an interpreted language (Python, Ruby, and JavaScript/TypeScript) or when you analyze a compiled language without building the code (currently supported for {% data variables.code-scanning.no_build_support %}).
 
 ``` yaml copy
 paths:
@@ -539,6 +520,7 @@ This step in a {% data variables.product.prodname_actions %} workflow file uses 
     languages: {% raw %}${{ matrix.language }}{% endraw %}
     config: |
       disable-default-queries: true
+      threat-models: local
       queries:
         - uses: security-extended
       query-filters:
@@ -562,15 +544,7 @@ You can use the same approach to specify any valid configuration options in the 
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
-{% ifversion codeql-no-build %}
-
 For compiled languages, you can decide how the {% data variables.product.prodname_codeql %} action creates a {% data variables.product.prodname_codeql %} database for analysis. For information about the build options available, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
-
-{% else %}
-
-For compiled languages, the {% data variables.product.prodname_codeql %} action builds the codebase to create a {% data variables.product.prodname_codeql %} database for analysis. By default, {% data variables.product.prodname_codeql %} uses `autobuild` steps to identify the most likely build method for the codebase. {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages).
-
-{% endif %}
 
 ## Uploading {% data variables.product.prodname_code_scanning %} data to {% data variables.product.prodname_dotcom %}
 

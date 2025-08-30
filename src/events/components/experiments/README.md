@@ -68,19 +68,14 @@ In the code that displays the search bar, you can use the `shouldShowExperiment`
 Example:
 
 ```typescript
-import { useRouter } from 'next/router'
 import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
 import { EXPERIMENTS } from '@/events/components/experiments/experiments'
 import { ClassicSearchBar } from "@/search/components/ClassicSearchBar.tsx"
 import { NewSearchBar } from "@/search/components/NewSearchBar.tsx"
 
 export function SearchBar() {
-  const router = useRouter()
   // Users who were randomly placed in the `treatment` group will be shown the experiment
-  const { shouldShow: shouldShowNewSearch } = useShouldShowExperiment(
-    EXPERIMENTS.ai_search_experiment,
-    router.locale
-  )
+  const { shouldShow: shouldShowNewSearch } = useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
 
   if (shouldShowNewSearch) {
     return (

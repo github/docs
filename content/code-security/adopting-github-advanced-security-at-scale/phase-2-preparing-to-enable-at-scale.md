@@ -5,113 +5,34 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: 2. Preparation
 ---
 
-> [!NOTE]
-> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals).
+> [!TIP]
+> This article is part of a series on adopting {% data variables.product.prodname_GHAS %} at scale. For the previous article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-1-align-on-your-rollout-strategy-and-goals).
 
 ## Preparing to enable {% data variables.product.prodname_code_scanning %}
 
 {% data reusables.code-scanning.about-code-scanning %} For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
 
-Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful.{% ifversion default-setup-ghas-enablement %}{% else %} As part of your preparation, you will work with your teams, use automation to collect data about your repositories, and enable {% data variables.product.prodname_code_scanning %}.{% endif %}
+Rolling {% data variables.product.prodname_code_scanning %} out across hundreds of repositories can be difficult, especially when done inefficiently. Following these steps will ensure your rollout is both efficient and successful.
 
 {% ifversion ghec %}
-{% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom %} without a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+{% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom_the_website %} without a license for prodname_GH_code_security.{% endif %}
 
 ### Preparing teams for {% data variables.product.prodname_code_scanning %}
 
-First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout.{% ifversion default-setup-ghas-enablement %}
+First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout.
 
 For an introduction to {% data variables.product.prodname_code_scanning %}, see:
 * [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)
 * [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)
 * [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)
-{% else %} During this phase, you should focus on leveraging APIs and running internal enablement events.{% endif %}
 
 Your core focus should be preparing as many teams to use {% data variables.product.prodname_code_scanning %} as possible. You can also encourage teams to remediate appropriately, but we recommend prioritizing enablement and use of {% data variables.product.prodname_code_scanning %} over fixing issues during this phase.
 
-{% ifversion default-setup-ghas-enablement %}{% else %}
-
-### Collecting information about your repositories
-
-You can programmatically gather information about the different programming languages used in your repositories and use that data to enable {% data variables.product.prodname_code_scanning %} on all repositories that use the same language, using {% data variables.product.github %}'s GraphQL API.
-
-> [!NOTE]
-> To gather this data without manually running the GraphQL queries described in this article, you can use our publicly available tool. For more information, see the [ghas-enablement tool](https://github.com/NickLiffen/ghas-enablement) repository.
-
-If you want to gather information from repositories belonging to multiple organizations in your enterprise, you can use the query below to obtain the names of your organizations and then feed those into repository query. Replace OCTO-ENTERPRISE with your enterprise name.
-
-```graphql
-query {
-  enterprise(slug: "OCTO-ENTERPRISE") {
-    organizations(first: 100) {
-      totalCount
-      nodes {
-        name
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-}
-```
-
-You can identify which repositories use which languages by collating repositories by language at the organization level. You can modify the sample GraphQL query below, replacing OCTO-ORG with the organization name.
-
-```graphql
-query {
-  organization(login: "OCTO-ORG") {
-    repositories(first: 100) {
-      totalCount
-      nodes {
-        nameWithOwner
-        languages(first: 100) {
-          totalCount
-          nodes {
-            name
-          }
-        }
-      }
-      pageInfo {
-        endCursor
-        hasNextPage
-      }
-    }
-  }
-}
-```
-
-For more information about running GraphQL queries, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
-
-Then, convert the data from the GraphQL query into a readable format, such as a table.
-
-| Language                | Number of Repos | Name of Repos                           |
-|-------------------------|-----------------|-----------------------------------------|
-| JavaScript (TypeScript) | 4212            | org/repo<br /> org/repo |
-| Python                  | 2012            | org/repo<br /> org/repo |
-| Go                      | 983             | org/repo<br /> org/repo |
-| Java                    | 412             | org/repo<br /> org/repo |
-| Swift                   | 111             | org/repo<br /> org/repo |
-| Kotlin                  | 82              | org/repo<br /> org/repo |
-| C                       | 12              | org/repo<br /> org/repo |
-
-You can filter out the languages that are currently not supported by {% data variables.product.prodname_GH_advanced_security %} from this table.
-
-If you have repositories with multiple languages, you can format the GraphQL results as shown in the table below. Filter out languages that are not supported, but retain all repositories with at least one supported language. You can enable {% data variables.product.prodname_code_scanning %} on these repositories, and all supported languages will be scanned.
-
-| Language(s)            | Number of Repos | Name of Repos                            |
-|------------------------|-----------------|------------------------------------------|
-| JavaScript/Python/Go   | 16              | org/repo <br /> org/repo |
-| Rust/TypeScript/Python | 12              | org/repo <br /> org/repo |
-
-An understanding of which repositories are using which languages will help you identify candidate repositories for pilot programs in phase 3, and prepares you to enable {% data variables.product.prodname_code_scanning %} across all repositories, one language at a time, in phase 5.
-
-{% endif %}
 {% ifversion ghes %}
 
 ### Enabling {% data variables.product.prodname_code_scanning %} for your appliance
@@ -135,11 +56,11 @@ If a project communicates with an external service, it might use a token or priv
 
 ### Considerations when enabling {% data variables.product.prodname_secret_scanning %}
 
-{% ifversion default-setup-ghas-enablement %}Enabling{% else %}{% data variables.product.github %}’s {% data variables.product.prodname_secret_scanning %} capability is slightly different from {% data variables.product.prodname_code_scanning %} since it requires no specific configuration per programming language or per repository and less configuration overall to get started. This means enabling{% endif %} {% data variables.product.prodname_secret_scanning %} at the organizational level can be easy, but clicking **Enable All** at the organization level and selecting the option **Automatically enable {% data variables.product.prodname_secret_scanning %} for every new repository** has some downstream effects that you should be aware of:
+Enabling {% data variables.product.prodname_secret_scanning %} at the organizational level can be easy, but clicking **Enable All** at the organization level and selecting the option **Automatically enable {% data variables.product.prodname_secret_scanning %} for every new repository** has some downstream effects that you should be aware of:
 
 #### License consumption
 
-Enabling {% data variables.product.prodname_secret_scanning %} for all repositories will maximize your use of {% data variables.product.prodname_GH_advanced_security %} licenses. This is fine if you have enough licenses for the current committers to all those repositories. If the number of active developers is likely to increase in the coming months, you may exceed your license limit and then be unable to use {% data variables.product.prodname_GH_advanced_security %} on newly created repositories.
+Enabling {% data variables.product.prodname_secret_scanning %} for all repositories will maximize your use of {% data variables.product.prodname_GH_secret_protection %} licenses. This is fine if you have enough licenses for the current committers to all those repositories. If the number of active developers is likely to increase in the coming months, you may exceed your license limit and then be unable to use {% data variables.product.prodname_secret_scanning %} on newly created repositories.
 
 #### Initial high volume of detected secrets
 
@@ -169,5 +90,5 @@ Next, familiarize yourself with the different options for managing and monitorin
 
 For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
-> [!NOTE]
+> [!TIP]
 > For the next article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs).

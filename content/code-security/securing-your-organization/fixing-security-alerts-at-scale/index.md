@@ -5,13 +5,12 @@ intro: 'Once you detect security alerts across your organization, you will want 
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 children:
   - /about-security-campaigns
   - /best-practice-fix-alerts-at-scale
-  - /creating-tracking-security-campaigns
+  - /creating-managing-security-campaigns
+  - /tracking-security-campaigns
 ---
-
-{% data reusables.security-campaigns.preview-note %}

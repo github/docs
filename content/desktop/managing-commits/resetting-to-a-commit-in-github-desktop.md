@@ -1,9 +1,11 @@
 ---
 title: Resetting to a commit in GitHub Desktop
 shortTitle: Resetting to a commit
-intro: 'You can reset to any commit up to the one that was last pushed to the remote branch.'
+intro: You can reset to any commit up to the one that was last pushed to the remote branch.
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About resetting to a commit

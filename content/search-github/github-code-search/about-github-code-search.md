@@ -12,7 +12,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} code search lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community. This search engine is designed to be scalable, code-aware, and support searching code across {% data variables.product.prodname_dotcom %} using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of code search, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
-Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom %}, such as suggestions and completions. Your searches will be saved automatically and can be deleted at any time. On {% data variables.product.prodname_mobile %}, you can use the same methods to search through code {% ifversion global-code-search-mobile %}directly from the home screen{% else %} in a specific repository{% endif %}. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search).
+Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom %}, such as suggestions and completions. Your searches will be saved automatically and can be deleted at any time. On {% data variables.product.prodname_mobile %}, you can use the same methods to search through code directly from the home screen. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search).
 
 {% data reusables.search.code-search-login-requirement %}
 
@@ -45,7 +45,7 @@ If you use the `path:` qualifier for a file that's in multiple repositories with
 
 Code search supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier).
 
-{% ifversion global-code-search-mobile %}On {% data variables.product.prodname_mobile %}, you can use code search directly from the home screen. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}
+On {% data variables.product.prodname_mobile %}, you can use code search directly from the home screen. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).
 
 ## Feedback and support
 

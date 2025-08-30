@@ -5,29 +5,29 @@ import path from 'path'
 
 import cheerio from 'cheerio'
 import coreLib from '@actions/core'
-import got, { RequestError } from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import chalk from 'chalk'
 import { JSONFilePreset } from 'lowdb/node'
 import { type Octokit } from '@octokit/rest'
 import type { Response } from 'express'
 
 import type { ExtendedRequest, Page, Permalink, Context } from '@/types'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import shortVersions from '@/versions/middleware/short-versions'
 import contextualize from '@/frame/middleware/context/context'
-import features from '@/versions/middleware/features.js'
-import getRedirect from '@/redirects/lib/get-redirect.js'
+import features from '@/versions/middleware/features'
+import getRedirect from '@/redirects/lib/get-redirect'
 import warmServer from '@/frame/lib/warm-server'
-import { liquid } from '@/content-render/index.js'
-import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
-import excludedLinks from '@/links/lib/excluded-links.js'
-import { getEnvInputs, boolEnvVar } from '@/workflows/get-env-inputs.js'
-import { debugTimeEnd, debugTimeStart } from './debug-time-taken.js'
-import { uploadArtifact as uploadArtifactLib } from './upload-artifact.js'
-import github from '@/workflows/github.js'
-import { getActionContext } from '@/workflows/action-context.js'
-import { createMinimalProcessor } from '@/content-render/unified/processor.js'
-import { createReportIssue, linkReports } from '@/workflows/issue-report.js'
-import { type CoreInject } from '@/links/scripts/action-injections.js'
+import { liquid } from '@/content-render/index'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
+import excludedLinks from '@/links/lib/excluded-links'
+import { getEnvInputs, boolEnvVar } from '@/workflows/get-env-inputs'
+import { debugTimeEnd, debugTimeStart } from './debug-time-taken'
+import { uploadArtifact as uploadArtifactLib } from './upload-artifact'
+import github from '@/workflows/github'
+import { getActionContext } from '@/workflows/action-context'
+import { createMinimalProcessor } from '@/content-render/unified/processor'
+import { createReportIssue, linkReports } from '@/workflows/issue-report'
+import { type CoreInject } from '@/links/scripts/action-injections'
 
 type Flaw = {
   WARNING?: string
@@ -570,9 +570,16 @@ function flawIssueDisplay(flaws: LinkFlaw[], opts: Options, mentionExternalExclu
       'For more information, see [Fixing broken links in GitHub user docs](https://github.com/github/docs/blob/main/src/links/lib/README.md).'
   }
 
-  return `${flawsToDisplay} broken${
+  output = `${flawsToDisplay} broken${
     opts.commentLimitToExternalLinks ? ' **external** ' : ' '
   }links found in [this](${opts.actionUrl}) workflow.\n${output}`
+
+  // limit is 65536
+  if (output.length > 60000) {
+    output = output.slice(0, 60000) + '\n\n---\n\nOUTPUT TRUNCATED'
+  }
+
+  return output
 }
 
 function printGlobalCacheHitRatio(core: CoreInject) {
@@ -1145,7 +1152,7 @@ async function innerFetch(
   //   3. ~4000ms
   //
   // ...if the limit we set is 3.
-  // Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
+  // Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
   // So there's no point in trying more attempts than 3 because it would
   // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
   const retry = {
@@ -1159,31 +1166,35 @@ async function innerFetch(
   }
 
   const retries = config.retries || 0
-  const httpFunction = useGET ? got.get : got.head
+  const method = useGET ? 'GET' : 'HEAD'
 
-  if (verbose) core.info(`External URL ${useGET ? 'GET' : 'HEAD'}: ${url} (retries: ${retries})`)
+  if (verbose) core.info(`External URL ${method}: ${url} (retries: ${retries})`)
   try {
-    const r = await httpFunction(url, {
-      headers,
-      throwHttpErrors: false,
-      retry,
-      timeout,
-    })
+    const r = await fetchWithRetry(
+      url,
+      {
+        method,
+        headers,
+      },
+      {
+        retries: retry.limit,
+        timeout: timeout.request,
+        throwHttpErrors: false,
+      },
+    )
     if (verbose) {
-      core.info(
-        `External URL ${useGET ? 'GET' : 'HEAD'} ${url}: ${r.statusCode} (retries: ${retries})`,
-      )
+      core.info(`External URL ${method} ${url}: ${r.status} (retries: ${retries})`)
     }
 
     // If we get rate limited, remember that this hostname is now all
     // rate limited. And sleep for the number of seconds that the
     // `retry-after` header indicated.
-    if (r.statusCode === 429) {
+    if (r.status === 429) {
       let sleepTime = Math.min(
         60_000,
         Math.max(
           10_000,
-          r.headers['retry-after'] ? getRetryAfterSleep(r.headers['retry-after']) : 1_000,
+          r.headers.get('retry-after') ? getRetryAfterSleep(r.headers.get('retry-after')) : 1_000,
         ),
       )
       // Sprinkle a little jitter so it doesn't all start again all
@@ -1207,17 +1218,17 @@ async function innerFetch(
 
     // Perhaps the server doesn't support HEAD requests.
     // If so, try again with a regular GET.
-    if ((r.statusCode === 405 || r.statusCode === 404 || r.statusCode === 403) && !useGET) {
+    if ((r.status === 405 || r.status === 404 || r.status === 403) && !useGET) {
       return innerFetch(core, url, Object.assign({}, config, { useGET: true }))
     }
     if (verbose) {
-      core.info((r.ok ? chalk.green : chalk.red)(`${r.statusCode} on ${url}`))
+      core.info((r.ok ? chalk.green : chalk.red)(`${r.status} on ${url}`))
     }
-    return { ok: r.ok, statusCode: r.statusCode }
+    return { ok: r.ok, statusCode: r.status }
   } catch (err) {
-    if (err instanceof RequestError) {
+    if (err instanceof Error) {
       if (verbose) {
-        core.info(chalk.yellow(`RequestError (${err.message}) on ${url}`))
+        core.info(chalk.yellow(`Request Error (${err.message}) on ${url}`))
       }
       return { ok: false, requestError: err.message }
     }
@@ -1226,7 +1237,7 @@ async function innerFetch(
 }
 
 // Return number of milliseconds from a `Retry-After` header value
-function getRetryAfterSleep(headerValue: string) {
+function getRetryAfterSleep(headerValue: string | null) {
   if (!headerValue) return 0
   let ms = Math.round(parseFloat(headerValue) * 1000)
   if (isNaN(ms)) {

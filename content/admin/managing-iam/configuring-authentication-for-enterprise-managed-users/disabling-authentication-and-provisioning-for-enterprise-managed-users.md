@@ -1,7 +1,8 @@
 ---
-title: Disabling authentication and provisioning for Enterprise Managed Users
-shortTitle: Disable authentication and provisioning
-intro: 'You can disable SAML or OIDC single sign-on (SSO) and SCIM provisioning for {% data variables.product.prodname_emus %} by using a recovery code to sign in as the setup user.'
+title: Disabling authentication for Enterprise Managed Users
+allowTitleToDifferFromFilename: true
+shortTitle: Disable authentication
+intro: 'You can disable SAML or OIDC single sign-on (SSO) authentication for {% data variables.product.prodname_emus %} by using a recovery code to sign in as the setup user.'
 versions:
   ghec: '*'
 type: overview
@@ -10,7 +11,7 @@ topics:
   - Authentication
   - Enterprise
   - SSO
-permissions: 'The setup user can disable SAML or OIDC SSO and SCIM provisioning for {% data variables.product.prodname_emus %}.'
+permissions: 'The setup user can disable SAML or OIDC authentication for {% data variables.product.prodname_emus %}.'
 redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users
   - /admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users
@@ -19,7 +20,7 @@ redirect_from:
 
 ## About disabled authentication for {% data variables.product.prodname_emus %}
 
-After you disable SAML or OIDC SSO for your enterprise, the following effects apply:
+After you disable SAML or OIDC authentication for your enterprise, the following effects apply:
 
 * All external identities for the enterprise, and associated email addresses for {% data variables.enterprise.prodname_managed_users %}, will be removed. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
 * All {% data variables.enterprise.prodname_managed_users %} will be suspended. The suspended accounts will not be renamed. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members).

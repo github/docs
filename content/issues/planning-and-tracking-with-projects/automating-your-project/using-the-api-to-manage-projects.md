@@ -3,7 +3,9 @@ title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %
 shortTitle: Automating with the API
 intro: You can use the GraphQL API to automate your projects.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
 type: tutorial

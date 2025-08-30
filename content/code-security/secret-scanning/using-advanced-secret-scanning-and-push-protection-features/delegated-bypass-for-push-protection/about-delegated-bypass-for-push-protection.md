@@ -1,13 +1,15 @@
 ---
 title: About delegated bypass for push protection
-intro: 'You can control which teams or roles have the ability to bypass push protection in your organization or repository.'
+intro: You can control which teams or roles have the ability to bypass push protection in your organization or repository.
 product: '{% data reusables.gated-features.delegated-bypass %}'
 versions:
-  feature: push-protection-delegated-bypass
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: overview
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: About delegated bypass

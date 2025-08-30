@@ -37,14 +37,20 @@ This guide will guide you through completing the first phase, migrating reposito
 
 ### How soon do we need to complete the migration?
 
-{% data reusables.enterprise-migration-tool.timeline-intro %}
+Determine your timeline, which will largely dictate your approach. The first step for determining your timeline is to get an inventory of what you need to migrate.
 
 * Number of repositories
 * Number of pull requests
 
+Migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. To install the {% data variables.product.prodname_ado2gh_cli %} and authenticate, follow steps 1 to 3 in [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud).
+
 Migration timing is largely based on the number of pull requests in a repository. If you want to migrate 1,000 repositories, and each repository has 100 pull requests on average, and only 50 users have contributed to the repositories, your migration will likely be very quick. If you want to migrate only 100 repositories, but the repositories each have 75,000 pull requests on average, and 5,000 users, the migration will take much longer and require much more planning and testing.
 
-{% data reusables.enterprise-migration-tool.timeline-tasks %}
+After you take inventory of the repositories you need to migrate, you can weigh your inventory data against your desired timeline. If your organization can withstand a higher degree of change, then you might be able to migrate all your repositories at once, completing your migration efforts in a few days. However, you may have various teams that are not able to migrate at the same time. In this case, you might want to batch and stagger your migrations to fit the teams' timelines, extending your migration effort.
+
+1. Determine how many repositories and pull requests you need to migrate.
+1. To understand when teams can be ready to migrate, interview stakeholders.
+1. Fully review the rest of this guide, then decide on a migration timeline.
 
 ### Do we understand what will be migrated?
 

@@ -2,7 +2,7 @@
 title: Working with secret scanning and push protection
 shortTitle: Work with secret scanning
 allowTitleToDifferFromFilename: true
-intro: '{% data variables.product.prodname_secret_scanning_caps %} scans for and detects secrets that have been checked into a repository. Push protection proactively secures you against leaking secrets by blocking pushes containing secrets.'
+intro: 'Avoid leaking sensitive data by blocking pushes containing tokens and other secrets.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
@@ -10,13 +10,15 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
+  - /remediating-a-leaked-secret
   - /push-protection-for-users
   - /working-with-push-protection-from-the-command-line
   - /working-with-push-protection-from-the-rest-api
   - /working-with-push-protection-in-the-github-ui
+  - /working-with-push-protection-and-the-github-mcp-server
 redirect_from:
   - /code-security/secret-scanning/working-with-push-protection
   - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection

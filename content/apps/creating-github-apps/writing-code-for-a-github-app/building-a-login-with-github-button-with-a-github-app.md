@@ -86,7 +86,7 @@ This tutorial will show you how to store the client ID and client secret in envi
 1. On the app's settings page, click **Generate a new client secret**. You will add the client secret to a `.env` file in a following step.
 1. Create a file called `.env` at the same level as your `Gemfile`.
 1. If your project doesn't already have a `.gitignore` file, create a `.gitignore` file at the same level as your `Gemfile`.
-1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your client secret. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/getting-started-with-git/ignoring-files).
+1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your client secret. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/git-basics/ignoring-files).
 1. Add the following contents to your `.env` file. Replace `YOUR_CLIENT_ID` with the client ID of your app. Replace `YOUR_CLIENT_SECRET` with the client secret for your app.
 
    ```text

@@ -3,7 +3,9 @@ title: 'Adding your {% data variables.projects.project_v2 %} to a team'
 shortTitle: 'Adding a {% data variables.projects.project_v2 %} to a team'
 intro: You can add projects to teams to manage permissions and improve project discoverability.
 versions:
-  feature: projects-v2-add-to-team
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -22,7 +24,7 @@ Teams are granted read permissions on any project they are added to. This permis
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-1. Click **{% octicon "project" aria-hidden="true" %} Projects**.
+1. Click **{% octicon "project" aria-hidden="true" aria-label="project" %} Projects**.
 
    ![Screenshot of the main page for a team. In the horizontal navigation bar, the "Projects" tab is outlined in dark orange.](/assets/images/help/organizations/team-project-board-button.png)
 

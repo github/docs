@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/resolve-tests
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -49,7 +52,7 @@ Each argument is one of:
 #### `--slice=<N/M>`
 
 \[Advanced] Divide the test cases into _M_ roughly equal-sized slices
-and process only the _N_th of them. This can be used for manual
+and process only the _&#x4E;_&#x74;h of them. This can be used for manual
 parallelization of the testing process.
 
 #### `--[no-]strict-test-discovery`

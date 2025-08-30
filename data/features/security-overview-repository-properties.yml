@@ -1,5 +1,0 @@
-# Reference: Issue #10332 - Repository properties integration with security overview
-
-versions:
-  ghec: '*'
-  ghes: '>=3.13'

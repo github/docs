@@ -1,0 +1,6 @@
+# Reference: #6142
+# Restricting app authz based on visibility and EMU policies
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.19'

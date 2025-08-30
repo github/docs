@@ -18,7 +18,7 @@ You can search for issues and pull requests globally across all of {% data varia
 
 > [!TIP]
 > * This article contains example searches on {% data variables.product.prodname_dotcom_the_website %}, but you can use the same search filters on other {% data variables.product.github %} platforms.{% ifversion issues-advanced-search %}
-> * You can build advanced filters using boolean and nested queries on your repository's issues page. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues).{% endif %}
+> * You can build advanced filters using boolean and nested queries on your repository's issues page{% ifversion issues-dashboard %} and the issues dashboard{% endif %}. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues).{% endif %}
 > * For a list of search syntaxes that you can add to any search qualifier to further improve your results, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 > * Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
 > * Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
@@ -68,8 +68,6 @@ You can filter issues and pull requests based on whether they're open or closed 
 | `is:open` | [**performance is:open is:issue**](https://github.com/search?q=performance+is%3Aopen+is%3Aissue&type=Issues) matches open issues with the word "performance."
 | `is:closed` | [**android is:closed**](https://github.com/search?utf8=%E2%9C%93&q=android+is%3Aclosed&type=) matches closed issues and pull requests with the word "android."
 
-{% ifversion merge-queue %}
-
 ## Search for pull requests in the merge queue
 
 You can also use the `is` qualifier to find pull requests that are queued to merge.
@@ -77,8 +75,6 @@ You can also use the `is` qualifier to find pull requests that are queued to mer
 | Qualifier | Example |
 | --- | --- |
 | `is:queued` | [**is:queued**](https://github.com/search?q=is%3Aqueued&type=pullrequests) matches pull requests that are currently queued to merge.
-
-{% endif %}
 
 ## Search by the reason an issue was closed
 
@@ -202,7 +198,9 @@ You can use the `project` qualifier to find issues that are associated with a sp
 | Qualifier        | Example
 | ------------- | -------------
 | <code>project:<em>PROJECT_NUMBER</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project 57.
+| {% ifversion projects-v1 %} |
 | <code>project:<em>REPOSITORY/PROJECT_NUMBER</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project 1 in @github's linguist repository.
+| {% endif %} |
 
 ## Search by commit status
 
@@ -371,7 +369,7 @@ You can narrow your search to issues and pull requests that are missing certain 
 | `no:label` | [**priority no:label**](https://github.com/search?q=priority+no%3Alabel&type=Issues) matches issues and pull requests with the word "priority" that also don't have any labels.
 | `no:milestone` | [**sprint no:milestone type:issue**](https://github.com/search?q=sprint+no%3Amilestone+type%3Aissue&type=Issues) matches issues not associated with a milestone containing the word "sprint."
 | `no:assignee` | [**important no:assignee language:java type:issue**](https://github.com/search?q=important+no%3Aassignee+language%3Ajava+type%3Aissue&type=Issues) matches issues not associated with an assignee, containing the word "important," and in Java repositories.
-| `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a {% data variables.projects.projects_v1_board %}, containing the word "build."
+| `no:project` | [**build no:project**](https://github.com/search?utf8=%E2%9C%93&q=build+no%3Aproject&type=Issues) matches issues not associated with a {% data variables.projects.project_v2 %}, containing the word "build."
 
 ## Further reading
 

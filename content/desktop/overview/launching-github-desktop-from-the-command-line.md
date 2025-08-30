@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/launching-github-desktop-from-the-command-line
   - /desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 {% mac %}
 

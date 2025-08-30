@@ -1,9 +1,11 @@
 ---
 title: About GitHub Desktop
-shortTitle: 'About'
+shortTitle: About
 intro: '{% data variables.product.prodname_desktop %} helps you work with projects hosted on {% data variables.product.prodname_dotcom %}.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/about-github-desktop
   - /github/getting-started-with-github/github-desktop
@@ -11,7 +13,7 @@ redirect_from:
   - /get-started/using-github/github-desktop
 ---
 
-<a href="https://desktop.github.com?ref_cta=download+desktop&ref_loc=about+github+desktop&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 %}</a>
+<a href="https://desktop.github.com?ref_cta=download+desktop&ref_loc=about+github+desktop&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ## About {% data variables.product.prodname_desktop %}
 

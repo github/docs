@@ -23,6 +23,6 @@ children:
   - /about-system-logs
   - /troubleshooting-resource-allocation-problems
   - /generating-a-health-check-for-your-enterprise
+  - /exporting-and-scraping-prometheus-metrics
 shortTitle: Monitor your instance
 ---
-

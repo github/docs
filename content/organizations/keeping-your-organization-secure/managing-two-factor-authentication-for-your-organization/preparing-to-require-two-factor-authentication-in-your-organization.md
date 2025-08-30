@@ -15,13 +15,15 @@ topics:
 shortTitle: Prepare to require 2FA
 ---
 {% ifversion fpt or ghec %}
-When requiring 2FA in your organization, consider if you also want to enforce usage of only secure methods among your users (secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app).
+When requiring two-factor authentication in your organization, consider if you also want to enforce usage of only secure methods among your users (secure 2FA methods are passkeys, security keys, authenticator apps, and the GitHub mobile app).
 {% endif %}
 
 We recommend that you notify {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} at least one week before you require 2FA in your organization.
 
-When you require use of two-factor authentication for your organization, outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories.{% ifversion fpt or ghec %} If you require secure methods of 2FA, outside collaborators who have SMS 2FA configured will be removed. {% endif %} They will also lose access to their forks of the organization's private repositories.
-Members and billing managers will retain membership but not be able to access your organization resources until they meet your 2FA requirement{% ifversion fpt or ghec %} and 2FA security level{% endif %}.
+When you require use of 2FA for your organization, {% ifversion ghes < 3.17 %}members and {% endif %}outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories.{% ifversion fpt or ghec %} If you require secure methods of 2FA, outside collaborators who have SMS 2FA configured will be removed. {% endif %} They will also lose access to their forks of the organization's private repositories.
+{% ifversion fpt or ghec or ghes > 3.16 %}
+Members {% ifversion fpt or ghec %}and billing managers {% endif %}will retain membership but not be able to access your organization resources until they meet your 2FA requirement{% ifversion fpt or ghec %} and 2FA security level{% endif %}.
+{% endif %}
 
 Before requiring 2FA in your organization, we recommend that you:
 
@@ -33,4 +35,8 @@ Before requiring 2FA in your organization, we recommend that you:
 * See whether users in your organization have 2FA enabled. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 {% endif %}
 * Enable 2FA for unattended or shared access accounts, such as bots and service accounts. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/managing-bots-and-service-accounts-with-two-factor-authentication).
-* Warn users that once 2FA is enabled, outside collaborators without 2FA are automatically removed from the organization, and members and billing managers will not be able to access your organization resources until they enable 2FA.
+{% ifversion ghes < 3.17 %}
+* Warn users that once 2FA is required, members and outside collaborators without 2FA are automatically removed from the organization, and must be re-added.
+{% else %}
+* Warn users that once 2FA is required, outside collaborators without 2FA are automatically removed from the organization, and members {% ifversion fpt or ghec %}and billing managers {% endif %}will not be able to access your organization resources until they enable 2FA.
+{% endif %}

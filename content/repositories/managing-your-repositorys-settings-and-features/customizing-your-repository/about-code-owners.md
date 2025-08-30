@@ -160,11 +160,7 @@ Repository owners can update branch protection rules to ensure that changed code
 
 To protect a repository fully against unauthorized changes, you also need to define an owner for the CODEOWNERS file itself. The most secure method is to define a CODEOWNERS file in the `.github` directory of the repository and define the repository owner as the owner of either the CODEOWNERS file (``/.github/CODEOWNERS @owner_username``) or the whole directory (``/.github/ @owner_username``).
 
-{% ifversion repo-rules %}
-
 {% data reusables.repositories.rulesets-alternative %}
-
-{% endif %}
 
 ## Further reading
 

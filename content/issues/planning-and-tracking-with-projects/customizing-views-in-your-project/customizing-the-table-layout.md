@@ -3,7 +3,9 @@ title: Customizing the table layout
 shortTitle: Customizing tables
 intro: 'You can use the table layout to build a spreadsheet using your project''s items, {% data variables.product.company_short %} metadata, and your custom fields.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -25,7 +27,7 @@ You can also hide individual fields using the field headers.
 
 1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="Status column options" %}.
    ![Screenshot showing a field header. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/modify-field-menu.png)
-1. Click **{% octicon "eye-closed" aria-hidden="true" %} Hide field**.
+1. Click **{% octicon "eye-closed" aria-hidden="true" aria-label="eye-closed" %} Hide field**.
 
 ## Grouping by field values
 
@@ -33,13 +35,9 @@ You can group items by a custom field value. {% data reusables.projects.customiz
 
 {% data reusables.projects.customize.group-fields %}
 
-{% ifversion projects-v2-slice-panel %}
-
 ## Slicing by field values
 
 {% data reusables.projects.customize.slice-panel %}
-
-{% endif %}
 
 ## Reordering fields
 

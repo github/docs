@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.actions.about-actions-for-enterprises %} For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
 
-With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghes %} {% data variables.location.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes %}To enable {% data variables.product.prodname_actions %} for  {% data variables.location.product_location %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 {% ifversion ghec %}
 
@@ -78,20 +78,18 @@ You can create a runner group to manage access to the runner that you added to y
 1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
 1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="Configure organizations" %}.
 1. Select the organizations you'd like to grant access to the runner group.
-{%- ifversion ghec or ghes %}
 1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
 
    > [!WARNING]
    > {% data reusables.actions.self-hosted-runner-security %}
    >
-   > For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories).
+   > For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions).
 
-{%- endif %}
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
 1. Click **Edit**.
-1. Click **Runner groups {% octicon "gear" aria-hidden="true" %}**.
+1. Click **Runner groups {% octicon "gear" aria-hidden="true" aria-label="gear" %}**.
 1. In the list of runner groups, click the name of the group that you previously created.
 1. Click **Save** to move the runner to the group.
 

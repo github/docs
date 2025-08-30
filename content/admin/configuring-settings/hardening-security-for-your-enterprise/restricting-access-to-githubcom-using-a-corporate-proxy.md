@@ -7,7 +7,7 @@ versions:
   ghec: '*'
 ---
 
->[!NOTE] The header for restricting access to {% data variables.product.prodname_dotcom_the_website %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+>[!NOTE] The header for restricting access to {% data variables.product.prodname_dotcom_the_website %} is currently in {% data variables.release-phases.public_preview %} and subject to change. Although preview releases are not typically supported by {% data variables.product.company_short %} Support (see [AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview#githubs-release-cycle)), this feature is supported by {% data variables.product.company_short %} Support while in {% data variables.release-phases.public_preview %}.
 
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.
 
@@ -41,7 +41,7 @@ An enterprise owner can identify the correct enterprise ID to use in the header 
 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Authentication security**.
+1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, find the header for your enterprise. This section is only visible for enterprises with the feature enabled.
 
 ## Using the header
@@ -76,6 +76,7 @@ Because this restriction only applies to requests that are sent via a proxy that
 | {% data variables.product.prodname_pages %} | `github.io` | This is generally user-generated content that cannot accept data. You may not want to restrict access. |
 | {% data variables.product.prodname_github_codespaces %} | `github.dev` | To restrict access, block the endpoint entirely. |
 | SSH access | Port 22 on {% data variables.product.prodname_dotcom_the_website %} | To restrict access, block the endpoint entirely. |
+| SSH over HTTPS        | `ssh.github.com`          | To restrict access, block the endpoint entirely. |
 | {% data variables.product.github %}-hosted runners | Various | To enforce specific routing, use Azure private networking. See [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise). |
 
 ### Endpoints that don't require restriction

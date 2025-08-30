@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, ProductExample } from '@/types'
-import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
 
 function getProductExampleData(
   product: string,

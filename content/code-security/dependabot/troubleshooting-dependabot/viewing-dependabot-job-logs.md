@@ -4,7 +4,9 @@ intro: 'To support debugging of {% data variables.product.prodname_dependabot %}
 shortTitle: Viewing Dependabot logs
 permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
-  feature: dependabot-job-log
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot

@@ -28,8 +28,11 @@ You may be verifying a domain you own, which is currently in use by another user
 
 ## Verifying a domain for your user site
 
+> [!NOTE]
+> If you don’t see the options described below, make sure you’re in your **Profile settings**, not your repository settings. Domain verification happens at the profile level.
+
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" %} Pages**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" aria-label="browser" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
 1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `USERNAME` with your username and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
 
@@ -43,9 +46,12 @@ You may be verifying a domain you own, which is currently in use by another user
 
 Organization owners can verify custom domains for their organization.
 
+> [!NOTE]
+> If you don’t see the options described below, check that you’re in your **Organization settings**. Domain verification doesn’t take place in repository settings.
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" %} Pages**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" aria-label="browser" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
 1. Wait for your DNS configuration to change. This may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
 

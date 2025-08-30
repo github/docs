@@ -3,7 +3,9 @@ title: About GitHub's documentation fundamentals
 shortTitle: Documentation fundamentals
 intro: 'All content published on {% data variables.product.prodname_docs %} must meet these fundamental requirements.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About {% data variables.product.github %}'s documentation fundamentals

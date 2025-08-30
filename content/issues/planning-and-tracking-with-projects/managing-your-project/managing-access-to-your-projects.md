@@ -3,7 +3,9 @@ title: 'Managing access to your {% data variables.projects.projects_v2 %}'
 shortTitle: 'Managing {% data variables.projects.project_v2 %} access'
 intro: 'Learn how to manage team and individual access to your {% data variables.projects.project_v2 %}.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-access-to-projects
 type: tutorial

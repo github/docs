@@ -18,7 +18,7 @@ The full functionality of the Management Console endpoints was added to the [Man
 
 {% ifversion management-console-manage-ghes-parity %}
 
-To help you migrate, the mapping table below shows the equivalent Manage GHES operation for each Management Console operation.{% ifversion ghes < 3.15 %} Please migrate to the Manage GHES API endpoints as soon as possible.{% endif %}
+To help you migrate, the mapping table below shows the equivalent Manage GHES operation for each Management Console operation. Please migrate to the Manage GHES API endpoints as soon as possible.
 
 | Purpose | Management Console API operation | Manage GHES API operation |
 | ------------- | ------------- | - |

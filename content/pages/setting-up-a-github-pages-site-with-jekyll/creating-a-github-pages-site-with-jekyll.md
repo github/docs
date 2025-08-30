@@ -15,11 +15,13 @@ topics:
 shortTitle: Create site with Jekyll
 ---
 
-{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
+
+{% data reusables.pages.actions-is-preferred %}
 
 ## Prerequisites
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -51,7 +53,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. If you haven't already, initialize a local Git repository, replacing REPOSITORY-NAME with the name of your repository.
 
    ```shell
-   $ git init REPOSITORY-NAME
+   git init REPOSITORY-NAME
    > Initialized empty Git repository in /REPOSITORY-NAME/.git/
    # Creates a new folder on your computer, initialized as a Git repository
    ```
@@ -59,7 +61,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 1. Change directories to the repository.
 
    ```shell
-   $ cd REPOSITORY-NAME
+   cd REPOSITORY-NAME
    # Changes the working directory
    ```
 
@@ -68,24 +70,24 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
 
     ```shell
-    $ mkdir docs
+    mkdir docs
     # Creates a new folder called docs
-    $ cd docs
+    cd docs
     ```
 
     If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
 
     ```shell
-    $ git checkout --orphan gh-pages
+    git checkout --orphan gh-pages
     # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
-    $ git rm -rf .
+    git rm -rf .
     # Removes the contents from your default branch from the working directory
     ```
 
 1. To create a new Jekyll site, use the `jekyll new` command in your repository's root directory:
 
    ```shell
-   $ jekyll new --skip-bundle .
+   jekyll new --skip-bundle .
    # Creates a Jekyll site in the current directory
    ```
 
@@ -97,7 +99,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   Replace GITHUB-PAGES-VERSION with the latest supported version of the `github-pages` gem. You can find this version here: [Dependency versions](https://pages.github.com/versions/).
+   Replace GITHUB-PAGES-VERSION with the latest supported version of the `github-pages` gem. You can find this version here: [Dependency versions](https://pages.github.com/versions.json).
 
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.
@@ -128,9 +130,9 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
    ```shell
    {% ifversion fpt or ghec %}
-   $ git remote add origin https://github.com/USER/REPOSITORY.git
+   git remote add origin https://github.com/USER/REPOSITORY.git
    {% else %}
-   $ git remote add origin https://HOSTNAME/USER/REPOSITORY.git
+   git remote add origin https://HOSTNAME/USER/REPOSITORY.git
    {% endif %}
    ```
 

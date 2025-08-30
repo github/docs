@@ -37,7 +37,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - uses: ./.github/actions/setup-elasticsearch
 
@@ -57,6 +57,9 @@ jobs:
       - name: Run Playwright tests
         env:
           PLAYWRIGHT_WORKERS: ${{ fromJSON('[1, 4]')[github.repository == 'github/docs-internal'] }}
+          # workaround for https://github.com/nodejs/node/issues/59364 as of 22.18.0
+          NODE_OPTIONS: '--no-experimental-strip-types'
+
         # Run playwright rendering tests and a11y tests (axe scans) as distinct checks
         # so that we can run them without blocking merges until we can be confident
         # results for a11y tests are meaningul and scenarios we're testing are correct.

@@ -98,7 +98,7 @@ To delete a specific version of a user-scoped package on {% data variables.produ
 To review who can delete a package version, see [Required permissions](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-{% data reusables.package_registry.package-settings-option %}
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.package-settings-manage-versions-menu %}
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. In the confirmation box, type the name of the package to confirm you want to delete the chosen version of it.
@@ -112,7 +112,7 @@ To delete an entire package, see [Deleting an entire organization-scoped package
 To review who can delete a package version, see [Required permissions to delete or restore a package](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.package-settings-manage-versions-menu %}
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. In the confirmation box, type the name of the package to confirm you want to delete the chosen version of it.
@@ -163,9 +163,9 @@ For example, if you're the user `octocat`, and you have a deleted RubyGems packa
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.
 * For user-account scoped packages: The deleted package is scoped to your personal account.
-* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
+* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.
 {% endif %}
 
 {% ifversion ghes %}

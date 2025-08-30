@@ -17,6 +17,7 @@ children:
   - /system-overview
   - /about-the-github-enterprise-api
   - /best-practices-for-enterprises
+  - /establishing-a-governance-framework-for-your-enterprise
   - /accessing-compliance-reports-for-your-enterprise
 ---
 

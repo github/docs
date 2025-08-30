@@ -1,9 +1,11 @@
 ---
-title: Creating diagrams for {% data variables.product.prodname_docs %}
+title: 'Creating diagrams for {% data variables.product.prodname_docs %}'
 shortTitle: Create diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 allowTitleToDifferFromFilename: true
 ---
 
@@ -59,7 +61,7 @@ To create acceptance criteria for a diagram, answer these questions.
 
 #### Who is the audience for the diagram?
 
-Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GH_advanced_security %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
+Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
 
 #### What is the scope of the diagram?
 
@@ -179,7 +181,7 @@ Keys should be used to explain shapes, colors, or other visual elements. Keys ca
 
 ### Colors
 
-If a diagram needs color, use colors defined in the [Primer Design System](https://primer.style/design/foundations/color). To make diagrams accessible to more people, color cannot be the only way to convey information. For example, if you use color to indicate a relationship, you must also use a line or other visual element to convey the same information.
+If a diagram needs color, use colors defined in the [Primer Design System](https://primer.style/product/getting-started/foundations/color-usage). To make diagrams accessible to more people, color cannot be the only way to convey information. For example, if you use color to indicate a relationship, you must also use a line or other visual element to convey the same information.
 
 The preferred colors for diagrams in {% data variables.product.prodname_docs %} are:
 
@@ -203,7 +205,7 @@ If you need to create a diagram that is difficult to view at small resolutions, 
 
 ## Tools for creating diagrams
 
-The recommended tool for using diagrams is Figma so that you have access to Primer colors and other assets. However, you can use another program if you prefer. Follow the shape conventions in the style guide above and use the colors defined in the [Primer Design System](https://primer.style/design/foundations/color#how-to-use-color-for-product-ui).
+The recommended tool for using diagrams is Figma so that you have access to Primer colors and other assets. However, you can use another program if you prefer. Follow the shape conventions in the style guide above and use the colors defined in the [Primer Design System](https://primer.style/product/getting-started/foundations/color-usage).
 
 ## Accessibility
 
@@ -231,6 +233,6 @@ When you create a new diagram, add it to the Diagrams project in the Docs Figma 
 
 ## Examples
 
-This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/overview){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
+This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/quickstart){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
 
 ![Diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)
