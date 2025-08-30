@@ -55,10 +55,10 @@ For information about how to choose your preferred dev container configuration w
 
 When configuring your dev container, consider security implications, especially for port forwarding and network access:
 
-- **Port visibility**: By default, forwarded ports are private to you. Consider whether ports need to be accessible to your organization or publicly accessible
-- **Automated port configuration**: Use `postAttachCommand` with the {% data variables.product.prodname_cli %} to automatically apply consistent port visibility settings
-- **Organization policies**: Work within your organization's port visibility policies if they have restrictions in place
-- **Minimal port exposure**: Only forward ports that are necessary for development and testing
+* **Port visibility**: By default, forwarded ports are private to you. Consider whether ports need to be accessible to your organization or publicly accessible
+* **Automated port configuration**: Use `postAttachCommand` with the {% data variables.product.prodname_cli %} to automatically apply consistent port visibility settings
+* **Organization policies**: Work within your organization's port visibility policies if they have restrictions in place
+* **Minimal port exposure**: Only forward ports that are necessary for development and testing
 
 For detailed guidance on secure port forwarding configurations, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/securing-port-forwarding-in-dev-containers).
 
