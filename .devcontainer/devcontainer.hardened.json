@@ -1,0 +1,69 @@
+// Hardened devcontainer configuration for enhanced security
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// - Security hardened version with minimal features and restricted access
+{
+  "name": "docs.github.com (Security Hardened)",
+  "build": {
+    "dockerfile": "Dockerfile.hardened",
+    // Use specific Node version instead of generic variant
+    "args": { "VARIANT": "22" }
+  },
+
+  // Minimal features - removed SSH daemon for security
+  "features": {
+    // Only essential GitHub CLI, pinned to specific version
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "2.40.1"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      // Set *default* container specific settings.json values on container create.
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "cSpell.language": ",en",
+        // Disable auto-fetch for security - manual fetching required
+        "git.autofetch": false
+      },
+      // Minimal essential extensions only - removed potential security risks
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "sissel.shopify-liquid", 
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-preview-github-styles",
+        "streetsidesoftware.code-spell-checker"
+        // Removed extensions that could pose security risks:
+        // - Custom extensions that might have privileged access
+        // - GitHub Copilot extensions (can be added manually if needed)
+      ]
+    }
+    // Removed codespaces repository permissions for security
+    // External repository access must be granted manually
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [4000],
+
+  "portsAttributes": {
+    "4000": {
+      "label": "Review"
+    }
+  },
+
+  // Security hardened lifecycle commands - minimal automatic execution
+  // Manual setup required for enhanced security
+  "onCreateCommand": "echo 'Security hardened container created. Run npm ci manually to install dependencies.'",
+  // Removed automatic npm start for security - manual startup required
+  // Removed automatic port visibility command - manual configuration required
+  
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node",
+
+  // Reduced resource requirements for security-focused lightweight setup
+  "hostRequirements": {
+    "memory": "8gb", 
+    "cpus": "2"
+  }
+}
