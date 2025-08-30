@@ -1,0 +1,52 @@
+{
+  "name": "Team A Secure Codespace Config",
+  "build": {
+    "dockerfile": "../Dockerfile.hardened",
+    "args": { "VARIANT": "22" }
+  },
+
+  // Team A specific minimal features
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "2.40.1"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "cSpell.language": ",en",
+        "git.autofetch": false,
+        // Team A specific settings
+        "editor.formatOnSave": true,
+        "eslint.validate": ["javascript", "typescript", "markdown"]
+      },
+      // Team A minimal essential extensions
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "sissel.shopify-liquid",
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-preview-github-styles"
+      ]
+    }
+  },
+
+  "forwardPorts": [4000],
+  
+  "portsAttributes": {
+    "4000": {
+      "label": "Team A Review"
+    }
+  },
+
+  // Security-first approach - manual setup required
+  "onCreateCommand": "echo 'Team A secure container ready. Manual setup required for security.'",
+  
+  "remoteUser": "node",
+
+  "hostRequirements": {
+    "memory": "8gb",
+    "cpus": "2"
+  }
+}

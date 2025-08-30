@@ -1,0 +1,52 @@
+{
+  "name": "Team B Secure Codespace Config", 
+  "build": {
+    "dockerfile": "../Dockerfile.hardened",
+    "args": { "VARIANT": "22" }
+  },
+
+  // Team B specific minimal features - even more restrictive
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "2.40.1"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash", 
+        "cSpell.language": ",en",
+        "git.autofetch": false,
+        // Team B ultra-secure settings
+        "editor.formatOnSave": false,
+        "git.confirmSync": true,
+        "security.workspace.trust.enabled": true
+      },
+      // Team B ultra-minimal extensions
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  },
+
+  "forwardPorts": [4000],
+
+  "portsAttributes": {
+    "4000": {
+      "label": "Team B Review"
+    }
+  },
+
+  // Maximum security - no automatic commands
+  // All setup must be done manually
+  
+  "remoteUser": "node",
+
+  // Minimal resource allocation for security
+  "hostRequirements": {
+    "memory": "4gb",
+    "cpus": "2"
+  }
+}

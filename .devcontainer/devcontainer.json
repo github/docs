@@ -1,5 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// 
+// SECURITY NOTE: This configuration has been hardened for security.
+// See .devcontainer/README.md for details on security improvements and available configurations.
 // -
 {
   "name": "docs.github.com",
@@ -10,9 +13,11 @@
   },
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
+  // Security hardened: removed SSH daemon, pinned GitHub CLI version
   "features": {
-    "sshd": "latest",
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "2.40.1"
+    }
   },
 
   "customizations": {
@@ -21,7 +26,8 @@
       "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
         "cSpell.language": ",en",
-        "git.autofetch": true
+        // Security: disabled auto-fetch, manual git operations recommended
+        "git.autofetch": false
       },
       // Visual Studio Code extensions which help authoring for docs.github.com.
       "extensions": [
@@ -37,16 +43,9 @@
         "GitHub.copilot-chat"
       ]
     },
-    "codespaces": {
-      "repositories": {
-        // allow Codespaces to pull from separate repo when user has access
-        "github/docs-early-access": {
-          "permissions": {
-            "contents": "write"
-          }
-        }
-      }
-    }
+    // Security hardened: removed external repository permissions
+    // External repository access must be granted manually as needed
+    "codespaces": {}
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -58,11 +57,12 @@
     }
   },
 
-  // Lifecycle commands
+  // Security hardened lifecycle commands
+  // Reduced automatic command execution for enhanced security
   "onCreateCommand": "npm ci",
-  "postStartCommand": "nohup bash -c 'npm start &'",
-  // Set the port to be public
-  "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
+  "postStartCommand": "echo 'Container started. Run npm start manually when ready.'",
+  // Security: removed automatic port visibility command - manual configuration required
+  // "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node",
