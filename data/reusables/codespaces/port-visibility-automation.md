@@ -1,13 +1,7 @@
 You can automate port visibility settings in your dev container configuration using the `postAttachCommand` property with the {% data variables.product.prodname_cli %}. This allows you to automatically set forwarded ports to be private, organization-only, or public when someone attaches to the codespace.
 
 ```jsonc
-"postAttachCommand": "gh cs ports visibility 3000:org -c \"$CODESPACE_NAME\""
-```
-
-You can specify multiple ports with different visibility settings:
-
-```jsonc
-"postAttachCommand": "gh cs ports visibility 3000:private 8080:org 4000:public -c \"$CODESPACE_NAME\""
+"postAttachCommand": "gh codespace ports visibility 3000:org -c \"$CODESPACE_NAME\""
 ```
 
 The available visibility options are:
