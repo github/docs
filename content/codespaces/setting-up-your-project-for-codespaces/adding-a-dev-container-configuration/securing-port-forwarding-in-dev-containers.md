@@ -149,7 +149,7 @@ The following examples demonstrate different security approaches for common deve
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
   
-  "postAttachCommand": "gh cs ports visibility 5000:org 8000:org -c \"$CODESPACE_NAME\""
+  "postAttachCommand": "gh codespace ports visibility 5000:org 8000:org -c \"$CODESPACE_NAME\""
 }
 ```
 
