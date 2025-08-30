@@ -1,0 +1,22 @@
+name: PR summary
+on:
+  pull_request: { types: [opened, synchronize, reopened, ready_for_review] }
+permissions: { contents: read, pull-requests: write }
+concurrency: { group: pr-summary-${{ github.ref }}, cancel-in-progress: true }
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Write step summary
+        run: |
+          base="${{ github.base_ref }}"; head="${{ github.sha }}"
+          echo "## Pull request summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Changed files: $(git diff-tree --no-commit-id --name-only -r $head ^origin/$base | wc -l)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Docs files: $(git diff-tree --no-commit-id --name-only -r $head ^origin/$base | grep -E '(^content/|\\.md$)' | wc -l)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Comment on PR (non-forks)
+        if: ${{ github.event.pull_request.head.repo.fork == false }}
+        env: { GH_TOKEN: ${{ github.token }} }
+        run: gh pr comment ${{ github.event.pull_request.number }} --body-file "$GITHUB_STEP_SUMMARY"
