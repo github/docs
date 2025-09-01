@@ -1,3 +1,5 @@
+[![CI](https://github.com/playcanvas/engine/actions/workflows/ci.yml/badge.svg)](https://github.com/playcanvas/engine/actions/workflows/ci.yml)
+
 ---
 title: Working with forks
 intro: 'Forks are often used in open source development on {% data variables.product.github %}.'
