@@ -8,5 +8,6 @@ topics:
 children:
   - /creating-diagrams
   - /extracting-information
+  - /synthesizing-research
 contentType: tutorials
 ---
