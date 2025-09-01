@@ -487,7 +487,7 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 You can ask {% data variables.copilot.copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% data variables.product.prodname_copilot %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 
 1. Enter a prompt in the prompt box. For example prompts, see [AUTOTITLE](/copilot/get-started/getting-started-with-prompts-for-copilot-chat).
 
