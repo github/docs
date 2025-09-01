@@ -4628,7 +4628,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
