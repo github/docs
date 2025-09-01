@@ -119,7 +119,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 You can add {% data variables.product.prodname_dependabot %}-related IP addresses to your registries IP allow list.
 
-If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. If you run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners, you should instead use the IP addresses under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 {% endif %}
 
