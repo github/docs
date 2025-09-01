@@ -1,5 +1,6 @@
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
 
 .header {
   display: unset;
@@ -49,5 +50,15 @@
   @include breakpoint(lg) {
     display: flex !important;
     visibility: visible !important;
+  }
+}
+
+.dialog {
+  @include breakpoint-xxl {
+    display: none;
+  }
+
+  [class*="prc-Dialog-Body"] {
+    padding: 0 !important;
   }
 }

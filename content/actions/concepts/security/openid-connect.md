@@ -1,6 +1,5 @@
 ---
 title: OpenID Connect
-shortTitle: OpenID Connect
 intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
 versions:
   fpt: '*'
@@ -21,7 +20,7 @@ redirect_from:
 
 However, using hardcoded secrets requires you to create credentials in the cloud provider and then duplicate them in {% data variables.product.prodname_dotcom %} as a secret.
 
-After you have established a trust connection with a cloud provider that supports OIDC, you can you can configure your workflow to request a short-lived access token directly from the cloud provider.
+After you have established a trust connection with a cloud provider that supports OIDC, you can configure your workflow to request a short-lived access token directly from the cloud provider.
 
 ## Benefits of using OIDC
 

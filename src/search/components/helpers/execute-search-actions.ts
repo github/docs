@@ -49,6 +49,7 @@ export async function executeAISearch(version: string, query: string, debug = fa
   const body = {
     query,
     version,
+    client_name: 'docs.github.com-client',
     ...(debug && { debug: '1' }),
   }
 
@@ -79,6 +80,9 @@ export async function executeCombinedSearch(
   if (debug) {
     params.set('debug', '1')
   }
+
+  // Add client_name to identify requests from our frontend
+  params.set('client_name', 'docs.github.com-client')
 
   // Always fetch 4 results for autocomplete
   params.set('size', '4')

@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/reference/proxy-server-and-firewall-settings-for-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot
   - /copilot/how-tos/administer/organizations/configuring-your-proxy-server-or-firewall-for-copilot
+contentType: reference
 ---
 
 If your company employs security measures like a firewall or proxy server, you should add the following URLs, ports, and protocols to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected:

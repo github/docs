@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, IconButton, Select, TabNav } from '@primer/react'
+import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import Cookies from '@/frame/components/lib/cookies'
@@ -8,6 +8,7 @@ import cx from 'classnames'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
+import { generateExampleOptions } from '@/rest/lib/code-example-utils'
 import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -94,51 +95,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   }
 
   // Menu options for the example selector
-
-  // We show the media type in the examples menu items for each example if
-  // there's more than one example and if the media types aren't all the same
-  // for the examples (e.g. if all examples have content type `application/json`,
-  // we won't show that information in the menu items).
-  const responseContentTypesDiffer =
-    languageExamples.length > 1 &&
-    !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType,
-    )
-
-  // Check if request content types differ between examples
-  const requestContentTypesDiffer =
-    languageExamples.length > 1 &&
-    !languageExamples.every(
-      (example) => example.request?.contentType === languageExamples[0].request?.contentType,
-    )
-
-  const showExampleOptionMediaType = responseContentTypesDiffer || requestContentTypesDiffer
-
-  const exampleSelectOptions = languageExamples.map((example, index) => {
-    const requestContentType = example.request?.contentType
-    const responseContentType = example.response.contentType
-
-    let text = example.description
-
-    if (showExampleOptionMediaType) {
-      if (requestContentTypesDiffer && responseContentTypesDiffer) {
-        // Show both request and response content types
-        text = `${example.description} (${requestContentType} → ${responseContentType})`
-      } else if (requestContentTypesDiffer) {
-        // Show only request content type
-        text = `${example.description} (${requestContentType})`
-      } else if (responseContentTypesDiffer) {
-        // Show only response content type
-        text = `${example.description} (${responseContentType})`
-      }
-    }
-
-    return {
-      text,
-      // maps to the index of the example in the languageExamples array
-      languageIndex: index,
-    }
-  })
+  const exampleSelectOptions = generateExampleOptions(languageExamples)
 
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])
@@ -303,26 +260,28 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
         <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center pt-2">
           <div className="d-inline-flex ml-2">
-            <TabNav aria-label={`Example language selector for ${operation.title}`}>
+            <SegmentedControl
+              className={styles.segmentedControl}
+              aria-label={`Example language selector for ${operation.title}`}
+            >
               {languageSelectOptions.map((optionKey) => (
-                <TabNav.Link
+                <SegmentedControl.Button
                   key={optionKey}
                   selected={optionKey === selectedLanguage}
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent) => {
                     e.preventDefault()
                     handleLanguageSelection(optionKey)
                   }}
-                  onKeyDown={(event) => {
+                  onKeyDown={(event: React.KeyboardEvent) => {
                     if (event.key === 'Enter') {
                       handleLanguageSelection(optionKey)
                     }
                   }}
-                  href="#"
                 >
                   {t(`code_sample_options.${optionKey}`)}
-                </TabNav.Link>
+                </SegmentedControl.Button>
               ))}
-            </TabNav>
+            </SegmentedControl>
           </div>
           <div className="mr-2">
             <IconButton
@@ -359,31 +318,30 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           __html: displayedExample.response.description || t('response'),
         }}
       ></h4>
-      <div className="border rounded-1">
+      <div className="border rounded-1 pt-2">
         {displayedExample.response.schema ? (
-          <TabNav
-            className="pt-2 mx-2"
+          <SegmentedControl
+            className={cx(styles.segmentedControl, 'mx-2')}
             aria-label={`Example response format selector for ${operation.title}`}
           >
             {responseSelectOptions.map((optionKey) => (
-              <TabNav.Link
+              <SegmentedControl.Button
                 key={optionKey}
                 selected={optionKey === selectedResponse}
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent) => {
                   e.preventDefault()
                   handleResponseSelection(optionKey)
                 }}
-                onKeyDown={(event) => {
+                onKeyDown={(event: React.KeyboardEvent) => {
                   if (event.key === 'Enter') {
                     handleResponseSelection(optionKey)
                   }
                 }}
-                href="#"
               >
                 {t(`response_options.${optionKey}`)}
-              </TabNav.Link>
+              </SegmentedControl.Button>
             ))}
-          </TabNav>
+          </SegmentedControl>
         ) : null}
         <div className="">
           {/* Status code */}

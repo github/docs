@@ -1,1 +1,0 @@
-{% data variables.copilot.copilot_code-review %} is available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.

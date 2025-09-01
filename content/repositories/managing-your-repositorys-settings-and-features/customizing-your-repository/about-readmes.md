@@ -1,5 +1,6 @@
 ---
-title: About READMEs
+title: About the repository README file
+shortTitle: About READMEs
 intro: 'You can add a README file to your repository to tell other people why your project is useful, what they can do with your project, and how they can use it.'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages
@@ -35,25 +36,25 @@ When your README is viewed on GitHub, any content beyond 500 KiB will be truncat
 
 {% data reusables.profile.profile-readme %}
 
-## Auto-generated table of contents for README files
+## Auto-generated table of contents for markdown files
 
 For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.github %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %} menu icon at the top left of the rendered page.
 
 ![Screenshot of the README for a repository. In the upper-left corner, the "Table of contents" dropdown menu (list icon) is expanded.](/assets/images/help/repository/readme-automatic-toc.png)
 
-## Section links in README files and blob pages
+## Section links in markdown files and blob pages
 
 {% data reusables.repositories.section-links %}
 
 For more detailed information about section links, see [Section links](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#section-links).
 
-## Relative links and image paths in README files
+## Relative links and image paths in markdown files
 
 {% data reusables.repositories.relative-links %}
 
 ## Wikis
 
-A README should contain only the necessary information for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis).
+A README should only contain information necessary for developers to get started using and contributing to your project. Longer documentation is best suited for wikis. For more information, see [AUTOTITLE](/communities/documenting-your-project-with-wikis/about-wikis).
 
 ## Further reading
 

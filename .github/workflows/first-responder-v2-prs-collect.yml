@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check if the event originated from a team member
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0

@@ -501,4 +501,76 @@ topics:
     })
     expect(articleResult['content/section/article.md']).toEqual([])
   })
+
+  // Liquid variable handling tests
+  test('title with liquid variables counts characters correctly', async () => {
+    const markdown = `---
+title: 'Getting started with {% data variables.product.prodname_github %}'
+topics:
+  - GitHub
+---
+# Content
+`
+    const result = await runRule(frontmatterValidation, {
+      strings: { 'content/section/article.md': markdown },
+      ...fmOptions,
+    })
+    // 'Getting started with ' (21 chars) + liquid tag (0 chars) = 21 chars, should pass
+    expect(result['content/section/article.md']).toEqual([])
+  })
+
+  test('intro with liquid variables counts characters correctly', async () => {
+    const markdown = `---
+title: 'Article title'
+intro: 'Learn how to use {% data variables.product.prodname_copilot %} for {{ something }}'
+topics:
+  - GitHub
+---
+# Content
+`
+    const result = await runRule(frontmatterValidation, {
+      strings: { 'content/section/article.md': markdown },
+      ...fmOptions,
+    })
+    // 'Learn how to use  for ' (21 chars) should pass
+    expect(result['content/section/article.md']).toEqual([])
+  })
+
+  test('shortTitle with liquid variables counts characters correctly', async () => {
+    const markdown = `---
+title: 'This article title is exactly fifty characters!!!!'
+shortTitle: '{% data variables.product.prodname_copilot_short %}'
+topics:
+  - GitHub
+---
+# Content
+`
+    const result = await runRule(frontmatterValidation, {
+      strings: { 'content/section/article.md': markdown },
+      ...fmOptions,
+    })
+    // Liquid tag should count as 0 characters, should pass
+    expect(result['content/section/article.md']).toEqual([])
+  })
+
+  test('long text with liquid variables still fails when limit exceeded', async () => {
+    const longText = 'A'.repeat(70) // 70 chars
+    const markdown = `---
+title: '${longText} {% data variables.product.prodname_github %} extra text'
+shortTitle: 'Short title'
+topics:
+  - GitHub
+---
+# Content
+`
+    const result = await runRule(frontmatterValidation, {
+      strings: { 'content/section/article.md': markdown },
+      ...fmOptions,
+    })
+    // 70 A's + 1 space + 0 (liquid tag) + 1 space + 10 ('extra text') = 82 chars, should exceed 80 char limit for articles
+    expect(result['content/section/article.md']).toHaveLength(1)
+    expect(result['content/section/article.md'][0].errorDetail).toContain(
+      'exceeds maximum length of 80 characters',
+    )
+  })
 })

@@ -51,6 +51,7 @@ prodname_ado2gh_cli_short: ADO2GH extension
 prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
+prodname_ghos: GitHub-owned blob storage
 
 # GitHub Education
 prodname_education: 'GitHub Education'
@@ -186,6 +187,9 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 prodname_GHAS: 'GitHub Advanced Security'
 prodname_GH_code_security: '{% ifversion ghas-products %}GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
 prodname_GH_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection{% else %}GitHub Advanced Security{% endif %}'
+### Useful in unversioned docs
+prodname_GH_code_security_always: 'GitHub Code Security'
+prodname_GH_secret_protection_always: 'GitHub Secret Protection'
 
 ## GHAS or GHAS products
 prodname_GHAS_or_code_security: '{% ifversion ghas-products %}GitHub Code Security or {% endif %}GitHub Advanced Security'

@@ -1,7 +1,6 @@
 ---
 title: GITHUB_TOKEN
 intro: Learn what `GITHUB_TOKEN` is, how it works, and why it matters for secure automation in {% data variables.product.prodname_actions %} workflows.
-shortTitle: GITHUB_TOKEN
 versions:
   fpt: '*'
   ghes: '*'

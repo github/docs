@@ -14,6 +14,9 @@ const layoutNames = [
   'release-notes',
   'inline',
   'category-landing',
+  'bespoke-landing',
+  'discovery-landing',
+  'journey-landing',
   false,
 ]
 
@@ -325,6 +328,11 @@ export const schema = {
       },
       description: 'Array of articles to feature in the spotlight section',
     },
+    // Recommended configuration for category landing pages
+    recommended: {
+      type: 'array',
+      description: 'Array of articles to feature in the carousel section',
+    },
   },
 }
 
@@ -350,7 +358,6 @@ const semverRange = {
   format: 'semver',
   // This is JSON pointer syntax with ajv so we can specify the bad version
   // in the error message.
-  // eslint-disable-next-line no-template-curly-in-string
   errorMessage: 'Must be a valid SemVer range: ${0}',
 }
 

@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.copilot.copilot_coding_agent %}'
+title: GitHub Copilot coding agent
 shortTitle: Coding agent
 allowTitleToDifferFromFilename: true
 intro: 'Find out how to get great results from {% data variables.copilot.copilot_coding_agent %}.'
@@ -8,6 +8,7 @@ versions:
 topics:
   - Copilot
 children:
-  - /best-practices
+  - /get-the-best-results
   - /pilot-coding-agent
+contentType: tutorials
 ---

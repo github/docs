@@ -1,14 +1,15 @@
 ---
-title: 'Exploring your enterprise trial of {% data variables.product.prodname_GH_code_security %}'
+title: 'Exploring your enterprise trial of {% data variables.product.prodname_GH_code_security_always %}'
 shortTitle: 'Trial {% data variables.product.prodname_code_security %}'
 allowTitleToDifferFromFilename: true
-intro: 'Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_code_security %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
+intro: 'Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_code_security_always %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
 type: quick_start
 topics:
   - Code Security
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.15'
 ---
 
 This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
@@ -56,7 +57,7 @@ There are three different types of automated analysis of pull requests built int
 These automated reviews are a valuable extension to self-review and make it easier for developers to present a more complete and secure pull request for peer review. In addition, {% data variables.product.prodname_code_scanning %} and dependency reviews can be enforced to protect the security and compliance of your code.
 
 > [!NOTE]
-> {% data variables.copilot.copilot_autofix %} is included in the license for {% data variables.product.prodname_GH_code_security %}. {% data variables.product.prodname_copilot_short %} code review requires a paid {% data variables.product.prodname_copilot_short %} plan.
+> {% data variables.copilot.copilot_autofix %} is included in the license for {% data variables.product.prodname_GH_code_security_always %}. {% data variables.product.prodname_copilot_short %} code review requires a paid {% data variables.product.prodname_copilot_short %} plan.
 
 ### {% data variables.product.prodname_code_scanning_caps %} analysis
 
@@ -86,11 +87,11 @@ This allows you to update the configuration in a single location, but use the wo
 > [!NOTE]
 >
 > {% data reusables.copilot.code-review.preview-note %}
-> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization {% ifversion ghec %}or enterprise{% endif %} has enabled **Copilot in GitHub.com > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization {% ifversion ghec %}or enterprise{% endif %} settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
+> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled **Copilot in GitHub.com > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization or enterprise settings. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
-By default, users request a review from {% data variables.product.prodname_copilot_short %} in the same way as they do from human reviewers. However, you can update or create an organization-level branch ruleset to automatically add {% data variables.product.prodname_copilot_short %} as a reviewer to all pull requests made to selected branches in all or selected repositories. See [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review).
+By default, users request a review from {% data variables.product.prodname_copilot_short %} in the same way as they do from human reviewers. However, you can update or create an organization-level branch ruleset to automatically add {% data variables.product.prodname_copilot_short %} as a reviewer to all pull requests made to selected branches in all or selected repositories. See [AUTOTITLE](/enterprise-cloud@latest/copilot/how-tos/agents/copilot-code-review/automatic-code-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
-{% data variables.product.prodname_copilot_short %} leaves a review comment on each pull request it reviews, without approving the pull request or requesting changes. This ensures that its review is advisory and will not block development work. Similarly, you should not enforce the resolution of suggestions made by {% data variables.product.prodname_copilot_short %} because AI suggestions have known limitations, see [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review#limitations-of-github-copilot-code-review).
+{% data variables.product.prodname_copilot_short %} leaves a review comment on each pull request it reviews, without approving the pull request or requesting changes. This ensures that its review is advisory and will not block development work. Similarly, you should not enforce the resolution of suggestions made by {% data variables.product.prodname_copilot_short %} because AI suggestions have known limitations, see [AUTOTITLE](/enterprise-cloud@latest/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review#limitations-of-github-copilot-code-review){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Define where {% data variables.copilot.copilot_autofix_short %} is allowed and enabled
 
@@ -103,7 +104,7 @@ There are two levels of control:
 
 ## Engage developers in security remediation
 
-Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secure coding with examples of vulnerable code in code that your developers are familiar with. For more information, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secure coding with examples of vulnerable code in code that your developers are familiar with. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) and [AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Provide a secure development environment
 
@@ -117,7 +118,7 @@ The development environment has many components. Some of the most useful feature
    * Workflow to enable {% data variables.product.prodname_dependabot_version_updates %} for package managers used by the company.
    * Workflow defining advanced setup for {% data variables.product.prodname_code_scanning %} for supported development languages where the default setup results are not enough.
 
-In addition, when a developer creates a repository from a template they must define the value of any required custom properties. Custom properties are very useful for selecting a subset of repositories that you want to apply configurations, policies, or rulesets to, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise).
+In addition, when a developer creates a repository from a template they must define the value of any required custom properties. Custom properties are very useful for selecting a subset of repositories that you want to apply configurations, policies, or rulesets to, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## Next steps
 
@@ -127,5 +128,5 @@ When you have finished exploring these options and {% data variables.product.pro
 
 * [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise)
-* [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise)
+* [AUTOTITLE](/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
 * [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/recommendations/enforce-ghas-at-scale/)

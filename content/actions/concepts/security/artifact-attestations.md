@@ -1,7 +1,6 @@
 ---
 title: Artifact attestations
 intro: 'Understand the usage and security benefits of artifact attestations.'
-shortTitle: Artifact attestations
 topics:
   - Actions
   - Security

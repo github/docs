@@ -16,8 +16,6 @@ topics:
 
 The {% data variables.product.prodname_secret_risk_assessment %} dashboard displays point-in-time insights into the secrets detected in your organization. {% data reusables.secret-risk-assessment.link-conceptual-information %}
 
-{% data reusables.secret-risk-assessment.public-preview-note %}
-
 ## Prerequisites
 
 You need to generate a {% data variables.product.prodname_secret_risk_assessment %} report and wait for the scan to complete before being able to view and export the results. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment) and [Exporting the {% data variables.product.prodname_secret_risk_assessment %} to CSV](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#exporting-the-secret-risk-assessment-to-csv).

@@ -22,7 +22,7 @@ redirect_from:
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
-{% data variables.copilot.copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.copilot.copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model {% data variables.copilot.copilot_gpt_4o %} from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% data variables.copilot.copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.copilot.copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model {% data variables.copilot.copilot_gpt_41 %} from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
 {% data variables.copilot.copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.copilot.copilot_autofix_short %}. To learn how to disable {% data variables.copilot.copilot_autofix_short %} at the enterprise, organization and repository levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning).
 

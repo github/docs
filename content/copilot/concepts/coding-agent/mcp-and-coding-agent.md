@@ -1,5 +1,5 @@
 ---
-title: 'Model Context Protocol (MCP) and {% data variables.copilot.copilot_coding_agent %}'
+title: Model Context Protocol (MCP) and GitHub Copilot coding agent
 shortTitle: 'MCP and {% data variables.copilot.copilot_coding_agent_short %}'
 allowTitleToDifferFromFilename: true
 intro: 'Find out about using the Model Context Protocol (MCP) with {% data variables.copilot.copilot_coding_agent %}.'
@@ -7,6 +7,7 @@ versions:
   feature: copilot
 topics:
   - Copilot
+contentType: concepts
 ---
 
 > [!NOTE]

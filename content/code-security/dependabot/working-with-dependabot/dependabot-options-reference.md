@@ -169,9 +169,6 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-> [!NOTE]
-> `cooldown` is not available for the NuGet ecosystem.
-
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
 
 This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
@@ -208,28 +205,29 @@ The table below shows the package managers for which SemVer is supported.
 
 | Package manager        | SemVer supported |
 |-----------------------|------------------|
-| Bundler          | {% octicon "check" aria-label="Supported" %}              |
-| Bun               | {% octicon "check" aria-label="Supported" %}              |
-| Cargo             | {% octicon "check" aria-label="Supported" %}              |
-| Composer          | {% octicon "check" aria-label="Supported" %}              |
-| Devcontainers     | {% octicon "x" aria-label="Not supported" %}               |
-| Docker            | {% octicon "x" aria-label="Not supported" %}               |
-| Docker Compose    | {% octicon "x" aria-label="Not supported" %}               |
-| Dotnet SDK        | {% octicon "check" aria-label="Supported" %}              |
-| Elm               | {% octicon "check" aria-label="Supported" %}              |
-| {% data variables.product.prodname_actions %}    | {% octicon "x" aria-label="Not supported" %}               |
-| Gitsubmodule      | {% octicon "x" aria-label="Not supported" %}               |
-| Gomod (Go Modules)| {% octicon "check" aria-label="Supported" %}              |
-| Gradle            | {% octicon "check" aria-label="Supported" %}              |
-| Helm              | {% octicon "x" aria-label="Not supported" %}               |
-| Hex (Hex)         | {% octicon "check" aria-label="Supported" %}              |
-| Maven             | {% octicon "check" aria-label="Supported" %}              |
-| NPM and Yarn      | {% octicon "check" aria-label="Supported" %}              |
-| Pip               | {% octicon "check" aria-label="Supported" %}              |
-| Pub              | {% octicon "check" aria-label="Supported" %}              |
-| Swift             | {% octicon "check" aria-label="Supported" %}              |
-| Terraform         | {% octicon "x" aria-label="Not supported" %}               |
-| UV                | {% octicon "check" aria-label="Supported" %}              |
+| Bundler               | {% octicon "check" aria-label="Supported" %}              |
+| Bun                   | {% octicon "check" aria-label="Supported" %}              |
+| Cargo                 | {% octicon "check" aria-label="Supported" %}              |
+| Composer              | {% octicon "check" aria-label="Supported" %}              |
+| Devcontainers         | {% octicon "x" aria-label="Not supported" %}              |
+| Docker                | {% octicon "x" aria-label="Not supported" %}              |
+| Docker Compose        | {% octicon "x" aria-label="Not supported" %}              |
+| Dotnet SDK            | {% octicon "check" aria-label="Supported" %}              |
+| Elm                   | {% octicon "check" aria-label="Supported" %}              |
+| {% data variables.product.prodname_actions %} | {% octicon "x" aria-label="Not supported" %} |
+| Gitsubmodule          | {% octicon "x" aria-label="Not supported" %}              |
+| Gomod (Go Modules)    | {% octicon "check" aria-label="Supported" %}              |
+| Gradle                | {% octicon "check" aria-label="Supported" %}              |
+| Helm                  | {% octicon "x" aria-label="Not supported" %}              |
+| Hex (Hex)             | {% octicon "check" aria-label="Supported" %}              |
+| Maven                 | {% octicon "check" aria-label="Supported" %}              |
+| NPM and Yarn          | {% octicon "check" aria-label="Supported" %}              |
+| NuGet                 | {% octicon "check" aria-label="Supported" %}              |
+| Pip                   | {% octicon "check" aria-label="Supported" %}              |
+| Pub                   | {% octicon "check" aria-label="Supported" %}              |
+| Swift                 | {% octicon "check" aria-label="Supported" %}              |
+| Terraform             | {% octicon "x" aria-label="Not supported" %}              |
+| UV                    | {% octicon "check" aria-label="Supported" %}              |
 
 > [!NOTE]
 >
@@ -348,9 +346,9 @@ For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updat
 
 Specify which semantic versions (SemVer) to ignore. SemVer is an accepted standard for defining versions of software packages, in the form `x.y.z`. {% data variables.product.prodname_dependabot %} assumes that versions in this form are always `major.minor.patch`.
 
-* Use `patch` to include patch releases.
-* Use `minor` to include minor releases.
-* Use `major` to include major releases.
+* Use `version-update:semver-patch` to include patch releases.
+* Use `version-update:semver-minor` to include minor releases.
+* Use `version-update:semver-major` to include major releases.
 
 ## `insecure-external-code-execution` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -474,11 +472,11 @@ When `open-pull-requests-limit` is defined:
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
 | {% ifversion dependabot-bun-support %} |
-| Bun | `bun`         | >=v1.1.39              |
+| Bun | `bun`         | >=v1.2.5              |
 | {% endif %} |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
-| Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
+| Composer       | `composer`       | v2         |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
@@ -497,18 +495,24 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
-| npm            | `npm`            |  v7, v8, v9   |
+| npm            | `npm`            |  v7, v8, v9, v10   |
 | NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} |
-| pip| `pip`            | v21.1.2          |
-| pip-compile | `pip`            | 6.1.0            |
-| pipenv         | `pip`            | <= 2021-05-29    |
+| pip| `pip`            | v24.2          |
+| pip-compile | `pip`            | 7.4.1            |
+| pipenv         | `pip`            | <= 2024.4.1    |
 | pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
+| {% ifversion dependabot-rust-toolchain-support %} |
+| Rust toolchain | `rust-toolchain` | Not applicable   |
+| {% endif %} |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
 | uv           | `uv`             | v0 |
-| yarn         | `npm`            | v1, v2, v3       |
+| {% ifversion dependabot-vcpkg-support %} |
+| vcpkg       | `vcpkg`          | Not applicable   |
+| {% endif %} |
+| yarn         | `npm`            | v1, v2, v3, v4     |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -630,16 +634,11 @@ Optionally, run all updates for a package manager at a specific time of day. By 
 
 ### `cronjob`
 
-Supported values: Valid cron expression in cron format or natural expression.
+Supported values: Valid cron expression in cron syntax or natural expression.
+
+{% data reusables.repositories.cron %}
 
 Examples : `0 9 * * *`, `every day at 5pm`
-
-cron format is defined as the following:
-* `*` The minute field.
-* `*` The hour field (in 24-hour time).
-* `*` The day of the month (matches any day of the month).
-* `*` The month (matches any month).
-* `*` The day of the week (matches any day of the week).
 
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
@@ -681,6 +680,66 @@ When `target-branch` is defined:
 * Only manifest files on the target branch are checked for version updates.
 * All pull requests for version updates are opened targeting the specified branch.
 * Options defined for this `package-ecosystem` no longer apply to security updates because security updates always use the default branch for the repository.
+
+## `exclude-paths` {% octicon "versions" aria-label="Version updates only" height="24" %}
+
+Use to specify paths of directories and files that {% data variables.product.prodname_dependabot %} should ignore when scanning for manifests and dependencies. This option is useful when you want to prevent updates for dependencies in certain locations, such as test assets, vendored code, or specific files.
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* All directories and files in the specified `directory` are included in the update scan unless excluded by this option.
+
+When `exclude-paths` is defined:
+
+* All files and directories matching the specified paths are ignored during update scans for the given `package-ecosystem` entry.
+
+| Parameter | Purpose |
+|-----------|---------|
+| `exclude-paths` | A list of glob patterns for files or directories to ignore. |
+
+Glob patterns are supported, such as `**` for recursive matching and `*` for single-segment wildcards. Patterns are relative to the `directory` specified for the update configuration. Each ecosystem can have its own `exclude-paths` settings.
+
+### Example
+
+```yaml copy
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    exclude-paths:
+      - "src/test/assets"
+      - "vendor/**"
+      - "src/*.js"
+      - "src/test/helper.js"
+
+# Sample patterns that can be used-
+
+# Pattern: docs/*.json
+# Matches: docs/foo.json, docs/bar.json
+
+# Pattern: *.lock
+# Matches: Gemfile.lock, package.lock, foo.lock (in any directory)
+
+# Pattern: test/**
+# Matches: test/foo.rb, test/bar/baz.rb, test/any/depth/file.txt
+
+# Pattern: config/settings.yml
+# Matches: config/settings.yml
+
+# Pattern: **/*.md
+# Matches: README.md, docs/guide.md, any/depth/file.md
+
+# Pattern: src/*
+# Matches: src/main.rb, src/app.js
+# Does NOT match: src/utils/helper.rb
+
+# Pattern: hidden/.*
+# Matches: hidden/.env, hidden/.secret
+```
+
+In this example, {% data variables.product.prodname_dependabot %} will ignore the `src/test/assets` directory, all files under `vendor/`, all JavaScript files directly under `src/`, and the specific file `src/test/helper.js` when scanning for updates.
 
 ## `vendor` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -818,8 +877,6 @@ updates:
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
-{% data reusables.dependabot.dependabot-replaces-base-nuget %}
-
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 ### `type` and authentication details
@@ -850,5 +907,3 @@ All sensitive data used for authentication should be stored securely and referen
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
-
-{% data reusables.dependabot.dependabot-replaces-base-nuget %}

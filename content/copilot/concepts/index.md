@@ -7,20 +7,23 @@ versions:
 topics:
   - Copilot
 children:
-  - /choosing-the-right-ai-tool-for-your-task
+  - /ai-tools
   - /completions
-  - /about-github-copilot-chat
+  - /chat
   - /coding-agent
   - /code-review
-  - /about-organizing-and-sharing-context-with-copilot-spaces
-  - /copilot-billing
-  - /prompt-engineering-for-copilot-chat
-  - /about-customizing-github-copilot-chat-responses
-  - /content-exclusion-for-github-copilot
-  - /copilot-knowledge-bases
-  - /copilot-extensions
+  - /about-mcp
+  - /spaces
+  - /billing
+  - /prompt-engineering
+  - /response-customization
+  - /content-exclusion
+  - /knowledge-bases
+  - /extensions
   - /policies
   - /rate-limits
-  - /network-settings-for-github-copilot
-  - /indexing-repositories-for-copilot-chat
+  - /network-settings
+  - /repository-indexes
+contentType: concepts
 ---
+
