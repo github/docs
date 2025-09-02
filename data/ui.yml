@@ -339,9 +339,9 @@ alerts:
 
 cookbook_landing:
   spotlight: Spotlight
-  explore_articles: Explore {{ number }} prompt articles
+  explore_articles: Explore {{ number }} examples
   reset_filters: Reset filters
-  search_articles: Search articles
+  search_articles: Search examples
   category: Category
   complexity: Complexity
 
