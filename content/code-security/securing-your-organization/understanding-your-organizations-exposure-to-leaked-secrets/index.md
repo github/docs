@@ -15,4 +15,6 @@ children:
   - /viewing-the-secret-risk-assessment-report-for-your-organization
   - /interpreting-secret-risk-assessment-results
   - /choosing-github-secret-protection
+  - /calculating-the-cost-savings-of-push-protection
+  - /estimating-the-price-of-secret-protection
 ---
