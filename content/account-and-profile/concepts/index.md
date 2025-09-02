@@ -11,6 +11,7 @@ topics:
   - Profiles
 children:
   - /about-your-profile
+  - /personal-account-management
   - /contributions-visible-on-your-profile
   - /about-your-organizations-profile
   - /about-organization-membership
