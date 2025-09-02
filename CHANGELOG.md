@@ -1,5 +1,15 @@
 # Docs changelog
 
+**2 September 2025**
+
+We've published a new customization library for GitHub Copilot: a curated collection of examples you can copy, adjust, and use to enhance your experience with Copilot. This library is designed to inspire and educate people on the options available to customize Copilot responses.
+
+We've included examples of custom instructions (widely supported) and prompt files (supported in VS Code only). The examples cover scenarios such as debugging, onboarding, and accessibility. We look forward to adding more examples over time.
+
+See: [Customization library](https://docs.github.com/copilot/tutorials/customization-library).
+
+<hr>
+
 **28 August 2025**
 
 We've published an article about the new AI-powered issue intake tool, which automates incoming issue analysis and triage for OS maintainers.
