@@ -42,7 +42,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v2
+     uses: actions/attest-build-provenance@v3
      with:
        subject-path: 'PATH/TO/ARTIFACT'
    ```
@@ -65,7 +65,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v2
+     uses: actions/attest-build-provenance@v3
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}{% endraw %}
        subject-digest: 'sha256:fedcba0...'
