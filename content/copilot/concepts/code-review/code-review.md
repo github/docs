@@ -22,6 +22,14 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 
 ## Availability
 
+{% data variables.copilot.copilot_code-review_short %} is supported in:
+
+* {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_mobile %}
+* {% data variables.product.prodname_vscode_shortname %}
+* {% data variables.product.prodname_vs %}
+* Xcode
+
 {% data variables.copilot.copilot_code-review_short %} is—with one exception—a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.
 
 The exception is the review of a selection of code within a file in {% data variables.product.prodname_vscode %}. This is a standard feature available to all {% data variables.product.prodname_copilot_short %} users in {% data variables.product.prodname_vscode_shortname %}.

@@ -37,7 +37,7 @@ To ensure your cost centers reflect spending as intended, it's important to unde
 ### {% data variables.product.prodname_copilot %}
 
 * If a user belongs to a cost center, all usage associated with the user is charged to the cost center.
-* If a user does not belong to any cost center, if the organization that provides the user their {% data variables.product.prodname_copilot_short %} license belongs to a cost center, all usage associated with the user is charged to the cost center.
+* If a user does not belong to any cost center but the organization that is billed for the {% data variables.product.prodname_copilot_short %} license does, all usage associated with the user is charged to that cost center.
 * If the user receives access to {% data variables.product.prodname_copilot_short %} through **multiple organizations**, only one of the organizations is billed, and any cost center containing that organization is charged accordingly. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise#about-seat-assignment-for-copilot-in-your-enterprise).
 
 ### {% data variables.product.prodname_GH_cs_and_sp %}

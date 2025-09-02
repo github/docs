@@ -1,6 +1,6 @@
 * **{% data variables.product.prodname_secret_scanning_caps %}**: Detect secrets, for example keys and tokens, that have been checked into a repository and receive alerts.
 
-* **Push protection**: Prevent secret leaks before they happen by blocking commits containing secrets.{% ifversion secret-scanning-ai-generic-secret-detection %}
+* **Push protection**: Prevent secret leaks before they happen by blocking commits containing secrets. {% ifversion fpt or ghec or ghes > 3.19 %} You can calculate how much you can save by using push protection in repositories in your organization with the {% data variables.secret-scanning.roi-calculator %}. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/calculating-the-cost-savings-of-push-protection).{% endif %}{% ifversion secret-scanning-ai-generic-secret-detection %}
 
 * **{% data variables.secret-scanning.copilot-secret-scanning %}**: Leverage AI to detect unstructured credentials, such as passwords, that have been checked into a repository.{% endif %}
 
