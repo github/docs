@@ -2757,6 +2757,12 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/lock"
     },
     {
+      "slug": "get-parent-issue",
+      "subcategory": "sub-issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
+    },
+    {
       "slug": "remove-sub-issue",
       "subcategory": "sub-issues",
       "verb": "delete",
@@ -3649,30 +3655,6 @@
       "requestPath": "/orgs/{org}/projects"
     },
     {
-      "slug": "get-a-project-card",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "update-an-existing-project-card",
-      "subcategory": "cards",
-      "verb": "patch",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "delete-a-project-card",
-      "subcategory": "cards",
-      "verb": "delete",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "move-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/cards/{card_id}/moves"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -3689,18 +3671,6 @@
       "subcategory": "columns",
       "verb": "delete",
       "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "list-project-cards",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/{column_id}/cards"
-    },
-    {
-      "slug": "create-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/{column_id}/cards"
     },
     {
       "slug": "move-a-project-column",
