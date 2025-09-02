@@ -18,8 +18,7 @@ contentType: concepts
 ---
 
 > [!IMPORTANT]
-> * Billing for premium requests began on June 18, 2025 for all paid {% data variables.product.prodname_copilot_short %} plans, and the request counters were only set to zero for paid plans.
-> * {% data reusables.copilot.data-residency-availability %}
+> * Billing for premium requests began on June 18, 2025, for all paid {% data variables.product.prodname_copilot_short %} plans on {% data variables.product.prodname_dotcom_the_website %}, and on August 1, 2025, on {% data variables.enterprise.data_residency_site %}. The request counters were only set to zero for paid plans.
 > * Premium request counters reset on the 1st of each month at 00:00:00 UTC. See [AUTOTITLE](/copilot/managing-copilot/understanding-and-managing-copilot-usage/monitoring-your-copilot-usage-and-entitlements).
 > * Certain requests may experience rate limits to accommodate high demand. Rate limits restrict the number of requests that can be made within a specific time period.
 
@@ -49,7 +48,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 If you use **{% data variables.copilot.copilot_free_short %}**, your plan comes with up to 2,000 code completion requests and up to 50 premium requests per month. All chat interactions count as premium requests.
 
-If you're on a **paid plan**, you get unlimited code completions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
+If you're on a **paid plan**, you get unlimited code completions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}. Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
 Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
@@ -69,15 +68,12 @@ Unused requests for the previous month do not carry over to the following month.
 
 If you're on a **paid plan** and use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with one of the included models for the rest of the month. This is subject to change. Response times for the included models may vary during periods of high usage. Requests to the included models may be subject to rate limiting. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
-If you need more premium requests beyond your monthly allowance, you can:
+If you need more premium requests beyond your monthly allowance:
 
-* Set a spending limit for additional premium requests. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
-* Upgrade your individual subscription to a higher plan.
-* If you're an enterprise owner, edit the default $0 budget or upgrade members to {% data variables.copilot.copilot_enterprise_short %}. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
+* For an individual subscription, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
+* If you're an enterprise or organization owner, ensure that the "Premium request paid usage" policy is enabled and that extra spending is not prevented by a budget. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-These actions can be taken by enterprise owners, organization owners, billing managers, and personal account users.
-
-> [!IMPORTANT] By default, all budgets are set to zero and premium requests over the allowance are rejected unless a budget has been created. Additional premium requests beyond your plan’s included amount are billed at {% data variables.copilot.additional_premium_requests %} per request.
+{% data reusables.copilot.zero-budget-changes %}
 
 ## Model multipliers
 
@@ -92,23 +88,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 If you use **{% data variables.copilot.copilot_free_short %}**, you have access to a limited number of models, and each model will consume one premium request when used. For example, if you make a request using the {% data variables.copilot.copilot_gemini_flash %} model, your interaction will consume **one premium request**, not 0.25 premium requests.
 
-{% rowheaders %}
-
-| Model                                                                   | Multiplier for **paid plans**  | Multiplier for **{% data variables.copilot.copilot_free_short %}** |
-|-------------------------------------------------------------------------|--------------------------------|-----------------------|
-| {% data variables.copilot.copilot_gpt_41 %}                             | 0                              | 1                     |
-| {% data variables.copilot.copilot_gpt_4o %}                             | 0                              | 1                     |
-| {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                              | 1                     |
-| {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                              | Not applicable        |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                           | Not applicable        |
-| {% data variables.copilot.copilot_claude_sonnet_40 %}                   | 1                              | Not applicable        |
-| {% data variables.copilot.copilot_claude_opus %}                        | 10                             | Not applicable        |
-| {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                           | 1                     |
-| {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                              | Not applicable        |
-| {% data variables.copilot.copilot_o3 %}                                 | 1                              | Not applicable        |
-| {% data variables.copilot.copilot_o4_mini %}                            | 0.33                           | Not applicable        |
-
-{% endrowheaders %}
+{% data reusables.copilot.model-multipliers %}
 
 ## Examples of premium request usage
 

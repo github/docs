@@ -56,11 +56,16 @@ To use a specific action version, users can configure their {% data variables.pr
 
 We recommend using tags for actions release management. Using this approach, your users can easily distinguish between major and minor versions:
 
-* Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
-* Create a release using semantic versioning. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
-* Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see [Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
-* Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
-* Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
+1. Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
+1. Create a release using semantic versioning. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
+1. Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see [Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
+
+    {% ifversion immutable-releases-preview %}
+    > [!NOTE]
+    > If you enable immutable releases, you can still move Git tags that are not linked to releases on {% data variables.product.github %}.
+    {% endif %}
+
+1. Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
 
 This example demonstrates how a user can reference a major release tag:
 

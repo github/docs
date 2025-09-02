@@ -23,8 +23,8 @@ redirect_from:
      job1:
        runs-on: ubuntu-latest
        outputs:
-         output1: ${{ steps.step1.outputs.test }}
-         output2: ${{ steps.step2.outputs.test }}
+         output1: {% raw %}${{ steps.step1.outputs.test }}{% endraw %}
+         output2: {% raw %}${{ steps.step2.outputs.test }}{% endraw %}
        steps:
          - id: step1
            run: echo "test=hello" >> "$GITHUB_OUTPUT"
@@ -52,8 +52,8 @@ redirect_from:
         needs: job1
         steps:
           - env:
-              OUTPUT1: ${{needs.job1.outputs.output1}}
-              OUTPUT2: ${{needs.job1.outputs.output2}}
+              OUTPUT1: {% raw %}${{needs.job1.outputs.output1}}{% endraw %}
+              OUTPUT2: {% raw %}${{needs.job1.outputs.output2}}{% endraw %}
             run: echo "$OUTPUT1 $OUTPUT2"
     ```
 

@@ -10,7 +10,9 @@ topics:
   - Billing
 children:
   - /billing-cycles
-  - /license-consumption
+  - /budgets-and-alerts
+  - /cost-centers
+  - /azure-subscriptions
   - /impact-of-plan-changes
   - /discounted-plans
   - /enterprise-billing

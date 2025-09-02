@@ -29,12 +29,13 @@ export const UnrenderedMarkdownContent = ({
   className,
   openLinksInNewTab = true,
   includeQueryParams = true,
-  codeBlocksCopyable = true,
+  codeBlocksCopyable = false,
   eventGroupKey = '',
   eventGroupId = '',
   ...restProps
 }: MarkdownContentPropsT) => {
   const { t } = useTranslation('search')
+
   // Overrides for ReactMarkdown components
   const components = {} as Components
   if (codeBlocksCopyable) {
@@ -50,9 +51,25 @@ export const UnrenderedMarkdownContent = ({
         text = text.replace(/\n$/, '')
       }
 
+      // Extract language from className for better accessibility
+      const language = props.className?.startsWith('language-')
+        ? props.className.replace('language-', '')
+        : ''
+
       const [isCopied, copyToClipboard] = useCopyClipboard(text, {
         successDuration: 2000,
       })
+
+      // Create more descriptive aria-label
+      const getAriaLabel = () => {
+        if (isCopied) {
+          return t('search.ai.response.copied_code')
+        }
+        return t('search.ai.response.copy_code_lang').replace(
+          '{language}',
+          language ? `${language} ` : '',
+        )
+      }
 
       return (
         <div style={{ position: 'relative' }}>
@@ -60,9 +77,7 @@ export const UnrenderedMarkdownContent = ({
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
             className="btn-octicon"
-            aria-label={
-              isCopied ? t('search.ai.response.copied_code') : t('search.ai.response.copy_code')
-            }
+            aria-label={getAriaLabel()}
             onClick={async () => {
               await copyToClipboard()
               announce(t('search.ai.response.copied_code'))

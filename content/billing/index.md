@@ -6,19 +6,19 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 introLinks:
-  overview: '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works {% elsif ghes %}/billing/concepts/license-consumption {% endif %}'
+  overview: '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works {% elsif ghes %}/billing/concepts/enterprise-billing/billing-for-enterprises{% endif %}'
 featuredLinks:
   startHere:
     - '{% ifversion fpt or ghec %}/billing/get-started/introduction-to-billing{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/get-started/how-billing-works{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/how-tos/set-up-payment/manage-payment-info{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/tutorials/set-up-budgets{% endif %}'
-    - '{% ifversion ghes %}/billing/concepts/license-consumption{% endif %}'
+    - '{% ifversion ghes %}/billing/concepts/enterprise-billing/billing-for-enterprises{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'
     - '{% ifversion ghes %}/billing/concepts/enterprise-billing/combined-enterprise-use{% endif %}'
   popular:
     - '{% ifversion ghec %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/how-tos/products/view-product-use{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/how-tos/products/view-productlicense-use{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-actions{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-copilot{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-codespaces{% endif %}'
@@ -29,7 +29,7 @@ featuredLinks:
     - /billing/how-tos/manage-plan-and-licenses/upgrade-plan
     - /billing/concepts/impact-of-plan-changes
     - '{% ifversion ghes %}/billing/how-tos/manage-server-licenses/sync-license-usage{% endif %}'
-    - '{% ifversion ghes %}/billing/reference/license-usage-calculation{% endif %}'
+    - '{% ifversion ghes %}/billing/reference/enterprise-license-troubleshooting{% endif %}'
 changelog:
   label: account-management
 layout: product-landing

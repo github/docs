@@ -19,6 +19,10 @@ If you are having trouble with the {% data variables.copilot.copilot_chat_short 
 * You have configured the MCP server correctly in your IDE.
 * You have the necessary permissions to perform the actions you are trying to execute.
 
+### Push protection block
+
+If you are using the {% data variables.product.github %} MCP server and push protection blocks a secret that you believe is safe to expose, you may be able to bypass the block by specifying a reason for allowing the secret. See [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server#resolving-a-block).
+
 ### General tips
 
 If you are experiencing other issues with the {% data variables.product.github %} MCP server, here are some general tips to help you troubleshoot:

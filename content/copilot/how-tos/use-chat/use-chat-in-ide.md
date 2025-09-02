@@ -19,6 +19,10 @@ shortTitle: Use Chat in IDE
 contentType: how-tos
 ---
 
+## Introduction
+
+This guide describes how to use {% data variables.copilot.copilot_chat_short %} to ask questions about software development in your IDE. You can ask general questions about software development, or specific questions about the code in your project. For more information, see [AUTOTITLE](/copilot/concepts/about-github-copilot-chat).
+
 {% vscode %}
 
 ## Prerequisites
@@ -161,7 +165,6 @@ For more information, see [{% data variables.copilot.copilot_edits_short %}](htt
 1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
 
    * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_gpt_4o %}
    * {% data variables.copilot.copilot_claude_sonnet_35 %}
    * {% data variables.copilot.copilot_claude_sonnet_37 %}
    * {% data variables.copilot.copilot_gemini_flash %}
@@ -309,7 +312,6 @@ When you use {% data variables.copilot.copilot_agent_short %} mode, each prompt 
 1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
 
    * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_gpt_4o %}
    * {% data variables.copilot.copilot_claude_sonnet_35 %}
    * {% data variables.copilot.copilot_claude_sonnet_37 %}
    * {% data variables.copilot.copilot_gemini_flash %}
@@ -485,7 +487,7 @@ To share feedback about {% data variables.copilot.copilot_chat_short %}, you can
 
 You can ask {% data variables.copilot.copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% data variables.product.prodname_copilot %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 
 1. Enter a prompt in the prompt box. For example prompts, see [AUTOTITLE](/copilot/get-started/getting-started-with-prompts-for-copilot-chat).
 

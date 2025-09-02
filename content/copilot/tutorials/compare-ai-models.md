@@ -21,9 +21,9 @@ These examples show how models vary in their reasoning style, response depth, an
 
 For a full list of supported models and side-by-side feature comparisons, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-## {% data variables.copilot.copilot_gpt_4o %}
+## {% data variables.copilot.copilot_gpt_41 %}
 
-{% data reusables.copilot.model-use-cases.gpt-4o %}
+{% data reusables.copilot.model-use-cases.gpt-41 %}
 
 ### Example scenario
 
@@ -71,10 +71,10 @@ def grant_editor_access(user_id, doc_id):
     )
 ```
 
-### Why {% data variables.copilot.copilot_gpt_4o %} is a good fit
+### Why {% data variables.copilot.copilot_gpt_41 %} is a good fit
 
 * The function is short and self-contained, making it ideal for quick docstring generation.
-* {% data variables.copilot.copilot_gpt_4o %} can recognize the pattern and provide a clear, concise explanation.
+* {% data variables.copilot.copilot_gpt_41 %} can recognize the pattern and provide a clear, concise explanation.
 * The task doesn't require deep reasoning or complex logic.
 
 ## {% data variables.copilot.copilot_o4_mini %}

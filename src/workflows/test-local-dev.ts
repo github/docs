@@ -2,7 +2,6 @@ import assert from 'node:assert/strict'
 import fs from 'fs'
 
 import cheerio from 'cheerio'
-import got from 'got'
 
 /**
  * A very basic script that tests the local dev server.
@@ -22,12 +21,18 @@ import got from 'got'
 main()
 
 async function get(path: string, options?: Record<string, any>) {
-  // By default, got() will use retries and follow redirects.
+  // By default, fetch() will follow redirects.
   const t0 = new Date()
-  const response = await got(makeURL(path), options)
+  const response = await fetch(makeURL(path), options)
   const took = new Date().getTime() - t0.getTime()
-  console.log(`GET ${path} => ${response.statusCode} (${took}ms)`)
-  return response
+  console.log(`GET ${path} => ${response.status} (${took}ms)`)
+
+  // Convert fetch response to have similar interface as got response
+  const body = await response.text()
+  return {
+    statusCode: response.status,
+    body: body,
+  }
 }
 
 function makeURL(path: string) {

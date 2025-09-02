@@ -1,5 +1,5 @@
 ---
-title: Getting started with a Copilot plan
+title: Getting started with a GitHub Copilot plan
 shortTitle: Get started with a Copilot plan
 intro: 'You can use {% data variables.product.prodname_copilot_short %} for free, or choose a paid plan to unlock additional features, models, and request limits.'
 versions:

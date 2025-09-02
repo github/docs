@@ -1,5 +1,5 @@
 ---
-title: About individual Copilot plans and benefits
+title: About individual GitHub Copilot plans and benefits
 shortTitle: Individual plans
 intro: '{% data variables.product.company_short %} offers several {% data variables.product.prodname_copilot_short %} plans for individual developers, each with different features, model access, and usage limits to support a wide range of coding needs.'
 versions:

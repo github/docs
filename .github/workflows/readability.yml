@@ -1,0 +1,108 @@
+name: Readability report
+
+# **What it does**: Analyzes readability of rendered content for changed Markdown files in pull requests
+# **Why we have it**: We want to track and improve the readability of our documentation over time
+# **Who does it impact**: Contributors and content writers
+
+on:
+  # pull_request:
+  #   paths:
+  #     - 'content/**/*.md'
+  #     - 'data/reusables/**/*.md'
+  # The pull_request trigger is currently disabled for testing purposes.
+  # Re-enable this trigger when ready to run readability analysis automatically on PRs.
+  workflow_dispatch:
+    inputs:
+      pull_request_number:
+        description: 'Pull request number to analyze (for testing)'
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  readability-analysis:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo with full history
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Checkout PR for manual dispatch
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          gh pr checkout ${{ inputs.pull_request_number }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+
+      - name: Get changed content files
+        id: changed_files
+        uses: ./.github/actions/get-changed-files
+        with:
+          files: 'content/**/*.md'
+          # For workflow_dispatch, compare against main
+          base: ${{ github.event_name == 'workflow_dispatch' && 'main' || '' }}
+
+      - name: Disable Next.js telemetry
+        run: npx next telemetry disable
+
+      - name: Start server in the background
+        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
+
+      - name: Run readability analysis
+        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        env:
+          CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        run: npm run readability-report
+
+      - name: Find existing readability comment
+        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
+        id: findComment
+        with:
+          issue-number: ${{ github.event_name == 'workflow_dispatch' && inputs.pull_request_number || github.event.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- READABILITY_REPORT -->'
+
+      - name: Read readability report
+        if: ${{ steps.changed_files.outputs.filtered_changed_files }}
+        id: read_report
+        run: |
+          if [ -f "readability-report.md" ]; then
+            {
+              echo 'report<<EOF'
+              cat readability-report.md
+              echo EOF
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create or update readability comment
+        if: ${{ steps.changed_files.outputs.filtered_changed_files && steps.read_report.outputs.report }}
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event_name == 'workflow_dispatch' && inputs.pull_request_number || github.event.number }}
+          body: |
+            <!-- READABILITY_REPORT -->
+            ${{ steps.read_report.outputs.report }}
+          edit-mode: replace
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log || echo "No stdout log found"
+          echo "____STDERR____"
+          cat /tmp/stderr.log || echo "No stderr log found"

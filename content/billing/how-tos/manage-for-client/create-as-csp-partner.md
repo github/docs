@@ -10,22 +10,23 @@ topics:
   - Enterprise
   - Upgrades
 shortTitle: Create as CSP partner
+product: 'Microsoft Cloud Solution Provider (CSP) partners setting up {% data variables.product.prodname_enterprise %}. <br>{% data variables.product.github %} partners should see [AUTOTITLE](/billing/how-tos/manage-for-client/create-client-enterprise).'
 redirect_from:
   - /billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner
 contentType: how-tos
 ---
 
-As a Microsoft Cloud Solution Provider (CSP) partner, you can create an enterprise account on {% data variables.product.prodname_dotcom %} on behalf of your customer. You can also invite your customer to become an enterprise owner.
-
-## Requirements
+## Prerequisites
 
 Before you start, make sure you know:
-* The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
-* The {% data variables.product.prodname_dotcom %} username for the CSP partner that must be assigned to the customer’s enterprise account to manage metered billing and access support
-* The name your client would like to use for the enterprise account
-* The email address where you would like receipts to be sent
+* {% data variables.product.github %} username of the client who will become the owner of the enterprise you create
+* {% data variables.product.github %} username for the CSP partner that must be assigned to the customer’s enterprise account to manage metered billing and access support
+* Enterprise name your client would like to use
+* Email address for receipts
+* Number of seats your client needs in the enterprise
+* Enterprise account type required by your client, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)
 
-## Step 1: Create the enterprise account
+## Step 1: Create the enterprise account in the Azure portal
 
 As a Microsoft CSP partner, you can get started with {% data variables.product.prodname_enterprise %} from the Microsoft Azure portal.
 
@@ -46,7 +47,7 @@ At any time during the trial, you can purchase {% data variables.product.prodnam
 1. To sign in to your Microsoft account, follow the prompts.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
 
-   If you don't see a "Permissions requested" prompt, and instead see a message indicating that you need admin approval, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#message-need-admin-approval).
+   If you don't see a "Permissions requested" prompt, and instead see a message indicating that you need admin approval, see [AUTOTITLE](/billing/how-tos/troubleshooting/azure-sub-connection).
 
 1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your organization. {% data reusables.enterprise-accounts.tenant-app-permissions %}
    {% data reusables.enterprise-accounts.connect-azure %}

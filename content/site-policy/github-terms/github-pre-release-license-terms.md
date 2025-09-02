@@ -18,7 +18,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 1. Pre-Release Software.
 
-  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as alpha, beta, early access, technical preview, or similar versions.
+  The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are not yet generally available, such as private preview, public preview, early access, technical preview, or similar versions.
 
   Pre-release software may not operate correctly. It may delete your data, corrupt your data, or have other bugs. It also may not work the way a final commercial version of the software will.
 
@@ -26,7 +26,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 2. Installation and Use Rights.
 
-  a. **General**. GitHub grants you a limited right to use a non-production instance of the software. You may use any number of copies of the software to develop and test your applications, including deployment within your internal corporate network. You may also use the software in demonstrating your applications.
+  a. **General**. GitHub grants you a limited right to use a non-production instance of the software for evaluation and testing. This means you may use any number of copies of the software to evaluate its functionality and internally develop and test your applications, including deployment of the software within your internal corporate network for evaluation but not external distribution. You may also use the software in internally demonstrating your applications, but may not use the pre-release software in any active production environment, including any use to process live customer data.
 
   b. **Inclusion of Third-Party Components.** The software may include third-party components with separate legal notices or governed by other agreements, as may be described in a license file accompanying the software.
 

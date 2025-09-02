@@ -102,22 +102,27 @@ You can apply various filters to the alerts list to help you find the alerts you
 
 |Qualifier|Description|
 |---------|-----------|
-|`is:open`|Displays open alerts.|
-|`is:closed`|Displays closed alerts.|
-| {% ifversion secret-scanning-alert-plaid-filters %} |
-|`is:publicly-leaked`|Displays alerts for secrets that have been found in a public repository.|
-|`is:multi-repository`|Displays alerts for secrets that have been found in more than one repository within the same organization or enterprise.|
-| {% endif %} |
-|`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).|
-|`validity:active`| Displays alerts for secrets that are known to be active. {% ifversion fpt or ghec %}Applies only to {% data variables.product.github %} tokens unless you enable validity checks.{% endif %}For more information about validity statuses, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).|
-|`validity:inactive`| Displays alerts for secrets that are no longer active.|
-|`validity:unknown`| Displays alerts for secrets where the validity status of the secret is unknown.|
-|`secret-type:SECRET-NAME`| Displays alerts for a specific secret type, for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secret). |
-|`provider:PROVIDER-NAME`|Displays alerts for a specific provider, for example, `provider:github`. For a list of supported partners, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).|
-|{% ifversion secret-scanning-alert-experimental-list %}`results:default`{% else %}`confidence:high`{% endif %}| Displays alerts for {% ifversion secret-scanning-alert-experimental-list %}{% else %}high-confidence secrets, which relate to {% endif %}supported secrets and custom patterns. For a list of supported patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns). |
-|{% ifversion secret-scanning-generic-tab %}`results:generic`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns). {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}{% endif %}|
-|{% ifversion ghes = 3.16 %}`results:experimental`| Displays alerts for non-provider patterns, such as private keys. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns).{% endif %}|
-|{% ifversion ghes < 3.16 %}`confidence:other`| Displays alerts for non-provider patterns, such as private keys. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns).{% endif %}|
+|`bypassed`|Display alerts for secrets where push protection has been bypassed (`true`). For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).|
+|{% ifversion ghes < 3.16 %}|
+|`confidence`|Display alerts for high-confidence secrets which relate to supported secrets and custom patterns (`high`), or non-provider patterns such as private keys (`other`). See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).|
+|{% endif %}|
+|`is`|Display alerts that are open (`open`){% ifversion ghes < 3.17 %} or closed (`closed`){% else %}, closed (`closed`), found in a public repository (`publicly-leaked`), or found in more than one repository within the same organization or enterprise (`multi-repository`){% endif %}.|
+|`props`|Display alerts for repositories with a specific custom property (`CUSTOM_PROPERTY_NAME`) set. For example, `props:data_sensitivity:high` display results for repositories with the `data_sensitivity` property set to the value `high`. |
+|`provider`|Display alerts for a specific provider (`PROVIDER-NAME`), for example, `provider:github`. For a list of supported partners, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).|
+|`repo`|Display alerts detected in a specified repository (`REPOSITORY-NAME`), for example: `repo:octo-repository`.|
+|`resolution`|Display alerts closed as "false positive" (`false-positive`), "hidden by config" (`hidden-by-config`), "pattern deleted" (`pattern-deleted`), "pattern edited" (`pattern-edited`), "revoked" (`revoked`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
+|{% ifversion fpt or ghec %}|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or for non-provider patterns (`generic`) such as private keys, and AI-detected generic secrets such as passwords. See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns), and for more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).|
+|{% elsif ghes > 3.16 %}|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or non-provider patterns such as private keys (`generic`). See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).|
+|{% elsif ghes = 3.16 %}|
+|`results`|Display alerts for supported secrets and custom patterns (`default`), or non-provider patterns such as private keys (`experimental`). See [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).|
+|{% endif %}|
+|`secret-type`|Display alerts for a specific secret type (`SECRET-NAME`), for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secret).|
+|`sort`|Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).|
+|`team`|Display alerts owned by members of the specified team, for example: `team:octocat-dependabot-team`.|
+|`topic`|Display alerts with the matching repository topic, for example: `topic:asdf`.|
+|`validity`|Display alerts for secrets with a specific validity (`active`, `inactive`, or `unknown`). {% ifversion fpt or ghec %}Applies only to {% data variables.product.github %} tokens unless you enable validity checks.{% endif %} For more information about validity statuses, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).|
 
 ## Next steps
 

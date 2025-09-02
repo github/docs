@@ -17,7 +17,11 @@ shortTitle: Manage your organization roles
 
 ## About role management
 
-You can choose to join an organization owned by your enterprise as a member or as an organization owner, change your role within the organization, or leave the organization.
+You can choose to join an organization owned by your enterprise as a member or as an organization owner, change your role within the organization, or leave the organization. Your organization role determines your level of access to organization resources as follows:
+
+* **Unaffiliated or no official organization role:** you cannot access organization content or repositories, but you can manage enterprise settings and policies that impact your organization
+* **Organization member:** you can access organization resources and content, such as repositories, but you cannot access the organization's settings
+* **Organization owner:** you can configure organization settings and manage access to the organization's resources through teams, etc.
 
 {% ifversion ghec %}
 

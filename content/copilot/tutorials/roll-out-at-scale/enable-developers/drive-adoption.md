@@ -1,5 +1,5 @@
 ---
-title: Driving Copilot adoption in your company
+title: Driving GitHub Copilot adoption in your company
 shortTitle: Drive adoption
 intro: Learn how to plan an effective enablement process to drive Copilot adoption.
 versions:
@@ -28,6 +28,16 @@ The {% data variables.product.prodname_copilot %} enablement process can be brok
 ## Prerequisites
 
 * {% data variables.product.prodname_copilot %} must be set up in your {% ifversion ghec %}enterprise and {% endif %}organization. For more information, see {% ifversion ghec %}[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise) and {% endif %}[AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
+
+## Example rollout timeline
+
+For optimal {% data variables.product.prodname_copilot_short %} adoption, tailor the timing and approach to your organization’s needs. For example, a rollout timeline might look like:
+
+1. Begin onboarding 45 days before rollout: define success metrics and train champions.
+1. Share announcements and asynchronous resources 14 days out.
+1. Host a workshop at 7 days out.
+1. On launch day, provide a Slack channel, wiki, and curated online resources.
+1. Continue to provide training. This can be formal at first, then shift to specific, on-demand support as adoption grows.
 
 ## Granting licenses
 
@@ -83,6 +93,27 @@ You can also use {% data variables.product.prodname_discussions %} to create a s
 
 {% data variables.product.github %} also provides a dedicated {% data variables.product.prodname_copilot_short %} Workshops repository, which contains a selection of workshops designed to help teams learn how to use {% data variables.product.prodname_copilot_short %} effectively. See [Copilot Workshops](https://github.com/copilot-workshops).
 
+The following sections provide practical examples for helping teams to start using Copilot successfully, sourced from real organizations.
+
+#### 1. Run a team onboarding sprint
+
+* Set aside a day or week where everyone focuses on using Copilot.
+* Pair up experienced developers with newer team members to explore Copilot in your real codebase.
+* Encourage everyone to try Copilot for a specific workflow (such as writing tests or drafting content).
+* Debrief as a group. What surprised you, what worked, and what didn’t?
+
+#### 2. Build regular feedback loops
+
+* Add Copilot discussion to your sprint retro or weekly sync.
+* Prompt: “What’s one place Copilot helped (or didn’t) this week?”
+* Use patterns from these conversations to tweak team documentation or onboarding.
+
+#### 3. Track and celebrate success
+
+* Pick a few metrics that matter (such as faster PRs or fewer “how do I start?” questions).
+* Share wins in your team channel or during meetings.
+* Recognize individuals who help others get value from Copilot.
+
 ### Providing learning resources
 
 In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.copilot.copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/copilot-chat-cookbook).
@@ -101,3 +132,9 @@ Once you have implemented your {% data variables.product.prodname_copilot_short 
 * Following up with users who haven't been using their assigned license. You can use the API to see the latest activity date for each assigned seat. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/reminding-inactive-users).
 * Gathering feedback from teams to understand what is working well and what could be improved.
 * Reviewing {% data variables.product.prodname_discussions %} and other communication channels to identify common issues and questions.
+* Iterating on your enablement process based on lessons learned.
+* After a successful rollout, sharing your onboarding checklist or playbook with other teams to scale adoption.
+
+## Further reading
+
+For more concrete examples and a detailed playbook, see the [Training and Onboarding Developers on {% data variables.product.prodname_copilot %} whitepaper](https://github.com/resources/whitepapers/training-and-onboarding-developers-on-github-copilot).

@@ -2404,6 +2404,106 @@ type Blob implements GitObject & Node {
 }
 
 """
+Represents a 'blocked_by_added' event on a given issue.
+"""
+type BlockedByAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocking issue that was added.
+  """
+  blockingIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockedByAddedEvent object
+  """
+  id: ID!
+}
+
+"""
+Represents a 'blocked_by_removed' event on a given issue.
+"""
+type BlockedByRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocking issue that was removed.
+  """
+  blockingIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockedByRemovedEvent object
+  """
+  id: ID!
+}
+
+"""
+Represents a 'blocking_added' event on a given issue.
+"""
+type BlockingAddedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocked issue that was added.
+  """
+  blockedIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockingAddedEvent object
+  """
+  id: ID!
+}
+
+"""
+Represents a 'blocking_removed' event on a given issue.
+"""
+type BlockingRemovedEvent implements Node {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  The blocked issue that was removed.
+  """
+  blockedIssue: Issue
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the BlockingRemovedEvent object
+  """
+  id: ID!
+}
+
+"""
 A special type of user which takes actions on behalf of GitHub Apps.
 """
 type Bot implements Actor & Node & UniformResourceLocatable {
@@ -13468,6 +13568,11 @@ type Enterprise implements Node {
   ): RepositoryRulesetConnection
 
   """
+  The enterprise's security contact email address.
+  """
+  securityContactEmail: String
+
+  """
   The URL-friendly identifier for the enterprise.
   """
   slug: String!
@@ -19442,6 +19547,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   viewerCanReopen: Boolean!
 
   """
+  Check if the current viewer can set fields on the issue.
+  """
+  viewerCanSetFields: Boolean
+
+  """
   Check if the viewer is able to change their subscription status for the repository.
   """
   viewerCanSubscribe: Boolean!
@@ -20200,6 +20310,10 @@ An item in an issue timeline
 union IssueTimelineItems =
     AddedToProjectEvent
   | AssignedEvent
+  | BlockedByAddedEvent
+  | BlockedByRemovedEvent
+  | BlockingAddedEvent
+  | BlockingRemovedEvent
   | ClosedEvent
   | CommentDeletedEvent
   | ConnectedEvent
@@ -42797,6 +42911,10 @@ union PullRequestTimelineItems =
   | BaseRefChangedEvent
   | BaseRefDeletedEvent
   | BaseRefForcePushedEvent
+  | BlockedByAddedEvent
+  | BlockedByRemovedEvent
+  | BlockingAddedEvent
+  | BlockingRemovedEvent
   | ClosedEvent
   | CommentDeletedEvent
   | ConnectedEvent
@@ -51198,6 +51316,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     @deprecated(
       reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
     )
+
+  """
+  Indicates whether the current user can see issue fields in this repository
+  """
+  viewerCanSeeIssueFields: Boolean!
 
   """
   Check if the viewer is able to change their subscription status for the repository.
@@ -64663,6 +64786,11 @@ input UpdateEnterpriseProfileInput {
   The name of the enterprise.
   """
   name: String
+
+  """
+  The security contact email address of the enterprise.
+  """
+  securityContactEmail: String
 
   """
   The URL of the enterprise's website.

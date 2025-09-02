@@ -24,7 +24,7 @@ The amount of free usage provided on your personal account every month is design
 
 {% data variables.product.prodname_codespaces %} compute is counted in core hours, which is the sum of the time a codespace is active, multiplied by the multiplier for the codespace's machine type: for example, a multiplier of 2 for a 2-core machine, or a multiplier of 8 for an 8-core machine. A codespace becomes active when you create it or start it. A codespace stops being active when you stop it or delete it, or when it is stopped or deleted automatically.
 
-The default idle timeout, which stops a codespace after a period of inactivity, is 30 minutes. You can reduce this if required. See the "About billing for compute usage" section of [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-compute-usage).
+The default idle timeout, which stops a codespace after a period of inactivity, is 30 minutes. You can reduce this if required. See [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)
 
 ## About {% data variables.product.prodname_codespaces %} storage
 
@@ -35,7 +35,7 @@ You can see the storage usage for each of your codespaces on the "Your codespace
 > [!NOTE]
 > If the dev container for a codespace was built from the default image, the size of the codespace shown on this page does not include the size of the base dev container. Storage for the base dev container is provided free of charge. See [Storage usage for your base dev container](#storage-usage-for-your-base-dev-container).
 
-For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-months. This is a cumulative measure of the total storage each codespace consumes from creation to deletion, plus the storage for prebuilds. See the "Billing for storage usage" section of [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage).
+For billing purposes, {% data variables.product.prodname_codespaces %} storage is counted in GB-hours. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 ### Where did my monthly storage go?
 
@@ -95,10 +95,10 @@ If the dev container for the current codespace was built from the default image,
   > [!NOTE]
   > Storage is calculated hourly and added to your existing storage usage. Consumed storage is therefore cumulative for the duration of your month-long billing cycle. This means that, during the billing period, the value you see on your billing page will only increase or remain the same. Usage will be reset to zero when a new billing cycle starts. Deleting a codespace, or a prebuild, will not reduce the usage figure for the current month, but it will reduce the rate at which storage usage accumulates.
 
-* Ensure that you are using prebuilds for only as many versions and as many regions as you need. See [AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds) and [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-codespaces-prebuilds).
+* Ensure that you are using prebuilds for only as many versions and as many regions as you need. See [AUTOTITLE](/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds).
 
   > [!NOTE]
-  > If your included storage usage is exhausted, new prebuilds are disabled until you set up a spending limit or your included usage quota renews.
+  > If your included storage usage is exhausted, new prebuilds are disabled until you set up a budget or your included usage quota renews.
 
 * If you have configured prebuilds in a repository's settings, but you're not using {% data variables.product.prodname_github_codespaces %} for that repository, consider deleting the prebuild configuration to avoid prebuilds for that repository consuming your included storage allowance unnecessarily. When you delete a prebuild configuration all the associated prebuilds are deleted, reducing your storage consumption from that point onward. See [AUTOTITLE](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration).
 

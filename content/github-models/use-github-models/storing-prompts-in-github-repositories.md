@@ -8,11 +8,11 @@ versions:
   ghec: '*'
 ---
 
-Prompts can be stored as files directly within GitHub repositories. This unlocks the ability to view your prompts in an organized UI, share them with non-technical stakeholders, and run seamless iterations and comparisons on adjustments to models and prompts.
+Prompts can be stored as files directly within {% data variables.product.github %} repositories. This unlocks the ability to view your prompts in an organized UI, share them with non-technical stakeholders, and run seamless iterations and comparisons on adjustments to models and prompts.
 
 ## Benefits
 
-* Easy integration with the new suite of AI development tools directly on GitHub.
+* Easy integration with the new suite of AI development tools directly on {% data variables.product.github %}.
 * Simple and scalable from simple to complex use cases.
 * Uses a widely supported format, compatible with existing tools.
 
@@ -27,7 +27,7 @@ Example:
 ``` yaml copy
 name: Text Summarizer
 description: Summarizes input text concisely
-model: gpt-4o-mini
+model: openai/gpt-4o-mini
 modelParameters:
   temperature: 0.5
 messages:

@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-20.04-xl
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout rest-api-description repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -42,7 +42,7 @@ jobs:
           path: rest-api-description
           ref: ${{ inputs.SOURCE_BRANCH }}
 
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out

@@ -10,37 +10,20 @@ topics:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '> 3.15'
 ---
 
 ## About trialing {% data variables.product.prodname_GHAS %}
 
 You can trial {% data variables.product.prodname_GHAS %} independently, or working with an expert from {% data variables.product.github %} or a partner organization. The primary audience for these articles is people who will plan and run their trial independently, typically small and medium-sized organizations.
 
+* Existing {% data variables.product.prodname_ghe_cloud %} users can set up a trial if you pay for {% data variables.product.prodname_ghe_cloud %} by credit card or PayPal, or if you are already taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security#setting-up-your-trial-of-github-advanced-security).
+
+   {% data reusables.advanced-security.ghas-trial-invoiced %}
+
+* Users on other {% data variables.product.github %} plans can trial {% data variables.product.prodname_GHAS %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
+
 > [!NOTE] Although {% data variables.product.prodname_GHAS %} is free of charge during trials, you will be charged for any actions minutes that you use. That is, actions minutes used by the {% data variables.product.prodname_code_scanning %} default setup or by any other workflows you run.
-
-### Existing {% data variables.product.prodname_ghe_cloud %} users
-
-{% data reusables.advanced-security.ghas-trial-availability %} For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security#setting-up-your-trial-of-github-advanced-security).
-
-{% data reusables.advanced-security.ghas-trial-invoiced %}
-
-### Users on other GitHub plans
-
-You can trial {% data variables.product.prodname_GHAS %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
-
-### When the trial ends
-
-{% ifversion fpt %}
-
-If you don't already use {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}, you will need to upgrade your plan to continue using {% data variables.product.prodname_GH_cs_or_sp %} in private repositories when the trial ends.
-
-{% data variables.product.prodname_GH_cs_and_sp %} are billed by usage of unique committers to repositories with {% data variables.product.prodname_cs_or_sp %} enabled. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
-
-{% elsif ghec %}
-
-You can end your trial at any time by purchasing {% data variables.product.prodname_GH_cs_or_sp %}. If you don't already use {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}, you will need to upgrade your plan. Alternatively, you can cancel the trial at any time.
-
-{% endif %}
 
 ## Define your company goals
 
@@ -60,7 +43,7 @@ If your company already uses {% data variables.product.github %}, consider what 
 
 {% endrowheaders %}
 
-If your company doesn't use {% data variables.product.github %} yet, you are likely to have additional questions including how the platform handles data residency, secure account management, and repository migration. For more information, see [AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud).
+If your company doesn't use {% data variables.product.github %} yet, you are likely to have additional questions including how the platform handles data residency, secure account management, and repository migration. For more information, see [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud).
 
 ## Identify the members of your trial team
 
@@ -90,7 +73,7 @@ For each company need or goal that you identify, determine what criteria you wil
 
 ## Next steps
 
-1. [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)
+1. [AUTOTITLE](/code-security/trialing-github-advanced-security/trial-advanced-security) or [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) with {% data variables.product.prodname_AS %}
 1. [AUTOTITLE](/code-security/trialing-github-advanced-security/enable-security-features-trial)
 1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-secret-scanning)
 1. [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)

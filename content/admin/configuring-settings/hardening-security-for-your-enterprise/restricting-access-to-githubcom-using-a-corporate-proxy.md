@@ -76,6 +76,7 @@ Because this restriction only applies to requests that are sent via a proxy that
 | {% data variables.product.prodname_pages %} | `github.io` | This is generally user-generated content that cannot accept data. You may not want to restrict access. |
 | {% data variables.product.prodname_github_codespaces %} | `github.dev` | To restrict access, block the endpoint entirely. |
 | SSH access | Port 22 on {% data variables.product.prodname_dotcom_the_website %} | To restrict access, block the endpoint entirely. |
+| SSH over HTTPS        | `ssh.github.com`          | To restrict access, block the endpoint entirely. |
 | {% data variables.product.github %}-hosted runners | Various | To enforce specific routing, use Azure private networking. See [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise). |
 
 ### Endpoints that don't require restriction

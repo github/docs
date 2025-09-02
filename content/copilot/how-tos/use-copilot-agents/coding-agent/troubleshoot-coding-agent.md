@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Copilot coding agent
+title: Troubleshooting GitHub Copilot coding agent
 shortTitle: Troubleshoot coding agent
 intro: 'Learn how to resolve problems that may occur when you assign tasks to {% data variables.product.prodname_copilot_short %}.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=troubleshooting+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
@@ -70,11 +70,9 @@ If there is a "{% data variables.product.prodname_copilot_short %} started work"
 
 {% data reusables.copilot.coding-agent.write-access-required %}
 
-If you do have write access, and you add a comment on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, the comment is passed to {% data variables.copilot.copilot_coding_agent %}. An eyes emoji (👀) is added to your comment to indicate that {% data variables.copilot.copilot_coding_agent %} is considering your comment. If the agent proceeds to work on making changes in response to your comment a "{% data variables.product.prodname_copilot_short %} started work" event is added to the pull request timeline.
+If you do have write access, and you mention `@copilot` on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, the comment is passed to {% data variables.copilot.copilot_coding_agent %}. An eyes emoji (👀) is added to your comment to indicate that {% data variables.copilot.copilot_coding_agent %} has seen your comment. Shortly after, a "{% data variables.product.prodname_copilot_short %} started work" event is added to the pull request timeline.
 
-If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or {% data variables.product.prodname_copilot_short %} may have decided that your comment is not actionable.
-
-Check that {% data variables.product.prodname_copilot_short %} is assigned to the pull request. If it is, you can force {% data variables.product.prodname_copilot_short %} to respond to your comment by @mentioning {% data variables.product.prodname_copilot_short %} in the comment with `@copilot`.
+If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or you may not have write access.
 
 ## Based on the agent session logs, {% data variables.product.prodname_copilot_short %} appears to be stuck
 
@@ -107,6 +105,10 @@ If {% data variables.product.prodname_copilot_short %} tries to make a request w
 ![Screenshot of a warning from {% data variables.product.prodname_copilot_short %} about being blocked by the firewall.](/assets/images/help/copilot/coding-agent/firewall-warning.png)
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+
+## {% data variables.product.prodname_copilot_short %} is not picking up attached screenshots
+
+The maximum image size allowed by {% data variables.copilot.copilot_coding_agent %} is 3.00 MiB. Images larger than this will be removed from the request.
 
 ## Further reading
 

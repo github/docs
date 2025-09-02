@@ -1,5 +1,3 @@
-/* eslint-disable no-invalid-this */
-/* eslint-disable prettier/prettier */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
 import type { Request, Response, NextFunction } from 'express'

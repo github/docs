@@ -63,6 +63,7 @@ search:
       invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
     response:
       copy_code: Copy code to clipboard
+      copy_code_lang: Copy {language} code to clipboard
       copied_code: Copied!
   failure:
     general_title: There was an error loading search results.
@@ -260,6 +261,17 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
+bespoke_landing:
+  articles: Articles
+  all_categories: All categories
+  search_articles: Search articles
+discovery_landing:
+  recommended: Recommended
+  articles: Articles
+  all_categories: All categories
+  search_articles: Search articles
+journey_landing:
+  articles: '{{ number }} Articles'
 product_landing:
   quickstart: Quickstart
   reference: Reference
@@ -327,8 +339,14 @@ alerts:
 
 cookbook_landing:
   spotlight: Spotlight
-  explore_articles: Explore {{ number }} prompt articles
+  explore_articles: Explore {{ number }} examples
   reset_filters: Reset filters
-  search_articles: Search articles
+  search_articles: Search examples
   category: Category
   complexity: Complexity
+
+not_found:
+  title: Ooops!
+  message: It looks like this page doesn't exist.
+  contact: We track these errors automatically, but if the problem persists please feel free to contact us.
+  contact_cta: Contact support
