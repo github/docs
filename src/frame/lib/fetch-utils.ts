@@ -112,3 +112,24 @@ export async function fetchWithRetry(
 
   throw lastError || new Error('Maximum retries exceeded')
 }
+
+/**
+ * Create a streaming fetch request that returns a ReadableStream
+ * This replaces got.stream functionality
+ */
+export async function fetchStream(
+  url: string | URL,
+  init?: RequestInit,
+  options: FetchWithRetryOptions = {},
+): Promise<Response> {
+  const { timeout, throwHttpErrors = true } = options
+
+  const response = await fetchWithTimeout(url, init, timeout)
+
+  // Check for HTTP errors if throwHttpErrors is enabled
+  if (throwHttpErrors && !response.ok && response.status >= 400) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+  }
+
+  return response
+}

@@ -541,7 +541,7 @@ Your choice persists, for all repositories containing a custom instructions file
 
 ## Enabling and using prompt files
 
-> [!NOTE] Prompt files are {% data variables.release-phases.public_preview %} and subject to change.
+{% data reusables.copilot.prompt-files-preview-note %}
 
 Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.copilot.copilot_chat_short %} (for example, `Rewrite #file:x.ts`). You can have multiple prompt files in your workspace, each of which defines a prompt for a different purpose.
 
