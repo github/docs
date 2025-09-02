@@ -76,7 +76,7 @@ In addition to these generic non-provider patterns, {% data variables.product.pr
 > [!NOTE]
 > Validity checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
-| Provider | Token | Partner | User | Push protection | Validity check | Base 64 |
+| Provider | Token | Partner | User | Push protection | Validity check | Base64 |
 |----|:----|:----:|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
