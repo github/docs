@@ -48,7 +48,7 @@ The metrics are based on activity from the default period or your selected perio
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.
+1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_secret_scanning_caps %}**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your organization.
 {% data reusables.security-overview.filter-secret-scanning-metrics %}
 

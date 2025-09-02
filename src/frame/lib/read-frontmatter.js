@@ -1,6 +1,6 @@
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
-import { validateJson } from '#src/tests/lib/validate-json-schema.js'
+import { validateJson } from '@/tests/lib/validate-json-schema'
 
 function readFrontmatter(markdown, opts = {}) {
   const schema = opts.schema || { type: 'object', properties: {} }
@@ -15,7 +15,8 @@ function readFrontmatter(markdown, opts = {}) {
 
     const reason = e.reason
       ? // make this common error message a little easier to understand
-        e.reason.startsWith('can not read a block mapping entry;')
+        e.reason.startsWith('can not read a block mapping entry;') ||
+        e.reason === 'bad indentation of a mapping entry'
         ? defaultReason
         : e.reason
       : defaultReason

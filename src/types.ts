@@ -1,7 +1,8 @@
 import type { Request } from 'express'
 import type { Failbot } from '@github/failbot'
 
-import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d.ts'
+import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
+import type { ValidOcticon } from '@/landings/types'
 
 // Throughout our codebase we "extend" the Request object by attaching
 // things to it. For example `req.context = { currentCategory: 'foo' }`.
@@ -26,7 +27,7 @@ export type PageFrontmatter = {
   permissions?: string
   showMiniToc?: boolean
   miniTocMaxHeadingLevel?: number
-  mapTopic?: boolean
+  subcategory?: boolean
   hidden?: boolean
   noEarlyAccessBanner?: boolean
   earlyAccessToc?: string
@@ -54,6 +55,8 @@ export type PageFrontmatter = {
   defaultPlatform?: 'mac' | 'windows' | 'linux'
   defaultTool?: string
   childGroups?: ChildGroup[]
+  sidebarLink?: SidebarLink
+  spotlight?: SpotlightItem[]
 }
 
 type FeaturedLinks = {
@@ -74,6 +77,11 @@ export type ChildGroup = {
   octicon: string
   children: string[]
   icon?: string
+}
+
+export type SpotlightItem = {
+  article: string
+  image: string
 }
 
 export type Product = {
@@ -185,11 +193,11 @@ export type LearningTrack = {
   currentGuideIndex?: number
   nextGuide?: {
     href: string
-    title: string
+    title: string | undefined
   }
   prevGuide?: {
     href: string
-    title: string
+    title: string | undefined
   }
 }
 
@@ -239,8 +247,12 @@ type Breadcrumb = {
 export type ToC = {
   title: string
   fullPath: string
-  intro: string
-  childTocItems: ToC[] | null
+  intro: string | null
+  octicon: ValidOcticon | null
+  category: string[] | null
+  complexity: string[] | null
+  industry: string[] | null
+  childTocItems: ToC[]
 }
 
 export type GHESRelease = {
@@ -299,6 +311,7 @@ export type SecretScanningData = {
   isPrivateWithGhas: boolean
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
+  base64Supported: boolean
   isduplicate: boolean
 }
 
@@ -318,6 +331,7 @@ export type Permalink = {
   pageVersion: string
   title: string
   href: string
+  hrefWithoutLanguage: string
 }
 
 export type FrontmatterVersions = {
@@ -356,10 +370,17 @@ export type Page = {
   effectiveDate?: string
   fullTitle?: string
   render: (context: Context) => Promise<string>
+  buildRedirects: () => Record<string, string>
   octicon?: string
   category?: string[]
   complexity?: string[]
   industry?: string[]
+  sidebarLink?: SidebarLink
+}
+
+export type SidebarLink = {
+  text: string
+  href: string
 }
 
 type ChangeLog = {
@@ -375,6 +396,8 @@ export type TitlesTree = {
   documentType?: string
   childPages: TitlesTree[]
   hidden?: boolean
+  sidebarLink?: SidebarLink
+  layout?: string
 }
 
 export type Tree = {
@@ -461,6 +484,8 @@ export type MarkdownFrontmatter = {
   children: string[]
   allowTitleToDifferFromFilename?: boolean
   versions: FrontmatterVersions
-  mapTopic?: boolean
+  subcategory?: boolean
   hidden?: boolean
+  type?: string
+  contentType?: string
 }

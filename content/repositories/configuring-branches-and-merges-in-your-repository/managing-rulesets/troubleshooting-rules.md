@@ -21,7 +21,7 @@ If a branch or tag is targeted by rules restricting the metadata of commits, you
 
 When utilizing push rulesets, a maximum of 1000 reference updates are allowed per push. If your push exceeds this limit, it will be rejected. For more information see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#creating-a-push-ruleset).
 
-Additonally, push rulesets apply to the "Create a blob", "Create a tree", and "Create or update file contents" endpoints in the REST API. See [AUTOTITLE](/rest/git/blobs?apiVersion=2022-11-28#create-a-blob), [AUTOTITLE](/rest/git/trees?apiVersion=2022-11-28#create-a-tree), and [AUTOTITLE](/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents).
+Additionally, push rulesets apply to the "Create a blob", "Create a tree", and "Create or update file contents" endpoints in the REST API. See [AUTOTITLE](/rest/git/blobs?apiVersion=2022-11-28#create-a-blob), [AUTOTITLE](/rest/git/trees?apiVersion=2022-11-28#create-a-tree), and [AUTOTITLE](/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents).
 
 ## Troubleshooting required status checks
 

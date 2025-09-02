@@ -71,7 +71,7 @@ Before you can connect a {% data variables.product.github %} team with an IdP gr
 
 To avoid unintentionally removing team members, visit the administrative portal for your IdP and confirm that each current team member is also in the IdP groups that you want to connect to this team. If you don't have this access to your identity provider, you can reach out to your IdP administrator.
 
-You must authenticate using SAML SSO. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on).
+You must authenticate using SAML SSO. For more information, see [AUTOTITLE](/authentication/authenticating-with-single-sign-on).
 
 {% elsif ghes %}
 You must configure user provisioning with SCIM for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).

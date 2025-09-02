@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { frontmatterLiquidSyntax, liquidSyntax } from '../../lib/linting-rules/liquid-syntax.js'
+import { runRule } from '../../lib/init-test'
+import { frontmatterLiquidSyntax, liquidSyntax } from '../../lib/linting-rules/liquid-syntax'
 
 // Configure the test figure to not split frontmatter and content
 const fmOptions = { markdownlintOptions: { frontMatter: null } }

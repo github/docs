@@ -42,6 +42,7 @@ Due to the complexity of searching code, there are some restrictions on how sear
 * Up to 4,000 private{% ifversion ghec or ghes %} and internal{% endif %} repositories are searchable. These 4,000 repositories will be the most recently updated of the first 10,000 private{% ifversion ghec or ghes %} and internal{% endif %} repositories that you have access to.
 * Only repositories with fewer than 500,000 files are searchable.{% ifversion fpt or ghec %}
 * Only repositories that have had activity or have been returned in search results in the last year are searchable.{% endif %}
+* Archived repositories are not searchable.
 * Except with [`filename`](#search-by-filename) searches, you must always include at least one search term when searching source code. For example, searching for [`language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=language%3Ajavascript&type=Code&ref=searchresults) is not valid, while [`amazing language:javascript`](https://github.com/search?utf8=%E2%9C%93&q=amazing+language%3Ajavascript&type=Code&ref=searchresults) is.
 * At most, search results can show two fragments from the same file, but there may be more results within the file.
 * You can't use the following wildcard characters as part of your search query: <code>. , : ; / \ ` ' " = * ! ? # $ & + ^ | ~ < > ( ) { } [ ] @</code>. The search will simply ignore these symbols.

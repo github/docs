@@ -3,9 +3,9 @@ import walk from 'walk-sync'
 import path from 'path'
 import { escapeRegExp } from 'lodash-es'
 import { Tokenizer } from 'liquidjs'
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import { deprecated, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import { allVersions } from '@/versions/lib/all-versions'
+import { deprecated, oldestSupported } from '@/versions/lib/enterprise-server-releases'
 
 const allVersionKeys = Object.values(allVersions)
 const dryRun = ['-d', '--dry-run'].includes(process.argv[2])

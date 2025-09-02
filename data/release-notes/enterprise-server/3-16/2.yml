@@ -1,8 +1,12 @@
 date: '2025-04-17'
+intro: |
+  {% warning %}
+
+  **Warning**: We received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17 and have shipped performance fixes to the affected versions. You can now upgrade to 3.15.12, 3.16.8, 3.17.5, or later. We do not recommend upgrading to earlier releases of 3.15, 3.16, or 3.17. [Updated: 2025-08-25]
+
+  {% endwarning %}
 sections:
   security_fixes:
-    - |
-      **HIGH**: An attacker could execute arbitrary code, potentially leading to privilege escalation and system compromise, by exploiting the pre-receive hook functionality to bind to dynamically allocated ports that become temporarily available, such as during a hot patch upgrade. This vulnerability is only exploitable under specific operational conditions, such as during the hot patching process, and requires either site administrator permissions or a user with privileges to modify repositories containing pre-receive hooks. GitHub has requested CVE ID: [CVE-2025-3509](https://www.cve.org/cverecord?id=CVE-2025-3509) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       **MEDIUM:** An attacker could view private repository names, which the signed-in user is not authorized to see, in the GitHub Advanced Security Overview. This was due to a missing authorization check and occurred when filtering with _only_ `archived:`. GitHub has requested CVE ID [CVE-2025-3124](https://www.cve.org/CVERecord?id=CVE-2025-3124) for this vulnerability.
     - |
@@ -34,6 +38,8 @@ sections:
     - |
       The `spokesctl info` and `spokesctl repos` commands now also show wikis that are part of a network.
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |

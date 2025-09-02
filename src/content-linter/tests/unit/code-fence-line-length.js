@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length.js'
+import { runRule } from '../../lib/init-test'
+import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length'
 
 describe(codeFenceLineLength.names.join(' - '), () => {
   test('line length of max + 1 fails', async () => {

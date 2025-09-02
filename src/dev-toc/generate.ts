@@ -1,13 +1,24 @@
+/**
+ * Development tool that generates a local Table of Contents (TOC) for the GitHub Docs website.
+ *
+ * This script creates static HTML files for each documentation version, renders page titles
+ * using Liquid templating, and opens the generated TOC in your browser for easy navigation
+ * during development. Supports command-line options to specify which sections should be
+ * open by default.
+ *
+ * Usage: tsx src/dev-toc/generate.ts [-o product-ids...]
+ */
+
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 import { program } from 'commander'
 import type { NextFunction, Response } from 'express'
 import type { ExtendedRequest } from '@/types'
-import fpt from '#src/versions/lib/non-enterprise-default-version.js'
-import { allVersionKeys } from '#src/versions/lib/all-versions.js'
-import { liquid } from '#src/content-render/index.js'
-import contextualize from '#src/frame/middleware/context/context.js'
+import fpt from '@/versions/lib/non-enterprise-default-version'
+import { allVersionKeys } from '@/versions/lib/all-versions'
+import { liquid } from '@/content-render/index'
+import contextualize from '@/frame/middleware/context/context'
 
 interface CommandOptions {
   openSections?: string | string[]

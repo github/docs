@@ -5,11 +5,11 @@ import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
 
-import { loadPages } from '#src/frame/lib/page-data.js'
-import libLanguages from '#src/languages/lib/languages.js'
-import { liquid } from '#src/content-render/index.js'
-import patterns from '#src/frame/lib/patterns.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
+import { loadPages } from '@/frame/lib/page-data'
+import libLanguages from '@/languages/lib/languages'
+import { liquid } from '@/content-render/index'
+import patterns from '@/frame/lib/patterns'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
@@ -50,34 +50,46 @@ describe('pages module', () => {
       const englishPages = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
-        .map((pages) => pick(pages, ['redirect_from', 'applicableVersions']))
+        .map((pages) => pick(pages, ['redirect_from', 'applicableVersions', 'fullPath']))
         .value()
 
+      // Map from redirect path to Set of file paths
+      const redirectToFiles = new Map()
       const versionedRedirects = []
 
       englishPages.forEach((page) => {
         page.redirect_from.forEach((redirect) => {
           page.applicableVersions.forEach((version) => {
-            versionedRedirects.push(removeFPTFromPath(path.posix.join('/', version, redirect)))
+            const versioned = removeFPTFromPath(path.posix.join('/', version, redirect))
+            versionedRedirects.push({ path: versioned, file: page.fullPath })
+            if (!redirectToFiles.has(versioned)) {
+              redirectToFiles.set(versioned, new Set())
+            }
+            redirectToFiles.get(versioned).add(page.fullPath)
           })
         })
       })
 
-      const duplicates = versionedRedirects.reduce((acc, el, i, arr) => {
-        if (arr.indexOf(el) !== i && acc.indexOf(el) < 0) acc.push(el)
-        return acc
-      }, [])
+      // Only consider as duplicate if more than one unique file defines the same redirect
+      const duplicates = Array.from(redirectToFiles.entries())
+        .filter(([_, files]) => files.size > 1)
+        .map(([path]) => path)
 
-      const message = `Found ${duplicates.length} duplicate redirect_from ${
-        duplicates.length === 1 ? 'path' : 'paths'
-      }.
-      Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files.
-      You may also receive this error if you have defined the same children property more than once.\n
-  ${duplicates.join('\n')}`
+      // Build a detailed message with sources for each duplicate
+      const message =
+        `Found ${duplicates.length} duplicate redirect_from path${duplicates.length === 1 ? '' : 's'}.
+        Ensure that you don't define the same path more than once in the redirect_from property in a single file and across all English files.
+        You may also receive this error if you have defined the same children property more than once.\n` +
+        duplicates
+          .map((dup) => {
+            const files = Array.from(redirectToFiles.get(dup) || [])
+            return `${dup}\n  Defined in:\n    ${files.join('\n    ')}`
+          })
+          .join('\n\n')
       expect(duplicates.length, message).toBe(0)
     })
 
-    test('every English page has a filename that matches its slugified title', async () => {
+    test('every English page has a filename that matches its slugified title or shortTitle', async () => {
       const nonMatches = pages
         .filter((page) => {
           slugger.reset()
@@ -85,7 +97,8 @@ describe('pages module', () => {
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
             !page.allowTitleToDifferFromFilename && // ignore docs with override
-            slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md')
+            slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md') &&
+            slugger.slug(decode(page.shortTitle || '')) !== path.basename(page.relativePath, '.md')
           )
         })
         // make the output easier to read
@@ -106,7 +119,7 @@ describe('pages module', () => {
     nonMatches.length === 1 ? 'file' : 'files'
   } that do not match their slugified titles.\n
   ${nonMatches.join('\n')}\n
-  To fix, run src/content-render/scripts/reconcile-filenames-with-ids.js\n\n`
+  To fix, run: npm run-script update-filepaths --paths [FILEPATHS]\n\n`
 
       expect(nonMatches.length, message).toBe(0)
     })

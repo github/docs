@@ -37,8 +37,11 @@ All listings should meet the following requirements, regardless of whether they 
 * Listings must include valid contact information for the publisher.
 * Listings must have a relevant description of the application.
 * Listings must specify a pricing plan.
+* Listings must have a valid link to a privacy policy.
+* Listings must have a valid link to a Terms of Service page.
+* Listings must provide a method to receive support through a valid support link and/or a support email address.
 * Apps must provide value to customers and integrate with the platform in some way beyond authentication.
-* Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in {% data variables.release-phases.public_preview %} or available by invite only, with the exception of {% data variables.product.prodname_copilot_extensions_short %}.
+* Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in {% data variables.release-phases.public_preview %} or available by invite only, with the exception of {% data variables.copilot.copilot_extensions_short %}.
 * Apps must have webhook events set up to notify the publisher of any plan changes or cancellations using the {% data variables.product.prodname_marketplace %} API. For more information, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
 
 For more information on providing a good customer experience, see [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps).
@@ -55,13 +58,13 @@ To protect your customers, we recommend that you also follow security best pract
 
 {% data reusables.marketplace.free-apps-encouraged %}
 
-## Requirements for {% data variables.product.prodname_copilot_extensions %}
+## Requirements for {% data variables.copilot.copilot_extensions %}
 
-{% data variables.product.prodname_copilot_extensions_short %} are essentially {% data variables.product.prodname_github_apps %} with additional read access to {% data variables.product.prodname_copilot_chat_short %}, integration with the {% data variables.product.prodname_copilot_short %} API, and optional integration into other LLMs.
+{% data variables.copilot.copilot_extensions_short %} are essentially {% data variables.product.prodname_github_apps %} with additional read access to {% data variables.copilot.copilot_chat_short %}, integration with the {% data variables.product.prodname_copilot_short %} API, and optional integration into other LLMs.
 
 To publish an extension, it must be owned by an organization account with Verified Creator status. For more information about the verification process or transferring ownership of your app, see [AUTOTITLE](/apps/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization).
 
-The requirements to publish a {% data variables.product.prodname_copilot_extension_short %} are the same as the requirements for free apps, with the following exceptions:
+The requirements to publish a {% data variables.copilot.copilot_extension_short %} are the same as the requirements for free apps, with the following exceptions:
 * Your extension must provide a clear and descriptive response to a prompt like "What can you do?" or "List your capabilities".
 * Your extension can be in {% data variables.release-phases.public_preview %} as long as that is clearly communicated in the listing description. If you are using a waitlist, you must also include a link to sign up at the top of the description. Someone from the {% data variables.product.github %} review team will join the waitlist and email your technical lead requesting access for testing.
 * You must include links to two videos that demonstrate the following:

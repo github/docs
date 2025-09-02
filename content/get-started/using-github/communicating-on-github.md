@@ -26,7 +26,7 @@ You can create and participate in issues, pull requests, and team discussions, d
 
 {% ifversion copilot %}
 
-> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
 
 {% endif %}
 
@@ -121,7 +121,7 @@ If you need more context or clarity on a specific issue or discussion, you can u
 
 To ask a question about an issue or discussion:
 
-1. From anywhere on {% data variables.product.github %},  click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar in the top right of the page.
+1. From anywhere on {% data variables.product.github %},  click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar in the top right of the page.
 
    ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)
 

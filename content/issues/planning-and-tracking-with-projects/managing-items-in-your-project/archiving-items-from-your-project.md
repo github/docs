@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items {% ifversion projects-single-limit %}across both active views and archive page{% else %} and {% data variables.projects.archived_item_limit %} archived items{% endif %}.
+> A project can contain a maximum of{% ifversion projects-single-limit %} {% data variables.projects.item_limit %} items across both active views and the archive page{% else %} {% data variables.projects.legacy_item_limit %} items and {% data variables.projects.legacy_archived_item_limit %} archived items{% endif %}.
 
 ## Archiving items
 
@@ -31,7 +31,7 @@ You can archive an item to keep the context about the item in the project but re
 
    ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
 
-1. In the menu, click **{% octicon "archive" aria-hidden="true" %} Archived items**.
+1. In the menu, click **{% octicon "archive" aria-hidden="true" aria-label="archive" %} Archived items**.
 1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 1. To the left of each item title, select the items you would like to restore.
 

@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /get-started/git-basics/set-up-git
@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /copilot/how-tos/get-code-suggestions/get-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -53,6 +53,7 @@ children:
   - get-started
   - enterprise-onboarding
   - account-and-profile
+  - subscriptions-and-notifications
   - authentication
   - repositories
   - admin
@@ -92,6 +93,7 @@ childGroups:
       - get-started
       - migrations
       - account-and-profile
+      - subscriptions-and-notifications
       - authentication
       - billing
       - site-policy
@@ -106,11 +108,11 @@ childGroups:
     octicon: CopilotIcon
     children:
       - copilot
-      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
-      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
-      - copilot/copilot-chat-cookbook
-      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+      - copilot/get-started/plans
+      - copilot/how-tos/get-code-suggestions/get-code-suggestions
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/how-tos/use-copilot-agents/coding-agent
+      - copilot/how-tos/configure-custom-instructions
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -153,7 +155,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/building-copilot-extensions
+      - copilot/how-tos/use-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -170,6 +172,7 @@ childGroups:
       - codeql
       - electron
       - npm
+      - gh-wa
 externalProducts:
   electron:
     id: electron
@@ -192,3 +195,4 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
+

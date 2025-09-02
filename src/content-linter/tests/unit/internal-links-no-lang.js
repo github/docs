@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { internalLinksNoLang } from '../../lib/linting-rules/internal-links-no-lang.js'
+import { runRule } from '../../lib/init-test'
+import { internalLinksNoLang } from '../../lib/linting-rules/internal-links-no-lang'
 
 describe(internalLinksNoLang.names.join(' - '), () => {
   test('internal links with hardcoded language codes fail', async () => {

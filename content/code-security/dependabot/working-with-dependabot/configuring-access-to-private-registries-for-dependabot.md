@@ -33,7 +33,13 @@ For specific ecosystems, you can configure {% data variables.product.prodname_de
 
 ## Configuring private registries
 
-You configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
+{% ifversion org-private-registry %}
+
+You can configure {% data variables.product.prodname_dependabot %}'s access to private registries at the org-level. For more information on how to configure that, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/giving-org-access-private-registries).
+
+{% endif %}
+
+You can also configure {% data variables.product.prodname_dependabot %}'s access to private registries in the `dependabot.yml` file.
 The top-level `registries` key is optional and specifies authentication details.
 
 {% data reusables.dependabot.dependabot-updates-registries %}
@@ -113,7 +119,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 You can add {% data variables.product.prodname_dependabot %}-related IP addresses to your registries IP allow list.
 
-If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. If you run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners, you should instead use the IP addresses under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 {% endif %}
 
@@ -151,12 +157,11 @@ updates:
 
 {% endraw %}
 
-## Supported private registeries
+## Supported private registries
 
 Examples of how to configure access to the private registries supported by {% data variables.product.prodname_dependabot %}.
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}
-* [`cargo-registry`](#cargo-registry){% endif %}
+* [`cargo-registry`](#cargo-registry)
 * [`composer-repository`](#composer-repository)
 * [`docker-registry`](#docker-registry)
 * [`git`](#git)
@@ -170,8 +175,6 @@ Examples of how to configure access to the private registries supported by {% da
 * [`rubygems-server`](#rubygems-server)
 * [`terraform-registry`](#terraform-registry)
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}
-
 ### `cargo-registry`
 
 The `cargo-registry` type supports a token.
@@ -179,8 +182,6 @@ The `cargo-registry` type supports a token.
 {% data reusables.dependabot.dependabot-updates-path-match %}
 
 {% data reusables.dependabot.cargo-private-registry-config-example %}
-
-{% endif %}
 
 ### `composer-repository`
 
@@ -381,6 +382,8 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 ### `nuget-feed`
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
+
+`nuget-feed` doesn't support the `replaces-base` parameter.
 
 {% raw %}
 

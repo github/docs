@@ -1,14 +1,11 @@
-import type { NextFunction, Response } from 'express'
+import type { NextFunction, Response, ErrorRequestHandler } from 'express'
 
-import FailBot from '../lib/failbot.js'
-import { nextApp } from '@/frame/middleware/next.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { errorCacheControl } from '@/frame/middleware/cache-control.js'
-import statsd from '@/observability/lib/statsd.js'
-import { ExtendedRequest } from '@/types.js'
+import FailBot from '../lib/failbot'
+import { nextApp } from '@/frame/middleware/next'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { errorCacheControl } from '@/frame/middleware/cache-control'
+import statsd from '@/observability/lib/statsd'
+import { ExtendedRequest } from '@/types'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
@@ -53,7 +50,7 @@ function timedOut(req: ExtendedRequest) {
   statsd.increment('middleware.timeout', 1, incrementTags)
 }
 
-export default async function handleError(
+const handleError: ErrorRequestHandler = async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
@@ -93,7 +90,8 @@ export default async function handleError(
       }
 
       // We MUST delegate to the default Express error handler
-      return next(error)
+      next(error)
+      return
     }
 
     if (!req.context) {
@@ -103,7 +101,8 @@ export default async function handleError(
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
       // Note that if this fails, it will swallow that error.
-      return nextApp.render404(req, res)
+      nextApp.render404(req, res)
+      return
     }
     if (typeof error === 'number') {
       throw new Error("Don't use next(xxx) where xxx is any other number than 404")
@@ -117,7 +116,8 @@ export default async function handleError(
     // If the error contains a status code, just send that back. This is usually
     // from a middleware like `express.json()`.
     if (error.statusCode) {
-      return res.sendStatus(error.statusCode)
+      res.sendStatus(error.statusCode)
+      return
     }
 
     res.statusCode = 500
@@ -129,7 +129,8 @@ export default async function handleError(
     // it's easier to just see the full stack trace in the console
     // and in the client.
     if (process.env.NODE_ENV === 'development') {
-      return next(error)
+      next(error)
+      return
     } else {
       nextApp.renderError(error, req, res, req.path)
 
@@ -138,6 +139,9 @@ export default async function handleError(
     }
   } catch (error) {
     console.error('An error occurred in the error handling middleware!', error)
-    return next(error)
+    next(error)
+    return
   }
 }
+
+export default handleError

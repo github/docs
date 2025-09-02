@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { useArticleContext } from 'src/frame/components/context/ArticleContext'
-import { parseUserAgent } from 'src/events/components/user-agent'
+import { useArticleContext } from '@/frame/components/context/ArticleContext'
+import { parseUserAgent } from '@/events/components/user-agent'
 import { InArticlePicker } from './InArticlePicker'
 
 const platformQueryKey = 'platform'

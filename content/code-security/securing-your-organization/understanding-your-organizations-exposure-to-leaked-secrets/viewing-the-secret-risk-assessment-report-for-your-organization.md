@@ -2,6 +2,7 @@
 title: 'Viewing the secret risk assessment report for your organization'
 shortTitle: 'View secret risk assessment'
 intro: 'You can generate and view the {% data variables.product.prodname_secret_risk_assessment %} report for your organization from the "Security" tab.'
+product: '{% data reusables.gated-features.secret-risk-assessment-report %}'
 permissions: '{% data reusables.permissions.secret-risk-assessment-report-generation %}'
 allowTitleToDifferFromFilename: true
 type: how_to
@@ -18,8 +19,6 @@ topics:
 {% data reusables.secret-risk-assessment.report-intro %} {% data reusables.secret-risk-assessment.link-conceptual-information %}
 
 You can generate the {% data variables.product.prodname_secret_risk_assessment %} report for your organization, review it, and export the results to CSV.
-
-{% data reusables.secret-risk-assessment.public-preview-note %}
 
 ## Generating an initial {% data variables.product.prodname_secret_risk_assessment %}
 

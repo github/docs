@@ -1,1 +1,1 @@
-1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Billing**.
+{% data reusables.billing.enterprise-billing-menu %}

@@ -1,4 +1,4 @@
-import { schema } from '#src/frame/lib/frontmatter.js'
+import { schema } from '@/frame/lib/frontmatter'
 
 // Some learning tracks have `versions` blocks that match `versions` frontmatter,
 // so we can import that part of the FM schema.

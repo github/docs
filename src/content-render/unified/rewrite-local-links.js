@@ -1,18 +1,20 @@
+// When updating this file to typescript,
+// update links in content/contributing as well
+
 import path from 'path'
-import fs from 'fs'
 
 import stripAnsi from 'strip-ansi'
 import { visit } from 'unist-util-visit'
 import { distance } from 'fastest-levenshtein'
-import { getPathWithoutLanguage, getVersionStringFromPath } from '#src/frame/lib/path-utils.js'
-import { getNewVersionedPath } from '#src/archives/lib/old-versions-utils.ts'
-import patterns from '#src/frame/lib/patterns.js'
-import { deprecated, latest } from '#src/versions/lib/enterprise-server-releases.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
-import readJsonFile from '#src/frame/lib/read-json-file.js'
-import findPage from '#src/frame/lib/find-page.js'
+import { getPathWithoutLanguage, getVersionStringFromPath } from '@/frame/lib/path-utils'
+import { getNewVersionedPath } from '@/archives/lib/old-versions-utils'
+import patterns from '@/frame/lib/patterns'
+import { deprecated, latest } from '@/versions/lib/enterprise-server-releases'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersions } from '@/versions/lib/all-versions'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import readJsonFile from '@/frame/lib/read-json-file'
+import findPage from '@/frame/lib/find-page'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -44,36 +46,6 @@ function logError(file, line, message, title = 'Error') {
     const error = `::error file=${file},line=${line},title=${title}::${message}`
     console.log(error)
   }
-}
-
-function getFrontmatterOffset(filePath) {
-  if (!fs.existsSync(filePath)) return 0
-  const rawContent = fs.readFileSync(filePath, 'utf-8')
-  let delimiters = 0
-  let count = 0
-  // The frontmatter is wedged between two `---` lines. But the content
-  // doesn't necessarily start after the second `---`. If the `.md` file looks
-  // like this:
-  //
-  //     1) ---
-  //     2) title: Foo
-  //     3) ---
-  //     4)
-  //     5) # Introduction
-  //     6) Bla bla
-  //
-  // Then line one of the *content* that is processed, starts at line 5.
-  // because after the matter and content is separated, the content portion
-  // is whitespace trimmed.
-  for (const line of rawContent.split(/\n/g)) {
-    count++
-    if (line === '---') {
-      delimiters++
-    } else if (delimiters === 2 && line) {
-      return count
-    }
-  }
-  return 0
 }
 
 // Meaning it can be 'AUTOTITLE ' or ' AUTOTITLE' or 'AUTOTITLE'
@@ -204,12 +176,13 @@ async function getNewTitleSetter(child, href, context, originalHref) {
 async function getNewTitle(href, context, child, originalHref) {
   const page = findPage(href, context.pages, context.redirects)
   if (!page) {
-    const line = child.position.start.line + getFrontmatterOffset(context.page.fullPath)
-    const message = `Unable to find Page by '${originalHref || href}'.
-    To fix it, look at ${
-      context.page.fullPath
-    } on line ${line} and see if the link is correct and active.`
-    logError(context.page.fullPath, line, message)
+    // The child.position.start.line is 1-based and already represents the line number
+    // in the original file (including frontmatter), so no offset adjustment is needed
+    const line = child.position.start.line
+
+    const linkText = originalHref || href
+    const message = `The link '${linkText}' could not be resolved in one or more versions of the documentation. Make sure that this link can be reached from all versions of the documentation it appears in. (Line: ${line})`
+    logError(context.page.fullPath, line, message, 'Link Resolution Error')
     throw new TitleFromAutotitleError(message)
   }
   return await page.renderProp('title', context, { textOnly: true })

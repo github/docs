@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { imageAltTextEndPunctuation } from '../../lib/linting-rules/image-alt-text-end-punctuation.js'
+import { runRule } from '../../lib/init-test'
+import { imageAltTextEndPunctuation } from '../../lib/linting-rules/image-alt-text-end-punctuation'
 
 describe(imageAltTextEndPunctuation.names.join(' - '), () => {
   test('image alt text without end punctuation errors', async () => {

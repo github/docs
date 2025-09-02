@@ -13,10 +13,12 @@ topics:
   - Secret Protection
   - Repositories
 children:
+  - /remediating-a-leaked-secret
   - /push-protection-for-users
   - /working-with-push-protection-from-the-command-line
   - /working-with-push-protection-from-the-rest-api
   - /working-with-push-protection-in-the-github-ui
+  - /working-with-push-protection-and-the-github-mcp-server
 redirect_from:
   - /code-security/secret-scanning/working-with-push-protection
   - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection

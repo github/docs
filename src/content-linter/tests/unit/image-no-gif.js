@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { imageNoGif } from '../../lib/linting-rules/image-no-gif.js'
+import { runRule } from '../../lib/init-test'
+import { imageNoGif } from '../../lib/linting-rules/image-no-gif'
 
 describe(imageNoGif.names.join(' - '), () => {
   test('image with gifs', async () => {

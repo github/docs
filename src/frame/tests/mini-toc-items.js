@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest'
 
-import getMiniTocItems from '#src/frame/lib/get-mini-toc-items'
+import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
 
 function generateHeading(h) {
   return (slug) => `<${h} id="${slug}">

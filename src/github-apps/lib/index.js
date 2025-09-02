@@ -1,16 +1,16 @@
 import path from 'path'
-import { readFile } from 'fs/promises'
+import fs from 'fs'
 
-import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
-import { getOpenApiVersion } from '#src/versions/lib/all-versions.js'
-import { categoriesWithoutSubcategories } from '../../rest/lib/index.js'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
+import { getOpenApiVersion } from '@/versions/lib/all-versions'
+import { categoriesWithoutSubcategories } from '../../rest/lib/index'
 
 const ENABLED_APPS_DIR = 'src/github-apps/data'
 const githubAppsData = new Map()
 
 // Initialize the Map with the page type keys listed under `pages`
 // in the config.json file.
-const appsDataConfig = JSON.parse(await readFile('src/github-apps/lib/config.json', 'utf8'))
+const appsDataConfig = JSON.parse(fs.readFileSync('src/github-apps/lib/config.json', 'utf8'))
 for (const pageType of Object.keys(appsDataConfig.pages)) {
   githubAppsData.set(pageType, new Map())
 }
@@ -31,9 +31,9 @@ export async function getAppsData(pageType, docsVersion, apiVersion) {
 }
 
 export async function getAppsServerSideProps(context, pageType, { useDisplayTitle = false }) {
-  const { getAutomatedPageMiniTocItems } = await import('#src/frame/lib/get-mini-toc-items')
+  const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
   const { getAutomatedPageContextFromRequest } = await import(
-    '#src/automated-pipelines/components/AutomatedPageContext'
+    '@/automated-pipelines/components/AutomatedPageContext'
   )
   const currentVersion = context.query.versionId
   const allVersions = context.req.context.allVersions

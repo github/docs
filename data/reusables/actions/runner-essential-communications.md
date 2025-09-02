@@ -64,3 +64,15 @@ dependabot-actions.githubapp.com
 ```
 
 {% endif %}
+
+**Needed for downloading release assets:**
+
+```shell copy
+release-assets.githubusercontent.com
+```
+
+**Needed for VNet:**
+
+```shell copy
+api.snapcraft.io
+```

@@ -34,10 +34,10 @@ jobs:
     runs-on: ubuntu-20.04-xl
     steps:
       - name: Check out repo's default branch
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/node-npm-setup
 
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/github
@@ -50,6 +50,7 @@ jobs:
           # do other things in other steps.
           npm run validate-github-github-docs-urls -- validate \
             --output checks.json \
+            --ignore-not-found \
             github/config/docs-urls.json
 
       - name: Update config/docs-urls.json in github/github (possibly)

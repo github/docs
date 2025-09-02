@@ -1,28 +1,29 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, IconButton, Select, TabNav } from '@primer/react'
+import { FormControl, IconButton, Select, SegmentedControl } from '@primer/react'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
+import { generateExampleOptions } from '@/rest/lib/code-example-utils'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import useClipboard from 'src/rest/components/useClipboard'
+import { useTranslation } from '@/languages/components/useTranslation'
+import useClipboard from '@/rest/components/useClipboard'
 import {
   getShellExample,
   getGHExample,
   getJSExample,
-} from 'src/rest/components/get-rest-code-samples'
+} from '@/rest/components/get-rest-code-samples'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
-import { useVersion } from 'src/versions/components/useVersion'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useVersion } from '@/versions/components/useVersion'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
 type Props = {
   slug: string
@@ -71,13 +72,19 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     javascript: getJSExample(operation, sample, currentVersion, allVersions),
     ghcli: getGHExample(operation, sample, currentVersion, allVersions),
     response: sample.response,
+    request: sample.request,
   }))
 
   // Menu options for the language selector
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
-  // Management Console and GHES Manage API operations are not supported by Octokit
-  if (operation.subcategory !== 'management-console' && operation.subcategory !== 'manage-ghes') {
+  // Management Console, GHES Manage API, and GitHub Models
+  // operations are not supported by Octokit
+  if (
+    operation.category !== 'models' &&
+    operation.subcategory !== 'management-console' &&
+    operation.subcategory !== 'manage-ghes'
+  ) {
     languageSelectOptions.push(CodeSampleKeys.javascript)
 
     // Not all examples support the GH CLI language option. If any of
@@ -88,23 +95,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   }
 
   // Menu options for the example selector
-
-  // We show the media type in the examples menu items for each example if
-  // there's more than one example and if the media types aren't all the same
-  // for the examples (e.g. if all examples have content type `application/json`,
-  // we won't show that information in the menu items).
-  const showExampleOptionMediaType =
-    languageExamples.length > 1 &&
-    !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType,
-    )
-  const exampleSelectOptions = languageExamples.map((example, index) => ({
-    text: showExampleOptionMediaType
-      ? `${example.description} (${example.response.contentType})`
-      : example.description,
-    // maps to the index of the example in the languageExamples array
-    languageIndex: index,
-  }))
+  const exampleSelectOptions = generateExampleOptions(languageExamples)
 
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])
@@ -269,26 +260,28 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
         </div>
         <div className="border-top d-inline-flex flex-justify-between width-full flex-items-center pt-2">
           <div className="d-inline-flex ml-2">
-            <TabNav aria-label={`Example language selector for ${operation.title}`}>
+            <SegmentedControl
+              className={styles.segmentedControl}
+              aria-label={`Example language selector for ${operation.title}`}
+            >
               {languageSelectOptions.map((optionKey) => (
-                <TabNav.Link
+                <SegmentedControl.Button
                   key={optionKey}
                   selected={optionKey === selectedLanguage}
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent) => {
                     e.preventDefault()
                     handleLanguageSelection(optionKey)
                   }}
-                  onKeyDown={(event) => {
+                  onKeyDown={(event: React.KeyboardEvent) => {
                     if (event.key === 'Enter') {
                       handleLanguageSelection(optionKey)
                     }
                   }}
-                  href="#"
                 >
                   {t(`code_sample_options.${optionKey}`)}
-                </TabNav.Link>
+                </SegmentedControl.Button>
               ))}
-            </TabNav>
+            </SegmentedControl>
           </div>
           <div className="mr-2">
             <IconButton
@@ -311,14 +304,10 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
-          role="scrollbar"
-          aria-controls="example-request-code"
-          aria-valuenow={0}
         >
-          <code id="example-request-code" ref={requestCodeExample}>
-            {displayedExample[selectedLanguage]}
-          </code>
+          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
         </div>
       </div>
 
@@ -329,31 +318,30 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           __html: displayedExample.response.description || t('response'),
         }}
       ></h4>
-      <div className="border rounded-1">
+      <div className="border rounded-1 pt-2">
         {displayedExample.response.schema ? (
-          <TabNav
-            className="pt-2 mx-2"
+          <SegmentedControl
+            className={cx(styles.segmentedControl, 'mx-2')}
             aria-label={`Example response format selector for ${operation.title}`}
           >
             {responseSelectOptions.map((optionKey) => (
-              <TabNav.Link
+              <SegmentedControl.Button
                 key={optionKey}
                 selected={optionKey === selectedResponse}
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent) => {
                   e.preventDefault()
                   handleResponseSelection(optionKey)
                 }}
-                onKeyDown={(event) => {
+                onKeyDown={(event: React.KeyboardEvent) => {
                   if (event.key === 'Enter') {
                     handleResponseSelection(optionKey)
                   }
                 }}
-                href="#"
               >
                 {t(`response_options.${optionKey}`)}
-              </TabNav.Link>
+              </SegmentedControl.Button>
             ))}
-          </TabNav>
+          </SegmentedControl>
         ) : null}
         <div className="">
           {/* Status code */}
@@ -373,12 +361,10 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
+              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
-              role="scrollbar"
-              aria-controls="example-response-code"
-              aria-valuenow={0}
             >
-              <code id="example-response-code" ref={responseCodeExample}>
+              <code ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example
                   ? displayedExampleResponse
                   : displayedExampleSchema}

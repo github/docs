@@ -53,7 +53,7 @@ import chalk from 'chalk'
 import { program } from 'commander'
 // We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
 // as described above and suppress the import warning.
-import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' /* eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved */
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites' /* eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved */
 import type { Language } from 'codeql-ts'
 
 program
@@ -201,7 +201,7 @@ function printQueries(options: Options, queries: QueryExtended[]) {
     'Related CWEs',
     'Default',
     'Extended',
-    '{% data variables.product.prodname_copilot_autofix_short %}',
+    '{% data variables.copilot.copilot_autofix_short %}',
   ]
   markdown.push(`| ${header.join(' | ')} |`)
   markdown.push(`| ${header.map(() => '---').join(' | ')} |`)

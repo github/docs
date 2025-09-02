@@ -2,9 +2,9 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
-import { runRule } from '../../lib/init-test.js'
-import { liquidIfTags, liquidIfVersionTags } from '../../lib/linting-rules/liquid-versioning.js'
-import { nextNext } from '#src/versions/lib/enterprise-server-releases.js'
+import { runRule } from '../../lib/init-test'
+import { liquidIfTags, liquidIfVersionTags } from '../../lib/linting-rules/liquid-versioning'
+import { nextNext } from '@/versions/lib/enterprise-server-releases'
 
 describe(liquidIfTags.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
@@ -89,6 +89,31 @@ describe(liquidIfVersionTags.names.join(' - '), () => {
       `{% ifversion ghes != ${nextNext} %}`,
       `{% ifversion ghes < ${nextNext} %}`,
       '{% ifversion not ghec %}',
+    ].join('\n')
+    const result = await runRule(liquidIfVersionTags, { strings: { markdown } })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('ifversion tags with not keyword and feature-based versions fail', async () => {
+    const markdown = [
+      '{% ifversion not volvo %}',
+      '{% ifversion fpt or not volvo %}',
+      '{% ifversion not them-and-all %}',
+    ]
+    const result = await runRule(liquidIfVersionTags, {
+      strings: { markdown: markdown.join('\n') },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(markdown.length)
+    expect(errors.every((error) => error.errorDetail.includes('feature-based version'))).toBe(true)
+  })
+
+  test('ifversion tags with not keyword and short versions pass', async () => {
+    const markdown = [
+      '{% ifversion not ghec %}',
+      '{% ifversion fpt or not ghes %}',
+      '{% ifversion not fpt %}',
     ].join('\n')
     const result = await runRule(liquidIfVersionTags, { strings: { markdown } })
     const errors = result.markdown

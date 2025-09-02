@@ -1,12 +1,12 @@
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { SidebarProduct } from 'src/landings/components/SidebarProduct'
-import { SidebarSearchAggregates } from 'src/search/components/results/SidebarSearchAggregates'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { SidebarProduct } from '@/landings/components/SidebarProduct'
+import { SidebarSearchAggregates } from '@/search/components/results/SidebarSearchAggregates'
 import { AllProductsLink } from './AllProductsLink'
-import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { Link } from 'src/frame/components/Link'
+import { ApiVersionPicker } from '@/rest/components/ApiVersionPicker'
+import { Link } from '@/frame/components/Link'
 
 type Props = {
   variant?: 'full' | 'overlay'
@@ -33,34 +33,49 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
     <div
       data-container="nav"
       className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '')}
-      style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
+      style={
+        variant === 'full' ? { width: 326, height: 'calc(100vh - 65px)', top: '65px' } : undefined
+      }
     >
-      <nav aria-labelledby="allproducts-menu">
+      <nav
+        aria-labelledby="allproducts-menu"
+        role="navigation"
+        aria-label="Documentation navigation"
+      >
         {variant === 'full' && currentProduct && (
           <div className={cx('d-none px-4 pb-3 border-bottom d-xxl-block')}>
             <AllProductsLink />
             {showCurrentProductLink && (
-              <div className="mt-3" id="allproducts-menu">
+              <h2 className="mt-3" id="allproducts-menu">
                 <Link
                   data-testid="sidebar-product-xl"
                   href={`/${router.locale}${currentProduct.href}`}
                   // Note the `_product-title` is used by the popover preview cards
                   // when it needs this text for in-page links.
                   className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
+                  aria-describedby="allproducts-menu"
                 >
                   {currentProductName || currentProduct.name}
                 </Link>
-              </div>
+              </h2>
             )}
             {variant === 'full' && isRestPage && <ApiVersionPicker />}
           </div>
         )}
         <div
           className={cx(
-            variant === 'overlay' ? 'd-xxl-none' : 'border-right d-none d-xxl-block',
-            'bg-primary overflow-y-auto flex-shrink-0',
+            variant === 'overlay'
+              ? 'width-full d-xxl-none'
+              : 'border-right d-none d-xxl-block overflow-y-auto',
+            'bg-primary flex-shrink-0',
           )}
-          style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
+          style={
+            variant === 'overlay'
+              ? { paddingBottom: sidebarPaddingBottom }
+              : { width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }
+          }
+          role="region"
+          aria-label="Page navigation content"
         >
           <SidebarProduct key={router.asPath} />
 

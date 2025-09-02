@@ -1,13 +1,13 @@
 import { TokenKind } from 'liquidjs'
 import { addError } from 'markdownlint-rule-helpers'
 
-import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import {
   getLiquidTokens,
   getPositionData,
   OUTPUT_OPEN,
   OUTPUT_CLOSE,
-} from '../helpers/liquid-utils.js'
+} from '../helpers/liquid-utils'
 
 /*
   Checks for instances where a Liquid data or indented_data_reference
@@ -40,7 +40,7 @@ export const liquidDataReferencesDefined = {
       addError(
         onError,
         lineNumber,
-        `The Liquid data reference {% ${token.content} %} is used in content but either does not exist or has no value.`,
+        `The Liquid data reference {% ${token.content} %} is used in content but cannot be found or has no value. If the file exists, check it has a '.md' extension.`,
         token.content,
         [column, length],
         null, // No fix available

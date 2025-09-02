@@ -6,7 +6,7 @@ Package manager | YAML value      | Supported versions | Version updates | Secur
 [Bun](#bun) | `bun`         | >=v1.1.39               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
 Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 | {% octicon "check" aria-label="Supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}{% ifversion dependabot-updates-cargo-private-registry-support %}{% else %} (Git only){% endif %} | {% octicon "x" aria-label="Not supported" %} |
+[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [Dev containers](#dev-containers) | `devcontainers`         | Not applicable               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [Docker](#docker)    | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -25,16 +25,22 @@ Go modules     | `gomod`          | v1               | {% octicon "check" aria-l
 [Gradle](#gradle)         | `gradle`         | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [Maven](#maven)       | `maven`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 npm            | `npm`            | v7, v8, v9   | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-[NuGet](#nuget-cli)          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0 {% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+[NuGet](#nuget-cli)          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% endif %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pip](#pip-and-pip-compile) | `pip`            | v21.1.2          | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pip-compile](#pip-and-pip-compile) | `pip`            | 6.1.0            | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| {% ifversion dependabot-updates-pnpmv9-support %}pnpm{% else %}[pnpm](#pnpm){% endif %}   | `npm`            | v7, v8, v9      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} {% ifversion dependabot-updates-pnpmv9-support %}{% else %}(v7 and v8 only){% endif %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-updates-pnpmv9-support %}pnpm{% else %}[pnpm](#pnpm){% endif %}   | `npm`            | v7, v8, v9, v10      | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} {% ifversion dependabot-updates-pnpmv9-support %}{% else %}(v7 and v8 only){% endif %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 poetry         | `pip`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 [pub](#pub)           | `pub`            | v2  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% ifversion dependabot-rust-toolchain-support %} |
+[Rust toolchain](#rust-toolchain) | `rust-toolchain` | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable   | Not applicable   |
+| {% endif %} |
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.10.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% ifversion dependabot-vcpkg-support %} |
+[vcpkg](#vcpkg) | `vcpkg`          | Not applicable   | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable |
+| {% endif %} |
 [yarn](#yarn)           | `npm`            | v1, v2, v3       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}|
 
 > [!TIP]
@@ -52,7 +58,7 @@ For further information about ecosystem support for {% data variables.product.pr
 
 #### Cargo
 
-{% ifversion dependabot-updates-cargo-private-registry-support %}Private registry support includes cargo registries, so you can use {% data variables.product.prodname_dependabot %} to keep your Rust dependencies up-to-date. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#cargo).{% else %}Private registry support applies to Git registries, and doesn't include cargo registries.{% endif %}
+Private registry support includes cargo registries, so you can use {% data variables.product.prodname_dependabot %} to keep your Rust dependencies up-to-date. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot#cargo).
 
 #### Dev containers
 
@@ -127,7 +133,9 @@ When configuring Dependabot for Helm charts, it will also automatically update t
 
 #### pip and pip-compile
 
-In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
+{% data variables.product.prodname_dependabot %} supports updates to any `.txt` file.
+
+In addition, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
 
 {% ifversion dependabot-updates-pnpmv9-support %}
 
@@ -135,7 +143,7 @@ In addition to supporting updates to `requirements.txt` files, {% data variables
 
 #### pnpm
 
-pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} (on v7, v8, and v9) and {% data variables.product.prodname_dependabot_security_updates %} (on v7 and v8 only).
+pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} (on v7, v8, v9, v10) and {% data variables.product.prodname_dependabot_security_updates %} (on v7 and v8 only).
 {% endif %}
 
 #### poetry
@@ -148,6 +156,19 @@ The PEP 621 `project` section isn't currently supported for `poetry`.
 
 You can use {% data variables.product.prodname_dependabot %} to keep Dart dependencies up-to-date if you use private hosted pub repositories. For information about allowing {% data variables.product.prodname_dependabot %} to access private {% data variables.product.prodname_dotcom %} dependencies, see [Allowing {% data variables.product.prodname_dependabot %} to access private dependencies](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private{% ifversion ghec or ghes %}-or-internal{% endif %}-dependencies).
 
+{% ifversion dependabot-rust-toolchain-support %}
+
+#### Rust toolchain
+
+{% data variables.product.prodname_dependabot %} supports automatic updates for Rust toolchain versions defined in `rust-toolchain.toml` and `rust-toolchain` files.
+
+Supported update patterns {% data variables.product.prodname_dependabot %} can update:
+
+* Versioned toolchains such as `channel = "1.xx.yy"` and `channel = "1.xx"`.
+* Dated toolchains such as `channel = "nightly-YYYY-MM-DD"` and `channel = "beta-YYYY-MM-DD"`.
+
+{% endif %}
+
 #### Swift
 
 Private registry support applies to git registries only. Swift registries are not supported. Non-declarative manifests are not supported. For more information on non-declarative manifests, see [Editing Non-Declarative Manifests](https://github.com/apple/swift-evolution/blob/7003da1439ad60896ec14657dfce829f04b0632c/proposals/0301-package-editing-commands.md#editing-non-declarative-manifests) in the Swift Evolution documentation.
@@ -158,6 +179,14 @@ Terraform support includes:
 * Modules hosted on Terraform Registry or a publicly reachable Git repository.
 * Terraform providers.
 * Private Terraform Registry. You can configure access for private git repositories by specifying a git registry in your `dependabot.yml` file. For more information, see [`git`](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#git).
+
+{% ifversion dependabot-vcpkg-support %}
+
+#### vcpkg
+
+vcpkg support includes updating the `builtin-baseline` commit SHA from the vcpkg ports repository in your `vcpkg.json` manifest file. For more information visit the [`microsoft/vcpkg` repository](https://github.com/microsoft/vcpkg) on  {% data variables.product.prodname_dotcom_the_website %} and see [What is manifest mode?](https://learn.microsoft.com/vcpkg/concepts/manifest-mode) in the Microsoft documentation.
+
+{% endif %}
 
 #### yarn
 

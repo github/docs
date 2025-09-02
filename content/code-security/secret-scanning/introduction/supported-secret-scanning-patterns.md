@@ -51,9 +51,12 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+In addition to these generic non-provider patterns, {% data variables.product.prodname_secret_scanning %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+{% endif %}
+
 | Provider | Token |
 |----------|:--------------------|
-|  Generic | password |
 |  Generic | http_basic_authentication_header |
 |  Generic | http_bearer_authentication_header |
 |  Generic | mongodb_connection_string |
@@ -73,10 +76,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 > [!NOTE]
 > Validity checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
-| Provider | Token | Partner | User | Push protection | Validity check |
-|----|:----|:----:|:----:|:----:|:----:|
+| Provider | Token | Partner | User | Push protection | Validity check | Base 64 |
+|----|:----|:----:|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -84,10 +87,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHES 3.9+ table -->
 {% ifversion ghes %}
 
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
-|----|:----|:----:|:----:|:----:|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check | Base64 |
+|----|:----|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
 {%- endfor %}
 
 {% endif %}

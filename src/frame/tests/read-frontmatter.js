@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
-import parse from '#src/frame/lib/read-frontmatter.js'
-import { schema as frontmatterSchema } from '#src/frame/lib/frontmatter.js'
+import parse from '@/frame/lib/read-frontmatter'
+import { schema as frontmatterSchema } from '@/frame/lib/frontmatter'
 
 const filepath = 'path/to/file.md'
 const fixture1 = `---
@@ -65,7 +65,7 @@ I am content.
       const expectedError = {
         filepath: 'path/to/file.md',
         message: 'YML parsing error!',
-        reason: 'bad indentation of a mapping entry',
+        reason: 'invalid frontmatter entry',
       }
       expect(errors[0]).toEqual(expectedError)
     })

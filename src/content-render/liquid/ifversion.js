@@ -1,6 +1,6 @@
 import { Tag, isTruthy, Value, TokenizationError } from 'liquidjs'
-import versionSatisfiesRange from '#src/versions/lib/version-satisfies-range.js'
-import supportedOperators from './ifversion-supported-operators.js'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
+import supportedOperators from './ifversion-supported-operators'
 
 const SyntaxHelp =
   "Syntax Error in 'ifversion' with range - Valid syntax: ifversion [plan] [operator] [releaseNumber]"
@@ -48,7 +48,7 @@ export default class extends Tag {
   }
 
   // The following is _mostly_ verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
-  // The additions here are the handleNots() and handleOperators() calls.
+  // The additions here are the handleNots(), handleOperators(), and handleVersionNames() calls.
   *render(ctx, emitter) {
     const r = this.liquid.renderer
 
@@ -63,6 +63,13 @@ export default class extends Tag {
       // Resolve special operators in the conditional, if any.
       // This will replace syntax like `fpt or ghes < 3.0` with `fpt or true` or `fpt or false`.
       resolvedBranchCond = this.handleOperators(resolvedBranchCond)
+
+      // Resolve version names to boolean values for Markdown API context.
+      // This will replace syntax like `fpt or ghec` with `true or false` based on current version.
+      // Only apply this transformation in Markdown API context to avoid breaking existing functionality.
+      if (ctx.environments.markdownRequested) {
+        resolvedBranchCond = this.handleVersionNames(resolvedBranchCond, ctx)
+      }
 
       // Use Liquid's native function for the final evaluation.
       const cond = yield new Value(resolvedBranchCond, this.liquid).value(ctx, ctx.opts.lenientIf)
@@ -173,5 +180,28 @@ export default class extends Tag {
     }
 
     return resolvedBranchCond
+  }
+
+  handleVersionNames(resolvedBranchCond, ctx) {
+    if (!this.currentVersionObj) {
+      console.warn('currentVersionObj not found in ifversion context.')
+      return resolvedBranchCond
+    }
+
+    // Split the condition into tokens for processing
+    const tokens = resolvedBranchCond.split(/\s+/)
+    const processedTokens = tokens.map((token) => {
+      // Check if the token is a version short name (fpt, ghec, ghes, ghae)
+      const versionShortNames = ['fpt', 'ghec', 'ghes', 'ghae']
+      if (versionShortNames.includes(token)) {
+        // Transform version names to boolean values for Markdown API
+        // This fixes the original issue where version names were undefined in API context
+        return token === this.currentVersionObj.shortName ? 'true' : 'false'
+      }
+      // Return the token unchanged if it's not a version name
+      return token
+    })
+
+    return processedTokens.join(' ')
   }
 }

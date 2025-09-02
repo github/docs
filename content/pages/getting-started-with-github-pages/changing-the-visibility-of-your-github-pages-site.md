@@ -15,7 +15,7 @@ With access control for {% data variables.product.prodname_pages %}, you can res
 
 {% data reusables.pages.privately-publish-ghec-only %}
 
-If your enterprise uses {% data variables.product.prodname_emus %}, access control is not available, and all {% data variables.product.prodname_pages %} sites are only accessible to other enterprise members. For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/pages/getting-started-with-github-pages/github-pages-limits#limits-for-enterprise-managed-users).
+If your enterprise uses {% data variables.product.prodname_emus %}, {% data variables.product.prodname_pages %} sites can only be published as private, and all {% data variables.product.prodname_pages %} sites are only accessible to other enterprise members. For more information about {% data variables.product.prodname_emus %}, see [AUTOTITLE](/pages/getting-started-with-github-pages/github-pages-limits#limits-for-enterprise-managed-users).
 
 If your organization uses {% data variables.product.prodname_ghe_cloud %} without {% data variables.product.prodname_emus %}, you can choose to publish your project sites privately or publicly to anyone on the internet.
 
@@ -38,7 +38,7 @@ To use a shorter and more memorable domain for your privately published site, yo
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 1. Under "{% data variables.product.prodname_pages %}", select the **{% data variables.product.prodname_pages %} visibility** dropdown menu, then select a visibility.
-1. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-hidden="true" %} Visit site**.
+1. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-hidden="true" aria-label="link-external" %} Visit site**.
 
    ![Screenshot of a confirmation message for {% data variables.product.prodname_pages %} listing the site's URL. On the right, the "Visit site" button is outlined in orange.](/assets/images/help/pages/click-private-pages-url-to-preview.png)
 

@@ -22,7 +22,7 @@ Security campaigns are created and managed from the **Security** tab for your or
 
 You choose the alerts that you want to include in the campaign by using either:
 
- * **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}They also all include the requirement that {% data variables.product.prodname_copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
+ * **Campaign templates**: Campaign templates contain filters for the most common alert selections. {% ifversion security-campaigns-autofix %}They also all include the requirement that {% data variables.copilot.copilot_autofix %} is supported for all the alert types included (that is, `autofix:supported`).{% endif %}
  * **Custom filters**: Creating a campaign using custom filters lets you define your own criteria for selecting alerts for the campaign, and lets you tailor your campaign to your organization's specific needs.
 
 {% data reusables.code-scanning.campaigns-api %}
@@ -32,13 +32,13 @@ You choose the alerts that you want to include in the campaign by using either:
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.code-scanning.campaigns-click %}
-1. Click **Create campaign {% octicon "triangle-down" aria-hidden="true" %}**, then select one of the following options:
+1. Click **Create campaign {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}**, then select one of the following options:
    * Click **From template**, then select a pre-defined campaign template from the list.
    * Click **From code scanning filters**, then add filters to define a subset of alerts for your campaign. See [Examples of useful filters](#examples-of-useful-filters).
 1. Review the set of alerts to be included in the campaign, and adjust the filters as necessary. Make sure you have chosen 1000 alerts or fewer.
 1. When you are satisfied with the scope of the campaign, click **Save as**, then choose whether you want to create a draft campaign, or move straight ahead to finalizing the details of the campaign before publishing it:
-   * If you plan to review the scope and details of the campaign prior to launch, or seek feedback on the implementation of the campaign, click **{% octicon "issue-draft" aria-hidden="true" %} Draft campaign**.
-   * If you intend to publish the campaign, and don't need a review phase, click **{% octicon "goal" aria-hidden="true" %} Publish campaign**.
+   * If you plan to review the scope and details of the campaign prior to launch, or seek feedback on the implementation of the campaign, click **{% octicon "issue-draft" aria-hidden="true" aria-label="issue-draft" %} Draft campaign**.
+   * If you intend to publish the campaign, and don't need a review phase, click **{% octicon "goal" aria-hidden="true" aria-label="goal" %} Publish campaign**.
 1. Optionally, if you have chosen to create a draft campaign, edit, save, and review the details of the campaign:
    * Edit the "Campaign name" and "Short description" to match your campaign needs and to link to any resources that support the campaign.
    * Define a "Campaign due date" and select one or more "Campaign managers" as the primary contacts for the campaign. Campaign managers must be users or teams that are owners or security managers in the organization.
@@ -70,7 +70,7 @@ All the template filters include the following useful filters:
 
 * `is:open` includes only alerts that are open in the default branch.
 * `autofilter:true` includes only alerts that appear to be in application code. {% ifversion security-campaigns-autofix %}
-* `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.product.prodname_copilot_autofix %}.{% endif %}
+* `autofix:supported` includes only alerts that are for rules that are supported for {% data variables.copilot.copilot_autofix %}.{% endif %}
 
 Once you include these core filters, you will usually want to add a filter to limit results to a specific rule name, severity, or tag. For example:
 
@@ -88,13 +88,13 @@ For more information about filtering alerts, see [AUTOTITLE](/code-security/secu
 
 {% ifversion security-campaigns-autofix %}
 
-When you create a campaign, all the alerts are automatically submitted to {% data variables.product.prodname_copilot_autofix %} to be processed as capacity allows. This ensures that suggestions for alerts found in pull requests aren't delayed by a new campaign. In most cases, you should find that all suggestions that can be created are ready within an hour. At busy times of day, or for particularly complex alerts, it will take longer.
+When you create a campaign, all the alerts are automatically submitted to {% data variables.copilot.copilot_autofix %} to be processed as capacity allows. This ensures that suggestions for alerts found in pull requests aren't delayed by a new campaign. In most cases, you should find that all suggestions that can be created are ready within an hour. At busy times of day, or for particularly complex alerts, it will take longer.
 
 {% endif %}
 
 ### How developers know a security campaign has started
 
-When a campaign is started, anyone with **write** access to a repository included in the campaign, and has subscribed to watch either "All activity" or "security alerts" in that repository, is notified.
+When a campaign is started, anyone with **write** access to a repository included in the campaign is notified.
 
 In addition to the automatic notifications sent out, the new campaign is shown in the sidebar of the "Security" tab for each repository included. For more information about the developer experience, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
 
@@ -110,7 +110,7 @@ You can edit the name, description, due date, and manager for a campaign.
 {% data reusables.organizations.security-overview %}
 {% data reusables.code-scanning.campaigns-click %}
 1. From the list of campaigns, click the name of the campaign to display the campaign tracking view.
-1. In the campaign title row, click {% octicon "kebab-horizontal" aria-label="Campaign options" %} and select **{% octicon "pencil" aria-hidden="true" %} Edit campaign**.
+1. In the campaign title row, click {% octicon "kebab-horizontal" aria-label="Campaign options" %} and select **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit campaign**.
 1. In the "Edit campaign" dialog make your changes and then click **Save changes**.
 
 The changes are made immediately.
@@ -126,7 +126,7 @@ If you don't need to retain the campaign or its data, you can delete it.
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.code-scanning.campaigns-click %}
-1. To the right of the campaign you want to close, click {% octicon "kebab-horizontal" aria-label="Campaign options" %}, then select **{% octicon "archive" aria-hidden="true" %} Close campaign**.
+1. To the right of the campaign you want to close, click {% octicon "kebab-horizontal" aria-label="Campaign options" %}, then select **{% octicon "archive" aria-hidden="true" aria-label="archive" %} Close campaign**.
 
 ### Reopen a closed campaign
 
@@ -134,14 +134,14 @@ If you don't need to retain the campaign or its data, you can delete it.
 {% data reusables.organizations.security-overview %}
 {% data reusables.code-scanning.campaigns-click %}
 1. Above the list of campaigns, click **Closed** to view the list of closed campaigns.
-1. To the right of the campaign you want to reopen, click {% octicon "kebab-horizontal" aria-label="Campaign options" %}, then select **{% octicon "play" aria-hidden="true" %} Reopen campaign**.
+1. To the right of the campaign you want to reopen, click {% octicon "kebab-horizontal" aria-label="Campaign options" %}, then select **{% octicon "play" aria-hidden="true" aria-label="play" %} Reopen campaign**.
 
 ### Delete a campaign
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 {% data reusables.code-scanning.campaigns-click %}
-1. To the right of the campaign you want to delete, click {% octicon "kebab-horizontal" aria-label="Campaign options" %}, then select **{% octicon "trash" aria-hidden="true" %} Delete campaign**.
+1. To the right of the campaign you want to delete, click {% octicon "kebab-horizontal" aria-label="Campaign options" %}, then select **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete campaign**.
 
 ## Next steps
 

@@ -1,14 +1,14 @@
 import { readFile } from 'fs/promises'
 import path from 'path'
-import got from 'got'
+
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
-import { languageKeys } from '#src/languages/lib/languages.js'
-import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options.js'
+import { languageKeys } from '@/languages/lib/languages'
+import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options'
 
 const { targetDirectory, removeKeywords } = JSON.parse(
   await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
@@ -20,7 +20,11 @@ const END_SECTION = '\n:::'
 const PROGRAM_SECTION = '::: {.program}\n'
 
 // Updates several properties of the Markdown file using the AST
-export async function convertContentToDocs(content, frontmatterDefaults = {}) {
+export async function convertContentToDocs(
+  content,
+  frontmatterDefaults = {},
+  currentFileName = '',
+) {
   const ast = fromMarkdown(content)
 
   let depth = 0
@@ -160,11 +164,20 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
 
       // Remove the string {.interpreted-text role="doc"} from this node
       node.value = node.value.replace(/\n/g, ' ').replace('{.interpreted-text role="doc"}', '')
-      // Make the previous sibling node a link
-      link.type = 'link'
-      link.url = `${RELATIVE_LINK_PATH}/${linkPath}`
-      link.children = [{ type: 'text', value: linkText }]
-      delete link.value
+
+      // Check for circular links - if the link points to the same file we're processing
+      const currentFileBaseName = currentFileName.replace('.md', '')
+      if (currentFileBaseName && linkPath === currentFileBaseName) {
+        // Convert circular link to plain text instead of creating a link
+        link.type = 'text'
+        link.value = linkText
+      } else {
+        // Make the previous sibling node a link
+        link.type = 'link'
+        link.url = `${RELATIVE_LINK_PATH}/${linkPath}`
+        link.children = [{ type: 'text', value: linkText }]
+        delete link.value
+      }
     }
 
     // Save any nodes that contain aka.ms links so we can convert them later
@@ -220,15 +233,24 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
 async function getRedirect(url) {
   let response = null
   try {
-    response = await got(url)
+    response = await fetch(url, { redirect: 'manual' })
+    if (!response.ok && response.status !== 301 && response.status !== 302) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    }
   } catch (error) {
     console.error(error)
     const errorMsg = `Failed to get redirect for ${url} when converting aka.ms links to docs.github.com links.`
     throw new Error(errorMsg)
   }
 
-  // The first entry of redirectUrls has the anchor if it exists
-  const redirect = response.redirectUrls[0].pathname
+  // Get the redirect location from the response header
+  const redirectLocation = response.headers.get('location')
+  if (!redirectLocation) {
+    throw new Error(`No redirect location found for ${url}`)
+  }
+
+  // Parse the URL to get the pathname
+  const redirect = new URL(redirectLocation).pathname
 
   // Some of the aka.ms links have the /en language prefix.
   // This removes all language prefixes from the redirect url.

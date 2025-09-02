@@ -1,15 +1,15 @@
 /*
 This file & middleware is for when a user requests our /search page e.g. 'docs.github.com/search?query=foo'
- We make whatever search is in the ?query= parameter and attach it to req.search 
- req.search is then consumed by the search component in 'src/search/pages/search.tsx' 
+ We make whatever search is in the ?query= parameter and attach it to req.search
+ req.search is then consumed by the search component in 'src/search/pages/search.tsx'
 
 When a user directly hits our API e.g. /api/search/v1?query=foo, they will hit the routes in ./search-routes.ts
 */
 
-import got from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { Request, Response, NextFunction } from 'express'
 import { errors } from '@elastic/elasticsearch'
-import statsd from '@/observability/lib/statsd.js'
+import statsd from '@/observability/lib/statsd'
 
 import { getPathWithoutVersion, getPathWithoutLanguage } from '@/frame/lib/path-utils'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
@@ -21,7 +21,7 @@ import type {
   SearchOnReqObject,
   SearchTypes,
   SearchValidationErrorEntry,
-} from '@/search/types.js'
+} from '@/search/types'
 
 interface Context<Type extends SearchTypes> {
   currentVersion: string
@@ -169,6 +169,13 @@ async function getProxySearch(
       url.searchParams.set(key, value)
     }
   }
+  // Add client_name for external API requests
+  url.searchParams.set('client_name', 'docs.github.com-client')
   console.log(`Proxying search to ${url}`)
-  return got(url).json<GeneralSearchResponse>()
+
+  const response = await fetchWithRetry(url.toString())
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+  }
+  return response.json() as Promise<GeneralSearchResponse>
 }

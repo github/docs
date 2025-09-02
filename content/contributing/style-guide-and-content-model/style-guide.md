@@ -551,7 +551,7 @@ For presenting keyboard shortcuts, follow the [Microsoft Style Guide](https://do
 
 ### Usage highlights
 
-Below are some usage highlights for how we present keyboard shortcuts in our documentation:
+Here are some usage highlights for how we present keyboard shortcuts in our documentation:
 
 * The basic syntax is to show keys with `+` between key combinations, without any spaces.
 
@@ -592,7 +592,7 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 
 Do not create reusables for license attributions. We must use the exact license a project is licensed under, so any attributions must be accurately written for the articles that they appear in.
 
-If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed below, you must receive a legal review before you can publish the content.
+If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed here, you must receive a legal review before you can publish the content.
 
 ### Attributing MIT-licensed content
 
@@ -788,7 +788,7 @@ When introducing a list, avoid short, nonspecific sentences using terms like “
 Use permission statements and product callouts to communicate tasks that require specific roles or products to complete.
 
 * [**Permissions statements**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#permissions-statements): The role required to take an action or do a task described in the article. Example: "Enterprise owners."
-* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.product.prodname_copilot_business_short %}."
+* [**Product callout**](/contributing/style-guide-and-content-model/contents-of-a-github-docs-article#product-callout): The product or products required to take an action or do a task described in the article. Example: "Organization and enterprise accounts with a subscription to {% data variables.copilot.copilot_business_short %}."
 
 Together, permission statements and product callouts tell readers who can use the feature being described in an article.
 
@@ -809,6 +809,19 @@ If multiple roles or products apply to a permission statement or product callout
 #### Use inline links
 
 You can use inline links to provide more information about a role or product. The linked text must match the link destination so that it is clear where following the link will lead to.
+
+## Parenthetical dashes
+
+We use em dashes for parenthetical statements in normal body text. This doesn’t apply to text within code blocks.
+
+Examples:
+
+* ✅ Correct: "The cat—which sat on a branch—smiled with a broad grin." (em dash without spaces)
+* ❌ Incorrect: "The cat — which sat on a branch — smiled with a broad grin." (em dash with spaces)
+* ❌ Incorrect: "The cat–which sat on a branch–smiled with a broad grin." (en dash without spaces)
+* ❌ Incorrect: "The cat – which sat on a branch – smiled with a broad grin." (en dash with spaces)
+* ❌ Incorrect: "The cat-which sat on a branch-smiled with a broad grin." (hyphen without spaces)
+* ❌ Incorrect: "The cat - which sat on a branch - smiled with a broad grin." (hyphen with spaces)
 
 ## Placeholders
 
@@ -868,6 +881,12 @@ Do not capitalize commonly used features like pull requests, topics, or issues.
 ## Product-specific conventions
 
 This section describes additional conventions that are specific to GitHub products.
+
+### {% data variables.product.prodname_copilot %}
+
+#### {% data variables.product.prodname_copilot_short %} code completion
+
+The {% data variables.product.prodname_copilot_short %} feature that suggests code as you are working on a file is called "{% data variables.product.prodname_copilot_short %} code completion" or just "code completion" (singular). Only use "code suggestions" (plural) when referring to multiple instances of code completion suggestions. For example, "When using {% data variables.product.prodname_copilot_short %} code completion..." but "the plan includes 2,000 code completions..."
 
 ### {% data variables.product.prodname_actions %}
 
@@ -952,7 +971,7 @@ When referring to instances of remote working environments created with this tec
 
 Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the {% data variables.product.prodname_vscode %} documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
-Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
+Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `compose.yaml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
 ### {% data variables.product.prodname_GHAS %} products (GHAS)
 
@@ -1251,6 +1270,14 @@ To signal to readers that you've added or changed a note, or to indicate the pub
 
 To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See [Writing errata](#writing-errata).
 
+## Release references
+
+When referring to a range of releases starting from a particular release, use "or later."
+
+* **Use:** "release 0.41.0 or later"
+* **Avoid:** "release 0.41.0 or above"
+* **Avoid:** "release 0.41.0 or greater"
+
 ## Reusables and variables
 
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](https://github.com/github/docs/tree/main/data) in the [`github/docs`](https://github.com/github/docs) repository, [Creating reusable content](/contributing/writing-for-github-docs/creating-reusable-content), and the [Product names](#product-names) section of this document.
@@ -1533,11 +1560,12 @@ Format lists and clickable list items in bold. To describe interacting with a li
 
 ### Location
 
-Describe a user interface element’s location with standard terms.
-* Under or above
-* Next to
-* Upper-left, upper-right, lower-left, lower-right
-* Top of the page, bottom of the page, right side of the page, left side of the page
+As per [WCAG guidance](https://www.w3.org/WAI/WCAG21/Understanding/sensory-characteristics.html), we should describe elements by name and not merely by appearance or location. The Microsoft Style Guide offers specific guidance for directional phrases, with emphasis on their use in documentation.
+
+* [Above](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/above) or [below](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/b/below)
+* [Upper-left, upper-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/u/upper-left-upper-right)
+* [Lower-left, lower-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/lower-left-lower-right)
+* Next to, bottom or top of the page, left or right side of the page
 
 ### Panels
 

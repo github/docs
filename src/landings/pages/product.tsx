@@ -1,52 +1,70 @@
+import { useEffect } from 'react'
 import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
-import copyCode from 'src/frame/components/lib/copy-code'
-import toggleAnnotation from 'src/frame/components/lib/toggle-annotations'
-import wrapCodeTerms from 'src/frame/components/lib/wrap-code-terms'
+import copyCode from '@/frame/components/lib/copy-code'
+import toggleAnnotation from '@/frame/components/lib/toggle-annotations'
+import wrapCodeTerms from '@/frame/components/lib/wrap-code-terms'
 
 import {
   MainContextT,
   MainContext,
   getMainContext,
   addUINamespaces,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
   ProductLandingContext,
-} from 'src/landings/components/ProductLandingContext'
+} from '@/landings/components/ProductLandingContext'
 import {
   getProductGuidesContextFromRequest,
   ProductGuidesContextT,
   ProductGuidesContext,
-} from 'src/landings/components/ProductGuidesContext'
+} from '@/landings/components/ProductGuidesContext'
 
 import {
   getArticleContextFromRequest,
   ArticleContextT,
   ArticleContext,
-} from 'src/frame/components/context/ArticleContext'
-import { ArticlePage } from 'src/frame/components/article/ArticlePage'
+} from '@/frame/components/context/ArticleContext'
+import { ArticlePage } from '@/frame/components/article/ArticlePage'
 
-import { ProductLanding } from 'src/landings/components/ProductLanding'
-import { ProductGuides } from 'src/landings/components/ProductGuides'
-import { TocLanding } from 'src/landings/components/TocLanding'
-import { CategoryLanding } from 'src/landings/components/CategoryLanding'
+import { ProductLanding } from '@/landings/components/ProductLanding'
+import { ProductGuides } from '@/landings/components/ProductGuides'
+import { TocLanding } from '@/landings/components/TocLanding'
+import { CategoryLanding } from '@/landings/components/CategoryLanding'
 import {
   getTocLandingContextFromRequest,
   TocLandingContext,
   TocLandingContextT,
-} from 'src/frame/components/context/TocLandingContext'
+} from '@/frame/components/context/TocLandingContext'
 import {
   getCategoryLandingContextFromRequest,
   CategoryLandingContext,
   CategoryLandingContextT,
-} from 'src/frame/components/context/CategoryLandingContext'
-import { useEffect } from 'react'
+} from '@/frame/components/context/CategoryLandingContext'
+import { BespokeLanding } from '@/landings/components/bespoke/BespokeLanding'
+import {
+  BespokeContext,
+  getBespokeContextFromRequest,
+  BespokeContextT,
+} from '@/landings/context/BespokeContext'
+import { DiscoveryLanding } from '@/landings/components/discovery/DiscoveryLanding'
+import {
+  DiscoveryContext,
+  DiscoveryContextT,
+  getDiscoveryContextFromRequest,
+} from '@/landings/context/DiscoveryContext'
+import { JourneyLanding } from '@/landings/components/journey/JourneyLanding'
+import {
+  getJourneyContextFromRequest,
+  JourneyContext,
+  JourneyContextT,
+} from '@/landings/context/JourneyContext'
 
 function initiateArticleScripts() {
   copyCode()
@@ -61,6 +79,9 @@ type Props = {
   tocLandingContext?: TocLandingContextT
   articleContext?: ArticleContextT
   categoryLandingContext?: CategoryLandingContextT
+  bespokeContext?: BespokeContextT
+  discoveryContext?: DiscoveryContextT
+  journeyContext?: JourneyContextT
 }
 const GlobalPage = ({
   mainContext,
@@ -69,6 +90,9 @@ const GlobalPage = ({
   tocLandingContext,
   articleContext,
   categoryLandingContext,
+  bespokeContext,
+  journeyContext,
+  discoveryContext,
 }: Props) => {
   const router = useRouter()
 
@@ -82,7 +106,25 @@ const GlobalPage = ({
   }, [router.events])
 
   let content
-  if (productLandingContext) {
+  if (bespokeContext) {
+    content = (
+      <BespokeContext.Provider value={bespokeContext}>
+        <BespokeLanding />
+      </BespokeContext.Provider>
+    )
+  } else if (discoveryContext) {
+    content = (
+      <DiscoveryContext.Provider value={discoveryContext}>
+        <DiscoveryLanding />
+      </DiscoveryContext.Provider>
+    )
+  } else if (journeyContext) {
+    content = (
+      <JourneyContext.Provider value={journeyContext}>
+        <JourneyLanding />
+      </JourneyContext.Provider>
+    )
+  } else if (productLandingContext) {
     content = (
       <ProductLandingContext.Provider value={productLandingContext}>
         <ProductLanding />
@@ -140,7 +182,20 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const additionalUINamespaces: string[] = []
 
   // This looks a little funky, but it's so we only send one context's data to the client
-  if (currentLayoutName === 'product-landing') {
+  // TODO: TEMP: This is a temporary solution to turn off/on new landing pages while we develop them
+  if (currentLayoutName === 'bespoke-landing' || req.query?.feature === 'bespoke-landing') {
+    props.bespokeContext = await getBespokeContextFromRequest(req)
+    additionalUINamespaces.push('bespoke_landing')
+  } else if (currentLayoutName === 'journey-landing' || req.query?.feature === 'journey-landing') {
+    props.journeyContext = await getJourneyContextFromRequest(req)
+    additionalUINamespaces.push('journey_landing')
+  } else if (
+    currentLayoutName === 'discovery-landing' ||
+    req?.query?.feature === 'discovery-landing'
+  ) {
+    props.discoveryContext = await getDiscoveryContextFromRequest(req)
+    additionalUINamespaces.push('discovery_landing')
+  } else if (currentLayoutName === 'product-landing') {
     props.productLandingContext = await getProductLandingContextFromRequest(req)
     additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'product-guides') {

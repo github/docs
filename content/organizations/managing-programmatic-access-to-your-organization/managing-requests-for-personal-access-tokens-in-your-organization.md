@@ -23,7 +23,7 @@ Organization owners can also use the REST API to review and manage {% data varia
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
 1. Click the name of the token that you want to approve or deny.
 1. Review the access and permissions that the token is requesting.
 1. To grant the token access to the organization, click **Approve**. To deny the token access to the organization, click **Deny**.
@@ -33,7 +33,7 @@ Alternatively, you can approve or deny multiple tokens at once:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
 {% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to approve or reject.
 1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.

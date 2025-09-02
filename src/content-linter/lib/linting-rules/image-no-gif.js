@@ -1,6 +1,6 @@
 import { addError } from 'markdownlint-rule-helpers'
 
-import { forEachInlineChild } from '../helpers/utils.js'
+import { forEachInlineChild } from '../helpers/utils'
 
 export const imageNoGif = {
   names: ['GHD036', 'image-no-gif'],
