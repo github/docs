@@ -4,7 +4,7 @@
 
 We've added documentation for support of Copilot code review in Xcode.
 
-See: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=xcode
+See: [Using GitHub Copilot code review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=xcode)
 
 <hr>
 
