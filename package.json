@@ -166,7 +166,7 @@
     "@primer/live-region-element": "^0.7.2",
     "@primer/octicons": "^19.15.5",
     "@primer/octicons-react": "^19.14.0",
-    "@primer/react": "36.27.0",
+    "@primer/react": "^37.31.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
@@ -177,6 +177,7 @@
     "cheerio": "^1.0.0-rc.12",
     "cheerio-to-text": "0.2.4",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "connect-timeout": "1.9.1",
     "cookie-parser": "^1.4.7",
     "cuss": "2.2.0",
@@ -190,7 +191,6 @@
     "flat": "^6.0.1",
     "github-slugger": "^2.0.0",
     "glob": "11.0.2",
-    "got": "^14.4.7",
     "hast-util-from-parse5": "^8.0.3",
     "hast-util-to-string": "^3.0.1",
     "hastscript": "^9.0.1",
@@ -219,8 +219,8 @@
     "ora": "^8.0.1",
     "parse5": "7.1.2",
     "quick-lru": "7.0.1",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-raw": "^7.0.0",
@@ -328,7 +328,7 @@
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^20 || >=22.0.0 <22.18.0"
+    "node": "^20 || ^22"
   },
   "cacheDirectories": [
     "node_modules",

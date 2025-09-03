@@ -77,6 +77,7 @@ copilot_for_prs: 'Copilot pull request summaries'
 copilot_in_support: 'Copilot in GitHub Support'
 copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
 copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
+copilot_preview_features: 'Copilot preview features'
 copilot_prs_short: 'pull request summaries'
 copilot_skillset_short: 'Copilot skillset'
 copilot_skillset: 'GitHub Copilot skillset'
@@ -116,6 +117,8 @@ copilot_gpt_5_mini: 'GPT-5 mini'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
+## xAI:
+copilot_grok_code: 'Grok Code Fast 1'
 
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'

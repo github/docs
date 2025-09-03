@@ -50,6 +50,8 @@ Depending on the question you ask, and your enterprise and organization settings
 1. To start a new conversation, click {% data reusables.copilot.pencil-paper-icon %} at the top left of the page.
 1. To see a list of your previous conversations, click {% octicon "sidebar-collapse" aria-label="Open sidebar" %} at the top left of the page.
 
+{% data variables.copilot.copilot_chat_short %} retains each conversation for up to 28 days from the last activity. After 28 days, the conversation is permanently deleted. You can view up to 100 previous conversations.
+
 ### Viewing and editing generated files within {% data variables.copilot.copilot_chat_short %}
 
 > [!NOTE]
@@ -114,13 +116,11 @@ To navigate between subthreads:
 
 ## Powered by skills
 
-{% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
-
-![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with the status information expanded and the skill that was used highlighted with an orange outline.](/assets/images/help/copilot/chat-show-skill.png)
+{% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask.
 
 You can explicitly ask {% data variables.copilot.copilot_chat_dotcom %} to use a particular skill - for example, `Use the Bing skill to find the latest GPT4 model from OpenAI`.
 
-You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `What skills are available?`
+Generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `What skills are available?`
 
 ## Asking {% data variables.copilot.copilot_chat_short %} questions in different contexts
 

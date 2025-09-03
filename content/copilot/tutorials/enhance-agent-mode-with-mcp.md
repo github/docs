@@ -196,3 +196,4 @@ Try the [Integrate MCP with {% data variables.product.prodname_copilot %}](https
 ## Further reading
 
 * **MCP fundamentals**: For more information about setting up and configuring MCP servers, see [AUTOTITLE](/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp).
+* **Using MCP servers**: For additional ideas on integrating MCP with {% data variables.product.prodname_copilot %}, see [5 ways to transform your workflow using GitHub Copilot and MCP](https://github.blog/ai-and-ml/github-copilot/5-ways-to-transform-your-workflow-using-github-copilot-and-mcp/) on the {% data variables.product.prodname_blog %}.

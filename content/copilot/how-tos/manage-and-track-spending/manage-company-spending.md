@@ -39,9 +39,9 @@ This report includes all premium request usage by user, both within and beyond t
 
 ### Granting more premium requests to members
 
-By default, enterprises have a $0 budget for the Premium Request SKU. This means that when users exhaust their allowance, they cannot make any more premium requests for the rest of the month. Deleting this budget allows for **unlimited spending**.
+Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-To change the default budget or increase members' base allowance, see [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
+{% data reusables.copilot.zero-budget-changes %}
 
 ## Mapping spending to groups of users
 
@@ -56,7 +56,7 @@ For more information, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
 You can set a monthly budget on {% data variables.product.prodname_copilot %} spending.
 
 * For {% data variables.product.prodname_copilot_short %} **licenses**, a budget is for monitoring purposes only and will not prevent usage beyond the budgeted amount. However, you will receive notifications by email when spending exceeds certain percentages of the budget you've set.
-* For {% data variables.product.prodname_copilot_short %} **premium requests**, you can choose to stop usage once the budget amount is reached. The default $0 budget for enterprises already does this.
+* For {% data variables.product.prodname_copilot_short %} **premium requests**, you can choose to stop usage once the budget amount is reached.
 
 To create a budget, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#editing-or-deleting-a-budget).
 

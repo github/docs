@@ -1,7 +1,7 @@
 ---
 title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
-intro: 'You can use the Agents panel or page, {% data variables.product.prodname_vscode %} and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
+intro: 'You can use the Agents panel or page, {% data variables.product.prodname_vscode %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -24,7 +24,7 @@ contentType: how-tos
 
 After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-The Agents panel and [Agents page](https://github.com/copilot/agents) provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
+The Agents panel, [Agents page](https://github.com/copilot/agents), and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 
 You can also track {% data variables.product.prodname_copilot_short %}'s sessions in a specific repository from {% data variables.product.prodname_vscode %}.
 
@@ -45,6 +45,20 @@ To view the session logs, click through to the pull request in the list, then fi
 ![Screenshot of a section of a pull request with the 'View session' button highlighted.](/assets/images/help/copilot/coding-agent/log-view-session.png)
 
 You can also start new agent sessions from the page and panel. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request).
+
+## Tracking agent sessions from Raycast
+
+{% data reusables.copilot.coding-agent.raycast-intro %}
+
+{% data reusables.copilot.coding-agent.raycast-setup %}
+1. Open Raycast, search for "{% data variables.product.prodname_copilot_short %}," find the **View Tasks** command, then press <kbd>Enter</kbd>.
+1. Click **Sign in with {% data variables.product.github %}**, then complete the authentication flow. Raycast will re-open.
+1. You'll see a list of your tasks. To navigate to the linked pull request, press <kbd>Enter</kbd>. To view the session logs, press <kbd>Command</kbd>+<kbd>L</kbd>.
+
+> [!NOTE]
+> If you are unable to see some tasks in Raycast, the organization that owns the repository may have enabled {% data variables.product.prodname_oauth_app %} access restrictions. To learn how to request approval for the "{% data variables.product.prodname_copilot %} for Raycast" {% data variables.product.prodname_oauth_app %}, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps).
+
+You can also start new agent sessions from Raycast. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-raycast).
 
 ## Tracking sessions from {% data variables.product.prodname_vscode %}
 

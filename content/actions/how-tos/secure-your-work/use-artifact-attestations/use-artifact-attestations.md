@@ -42,7 +42,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v2
+     uses: actions/attest-build-provenance@v3
      with:
        subject-path: 'PATH/TO/ARTIFACT'
    ```
@@ -65,7 +65,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v2
+     uses: actions/attest-build-provenance@v3
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}{% endraw %}
        subject-digest: 'sha256:fedcba0...'
@@ -190,3 +190,5 @@ gh attestation verify PATH/TO/YOUR/BUILD/ARTIFACT-BINARY \
 ## Next steps
 
 To keep your attestations relevant and manageable, you should delete attestations that are no longer needed. See [AUTOTITLE](/actions/how-tos/security-for-github-actions/using-artifact-attestations/managing-the-lifecycle-of-artifact-attestations).
+
+You can also generate release attestations to help consumers verify the integrity and origin of your releases. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).

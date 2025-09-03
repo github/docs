@@ -1,5 +1,0 @@
-# https://github.com/github/docs-content/issues/18495
-# Enterprise-managed custom org roles and the limit increase to 20 roles
-versions:
-  ghec: '*'
-  ghes: '>=3.19'

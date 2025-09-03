@@ -1,5 +1,31 @@
 # Docs changelog
 
+**2 September 2025**
+
+We've published a new customization library for GitHub Copilot: a curated collection of examples you can copy, adjust, and use to enhance your experience with Copilot. This library is designed to inspire and educate people on the options available to customize Copilot responses.
+
+We've included examples of custom instructions (widely supported) and prompt files (supported in VS Code only). The examples cover scenarios such as debugging, onboarding, and accessibility. We look forward to adding more examples over time.
+
+See: [Customization library](https://docs.github.com/copilot/tutorials/customization-library).
+
+<hr>
+
+**28 August 2025**
+
+We've published an article about the new AI-powered issue intake tool, which automates incoming issue analysis and triage for OS maintainers.
+
+See: [Triaging an issue with AI](https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai).
+
+<hr>
+
+**26 August 2025**
+
+xAI Grok Code Fast 1 is now available in public preview for GitHub Copilot. Grok Code Fast 1 is slowly rolling out to all paid Copilot plans and you will be able to access the model in Visual Studio Code (Agent, Ask, and Edit modes).
+
+See: [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+
+<hr>
+
 **15 August 2025**
 
 When interacting with the GitHub MCP server for a public repository, push protection blocks secrets from appearing in AI-generated responses and also prevents secrets from being included in any actions you perform, such as creating an issue.

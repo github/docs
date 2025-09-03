@@ -13,7 +13,6 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { VersionPicker } from '@/versions/components/VersionPicker'
 import { SidebarNav } from '@/frame/components/sidebar/SidebarNav'
-import { AllProductsLink } from '@/frame/components/sidebar/AllProductsLink'
 import { SearchBarButton } from '@/search/components/input/SearchBarButton'
 import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
@@ -34,8 +33,8 @@ export const Header = () => {
   const { params, updateParams } = useMultiQueryParams()
   const [scroll, setScroll] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
-  const closeSidebar = useCallback(() => setIsSidebarOpen(false), [isSidebarOpen])
+  const openSidebar = useCallback(() => setIsSidebarOpen(true), [])
+  const closeSidebar = useCallback(() => setIsSidebarOpen(false), [])
   const isMounted = useRef(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const { asPath } = useRouter()
@@ -204,45 +203,23 @@ export const Header = () => {
                   onClick={openSidebar}
                   ref={returnFocusRef}
                 />
-                <Dialog
-                  returnFocusRef={returnFocusRef}
-                  isOpen={isSidebarOpen}
-                  onDismiss={closeSidebar}
-                  aria-labelledby="menu-title"
-                  sx={{
-                    position: 'fixed',
-                    top: '0',
-                    left: '0',
-                    marginTop: '0',
-                    maxHeight: '100vh',
-                    width: 'auto !important',
-                    transform: 'none',
-                    borderRadius: '0',
-                    borderRight:
-                      '1px solid var(--borderColor-default, var(--color-border-default))',
-                  }}
-                >
-                  <Dialog.Header
-                    style={{ paddingTop: '0px', background: 'none' }}
-                    id="sidebar-overlay-header"
-                    sx={{ display: 'block' }}
+                {isSidebarOpen && (
+                  <Dialog
+                    returnFocusRef={returnFocusRef}
+                    onClose={closeSidebar}
+                    className={cx(styles.dialog, 'd-xxl-none')}
+                    position="left"
+                    title={
+                      error === '404' || !currentProduct || isSearchResultsPage
+                        ? null
+                        : currentProductName || currentProduct.name
+                    }
+                    subtitle={isRestPage && <ApiVersionPicker />}
+                    width="medium"
                   >
-                    <AllProductsLink />
-                    {error === '404' || !currentProduct || isSearchResultsPage ? null : (
-                      <h2 className="mt-3">
-                        <Link
-                          data-testid="sidebar-product-dialog"
-                          href={currentProduct.href}
-                          className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
-                        >
-                          {currentProductName || currentProduct.name}
-                        </Link>
-                      </h2>
-                    )}
-                    {isRestPage && <ApiVersionPicker />}
-                  </Dialog.Header>
-                  <SidebarNav variant="overlay" />
-                </Dialog>
+                    <SidebarNav variant="overlay" />
+                  </Dialog>
+                )}
               </div>
             )}
             <div className="mr-auto width-full" data-search="breadcrumbs">

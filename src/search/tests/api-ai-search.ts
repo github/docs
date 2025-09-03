@@ -123,4 +123,72 @@ describe('AI Search Routes', () => {
       { message: `Missing required key 'query' in request body` },
     ])
   })
+
+  test('should handle streaming response correctly', async () => {
+    // This test verifies the streaming response processing works
+    const body = { query: 'test streaming query', version: 'dotcom' }
+    const response = await fetch('http://localhost:4000/api/ai-search/v1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+
+    expect(response.ok).toBe(true)
+    expect(response.headers.get('content-type')).toBe('application/x-ndjson')
+
+    // Verify we can read the stream without errors
+    if (response.body) {
+      const reader = response.body.getReader()
+      const decoder = new TextDecoder()
+      let chunks = []
+
+      try {
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) break
+          chunks.push(decoder.decode(value, { stream: true }))
+        }
+        expect(chunks.length).toBeGreaterThan(0)
+      } finally {
+        reader.releaseLock()
+      }
+    }
+  })
+
+  test('should handle invalid version parameter', async () => {
+    const body = { query: 'test query', version: 'invalid-version' }
+    const response = await post('/api/ai-search/v1', {
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const responseBody = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(400)
+    expect(responseBody.errors).toBeDefined()
+    expect(responseBody.errors[0].message).toContain("Invalid 'version' in request body")
+  })
+
+  test('should handle non-string query parameter', async () => {
+    const body = { query: 123, version: 'dotcom' }
+    const response = await post('/api/ai-search/v1', {
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const responseBody = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(400)
+    expect(responseBody.errors).toBeDefined()
+    expect(responseBody.errors[0].message).toBe("Invalid 'query' in request body. Must be a string")
+  })
+
+  test('should handle malformed JSON in request body', async () => {
+    const response = await post('/api/ai-search/v1', {
+      body: '{ invalid json }',
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    expect(response.statusCode).toBe(400)
+  })
 })

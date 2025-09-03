@@ -346,9 +346,9 @@ For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updat
 
 Specify which semantic versions (SemVer) to ignore. SemVer is an accepted standard for defining versions of software packages, in the form `x.y.z`. {% data variables.product.prodname_dependabot %} assumes that versions in this form are always `major.minor.patch`.
 
-* Use `patch` to include patch releases.
-* Use `minor` to include minor releases.
-* Use `major` to include major releases.
+* Use `version-update:semver-patch` to include patch releases.
+* Use `version-update:semver-minor` to include minor releases.
+* Use `version-update:semver-major` to include major releases.
 
 ## `insecure-external-code-execution` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -634,16 +634,11 @@ Optionally, run all updates for a package manager at a specific time of day. By 
 
 ### `cronjob`
 
-Supported values: Valid cron expression in cron format or natural expression.
+Supported values: Valid cron expression in cron syntax or natural expression.
+
+{% data reusables.repositories.cron %}
 
 Examples : `0 9 * * *`, `every day at 5pm`
-
-cron format is defined as the following:
-* `*` The minute field.
-* `*` The hour field (in 24-hour time).
-* `*` The day of the month (matches any day of the month).
-* `*` The month (matches any month).
-* `*` The day of the week (matches any day of the week).
 
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
@@ -685,6 +680,66 @@ When `target-branch` is defined:
 * Only manifest files on the target branch are checked for version updates.
 * All pull requests for version updates are opened targeting the specified branch.
 * Options defined for this `package-ecosystem` no longer apply to security updates because security updates always use the default branch for the repository.
+
+## `exclude-paths` {% octicon "versions" aria-label="Version updates only" height="24" %}
+
+Use to specify paths of directories and files that {% data variables.product.prodname_dependabot %} should ignore when scanning for manifests and dependencies. This option is useful when you want to prevent updates for dependencies in certain locations, such as test assets, vendored code, or specific files.
+
+{% data variables.product.prodname_dependabot %} default behavior:
+
+* All directories and files in the specified `directory` are included in the update scan unless excluded by this option.
+
+When `exclude-paths` is defined:
+
+* All files and directories matching the specified paths are ignored during update scans for the given `package-ecosystem` entry.
+
+| Parameter | Purpose |
+|-----------|---------|
+| `exclude-paths` | A list of glob patterns for files or directories to ignore. |
+
+Glob patterns are supported, such as `**` for recursive matching and `*` for single-segment wildcards. Patterns are relative to the `directory` specified for the update configuration. Each ecosystem can have its own `exclude-paths` settings.
+
+### Example
+
+```yaml copy
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    exclude-paths:
+      - "src/test/assets"
+      - "vendor/**"
+      - "src/*.js"
+      - "src/test/helper.js"
+
+# Sample patterns that can be used-
+
+# Pattern: docs/*.json
+# Matches: docs/foo.json, docs/bar.json
+
+# Pattern: *.lock
+# Matches: Gemfile.lock, package.lock, foo.lock (in any directory)
+
+# Pattern: test/**
+# Matches: test/foo.rb, test/bar/baz.rb, test/any/depth/file.txt
+
+# Pattern: config/settings.yml
+# Matches: config/settings.yml
+
+# Pattern: **/*.md
+# Matches: README.md, docs/guide.md, any/depth/file.md
+
+# Pattern: src/*
+# Matches: src/main.rb, src/app.js
+# Does NOT match: src/utils/helper.rb
+
+# Pattern: hidden/.*
+# Matches: hidden/.env, hidden/.secret
+```
+
+In this example, {% data variables.product.prodname_dependabot %} will ignore the `src/test/assets` directory, all files under `vendor/`, all JavaScript files directly under `src/`, and the specific file `src/test/helper.js` when scanning for updates.
 
 ## `vendor` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 

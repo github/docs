@@ -50,6 +50,8 @@ jobs:
           # by default failures are marked as "flaky" instead of "failed".
           PLAYWRIGHT_RETRIES: 0
           TEST_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
+          # workaround for https://github.com/nodejs/node/issues/59364 as of 22.18.0
+          NODE_OPTIONS: '--no-experimental-strip-types'
         run: npm run playwright-test -- playwright-local-dev
 
       - name: Start server in the background

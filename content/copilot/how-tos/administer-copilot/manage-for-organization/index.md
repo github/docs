@@ -21,4 +21,3 @@ children:
   - /review-activity
 contentType: how-tos
 ---
-

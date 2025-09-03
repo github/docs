@@ -79,9 +79,11 @@ For more information about {% data variables.copilot.copilot_coding_agent %}, se
 
 ### What happens if you have used up your monthly quota?
 
-If you run out of free Actions minutes or free premium requests, and you have set up a payment method for billing, you will be charged at the normal rates for additional minutes and premium requests. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#additional-premium-requests).
+If you run out of free Actions minutes or free premium requests, and you have set up a payment method and are not limited by a budget, you will be charged at the normal rates for additional minutes and premium requests. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and [AUTOTITLE](/copilot/concepts/billing/copilot-requests#what-if-i-run-out-of-premium-requests).
 
 If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
+
+{% data reusables.copilot.zero-budget-changes %} See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
 ### Monitoring your use of Actions minutes and premium requests
 
