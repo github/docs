@@ -24,7 +24,9 @@ You can add custom instructions for {% data variables.copilot.copilot_chat %} in
 * `Your style is a helpful colleague, minimize explanations but provide enough context to understand the code.`
 * `Always provide examples in TypeScript.`
 
-{% data reusables.copilot.custom-instructions-interactions-note %}
+> [!NOTE]
+> * {% data reusables.copilot.custom-instructions-chat-precedence %}
+> * {% data reusables.copilot.custom-instructions-conflict %}
 
 ## Adding personal custom instructions
 
