@@ -20,7 +20,7 @@ This option has no effect when passed to \`codeql bqrs interpret<bqrs-interpret>
 For more information, see \`codeql database analyze<database-analyze>\`{.interpreted-text role="doc"}.
 `
 
-async function testCircularLinkFix() {
+async function testCircularLinkFix(): Promise<boolean> {
   console.log('Testing circular link fix...')
 
   try {
@@ -65,7 +65,7 @@ async function testCircularLinkFix() {
   }
 }
 
-async function testEdgeCases() {
+async function testEdgeCases(): Promise<boolean> {
   console.log('\nTesting edge cases...')
 
   // Test with no filename (should not crash)
@@ -96,7 +96,7 @@ async function testEdgeCases() {
 }
 
 // Run all tests
-async function runAllTests() {
+async function runAllTests(): Promise<void> {
   const test1 = await testCircularLinkFix()
   const test2 = await testEdgeCases()
 
