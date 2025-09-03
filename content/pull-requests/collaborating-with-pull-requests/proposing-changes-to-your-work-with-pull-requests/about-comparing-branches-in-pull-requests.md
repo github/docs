@@ -73,11 +73,11 @@ For more information about Git commands to compare changes, see [Git diff option
 
 ## About three-dot comparison on {% data variables.product.prodname_dotcom %}
 
-Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces."
+Since the three-dot comparison compares with the merge base, it is focusing on the differences between the latest common commit of the topic branch and the base branch.
 
-When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
+Note, that with three-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch, because the diff shows all of the changes since the branches diverged. Additionally, a three-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
 
-In contrast, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if the base branch is updated, because the diff shows all of the changes since the branches diverged.
+In contrast, by comparing the branches using the two-dot comparison, only the changes in the topic branch would show in the diff if the base branch is updated, because the diff will only show the actual changes between the branches.
 
 ### Merging often
 
