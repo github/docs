@@ -1,8 +1,6 @@
 import path from 'path'
 import { escapeRegExp } from 'lodash-es'
 
-/* eslint-disable prefer-regex-literals */
-
 // slash at the beginning of a filename
 const leadingPathSeparator = new RegExp(`^${escapeRegExp(path.sep)}`)
 const windowsLeadingPathSeparator = new RegExp('^/')

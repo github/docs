@@ -46,8 +46,8 @@ Organization owners can enable automatic dependency submission for multiple repo
 1. Under "Dependency graph", click the dropdown menu next to “Automatic dependency submission”, then select **Enabled**.
 
 Once you've enabled automatic dependency submission for a repository, {% data variables.product.company_short %} will:
-* Monitor for changes to manifest files in the root of the repository on all branches of the repository.
-* Run the dependency graph build action associated with the package ecosystem of each changed manifest.
+* Watch for pushes to the repository.
+* Run the dependency graph build action associated with the package ecosystem for any manifests in the repository.
 * Perform an automatic dependency submission with the results.
 
 You can view details about the automatic workflows run by viewing the **Actions** tab of your repository.
@@ -105,9 +105,8 @@ The .NET autosubmission action uses the open source [component-detection](https:
 
 Python uses the open source [component-detection](https://github.com/microsoft/component-detection/) project as its underlying graph generation engine. The autosubmission action for Python will only run if there is a `requirements.txt` file in the root directory of the repository. Python autosubmission does not currently support private packages; packages referenced in `requirements.txt` which are not publicly available will cause the autosubmission action to fail.
 
-> [!NOTE] 
+> [!NOTE]
 > This action uses [actions/setup-python](https://github.com/actions/setup-python) to install Python. You must include a .python-version file in your repository to specify the Python version to be installed.
-
 
 ## Further reading
 

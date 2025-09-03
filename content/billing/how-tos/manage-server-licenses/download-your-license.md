@@ -32,7 +32,7 @@ contentType: how-tos
 
 ## About license files for {% data variables.product.prodname_enterprise %}
 
-After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
+After you purchase or upgrade a license for {% data variables.product.prodname_enterprise %} from {% data variables.contact.contact_enterprise_sales %}, you must download your new license file. For more information about licenses for {% data variables.product.prodname_enterprise %}, see [AUTOTITLE](/billing/concepts/enterprise-billing/ghes-license-files).
 
 {% data reusables.enterprise-licensing.contact-sales-for-renewals-or-seats %}
 
@@ -47,8 +47,8 @@ There are two possible ways to download a license file for {% data variables.pro
 If you have any questions about downloading your license, contact {% data variables.contact.contact_enterprise_sales %}. For more information about enterprise accounts, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}.{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Under "Enterprise Server licenses", next to the license you want to download, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download**.
+{% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
+1. Optionally, if a yellow banner reports "Your license usage for Enterprise Cloud has changed. Generate a new license key to update server seats.", click **Generate new license** to generate a new license key.
+1. Scroll down to "Enterprise Server licenses". Next to the license you want to download, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download**.
 
-After you download your license file, you can upload the file to {% data variables.location.product_location_enterprise %} to validate your application. For more information, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}
+After you download your license file, you can upload the file to {% data variables.product.prodname_ghe_server %} to validate your application. For more information, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}

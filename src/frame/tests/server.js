@@ -90,6 +90,11 @@ describe('server', () => {
     expect($.res.statusCode).toBe(404)
   })
 
+  test('renders a 404 for language prefixed versioned non-existent pages', async () => {
+    const res = await get('/en/enterprise-cloud@latest/nonexistent-page')
+    expect(res.statusCode).toBe(404)
+  })
+
   // When using `got()` to send full end-to-end URLs, you can't use
   // URLs like in this test because got will
   // throw `RequestError: URI malformed`.

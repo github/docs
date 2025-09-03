@@ -37,13 +37,11 @@ To track premium request usage, download the premium request usage report for yo
 
 This report includes all premium request usage by user, both within and beyond the allowance, so you can use the report to understand general patterns and identify users who would benefit from more premium requests.
 
-By contrast, other metered billing usage reports only reflect costs for premium requests beyond the allowance.
-
 ### Granting more premium requests to members
 
-By default, enterprises have a $0 budget for the Premium Request SKU. This means that when users exhaust their allowance, they cannot make any more premium requests for the rest of the month. Deleting this budget allows for **unlimited spending**.
+Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-To change the default budget or increase members' base allowance, see [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
+{% data reusables.copilot.zero-budget-changes %}
 
 ## Mapping spending to groups of users
 
@@ -51,22 +49,14 @@ You can create cost centers to map spending to individual business units or grou
 
 For example, if you were running a pilot program for {% data variables.copilot.copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
 
-### Create a cost center
-
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
-1. In the left sidebar, click **Cost centers**, then click **New cost center**.
-1. Create the cost center. You don't need to add any repositories or organizations, because you will add users to the cost center directly in the next step.
-
-   >[!NOTE] As a priority, a cost center is charged for a {% data variables.product.prodname_copilot_short %} license if the assigned **user** has been added to the cost center directly. As a fallback, a cost center is charged for the license if the **organization where the user receives access** has been added to the cost center.
-
-1. After creating the cost center, use the REST API to add the users whose usage you want to track. See [AUTOTITLE](/enterprise-cloud@latest/rest/enterprise-admin/billing#add-users-to-a-cost-center).
+For more information, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
 
 ## Preventing overspending
 
 You can set a monthly budget on {% data variables.product.prodname_copilot %} spending.
 
 * For {% data variables.product.prodname_copilot_short %} **licenses**, a budget is for monitoring purposes only and will not prevent usage beyond the budgeted amount. However, you will receive notifications by email when spending exceeds certain percentages of the budget you've set.
-* For {% data variables.product.prodname_copilot_short %} **premium requests**, you can choose to stop usage once the budget amount is reached. The default $0 budget for enterprises already does this.
+* For {% data variables.product.prodname_copilot_short %} **premium requests**, you can choose to stop usage once the budget amount is reached.
 
 To create a budget, see [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending#editing-or-deleting-a-budget).
 

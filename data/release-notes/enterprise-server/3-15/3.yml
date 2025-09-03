@@ -2,6 +2,11 @@ date: '2025-02-18'
 intro: |
   {% warning %}
 
+  **Warning**: We received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17 and have shipped performance fixes to the affected versions. You can now upgrade to 3.15.12, 3.16.8, 3.17.5, or later. We do not recommend upgrading to earlier releases of 3.15, 3.16, or 3.17. [Updated: 2025-08-25]
+
+  {% endwarning %}
+  {% warning %}
+
   **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.15.3` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.15 version instead. [Updated: 2025-03-11]
 
   {% endwarning %}
@@ -42,6 +47,8 @@ sections:
       Users who had authenticated to multiple accounts, then logged out of one account, were unable to switch to a different account on the platform.
     - |
       In some cluster configurations, secret scanning failed to run normally due to connection failures.
+    - |
+      Images were not migrated properly when using {% data variables.product.prodname_importer %} to import repositories from {% data variables.product.prodname_ghe_server %}.
   changes:
     - |
       Log files on the appliance root disk are compressed immediately upon daily rotation instead of after a 24 hour delay. You can revert to the previous `delaycompress` behavior by signing in as an SSH admin user, setting `ghe-config logrotate.delaycompress true` and then running `ghe-config-apply`.

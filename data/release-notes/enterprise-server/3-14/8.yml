@@ -40,6 +40,8 @@ sections:
       Certain search terms for repositories and wikis did not return all valid results.
     - |
       In some cluster configurations, secret scanning failed to run normally due to connection failures.
+    - |
+      Images were not migrated properly when using {% data variables.product.prodname_importer %} to import repositories from {% data variables.product.prodname_ghe_server %}.
   changes:
     - |
       Log files on the appliance root disk are compressed immediately upon rotation daily instead of after a 24 hour delay. You can revert to the previous `delaycompress` behavior by signing in as an SSH admin user, setting `ghe-config logrotate.delaycompress true` and then running `ghe-config-apply`.

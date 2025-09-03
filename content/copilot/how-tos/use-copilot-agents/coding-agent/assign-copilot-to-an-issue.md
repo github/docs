@@ -1,5 +1,5 @@
 ---
-title: Using Copilot to work on an issue
+title: Using GitHub Copilot to work on an issue
 shortTitle: Assign Copilot to an issue
 intro: 'Learn how to assign issues to {% data variables.product.prodname_copilot %}, monitor progress as {% data variables.product.prodname_copilot_short %} works on the issue, and then use pull request review comments to prompt {% data variables.product.prodname_copilot_short %} to iterate on its work.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+copilot+to+work+on+an+issue&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
@@ -25,7 +25,7 @@ contentType: how-tos
 
 ## Introduction
 
-You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, raise a pull request and when it's finished working, request a review from you. For more information, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, on a branch it creates from the default branch of the repository. It will create a pull request and, when it's finished working, it will request a review from you. For more information, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices).
 
@@ -211,7 +211,7 @@ Once {% data variables.product.prodname_copilot_short %} has finished, the agent
 
 ## Working with {% data variables.product.prodname_copilot_short %} on a pull request
 
-After {% data variables.product.prodname_copilot_short %} has finished working on the issue, you should review the pull request thoroughly and comment on anything that needs changed. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
+After {% data variables.product.prodname_copilot_short %} has finished working on the issue, you should review the pull request thoroughly and mention `@copilot` in a comment if anything needs to be changed. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
 
 ## Further reading
 

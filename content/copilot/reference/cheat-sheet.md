@@ -44,6 +44,22 @@ Available slash commands may vary, depending on your environment and the context
 | `/new` | Start a new conversation |
 | `/rename` | Rename a conversation. |
 
+## MCP skills
+
+Below is a list of the MCP skills that are currently available in {% data variables.copilot.copilot_chat_dotcom_short %}, and example prompts you can use to invoke them. You do not need to use the MCP skill name in your prompt; you can simply ask {% data variables.copilot.copilot_chat_short %} to perform the task.
+
+| Skill | Example prompt |
+| --- | --- |
+| `create_branch`             | Create a new branch called [BRANCH-NAME] in the repository [USERNAME/REPO-NAME].                                                                 |
+| `create_or_update_file`     | Add a new file named `hello-world.md` to my [BRANCH-NAME] of [USERNAME/REPO-NAME] with the content: "Hello, world! This file was created from {% data variables.copilot.copilot_chat_dotcom_short %}!"         |
+| `push_files`                | Push the files `test.md` with the content "This is a test file" and `test-again.md` with the content "This is another test file" to the [BRANCH-NAME] in [USERNAME/REPO-NAME] |
+| `update_pull_request_branch`| Update the branch for pull request [PR-number] in [USERNAME/REPO-NAME] with the latest changes from the base branch.                                          |
+| `merge_pull_request`        | Merge pull request [PR-Number] in [USERNAME/REPO-NAME]                                                                                                                      |
+| `get_me`                    | Tell me about myself.                                                                                                                                 |
+| `search_users`              | Search for users with the name "Mona Octocat"                                                                                       |
+
+For more information about using MCP skills in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+
 {% endwebui %}
 
 {% vscode %}

@@ -1,5 +1,5 @@
 ---
-title: Responsible use of Copilot coding agent on GitHub.com
+title: Responsible use of GitHub Copilot coding agent on GitHub.com
 shortTitle: Copilot coding agent
 intro: 'Learn how to use {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:

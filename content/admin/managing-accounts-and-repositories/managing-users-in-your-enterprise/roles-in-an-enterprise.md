@@ -109,3 +109,18 @@ Enterprise members:
 You may need to update your IdP application to use guest collaborators. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators).
 
 {% endif %}
+
+## Custom organization roles
+
+With {% data variables.product.prodname_ghe_cloud %} and starting from {% data variables.product.prodname_ghe_server %} 3.19, enterprise owners can create custom organization roles for use in all of the enterprise's organizations. This allows centralized management of common roles such as "Developer" or "SRE team". Only enterprise owners can create or edit these roles, and any organization owner or user with the "Manage organization roles" permission can assign them in an organization.
+
+When creating an organization role, enterprise owners can use the same organization and repository permissions and base roles as organization owners—there is no difference in how these roles function or what they can allow.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Select the "Organization Roles" section in the left-hand menu.
+1. Create a new role using the "Create custom role" button, or edit an existing role using the ellipsis menu (...).
+
+See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) for more information about creating and assigning custom organization roles.
+
+At this time, up to 20 custom organization roles can be created by the enterprise. This limit is only for the enterprise - each organization can also create up to 20 custom organization roles.

@@ -1,5 +1,71 @@
 # Docs changelog
 
+**2 September 2025**
+
+We've published a new customization library for GitHub Copilot: a curated collection of examples you can copy, adjust, and use to enhance your experience with Copilot. This library is designed to inspire and educate people on the options available to customize Copilot responses.
+
+We've included examples of custom instructions (widely supported) and prompt files (supported in VS Code only). The examples cover scenarios such as debugging, onboarding, and accessibility. We look forward to adding more examples over time.
+
+See: [Customization library](https://docs.github.com/copilot/tutorials/customization-library).
+
+<hr>
+
+**28 August 2025**
+
+We've published an article about the new AI-powered issue intake tool, which automates incoming issue analysis and triage for OS maintainers.
+
+See: [Triaging an issue with AI](https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai).
+
+<hr>
+
+**26 August 2025**
+
+xAI Grok Code Fast 1 is now available in public preview for GitHub Copilot. Grok Code Fast 1 is slowly rolling out to all paid Copilot plans and you will be able to access the model in Visual Studio Code (Agent, Ask, and Edit modes).
+
+See: [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+
+<hr>
+
+**15 August 2025**
+
+When interacting with the GitHub MCP server for a public repository, push protection blocks secrets from appearing in AI-generated responses and also prevents secrets from being included in any actions you perform, such as creating an issue.
+
+See [Working with push protection and the GitHub MCP server](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
+
+<hr>
+
+**12 August 2025**
+
+OpenAI GPT-5 is now available in public preview for GitHub Copilot. GPT-5 is slowly rolling out to all paid Copilot plans and you will be able to access the model in GitHub Copilot Chat on github.com and Visual Studio Code (Agent, Ask, and Edit modes). 
+
+See [Supported AI models in Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+
+<hr>
+
+**12 August 2025**
+
+We’ve updated the documentation for Copilot repository custom instructions to go with the release that now brings this feature to the Eclipse IDE.
+
+See: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=eclipse) and [About customizing GitHub Copilot Chat responses](https://docs.github.com/en/copilot/concepts/response-customization?tool=eclipse).
+
+<hr>
+
+**12 August 2025**
+
+We have added a tutorial for using Copilot to create Mermaid diagrams at [Creating Diagrams](https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-diagrams).
+
+<hr>
+
+**4 August 2025**
+
+To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)". 
+
+The new guide incorporates cross-platform GitHub tools, as well as opinionated guidance from GitHub's secret scanning team, to walk the developer through a thorough remediation process.
+
+It also clearly communicates the risks of leaked secrets, the challenges of remediation, and the value of enabling [GitHub Secret Protection](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
+
+<hr>
+
 **28 July 2025**
 
 We have restructured the general "[Billing and payments](https://docs.github.com/en/billing)" articles to align with the Copilot and Actions docs. In addition, we've combined a few old "About" articles to directly answer common questions that new users have: [How GitHub billing works](https://docs.github.com/en/billing/get-started/how-billing-works) and [Introduction to billing and licensing](https://docs.github.com/en/billing/get-started/introduction-to-billing).

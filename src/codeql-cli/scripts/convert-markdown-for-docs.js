@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises'
 import path from 'path'
-import got from 'got'
+
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import { visitParents } from 'unist-util-visit-parents'
@@ -233,15 +233,24 @@ export async function convertContentToDocs(
 async function getRedirect(url) {
   let response = null
   try {
-    response = await got(url)
+    response = await fetch(url, { redirect: 'manual' })
+    if (!response.ok && response.status !== 301 && response.status !== 302) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    }
   } catch (error) {
     console.error(error)
     const errorMsg = `Failed to get redirect for ${url} when converting aka.ms links to docs.github.com links.`
     throw new Error(errorMsg)
   }
 
-  // The first entry of redirectUrls has the anchor if it exists
-  const redirect = response.redirectUrls[0].pathname
+  // Get the redirect location from the response header
+  const redirectLocation = response.headers.get('location')
+  if (!redirectLocation) {
+    throw new Error(`No redirect location found for ${url}`)
+  }
+
+  // Parse the URL to get the pathname
+  const redirect = new URL(redirectLocation).pathname
 
   // Some of the aka.ms links have the /en language prefix.
   // This removes all language prefixes from the redirect url.

@@ -109,6 +109,42 @@
       "requestPath": "/orgs/{org}/actions/permissions"
     },
     {
+      "slug": "get-artifact-and-log-retention-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/artifact-and-log-retention"
+    },
+    {
+      "slug": "set-artifact-and-log-retention-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/artifact-and-log-retention"
+    },
+    {
+      "slug": "get-fork-pr-contributor-approval-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-contributor-approval"
+    },
+    {
+      "slug": "set-fork-pr-contributor-approval-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-contributor-approval"
+    },
+    {
+      "slug": "get-private-repo-fork-pr-workflow-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos"
+    },
+    {
+      "slug": "set-private-repo-fork-pr-workflow-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/fork-pr-workflows-private-repos"
+    },
+    {
       "slug": "list-selected-repositories-enabled-for-github-actions-in-an-organization",
       "subcategory": "permissions",
       "verb": "get",
@@ -143,6 +179,42 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
+    },
+    {
+      "slug": "get-self-hosted-runners-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners"
+    },
+    {
+      "slug": "set-self-hosted-runners-settings-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners"
+    },
+    {
+      "slug": "list-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories"
+    },
+    {
+      "slug": "set-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories"
+    },
+    {
+      "slug": "add-a-repository-to-the-list-of-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
+    },
+    {
+      "slug": "remove-a-repository-from-the-list-of-repositories-allowed-to-use-self-hosted-runners-in-an-organization",
+      "subcategory": "permissions",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/permissions/self-hosted-runners/repositories/{repository_id}"
     },
     {
       "slug": "get-default-workflow-permissions-for-an-organization",
@@ -533,6 +605,42 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/access"
+    },
+    {
+      "slug": "get-artifact-and-log-retention-settings-for-a-repository",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention"
+    },
+    {
+      "slug": "set-artifact-and-log-retention-settings-for-a-repository",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/permissions/artifact-and-log-retention"
+    },
+    {
+      "slug": "get-fork-pr-contributor-approval-permissions-for-a-repository",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/permissions/fork-pr-contributor-approval"
+    },
+    {
+      "slug": "set-fork-pr-contributor-approval-permissions-for-a-repository",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/permissions/fork-pr-contributor-approval"
+    },
+    {
+      "slug": "get-private-repo-fork-pr-workflow-settings-for-a-repository",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/permissions/fork-pr-workflows-private-repos"
+    },
+    {
+      "slug": "set-private-repo-fork-pr-workflow-settings-for-a-repository",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/actions/permissions/fork-pr-workflows-private-repos"
     },
     {
       "slug": "get-allowed-actions-and-reusable-workflows-for-a-repository",
@@ -2757,6 +2865,30 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/comments"
     },
     {
+      "slug": "list-dependencies-an-issue-is-blocked-by",
+      "subcategory": "issue-dependencies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by"
+    },
+    {
+      "slug": "add-a-dependency-an-issue-is-blocked-by",
+      "subcategory": "issue-dependencies",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by"
+    },
+    {
+      "slug": "remove-dependency-an-issue-is-blocked-by",
+      "subcategory": "issue-dependencies",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocked_by/{issue_id}"
+    },
+    {
+      "slug": "list-dependencies-an-issue-is-blocking",
+      "subcategory": "issue-dependencies",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/dependencies/blocking"
+    },
+    {
       "slug": "list-issue-events",
       "subcategory": "events",
       "verb": "get",
@@ -2803,6 +2935,12 @@
       "subcategory": "issues",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/lock"
+    },
+    {
+      "slug": "get-parent-issue",
+      "subcategory": "sub-issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
     },
     {
       "slug": "remove-sub-issue",
@@ -4029,30 +4167,6 @@
       "requestPath": "/orgs/{org}/projects"
     },
     {
-      "slug": "get-a-project-card",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "update-an-existing-project-card",
-      "subcategory": "cards",
-      "verb": "patch",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "delete-a-project-card",
-      "subcategory": "cards",
-      "verb": "delete",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "move-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/cards/{card_id}/moves"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -4069,18 +4183,6 @@
       "subcategory": "columns",
       "verb": "delete",
       "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "list-project-cards",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/{column_id}/cards"
-    },
-    {
-      "slug": "create-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/{column_id}/cards"
     },
     {
       "slug": "move-a-project-column",
@@ -5075,6 +5177,18 @@
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
+    },
+    {
+      "slug": "list-organization-pattern-configurations",
+      "subcategory": "push-protection",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/secret-scanning/pattern-configurations"
+    },
+    {
+      "slug": "update-organization-pattern-configurations",
+      "subcategory": "push-protection",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/secret-scanning/pattern-configurations"
     },
     {
       "slug": "list-bypass-requests-for-secret-scanning-for-a-repository",

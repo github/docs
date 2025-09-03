@@ -1,6 +1,7 @@
 ---
 title: GitHub Marketplace app subscriptions
-intro: 'If you install a paid app in {% data variables.product.prodname_marketplace %}, your subscription shares your account''s existing billing date, payment method, and receipt.'
+intro: Understand how billing works for paid {% data variables.product.prodname_marketplace %} apps, including shared billing date and payment method, proration, free trials, unit limits, and plan changes.
+permissions: '{% data reusables.permissions.marketplace-org-perms %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-marketplace
   - /articles/about-billing-for-github-marketplace
@@ -16,32 +17,38 @@ topics:
 shortTitle: GitHub Marketplace apps
 contentType: concepts
 ---
-{% data variables.product.prodname_marketplace %} includes apps with free and paid pricing plans. After you purchase and install an app, you can upgrade, downgrade, or cancel at any time.
+
+{% data variables.product.prodname_marketplace %} includes apps with free and paid pricing plans. After you purchase and install an app, you can upgrade, downgrade, or cancel **at any time**. This article explains the billing model, that is, what happens when you start, trial, change, or cancel a paid app subscription.
 
 {% data reusables.marketplace.marketplace-apps-only %}
 
-{% data reusables.marketplace.marketplace-org-perms %}
+## Core billing model
 
-## Payment methods and billing cycles for {% data variables.product.prodname_marketplace %} purchases
+All paid {% data variables.product.prodname_marketplace %} app subscriptions for a personal account or organization share:
+* The existing payment method on file.
+* The same monthly or yearly billing date.
+* Consolidated receipts listing all paid {% data variables.product.prodname_dotcom %} products and app subscriptions.
 
-You will have the same payment method for all paid plans and subscriptions across {% data variables.product.prodname_dotcom %}.
+**If no payment method exists when you first choose a paid plan**:
 
-If your personal account or organization doesn't have a payment method on file, when you choose a paid plan for an app:
-* Your billing date is today.
-* You must add a payment method to your personal account or the organization in which you want to install the app.
-* Your payment method is charged the full amount of your subscription.
-* Your receipt is sent to the primary or billing email address on file for your personal account or organization.
+* You must define a payment method for the account.
+* The billing cycle for your account starts immediately and that day is the billing date for the account.
+* The full plan amount is charged.
+* The receipt is sent to the primary or billing email address on file for your personal account or organization.
 
-If your personal account or organization has an existing payment method, when you choose a paid plan for an app:
+**If a payment method already exists**:
+
 * The payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
 * The monthly or yearly billing date for your app subscription is the same as the account or organization's regular billing date.
 * On your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
 
-When you choose a paid plan with a free trial:
+## Free trials
+
+**When you select a paid plan that includes a free trial:**
 * You must have an existing payment method or add a new payment method for your personal account or the organization in which you want to install the app.
-* If you don't have any other paid plans or subscriptions, you are charged the full amount of your subscription at the end of the 14-day free trial.
-* If you have other paid plans or subscriptions, once your 14-day free trial ends, the payment method on file is immediately charged a prorated amount based on the time remaining until your next billing date.
-* If you have other paid plans or subscriptions, on your next billing date, your receipt lists charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
+* If this is your only paid subscription, the first full charge occurs after the 14‑day trial ends.
+* If you already have other paid subscriptions, the end of the 14‑day trial triggers an immediate prorated charge for the remainder of the current cycle, then the plan renews on the shared billing date.
+* On your next billing date, your receipt will list charges for your paid {% data variables.product.prodname_dotcom %} plan and your app subscription.
 
 {% data reusables.user-settings.context_switcher %}
 
@@ -50,17 +57,25 @@ When you choose a paid plan with a free trial:
 
 ## Unit plan limits
 
-If you choose a unit plan (for example, a plan that charges per user), and you exceed the units that you're paying for, the integrator may disable your access until you upgrade the app. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app).
+For plans that charge per unit (for example, per user), exceeding the purchased units can lead the developer to restrict or disable app access until you move to a plan that covers the higher usage. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app).
 
-## Downgrading a {% data variables.product.prodname_marketplace %} app
+## Plan changes and cancellation
 
-If you downgrade your app subscription to a less expensive plan or if you cancel a paid app subscription, your changes will take effect at the end your current billing cycle. Your subscription will be moved to your new plan on your next billing date.
-
-If you cancel an app on a free plan, your subscription will immediately end and you'll lose access to the app.
+* **Upgrading or adding capacity** takes effect immediately; a prorated amount may be charged for the rest of the cycle (if applicable).
+* **Downgrading a paid plan or canceling a paid app** takes effect at the end of the current billing cycle; access continues until then. Your subscription will be moved to your new plan on your next billing date.
+  To learn how to downgrade a paid plan or cancel a paid app, see [AUTOTITLE](/billing/how-tos/pay-third-parties/downgrade-marketplace-app) and [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app).
+* **Cancelling a free plan** ends the subscription immediately with loss of access.
+* **Canceling a free trial** on a paid plan ends the trial immediately and access stops.
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app).
+## Privacy
+
+Publishers get only what they need to provision service, such as purchaser context (user or organization), plan identifier, effective dates, seat or unit counts, required usage metrics.
+
+Publishers don't see your full payment details, other product invoices, or unrelated account data.
+
+GitHub processes payments and issues receipts. Publishers cannot directly charge your payment method outside the standard plan billing flow.
 
 ## Further reading
 

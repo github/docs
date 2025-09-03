@@ -1005,6 +1005,18 @@ All Storage tests passed
 
 ## High availability
 
+{% ifversion ghes > 3.17 %}
+
+### ghe-repl-decommission
+
+This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+
+```shell
+ghe-repl-decommission <UUID>
+```
+
+{% endif %}
+
 ### ghe-repl-promote
 
 This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).

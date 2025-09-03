@@ -1,5 +1,5 @@
 ---
-title: Copilot Chat Cookbook
+title: GitHub Copilot Chat Cookbook
 intro: 'Find examples of prompts to use with {% data variables.copilot.copilot_chat %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
@@ -12,7 +12,7 @@ topics:
 layout: category-landing
 sidebarLink:
   text: All prompts
-  href: /copilot/copilot-chat-cookbook
+  href: /copilot/tutorials/copilot-chat-cookbook
 spotlight:
   - article: /testing-code/generate-unit-tests
     image: /assets/images/copilot-landing/generating_unit_tests.png
@@ -21,6 +21,7 @@ spotlight:
   - article: /debug-errors/debug-invalid-json
     image: /assets/images/copilot-landing/debugging_invalid_json.png
 children:
+  - /communicate-effectively
   - /debug-errors
   - /analyze-functionality
   - /refactor-code

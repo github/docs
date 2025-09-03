@@ -30,29 +30,7 @@ shortTitle: Set up budgets
 contentType: tutorials
 ---
 
-Budgets and alerts allow you to track spending on metered products for your accounts, organizations, cost centers (enterprise only), and repositories. By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
-
-If your account does not have a valid payment method on file, usage is blocked once you use up your quota.
-
-By default, if you have a valid payment method on file, spending is limited to $0 USD until you set a budget. You can set and manage a budget to limit spending for a product or SKU.
-
-<!--Billing: default budget-->
-
-## About budgets
-
-Each budget has a type and a scope that define which paid use contributes to spending against the budget.
-
-* **Type**: Defines which metered product or SKU is measured.
-* **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, or cost centers (enterprise only).
-
-### Your first billing cycle after creating a budget
-
-When you first create a budget, be aware that the budget applies only to metered usage from the date of its creation onwards. Any use made before you created the budget, is not included in the calculations. This means that you may exceed your budget in the first billing cycle after you create your budget, even if you select the option stop usage when the limit is reached.
-
-### Budget limitations
-
-For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_enterprise %}, setting a budget does not prevent usage over the limit but does provide alerts.
-Budgets and alerts are not available for pre-paid volume licenses.
+Budgets help you track and control spending on different products. To learn more, see [AUTOTITLE](/billing/concepts/budgets-and-alerts).
 
 ## Deciding on the type and scope for a budget
 
@@ -62,7 +40,7 @@ When deciding on the type and scope for a budget, remember that the use of meter
 
 In this example, the organization has set a budget of $50 for the "Actions" product and a budget of $100 for one of the SKUs within the "Actions" product. The organization has used all the included quota of actions minutes and an extra $50 of billed minutes. Some of the extra use was for Linux 96-core runners so it is applied to both budgets. Overall, the organization has used the full budget for the "Actions" product of $50. Members are now blocked from using all {% data variables.product.github %}-hosted runners until the next billing cycle or until the "Actions" product budget is increased. The SKU budget for Linux 96-core runners serves no purpose and is confusing, so should be deleted.
 
-We recommend that you avoid creating overlapping budgets for the use of a product and a SKU, or an organization and a repository, so that users are not unexpectedly blocked from using a feature that they rely on. Alternative, you may prefer to monitor use without blocking users by disabling the "Stop usage when budget limit is reached" option.
+We recommend that you avoid creating overlapping budgets for the use of a product and a SKU, or an organization and a repository, so that users are not unexpectedly blocked from using a feature that they rely on. Alternatively, you may prefer to monitor use without blocking users by disabling the "Stop usage when budget limit is reached" option.
 
 ## Managing budgets for your personal account
 
@@ -126,7 +104,7 @@ As the owner of an enterprise or organization account, or as a billing manager, 
 
 ### Editing or deleting a budget
 
->[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets. For example, deleting the default $0 budget for {% data variables.product.prodname_copilot_short %} premium requests allows for unlimited usage.
+>[!IMPORTANT] Deleting a budget may remove any limits on spending, depending on your other existing budgets.
 
 You can edit or delete a budget at any time, but you cannot change the scope of a budget after creating it.
 

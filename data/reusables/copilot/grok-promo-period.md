@@ -1,0 +1,1 @@
+> [!Important] Complimentary access for {% data variables.copilot.copilot_grok_code %} is available until 12 p.m. PDT on Wednesday, September 10, 2025. [Regular pricing](/copilot/reference/ai-models/supported-models#model-multipliers) applies after that point.

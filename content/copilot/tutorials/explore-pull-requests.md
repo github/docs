@@ -1,5 +1,5 @@
 ---
-title: Using Copilot to explore pull requests
+title: Using GitHub Copilot to explore pull requests
 shortTitle: Explore pull requests
 intro: '{% data variables.copilot.copilot_chat %} can help you understand the content, functionality, and status of a pull request.'
 topics:

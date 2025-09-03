@@ -49,4 +49,4 @@ For more information about contacting {% data variables.contact.github_support %
 
 ## Working with {% data variables.contact.github_support %} for Actions Runner Controller
 
-{% data variables.contact.github_support %} may ask questions about your Actions Runner Controller deployment and request that you collect and attach the [controller, listener](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener), and runner logs to the support ticket.
+{% data variables.contact.github_support %} may ask questions about your Actions Runner Controller deployment and request that you collect and attach [controller logs, listener logs](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors#checking-the-logs-of-the-controller-and-runner-set-listener), runner logs, and Helm charts (`values.yaml`) to the support ticket.

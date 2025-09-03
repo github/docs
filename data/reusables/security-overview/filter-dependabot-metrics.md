@@ -2,7 +2,7 @@
 | Qualifier | Description |
 | -------- | -------- |
 |`repo`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified repository, for example: `repo:octo-repository`.|
-|`topic`|Display {% data variables.product.prodname_dependabot_alerts %} with the matching topic, for example: `topic:asdf`.|
+|`topic`|Display {% data variables.product.prodname_dependabot_alerts %} with the matching repository topic, for example: `topic:asdf`.|
 |`team`|Display {% data variables.product.prodname_dependabot_alerts %} owned by members of the specified team, for example: `team:octocat-dependabot-team`.|
 |`visibility`|Display {% data variables.product.prodname_dependabot_alerts %} detected in repositories of the specified visibility, for example: `visibility:private`.|
 |`archived`|Display {% data variables.product.prodname_dependabot_alerts %} detected in respositories that are either archived, or not, for example: `archived:true`.|

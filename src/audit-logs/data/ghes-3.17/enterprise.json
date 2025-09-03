@@ -8562,7 +8562,7 @@
       "owner",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization"
+    "docs_reference_titles": "Converting a user into an organization"
   },
   {
     "action": "org.unblock_user",
@@ -9609,7 +9609,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile"
+    "docs_reference_titles": "Personalizing your profile"
   },
   {
     "action": "project.access",
@@ -11254,7 +11254,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository"
+    "docs_reference_titles": "Inviting collaborators to a personal repository"
   },
   {
     "action": "repo.add_topic",
@@ -12423,7 +12423,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository"
+    "docs_reference_titles": "Removing a collaborator from a personal repository"
   },
   {
     "action": "repo.remove_self_hosted_runner",
@@ -15141,7 +15141,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
   {
     "action": "successor_invitation.cancel",
@@ -15158,7 +15158,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
   {
     "action": "successor_invitation.create",
@@ -15175,7 +15175,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
   {
     "action": "successor_invitation.decline",
@@ -15192,7 +15192,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
   {
     "action": "successor_invitation.destroy",
@@ -15225,7 +15225,7 @@
       "created_at",
       "_document_id"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+    "docs_reference_titles": "Maintaining ownership continuity of your personal account's repositories"
   },
   {
     "action": "team.add_member",
@@ -15921,7 +15921,7 @@
       "created_at",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account"
+    "docs_reference_titles": "Adding an email address to your GitHub account"
   },
   {
     "action": "user.async_delete",
@@ -16514,7 +16514,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
+    "docs_reference_titles": "Showing your private contributions on your profile"
   },
   {
     "action": "user.login",
@@ -16824,7 +16824,7 @@
       "created_at",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
+    "docs_reference_titles": "Showing your private contributions on your profile"
   },
   {
     "action": "user.sign_in_from_unrecognized_device",
@@ -16929,7 +16929,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status"
+    "docs_reference_titles": "Personalizing your profile"
   },
   {
     "action": "user.suspend",

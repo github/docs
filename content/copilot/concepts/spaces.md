@@ -1,5 +1,5 @@
 ---
-title: About organizing and sharing context with Copilot Spaces
+title: About organizing and sharing context with GitHub Copilot Spaces
 shortTitle: Spaces
 intro: 'Understand how gathering context with {% data variables.copilot.copilot_spaces %} can improve your results and help your teammates.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
@@ -15,7 +15,7 @@ contentType: concepts
 
 {% data reusables.copilot.copilot-spaces.preview-note %}
 
-{% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. {% data variables.copilot.copilot_spaces_short %} can include code, pull requests, or issues from repositories, free-text content like transcripts or notes, images, and file uploads. You can ask {% data variables.product.prodname_copilot_short %} questions grounded in that context, or share the space with your team to support collaboration and knowledge sharing.
+{% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. {% data variables.copilot.copilot_spaces_short %} can include repositories, code, pull requests, issues, free-text content like transcripts or notes, images, and file uploads. You can ask {% data variables.product.prodname_copilot_short %} questions grounded in that context, or share the space with your team to support collaboration and knowledge sharing.
 
 ## Why use {% data variables.copilot.copilot_spaces %}?
 
@@ -38,7 +38,7 @@ With {% data variables.copilot.copilot_spaces %} you can:
 | -------------------- | --------------------------- | -------------------------------------------------------------- |
 | Who can create   | Anyone with a {% data variables.product.prodname_copilot_short %} license             | Organization owners                                              |
 | Owned by   | Organizations or individual users              | Organizations                             |
-| Content type     | Files and directories from {% data variables.product.github %} repositories, pull requests and issues, uploaded files including images, text files, rich documents, and spreadsheets, and free-text content                   | Markdown files hosted in {% data variables.product.github %} |
+| Content type     | Entire {% data variables.product.github %} repositories, specific files, pull requests and issues, uploaded files including images, text files, rich documents, and spreadsheets, and free-text content                   | Markdown files hosted in {% data variables.product.github %} |
 | Context handling | Limited in size, which guarantees higher response quality given the focused selection | Unlimited, but that comes with reduced response quality |
 
 {% endrowheaders %}
@@ -49,7 +49,7 @@ Anyone with a {% data variables.product.prodname_copilot_short %} license, inclu
 
 During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
 
-{% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members (read-only) or kept private to the person who created the space.
+{% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members or kept private to the person who created the space.
 
 ## How does using {% data variables.copilot.copilot_spaces_short %} affect my usage?
 

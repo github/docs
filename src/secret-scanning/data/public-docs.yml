@@ -1,3 +1,15 @@
+- provider: 1Password
+  supportedSecret: 1Password Service Account Token
+  secretType: 1password_service_account_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Adafruit
   supportedSecret: Adafruit IO Key
   secretType: adafruit_io_key
@@ -9,6 +21,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Adobe
   supportedSecret: Adobe Client Secret
@@ -21,6 +34,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Adobe
   supportedSecret: Adobe Device Token
@@ -33,6 +47,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Adobe
   supportedSecret: Adobe PAC Token
@@ -45,6 +60,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Adobe
   supportedSecret: Adobe Refresh Token
@@ -57,6 +73,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Adobe
   supportedSecret: Adobe Service Token
@@ -69,6 +86,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Adobe
   supportedSecret: Adobe Short-Lived Access Token
@@ -81,6 +99,55 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Aikido
+  supportedSecret: Aikido API Client Secret
+  secretType: aikido_api_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Aikido
+  supportedSecret: Aikido CI Scanning Token
+  secretType: aikido_ci_scanning_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Airtable
+  supportedSecret: Airtable API Key
+  secretType: airtable_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Airtable
+  supportedSecret: Airtable Personal Access Token
+  secretType: airtable_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Aiven
   supportedSecret: Aiven Auth Token
@@ -93,6 +160,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Aiven
   supportedSecret: Aiven Service Password
@@ -105,6 +173,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Alibaba
   supportedSecret: Alibaba Cloud AccessKey ID
@@ -117,6 +186,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Amazon AWS
   supportedSecret: Amazon AWS Access Key ID
@@ -129,6 +199,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Amazon AWS
   supportedSecret: Amazon AWS API Key ID
@@ -140,6 +211,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Amazon AWS
   supportedSecret: Amazon AWS Session Token
@@ -154,6 +226,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Anthropic
   supportedSecret: Anthropic Admin API Key
@@ -165,7 +238,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Anthropic
   supportedSecret: Anthropic API Key
@@ -177,7 +251,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Anthropic
   supportedSecret: Anthropic Session ID
@@ -190,6 +265,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify Actor Run API Token
@@ -201,6 +277,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify Actor Run Proxy Password
@@ -212,6 +289,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify API Token
@@ -222,7 +300,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify Integration API Token
@@ -234,6 +313,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify Proxy Password
@@ -245,6 +325,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify UI Token
@@ -256,6 +337,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Apify
   supportedSecret: Apify Webhook Dispatch API Token
@@ -267,6 +349,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Asaas
   supportedSecret: Asaas API Token
@@ -278,7 +361,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Asana
   supportedSecret: Asana Legacy Format Personal Access Token
@@ -291,6 +375,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Asana
   supportedSecret: Asana Personal Access Token
@@ -303,7 +388,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  isduplicate: false
+  base64Supported: false
+  isduplicate: true
 - provider: Atlassian
   supportedSecret: Atlassian API Token
   secretType: atlassian_api_token
@@ -315,6 +401,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Atlassian
   supportedSecret: Atlassian JSON Web Token
@@ -327,6 +414,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Authress
   supportedSecret: Authress Service Client Access Key
@@ -339,6 +427,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Active Directory Application Secret
@@ -351,6 +440,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Azure
   supportedSecret: Azure Active Directory User Credential
@@ -363,6 +453,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure AI Services Key
@@ -374,6 +465,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Anomaly Detector EE Key
@@ -385,6 +477,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Anomaly Detector Key
@@ -396,6 +489,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Apim Direct Management Key
@@ -408,6 +502,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Apim Gateway Key
@@ -420,6 +515,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Apim Repository Key
@@ -432,6 +528,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Apim Subscription Key
@@ -444,6 +541,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure App Configuration Connection String
@@ -456,6 +554,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure App Configuration Key
@@ -467,6 +566,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Batch Key Identifiable
@@ -479,6 +579,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Cache for Redis Access Key
@@ -491,6 +592,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Cognitive Services Key
@@ -502,6 +604,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Communication Services Connection String
@@ -514,6 +617,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Communication Services Key
@@ -525,6 +629,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Computer Vision Key
@@ -536,6 +641,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Registry Key Identifiable
@@ -548,6 +654,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Content Moderator Key
@@ -559,6 +666,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Content Safety Key
@@ -570,6 +678,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Cosmosdb Key Identifiable
@@ -582,6 +691,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Custom Vision Prediction Key
@@ -593,6 +703,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Custom Vision Training Key
@@ -604,6 +715,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure DevOps Personal Access Token
@@ -616,18 +728,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
-- provider: Azure
-  supportedSecret: Azure Dummy Key
-  secretType: azure_dummy_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
 - provider: Azure
   supportedSecret: Azure Event Grid Key Identifiable
   secretType: azure_event_grid_key_identifiable
@@ -638,6 +740,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Azure
   supportedSecret: Azure Event Hub Key Identifiable
@@ -650,6 +753,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Face Key
@@ -661,6 +765,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Fluid Relay Key
@@ -672,6 +777,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Form Recognizer Key
@@ -683,6 +789,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Function Key
@@ -695,6 +802,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Health Decision Support Key
@@ -706,6 +814,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Health Insights Key
@@ -717,6 +826,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Immersive Reader Key
@@ -728,6 +838,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Internal All In One Key
@@ -739,6 +850,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure IoT Device Connection String
@@ -751,6 +863,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure IoT Device Key
@@ -763,6 +876,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure IoT Device Provisioning Key
@@ -775,6 +889,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure IoT Hub Connection String
@@ -787,6 +902,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure IoT Hub Key
@@ -799,6 +915,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure IoT Provisioning Connection String
@@ -811,6 +928,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Knowledge Key
@@ -822,6 +940,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Luis Authoring Key
@@ -833,6 +952,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Luis Key
@@ -844,6 +964,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Microsoft Azure Service Management Certificate
@@ -856,6 +977,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Maps Key
@@ -867,6 +989,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Metrics Advisor Key
@@ -878,6 +1001,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Mixed Reality Key
@@ -889,6 +1013,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure ML Inference Key
@@ -900,6 +1025,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure ML Internal Service Principal Key
@@ -911,6 +1037,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure ML Studio (classic) Web Service Key
@@ -923,6 +1050,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure OpenAI Key
@@ -935,6 +1063,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Personalizer Key
@@ -946,6 +1075,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure QnA Maker Key
@@ -957,6 +1087,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure QnA Maker V2 Key
@@ -968,6 +1099,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Azure
+  supportedSecret: Azure Quantum Key
+  secretType: azure_quantum_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Relay Key Identifiable
@@ -980,6 +1124,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure SAS Token
@@ -992,6 +1137,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Search Admin Key
@@ -1004,6 +1150,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Search Query Key
@@ -1016,6 +1163,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Service Bus Key Identifiable
@@ -1028,6 +1176,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure SignalR Connection String
@@ -1040,6 +1189,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure SignalR Key
@@ -1051,6 +1201,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Azure
   supportedSecret: Azure Speech Services Key
@@ -1062,6 +1213,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Speech Translation Key
@@ -1073,6 +1225,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure SQL Connection String
@@ -1085,6 +1238,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure SQL Internal Default CloudSA Key
@@ -1096,6 +1250,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure SQL password
@@ -1108,6 +1263,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Storage Account Access Key
@@ -1120,6 +1276,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Azure
   supportedSecret: Azure Text Analytics Key
@@ -1131,6 +1288,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Text Translation Key
@@ -1142,6 +1300,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Video Intelligence Key
@@ -1153,6 +1312,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Microsoft Azure Web App Bot Key
@@ -1164,6 +1324,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Web Pub Sub Connection String
@@ -1176,6 +1337,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Azure Web Pub Sub Key
@@ -1187,6 +1349,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Azure
   supportedSecret: Microsoft Azure Entra ID Token
@@ -1199,6 +1362,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Azure
   supportedSecret: Microsoft Corporate Network User Credential
@@ -1211,6 +1375,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Baidu
   supportedSecret: Baidu Cloud API Access Key
@@ -1223,6 +1388,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Beamer
   supportedSecret: Beamer API Key
@@ -1235,6 +1401,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Bitbucket
   supportedSecret: Bitbucket Server Personal Access Token
@@ -1247,6 +1414,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Bitrise
   supportedSecret: Bitrise Personal Access Token
@@ -1258,7 +1426,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Bitrise
   supportedSecret: Bitrise Workspace API Token
@@ -1270,7 +1439,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Block Protocol
   supportedSecret: Block Protocol API Key
@@ -1283,6 +1453,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Brevo
   supportedSecret: Sendinblue API Key
@@ -1295,6 +1466,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Brevo
   supportedSecret: Sendinblue SMTP Key
@@ -1307,6 +1479,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Agent Access Token
@@ -1318,6 +1491,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Agent Job Token
@@ -1329,6 +1503,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Agent Registration Token
@@ -1340,6 +1515,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Cluster Queue Token
@@ -1351,6 +1527,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Cluster Token
@@ -1362,6 +1539,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Packages Registry Token
@@ -1373,6 +1551,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Packages Temporary Token
@@ -1384,6 +1563,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Portal Secret
@@ -1395,6 +1575,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite Portal Token
@@ -1406,6 +1587,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Buildkite
   supportedSecret: Buildkite User Access Token
@@ -1418,6 +1600,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Canadian Digital Service
   supportedSecret: Canadian Digital Service Notify API Key
@@ -1430,6 +1613,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Canva
   supportedSecret: Canva App Secret
@@ -1442,6 +1626,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Canva
   supportedSecret: Canva Connect API Secret
@@ -1454,6 +1639,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Canva
   supportedSecret: Canva Secret
@@ -1466,6 +1652,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Cashfree
   supportedSecret: Cashfree API Key
@@ -1478,6 +1665,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Cfx.re
   supportedSecret: Cfx.re Server Key
@@ -1490,6 +1678,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Checkout.com
   supportedSecret: Checkout.com Production Secret Key
@@ -1502,6 +1691,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Checkout.com
   supportedSecret: Checkout.com Test Secret Key
@@ -1514,6 +1704,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Chief Tools
   supportedSecret: Chief Tools Token
@@ -1526,6 +1717,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: CircleCI
   supportedSecret: CircleCI Bot API Token
@@ -1538,6 +1730,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: CircleCI
   supportedSecret: CircleCI Personal Access Token
@@ -1550,6 +1743,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: CircleCI
   supportedSecret: CircleCI Project Access Token
@@ -1562,6 +1756,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: CircleCI
   supportedSecret: CircleCI Release API Token
@@ -1574,6 +1769,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Clojars
   supportedSecret: Clojars Deploy Token
@@ -1586,6 +1782,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: CloudBees
   supportedSecret: CloudBees CodeShip Credential
@@ -1598,6 +1795,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Cockroach Labs
   supportedSecret: CockroachDB Cloud API Key
@@ -1609,7 +1807,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Cohere
   supportedSecret: Cohere API Key
@@ -1621,6 +1820,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Personal Access Token
@@ -1632,7 +1832,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Web Token
@@ -1644,6 +1845,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Contributed Systems
   supportedSecret: Contributed Systems Credentials
@@ -1655,6 +1857,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Coveo
   supportedSecret: Coveo Access Token
@@ -1667,6 +1870,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Coveo
   supportedSecret: Coveo API Key
@@ -1679,6 +1883,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: crates.io
   supportedSecret: Crates.io API Token
@@ -1691,6 +1896,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Databento
   supportedSecret: Databento API Key
@@ -1703,6 +1909,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Databricks
   supportedSecret: Databricks Access Token
@@ -1715,6 +1922,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog API Key
@@ -1726,6 +1934,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog Application Key
@@ -1737,6 +1946,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog RCM
@@ -1749,6 +1959,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Datastax
   supportedSecret: Datastax AstraCS Tokens
@@ -1761,6 +1972,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: DeepSeek
+  supportedSecret: DeepSeek API Key
+  secretType: deepseek_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Defined Networking
   supportedSecret: Defined Networking Managed Nebula API Key
@@ -1773,6 +1997,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: DevCycle
   supportedSecret: DevCycle Client API Key
@@ -1785,6 +2010,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: DevCycle
   supportedSecret: DevCycle Mobile API Key
@@ -1797,6 +2023,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: DevCycle
   supportedSecret: DevCycle Server API Key
@@ -1809,6 +2036,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean OAuth Token
@@ -1821,6 +2049,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean Personal Access Token
@@ -1833,6 +2062,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean Refresh Token
@@ -1845,6 +2075,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
   supportedSecret: DigitalOcean System Token
@@ -1857,6 +2088,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Discord
   supportedSecret: Discord Bot Token
@@ -1869,6 +2101,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Docker
   supportedSecret: Docker Organization Access Token
@@ -1881,6 +2114,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Docker
   supportedSecret: Docker Personal Access Token
@@ -1893,6 +2127,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Docker
   supportedSecret: Docker Swarm Join Token
@@ -1905,6 +2140,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Docker
   supportedSecret: Docker Swarm Unlock Key
@@ -1917,6 +2153,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler Audit Token
@@ -1929,6 +2166,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler CLI Token
@@ -1941,6 +2179,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler Personal Token
@@ -1953,6 +2192,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler SCIM Token
@@ -1965,6 +2205,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler Service Account Token
@@ -1977,6 +2218,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler Service Token
@@ -1989,6 +2231,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Dropbox
   supportedSecret: Dropbox Access Token
@@ -2000,7 +2243,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Dropbox
   supportedSecret: Dropbox Short-Lived Access Token
@@ -2013,6 +2257,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Duffel
   supportedSecret: Duffel Live Access Token
@@ -2024,7 +2269,8 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Duffel
   supportedSecret: Duffel Test Access Token
@@ -2036,7 +2282,8 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Dynatrace
   supportedSecret: Dynatrace API Token
@@ -2049,6 +2296,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Dynatrace
   supportedSecret: Dynatrace Internal Token
@@ -2061,6 +2309,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: EasyPost
   supportedSecret: EasyPost Production API Key
@@ -2073,6 +2322,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: EasyPost
   supportedSecret: EasyPost Test API Key
@@ -2085,6 +2335,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: eBay
   supportedSecret: eBay Production Client ID (App ID)
@@ -2097,6 +2348,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: eBay
   supportedSecret: eBay Sandbox Client ID (App ID)
@@ -2109,6 +2361,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Elastic
+  supportedSecret: Elastic Cloud API Key
+  secretType: elastic_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Facebook
   supportedSecret: Facebook Access Token
@@ -2121,6 +2386,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Fastly
   supportedSecret: Fastly API Token
@@ -2133,6 +2399,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Figma
   supportedSecret: Figma Personal Access Token
@@ -2145,6 +2412,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Finicity
   supportedSecret: Finicity App Key
@@ -2157,6 +2425,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Firebase
   supportedSecret: Firebase Cloud Messaging Server Key
@@ -2169,6 +2438,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Flutterwave
   supportedSecret: Flutterwave Live API Secret Key
@@ -2181,6 +2451,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Flutterwave
   supportedSecret: Flutterwave Test API Secret Key
@@ -2193,6 +2464,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Frame.io
   supportedSecret: Frame.io Developer Token
@@ -2205,6 +2477,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Frame.io
   supportedSecret: Frame.io JSON Web Token
@@ -2217,6 +2490,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: FullStory
   supportedSecret: FullStory API Key
@@ -2228,7 +2502,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub App Installation Access Token
@@ -2241,6 +2516,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  base64Supported: true
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub OAuth Access Token
@@ -2253,6 +2529,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  base64Supported: true
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub Personal Access Token
@@ -2265,6 +2542,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  base64Supported: true
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub Refresh Token
@@ -2277,6 +2555,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  base64Supported: true
   isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub SSH Private Key
@@ -2289,6 +2568,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
+  base64Supported: false
   isduplicate: false
 - provider: GitHub
   supportedSecret: GitHub Test Token
@@ -2301,6 +2581,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: GitHub Secret Scanning
   supportedSecret: GitHub Secret Scanning
@@ -2313,6 +2594,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: GitLab
   supportedSecret: GitLab Access Token
@@ -2325,6 +2607,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
@@ -2337,6 +2620,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: GoCardless
   supportedSecret: GoCardless Sandbox Access Token
@@ -2349,6 +2633,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google API Key
@@ -2361,6 +2646,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google Cloud Service Account Credentials
@@ -2373,6 +2659,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google Cloud Storage Service Account Access Key ID
@@ -2387,6 +2674,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google Cloud Storage User Access Key ID
@@ -2401,6 +2689,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: GCP API Key Bound to a Service Account
@@ -2413,6 +2702,19 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Google
+  supportedSecret: Google Gemini API Key
+  secretType: google_gemini_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google OAuth Access Token
@@ -2425,6 +2727,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google OAuth Client ID
@@ -2437,6 +2740,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google OAuth Refresh Token
@@ -2449,6 +2753,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Grafana
   supportedSecret: Grafana Cloud API Key
@@ -2461,6 +2766,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Grafana
   supportedSecret: Grafana Cloud API Token
@@ -2472,7 +2778,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Grafana
   supportedSecret: Grafana Project API Key
@@ -2485,6 +2792,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Grafana
   supportedSecret: Grafana Project Service Account Token
@@ -2497,6 +2805,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Groq
   supportedSecret: Groq API Key
@@ -2508,7 +2817,44 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare AppSweep API Key
+  secretType: guardsquare_appsweep_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare CLI Access Token
+  secretType: guardsquare_cli_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: GuardSquare
+  supportedSecret: GuardSquare Maven Token
+  secretType: guardsquare_maven_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: HashiCorp
   supportedSecret: HashiCorp Vault Batch Token
@@ -2521,6 +2867,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: HashiCorp
   supportedSecret: HashiCorp Vault Root Service Token
@@ -2533,6 +2880,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: HashiCorp
   supportedSecret: HashiCorp Vault Service Token
@@ -2545,6 +2893,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: HashiCorp
   supportedSecret: Terraform Cloud / Enterprise API Token
@@ -2557,6 +2906,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: hCaptcha
+  supportedSecret: hCaptcha Siteverify Secret
+  secretType: hcaptcha_siteverify_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Heroku
   supportedSecret: Heroku Platform API OAuth2 Token
@@ -2569,6 +2931,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Heroku
   supportedSecret: Heroku Postgres Connection URL
@@ -2581,6 +2944,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Highnote
   supportedSecret: Highnote RK Live Key
@@ -2593,6 +2957,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Highnote
   supportedSecret: Highnote RK Test Key
@@ -2605,6 +2970,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Highnote
   supportedSecret: Highnote SK Live Key
@@ -2617,6 +2983,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Highnote
   supportedSecret: Highnote SK Test Key
@@ -2629,6 +2996,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: HOP
   supportedSecret: HOP Bearer
@@ -2641,6 +3009,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: HOP
   supportedSecret: HOP PAT
@@ -2653,6 +3022,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: HOP
   supportedSecret: HOP PTK
@@ -2665,6 +3035,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Hubspot
   supportedSecret: Hubspot API Key
@@ -2677,6 +3048,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Hubspot
   supportedSecret: Hubspot Personal Access Key
@@ -2689,6 +3061,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Hubspot
   supportedSecret: Hubspot Private Apps User Token
@@ -2701,6 +3074,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Hubspot
   supportedSecret: Hubspot SMTP Credential
@@ -2713,6 +3087,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Hugging Face
   supportedSecret: Hugging Face Organization API Token
@@ -2725,6 +3100,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Hugging Face
   supportedSecret: Hugging Face User Access Token
@@ -2736,7 +3112,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Intercom
   supportedSecret: Intercom Access Token
@@ -2749,6 +3126,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Ionic
   supportedSecret: Ionic Personal Access Token
@@ -2761,6 +3139,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Ionic
   supportedSecret: Ionic Refresh Token
@@ -2773,6 +3152,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Iterative
   supportedSecret: DVC Studio Access Token
@@ -2784,6 +3164,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: JFrog
   supportedSecret: JFrog Platform Access Token
@@ -2796,6 +3177,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: JFrog
   supportedSecret: JFrog Platform API Key
@@ -2808,6 +3190,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: JFrog
   supportedSecret: JFrog Platform Reference Token
@@ -2820,6 +3203,31 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: Langchain API Personal Key
+  secretType: langchain_api_personal_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Langchain
+  supportedSecret: Langchain API Server Key
+  secretType: langchain_api_server_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: LaunchDarkly
   supportedSecret: LaunchDarkly API Token
@@ -2831,6 +3239,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Lichess
   supportedSecret: Lichess OAuth Access Token
@@ -2843,6 +3252,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Lichess
   supportedSecret: Lichess Personal Access Token
@@ -2855,6 +3265,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Lightspeed
   supportedSecret: Lightspeed Personal Access Token
@@ -2867,6 +3278,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Linear
   supportedSecret: Linear API Key
@@ -2879,6 +3291,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Linear
   supportedSecret: Linear OAuth Access Token
@@ -2891,6 +3304,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: LinkedIn
   supportedSecret: LinkedIn Client Secret
@@ -2903,6 +3317,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Lob
   supportedSecret: Lob Live API Key
@@ -2915,6 +3330,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Lob
   supportedSecret: Lob Test API Key
@@ -2927,6 +3343,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Localstack
   supportedSecret: Localstack API Key
@@ -2939,6 +3356,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: LogicMonitor
   supportedSecret: LogicMonitor Bearer Token
@@ -2951,6 +3369,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: LogicMonitor
   supportedSecret: LogicMonitor LMv1 Access Key
@@ -2963,6 +3382,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Login with Amazon
   supportedSecret: Login with Amazon OAuth Client ID
@@ -2977,6 +3397,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Mailchimp
   supportedSecret: Mailchimp API Key
@@ -2989,6 +3410,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Mailchimp
   supportedSecret: Mandrill API Key
@@ -3000,6 +3422,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Mailersend
   supportedSecret: Mailersend API Token
@@ -3011,6 +3434,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Mailersend
   supportedSecret: Mailersend SMTP Password
@@ -3022,6 +3446,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Mailersend
   supportedSecret: Mailersend SMTP Username
@@ -3033,6 +3458,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Mailgun
   supportedSecret: Mailgun API Key
@@ -3045,6 +3471,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Mailgun
   supportedSecret: Mailgun SMTP Credential
@@ -3056,6 +3483,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Mapbox
   supportedSecret: Mapbox Secret Access Token
@@ -3068,6 +3496,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: MaxMind
   supportedSecret: MaxMind License Key
@@ -3080,6 +3509,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Mercury
   supportedSecret: Mercury Non-Production API Token
@@ -3092,6 +3522,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Mercury
   supportedSecret: Mercury Production API Token
@@ -3104,6 +3535,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Mergify
   supportedSecret: Mergify Application Key
@@ -3116,6 +3548,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: MessageBird
   supportedSecret: MessageBird API Key
@@ -3128,6 +3561,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Midtrans
   supportedSecret: Midtrans Production Server Key
@@ -3140,6 +3574,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Midtrans
   supportedSecret: Midtrans Sandbox Server Key
@@ -3152,6 +3587,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Mistral AI
   supportedSecret: Mistral AI API Key
@@ -3163,6 +3599,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: MongoDB
   supportedSecret: MongoDB Atlas Database URI with credentials
@@ -3175,6 +3612,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: MongoDB
   supportedSecret: MongoDB Atlas Service Account Secret
@@ -3187,6 +3625,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Gov Access Key ID
@@ -3199,6 +3638,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Gov Secret Key
@@ -3211,6 +3651,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Gov Secure Token Service
@@ -3223,6 +3664,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Gov Secure Token Service Secret
@@ -3235,6 +3677,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Access Key ID
@@ -3247,6 +3690,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Secret Key
@@ -3259,6 +3703,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Secure Token Service
@@ -3271,6 +3716,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Naver Cloud
   supportedSecret: Naver Cloud Secure Token Service Secret
@@ -3283,6 +3729,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Neon
   supportedSecret: Neon API Key
@@ -3294,6 +3741,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Neon
   supportedSecret: Neon Connection URI
@@ -3305,6 +3753,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Netflix
   supportedSecret: Netflix NetKey
@@ -3317,6 +3766,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: New Relic
   supportedSecret: New Relic Insights Query Key
@@ -3329,6 +3779,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: New Relic
   supportedSecret: New Relic License Key
@@ -3341,6 +3792,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: New Relic
   supportedSecret: New Relic Personal API Key
@@ -3353,6 +3805,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: New Relic
   supportedSecret: New Relic REST API Key
@@ -3365,6 +3818,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Notion
   supportedSecret: Notion API Token
@@ -3376,6 +3830,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Notion
   supportedSecret: Notion Integration Token
@@ -3388,6 +3843,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Notion
   supportedSecret: Notion OAuth Client Secret
@@ -3400,6 +3856,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: npm
   supportedSecret: npm Access Token
@@ -3412,6 +3869,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: NuGet
   supportedSecret: NuGet API Key
@@ -3424,6 +3882,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Octopus Deploy
   supportedSecret: Octopus Deploy API Key
@@ -3436,6 +3895,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Oculus
   supportedSecret: Oculus Access Token
@@ -3448,6 +3908,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: OneChronos
   supportedSecret: OneChronos API Token
@@ -3460,6 +3921,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: OneChronos
   supportedSecret: OneChronos Expressive Bidding API Key
@@ -3472,6 +3934,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: OneChronos
   supportedSecret: OneChronos Expressive Bidding Encryption Key
@@ -3484,6 +3947,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: OneChronos
   supportedSecret: OneChronos OAuth Token
@@ -3496,6 +3960,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: OneChronos
   supportedSecret: OneChronos Refresh Token
@@ -3508,6 +3973,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Onfido
   supportedSecret: Onfido Live API Token
@@ -3520,6 +3986,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Onfido
   supportedSecret: Onfido Sandbox API Token
@@ -3532,6 +3999,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: OpenAI
   supportedSecret: OpenAI API Key
@@ -3544,6 +4012,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: OpenRouter
   supportedSecret: OpenRouter API Key
@@ -3556,6 +4025,19 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Openweather
+  supportedSecret: Openweather API Key
+  secretType: openweather_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Oracle
   supportedSecret: Oracle API Key
@@ -3567,6 +4049,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Orbit
   supportedSecret: Orbit API Token
@@ -3579,6 +4062,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: PagerDuty
   supportedSecret: PagerDuty OAuth Secret
@@ -3591,6 +4075,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: PagerDuty
   supportedSecret: PagerDuty OAuth Token
@@ -3603,6 +4088,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Palantir
   supportedSecret: Palantir JSON Web Token
@@ -3615,6 +4101,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Pangea
   supportedSecret: Pangea Token
@@ -3627,6 +4114,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Perplexity
   supportedSecret: Perplexity API Key
@@ -3638,6 +4126,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Persona  Identities
   supportedSecret: Persona Production Api Key
@@ -3650,6 +4139,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Persona  Identities
   supportedSecret: Persona Sandbox Api Key
@@ -3662,6 +4152,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Pinterest
   supportedSecret: Pinterest Access Token
@@ -3674,6 +4165,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Pinterest
   supportedSecret: Pinterest Refresh Token
@@ -3686,6 +4178,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: PlanetScale
   supportedSecret: PlanetScale Database Password
@@ -3698,6 +4191,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: PlanetScale
   supportedSecret: PlanetScale OAuth Token
@@ -3710,6 +4204,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: PlanetScale
   supportedSecret: PlanetScale Service Token
@@ -3722,6 +4217,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Planning Center
   supportedSecret: Planning Center OAuth Access Token
@@ -3734,6 +4230,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Planning Center
   supportedSecret: Planning Center OAuth Application Secret
@@ -3746,6 +4243,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Planning Center
   supportedSecret: Planning Center Personal Access Token
@@ -3758,6 +4256,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Plivo
   supportedSecret: Plivo Auth ID
@@ -3770,6 +4269,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Polar
   supportedSecret: Polar Access Token
@@ -3781,7 +4281,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Polar
   supportedSecret: Polar Authorization Code
@@ -3794,6 +4295,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Polar
   supportedSecret: Polar Client Registration Token
@@ -3806,6 +4308,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Polar
   supportedSecret: Polar Client Secret
@@ -3818,6 +4321,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Polar
   supportedSecret: Polar Customer Session Token
@@ -3829,6 +4333,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Polar
   supportedSecret: Polar Personal Access Token
@@ -3841,6 +4346,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Polar
   supportedSecret: Polar Refresh Token
@@ -3853,6 +4359,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Polar
   supportedSecret: Polar User Session Token
@@ -3864,6 +4371,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Postman
   supportedSecret: Postman API Key
@@ -3876,6 +4384,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Postman
   supportedSecret: Postman Collection Key
@@ -3888,6 +4397,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Prefect
   supportedSecret: Prefect Server API Key
@@ -3900,6 +4410,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Prefect
   supportedSecret: Prefect User API Key
@@ -3912,6 +4423,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Proctorio
   supportedSecret: Proctorio Consumer Key
@@ -3924,6 +4436,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Proctorio
   supportedSecret: Proctorio Linkage Key
@@ -3936,6 +4449,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Proctorio
   supportedSecret: Proctorio Registration Key
@@ -3948,6 +4462,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Proctorio
   supportedSecret: Proctorio Secret Key
@@ -3960,6 +4475,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Pulumi
   supportedSecret: Pulumi Access Token
@@ -3972,6 +4488,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: PyPI
   supportedSecret: PyPI API Token
@@ -3984,6 +4501,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Ramp
   supportedSecret: Ramp OAuth Client ID
@@ -3996,6 +4514,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Ramp
   supportedSecret: Ramp OAuth Client Secret
@@ -4008,6 +4527,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Ramp
   supportedSecret: Ramp OAuth Access or Refresh Token
@@ -4020,6 +4540,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: ReadMe
   supportedSecret: ReadMe API Key
@@ -4031,7 +4552,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: redirect.pizza
   supportedSecret: redirect.pizza API Token
@@ -4044,6 +4566,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Replicate
   supportedSecret: Replicate API Token
@@ -4056,6 +4579,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Rootly
   supportedSecret: Rootly API Key
@@ -4068,6 +4592,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: RubyGems
   supportedSecret: RubyGems API Key
@@ -4080,6 +4605,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: RunPod
   supportedSecret: RunPod API Key
@@ -4091,7 +4617,20 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Salesforce
+  supportedSecret: Salesforce Access Token
+  secretType: salesforce_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Salesforce
   supportedSecret: Salesforce OAuth2 Consumer Key
@@ -4104,6 +4643,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Salesforce
   supportedSecret: Salesforce Refresh Token
@@ -4114,8 +4654,9 @@
     ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Samsara
   supportedSecret: Samsara API Token
@@ -4128,6 +4669,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Samsara
   supportedSecret: Samsara OAuth Access Token
@@ -4140,6 +4682,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Scalr
   supportedSecret: Scalr API Token
@@ -4152,6 +4695,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Segment
   supportedSecret: Segment Public API Token
@@ -4164,6 +4708,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: SendGrid
   supportedSecret: SendGrid API Key
@@ -4176,6 +4721,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry Integration Token
@@ -4188,6 +4734,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry Org Auth Token
@@ -4200,6 +4747,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry User App Auth Token
@@ -4212,6 +4760,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry User Auth Token
@@ -4224,6 +4773,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shippo
   supportedSecret: Shippo Live API Token
@@ -4236,6 +4786,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shippo
   supportedSecret: Shippo Test API Token
@@ -4248,6 +4799,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopee
   supportedSecret: Shopee Open Platform Partner Key
@@ -4260,6 +4812,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Access Token
@@ -4272,6 +4825,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify App Client Credentials
@@ -4284,6 +4838,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify App Client Secret
@@ -4296,6 +4851,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify App Shared Secret
@@ -4308,6 +4864,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Custom App Access Token
@@ -4320,6 +4877,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Marketplace Token
@@ -4332,6 +4890,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Merchant Token
@@ -4344,6 +4903,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Partner API Token
@@ -4356,6 +4916,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Shopify
   supportedSecret: Shopify Private App Password
@@ -4368,6 +4929,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Siemens
   supportedSecret: Siemens API Token
@@ -4379,7 +4941,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Siemens
   supportedSecret: Siemens Code Token
@@ -4391,6 +4954,7 @@
   isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sindri
   supportedSecret: Sindri API Key
@@ -4403,6 +4967,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Slack
   supportedSecret: Slack API Token
@@ -4415,6 +4980,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Slack
   supportedSecret: Slack Incoming Webhook URL
@@ -4427,6 +4993,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Slack
   supportedSecret: Slack Workflow Webhook URL
@@ -4439,6 +5006,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Snowflake
   supportedSecret: Snowflake Programmatic Access Token
@@ -4448,8 +5016,9 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph Access Token
@@ -4461,7 +5030,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph Dotcom User Gateway Access Token
@@ -4474,6 +5044,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph Access Token with Instance Identifier
@@ -4485,7 +5056,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph License Key Token
@@ -4498,6 +5070,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
   supportedSecret: Sourcegraph Product Subscription Token
@@ -4510,6 +5083,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Square
   supportedSecret: Square Access Token
@@ -4521,7 +5095,8 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: Square
   supportedSecret: Square Production Application Secret
@@ -4534,6 +5109,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Square
   supportedSecret: Square Sandbox Application Secret
@@ -4546,6 +5122,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: SSLMate
   supportedSecret: SSLMate API Key
@@ -4557,7 +5134,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: SSLMate
   supportedSecret: SSLMate Cluster Secret
@@ -4570,6 +5148,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Stripe
   supportedSecret: Stripe API Key
@@ -4582,6 +5161,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Stripe
   supportedSecret: Stripe Legacy API Key
@@ -4594,6 +5174,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Stripe
   supportedSecret: Stripe Live API Restricted Key
@@ -4606,6 +5187,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Stripe
   supportedSecret: Stripe Test API Restricted Key
@@ -4618,6 +5200,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Stripe
   supportedSecret: Stripe Test API Secret Key
@@ -4630,6 +5213,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Stripe
   supportedSecret: Stripe Webhook Signing Secret
@@ -4642,6 +5226,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Supabase
   supportedSecret: Supabase Service Key
@@ -4654,6 +5239,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: Tableau
   supportedSecret: Tableau Personal Access Token
@@ -4666,6 +5252,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Tailscale
   supportedSecret: Tailscale API Key
@@ -4678,6 +5265,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Telegram
   supportedSecret: Telegram Bot Token
@@ -4690,6 +5278,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Telnyx
   supportedSecret: Telnyx API V2 Key
@@ -4701,7 +5290,20 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Temporal
+  supportedSecret: Temporal Cloud API Key
+  secretType: temporal_cloud_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Tencent
   supportedSecret: Tencent Cloud International Access Token
@@ -4713,6 +5315,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Tencent
   supportedSecret: Tencent Cloud Secret ID
@@ -4725,6 +5328,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Tencent
   supportedSecret: Tencent WeChat API App ID
@@ -4737,6 +5341,19 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Tencent
+  supportedSecret: Tencent WeChat Pay Token
+  secretType: tencent_wechat_pay_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Thunderstore
   supportedSecret: Thunderstore IO API Token
@@ -4749,6 +5366,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Twilio
   supportedSecret: Twilio Access Token
@@ -4761,6 +5379,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Twilio
   supportedSecret: Twilio Account String Identifier
@@ -4773,6 +5392,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Twilio
   supportedSecret: Twilio API Key
@@ -4785,6 +5405,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Typeform
   supportedSecret: Typeform Personal Access Token
@@ -4796,7 +5417,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Uniwise
   supportedSecret: WISEflow API Key
@@ -4808,7 +5430,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Unkey
   supportedSecret: Unkey Root Key
@@ -4821,6 +5444,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Val Town
   supportedSecret: Val Town API Token
@@ -4831,7 +5455,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: VolcEngine
   supportedSecret: VolcEngine Access Key ID
@@ -4844,6 +5469,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime API Key
@@ -4855,7 +5481,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime App Secret
@@ -4868,6 +5495,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime OAuth Access Token
@@ -4879,7 +5507,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Wakatime
   supportedSecret: WakaTime OAuth Refresh Token
@@ -4892,6 +5521,19 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Weights & Biases
+  supportedSecret: Weights & Biases API Key
+  secretType: wandb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Workato
   supportedSecret: Workato Developer API Token
@@ -4903,7 +5545,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: true
 - provider: WorkOS
   supportedSecret: WorkOS Production API Key
@@ -4916,6 +5559,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: WorkOS
   supportedSecret: WorkOS Staging API Key
@@ -4928,6 +5572,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: true
 - provider: xAI
   supportedSecret: xAI API Key
@@ -4940,6 +5585,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud API Key
@@ -4951,7 +5597,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud Access Secret
@@ -4964,6 +5611,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud IAM Cookie
@@ -4976,6 +5624,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud IAM Token
@@ -4987,7 +5636,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud Smartchapta Server Key
@@ -5000,6 +5650,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Dictionary API Key
@@ -5012,6 +5663,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Passport OAuth Token
@@ -5022,7 +5674,8 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Predictor API Key
@@ -5035,6 +5688,7 @@
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Translate API Key
@@ -5046,7 +5700,20 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: ZenHub
+  supportedSecret: ZenHub Personal API Key
+  secretType: zenhub_personal_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
+  base64Supported: false
   isduplicate: false
 - provider: Zuplo
   supportedSecret: Zuplo Consumer API Key
@@ -5059,4 +5726,5 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
   isduplicate: false
