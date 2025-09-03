@@ -2,6 +2,14 @@
 
 **2 September 2025**
 
+We've added documentation for support of Copilot code review in Xcode.
+
+See: https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=xcode
+
+<hr>
+
+**2 September 2025**
+
 We've published a new customization library for GitHub Copilot: a curated collection of examples you can copy, adjust, and use to enhance your experience with Copilot. This library is designed to inspire and educate people on the options available to customize Copilot responses.
 
 We've included examples of custom instructions (widely supported) and prompt files (supported in VS Code only). The examples cover scenarios such as debugging, onboarding, and accessibility. We look forward to adding more examples over time.
