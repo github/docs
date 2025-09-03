@@ -331,6 +331,8 @@ export const schema = {
     // Recommended configuration for category landing pages
     recommended: {
       type: 'array',
+      minItems: 3,
+      maxItems: 9,
       description: 'Array of articles to feature in the carousel section',
     },
   },
