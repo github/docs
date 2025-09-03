@@ -40,7 +40,9 @@ What you need to know about the following actions:
   * Billing for that user stops at the end of the cycle.
   * Reduced seat count takes effect at the start of the **next billing cycle**.
   * **No refunds are issued for unused time in the current cycle.**
-* **Access:** If a seat is unassigned during a billing cycle, the affected user can still access {% data variables.product.prodname_copilot_short %} until the end of the cycle.
+* **Access:**
+  * If a seat is unassigned during a billing cycle, the affected user can still access {% data variables.product.prodname_copilot_short %} until the end of the cycle.
+  * If a seat is revoked, users lose access **immediately.**
 
 Additionally:
 
@@ -58,9 +60,12 @@ What you need to know about the following actions:
 ### Removing seats
 
 * **Billing:**
-  * The reduced seat count is effective in the **next billing cycle**.
-  * **There are no refunds for the current cycle.**
-* **Access:** Users lose access **immediately** if their seat is removed, but seats can be reassigned within the current cycle until the new count applies.
+  * Billing for that user stops at the end of the cycle.
+  * Reduced seat count takes effect at the start of the **next billing cycle.**
+  * **No refunds are issued for unused time in the current cycle.**
+* **Access:**
+  * If a seat is unassigned during a billing cycle, the affected user can still access {% data variables.product.prodname_copilot_short %} until the end of the cycle.
+  * If a seat is revoked, users lose access **immediately.**
 
 Additionally:
 
@@ -72,8 +77,7 @@ Additionally:
 
 * **Proration:** Applies when adding seats/licenses or upgrading plans. You pay only for the portion of the billing cycle remaining.
 * **Access:** Assignments and plan changes are effective immediately for affected users.
-* **Removing or canceling:** No refunds are issued for unused time; access continues until the end of the cycle paid for, unless a seat/license is unassigned.
-* **Reassignment:** In {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans, unassigned seats/licenses can be immediately reassigned to another user during the current billing cycle.
+* **Removing or canceling:** No refunds are issued for unused time; access continues until the end of the cycle paid for, unless a seat/license is revoked.
 
 | Scenario                        | Plan                | When is billing affected? | Is proration applied? | When does access change? | Refund for unused time? |
 |----------------------------------|---------------------|--------------------------|----------------------|--------------------------|-------------------------|

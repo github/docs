@@ -1,0 +1,11 @@
+.linkItem {
+  border-radius: 0;
+
+  &:hover {
+    border-radius: 0;
+  }
+
+  h3 {
+    color: var(--fgColor-accent, var(--color-accent-fg));
+  }
+}

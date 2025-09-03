@@ -29,7 +29,7 @@ import {
   executeGeneralSearch,
   GENERAL_SEARCH_CONTEXT,
 } from '../helpers/execute-search-actions'
-import { Banner } from '@primer/react/drafts'
+import { Banner } from '@primer/react/experimental'
 import { useCombinedSearchResults } from '@/search/components/hooks/useAISearchAutocomplete'
 import { AskAIResults } from './AskAIResults'
 import { sendEvent, uuidv4 } from '@/events/components/events'
@@ -948,8 +948,11 @@ function renderSearchGroups(
               }
             }}
           >
-            {!option.isViewAllResults && !option.isNoResultsFound && (
-              <ActionList.LeadingVisual aria-hidden>
+            {!option.isNoResultsFound && (
+              <ActionList.LeadingVisual
+                aria-hidden
+                sx={{ visibility: option.isViewAllResults ? 'hidden' : 'visible' }}
+              >
                 <FileIcon />
               </ActionList.LeadingVisual>
             )}

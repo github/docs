@@ -966,58 +966,44 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| Not applicable | Not applicable | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see [AUTOTITLE](/actions/using-workflows#triggering-a-workflow-with-events). |
+| Not applicable | Not applicable | Last commit on default branch | Default branch |
 
 > [!NOTE]
 > * {% data reusables.actions.schedule-delay %}
-> * This event will only trigger a workflow run if the workflow file is on the default branch.
+> * {% data reusables.actions.branch-requirement %}
 > * Scheduled workflows will only run on the default branch.
 > * In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see [AUTOTITLE](/enterprise-server/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow).
-> * For an enterprise with {% data variables.product.prodname_emus %}, scheduled workflows will not run if the last `actor` associated with the scheduled workflow has been deprovisioned (and therefore become suspended) by the {% data variables.product.prodname_emu %} identity provider (IdP). However, if the last `actor` {% data variables.product.prodname_emu %} has not been deprovisioned by the IdP, and has only been removed as a member from a given organization in the enterprise, scheduled workflows will still run with that user set as the `actor`. Similarly, for an enterprise without {% data variables.product.prodname_emus %}, removing a user from an organization will not prevent scheduled workflows which had that user as their `actor` from running. Essentially, triggering a scheduled workflow requires that the status of the `actor` user account associated with the workflow is currently active (i.e. not suspended or deleted). Thus, the _user account's_ status, in both {% data variables.product.prodname_emu %} and non-{% data variables.product.prodname_emu %} scenarios, is what's important, _not_ the user's _membership status_ in the organization where the scheduled workflow is located.
-> * Certain repository events change the `actor` associated with the workflow. For example, a user who changes the default branch of the repository, which changes the branch on which scheduled workflows run, becomes `actor` for those scheduled workflows.
-> * For a deactivated scheduled workflow, if a user with `write` permissions to the repository makes a commit that changes the `cron` schedule on the workflow, the workflow will be reactivated, and that user will become the `actor` associated with any workflow runs. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value in the workflow and commit this change.
->
->   **Example:**
->
->   ```yaml
->   on:
->     schedule:
->       - cron: "15 4,5 * * *"   # <=== Change this value
->   ```
 
 The `schedule` event allows you to trigger a workflow at a scheduled time.
 
+   **Example:**
+
+  ```yaml
+   on:
+     schedule:
+       - cron: "15 4,5 * * *"
+  ```
+
 {% data reusables.repositories.actions-scheduled-workflow-example %}
-
-Cron syntax has five fields separated by a space, and each field represents a unit of time.
-
-```text
-┌───────────── minute (0 - 59)
-│ ┌───────────── hour (0 - 23)
-│ │ ┌───────────── day of the month (1 - 31)
-│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
-│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-│ │ │ │ │
-│ │ │ │ │
-│ │ │ │ │
-* * * * *
-```
-
-You can use these operators in any of the five fields:
-
-| Operator | Description | Example |
-| -------- | ----------- | ------- |
-| * | Any value | `15 * * * *` runs at every minute 15 of every hour of every day. |
-| , | Value list separator | `2,10 4,5 * * *` runs at minute 2 and 10 of the 4th and 5th hour of every day. |
-| - | Range of values | `30 4-6 * * *` runs at minute 30 of the 4th, 5th, and 6th hour. |
-| / | Step values | `20/15 * * * *` runs every 15 minutes starting from minute 20 through 59 (minutes 20, 35, and 50). |
 
 > [!NOTE]
 > {% data variables.product.prodname_actions %} does not support the non-standard syntax `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly`, and `@reboot`.
 
 You can use [crontab guru](https://crontab.guru/) to help generate your cron syntax and confirm what time it will run. To help you get started, there is also a list of [crontab guru examples](https://crontab.guru/examples.html).
 
-Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs).
+### `actor` for scheduled workflows
+
+Certain repository events change the `actor` associated with the workflow. For example, a user who changes the default branch of the repository, which changes the branch on which scheduled workflows run, becomes `actor` for those scheduled workflows.
+
+For a deactivated scheduled workflow, if a user with `write` permissions to the repository makes a commit that changes the `cron` schedule on the workflow, the workflow will be reactivated, and that user will become the `actor` associated with any workflow runs.
+
+Notifications for scheduled workflows are sent to the user who last modified the cron syntax in the workflow file.  For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs).
+
+> [!NOTE]
+> For an enterprise with {% data variables.product.prodname_emus %}, triggering a scheduled workflow requires that the status of the `actor` user account associated with the workflow is currently active (i.e. not suspended or deleted).
+> * Scheduled workflows will not run if the last `actor` associated with the scheduled workflow has been deprovisioned by the {% data variables.product.prodname_emu %} identity provider (IdP). However, if the last `actor` {% data variables.product.prodname_emu %} has not been deprovisioned by the IdP, and has only been removed as a member from a given organization in the enterprise, scheduled workflows will still run with that user set as the `actor`.
+> * Similarly, for an enterprise without {% data variables.product.prodname_emus %}, removing a user from an organization will not prevent scheduled workflows which had that user as their `actor` from running.  
+> * Thus, the _user account's_ status, in both {% data variables.product.prodname_emu %} and non-{% data variables.product.prodname_emu %} scenarios, is what's important, _not_ the user's _membership status_ in the organization where the scheduled workflow is located.
 
 ## `status`
 

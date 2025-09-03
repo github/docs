@@ -6,7 +6,6 @@ versions:
   feature: copilot
 topics:
   - Copilot
-permissions: Enterprise owners and billing managers
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
@@ -15,73 +14,68 @@ redirect_from:
 contentType: get-started
 ---
 
-When you adopt {% data variables.product.prodname_copilot %} in a company, you will sign up to a {% data variables.product.prodname_copilot_short %} plan designed for businesses. These plans allow you to:
+## Introduction
 
-* Choose which users receive access to {% data variables.product.prodname_copilot_short %}
-* Meet regulations and security requirements with features like file exclusion, policies, and audit logs
-* Benefit from advanced {% data variables.product.prodname_copilot_short %} features
+When you adopt {% data variables.product.prodname_copilot %} in a company, you will sign up to a {% data variables.product.prodname_copilot_short %} plan designed for businesses. These plans allow you to grant access to users and meet security requirements with policies and audit logs.
 
-{% data variables.copilot.copilot_enterprise_short %} offers additional features for enterprises that want to customize {% data variables.product.prodname_copilot_short %} for their needs.
+To identify which plan is right for your company:
 
-This article helps you to decide whether to adopt {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}.
+1. Define the overall goals you are hoping to achieve with your {% data variables.product.prodname_copilot_short %} rollout. Think about downstream goals such as reducing security debt, as opposed to earlier success indicators such as developer satisfaction or feature adoption.
+1. Understand the benefits of {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}, including premium request allowances.
+1. Choose the {% data variables.product.prodname_copilot_short %} plan with the allowances and features that will help you meet your goals.
 
-<a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=choosing+enterprise+plan" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+   >[!TIP] When you subscribe to {% data variables.product.prodname_copilot_short %} at the enterprise level, you can choose a plan individually for each organization in your enterprise. This allows you to evaluate the benefits of {% data variables.copilot.copilot_enterprise_short %} with a pilot program or enable it in the organizations where it will have the most impact.
 
-## About the plans
+This article explains the available plans and provides examples for how {% data variables.copilot.copilot_enterprise_short %} can help you achieve specific business goals.
+
+## Plans and premium requests
 
 {% data variables.product.company_short %} offers two {% data variables.product.prodname_copilot_short %} plans for customers on {% data variables.product.prodname_ghe_cloud %}:
 
 * **{% data variables.copilot.copilot_business_short %}** ({% data variables.copilot.cfb_price_per_month %} per user per month): includes most {% data variables.product.prodname_copilot_short %} features in IDEs and on the {% data variables.product.github %} website.
-* **{% data variables.copilot.copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): allows companies to customize {% data variables.product.prodname_copilot_short %} for their code and processes, and includes a higher allowance for premium requests. To learn more, see the sections below.
+* **{% data variables.copilot.copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): includes a higher allowance for premium requests, and often allows earlier access to new features and models.
 
 For a full comparison, see our [plans page](https://github.com/features/copilot/plans).
 
-## About mixed plans
+Premium requests are used by more advanced {% data variables.product.prodname_copilot_short %} features and models, including AI agents. By giving members access to more premium requests, you can scale your company with AI agents and drive real business outcomes, such as reducing your backlog, accelerating pull requests, or increasing code quality with suggestions from more specialized models.
 
-When you subscribe your enterprise account to {% data variables.copilot.copilot_enterprise_short %}, you don't need to use this plan across the whole enterprise. Instead, you can choose a plan individually for each organization in your enterprise. This approach allows you to:
+By default, users can continue to use premium requests after exhausting their plan's monthly allowance. However, each extra request is charged to your enterprise, and in many cases you can save money by upgrading users to {% data variables.copilot.copilot_enterprise_short %}.
 
-* Evaluate the benefits of {% data variables.copilot.copilot_enterprise_short %} for a smaller group of users before rolling it out further.
-* Enable {% data variables.copilot.copilot_enterprise_short %} in the organizations where it will have the most impact, such as organizations with complex documentation or specialized engineering requirements.
+For more information about premium requests, see [AUTOTITLE](/copilot/concepts/billing/copilot-requests).
 
-## What are our goals for {% data variables.product.prodname_copilot_short %}?
+## How does {% data variables.copilot.copilot_enterprise_short %} support business goals?
 
-To drive and measure downstream impact of {% data variables.product.prodname_copilot_short %}, {% data variables.product.company_short %} recommends leading your rollout with specific engineering goals in mind. Your requirements for {% data variables.product.prodname_copilot_short %} features will depend on your overall goal for the rollout.
+The following table shows examples of goals your company might set for a {% data variables.product.prodname_copilot_short %} rollout, and how premium requests and other {% data variables.copilot.copilot_enterprise_short %} features can help you achieve those goals.
 
-For examples of how {% data variables.product.prodname_copilot_short %} can help with common problems in engineering teams, see [AUTOTITLE](/copilot/get-started/achieve-engineering-goals).
+| Goal | Problem to solve | How {% data variables.copilot.copilot_enterprise_short %} helps |
+| ---- | ---------------- | --------------------------------------------------------------- |
+| **Reduce your backlog** | Teams may not have capacity to work on backlog issues or non-essential issues that come up during development. This can lead to a gradual degradation in feature quality. | With more premium requests, users can assign more issues to **{% data variables.copilot.copilot_coding_agent %}**, which can complete tasks like fixing bugs or adding feature enhancements in the background. |
+| **Accelerate pull requests** | Teams often experience delays in merging pull requests due to lengthy review cycles. This can lead to bottlenecks in the development process and slow down the delivery and improvement of features. | With more premium requests, users can receive more reviews on pull requests from **{% data variables.copilot.copilot_code-review_short %}**, often flagging bugs or possible improvements before a human reviewer is available. |
+| **Reduce technical debt** | Inefficient or hard-to-read code can accumulate over time, making it harder for team members to onboard and understand new areas of the code. | With more premium requests and access to the latest models, users can use agent mode in their IDE to refactor code, choosing models with **greater contextual awareness** that are more suited to tasks like complex refactoring. |
 
-## Do we have projects with complex requirements?
+## Is {% data variables.copilot.copilot_enterprise_short %} the most cost effective choice?
 
-For complex projects like monorepos or legacy codebases, developers in your company may need to spend a long time finding and reading documentation before they can contribute.
+We recommend considering the number of premium requests in the {% data variables.copilot.copilot_business_short %} plan as a baseline, not a limit. Developers using agentic workflows including features like agent mode, {% data variables.copilot.copilot_coding_agent %}, and {% data variables.copilot.copilot_code-review_short %} are likely to surpass this allowance.
 
-With {% data variables.copilot.copilot_enterprise_short %}, you can create **knowledge bases** that bring together documentation from one or more repositories in an organization, allowing {% data variables.product.prodname_copilot_short %} to synthesize information from your documentation in its responses.
+If your company is gaining value from agentic workflows, you will likely want to make more requests available to developers. Depending on how many requests people are using, the most cost effective way to do that is either to upgrade users to {% data variables.copilot.copilot_enterprise_short %} or to enable paid usage for requests beyond your plan's allowance.
 
-## Will we use {% data variables.copilot.copilot_code-review_short %} at scale?
+To download a usage report to see how many premium requests your developers are using, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests#viewing-premium-request-usage). {% data variables.copilot.copilot_business_short %} users who use more than around 800 premium requests a month would save money on a {% data variables.copilot.copilot_enterprise_short %} plan.
 
-With {% data variables.copilot.copilot_code-review_short %}, {% data variables.product.prodname_copilot_short %} can provide feedback on pull requests on {% data variables.product.github %}. How much you use this feature depends on the goals of your rollout. For example, if a goal is to increase velocity by accelerating approvals of pull requests, then you may be encouraging developers to use {% data variables.copilot.copilot_code-review_short %} as much as possible.
+For more information on managing spending on premium requests, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 
-{% data variables.copilot.copilot_enterprise_short %} includes a higher allowance for premium requests, which are used by {% data variables.copilot.copilot_code-review_short %}. To learn more, see [How much will we benefit from premium requests?](#how-much-will-we-benefit-from-premium-requests).
+## Getting started
 
-## How much will we benefit from premium requests?
+When you've determined whether premium requests and {% data variables.copilot.copilot_enterprise_short %} features will help you achieve your goals, it's time to choose a plan.
 
-Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests:
+{% note %}
 
-* 300 requests per user per month for {% data variables.copilot.copilot_business_short %}
-* 1000 requests per user per month for {% data variables.copilot.copilot_enterprise_short %}
+Sign up:
 
-By ensuring members have access to enough premium requests, you can drive real business outcomes, such as reducing your backlog with {% data variables.copilot.copilot_coding_agent %}, accelerating pull requests with {% data variables.copilot.copilot_code-review_short %}, or increasing code quality with suggestions from more specialized models.
+<a href="https://github.com/github-copilot/purchase?priority=business&cft=copilot_li.copilot_plans.cfb" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Business</span></a>  <a href="https://github.com/github-copilot/purchase?priority=enterprise&cft=copilot_li.copilot_plans.ce" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Enterprise</span></a>
 
-Regardless of your plan, you can enable or disable premium requests over your plan's allowance. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
-
-## Making a decision
-
-To summarize:
-
-* Choose {% data variables.copilot.copilot_enterprise_short %} if your company has projects with complex requirements or large amounts of documentation. Knowledge bases give {% data variables.product.prodname_copilot_short %} enhanced context, which can save developers time and allow them to focus on tasks they enjoy.
-* If you think your developers will benefit from premium models and {% data variables.product.prodname_copilot_short %} code reviews, it may be cost effective to choose {% data variables.copilot.copilot_enterprise_short %} rather than pay for premium requests over your allowance.
-* If you're not sure about a full rollout, choose {% data variables.copilot.copilot_enterprise_short %} at the enterprise level and enable it for individual organizations where it will have the most impact.
-* Make your decision based on your downstream goals for the {% data variables.product.prodname_copilot_short %} rollout.
+{% endnote %}
 
 ## Further reading
 
-* [AUTOTITLE](/enterprise-cloud@latest/copilot/customizing-copilot/managing-copilot-knowledge-bases)
+* [AUTOTITLE](/copilot/get-started/achieve-engineering-goals)
 * [AUTOTITLE](/copilot/reference/ai-models/model-comparison)

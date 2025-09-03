@@ -107,7 +107,11 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 ## `on.schedule`
 
-{% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}
+You can use `on.schedule` to define a time schedule for your workflows.
+
+{% data reusables.repositories.actions-scheduled-workflow-example %}
+
+For more information about `schedule` events, see [AUTOTITLE](/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
 
 ## `on.workflow_call`
 

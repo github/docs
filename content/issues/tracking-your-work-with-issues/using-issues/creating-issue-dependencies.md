@@ -11,8 +11,6 @@ permissions: 'People with at least triage permissions for a repository can creat
 product: 'Issue dependencies are available for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %} plans.'
 ---
 
-{% data reusables.issues.issue-dependencies-preview-note %}
-
 Issue dependencies let you define issues that are blocked by, or blocking, other work.
 
 ## Marking an issue as blocked by, or blocking, another issue

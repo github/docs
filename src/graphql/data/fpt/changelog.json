@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>viewerCanSetFields</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerCanSeeIssueFields</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-08-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>BlockedByAddedEvent</code> was added</p>",
           "<p>Type <code>BlockedByRemovedEvent</code> was added</p>",
           "<p>Type <code>BlockingAddedEvent</code> was added</p>",

@@ -206,9 +206,14 @@ export function getGHExample(
     }
 
     if (typeof bodyParameters === 'object') {
+      // Special handling for gist endpoints - use --input for nested file structures
+      const isGistEndpoint =
+        operation.requestPath.includes('/gists') &&
+        (operation.title === 'Create a gist' || operation.title === 'Update a gist')
+
       // For complex objects with arrays, use --input with JSON
       const hasArrays = hasNestedArrays(bodyParameters as NestedObjectParameter)
-      if (hasArrays) {
+      if (hasArrays || isGistEndpoint) {
         const jsonBody = JSON.stringify(
           bodyParameters,
           (key: string, value: any) => {

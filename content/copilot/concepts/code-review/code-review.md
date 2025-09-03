@@ -22,11 +22,19 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 
 ## Availability
 
+{% data variables.copilot.copilot_code-review_short %} is supported in:
+
+* {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_mobile %}
+* {% data variables.product.prodname_vscode_shortname %}
+* {% data variables.product.prodname_vs %}
+* Xcode
+
 {% data variables.copilot.copilot_code-review_short %} is—with one exception—a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.
 
 The exception is the review of a selection of code within a file in {% data variables.product.prodname_vscode %}. This is a standard feature available to all {% data variables.product.prodname_copilot_short %} users in {% data variables.product.prodname_vscode_shortname %}.
 
-If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
+If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.copilot.copilot_code-review_short %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
 
 ## Code review monthly quota
 
@@ -48,6 +56,10 @@ When you reach your monthly quota you will not be able to get a code review from
   * Request a deeper review of all of your uncommitted changes.
   * Premium feature. Uses one premium request from your monthly quota per review.
   * Supports custom instructions and custom coding guidelines.
+
+## Providing instructions for {% data variables.product.prodname_copilot_short %} code reviews
+
+You can tailor the reviews that {% data variables.product.prodname_copilot_short %} generates by providing custom instructions. This helps {% data variables.product.prodname_copilot_short %} to review the code in a way that matches your team's coding standards, tools, and practices. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
 
 ## Validating {% data variables.product.prodname_copilot_short %} code reviews
 

@@ -4628,7 +4628,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5134,7 +5134,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: SSLMate
@@ -5417,7 +5417,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Uniwise
@@ -5558,7 +5558,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: true
 - provider: WorkOS
@@ -5571,7 +5571,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: true
 - provider: xAI
@@ -5674,7 +5674,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -5700,7 +5700,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: ZenHub

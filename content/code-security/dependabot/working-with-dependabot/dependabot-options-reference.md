@@ -346,9 +346,9 @@ For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updat
 
 Specify which semantic versions (SemVer) to ignore. SemVer is an accepted standard for defining versions of software packages, in the form `x.y.z`. {% data variables.product.prodname_dependabot %} assumes that versions in this form are always `major.minor.patch`.
 
-* Use `patch` to include patch releases.
-* Use `minor` to include minor releases.
-* Use `major` to include major releases.
+* Use `version-update:semver-patch` to include patch releases.
+* Use `version-update:semver-minor` to include minor releases.
+* Use `version-update:semver-major` to include major releases.
 
 ## `insecure-external-code-execution` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -634,16 +634,11 @@ Optionally, run all updates for a package manager at a specific time of day. By 
 
 ### `cronjob`
 
-Supported values: Valid cron expression in cron format or natural expression.
+Supported values: Valid cron expression in cron syntax or natural expression.
+
+{% data reusables.repositories.cron %}
 
 Examples : `0 9 * * *`, `every day at 5pm`
-
-cron format is defined as the following:
-* `*` The minute field.
-* `*` The hour field (in 24-hour time).
-* `*` The day of the month (matches any day of the month).
-* `*` The month (matches any month).
-* `*` The day of the week (matches any day of the week).
 
 `0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
 
@@ -704,7 +699,7 @@ When `exclude-paths` is defined:
 
 Glob patterns are supported, such as `**` for recursive matching and `*` for single-segment wildcards. Patterns are relative to the `directory` specified for the update configuration. Each ecosystem can have its own `exclude-paths` settings.
 
-## Example
+### Example
 
 ```yaml copy
 version: 2

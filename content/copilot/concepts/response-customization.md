@@ -59,13 +59,9 @@ contentType: concepts
 
 ### About repository custom instructions
 
-Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository.
+You can create two types of repository custom instructions for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}:
 
-Repository custom instructions files are used for chat responses, for code review, and also by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
-
-{% data reusables.copilot.repository-custom-instructions-example %}
-
-{% data reusables.copilot.repository-cust-instr-code-review %}
+{% data reusables.copilot.custom-instructions-about %}
 
 {% endwebui %}
 
@@ -75,7 +71,7 @@ Repository custom instructions files are used for chat responses, for code revie
 
 There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}:
 
-* **Repository custom instructions** allow you to specify repository-wide instructions and preferences, in a single file, that apply to any conversation held in the context of the repository.
+* **Repository custom instructions** allow you to specify instructions and preferences that {% data variables.product.prodname_copilot_short %} will consider when working in the context of the repository.
 * **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
 
 While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
@@ -117,7 +113,9 @@ There are two types of repository custom instructions you can use to provide con
 
 Custom instructions consist of natural language instructions and are most effective when they are short, self-contained statements. Consider the scope over which you want the instruction to apply when choosing whether to add an instruction on the personal, repository, or (if available) organization level.
 
-{% data reusables.copilot.custom-instructions-interactions-note %}
+> [!NOTE]
+> * {% data reusables.copilot.custom-instructions-chat-precedence %}
+> * {% data reusables.copilot.custom-instructions-conflict %}
 
 Here are some common use cases and examples for each type of custom instructions:
 * **Personal custom instructions:**
@@ -138,19 +136,9 @@ Here are some common use cases and examples for each type of custom instructions
 
 ## About repository custom instructions
 
-Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+You can create two types of repository custom instructions for use in {% data variables.product.prodname_vscode_shortname %}:
 
-Common use cases include:
-
-* **Test generation.** Create instructions for test generation, such as specifying the use of a certain test framework.
-* **Code review.** Specify instructions for reviewing code, such as telling a reviewer to look for a specific error in the code.
-* **Commit message generation.** Write instructions for generating commit messages, such as format or the type of information to include.
-
-### Example
-
-{% data reusables.copilot.repository-custom-instructions-example %}
-
-{% data reusables.copilot.repository-cust-instr-code-review %}
+{% data reusables.copilot.custom-instructions-about %}
 
 ## About prompt files
 
