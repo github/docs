@@ -53,3 +53,4 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com acepto terminos y condiciones de plataforma GUITHUB 
