@@ -57,6 +57,10 @@ When you reach your monthly quota you will not be able to get a code review from
   * Premium feature. Uses one premium request from your monthly quota per review.
   * Supports custom instructions and custom coding guidelines.
 
+## Providing instructions for {% data variables.product.prodname_copilot_short %} code reviews
+
+You can tailor the reviews that {% data variables.product.prodname_copilot_short %} generates by providing custom instructions. This helps {% data variables.product.prodname_copilot_short %} to review the code in a way that matches your team's coding standards, tools, and practices. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
+
 ## Validating {% data variables.product.prodname_copilot_short %} code reviews
 
 {% data variables.product.prodname_copilot_short %} isn't guaranteed to spot all problems or issues in a pull request, and sometimes it will make mistakes. Always validate {% data variables.product.prodname_copilot_short %}'s feedback carefully, and supplement {% data variables.product.prodname_copilot_short %}'s feedback with a human review.

@@ -56,7 +56,11 @@ This version of this article is for using repository custom instructions in Ecli
 
 Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+Repository custom instructions are currently supported for:
+* **{% data variables.copilot.copilot_chat_short %}** in {% data variables.product.prodname_vscode_shortname %}
+* **{% data variables.copilot.copilot_chat_short %}** in {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, and on the {% data variables.product.github %} website (`copilot-instructions.md` file only)
+* **{% data variables.copilot.copilot_coding_agent %}**
+* **{% data variables.copilot.copilot_code-review_short %}**
 
 ## Prerequisites for repository custom instructions
 
@@ -98,13 +102,13 @@ Repository custom instructions let you provide {% data variables.product.prodnam
 
 {% endeclipse %}
 
-## Creating a repository custom instructions file
+## Creating custom instructions
 
 {% jetbrains %}
 
-JetBrains IDEs support a single `.github/copilot-instructions.md` custom instructions file stored in the repository.
+JetBrains IDEs support a single `.github/copilot-instructions.md` custom instructions file stored in the repository, and a locally stored `global-copilot-instructions.md` file.
 
-You can create a custom instructions file in your repository using the {% data variables.product.prodname_copilot_short %} settings page, or you can create the file manually.
+You can create the `.github/copilot-instructions.md` file in your repository using the {% data variables.product.prodname_copilot_short %} settings page, or you can create the file manually.
 
 Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
@@ -184,12 +188,19 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% vscode %}
 
-{% data variables.product.prodname_vscode_shortname %} supports either:
+{% data variables.product.prodname_vscode_shortname %} supports two types of repository custom instructions:
 
-* A single `.github/copilot-instructions.md` custom instructions file stored in the repository
-* One or more `.instructions.md` files stored within `.github/instructions` in the repository. Each file can specify `applyTo` frontmatter to define what files or directories its instructions apply to.
+* **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 
-### Using a single `.github/copilot-instructions.md` file
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions).
+
+* **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
+
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
+
+  If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
+
+## Creating repository-wide custom instructions
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -199,25 +210,9 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
    Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
 
-### Using one or more `.instructions.md` files
+## Creating path-specific custom instructions
 
-1. Create the `.github/instructions` directory if it does not already exist.
-
-1. Create one or more `.instructions.md` files, adding natural language instructions to the file(s).
-
-   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
-
-1. Specify what files or directories the instructions apply to by adding `applyTo` frontmatter to the Markdown files, using glob syntax.
-
-   ```markdown
-   ---
-   applyTo: "app/models/**/*.rb"
-   ---
-
-   Add custom instructions here
-   ```
-
-   To apply the instructions to all files, use the `**` pattern.
+{% data reusables.copilot.custom-instructions-path %}
 
 {% endvscode %}
 
@@ -237,19 +232,35 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% webui %}
 
-**{% data variables.copilot.copilot_chat_short %}** on the {% data variables.product.github %} website, **{% data variables.copilot.copilot_coding_agent %}** and **{% data variables.copilot.copilot_code-review_short %}** support a single `.github/copilot-instructions.md` custom instructions file stored in the repository.
+You can create several types of repository custom instructions for use on {% data variables.product.prodname_dotcom_the_website %}:
 
-In addition, **{% data variables.copilot.copilot_coding_agent %}** supports:
+* **Repository-wide custom instructions** apply to all requests made in the context of a repository.
 
-* One or more `.instructions.md` files stored within `.github/instructions` in the repository. Each file can specify `applyTo` frontmatter to define what files or directories its instructions apply to.
-* One or more `AGENTS.md` files stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence.
-* A single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
+  Supported by: **{% data variables.copilot.copilot_chat_short %}**, **{% data variables.copilot.copilot_coding_agent %}**, and **{% data variables.copilot.copilot_code-review_short %}**.
 
-### Using a single `.github/copilot-instructions.md` file
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-1).
 
-You can ask {% data variables.copilot.copilot_coding_agent %} to generate a `.github/copilot-instructions.md` file, or you can write your own instructions file.
+* **Path-specific custom instructions** apply to requests made in the context of files that match a specified path.
 
-#### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `.github/copilot-instructions.md` file
+  Supported by: **{% data variables.copilot.copilot_coding_agent %}** and **{% data variables.copilot.copilot_code-review_short %}**.
+
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
+
+  If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
+
+* **Agent instructions** are used by AI agents.
+
+  Supported by: **{% data variables.copilot.copilot_coding_agent %}**.
+
+  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence.
+
+  Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
+
+## Creating repository-wide custom instructions
+
+You can create your own custom instructions file from scratch. See [Writing your own copilot-instructions.md file](#writing-your-own-copilot-instructionsmd-file). Alternatively, you can ask {% data variables.copilot.copilot_coding_agent %} to generate one for you.
+
+### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
 
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
@@ -341,7 +352,7 @@ You can ask {% data variables.copilot.copilot_coding_agent %} to generate a `.gi
 
 {% data variables.product.prodname_copilot_short %} will start a new session, which will appear in the list below the prompt box. {% data variables.product.prodname_copilot_short %} will create a draft pull request, write your custom instructions, push them to the branch, then add you as a reviewer when it has finished, triggering a notification.
 
-#### Writing your own `.github/copilot-instructions.md` file
+### Writing your own `copilot-instructions.md` file
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -354,25 +365,12 @@ You can ask {% data variables.copilot.copilot_coding_agent %} to generate a `.gi
 > [!TIP]
 > The first time you create a pull request in a given repository with {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will leave a comment with a link to automatically generate custom instructions for the repository.
 
-### Using one or more `.instructions.md` files
+## Creating path-specific custom instructions
 
-1. Create the `.github/instructions` directory if it does not already exist.
+> [!NOTE]
+> Currently, on {% data variables.product.prodname_dotcom_the_website %}, path-specific custom instructions are only supported for {% data variables.copilot.copilot_coding_agent %} and {% data variables.copilot.copilot_code-review_short %}.
 
-1. Create one or more `.instructions.md` files, adding natural language instructions to the file(s).
-
-   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
-
-1. Specify what files or directories the instructions apply to by adding `applyTo` frontmatter to the Markdown files, using glob syntax.
-
-   ```markdown
-   ---
-   applyTo: "app/models/**/*.rb"
-   ---
-
-   Add custom instructions here
-   ```
-
-   To apply the instructions to all files, use the `**` pattern.
+{% data reusables.copilot.custom-instructions-path %}
 
 {% endwebui %}
 
@@ -459,7 +457,9 @@ Whenever repository custom instructions are used by {% data variables.copilot.co
 
 You can click the reference to open the file.
 
-{% data reusables.copilot.custom-instructions-interactions-note %}
+> [!NOTE]
+> * {% data reusables.copilot.custom-instructions-chat-precedence %}
+> * {% data reusables.copilot.custom-instructions-conflict %}
 
 {% endwebui %}
 
