@@ -27,7 +27,7 @@ redirect_from:
 ## Synopsis
 
 ```shell copy
-codeql test extract [--source-root=<dir>] <options>... -- <testDirectory>
+codeql test extract [--print-database] [--source-root=<dir>] <options>... -- <testDirectory>
 ```
 
 ## Description
@@ -51,6 +51,11 @@ execute test queries against.
 Override the location of the database being created. By default it will
 be a subdirectory whose name is derived from the name of the test
 directory itself with '.testproj' appended.
+
+#### `-D, --print-database`
+
+Print the path to the database being created, rather than the dataset
+inside it.
 
 #### `-s, --source-root=<dir>`
 
