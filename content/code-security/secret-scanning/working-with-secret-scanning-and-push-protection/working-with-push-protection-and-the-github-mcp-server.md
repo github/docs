@@ -21,7 +21,7 @@ Push protection prevents you from inadvertently exposing secrets, such as tokens
 
 When you're interacting with the {% data variables.product.github %} MCP server, push protection blocks secrets in AI-generated responses as well as preventing secrets from being included in any actions you perform, such as creating an issue.
 
-This protection is on by default for all interactions between the {% data variables.product.github %} MCP server and **public repositories** only, regardless of whether push protection is enabled on the repository's security settings page.
+This protection is on by default for all interactions between the {% data variables.product.github %} MCP server and **public repositories**; and between the {% data variables.product.github %} MCP server and private repositories covered by {% data variables.product.prodname_GHAS %}, regardless of whether push protection is enabled on the repository's security settings page.
 
 ## Resolving a block
 
