@@ -53,9 +53,9 @@ RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   echo "Don't cache this step by printing date: $(date)" && \
   . ./build-scripts/fetch-repos.sh
 
-# -----------------------------------------
+# ------------------------------------------------
 # PROD_DEPS STAGE: Install production dependencies
-# -----------------------------------------
+# ------------------------------------------------
 FROM base AS prod_deps
 USER node:node
 WORKDIR $APP_HOME
@@ -66,17 +66,17 @@ COPY --chown=node:node package.json package-lock.json ./
 # Install only production dependencies (skip scripts to avoid husky)
 RUN npm ci --omit=dev --ignore-scripts --registry https://registry.npmjs.org/
 
-# -----------------------------------------
+# ------------------------------------------------------------
 # ALL_DEPS STAGE: Install all dependencies on top of prod deps
-# -----------------------------------------
+# ------------------------------------------------------------
 FROM prod_deps AS all_deps
 
 # Install dev dependencies on top of production ones
 RUN npm ci --registry https://registry.npmjs.org/
 
-# -----------------------------------------
+# ----------------------------------
 # BUILD STAGE: Build the application
-# -----------------------------------------
+# ----------------------------------
 FROM base AS build
 USER node:node
 WORKDIR $APP_HOME
@@ -99,17 +99,17 @@ COPY --chown=node:node --from=all_deps $APP_HOME/node_modules node_modules/
 # Build the application
 RUN npm run build
 
-# -----------------------------------------
+# ---------------------------------------------
 # WARMUP_CACHE STAGE: Warm up remote JSON cache
-# -----------------------------------------
+# ---------------------------------------------
 FROM build AS warmup_cache
 
 # Generate remote JSON cache
 RUN npm run warmup-remotejson
 
-# -----------------------------------------
+# --------------------------------------
 # PRECOMPUTE STAGE: Precompute page info
-# -----------------------------------------
+# --------------------------------------
 FROM build AS precompute_stage
 
 # Generate precomputed page info
