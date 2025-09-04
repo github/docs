@@ -310,6 +310,12 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
+  'frontmatter-landing-recommended': {
+    // GHD056
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
 }
 
 // Configures rules from the `github/markdownlint-github` repo
