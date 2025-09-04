@@ -1,0 +1,7 @@
+This PR adds a .github/FUNDING.yml file to enable the Sponsor button on the repository.
+
+- Includes GitHub Sponsors configuration
+- Provides optional support links for external platforms
+- Helps the community directly support ongoing open-source work
+
+Once merged, a "Sponsor" button will automatically appear on the repo.
