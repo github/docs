@@ -13,7 +13,7 @@ contentType: how-tos
 
 This policy controls the use of {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_for_prs %} in your enterprise.
 
-For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/code-review/code-review).
+For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
 For more information about {% data variables.copilot.copilot_for_prs %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/create-a-pr-summary).
 

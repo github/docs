@@ -9,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/code-review
+  - /copilot/concepts/code-review/code-review
 contentType: concepts
 ---
 
@@ -51,11 +52,11 @@ When you reach your monthly quota you will not be able to get a code review from
 * **Review selection:**
   * Highlight code and ask for an initial review.
   * Standard {% data variables.product.prodname_copilot_short %} feature. No premium requests used.
-  * Does not support custom instructions or custom coding guidelines.
+  * Does not support custom instructions.
 * **Review changes:**
   * Request a deeper review of all of your uncommitted changes.
   * Premium feature. Uses one premium request from your monthly quota per review.
-  * Supports custom instructions and custom coding guidelines.
+  * Supports custom instructions.
 
 ## Providing instructions for {% data variables.product.prodname_copilot_short %} code reviews
 

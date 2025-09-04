@@ -18,7 +18,7 @@ contentType: how-tos
 
 ## Introduction
 
-This article tells you how to set up {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review/code-review#about-automatic-pull-request-reviews).
+This article tells you how to set up {% data variables.copilot.copilot_code-review_short %} to review pull requests automatically. For an overview of automatic pull request reviews, see [AUTOTITLE](/copilot/concepts/code-review#about-automatic-pull-request-reviews).
 
 The three sections in this article tell you how to configure automatic code review for:
 

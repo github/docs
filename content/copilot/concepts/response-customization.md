@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
   - /copilot/concepts/about-customizing-github-copilot-chat-responses
+  - /copilot/concepts/code-review/coding-guidelines
 contentType: concepts
 ---
 

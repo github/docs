@@ -22,7 +22,7 @@ contentType: how-tos
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review/code-review).
+For a full introduction to {% data variables.copilot.copilot_code-review %}, see [AUTOTITLE](/copilot/concepts/code-review).
 
 {% webui %}
 
@@ -81,10 +81,6 @@ By default, you manually request a review from {% data variables.product.prodnam
 
 {% data reusables.copilot.code-review.custom-instructions-information %}
 
-## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines
-
-{% data reusables.copilot.code-review.custom-coding-guidelines %}
-
 {% endwebui %}
 
 {% vscode %}
@@ -139,10 +135,6 @@ To provide feedback, hover over the comment and click the thumbs up or thumbs do
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
 
 {% data reusables.copilot.code-review.custom-instructions-information %}
-
-## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines
-
-{% data reusables.copilot.code-review.custom-coding-guidelines %}
 
 {% endvscode %}
 
