@@ -32,6 +32,8 @@ Enterprise owners can define a policy for the whole enterprise, or delegate the 
    * Click the **Models** tab to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option. Select **No policy** to delegate the decision to individual organization owners. For more information, see [AUTOTITLE](/copilot/reference/feature-availability-enterprise).
 
+{% data reusables.copilot.mcp-servers-policy-note %}
+
 ## Opting in to previews or feedback
 
 If your enterprise has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}" on the "Policies" tab, two additional options are displayed:
