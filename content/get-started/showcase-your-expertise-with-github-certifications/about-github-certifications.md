@@ -52,13 +52,8 @@ You can certify your ability to optimize and manage a healthy {% data variables.
 
 ## Getting started with {% data variables.product.prodname_certifications %}
 
-To get started with {% data variables.product.prodname_certifications %}, you can review the different certifications on the [{% data variables.product.prodname_certifications_singular %} Registration](https://examregistration.github.com/overview) page. Every certification page includes details about the skills measured in the exams, how you can prepare, and links to register for the exams.
+To get started with {% data variables.product.prodname_certifications %}, you can review the different certifications on the [{% data variables.product.prodname_certifications_singular %} Registration](https://learn.github.com/credentials) page. Every certification page includes details about the skills measured in the exams, how you can prepare, and links to register for the exams.
 
 If you have the skills, you can register for the exam. If you want additional training, refer to the courses or learning paths in the “Preparing for the certification” section.
 
 After successful completion of a certificate exam, you will receive a Credly badge and certificate to verify your credentials.
-
-## Further reading
-
-* [{% data variables.product.prodname_certifications %} Program FAQs](https://examregistration.github.com/faq)
-* [{% data variables.product.prodname_certifications %} - Candidate Handbook](https://examregistration.github.com/handbook)
