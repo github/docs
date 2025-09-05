@@ -43,6 +43,16 @@ In addition to the README you're reading right now, this repo includes other REA
 - [src/README.md](src/README.md)
 
 ## License
+BEGIN:VCARD
+VERSION;TYPE=WORK:3.0
+PROFILE:VCARD
+URL;VALUE=URI:https://creativecommons.org
+N;CHARSET=UTF-8:Creative Commons;;;;
+FN;CHARSET=UTF-8:Creative Commons
+ORG;CHARSET=UTF-8:Creative Commons
+EMAIL:info@creativecommons.org
+ADR;CHARSET=UTF-8:;;211 Hope St # 1866,;Mountain View;CA;94042-8817;USA
+END:VCARD
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
