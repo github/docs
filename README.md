@@ -41,7 +41,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
 - [src/README.md](src/README.md)
-
+https://creativecommons.org/?s=http%3A%2F%2Fopensource.org%2Flicenses%2FBSD-2-Clause
 ## License
 BEGIN:VCARD
 VERSION;TYPE=WORK:3.0
