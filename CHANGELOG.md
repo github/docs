@@ -6,7 +6,7 @@ We've updated the documentation to remove references to Copilot coding guideline
 
 Coding guidelines, which were previously deprecated, have now been removed as a way of customizing Copilot responses. You should now use Copilot custom instructions.
 
-See [Configure custom instructions for GitHub Copilot](https://docs.github.com/copilot/how-tos/configure-custom-instructions)
+See: [Configure custom instructions for GitHub Copilot](https://docs.github.com/copilot/how-tos/configure-custom-instructions)
 
 <hr>
 
