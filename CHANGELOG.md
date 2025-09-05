@@ -13,6 +13,12 @@ For example, see: [Adding repository custom instructions for GitHub Copilot](htt
 
 <hr>
 
+**3 September 2025**
+
+We’ve updated [Choosing your enterprise’s plan for GitHub Copilot](https://docs.github.com/en/copilot/get-started/choose-enterprise-plan) to better highlight the long-term benefits of the Copilot Enterprise (CE) plan. The updated content focuses on the key advantages of CE, such as increased access to premium requests and earlier availability of new models.
+
+<hr>
+
 **2 September 2025**
 
 We've added documentation for support of Copilot code review in Xcode.
