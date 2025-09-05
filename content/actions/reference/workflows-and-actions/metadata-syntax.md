@@ -1,7 +1,7 @@
 ---
 title: Metadata syntax reference
 shortTitle: Metadata syntax
-intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
+intro: You can create actions to perform tasks in your repository. If you’re making a custom action, it will require a metadata file that uses YAML syntax.
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions

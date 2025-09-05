@@ -23,7 +23,7 @@ For information about the latest release, see the [{% data variables.product.pro
 | Version | Candidate | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Docs |
 | :- | :- | :- | :- | :-: | :- | :- |
 {%- for version in enterpriseServerReleases.supported %}
-| {{version}} | {{enterpriseServerReleases.dates[version].displayCandidateDate}} | {{enterpriseServerReleases.dates[version].displayReleaseDate}} | Support temporarily extended until further notice | {% octicon "check" aria-label="Supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} docs](/enterprise-server@{{version}}) |
+| {{version}} | {{enterpriseServerReleases.dates[version].displayCandidateDate}} | {{enterpriseServerReleases.dates[version].displayReleaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% if currentDate < deprecationDate %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} docs](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
 {%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
