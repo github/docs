@@ -14,5 +14,6 @@
 | [Use of a broken or weak cryptographic algorithm](https://codeql.github.com/codeql-query-help/rust/rust-weak-cryptographic-algorithm/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Use of a broken or weak cryptographic hashing algorithm on sensitive data](https://codeql.github.com/codeql-query-help/rust/rust-weak-sensitive-data-hashing/) | 327, 328, 916 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Access of a pointer after its lifetime has ended](https://codeql.github.com/codeql-query-help/rust/rust-access-after-lifetime-ended/) | 825 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
+| [Log injection](https://codeql.github.com/codeql-query-help/rust/rust-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 
 {% endrowheaders %}

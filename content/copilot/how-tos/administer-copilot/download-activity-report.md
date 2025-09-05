@@ -29,12 +29,16 @@ You can download a CSV report for {% data variables.product.prodname_copilot_sho
 
 ## Downloading the report for an enterprise
 
-1. Navigate to your enterprise account.
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. Next to "Access management", click **Activity report**.
+<!-- expires 2025-10-20 -->
+<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
+<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
-   ![Screenshot of the "Access management" tab in Copilot policies. The "Activity report" button is highlighted with an orange outline.](/assets/images/help/copilot/activity-report-enterprise.png)
+{% data reusables.enterprise-accounts.copilot-access-management-tmp %}
+1. To download the usage report:
+   * If you're on the `/enterprise_licensing/copilot` page, select **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**, then click **Activity report (new)**.
+   * If you're on the `/settings/copilot` page, click **{% octicon "file" aria-label="The file icon" %} Get Usage report**, then click **Activity report (new)**.
+
+<!-- end expires 2025-10-20 -->
 
 ## Downloading the report for an organization
 

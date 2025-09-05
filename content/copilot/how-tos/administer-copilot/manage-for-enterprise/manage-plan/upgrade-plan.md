@@ -1,7 +1,7 @@
 ---
 title: Upgrading GitHub Copilot for your enterprise
 shortTitle: Upgrade plan
-intro: 'Change your enterprise''s plan from {% data variables.copilot.copilot_business_short %} to {% data variables.copilot.copilot_enterprise_short %}.'
+intro: 'Change your organizations'' plans from {% data variables.copilot.copilot_business_short %} to {% data variables.copilot.copilot_enterprise_short %}.'
 permissions: Enterprise owners
 product: 'Enterprises with a {% data variables.copilot.copilot_business_short %} plan'
 versions:
@@ -20,17 +20,18 @@ contentType: how-tos
 ---
 
 >[!NOTE]
-> You must already have a paid plan to {% data variables.copilot.copilot_business_short %} to upgrade to {% data variables.copilot.copilot_enterprise_short %}. Trial plans are not eligible for upgrade.
+> You must already have a paid {% data variables.copilot.copilot_business_short %} plan to upgrade to {% data variables.copilot.copilot_enterprise_short %}. Trial plans are not eligible for upgrade.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. In the "{% data variables.copilot.copilot_business_short %} is active in your enterprise" section, click **Purchase {% data variables.copilot.copilot_enterprise_short %}**.
+<!-- expires 2025-10-20 -->
+<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
+<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
-   ![Screenshot of the Copilot "access management" page. A link, labeled "Purchase {% data variables.copilot.copilot_enterprise_short %}", is highlighted with an orange outline.](/assets/images/help/copilot/purchase-copilot-enterprise.png)
+{% data reusables.enterprise-accounts.copilot-access-management-tmp %}
+1. If you don't already see a list of organizations, under "{% data variables.product.prodname_copilot_short %} access", click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
+1. Locate the organization for which you want to upgrade {% data variables.product.prodname_copilot_short %}.
+1. To the right of the organization name, select the **{% data variables.product.prodname_copilot_short %}** dropdown menu, and click **Copilot Enterprise**.
 
-1. In the dialog, click **Continue to billing summary**.
-1. Review your updated billing summary, then click **Enable plan**.
+<!-- end expires 2025-10-20 -->
 
 ## Next steps
 

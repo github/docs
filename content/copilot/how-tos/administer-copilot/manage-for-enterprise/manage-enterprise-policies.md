@@ -24,13 +24,19 @@ When an organization owner assigns a {% data variables.product.prodname_copilot_
 
 Enterprise owners can define a policy for the whole enterprise, or delegate the decision to individual organization owners. See [AUTOTITLE](/copilot/concepts/policies).
 
+<!-- expires 2025-10-20 -->
+<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
+<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
-1. On the "{% data variables.product.prodname_copilot %}" page:
-   * Click the **Policies** tab to edit the policies that control privacy and availability of features.
-   * Click the **Models** tab to edit the policies that control availability of models beyond the basic models provided with {% data variables.product.prodname_copilot_short %}, which may incur additional costs.
+1. If you see tabs at the top of the page, click the **Policies** or **Models** tab. If you don't see tabs, you will find the {% data variables.product.prodname_copilot_short %} policies on the page you're on, or you can click the {% octicon "chevron-right" aria-label="Go to models settings" %} icon for models policies.
 1. For each policy you want to configure, click the dropdown menu and select an enforcement option. Select **No policy** to delegate the decision to individual organization owners. For more information, see [AUTOTITLE](/copilot/reference/feature-availability-enterprise).
+
+<!-- end expires 2025-10-20 -->
+
+{% data reusables.copilot.mcp-servers-policy-note %}
 
 ## Opting in to previews or feedback
 

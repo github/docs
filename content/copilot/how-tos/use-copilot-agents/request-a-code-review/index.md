@@ -8,7 +8,6 @@ topics:
   - Copilot
 children:
   - /use-code-review
-  - /configure-coding-guidelines
   - /configure-automatic-review
 redirect_from:
   - /copilot/using-github-copilot/code-review

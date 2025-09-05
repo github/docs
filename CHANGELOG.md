@@ -1,10 +1,39 @@
 # Docs changelog
 
+**4 September 2025**
+
+We've updated the documentation to remove references to Copilot coding guidelines.
+
+Coding guidelines, which were previously deprecated, have now been removed as a way of customizing Copilot responses. You should now use Copilot custom instructions.
+
+See: [Configure custom instructions for GitHub Copilot](https://docs.github.com/copilot/how-tos/configure-custom-instructions)
+
+<hr>
+
+**4 September 2025**
+
+In addition to repository-wide custom instructions, specified in the `.github/copilot-instructions.md` file, Copilot Code Review now supports:
+
+* Path-specific custom instructions, specified in `.github/instructions/NAME.instructions.md` files.
+* Custom instructions specified in the organization settings for Copilot.
+
+We have updated several articles in the GitHub documentation accordingly. We have also made changes to clarify the difference between the various types of custom instructions for Copilot Code Review, Copilot Chat, and Copilot Coding Agent.
+
+For example, see: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui).
+
+<hr>
+
+**3 September 2025**
+
+We’ve updated [Choosing your enterprise’s plan for GitHub Copilot](https://docs.github.com/en/copilot/get-started/choose-enterprise-plan) to better highlight the long-term benefits of the Copilot Enterprise (CE) plan. The updated content focuses on the key advantages of CE, such as increased access to premium requests and earlier availability of new models.
+
+<hr>
+
 **2 September 2025**
 
 We've added documentation for support of Copilot code review in Xcode.
 
-See: [Using GitHub Copilot code review](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=xcode)
+See: [Using GitHub Copilot code review](https://docs.github.com/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=xcode)
 
 <hr>
 
@@ -22,7 +51,7 @@ See: [Customization library](https://docs.github.com/copilot/tutorials/customiza
 
 We've published an article about the new AI-powered issue intake tool, which automates incoming issue analysis and triage for OS maintainers.
 
-See: [Triaging an issue with AI](https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai).
+See: [Triaging an issue with AI](https://docs.github.com/issues/tracking-your-work-with-issues/administering-issues/triaging-an-issue-with-ai).
 
 <hr>
 
@@ -30,7 +59,7 @@ See: [Triaging an issue with AI](https://docs.github.com/en/issues/tracking-your
 
 xAI Grok Code Fast 1 is now available in public preview for GitHub Copilot. Grok Code Fast 1 is slowly rolling out to all paid Copilot plans and you will be able to access the model in Visual Studio Code (Agent, Ask, and Edit modes).
 
-See: [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+See: [Supported AI models in GitHub Copilot](https://docs.github.com/copilot/reference/ai-models/supported-models).
 
 <hr>
 
@@ -38,7 +67,7 @@ See: [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/
 
 When interacting with the GitHub MCP server for a public repository, push protection blocks secrets from appearing in AI-generated responses and also prevents secrets from being included in any actions you perform, such as creating an issue.
 
-See [Working with push protection and the GitHub MCP server](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
+See [Working with push protection and the GitHub MCP server](https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-and-the-github-mcp-server).
 
 <hr>
 
@@ -46,7 +75,7 @@ See [Working with push protection and the GitHub MCP server](https://docs.github
 
 OpenAI GPT-5 is now available in public preview for GitHub Copilot. GPT-5 is slowly rolling out to all paid Copilot plans and you will be able to access the model in GitHub Copilot Chat on github.com and Visual Studio Code (Agent, Ask, and Edit modes). 
 
-See [Supported AI models in Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models).
+See [Supported AI models in Copilot](https://docs.github.com/copilot/reference/ai-models/supported-models).
 
 <hr>
 
@@ -54,29 +83,29 @@ See [Supported AI models in Copilot](https://docs.github.com/en/copilot/referenc
 
 We’ve updated the documentation for Copilot repository custom instructions to go with the release that now brings this feature to the Eclipse IDE.
 
-See: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=eclipse) and [About customizing GitHub Copilot Chat responses](https://docs.github.com/en/copilot/concepts/response-customization?tool=eclipse).
+See: [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=eclipse) and [About customizing GitHub Copilot Chat responses](https://docs.github.com/copilot/concepts/response-customization?tool=eclipse).
 
 <hr>
 
 **12 August 2025**
 
-We have added a tutorial for using Copilot to create Mermaid diagrams at [Creating Diagrams](https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-diagrams).
+We have added a tutorial for using Copilot to create Mermaid diagrams at [Creating Diagrams](https://docs.github.com/copilot/tutorials/copilot-chat-cookbook/communicate-effectively/creating-diagrams).
 
 <hr>
 
 **4 August 2025**
 
-To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/en/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)". 
+To address common pain points that developers face when remediating a leaked secret, we created a new article, "[Remediating a leaked secret](https://docs.github.com/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/remediating-a-leaked-secret)". 
 
 The new guide incorporates cross-platform GitHub tools, as well as opinionated guidance from GitHub's secret scanning team, to walk the developer through a thorough remediation process.
 
-It also clearly communicates the risks of leaked secrets, the challenges of remediation, and the value of enabling [GitHub Secret Protection](https://docs.github.com/en/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
+It also clearly communicates the risks of leaked secrets, the challenges of remediation, and the value of enabling [GitHub Secret Protection](https://docs.github.com/get-started/learning-about-github/about-github-advanced-security#github-secret-protection).
 
 <hr>
 
 **28 July 2025**
 
-We have restructured the general "[Billing and payments](https://docs.github.com/en/billing)" articles to align with the Copilot and Actions docs. In addition, we've combined a few old "About" articles to directly answer common questions that new users have: [How GitHub billing works](https://docs.github.com/en/billing/get-started/how-billing-works) and [Introduction to billing and licensing](https://docs.github.com/en/billing/get-started/introduction-to-billing).
+We have restructured the general "[Billing and payments](https://docs.github.com/billing)" articles to align with the Copilot and Actions docs. In addition, we've combined a few old "About" articles to directly answer common questions that new users have: [How GitHub billing works](https://docs.github.com/billing/get-started/how-billing-works) and [Introduction to billing and licensing](https://docs.github.com/billing/get-started/introduction-to-billing).
 
 <hr>
 
@@ -92,7 +121,7 @@ See: [Using Copilot to work on an issue](https://docs.github.com/copilot/how-tos
 
 We've updated the Copilot documentation to coincide with the release of an improved user interface for configuring the firewall for Copilot coding agent.
 
-See: [Customizing or disabling the firewall for Copilot coding agent](https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
+See: [Customizing or disabling the firewall for Copilot coding agent](https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
 <hr>
 
@@ -110,7 +139,7 @@ Many enterprise customers want to measure the downstream impact of Copilot on th
 
 Inspired by [GitHub's latest guidance](https://resources.github.com/engineering-system-success-playbook/), we've published three guides that provide usecases, training resources, and metrics to help you plan and measure your rollout to achieve real-world goals, such as increasing test coverage.
 
-Get started at [Achieving your company's engineering goals with GitHub Copilot](https://docs.github.com/en/copilot/get-started/achieve-engineering-goals).
+Get started at [Achieving your company's engineering goals with GitHub Copilot](https://docs.github.com/copilot/get-started/achieve-engineering-goals).
 
 <hr>
 
@@ -126,20 +155,20 @@ We’ve published a new set of new documentation articles designed to help users
 
 These clear, actionable guides help users:
 
-- **[View metrics for Dependabot alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-dependabot-alerts)**
+- **[View metrics for Dependabot alerts](https://docs.github.com/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-dependabot-alerts)**
   This article is aimed at security and engineering leads who want to learn how to access and interpret key metrics, so they can quickly assess their organization’s exposure and remediation progress.
 
-- **[Understand your organization’s exposure to vulnerable dependencies](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/about-your-exposure-to-vulnerable-dependencies)**
+- **[Understand your organization’s exposure to vulnerable dependencies](https://docs.github.com/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/about-your-exposure-to-vulnerable-dependencies)**
   In this article, security analysts and compliance teams get a deep dive into how vulnerable dependencies are tracked and what these numbers mean for their risk landscape.
 
-- **[Prioritize Dependabot alerts using metrics](https://docs.github.com/en/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics)**
+- **[Prioritize Dependabot alerts using metrics](https://docs.github.com/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites/prioritizing-dependabot-alerts-using-metrics)**
   This guide provides engineering managers and remediation teams with strategies for using metrics to focus the team’s efforts where they matter most, making remediation more efficient.
 
 <hr>
 
 **27 June 2025**
 
-We've published a new scenario-based guide for Copilot: [Learning a new programming language with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/learning-a-new-programming-language-with-github-copilot).
+We've published a new scenario-based guide for Copilot: [Learning a new programming language with GitHub Copilot](https://docs.github.com/copilot/tutorials/learning-a-new-programming-language-with-github-copilot).
 
 This guide is for developers who are proficient with at least one programming language and want to learn an additional language. It provides information about how you can use Copilot as your personalized learning assistant. It also provides many ready-made prompts that you can use when you are learning a new programming language.
 

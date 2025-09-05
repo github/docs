@@ -2,16 +2,17 @@
 title: Adding repository custom instructions for GitHub Copilot
 shortTitle: Add repository instructions
 intro: 'Create repository custom instructions files that give {% data variables.product.prodname_copilot_short %} additional context on how to understand your project and how to build, test and validate its changes.'
-redirect_from:
-  - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
-  - /copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot
-  - /copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot
-  - /copilot/how-tos/custom-instructions/add-repository-instructions
 versions:
   feature: copilot
 topics:
   - Copilot
 contentType: how-tos
+redirect_from:
+  - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
+  - /copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot
+  - /copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot
+  - /copilot/how-tos/custom-instructions/add-repository-instructions
+  - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-coding-guidelines
 ---
 
 {% webui %}

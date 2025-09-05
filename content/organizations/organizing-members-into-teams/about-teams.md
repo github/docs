@@ -1,5 +1,5 @@
 ---
-title: About teams
+title: About organization teams
 intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
 redirect_from:
   - /articles/about-teams
@@ -11,6 +11,7 @@ versions:
 topics:
   - Organizations
   - Teams
+allowTitleToDifferFromFilename: true
 ---
 
 ## About teams
