@@ -26,11 +26,13 @@ type MyAppProps = AppProps & {
 }
 
 const stagingNames = new Set([
+  'balsam',
   'boxwood',
   'cedar',
   'cypress',
   'fir',
   'hemlock',
+  'hinoki',
   'holly',
   'juniper',
   'laurel',
@@ -38,6 +40,7 @@ const stagingNames = new Set([
   'redwood',
   'sequoia',
   'spruce',
+  'yew',
 ])
 
 function getFaviconHref(stagingName?: string) {

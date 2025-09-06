@@ -1,7 +1,7 @@
 ---
 title: Metadata syntax reference
 shortTitle: Metadata syntax
-intro: You can create actions to perform tasks in your repository. Actions require a metadata file that uses YAML syntax.
+intro: You can create actions to perform tasks in your repository. If you’re making a custom action, it will require a metadata file that uses YAML syntax.
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/metadata-syntax-for-github-actions
@@ -148,11 +148,11 @@ For more information on how to use context syntax, see [AUTOTITLE](/actions/lear
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js v20
+### Example: Using Node.js v24
 
 ```yaml
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'main.js'
 ```
 
@@ -161,6 +161,7 @@ runs:
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
 * Use `node20` for Node.js v20.
+* Use `node24` for Node.js v24.
 
 ### `runs.main`
 
@@ -177,7 +178,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: 'node20'
+  using: 'node24'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -204,7 +205,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: 'node20'
+  using: 'node24'
   main: 'index.js'
   post: 'cleanup.js'
 ```

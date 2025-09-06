@@ -63,7 +63,7 @@ search:
       invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
     response:
       copy_code: Copy code to clipboard
-      copy_code_lang: Copy {language} code to clipboard, block {block}
+      copy_code_lang: Copy {language} code to clipboard
       copied_code: Copied!
   failure:
     general_title: There was an error loading search results.
@@ -339,9 +339,9 @@ alerts:
 
 cookbook_landing:
   spotlight: Spotlight
-  explore_articles: Explore {{ number }} prompt articles
+  explore_articles: Explore {{ number }} examples
   reset_filters: Reset filters
-  search_articles: Search articles
+  search_articles: Search examples
   category: Category
   complexity: Complexity
 

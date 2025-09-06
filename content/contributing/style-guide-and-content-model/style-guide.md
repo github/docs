@@ -551,7 +551,7 @@ For presenting keyboard shortcuts, follow the [Microsoft Style Guide](https://do
 
 ### Usage highlights
 
-Below are some usage highlights for how we present keyboard shortcuts in our documentation:
+Here are some usage highlights for how we present keyboard shortcuts in our documentation:
 
 * The basic syntax is to show keys with `+` between key combinations, without any spaces.
 
@@ -592,7 +592,7 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 
 Do not create reusables for license attributions. We must use the exact license a project is licensed under, so any attributions must be accurately written for the articles that they appear in.
 
-If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed below, you must receive a legal review before you can publish the content.
+If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed here, you must receive a legal review before you can publish the content.
 
 ### Attributing MIT-licensed content
 
@@ -809,19 +809,6 @@ If multiple roles or products apply to a permission statement or product callout
 #### Use inline links
 
 You can use inline links to provide more information about a role or product. The linked text must match the link destination so that it is clear where following the link will lead to.
-
-## Parenthetical dashes
-
-We use em dashes for parenthetical statements in normal body text. This doesn’t apply to text within code blocks.
-
-Examples:
-
-* ✅ Correct: "The cat—which sat on a branch—smiled with a broad grin." (em dash without spaces)
-* ❌ Incorrect: "The cat — which sat on a branch — smiled with a broad grin." (em dash with spaces)
-* ❌ Incorrect: "The cat–which sat on a branch–smiled with a broad grin." (en dash without spaces)
-* ❌ Incorrect: "The cat – which sat on a branch – smiled with a broad grin." (en dash with spaces)
-* ❌ Incorrect: "The cat-which sat on a branch-smiled with a broad grin." (hyphen without spaces)
-* ❌ Incorrect: "The cat - which sat on a branch - smiled with a broad grin." (hyphen with spaces)
 
 ## Placeholders
 
@@ -1269,6 +1256,14 @@ To signal to readers that you've added or changed a note, or to indicate the pub
 ### Removing a release note
 
 To signal that we have removed a release note, add an "Errata" section detailing which note you removed and (if relevant) which version the removed note actually pertains to. See [Writing errata](#writing-errata).
+
+## Release references
+
+When referring to a range of releases starting from a particular release, use "or later."
+
+* **Use:** "release 0.41.0 or later"
+* **Avoid:** "release 0.41.0 or above"
+* **Avoid:** "release 0.41.0 or greater"
 
 ## Reusables and variables
 

@@ -27,6 +27,14 @@ To generate a {% data variables.product.prodname_secret_risk_assessment %} repor
 
 {% data variables.product.prodname_secret_protection %} is billed per active committer to the repositories where it is enabled. It is available to users with a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
+{% ifversion fpt or ghec or ghes > 3.19 %}
+
+{% data variables.product.github %} provides two calculators to help you budget, justify rollout scope, and prioritize which repositories to enable {% data variables.product.prodname_secret_protection %} on first while optimizing license usage. You can estimate:
+* How much you can save by using push protection in repositories in your organization **with the {% data variables.secret-scanning.roi-calculator %}**. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/calculating-the-cost-savings-of-push-protection).
+* How much {% data variables.product.prodname_secret_protection %} will cost you monthly for repositories in your organization **with the {% data variables.secret-scanning.pricing-calculator %}**. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/estimating-the-price-of-secret-protection).
+
+{% endif %}
+
 ## Why you should enable {% data variables.product.prodname_secret_protection %} for 100% of your organization's repositories
 
 {% data variables.product.github %} recommends enabling {% data variables.product.prodname_GH_secret_protection %} products for all repositories, in order to protect your organization from the risk of secret leaks and exposures.  {% data variables.product.prodname_GH_secret_protection %} is free to enable for public repositories, and available as a purchasable add-on for private and internal repositories.

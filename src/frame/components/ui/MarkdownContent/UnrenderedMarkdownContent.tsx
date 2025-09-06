@@ -12,21 +12,6 @@ import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
 
-// Create a unique identifier by sampling characters distributed across content
-function getBlockId(text: string, targetLength: number = 8) {
-  const alphanumeric = text.replace(/[^a-zA-Z0-9]+/g, '').toLowerCase()
-  if (!alphanumeric || alphanumeric.length <= targetLength) {
-    return Math.random().toString(36).substring(2, 10)
-  }
-  const step = alphanumeric.length / targetLength
-  let result = ''
-  for (let i = 0; i < targetLength; i++) {
-    const index = Math.floor(i * step)
-    result += alphanumeric[index]
-  }
-  return result
-}
-
 export type MarkdownContentPropsT = {
   children: string
   className?: string
@@ -44,7 +29,7 @@ export const UnrenderedMarkdownContent = ({
   className,
   openLinksInNewTab = true,
   includeQueryParams = true,
-  codeBlocksCopyable = true,
+  codeBlocksCopyable = false,
   eventGroupKey = '',
   eventGroupId = '',
   ...restProps
@@ -80,9 +65,10 @@ export const UnrenderedMarkdownContent = ({
         if (isCopied) {
           return t('search.ai.response.copied_code')
         }
-        return t('search.ai.response.copy_code_lang')
-          .replace('{language}', language ? `${language} ` : '')
-          .replace('{block}', getBlockId(text))
+        return t('search.ai.response.copy_code_lang').replace(
+          '{language}',
+          language ? `${language} ` : '',
+        )
       }
 
       return (

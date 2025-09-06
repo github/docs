@@ -9,6 +9,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/code-review
+  - /copilot/concepts/code-review/code-review
 contentType: concepts
 ---
 
@@ -21,6 +22,14 @@ contentType: concepts
 This article provides an overview of {% data variables.copilot.copilot_code-review_short %}. For instructions on how to request a code review from {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/using-copilot-code-review).
 
 ## Availability
+
+{% data variables.copilot.copilot_code-review_short %} is supported in:
+
+* {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_mobile %}
+* {% data variables.product.prodname_vscode_shortname %}
+* {% data variables.product.prodname_vs %}
+* Xcode
 
 {% data variables.copilot.copilot_code-review_short %} is—with one exception—a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.
 
@@ -43,11 +52,15 @@ When you reach your monthly quota you will not be able to get a code review from
 * **Review selection:**
   * Highlight code and ask for an initial review.
   * Standard {% data variables.product.prodname_copilot_short %} feature. No premium requests used.
-  * Does not support custom instructions or custom coding guidelines.
+  * Does not support custom instructions.
 * **Review changes:**
   * Request a deeper review of all of your uncommitted changes.
   * Premium feature. Uses one premium request from your monthly quota per review.
-  * Supports custom instructions and custom coding guidelines.
+  * Supports custom instructions.
+
+## Providing instructions for {% data variables.product.prodname_copilot_short %} code reviews
+
+You can tailor the reviews that {% data variables.product.prodname_copilot_short %} generates by providing custom instructions. This helps {% data variables.product.prodname_copilot_short %} to review the code in a way that matches your team's coding standards, tools, and practices. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=webui) and [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
 
 ## Validating {% data variables.product.prodname_copilot_short %} code reviews
 

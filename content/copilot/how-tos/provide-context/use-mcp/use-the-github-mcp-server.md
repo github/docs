@@ -15,11 +15,7 @@ redirect_from:
 contentType: how-tos
 ---
 
->[!NOTE]
-> * The remote {% data variables.product.github %} MCP server is currently in {% data variables.release-phases.public_preview %} and subject to change; use of the {% data variables.product.github %} MCP server locally is generally available (GA).
-> * MCP support is generally available (GA) in {% data variables.product.prodname_copilot_short %} for {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains, Eclipse, and Xcode.
-> * The **MCP servers in {% data variables.product.prodname_copilot_short %}** policy for enterprises and organizations, disabled by default, controls the use of MCP.
-> * While in {% data variables.release-phases.public_preview %}, access to the remote {% data variables.product.github %} MCP server through OAuth in {% data variables.product.prodname_copilot_short %} is governed by the {% data variables.product.prodname_copilot_short %} **Editor preview features** policy at the organization or enterprise level. PAT access to the server is managed by PAT policies.
+The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.
 
 {% vscode %}
 
@@ -41,8 +37,7 @@ You can choose to set up the {% data variables.product.github %} MCP server eith
 
 The remote {% data variables.product.github %} MCP server uses one-click OAuth authentication by default, but you can also manually configure it to use a {% data variables.product.pat_generic %} (PAT) for authentication. If you use OAuth, the MCP server can only access the scopes you approve during sign-in. In organization-owned contexts, access may also be limited by admin policies that control which scopes and apps are permitted. If you use a PAT, the MCP server will have access to the scopes granted by the PAT, which is also subject to any PAT restrictions configured by the organization.
 
-> [!NOTE]
-> If you are an {% data variables.product.prodname_emu %}, then PAT is disabled by default, unless enabled by an enterprise administrator. If PAT is disabled, you won't be able to use PAT authentication. If you have OAuth access policy restrictions, you will need the OAuth App for each client (MCP host application) to be enabled (except {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}).
+If you are an {% data variables.product.prodname_emu %}, then PAT is disabled by default, unless enabled by an enterprise administrator. If PAT is disabled, you won't be able to use PAT authentication. If you have OAuth access policy restrictions, you will need the OAuth App for each client (MCP host application) to be enabled (except {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %} since they are first-party Microsoft IDEs with native {% data variables.product.prodname_copilot_short %} integration).
 
 * [Remote MCP server configuration with OAuth](#remote-mcp-server-configuration-with-oauth)
 * [Remote MCP server configuration with PAT](#remote-mcp-server-configuration-with-pat)
@@ -467,6 +462,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 {% data reusables.copilot.eclipse-prerequisites %}
 * **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} from Eclipse**.
+* {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Setting up the {% data variables.product.github %} MCP server in Eclipse
 
@@ -534,8 +530,6 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 {% webui %}
 
->[!NOTE] MCP in {% data variables.copilot.copilot_chat_dotcom_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 ## About MCP in {% data variables.copilot.copilot_chat_dotcom_short %}
 
 The {% data variables.product.github %} MCP server is a Model Context Protocol (MCP) server provided and maintained by {% data variables.product.github %}. MCP allows you to integrate AI capabilities with other tools and services, enhancing your development experience by providing context-aware AI assistance.
@@ -552,7 +546,6 @@ The {% data variables.product.github %} MCP server is automatically configured i
 1. In the prompt box, type a request related to the skill you want {% data variables.copilot.copilot_chat_short %} to perform, and press **Enter**.
 
     Some examples of requests you can make are:
-    * `Create a new branch called [BRANCH-NAME] in the repository [USERNAME/REPO-NAME].`
     * `Create a new branch called [BRANCH-NAME] in the repository [USERNAME/REPO-NAME].`
     * `Merge the pull request [PULL-REQUEST-NUMBER] in the repository [USERNAME/REPO-NAME].`
 

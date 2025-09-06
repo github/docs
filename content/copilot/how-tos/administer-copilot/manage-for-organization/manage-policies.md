@@ -42,7 +42,7 @@ contentType: how-tos
 
 {% data reusables.copilot.mcp-servers-policy-note %}
 
-## Opting in to to previews or feedback
+## Opting in to previews or feedback
 
 If your organization has a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:
 

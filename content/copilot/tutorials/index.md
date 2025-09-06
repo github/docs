@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /copilot-chat-cookbook
+  - /customization-library
   - /coding-agent
   - /compare-ai-models
   - /enhance-agent-mode-with-mcp

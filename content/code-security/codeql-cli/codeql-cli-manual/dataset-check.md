@@ -67,7 +67,7 @@ Select output format. Possible choices:
 
 \[Advanced] Expend extra effort to compute precise locations for
 inconsistencies. This will take more time, but may make it easier to
-debug extractor behaviour.
+debug extractor behavior.
 
 #### `--max-resolve-depth=<n>`
 

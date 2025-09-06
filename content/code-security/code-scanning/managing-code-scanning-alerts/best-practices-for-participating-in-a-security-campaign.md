@@ -38,10 +38,7 @@ Adopting a few key best practices can help you participate successfully in a cam
 
 ### Notification settings
 
-To receive email updates about security campaigns in repositories you have write access to, make sure that you:
-
-* **Watch** all repositories that you have write access to.
-* **Subscribe** to notifications for "All activity" or "Security alerts".
+You'll automatically receive email updates about security campaigns for any repositories you have **write** access to, so you can stay informed about relevant updates.
 
 ### View campaign details
 

@@ -94,7 +94,7 @@ When you create a campaign, all the alerts are automatically submitted to {% dat
 
 ### How developers know a security campaign has started
 
-When a campaign is started, anyone with **write** access to a repository included in the campaign, and has subscribed to watch either "All activity" or "security alerts" in that repository, is notified.
+When a campaign is started, anyone with **write** access to a repository included in the campaign is notified.
 
 In addition to the automatic notifications sent out, the new campaign is shown in the sidebar of the "Security" tab for each repository included. For more information about the developer experience, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
 

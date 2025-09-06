@@ -19,6 +19,8 @@ topics:
 children:
   - /roles-in-an-enterprise
   - /best-practices-for-user-security
+  - /create-enterprise-teams
+  - /invite-users-directly
   - /inviting-people-to-manage-your-enterprise
   - /managing-invitations-to-organizations-within-your-enterprise
   - /managing-organization-members-in-your-enterprise

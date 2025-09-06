@@ -7,6 +7,8 @@ versions:
 complexity:
   - Simple
 octicon: copilot
+category:
+  - Communicate effectively
 topics:
   - Copilot
 contentType: tutorials

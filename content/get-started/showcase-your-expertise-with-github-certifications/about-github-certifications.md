@@ -46,19 +46,26 @@ You can highlight your knowledge with the {% data variables.product.prodname_GHA
 
 You can certify your ability to optimize and manage a healthy {% data variables.product.prodname_dotcom %} environment with the {% data variables.product.prodname_dotcom %} Admin exam. This exam covers:
 
-* Repository management
+* Repository management 
 * Workflow optimization
 * Efficient collaboration
 
 ## Getting started with {% data variables.product.prodname_certifications %}
 
-To get started with {% data variables.product.prodname_certifications %}, you can review the different certifications on the [{% data variables.product.prodname_certifications_singular %} Registration](https://examregistration.github.com/overview) page. Every certification page includes details about the skills measured in the exams, how you can prepare, and links to register for the exams.
+To get started with {% data variables.product.prodname_certifications %}, you can review the different certifications on the [{% data variables.product.prodname_certifications_singular %} Registration](https://learn.github.com/credentials) page. Every certification page includes details about the skills measured in the exams, how you can prepare, and links to register for the exams.
+
+### {% data variables.product.prodname_dotcom %} Copilot Certification
+
+You can certify your capability to optimize software development workflows efficiently {% data variables.product.prodname_dotcom %} with the {% data variables.product.prodname_dotcom %} Copilot exam. This exam covers:
+
+* Responsible AI
+* Copilot plans & features
+* Copilot data & functionality
+* Prompt engineering
+* AI developer use cases
+* Testing with Copilot
+* Privacy & exclusions
 
 If you have the skills, you can register for the exam. If you want additional training, refer to the courses or learning paths in the “Preparing for the certification” section.
 
-After successful completion of a certificate exam, you will receive a Credly badge and certificate to verify your credentials.
-
-## Further reading
-
-* [{% data variables.product.prodname_certifications %} Program FAQs](https://examregistration.github.com/faq)
-* [{% data variables.product.prodname_certifications %} - Candidate Handbook](https://examregistration.github.com/handbook)
+After successful completion of a certificate exam, you will receive a badge and certificate to verify your credentials.
