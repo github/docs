@@ -69,7 +69,7 @@ There are many more things you can do with {% data variables.copilot.copilot_cha
 * Ask a question about a knowledge base
 * Find out about the changes in a pull request
 * Ask a question about a specific issue or commit
-* Ask a question about how to ensure github copilot pro is activated on visualstudio IDE
+* Ask a question about how to ensure GitHub Copilot Pro is activated on Visual Studio IDE
 
 
 For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).
