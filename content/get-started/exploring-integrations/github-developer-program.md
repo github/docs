@@ -17,6 +17,15 @@ Building an application that integrates with {% data variables.product.prodname_
 
 Build your own tools that seamlessly integrate with the place you push code every day.
 
+## Program Benefits
+
+As a member of the GitHub Developer Program, you’ll receive:
+
+* Notification of API changes  
+* Early access eligibility on select features  
+* Eligibility for development licenses for GitHub products  
+* A GitHub profile membership badge to showcase your participation  
+
 ## Take on the enterprise
 
 Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
