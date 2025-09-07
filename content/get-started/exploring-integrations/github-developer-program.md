@@ -21,10 +21,10 @@ Build your own tools that seamlessly integrate with the place you push code ever
 
 As a member of the GitHub Developer Program, you’ll receive:
 
-* Notification of API changes  
-* Early access eligibility on select features  
-* Eligibility for development licenses for GitHub products  
-* A GitHub profile membership badge to showcase your participation  
+* Notification of API changes
+* Early access eligibility on select features
+* Eligibility for development licenses for GitHub products
+* A GitHub profile membership badge to showcase your participation
 
 ## Take on the enterprise
 
