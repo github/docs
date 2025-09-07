@@ -17,14 +17,14 @@ Building an application that integrates with {% data variables.product.prodname_
 
 Build your own tools that seamlessly integrate with the place you push code every day.
 
-## Program Benefits
+## Program benefits
 
-As a member of the GitHub Developer Program, you’ll receive:
+As a member of the GitHub Developer Program, you receive:
 
-* Notification of API changes
-* Early access eligibility on select features
-* Eligibility for development licenses for GitHub products
-* A GitHub profile membership badge to showcase your participation
+- Notifications about API changes
+- Eligibility for early access to select features
+- Eligibility for development licenses for GitHub products
+- A membership badge on your GitHub profile to showcase your participation
 
 ## Take on the enterprise
 
