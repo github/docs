@@ -46,7 +46,7 @@ You can highlight your knowledge with the {% data variables.product.prodname_GHA
 
 You can certify your ability to optimize and manage a healthy {% data variables.product.prodname_dotcom %} environment with the {% data variables.product.prodname_dotcom %} Admin exam. This exam covers:
 
-* Repository management 
+* Repository management
 * Workflow optimization
 * Efficient collaboration
 
