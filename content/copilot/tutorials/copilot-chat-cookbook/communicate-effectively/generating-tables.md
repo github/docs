@@ -18,7 +18,7 @@ contentType: tutorials
 
 ## Example scenario
 
-You want to create a comparison table for different project management tools, including features, pricing, and user ratings. You can ask {% data variables.copilot.copilot_chat_short %} to generate a table that summarizes this information in a clear and organized way.
+You want to create a reference table for the people on your team, including their roles and availability. You can ask {% data variables.copilot.copilot_chat_short %} to generate a table that summarizes this information in a clear and organized way.
 
 ## Example prompt 1
 
