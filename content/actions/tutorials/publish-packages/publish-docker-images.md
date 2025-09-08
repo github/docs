@@ -215,8 +215,8 @@ jobs:
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: |
-            my-docker-hub-namespace/my-docker-hub-repository
             {% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}
+            my-docker-hub-namespace/my-docker-hub-repository
 
       - name: Build and push Docker images
         id: push
