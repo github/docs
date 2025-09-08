@@ -12,6 +12,14 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2025-09-11 -->
+
+<!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
+
+>[!IMPORTANT] Beginning September 12, 2025, knowledge bases will be {% data variables.release-phases.retired %} and fully replaced by {% data variables.copilot.copilot_spaces %}. {% data variables.copilot.copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+
+<!-- end expires 2025-09-11 -->
+
 ## Introduction
 
 Knowledge bases are collections of documentation that you can use to provide context for your questions in {% data variables.copilot.copilot_chat %}. Knowledge bases are useful when you want to ask questions about a specific topic or set of topics, and you want the answers to be informed by the relevant documentation.

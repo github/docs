@@ -7555,6 +7555,28 @@
         "additional-permissions": false
       },
       {
+        "category": "orgs",
+        "slug": "create-artifact-metadata-storage-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-storage-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "repos",
         "slug": "list-repository-activities",
         "subcategory": "repos",
