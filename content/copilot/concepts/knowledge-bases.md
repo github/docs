@@ -13,9 +13,13 @@ redirect_from:
 contentType: concepts
 ---
 
-> [!TIP] If you're looking for a more flexible way to organize context for {% data variables.product.prodname_copilot_short %}, you can also try {% data variables.copilot.copilot_spaces %}.
->
-> {% data variables.copilot.copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+<!-- expires 2025-09-11 -->
+
+<!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
+
+>[!IMPORTANT] Beginning September 12, 2025, knowledge bases will be {% data variables.release-phases.retired %} and fully replaced by {% data variables.copilot.copilot_spaces %}. {% data variables.copilot.copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+
+<!-- end expires 2025-09-11 -->
 
 ## About knowledge bases
 
@@ -26,4 +30,4 @@ When you ask a question in {% data variables.copilot.copilot_chat_short %} with 
 ## Next steps
 
 * To learn how to create and manage knowledge bases, see [AUTOTITLE](/copilot/how-tos/context/creating-and-managing-copilot-knowledge-bases).
-* To learn how to use knowledge bases in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/how-tos/chat/asking-github-copilot-questions-in-github#asking-copilot-chat-questions-about-a-knowledge-base) and [AUTOTITLE](/copilot/how-tos/chat/asking-github-copilot-questions-in-your-ide#asking-a-question-about-a-knowledge-base).
+* To learn how to use knowledge bases, see [AUTOTITLE](/copilot/how-tos/provide-context/use-knowledge-bases).

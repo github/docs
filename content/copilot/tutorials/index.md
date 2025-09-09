@@ -24,6 +24,7 @@ children:
   - /build-apps-with-spark
   - /modernize-legacy-code
   - /migrate-a-project
+  - /plan-a-project
   - /upgrade-projects
   - /roll-out-at-scale
 redirect_from:
