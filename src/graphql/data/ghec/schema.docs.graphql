@@ -25820,7 +25820,7 @@ type Mutation {
   ): RemoveEnterpriseIdentityProviderPayload
 
   """
-  Removes a user from all organizations within the enterprise
+  Completely removes a user from the enterprise
   """
   removeEnterpriseMember(
     """

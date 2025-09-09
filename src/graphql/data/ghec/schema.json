@@ -6024,7 +6024,7 @@
       "kind": "mutations",
       "id": "removeenterprisemember",
       "href": "/graphql/reference/mutations#removeenterprisemember",
-      "description": "<p>Removes a user from all organizations within the enterprise.</p>",
+      "description": "<p>Completely removes a user from the enterprise.</p>",
       "inputFields": [
         {
           "name": "input",
