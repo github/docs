@@ -55,6 +55,11 @@ To support the developer process in the next section, add two {% data variables.
 1. Add a workflow that triggers when a commit is pushed to a feature branch or to `main` or when a pull request is created. Configure the workflow to run your unit and integration tests. For an example, see [this workflow](https://github.com/actions/javascript-action/blob/main/.github/workflows/ci.yml).
 1. Add a workflow that triggers when a release is published or edited. Configure the workflow to ensure semantic tags are in place. You can use an action like [JasonEtco/build-and-tag-action](https://github.com/JasonEtco/build-and-tag-action) to compile and bundle the JavaScript and metadata file and force push semantic major, minor, and patch tags. For more information about semantic tags, see [About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
 
+    {% ifversion immutable-releases-preview %}
+    > [!NOTE]
+    > If you enable immutable releases for your repository, you cannot use this action to force push tags tied to releases on {% data variables.product.github %}. To learn how to manage your releases with immutable releases, see [AUTOTITLE](/actions/how-tos/create-and-publish-actions/using-immutable-releases-and-tags-to-manage-your-actions-releases).
+    {% endif %}
+
 ### Example developer process
 
 Here is an example process that you can follow to automatically run tests, create a release{% ifversion fpt or ghec %} and publish to {% data variables.product.prodname_marketplace %}{% endif %}, and publish your action.
