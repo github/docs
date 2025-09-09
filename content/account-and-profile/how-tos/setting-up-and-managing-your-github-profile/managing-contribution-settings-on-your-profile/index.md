@@ -17,6 +17,7 @@ children:
   - /viewing-contributions-on-your-profile
   - /showing-your-private-contributions-and-achievements-on-your-profile
   - /sharing-contributions-from-github-enterprise-server
+  - /troubleshooting-missing-contributions
   - /troubleshooting-commits-on-your-timeline
 shortTitle: Manage contribution settings
 ---
