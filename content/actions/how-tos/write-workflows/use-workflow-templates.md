@@ -38,7 +38,7 @@ topics:
    There are guides to accompany many of the workflow templates for building and testing projects. For more information, see [AUTOTITLE](/actions/automating-builds-and-tests).
 
 1. Some workflow templates use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the workflow template uses a secret, store the value described in the secret name as a secret in your repository. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
-1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
+1. Optionally, make additional changes. For example, you might want to change the value of `on` when the workflow runs.
 1. Click **Start commit**.
 1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
 
