@@ -44,15 +44,15 @@ We recommend that you avoid creating overlapping budgets for the use of a produc
 
 ## Managing budgets for your personal account
 
-You can set budgets and receive alerts when your usage reaches 75%, 90%, or 100% of your defined budget. Budgets can be scoped at the repository or product level, depending on the product.
+You can set budgets and receive alerts when your usage of a product reaches 75%, 90%, or 100% of a defined budget. Budgets can be set for a specific repository or for your whole account.
 
 {% data reusables.user-settings.access_billing_settings_url %}
 1. Click **Budgets and alerts**.
 1. To create a new budget, click **New budget**.
 1. Under "Budget Type" select either **Product-level budget** or **SKU-level budget**.
 
-   * To create a Product-level budget, choose a metered product from the dropdown.
-   * To create a SKU-level budget, choose a SKU from the dropdown. This limits spending for an individual SKU.
+   * To limit spending at a Product-level, in "Product-level budget" choose a product from the dropdown, for example: {% data variables.product.prodname_codespaces %}.
+   * To limit spending at a SKU-level, in "SKU-level budget" choose a Product and then a SKU, for example: {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_codespaces %} storage.
 
 1. Under "Budget scope", set the scope of spending for this budget.
 1. Under "Budget", set a budget amount.
@@ -68,11 +68,16 @@ To edit or delete a budget, on the "Budget and alerts" page, click **Edit** or *
 
 ## Managing budgets for your organization or enterprise
 
-You can manage budgets for your organization or enterprise by setting a budget, viewing budgets, and editing or deleting budgets.
+You can set budgets and receive alerts when your usage of a product or license type reaches 75%, 90%, or 100% of a defined budget. For budgets that control metered use of a product, you can also block further use when the budget is exhausted. Each budget has a scope.
+
+* **Organization budget scopes**: the whole organization or a single repository within the organization
+* **Enterprise budget scopes**:
+   * Metered products: the whole enterprise, a single organization, a single repository, or a single cost center
+   * Enterprise licenses (metered): the whole enterprise or a single cost center
 
 ### Viewing budgets
 
-If you are an organization owner, enterprise owner, or billing manager, your budget is listed at the top of the "Budgets and alerts" page, followed by budgets for smaller scopes.
+If you are an organization owner, enterprise owner, or billing manager, any account-level budget is listed at the top of the "Budgets and alerts" page, followed by budgets for smaller scopes.
 
 1. Display the settings for the organization or enterprise account you want to view data for. For example, using the context switcher shown on all personal and organization account settings pages.
 
@@ -90,9 +95,15 @@ If you are an organization owner, enterprise owner, or billing manager, your bud
 As the owner of an enterprise or organization account, or as a billing manager, you can set a budget at the account level, or at any level below this.
 
 1. In the "Budgets and alerts" view, click **New budget**.
+1. Under "Budget Type" select either **Product-level budget** or **SKU-level budget**.
+
+   * To limit spending at a Product-level, in "Product-level budget" choose a product from the dropdown, for example: {% data variables.product.prodname_codespaces %}.
+   * To limit spending at a SKU-level, in "SKU-level budget" choose a Product and then a SKU, for example: {% data variables.product.prodname_copilot_short %} and {% data variables.product.prodname_copilot_short %} Premium Request.
+
+1. Under "Budget scope", set the scope of spending for this budget.
 1. Under "Budget", set a budget amount.
 
-   To stop any usage and further spending once your {% ifversion fpt %}organization{% elsif ghec %}enterprise or organization{% endif %} reaches the budget limit, select **Stop usage when budget limit is reached**, if available.
+   To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**, if available.
 
    >[!IMPORTANT] If you do not select **Stop usage when budget limit is reached**, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
 
