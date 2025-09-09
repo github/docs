@@ -100,9 +100,13 @@ const handleError: ErrorRequestHandler = async function handleError(
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      // Note that if this fails, it will swallow that error.
-      nextApp.render404(req, res)
-      return
+      // Route to App Router for proper 404 handling
+      req.url = '/404'
+      res.status(404)
+      res.setHeader('x-pathname', req.path)
+      res.locals = res.locals || {}
+      res.locals.handledByAppRouter = true
+      return nextApp.getRequestHandler()(req, res)
     }
     if (typeof error === 'number') {
       throw new Error("Don't use next(xxx) where xxx is any other number than 404")
