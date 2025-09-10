@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Check if this run was triggered by a member of the docs team
-        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         id: triggered-by-member
         with:
           github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
