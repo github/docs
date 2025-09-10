@@ -34,7 +34,7 @@ jobs:
 
       - name: Check that the user belongs to the github org
         id: hubber_check
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
@@ -105,7 +105,7 @@ jobs:
 
       - name: Create a pull request
         if: env.CONTINUE_WORKFLOW == 'true'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         id: create_pull_request
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -124,7 +124,7 @@ jobs:
 
       - name: Add 'ready-for-doc-review' label to PR
         if: env.CONTINUE_WORKFLOW == 'true'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         env:
           # Get the number of the PR that was just created:
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}
@@ -140,7 +140,7 @@ jobs:
 
       - name: Assign PR to commenter
         if: env.CONTINUE_WORKFLOW == 'true'
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         env:
           # Reuse the PR number captured earlier
           PULL_REQUEST_NUMBER: ${{ steps.create_pull_request.outputs.pull-request-number }}

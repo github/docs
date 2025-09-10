@@ -2,6 +2,10 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 
 | Option | Description | Example |
 |:---|:---|:---|
+| {% ifversion fpt or ghec %} |
+| `artifact-registry` | Displays alerts only for dependencies that have been promoted to production in the specified repository manager.| `artifact-registry:jfrog-artifactory` will show any alerts alerts for dependencies that have been promoted to production in JFrog Artifactory. |
+| `artifact-registry-url` | Displays alerts related to artifacts present in a production-approved registry URL. | `artifact-registry-url:my-registry.example.com` will show any alerts for vulnerabilities affecting artifacts stored in the `my-registry.example.com` registry URL. |
+| {% endif %} |
 | `CVE-ID`| Displays alerts associated with this `CVE-ID` | `CVE-2020-28482` will show any alerts whose underlying advisory has this CVE ID number. |
 | `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |
 | `GHSA-ID`| Displays alerts associated with this `GHSA-ID` | `GHSA-49wp-qq6x-g2rf` will show any alerts whose underlying advisory has this {% data variables.product.prodname_advisory_database %} ID. |

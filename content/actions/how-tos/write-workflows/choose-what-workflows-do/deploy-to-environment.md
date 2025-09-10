@@ -35,8 +35,9 @@ You need to create an environment before you can use it in a workflow. See [AUTO
     ```yaml copy
     jobs:
       JOB-ID:
-        environment: ENVIRONMENT-NAME
-        url: URL
+        environment:
+            name: ENVIRONMENT-NAME
+            url: URL
     ```
 
     The specified URL will appear:
