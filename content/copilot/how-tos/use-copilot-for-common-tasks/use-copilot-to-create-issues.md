@@ -2,6 +2,7 @@
 title: Using GitHub Copilot to create issues
 shortTitle: Use Copilot to create issues
 intro: 'Use {% data variables.product.prodname_copilot_short %} to quickly generate structured, high-quality issues from natural language or images, without filling out every field manually.'
+permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_short %} to create issues. <br> <a href="https://github.com/copilot?ref_cta=Copilot+free&ref_loc=use+copilot+to+create+issues&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_copilot_short %} for free</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -76,6 +77,44 @@ For example:
 
 Each draft appears separately, and you can review and edit them individually. To publish the issues, click **Create** on each one you want to submit.
 
+## Creating sub-issues
+
+You can use {% data variables.product.prodname_copilot_short %} to draft multiple sub-issues.
+
+For example:
+
+`In octo-org/octo-repo, plan a new user dashboard. Break it down into an epic, and create sub-issues for each main feature and task.`
+
+{% data variables.product.prodname_copilot_short %} generates a draft issue tree, with a parent issue at the top level and sub-issues beneath it.
+
+You can review the issue tree, expand or collapse sub-issues, and edit the details of each issue.  
+
+Click the parent issue to view its details in the workbench. The parent issue displays a list of sub-issues, and you can click each one to view and edit its details in the workbench. From a sub-issue, use the "Parent" dropdown to navigate through the issue tree. You can also click **Review and create** at the top of the workbench to see the full issue tree and navigate directly to any issue.
+
+{% data variables.product.prodname_copilot_short %} can modify the tree, by unlinking issues or by attaching new drafts.
+
+For example, you can:
+* Remove a sub-issue from the issue tree:  
+   `Remove sub-issue NAME_OF_ISSUE from the issue tree`
+* Add an additional sub-issue to the issue tree:
+   `Add an additional sub-issue with ISSUE_DETAILS to the issue tree`
+
+Once you've finished editing the drafts and are ready to publish the issues, click **Review and create** then click **Create issues**.
+
+## Working with existing issues
+
+You can use {% data variables.product.prodname_copilot_short %} to connect new issues with issues that already exist in your repository.
+
+For example, you can:
+* Add a sub-issue to an existing parent issue:  
+   `Create a sub-issue for octo-org/octo-repo issue #456.`
+* Add a parent issue to an existing issue:
+   `Create a parent issue for octo-org/octo-repo issue #456.`
+* Add a parent issue to multiple existing issues:
+   `Create a parent issue for octo-org/octo-repo issues #456, #457, and #458.`
+
+The draft appears in the workbench, where you can review and edit it. To publish the issue, click **Review and create**, then click **Create issues**.
+
 ## Assigning issues to {% data variables.product.prodname_copilot_short %}
 
 To assign an issue to {% data variables.product.prodname_copilot_short %}, you need to have {% data variables.copilot.copilot_coding_agent %} enabled. See [AUTOTITLE](/copilot/concepts/coding-agent/about-enabling-coding-agent).
@@ -90,3 +129,4 @@ Once the issue is assigned and created, {% data variables.product.prodname_copil
 ## Further reading
 
 * [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)
+* [AUTOTITLE](/copilot/tutorials/plan-a-project)

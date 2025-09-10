@@ -10,9 +10,15 @@ topics:
 shortTitle: Contributions on your profile
 ---
 
-Your contribution graph and Achievements show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
+## About your contribution graph
 
-{% data reusables.profile.contribution-graph-commits %}
+Your profile contributions graph is a record of contributions you've made to repositories on {% data variables.product.prodname_dotcom %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone.
+
+If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
+
+## Public and private repository activity
+
+By default, your contribution graph and Achievements only show activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
 
 ## Popular repositories
 
