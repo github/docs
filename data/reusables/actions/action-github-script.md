@@ -1,1 +1,1 @@
-actions/github-script@v7
+actions/github-script@v8
