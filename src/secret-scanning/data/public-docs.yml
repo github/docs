@@ -1490,7 +1490,7 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1550,7 +1550,7 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -2917,7 +2917,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3316,7 +3316,7 @@
     ghes: '>=3.17'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4113,7 +4113,7 @@
     ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4798,7 +4798,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4902,7 +4902,7 @@
     ghes: '>3.4'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
