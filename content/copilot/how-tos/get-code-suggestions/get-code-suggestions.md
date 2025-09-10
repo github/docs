@@ -589,3 +589,25 @@ If you don't want to accept an entire suggestion from {% data variables.product.
 ## Further reading
 
 * [AUTOTITLE](/copilot/concepts/completions/code-suggestions)
+
+## Troubleshooting Slow or Missing Suggestions
+
+If you experience slow or missing suggestions from GitHub Copilot in your IDE:
+
+1. **Check Internet Connection**  
+   Copilot requires a stable internet connection. Any network instability can delay suggestions.
+
+2. **Restart Your IDE**  
+   Closing and reopening your IDE can refresh the Copilot session.
+
+3. **Sign Out and Sign Back In**  
+   If your authentication token has expired, reauthenticate via the Copilot settings in your IDE.
+
+4. **Disable Conflicting Extensions**  
+   Other autocomplete or AI extensions may interfere with Copilot. Temporarily disable them to check if the issue resolves.
+
+5. **Check GitHub Status**  
+   Visit [GitHub Status](https://www.githubstatus.com) to verify that Copilot services are running normally.
+
+If these steps don’t resolve the issue, you can open a topic in [GitHub Copilot Discussions](https://github.com/orgs/community/discussions) for more help.
+
