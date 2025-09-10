@@ -101,6 +101,18 @@ In addition to these generic non-provider patterns, {% data variables.product.pr
 
 Service providers update the patterns used to generate tokens periodically and may support more than one version of a token. Push protection only supports the most recent token versions that {% data variables.product.prodname_secret_scanning %} can identify with confidence. This avoids push protection blocking commits unnecessarily when a result may be a false positive, which is more likely to happen with legacy tokens.<!-- markdownlint-disable-line MD053 -->
 
+#### Multi-part secrets
+
+<a name="multi-part-secrets"></a>
+
+By default, {% data variables.product.prodname_secret_scanning %} supports validation for pair-matched access keys and key IDs.
+
+{% data variables.product.prodname_secret_scanning_caps %} also supports validation for individual key IDs for Amazon AWS Access Key IDs, in addition to existing pair matching.
+
+A key ID will show as active if {% data variables.product.prodname_secret_scanning %} confirms the key ID exists, regardless of whether or not a corresponding access key is found. The key ID will show as `inactive` if it's invalid (for example, if it is not a real key ID).
+
+Where a valid pair is found, the {% data variables.product.prodname_secret_scanning %} alerts will be linked.<!-- markdownlint-disable-line MD053 -->
+
 ## Further reading
 
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)
