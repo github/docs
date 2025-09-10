@@ -114,6 +114,8 @@ When you configure CAS, LDAP, or SAML authentication (without SCIM), {% data var
 
 1. {% data variables.product.github %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
 
+1. The letter casing in the value provided by the IdP is preserved in the normalized username.
+
 1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
 
 1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator.
@@ -124,12 +126,12 @@ When you configure CAS, LDAP, or SAML authentication (without SCIM), {% data var
 
 | Identifier on provider | Normalized username on {% data variables.product.prodname_dotcom_the_website %} | Result |
 | :- | :- | :- |
-| The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is created successfully. |
-| !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it starts with a dash. |
-| The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it contains two consecutive dashes. |
-| The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
-| `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
+| The.Octocat | `The-Octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is created successfully. |
+| !The.Octocat | `-The-Octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it starts with a dash. |
+| The!!Octocat | `The--Octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it contains two consecutive dashes. |
+| The!Octocat | `The-Octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
+| `The.Octocat@example.com` | `The-Octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
+| `internal\\The.Octocat` | `The-Octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
 | `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
 
 {% ifversion ghes %}

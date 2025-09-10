@@ -16,5 +16,5 @@ children:
   - /set-exit-codes
   - /publish-in-github-marketplace
   - /release-and-maintain-actions
+  - /using-immutable-releases-and-tags-to-manage-your-actions-releases
 ---
-

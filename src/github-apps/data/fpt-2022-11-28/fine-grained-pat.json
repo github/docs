@@ -3001,6 +3001,18 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "create-artifact-metadata-storage-record",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/storage-record"
+    },
+    {
+      "slug": "list-artifact-storage-records",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records"
+    },
+    {
       "slug": "delete-attestations-in-bulk",
       "subcategory": "attestations",
       "verb": "post",
