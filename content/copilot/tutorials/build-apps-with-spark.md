@@ -38,7 +38,7 @@ For this tutorial, we'll create a simple marketing tool app, where:
 1. Navigate to https://github.com/spark.
 1. In the input field, enter a description of your app. For example:
 
-   ```text copy
+   ```copilot copy
    Build an app called "AI-Powered Marketing Assistant."
 
    The app should allow users to input a brief description of a product or service. When the user submits their brief, send this information to a generative AI model with a prompt that asks the AI to return the following:
@@ -99,7 +99,7 @@ For our marketing app, let's add data storage so that users can save their favor
 
 1. Use the following instruction in the "Iterate" tab to guide {% data variables.product.prodname_spark_short %}:
 
-   ```text copy
+   ```copilot copy
    Add a "Favorites" page where users can save and view their favorite marketing copy results.
    ```
 

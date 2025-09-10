@@ -27,7 +27,7 @@ Existing code may function correctly but be inefficient, leading to performance 
 
 The following Python code prints every 1000th prime number up to the 10,000th prime. It includes a timer, and prints how long the code takes to run as the last line of the output. The program takes several seconds to complete.
 
-```python
+```python id=slow-prime
 import time
 
 def is_prime(n):
@@ -59,7 +59,9 @@ if __name__ == "__main__":
 
 ## Example prompt
 
-`Optimize this code for performance`
+```copilot copy prompt ref=slow-prime
+Optimize this code for performance
+```
 
 ## Example response
 

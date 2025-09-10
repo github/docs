@@ -84,7 +84,9 @@ Open the repository in your IDE then, in the {% data variables.copilot.copilot_c
 
 ### Example prompt 1
 
-`/explain #file:main.cob #file:operations.cob #file:data.cob Can you please create a high level overview of the app. It will be great if you can explain each file in detail and how they are linked.`
+```copilot copy
+/explain #file:main.cob #file:operations.cob #file:data.cob. Create a high level overview of the app. Explain each file in detail and how they are linked.
+```
 
 ### Example response 1
 
@@ -105,7 +107,9 @@ The next step is to understand how the files are linked together. You can use `@
 
 ### Example prompt 2
 
-`@workspace can you create a sequence diagram of the app showing the data flow of the app. Please create this in mermaid format so that I can render this in a markdown file.`
+```copilot copy
+@workspace Create a sequence diagram of the app showing the data flow of the app. Create this in mermaid format so that I can render this in a markdown file.
+```
 
 {% data variables.product.prodname_copilot_short %} outputs the Mermaid markup for a full sequence diagram that shows how the application works. You can copy and paste this markup into a Mermaid application to generate the diagram.
 
@@ -115,10 +119,10 @@ Create a test plan to ensure that the application works as expected after you ma
 
 ### Example prompt 3
 
-```shell
-@workspace The current Cobol app has no tests. Can you please create a test plan of current business logic that I can use to validate with business stakeholders about the current implementation.
+```copilot copy
+@workspace The current COBOL app has no tests. Create a test plan of current business logic that I can use to validate with business stakeholders about the current implementation.
 
-Later I would like to use this test plan to create unit and integration tests in a node.js app. I am in the middle of transforming the current Cobol app to a node.js app.
+Later I would like to use this test plan to create unit and integration tests in a node.js app. I am in the middle of transforming the current COBOL app to a node.js app.
 
 The test plan should include the following:
 
@@ -131,7 +135,7 @@ The test plan should include the following:
 7. Status (Pass/Fail)
 8. Comments
 
-Please create the test plan in a markdown table format. The test plan should cover all the business logic in the current Cobol app.
+Create the test plan in a markdown table format. The test plan should cover all the business logic in the current COBOL app.
 
 Convert this to markdown syntax to insert as a new file
 ```
@@ -156,7 +160,9 @@ Then, iteratively convert the COBOL files to Node.js.
 
 ### Example prompt 4
 
-`Can you convert code in #file:main.cob to node.js?`
+```copilot copy
+Convert the code in #file:main.cob to node.js
+```
 
 ### Example response 4
 
@@ -332,7 +338,9 @@ To refine the application, you will need to:
 * **Work iteratively with {% data variables.product.prodname_copilot_short %}** to adjust the logic until the Node.js program behaves as expected.
 * **Use targeted prompts** to debug and improve specific parts of the code, such as:
 
-  `@workspace - analyze main.js and ensure account balance updates correctly when crediting an account.`
+  ```copilot copy
+  @workspace - analyze main.js and ensure the account balance updates correctly when crediting an account.
+  ```
 
 Refactoring legacy code isn’t always a one-step process—{% data variables.product.prodname_copilot_short %} can assist in debugging and improving functionality as you refine your new Node.js implementation.
 
@@ -342,7 +350,9 @@ The next step is to generate unit and integration tests to ensure that the appli
 
 ### Example prompt 5
 
-`@workspace I would like to create unit and integration tests cases from the test plan mentioned in #file:TESTPLAN.md file The node.js code is in node-accounting-app folder and I am looking to generate tests for #file:operations.js file. Use a popular testing framework and also provide all the dependencies required to run the tests.`
+```copilot copy
+@workspace I would like to create unit and integration tests cases from the test plan mentioned in #file:TESTPLAN.md file. The node.js code is in the node-accounting-app folder and I am looking to generate tests for #file:operations.js file. Use a popular testing framework and also provide all the dependencies required to run the tests.
+```
 
 ### Example response 5
 
@@ -360,7 +370,9 @@ If a test fails, use {% data variables.product.prodname_copilot_short %} to help
 
 ### Example prompt 6
 
-`@workspace - analyze test failures in operations.test.js and suggest fixes to match the expected behavior.`
+```copilot copy
+@workspace - analyze test failures in operations.test.js and suggest fixes to match the expected behavior.
+```
 
 Even if all tests pass, the program may still have issues. Automated tests don’t always catch missing functionality or logic errors, so manual testing is required to ensure the application behaves as expected.
 

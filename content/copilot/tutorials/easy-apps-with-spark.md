@@ -23,7 +23,7 @@ Let's start by generating an initial, basic version of our app that we can build
 1. Navigate to https://github.com/spark.
 1. Send the following prompt to generate the first iteration of your app:
 
-    ```text copy
+    ```copilot copy
     Please create a word search game. The game should take in a set of words from the user, then create a word search puzzle containing those words, as well as a word bank listing the words. Words in the puzzle can be horizontal, vertical, diagonal, forwards, and backwards, and are "found" when the user clicks and drags their mouse across them. Once all words are found, give the user the option to create a new puzzle.
     ```
 
@@ -36,7 +36,7 @@ Just like that, we have a working app! However, it still needs some tweaks. Let'
 
 1. At the left side of the page, in the **Iterate** tab, send the following prompt:
 
-    ```text copy
+    ```copilot copy
     Please add a leaderboard and a timer to the game. The timer should start when the user generates a new puzzle, then stop when all words are found. The user should then be able to enter their name, and their name, time, and the number of words in their puzzle should be displayed on the leaderboard. The leaderboard should be sortable in ascending and descending order by each of the three categories.
     ```
 
@@ -51,7 +51,7 @@ While you're building your app, you may encounter some errors. Often, {% data va
 
 If you find an error that {% data variables.product.prodname_spark_short %} itself didn't flag, write a prompt to fix it. For best results, provide a detailed description of the error, as well as the ideal fixed state. For example, if you notice that adding words over a certain number of characters causes the puzzle to render incorrectly, send the following prompt:
 
-```text copy
+```copilot copy
 Please prevent users from entering words longer than the number of rows or columns in the puzzle. Additionally, add an option to change the size of a puzzle. If the user tries to enter a word that's longer than the current size of the puzzle, display an error message telling them that provided words must be less than or equal to the size of the puzzle.
 ```
 

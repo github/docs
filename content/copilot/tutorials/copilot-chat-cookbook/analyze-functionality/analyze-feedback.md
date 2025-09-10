@@ -35,7 +35,9 @@ This example assumes that you use labels to track issues related to user feedbac
 
 Navigate to the **Issues** tab in your repository, then type:
 
-`Find the issues with the feedback label that have the most reactions, and categorize them based on sentiment.`
+```copilot copy
+Find the issues with the feedback label that have the most reactions, and categorize them based on sentiment.
+```
 
 >[!TIP] To try out this prompt, you can go to the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues) repository, which uses labels to track feature requests, and type: `Find the issues with the feature-request label that have the most reactions, and categorize them based on sentiment.`
 
@@ -76,7 +78,9 @@ In this scenario, you've chosen a piece of user feedback to address. Someone req
 
 This example assumes you are asking about an issue in the same repository where you are using {% data variables.copilot.copilot_chat_short %}.
 
-`Write a feature specification for Issue #426.`
+```copilot copy
+Write a feature specification for Issue #426.
+```
 
 ### Example response
 

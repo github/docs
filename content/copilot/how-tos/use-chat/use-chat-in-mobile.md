@@ -63,11 +63,11 @@ You can ask a general question about software development{% ifversion ghec %} th
 1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
 
    Some examples of general questions you could ask are:
-   * What are the advantages of the Go programming language?
-   * What is Agile software development?
-   * What is the most popular JavaScript framework?
-   * Give me some examples of regular expressions.
-   * Write a bash script to output today's date.
+   * `What are the advantages of the Go programming language?`
+   * `What is Agile software development?`
+   * `What is the most popular JavaScript framework?`
+   * `Give me some examples of regular expressions.`
+   * `Write a bash script to output today's date.`
 
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
@@ -84,11 +84,11 @@ You can ask questions about a specific repository, to get help with understandin
 
    For example, if you chose the repository you are working in as the context, you could ask:
 
-   * What is the main purpose of this repo? What problem does it solve or what functionality does it provide?
-   * What web frameworks are used in this project?
-   * Where is rate limiting implemented in our API?
-   * How is the code organized? Explain the project architecture.
-   * Are there any specific environment requirements for working on this project?
+   * `What is the main purpose of this repo? What problem does it solve or what functionality does it provide?`
+   * `What web frameworks are used in this project?`
+   * `Where is rate limiting implemented in our API?`
+   * `How is the code organized? Explain the project architecture.`
+   * `Are there any specific environment requirements for working on this project?`
 
    > [!IMPORTANT]
    > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions like these in a repository context is improved when the repository has been indexed for semantic code search. Without indexing, {% data variables.copilot.copilot_mobile_short %} may not be able to provide the most relevant answers to your questions.
@@ -110,15 +110,15 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
    For example, if you are asking about the entire file, you could enter:
 
-   * Explain this file.
-   * How could I improve this code?
-   * How can I test this script?
+   * `Explain this file.`
+   * `How could I improve this code?`
+   * `How can I test this script?`
 
    If you are asking about specific lines, you could enter:
 
-   * How could I improve this class?
-   * Add error handling to this code.
-   * Write a unit test for this method.
+   * `How could I improve this class?`
+   * `Add error handling to this code.`
+   * `Write a unit test for this method.`
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
@@ -135,10 +135,10 @@ You can ask questions about a specific pull request in a repository.
 
    For example, you could ask:
 
-   * What is the purpose of this pull request?
-   * What changes are being made in this pull request?
-   * Are there any potential issues with this pull request?
-   * What is the status of this pull request?
+   * `What is the purpose of this pull request?`
+   * `What changes are being made in this pull request?`
+   * `Are there any potential issues with this pull request?`
+   * `What is the status of this pull request?`
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
@@ -153,10 +153,10 @@ You can ask questions about a specific issue in a repository.
 
    For example, you could ask:
 
-   * What is the purpose of this issue?
-   * What is the status of this issue?
-   * What are the steps to reproduce this issue?
-   * Are there any potential solutions to this issue?
+   * `What is the purpose of this issue?`
+   * `What is the status of this issue?`
+   * `What are the steps to reproduce this issue?`
+   * `Are there any potential solutions to this issue?`
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
@@ -171,10 +171,10 @@ You can ask questions about a specific discussion in a repository.
 
    For example, you could ask:
 
-   * What is the purpose of this discussion?
-   * What are the main points of this discussion?
-   * What are the next steps for this discussion?
-   * Are there any potential issues with this discussion?
+   * `What is the purpose of this discussion?`
+   * `What are the main points of this discussion?`
+   * `What are the next steps for this discussion?`
+   * `Are there any potential issues with this discussion?`
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
