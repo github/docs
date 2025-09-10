@@ -34,7 +34,7 @@ jobs:
           github_token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
 
       - name: Ship pull request
-        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
           result-encoding: string
