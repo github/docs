@@ -27,7 +27,7 @@ While they may be considered "common knowledge" by many developers, the vast maj
 
 The JavaScript code below has a potential XSS vulnerability that could be exploited if the `name` parameter is not properly sanitized before being displayed on the page.
 
-```javascript
+```javascript id=potential-xss
 function displayName(name) {
   const nameElement = document.getElementById('name-display');
   nameElement.innerHTML = `Showing results for "${name}"`
@@ -38,7 +38,9 @@ function displayName(name) {
 
 You can ask {% data variables.copilot.copilot_chat_short %} to analyze code for common security vulnerabilities and provide explanations and fixes for the issues it finds.
 
-`Analyze this code for potential security vulnerabilities and suggest fixes.`
+```copilot copy prompt ref=potential-xss
+Analyze this code for potential security vulnerabilities and suggest fixes.
+```
 
 ## Example response
 

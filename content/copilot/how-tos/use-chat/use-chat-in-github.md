@@ -35,11 +35,11 @@ Depending on the question you ask, and your enterprise and organization settings
 
    Some examples of general questions you could ask are:
 
-   * `What are the advantages of the Go programming language?`
-   * `What is Agile software development?`
-   * `What is the most popular JavaScript framework?`
-   * `Give me some examples of regular expressions.`
-   * `Write a bash script to output today's date.`
+   * {% prompt %}What are the advantages of the Go programming language?{% endprompt %}
+   * {% prompt %}What is Agile software development?{% endprompt %}
+   * {% prompt %}What is the most popular JavaScript framework?{% endprompt %}
+   * {% prompt %}Give me some examples of regular expressions.{% endprompt %}
+   * {% prompt %}Write a bash script to output today's date.{% endprompt %}
 
 {% data reusables.copilot.stop-response-generation %}
 1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, you can click the **_n_ references** link at the top of the response to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
@@ -59,7 +59,7 @@ Depending on the question you ask, and your enterprise and organization settings
 
 When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.copilot.copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
 
-For example, asking `Generate a simple calculator using HTML, CSS, and JavaScript` may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
+For example, asking {% prompt %}Generate a simple calculator using HTML, CSS, and JavaScript{% endprompt %} may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
 
 In immersive view, you can also preview how some file formats, such as Markdown, render by toggling to the "Preview" tab in the side panel.
 
@@ -118,9 +118,9 @@ To navigate between subthreads:
 
 {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask.
 
-You can explicitly ask {% data variables.copilot.copilot_chat_dotcom %} to use a particular skill - for example, `Use the Bing skill to find the latest GPT4 model from OpenAI`.
+You can explicitly ask {% data variables.copilot.copilot_chat_dotcom %} to use a particular skill - for example, {% prompt %}Use the Bing skill to find the latest GPT4 model from OpenAI.{% endprompt %}
 
-Generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `What skills are available?`
+Generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: {% prompt %}What skills are available?{% endprompt %}
 
 ## Asking {% data variables.copilot.copilot_chat_short %} questions in different contexts
 
@@ -171,9 +171,9 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
    For example, you could enter:
 
-   * What does this repo do?
-   * Where is authentication implemented in this codebase?
-   * How does license file detection work in this repo?
+   * `What does this repo do?`
+   * `Where is authentication implemented in this codebase?`
+   * `How does license file detection work in this repo?`
 
 1. Click **Ask {% data variables.product.prodname_copilot_short %}**.
 

@@ -29,7 +29,7 @@ Code that doesn’t follow established design patterns (like Singleton, Factory,
 
 This JavaScript code creates three `Person` objects, each with `name` and `age` properties. It then uses the name of a person to retrieve and print their age.
 
-```javascript
+```javascript id=person-module
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -60,7 +60,9 @@ getAge("Mario");
 
 ## Example prompt 1
 
-`What design patterns could improve this code? Don't show me code examples.`
+```copilot copy prompt ref=person-module
+What design patterns could improve this code? Don't show me code examples.
+```
 
 ## Example response 1
 
@@ -74,7 +76,9 @@ getAge("Mario");
 
 You can now ask {% data variables.product.prodname_copilot_short %} to implement the pattern that you feel is most appropriate.
 
-`Refactor this code using the module pattern`
+```copilot copy prompt ref=person-module
+Refactor this code using the module pattern
+```
 
 ## Example response 2
 

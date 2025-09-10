@@ -251,9 +251,9 @@ Some of the example prompts require you to be in a specific context on the {% da
 
 You can ask {% data variables.copilot.copilot_chat_short %} general software questions. For example:
 
-* `tell me about nodejs web server frameworks`
-* `how can I create an Express app`
-* `what is the best way to update an npm package`
+* {% prompt %}tell me about nodejs web server frameworks{% endprompt %}
+* {% prompt %}how can I create an Express app{% endprompt %}
+* {% prompt %}what is the best way to update an npm package{% endprompt %}
 
 ## Ask questions about a repository
 

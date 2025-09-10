@@ -25,7 +25,7 @@ When making requests to APIs, it's common to encounter rate limits that restrict
 
 The following Python code fetches weather data from an external API. If the API has rate limits, requests may fail when limits are exceeded, and your app may need a way to handle these responses gracefully by implementing retry logic.
 
-```python
+```python id=rate-limit-example
 from flask import Flask, request
 import requests
 
@@ -45,7 +45,9 @@ def get_weather():
 
 ## Example prompt
 
-`How can I handle API rate limits within get_weather().`
+```copilot copy prompt ref=rate-limit-example
+How can I handle API rate limits within get_weather().
+```
 
 ## Example response
 
