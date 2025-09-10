@@ -199,6 +199,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  ismultipart: true
   base64Supported: false
   isduplicate: false
 - provider: Amazon AWS

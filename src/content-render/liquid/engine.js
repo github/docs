@@ -6,6 +6,7 @@ import Octicon from './octicon'
 import Ifversion from './ifversion'
 import { Tool, tags as toolTags } from './tool'
 import { Spotlight, tags as spotlightTags } from './spotlight'
+import { Prompt } from './prompt'
 
 export const engine = new Liquid({
   extname: '.html',
@@ -24,6 +25,8 @@ for (const tag of toolTags) {
 for (const tag in spotlightTags) {
   engine.registerTag(tag, Spotlight)
 }
+
+engine.registerTag('prompt', Prompt)
 
 /**
  * Like the `size` filter, but specifically for
