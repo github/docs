@@ -19,11 +19,21 @@ redirect_from:
 
 This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_code-review_short %}**
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endwebui %}
 
 {% vscode %}
 
 This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments.
+
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_code-review_short %}**
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
 {% endvscode %}
 
@@ -31,17 +41,31 @@ This version of this article is for using repository custom instructions and pro
 
 This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_code-review_short %}**
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endvisualstudio %}
 
 {% jetbrains %}
 
 This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+* **{% data variables.copilot.copilot_code-review_short %}**
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endjetbrains %}
 
 {% xcode %}
 
 This version of this article is for using repository custom instructions in Xcode. Click the tabs above for instructions on using custom instructions in other environments.
+
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
 {% endxcode %}
 
@@ -51,21 +75,12 @@ This version of this article is for using repository custom instructions in Xcod
 
 This version of this article is for using repository custom instructions in Eclipse. Click the tabs above for instructions on using custom instructions in other environments.
 
-{% endeclipse %}
-
-## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
-
-Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences.
-
-Repository custom instructions are currently supported for:
-* **{% data variables.copilot.copilot_chat_short %}** in {% data variables.product.prodname_vscode_shortname %}
-* **{% data variables.copilot.copilot_chat_short %}** in {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, and on the {% data variables.product.github %} website (`copilot-instructions.md` file only)
-* **{% data variables.copilot.copilot_coding_agent %}**
+{% data reusables.copilot.repository-custom-instructions-support %}
 * **{% data variables.copilot.copilot_code-review_short %}**
 
-## Prerequisites for repository custom instructions
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
-* You must have a custom instructions file (see the instructions below).
+{% endeclipse %}
 
 {% webui %}
 

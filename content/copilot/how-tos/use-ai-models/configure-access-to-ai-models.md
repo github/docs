@@ -36,8 +36,11 @@ You can enable access in two ways:
 * You can enable the model directly in your personal settings on the {% data variables.product.github %} website. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-alternative-ai-models).
 
 >[!NOTE]
-> Some models may not be available depending on your plan. See [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot#models).
+> * Some models may not be available depending on your plan. See [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot#models).
+> * Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set by users and align to individual plans. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
 
 ## Setup for organization and enterprise use
 
 As an enterprise or organization owner, you can enable or disable access to AI models for everyone who has been assigned a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat through your enterprise or organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+
+> [!NOTE] Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/auto-model-selection).

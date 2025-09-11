@@ -17,6 +17,7 @@ children:
   - /billing
   - /prompt-engineering
   - /response-customization
+  - /auto-model-selection
   - /content-exclusion
   - /knowledge-bases
   - /extensions
