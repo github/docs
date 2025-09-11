@@ -75,13 +75,13 @@ Repository custom instructions are currently supported for:
 
 {% vscode %}
 
-* The **Use Instruction Files** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+* Custom instructions must be enabled. This feature is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions-1) later in this article.
 
 {% endvscode %}
 
 {% visualstudio %}
 
-* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions-2) later in this article.
 
 {% endvisualstudio %}
 
@@ -533,6 +533,8 @@ Your choice persists, for all repositories containing a custom instructions file
 
 1. In the "Options" dialog, type `custom instructions` in the search box, then click **{% data variables.product.prodname_copilot_short %}**.
 1. Select or clear the checkbox for **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
+
+   ![Screenshot of the {% data variables.product.prodname_vs %} Options dialog showing the "Enable custom instructions" option checkbox selected.](/assets/images/help/copilot/vs-custom-instructions-option.png)
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
 
