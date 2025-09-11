@@ -1073,6 +1073,20 @@ async function checkExternalURLCached(
   const now = new Date().getTime()
   const url = href.split('#')[0]
 
+  // Skip domains that are currently rate limited (with 1 hour TTL)
+  const { hostname } = new URL(url)
+  const rateLimitTime = _rateLimitedDomains.get(hostname)
+  if (rateLimitTime) {
+    const oneHourAgo = Date.now() - 60 * 60 * 1000 // 1 hour in ms
+    if (rateLimitTime > oneHourAgo) {
+      if (verbose) core.info(`Skipping ${url} - domain ${hostname} is rate limited`)
+      return { ok: false, statusCode: 429, skipReason: 'Domain rate limited' }
+    } else {
+      // Rate limit has expired, remove it
+      _rateLimitedDomains.delete(hostname)
+    }
+  }
+
   if (cacheMaxAge) {
     const tooOld = now - Math.floor(jitter(cacheMaxAge, 10))
     if (db && db.data.urls[url]) {
@@ -1122,105 +1136,70 @@ async function checkExternalURL(
   return _fetchCache.get(cleanURL)
 }
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
-
-// Global for recording which domains we get rate-limited on.
-// For example, if you got rate limited on `something.github.com/foo`
-// and now we're asked to fetch for `something.github.com/bar`
-// it's good to know to now bother yet.
-const _rateLimitedDomains = new Map()
+// Track domains that have returned 429 to skip future requests
+// Maps hostname to timestamp when rate limit was detected
+const _rateLimitedDomains = new Map<string, number>()
 
 async function innerFetch(
   core: CoreInject,
   url: string,
-  config: { verbose?: boolean; useGET?: boolean; patient?: boolean; retries?: number } = {},
+  config: { verbose?: boolean; patient?: boolean; retries?: number } = {},
 ) {
-  const { verbose, useGET, patient } = config
-
-  const { hostname } = new URL(url)
-  if (_rateLimitedDomains.has(hostname)) {
-    await sleep(_rateLimitedDomains.get(hostname))
-  }
-  // The way `got` does retries:
-  //
-  //   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
-  //
-  // So, it means:
-  //
-  //   1. ~1000ms
-  //   2. ~2000ms
-  //   3. ~4000ms
-  //
-  // ...if the limit we set is 3.
-  // Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
-  // So there's no point in trying more attempts than 3 because it would
-  // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
-  const retry = {
-    limit: patient ? 6 : 2,
-  }
-  const timeout = { request: patient ? 10000 : 2000 }
+  const { verbose, patient } = config
 
   const headers = {
     'User-Agent':
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36',
   }
 
-  const retries = config.retries || 0
-  const method = useGET ? 'GET' : 'HEAD'
+  const retries = patient ? 3 : 2
+  const timeout = patient ? 10000 : 5000
 
-  if (verbose) core.info(`External URL ${method}: ${url} (retries: ${retries})`)
+  if (verbose) core.info(`External URL HEAD: ${url}`)
+
   try {
-    const r = await fetchWithRetry(
+    // Try HEAD first
+    let r = await fetchWithRetry(
       url,
       {
-        method,
+        method: 'HEAD',
         headers,
       },
       {
-        retries: retry.limit,
-        timeout: timeout.request,
+        retries,
+        timeout,
         throwHttpErrors: false,
       },
     )
-    if (verbose) {
-      core.info(`External URL ${method} ${url}: ${r.status} (retries: ${retries})`)
-    }
 
-    // If we get rate limited, remember that this hostname is now all
-    // rate limited. And sleep for the number of seconds that the
-    // `retry-after` header indicated.
-    if (r.status === 429) {
-      let sleepTime = Math.min(
-        60_000,
-        Math.max(
-          10_000,
-          r.headers.get('retry-after') ? getRetryAfterSleep(r.headers.get('retry-after')) : 1_000,
-        ),
+    // If HEAD doesn't work, try GET
+    if (r.status === 405 || r.status === 404 || r.status === 403) {
+      if (verbose) core.info(`External URL GET: ${url} (HEAD failed with ${r.status})`)
+      r = await fetchWithRetry(
+        url,
+        {
+          method: 'GET',
+          headers,
+        },
+        {
+          retries,
+          timeout,
+          throwHttpErrors: false,
+        },
       )
-      // Sprinkle a little jitter so it doesn't all start again all
-      // at the same time
-      sleepTime += Math.random() * 10 * 1000
-      // Give it a bit extra when we can be really patient
-      if (patient) sleepTime += 30 * 1000
-
-      _rateLimitedDomains.set(hostname, sleepTime + Math.random() * 10 * 1000)
-      if (verbose)
-        core.info(
-          chalk.yellow(
-            `Rate limited on ${hostname} (${url}). Sleeping for ${(sleepTime / 1000).toFixed(1)}s`,
-          ),
-        )
-      await sleep(sleepTime)
-      return innerFetch(core, url, Object.assign({}, config, { retries: retries + 1 }))
-    } else {
-      _rateLimitedDomains.delete(hostname)
     }
 
-    // Perhaps the server doesn't support HEAD requests.
-    // If so, try again with a regular GET.
-    if ((r.status === 405 || r.status === 404 || r.status === 403) && !useGET) {
-      return innerFetch(core, url, Object.assign({}, config, { useGET: true }))
+    if (verbose) {
+      core.info(`External URL ${url}: ${r.status}`)
     }
+
+    // Track rate limited domains with timestamp
+    const { hostname } = new URL(url)
+    if (r.status === 429) {
+      _rateLimitedDomains.set(hostname, Date.now())
+      if (verbose) core.info(`Domain ${hostname} is now rate limited for 1 hour`)
+    }
+
     if (verbose) {
       core.info((r.ok ? chalk.green : chalk.red)(`${r.status} on ${url}`))
     }
@@ -1234,17 +1213,6 @@ async function innerFetch(
     }
     throw err
   }
-}
-
-// Return number of milliseconds from a `Retry-After` header value
-function getRetryAfterSleep(headerValue: string | null) {
-  if (!headerValue) return 0
-  let ms = Math.round(parseFloat(headerValue) * 1000)
-  if (isNaN(ms)) {
-    const nextDate = new Date(headerValue)
-    ms = Math.max(0, nextDate.getTime() - new Date().getTime())
-  }
-  return ms
 }
 
 function checkImageSrc(src: string) {

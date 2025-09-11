@@ -7,7 +7,7 @@ introLinks:
     - /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
   startHere:
-    - /account-and-profile/concepts/changing-your-github-username
+    - /account-and-profile/concepts/username-changes
     - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
   popular:
     - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address

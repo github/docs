@@ -48,6 +48,20 @@ In addition, **at least one** of the following must be true:
 * You have forked the repository.
 * You have opened a pull request or issue in the repository.
 
+## Who can see your contributions and achievements
+
+On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.prodname_ghe_server %}{% endif %}, **public** contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.location.product_location %}{% endif %}.
+
+When you publicize private contributions, people without access to those private repositories will see the number of contributions you made each day. They will not see specific details.
+
+{% ifversion ghec %}
+
+### {% data variables.enterprise.data_residency %}
+
+Achievements are not available on subdomains of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`.
+
+{% endif %}
+
 ## Who receives contribution credit
 
 {% ifversion ghes %}
@@ -69,3 +83,15 @@ If you merged multiple personal accounts, issues, pull requests, and discussions
 Timestamps are calculated differently for commits and pull requests:
 * **Commits** use the time zone information in the commit timestamp. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
 * **Pull requests** and **issues** opened on {% data variables.product.github %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+
+## How GitHub uses the Git author date and commit date
+
+In Git, the author date is when someone first creates a commit with `git commit`. The commit date is identical to the author date unless someone changes the commit date by using `git commit --amend`, a force push, a rebase, or other Git commands.
+
+On your profile page, the author date is used to calculate when a commit was made. Whereas, in a repository, the commit date is used to calculate when a commit was made in the repository.
+
+Most often, the author date and commit date are the same but you may notice that your commit sequence is out of order if the commit history is changed. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile).
+
+## Sharing contributions from {% data variables.product.prodname_ghe_server %}
+
+When you share contributions, your {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} profile shows {% data variables.product.prodname_ghe_server %} contribution counts from the past 90 days. {% data reusables.github-connect.sync-frequency %} Contribution counts from {% data variables.product.prodname_ghe_server %} are considered private contributions. The commit details will only show the contribution counts and that these contributions were made on {% data variables.product.prodname_ghe_server %}.

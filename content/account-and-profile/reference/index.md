@@ -14,5 +14,6 @@ children:
   - /types-of-emails-github-sends
   - /email-addresses-reference
   - /personal-account-reference
+  - /username-reference
 ---
 

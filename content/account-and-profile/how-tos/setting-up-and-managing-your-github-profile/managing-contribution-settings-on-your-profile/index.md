@@ -15,10 +15,10 @@ topics:
 children:
   - /showing-an-overview-of-your-activity-on-your-profile
   - /viewing-contributions-on-your-profile
-  - /showing-your-private-contributions-and-achievements-on-your-profile
+  - /manage-visibility-settings-for-private-contributions-and-achievements
   - /sharing-contributions-from-github-enterprise-server
   - /troubleshooting-missing-contributions
-  - /troubleshooting-commits-on-your-timeline
+  - /viewing-commit-details-from-your-timeline
 shortTitle: Manage contribution settings
 ---
 
