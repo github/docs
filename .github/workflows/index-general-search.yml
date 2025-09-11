@@ -98,7 +98,7 @@ jobs:
     needs: figureOutMatrix
     name: Update indexes
     if: ${{ github.repository == 'github/docs-internal' && needs.figureOutMatrix.outputs.matrix != '[]' }}
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       # When it's only English (i.e. a simple array of ['en']), this value

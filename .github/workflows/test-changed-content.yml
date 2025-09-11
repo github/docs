@@ -21,7 +21,7 @@ permissions:
 
 jobs:
   test-changed-content:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
