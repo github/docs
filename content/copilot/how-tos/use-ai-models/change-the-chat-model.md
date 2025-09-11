@@ -1,7 +1,7 @@
 ---
 title: Changing the AI model for GitHub Copilot Chat
 shortTitle: Change the chat model
-intro: 'Learn how to change the default LLM for {% data variables.copilot.copilot_chat_short %} to a different model.'
+intro: 'Learn how to switch between models for {% data variables.copilot.copilot_chat_short %}.'
 versions:
   feature: copilot
 topics:
@@ -13,9 +13,7 @@ redirect_from:
 contentType: how-tos
 ---
 
-By default, {% data variables.copilot.copilot_chat_short %} uses {% data variables.copilot.copilot_gpt_41 %} to provide fast, capable responses for a wide range of tasks, such as summarization, knowledge-based questions, reasoning, math, and coding.
-
-However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
+Choose from a selection of models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
 To view the available models per client, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot#supported-models-per-client).
 
@@ -23,7 +21,7 @@ To view the available models per client, see [AUTOTITLE](/copilot/using-github-c
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
-Changing the model that's used by {% data variables.copilot.copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 
 {% webui %}
 
@@ -64,6 +62,8 @@ These instructions are for {% data variables.product.prodname_vscode %}. For ins
 
 {% data reusables.copilot.open-chat-vs-code %}
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+
+> [!TIP] If you're already using chat with {% data variables.copilot.copilot_auto_model_selection_short %}, you'll need to start a new chat session to switch models. To start a new session, in the top right of the chat view, click {% octicon "plus" aria-label="new chat" %} new chat.
 
 {% endvscode %}
 

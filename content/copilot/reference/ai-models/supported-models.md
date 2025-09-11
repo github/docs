@@ -60,6 +60,8 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 The following table shows which models are available in each client.
 
+> [!NOTE] {% data reusables.copilot.auto-model-selection %}
+
 {% rowheaders %}
 
 | Model                                                          | {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vs %}    | Eclipse                                     | Xcode                                       | JetBrains IDEs                              |
