@@ -25,9 +25,11 @@ contentType: reference
 
 Depending on your {% data variables.product.prodname_copilot_short %} plan and where you're using it—such as {% data variables.product.prodname_dotcom_the_website %} or an IDE—you may have access to different models.
 
->[!NOTE] Model availability is subject to change. Some models may be replaced or updated over time.
+> [!NOTE]
+> * Model availability is subject to change. Some models may be replaced or updated over time.
+> * In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
 
-For all AI models, input prompts and output completions run through {% data variables.product.prodname_copilot %}'s content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
+For all of the default AI models, input prompts and output completions run through {% data variables.product.prodname_copilot %}'s content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
 
 ## Supported AI models in {% data variables.product.prodname_copilot_short %}
 
