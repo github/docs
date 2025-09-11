@@ -6,7 +6,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -121,7 +121,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -199,7 +199,6 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  ismultipart: true
   base64Supported: false
   isduplicate: false
 - provider: Amazon AWS
@@ -1502,7 +1501,7 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3842,7 +3841,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -5712,7 +5711,7 @@
     ghec: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
