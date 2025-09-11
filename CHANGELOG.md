@@ -1,5 +1,13 @@
 # Docs changelog
 
+**11 September 2025**
+
+You can now enable automatic Copilot code review with its own standalone repository rule. We've updated the documentation accordingly.
+
+See [Configuring automatic code review by GitHub Copilot](https://docs.github.com/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review).
+
+<hr>
+
 **4 September 2025**
 
 We've updated the documentation to remove references to Copilot coding guidelines.

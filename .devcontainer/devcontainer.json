@@ -6,7 +6,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version
-    "args": { "VARIANT": "22" }
+    "args": { "VARIANT": "24" }
   },
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
