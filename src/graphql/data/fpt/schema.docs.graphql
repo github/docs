@@ -5850,6 +5850,11 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
   viewerCanReact: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -12605,6 +12610,11 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
   viewerCanUnmarkAsAnswer: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -17602,6 +17612,11 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
   viewerCanMinimize: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -19803,6 +19818,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   Can user react to this subject
   """
   viewerCanReact: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 
   """
   Check if the current viewer can update this object.
@@ -24126,6 +24146,11 @@ interface Minimizable {
   Check if the current viewer can minimize this object.
   """
   viewerCanMinimize: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 }
 
 """
@@ -41943,6 +41968,11 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
   viewerCanReact: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -42235,6 +42265,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   Can user react to this subject
   """
   viewerCanReact: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 
   """
   Check if the current viewer can update this object.
