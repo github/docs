@@ -17,7 +17,7 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20250805-204228-g50c20871f AS ba
 # Ubuntu's apt-get install nodejs is _very_ outdated
 # Must run as root
 RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
-  && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
 
