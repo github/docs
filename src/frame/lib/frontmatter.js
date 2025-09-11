@@ -202,6 +202,10 @@ export const schema = {
     product_video_transcript: {
       type: 'string',
     },
+    // Hero image for landing pages
+    heroImage: {
+      type: 'string',
+    },
     interactive: {
       type: 'boolean',
     },
