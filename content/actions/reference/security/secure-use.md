@@ -133,7 +133,7 @@ Avoid using the `pull_request_target` and `workflow_run` workflow triggers with 
 
 ### Use OpenSSF Scorecards to detect potentially vulnerable workflows
 
-[OpenSSF Scorecards](#use-openssf-scorecards-to-detect-potentially-vulnerable-workflows) can help you identify potentially vulnerable workflows, along with other security risks when using GitHub Actions.
+[OpenSSF Scorecards](#use-openssf-scorecards-to-detect-potentially-vulnerable-workflows) can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}.
 
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
