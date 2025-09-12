@@ -25,7 +25,7 @@ A user is considered active if the user has performed any of the following activ
 
 {% data variables.product.github %} **does not consider the following activities as active**:
 
-* Accessing resources by using a {% data variables.product.pat_generic %}, SSH key, or % data variables.product.prodname_github_app %}.
+* Accessing resources by using a {% data variables.product.pat_generic %}, SSH key, or {% data variables.product.prodname_github_app %}.
 * Git operations (such as pushes, pulls, repository cloning) on private repositories.
 
 {% ifversion ghes %}
