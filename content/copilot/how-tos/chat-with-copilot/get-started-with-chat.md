@@ -1,6 +1,6 @@
 ---
 title: Getting started with prompts for GitHub Copilot Chat
-intro: 'Get an overview of ways to use {% data variables.copilot.copilot_chat_short %}.'
+intro: Get an overview of ways to use {% data variables.copilot.copilot_chat_short %}.
 topics:
   - Copilot
 defaultTool: vscode
@@ -13,6 +13,7 @@ redirect_from:
   - /copilot/get-started/getting-started-with-prompts-for-copilot-chat
   - /copilot/how-tos/chat/getting-started-with-prompts-for-copilot-chat
   - /copilot/how-tos/chat/get-started-with-chat
+  - /copilot/how-tos/use-chat/get-started-with-chat
 shortTitle: Get started with Chat
 contentType: how-tos
 ---

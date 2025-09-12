@@ -10,6 +10,7 @@ topics:
 redirect_from:
   - /copilot/code-review
   - /copilot/concepts/code-review/code-review
+  - /copilot/concepts/code-review
 contentType: concepts
 ---
 

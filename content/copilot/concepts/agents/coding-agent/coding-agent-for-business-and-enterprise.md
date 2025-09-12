@@ -1,8 +1,8 @@
 ---
-title: About enabling GitHub Copilot coding agent
-shortTitle: 'Enable {% data variables.copilot.copilot_coding_agent_short %}'
+title: About GitHub Copilot coding agent for business and enterprise
+shortTitle: Business and enterprise
 allowTitleToDifferFromFilename: true
-intro: 'Find out about enabling {% data variables.copilot.copilot_coding_agent %} for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.'
+intro: Find out about {% data variables.copilot.copilot_coding_agent %} policies available for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=enabling+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/enabling-copilot-coding-agent-for-your-personal-repositories
   - /copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent
   - /copilot/concepts/coding-agent/about-enabling-coding-agent
+  - /copilot/concepts/coding-agent/enable-coding-agent
+  - /copilot/concepts/agents/coding-agent/enable-coding-agent
 contentType: concepts
 ---
 
@@ -32,7 +34,7 @@ If you are a {% data variables.copilot.copilot_pro %} or Pro+ subscriber, {% dat
 
 Once enabled, you can use {% data variables.copilot.copilot_coding_agent %} in any repository, provided that an administrator hasn't opted the repository out.
 
-## Enabling {% data variables.copilot.copilot_coding_agent %} for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} subscribers
+## {% data variables.copilot.copilot_coding_agent %} policies for {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}
 
 {% data reusables.copilot.coding-agent.enabling-for-orgs-and-enterprises %}
 

@@ -1,15 +1,17 @@
 ---
 title: Asking GitHub Copilot questions in Windows Terminal
-intro: 'You can use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} to get suggestions and explanations for the command line.'
+intro: You can use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} to get suggestions and explanations for the command line.
 topics:
   - Copilot
-shortTitle: Use Chat in Windows Terminal
+shortTitle: Chat in Windows Terminal
 versions:
   feature: copilot
 redirect_from:
   - /copilot/using-github-copilot/asking-github-copilot-questions-in-windows-terminal
   - /copilot/how-tos/chat/asking-github-copilot-questions-in-windows-terminal
   - /copilot/how-tos/chat/use-chat-in-windows-terminal
+  - /copilot/how-tos/use-chat/use-chat-in-windows-terminal
+  - /copilot/how-tos/chat-with-copilot/use-chat-in-windows-terminal
 contentType: how-tos
 ---
 

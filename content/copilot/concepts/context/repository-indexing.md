@@ -1,6 +1,6 @@
 ---
 title: Indexing repositories for GitHub Copilot Chat
-shortTitle: Repository indexes
+shortTitle: Repository indexing
 intro: '{% data variables.copilot.copilot_chat %} improves responses to questions about code by indexing your repositories.'
 versions:
   feature: copilot
@@ -14,6 +14,7 @@ redirect_from:
   - /copilot/using-github-copilot/indexing-repositories-for-copilot-chat
   - /copilot/using-github-copilot/copilot-chat/indexing-repositories-for-copilot-chat
   - /copilot/concepts/indexing-repositories-for-copilot-chat
+  - /copilot/concepts/repository-indexes
 contentType: concepts
 ---
 

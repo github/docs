@@ -1,12 +1,12 @@
 ---
 title: Asking GitHub Copilot questions in GitHub Mobile
-intro: 'You can use {% data variables.copilot.copilot_mobile %} to answer general questions about software development, or specific questions about the code in a repository{% ifversion ghec %}. With {% data variables.copilot.copilot_enterprise_short %} you can also ask specific questions about a pull request, issue, or discussion{% endif %}.'
+intro: You can use {% data variables.copilot.copilot_mobile %} to answer general questions about software development, or specific questions about the code in a repository{% ifversion ghec %}. With {% data variables.copilot.copilot_enterprise_short %} you can also ask specific questions about a pull request, issue, or discussion{% endif %}.
 topics:
   - Copilot
   - Mobile
 versions:
   feature: copilot-chat-for-mobile
-shortTitle: Use Chat in Mobile
+shortTitle: Chat in Mobile
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile
   - /copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile
@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile
   - /copilot/how-tos/chat/asking-github-copilot-questions-in-github-mobile
   - /copilot/how-tos/chat/use-chat-in-mobile
+  - /copilot/how-tos/use-chat/use-chat-in-mobile
+  - /copilot/how-tos/chat-with-copilot/use-chat-in-mobile
 contentType: how-tos
 ---
 
