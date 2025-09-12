@@ -11948,7 +11948,7 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   answerChosenBy: Actor
 
   """
-  The actor who authored the comment.
+  The actor who authored the discussion.
   """
   author: Actor
 
@@ -53197,6 +53197,11 @@ enum RepositoryRulesetBypassActorBypassMode {
   The actor can always bypass rules
   """
   ALWAYS
+
+  """
+  The actor is exempt from rules without generating a pass / fail result
+  """
+  EXEMPT
 
   """
   The actor can only bypass rules via a pull request
