@@ -158,7 +158,7 @@ Similar to script injection attacks, untrusted pull request content that automat
 
 Review the [`pull_request_target` trigger documentation](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target) and the [`workflow_run` trigger documentation](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow-run) for more information on these triggers, how to use them, and the risks associated with them.
 
-For additional explanation, examples, and guidance on the risks of untrusted code checkout, see [Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from GitHub Security Lab and the [Dangerous Workflow check documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) from OpenSSF Scorecard.
+For additional explanation, examples, and guidance on the risks of untrusted code checkout, see [Keeping your {% data variables.product.prodname_actions %} and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from GitHub Security Lab and the [Dangerous Workflow check documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) from OpenSSF Scorecard.
 
 ## Good practices for mitigating untrusted code checkout risks
 
