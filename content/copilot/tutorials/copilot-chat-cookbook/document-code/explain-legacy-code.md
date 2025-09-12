@@ -25,7 +25,7 @@ One of the biggest challenges with legacy code is helping developers understand 
 
 Consider the following COBOL code. If you're a Python developer (as an example), you might not be familiar with COBOL, so you could ask {% data variables.copilot.copilot_chat_short %} to explain the code to you.
 
-```text
+```text id=cobol-insert-record
 IDENTIFICATION DIVISION.
 PROGRAM-ID. INSERT-RECORD.
 
@@ -78,7 +78,9 @@ INSERT-AND-VALIDATE.
 
 You can ask for an explanation of the COBOL code from the point of view of a Python developer.
 
-`I'm a Python developer. Help me better understand this code. Please provide analogies.`
+```copilot copy prompt ref=cobol-insert-record
+I'm a Python developer. Help me better understand this code. Please provide analogies.
+```
 
 ## Example response
 

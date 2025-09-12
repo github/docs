@@ -57,6 +57,11 @@ You must specify:
 
     {% data reusables.code-scanning.codeql-language-identifiers-table %}
 
+    > [!NOTE]
+    > If you specify one of the alternative identifiers, this is equivalent to using the standard language identifier. For example, specifying `javascript` instead of `javascript-typescript` will not exclude analysis of TypeScript code. Instead, you can use the `--codescanning-config` CLI option to load a configuration file that specifies files to exclude with the `paths-ignore` configuration key. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-a-custom-configuration-file).
+    >
+    > Alternatively, for languages that support it, use a custom build command that only builds the files that you want to scan. See [Creating databases for compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-compiled-languages).
+
 If your codebase has a build command or script that invokes the build process, we recommend that you specify it as well:
 
 ```shell

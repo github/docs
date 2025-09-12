@@ -5,7 +5,7 @@
     border-radius: 0;
   }
 
-  h3 {
+  h3, span {
     color: var(--fgColor-accent, var(--color-accent-fg));
   }
 }

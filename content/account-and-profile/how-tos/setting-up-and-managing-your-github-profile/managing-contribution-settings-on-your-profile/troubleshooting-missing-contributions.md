@@ -1,5 +1,5 @@
 ---
-title: Why are my contributions not showing up on my profile?
+title: Troubleshooting missing contributions
 intro: Learn common reasons that contributions may be missing from your contributions graph.
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
@@ -7,73 +7,22 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
   - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
   - /account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile
+  - /account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Profiles
-shortTitle: Missing contributions
+shortTitle: Troubleshoot missing contributions
+contentType: how-tos
 ---
 
-## About your contribution graph
-
-Your profile contributions graph is a record of contributions you've made to repositories on {% data variables.product.prodname_dotcom %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
-
-If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
-
-## What counts as a contribution
-
-On your profile page, the following actions **always** count as contributions:
-
-* Creating a new repository
-* Forking an existing repository
-
-The following actions **sometimes** count as contributions:
-* Opening an issue
-* Proposing a pull request
-* Submitting a pull request review
-* Opening a discussion
-* Answering a discussion
-* Making a commit
-
-For more information, see [Contribution criteria for issues, pull requests and discussions](#contribution-criteria-for-issues-pull-requests-and-discussions) and [Contribution criteria for commits](#contribution-criteria-for-commits).
-
-### Contribution criteria for issues, pull requests and discussions
-
-Issues, pull requests, and discussions will appear on your contribution graph if they were opened in a standalone repository, not a fork.
-
-Additionally, {% data variables.product.company_short %} limits the number of these items when displaying the contribution graph. If you've reached the limit, the contribution graph may not display all of your contributions.
-
-### Contribution criteria for commits
-
-Commits will appear on your contributions graph if they meet **all** of the following conditions:
-* The email address used to make {% ifversion ghes %}or co-author {% endif %} the commits is associated with your account on {% data variables.product.prodname_dotcom %}.
-* The commits were made in a standalone repository, not a fork.
-* The commits were made in one of two branches:
-  * The repository's default branch
-  * The `gh-pages` branch (for repositories with project sites). For more information on project sites, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites)
-
-In addition, **at least one** of the following must be true:
-* You are a collaborator on the repository or are a member of the organization that owns the repository.
-* You have forked the repository.
-* You have opened a pull request or issue in the repository.
-
-## How contribution event times are calculated
-
-Timestamps are calculated differently for commits and pull requests:
-* **Commits** use the time zone information in the commit timestamp. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
-* **Pull requests** and **issues** opened on {% data variables.product.github %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
-
-## Common reasons that contributions are not counted
-
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}
-
-### Commit was made less than 24 hours ago
+## Commit was made less than 24 hours ago
 
 After making a commit that meets the requirements to count as a contribution, you may need to wait for up to 24 hours to see the contribution appear on your contributions graph. For more information, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline).
 
-### Your local Git commit email isn't connected to your account
+## Your local Git commit email isn't connected to your account
 
 Commits must be made with an email address that is connected to your account on {% data variables.product.prodname_dotcom %}{% ifversion fpt or ghec %}, or the {% data variables.product.prodname_dotcom %}-provided `noreply` email address provided to you in your email settings,{% endif %} in order to appear on your contributions graph.{% ifversion fpt or ghec %} For more information about `noreply` email addresses, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address#about-commit-email-addresses).{% endif %}
 
@@ -101,7 +50,7 @@ If the email address used for the commit is not connected to your account on {% 
 
 Generic email addresses, such as `jane@computer.local`, cannot be added to {% data variables.product.prodname_dotcom %} accounts and linked to commits. If you've authored any commits using a generic email address, the commits will not be linked to your {% data variables.product.prodname_dotcom %} profile and will not show up in your contribution graph.
 
-### Commit was not made in the default or `gh-pages` branch
+## Commit was not made in the default or `gh-pages` branch
 
 Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites).
 
@@ -112,11 +61,11 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 > [!WARNING]
 > Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
 
-### Commit was made in a fork
+## Commit was made in a fork
 
 Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)
+* [AUTOTITLE](/account-and-profile/reference/profile-contributions-reference)
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)

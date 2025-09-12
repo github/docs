@@ -364,6 +364,9 @@ The `job` context contains information about the currently running job.
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `job` | `object` | This context changes for each job in a workflow run. You can access this context from any step in a job. This object contains all the properties listed below. |
+| {% ifversion fpt or ghec %} |
+| `job.check_run_id` | `number` | The check run ID of the current job. |
+| {% endif %} |
 | `job.container` | `object` | Information about the job's container. For more information about containers, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer). |
 | `job.container.id` | `string` | The ID of the container. |
 | `job.container.network` | `string` | The ID of the container network. The runner creates the network used by all containers in a job. |

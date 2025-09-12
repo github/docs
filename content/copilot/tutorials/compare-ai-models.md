@@ -31,7 +31,7 @@ Consider a scenario where you are writing helper functions for access control in
 
 Below is the helper function that grants editor access to a document:
 
-```python
+```python id=grant-editor-access
 def grant_editor_access(user_id, doc_id):
     access = AccessManager()
     access.assign_role(
@@ -44,7 +44,9 @@ def grant_editor_access(user_id, doc_id):
 
 ### Example prompt
 
-`Add a docstring to the function that explains what it does.`
+```copilot prompt copy ref=grant-editor-access
+Add a docstring to the function that explains what it does.
+```
 
 ### Example response
 
@@ -87,7 +89,7 @@ Suppose you are building a utility script and need to filter a list of user reco
 
 Here’s a sample list of users:
 
-```python
+```python id=user-list
 users = [
     {"name": "Alice", "active": True, "signup_date": "2023-12-10"},
     {"name": "Bob", "active": False, "signup_date": "2023-11-05"},
@@ -97,7 +99,9 @@ users = [
 
 ### Example prompt
 
-`Filter the list of users to only include active users, and sort them by signup_date.`
+```copilot prompt copy ref=user-list
+Filter the list of users to only include active users, and sort them by signup_date.
+```
 
 ### Example response
 
@@ -131,7 +135,9 @@ You’re designing a shopping cart system and have a UML class diagram that outl
 
 ### Example prompt
 
-`Use this UML diagram to generate the classes for a shopping cart system.`
+```copilot copy
+Use this UML diagram to generate the classes for a shopping cart system.
+```
 
 ### Example response
 

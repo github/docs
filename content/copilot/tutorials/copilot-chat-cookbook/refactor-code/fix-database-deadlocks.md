@@ -33,7 +33,7 @@ When two or more transactions attempt to update the same rows in a database tabl
 
 The following SQL snippet updates one row of a table, then performs an operation that takes several seconds, then updates another row in the same table. This is problematic because the transaction locks the `id = 1` row for several seconds before the transaction completes, releasing the lock. If another transaction starts during this time that performs a similar operation, but locks the `id = 2` row first, so that it can update the row, and then attempts to lock the `id = 1` row, then both transactions will be left waiting for the other to complete, resulting in deadlock.
 
-```sql
+```sql id=deadlock-example
 BEGIN TRANSACTION;
 UPDATE my_table SET value = 'Some value' WHERE id = 301;
 -- Simulate a process taking 5 seconds:
@@ -48,7 +48,9 @@ You can check whether there are any problems with this transaction.
 
 In the editor, select the transaction code, then ask {% data variables.copilot.copilot_chat_short %}:
 
-`Is this transaction good?`
+```copilot copy prompt ref=deadlock-example
+Is this transaction good?
+```
 
 ### Example response 1
 
@@ -60,7 +62,9 @@ In this case, you decide not to add error handling. Right now you want to addres
 
 Enter this follow-up prompt:
 
-`How can I rewrite this code to reduce the chance of deadlock to a minimum while not adversely affecting performance. Tell me anything else I can do to avoid a deadlock. Note: I don't want to add error handling at this time.`
+```copilot copy prompt ref=deadlock-example
+How can I rewrite this code to reduce the chance of deadlock to a minimum while not adversely affecting performance. Tell me anything else I can do to avoid a deadlock. Note: I don't want to add error handling at this time.
+```
 
 ### Example response 2
 
@@ -90,7 +94,7 @@ Searching table columns that have not been indexed will typically result in a fu
 
 The following SQL will result in a full table scan if `some_column` is not indexed:
 
-```sql
+```sql id=full-table-scan
 BEGIN TRANSACTION;
 SELECT * FROM my_table WHERE some_column = 'some_value';
 -- More actions here, then:
@@ -101,7 +105,9 @@ COMMIT TRANSACTION;
 
 Asking {% data variables.product.prodname_copilot_short %} the following question will usually reveal the potential problem.
 
-`How can I optimize this transaction?`
+```copilot copy prompt ref=full-table-scan
+How can I optimize this transaction?
+```
 
 ### Example response
 
@@ -127,7 +133,7 @@ It's important to avoid long-running queries and transactions, where possible, a
 
 The following SQL creates new rows in `target_table`, containing data from selected fields of rows in `source_table` where various conditions are met. If `source_table` is extremely large this may result in a long-running transaction.
 
-```sql
+```sql id=long-running-transaction
 BEGIN TRANSACTION;
 
 INSERT INTO target_table (first_name, last_name, email, dept, role, hire_date)
@@ -143,7 +149,9 @@ COMMIT;
 
 You can ask {% data variables.product.prodname_copilot_short %} whether it's possible to avoid long-running transactions.
 
-`source_table is an extremely large table. Without altering the table, how can I ensure this SQL doesn't become a long-running query, that blocks other operations?`
+```copilot copy prompt ref=long-running-transaction
+source_table is an extremely large table. Without altering the table, how can I ensure this SQL doesn't become a long-running query, that blocks other operations?
+```
 
 ### Example response
 
@@ -192,7 +200,7 @@ It's important that the information in your databases remains accurate, consiste
 
 The following SQL transaction deletes an employee record and creates a deletion log. However, it's possible for the `DELETE` operation to succeed and the `INSERT` operation to fail, in which case there is no log record for the deletion.
 
-```sql
+```sql id=delete-employee
 BEGIN TRANSACTION;
 
 DELETE FROM employees
@@ -206,7 +214,11 @@ COMMIT TRANSACTION;
 
 ### Example prompt
 
-`How can I ensure that the DELETE and INSERT operations are only performed if both succeed?`
+```copilot copy prompt ref=delete-employee
+How can I ensure that the DELETE and INSERT operations are only performed if both succeed?
+```
+
+### Example response
 
 {% data variables.product.prodname_copilot_short %} tells you that you achieve this by using a transaction with error handling. It gives the following example using SQL Server's `TRY...CATCH` construct:
 

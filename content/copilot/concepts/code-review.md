@@ -78,16 +78,18 @@ By default, {% data variables.product.prodname_copilot_short %} will only review
 
 ### Triggering an automatic pull request review
 
-After you configure automatic code review, {% data variables.product.prodname_copilot_short %} will review pull requests in the following situations:
+The triggers for automatic code review depend on the configuration settings:
 
-* When a pull request is created as an "Open" pull request.
-
-  A review is not triggered if the pull request is created as a "Draft" pull request.
-
-* The first time a "Draft" pull request is switched to "Open".
+* **Basic setting**:
+  * When a pull request is created as an "Open" pull request.
+  * The first time a "Draft" pull request is switched to "Open".
+* **Review new pushes**:
+  * Every time a new commit is pushed to the pull request.
+* **Review draft pull requests**:
+  * Pull requests are automatically reviewed while they are still drafts—before being switched to "Open".
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot_short %} only automatically reviews a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review the pull request, you must request this manually. To do this, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
+> Unless {% data variables.product.prodname_copilot_short %} has been configured to review each push to a pull request, it will only review the pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review the pull request, you can request this manually. To do this, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
 
 ### Limits on automatic pull request reviews
 

@@ -3,6 +3,38 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>viewerCanUnminimize</code> was added to object type <code>CommitComment</code></p>",
+          "<p>Field <code>viewerCanUnminimize</code> was added to object type <code>DiscussionComment</code></p>",
+          "<p>Field <code>viewerCanUnminimize</code> was added to object type <code>GistComment</code></p>",
+          "<p>Field <code>viewerCanUnminimize</code> was added to object type <code>IssueComment</code></p>",
+          "<p>Field <code>viewerCanUnminimize</code> was added to interface <code>Minimizable</code></p>",
+          "<p>Field <code>viewerCanUnminimize</code> was added to object type <code>PullRequestReview</code></p>",
+          "<p>Field <code>viewerCanUnminimize</code> was added to object type <code>PullRequestReviewComment</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-09-11"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value <code>SY</code> was added to enum <code>SponsorsCountryOrRegionCode</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-09-10"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],

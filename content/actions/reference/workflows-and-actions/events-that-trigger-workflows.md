@@ -405,7 +405,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
-Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the {% data variables.projects.projects_v1_board %} APIs, see [AUTOTITLE](/graphql/reference/objects#project) in the GraphQL API documentation or [AUTOTITLE](/rest/projects).
+Runs your workflow when a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to cards or columns in a {% data variables.projects.projects_v1_board %}, use the [`project_card`](#project_card) or [`project_column`](#project_column) events instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the {% data variables.projects.projects_v1_board %} APIs, see [AUTOTITLE](/graphql/reference/objects#project) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic).
 
 For example, you can run a workflow when a project has been `created` or `deleted`.
 
@@ -426,7 +426,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
-Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project card APIs, see [AUTOTITLE](/graphql/reference/objects#projectcard) in the GraphQL API documentation or [AUTOTITLE](/rest/projects/cards).
+Runs your workflow when a card on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or columns in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_column`](#project_column) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project card APIs, see [AUTOTITLE](/graphql/reference/objects#projectcard) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic/cards).
 
 For example, you can run a workflow when a project card has been `created` or `deleted`.
 
@@ -447,7 +447,7 @@ on:
 > * {% data reusables.actions.branch-requirement %}
 > * This event only occurs for projects owned by the workflow's repository, not for organization-owned or user-owned projects or for projects owned by another repository.
 
-Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project column APIs, see [AUTOTITLE](/graphql/reference/objects#projectcolumn) in the GraphQL API documentation or [AUTOTITLE](/rest/projects#columns).
+Runs your workflow when a column on a {% data variables.projects.projects_v1_board %} is created or modified. For activity related to {% data variables.projects.projects_v1_boards %} or cards in a {% data variables.projects.projects_v1_board %}, use the [`project`](#project) or [`project_card`](#project_card) event instead. For more information about {% data variables.projects.projects_v1_boards %}, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards). For information about the project column APIs, see [AUTOTITLE](/graphql/reference/objects#projectcolumn) in the GraphQL API documentation or [AUTOTITLE](/rest/projects-classic#columns).
 
 For example, you can run a workflow when a project column has been `created` or `deleted`.
 
@@ -1002,7 +1002,7 @@ Notifications for scheduled workflows are sent to the user who last modified the
 > [!NOTE]
 > For an enterprise with {% data variables.product.prodname_emus %}, triggering a scheduled workflow requires that the status of the `actor` user account associated with the workflow is currently active (i.e. not suspended or deleted).
 > * Scheduled workflows will not run if the last `actor` associated with the scheduled workflow has been deprovisioned by the {% data variables.product.prodname_emu %} identity provider (IdP). However, if the last `actor` {% data variables.product.prodname_emu %} has not been deprovisioned by the IdP, and has only been removed as a member from a given organization in the enterprise, scheduled workflows will still run with that user set as the `actor`.
-> * Similarly, for an enterprise without {% data variables.product.prodname_emus %}, removing a user from an organization will not prevent scheduled workflows which had that user as their `actor` from running.  
+> * Similarly, for an enterprise without {% data variables.product.prodname_emus %}, removing a user from an organization will not prevent scheduled workflows which had that user as their `actor` from running.
 > * Thus, the _user account's_ status, in both {% data variables.product.prodname_emu %} and non-{% data variables.product.prodname_emu %} scenarios, is what's important, _not_ the user's _membership status_ in the organization where the scheduled workflow is located.
 
 ## `status`

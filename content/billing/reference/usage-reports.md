@@ -69,4 +69,4 @@ The usage report contains the following fields.
 
 ## Receiving the report
 
-Usage reports are sent via email to the default email address associated with your {% data variables.product.github %} account.
+Usage reports are sent via email to the default email address associated with your {% data variables.product.github %} account. You can only request one usage report per account at a time.

@@ -22,11 +22,11 @@ This article tells you how to set up {% data variables.copilot.copilot_code-revi
 
 The three sections in this article tell you how to configure automatic code review for:
 
-* [Pull requests that you create yourself](#configuring-automatic-code-review-for-all-pull-requests-you-create)
+* [Pull requests that you create yourself](#configuring-automatic-code-review-for-your-own-pull-requests)
 * [All new pull requests in a repository](#configuring-automatic-code-review-for-a-single-repository)
 * [Pull requests in multiple repositories owned by an organization](#configuring-automatic-code-review-for-repositories-in-an-organization)
 
-## Configuring automatic code review for all pull requests you create
+## Configuring automatic code review for your own pull requests
 
 > [!NOTE]
 > This is only available if you are on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
@@ -45,15 +45,7 @@ The three sections in this article tell you how to configure automatic code revi
 {% data reusables.repositories.repo-rulesets-settings %}
 {% data reusables.repositories.repo-new-ruleset %}
 1. Under "Target branches," click **Add target** and choose one of the options—for example, **Include default branch** or **Include all branches**.
-1. Under "Branch rules," select the **Require a pull request before merging** checkbox.
-
-   This expands a set of subsidiary options.
-
-1. Select the **Request pull request review from {% data variables.product.prodname_copilot_short %}** checkbox.
-
-   ![Screenshot of the "Request pull request review from {% data variables.product.prodname_copilot_short %}" branch ruleset option.](/assets/images/help/copilot/code-review/automatic-code-review.png)
-
-1. At the bottom of the page, click **Create**.
+{% data reusables.copilot.auto-code-review-steps %}
 
 ## Configuring automatic code review for repositories in an organization
 
@@ -72,10 +64,4 @@ The three sections in this article tell you how to configure automatic code revi
    > [!NOTE]
    > You can add multiple targeting criteria to the same ruleset. Exclusion patterns are applied after inclusion patterns. For example, you could include any repositories matching the pattern `*cat*`, and specifically exclude a repository matching the pattern `not-a-cat`.
 
-1. Under "Target branches," click **Add target** and choose one of the target options.
-1. Under "Branch rules," select the **Require a pull request before merging** checkbox.
-
-   This expands a set of subsidiary options.
-
-1. Select the **Request pull request review from {% data variables.product.prodname_copilot_short %}** checkbox.
-1. At the bottom of the page, click **Create**.
+{% data reusables.copilot.auto-code-review-steps %}

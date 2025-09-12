@@ -23,11 +23,13 @@ When writing a prompt for {% data variables.product.prodname_copilot_short %}, f
 
 For example:
 
-> Write a function that tells me if a number is prime
->
-> The function should take an integer and return true if the integer is prime
->
-> The function should error if the input is not a positive integer
+```copilot copy prompt
+Write a JavaScript function that tells me if a number is prime
+
+The function should take an integer and return true if the integer is prime
+
+The function should error if the input is not a positive integer
+```
 
 ## Give examples
 
@@ -35,22 +37,24 @@ Use examples to help {% data variables.product.prodname_copilot_short %} underst
 
 For example:
 
-> Write a function that finds all dates in a string and returns them in an array. Dates can be formatted like:
->
-> * 05/02/24
-> * 05/02/2024
-> * 5/2/24
-> * 5/2/2024
-> * 05-02-24
-> * 05-02-2024
-> * 5-2-24
-> * 5-2-2024
->
-> Example:
->
-> findDates("I have a dentist appointment on 11/14/2023 and book club on 12-1-23")
->
-> Returns: ["11/14/2023", "12-1-23"]
+```copilot copy prompt
+Write a Go function that finds all dates in a string and returns them in an array. Dates can be formatted like:
+
+* 05/02/24
+* 05/02/2024
+* 5/2/24
+* 5/2/2024
+* 05-02-24
+* 05-02-2024
+* 5-2-24
+* 5-2-2024
+
+Example:
+
+findDates("I have a dentist appointment on 11/14/2023 and book club on 12-1-23")
+
+Returns: ["11/14/2023", "12-1-23"]
+```
 
 Unit tests can also serve as examples. Before writing your function, you can use {% data variables.product.prodname_copilot_short %} to write unit tests for the function. Then, you can ask {% data variables.product.prodname_copilot_short %} to write a function described by those unit tests.
 

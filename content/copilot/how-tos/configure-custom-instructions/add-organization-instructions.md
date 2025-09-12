@@ -18,7 +18,7 @@ contentType: how-tos
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 >
-> Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_code-review_short %}.
+> **Support:** Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %}.
 
 For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
 
