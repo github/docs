@@ -117,7 +117,7 @@ For additional explanation, examples, and guidance on the risks of untrusted cod
 
 ## Good practices for mitigating untrusted code checkout risks
 
-There are a number of different approaches available to help you mitigate the risk of untrusted code checkout in Actions workflows:
+There are a number of different approaches available to help you mitigate the risk of untrusted code checkout in an action workflow:
 
 ### Avoid potentially dangerous workflow triggers
 
