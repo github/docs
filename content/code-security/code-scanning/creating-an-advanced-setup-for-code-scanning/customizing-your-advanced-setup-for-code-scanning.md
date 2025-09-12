@@ -174,7 +174,7 @@ If this parameter is not used, the {% data variables.code-scanning.codeql_workfl
 
 ## Changing the languages that are analyzed
 
-{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} automatically detects code written in the supported languages.
+{% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} supports code written in the following languages:
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
@@ -182,11 +182,26 @@ If this parameter is not used, the {% data variables.code-scanning.codeql_workfl
 
 {% data reusables.code-scanning.codeql-language-identifiers-table %}
 
-The default {% data variables.code-scanning.codeql_workflow %} file contains a matrix called `language` which lists the languages in your repository that are analyzed. {% data variables.product.prodname_codeql %} automatically populates this matrix when you add {% data variables.product.prodname_code_scanning %} to a repository. Using the `language` matrix optimizes {% data variables.product.prodname_codeql %} to run each analysis in parallel. We recommend that all workflows adopt this configuration due to the performance benefits of parallelizing builds. For more information about matrices, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
+> [!NOTE]
+> If you specify one of the alternative identifiers, this is equivalent to using the standard language identifier. For example, specifying `javascript` instead of `javascript-typescript` will not exclude analysis of TypeScript code. Instead, you can use a custom configuration file to exclude files from analysis using the `paths-ignore` setting. For more information, see [Using a custom configuration file](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-a-custom-configuration-file) and [Specifying directories to scan](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-directories-to-scan).
 
-{% data reusables.code-scanning.specify-language-to-analyze %}
+These language identifiers can be used as arguments to the `languages` input of the `init` action. We recommend that only one language is provided as an argument:
 
-If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was configured. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was configured, and you later added Python code, you will need to add `python` to the matrix.
+```yaml copy
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: javascript-typescript
+```
+
+The default {% data variables.code-scanning.codeql_workflow %} file created after [configuring advanced setup for code scanning with CodeQL](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql) defines a matrix containing a property named `language` which lists the languages in your repository that will be analyzed. This matrix has been automatically pre-populated with supported languages detected in your repository. Using the `language` matrix allows {% data variables.product.prodname_codeql %} to run each language analysis in parallel and to customize analysis for each language. In an individual analysis, the name of the language from the matrix is provided to the `init` action as the argument for the `languages` input. We recommend that all workflows adopt this configuration. For more information about matrices, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
+
+```yaml copy
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+```
+
+If your workflow uses the `language` matrix, then {% data variables.product.prodname_codeql %} will only analyze the languages in the matrix. To change the languages you want to analyze, edit the matrix configuration. You can remove a language to prevent it from being analyzed. There are several reasons you might want to prevent a language being analyzed. For example, the project might have dependencies in a different language to the main body of your code, and you might prefer not to see alerts for those dependencies. You can also add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was configured. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was configured, and you later added Python code, you will need to add `python` to the matrix.
 
 ```yaml copy
 jobs:
@@ -196,19 +211,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['javascript-typescript', 'python']
+        include:
+          - language: javascript-typescript
+            build-mode: none
+          - language: python
+            build-mode: none
 ```
 
-If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
+For compiled languages, the matrix can also be used to configure which build mode should be used for analysis by changing the value of the `build-mode` property. For more information about build modes, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-build-mode-none-for-codeql).
 
-```yaml copy
-- uses: {% data reusables.actions.action-codeql-action-init %}
-  with:
-    languages: c-cpp, csharp, python
-```
+If your workflow does not provide an argument to the `languages` input of the `init` action, then {% data variables.product.prodname_codeql %} is configured to run analyses sequentially. In this case, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. Depending on the size of the repository and the number of languages, this may take a long time. If analysis for one language fails in this mode, then the analysis for all languages fails. Therefore, we do not recommend this configuration.
 
 > [!NOTE]
-> When analyzing languages sequentially, the default build-mode for every language will be used. Alternatively, if you provide an explicit `autobuild` step, then every language that supports the `autobuild` mode will use it while other languages use their default mode. If a more complex build-mode configuration than this is required, then you will need to use a `language` matrix.
+> When analyzing languages sequentially, the default build-mode for every language will be used. Alternatively, if you provide an explicit `autobuild` step, then every language that supports the `autobuild` mode will use it while other languages use their default mode. If a more complex build-mode configuration than this is required, then you will need to configure a matrix.
 
 ## Defining the alert severities that cause a check failure for a pull request
 
