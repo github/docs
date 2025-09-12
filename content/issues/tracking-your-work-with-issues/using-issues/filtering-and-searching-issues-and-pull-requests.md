@@ -216,7 +216,7 @@ With issue and pull request search terms, you can:
 * Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
 
 > [!TIP]
-> You can filter issues and pull requests by label using logical OR or using logical AND.
+> You can filter issues by label using logical OR or using logical AND.
 > * To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
 > * To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
 
