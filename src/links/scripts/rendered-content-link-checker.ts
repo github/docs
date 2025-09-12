@@ -76,7 +76,11 @@ type Options = {
   bail?: boolean
   commentLimitToExternalLinks?: boolean
   actionContext?: any
+  concurrency?: number
 }
+
+// Default concurrency limit for URL requests
+const DEFAULT_CONCURRENCY_LIMIT = 3
 
 const STATIC_PREFIXES: Record<string, string> = {
   assets: path.resolve('assets'),
@@ -113,6 +117,32 @@ const defaultData: Data = { urls: {} }
 const externalLinkCheckerDB = await JSONFilePreset<Data>(EXTERNAL_LINK_CHECKER_DB, defaultData)
 
 type DBType = typeof externalLinkCheckerDB
+
+// Simple concurrency limiter
+async function limitConcurrency<T, R>(
+  items: T[],
+  asyncFn: (item: T) => Promise<R>,
+  limit: number = 3,
+): Promise<R[]> {
+  const results: Promise<R>[] = []
+  const executing = new Set<Promise<R>>()
+
+  for (const item of items) {
+    const promise = asyncFn(item).then((result) => {
+      executing.delete(promise)
+      return result
+    })
+
+    results.push(promise)
+    executing.add(promise)
+
+    if (executing.size >= limit) {
+      await Promise.race(executing)
+    }
+  }
+
+  return Promise.all(results)
+}
 
 // Given a number and a percentage, return the same number with a *percentage*
 // max change of making a bit larger or smaller.
@@ -156,6 +186,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     REPORT_LABEL,
     EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
     CHECK_ANCHORS,
+    CONCURRENCY,
   } = process.env
 
   const octokit = github()
@@ -193,6 +224,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     reportAuthor: REPORT_AUTHOR,
     actionContext: getActionContext(),
     externalServerErrorsAsWarning: EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
+    concurrency: CONCURRENCY ? parseInt(CONCURRENCY, 10) : DEFAULT_CONCURRENCY_LIMIT,
   }
 
   if (opts.shouldComment || opts.createReport) {
@@ -238,6 +270,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  externalServerErrorsAsWarning {boolean} - Treat >=500 errors or temporary request errors as warning
  *  filter {Array<string>} - strings to match the pages' relativePath
  *  versions {Array<string>} - only certain pages' versions (e.g. )
+ *  concurrency {number} - Maximum number of concurrent URL requests (default: 3, env: CONCURRENCY)
  *
  */
 
@@ -263,6 +296,7 @@ async function main(
     reportRepository = 'github/docs-content',
     reportAuthor = 'docs-bot',
     reportLabel = 'broken link report',
+    concurrency = DEFAULT_CONCURRENCY_LIMIT,
   } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
@@ -337,8 +371,9 @@ async function main(
 
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
-  const flawsGroups = await Promise.all(
-    pages.map((page: Page) =>
+  const flawsGroups = await limitConcurrency(
+    pages,
+    (page: Page) =>
       processPage(
         core,
         page,
@@ -348,7 +383,7 @@ async function main(
         externalLinkCheckerDB,
         versions as string[],
       ),
-    ),
+    concurrency, // Limit concurrent page checks
   )
   const t1 = new Date().getTime()
   debugTimeEnd(core, 'processPages')
@@ -653,14 +688,13 @@ async function processPage(
   versions: string[],
 ) {
   const { verbose, verboseUrl, bail } = opts
-  const allFlawsEach = await Promise.all(
-    page.permalinks
-      .filter((permalink) => {
-        return !versions.length || versions.includes(permalink.pageVersion)
-      })
-      .map((permalink) => {
-        return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
-      }),
+  const filteredPermalinks = page.permalinks.filter((permalink) => {
+    return !versions.length || versions.includes(permalink.pageVersion)
+  })
+  const allFlawsEach = await limitConcurrency(
+    filteredPermalinks,
+    (permalink) => processPermalink(core, permalink, page, pageMap, redirects, opts, db),
+    opts.concurrency || DEFAULT_CONCURRENCY_LIMIT, // Limit concurrent permalink checks per page
   )
 
   const allFlaws = allFlawsEach.flat()
@@ -714,8 +748,9 @@ async function processPermalink(
   $('a[href]').each((i, link) => {
     links.push(link)
   })
-  const newFlaws: LinkFlaw[] = await Promise.all(
-    links.map(async (link) => {
+  const newFlaws: LinkFlaw[] = await limitConcurrency(
+    links,
+    async (link) => {
       const { href } = (link as cheerio.TagElement).attribs
 
       // The global cache can't be used for anchor links because they
@@ -756,7 +791,8 @@ async function processPermalink(
           globalHrefCheckCache.set(href, flaw)
         }
       }
-    }),
+    },
+    opts.concurrency || DEFAULT_CONCURRENCY_LIMIT, // Limit concurrent link checks per permalink
   )
 
   for (const flaw of newFlaws) {
