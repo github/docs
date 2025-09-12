@@ -1,6 +1,6 @@
 ---
 title: Setting up OIDC for your GitHub Copilot extension
-intro: 'Learn how to set up OpenID Connect (OIDC) with your {% data variables.copilot.copilot_extension_short %} to enhance security.'
+intro: Learn how to set up OpenID Connect (OIDC) with your {% data variables.copilot.copilot_extension_short %} to enhance security.
 versions:
   feature: copilot-extensions
 topics:

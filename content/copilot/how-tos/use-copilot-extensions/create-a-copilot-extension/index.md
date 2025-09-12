@@ -1,7 +1,7 @@
 ---
 title: Creating a GitHub Copilot Extension
 shortTitle: Create a Copilot Extension
-intro: 'Learn how to integrate your {% data variables.copilot.copilot_agent_short %} with a {% data variables.product.prodname_github_app %} to create your {% data variables.copilot.copilot_extension_short %}.'
+intro: Learn how to integrate your {% data variables.copilot.copilot_agent_short %} with a {% data variables.product.prodname_github_app %} to create your {% data variables.copilot.copilot_extension_short %}.
 versions:
   feature: copilot
 topics:
@@ -16,3 +16,4 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/create-a-copilot-extension
 contentType: how-tos
 ---
+

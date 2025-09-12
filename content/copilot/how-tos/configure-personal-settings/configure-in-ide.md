@@ -1,7 +1,7 @@
 ---
 title: Configuring GitHub Copilot in your environment
-shortTitle: Configure in your environment
-intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
+shortTitle: Configure in IDE
+intro: You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.
 redirect_from:
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment
   - /copilot/how-tos/personal-settings/configuring-github-copilot-in-your-environment
   - /copilot/how-tos/personal-settings/configure-in-your-environment
+  - /copilot/how-tos/configure-personal-settings/configure-in-your-environment
 topics:
   - Copilot
 versions:

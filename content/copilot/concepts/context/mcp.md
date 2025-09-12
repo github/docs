@@ -1,13 +1,15 @@
 ---
 title: About Model Context Protocol (MCP)
 allowTitleToDifferFromFilename: true
-shortTitle: About MCP
-intro: 'Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of {% data variables.product.prodname_copilot %} by integrating it with other systems.'
+shortTitle: MCP
+intro: Model Context Protocol (MCP) is a protocol that allows you to extend the capabilities of {% data variables.product.prodname_copilot %} by integrating it with other systems.
 versions:
   feature: copilot
 topics:
   - Copilot
 contentType: concepts
+redirect_from:
+  - /copilot/concepts/about-mcp
 ---
 
 ## Overview of Model Context Protocol (MCP)

@@ -1,7 +1,7 @@
 ---
 title: About customizing GitHub Copilot Chat responses
 shortTitle: Response customization
-intro: 'Learn about customizing the behavior of {% data variables.product.prodname_copilot %} to fit with your preferences and requirements.'
+intro: Learn about customizing the behavior of {% data variables.product.prodname_copilot %} to fit with your preferences and requirements.
 versions:
   feature: copilot
 topics:
@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/customizing-copilot/about-customizing-github-copilot-chat-responses
   - /copilot/concepts/about-customizing-github-copilot-chat-responses
   - /copilot/concepts/code-review/coding-guidelines
+  - /copilot/concepts/response-customization
 contentType: concepts
 ---
 
