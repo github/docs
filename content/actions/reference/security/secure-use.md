@@ -121,7 +121,7 @@ There are a number of different approaches available to help you mitigate the ri
 
 ### Avoid potentially dangerous workflow triggers
 
-Avoid using the `pull_request_target` workflow trigger if not necessary. Prefer using `workflow_run` for privilege separation between workflows as described in [Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests). Only use these workflow triggers when the workflow actually needs the privileged context.
+Avoid using the `pull_request_target` workflow trigger if not necessary. Prefer using `workflow_run` for privilege separation between workflows as described in [Keeping your {% data variables.product.prodname_actions %} and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests). Only use these workflow triggers when the workflow actually needs the privileged context.
 
 ### Do not use the `pull_request_target` and `workflow_run` workflow triggers with untrusted content
 
