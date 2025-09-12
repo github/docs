@@ -8,6 +8,14 @@ See [Configuring automatic code review by GitHub Copilot](https://docs.github.co
 
 <hr>
 
+**8 September 2025**
+
+We've added a tutorial on planning a project with GitHub Copilot, including creating issues and sub-issues: [Planning a project with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/plan-a-project). This tutorial provides step-by-step instructions on leveraging Copilot to plan a project from scratch.
+
+Additionally, we've updated [Using GitHub Copilot to create issues](https://docs.github.com/en/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues) with instructions to create sub-issues and to work with existing issues.
+
+<hr>
+
 **4 September 2025**
 
 We've updated the documentation to remove references to Copilot coding guidelines.
