@@ -174,7 +174,7 @@ Avoid using the `pull_request_target` and `workflow_run` workflow triggers with 
 
 ### Use CodeQL to detect potentially vulnerable workflows
 
-[CodeQL](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) can scan and detect potentially vulnerable GitHub Actions workflows. [Configure the default setup for CodeQL](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) for the repository and ensure that GitHub Actions scanning is enabled.
+[CodeQL](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. [Configure the default setup for CodeQL](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) for the repository and ensure that {% data variables.product.prodname_actions %} scanning is enabled.
 
 ### Use OpenSSF Scorecards to detect potentially vulnerable workflows
 
