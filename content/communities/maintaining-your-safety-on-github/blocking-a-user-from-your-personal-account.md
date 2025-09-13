@@ -24,14 +24,10 @@ When you block a user:
 * The user stops watching and unpins your repositories
 * The user's stars and issue assignments are removed from your repositories
 * The user's votes on discussions or comments in your repositories are deleted
-* The user is removed as a collaborator on your repositories
-* The user's contributions to your repositories are no longer counted as contributions for them
-* Your contributions to the blocked user's repositories are no longer counted as contributions for you
-* You are removed as a collaborator on their repositories
+* Contributions to eachother's repositories are no longer counted
+* You are removed as collaborators from projects and repositories owned by eachother
 * Their sponsorship of you is canceled
 * Any pending repository or account successor invitations to or from the blocked user are canceled
-* The user is removed as a collaborator from all the projects owned by you
-* You are removed as a collaborator from all the projects owned by the user
 
 After you've blocked a user, they cannot:
 * Send you any notifications, including by [@mentioning](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your username
