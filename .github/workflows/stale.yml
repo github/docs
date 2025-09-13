@@ -21,7 +21,7 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
+      - uses: actions/stale@3a9db7e6a41a89f618792c92c0e97cc736e1b13f # v10.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: "It looks as if this pull request has been inactive for 30 days. We want to check in with you to see if you plan to continue working on it. If you do, please add a comment to let us know. If we don't hear from you, we will close this pull request after 14 days."

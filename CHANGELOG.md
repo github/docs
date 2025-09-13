@@ -1,5 +1,29 @@
 # Docs changelog
 
+**11 September 2025**
+
+Copilot Chat in VS Code includes a "Manage models" option which allows you to add models from a variety of LLM providers, such as Azure, Anthropic, Google, and xAI. By installing the AI Toolkit for VS Code, you can install even more models from the "Manage models" option. We've updated the documentation to include details of how to use this new feature.
+
+See [Changing the AI model for GitHub Copilot Chat](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode).
+
+<hr>
+
+**11 September 2025**
+
+You can now enable automatic Copilot code review with its own standalone repository rule. We've updated the documentation accordingly.
+
+See [Configuring automatic code review by GitHub Copilot](https://docs.github.com/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review).
+
+<hr>
+
+**8 September 2025**
+
+We've added a tutorial on planning a project with GitHub Copilot, including creating issues and sub-issues: [Planning a project with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/plan-a-project). This tutorial provides step-by-step instructions on leveraging Copilot to plan a project from scratch.
+
+Additionally, we've updated [Using GitHub Copilot to create issues](https://docs.github.com/en/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues) with instructions to create sub-issues and to work with existing issues.
+
+<hr>
+
 **4 September 2025**
 
 We've updated the documentation to remove references to Copilot coding guidelines.

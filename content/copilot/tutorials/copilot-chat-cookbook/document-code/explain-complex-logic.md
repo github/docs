@@ -25,7 +25,7 @@ There may be times where you need to explain complex algorithms or logic in your
 
 In the C# code below, we have a method which fetches data, retries if there's an error, and updates a status label. You might want to explain, in comments in the code, how the method works and how it handles retries and cancellations.
 
-```csharp
+```csharp id=fetch-data-with-retry
 private static readonly HttpClient _client = new HttpClient();
 
 public async Task<string> FetchDataFromApiWithRetryAsync(string apiUrl, CancellationToken cancellationToken, int maxRetries, int cancellationDelay, Label statusLabel)
@@ -82,7 +82,9 @@ private void UpdateStatusLabel(string message, Label statusLabel)
 
 We can ask {% data variables.copilot.copilot_chat_short %} to make this code easier to understand using comments.
 
-`Add comments to this code to make it more understandable`
+```copilot copy prompt ref=fetch-data-with-retry
+Add comments to this code to make it more understandable
+```
 
 ## Example response
 

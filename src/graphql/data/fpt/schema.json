@@ -6024,7 +6024,7 @@
       "kind": "mutations",
       "id": "removeenterprisemember",
       "href": "/graphql/reference/mutations#removeenterprisemember",
-      "description": "<p>Removes a user from all organizations within the enterprise.</p>",
+      "description": "<p>Completely removes a user from the enterprise.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -15542,6 +15542,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -20133,7 +20141,7 @@
         },
         {
           "name": "author",
-          "description": "<p>The actor who authored the comment.</p>",
+          "description": "<p>The actor who authored the discussion.</p>",
           "type": "Actor",
           "id": "actor",
           "kind": "interfaces",
@@ -21288,6 +21296,14 @@
         {
           "name": "viewerCanUnmarkAsAnswer",
           "description": "<p>Can the current user unmark this comment as an answer?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -28165,6 +28181,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -31173,6 +31197,14 @@
         {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -56353,6 +56385,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -56876,6 +56916,14 @@
         {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -85459,6 +85507,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -92935,6 +92991,10 @@
           "description": "<p>The actor can always bypass rules.</p>"
         },
         {
+          "name": "EXEMPT",
+          "description": "<p>The actor is exempt from rules without generating a pass / fail result.</p>"
+        },
+        {
           "name": "PULL_REQUEST",
           "description": "<p>The actor can only bypass rules via a pull request.</p>"
         }
@@ -94404,6 +94464,10 @@
         {
           "name": "SX",
           "description": "<p>Sint Maarten (Dutch part).</p>"
+        },
+        {
+          "name": "SY",
+          "description": "<p>Syria.</p>"
         },
         {
           "name": "SZ",

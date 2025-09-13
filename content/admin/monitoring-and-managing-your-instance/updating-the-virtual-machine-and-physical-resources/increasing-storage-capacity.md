@@ -26,6 +26,9 @@ As more users join {% data variables.location.product_location %}, you may need 
 > [!NOTE]
 > Before resizing any storage volume, put your instance in maintenance mode. You can validate changes by configuring an IP exception list to allow access from specified IP addresses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
+> [!WARNING]
+> Changing the disk cache setting of an Azure disk detaches and reattaches the target disk. If the disk is in use, this can disrupt running services and may lead to data corruption. If you intend to change disk caching settings while increasing storage capacity, make sure to shutdown your appliance.
+
 ### Minimum recommended requirements
 
 {% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}

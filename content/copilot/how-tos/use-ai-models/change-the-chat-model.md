@@ -1,7 +1,7 @@
 ---
 title: Changing the AI model for GitHub Copilot Chat
 shortTitle: Change the chat model
-intro: 'Learn how to change the default LLM for {% data variables.copilot.copilot_chat_short %} to a different model.'
+intro: 'Learn how to switch between models for {% data variables.copilot.copilot_chat_short %}.'
 versions:
   feature: copilot
 topics:
@@ -13,9 +13,7 @@ redirect_from:
 contentType: how-tos
 ---
 
-By default, {% data variables.copilot.copilot_chat_short %} uses {% data variables.copilot.copilot_gpt_41 %} to provide fast, capable responses for a wide range of tasks, such as summarization, knowledge-based questions, reasoning, math, and coding.
-
-However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
+Choose from a selection of models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
 To view the available models per client, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/supported-ai-models-in-copilot#supported-models-per-client).
 
@@ -23,7 +21,7 @@ To view the available models per client, see [AUTOTITLE](/copilot/using-github-c
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
-Changing the model that's used by {% data variables.copilot.copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 
 {% webui %}
 
@@ -63,7 +61,49 @@ These instructions are for {% data variables.product.prodname_vscode %}. For ins
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 {% data reusables.copilot.open-chat-vs-code %}
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+1. At the bottom of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+
+## Adding more models
+
+You can expand the model options that are available to power {% data variables.copilot.copilot_chat_short %}. You can add models from:
+
+* **A model provider**—such as Anthropic, Gemini, OpenAI, and others.
+* **The AI Toolkit for {% data variables.product.prodname_vscode %}**.
+
+> [!NOTE] Using the AI Toolkit for {% data variables.product.prodname_vscode_shortname %} is in {% data variables.release-phases.public_preview %} and subject to change.
+
+### Prerequisites
+
+* Depending on the provider or model you choose, you may need to supply an API key, or model ID, from the provider, or a {% data variables.product.github %} {% data variables.product.pat_generic %} (PAT).
+* To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">install the AI Toolkit extension</a>.
+
+### Adding models
+
+1. In the {% data variables.product.prodname_copilot_short %} chat view, click the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu.
+1. Click **Manage Models**.
+
+   ![Screenshot of the 'Manage Models' option, highlighted with a dark orange outline.](/assets/images/help/copilot/vsc-manage-models-option.png)
+
+   A list of providers is displayed.
+
+   If you have installed the AI Toolkit, then additional providers, added via the AI Toolkit, are also listed.
+
+   ![Screenshot of the 'Manage Language Models' list.](/assets/images/help/copilot/vsc-manage-models-list.png)
+
+1. Click the provider whose model(s) you want to add.
+1. Depending on which provider you selected, you may be prompted to enter a {% data variables.product.github %} PAT, an API key for the provider, or a model ID for a specific model.
+
+   Enter the required information, then press <kbd>Enter</kbd>.
+
+   A list of available models is displayed.
+
+1. Select the model(s) you want to add, then click **OK**.
+
+The models you selected are now available in the model picker in the chat view.
+
+If you added a model from a provider via the AI Toolkit then the first time you use the model, you will be prompted to download it. You may also be prompted to authenticate with the provider.
+
+> [!TIP] If you're already using chat with {% data variables.copilot.copilot_auto_model_selection_short %}, you'll need to start a new chat session to switch models. To start a new session, in the top right of the chat view, click {% octicon "plus" aria-label="new chat" %} new chat.
 
 {% endvscode %}
 
@@ -137,3 +177,9 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must ins
 
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
 * [AUTOTITLE](/copilot/reference/ai-models/model-comparison)
+
+{% vscode %}
+
+* [AI language models in VS Code](https://code.visualstudio.com/docs/copilot/language-models#_bring-your-own-language-model-key) in the {% data variables.product.prodname_vscode %} documentation.
+
+{% endvscode %}

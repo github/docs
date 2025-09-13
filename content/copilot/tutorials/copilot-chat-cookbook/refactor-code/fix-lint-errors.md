@@ -29,19 +29,27 @@ You have run a linter on your code and it has identified some issues that need t
 
 * Select all of the code in the editor, then type:
 
-  `Fix the lint errors`
+  ```copilot copy
+  Fix the lint errors
+  ```
 
 * You can specify a particular set of coding guidelines for a language, such as PEP8 for Python:
 
-  `Use PEP8 to fix the lint errors`
+  ```copilot copy
+  Use PEP8 to fix the lint errors
+  ```
 
 * If you have a local file that defines your coding conventions and rules, you can drag the file into the chat window to add it as an attachment, then type:
 
-  `Use the attached style guide to fix the lint errors`
+    ```copilot copy
+    Use the attached style guide to fix the lint errors
+    ```
 
 * Alternatively, you can ask {% data variables.copilot.copilot_chat_short %} to fix only a specific type of lint error:
 
-  `Make sure all functions use snake_case naming style`
+    ```copilot copy
+    Make sure all functions use snake_case naming style
+    ```
 
 ## Example response
 

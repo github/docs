@@ -22,7 +22,9 @@ You want to create a Gantt chart to visualize the timeline of a project. You can
 
 ## Example prompt
 
-`Create a mermaid gantt diagram that covers the period August 1st 2025 until January 31st, 2025. Include 5 phases, each taking 6 weeks, and overlapping equally.`
+```copilot copy prompt
+Create a mermaid gantt diagram that covers the period August 1st 2025 until January 31st, 2025. Include 5 phases, each taking 6 weeks, and overlapping equally.
+```
 
 ## Example response
 

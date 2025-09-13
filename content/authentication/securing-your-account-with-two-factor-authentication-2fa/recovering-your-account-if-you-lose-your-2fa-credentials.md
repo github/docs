@@ -35,6 +35,9 @@ Use one of your recovery codes to automatically regain entry into your account. 
 {% data reusables.accounts.prompt-for-2fa-recovery-code %}
 1. Type one of your recovery codes, then click **Verify**.
 
+> [!NOTE]
+> If you are receiving a "Recovery code authentication failed" error when using a recovery code, the code you are entering is invalid. You can try troubleshooting your recovery codes. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues).
+
 ## Authenticating with a passkey
 
 If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
@@ -101,4 +104,5 @@ If you have exhausted your recovery options, you can unlink your email address f
 
 ## Further reading
 
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)

@@ -144,6 +144,76 @@ Code annotations only work in articles with the `layout: inline` frontmatter pro
 
 For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see [AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions).
 
+## {% data variables.product.prodname_copilot_short %} prompts
+
+Prompts for {% data variables.product.prodname_copilot_short %} can either be displayed in blocks or included inline within text.
+
+### Prompt blocks
+
+These are very similar to code blocks, but use the `copilot` keyword rather than the name of a programming language.
+
+Prompt blocks should always have a copy button, added using the `copy` option, and may also have a {% data variables.product.prodname_copilot_short %} button, added using the `prompt` option. The {% data variables.product.prodname_copilot_short %} button gives the reader a quick way to run the prompt in {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}. The `copy` and `prompt` options can be used in any order.
+
+#### Example prompt block with {% data variables.product.prodname_copilot_short %} and copy buttons
+
+````markdown
+```copilot prompt copy
+What is git?
+```
+````
+
+This is rendered as:
+
+```copilot prompt copy
+What is git?
+```
+
+You should only add a {% data variables.product.prodname_copilot_short %} button to a prompt block if:
+* The prompt can be run without any further context (as shown in the example above).
+* There is a code block in the same article that provides the required context for the prompt.
+
+#### Including context with a prompt
+
+If you use a {% data variables.product.prodname_copilot_short %} button, you can add context to the prompt that is sent to {% data variables.copilot.copilot_chat_short %} by referencing a code block in the same article. You do this by adding `id=STRING-OF-YOUR-CHOICE` to the code block and `ref=STRING-OF-YOUR-CHOICE` to the prompt block.
+
+#### Example code block used as context within a prompt block
+
+````markdown
+Add an id to the code block whose code you want to add to the prompt as context:
+
+```javascript id=js-age
+function logPersonsAge(a, b, c) {
+  if (c) {
+    console.log(a + " is " + b + " years old.");
+  } else {
+    console.log(a + " does not want to reveal their age.");
+  }
+}
+```
+
+Then, elsewhere in the same article, reference the id in the prompt block:
+
+```copilot copy prompt ref=js-age
+Improve the variable names in this function
+```
+````
+
+There are many examples of prompt blocks with context in the {% data variables.product.prodname_copilot_short %} Cookbook. For example, see [AUTOTITLE](/free-pro-team@latest/copilot/tutorials/copilot-chat-cookbook/refactor-code/improve-code-readability).
+
+### Inline prompts
+
+For most inline prompts, mark these by using backticks, just like inline code.
+
+If the prompt does not require any context, you can add a clickable {% data variables.product.prodname_copilot_short %} icon after the prompt. This allows the reader to run the prompt in {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}. To add the clickable icon, surround the prompt with Liquid syntax tags:
+
+```markdown
+{% raw %}... you can click {% prompt %}what is git{% endprompt %} to run this ...{% endraw %}
+```
+
+This is rendered as:
+
+... you can click {% prompt %}what is git{% endprompt %} to run this ...
+
 ## Octicons
 
 Octicons are icons used across {% data variables.product.prodname_dotcom %}’s interface. We reference Octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific Octicons on the [Octicons site](https://primer.style/octicons).

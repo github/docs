@@ -5850,6 +5850,11 @@ type CommitComment implements Comment & Deletable & Minimizable & Node & Reactab
   viewerCanReact: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -11943,7 +11948,7 @@ type Discussion implements Closable & Comment & Deletable & Labelable & Lockable
   answerChosenBy: Actor
 
   """
-  The actor who authored the comment.
+  The actor who authored the discussion.
   """
   author: Actor
 
@@ -12603,6 +12608,11 @@ type DiscussionComment implements Comment & Deletable & Minimizable & Node & Rea
   Can the current user unmark this comment as an answer?
   """
   viewerCanUnmarkAsAnswer: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 
   """
   Check if the current viewer can update this object.
@@ -17602,6 +17612,11 @@ type GistComment implements Comment & Deletable & Minimizable & Node & Updatable
   viewerCanMinimize: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -19803,6 +19818,11 @@ type IssueComment implements Comment & Deletable & Minimizable & Node & Reactabl
   Can user react to this subject
   """
   viewerCanReact: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 
   """
   Check if the current viewer can update this object.
@@ -24126,6 +24146,11 @@ interface Minimizable {
   Check if the current viewer can minimize this object.
   """
   viewerCanMinimize: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 }
 
 """
@@ -25820,7 +25845,7 @@ type Mutation {
   ): RemoveEnterpriseIdentityProviderPayload
 
   """
-  Removes a user from all organizations within the enterprise
+  Completely removes a user from the enterprise
   """
   removeEnterpriseMember(
     """
@@ -41943,6 +41968,11 @@ type PullRequestReview implements Comment & Deletable & Minimizable & Node & Rea
   viewerCanReact: Boolean!
 
   """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
+
+  """
   Check if the current viewer can update this object.
   """
   viewerCanUpdate: Boolean!
@@ -42235,6 +42265,11 @@ type PullRequestReviewComment implements Comment & Deletable & Minimizable & Nod
   Can user react to this subject
   """
   viewerCanReact: Boolean!
+
+  """
+  Check if the current viewer can unminimize this object.
+  """
+  viewerCanUnminimize: Boolean!
 
   """
   Check if the current viewer can update this object.
@@ -53164,6 +53199,11 @@ enum RepositoryRulesetBypassActorBypassMode {
   ALWAYS
 
   """
+  The actor is exempt from rules without generating a pass / fail result
+  """
+  EXEMPT
+
+  """
   The actor can only bypass rules via a pull request
   """
   PULL_REQUEST
@@ -57940,6 +57980,11 @@ enum SponsorsCountryOrRegionCode {
   Sint Maarten (Dutch part)
   """
   SX
+
+  """
+  Syria
+  """
+  SY
 
   """
   Swaziland

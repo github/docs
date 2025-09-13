@@ -25,4 +25,4 @@ redirect_from:
 contentType: how-tos
 ---
 
-These articles provide how-to information for using {% data variables.copilot.copilot_coding_agent %}. For an overview of {% data variables.copilot.copilot_coding_agent %}, see the articles under [AUTOTITLE](/copilot/concepts/coding-agent).
+These articles provide how-to information for using {% data variables.copilot.copilot_coding_agent %}. For an overview of {% data variables.copilot.copilot_coding_agent %}, see the articles under [AUTOTITLE](/copilot/concepts/agents/coding-agent).

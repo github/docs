@@ -25,9 +25,11 @@ contentType: reference
 
 Depending on your {% data variables.product.prodname_copilot_short %} plan and where you're using it—such as {% data variables.product.prodname_dotcom_the_website %} or an IDE—you may have access to different models.
 
->[!NOTE] Model availability is subject to change. Some models may be replaced or updated over time.
+> [!NOTE]
+> * Model availability is subject to change. Some models may be replaced or updated over time.
+> * In {% data variables.product.prodname_vscode %} you can add more models than those that are available by default with your {% data variables.product.prodname_copilot_short %} subscription. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode#adding-more-models).
 
-For all AI models, input prompts and output completions run through {% data variables.product.prodname_copilot %}'s content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
+For all of the default AI models, input prompts and output completions run through {% data variables.product.prodname_copilot %}'s content filters for harmful, offensive, or off-topic content, and for public code matching when enabled.
 
 ## Supported AI models in {% data variables.product.prodname_copilot_short %}
 
@@ -37,21 +39,21 @@ This table lists the AI models available in {% data variables.product.prodname_c
 
 {% rowheaders %}
 
-| Model name                                                     | Provider  | Release status | Agent mode                                  | Ask mode | Edit mode |
-|----------------------------------------------------------------|-----------|------------|---------------------------------------------|----------------------|---------------|
-| {% data variables.copilot.copilot_gpt_41 %}                    | OpenAI    | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gpt_5_mini %}                | OpenAI    | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gpt_5 %}                     | OpenAI    | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| Model name                                                     | Provider  | Release status                                          | Agent mode                                  | Ask mode | Edit mode |
+|----------------------------------------------------------------|-----------|---------------------------------------------------------|---------------------------------------------|----------------------|---------------|
+| {% data variables.copilot.copilot_gpt_41 %}                    | OpenAI    | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gpt_5_mini %}                | OpenAI    | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gpt_5 %}                     | OpenAI    | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_o3 %}                        | OpenAI    | {% data variables.release-phases.public_preview_caps %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_o4_mini %}                   | OpenAI    | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_claude_opus_41 %}            | Anthropic | {% data variables.release-phases.public_preview_caps %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_opus %}               | Anthropic | GA | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_35 %}          | Anthropic | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_37 %}          | Anthropic | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | Anthropic | GA | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_claude_sonnet_40 %}          | Anthropic | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gemini_25_pro %}             | Google    | GA | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_gemini_flash %}              | Google    | GA | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_claude_opus %}               | Anthropic | GA                                                      | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_claude_sonnet_35 %}          | Anthropic | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_claude_sonnet_37 %}          | Anthropic | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | Anthropic | GA                                                      | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_claude_sonnet_40 %}          | Anthropic | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gemini_25_pro %}             | Google    | GA                                                      | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_gemini_flash %}              | Google    | GA                                                      | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_grok_code %}                 | xAI       | {% data variables.release-phases.public_preview_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
@@ -59,6 +61,8 @@ This table lists the AI models available in {% data variables.product.prodname_c
 ## Supported AI models per client
 
 The following table shows which models are available in each client.
+
+> [!NOTE] {% data reusables.copilot.auto-model-selection %}
 
 {% rowheaders %}
 

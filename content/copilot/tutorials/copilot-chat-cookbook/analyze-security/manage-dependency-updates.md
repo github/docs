@@ -33,11 +33,13 @@ Before you begin, ensure that {% data variables.product.prodname_dependabot %} i
 
 Make sure your repository is attached to the prompt for context.
 
-`Analyze the codebase and project structure of this repository. Detect all package managers and package ecosystems in use, including their respective locations (e.g., npm, yarn, pip, maven, gradle, composer, github-actions, etc.).`
+```copilot copy
+Analyze the codebase and project structure of this repository. Detect all package managers and package ecosystems in use, including their respective locations (e.g., npm, yarn, pip, maven, gradle, composer, github-actions, etc.).
 
-`For each detected ecosystem, create a configuration entry in a single, top-level .github/dependabot.yml file that enables security and version updates on a reasonable schedule. Use the recommended best practices for each ecosystem. Clearly specify the directory for each ecosystem detected. If multiple ecosystems or multiple directories are present, include them all in the configuration.`
+For each detected ecosystem, create a configuration entry in a single, top-level .github/dependabot.yml file that enables security and version updates on a reasonable schedule. Use the recommended best practices for each ecosystem. Clearly specify the directory for each ecosystem detected. If multiple ecosystems or multiple directories are present, include them all in the configuration.
 
-`In the output, include any notes on the configuration or best practices, as well as next steps that include how to commit the dependabot.yml file to the repository via the GitHub web browser and how to check that Dependabot version updates and Dependabot security updates are enabled.`
+In the output, include any notes on the configuration or best practices, as well as next steps that include how to commit the dependabot.yml file to the repository via the GitHub web browser and how to check that Dependabot version updates and Dependabot security updates are enabled.
+```
 
 ### Example output
 
@@ -102,17 +104,16 @@ You want to customize your {% data variables.product.prodname_dependabot %} conf
 
 ### Example prompt
 
-`I want to customize my pull requests for Dependabot security and version updates, so that:`
+```copilot copy
+I want to customize my pull requests for Dependabot security and version updates, so that:
 
-`* Pull requests are automatically assigned to the team "octocat-reviewers."`
+* Pull requests are automatically assigned to the team "octocat-reviewers."
+* The label "security-management" is automatically added to every pull request.
+* The number of open Dependabot PRs is limited.
+* Development dependencies are ignored.
 
-`* The label "security-management" is automatically added to every pull request.`
-
-`* The number of open Dependabot PRs is limited.`
-
-`* Development dependencies are ignored.`
-
-`Draft an update to the dependabot.yml file in my repository that specifies these customization options.`
+Draft an update to the dependabot.yml file in my repository that specifies these customization options.
+```
 
 > [!TIP]
 > * There are many customization options to explore. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/customizing-dependabot-security-prs) and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
@@ -144,4 +145,4 @@ updates:
       prefix: "pip"
     ignore:
       - dependency-name: "pip"
-```  
+```

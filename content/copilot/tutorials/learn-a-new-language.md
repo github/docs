@@ -25,27 +25,27 @@ Use {% data variables.copilot.copilot_chat_short %} to research the basics of th
 
 ### Example prompts: language basics
 
-These are some prompts that you can use in {% data variables.copilot.copilot_chat_short %} to help you learn the basics of a new programming language:
+These are some prompts that you can use in {% data variables.copilot.copilot_chat_short %} to help you learn the basics of a new programming language. Change `NEW-LANGUAGE` to the name of the language you want to find out about.
 
 <!-- Note: spaces added between bulleted points to avoid the list looking cramped in the rendered page. -->
 
-* `What is NEW-LANGUAGE best suited for? I am an experienced Python programmer, but I don't know anything about NEW-LANGUAGE.`
+* {% prompt %}What is NEW-LANGUAGE best suited for? I am an experienced Python programmer, but I don't know anything about NEW-LANGUAGE.{% endprompt %}
 
-* `What are the main ways in which NEW-LANGUAGE differs from other languages? Explain the most essential things I need to know as an experienced programmer who wants to learn to code in NEW-LANGUAGE.`
+* {% prompt %}What are the main ways in which NEW-LANGUAGE differs from other languages? Explain the most essential things I need to know as an experienced programmer who wants to learn to code in NEW-LANGUAGE.{% endprompt %}
 
-* `How can I install NEW-LANGUAGE?`
+* {% prompt %}How can I install NEW-LANGUAGE?{% endprompt %}
 
-* `How does error handling work in NEW-LANGUAGE?`
+* {% prompt %}How does error handling work in NEW-LANGUAGE?{% endprompt %}
 
-* `How do you manage dependencies and packages in NEW-LANGUAGE?`
+* {% prompt %}How do you manage dependencies and packages in NEW-LANGUAGE?{% endprompt %}
 
-* `What are the most essential libraries or frameworks I should know about for NEW-LANGUAGE?`
+* {% prompt %}What are the most essential libraries or frameworks I should know about for NEW-LANGUAGE?{% endprompt %}
 
-* `What testing frameworks does the NEW-LANGUAGE community typically use?`
+* {% prompt %}What testing frameworks does the NEW-LANGUAGE community typically use?{% endprompt %}
 
-* `What are the biggest mistakes newcomers to NEW-LANGUAGE typically make with this language?`
+* {% prompt %}What are the biggest mistakes newcomers to NEW-LANGUAGE typically make with this language?{% endprompt %}
 
-* `As an experienced programmer learning NEW-LANGUAGE, what are the things I should focus on first?`
+* {% prompt %}As an experienced programmer learning NEW-LANGUAGE, what are the things I should focus on first?{% endprompt %}
 
 ## Use {% data variables.product.prodname_copilot_short %} as your personal trainer
 
@@ -55,11 +55,13 @@ When you ask {% data variables.product.prodname_copilot_short %} how to code som
 
 ### Example prompts: asking for an explanation
 
+Change `NEW-LANGUAGE` to the name of the language you want to find out about.
+
 <!-- Note: spaces added between bulleted points to avoid the list looking cramped in the rendered page. -->
 
 * `Explain your previous suggestion in more detail. I am new to NEW-LANGUAGE and I don't understand the code you suggested.`
 
-* ``Show me how to write the following Ruby code in NEW-LANGUAGE: `people_over_50 = people.select { |person| person.age > 50 }`. Explain each part of the NEW-LANGUAGE code that you suggest.``
+* {% prompt %}Show me how to write the following Ruby code in NEW-LANGUAGE: `people_over_50 = people.select { |person| person.age > 50 }`. Explain each part of the NEW-LANGUAGE code that you suggest.{% endprompt %}
 
 * `Add comprehensive comments to this NEW-LANGUAGE file to explain what each part of the code does.`
 
@@ -71,11 +73,11 @@ To get started, write a simple program that you would be able to write easily in
 
 <!-- Note: spaces added between bulleted points to avoid the list looking cramped in the rendered page. -->
 
-* `Show me the Rust code for a simple, useful command line tool that asks for user input and returns some useful information based on what was entered.`
+* {% prompt %}Show me the Rust code for a simple, useful command line tool that asks for user input and returns some useful information based on what was entered.{% endprompt %}
 
 * `Comment the suggested code more thoroughly. I want to understand what every part of this code does.`
 
-* `Give me the code for a very small Android app written in Kotlin.`
+* {% prompt %}Give me the code for a very small Android app written in Kotlin.{% endprompt %}
 
 * `Suggests ways I could enhance this app.`
 
@@ -122,19 +124,21 @@ While you are learning a new language, you should work on small units of code th
 
 ### Example prompts: specific questions
 
+Change `NEW-LANGUAGE` to the name of the language you want to find out about.
+
 <!-- Note: spaces added between bulleted points to avoid the list looking cramped in the rendered page. -->
 
-* `Explain all of the various ways that conditionals can be coded in NEW-LANGUAGE.`
+* {% prompt %}Explain all of the various ways that conditionals can be coded in NEW-LANGUAGE.{% endprompt %}
 
-* ``In JavaScript I'd write: `The ${numCats === 1 ? 'cat is' : 'cats are'} hungry.`. How do I write this in NEW-LANGUAGE?``
+* {% prompt %}In JavaScript I'd write: `The ${numCats === 1 ? 'cat is' : 'cats are'} hungry.`. How do I write this in NEW-LANGUAGE?{% endprompt %}
 
-* `In NEW-LANGUAGE, how do I convert a string to all lowercase?`
+* {% prompt %}In NEW-LANGUAGE, how do I convert a string to all lowercase?{% endprompt %}
 
-* `What is the equivalent of num++ in NEW-LANGUAGE?`
+* {% prompt %}What is the equivalent of num++ in NEW-LANGUAGE?{% endprompt %}
 
-* `How do I run a program written in the NEW-LANGUAGE programming language?`
+* {% prompt %}How do I run a program written in the NEW-LANGUAGE programming language?{% endprompt %}
 
-* `How can I compile a single executable file for my NEW-LANGUAGE project, that I can distribute as a release?`
+* {% prompt %}How can I compile a single executable file for my NEW-LANGUAGE project, that I can distribute as a release?{% endprompt %}
 
 ## Convert existing code to the new language
 

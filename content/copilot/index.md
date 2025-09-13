@@ -15,12 +15,12 @@ featuredLinks:
     - /copilot/get-started/what-is-github-copilot
     - /copilot/get-started/quickstart
     - /copilot/tutorials/try-extensions
-    - /copilot/concepts/coding-agent/coding-agent
+    - /copilot/concepts/agents/coding-agent
   popular:
     - /copilot/get-started/features
     - /copilot/tutorials/copilot-chat-cookbook
-    - /copilot/how-tos/get-code-suggestions/get-code-suggestions
-    - /copilot/how-tos/use-chat/use-chat-in-ide
+    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
+    - /copilot/how-tos/chat-with-copilot/chat-in-ide
     - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
 layout: product-landing
 versions:

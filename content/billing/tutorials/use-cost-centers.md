@@ -57,14 +57,6 @@ You can view, edit, and delete cost centers to manage your business units effect
 1. Select {% octicon "kebab-horizontal" aria-label="Cost center dropdown" %} to the right of a cost center, then click **View details**, **Edit**, or **Delete**.
 1. Follow the prompts.
 
-## Limitations of the cost center API
-
-There are a few current limitations when working with cost centers and the API:
-
-* There is a maximum of 250 cost centers per enterprise.
-* You can add or remove up to 50 resources at a time from a cost center using the API.
-* Azure subscriptions can only be added to or removed from cost centers through the UI.
-
 ## Further reading
 
 * [AUTOTITLE](/rest/enterprise-admin/billing)

@@ -34,7 +34,7 @@ Expecting 'STRING', 'NUMBER', 'NULL', 'TRUE', 'FALSE', '{', '[', got 'undefined'
 
 Below is the JSON data that caused the error:
 
-```json
+```json id=json-error
 {
   "location": "San Francisco",
   "current_weather": {
@@ -53,7 +53,9 @@ Below is the JSON data that caused the error:
 
 ## Example prompt
 
-`Why is my JSON object invalid and how can I fix it?`
+```copilot copy prompt ref=json-error
+Why is my JSON object invalid and how can I fix it?
+```
 
 ## Example response
 
