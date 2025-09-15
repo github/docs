@@ -25,11 +25,30 @@ By default, {% data variables.product.prodname_copilot_short %}'s access to the 
 
 Limiting access to the internet helps to manage data exfiltration risks, where surprising behavior from {% data variables.product.prodname_copilot_short %}, or malicious instructions given to it, could lead to code or other sensitive information being leaked to remote locations.
 
-The default firewall rules allow access to a number of hosts that {% data variables.product.prodname_copilot_short %} uses to interact with {% data variables.product.github %} or to download dependencies.
+The firewall always allows access to a number of hosts that {% data variables.product.prodname_copilot_short %} uses to interact with {% data variables.product.github %}. By default, a recommended allowlist is also enabled to allow the agent to download dependencies.
 
 If {% data variables.product.prodname_copilot_short %} tries to make a request which is blocked by the firewall, a warning is added to the pull request body (if {% data variables.product.prodname_copilot_short %} is creating a pull request for the first time) or to a comment (if {% data variables.product.prodname_copilot_short %} is responding to a pull request comment). The warning shows the blocked address and the command that tried to make the request.
 
 ![Screenshot of a warning from {% data variables.product.prodname_copilot_short %} about being blocked by the firewall.](/assets/images/help/copilot/coding-agent/firewall-warning.png)
+
+## Managing the recommended firewall allowlist
+
+The recommended allowlist, enabled by default, allows access to:
+
+* Common operating system package repositories (for example, Debian, Ubuntu, Red Hat).
+* Common container registries (for example, Docker Hub, Azure Container Registry, AWS Elastic Container Registry).
+* Packages registries used by popular programming languages (C#, Dart, Go, Haskell, Java, JavaScript, Perl, PHP, Python, Ruby, Rust, Swift).
+* Common certificate authorities (to allow SSL certificates to be validated).
+* Hosts used to download web browsers for the Playwright MCP server.
+
+You can choose to turn off the recommended allowlist.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
+1. Toggle the **Recommended allowlist** setting **off**.
+
+To use the recommended allowlist in addition to your own allowlist, keep the **Recommended allowlist** setting **on**, and add your additional addresses in the **Custom allowlist** page.
 
 ## Allowlisting additional hosts in the agent's firewall
 
@@ -39,7 +58,7 @@ You can allowlist additional addresses in the agent's firewall.
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short %}**.
 1. Click **Custom allowlist**
-1. Add the addresses you want to include in the allow list. You can include:
+1. Add the addresses you want to include in the allowlist. You can include:
 
    * **Domains** (for example, `packages.contoso.corp`). Traffic will be allowed to the specified domain and any subdomains.
 
@@ -51,14 +70,6 @@ You can allowlist additional addresses in the agent's firewall.
 
 1. Click **Add Rule**.
 1. After validating your list, click **Save changes**.
-
-## Overwriting the recommended firewall allowlist
-
-By default, the firewall allows access to a number of hosts that are commonly used to download dependencies or that {% data variables.product.prodname_copilot_short %} uses to interact with {% data variables.product.github %}.
-
-To disable this, toggle the **Recommended allowlist** setting **off**.
-
-To use the recommended allowlist in addition to your own allowlist, keep the **Recommended allowlist** setting **on**, and add your additional addresses in the **Custom allowlist** page.
 
 ### Disabling the firewall
 
