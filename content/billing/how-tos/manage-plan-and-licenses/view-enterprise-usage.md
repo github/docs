@@ -38,9 +38,31 @@ To learn more about the license data associated with your enterprise account and
 
 ## Finding information on {% data variables.product.prodname_ghe_cloud %}
 
-* Under "User licenses", view your total licenses, number of consumed licenses, and your subscription expiration date.
-* To view details for license usage or download a CSV file with license details, to the right of "User Licenses", click **View details** or **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**.
-* To view usage details for other features, in the left sidebar, click **Billing**.
+On the "Licensing" page, the number of consumed licenses is shown under "Enterprise Cloud". In addition, you can see:
+
+* Usage-based billing: the estimated monthly payment, assuming no further license changes
+* Volume billing: your total available licenses and your subscription expiration date.
+
+### Viewing more detailed information
+
+* To view details of license usage, to the right of "Enterprise Cloud", click **More details**.
+* To download a CSV file with license details, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report**.
+
+### Viewing history of changes to license usage
+
+>[!NOTE]
+> This feature is in public preview and only available to usage-based enterprise accounts without Visual Studio bundles.
+
+To view the history of license usage over time, on the "Licensing" page, to the right of "Enterprise Cloud", click **Manage**.
+
+The license history starts capturing history from the day the feature is enabled on your account, and provides a daily snapshot of license additions and removals for {% data variables.product.prodname_ghe_cloud %}. This information shows you how licenses are being consumed and why billed amounts change.
+
+The license history shows:
+
+* Daily snapshot of licenses so you can monitor usage over time
+* Actor(s) that added or removed each license to provide accountability
+* Date on which the license addition or removal was performed
+* Effective date for when the license additions and removals will affect your monthly bill
 
 ### Synchronization of {% data variables.product.prodname_ghe_server %} use
 
