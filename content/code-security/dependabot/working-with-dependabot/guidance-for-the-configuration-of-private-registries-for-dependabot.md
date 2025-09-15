@@ -276,7 +276,7 @@ This feature enables unified dependency management for both public and private G
 
 **Private Proxy Serving Private Modules**: add a go.env to your repository root, and set up a GONOSUMDB matching the private modules pattern (for example, `GONOSUMDB=my-company.com/*` for all private modules starting with my-company.com/). Doing this will disable the public checksum validation of your private modules because the public checksum database does not have those private modules.
 
-**Direct Access to Private Modules**: Set `GOPRIVATE=my-company.com/*` to bypass proxies and fetch directly from VCS. This only works if private modules are properly published with semantic version tags in your source control.
+**Direct Access to Private Modules**: Set `GOPRIVATE=my-company.com/*` to bypass proxies and fetch directly from VCS. This setting only works if private modules are properly published with semantic version tags in your source control.
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
