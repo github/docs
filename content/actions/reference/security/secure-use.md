@@ -127,7 +127,7 @@ Avoid using the `pull_request_target` workflow trigger if not necessary. Prefer 
 
 Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution (i.e. as untrusted).
 
-### Use CodeQL to detect potentially vulnerable workflows
+### Use {% data variables.product.prodname_codeql %} to detect potentially vulnerable workflows
 
 [CodeQL](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. [Configure the default setup for CodeQL](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) for the repository and ensure that {% data variables.product.prodname_actions %} scanning is enabled.
 
