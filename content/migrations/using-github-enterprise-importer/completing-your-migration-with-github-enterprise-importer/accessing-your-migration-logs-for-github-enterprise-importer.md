@@ -23,7 +23,7 @@ The migration log lists the steps that were completed as part of the migration a
 * How long the migration took
 
 > [!IMPORTANT]  
-> Issues should be enabled in the target repository for the migration log to be created. 
+> Issues should be enabled in the target repository for the migration log to be created.
 
 You can access the migration log for a repository migration in multiple ways.
 

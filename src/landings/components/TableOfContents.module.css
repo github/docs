@@ -8,6 +8,7 @@
   text-decoration: underline !important;
 
   span {
+    user-select: text;
     color: var(--fgColor-accent, var(--color-accent-fg)) !important;
     font-size: inherit !important;
     text-decoration: inherit !important;

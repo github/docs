@@ -7,6 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /profile-reference
   - /personal-dashboard
   - /permission-levels-for-a-personal-account-repository
   - /profile-contributions-reference

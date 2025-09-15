@@ -132,12 +132,12 @@ async function main() {
     reportLabel: REPORT_LABEL!,
   }
 
-  await createReportIssue(reportProps)
+  const newReport = await createReportIssue(reportProps)
 
   const linkProps = {
     core,
     octokit,
-    newReport: await createReportIssue(reportProps),
+    newReport,
     reportRepository: REPORT_REPOSITORY!,
     reportAuthor: REPORT_AUTHOR!,
     reportLabel: REPORT_LABEL!,
