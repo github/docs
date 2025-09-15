@@ -1,144 +1,37 @@
 ---
-title: Personalizing your profile
-intro: You can share information about yourself with other users by setting a profile picture and adding a bio to your profile.
-redirect_from:
-  - /articles/adding-a-bio-to-your-profile
-  - /articles/setting-your-profile-picture
-  - /articles/how-do-i-set-up-my-profile-picture
-  - /articles/gravatar-problems
-  - /articles/how-do-i-set-up-my-avatar
-  - /articles/personalizing-your-profile
-  - /github/setting-up-and-managing-your-github-profile/personalizing-your-profile
-  - /github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
-  - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile
+title: Profile reference
+intro: 'Reference information for your {% data variables.product.github %} profile.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
   - Profiles
-shortTitle: Personalize
+shortTitle: Profile reference
 ---
 
-{% ifversion fpt or ghec %}
-> [!NOTE]
-> Any details you add to your public profile will be visible to all {% data variables.product.github %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.github %} profile.
-{% endif %}
-
-## Changing your profile picture
-
-Your profile picture helps identify you across {% data variables.product.github %} in pull requests, comments, contributions pages, and graphs.
-
-When you sign up for an account, {% data variables.product.github %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
-
-> [!NOTE] {% ifversion ghec %}
-> * {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}> * Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.github %}, the image will be shown as your {% data variables.product.github %} profile picture by default (rather than an identicon). To change your profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.github %} and override the Gravatar image.
-
-### Setting a profile picture
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.accounts.set-profile-picture %}
-
-### Resetting your profile picture to the identicon
-
-{% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit**, then click **Remove photo** to revert to your identicon.
-
-   If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
-
-   ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is outlined in dark orange.](/assets/images/help/profile/edit-profile-photo.png)
-
-## Changing your profile name
-
-You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization).
+## Visibility of profile information
 
 {% ifversion fpt or ghec %}
 
-> [!NOTE]
-> If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+Any details you add to your public profile will be visible to all {% data variables.product.github %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone's decision about whether or not to share information about themselves on their {% data variables.product.github %} profile.
 
 {% endif %}
 
-{% data reusables.user-settings.access_settings %}
-1. Under "Public profile", in the "Name" field, type the name you want to be displayed on your profile.
-
-## Adding a bio to your profile
-
-Add a bio to your profile to share information about yourself with other {% data variables.product.github %} users. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
-
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
-
-> [!NOTE]
-> If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile).
-
-{% data reusables.user-settings.access_settings %}
-1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
-
-   > [!TIP]
-   > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
-
-{% data reusables.profile.update-profile %}
+The name that is displayed on your profile may also be displayed next to comments you make on private repositories owned by an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization).
 
 {% ifversion profile-pronouns %}
 
-## Adding pronouns to your profile
-
-Add pronouns to your public user profile to share information about yourself with other {% data variables.product.github %} users. {% data reusables.profile.pronouns-visibility %}
-
-{% data reusables.user-settings.access_settings %}
-1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
-
-{% data reusables.profile.update-profile %}
+{% data reusables.profile.pronouns-visibility %}
 
 {% endif %}
 
-## Setting your location and time zone
+Links to your social accounts are visible to anyone who can view your profile.
 
-You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-* On your profile page
-* When people hover over your username or avatar
+## Profile status
 
-![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
+Your status will show:
 
-When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated. When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
-
-{% data reusables.user-settings.access_settings %}
-1. Under "Public profile", in the "Location" field, type the location you want to be displayed on your profile.
-1. Optionally, display the current local time on your profile.
-   * Select **Display current local time**.
-   * Select the **Time zone** dropdown menu, then click your local time zone.
-{% data reusables.profile.update-profile %}
-
-{% ifversion profile-social-links %}
-
-## Adding links to your social accounts
-
-You can add up to four links to social accounts on your profile. These are visible to anyone who can view your profile.
-
-{% data reusables.user-settings.access_settings %}
-1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
-{% data reusables.profile.update-profile %}
-
-{% endif %}
-
-{% ifversion fpt or ghec %}
-
-## Adding your ORCID iD to your profile
-
-If you're a researcher with an ORCID iD, you can identify yourself by adding your ORCID iD to your profile.
-
-{% data reusables.user-settings.access_settings %}
-1. Under "ORCID iD", click **Connect your ORCID iD**.
-1. Follow the steps to sign in to your ORCID account and then return to {% data variables.product.prodname_dotcom %}.
-
-{% endif %}
-
-## Setting a status
-
-You can set a status to display information about your current availability. Your status will show:
 * On your profile page
 * When people hover over your username or avatar
 * On a team page for a team where you're a team member. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages).
@@ -150,16 +43,25 @@ If you select the "Busy" option, when people @mention your username, assign you 
 
 ![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **{% octicon "smiley" aria-hidden="true" aria-label="smiley" %} Set status** or, if you already have a status set, click your current status.
+## Profile picture requirements
 
-   ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile-global-nav-update.png)
+When you sign up for an account, {% data variables.product.github %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
 
-1. In the "What's happening" field, type a status message.
-1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
-1. Optionally, if you'd like to share that you have limited availability, select "Busy."
-1. Select the **Clear status** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
-1. Select the **Visible to** dropdown menu, then click who you want your status visible to. If you don't select an organization, your status will be public.
-1. Click **Set status**.
+> [!NOTE] {% ifversion ghec %}
+> * {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+{% ifversion ghec %}> * Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+
+If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.github %}, the image will be shown as your {% data variables.product.github %} profile picture by default (rather than an identicon). To change your profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.github %} and override the Gravatar image.
+
+## Profile location and time zone
+
+You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
+* On your profile page
+* When people hover over your username or avatar
+
+![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
+
+When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated. When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
 
 {% ifversion fpt or ghec %}
 
@@ -187,6 +89,10 @@ To stop private contributions from counting toward your Achievements, or to turn
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+## Profile name changes for {% data variables.enterprise.prodname_emu_enterprise %}
+
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endif %}
 

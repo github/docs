@@ -16,9 +16,11 @@ versions:
 topics:
   - Profiles
 ---
-You can tell other people a little bit about yourself by writing a bio. Consider including previous places you've worked, projects you've contributed to, or interests you have that other people may like to know about.
+You can tell other people a little bit about yourself by writing a bio. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink. The bio field is limited to 160 characters.
 
-You can further showcase your current work, interests, expertise, and more by creating a profile README. If you add a README file to the root of a public repository with the same name as your username, that README will automatically appear on your profile page.
+For a longer-form and more prominent way of displaying customized information about yourself, you can create a profile README. If you add a README file to the root of a public repository with the same name as your username, that README will automatically appear on your profile page.
+
+If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview.
 
 ![Screenshot of the profile page for @octocato. In the top-right corner, a profile README greets the viewer and lists information about the user's work.](/assets/images/help/repository/profile-with-readme.png)
 

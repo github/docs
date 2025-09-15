@@ -6,6 +6,7 @@
   }
 
   h3, span {
+    user-select: text;
     color: var(--fgColor-accent, var(--color-accent-fg));
   }
 }
