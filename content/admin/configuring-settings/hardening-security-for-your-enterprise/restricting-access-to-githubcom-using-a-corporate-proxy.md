@@ -7,17 +7,21 @@ versions:
   ghec: '*'
 ---
 
->[!NOTE] The header for restricting access to {% data variables.product.prodname_dotcom_the_website %} is currently in {% data variables.release-phases.public_preview %} and subject to change. Although preview releases are not typically supported by {% data variables.product.company_short %} Support (see [AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview#githubs-release-cycle)), this feature is supported by {% data variables.product.company_short %} Support while in {% data variables.release-phases.public_preview %}.
-
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.
 
 To enforce this restriction, you will configure your network proxy or firewall to inject a header into your users' web and API requests to {% data variables.product.prodname_dotcom_the_website %}.
 
 This feature requires an external firewall or proxy. {% data variables.contact.github_support %} cannot assist with setup or troubleshooting for external tools such as these. For more about scope of support, see [AUTOTITLE](/support/learning-about-github-support/about-github-support#scope-of-support).
 
-## Requesting access
+## Enabling access restrictions
 
-This feature is not enabled by default. To request access, contact your account manager in {% data variables.product.github %}'s Sales team or [sign up here](https://github.com/features/preview/enterprise-access-restrictions).
+This feature is not enabled by default. An enterprise owner can enable the feature for your enterprise.
+
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.settings-tab %}
+1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
+1. In the "Enterprise access restrictions" section, select **Enable enterprise access restrictions**.
+
 
 ## Prerequisites
 
@@ -27,7 +31,7 @@ This feature is not enabled by default. To request access, contact your account 
 * To enforce the restriction, all traffic must flow through a proxy or firewall. The proxy or firewall must:
   * Be capable of intercepting and editing traffic, commonly called a "break and inspect" proxy
   * Support arbitrary header injection
-* {% data variables.product.company_short %} must have granted you access to this feature.
+* Your enterprise owner has enabled this feature.
 
 ## Finding the header
 
@@ -42,8 +46,8 @@ An enterprise owner can identify the correct enterprise ID to use in the header 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
-1. In the "Enterprise access restrictions" section, find the header for your enterprise. This section is only visible for enterprises with the feature enabled.
-
+1. In the "Enterprise access restrictions" section, find the header for your enterprise.
+   
 ## Using the header
 
 For best results, configure your proxy to inject the header into all traffic to the following **supported endpoints**.
