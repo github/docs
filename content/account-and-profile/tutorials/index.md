@@ -1,7 +1,7 @@
 ---
 title: Tutorials for your GitHub account and profile
 shortTitle: Tutorials
-intro: 'Build skills and knowledge about your {% data variables.product.github %} account and profile through hands-on activities.'
+intro: Build skills and knowledge about your {% data variables.product.github %} account and profile through hands-on activities.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,7 @@ topics:
   - Profiles
 children:
   - /managing-security-and-analysis-settings-for-your-personal-account
+  - /personalize-your-profile
   - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /using-your-github-profile-to-enhance-your-resume
 ---
