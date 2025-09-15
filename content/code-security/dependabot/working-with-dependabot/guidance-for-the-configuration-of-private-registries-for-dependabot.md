@@ -34,6 +34,7 @@ You'll find detailed guidance for the setup of the following package managers:
 * [Cargo](#cargo)
 * [Docker](#docker){% ifversion dependabot-docker-compose-support %}
 * [Docker Compose](#docker-compose){% endif %}
+* [Go](#go)
 * [Gradle](#gradle){% ifversion dependabot-helm-support %}
 * [Helm Charts](#helm-charts){% endif %}
 * [Maven](#maven)
@@ -237,6 +238,41 @@ updates:
 #### Notes
 
 {% data reusables.dependabot.dependency-submission-api-build-time-dependencies %}
+
+### Go
+
+Supported by Jfrog Artifactory and Nexus.
+
+Go supports using a username and password for private registries.
+
+Configure your private registry using the `dependabot.yml` file with the `goproxy-server` type:
+
+{% raw %}
+
+```yaml copy
+registries:
+  my-private-registry:
+    type: goproxy-server
+    url: https://acme.jfrog.io/artifactory/api/go/my-repo
+    username: octocat
+    password: ${{secrets.MY_GO_REGISTRY_TOKEN}}
+```
+
+{% endraw %}
+
+You can also optionally configure how the Go toolchain accesses your proxy server by creating a `go.env` file in your repository root. This file allows you to set environment variables like `GOPROXY`, `GOPRIVATE`, `GONOSUMDB`, and `GOSUMDB` to control how Go modules are resolved:
+
+```text copy
+GOPROXY=https://acme.jfrog.io/artifactory/api/go/my-repo
+GOPRIVATE=my-company.com/*
+GONOSUMDB=my-company.com/*
+```
+
+#### Notes
+
+{% data reusables.dependabot.access-private-dependencies-link %}
+
+This feature enables unified dependency management for both public and private Go modules within a single {% data variables.product.prodname_dependabot %} workflow, making it ideal for organizations using corporate artifact management systems like JFrog Artifactory or Nexus.
 
 ### Maven
 
