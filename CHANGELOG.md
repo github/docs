@@ -1,5 +1,13 @@
 # Docs changelog
 
+**15 September 2025**
+
+We've updated the documentation for Copilot code review to clarify model usage for code review.
+
+See [Responsible use of GitHub Copilot code review](https://docs.github.com/copilot/responsible-use/code-review#model-usage).
+
+<hr>
+
 **11 September 2025**
 
 Copilot Chat in VS Code includes a "Manage models" option which allows you to add models from a variety of LLM providers, such as Azure, Anthropic, Google, and xAI. By installing the AI Toolkit for VS Code, you can install even more models from the "Manage models" option. We've updated the documentation to include details of how to use this new feature.
