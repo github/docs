@@ -1,1 +1,1 @@
-1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Your organizations**.
+1. In the upper-right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations**.
