@@ -270,9 +270,15 @@ GONOSUMDB=my-company.com/*
 
 #### Notes
 
-{% data reusables.dependabot.access-private-dependencies-link %}
-
 This feature enables unified dependency management for both public and private Go modules within a single {% data variables.product.prodname_dependabot %} workflow, making it ideal for organizations using corporate artifact management systems like JFrog Artifactory or Nexus.
+
+**Private Proxy Serving All Modules**: All module requests go through your proxy first. For public modules fetching failures, your proxy returns 404/410 and Go falls back to direct version control system (VCS) access. For private modules, such as those published only to a private repository like JFrog Artifactory, the VCS fall back will not work since they are only accessible through the proxy.
+
+**Private Proxy Serving Private Modules**: Add a go.env to your repository root, and set up a GONOSUMDB matching the private modules pattern (for example, `GONOSUMDB=my-company.com/*` for all private modules starting with my-company.com/). Doing this will disable the public checksum validation of your private modules because the public checksum database does not have those private modules.
+
+**Direct Access to Private Modules**: Set `GOPRIVATE=my-company.com/*` to bypass proxies and fetch directly from VCS. This setting only works if private modules are properly published with semantic version tags in your source control.
+
+{% data reusables.dependabot.access-private-dependencies-link %}
 
 ### Maven
 
