@@ -7251,6 +7251,36 @@ type ConvertedToDiscussionEvent implements Node {
 }
 
 """
+Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+"""
+type CopilotCodeReviewParameters {
+  """
+  Copilot automatically reviews draft pull requests before they are marked as ready for review.
+  """
+  reviewDraftPullRequests: Boolean!
+
+  """
+  Copilot automatically reviews each new push to the pull request.
+  """
+  reviewOnPush: Boolean!
+}
+
+"""
+Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+"""
+input CopilotCodeReviewParametersInput {
+  """
+  Copilot automatically reviews draft pull requests before they are marked as ready for review.
+  """
+  reviewDraftPullRequests: Boolean
+
+  """
+  Copilot automatically reviews each new push to the pull request.
+  """
+  reviewOnPush: Boolean
+}
+
+"""
 Copilot endpoint information
 """
 type CopilotEndpoints {
@@ -52910,6 +52940,11 @@ enum RepositoryRuleType {
   COMMIT_MESSAGE_PATTERN
 
   """
+  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  """
+  COPILOT_CODE_REVIEW
+
+  """
   Only allow users with bypass permission to create matching refs.
   """
   CREATION
@@ -54874,6 +54909,7 @@ union RuleParameters =
   | CommitAuthorEmailPatternParameters
   | CommitMessagePatternParameters
   | CommitterEmailPatternParameters
+  | CopilotCodeReviewParameters
   | FileExtensionRestrictionParameters
   | FilePathRestrictionParameters
   | MaxFilePathLengthParameters
@@ -54914,6 +54950,11 @@ input RuleParametersInput {
   Parameters used for the `committer_email_pattern` rule type
   """
   committerEmailPattern: CommitterEmailPatternParametersInput
+
+  """
+  Parameters used for the `copilot_code_review` rule type
+  """
+  copilotCodeReview: CopilotCodeReviewParametersInput
 
   """
   Parameters used for the `file_extension_restriction` rule type

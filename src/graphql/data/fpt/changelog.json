@@ -4,6 +4,23 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CopilotCodeReviewParameters</code> was added</p>",
+          "<p>Type <code>CopilotCodeReviewParametersInput</code> was added</p>",
+          "<p>Enum value 'COPILOT_CODE_REVIEW<code>was added to enum</code>RepositoryRuleType'</p>",
+          "<p>Member <code>CopilotCodeReviewParameters</code> was added to Union type <code>RuleParameters</code></p>",
+          "<p>Input field <code>copilotCodeReview</code> of type <code>CopilotCodeReviewParametersInput</code> was added to input object type <code>RuleParametersInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-09-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value <code>EXEMPT</code> was added to enum <code>RepositoryRulesetBypassActorBypassMode</code></p>"
         ]
       }
