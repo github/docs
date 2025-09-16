@@ -35,6 +35,25 @@ For information on currently available MCP servers, see [the MCP servers reposit
 
 ## Configuring MCP servers in {% data variables.product.prodname_vscode %}
 
+MCP servers can be configured manually in a configuration file, or through the {% data variables.product.github %} MCP Registry. The {% data variables.product.github %} MCP Registry provides a curated list of MCP servers that you can easily add to your {% data variables.product.prodname_vscode %} instance.
+
+### Using the {% data variables.product.github %} MCP Registry
+
+>[!NOTE]
+> The {% data variables.product.github %} MCP Registry is in {% data variables.release-phases.public_preview %} and may change.
+
+Only MCP servers listed in the {% data variables.product.github %} MCP Registry can be added through the registry. Other servers can be configured manually. See [Configuring MCP servers manually](#configuring-mcp-servers-manually).
+
+1. Visit the [{% data variables.product.github %} MCP Registry](https://github.com/mcp).
+1. In the search bar, search for the MCP server you want to add, then click the MCP server in the list of matches.
+1. On the MCP server page, read the description for details on installation requirements and other important usage information. This may vary between servers.
+1. Click **Install server**, then select **Install in {% data variables.product.prodname_vscode_shortname %}**.
+1. {% data variables.product.prodname_vscode %} will open, on the server's Marketplace page. Click **Install** to add the MCP server to your {% data variables.product.prodname_vscode %} instance.
+1. If further configuration is required, follow the instructions on the MCP server page in the {% data variables.product.github %} MCP Registry.
+1. To check that the MCP server has been added, in the **agent mode** of {% data variables.copilot.copilot_chat_short %}, click the tools icon. A dropdown list will appear, showing all the MCP servers and associated tools that are currently available in your {% data variables.product.prodname_vscode %} instance.
+
+### Configuring MCP servers manually
+
 To configure MCP servers in {% data variables.product.prodname_vscode %}, you need to set up a configuration script that specifies the details of the MCP servers you want to use. You can configure MCP servers for either:
 
 {% data reusables.copilot.mcp.mcp-configuration-location %}

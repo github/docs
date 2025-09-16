@@ -45,6 +45,13 @@ Running the {% data variables.product.github %} MCP server locally requires a bi
 
 To learn how to set up and use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
 
+## About the {% data variables.product.github %} MCP Registry
+
+The {% data variables.product.github %} MCP Registry is a curated list of MCP servers from partners and the community. You can use the registry to discover new MCP servers and find ones that meet your specific needs. See [the {% data variables.product.github %} MCP Registry](https://github.com/mcp).
+
+>[!NOTE]
+> The {% data variables.product.github %} MCP Registry is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 ## Availability
 
 There is currently broad support for local MCP servers in clients such as {% data variables.product.prodname_vscode %}, JetBrains IDEs, XCode, and others.
