@@ -1207,7 +1207,7 @@ jobs:
 
 A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) in the called workflow.
 
-Allowed expression contexts: `github`, and `needs`.
+Allowed expression contexts: `github`, `needs`, `strategy`, `matrix`, `inputs`, and `vars`.
 
 ## `jobs.<job_id>.secrets`
 
@@ -1265,7 +1265,7 @@ jobs:
 
 A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
 
-Allowed expression contexts: `github`, `needs`, and `secrets`.
+Allowed expression contexts: `github`, `needs`, `strategy`, `matrix`, `secrets`, `inputs`, and `vars`.
 
 ## Filter pattern cheat sheet
 
