@@ -17433,6 +17433,31 @@
       ]
     },
     {
+      "name": "CopilotCodeReviewParameters",
+      "kind": "objects",
+      "id": "copilotcodereviewparameters",
+      "href": "/graphql/reference/objects#copilotcodereviewparameters",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+      "fields": [
+        {
+          "name": "reviewDraftPullRequests",
+          "description": "<p>Copilot automatically reviews draft pull requests before they are marked as ready for review.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "reviewOnPush",
+          "description": "<p>Copilot automatically reviews each new push to the pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "CopilotEndpoints",
       "kind": "objects",
       "id": "copilotendpoints",
@@ -92882,6 +92907,10 @@
           "description": "<p>Commit message pattern.</p>"
         },
         {
+          "name": "COPILOT_CODE_REVIEW",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>"
+        },
+        {
           "name": "CREATION",
           "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
         },
@@ -97144,6 +97173,11 @@
           "href": "/graphql/reference/objects#committeremailpatternparameters"
         },
         {
+          "name": "CopilotCodeReviewParameters",
+          "id": "copilotcodereviewparameters",
+          "href": "/graphql/reference/objects#copilotcodereviewparameters"
+        },
+        {
           "name": "FileExtensionRestrictionParameters",
           "id": "fileextensionrestrictionparameters",
           "href": "/graphql/reference/objects#fileextensionrestrictionparameters"
@@ -99883,6 +99917,31 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "CopilotCodeReviewParametersInput",
+      "kind": "inputObjects",
+      "id": "copilotcodereviewparametersinput",
+      "href": "/graphql/reference/input-objects#copilotcodereviewparametersinput",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+      "inputFields": [
+        {
+          "name": "reviewDraftPullRequests",
+          "description": "<p>Copilot automatically reviews draft pull requests before they are marked as ready for review.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "reviewOnPush",
+          "description": "<p>Copilot automatically reviews each new push to the pull request.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -107133,6 +107192,14 @@
           "id": "committeremailpatternparametersinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#committeremailpatternparametersinput"
+        },
+        {
+          "name": "copilotCodeReview",
+          "description": "<p>Parameters used for the <code>copilot_code_review</code> rule type.</p>",
+          "type": "CopilotCodeReviewParametersInput",
+          "id": "copilotcodereviewparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#copilotcodereviewparametersinput"
         },
         {
           "name": "fileExtensionRestriction",
