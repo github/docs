@@ -477,6 +477,9 @@ Package manager | YAML value      | Supported versions |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | v2         |
+| {% ifversion dependabot-conda-support %} |
+| Conda         | `conda`          | Not applicable               |
+| {% endif %} |
 | Dev containers | `devcontainers`         | Not applicable               |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
