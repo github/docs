@@ -26,7 +26,7 @@ The main types of content for Jekyll sites are pages and posts. A page is for st
 
 A post is a blog post. The default Jekyll site contains a directory named `_posts` that contains a default post file. You can edit the contents of that post, and you can use the default post as a template to create new posts. For more information, see [Posts](https://jekyllrb.com/docs/posts/) in the Jekyll documentation.
 
-Your theme includes default layouts, includes, and stylesheets that will automatically be applied to new pages and posts on your site, but you can override any of these defaults. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#themes).
+Your theme includes default layouts and stylesheets that will automatically be applied to new pages and posts on your site, but you can override any of these defaults. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#themes).
 
 {% data reusables.pages.about-front-matter %}
 

@@ -169,6 +169,13 @@ export const schema = {
         prefix: { type: 'string' },
       },
     },
+    audience: {
+      type: 'array',
+      items: {
+        type: 'string',
+        enum: ['builder', 'driver'],
+      },
+    },
     // DEPRECATED: Use 'contentType' instead of 'type' for new content.
     // 'type' exists on ~40% of files but is used only for internal analytics.
     // Migration tool: src/content-render/scripts/add-content-type.ts

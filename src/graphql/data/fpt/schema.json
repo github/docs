@@ -20141,7 +20141,7 @@
         },
         {
           "name": "author",
-          "description": "<p>The actor who authored the comment.</p>",
+          "description": "<p>The actor who authored the discussion.</p>",
           "type": "Actor",
           "id": "actor",
           "kind": "interfaces",
@@ -92989,6 +92989,10 @@
         {
           "name": "ALWAYS",
           "description": "<p>The actor can always bypass rules.</p>"
+        },
+        {
+          "name": "EXEMPT",
+          "description": "<p>The actor is exempt from rules without generating a pass / fail result.</p>"
         },
         {
           "name": "PULL_REQUEST",

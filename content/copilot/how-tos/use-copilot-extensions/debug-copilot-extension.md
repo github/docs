@@ -1,6 +1,6 @@
 ---
 title: Debugging your GitHub Copilot Extension
-intro: 'Learn how to debug your {% data variables.copilot.copilot_extension %} from the command line before you publish it.'
+intro: Learn how to debug your {% data variables.copilot.copilot_extension %} from the command line before you publish it.
 versions:
   feature: copilot-extensions
 topics:

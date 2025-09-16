@@ -886,7 +886,7 @@ Prevents a job from failing when a step fails. Set to `true` to allow a job to p
 
 ## `jobs.<job_id>.steps[*].timeout-minutes`
 
-The maximum number of minutes to run the step before killing the process.
+The maximum number of minutes to run the step before killing the process. Maximum: 360 for both {% data variables.product.github %}-hosted and self-hosted runners.
 
 Fractional values are not supported. `timeout-minutes` must be a positive integer.
 

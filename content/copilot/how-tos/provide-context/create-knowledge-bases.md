@@ -25,13 +25,13 @@ redirect_from:
   - /copilot/how-tos/context/create-knowledge-bases
 contentType: how-tos
 ---
-<!-- expires 2025-09-11 -->
+<!-- expires 2025-10-31 -->
 
 <!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
 
->[!IMPORTANT] Beginning September 12, 2025, knowledge bases will be {% data variables.release-phases.retired %} and fully replaced by {% data variables.copilot.copilot_spaces %}. {% data variables.copilot.copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+{% data reusables.copilot.knowledge-bases-retirement %}
 
-<!-- end expires 2025-09-11 -->
+<!-- end expires 2025-10-31 -->
 
 Knowledge bases are a way to bring together Markdown documentation across one or more repositories. When you ask a question in {% data variables.copilot.copilot_chat_short %} with a knowledge base selected, {% data variables.product.prodname_copilot_short %} will search the knowledge base for relevant information and synthesize a response.
 
