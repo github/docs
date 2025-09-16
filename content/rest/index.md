@@ -63,6 +63,7 @@ children:
   - /deployments
   - /emojis
   - /enterprise-admin
+  - /enterprise-teams
   - /gists
   - /git
   - /gitignore
