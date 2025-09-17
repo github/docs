@@ -49,7 +49,7 @@ blc_output_internal.log
 # Old broken links report
 broken_links.md
 
-# Early access sym-links to docs-early-access repo
+# Directories from the docs-early-access repo. Used for symlinks in local docs-internal checkouts. Don't add trailing slashes.
 content/early-access
 data/early-access
 assets/images/early-access
