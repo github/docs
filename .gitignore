@@ -37,9 +37,6 @@
 # TypeScript incremental build info
 *.tsbuildinfo
 
-# Early access images from docs-early-access repo
-assets/images/early-access/
-
 # Accidentally committed file that should be ignored
 assets/images/help/writing/unordered-list-rendered (1).png
 
@@ -52,14 +49,13 @@ blc_output_internal.log
 # Old broken links report
 broken_links.md
 
-# Early access content from docs-early-access repo
-content/early-access/
+# Early access sym-links to docs-early-access repo
+content/early-access
+data/early-access
+assets/images/early-access
 
 # Test coverage reports
 coverage/
-
-# Early access data from docs-early-access repo
-data/early-access/
 
 # Cloned for Elasticsearch indexing data
 docs-internal-data/
