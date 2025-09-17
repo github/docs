@@ -107,7 +107,7 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 
 {% ifversion custom-org-roles %}
 
-## Understanding the risks of untrusted code checkout
+## Mitigating the risks of untrusted code checkout
 
 Similar to script injection attacks, untrusted pull request content that automatically triggers actions processing can also pose a security risk. The `pull_request_target` and `workflow_run` workflow triggers, when used with the checkout of an untrusted pull request, expose the repository to security compromises. These workflows are privileged (i.e. they share the same cache of the main branch with other privileged workflow triggers, may have repository write access and access to referenced secrets), which can be exploited to take over a repository.
 
