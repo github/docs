@@ -113,13 +113,13 @@ Similar to script injection attacks, untrusted pull request content that automat
 
 Review the [`pull_request_target` trigger documentation](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target) and the [`workflow_run` trigger documentation](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow-run) for more information on these triggers, how to use them, and the risks associated with them.
 
-For additional explanation, examples, and guidance on the risks of untrusted code checkout, see [Keeping your {% data variables.product.prodname_actions %} and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from {% data variables.product.prodname_security %} and the [Dangerous Workflow check documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) from OpenSSF Scorecard.
+For additional explanation, examples, and guidance on the risks of untrusted code checkout, see [Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from {% data variables.product.prodname_security %} and the [Dangerous Workflow check documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) from OpenSSF Scorecard.
 
 ### Good practices
 
 There are a number of different approaches available to help you mitigate the risk of untrusted code checkout in an action workflow:
 
-* Avoid using the `pull_request_target` workflow trigger if not necessary. Prefer using `workflow_run` for privilege separation between workflows as described in [Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests). Only use these workflow triggers when the workflow actually needs the privileged context.
+* Avoid using the `pull_request_target` workflow trigger if it's not necessary. For privilege separation between workflows, `workflow_run` is a better trigger. Only use these workflow triggers when the workflow actually needs the privileged context.
 
 * Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution.
 
