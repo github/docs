@@ -15,7 +15,6 @@ featuredLinks:
   guideCards:
     - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-missing-contributions
     - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
-    - '{% ifversion ghes %}/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories{% endif %}'
 changelog:
   label: profiles, github-themes
   versions:

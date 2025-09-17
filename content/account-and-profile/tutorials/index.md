@@ -10,7 +10,6 @@ topics:
   - Accounts
   - Profiles
 children:
-  - /managing-security-and-analysis-settings-for-your-personal-account
   - /personalize-your-profile
   - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /using-your-github-profile-to-enhance-your-resume
