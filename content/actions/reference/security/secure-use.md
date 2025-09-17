@@ -115,29 +115,21 @@ Review the [`pull_request_target` trigger documentation](/actions/writing-workfl
 
 For additional explanation, examples, and guidance on the risks of untrusted code checkout, see [Keeping your {% data variables.product.prodname_actions %} and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from {% data variables.product.prodname_security %} and the [Dangerous Workflow check documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) from OpenSSF Scorecard.
 
-## Good practices for mitigating untrusted code checkout risks
+### Good practices
 
 There are a number of different approaches available to help you mitigate the risk of untrusted code checkout in an action workflow:
 
-### Avoid potentially dangerous workflow triggers
+* Avoid using the `pull_request_target` workflow trigger if not necessary. Prefer using `workflow_run` for privilege separation between workflows as described in [Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests). Only use these workflow triggers when the workflow actually needs the privileged context.
 
-Avoid using the `pull_request_target` workflow trigger if not necessary. Prefer using `workflow_run` for privilege separation between workflows as described in [Keeping your {% data variables.product.prodname_actions %} and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests). Only use these workflow triggers when the workflow actually needs the privileged context.
+* Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution.
 
-### Do not use the `pull_request_target` and `workflow_run` workflow triggers with untrusted content
+* [{% data variables.product.prodname_codeql %}](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) for the repository and ensure that {% data variables.product.prodname_actions %} scanning is enabled.
 
-Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution (i.e. as untrusted).
-
-### Use {% data variables.product.prodname_codeql %} to detect potentially vulnerable workflows
-
-[{% data variables.product.prodname_codeql %}](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. [Configure the default setup for {% data variables.product.prodname_codeql %}](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) for the repository and ensure that {% data variables.product.prodname_actions %} scanning is enabled.
-
-### Use OpenSSF Scorecards to detect potentially vulnerable workflows
-
-[OpenSSF Scorecards](#use-openssf-scorecards-to-detect-potentially-vulnerable-workflows) can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}.
+* [OpenSSF Scorecards](#use-openssf-scorecards-to-detect-potentially-vulnerable-workflows) can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}.
 
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
-You can practice the principle of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
+You can grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
 
 {% data reusables.actions.org-roles-for-gh-actions %}
 
