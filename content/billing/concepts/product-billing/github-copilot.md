@@ -83,7 +83,7 @@ If you run out of free Actions minutes or free premium requests, and you have se
 
 If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
 
-{% data reusables.copilot.zero-budget-changes %} See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
+{% data reusables.copilot.zero-budget-changes-link %}
 
 ### Monitoring your use of Actions minutes and premium requests
 
