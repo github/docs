@@ -126,21 +126,7 @@ For additional examples and guidance on the risks of untrusted code checkout, se
 
 * OpenSSF Scorecards can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}. See [Using OpenSSF Scorecards to secure workflow dependencies](#use-openssf-scorecards-to-detect-potentially-vulnerable-workflows) later in this article.
 
-## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
-
-You can grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
-
-{% data reusables.actions.org-roles-for-gh-actions %}
-
-For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
-
 {% endif %}
-
-## Using OpenID Connect to access cloud resources
-
-{% data reusables.actions.about-oidc-short-overview %}
-
-{% data reusables.actions.oidc-custom-claims-aws-restriction %}
 
 ## Using third-party actions
 
