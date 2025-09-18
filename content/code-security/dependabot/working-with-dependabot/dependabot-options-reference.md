@@ -574,8 +574,10 @@ Supported values: `REGISTRY_NAME` or `"*"`
 
 ## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-> [!NOTE]
-> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
+> [!IMPORTANT]
+> The `reviewers` property is closing down and will be removed in a future release of {% data variables.product.prodname_ghe_server %}.
+>
+> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
 Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
@@ -589,9 +591,6 @@ When `reviewers` is defined:
 * {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
-
-> [!NOTE]
-> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
 {% endif %}
 
