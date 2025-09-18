@@ -39,7 +39,7 @@ As part of the downgrade to the free plan:
 1. In the search bar, begin typing the organization's name until the organization appears in the search results.
 1. To the right of the organization's name, select the ... dropdown menu and click **Remove organization**.
 
- ![Expanded dropdown menu labelled with "...", for an organization. The "Remove organization" option outlined.](/assets/images/help/enterprises/remove-organization.png)
+ ![Expanded dropdown menu labeled with "...", for an organization. The "Remove organization" option outlined.](/assets/images/help/enterprises/remove-organization.png)
 
 1. Review the warnings, then click **Remove organization**.
 
