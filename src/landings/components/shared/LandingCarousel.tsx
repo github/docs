@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
 import { Token } from '@primer/react'
 import cx from 'classnames'
@@ -53,14 +53,26 @@ export const LandingCarousel = ({
   recommended,
 }: LandingCarouselProps) => {
   const [currentPage, setCurrentPage] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
   const { t } = useTranslation('discovery_landing')
   const headingText = heading || t('recommended')
+  // Ref to store timeout IDs for cleanup
+  const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   // Reset to first page when itemsPerView changes (screen size changes)
   useEffect(() => {
     setCurrentPage(0)
   }, [itemsPerView])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (animationTimeoutRef.current) {
+        clearTimeout(animationTimeoutRef.current)
+      }
+    }
+  }, [])
 
   // Helper function to find article data from tocItems
   const findArticleData = (articlePath: string) => {
@@ -94,11 +106,41 @@ export const LandingCarousel = ({
   const totalPages = Math.ceil(totalItems / itemsPerView)
 
   const goToPrevious = () => {
+    if (currentPage === 0 || isAnimating) return
+
+    // Clear any existing timeout
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current)
+    }
+
+    setIsAnimating(true)
     setCurrentPage((prev) => Math.max(0, prev - 1))
+
+    // Set animation state to false after transition completes
+    // Duration matches CSS custom property --carousel-transition-duration (300ms)
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false)
+      animationTimeoutRef.current = null
+    }, 300)
   }
 
   const goToNext = () => {
+    if (currentPage >= totalPages - 1 || isAnimating) return
+
+    // Clear any existing timeout
+    if (animationTimeoutRef.current) {
+      clearTimeout(animationTimeoutRef.current)
+    }
+
+    setIsAnimating(true)
     setCurrentPage((prev) => Math.min(totalPages - 1, prev + 1))
+
+    // Set animation state to false after transition completes
+    // Duration matches CSS custom property --carousel-transition-duration (300ms)
+    animationTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false)
+      animationTimeoutRef.current = null
+    }, 300)
   }
 
   // Calculate the start index based on current page
@@ -136,7 +178,10 @@ export const LandingCarousel = ({
         )}
       </div>
 
-      <div className={styles.itemsGrid} data-testid="carousel-items">
+      <div
+        className={cx(styles.itemsGrid, { [styles.animating]: isAnimating })}
+        data-testid="carousel-items"
+      >
         {visibleItems.map((article: ProcessedArticleItem, index) => (
           <div
             key={startIndex + index}
