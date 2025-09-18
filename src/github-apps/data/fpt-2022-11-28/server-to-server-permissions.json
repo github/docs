@@ -1220,28 +1220,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "list-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/values",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/properties/values",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
       }
     ]
   },

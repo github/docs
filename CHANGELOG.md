@@ -1,5 +1,15 @@
 # Docs changelog
 
+**17 September 2025**
+
+You can now publish your Spark app as "read-only." 
+
+By default, data stored in Spark is shared across all users of the app. You can choose to publish your app as "read-only" if you want to showcase your app to others, but you don't want others to be able to edit or delete any stored data.
+
+We've updated the [Spark documentation](https://docs.github.com/en/copilot/tutorials/build-apps-with-spark) accordingly.
+
+<hr>
+
 **15 September 2025**
 
 We've updated the documentation for Copilot code review to clarify model usage for code review.

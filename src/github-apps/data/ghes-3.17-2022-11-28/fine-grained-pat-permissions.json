@@ -632,24 +632,6 @@
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": false,
         "access": "admin"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "create-or-update-custom-property-values-for-organization-repositories",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/properties/values",
-        "additional-permissions": false,
-        "access": "write"
       }
     ]
   },

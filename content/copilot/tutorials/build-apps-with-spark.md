@@ -92,9 +92,6 @@ Next, let's change the styling of your app using {% data variables.product.prodn
 
 If {% data variables.product.prodname_spark_short %} detects the need to store data in your app, it will automatically set up data storage for you using a key-value store.
 
-> [!NOTE]
-> If you deploy your spark and make it visible to other users, the data in your app is **shared across all users** that can access your app. Make sure no sensitive data is included in your spark prior to updating visibility settings.
-
 For our marketing app, let's add data storage so that users can save their favorite pieces of marketing copy and easily access them again later:
 
 1. Use the following instruction in the "Iterate" tab to guide {% data variables.product.prodname_spark_short %}:
@@ -145,18 +142,25 @@ You can view or edit your app’s code directly in {% data variables.product.pro
 {% data variables.product.prodname_spark_short %} comes with a fully integrated runtime environment that allows you to deploy your app in one click.
 
 > [!NOTE]
-> If you make your spark accessible to all {% data variables.product.github %} users, all users will be able to access and edit the data stored in your spark. Make sure to delete any private or sensitive data from your app prior to making it visible to other users.
+> * When you deploy your spark, if you choose to make it visible to other users, note that the data in your app is **shared across all users** who can access your app. Make sure no sensitive data is included in your spark prior to updating visibility settings.
+> * You can also choose to share your spark as **read-only** so that other users can view your app's content, but they cannot edit content, delete files or records, or create new items.
 
 1. In the top right corner, click **Publish**.
 1. By default, your spark will be private and only accessible to you. Under "Visibility", choose whether you want your spark to remain private, or make it available to all {% data variables.product.github %} users.
 
    ![Screenshot of the {% data variables.product.prodname_spark %} publication menu. The "All {% data variables.product.github %} users" visibility option is outlined in orange.](/assets/images/help/copilot/spark-github-user-visibility.png)
 
+1. Under "Data Access", choose whether you want to give other users read-only or write access to your app.
+
+   Choose **read-only** to let others view your app, without allowing them to create, edit or delete content.
+
+   For example, if you've created a family calendar app and you want users to view the app but you don't want them to be able to create, edit or delete events, choose **read-only** so users can't modify your spark's data store.
+
 1. Click **Visit site** to be taken to your live, deployed app. Copy your site's URL to share with others.
-   > [!NOTE]
-   > When you publish your app, {% data variables.product.prodname_spark_short %} automatically includes cloud-based storage and LLM inference for your application to use as part of the integrated runtime.
-   >
-   > The URL for your spark is generated based on the name of your spark. You can edit the name of your app and {% data variables.product.prodname_spark_short %} will automatically manage re-routing of old URLs to your latest URL.
+
+   When you publish your app, {% data variables.product.prodname_spark_short %} automatically includes cloud-based storage and LLM inference for your application to use as part of the integrated runtime.
+
+   The URL for your spark is generated based on the name of your spark. You can edit the name of your app and {% data variables.product.prodname_spark_short %} will automatically manage re-routing of old URLs to your latest URL.
 
 ## Step 8: Invite collaborators with a repository
 

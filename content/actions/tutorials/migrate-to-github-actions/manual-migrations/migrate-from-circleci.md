@@ -51,7 +51,11 @@ Both CircleCI and {% data variables.product.prodname_actions %} configure `jobs`
 
 Both CircleCI and {% data variables.product.prodname_actions %} provide a mechanism to reuse and share tasks in a workflow. CircleCI uses a concept called orbs, written in YAML, to provide tasks that people can reuse in a workflow. {% data variables.product.prodname_actions %} has powerful and flexible reusable components called actions, which you build with either JavaScript files or Docker images. You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.github %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code. For more information, see [AUTOTITLE](/actions/creating-actions).
 
+{% ifversion fpt or ghec %}
+CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports YAML anchors and aliases for reusability, and also provides matrices for running jobs with different configurations. For more information about matrices, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
+{% else %}
 CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports the most common need for reusability using matrices. For more information about matrices, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
+{% endif %}
 
 ## Using Docker images
 

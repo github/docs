@@ -3,9 +3,9 @@ import path from 'path'
 
 import { describe, expect, test } from 'vitest'
 
-const gitignorePath = path.join(process.cwd(), '.gitignore')
-const gitignore = await fs.readFile(gitignorePath, 'utf8')
-const entries = gitignore.split(/\r?\n/)
+const gitignorePath: string = path.join(process.cwd(), '.gitignore')
+const gitignore: string = await fs.readFile(gitignorePath, 'utf8')
+const entries: string[] = gitignore.split(/\r?\n/)
 
 describe('.gitignore file', () => {
   test('includes an entry for .env', () => {

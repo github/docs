@@ -1,6 +1,7 @@
 ---
-title: Reusable workflows
-intro: Learn how to avoid duplication when creating a workflow by reusing existing workflows.
+title: Reusing workflow configurations
+intro: Learn how to avoid duplication when creating a workflow.
+shortTitle: Reusing workflow configurations
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,9 +10,10 @@ redirect_from:
   - /actions/using-workflows/avoiding-duplication
   - /actions/sharing-automations/avoiding-duplication
   - /actions/concepts/workflows-and-actions/avoiding-duplication
+  - /actions/concepts/workflows-and-actions/reusable-workflows
 ---
 
-## About reusable workflows
+## Reusable workflows
 
 Rather than copying and pasting from one workflow to another, you can make workflows reusable. You and anyone with access to the reusable workflow can then call the reusable workflow from another workflow.
 
@@ -33,7 +35,7 @@ If you reuse a workflow from a different repository, any actions in the called w
 
 You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
-## Reusable workflows versus composite actions
+### Reusable workflows versus composite actions
 
 Reusable workflows and composite actions both help you avoid duplicating workflow content. Whereas reusable workflows allow you to reuse an entire workflow, with multiple jobs and steps, composite actions combine multiple steps that you can then run within a job step, just like any other action.
 
@@ -57,7 +59,7 @@ Let's compare some aspects of each solution:
 | Can connect a maximum of four levels of workflows | Can be nested to have up to 10 composite actions in one workflow |
 | Can use secrets | Cannot use secrets |
 
-## Reusable workflows and workflow templates
+## Workflow templates
 
 Workflow templates allow everyone in your organization who has permission to create workflows to do so more quickly and easily. When people create a new workflow, they can choose a workflow template and some or all of the work of writing the workflow will be done for them. Within a workflow template, you can also reference reusable workflows to make it easy for people to benefit from reusing centrally managed workflow code.
 
@@ -70,6 +72,16 @@ If you use a commit SHA when referencing the reusable workflow, you can ensure t
 {% data reusables.actions.workflow-templates-repo-link %}
 
 For more information, see [AUTOTITLE](/actions/using-workflows/creating-starter-workflows-for-your-organization).
+
+{% ifversion fpt or ghec %}
+
+## YAML anchors and aliases
+
+You can use YAML anchors and aliases to reduce repetition in your workflows. An anchor (marked with `&`) identifies a piece of content that you want to reuse, while an alias (marked with `*`) repeats that content in another location. Think of an anchor as creating a named template and an alias as using that template. This is particularly useful when you have jobs or steps that share common configurations.
+
+For reference information and examples, see [AUTOTITLE](/actions/reference/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases).
+
+{% endif %}
 
 ## Next steps
 
