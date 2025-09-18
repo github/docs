@@ -1538,42 +1538,6 @@
       },
       {
         "category": "projects-classic",
-        "slug": "get-a-project-card",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-an-existing-project-card",
-        "subcategory": "cards",
-        "verb": "patch",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project-card",
-        "subcategory": "cards",
-        "verb": "delete",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "move-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/cards/{card_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
         "slug": "get-a-project-column",
         "subcategory": "columns",
         "verb": "get",
@@ -1596,24 +1560,6 @@
         "subcategory": "columns",
         "verb": "delete",
         "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-cards",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}/cards",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/cards",
         "additional-permissions": true,
         "access": "write"
       },
@@ -4577,21 +4523,6 @@
       }
     ]
   },
-  "repository_custom_properties": {
-    "title": "Custom properties",
-    "displayTitle": "Repository permissions for \"Custom properties\"",
-    "permissions": [
-      {
-        "category": "repos",
-        "slug": "create-or-update-custom-property-values-for-a-repository",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/properties/values",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -5379,15 +5310,6 @@
         "subcategory": "licenses",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/license",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "repos",
-        "slug": "get-all-custom-property-values-for-a-repository",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "additional-permissions": false,
         "access": "read"
       },

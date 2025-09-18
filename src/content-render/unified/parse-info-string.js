@@ -4,6 +4,7 @@
 // becomes...
 // node.lang = javascript
 // node.meta = { lineNumbers: 'left', copy: 'all', annotate: true }
+// Also parse equals signs, where id=some-id becomes { id: 'some-id' }
 
 import { visit } from 'unist-util-visit'
 
@@ -25,7 +26,7 @@ function strToObj(str) {
   return Object.fromEntries(
     str
       .split(/\s+/g)
-      .map((k) => k.split(':'))
+      .map((k) => k.split(/[:=]/)) // split by colon or equals sign
       .map(([k, ...v]) => [k, v.length ? v.join(':') : true]),
   )
 }

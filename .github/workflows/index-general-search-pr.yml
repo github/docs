@@ -33,7 +33,7 @@ env:
 
 jobs:
   dryRunElasticsearchIndexes:
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     if: github.repository == 'github/docs-internal'
     steps:
       - name: Check out repo

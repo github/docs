@@ -30,7 +30,7 @@ Translating a project containing multiple files is a more complex process, and i
 
 The following Perl script prompts the user to enter the path to a text file. It checks what the user enters and if a text file is found at that path, it outputs a word count and character count for the contents of the file.
 
-```perl copy
+```perl copy id=perl-script
 #!/usr/bin/perl
 use strict;
 use warnings;
@@ -74,7 +74,9 @@ print "The file '$file_path' contains $word_count words and $char_count characte
 
 ## Example prompt
 
-`Tell me how I can convert this Perl script to Typescript. The functionality and output of the new script should be exactly the same as the existing one. Also tell me how to run the new file using Node.`
+```copilot copy prompt ref=perl-script
+Tell me how I can convert this Perl script to Typescript. The functionality and output of the new script should be exactly the same as the existing one. Also tell me how to run the new file using Node.
+```
 
 ## Example response
 

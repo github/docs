@@ -25,7 +25,7 @@ When creating unit tests, it's important to ensure they're isolated and not depe
 
 Imagine a website built with TypeScript which displays a list of runners. You have a service which fetches the runners from a database, and the server-side code which uses this service. You want to test the server-side code, but you don't want to make a call to the database. You can ask {% data variables.copilot.copilot_chat_short %} to generate a mock object for the service.
 
-```typescript
+```typescript id=mock-service
 // SvelteKit example at +page.server.ts
 import service from './service';
 
@@ -42,7 +42,9 @@ export async function load({ params }) {
 
 This example assumes you are using [vitest](https://vitest.dev/) for your tests, but will work with other test runners.
 
-`/tests Create a unit test to ensure the service is called correctly. Mock the service object.`
+```copilot copy prompt ref=mock-service
+/tests Create a unit test to ensure the service is called correctly. Mock the service object.
+```
 
 If you have an existing test you wish {% data variables.product.prodname_copilot_short %} to use as a model, you can use `#file: path/to/test-file.js` to provide the path to the file, and include this information in the prompt.
 

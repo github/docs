@@ -6,7 +6,10 @@ versions:
 topics:
   - Copilot
 children:
-  - /creating-diagrams
+  - /creating-templates
   - /extracting-information
+  - /synthesizing-research
+  - /creating-diagrams
+  - /generating-tables
 contentType: tutorials
 ---

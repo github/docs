@@ -1,6 +1,6 @@
 ---
 title: Setting up GitHub Copilot Extensions
-intro: 'Follow these steps to start building {% data variables.copilot.copilot_extensions_short %}.'
+intro: Follow these steps to start building {% data variables.copilot.copilot_extensions_short %}.
 defaultTool: agents
 versions:
   feature: copilot-extensions

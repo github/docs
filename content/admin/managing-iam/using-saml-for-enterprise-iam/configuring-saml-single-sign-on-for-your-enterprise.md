@@ -99,6 +99,9 @@ For more detailed information about how to enable SAML using Okta, see [AUTOTITL
 1. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste a certificate to verify SAML responses. This is the public key corresponding to the private key used to sign SAML responses.
 
+   > [!NOTE]
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+
    To find the certificate, refer to the documentation for your IdP. Some IdPs call this an X.509 certificate.
 
 {% data reusables.saml.edit-signature-and-digest-methods %}

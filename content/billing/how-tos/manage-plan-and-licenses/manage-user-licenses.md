@@ -17,14 +17,13 @@ topics:
   - Billing
   - Enterprise
   - Team
-permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 shortTitle: Manage user licenses
 contentType: how-tos
 ---
 
 ## Organizations on {% data variables.product.prodname_team %}
 
-If you're the owner of an organization on a {% data variables.product.prodname_team %} plan, you can add or remove user licenses to your plan through the "Licensing" page.
+If you're the **owner** or **billing manager** of an organization on a {% data variables.product.prodname_team %} plan, you can add or remove user licenses to your plan through the "Licensing" page.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -54,8 +53,10 @@ To add or remove licenses from your enterprise account:
 
 ### Self-serve customers with volume licenses
 
+Enterprise **owners** or **billing managers** can add or remove user licenses.
+
 1. Navigate to your enterprise account.
 {% data reusables.billing.enterprise-billing-menu %}
-1. In the left sidebar, click **Licensing**.
+1. In the left sidebar, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing**.
 1. Next to "Enterprise Cloud", click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **Manage licenses**.
 1. Choose your number of licenses, then click **Confirm licenses**.

@@ -57,6 +57,8 @@ Before switching to usage-based billing, to ensure you are not charged extra for
 
 {% data reusables.billing.metered-license-measures %}
 
+To view your license usage and history, see [AUTOTITLE](/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage).
+
 ## Which payment methods can I use?
 
 You can use the following payment methods for usage-based billing for licenses:

@@ -46,8 +46,8 @@ Organization owners can enable automatic dependency submission for multiple repo
 1. Under "Dependency graph", click the dropdown menu next to “Automatic dependency submission”, then select **Enabled**.
 
 Once you've enabled automatic dependency submission for a repository, {% data variables.product.company_short %} will:
-* Monitor for changes to manifest files in the root of the repository on all branches of the repository.
-* Run the dependency graph build action associated with the package ecosystem of each changed manifest.
+* Watch for pushes to the repository.
+* Run the dependency graph build action associated with the package ecosystem for any manifests in the repository.
 * Perform an automatic dependency submission with the results.
 
 You can view details about the automatic workflows run by viewing the **Actions** tab of your repository.

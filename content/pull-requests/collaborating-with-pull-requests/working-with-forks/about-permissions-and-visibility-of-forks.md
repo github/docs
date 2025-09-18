@@ -41,7 +41,16 @@ If you delete a fork, any code contributions of that fork will still be accessib
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-Public forks do not inherit the permissions structure of the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
+Public forks do not inherit the permissions structure of the upstream repository.
+
+When you fork a public repository to your personal account, you can allow repository maintainers to push to your pull request branch. This includes giving them permission to make commits or delete the branch.
+
+This speeds up collaboration by letting maintainers:
+* Make direct commits to your branch
+* Run tests locally before merging
+You cannot give push permissions to a fork owned by an organization.
+
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
 {% ifversion push-rulesets %}
 

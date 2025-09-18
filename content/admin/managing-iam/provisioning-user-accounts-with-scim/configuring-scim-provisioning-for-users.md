@@ -87,6 +87,11 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 
    {% ifversion scim-for-ghes-ga %}You can use any username for your setup user, but we recommend using `scim-admin`. Although the `scim-admin` user consumes a license when first created, the license is freed once SCIM is enabled. With any other username, the user will continue to consume a license after SCIM is enabled.{% endif %}
 
+1. Copy the password reset link after creating the user, and open it in a private browser window. Set a password for this user.
+
+   > [!IMPORTANT]
+   > As this user will act as a break-glass account, ensure you store the password securely in a password manager. Otherwise you risk losing access to this account.
+
 1. Promote the user to an enterprise owner. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#promoting-a-user-from-the-enterprise-settings).
 
 ## 2. Create a {% data variables.product.pat_generic %}

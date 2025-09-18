@@ -26,7 +26,7 @@ Your billing experience depends on whether your products are metered, volume-bas
 
 ## Billing cycles for metered products
 
-Metered products have a fixed **billing period** that runs from the first day of each month to the last day of the month.
+Metered products have a fixed **billing period** that starts at 00:00:00 UTC on the first day of each month and ends at 23:59:59 UTC on the last day of the month.
 
 At the end of each month, your metered usage is calculated and scheduled to be billed on your **bill cycle day**.
 

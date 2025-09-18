@@ -22,6 +22,7 @@ When you remove an organization from your enterprise:
 * The organization will be downgraded to the free plan.
 * The organization will be governed by our standard Terms of Service.
 * Any internal repositories within the organization will be converted to private repositories.
+* By default, organization members—who are not members of any other organization in the enterprise—remain in the enterprise as unaffiliated users. These users retain access to {% data variables.product.prodname_copilot_short %} if they were granted access directly from the enterprise.
 
 As part of the downgrade to the free plan:
 
@@ -41,7 +42,7 @@ As part of the downgrade to the free plan:
 
  ![Expanded dropdown menu labeled with "...", for an organization. The "Remove organization" option outlined.](/assets/images/help/enterprises/remove-organization.png)
 
-1. Review the warnings, then click **Remove organization**.
+1. Review the warnings, decide whether to also remove users who will become unaffiliated, then click **Remove organization**.
 
 ## Further reading
 

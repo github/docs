@@ -101,7 +101,7 @@ To get started, we need something to search for. This could be a string of text 
 
 In our example, we'll search for the text at the top of the [licenses page](https://choosealicense.com/licenses/), using this query: [`repo:github/choosealicense "If you’re looking for a reference table?"`](https://github.com/search?q=repo%3Agithub%2Fchoosealicense.com+%22If+you%E2%80%99re+looking+for+a+reference+table%22&type=code). This returns one result, a file named `licenses.html`.
 
-Now we can click on the result and dig deeper! [`licenses.html`](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html) is the source of the "Licences" page we were looking for. We can see the string that we searched for and that each of the licenses is included with the code below:
+Now we can click on the result and dig deeper! [`licenses.html`](https://github.com/github/choosealicense.com/blob/gh-pages/licenses.html) is the source of the "Licenses" page we were looking for. We can see the string that we searched for and that each of the licenses is included with the code below:
 
 ```markdown
 {% raw %}{% include license-overview.html license-id="agpl-3.0" %}{% endraw %}

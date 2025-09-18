@@ -1,6 +1,6 @@
 ---
 title: Configuring your GitHub App for your GitHub Copilot extension
-intro: 'Learn how to configure your {% data variables.product.prodname_github_app %} so that it is associated with your {% data variables.copilot.copilot_extension_short %}.'
+intro: Learn how to configure your {% data variables.product.prodname_github_app %} so that it is associated with your {% data variables.copilot.copilot_extension_short %}.
 defaultTool: agents
 versions:
   feature: copilot-extensions

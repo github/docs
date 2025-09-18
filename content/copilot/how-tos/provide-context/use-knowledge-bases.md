@@ -12,6 +12,14 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2025-10-31 -->
+
+<!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
+
+{% data reusables.copilot.knowledge-bases-retirement %}
+
+<!-- end expires 2025-10-31 -->
+
 ## Introduction
 
 Knowledge bases are collections of documentation that you can use to provide context for your questions in {% data variables.copilot.copilot_chat %}. Knowledge bases are useful when you want to ask questions about a specific topic or set of topics, and you want the answers to be informed by the relevant documentation.

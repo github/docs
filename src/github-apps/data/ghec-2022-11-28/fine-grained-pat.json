@@ -3001,6 +3001,12 @@
       "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/lock"
     },
     {
+      "slug": "get-parent-issue",
+      "subcategory": "sub-issues",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent"
+    },
+    {
       "slug": "remove-sub-issue",
       "subcategory": "sub-issues",
       "verb": "delete",
@@ -3243,6 +3249,18 @@
       "subcategory": "orgs",
       "verb": "delete",
       "requestPath": "/orgs/{org}"
+    },
+    {
+      "slug": "create-artifact-metadata-storage-record",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/storage-record"
+    },
+    {
+      "slug": "list-artifact-storage-records",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records"
     },
     {
       "slug": "delete-attestations-in-bulk",
@@ -3999,6 +4017,62 @@
       "requestPath": "/orgs/{org}/private-registries/{secret_name}"
     }
   ],
+  "projects": [
+    {
+      "slug": "list-projects-for-organization",
+      "subcategory": "projects",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2"
+    },
+    {
+      "slug": "get-project-for-organization",
+      "subcategory": "projects",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}"
+    },
+    {
+      "slug": "list-project-fields-for-organization",
+      "subcategory": "fields",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
+    },
+    {
+      "slug": "get-project-field-for-organization",
+      "subcategory": "fields",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}"
+    },
+    {
+      "slug": "list-items-for-an-organization-owned-project",
+      "subcategory": "items",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items"
+    },
+    {
+      "slug": "add-item-to-organization-owned-project",
+      "subcategory": "items",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items"
+    },
+    {
+      "slug": "get-an-item-for-an-organization-owned-project",
+      "subcategory": "items",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
+    },
+    {
+      "slug": "update-project-item-for-organization",
+      "subcategory": "items",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
+    },
+    {
+      "slug": "delete-project-item-for-organization",
+      "subcategory": "items",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
+    }
+  ],
   "projects-classic": [
     {
       "slug": "list-organization-projects",
@@ -4011,30 +4085,6 @@
       "subcategory": "projects",
       "verb": "post",
       "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "get-a-project-card",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "update-an-existing-project-card",
-      "subcategory": "cards",
-      "verb": "patch",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "delete-a-project-card",
-      "subcategory": "cards",
-      "verb": "delete",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "move-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/cards/{card_id}/moves"
     },
     {
       "slug": "get-a-project-column",
@@ -4053,18 +4103,6 @@
       "subcategory": "columns",
       "verb": "delete",
       "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "list-project-cards",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/{column_id}/cards"
-    },
-    {
-      "slug": "create-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/{column_id}/cards"
     },
     {
       "slug": "move-a-project-column",
@@ -4745,18 +4783,6 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
-    },
-    {
-      "slug": "get-all-custom-property-values-for-a-repository",
-      "subcategory": "custom-properties",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/properties/values"
-    },
-    {
-      "slug": "create-or-update-custom-property-values-for-a-repository",
-      "subcategory": "custom-properties",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {
       "slug": "get-a-repository-readme",

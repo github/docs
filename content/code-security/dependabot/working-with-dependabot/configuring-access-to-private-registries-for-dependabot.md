@@ -119,7 +119,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 
 You can add {% data variables.product.prodname_dependabot %}-related IP addresses to your registries IP allow list.
 
-If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `dependabot` key. If you run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} self-hosted runners, you should instead use the IP addresses under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+If your private registry is configured with an IP allow list, you can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the `actions` key. For more information, see [AUTOTITLE](/rest/meta/meta) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 {% endif %}
 
@@ -165,6 +165,7 @@ Examples of how to configure access to the private registries supported by {% da
 * [`composer-repository`](#composer-repository)
 * [`docker-registry`](#docker-registry)
 * [`git`](#git)
+* [`goproxy-server`](#goproxy-server)
 * [`hex-organization`](#hex-organization)
 * [`hex-repository`](#hex-repository)
 * [`maven-repository`](#maven-repository)
@@ -253,6 +254,25 @@ registries:
     url: https://github.com
     username: x-access-token
     password: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+```
+
+{% endraw %}
+
+### `goproxy-server`
+
+The `goproxy-server` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
+{% raw %}
+
+```yaml copy
+registries:
+  my-private-registry:
+    type: goproxy-server
+    url: https://acme.jfrog.io/artifactory/api/go/my-repo
+    username: octocat
+    password: ${{secrets.MY_GO_REGISTRY_TOKEN}}
 ```
 
 {% endraw %}

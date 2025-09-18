@@ -32,7 +32,7 @@ To use a {% data variables.product.prodname_ghe_server %} instance, you must upl
 There are two types of {% data variables.product.prodname_enterprise %} (GHE) licensing models, with different processes for enabling combined use of {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}.
 
 * **GHE (Usage-based, also called metered)**: A cloud-first license where users must first be assigned to a {% data variables.product.prodname_ghe_cloud %} organization.
-    * All Cloud users automatically receive a use right for {% data variables.product.prodname_ghe_server %}.
+    * All Cloud users automatically receive a right to use {% data variables.product.prodname_ghe_server %}.
     * Billing is based on the number of active users each month.
     * Users can generate their own Server license, which covers the number of assigned Cloud seats at the time of generation and is valid for one year.
     * Server-only users will be added to GHE (Metered) billing. These users are de-duplicated with email matching to avoid double billing.

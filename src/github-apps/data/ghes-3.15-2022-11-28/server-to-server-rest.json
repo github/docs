@@ -3105,30 +3105,6 @@
       "requestPath": "/orgs/{org}/projects"
     },
     {
-      "slug": "get-a-project-card",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "update-an-existing-project-card",
-      "subcategory": "cards",
-      "verb": "patch",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "delete-a-project-card",
-      "subcategory": "cards",
-      "verb": "delete",
-      "requestPath": "/projects/columns/cards/{card_id}"
-    },
-    {
-      "slug": "move-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/cards/{card_id}/moves"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -3145,18 +3121,6 @@
       "subcategory": "columns",
       "verb": "delete",
       "requestPath": "/projects/columns/{column_id}"
-    },
-    {
-      "slug": "list-project-cards",
-      "subcategory": "cards",
-      "verb": "get",
-      "requestPath": "/projects/columns/{column_id}/cards"
-    },
-    {
-      "slug": "create-a-project-card",
-      "subcategory": "cards",
-      "verb": "post",
-      "requestPath": "/projects/columns/{column_id}/cards"
     },
     {
       "slug": "move-a-project-column",
@@ -3821,18 +3785,6 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/languages"
-    },
-    {
-      "slug": "get-all-custom-property-values-for-a-repository",
-      "subcategory": "custom-properties",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/properties/values"
-    },
-    {
-      "slug": "create-or-update-custom-property-values-for-a-repository",
-      "subcategory": "custom-properties",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {
       "slug": "get-a-repository-readme",

@@ -1,0 +1,16 @@
+/* TableOfContents CSS Module */
+
+.linkItem {
+  font-size: 1rem !important;
+  color: var(--fgColor-accent) !important;
+  display: block !important;
+  width: 100% !important;
+  text-decoration: underline !important;
+
+  span {
+    user-select: text;
+    color: var(--fgColor-accent, var(--color-accent-fg)) !important;
+    font-size: inherit !important;
+    text-decoration: inherit !important;
+  }
+}

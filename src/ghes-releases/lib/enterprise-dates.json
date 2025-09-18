@@ -229,33 +229,33 @@
   },
   "3.14": {
     "releaseDate": "2024-08-06",
-    "deprecationDate": "2025-08-27",
+    "deprecationDate": "2026-03-17",
     "releaseCandidateDate": "2024-08-06",
     "generalAvailabilityDate": "2024-08-27"
   },
   "3.15": {
     "releaseDate": "2024-11-12",
-    "deprecationDate": "2025-12-19",
+    "deprecationDate": "2026-03-17",
     "releaseCandidateDate": "2024-11-12",
     "generalAvailabilityDate": "2024-12-03"
   },
   "3.16": {
     "releaseDate": "2025-02-25",
-    "deprecationDate": "2026-03-11",
+    "deprecationDate": "2026-06-02",
     "releaseCandidateDate": "2025-02-25",
     "generalAvailabilityDate": "2025-03-11"
   },
   "3.17": {
     "releaseDate": "2025-05-13",
-    "deprecationDate": "2026-06-03",
+    "deprecationDate": "2026-08-25",
     "releaseCandidateDate": "2025-05-13",
     "generalAvailabilityDate": "2025-06-03"
   },
   "3.18": {
     "releaseDate": "2025-08-05",
-    "deprecationDate": "2026-08-26",
+    "deprecationDate": "2026-08-25",
     "releaseCandidateDate": "2025-08-05",
-    "generalAvailabilityDate": "2025-08-26"
+    "generalAvailabilityDate": "2025-10-06"
   },
   "3.19": {
     "releaseDate": "2025-11-11",

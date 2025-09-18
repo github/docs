@@ -126,7 +126,7 @@
   },
   {
     "action": "api.request",
-    "description": "An API request was made to a security relevant endpoint for the enterprise, or an enterprise owned resource. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
+    "description": "An API request was made to an endpoint for the enterprise, or an enterprise owned resource. This event is only included if API Request Events is enabled in the enterprise's audit log settings. This event is only available via audit log streaming.",
     "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#enabling-audit-log-streaming-of-api-requests",
     "fields": [
       "user_agent",
@@ -9658,7 +9658,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "project.access",
@@ -16617,7 +16617,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.login",
@@ -16927,7 +16927,7 @@
       "created_at",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.sign_in_from_unrecognized_device",
@@ -17032,7 +17032,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "user.suspend",

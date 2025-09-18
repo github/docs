@@ -23,7 +23,7 @@ Let's start by generating an initial, basic version of our app that we can build
 1. Navigate to https://github.com/spark.
 1. Send the following prompt to generate the first iteration of your app:
 
-    ```text copy
+    ```copilot copy
     Please create a word search game. The game should take in a set of words from the user, then create a word search puzzle containing those words, as well as a word bank listing the words. Words in the puzzle can be horizontal, vertical, diagonal, forwards, and backwards, and are "found" when the user clicks and drags their mouse across them. Once all words are found, give the user the option to create a new puzzle.
     ```
 
@@ -36,7 +36,7 @@ Just like that, we have a working app! However, it still needs some tweaks. Let'
 
 1. At the left side of the page, in the **Iterate** tab, send the following prompt:
 
-    ```text copy
+    ```copilot copy
     Please add a leaderboard and a timer to the game. The timer should start when the user generates a new puzzle, then stop when all words are found. The user should then be able to enter their name, and their name, time, and the number of words in their puzzle should be displayed on the leaderboard. The leaderboard should be sortable in ascending and descending order by each of the three categories.
     ```
 
@@ -51,7 +51,7 @@ While you're building your app, you may encounter some errors. Often, {% data va
 
 If you find an error that {% data variables.product.prodname_spark_short %} itself didn't flag, write a prompt to fix it. For best results, provide a detailed description of the error, as well as the ideal fixed state. For example, if you notice that adding words over a certain number of characters causes the puzzle to render incorrectly, send the following prompt:
 
-```text copy
+```copilot copy
 Please prevent users from entering words longer than the number of rows or columns in the puzzle. Additionally, add an option to change the size of a puzzle. If the user tries to enter a word that's longer than the current size of the puzzle, display an error message telling them that provided words must be less than or equal to the size of the puzzle.
 ```
 
@@ -60,13 +60,20 @@ Please prevent users from entering words longer than the number of rows or colum
 Now that you're happy with your app, let's deploy it so you can share it with others.
 
 > [!NOTE]
-> If you make your spark accessible to all {% data variables.product.github %} users, all users will be able to access and edit the data stored in your spark. Make sure to delete any private or sensitive data from your app prior to making it visible to other users.
+> * If you make your spark accessible to all {% data variables.product.github %} users, all users will be able to access and edit the data stored in your spark. Make sure to delete any private or sensitive data from your app prior to making it visible to other users.
+> * You can also choose to share your spark as **read-only** so that other users can view your app's content, but they cannot edit content, delete files or records, or create new items.
 
 1. In the top-right corner of the page, click **Publish**.
-By default, your spark is deployed as private and only accessible to you. To let other {% data variables.product.github %} users access your app, in the **Visibility** section of the publication dropdown, choose {% octicon "id-badge" aria-hidden="true" aria-label="id-badge" %} **All {% data variables.product.github %} users**. This allows anyone with a {% data variables.product.github %} account to access your spark.
+1. By default, your spark is deployed as private and only accessible to you. To let other {% data variables.product.github %} users access your app, in the **Visibility** section of the publication dropdown, choose {% octicon "id-badge" aria-hidden="true" aria-label="id-badge" %} **All {% data variables.product.github %} users**. This allows anyone with a {% data variables.product.github %} account to access your spark.
 
     ![Screenshot of the {% data variables.product.prodname_spark %} publication menu. The "All {% data variables.product.github %} users" visibility option is outlined in orange.](/assets/images/help/copilot/spark-github-user-visibility.png)
 
+1. In the **Data Access** section of the publication dropdown, choose whether you want to give other users read-only or write access to your app.
+
+   Choose **read-only** to let others view your app, without allowing them to create, edit or delete content.
+   
+   For example, if you've created a family calendar app and you want to showcase the app, but you don't want users to be able to create, edit or delete events in the calendar yet, choose **read-only**.
+   
 1. Click **View site** {% octicon "link-external" aria-hidden="true" aria-label="link-external" %} to see your deployed app, then copy and share your app's URL.
 
 ## Next steps

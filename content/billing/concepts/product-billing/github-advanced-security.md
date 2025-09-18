@@ -96,10 +96,7 @@ There are two different ways to pay for licenses.
   * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year, see {% ifversion fpt or ghec %}[AUTOTITLE](/billing/how-tos/products/add-advanced-security){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/add-advanced-security) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
   * If the usage of {% data variables.product.prodname_AS %} by active committers exceeds the number of licenses purchased, you need to purchase additional licenses to cover this overage usage.
 
-<!-- expires 2025-08-31 -->
-<!--This versioning is not needed once the related EDI PR for this article is merged (#57129).-->
-{% ifversion fpt or ghec %}To view your current license usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).{% endif %}
-<!-- end expires 2025-08-31 -->
+To view your current license usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/viewing-your-product-usage).
 
 ### Understanding usage
 

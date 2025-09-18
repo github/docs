@@ -25,6 +25,13 @@ redirect_from:
   - /copilot/how-tos/context/create-knowledge-bases
 contentType: how-tos
 ---
+<!-- expires 2025-10-31 -->
+
+<!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
+
+{% data reusables.copilot.knowledge-bases-retirement %}
+
+<!-- end expires 2025-10-31 -->
 
 Knowledge bases are a way to bring together Markdown documentation across one or more repositories. When you ask a question in {% data variables.copilot.copilot_chat_short %} with a knowledge base selected, {% data variables.product.prodname_copilot_short %} will search the knowledge base for relevant information and synthesize a response.
 

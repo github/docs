@@ -7,6 +7,8 @@ versions:
 complexity:
   - Simple
 octicon: copilot
+category:
+  - Communicate effectively
 topics:
   - Copilot
 contentType: tutorials
@@ -20,7 +22,9 @@ You are reviewing a long discussion thread about a feature request. You want to 
 
 ## Example prompt
 
-`Can you summarize the key points and action items from this discussion?`
+```copilot copy
+Can you summarize the key points and action items from this discussion?
+```
 
 ## Example response
 
@@ -42,7 +46,9 @@ You have a number of open issues assigned to you, and you want to extract the de
 
 ## Example prompt
 
-`Can you list the open issues assigned to me, along with their deadlines and priorities?`
+```copilot copy prompt
+Can you list the open issues assigned to me, along with their deadlines and priorities?
+```
 
 ## Example response
 

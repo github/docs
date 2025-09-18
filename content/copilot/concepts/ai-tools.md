@@ -45,7 +45,7 @@ On {% data variables.product.github %}, use **{% data variables.product.prodname
 
 Once you've chosen an issue to address, **{% data variables.copilot.copilot_chat_short %}** can help you brainstorm ideas for your project and learn about the various tools, libraries, and resources you might need. You can ask {% data variables.copilot.copilot_chat_short %} generalized questions about the project you're envisioning to get suggestions on a path forward. For example:
 
-> I'd like to build an web app that helps users track their daily habits and provides personalized recommendations. Can you suggest features and technologies I could use?
+`I'd like to build an web app that helps users track their daily habits and provides personalized recommendations. Can you suggest features and technologies I could use?`
 
 ## Creation
 
@@ -59,27 +59,27 @@ With **{% data variables.copilot.next_edit_suggestions %}** ({% data variables.r
 
 Use {% data variables.copilot.copilot_chat_short %} in **ask mode** as your pair programmer to get help with coding tasks, understand tricky concepts, and improve your code. You can ask it questions, get explanations, or request suggestions in real time.
 
-> Can you explain what this JavaScript function does? I'm not sure why it uses a `forEach` loop instead of a `for` loop.
+* `Can you explain what this JavaScript function does? I'm not sure why it uses a forEach loop instead of a for loop.`
 
-> What’s the difference between `let`, `const`, and `var` in JavaScript? When should I use each one?
+* `What’s the difference between let, const, and var in JavaScript? When should I use each one?`
 
 ### Using {% data variables.copilot.copilot_chat_short %} in edit mode
 
 Use {% data variables.copilot.copilot_chat_short %} in **edit mode** when you want more granular control over the edits that {% data variables.product.prodname_copilot_short %} proposes. In edit mode, you choose which files {% data variables.product.prodname_copilot_short %} can make changes to, provide context to {% data variables.product.prodname_copilot_short %} with each iteration, and decide whether or not to accept the suggested edits.
 
-> Refactor the `calculateTotal` function to improve readability and efficiency.
+* `Refactor the calculateTotal function to improve readability and efficiency.`
 
-> The login function is not working as expected. Can you debug it?
+* `The login function is not working as expected. Can you debug it?`
 
-> Format this code to follow Python’s PEP 8 style guide.
+* `Format this code to follow Python’s PEP 8 style guide.`
 
 ### Using {% data variables.copilot.copilot_chat_short %} in agent mode
 
 In **agent mode**, {% data variables.copilot.copilot_chat_short %} can assist with automating repetitive tasks and managing your workflow directly within your project. Use it to create pull requests after you make code changes. You can also use it to run tests and linters in the background while you're working on your project.
 
-  > Create a pull request for the recent changes in the `user-auth` module and include a summary of the updates.
+* `Create a pull request for the recent changes in the user-auth module and include a summary of the updates.`
 
-  > Run all tests and linters for the `payment-processing` module and provide a summary of any issues or errors found.
+* `Run all tests and linters for the payment-processing module and provide a summary of any issues or errors found.`
 
 ## Reviews
 
@@ -98,13 +98,13 @@ The testing phase validates that your application works as intended. This phase 
 
 **{% data variables.copilot.copilot_chat_short %}** can assist by generating unit and integration tests, debugging failures, and suggesting additional test cases to ensure comprehensive coverage. Here are some example prompts:
 
-> Write unit tests for this function to calculate the factorial of a number. Include edge cases like 0 and negative numbers.
+* `Write unit tests for this function to calculate the factorial of a number. Include edge cases like 0 and negative numbers.`
 
-> How do I run these tests using Python's unittest framework?
+* `How do I run these tests using Python's unittest framework?`
 
-> Write integration tests for the `deposit` function in the BankAccount class. Use mocks to simulate the NotificationSystem.
+* `Write integration tests for the deposit function in the BankAccount class. Use mocks to simulate the NotificationSystem.`
 
-> What additional tests should I include to ensure full coverage for this module?
+* `What additional tests should I include to ensure full coverage for this module?`
 
 ## Deployment
 
@@ -112,11 +112,11 @@ The deployment phase involves preparing your code for production and ensuring a 
 
 **{% data variables.copilot.copilot_chat_short %}** can help you configure deployment scripts, set up CI/CD pipelines, and troubleshoot issues. Here are some example prompts:
 
-> Write a deployment script for a Node.js application using GitHub Actions to deploy to an AWS EC2 instance.
+* `Write a deployment script for a Node.js application using GitHub Actions to deploy to an AWS EC2 instance.`
 
-> Set up a GitHub Actions workflow to build, test, and deploy a Python application to Heroku.
+* `Set up a GitHub Actions workflow to build, test, and deploy a Python application to Heroku.`
 
-> Analyze this deployment log and suggest why the deployment failed.
+* `Analyze this deployment log and suggest why the deployment failed.`
 
 ## Operation
 
@@ -126,11 +126,11 @@ You can use the **{% data variables.copilot.copilot_coding_agent %}** ({% data v
 
 For issues you're tackling yourself, use **{% data variables.copilot.copilot_chat_short %}** for help analyzing logs, debugging issues, and suggesting optimizations. For example:
 
-> Analyze this error log and suggest possible causes for the issue.
+* `Analyze this error log and suggest possible causes for the issue.`
 
-> Write a script to monitor the memory usage of this application and alert when it exceeds a threshold.
+* `Write a script to monitor the memory usage of this application and alert when it exceeds a threshold.`
 
-> How can I optimize the database queries in this code to improve performance?
+* `How can I optimize the database queries in this code to improve performance?`
 
 ## Next steps
 

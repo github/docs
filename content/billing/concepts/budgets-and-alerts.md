@@ -15,7 +15,7 @@ Budgets and alerts allow you to track spending on metered products for your ente
 
 By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
 
-Many accounts already have default budgets for certain products. {% data reusables.billing.migrated-budgets %}
+{% data reusables.billing.migrated-budgets %}
 
 ## Stopping usage
 

@@ -20,6 +20,7 @@ children:
   - /bypass-requests
   - /code-security-and-analysis
   - /custom-properties
+  - /enterprises
   - /global-webhooks
   - /ldap
   - /license

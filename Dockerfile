@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20250805-204228-g50c20871f AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20250911-223345-ge6d335835 AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -17,7 +17,7 @@ FROM ghcr.io/github/gh-base-image/gh-base-noble:20250805-204228-g50c20871f AS ba
 # Ubuntu's apt-get install nodejs is _very_ outdated
 # Must run as root
 RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
-  && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+  && curl -sL https://deb.nodesource.com/setup_24.x | bash - \
   && apt-get install -y nodejs \
   && node --version
 
@@ -53,9 +53,9 @@ RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   echo "Don't cache this step by printing date: $(date)" && \
   . ./build-scripts/fetch-repos.sh
 
-# -----------------------------------------
+# ------------------------------------------------
 # PROD_DEPS STAGE: Install production dependencies
-# -----------------------------------------
+# ------------------------------------------------
 FROM base AS prod_deps
 USER node:node
 WORKDIR $APP_HOME
@@ -66,17 +66,17 @@ COPY --chown=node:node package.json package-lock.json ./
 # Install only production dependencies (skip scripts to avoid husky)
 RUN npm ci --omit=dev --ignore-scripts --registry https://registry.npmjs.org/
 
-# -----------------------------------------
+# ------------------------------------------------------------
 # ALL_DEPS STAGE: Install all dependencies on top of prod deps
-# -----------------------------------------
+# ------------------------------------------------------------
 FROM prod_deps AS all_deps
 
 # Install dev dependencies on top of production ones
 RUN npm ci --registry https://registry.npmjs.org/
 
-# -----------------------------------------
+# ----------------------------------
 # BUILD STAGE: Build the application
-# -----------------------------------------
+# ----------------------------------
 FROM base AS build
 USER node:node
 WORKDIR $APP_HOME
@@ -99,17 +99,17 @@ COPY --chown=node:node --from=all_deps $APP_HOME/node_modules node_modules/
 # Build the application
 RUN npm run build
 
-# -----------------------------------------
+# ---------------------------------------------
 # WARMUP_CACHE STAGE: Warm up remote JSON cache
-# -----------------------------------------
+# ---------------------------------------------
 FROM build AS warmup_cache
 
 # Generate remote JSON cache
 RUN npm run warmup-remotejson
 
-# -----------------------------------------
+# --------------------------------------
 # PRECOMPUTE STAGE: Precompute page info
-# -----------------------------------------
+# --------------------------------------
 FROM build AS precompute_stage
 
 # Generate precomputed page info

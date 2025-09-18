@@ -2827,6 +2827,87 @@
         "access": "write"
       },
       {
+        "category": "projects",
+        "slug": "list-projects-for-organization",
+        "subcategory": "projects",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "get-project-for-organization",
+        "subcategory": "projects",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "list-project-fields-for-organization",
+        "subcategory": "fields",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "get-project-field-for-organization",
+        "subcategory": "fields",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "list-items-for-an-organization-owned-project",
+        "subcategory": "items",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "add-item-to-organization-owned-project",
+        "subcategory": "items",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "projects",
+        "slug": "get-an-item-for-an-organization-owned-project",
+        "subcategory": "items",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "projects",
+        "slug": "update-project-item-for-organization",
+        "subcategory": "items",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "projects",
+        "slug": "delete-project-item-for-organization",
+        "subcategory": "items",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "teams",
         "slug": "add-or-update-team-project-permissions",
         "subcategory": "teams",
@@ -2843,42 +2924,6 @@
         "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
         "additional-permissions": true,
         "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "get-a-project-card",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-an-existing-project-card",
-        "subcategory": "cards",
-        "verb": "patch",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project-card",
-        "subcategory": "cards",
-        "verb": "delete",
-        "requestPath": "/projects/columns/cards/{card_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "move-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/cards/{card_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
       },
       {
         "category": "projects-classic",
@@ -2904,24 +2949,6 @@
         "subcategory": "columns",
         "verb": "delete",
         "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-cards",
-        "subcategory": "cards",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}/cards",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-project-card",
-        "subcategory": "cards",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/cards",
         "additional-permissions": true,
         "access": "write"
       },
@@ -5947,6 +5974,24 @@
         "access": "read"
       },
       {
+        "category": "orgs",
+        "slug": "create-artifact-metadata-storage-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-storage-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "repos",
         "slug": "list-repository-activities",
         "subcategory": "repos",
@@ -6713,21 +6758,6 @@
       }
     ]
   },
-  "repository_custom_properties": {
-    "title": "Custom properties",
-    "displayTitle": "Repository permissions for \"Custom properties\"",
-    "permissions": [
-      {
-        "category": "repos",
-        "slug": "create-or-update-custom-property-values-for-a-repository",
-        "subcategory": "custom-properties",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/properties/values",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -7288,6 +7318,15 @@
         "access": "write"
       },
       {
+        "category": "issues",
+        "slug": "get-parent-issue",
+        "subcategory": "sub-issues",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/issues/{issue_number}/parent",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "reactions",
         "slug": "list-reactions-for-an-issue",
         "subcategory": "reactions",
@@ -7596,15 +7635,6 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "repos",
-        "slug": "get-all-custom-property-values-for-a-repository",
-        "subcategory": "custom-properties",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "additional-permissions": false,
         "access": "read"
       },

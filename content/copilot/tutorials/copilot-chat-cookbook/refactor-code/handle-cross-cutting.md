@@ -95,7 +95,9 @@ class OrderService:
 
 Open the project workspace in {% data variables.product.prodname_vscode_shortname %} or {% data variables.product.prodname_vs %} and enter the following prompt in the {% data variables.copilot.copilot_chat_short %} view.
 
-`@workspace Refactor this project by using AOP to avoid logging that has cross-cutting concerns`
+```copilot copy
+@workspace Refactor this project by using AOP to avoid logging that has cross-cutting concerns
+```
 
 > [!NOTE]
 > The `@workspace` chat participant in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %} provides {% data variables.product.prodname_copilot_short %} with context about all of the code in your workspace. You can use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project and how different parts of your code interact. If you're using a JetBrains IDE, use `@project` rather than `@workspace`.
