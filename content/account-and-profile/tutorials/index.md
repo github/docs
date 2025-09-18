@@ -11,7 +11,6 @@ topics:
   - Profiles
 children:
   - /personalize-your-profile
-  - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /using-your-github-profile-to-enhance-your-resume
 ---
 

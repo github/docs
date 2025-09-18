@@ -19,6 +19,7 @@ children:
   - /managing-security-and-analysis-features
   - /managing-your-tab-size-rendering-preference
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
+  - /manage-cookie-preferences
   - /managing-accessibility-settings
   - /managing-access-to-your-personal-accounts-project-boards
   - /integrating-jira-with-your-personal-projects
