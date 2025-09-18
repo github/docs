@@ -1,5 +1,6 @@
 .carousel {
   margin-top: 3rem;
+  --carousel-transition-duration: 0.3s;
 }
 
 .header {
@@ -47,6 +48,8 @@
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr;
+  transition: opacity var(--carousel-transition-duration) ease-out;
+  opacity: 1;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -54,6 +57,10 @@
 
   @media (min-width: 1012px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.animating {
+    opacity: 0;
   }
 }
 

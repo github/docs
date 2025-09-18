@@ -2695,6 +2695,18 @@
       "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}"
     },
     {
+      "slug": "list-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/values"
+    },
+    {
       "slug": "list-public-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -3705,18 +3717,6 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/languages"
-    },
-    {
-      "slug": "get-all-custom-property-values-for-a-repository",
-      "subcategory": "custom-properties",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/properties/values"
-    },
-    {
-      "slug": "create-or-update-custom-property-values-for-a-repository",
-      "subcategory": "custom-properties",
-      "verb": "patch",
-      "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {
       "slug": "get-a-repository-readme",
