@@ -154,7 +154,7 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 
 ## Understanding the risks of untrusted code checkout
 
-Untrusted pull request content that automatically triggers actions processing can also pose a security risk. For more information, see [AUTOTITLE](/actions/reference/security/secure-use).
+Untrusted pull request content that automatically triggers actions processing can pose a security risk. For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/reference/security/secure-use#mitigating-the-risks-of-untrusted-code-checkout) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
