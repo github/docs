@@ -21,6 +21,7 @@ children:
   - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /manage-cookie-preferences
   - /managing-accessibility-settings
+  - /prepare-for-job-change
   - /managing-access-to-your-personal-accounts-project-boards
   - /integrating-jira-with-your-personal-projects
   - /set-your-hiring-status
