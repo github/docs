@@ -81,9 +81,7 @@ Enterprise owners who create an organization owned by the enterprise account aut
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
-1. In the left sidebar, click **Organizations**.
-{%- endif %}
+{% data reusables.enterprise-accounts.click-organizations-tab %}
 1. Above the list of organizations, click **New organization**.
 1. Under "Organization name," type a name for your organization.
 1. Click **Create organization**.
@@ -99,9 +97,7 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invit
 After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
 {% data reusables.enterprise-accounts.click-organizations-tab %}
-{%- endif %}
 1. Above the list of organizations, click **Invite organization**.
 1. Under "Organization name," start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
 1. Click **Invite organization**. The organization owners will receive an email inviting them to join the enterprise.
@@ -118,9 +114,7 @@ You cannot transfer an existing organization to or from an {% data variables.ent
 If the existing organization uses billed apps, make sure to remove the billed apps before transferring. After the transfer is complete, re-add the apps.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
 {% data reusables.enterprise-accounts.click-organizations-tab %}
-{%- endif %}
 1. Next to the organization you want to transfer, select the {% octicon "kebab-horizontal" width="16" aria-label="Organization settings" %} dropdown menu, then click **Transfer organization**.
 
    ![Screenshot of the expanded dropdown menu labeled with the kebab icon, for an organization. The "Transfer organization" option is outlined.](/assets/images/help/business-accounts/transfer-organization.png)
