@@ -2,6 +2,16 @@
 
 **17 September 2025**
 
+We added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
+
+You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/en/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
+
+To keep the content focused on users' job-to-be-done, we simplified the procedures for [creating workflow templates for your organization](https://docs.github.com/en/actions/how-tos/reuse-automations/create-workflow-templates). In addition, we updated reference documentation for workflow templates with details on permissions, repository visibility rules, rules for the metadata file, and examples. See [Workflow templates](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations#workflow-templates).
+
+<hr>
+
+**17 September 2025**
+
 You can now publish your Spark app as "read-only." 
 
 By default, data stored in Spark is shared across all users of the app. You can choose to publish your app as "read-only" if you want to showcase your app to others, but you don't want others to be able to edit or delete any stored data.
