@@ -124,7 +124,7 @@ For additional examples and guidance on the risks of untrusted code checkout, se
 
 * {% data variables.product.prodname_codeql %} can scan and detect potentially vulnerable {% data variables.product.prodname_actions %} workflows. You can configure default setup for the repository, and ensure that {% data variables.product.prodname_actions %} scanning is enabled. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
-* OpenSSF Scorecards can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}. See [Using OpenSSF Scorecards to secure workflow dependencies](#using-openssf-scorecards-to-detect-potentially-vulnerable-workflows) later in this article.
+* OpenSSF Scorecards can help you identify potentially vulnerable workflows, along with other security risks when using {% data variables.product.prodname_actions %}. See [Using OpenSSF Scorecards to secure workflow dependencies](#using-openssf-scorecards-to-secure-workflow-dependencies) later in this article.
 
 {% endif %}
 
