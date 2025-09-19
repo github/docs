@@ -163,5 +163,7 @@ Developers **should not**:
 {% data reusables.copilot.measure-changes-intro %}
 
 * **Developer satisfaction**: Use developer surveys to measure satisfaction with engineering tooling.
-* **Pull requests merged per developer**: You can use GitHub's `pull request` webhook, ensuring `action` is `closed` and the `merged` property inside `pull request` object is `true`.
+* **Pull requests merged per developer**: You can use the `pull request` webhook, ensuring `action` is `closed` and the `merged` property inside `pull request` object is `true`.
 * **Pull requests lead time**: Measure the average length of time between PR creation and merge.
+* **Pull request defect escape rate**: Measure the rate of deployment problems caused by poorly reviewed PRs.
+* **Pull request review comment type**: Download PR review comments, categorize using AI-based topic classification, and track the comments made by human reviewers on design, scalability, and strategy.
