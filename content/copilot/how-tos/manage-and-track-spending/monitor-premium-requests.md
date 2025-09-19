@@ -85,15 +85,17 @@ You can use the following strategies to maximize the value of your premium reque
 
 * **Choose the right model for the task**. Some models are better suited to different tasks. If you're using a premium request, you can strategically choose which model you use to get the best result from {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-* **Setting a budget**. Set a budget to track your overages and receive alerts when you reach 75%, 90%, or 100% of your budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending#managing-budgets-for-your-personal-account).
+* **Define whether users can use premium requests over their included allowance**. Set a policy to control whether users can incur extra costs for premium requests when they use up their included allowance. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 
-  {% data reusables.copilot.zero-budget-changes %}
+* **Setting a budget**. Set a budget to track your overages and receive alerts when you reach 75%, 90%, or 100% of your budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending#managing-budgets-for-your-personal-account).
 
 * **Monitor your usage regularly**. Check your usage in your {% data variables.product.github %} account settings to see how many premium requests you’ve used. This helps you plan how much you can use for the rest of the month.
 
 * **Upgrade if needed**. If you find yourself consistently hitting your monthly allowance, consider upgrading to a plan with more premium requests included.
 
 * **Avoid retrying large prompts unnecessarily**. Submitting the same long or complex prompt multiple times may use more premium requests. Try rephrasing or simplifying your request when needed.
+
+{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses
 

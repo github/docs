@@ -74,6 +74,7 @@ You can set a higher budget for premium requests over the allowance for specific
 At a high level, the required steps are:
 
 1. Ensure the "Premium request paid usage" policy is enabled. See [Setting a policy for paid usage](#setting-a-policy-for-paid-usage).
-1. Delete the default $0 budget if it applies to your organization or enterprise.
+1. If there is a $0 budget for premium requests set at your enterprise or organization account level, delete it.
+
 1. Create a new budget for the users who need a higher allowance. For example, create an organization or cost center containing just these users, then create a Premium Request SKU budget for the organization or cost center.
 1. Create a separate, more restrictive budget that covers every other {% data variables.product.prodname_copilot_short %} user in your enterprise. You will likely need to integrate with the API to ensure that this budget covers new users as they are added to your enterprise.

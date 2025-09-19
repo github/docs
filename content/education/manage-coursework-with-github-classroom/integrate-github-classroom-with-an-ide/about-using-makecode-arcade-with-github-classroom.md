@@ -24,7 +24,7 @@ MakeCode Arcade does not support multiplayer-editing for group assignments. Inst
 
 By default, MakeCode Arcade is configured to push to the assignment repository on {% data variables.location.product_location %}. After making progress on an assignment with MakeCode Arcade, students should push changes to {% data variables.location.product_location %} using the {% octicon "mark-github" aria-label="The GitHub mark" %}{% octicon "arrow-up" aria-label="The up arrow icon" %} button at the bottom of the screen.
 
-![Screenshot of the MakeCode Arcade window. At the bottom of the window, a button is labelled with the Octocat logo and an upwards-facing arrow.](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
+![Screenshot of the MakeCode Arcade window. At the bottom of the window, a button is labeled with the Octocat logo and an upwards-facing arrow.](/assets/images/help/classroom/ide-makecode-arcade-version-control-button.png)
 
 ## Further reading
 
