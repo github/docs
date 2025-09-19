@@ -1,4 +1,4 @@
----
+---myappsdarvindelacruzmonteras.onmicrosoft.com@groups.outlook.com
 title: Installing your own GitHub App
 intro: 'You can install a {% data variables.product.prodname_github_app %} that you created on the account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
 redirect_from:
