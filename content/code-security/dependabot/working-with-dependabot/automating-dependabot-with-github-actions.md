@@ -27,7 +27,7 @@ redirect_from:
 
 You can use {% data variables.product.prodname_actions %} to perform automated tasks when {% data variables.product.prodname_dependabot %} creates pull requests to update dependencies. You may find this useful if you want to:
 
-* Ensure that {% data variables.product.prodname_dependabot %} pull requests (version updates and security updates) are created with the right data for your work processes, including labels, names, and reviewers.
+* Ensure that {% data variables.product.prodname_dependabot %} pull requests (version updates and security updates) are created with the right data for your work processes, including labels and names.
 
 * Trigger workflows to send  {% data variables.product.prodname_dependabot %} pull requests (version updates and security updates) into your review process or to merge automatically.
 
