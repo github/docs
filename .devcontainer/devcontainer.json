@@ -59,12 +59,7 @@
   },
 
   // Lifecycle commands
-  "onCreateCommand": [
-    "npm config set \"//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN\"",
-    "npm config set \"@github:registry=https://npm.pkg.github.com/\"", 
-    "npm install -g @github/copilot",
-    "npm ci"
-  ],
+  "onCreateCommand": "npm ci",
   "postStartCommand": "nohup bash -c 'npm start &'",
   // Set the port to be public
   "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
