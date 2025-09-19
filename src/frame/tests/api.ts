@@ -5,13 +5,13 @@ import { get } from '@/tests/helpers/e2etest'
 describe('general /api pages', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  test("any /api URL that isn't found should JSON", async () => {
+  test("any /api URL that isn't found should JSON", async (): Promise<void> => {
     const res = await get('/api')
     expect(res.statusCode).toBe(404)
     expect(res.headers['content-type']).toMatch(/application\/json/)
   })
 
-  test("any /api/* URL that isn't found should be JSON", async () => {
+  test("any /api/* URL that isn't found should be JSON", async (): Promise<void> => {
     const res = await get('/api/yadayada')
     expect(res.statusCode).toBe(404)
     expect(JSON.parse(res.body).error).toBe('/yadayada not found')
