@@ -79,7 +79,7 @@ If the user accepts your request, {% data variables.product.github %} redirects 
 
 Exchange this `code` for an access token:
 
-    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
+    GET {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
 This endpoint takes the following input parameters.
 
