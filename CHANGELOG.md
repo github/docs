@@ -1,5 +1,33 @@
 # Docs changelog
 
+**17 September 2025**
+
+We added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
+
+You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/en/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
+
+To keep the content focused on users' job-to-be-done, we simplified the procedures for [creating workflow templates for your organization](https://docs.github.com/en/actions/how-tos/reuse-automations/create-workflow-templates). In addition, we updated reference documentation for workflow templates with details on permissions, repository visibility rules, rules for the metadata file, and examples. See [Workflow templates](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations#workflow-templates).
+
+<hr>
+
+**17 September 2025**
+
+You can now publish your Spark app as "read-only." 
+
+By default, data stored in Spark is shared across all users of the app. You can choose to publish your app as "read-only" if you want to showcase your app to others, but you don't want others to be able to edit or delete any stored data.
+
+We've updated the [Spark documentation](https://docs.github.com/en/copilot/tutorials/build-apps-with-spark) accordingly.
+
+<hr>
+
+**15 September 2025**
+
+We've updated the documentation for Copilot code review to clarify model usage for code review.
+
+See [Responsible use of GitHub Copilot code review](https://docs.github.com/copilot/responsible-use/code-review#model-usage).
+
+<hr>
+
 **11 September 2025**
 
 Copilot Chat in VS Code includes a "Manage models" option which allows you to add models from a variety of LLM providers, such as Azure, Anthropic, Google, and xAI. By installing the AI Toolkit for VS Code, you can install even more models from the "Manage models" option. We've updated the documentation to include details of how to use this new feature.

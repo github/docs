@@ -10,7 +10,7 @@ children:
   - /variables
   - /contexts
   - /expressions
-  - /reusable-workflows
+  - /reusing-workflow-configurations
   - /custom-actions
   - /deployment-environments
   - /concurrency

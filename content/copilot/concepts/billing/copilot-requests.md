@@ -48,7 +48,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 If you use **{% data variables.copilot.copilot_free_short %}**, your plan comes with up to 2,000 code completion requests and up to 50 premium requests per month. All chat interactions count as premium requests.
 
-If you're on a **paid plan**, you get unlimited code completions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}. Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
+If you're on a **paid plan**, you get unlimited code completions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
 Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
@@ -73,7 +73,7 @@ If you need more premium requests beyond your monthly allowance:
 * For an individual subscription, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 * If you're an enterprise or organization owner, ensure that the "Premium request paid usage" policy is enabled and that extra spending is not prevented by a budget. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-{% data reusables.copilot.zero-budget-changes %}
+{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Model multipliers
 
