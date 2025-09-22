@@ -1,13 +1,13 @@
 ---
-title: Building your first app in minutes with GitHub Spark
-shortTitle: Easy apps with Spark
-intro: 'Learn how to use {% data variables.product.prodname_spark %} to quickly create and deploy an app without writing any code.'
-allowTitleToDifferFromFilename: true
+title: Your first spark
+shortTitle: Your first spark
+intro: 'Learn how to build your first {% data variables.product.prodname_spark %} app in minutes, without writing any code.'
 versions:
   feature: spark
 product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} license can use {% data variables.product.prodname_spark_short %}.'
 redirect_from:
   - /copilot/tutorials/building-your-first-app-in-minutes-with-github-spark
+  - /copilot/tutorials/spark/easy-apps-with-spark
 contentType: tutorials
 ---
 
