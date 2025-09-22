@@ -139,7 +139,7 @@ In this example, the attempted script injection is unsuccessful, which is reflec
 PR title did not start with 'octocat'
 ```
 
-With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
+With this approach, the value of the {% raw %}`${{ github.event.pull_request.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
 
 ### Using workflow templates for {% data variables.product.prodname_code_scanning %}
 
@@ -151,6 +151,10 @@ For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-
 ### Restricting permissions for tokens
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token).
+
+## Understanding the risks of untrusted code checkout
+
+Untrusted pull request content that automatically triggers actions processing can pose a security risk. For more information, see [AUTOTITLE](/enterprise-cloud@latest/actions/reference/security/secure-use#mitigating-the-risks-of-untrusted-code-checkout) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
