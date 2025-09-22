@@ -3388,7 +3388,7 @@
     },
     {
       "slug": "list-attestations-by-bulk-subject-digests",
-      "subcategory": "orgs",
+      "subcategory": "attestations",
       "verb": "post",
       "requestPath": "/orgs/{org}/attestations/bulk-list"
     },
@@ -3412,7 +3412,7 @@
     },
     {
       "slug": "list-attestations",
-      "subcategory": "orgs",
+      "subcategory": "attestations",
       "verb": "get",
       "requestPath": "/orgs/{org}/attestations/{subject_digest}"
     },
@@ -5007,6 +5007,18 @@
       "subcategory": "repos",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
+      "slug": "get-all-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
     },
     {
       "slug": "get-a-repository-readme",

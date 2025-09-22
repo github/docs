@@ -4409,6 +4409,18 @@
       "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
     },
     {
+      "slug": "get-all-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
       "slug": "get-a-repository-readme",
       "subcategory": "contents",
       "verb": "get",
