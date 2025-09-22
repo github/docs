@@ -71,9 +71,9 @@ Now that you're happy with your app, let's deploy it so you can share it with ot
 1. In the **Data Access** section of the publication dropdown, choose whether you want to give other users read-only or write access to your app.
 
    Choose **read-only** to let others view your app, without allowing them to create, edit or delete content.
-   
+
    For example, if you've created a family calendar app and you want to showcase the app, but you don't want users to be able to create, edit or delete events in the calendar yet, choose **read-only**.
-   
+
 1. Click **View site** {% octicon "link-external" aria-hidden="true" aria-label="link-external" %} to see your deployed app, then copy and share your app's URL.
 
 ## Next steps
