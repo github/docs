@@ -23,7 +23,7 @@ contentType: rai
 
 ### Input processing
 
-> [!NOTE] {% data variables.product.prodname_spark_short %} currently leverages {% data variables.copilot.copilot_claude_sonnet_40 %}. This model is subject to change.
+{% data reusables.copilot.spark-model %}
 
 Input prompts in {% data variables.product.prodname_spark_short %} are pre-processed by {% data variables.product.prodname_copilot_short %}, augmented with contextual information from your current {% data variables.product.prodname_spark_short %} inputs and sent to a large language model powered agent within your development environment. Included context includes information from your spark such as code from your current application, previous prompts supplied in the {% data variables.product.prodname_spark_short %} interface, and any error logs from  your spark’s development environment.
 

@@ -73,7 +73,7 @@ Create and manage collections of documentation to use as context for chatting wi
 
 ### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
 
-Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes).
+Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark).
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 
