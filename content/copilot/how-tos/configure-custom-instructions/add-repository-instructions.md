@@ -20,7 +20,6 @@ redirect_from:
 This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -31,7 +30,6 @@ This version of this article is for using repository custom instructions on the 
 This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -42,7 +40,6 @@ This version of this article is for using repository custom instructions and pro
 This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -53,7 +50,6 @@ This version of this article is for using repository custom instructions in {% d
 This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -76,7 +72,6 @@ This version of this article is for using repository custom instructions in Xcod
 This version of this article is for using repository custom instructions in Eclipse. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
