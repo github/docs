@@ -52,6 +52,14 @@ You can deploy {% data variables.product.prodname_ghe_server %} to a virtualizat
 * Google Cloud Platform (GCP)
 * Microsoft Azure
 
+## Keeping GitHub Enterprise Server updated
+
+As an administrator, you are responsible for keeping your {% data variables.product.prodname_ghe_server %} instance up to date. {% data variables.product.company_short %} regularly releases updates for {% data variables.product.prodname_ghe_server %}, including OS-level security patches. Updates are delivered either as upgrade packages or as hotpatches. Apply updates promptly to maintain the security, stability, and performance of your environment. For more information about the upgrade process, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+
+You can manually install upgrade packages or hotpatches. You can also enable automatic updates to apply eligible hotpatches automatically. Automatic updates do not replace planned full upgrades. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package), [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-a-hotpatch), and [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks).
+
+For information about recent features, bug fixes, and security updates, see the [release notes](/admin/release-notes).
+
 ## Administrative options
 
 You can give certain employees administrative access to your {% data variables.product.prodname_ghe_server %} instance. {% data variables.product.company_short %} has found that people with Linux administration experience are more successful with deployment and maintenance.

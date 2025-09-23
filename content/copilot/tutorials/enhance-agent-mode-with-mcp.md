@@ -100,9 +100,13 @@ Prompt {% data variables.product.prodname_copilot_short %} to analyze both acces
 
 In your prompt, include a link to the Figma file. In order for Copilot to successfully read and analyze the design specifications, select a specific node or layer in the file, so that the node ID is included in the URL.
 
-**Example prompt**: `I need to make our customer portal WCAG 2.1 AA compliant. Use the Figma MCP to analyze our design specifications at https://figma.com/design/DESIGN-FILE-FOR-ACCESSIBILITY-SPECS?node-id=NODE_ID for accessibility requirements. Also use the GitHub MCP to find open GitHub issues with the labels accessibility or WCAG in the customer-portal repository. Then sort them into categories and list each issue that falls under the category with the issue title and number.`
+#### Example prompt 1
 
-**Example response from {% data variables.product.prodname_copilot_short %}:**
+```copilot copy
+I need to make our customer portal WCAG 2.1 AA compliant. Use the Figma MCP to analyze our design specifications at https://figma.com/design/DESIGN-FILE-FOR-ACCESSIBILITY-SPECS?node-id=NODE_ID for accessibility requirements. Also use the GitHub MCP to find open GitHub issues with the labels accessibility or WCAG in the customer-portal repository. Then sort them into categories and list each issue that falls under the category with the issue title and number.
+```
+
+#### Example response 1
 
 {% data variables.product.prodname_copilot_short %} should respond first by requesting to run tools from the Figma and GitHub MCP servers. Once you allow it, {% data variables.product.prodname_copilot_short %} will analyze the Figma design specifications and search for and organize GitHub issues into categories.
 
@@ -118,9 +122,13 @@ This gives you a comprehensive overview of accessibility requirements that you c
 
 Next, ask {% data variables.product.prodname_copilot_short %} to create a detailed implementation plan.
 
-**Example prompt**: `Based on your accessibility analysis of our Figma designs and GitHub issues, create a focused implementation plan for an immediate pull request addressing the highest priority accessibility issues. Don't make any changes yet. Also suggest follow-up issues we should create for the remaining Figma specifications.`
+#### Example prompt 2
 
-**Example response from {% data variables.product.prodname_copilot_short %}:**
+```copilot copy
+Based on your accessibility analysis of our Figma designs and GitHub issues, create a focused implementation plan for an immediate pull request addressing the highest priority accessibility issues. Don't make any changes yet. Also suggest follow-up issues we should create for the remaining Figma specifications.
+```
+
+#### Example response 2
 
 {% data variables.product.prodname_copilot_short %} will respond by creating a prioritized implementation plan focused on high-impact accessibility issues for an immediate pull request while suggesting follow-up issues for remaining work.
 
@@ -137,9 +145,13 @@ You can ask {% data variables.product.prodname_copilot_short %} to adjust the pl
 
 After reviewing the plan, prompt {% data variables.product.prodname_copilot_short %} to begin implementing accessibility fixes.
 
-**Example prompt**: `Create a new branch and implement the critical accessibility fixes according to your proposed implementation plan. Focus on the top three categories that you identified as highest priority. Create a pull request with proper references to the issues being fixed.`
+#### Example prompt 3
 
-**Example response from {% data variables.product.prodname_copilot_short %}:**
+```copilot copy
+Create a new branch and implement the critical accessibility fixes according to your proposed implementation plan. Focus on the top three categories that you identified as highest priority. Create a pull request with proper references to the issues being fixed.
+```
+
+#### Example response 3
 
 {% data variables.product.prodname_copilot_short %} will respond by executing the implementation plan, making targeted code changes to address the identified accessibility issues and creating a pull request.
 
@@ -155,9 +167,13 @@ For example, {% data variables.product.prodname_copilot_short %} may create a ne
 
 You can prompt {% data variables.product.prodname_copilot_short %} to create and run accessibility tests using the Playwright MCP.
 
-**Example prompt**: `Create focused accessibility tests for the components we've updated in the pull request. Use the Playwright MCP.`
+#### Example prompt 4
 
-**Example response from {% data variables.product.prodname_copilot_short %}:**
+```copilot copy
+Create focused accessibility tests for the components we've updated in the pull request. Use the Playwright MCP.
+```
+
+#### Example response 4
 
 {% data variables.product.prodname_copilot_short %} will respond by developing accessibility tests and, if necessary, creating a Playwright configuration file.
 
@@ -174,9 +190,13 @@ Once the tests are created, {% data variables.product.prodname_copilot_short %} 
 
 Finally, prompt {% data variables.product.prodname_copilot_short %} to update the {% data variables.product.github %} issues that have been addressed in the pull request, and create follow-up issues.
 
-**Example prompt**: `Update the GitHub issues we've fixed in the pull request with comments summarizing the changes. Create the follow-up issues you suggested for the remaining accessibility work.`
+#### Example prompt 5
 
-**Example response from {% data variables.product.prodname_copilot_short %}:**
+```copilot copy
+Update the GitHub issues we've fixed in the pull request with comments summarizing the changes. Create the follow-up issues you suggested for the remaining accessibility work.
+```
+
+#### Example response 5
 
 {% data variables.product.prodname_copilot_short %} will respond by asking for permission to use the necessary tools from the {% data variables.product.github %} MCP server. It will then update the {% data variables.product.github %} issues with detailed comments and create structured follow-up issues for remaining work.
 

@@ -52,9 +52,9 @@ To use {% data variables.product.prodname_copilot_short %} on the {% data variab
 
    For example, you could enter:
 
-   * Explain this file.
-   * How could I improve this code?
-   * How can I test this code?
+   * `Explain this file.`
+   * `How could I improve this code?`
+   * `How can I test this code?`
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 

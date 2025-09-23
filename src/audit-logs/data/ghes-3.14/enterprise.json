@@ -8793,7 +8793,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "project.access",
@@ -15154,7 +15154,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.login",
@@ -15464,7 +15464,7 @@
       "created_at",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.sign_in_from_unrecognized_device",
@@ -15569,7 +15569,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "user.suspend",

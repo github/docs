@@ -13,13 +13,7 @@ redirect_from:
 type: how_to
 ---
 
-## About accessibility settings
-
-To create an experience on {% data variables.product.github %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.github %} clashes with another application shortcut.
-
-You can decide whether you want to use some or all keyboard shortcuts, and control the display of animated images and how links are displayed.
-
-This article will help you customize your experience on the {% data variables.product.github %} website as a whole. For information on using specific {% data variables.product.github %} products with screen readers and other assistive technologies, see the [{% data variables.product.github %} Accessibility Documentation](https://accessibility.github.com/documentation).
+> [!NOTE] This article will help you customize your experience on the {% data variables.product.github %} website as a whole. For information on using specific {% data variables.product.github %} products with screen readers and other assistive technologies, see the [{% data variables.product.github %} Accessibility Documentation](https://accessibility.github.com/documentation).
 
 ## Managing the appearance of links
 
@@ -34,8 +28,6 @@ You can control whether links in text blocks are underlined and therefore more d
     * To disable hovercards for previewing link content, deselect **Hovercards**.
 
 ## Managing keyboard shortcuts
-
-You can perform actions across the {% data variables.product.github %} website by using your keyboard alone. Keyboard shortcuts can be useful to save time, but can be activated accidentally or interfere with assistive technology.
 
 By default, all keyboard shortcuts are enabled. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts).
 
@@ -65,7 +57,6 @@ By default, {% data variables.product.github %} syncs with your system-level pre
 
 You can customize contrast levels to improve visibility and meet accessibility needs.
 
-* If you're **not signed in**, click {% octicon "sliders" aria-hidden="true" aria-label="sliders" %} on the right in the top navigation bar to access the contrast settings.
-* If you're **signed in**, click **{% octicon "paintbrush" aria-hidden="true" aria-label="paintbrush" %} Appearance** in the left sidebar of your user settings. Under "Contrast", you can access the contrast settings.
-
-You can toggle the switch for "Increase contrast" to enable or disable high contrast mode. You can also choose between light and dark mode, or both, based on your system settings.
+1. If you're **not signed in**, click {% octicon "sliders" aria-hidden="true" aria-label="sliders" %} on the right in the top navigation bar to access the contrast settings.
+1. If you're **signed in**, click **{% octicon "paintbrush" aria-hidden="true" aria-label="paintbrush" %} Appearance** in the left sidebar of your user settings.
+1. Under "Contrast", toggle the "Increase contrast" switch.

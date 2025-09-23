@@ -23,7 +23,7 @@ A good suite of unit tests is critical to the success of any project. However, w
 
 Imagine you have a Python function which validates data before updating the database. You need to create unit tests to ensure the validation performs the way you expect. You can ask {% data variables.copilot.copilot_chat_short %} to generate these tests for you.
 
-```python
+```python id=validate-price
 def validate_price(price: float):
   if price <= 0:
     raise ValueError("Price must be greater than 0")
@@ -33,7 +33,9 @@ def validate_price(price: float):
 
 ## Example prompt
 
-`/tests Generate unit tests for this function. Validate both success and failure, and include edge cases.`
+```copilot copy prompt ref=validate-price
+/tests Generate unit tests for this function. Validate both success and failure, and include edge cases.
+```
 
 ## Example response
 

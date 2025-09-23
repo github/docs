@@ -4,6 +4,7 @@ import React from 'react'
 import { Link } from '@/frame/components/Link'
 import type { TocItem } from '@/landings/types'
 import { ActionList } from '@primer/react'
+import styles from './TableOfContents.module.css'
 
 type Props = {
   items: Array<TocItem>
@@ -45,11 +46,7 @@ export const TableOfContents = (props: Props) => {
             const { fullPath, title, childTocItems } = item
             return (
               <React.Fragment key={fullPath}>
-                <ActionList.LinkItem
-                  href={fullPath}
-                  as="a"
-                  className="f4 color-fg-accent d-list-item d-block width-full text-underline"
-                >
+                <ActionList.LinkItem href={fullPath} as="a" className={styles.linkItem}>
                   {title}
                 </ActionList.LinkItem>
                 {(childTocItems || []).length > 0 && (
@@ -65,7 +62,7 @@ export const TableOfContents = (props: Props) => {
                             key={childItem.fullPath}
                             href={childItem.fullPath}
                             as="a"
-                            className="f4 color-fg-accent d-list-item d-block width-full text-underline"
+                            className={styles.linkItem}
                           >
                             {childItem.title}
                           </ActionList.LinkItem>

@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   check-content-linter-rules-docs:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Checkout

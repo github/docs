@@ -17,7 +17,7 @@ jobs:
   check_all_english_links:
     name: Check all links
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     steps:
       - name: Check that gh CLI is installed
         run: gh --version

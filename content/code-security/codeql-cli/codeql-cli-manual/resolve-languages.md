@@ -61,6 +61,12 @@ per-user configuration file).
 
 (Note: On Windows the path separator is `;`).
 
+#### `--[no-]filter-to-languages-with-queries`
+
+List only languages that have default queries.
+
+Available since `v2.23.0`.
+
 #### `--format=<fmt>`
 
 Select output format. Choices include:

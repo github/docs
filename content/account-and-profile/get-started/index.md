@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /profile
   - /personal-dashboard-quickstart
-  - /personalizing-your-profile
 ---
 

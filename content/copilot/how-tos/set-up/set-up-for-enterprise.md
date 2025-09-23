@@ -37,11 +37,13 @@ If your enterprise users connect through an HTTP proxy server or firewall, ensur
 
 You may also need to install custom SSL certificates on your users' machines. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-network-settings-for-github-copilot#installing-custom-certificates).
 
-## 4. Grant access to organizations
+## 4. Assign licenses
 
-Enable {% data variables.product.prodname_copilot_short %} for some or all organizations in your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise). Each organization owner can then grant {% data variables.product.prodname_copilot_short %} access to some or all of the members of their organization.
+{% data reusables.copilot.enterprise-licensing %}
 
-If your enterprise is on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
+For instructions, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/enabling-copilot-for-organizations-in-your-enterprise).
+
+>[!TIP] If your enterprise is on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
 ## Next steps
 

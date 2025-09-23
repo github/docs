@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/how-tos/get-code-suggestions/get-code-suggestions
+    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -109,7 +109,7 @@ childGroups:
     children:
       - copilot
       - copilot/get-started/plans
-      - copilot/how-tos/get-code-suggestions/get-code-suggestions
+      - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
       - copilot/tutorials/copilot-chat-cookbook
       - copilot/how-tos/use-copilot-agents/coding-agent
       - copilot/how-tos/configure-custom-instructions

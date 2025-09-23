@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Check if this run was triggered by a member of the docs team
-        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         id: triggered-by-member
         with:
           github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
@@ -48,7 +48,7 @@ jobs:
           exit 1
 
       - name: Setup Node.js
-        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version-file: 'package.json'
           cache: npm

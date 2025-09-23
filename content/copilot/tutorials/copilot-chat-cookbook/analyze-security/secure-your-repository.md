@@ -27,19 +27,17 @@ Let's say you recently created a repository for a new web application, you want 
 
 ### Example prompt
 
-`Provide step-by-step instructions on how to enable the following essential security features in my GitHub repository:`
+```copilot copy prompt
+Provide step-by-step instructions on how to enable the following essential security features in my GitHub repository:
 
-`* Secret scanning`
+* Secret scanning
+* Push protection
+* Dependabot alerts
+* Dependabot security updates
+* Branch protection rules, including enforced code reviews before merging
 
-`* Push protection`
-
-`* Dependabot alerts`
-
-`* Dependabot security updates`
-
-`* Branch protection rules, including enforced code reviews before merging`
-
-`Explain why each feature is important and how it helps secure my repository.`
+Explain why each feature is important and how it helps secure my repository.
+```
 
 ### Example response
 
@@ -74,17 +72,16 @@ Let's say you want to share your project publicly, and want to set out a clear s
 
 ### Example prompt
 
-`Write a GitHub security policy (SECURITY.md) for my repository. The policy should include:`
+```copilot copy prompt
+Write a GitHub security policy (SECURITY.md) for my repository. The policy should include:
 
-`* A clear description of how users can report security vulnerabilities.`
+* A clear description of how users can report security vulnerabilities.
+* A response timeline for security issues.
+* Guidelines for responsible disclosure.
+* Supported versions of the software.
 
-`* A response timeline for security issues.`
-
-`* Guidelines for responsible disclosure.`
-
-`* Supported versions of the software.`
-
-`Format it as a well-structured Markdown document.`
+Format it as a well-structured Markdown document.
+```
 
 ### Example output
 
@@ -97,7 +94,7 @@ Thank you for helping to keep this project and its users secure! This document o
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability, please report it by emailing **security@yourdomain.com** or by using the GitHub [security advisories](https://github.com/octocat/octocat-repo/security/advisories) feature.  
+If you discover a security vulnerability, please report it by emailing **security@yourdomain.com** or by using the GitHub [security advisories](https://github.com/octocat/octocat-repo/security/advisories) feature.
 **Do not** report security vulnerabilities via public GitHub issues or pull requests.
 
 When reporting a vulnerability, please include as much information as possible to help us understand and reproduce the issue:

@@ -3251,6 +3251,18 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "create-artifact-metadata-storage-record",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/storage-record"
+    },
+    {
+      "slug": "list-artifact-storage-records",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records"
+    },
+    {
       "slug": "delete-attestations-in-bulk",
       "subcategory": "attestations",
       "verb": "post",
@@ -4003,6 +4015,62 @@
       "subcategory": "organization-configurations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/private-registries/{secret_name}"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "list-projects-for-organization",
+      "subcategory": "projects",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2"
+    },
+    {
+      "slug": "get-project-for-organization",
+      "subcategory": "projects",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}"
+    },
+    {
+      "slug": "list-project-fields-for-organization",
+      "subcategory": "fields",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields"
+    },
+    {
+      "slug": "get-project-field-for-organization",
+      "subcategory": "fields",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/fields/{field_id}"
+    },
+    {
+      "slug": "list-items-for-an-organization-owned-project",
+      "subcategory": "items",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items"
+    },
+    {
+      "slug": "add-item-to-organization-owned-project",
+      "subcategory": "items",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items"
+    },
+    {
+      "slug": "get-an-item-for-an-organization-owned-project",
+      "subcategory": "items",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
+    },
+    {
+      "slug": "update-project-item-for-organization",
+      "subcategory": "items",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
+    },
+    {
+      "slug": "delete-project-item-for-organization",
+      "subcategory": "items",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}"
     }
   ],
   "projects-classic": [

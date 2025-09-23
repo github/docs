@@ -8,7 +8,6 @@ topics:
   - Copilot
 children:
   - /use-code-review
-  - /configure-coding-guidelines
   - /configure-automatic-review
 redirect_from:
   - /copilot/using-github-copilot/code-review
@@ -17,4 +16,4 @@ redirect_from:
 contentType: how-tos
 ---
 
-These articles provide instructions on configuring and using {% data variables.copilot.copilot_code-review_short %}. For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/code-review).
+These articles provide instructions on configuring and using {% data variables.copilot.copilot_code-review_short %}. For an introduction to {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/concepts/agents/code-review).

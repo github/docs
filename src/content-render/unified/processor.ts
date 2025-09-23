@@ -57,7 +57,7 @@ export function createProcessor(context: Context): UnifiedProcessor {
         subset: false,
         aliases: {
           // As of Jan 2024, 'jsonc' is not supported by highlight.js. It
-          // just because plain text.
+          // just becomes plain text.
           // But 'jsonc' works great in github.com. For example, when
           // previewing and edited .md content in the browser. Or viewing
           // PR diffs in web view.
@@ -66,6 +66,9 @@ export function createProcessor(context: Context): UnifiedProcessor {
           // but with this alias you get the nice syntax highlighting when
           // viewed on our site.
           json: 'jsonc',
+          // Docs supports a custom 'copilot' language, which is useful for contributors,
+          // but is not a supported highlight.js language, so alias to 'text'.
+          text: 'copilot',
         },
       })
       .use(raw)

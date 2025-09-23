@@ -1,6 +1,6 @@
 ---
 title: Managing the availability of your GitHub Copilot Extension
-intro: 'After you build your {% data variables.copilot.copilot_extension_short %}, you can change it''s visibility or publish it on the {% data variables.product.prodname_marketplace %}.'
+intro: After you build your {% data variables.copilot.copilot_extension_short %}, you can change it's visibility or publish it on the {% data variables.product.prodname_marketplace %}.
 versions:
   feature: copilot-extensions
 topics:

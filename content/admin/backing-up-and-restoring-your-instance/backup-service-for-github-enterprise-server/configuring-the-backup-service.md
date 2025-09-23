@@ -27,9 +27,10 @@ To ensure reliable and performant backups, your storage must meet the following 
   You can test whether your filesystem supports hardlinking symbolic links by running:
 
     ```shell
-    touch file
-    ln -s file symlink
-    ln symlink hardlink
+    cd /data/backup
+    sudo touch file
+    sudo ln -s file symlink
+    sudo ln symlink hardlink
     ls -la
     ```
 
@@ -127,7 +128,7 @@ If you're migrating from {% data variables.product.prodname_enterprise_backup_ut
 
 Once the service is configured, you can define a backup schedule.
 
-1. In the {% data variables.enterprise.management_console %}, open the "Backup Service" page.
+1. In the {% data variables.enterprise.management_console %}, open the "Backups" tab from the top menu.
 1. In the "Backup Schedule" section, choose a predefined schedule (e.g., Daily) or enter a custom cron expression.
 1. Click **Save** to apply the changes.
 

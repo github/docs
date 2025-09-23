@@ -19,4 +19,4 @@ redirect_from:
 contentType: how-tos
 ---
 
-{% data reusables.copilot.disable-copilot-for-all-orgs %}
+To cancel your {% data variables.product.prodname_copilot %} plan for your enterprise account, you need to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/disable-for-organizations).

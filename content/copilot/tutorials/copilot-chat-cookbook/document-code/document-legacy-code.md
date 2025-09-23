@@ -24,7 +24,7 @@ Working with legacy code can be challenging for developers, especially when the 
 
 The block of COBOL below connects to a database and inserts a record. The code lacks documentation, which makes it difficult to understand what it does and how it works.
 
-```text
+```text id=cobol-insert-record
 IDENTIFICATION DIVISION.
 PROGRAM-ID. INSERT-RECORD.
 
@@ -75,9 +75,11 @@ INSERT-AND-VALIDATE.
 
 ## Example prompt
 
-We can use a simple prompt to ask {% data variables.copilot.copilot_chat_short %} to document the code.
+We can use a simple prompt to ask {% data variables.copilot.copilot_chat_short %} to add documentation to the code.
 
-`Document this code`
+```copilot copy prompt ref=cobol-insert-record
+Comment this code thoroughly
+```
 
 > [!NOTE] If you want the documentation generated in another format like Markdown, you can specify the desired output format in the prompt. For example: `Document this code in Markdown`.
 

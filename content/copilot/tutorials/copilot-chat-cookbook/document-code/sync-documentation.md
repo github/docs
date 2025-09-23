@@ -25,7 +25,7 @@ It can be difficult to keep documentation up to date with changes to code. Howev
 
  Imagine a scenario where you have a TypeScript function that retrieves products by category name, but the documentation is out of date.
 
-```typescript
+```typescript id=fetch-products-by-category
 /**
  * Retrieves all products belonging to a specific category.
  *
@@ -58,7 +58,9 @@ async getByCategoryName(categoryId: number, page = 1, pageSize = 10): Promise<Pr
 
 You can ask {% data variables.copilot.copilot_chat_short %} to update the documentation according to the current code.
 
-`Update the existing documentation for the getByCategoryName function to reflect the current implementation.`
+```copilot copy prompt ref=fetch-products-by-category
+Update the existing documentation for the getByCategoryName function to reflect the current implementation.
+```
 
 ## Example response
 

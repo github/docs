@@ -7,14 +7,14 @@ versions:
 topics:
   - Copilot
 children:
-  - /copilot-billing
   - /cheat-sheet
+  - /ai-models
   - /keyboard-shortcuts
   - /policy-conflicts
-  - /ai-models
   - /allowlist-reference
-  - /extensions-glossary
   - /metrics-data
+  - /copilot-billing
+  - /extensions-glossary
 contentType: reference
 ---
 

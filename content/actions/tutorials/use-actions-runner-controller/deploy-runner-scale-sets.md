@@ -441,7 +441,7 @@ listenerTemplate:
 
 {% data reusables.actions.actions-runner-controller-unsupported-customization %}
 
-If you are using container jobs and services or container actions, the `containerMode` value must be set to `dind` or `kubernetes`.
+If you are using container jobs and services or container actions, you must set the `containerMode` value to `dind` or `kubernetes`. To use a custom container mode, comment out or remove `containerMode`, and add your desired configuration to the `template` section. See [Customizing container modes](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#customizing-container-modes).
 
 * For more information on container jobs and services, see [AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container).
 * For more information on container actions, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).

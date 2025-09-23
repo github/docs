@@ -2,6 +2,7 @@
 title: Using GitHub Copilot to create issues
 shortTitle: Use Copilot to create issues
 intro: 'Use {% data variables.product.prodname_copilot_short %} to quickly generate structured, high-quality issues from natural language or images, without filling out every field manually.'
+permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_short %} to create issues. <br> <a href="https://github.com/copilot?ref_cta=Copilot+free&ref_loc=use+copilot+to+create+issues&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_copilot_short %} for free</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -29,13 +30,13 @@ You can create issues from {% data variables.copilot.copilot_chat_short %}'s imm
 1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
 1. In the prompt box, describe the issue you want to create.
 
-   If you contribute issues to multiple repositories, use the `organization/repository` format to specify the target repository for this issue. If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will infer the repository based on the repository you last created an issue in.
+   If you contribute issues to multiple repositories, use the `repo-owner/repo-name` format to specify the target repository for this issue. If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will infer the repository based on the repository you last created an issue in.
 
    For example:
 
-   * `In octo-org/octo-repo, create a feature request to add fuzzy matching to search.`
-   * `Log a bug for a 500 error. This happens consistently when I try to log into the site.`
-   * `Create a task to change the application logo background to red and add the label "needs design review".`
+   * {% prompt %}In OWNER/REPOSITORY, create a feature request to add fuzzy matching to search.{% endprompt %}
+   * {% prompt %}Log a bug for a 500 error. This happens consistently when I try to log into the site.{% endprompt %}
+   * {% prompt %}Create a task to change the application logo background to red and add the label "needs design review".{% endprompt %}
 
    > [!NOTE] You can only use {% data variables.product.prodname_copilot_short %} to create issues in repositories where you already have permission to create issues. This feature doesn't change your access or bypass repository permissions.
 
@@ -70,11 +71,47 @@ You can create issues from {% data variables.copilot.copilot_chat_short %}'s imm
 
 If your prompt includes multiple tasks or bugs, {% data variables.product.prodname_copilot_short %} can draft more than one issue at a time.
 
-For example:
-
-`In octo-org/octo-repo, create 3 issues: 1) DETAILS OF ONE TASK, 2) DETAILS OF ANOTHER TASK, 3) DETAILS OF A THIRD TASK`
+For example: {% prompt %}In OWNER/REPOSITORY, create 3 issues: 1) DETAILS OF ONE TASK, 2) DETAILS OF ANOTHER TASK, 3) DETAILS OF A THIRD TASK{% endprompt %}
 
 Each draft appears separately, and you can review and edit them individually. To publish the issues, click **Create** on each one you want to submit.
+
+## Creating sub-issues
+
+You can use {% data variables.product.prodname_copilot_short %} to draft multiple sub-issues.
+
+For example:
+
+`In octo-org/octo-repo, plan a new user dashboard. Break it down into an epic, and create sub-issues for each main feature and task.`
+
+{% data variables.product.prodname_copilot_short %} generates a draft issue tree, with a parent issue at the top level and sub-issues beneath it.
+
+You can review the issue tree, expand or collapse sub-issues, and edit the details of each issue.  
+
+Click the parent issue to view its details in the workbench. The parent issue displays a list of sub-issues, and you can click each one to view and edit its details in the workbench. From a sub-issue, use the "Parent" dropdown to navigate through the issue tree. You can also click **Review and create** at the top of the workbench to see the full issue tree and navigate directly to any issue.
+
+{% data variables.product.prodname_copilot_short %} can modify the tree, by unlinking issues or by attaching new drafts.
+
+For example, you can:
+* Remove a sub-issue from the issue tree:  
+   `Remove sub-issue NAME_OF_ISSUE from the issue tree`
+* Add an additional sub-issue to the issue tree:
+   `Add an additional sub-issue with ISSUE_DETAILS to the issue tree`
+
+Once you've finished editing the drafts and are ready to publish the issues, click **Review and create** then click **Create issues**.
+
+## Working with existing issues
+
+You can use {% data variables.product.prodname_copilot_short %} to connect new issues with issues that already exist in your repository.
+
+For example, you can:
+* Add a sub-issue to an existing parent issue:  
+   `Create a sub-issue for octo-org/octo-repo issue #456.`
+* Add a parent issue to an existing issue:
+   `Create a parent issue for octo-org/octo-repo issue #456.`
+* Add a parent issue to multiple existing issues:
+   `Create a parent issue for octo-org/octo-repo issues #456, #457, and #458.`
+
+The draft appears in the workbench, where you can review and edit it. To publish the issue, click **Review and create**, then click **Create issues**.
 
 ## Assigning issues to {% data variables.product.prodname_copilot_short %}
 
@@ -82,7 +119,7 @@ To assign an issue to {% data variables.product.prodname_copilot_short %}, you n
 
 You can assign the issue during creation in one of two ways:
 
-* **Natural language:** Prompt {% data variables.product.prodname_copilot_short %} with something like “Assign this issue to {% data variables.product.prodname_copilot_short %}."
+* **Natural language:** Prompt {% data variables.product.prodname_copilot_short %} with something like `Assign this issue to {% data variables.product.prodname_copilot_short %}.`
 * **Manually:** Select "{% data variables.product.prodname_copilot_short %}" from the assignee list.
 
 Once the issue is assigned and created, {% data variables.product.prodname_copilot_short %} will start working on it automatically. You’ll see a 👀 emoji reaction on the issue to indicate that {% data variables.product.prodname_copilot_short %} is working on it.
@@ -90,3 +127,4 @@ Once the issue is assigned and created, {% data variables.product.prodname_copil
 ## Further reading
 
 * [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)
+* [AUTOTITLE](/copilot/tutorials/plan-a-project)

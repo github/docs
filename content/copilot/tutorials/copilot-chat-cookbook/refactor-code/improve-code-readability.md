@@ -38,7 +38,7 @@ Descriptive variable names and parameter names make it easier to understand thei
 
 This JavaScript code logs a message about a person's age to the console. The abstract parameter names make it difficult to understand the purpose of the code.
 
-```javascript
+```javascript id=log-persons-age
 function logPersonsAge(a, b, c) {
   if (c) {
     console.log(a + " is " + b + " years old.");
@@ -52,7 +52,9 @@ function logPersonsAge(a, b, c) {
 
 In the editor, select the function you want to change, then ask {% data variables.copilot.copilot_chat_short %}:
 
-`Improve the variable names in this function`
+```copilot copy prompt ref=log-persons-age
+Improve the variable names in this function
+```
 
 ### Example response
 
@@ -76,7 +78,7 @@ function logPersonAge(name, age, revealAge) {
 
 This Python code prints the sound that various animals make, if defined, or "Unknown animal" if the animal type is not recognized. However, the chain of `if...else` statements makes the code inefficient and cumbersome.
 
-```python
+```python id=animal-sound
 class Animal:
     def speak(self):
         pass
@@ -111,7 +113,9 @@ print(animal_sound("fish"))
 
 ### Example prompt
 
-`Simplify this code. Avoid using if/else chains but retain all function return values.`
+```copilot copy prompt ref=animal-sound
+Simplify this code. Avoid using if/else chains but retain all function return values.
+```
 
 ### Example response
 
@@ -157,7 +161,7 @@ Deeply nested structures can make the code hard to follow, making it difficult t
 
 This Ruby code prints information about a user account based on three parameters. The use of nested `if...else` statements makes the code unnecessarily complex.
 
-```ruby
+```ruby id=determine-access
 def determine_access(user_role, has_permission, is_active)
   if user_role == "admin"
     if has_permission
@@ -182,7 +186,9 @@ puts determine_access("user", true, true)
 
 ### Example prompt
 
-`Rewrite this code to avoid the nested if/else statements`
+```copilot copy prompt ref=determine-access
+Rewrite this code to avoid the nested if/else statements
+```
 
 ### Example response
 
@@ -211,7 +217,7 @@ It can be difficult to grasp exactly what a method or function does if it is too
 
 This Java method processes a customer order and prints a message. It performs multiple tasks in a single method.
 
-```java
+```java id=process-order
 public void processOrder(Order order) {
   if (order == null || order.getItems().isEmpty()) {
     throw new IllegalArgumentException("Order is invalid.");
@@ -235,7 +241,9 @@ public void processOrder(Order order) {
 
 ### Example prompt
 
-`How could the processOrder method be refactored to be more useful and easier to maintain`
+```copilot copy prompt ref=process-order
+How could the processOrder method be refactored to be more useful and easier to maintain
+```
 
 ### Example response
 

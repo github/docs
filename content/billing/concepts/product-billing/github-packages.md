@@ -57,6 +57,9 @@ Plan | Storage | Data transfer (per month)
 
 {% endrowheaders %}
 
+> [!NOTE]
+> **Billing for container image storage:** Container image storage and bandwidth for the {% data variables.product.prodname_container_registry %} is currently free. If you use {% data variables.product.prodname_container_registry %}, you'll be informed at least one month in advance of any change to this policy. For more information about the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry).
+
 ### Package downloads by {% data variables.product.prodname_actions %}
 
 When a workflow uses {% data variables.product.prodname_actions %} to download a package, the data transfer does not count against the usage for the hosting repository. We determine you are downloading packages using {% data variables.product.prodname_actions %} when you log in to {% data variables.product.prodname_registry %} using a `GITHUB_TOKEN`.

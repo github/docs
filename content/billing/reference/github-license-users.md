@@ -71,7 +71,8 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Anyone who is an outside collaborator on a public repository owned by your organization, or who has a pending invitation to become one
 * Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
 * Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom %} are not linked, and who do not meet any of the other criteria for per-user pricing
-* Users who have been provisioned with a {% data variables.enterprise.prodname_managed_user %}, but are not members of any organizations in the enterprise
+* Unaffiliated users: people who have been added to the enterprise, but are not members of any organizations in the enterprise
+  * However, these users consume a bundled {% data variables.product.prodname_vs %} license if they are linked with a {% data variables.product.prodname_vs %} subscription
 
 ## Organizations on {% data variables.product.prodname_ghe_server %}
 

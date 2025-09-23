@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         id: is-internal-contributor
         with:
           result-encoding: string
