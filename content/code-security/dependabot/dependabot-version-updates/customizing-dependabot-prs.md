@@ -212,7 +212,7 @@ updates:
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-See also [`milestones`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#milestones--) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
+See also [`milestone`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#milestone--) and [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/about-milestones).
 
 ## Changing the separator in the pull request branch name
 
@@ -281,4 +281,4 @@ updates:
       - "npm dependencies"
 ```
 
-See also [`target-branch`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#target-branch--).
+See also [`target-branch`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#target-branch-).

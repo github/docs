@@ -134,7 +134,7 @@ If a security update times out, you can reduce the chances of this happening by 
 
 There's a limit on the number of open pull requests {% data variables.product.prodname_dependabot %} will generate. When this limit is reached, no new pull requests are opened and this error is reported. The best way to resolve this error is to review and merge some of the open pull requests.
 
-There are separate limits for security and version update pull requests, so that open version update pull requests cannot block the creation of a security update pull request. The limit for security update pull requests is 10. By default, the limit for version updates is 5 but you can change this using the `open-pull-requests-limit` parameter in the configuration file. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#open-pull-requests-limit).
+There are separate limits for security and version update pull requests, so that open version update pull requests cannot block the creation of a security update pull request. The limit for security update pull requests is 10. By default, the limit for version updates is 5 but you can change this using the `open-pull-requests-limit` parameter in the configuration file. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#open-pull-requests-limit-).
 
 The best way to resolve this error is to merge or close some of the existing pull requests and trigger a new pull request manually. For more information, see [Triggering a {% data variables.product.prodname_dependabot %} pull request manually](#triggering-a-dependabot-pull-request-manually).
 
@@ -159,7 +159,7 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
 
-The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
+The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
 
 {% data reusables.dependabot.dependabot-grouped-updates-applies-to %}
 
@@ -185,11 +185,11 @@ In this example, {% data variables.product.prodname_dependabot %} will:
 
 You need to ensure that configuration settings don't cancel each other, and update them appropriately in your configuration file.
 
-For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups).
+For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--).
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_security_updates %}
 
-The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied. Check you have grouping configured to apply to security updates. If the `applies-to` key is absent from a set of grouping rules in your configuration, any group rules will by default only apply to version updates.
+The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups--) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied. Check you have grouping configured to apply to security updates. If the `applies-to` key is absent from a set of grouping rules in your configuration, any group rules will by default only apply to version updates.
 
 {% data reusables.dependabot.dependabot-grouped-updates-applies-to %}
 
