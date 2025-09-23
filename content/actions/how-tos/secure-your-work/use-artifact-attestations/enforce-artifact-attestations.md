@@ -86,7 +86,7 @@ For example, to enforce attestations for images that match the pattern `ghcr.io/
 helm upgrade trust-policies --install --atomic \
  --namespace artifact-attestations \
  oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
- --version v0.6.2 \
+ --version v0.7.0 \
  --set policy.enabled=true \
  --set policy.organization=MY-ORGANIZATION \
  --set-json 'policy.exemptImages=["index.docker.io/library/busybox**"]' \
