@@ -20,6 +20,7 @@ children:
   - /code-review
   - /copilot-coding-agent
   - /spark
+  - /copilot-spaces
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features
 contentType: rai

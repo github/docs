@@ -209,3 +209,31 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 1. Click another file in the **Reviewed Changes** list in the chat window, to see the review comments for another file.
 
 {% endxcode %}
+
+{% jetbrains %}
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+
+* **Compatible JetBrains IDE**. To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
+
+  {% data reusables.copilot.jetbrains-compatible-ides %}
+
+{% data reusables.copilot.jetbrains-plugin-prerequisites %}
+
+## Using {% data variables.copilot.copilot_code-review_short %}
+
+These instructions explain how to use {% data variables.copilot.copilot_code-review_short %} in JetBrains IDEs. To see instructions for other popular coding environments, click the appropriate tab at the top of the page.
+
+1. In a JetBrains IDE, make some changes to one or more files.
+1. Open the "Commit" tool window on the left-hand side.
+1. Above the commit message input field, click **Copilot: Review Code Changes**. This button appears as a magnifying glass icon with a sparkle.
+1. {% data variables.product.prodname_copilot_short %} will begin reviewing your changes.
+1. {% data variables.product.prodname_copilot_short %} displays comments in your code with a summary of each potential issue. You can:
+
+   * Review and make changes based on the suggestions.
+   * Dismiss a comment by clicking **Discard**.
+1. If there is more than one comment, use the up and down arrows, at the top right of the popup, to navigate between comments.
+
+{% endjetbrains %}

@@ -66,7 +66,8 @@ For public repositories, jobs using the workflow labels shown in the table below
       <td>14 GB</td>
       <td> Intel </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>
       </td>
     </tr>
     <tr>
@@ -133,7 +134,8 @@ For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using
       <td>14 GB</td>
       <td> Intel </td>
       <td>
-        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15-intel</a></code>
       </td>
     </tr>
     <tr>

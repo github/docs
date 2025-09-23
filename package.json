@@ -9,11 +9,6 @@
     "url": "https://github.com/github/docs"
   },
   "type": "module",
-  "imports": {
-    "#src/*": {
-      "default": "./src/*"
-    }
-  },
   "exports": "./src/frame/server.ts",
   "scripts": {
     "add-content-type": "tsx src/content-render/scripts/add-content-type.ts",
