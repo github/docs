@@ -44,22 +44,3 @@ You can configure updates for repositories that contain a dependency manifest or
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/get-started/exploring-integrations/about-integrations).{% endif %}
 
 {% data reusables.dependabot.supported-package-managers %}
-
-## Why does {% data variables.product.prodname_dependabot %} sometimes fail to detect or update {% data variables.product.prodname_actions %} versions in monorepos?
-
-If your repository contains multiple {% data variables.product.prodname_actions %} (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
-
-- **Dash (`-`) separator** (for example, `@my-action-v0.1.0`):
-  - {% data variables.product.prodname_dependabot %} may group multiple actions under a single dependency entry or fail to detect new versions correctly. This occurs because {% data variables.product.prodname_dependabot %} relies on slash-based tag parsing to distinguish between actions.
-- **Slash (`/`) separator** (for example, `@my-action/v0.1.0`):
-  - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag structure that aligns with {% data variables.product.prodname_dependabot %}'s parsing logic.
-
-**Recommendation:** For monorepos with multiple actions, use the `name/version` (slash) format for action tags. This ensures {% data variables.product.prodname_dependabot %} can parse the tag hierarchy correctly and update actions independently.
-
-* Example:
-   ```yaml
-   # Recommended: namespaced with slash
-   uses: my-org/monorepo/my-action@my-action/v0.1.0
-
-   # Not recommended: dash
-   uses: my-org/monorepo@my-action-v0.1.0
