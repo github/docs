@@ -1,17 +1,19 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
-import { forEachInlineChild } from '../helpers/utils'
+import { forEachInlineChild } from '@/content-linter/lib/helpers/utils'
+import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
 
 export const imageNoGif = {
   names: ['GHD036', 'image-no-gif'],
   description:
     'Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images',
   tags: ['images'],
-  parser: 'markdownit',
-  function: (params, onError) => {
-    forEachInlineChild(params, 'image', function forToken(token) {
-      const imageFileName = token.attrs[0][1]
-      if (imageFileName.endsWith('.gif')) {
+  parser: 'markdownit' as const,
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    forEachInlineChild(params, 'image', function forToken(token: MarkdownToken) {
+      const imageFileName = token.attrs?.[0]?.[1]
+      if (imageFileName && imageFileName.endsWith('.gif')) {
         addError(
           onError,
           token.lineNumber,

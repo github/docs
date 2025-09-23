@@ -1,6 +1,6 @@
 ---
 title: Building and deploying AI-powered apps with GitHub Spark
-shortTitle: Build apps with Spark
+shortTitle: Build and deploy apps
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to build and deploy an intelligent web app with natural language using {% data variables.product.prodname_spark %}.'
 versions:
@@ -10,6 +10,7 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/tutorials/building-ai-app-prototypes
+  - /copilot/tutorials/build-apps-with-spark
 contentType: tutorials
 ---
 
@@ -19,11 +20,9 @@ contentType: tutorials
 
 ## Introduction
 
-With {% data variables.product.prodname_spark %}, you can describe what you want in natural language and get a fullstack web app with data storage, AI features, and {% data variables.product.github %} authentication built in. You can iterate using prompts, visual tools, or code, and then deploy with a click to a fully managed runtime.
+{% data reusables.copilot.spark-overview %}
 
-{% data variables.product.prodname_spark_short %} is seamlessly integrated with {% data variables.product.github %} so you can develop your spark via a synced {% data variables.product.github %} codespace with {% data variables.product.prodname_copilot_short %} for advanced editing. You can also create a repository for team collaboration, and leverage {% data variables.product.github %}'s ecosystem of tools and integrations.
-
-This tutorial will guide you through building and deploying an app with {% data variables.product.prodname_spark_short %} and exploring its features.
+This tutorial will guide you through the full lifecycle of building and deploying an app with {% data variables.product.prodname_spark_short %} and exploring its features.
 
 ### Prerequisites
 
@@ -49,7 +48,7 @@ For this tutorial, we'll create a simple marketing tool app, where:
    ```
 
    > [!TIP]
-   > * Be specific, and provide as many details as possible for the best results. You can [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to refine or suggest improvements to your initial prompt.
+   > * Be specific, and provide as many details as possible for the best results. You can ask [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to refine or suggest improvements to your initial prompt.
    > * Alternatively, drop a markdown document into the input field to provide {% data variables.product.prodname_spark_short %} with more context on what you're hoping to build.
 
 1. Optionally, upload an image to provide {% data variables.product.prodname_spark_short %} with a visual reference for your app. Mocks, sketches, or screenshots all work to provide {% data variables.product.prodname_spark_short %} with an idea of what you want to build.
@@ -146,7 +145,7 @@ You can view or edit your app’s code directly in {% data variables.product.pro
 > * You can also choose to share your spark as **read-only** so that other users can view your app's content, but they cannot edit content, delete files or records, or create new items.
 
 1. In the top right corner, click **Publish**.
-1. By default, your spark will be private and only accessible to you. Under "Visibility", choose whether you want your spark to remain private, or make it available to all {% data variables.product.github %} users.
+1. By default, your spark will be private and only accessible to you. Under "Visibility", choose whether you want your spark to remain private, or make it available to members of a specific organization on {% data variables.product.github %}, or all {% data variables.product.github %} users.
 
    ![Screenshot of the {% data variables.product.prodname_spark %} publication menu. The "All {% data variables.product.github %} users" visibility option is outlined in orange.](/assets/images/help/copilot/spark-github-user-visibility.png)
 

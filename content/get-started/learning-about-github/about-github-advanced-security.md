@@ -100,6 +100,9 @@ The table below summarizes the availability of {% data variables.product.prodnam
 |{% endif %}|
 | Custom patterns   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Delegated bypass for push protection    | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+|{% ifversion security-campaigns-secrets %}|
+| Security campaigns | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+|{% endif %}|
 | Security overview   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}

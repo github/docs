@@ -120,8 +120,8 @@ To see instructions for other popular coding environments, use the tool switcher
    * For **Neovim on Windows**, run the following command in Git Bash:
 
      ```shell copy
-     git clone https://github.com/github/copilot.vim.git \
-     $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+     git clone https://github.com/github/copilot.vim.git ^
+     %USERPROFILE%/AppData/Local/nvim/pack/github/start/copilot.vim
      ```
 
    * For **Vim on macOS or Linux**, run the following command in the terminal.
@@ -134,8 +134,8 @@ To see instructions for other popular coding environments, use the tool switcher
    * For **Vim on Windows**, run the following command in Git Bash:
 
      ```shell copy
-     git clone https://github.com/github/copilot.vim.git \
-     $HOME/vimfiles/pack/github/start/copilot.vim
+     git clone https://github.com/github/copilot.vim.git ^
+     %USERPROFILE%/vimfiles/pack/github/start/copilot.vim
      ```
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}

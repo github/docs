@@ -11,6 +11,7 @@ children:
   - /completions
   - /chat
   - /agents
+  - /spark
   - /prompting
   - /context
   - /auto-model-selection

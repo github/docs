@@ -8,6 +8,8 @@
 
 * **Delegated bypass for push protection** and **Delegated alert dismissal**:  Implement an approval process for better control over who in your enterprise can perform sensitive actions, supporting governance at scale.{% elsif ghes = 3.15 or ghes = 3.16 %}
 
-* **Delegated bypass for push protection**: Implement controls over who can bypass push protection.{% endif %}
+* **Delegated bypass for push protection**: Implement controls over who can bypass push protection.{% endif %}{% ifversion security-campaigns-secrets %}
+
+* **Security campaigns**: remediate exposed secrets at scale by creating a campaign and collaborating to fix them.{% endif %}
 
 * **Security overview**: Understand the distribution of risk across your organization.

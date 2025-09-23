@@ -21,7 +21,8 @@ This guide assumes that you have planned and started a trial of {% data variable
 * Identify additional access tokens you use by defining custom patterns.
 * Detect potential passwords using AI.
 * Control and audit the bypass process for push protection and {% data variables.secret-scanning.alerts %}.
-* Enable validity checks for exposed tokens.
+* Enable validity checks for exposed tokens.{% ifversion security-campaigns-secrets %}
+* Create security campaigns where security specialists and developers can collaborate to effectively reduce technical debt.{% endif %}
 
 To find out how to run a free secret risk assessment, see [Generating an initial secret risk assessment](/enterprise-cloud@latest/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
@@ -66,6 +67,14 @@ Reviewers are defined in an organization-level security configuration or in the 
 ## Enable validity checks
 
 You can enable validity checks to check whether detected tokens are still active at the repository, organization, and enterprise level. Generally, it is worth enabling this feature across the whole enterprise using enterprise or organization-level security configurations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+
+{% ifversion security-campaigns-secrets %}
+
+## Engage developers in security remediation
+
+Security campaigns provide a way for security teams to engage with developers to remediate security technical debt. They also provide a practical way to combine education in secret storage with examples of exposed secrets that your developers can fix. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/about-security-campaigns) and [AUTOTITLE](/enterprise-cloud@latest/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+
+{% endif %}
 
 ## Next steps
 

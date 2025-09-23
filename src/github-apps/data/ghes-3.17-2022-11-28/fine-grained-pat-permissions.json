@@ -4592,6 +4592,21 @@
       }
     ]
   },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -5379,6 +5394,15 @@
         "subcategory": "licenses",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/license",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "additional-permissions": false,
         "access": "read"
       },
