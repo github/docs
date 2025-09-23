@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 import frontmatter from '@gr2m/gray-matter'
-import { getLogLevelNumber } from '#src/observability/logger/lib/log-levels.js'
+import { getLogLevelNumber } from './src/observability/logger/lib/log-levels.js'
 
 // Replace imports with hardcoded values
 const ROOT = process.env.ROOT || '.'
