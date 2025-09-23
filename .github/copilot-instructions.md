@@ -36,7 +36,7 @@ The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { Genera
 
 We use `vitest` to write unit tests. Tests live in their own files in the `tests` subdirectory of a source (src) directory, e.g. `src/search/tests/api-ai-search.ts`. 
 
-For integration tests, we can use the mock server in `src/tests/mocks/start-mock-server.ts` to mock exteneral requests. 
+For integration tests, we can use the mock server in `src/tests/mocks/start-mock-server.ts` to mock external requests. 
 
 For UI rendering tests, we use `playwright` and write tests in `src/fixtures/tests/playwright-rendering.spec.ts`
 
