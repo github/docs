@@ -782,7 +782,7 @@ When `versioning-strategy` is defined, {% data variables.product.prodname_depend
 |--------|--------|
 | `auto` | Default behavior.|
 | `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
-| `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
+| `increase-if-necessary` | If the existing rule already allows the new version, Dependabot leaves the manifest file unchanged, but will still update the lockfile to use the latest version. If the existing rule does not allow the new version (for example, when a new major release falls outside the range), Dependabot will also update the manifest constraint. |
 | `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
 | `widen`| Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement. |
 
