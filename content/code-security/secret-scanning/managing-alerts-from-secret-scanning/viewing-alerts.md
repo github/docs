@@ -95,6 +95,7 @@ Alerts for {% data variables.product.prodname_secret_scanning %} are displayed u
    > {% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}
 
    {% endif %}
+{% data reusables.security.alert-assignee-step %}
 
 ## Filtering alerts
 
