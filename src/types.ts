@@ -358,6 +358,7 @@ export type Page = {
   languageCode: string
   documentType: string
   renderProp: (prop: string, context: any, opts?: any) => Promise<string>
+  renderTitle: (context: Context, opts?: any) => Promise<string>
   markdown: string
   versions: FrontmatterVersions
   applicableVersions: string[]
