@@ -107,6 +107,7 @@ If your repository contains multiple {% data variables.product.prodname_actions 
 
    # Not recommended: dash
    uses: my-org/monorepo@my-action-v0.1.0
+   ```
 
 ## Further reading
 
