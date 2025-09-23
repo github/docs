@@ -10,11 +10,10 @@ children:
   - /copilot-chat-cookbook
   - /customization-library
   - /coding-agent
+  - /spark
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
-  - /easy-apps-with-spark
-  - /build-apps-with-spark
   - /roll-out-at-scale
   - /explore-a-codebase
   - /explore-issues-and-discussions

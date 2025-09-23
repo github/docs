@@ -2,7 +2,12 @@ import semver from 'semver'
 
 // Where "release" is a release number, like `3.1` for Enterprise Server,
 // and "range" is a semver range operator with another number, like `<=3.2`.
-export default function versionSatisfiesRange(release, range) {
+export default function versionSatisfiesRange(release: string | undefined, range: string): boolean {
+  // Handle undefined release
+  if (!release) {
+    return false
+  }
+
   // workaround for Enterprise Server 11.10.340 because we can't use semver to
   // compare it to 2.x like we can with 2.0+
   if (release === '11.10.340') return range.startsWith('<')
@@ -15,5 +20,10 @@ export default function versionSatisfiesRange(release, range) {
     release = '1.0'
   }
 
-  return semver.satisfies(semver.coerce(release), range)
+  const coercedRelease = semver.coerce(release)
+  if (!coercedRelease) {
+    throw new Error(`Unable to coerce release version: ${release}`)
+  }
+
+  return semver.satisfies(coercedRelease, range)
 }
