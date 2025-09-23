@@ -37,6 +37,7 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Show paths" and "Show more" links are outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-details.png)
 
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
+{% data reusables.security.alert-assignee-step %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts).
 
