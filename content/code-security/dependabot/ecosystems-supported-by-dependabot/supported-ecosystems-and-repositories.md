@@ -45,23 +45,21 @@ If your repository already uses an integration for dependency management, you wi
 
 {% data reusables.dependabot.supported-package-managers %}
 
-### Known issue: Tag format for GitHub Actions in monorepos
+## Why does {% data variables.product.prodname_dependabot %} sometimes fail to detect or update {% data variables.product.prodname_actions %} versions in monorepos?
 
-If your repository contains multiple GitHub Actions (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
+If your repository contains multiple {% data variables.product.prodname_actions %} (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
 
-- **Dash (-) separator (for example, `@my-action-v0.1.0`):**
+- **Dash (`-`) separator** (for example, `@my-action-v0.1.0`):
   - {% data variables.product.prodname_dependabot %} may group multiple actions under a single dependency entry or fail to detect new versions correctly. This occurs because {% data variables.product.prodname_dependabot %} relies on slash-based tag parsing to distinguish between actions.
-- **Slash (`/`) separator (for example, `@my-action/v0.1.0`):**
+- **Slash (`/`) separator** (for example, `@my-action/v0.1.0`):
   - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag structure that aligns with {% data variables.product.prodname_dependabot %}'s parsing logic.
 
-**Example**:
-```yaml
-# Recommended: namespaced with slash
-uses: my-org/monorepo/my-action@my-action/v0.1.0
+**Recommendation:** For monorepos with multiple actions, use the `name/version` (slash) format for action tags. This ensures {% data variables.product.prodname_dependabot %} can parse the tag hierarchy correctly and update actions independently.
 
-# Not recommended: dash
-uses: my-org/monorepo@my-action-v0.1.0
-```
+* Example:
+   ```yaml
+   # Recommended: namespaced with slash
+   uses: my-org/monorepo/my-action@my-action/v0.1.0
 
-**Recommendation:**  
-For monorepos with multiple actions, use the `name/version` (slash) format for action tags. This ensures {% data variables.product.prodname_dependabot %} can parse the tag hierarchy correctly and update actions independently.
+   # Not recommended: dash
+   uses: my-org/monorepo@my-action-v0.1.0
