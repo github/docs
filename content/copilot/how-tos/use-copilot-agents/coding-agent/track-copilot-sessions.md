@@ -1,7 +1,7 @@
 ---
 title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
-intro: 'You can use the Agents panel or page, {% data variables.product.prodname_vscode %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
+intro: 'You can use the agents panel or page, {% data variables.product.prodname_vscode %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -24,19 +24,19 @@ contentType: how-tos
 
 After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-The Agents panel, [Agents page](https://github.com/copilot/agents), and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
+The agents panel, [agents page](https://github.com/copilot/agents), and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 
 You can also track {% data variables.product.prodname_copilot_short %}'s sessions in a specific repository from {% data variables.product.prodname_vscode %}.
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 
-## Tracking agent sessions from the Agents panel or page
+## Tracking agent sessions from the agents panel or page
 
-You can see a list of your running and past agent sessions in the Agents panel, available from every page on {% data variables.product.github %}, or on the dedicated Agents page.
+You can see a list of your running and past agent sessions in the agents panel, available from every page on {% data variables.product.github %}, or on the dedicated agents page.
 
-To open the Agents panel, click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar on any page.
+To open the agents panel, click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar on any page.
 
-To open the Agents page, open the Agents panel, then click **View all**.
+To open the agents page, open the agents panel, then click **View all**.
 
 For each session listed below, you can see its status at a glance, or click on it to navigate to the linked pull request.
 

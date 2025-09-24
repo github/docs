@@ -276,7 +276,7 @@ You can create your own custom instructions file from scratch. See [Writing your
 > [!NOTE]
 > {% data reusables.copilot.coding-agent.preview-note-text %}
 
-1. Navigate to the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+1. Navigate to the agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
 
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
