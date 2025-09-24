@@ -137,7 +137,7 @@
     ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: true
+  hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
