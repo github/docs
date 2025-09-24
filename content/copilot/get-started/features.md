@@ -63,7 +63,7 @@ Enhance {% data variables.copilot.copilot_chat_short %} responses by providing c
 
 Automatically generate commit messages and descriptions with {% data variables.copilot.copilot_desktop_short %} based on the changes you make to your project.
 
-### {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_spaces %}
 
 Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
 

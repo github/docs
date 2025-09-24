@@ -1,13 +1,14 @@
 ---
-title: Creating and using GitHub Copilot Spaces
-shortTitle: Create and use Copilot Spaces
+title: Creating GitHub Copilot Spaces
+shortTitle: Create Copilot Spaces
 intro: 'Create spaces to organize and centralize relevant content that grounds {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task.'
-permissions: 'Anyone with {% data variables.copilot.copilot_preview_features %} enabled can access {% data variables.copilot.copilot_spaces_short %}.'
+permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
 redirect_from:
+  - /copilot/how-tos/provide-context/use-copilot-spaces/create-and-use-copilot-spaces
   - /copilot/using-github-copilot/copilot-spaces/creating-and-using-copilot-spaces
   - /copilot/how-tos/context/copilot-spaces/creating-and-using-copilot-spaces
   - /copilot/how-tos/context/copilot-spaces/create-and-use-copilot-spaces
@@ -16,8 +17,6 @@ contentType: how-tos
 ---
 
 For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces).
-
-{% data reusables.copilot.copilot-spaces.preview-note %}
 
 ## Creating a space
 
@@ -49,13 +48,8 @@ You can add two types of context to your space:
   * **{% octicon "upload" aria-hidden="true" aria-label="upload" %} Upload a file**: You can upload files directly from your local machine. This includes images, text files, rich documents, and spreadsheets.
   * **{% octicon "paste" aria-hidden="true" aria-label="paste" %} Add text content**: You can type or paste free-text content, such as transcripts, notes, or any other relevant information that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
 
-## Using {% data variables.copilot.copilot_spaces %}
-
-Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the chat interface. Your chat will be grounded in the context you've added.
-
-You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
-
 ## Next steps
 
+* To learn more about using {% data variables.copilot.copilot_spaces_short %} in {% data variables.product.github %} and your IDE, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces).
 * To learn more about how to use {% data variables.copilot.copilot_spaces_short %} to help you with development work, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/speeding-up-development-work-with-copilot-spaces).
 * To learn how to share your space with your team, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces).
