@@ -66,7 +66,7 @@ See: [Configure custom instructions for GitHub Copilot](https://docs.github.com/
 
 In addition to repository-wide custom instructions, specified in the `.github/copilot-instructions.md` file, Copilot Code Review now supports:
 
-* Path-specific custom instructions, specified in `.github/instructions/NAME.instructions.md` files.
+* Path-specific custom instructions, specified in `.github/instructions/**/NAME.instructions.md` files.
 * Custom instructions specified in the organization settings for Copilot.
 
 We have updated several articles in the GitHub documentation accordingly. We have also made changes to clarify the difference between the various types of custom instructions for Copilot Code Review, Copilot Chat, and Copilot Coding Agent.
