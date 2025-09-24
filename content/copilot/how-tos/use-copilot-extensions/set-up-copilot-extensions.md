@@ -14,6 +14,14 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2025-11-19 -->
+
+<!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
+
+{% data reusables.copilot.copilot-extensions.extensions-retirement %}
+
+<!-- end expires 2025-11-19 -->
+
 This article is designed to help you build an entirely new {% data variables.copilot.copilot_extension %}. To instead learn how to quickly build and test a demo {% data variables.copilot.copilot_extension_short %} created by {% data variables.product.github %}, see [AUTOTITLE](/copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions).
 
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}
