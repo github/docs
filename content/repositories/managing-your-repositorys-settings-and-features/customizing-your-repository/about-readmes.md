@@ -38,9 +38,7 @@ When your README is viewed on GitHub, any content beyond 500 KiB will be truncat
 
 ## Auto-generated table of contents for markdown files
 
-For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.github %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %} menu icon at the top left of the rendered page.
-
-![Screenshot of the README for a repository. In the upper-left corner, the "Table of contents" dropdown menu (list icon) is expanded.](/assets/images/help/repository/readme-automatic-toc.png)
+For the rendered view of any Markdown file in a repository, including README files, {% data variables.product.github %} will automatically generate a table of contents based on section headings. You can view the table of contents for a README file by clicking the {% octicon "list-unordered" aria-label="Table of Contents" %} menu icon in the top corner of the rendered page.
 
 ## Section links in markdown files and blob pages
 
