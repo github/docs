@@ -26,4 +26,3 @@ redirect_from:
   - /copilot/using-github-copilot
 contentType: how-tos
 ---
-

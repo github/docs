@@ -15,8 +15,6 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
->
 > Firewall configuration has moved to the {% data variables.copilot.copilot_coding_agent %} settings page. Previous configurations saved as Actions variables will be maintained on that page.
 
 ## Overview

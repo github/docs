@@ -23,11 +23,10 @@ For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](
 1. To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces), and click **Create space**.
 1. Give your space a name.
 1. Choose whether the space is owned by you or by an organization you belong to. Organization-owned {% data variables.copilot.copilot_spaces_short %} can be shared using {% data variables.product.github %}’s built-in permission model.
-1. Optionally, add a description. This does not affect the responses {% data variables.product.prodname_copilot_short %} gives in the space, but it can help others understand the context of the space.
+1. Click **Create Space**.
+1. Optionally, once you are in the space, under the space name, add a description. This does not affect the responses {% data variables.product.prodname_copilot_short %} gives in the space, but it can help others understand the context of the space.
 
-   >[!NOTE] You can change the name and description of your space at any time by clicking **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** in the top right corner of the space.
-
-1. Click **Save** in the top right corner of the page.
+   >[!NOTE] You can change the name and description of your space at any time by hovering over them and clicking **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %}**.
 
 ## Adding context to a space
 

@@ -14,9 +14,11 @@ For information on creating {% data variables.copilot.copilot_spaces %}, see [AU
 
 ## Using {% data variables.copilot.copilot_spaces %} in {% data variables.product.github %}
 
-Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the chat interface in {% data variables.product.github %}. Your chat will be grounded in the context you've added.
+Once you've added context to your space, you can ask {% data variables.product.prodname_copilot_short %} questions in the space's chat interface in {% data variables.product.github %}. Your chat will be grounded in the context you've added. You can view all conversations you have had in the space's "Conversations" tab.
 
 You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
+
+To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces).
 
 ## Using {% data variables.copilot.copilot_spaces %} in your IDE
 

@@ -86,6 +86,12 @@ sections:
         - |
           Developers using `pnpm` workspaces can ensure more reliable dependency updates with full Dependabot support for `pnpm` workspace catalogs. Dependabot prevents lockfile inconsistencies, avoids broken dependency trees, and improves update reliability in monorepos. See [the GitHub blog post](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/).
 
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+
     - heading: Identity and access management
       notes:
         # https://github.com/github/releases/issues/5040
