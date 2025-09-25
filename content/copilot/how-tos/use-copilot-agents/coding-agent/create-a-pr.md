@@ -115,7 +115,7 @@ You can use command line options to:
 * Provide the prompt (`gh agent-task create "Example prompt"`)
 * Choose a base branch, instead of using the repository's default branch (`--base`)
 * Select a repository, instead of targeting the current repository (`--repo`)
-* Follow the session log in real time (`--log --follow`)
+* Follow the session log in real time (`--follow`)
 
 
 To see all of the available options, run `gh agent-task create --help`.
