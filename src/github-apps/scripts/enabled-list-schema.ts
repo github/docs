@@ -3,7 +3,23 @@
 // src/github-apps/data/user-to-server-rest.json
 // and src/github-apps/data/fine-grained-pat.json
 
-export default {
+interface SchemaProperty {
+  description: string
+  type: string
+}
+
+interface EnabledListSchema {
+  type: string
+  required: string[]
+  properties: {
+    slug: SchemaProperty
+    subcategory: SchemaProperty
+    verb: SchemaProperty
+    requestPath: SchemaProperty
+  }
+}
+
+const schema: EnabledListSchema = {
   type: 'object',
   required: ['slug', 'subcategory', 'verb', 'requestPath'],
   properties: {
@@ -25,3 +41,5 @@ export default {
     },
   },
 }
+
+export default schema

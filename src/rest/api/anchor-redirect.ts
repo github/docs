@@ -7,12 +7,14 @@ import { REST_DATA_DIR } from '../lib/index'
 
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
   path.join(REST_DATA_DIR, 'client-side-rest-api-redirects.json'),
-)
+) as () => Record<string, string>
 
 const router = express.Router()
 
 // Returns a client side redirect if one exists for the given path.
-router.get('/', function redirects(req, res) {
+// Note: Using 'any' for req/res because Express types are complex and the
+// function signature is constrained by the router.get() overloads
+router.get('/', function redirects(req: any, res: any) {
   if (!req.query.path) {
     return res.status(400).send("Missing 'path' query string")
   }
@@ -22,7 +24,7 @@ router.get('/', function redirects(req, res) {
 
   defaultCacheControl(res)
 
-  const redirectFrom = `${req.query.path}#${req.query.hash}`
+  const redirectFrom: string = `${req.query.path}#${req.query.hash}`
   res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] })
 })
 
