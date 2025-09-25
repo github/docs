@@ -12,9 +12,6 @@ redirect_from:
   - /copilot/concepts/coding-agent/mcp-and-coding-agent
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## Overview
 
 {% data reusables.copilot.coding-agent.mcp-brief-intro %}

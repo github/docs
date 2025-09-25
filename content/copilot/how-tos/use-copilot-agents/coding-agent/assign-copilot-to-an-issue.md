@@ -19,7 +19,6 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
 > For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
