@@ -10,6 +10,6 @@ topics:
 children:
   - /coding-agent
   - /code-review
+  - /about-copilot-cli
 contentType: concepts
 ---
-

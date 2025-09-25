@@ -140,6 +140,8 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.copilot.copilot_coding_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 * **You cannot change the AI model used by {% data variables.copilot.copilot_coding_agent %}**. The model is determined by {% data variables.product.company_short %} and does not inherit the model selected for {% data variables.copilot.copilot_chat %}.
 
+  Currently the model used by {% data variables.copilot.copilot_coding_agent %} is {% data variables.copilot.cca_current_model %}. {% data variables.product.github %} reserves the right to change this model.
+
 ## Hands-on practice
 
 Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.

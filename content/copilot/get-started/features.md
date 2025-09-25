@@ -33,9 +33,9 @@ An autonomous AI agent that can make code changes for you. You can assign a {% d
 
 ### {% data variables.copilot.copilot_cli_short %}
 
-A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
+A command line interface that lets you use {% data variables.product.prodname_copilot_short %} from within the terminal. You can get answers to questions, or you can ask {% data variables.product.prodname_copilot_short %} to make changes to your local files. You can also use {% data variables.copilot.copilot_cli_short %} to interact with {% data variables.product.prodname_dotcom_the_website %}—for example, listing your open pull requests, or asking {% data variables.product.prodname_copilot_short %} to create an issue. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
-### {% data variables.product.prodname_copilot %} code review
+### {% data variables.copilot.copilot_code-review_short %}
 
 AI-generated code review suggestions to help you write better code. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
@@ -47,7 +47,7 @@ AI-generated summaries of the changes that were made in a pull request, which fi
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
 
-### {% data variables.copilot.copilot_extensions %}
+### {% data variables.copilot.copilot_extensions_short %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 

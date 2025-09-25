@@ -261,9 +261,9 @@ You can create several types of repository custom instructions for use on {% dat
 
 * **Agent instructions** are used by AI agents.
 
-  Supported by: **{% data variables.copilot.copilot_coding_agent %}**.
+  Supported by: **{% data variables.copilot.copilot_coding_agent %}** and {% data variables.copilot.copilot_cli_short %}.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence.
+  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
