@@ -3,6 +3,8 @@ title: Using GitHub Copilot CLI
 shortTitle: Use Copilot CLI
 intro: Learn how to use {% data variables.product.prodname_copilot %} from the command line.
 product: '{% data reusables.gated-features.copilot-cli %}'
+redirect_from:
+  - /copilot/how-tos/use-copilot-cli
 versions:
   feature: copilot
 topics:
