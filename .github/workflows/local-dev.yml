@@ -60,7 +60,7 @@ jobs:
       - name: View the home page
         run: |
           echo "Going to sleep a little to wait for the server to start"
-          sleep 10
+          sleep 15
           curl --fail --retry-connrefused --retry 5 http://localhost:4000/
 
       - name: Run basic tests

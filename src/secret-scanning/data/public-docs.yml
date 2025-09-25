@@ -137,7 +137,7 @@
     ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: true
+  hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3721,7 +3721,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3734,7 +3734,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3747,7 +3747,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3760,7 +3760,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3773,7 +3773,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3786,7 +3786,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3799,7 +3799,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3812,7 +3812,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4240,6 +4240,18 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Pinecone
+  supportedSecret: Pinecone API Key
+  secretType: pinecone_api_key </br>pinecone_environment
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: false
 - provider: Pinterest

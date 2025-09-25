@@ -1,6 +1,6 @@
 ---
 title: Using the GitHub MCP Server
-intro: 'Learn how to use the GitHub Model Context Protocol (MCP) server to extend {% data variables.copilot.copilot_chat_short %}.'
+intro: 'Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from {% data variables.copilot.copilot_chat_short %}.'
 shortTitle: Use the GitHub MCP Server
 versions:
   feature: copilot

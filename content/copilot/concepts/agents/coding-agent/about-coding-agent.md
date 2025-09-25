@@ -19,9 +19,6 @@ redirect_from:
 contentType: concepts
 ---
 
-> [!NOTE]
-> * {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## Overview of {% data variables.copilot.copilot_coding_agent %}
 
 With {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot %} can work independently in the background to complete tasks, just like a human developer.
@@ -37,7 +34,7 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 To delegate tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
 * Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
-* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents panel or page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %}, your favorite IDE or agentic coding tool with MCP support, or Raycast on macOS. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
+* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the agents panel or page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %}, your favorite IDE or agentic coding tool with MCP support, or Raycast on macOS. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
@@ -136,9 +133,10 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} does not work with self-hosted {% data variables.product.prodname_actions %} runners**. {% data variables.product.prodname_copilot_short %} has access to its own development environment, running in {% data variables.product.prodname_actions %}, and must use {% data variables.product.prodname_dotcom %}-hosted runners. See [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent#upgrading-to-larger-github-hosted-github-actions-runners).
 * **{% data variables.copilot.copilot_coding_agent %} does not work in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}**. This is because {% data variables.copilot.copilot_coding_agent %} requires {% data variables.product.company_short %}-hosted runners, which are not available to repositories owned by {% data variables.enterprise.prodname_managed_users %}. See [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
 * **{% data variables.product.prodname_copilot_short %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
-* **{% data variables.copilot.copilot_coding_agent %} does not apply the "Suggestions matching public code" policy**. {% data variables.product.prodname_copilot_short %} may still produce suggestions matching public code, even if the "Suggestions matching public code" policy is set to "Block." If this happens, {% data variables.product.prodname_copilot_short %} will not provide code references pointing to the original source of the code. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
 * **{% data variables.copilot.copilot_coding_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 * **You cannot change the AI model used by {% data variables.copilot.copilot_coding_agent %}**. The model is determined by {% data variables.product.company_short %} and does not inherit the model selected for {% data variables.copilot.copilot_chat %}.
+
+  Currently the model used by {% data variables.copilot.copilot_coding_agent %} is {% data variables.copilot.cca_current_model %}. {% data variables.product.github %} reserves the right to change this model.
 
 ## Hands-on practice
 

@@ -1,5 +1,16 @@
 # Docs changelog
 
+**23 September 2025**
+
+We've added new documentation for Spark that answers some common customer questions, helps customers troubleshoot known issues, and guides users on the best ways to prompt and provide context to Spark.
+
+See:
+- "[About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark)"
+- "[Troubleshooting common issues with GitHub Spark](https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)"
+- "[Write effective prompts and provide useful context for Spark](https://docs.github.com/en/copilot/tutorials/spark/prompt-tips)"
+
+<hr>
+
 **17 September 2025**
 
 We added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
@@ -66,7 +77,7 @@ See: [Configure custom instructions for GitHub Copilot](https://docs.github.com/
 
 In addition to repository-wide custom instructions, specified in the `.github/copilot-instructions.md` file, Copilot Code Review now supports:
 
-* Path-specific custom instructions, specified in `.github/instructions/NAME.instructions.md` files.
+* Path-specific custom instructions, specified in `.github/instructions/**/NAME.instructions.md` files.
 * Custom instructions specified in the organization settings for Copilot.
 
 We have updated several articles in the GitHub documentation accordingly. We have also made changes to clarify the difference between the various types of custom instructions for Copilot Code Review, Copilot Chat, and Copilot Coding Agent.

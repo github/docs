@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Copilot to work on an issue
 shortTitle: Assign Copilot to an issue
-intro: 'Learn how to assign issues to {% data variables.product.prodname_copilot %}, monitor progress as {% data variables.product.prodname_copilot_short %} works on the issue, and then use pull request review comments to prompt {% data variables.product.prodname_copilot_short %} to iterate on its work.'
+intro: "Learn how to assign issues to {% data variables.product.prodname_copilot %}, monitor progress as {% data variables.product.prodname_copilot_short %} works on the issue, and then use pull request review comments to prompt {% data variables.product.prodname_copilot_short %} to iterate on its work."
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+copilot+to+work+on+an+issue&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -19,13 +19,11 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
->
 > For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
 
-You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, on a branch it creates from the default branch of the repository. It will create a pull request and, when it's finished working, it will request a review from you. For more information, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. When assigning an issue, you can pick the repository where {% data variables.product.prodname_copilot_short %} should make code changes and the branch it should start from. {% data variables.product.prodname_copilot_short %} will start working on the issue, create a draft pull request and, when it's finished working, it will request a review from you. For more information, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/tutorials/coding-agent/best-practices).
 
@@ -56,8 +54,23 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %} o
 
    ![Screenshot of "Assignees" window on an issue. Copilot is available in the list.](/assets/images/help/copilot/coding-agent/assign-to-copilot.png)
 
-> [!TIP]
-> When you assign an issue to {% data variables.product.prodname_copilot_short %}, it gets sent the issue title, description, and any comments that currently exist. After assigning the issue, {% data variables.product.prodname_copilot_short %} will not be aware of, and therefore won't react to, any further comments that are added to the issue. If you have more information, or changes to the original requirement, add this as a comment in the pull request that {% data variables.product.prodname_copilot_short %} raises.
+   Additional options are displayed.
+
+   ![Screenshot of "Assign to Copilot" dialog showing options for target repository, starting branch and additional instructions.](/assets/images/help/copilot/coding-agent/assign-to-copilot-dialog.png)
+
+1. In the **Optional prompt** field you can add specific guidance for {% data variables.product.prodname_copilot_short %}. Add any context, constraints, or specific requirements that will help {% data variables.product.prodname_copilot_short %} to understand and complete the task.
+
+   For example, you might include instructions about specific coding patterns or frameworks to use, testing requirements, code style preferences, files or directories that should or shouldn't be modified.
+
+   In addition to the details you supply here, {% data variables.product.prodname_copilot_short %} will use any custom instructions that have been configured for the target repository. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+
+1. You can use the dropdown menus in the dialog to change the repository that {% data variables.product.prodname_copilot_short %} will work in and the branch that it will branch off from.
+
+   > [!NOTE]
+   > If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will work in the same repository as the issue. If you don't specify a branch, {% data variables.product.prodname_copilot_short %} will work from the default branch of the selected repository.
+
+   > [!TIP]
+   > When you assign an issue to {% data variables.product.prodname_copilot_short %}, it gets sent the issue title, description, any comments that currently exist, and any additional instructions you provide. After assigning the issue, {% data variables.product.prodname_copilot_short %} will not be aware of, and therefore won't react to, any further comments that are added to the issue. If you have more information, or changes to the original requirement, add this as a comment in the pull request that {% data variables.product.prodname_copilot_short %} raises.
 
 You can also assign issues to {% data variables.product.prodname_copilot_short %} from other places on {% data variables.product.prodname_dotcom_the_website %}:
 
@@ -199,7 +212,7 @@ A few seconds later, {% data variables.product.prodname_copilot_short %} will op
 
 {% data variables.product.prodname_copilot_short %} will start an **agent session** to work on your issue. A "{% data variables.product.prodname_copilot_short %} started work" event will appear in the pull request timeline, and as {% data variables.product.prodname_copilot_short %} works, it will update the pull request body with regular status updates, and push commits to the branch.
 
-All of your sessions, past and present, can be seen and tracked from the [Agents page](https://github.com/copilot/agents). See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
+All of your sessions, past and present, can be seen and tracked from the [agents page](https://github.com/copilot/agents). See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
 
 ![Screenshot of a pull request with a series of timeline events, including "Copilot started work."](/assets/images/help/copilot/coding-agent/copilot-started-work.png)
 
