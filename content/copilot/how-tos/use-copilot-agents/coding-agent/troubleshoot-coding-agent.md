@@ -18,9 +18,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## {% data variables.product.prodname_copilot_short %} is not available in the "Assignees" list on my issue
 
 You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through either the **{% data variables.copilot.copilot_pro %}** plan, **{% data variables.copilot.copilot_pro_plus %}** plan, the **{% data variables.copilot.copilot_for_business %}**  plan, or the **{% data variables.copilot.copilot_enterprise %}** plan.

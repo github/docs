@@ -63,8 +63,10 @@ copilot_chat_dotcom_short: 'Copilot Chat in GitHub'
 copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub'
 copilot_chat_short: 'Copilot Chat'
 copilot_chat: 'GitHub Copilot Chat'
-copilot_cli_short: 'Copilot in the CLI'
-copilot_cli: 'GitHub Copilot in the CLI'
+copilot_cli_short: 'Copilot CLI'
+copilot_cli: 'GitHub Copilot CLI'
+copilot_old-cli_short: 'Copilot in the CLI'
+copilot_old-cli: 'GitHub Copilot in the CLI'
 copilot_customization: 'Copilot Customization'
 copilot_desktop_short: 'Copilot in GitHub Desktop'
 copilot_desktop: 'GitHub Copilot in GitHub Desktop'
@@ -123,6 +125,9 @@ copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
 ## xAI:
 copilot_grok_code: 'Grok Code Fast 1'
+
+## Current model used by Copilot coding agent and Copilot CLI
+cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
 
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'

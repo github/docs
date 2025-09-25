@@ -15,9 +15,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## About customizing {% data variables.copilot.copilot_coding_agent %}'s development environment
 
 While working on a task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.

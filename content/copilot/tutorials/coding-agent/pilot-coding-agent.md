@@ -16,8 +16,6 @@ contentType: tutorials
 ---
 <!--JTBD: When rolling out {% data variables.copilot.copilot_coding_agent %}, I want to understand use cases and follow best practices, so I can ensure I'm using it as intended and get value from a pilot program.-->
 
-{% data reusables.copilot.coding-agent.preview-note %}
-
 {% data variables.copilot.copilot_coding_agent %} is an autonomous, AI-powered agent that completes software development tasks on {% data variables.product.github %}. Adopting {% data variables.copilot.copilot_coding_agent %} in your organization frees your engineering teams to spend more time thinking strategically and less time making routine fixes and maintenance updates in a codebase.
 
 {% data variables.copilot.copilot_coding_agent %}:

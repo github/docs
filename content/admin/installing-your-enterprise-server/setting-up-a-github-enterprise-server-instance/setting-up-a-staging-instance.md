@@ -57,7 +57,9 @@ If you want to test changes on an instance that contains the same data and confi
 
 ### 2. Set up a staging instance
 
-Set up a new instance to act as your staging environment. You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+Set up a new instance to act as your staging environment. When following the setup process, be sure to select the **New Install** option. This will ensure your staging environment is initialized properly and is ready for restoring a backup if needed.
+
+You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
 
 If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
 
@@ -66,62 +68,43 @@ If you plan to restore a backup of your production instance, continue to the nex
 
 ### 3. Configure {% data variables.product.prodname_actions %}
 
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to [1. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
+Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
+
+To configure {% data variables.product.prodname_actions %} on your staging instance, use the {% data variables.enterprise.management_console %}.
+
+The {% data variables.enterprise.management_console %} provides a secure, browser-based interface for low-level configuration of your {% data variables.product.prodname_ghe_server %} instance, including {% data variables.product.prodname_actions %}. All configuration changes are audited, and access is protected via dedicated credentials and network controls.
 
 > [!WARNING]
 > If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment).
 
-{% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-   {% data reusables.actions.configure-storage-provider-platform-commands %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
+1. Access the {% data variables.enterprise.management_console %}. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console).
 
-   ```shell copy
-   ghe-config app.actions.enabled true
-   ```
+1. In the sidebar, open the **Actions** tab.
+1. Enable {% data variables.product.prodname_actions %} by checking **Enable {% data variables.product.prodname_actions %}**.
+1. Select your external storage provider for artifact and log storage.
+1. Enter the required storage and authentication details for your chosen provider.
+1. Test your configuration by clicking **Test storage settings**, then click **Save settings**.
 
-1. To apply the configuration changes, enter the following command.
-
-   ```shell copy
-   ghe-config-apply
-   ```
+Once you've configured and enabled {% data variables.product.prodname_actions %}, proceed to the next step.
 
 ### 4. Configure {% data variables.product.prodname_registry %}
 
-Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to [1. Restore your production backup](#5-restore-your-production-backup).
+Optionally, if you use {% data variables.product.prodname_registry %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_registry %}, skip to [Restore your production backup](#5-restore-your-production-backup).
 
 > [!WARNING]
-> If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance.
+> If you don't configure {% data variables.product.prodname_registry %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment).
 
-1. Review the backup you will restore to the staging instance.
-   * If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.5 or later, the backup includes the configuration for {% data variables.product.prodname_registry %}. Continue to the next step.
-   * If you took the backup with {% data variables.product.prodname_enterprise_backup_utilities %} 3.4 or earlier, configure {% data variables.product.prodname_registry %} on the staging instance. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
-{% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
-   * Azure Blob Storage:
+To configure {% data variables.product.prodname_registry %} for your staging instance:
 
-     ```shell copy
-     ghe-config secrets.packages.blob-storage-type "azure"
-     ghe-config secrets.packages.azure-container-name "AZURE CONTAINER NAME"
-     ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
-     ```
+1. Access the {% data variables.enterprise.management_console %}. See [Accessing the Management Console](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console).
+1. In the sidebar, open the **Packages** tab.
+1. Enable GitHub Packages by checking the **Enable GitHub Packages** box.
+1. Under **Packages Storage Settings**, select your external storage provider.
+1. Test your storage configuration by clicking **Test storage settings**.
+1. Click **Save settings** to apply your configuration.
 
-   * Amazon S3:
-
-     ```shell copy
-     ghe-config secrets.packages.blob-storage-type "s3"
-     ghe-config secrets.packages.service-url "S3 SERVICE URL"
-     ghe-config secrets.packages.s3-bucket "S3 BUCKET NAME"
-     ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
-     ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
-     ```
-
-1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
-
-   ```shell copy
-   ghe-config app.packages.enabled true
-   ```
+> [!NOTE]
+> You can use ecosystem toggles to enable, disable, or set individual package types to read-only for your instance as needed.
 
 ### 5. Restore your production backup
 

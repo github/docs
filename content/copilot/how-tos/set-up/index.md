@@ -11,10 +11,9 @@ children:
   - /set-up-for-organization
   - /set-up-for-enterprise
   - /install-copilot-extension
-  - /install-copilot-in-the-cli
+  - /install-copilot-cli
 redirect_from:
   - /copilot/setting-up-github-copilot
   - /copilot/get-started/setting-up-github-copilot
 contentType: how-tos
 ---
-
