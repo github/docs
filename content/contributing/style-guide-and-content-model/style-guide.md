@@ -1440,14 +1440,14 @@ The following example shows part of a table from [AUTOTITLE](/code-security/depe
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=center>
 {% octicon "x" aria-label="Not supported" %}
 </td>
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=left>Location of package manifests</td>
 </tr>
 <tr>
@@ -1455,14 +1455,14 @@ The following example shows part of a table from [AUTOTITLE](/code-security/depe
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=center>
 {% octicon "x" aria-label="Not supported" %}
 </td>
 <td align=center>
 {% octicon "check" aria-label="Supported" %}
 </td>
-</td>
+
 <td align=left>How often to check for updates</td>
 </tr>
 </tbody>
