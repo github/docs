@@ -5,14 +5,14 @@ import fs from 'fs'
 // is unpredictable in GitHub Actions because of how it does `git clone`.
 // So we rely on environment variables instead.
 
-export function getDiffFiles() {
+export function getDiffFiles(): string[] {
   // Instead of testing every single file possible, if there's
   // an environment variable called `DIFF_FILES` or one called
   // `DIFF_FILE` then use that.
   // If `DIFF_FILES` is set, it's expected to be a space separated
   // string. If `DIFF_FILE` is set, it's expected to be a text file
   // which contains a space separated string.
-  const diffFiles = []
+  const diffFiles: string[] = []
   // Setting an environment variable called `DIFF_FILES` is optional.
   // But if and only if it's set, we will respect it.
   // And if it set, turn it into a cleaned up Set so it's made available
