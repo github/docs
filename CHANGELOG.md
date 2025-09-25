@@ -1,16 +1,5 @@
 # Docs changelog
 
-**23 September 2025**
-
-We've added new documentation for Spark that answers some common customer questions, helps customers troubleshoot known issues, and guides users on the best ways to prompt and provide context to Spark.
-
-See:
-- "[About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark)"
-- "[Troubleshooting common issues with GitHub Spark](https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)"
-- "[Write effective prompts and provide useful context for Spark](https://docs.github.com/en/copilot/tutorials/spark/prompt-tips)"
-
-<hr>
-
 **17 September 2025**
 
 We added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
