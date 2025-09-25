@@ -57,7 +57,9 @@ If you want to test changes on an instance that contains the same data and confi
 
 ### 2. Set up a staging instance
 
-Set up a new instance to act as your staging environment. You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
+Set up a new instance to act as your staging environment. When following the setup process, be sure to select the **"New Install"** option. This will ensure your staging environment is initialized properly and is ready for restoring a backup if needed.
+
+You can use the same guides for provisioning and installing your staging instance as you did for your production instance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
 
 If you plan to restore a backup of your production instance, continue to the next step. Alternatively, you can configure the instance manually and skip the following steps.
 
@@ -66,26 +68,24 @@ If you plan to restore a backup of your production instance, continue to the nex
 
 ### 3. Configure {% data variables.product.prodname_actions %}
 
-Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to [1. Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
+Optionally, if you use {% data variables.product.prodname_actions %} on your production instance, configure the feature on the staging instance before restoring your production backup. If you don't use {% data variables.product.prodname_actions %}, skip to [Configure {% data variables.product.prodname_registry %}](#4-configure-github-packages).
+
+To configure {% data variables.product.prodname_actions %} on your staging instance, use the {% data variables.enterprise.management_console %}.
+
+The {% data variables.enterprise.management_console %} provides a secure, browser-based interface for low-level configuration of your {% data variables.product.prodname_ghe_server %} instance, including {% data variables.product.prodname_actions %}. All configuration changes are audited, and access is protected via dedicated credentials and network controls.
 
 > [!WARNING]
 > If you don't configure {% data variables.product.prodname_actions %} on the staging instance before restoring your production backup, your staging instance will use your production instance's external storage, which could result in loss of data. We strongly recommended that you use different external storage for your staging instance. For more information, see [AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment).
 
-{% data reusables.enterprise_installation.ssh-into-staging-instance %}
-1. To configure the staging instance to use an external storage provider for {% data variables.product.prodname_actions %}, enter one of the following commands.
-   {% data reusables.actions.configure-storage-provider-platform-commands %}
-{% data reusables.actions.configure-storage-provider %}
-1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
+1. Access the {% data variables.enterprise.management_console %}. See [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console).
 
-   ```shell copy
-   ghe-config app.actions.enabled true
-   ```
+1. In the sidebar, open the **Actions** tab.
+1. Enable {% data variables.product.prodname_actions %} by checking **Enable {% data variables.product.prodname_actions %}**.
+1. Select your external storage provider for artifact and log storage.
+1. Enter the required storage and authentication details for your chosen provider.
+1. Test your configuration by clicking **Test storage settings**, then click **Save settings**.
 
-1. To apply the configuration changes, enter the following command.
-
-   ```shell copy
-   ghe-config-apply
-   ```
+Once you've configured and enabled {% data variables.product.prodname_actions %}, proceed to the next step.
 
 ### 4. Configure {% data variables.product.prodname_registry %}
 
