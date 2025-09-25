@@ -1,7 +1,7 @@
 ---
 title: Asking GitHub Copilot to create a pull request
 shortTitle: Create a PR
-intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including the agents panel, {% data variables.copilot.copilot_chat_short %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
+intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including the agents panel, {% data variables.copilot.copilot_chat_short %}, the {% data variables.product.prodname_cli %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=asking+copilot+to+create+a+pull+request&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -28,6 +28,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
 * The agents panel, available across {% data variables.product.github %}
 * The agents page on {% data variables.product.github %}
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs and {% data variables.product.prodname_dotcom_the_website %}
+* The {% data variables.product.prodname_cli %}
 * Your preferred IDE or agentic coding tool with Model Context Protocol (MCP) support
 * The Raycast launcher on macOS
 
@@ -99,6 +100,25 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 1. Click **Allow**.
 
    {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
+
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.prodname_cli %}
+
+> [!NOTE]
+> The `agent-task` command set is only available in v2.80.0 or later of the {% data variables.product.prodname_cli %}. This command set is a {% data variables.release-phases.public_preview %} and is subject to change.
+
+You can start a new {% data variables.copilot.copilot_coding_agent %} session with the `gh agent-task create` command in the {% data variables.product.prodname_cli %}.
+
+When you run the command without any arguments, you are asked to enter a prompt. {% data variables.copilot.copilot_coding_agent %} acts on the prompt and opens a pull request in the current repository.
+
+You can use command line options to:
+
+* Provide the prompt (`gh agent-task create "Example prompt"`)
+* Choose a base branch, instead of using the repository's default branch (`--base`)
+* Select a repository, instead of targeting the current repository (`--repo`)
+* Follow the session log in real time (`--log --follow`)
+
+
+To see all of the available options, run `gh agent-task create --help`.
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.github %} MCP server
 
