@@ -49,7 +49,7 @@ You may also need to install a custom SSL certificate on your machine. See [AUTO
 
 ## 6. Configure settings (optional)
 
-All users can configure {% data variables.product.prodname_copilot_short %} settings in their IDE or in the CLI. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment) and [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli).
+All users can configure {% data variables.product.prodname_copilot_short %} settings in their IDE. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment).
 
 If you have your own {% data variables.product.prodname_copilot_short %} plan (instead of using your organization or enterprise's plan), you can:
 

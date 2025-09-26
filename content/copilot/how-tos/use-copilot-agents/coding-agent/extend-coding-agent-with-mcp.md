@@ -18,9 +18,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## Prerequisite
 
 Before setting up an MCP server for {% data variables.copilot.copilot_coding_agent %}, read [AUTOTITLE](/copilot/concepts/coding-agent/mcp-and-coding-agent) to make sure you understand the concepts around MCP servers and {% data variables.copilot.copilot_coding_agent %}.
