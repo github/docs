@@ -1,13 +1,29 @@
 # Docs changelog
 
+**24 September 2025**
+
+Until now, assigning Copilot coding agent to an issue was limited to the same repository as the issue. 
+
+You can now: 
+
+* Assign Copilot coding agent to work in a different repository, supporting workflows where issues and code files are managed separately. 
+* Provide additional instructions to tailor the agent's output to your requirements. 
+* Choose the base branch for the agent to use. 
+ 
+These changes provide a more flexible, transparent, and user-friendly experience for managing automated coding tasks with Copilot coding agent. 
+
+See the updated docs: [Using GitHub Copilot to work on an issue](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue#assigning-an-issue-to-copilot).
+
+<hr>
+
 **23 September 2025**
 
 We've added new documentation for Spark that answers some common customer questions, helps customers troubleshoot known issues, and guides users on the best ways to prompt and provide context to Spark.
 
 See:
-- "[About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark)"
-- "[Troubleshooting common issues with GitHub Spark](https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)"
-- "[Write effective prompts and provide useful context for Spark](https://docs.github.com/en/copilot/tutorials/spark/prompt-tips)"
+- [About GitHub Spark](https://docs.github.com/copilot/concepts/spark)
+- [Troubleshooting common issues with GitHub Spark](https://docs.github.com/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)
+- [Write effective prompts and provide useful context for Spark](https://docs.github.com/copilot/tutorials/spark/prompt-tips)
 
 <hr>
 
@@ -15,9 +31,9 @@ See:
 
 We added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
 
-You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/en/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
+You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
 
-To keep the content focused on users' job-to-be-done, we simplified the procedures for [creating workflow templates for your organization](https://docs.github.com/en/actions/how-tos/reuse-automations/create-workflow-templates). In addition, we updated reference documentation for workflow templates with details on permissions, repository visibility rules, rules for the metadata file, and examples. See [Workflow templates](https://docs.github.com/en/actions/reference/workflows-and-actions/reusing-workflow-configurations#workflow-templates).
+To keep the content focused on users' job-to-be-done, we simplified the procedures for [creating workflow templates for your organization](https://docs.github.com/actions/how-tos/reuse-automations/create-workflow-templates). In addition, we updated reference documentation for workflow templates with details on permissions, repository visibility rules, rules for the metadata file, and examples. See [Workflow templates](https://docs.github.com/actions/reference/workflows-and-actions/reusing-workflow-configurations#workflow-templates).
 
 <hr>
 
@@ -27,7 +43,7 @@ You can now publish your Spark app as "read-only."
 
 By default, data stored in Spark is shared across all users of the app. You can choose to publish your app as "read-only" if you want to showcase your app to others, but you don't want others to be able to edit or delete any stored data.
 
-We've updated the [Spark documentation](https://docs.github.com/en/copilot/tutorials/build-apps-with-spark) accordingly.
+We've updated the [Spark documentation](https://docs.github.com/copilot/tutorials/build-apps-with-spark) accordingly.
 
 <hr>
 
@@ -43,7 +59,7 @@ See [Responsible use of GitHub Copilot code review](https://docs.github.com/copi
 
 Copilot Chat in VS Code includes a "Manage models" option which allows you to add models from a variety of LLM providers, such as Azure, Anthropic, Google, and xAI. By installing the AI Toolkit for VS Code, you can install even more models from the "Manage models" option. We've updated the documentation to include details of how to use this new feature.
 
-See [Changing the AI model for GitHub Copilot Chat](https://docs.github.com/en/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode).
+See [Changing the AI model for GitHub Copilot Chat](https://docs.github.com/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode).
 
 <hr>
 
@@ -57,9 +73,9 @@ See [Configuring automatic code review by GitHub Copilot](https://docs.github.co
 
 **8 September 2025**
 
-We've added a tutorial on planning a project with GitHub Copilot, including creating issues and sub-issues: [Planning a project with GitHub Copilot](https://docs.github.com/en/copilot/tutorials/plan-a-project). This tutorial provides step-by-step instructions on leveraging Copilot to plan a project from scratch.
+We've added a tutorial on planning a project with GitHub Copilot, including creating issues and sub-issues: [Planning a project with GitHub Copilot](https://docs.github.com/copilot/tutorials/plan-a-project). This tutorial provides step-by-step instructions on leveraging Copilot to plan a project from scratch.
 
-Additionally, we've updated [Using GitHub Copilot to create issues](https://docs.github.com/en/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues) with instructions to create sub-issues and to work with existing issues.
+Additionally, we've updated [Using GitHub Copilot to create issues](https://docs.github.com/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues) with instructions to create sub-issues and to work with existing issues.
 
 <hr>
 
@@ -88,7 +104,7 @@ For example, see: [Adding repository custom instructions for GitHub Copilot](htt
 
 **3 September 2025**
 
-We’ve updated [Choosing your enterprise’s plan for GitHub Copilot](https://docs.github.com/en/copilot/get-started/choose-enterprise-plan) to better highlight the long-term benefits of the Copilot Enterprise (CE) plan. The updated content focuses on the key advantages of CE, such as increased access to premium requests and earlier availability of new models.
+We’ve updated [Choosing your enterprise’s plan for GitHub Copilot](https://docs.github.com/copilot/get-started/choose-enterprise-plan) to better highlight the long-term benefits of the Copilot Enterprise (CE) plan. The updated content focuses on the key advantages of CE, such as increased access to premium requests and earlier availability of new models.
 
 <hr>
 
