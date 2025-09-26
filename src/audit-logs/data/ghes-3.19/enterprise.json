@@ -276,6 +276,88 @@
     ]
   },
   {
+    "action": "billing.budget_create",
+    "description": "A billing budget was created for a business or organization. Includes details about the budget limit, alerting preferences, and recipients.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "customer_id",
+      "target_amount",
+      "target_type",
+      "target_id",
+      "alert_enabled",
+      "status",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "pricing_target_type",
+      "pricing_target_id",
+      "budget_limit_type",
+      "alert_recipient_user_ids"
+    ]
+  },
+  {
+    "action": "billing.budget_delete",
+    "description": "A billing budget was deleted for a business or organization. Includes details about the removed budget and any alerting settings.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "customer_id",
+      "uuid",
+      "status",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "billing.budget_update",
+    "description": "A billing budget was updated for a business or organization. Includes details about the updated limit and alerting settings.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "customer_id",
+      "target_amount",
+      "target_type",
+      "target_id",
+      "alert_enabled",
+      "status",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header",
+      "old_target_amount",
+      "old_budget_limit_type",
+      "old_alert_enabled",
+      "old_target_id"
+    ]
+  },
+  {
     "action": "billing.change_billing_type",
     "description": "The way the account pays for GitHub was changed.",
     "docs_reference_links": "/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method",
@@ -314,6 +396,42 @@
       "request_access_security_header"
     ],
     "docs_reference_titles": "Managing your payment and billing information"
+  },
+  {
+    "action": "billing_customer.azure_subscription_linked",
+    "description": "Azure subscription has been linked on this account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "billing_customer.azure_subscription_unlinked",
+    "description": "Azure subscription has been unlinked on this account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
   },
   {
     "action": "billing.lock",
@@ -1553,6 +1671,35 @@
     "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
   },
   {
+    "action": "business_secret_scanning_push_protection_pattern_configuration.push_protection_setting_changed",
+    "description": "The push protection setting was updated for a secret type for your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+    "fields": [
+      "actor_id",
+      "actor",
+      "business",
+      "business_id",
+      "push_protection_setting",
+      "secret_type",
+      "secret_type_display_name",
+      "created_at"
+    ],
+    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+  },
+  {
+    "action": "business_secret_scanning_push_protection_pattern_configuration.updated",
+    "description": "The push protection pattern configuration was updated for your enterprise.",
+    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
+    "fields": [
+      "actor_id",
+      "actor",
+      "business",
+      "business_id",
+      "created_at"
+    ],
+    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
+  },
+  {
     "action": "business.secret_scanning_repo_admin_settings_policy_update",
     "description": "N/A",
     "docs_reference_links": "N/A",
@@ -1675,6 +1822,50 @@
       "operation_type",
       "actor_is_bot"
     ]
+  },
+  {
+    "action": "business.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+  },
+  {
+    "action": "business.set_actions_cache_storage_policy",
+    "description": "The cache storage policy for GitHub Actions was set for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
   {
     "action": "business.set_actions_fork_pr_approvals_policy",
@@ -2543,18 +2734,19 @@
     ]
   },
   {
-    "action": "copilot.user_access_reinstated",
-    "description": "N/A",
+    "action": "copilot.swe_agent_repo_disabled",
+    "description": "Specific repositories were disabled from using Copilot coding agent.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
       "org_id",
       "owner_type",
       "actor_id",
-      "user_id",
       "owner",
+      "repo",
+      "repo_id",
+      "public_repo",
       "org",
-      "user",
       "action",
       "_document_id",
       "@timestamp",
@@ -2565,25 +2757,50 @@
     ]
   },
   {
-    "action": "copilot.user_access_revoked",
-    "description": "N/A",
+    "action": "copilot.swe_agent_repo_enabled",
+    "description": "Specific repositories were enabled to use Copilot coding agent.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
       "org_id",
       "owner_type",
-      "actor_id",
-      "user_id",
       "owner",
+      "repo",
+      "repo_id",
+      "public_repo",
       "org",
-      "user",
       "action",
       "_document_id",
       "@timestamp",
       "created_at",
-      "operation_type",
-      "business",
-      "business_id"
+      "operation_type"
+    ]
+  },
+  {
+    "action": "copilot.swe_agent_repo_enablement_updated",
+    "description": "Copilot coding agent access was updated for the organization's or user's repositories.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "new_access",
+      "old_access",
+      "org_id",
+      "owner_type",
+      "owner",
+      "org",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
     ]
   },
   {
@@ -2889,6 +3106,29 @@
       "_document_id"
     ],
     "docs_reference_titles": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_repository_access.default_access_level_updated",
+    "description": "The default repository access for Dependabot was updated.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "org",
+      "org_id",
+      "access_level",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
@@ -5440,6 +5680,100 @@
       "active",
       "org_id",
       "@timestamp"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocked_by_add",
+    "description": "An issue was marked as blocked by another issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocked_by_remove",
+    "description": "The blocked by relationship between an issue and another issue was removed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "org",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocking_add",
+    "description": "An issue was marked as blocking another issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocking_remove",
+    "description": "The blocking relationship between an issue and another issue was removed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
     ]
   },
   {
@@ -8133,6 +8467,39 @@
     "docs_reference_titles": "About push protection"
   },
   {
+    "action": "org_secret_scanning_push_protection_pattern_configuration.push_protection_setting_changed",
+    "description": "The push protection setting was updated for a secret type for your organization.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations",
+    "fields": [
+      "actor_id",
+      "actor",
+      "org_id",
+      "org",
+      "business",
+      "business_id",
+      "push_protection_setting",
+      "secret_type",
+      "secret_type_display_name",
+      "created_at"
+    ],
+    "docs_reference_titles": "About push protection"
+  },
+  {
+    "action": "org_secret_scanning_push_protection_pattern_configuration.updated",
+    "description": "The push protection pattern configuration was updated for your organization.",
+    "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations",
+    "fields": [
+      "actor_id",
+      "actor",
+      "org_id",
+      "org",
+      "business",
+      "business_id",
+      "created_at"
+    ],
+    "docs_reference_titles": "About push protection"
+  },
+  {
     "action": "org.security_center_export_code_scanning_metrics",
     "description": "A CSV export was requested on the CodeQL pull request alerts page.",
     "docs_reference_links": "N/A",
@@ -8291,6 +8658,29 @@
       "runner_group_name"
     ],
     "docs_reference_titles": "Self-hosted runners"
+  },
+  {
+    "action": "org.set_actions_cache_storage_policy",
+    "description": "The cache storage policy for GitHub Actions was set for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
   },
   {
     "action": "org.set_actions_fork_pr_approvals_policy",
@@ -8646,6 +9036,140 @@
       "request_access_security_header"
     ],
     "docs_reference_titles": "/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement"
+  },
+  {
+    "action": "organization_custom_property_definition.create",
+    "description": "A new organization custom property definition was created.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "definition_id",
+      "property_name",
+      "description",
+      "value_type",
+      "required",
+      "allowed_values",
+      "default_value",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise"
+  },
+  {
+    "action": "organization_custom_property_definition.destroy",
+    "description": "An organization custom property definition was deleted.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "definition_id",
+      "property_name",
+      "description",
+      "value_type",
+      "required",
+      "allowed_values",
+      "default_value",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise"
+  },
+  {
+    "action": "organization_custom_property_definition.update",
+    "description": "An organization custom property definition was updated.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "definition_id",
+      "property_name",
+      "old_values_editable_by",
+      "values_editable_by",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "old_allowed_values"
+    ],
+    "docs_reference_titles": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise"
+  },
+  {
+    "action": "organization_custom_property_value.create",
+    "description": "An organization's custom property value was manually set for the first time.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "definition_id",
+      "property_name",
+      "value",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise"
+  },
+  {
+    "action": "organization_custom_property_value.destroy",
+    "description": "An organization's custom property value was deleted.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "definition_id",
+      "property_name",
+      "value",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise"
   },
   {
     "action": "organization_domain.approve",
@@ -12505,6 +13029,60 @@
     "docs_reference_titles": "Self-hosted runners"
   },
   {
+    "action": "repo.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "visibility",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository"
+  },
+  {
+    "action": "repo.set_actions_cache_storage_policy",
+    "description": "The cache storage policy for GitHub Actions was set for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "visibility",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository"
+  },
+  {
     "action": "repo.set_actions_fork_pr_approvals_policy",
     "description": "The setting for requiring approvals for workflows from public forks was changed for a repository.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks",
@@ -13026,6 +13604,60 @@
       "request_access_security_header"
     ],
     "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
+  },
+  {
+    "action": "repository_code_security.disable",
+    "description": "Code security was disabled for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "repository_code_security.enable",
+    "description": "Code security was enabled for a repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot"
+    ]
   },
   {
     "action": "repository_image.create",
@@ -14786,6 +15418,58 @@
     ]
   },
   {
+    "action": "social_identity.linked",
+    "description": "A user linked a social identity to their account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user_id",
+      "action",
+      "actor_id",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "social_identity.unlinked",
+    "description": "A user unlinked a social identity from their account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "social_identity.unlinked_all",
+    "description": "A user unlinked all social identities from their account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
     "action": "sponsors.agreement_sign",
     "description": "A GitHub Sponsors agreement was signed on behalf of an organization.",
     "docs_reference_links": "N/A",
@@ -15612,6 +16296,30 @@
     ]
   },
   {
+    "action": "team.add_to_organization",
+    "description": "A team was added to an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "team_type",
+      "team",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "team.change_parent_team",
     "description": "A child team was created or a child team's parent was changed.",
     "docs_reference_links": "/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy",
@@ -15805,6 +16513,30 @@
       "request_access_security_header"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/assigning-the-team-maintainer-role-to-a-team-member#promoting-an-organization-member-to-team-maintainer"
+  },
+  {
+    "action": "team.remove_from_organization",
+    "description": "A team was removed from an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "team_type",
+      "team",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
   },
   {
     "action": "team.remove_member",
@@ -16380,6 +17112,30 @@
       "_document_id"
     ],
     "docs_reference_titles": "Managing access to other repositories within your codespace"
+  },
+  {
+    "action": "user_content_edit.delete",
+    "description": "Triggered when a user content edit is deleted.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "request_id",
+      "actor",
+      "user_content_id",
+      "user_content_type",
+      "created_at",
+      "user_agent",
+      "deleted_by",
+      "editor_id",
+      "_document_id",
+      "deleted_at",
+      "action",
+      "actor_id",
+      "editor",
+      "deleted_by_id",
+      "deleted_content",
+      "operation_type",
+      "@timestamp"
+    ]
   },
   {
     "action": "user.correct_password_from_unrecognized_device",
