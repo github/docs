@@ -16,6 +16,7 @@ redirect_from:
   - /copilot/concepts/coding-agent/about-enabling-coding-agent
   - /copilot/concepts/coding-agent/enable-coding-agent
   - /copilot/concepts/agents/coding-agent/enable-coding-agent
+  - /copilot/how-tos/agents/copilot-coding-agent/enabling-copilot-coding-agent
 contentType: concepts
 ---
 

@@ -72,6 +72,9 @@ The time required to failover depends on how long it takes to manually promote t
       {% ifversion ghes > 3.17 %}ghe-repl-decommission UUID{% else %}ghe-repl-teardown -u UUID{% endif %}
       ```
 
+   > [!WARNING]
+   > If you do not intend to re-establish replication from the new primary, you must shut down or delete any appliances that were part of the previous high availability configuration. If those appliances were unreachable during failover, they could cause unintended changes to the new primary if they become reachable later. To prevent configuration conflicts or data integrity issues, always ensure that unused appliances are properly decommissioned.
+
 ## Further reading
 
 * [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)
