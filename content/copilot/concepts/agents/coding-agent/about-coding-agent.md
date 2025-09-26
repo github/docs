@@ -64,7 +64,15 @@ Having {% data variables.product.prodname_copilot_short %} as an additional codi
 
 ### Making {% data variables.copilot.copilot_coding_agent %} available
 
-Before you can assign tasks to {% data variables.product.prodname_copilot_short %}, it must be enabled. See [AUTOTITLE](/copilot/concepts/coding-agent/about-enabling-coding-agent).
+Before you can assign tasks to {% data variables.copilot.copilot_coding_agent %}, it must be enabled.
+
+{% data variables.copilot.copilot_coding_agent %} is available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.
+
+If you are a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscriber, an administrator must enable the relevant policy before you can use the agent.
+
+Repository owners can choose to opt out some or all repositories from {% data variables.copilot.copilot_coding_agent %}.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/managing-access).
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 

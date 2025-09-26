@@ -1,6 +1,6 @@
 ---
-title: About GitHub Copilot coding agent for business and enterprise
-shortTitle: Business and enterprise
+title: Managing access to GitHub Copilot coding agent
+shortTitle: Managing access
 allowTitleToDifferFromFilename: true
 intro: Find out about {% data variables.copilot.copilot_coding_agent %} policies available for {% data variables.copilot.copilot_enterprise %} and {% data variables.copilot.copilot_for_business %}, and about disabling the agent for specific repositories.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=enabling+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
@@ -17,6 +17,7 @@ redirect_from:
   - /copilot/concepts/coding-agent/enable-coding-agent
   - /copilot/concepts/agents/coding-agent/enable-coding-agent
   - /copilot/how-tos/agents/copilot-coding-agent/enabling-copilot-coding-agent
+  - /copilot/concepts/agents/coding-agent/coding-agent-for-business-and-enterprise
 contentType: concepts
 ---
 
