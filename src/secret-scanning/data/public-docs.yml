@@ -1412,7 +1412,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -4113,6 +4113,18 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: OpenVSX
+  supportedSecret: OpenVSX Access Token
+  secretType: openvsx_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: true
 - provider: Openweather
   supportedSecret: Openweather API Key
   secretType: openweather_api_key

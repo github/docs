@@ -199,6 +199,14 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   // for improvement!
 })
 
+test('404 page renders correctly', async ({ page }) => {
+  const response = await page.goto('/this-definitely-does-not-exist')
+  expect(response?.status()).toBe(404)
+
+  // Check that the 404 page content is rendered
+  await expect(page.getByText(/It looks like this page doesn't exist/)).toBeVisible()
+})
+
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
