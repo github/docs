@@ -39,3 +39,11 @@ Learning tracks are a collection of articles that help you master a particular s
 ## Versioning
 
 Many YAML files in this directory's subdirectories, like [features](features), [glossaries](glossaries), [variables](variables), and [learning tracks](learning-tracks), as well as Markdown files within the [reusables](reusables) directory, can include YAML versioning or Liquid versioning within Markdown strings. See the README.md files in the subdirectories for details.
+
+ชำระค่าธรรมเนียมใช้ผื้นที่ทั้งหมด
+ค่าบ่ริการรายเดือน 150/เดือน
+ชำระเงินผ่านธนาคารเลขที่
+
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtpPfP5ds2gl4AYkWE4xR8grT_Hq6zSb5q5Z7rSzaWRrlz-glzc5y_eNLZ7d42nPzD_s58YiIpKYLNav_Bzo9P2hFkxyhWk8kfdrPrlujuEvdC1l5VH5qyGW1c9yAkzR44bprlB9lfHHRS4JUd3uNACKLWT607U_Q9Mb880lIJpBnzls2kjTZK0giBwtk/s668/1000007765.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" height="400" data-original-height="668" data-original-width="616" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtpPfP5ds2gl4AYkWE4xR8grT_Hq6zSb5q5Z7rSzaWRrlz-glzc5y_eNLZ7d42nPzD_s58YiIpKYLNav_Bzo9P2hFkxyhWk8kfdrPrlujuEvdC1l5VH5qyGW1c9yAkzR44bprlB9lfHHRS4JUd3uNACKLWT607U_Q9Mb880lIJpBnzls2kjTZK0giBwtk/s400/1000007765.jpg"/></a></div>
+
+สงวนสิทธิ์ ความเป็นส่วนตัว ทุก กรณี นลธวัช ภูผาสิทธิ์
