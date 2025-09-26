@@ -29,7 +29,15 @@ See:
 
 **17 September 2025**
 
-We added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
+We've added information about the GitHub MCP Registry, and guidance on how to use it in VS Code.
+
+See [About the GitHub MCP Registry](https://docs.github.com/copilot/concepts/context/mcp#about-the-github-mcp-registry) and [Using the GitHub MCP Registry](https://docs.github.com/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp#using-the-github-mcp-registry).
+
+<hr>
+
+**17 September 2025**
+
+We've added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
 
 You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
 
