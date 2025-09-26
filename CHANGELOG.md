@@ -1,5 +1,16 @@
 # Docs changelog
 
+**25 September 2025**
+
+We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server. 
+
+See the updated docs: 
+* [About organizing and sharing context with GitHub Copilot Spaces](https://docs.github.com/copilot/concepts/context/spaces)
+* [Creating GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces)
+* [Using GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces)
+
+<hr>
+
 **24 September 2025**
 
 Until now, assigning Copilot coding agent to an issue was limited to the same repository as the issue. 
