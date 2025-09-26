@@ -91,7 +91,6 @@
     "sync-secret-scanning": "tsx src/secret-scanning/scripts/sync.ts",
     "sync-webhooks": "npx tsx src/rest/scripts/update-files.ts -o webhooks",
     "test": "vitest",
-    "test-local-dev": "tsx src/workflows/test-local-dev.ts",
     "test-moved-content": "tsx src/content-render/scripts/test-moved-content.ts",
     "tsc": "tsc --noEmit",
     "unallowed-contributions": "tsx src/workflows/unallowed-contributions.ts",
