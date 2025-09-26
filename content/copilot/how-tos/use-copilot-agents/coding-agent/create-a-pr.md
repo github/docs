@@ -100,6 +100,20 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 
    {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
 
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.product.prodname_mobile %}
+
+1. In {% data variables.product.prodname_mobile %}, navigate to the repository where you want to create a pull request.
+1. Tap the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon in the bottom right corner of the screen.
+1. Enter a prompt to ask {% data variables.product.prodname_copilot_short %} to create a pull request.
+
+   For example: `Create a pull request to ...`.
+
+   {% data variables.product.prodname_copilot_short %} responds with a brief summary of the task it will perform, asking for your confirmation before it proceeds.
+ 
+1. Check that {% data variables.product.prodname_copilot_short %} has interpreted your prompt correctly, then tap **Accept** or **Dismiss**.
+
+   {% data variables.product.prodname_copilot_short %} creates a pull request and gives you a link to it. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
+
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.prodname_cli %}
 
 > [!NOTE]
@@ -116,12 +130,9 @@ You can use command line options to:
 * Select a repository, instead of targeting the current repository (`--repo`)
 * Follow the session log in real time (`--follow`)
 
-
 To see all of the available options, run `gh agent-task create --help`.
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.github %} MCP server
-
-As an alternative to using {% data variables.copilot.copilot_chat_short %}, you can use the remote {% data variables.product.github %} MCP server to trigger {% data variables.copilot.copilot_coding_agent %} from any MCP host.
 
 > [!NOTE]
 > * This capability is only available on the remote {% data variables.product.github %} MCP server and host applications where remote MCP servers are supported.
