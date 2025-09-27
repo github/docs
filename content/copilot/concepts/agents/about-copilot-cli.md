@@ -161,7 +161,7 @@ You can choose to trust the current directory for:
 
 If you choose to trust the directory for future sessions, the trusted directory prompt will not be displayed again. You should only choose this second option if you are sure that this location will always be a safe place for {% data variables.product.prodname_copilot_short %} to operate.
 
-You can edit the list of permanently trusted directories by amending the contents of the `trusted_folders` array in the CLI's `config.json` file. This is located, by default, in the `~/.config` directory. You can change this location by setting the `XDG_CONFIG_HOME` environment variable.
+You can edit the list of permanently trusted directories by amending the contents of the `trusted_folders` array in the CLI's `config.json` file. This is located, by default, in the `~/.copilot` directory. You can change this location by setting the `XDG_CONFIG_HOME` environment variable.
 
 ### Allowed tools
 
