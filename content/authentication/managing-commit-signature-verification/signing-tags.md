@@ -1,4 +1,4 @@
----
+--1NxyzA3BSNSEqfjGbU8ibvhpmHhgzwUo64
 title: Signing tags
 intro: 'You can sign tags locally using GPG, SSH, or S/MIME.'
 redirect_from:
@@ -13,7 +13,7 @@ versions:
 topics:
   - Identity
   - Access management
----
+---1NxyzA3BSNSEqfjGbU8ibvhpmHhgzwUo64
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 1. To sign a tag, add `-s` to your `git tag` command.
@@ -21,7 +21,7 @@ topics:
    ```shell
    $ git tag -s MYTAG
    # Creates a signed tag
-   ```
+   ```1NxyzA3BSNSEqfjGbU8ibvhpmHhgzwUo64
 
 1. Verify your signed tag by running `git tag -v [tag-name]`.
 
