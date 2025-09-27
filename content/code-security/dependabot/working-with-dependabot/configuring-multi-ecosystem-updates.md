@@ -131,7 +131,7 @@ For more information about `patterns`, see [`patterns` and `exclude-patterns`](/
 
 ### Additional configuration options
 
-All standard {% data variables.product.prodname_dependabot %} configuration options can be used with multi-ecosystem groups. See [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem--), [`directory`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory-), [`allow`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#allow--), [`ignore`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore-), [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-), and [`registries`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#registries--) in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
+All standard {% data variables.product.prodname_dependabot %} configuration options can be used with multi-ecosystem groups. See [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-), [`directory`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory--), [`allow`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#allow--), [`ignore`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore--), [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-), and [`registries`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#registries--) in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference).
 
 ## Key configuration
 
@@ -147,7 +147,7 @@ The following table shows the configuration keys available at the group level, a
 | [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--) |{% octicon "x" aria-label="Not required" %}| Additive |
 | [`milestone`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#milestone--)         | {% octicon "x" aria-label="Not required" %} | Group-only |
 | [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) |{% octicon "x" aria-label="Not required" %} |Additive |
-| [`target-branch`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#target-branch--) |{% octicon "x" aria-label="Not required" %} |Group-only |
+| [`target-branch`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#target-branch-) |{% octicon "x" aria-label="Not required" %} |Group-only |
 | [`commit-message`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#commit-message--) |{% octicon "x" aria-label="Not required" %} |Group-only |
 | [`pull-request-branch-name`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#pull-request-branch-nameseparator--) |{% octicon "x" aria-label="Not required" %} |Group-only |
 
@@ -157,15 +157,15 @@ The following table shows the configuration keys available at the ecosystem leve
 
 | Key              | Required | Behavior |
 |---------------------|:--------:|:----------------|
-| [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem--) |{% octicon "check" aria-label="Required" %}| Not applicable |
+| [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-) |{% octicon "check" aria-label="Required" %}| Not applicable |
 | [`directory` / `directories`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory--) |{% octicon "check" aria-label="Required" %}| Not applicable |
 | [`patterns`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#patterns-and-exclude-patterns-groups) |{% octicon "check" aria-label="Required" %}| Not applicable |
 | [`allow`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#allow--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`ignore`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
-| [`registries`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#registrie--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
+| [`registries`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#registries--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`vendor`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#vendor--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`versioning-strategy`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#versioning-strategy--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
-| [`update-types`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#update-types-groups--) |{% octicon "x" aria-label="Not required" %}| Not applicable |
+| [`update-types`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#update-types-groups) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`cooldown`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#cooldown-) |{% octicon "x" aria-label="Not required" %}| Not applicable |
 | [`labels`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#labels--)        | {% octicon "x" aria-label="Not required" %} | Additive |
 | [`assignees`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#assignees--) |{% octicon "x" aria-label="Not required" %} |Additive |

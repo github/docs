@@ -108,7 +108,7 @@ sections:
           Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`. This ensures that security updates are applied correctly, regardless of your repository's configuration settings. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
         # https://github.com/github/releases/issues/4118
         - |
-          In the `dependabot.yml` file, users can apply the same configuration to manifest files from multiple directories using the `directories` key. Direct strings, glob syntax, and wildcards (`*`) are all supported for targeting directories. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories). [Updated: 2024-10-07]
+          In the `dependabot.yml` file, users can apply the same configuration to manifest files from multiple directories using the `directories` key. Direct strings, glob syntax, and wildcards (`*`) are all supported for targeting directories. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory--). [Updated: 2024-10-07]
 
     - heading: Code security
       notes:
