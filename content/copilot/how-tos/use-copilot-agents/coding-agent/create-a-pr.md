@@ -1,7 +1,7 @@
 ---
 title: Asking GitHub Copilot to create a pull request
 shortTitle: Create a PR
-intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including the Agents panel, {% data variables.copilot.copilot_chat_short %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
+intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including the agents panel, {% data variables.copilot.copilot_chat_short %}, the {% data variables.product.prodname_cli %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=asking+copilot+to+create+a+pull+request&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -18,29 +18,29 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> * {% data reusables.copilot.coding-agent.preview-note-text %}
-> * For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+> For an overview of {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Introduction
 
 You can ask {% data variables.product.prodname_copilot_short %} to work on a task from:
 
-* The Agents panel, available across {% data variables.product.github %}
-* The Agents page on {% data variables.product.github %}
+* The agents panel, available across {% data variables.product.github %}
+* The agents page on {% data variables.product.github %}
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs and {% data variables.product.prodname_dotcom_the_website %}
+* The {% data variables.product.prodname_cli %}
 * Your preferred IDE or agentic coding tool with Model Context Protocol (MCP) support
 * The Raycast launcher on macOS
 
 {% data variables.product.prodname_copilot_short %} will start working on the task, raise a pull request, then request a review from you when it's finished working. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
-## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents panel or page
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the agents panel or page
 
-You can ask {% data variables.product.prodname_copilot_short %} to open a pull request from either the Agents panel or the Agents page. The only difference is the entry point - once you see the "New agent task" form, the steps are the same.
+You can ask {% data variables.product.prodname_copilot_short %} to open a pull request from either the agents panel or the agents page. The only difference is the entry point - once you see the "New agent task" form, the steps are the same.
 
-1. Open the Agents panel or page:
+1. Open the agents panel or page:
 
-   * **Open the Agents panel**: Click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar at the top right of {% data variables.product.github %}.
-   * **Navigate to the Agents page**: Go to [github.com/copilot/agents](https://github.com/copilot/agents). You can also get here by opening the Agents panel, then clicking **View all**.
+   * **Open the agents panel**: Click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar at the top right of {% data variables.product.github %}.
+   * **Navigate to the agents page**: Go to [github.com/copilot/agents](https://github.com/copilot/agents). You can also get here by opening the agents panel, then clicking **View all**.
 
 {% data reusables.copilot.coding-agent.new-agent-task-form-instructions %}
 
@@ -100,9 +100,39 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 
    {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
 
-## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.github %} MCP server
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.product.prodname_mobile %}
 
-As an alternative to using {% data variables.copilot.copilot_chat_short %}, you can use the remote {% data variables.product.github %} MCP server to trigger {% data variables.copilot.copilot_coding_agent %} from any MCP host.
+1. In {% data variables.product.prodname_mobile %}, navigate to the repository where you want to create a pull request.
+1. Tap the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon in the bottom right corner of the screen.
+1. Enter a prompt to ask {% data variables.product.prodname_copilot_short %} to create a pull request.
+
+   For example: `Create a pull request to ...`.
+
+   {% data variables.product.prodname_copilot_short %} responds with a brief summary of the task it will perform, asking for your confirmation before it proceeds.
+ 
+1. Check that {% data variables.product.prodname_copilot_short %} has interpreted your prompt correctly, then tap **Accept** or **Dismiss**.
+
+   {% data variables.product.prodname_copilot_short %} creates a pull request and gives you a link to it. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
+
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.prodname_cli %}
+
+> [!NOTE]
+> The `agent-task` command set is only available in v2.80.0 or later of the {% data variables.product.prodname_cli %}. This command set is a {% data variables.release-phases.public_preview %} and is subject to change.
+
+You can start a new {% data variables.copilot.copilot_coding_agent %} session with the `gh agent-task create` command in the {% data variables.product.prodname_cli %}.
+
+When you run the command without any arguments, you are asked to enter a prompt. {% data variables.copilot.copilot_coding_agent %} acts on the prompt and opens a pull request in the current repository.
+
+You can use command line options to:
+
+* Provide the prompt (`gh agent-task create "Example prompt"`)
+* Choose a base branch, instead of using the repository's default branch (`--base`)
+* Select a repository, instead of targeting the current repository (`--repo`)
+* Follow the session log in real time (`--follow`)
+
+To see all of the available options, run `gh agent-task create --help`.
+
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the {% data variables.product.github %} MCP server
 
 > [!NOTE]
 > * This capability is only available on the remote {% data variables.product.github %} MCP server and host applications where remote MCP servers are supported.
@@ -146,7 +176,7 @@ As an alternative to using {% data variables.copilot.copilot_chat_short %}, you 
 
 ## Monitoring progress
 
-You can view your current and past {% data variables.product.prodname_copilot_short %} sessions from the [Agents page](https://github.com/copilot/agents) and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
+You can view your current and past {% data variables.product.prodname_copilot_short %} sessions from the agents panel, [agents page](https://github.com/copilot/agents) and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
 
 ## Further reading
 

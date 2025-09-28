@@ -52,7 +52,7 @@ If you've been active on {% data variables.product.prodname_dotcom %}, you can f
 Before getting started contributing to an open source repository, it's recommended to check if the repository is being actively maintained. {% data variables.product.prodname_copilot_short %} can analyze a repository and tell you about its recent activity.
 
 1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
-1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon at the top right of the page.
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon at the top right of the page.
    The full-page, immersive, mode {% data variables.copilot.copilot_chat %} is displayed. The heading at the top of the chat panel will show the name of the repository as an attachment.
 1. In the prompt box, type "Is this repository being actively maintained?" and press <kbd>Enter</kbd>.  {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 

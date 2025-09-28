@@ -15,8 +15,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-{% data reusables.copilot.copilot-spaces.preview-note %}
-
 {% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. Sharing {% data variables.copilot.copilot_spaces %} helps your team:
 
 * Avoid repeated explanations and handoffs.
@@ -43,7 +41,7 @@ If you choose to create a personal space, **you can't share it with others**.
 
 To share a space with others:
 
-1. In the top right corner of the space, click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **{% octicon "share" aria-hidden="true" aria-label="share" %} Share**.
+1. In the top right corner of the space, click **{% octicon "share" aria-hidden="true" aria-label="share" %}**.
 1. To add specific users or teams, search for them with the search bar, then choose a role for the people you added.
 1. Optionally, next to your organization's name, choose a base role for all other organization members.
 
@@ -56,3 +54,5 @@ To share a space with others:
 ## Accessing shared {% data variables.copilot.copilot_spaces_short %}
 
 If you’re part of an organization that has shared spaces, you can access them in the **Organizations** tab on [https://github.com/copilot/spaces](https://github.com/copilot/spaces).
+
+You can also use organization spaces directly in your IDE by specifying the organization as the owner when accessing the space. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces#using-copilot-spaces-in-your-ide).

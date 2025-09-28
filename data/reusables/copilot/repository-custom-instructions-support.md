@@ -17,7 +17,7 @@ The following table shows which {% data variables.product.prodname_copilot_short
 {% endrowheaders %}
 
 **1:** Repository-wide instructions (using the `.github/copilot-instructions.md` file) are supported.<br>
-**2:** Repository-wide instructions and path-specific instructions (using `.github/instructions/NAME.instructions.md` files) are supported.<br>
+**2:** Repository-wide instructions and path-specific instructions (using `.github/instructions/**/NAME.instructions.md` files) are supported.<br>
 **3:** Repository-wide instructions, path-specific instructions, and agent instructions (using `AGENTS.md`, `CLAUDE.md` or `GEMINI.md` files) are supported.<br>
 **X:** Custom instructions are not supported.<br>
 **N/A:** Feature not available on this platform.

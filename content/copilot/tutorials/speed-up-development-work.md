@@ -13,8 +13,6 @@ redirect_from:
 contentType: tutorials
 ---
 
-{% data reusables.copilot.copilot-spaces.preview-note %}
-
 If you're starting a new feature, trying to understand a system, or picking up a task in a codebase you’re still learning, {% data variables.copilot.copilot_spaces %} can help you:
 
 * Stay focused by organizing the context you need in one place.
