@@ -1,6 +1,6 @@
 ---
 title: Using the GitHub MCP Server
-intro: 'Learn how to use the GitHub Model Context Protocol (MCP) server to extend {% data variables.copilot.copilot_chat_short %}.'
+intro: 'Learn how to use the GitHub Model Context Protocol (MCP) server to interact with repositories, issues, pull requests, and other GitHub features, directly from {% data variables.copilot.copilot_chat_short %}.'
 shortTitle: Use the GitHub MCP Server
 versions:
   feature: copilot
@@ -434,7 +434,7 @@ To configure the remote {% data variables.product.github %} MCP server with a PA
     }
   }
 ```
-  
+
 ## Using the {% data variables.product.github %} MCP server in Xcode
 
 The {% data variables.product.github %} MCP server enables you to perform a wide range of actions on {% data variables.product.github %}, via {% data variables.copilot.copilot_chat_short %} in Xcode.
@@ -546,8 +546,12 @@ The {% data variables.product.github %} MCP server is automatically configured i
 1. In the prompt box, type a request related to the skill you want {% data variables.copilot.copilot_chat_short %} to perform, and press **Enter**.
 
     Some examples of requests you can make are:
-    * `Create a new branch called [BRANCH-NAME] in the repository [USERNAME/REPO-NAME].`
-    * `Merge the pull request [PULL-REQUEST-NUMBER] in the repository [USERNAME/REPO-NAME].`
+
+    {% prompt %}Create a new branch called [BRANCH-NAME] in the repository [OWNER/REPO-NAME].{% endprompt %}
+
+    {% prompt %}Search for users with the name [USER-NAME]{% endprompt %}
+
+    {% prompt %}Merge the pull request [PR-NUMBER] in the repository [OWNER/REPO-NAME].{% endprompt %}
 
 1. {% data variables.copilot.copilot_chat_short %} will ask you to confirm that you want to proceed with the action. Click **Allow** to confirm.
 1. {% data variables.copilot.copilot_chat_short %} will use the relevant skill from the {% data variables.product.github %} MCP server to perform the action you requested. {% data variables.copilot.copilot_chat_short %} will show you the result of the action in the chat interface.

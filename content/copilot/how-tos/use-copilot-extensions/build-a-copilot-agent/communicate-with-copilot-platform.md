@@ -1,6 +1,6 @@
 ---
 title: Configuring your GitHub Copilot agent to communicate with the GitHub Copilot platform
-intro: 'Learn how to interact with the {% data variables.product.prodname_copilot_short %} platform by sending and receiving server-sent events with your {% data variables.copilot.copilot_agent_short %}.'
+intro: Learn how to interact with the {% data variables.product.prodname_copilot_short %} platform by sending and receiving server-sent events with your {% data variables.copilot.copilot_agent_short %}.
 versions:
   feature: copilot-extensions
 topics:

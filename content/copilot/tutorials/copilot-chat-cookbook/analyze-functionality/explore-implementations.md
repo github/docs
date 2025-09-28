@@ -25,7 +25,7 @@ When tasked with implementing new features or enhancing existing ones, developer
 
 You're assigned the task of creating a new feature that displays the most recently viewed items on a user dashboard. Below is an example issue for implementing this functionality:
 
-```text
+```text id=recent-items-feature
 [Feature Request] Add "Recent Items" section to user dashboard #753
 
 ## Issue Description
@@ -49,7 +49,9 @@ You want to evaluate different approaches to this implementation to see whether 
 
 Navigate to the issue, then type:
 
-`Given the criteria in Issue #753, list options for implementation and tradeoffs for each option.`
+```copilot copy prompt ref=recent-items-feature
+Given the criteria in Issue #753, list options for implementation and tradeoffs for each option.
+```
 
 >[!TIP] When you are using {% data variables.product.prodname_copilot_short %} to help identify implementation options, it's good practice to start with a general prompt to spark ideas, like in this example. Then you can follow up with more specific questions to dive more deeply into the options it suggests.
 

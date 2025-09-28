@@ -47,3 +47,15 @@ versions:
 * Any commits authored with a {% data variables.product.company_short %}-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
 * Issues, pull requests, and discussions will not be attributed to the new account.
 * Achievements are not able to be transferred between accounts.
+
+## Security and analysis features settings
+
+{% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
+
+{% data reusables.security.security-and-analysis-features-enable-read-only %}
+
+{% data reusables.security.displayed-information %}
+
+## Available for hire
+
+When you select that you are **Available for hire** and someone uses the REST API to get public and private information about authenticated users, the `hireable` field returns `true`. For more information, see [AUTOTITLE](/rest/users/users) in the REST API documentation.

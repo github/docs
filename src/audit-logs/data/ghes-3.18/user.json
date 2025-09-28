@@ -4083,7 +4083,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "project.access",
@@ -6840,6 +6840,102 @@
     ]
   },
   {
+    "action": "sub_issues.parent_issue_add",
+    "description": "A parent issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.parent_issue_remove",
+    "description": "A parent issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_add",
+    "description": "A sub-issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_remove",
+    "description": "A sub-issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
     "action": "successor_invitation.accept",
     "description": "Triggered when you accept a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories",
@@ -7782,7 +7878,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.login",
@@ -8000,7 +8096,7 @@
       "created_at",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.sign_in_from_unrecognized_device",
@@ -8086,7 +8182,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "user.suspend",

@@ -25,7 +25,7 @@ Creating end-to-end tests for a webpage can be time-consuming and complex as the
 
 Imagine a React application that displays product details on a webpage. You need to create end-to-end tests to ensure the product details are displayed correctly. You can ask {% data variables.copilot.copilot_chat_short %} to generate these tests for you.
 
-```javascript
+```javascript id=product-details
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -81,7 +81,9 @@ export default ProductDetails;
 
 > [!NOTE] This example uses Playwright for end-to-end testing, but you can use other frameworks like Selenium or Cypress.
 
-`Using Playwright, generate an e2e test to ensure the product displays correctly.`
+```copilot copy prompt ref=product-details
+Using Playwright, generate an e2e test to ensure the product displays correctly.
+```
 
 If you have an existing test you wish {% data variables.product.prodname_copilot_short %} to use as a model, you can use `#file: path/to/test-file.js` to provide the path to the file, and include this information in the prompt.
 

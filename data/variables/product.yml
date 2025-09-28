@@ -237,7 +237,7 @@ prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'GitHub public roadmap'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 
-# GitHub support
+# GitHub Support plans
 standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
 premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
@@ -334,6 +334,12 @@ pricing_url: 'https://github.com/pricing'
 pricing_link: '[GitHub Pricing](https://github.com/pricing)'
 raw_github_com: >-
   {% ifversion fpt or ghec %}raw.githubusercontent.com{% else %}HOSTNAME/user/repo/raw{% endif %}
+login_url: >-
+  {%- ifversion fpt or ghec %}
+  [`https://github.com/login`](https://github.com/login)
+  {%- elsif ghes %}
+  `http(s)://HOSTNAME/login`
+  {%- endif %}
 # GitHub Enterprise Server past versions
 current-340-version: '11.10.354'
 

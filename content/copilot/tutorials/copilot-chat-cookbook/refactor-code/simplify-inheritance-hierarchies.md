@@ -29,7 +29,7 @@ The following C# code has a deep inheritance hierarchy where each class builds o
 
 A multi-level inheritance hierarchy like this can be difficult to understand, modify, and extend.
 
-```csharp
+```csharp id=employee-class
 public class Employee
 {
     public string Name { get; set; }
@@ -66,7 +66,9 @@ public class President : VicePresident
 
 In this situation you might decide to use a parent `Employee` class whose properties other classes should inherit, but to avoid any other inheritance by defining all other properties separately for each class.
 
-`Refactor this code so that classes only inherit the properties of the Employee class. All of the other properties that each class currently inherits should instead be declared independently in each class definition.`
+```copilot copy prompt ref=employee-class
+Refactor this code so that classes only inherit the properties of the Employee class. All of the other properties that each class currently inherits should instead be declared independently in each class definition.
+```
 
 ## Example response
 

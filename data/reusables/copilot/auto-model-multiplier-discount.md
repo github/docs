@@ -1,0 +1,1 @@
+If you are on a {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_pro_plus %} plan, and use {% data variables.copilot.copilot_auto_model_selection_short %}, models qualify for a 10% multiplier discount.

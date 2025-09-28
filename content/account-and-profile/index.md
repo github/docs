@@ -7,7 +7,7 @@ introLinks:
     - /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
   startHere:
-    - /account-and-profile/concepts/changing-your-github-username
+    - /account-and-profile/concepts/username-changes
     - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
   popular:
     - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
@@ -15,7 +15,6 @@ featuredLinks:
   guideCards:
     - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-missing-contributions
     - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
-    - '{% ifversion ghes %}/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories{% endif %}'
 changelog:
   label: profiles, github-themes
   versions:

@@ -12,7 +12,7 @@ environments:
   - name: staging-balsam
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -24,7 +24,7 @@ environments:
   - name: staging-boxwood
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -36,7 +36,7 @@ environments:
   - name: staging-cedar
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -48,7 +48,7 @@ environments:
   - name: staging-cypress
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -60,7 +60,7 @@ environments:
   - name: staging-fir
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -72,7 +72,7 @@ environments:
   - name: staging-hemlock
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -84,7 +84,7 @@ environments:
   - name: staging-hinoki
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -96,7 +96,7 @@ environments:
   - name: staging-holly
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -108,7 +108,7 @@ environments:
   - name: staging-juniper
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -120,7 +120,7 @@ environments:
   - name: staging-laurel
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -132,7 +132,7 @@ environments:
   - name: staging-pine
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -144,7 +144,7 @@ environments:
   - name: staging-redwood
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -156,7 +156,7 @@ environments:
   - name: staging-sequoia
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -168,7 +168,7 @@ environments:
   - name: staging-spruce
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -180,7 +180,7 @@ environments:
   - name: staging-yew
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true

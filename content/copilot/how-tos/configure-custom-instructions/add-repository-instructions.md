@@ -19,11 +19,19 @@ redirect_from:
 
 This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endwebui %}
 
 {% vscode %}
 
 This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments.
+
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
 {% endvscode %}
 
@@ -31,17 +39,29 @@ This version of this article is for using repository custom instructions and pro
 
 This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endvisualstudio %}
 
 {% jetbrains %}
 
 This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endjetbrains %}
 
 {% xcode %}
 
 This version of this article is for using repository custom instructions in Xcode. Click the tabs above for instructions on using custom instructions in other environments.
+
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
 {% endxcode %}
 
@@ -51,21 +71,11 @@ This version of this article is for using repository custom instructions in Xcod
 
 This version of this article is for using repository custom instructions in Eclipse. Click the tabs above for instructions on using custom instructions in other environments.
 
+{% data reusables.copilot.repository-custom-instructions-support %}
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
 {% endeclipse %}
-
-## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
-
-Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences.
-
-Repository custom instructions are currently supported for:
-* **{% data variables.copilot.copilot_chat_short %}** in {% data variables.product.prodname_vscode_shortname %}
-* **{% data variables.copilot.copilot_chat_short %}** in {% data variables.product.prodname_vs %}, JetBrains IDEs, Xcode, Eclipse, and on the {% data variables.product.github %} website (`copilot-instructions.md` file only)
-* **{% data variables.copilot.copilot_coding_agent %}**
-* **{% data variables.copilot.copilot_code-review_short %}**
-
-## Prerequisites for repository custom instructions
-
-* You must have a custom instructions file (see the instructions below).
 
 {% webui %}
 
@@ -75,13 +85,13 @@ Repository custom instructions are currently supported for:
 
 {% vscode %}
 
-* The **Use Instruction Files** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+* Custom instructions must be enabled. This feature is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions-1) later in this article.
 
 {% endvscode %}
 
 {% visualstudio %}
 
-* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
+* The **Enable custom instructions...** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions-2) later in this article.
 
 {% endvisualstudio %}
 
@@ -251,9 +261,9 @@ You can create several types of repository custom instructions for use on {% dat
 
 * **Agent instructions** are used by AI agents.
 
-  Supported by: **{% data variables.copilot.copilot_coding_agent %}**.
+  Supported by: **{% data variables.copilot.copilot_coding_agent %}** and {% data variables.copilot.copilot_cli_short %}.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence.
+  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
@@ -263,10 +273,7 @@ You can create your own custom instructions file from scratch. See [Writing your
 
 ### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
-1. Navigate to the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+1. Navigate to the agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
 
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
@@ -533,6 +540,8 @@ Your choice persists, for all repositories containing a custom instructions file
 
 1. In the "Options" dialog, type `custom instructions` in the search box, then click **{% data variables.product.prodname_copilot_short %}**.
 1. Select or clear the checkbox for **Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
+
+   ![Screenshot of the {% data variables.product.prodname_vs %} Options dialog showing the "Enable custom instructions" option checkbox selected.](/assets/images/help/copilot/vs-custom-instructions-option.png)
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
 

@@ -23,3 +23,10 @@ To get started with cost centers, see [AUTOTITLE](/billing/tutorials/use-cost-ce
 {% data reusables.billing.cost-center-allocation %}
 
 For more details, see [AUTOTITLE](/billing/reference/cost-center-allocation).
+
+## Cost center limitations
+
+* The maximum number of active cost centers per enterprise is 250.
+* The maximum number of resources per cost center is 10,000.
+* A maximum of 50 resources can be added to or removed from a cost center at a time.
+* Azure subscriptions can only be added to or removed from cost centers through the UI.

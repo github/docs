@@ -12,6 +12,7 @@ children:
   - /track-copilot-sessions
   - /review-copilot-prs
   - /extend-coding-agent-with-mcp
+  - /integrate-coding-agent-with-teams
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
   - /troubleshoot-coding-agent
@@ -25,4 +26,4 @@ redirect_from:
 contentType: how-tos
 ---
 
-These articles provide how-to information for using {% data variables.copilot.copilot_coding_agent %}. For an overview of {% data variables.copilot.copilot_coding_agent %}, see the articles under [AUTOTITLE](/copilot/concepts/coding-agent).
+These articles provide how-to information for using {% data variables.copilot.copilot_coding_agent %}. For an overview of {% data variables.copilot.copilot_coding_agent %}, see the articles under [AUTOTITLE](/copilot/concepts/agents/coding-agent).

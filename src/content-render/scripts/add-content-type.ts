@@ -8,7 +8,7 @@ import path from 'path'
 import { program } from 'commander'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import walkFiles from '@/workflows/walk-files'
-import { contentTypesEnum } from '#src/frame/lib/frontmatter.js'
+import { contentTypesEnum } from '@/frame/lib/frontmatter'
 import type { MarkdownFrontmatter } from '@/types'
 
 const RESPONSIBLE_USE_STRING = 'responsible-use'

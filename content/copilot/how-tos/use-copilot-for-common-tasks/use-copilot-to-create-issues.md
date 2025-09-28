@@ -30,13 +30,13 @@ You can create issues from {% data variables.copilot.copilot_chat_short %}'s imm
 1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
 1. In the prompt box, describe the issue you want to create.
 
-   If you contribute issues to multiple repositories, use the `organization/repository` format to specify the target repository for this issue. If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will infer the repository based on the repository you last created an issue in.
+   If you contribute issues to multiple repositories, use the `repo-owner/repo-name` format to specify the target repository for this issue. If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will infer the repository based on the repository you last created an issue in.
 
    For example:
 
-   * `In octo-org/octo-repo, create a feature request to add fuzzy matching to search.`
-   * `Log a bug for a 500 error. This happens consistently when I try to log into the site.`
-   * `Create a task to change the application logo background to red and add the label "needs design review".`
+   * {% prompt %}In OWNER/REPOSITORY, create a feature request to add fuzzy matching to search.{% endprompt %}
+   * {% prompt %}Log a bug for a 500 error. This happens consistently when I try to log into the site.{% endprompt %}
+   * {% prompt %}Create a task to change the application logo background to red and add the label "needs design review".{% endprompt %}
 
    > [!NOTE] You can only use {% data variables.product.prodname_copilot_short %} to create issues in repositories where you already have permission to create issues. This feature doesn't change your access or bypass repository permissions.
 
@@ -71,9 +71,7 @@ You can create issues from {% data variables.copilot.copilot_chat_short %}'s imm
 
 If your prompt includes multiple tasks or bugs, {% data variables.product.prodname_copilot_short %} can draft more than one issue at a time.
 
-For example:
-
-`In octo-org/octo-repo, create 3 issues: 1) DETAILS OF ONE TASK, 2) DETAILS OF ANOTHER TASK, 3) DETAILS OF A THIRD TASK`
+For example: {% prompt %}In OWNER/REPOSITORY, create 3 issues: 1) DETAILS OF ONE TASK, 2) DETAILS OF ANOTHER TASK, 3) DETAILS OF A THIRD TASK{% endprompt %}
 
 Each draft appears separately, and you can review and edit them individually. To publish the issues, click **Create** on each one you want to submit.
 
@@ -121,7 +119,7 @@ To assign an issue to {% data variables.product.prodname_copilot_short %}, you n
 
 You can assign the issue during creation in one of two ways:
 
-* **Natural language:** Prompt {% data variables.product.prodname_copilot_short %} with something like “Assign this issue to {% data variables.product.prodname_copilot_short %}."
+* **Natural language:** Prompt {% data variables.product.prodname_copilot_short %} with something like `Assign this issue to {% data variables.product.prodname_copilot_short %}.`
 * **Manually:** Select "{% data variables.product.prodname_copilot_short %}" from the assignee list.
 
 Once the issue is assigned and created, {% data variables.product.prodname_copilot_short %} will start working on it automatically. You’ll see a 👀 emoji reaction on the issue to indicate that {% data variables.product.prodname_copilot_short %} is working on it.

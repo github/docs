@@ -4,9 +4,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -107,9 +108,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -119,9 +121,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -131,6 +134,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -143,9 +147,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -207,6 +212,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -273,6 +279,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -285,6 +292,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -297,6 +305,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -309,6 +318,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -321,6 +331,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -333,6 +344,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -345,6 +357,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -461,6 +474,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -473,6 +487,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -485,6 +500,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -562,6 +578,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -600,6 +617,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -615,7 +633,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -625,6 +643,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -637,6 +656,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -662,6 +682,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -674,6 +695,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -699,6 +721,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -711,6 +734,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -736,6 +760,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -761,6 +786,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -773,6 +799,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -785,6 +812,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -810,6 +838,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -822,6 +851,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -834,6 +864,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -846,6 +877,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -861,7 +893,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -900,7 +932,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -926,7 +958,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -936,6 +968,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -948,6 +981,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -960,6 +994,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -975,7 +1010,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -985,6 +1020,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -997,6 +1033,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1009,6 +1046,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1021,6 +1059,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1071,6 +1110,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1083,6 +1123,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1095,6 +1136,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1107,6 +1149,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1135,7 +1178,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1187,7 +1230,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1197,6 +1240,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1209,6 +1253,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1221,6 +1266,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1284,6 +1330,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1296,6 +1343,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1308,6 +1356,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1320,6 +1369,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1345,6 +1395,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1361,7 +1412,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -1487,9 +1538,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1499,9 +1551,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1511,9 +1564,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1523,9 +1577,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1535,9 +1590,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1547,9 +1603,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1559,9 +1616,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1571,9 +1629,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1583,9 +1642,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -1816,6 +1876,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1841,6 +1902,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1980,6 +2042,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2242,7 +2305,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -2369,6 +2432,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2384,8 +2448,8 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
+  hasPushProtection: true
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Fastly
@@ -2475,7 +2539,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -2596,6 +2660,18 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: GitHub Secret Scanning
+  supportedSecret: GitHub Secret Scanning Base64 Encoded
+  secretType: secret_scanning_sample_token_base64
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: true
+  isduplicate: false
 - provider: GitLab
   supportedSecret: GitLab Access Token
   secretType: gitlab_access_token
@@ -2710,6 +2786,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2826,9 +2903,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -2838,9 +2916,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -2850,6 +2929,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2914,9 +2994,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3098,7 +3179,7 @@
     ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3211,9 +3292,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3223,6 +3305,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3235,6 +3318,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3315,7 +3399,7 @@
     ghes: '>=3.17'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3408,7 +3492,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -3559,7 +3643,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3595,6 +3679,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3636,7 +3721,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3649,7 +3734,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3662,7 +3747,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3675,7 +3760,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3688,7 +3773,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3701,7 +3786,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3714,7 +3799,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3727,7 +3812,7 @@
     ghes: '>=3.18'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -3826,6 +3911,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3841,7 +3927,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -3906,7 +3992,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4027,12 +4113,25 @@
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
+- provider: OpenVSX
+  supportedSecret: OpenVSX Access Token
+  secretType: openvsx_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: true
 - provider: Openweather
   supportedSecret: Openweather API Key
   secretType: openweather_api_key
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -4112,7 +4211,7 @@
     ghes: '>=3.18'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4122,6 +4221,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -4152,6 +4252,18 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Pinecone
+  supportedSecret: Pinecone API Key
+  secretType: pinecone_api_key </br>pinecone_environment
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: false
 - provider: Pinterest
@@ -4329,6 +4441,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -4367,6 +4480,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -4512,7 +4626,7 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4525,7 +4639,7 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4626,6 +4740,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -4797,7 +4912,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4901,7 +5016,7 @@
     ghes: '>3.4'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -4991,7 +5106,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -5014,6 +5129,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -5042,7 +5158,7 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5068,7 +5184,7 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5185,7 +5301,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5198,7 +5314,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5299,6 +5415,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -5311,6 +5428,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -5349,6 +5467,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -5452,9 +5571,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -5529,6 +5649,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -5622,7 +5743,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5635,7 +5756,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -5686,7 +5807,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5699,7 +5820,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
@@ -5709,9 +5830,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.19'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false

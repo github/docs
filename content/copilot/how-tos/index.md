@@ -1,7 +1,7 @@
 ---
 title: How-tos for GitHub Copilot
 shortTitle: How-tos
-intro: 'Learn how to use {% data variables.product.prodname_copilot %}.'
+intro: Learn how to use {% data variables.product.prodname_copilot %}.
 versions:
   feature: copilot
 topics:
@@ -9,15 +9,15 @@ topics:
 children:
   - /set-up
   - /get-code-suggestions
-  - /use-chat
+  - /chat-with-copilot
   - /use-copilot-agents
   - /use-ai-models
   - /provide-context
   - /configure-custom-instructions
   - /configure-content-exclusion
   - /use-copilot-for-common-tasks
-  - /manage-and-track-spending
   - /configure-personal-settings
+  - /manage-and-track-spending
   - /manage-your-account
   - /administer-copilot
   - /troubleshoot-copilot
@@ -26,4 +26,3 @@ redirect_from:
   - /copilot/using-github-copilot
 contentType: how-tos
 ---
-

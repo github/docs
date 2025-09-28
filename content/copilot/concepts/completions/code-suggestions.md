@@ -89,7 +89,7 @@ contentType: concepts
 
 ## About the AI model used for {% data variables.product.prodname_copilot_short %} code completion
 
-{% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} model. The {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} model was trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. See [Programming languages included in the default model](#programming-languages-included-in-the-default-model) below.
+{% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} model. The {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} model was trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. See [Programming languages included in the default model](#programming-languages-included-in-the-default-model) below.
 
 {% vscode %}
 

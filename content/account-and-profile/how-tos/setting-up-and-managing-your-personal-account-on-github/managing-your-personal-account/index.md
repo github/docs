@@ -11,6 +11,7 @@ topics:
 children:
   - /managing-multiple-accounts
   - /merging-multiple-personal-accounts
+  - /changing-your-username
   - /converting-a-user-into-an-organization
   - /unlinking-your-email-address-from-a-locked-account
   - /deleting-your-personal-account

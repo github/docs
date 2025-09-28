@@ -52,7 +52,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endif %}
 
 > [!NOTE]
-> You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
+> You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/changing-your-two-factor-authentication-method).
 
 ## Configuring two-factor authentication using a TOTP app
 
@@ -141,5 +141,6 @@ After signing in and turning on push notifications, you can now use your device 
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)

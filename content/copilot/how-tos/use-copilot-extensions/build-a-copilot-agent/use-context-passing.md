@@ -1,6 +1,6 @@
 ---
 title: Context passing for your agent
-intro: 'Learn how to use context passing with your {% data variables.copilot.copilot_agent_short %}.'
+intro: Learn how to use context passing with your {% data variables.copilot.copilot_agent_short %}.
 versions:
   feature: copilot-extensions
 topics:

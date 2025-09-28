@@ -66,6 +66,7 @@ import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
 import { initLoggerContext } from '@/observability/logger/lib/logger-context'
 import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
 import appRouterGateway from './app-router-gateway'
+import urlDecode from './url-decode'
 
 const { NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -199,6 +200,7 @@ export default function (app: Express) {
   app.set('etag', false) // We will manage our own ETags if desired
 
   // *** Config and context for redirects ***
+  app.use(urlDecode) // Must come before detectLanguage to decode @ symbols in version segments
   app.use(detectLanguage) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(reloadTree)) // Must come before context
   app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects

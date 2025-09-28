@@ -57,6 +57,6 @@ Enterprise **owners** or **billing managers** can add or remove user licenses.
 
 1. Navigate to your enterprise account.
 {% data reusables.billing.enterprise-billing-menu %}
-1. In the left sidebar, click **Licensing**.
+1. In the left sidebar, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing**.
 1. Next to "Enterprise Cloud", click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **Manage licenses**.
 1. Choose your number of licenses, then click **Confirm licenses**.

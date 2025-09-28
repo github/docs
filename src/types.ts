@@ -311,6 +311,7 @@ export type SecretScanningData = {
   isPrivateWithGhas: boolean
   hasPushProtection: boolean
   hasValidityCheck: boolean | string
+  ismultipart?: boolean
   base64Supported: boolean
   isduplicate: boolean
 }
@@ -357,6 +358,7 @@ export type Page = {
   languageCode: string
   documentType: string
   renderProp: (prop: string, context: any, opts?: any) => Promise<string>
+  renderTitle: (context: Context, opts?: any) => Promise<string>
   markdown: string
   versions: FrontmatterVersions
   applicableVersions: string[]

@@ -1,5 +1,103 @@
 # Docs changelog
 
+**25 September 2025**
+
+We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server. 
+
+See the updated docs: 
+* [About organizing and sharing context with GitHub Copilot Spaces](https://docs.github.com/copilot/concepts/context/spaces)
+* [Creating GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces)
+* [Using GitHub Copilot Spaces](https://docs.github.com/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces)
+
+<hr>
+
+**24 September 2025**
+
+Until now, assigning Copilot coding agent to an issue was limited to the same repository as the issue. 
+
+You can now: 
+
+* Assign Copilot coding agent to work in a different repository, supporting workflows where issues and code files are managed separately. 
+* Provide additional instructions to tailor the agent's output to your requirements. 
+* Choose the base branch for the agent to use. 
+ 
+These changes provide a more flexible, transparent, and user-friendly experience for managing automated coding tasks with Copilot coding agent. 
+
+See the updated docs: [Using GitHub Copilot to work on an issue](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue#assigning-an-issue-to-copilot).
+
+<hr>
+
+**23 September 2025**
+
+We've added new documentation for Spark that answers some common customer questions, helps customers troubleshoot known issues, and guides users on the best ways to prompt and provide context to Spark.
+
+See:
+- [About GitHub Spark](https://docs.github.com/copilot/concepts/spark)
+- [Troubleshooting common issues with GitHub Spark](https://docs.github.com/copilot/how-tos/troubleshoot-copilot/troubleshoot-spark)
+- [Write effective prompts and provide useful context for Spark](https://docs.github.com/copilot/tutorials/spark/prompt-tips)
+
+<hr>
+
+**17 September 2025**
+
+We've added information about the GitHub MCP Registry, and guidance on how to use it in VS Code.
+
+See [About the GitHub MCP Registry](https://docs.github.com/copilot/concepts/context/mcp#about-the-github-mcp-registry) and [Using the GitHub MCP Registry](https://docs.github.com/copilot/how-tos/provide-context/use-mcp/extend-copilot-chat-with-mcp#using-the-github-mcp-registry).
+
+<hr>
+
+**17 September 2025**
+
+We've added documentation for expanded features for reusing workflow configurations in GitHub Actions. 
+
+You can now use YAML anchors and aliases to reuse pieces of content in a workflow. See [YAML anchors and aliases](https://docs.github.com/actions/concepts/workflows-and-actions/reusing-workflow-configurations#yaml-anchors-and-aliases). 
+
+To keep the content focused on users' job-to-be-done, we simplified the procedures for [creating workflow templates for your organization](https://docs.github.com/actions/how-tos/reuse-automations/create-workflow-templates). In addition, we updated reference documentation for workflow templates with details on permissions, repository visibility rules, rules for the metadata file, and examples. See [Workflow templates](https://docs.github.com/actions/reference/workflows-and-actions/reusing-workflow-configurations#workflow-templates).
+
+<hr>
+
+**17 September 2025**
+
+You can now publish your Spark app as "read-only." 
+
+By default, data stored in Spark is shared across all users of the app. You can choose to publish your app as "read-only" if you want to showcase your app to others, but you don't want others to be able to edit or delete any stored data.
+
+We've updated the [Spark documentation](https://docs.github.com/copilot/tutorials/build-apps-with-spark) accordingly.
+
+<hr>
+
+**15 September 2025**
+
+We've updated the documentation for Copilot code review to clarify model usage for code review.
+
+See [Responsible use of GitHub Copilot code review](https://docs.github.com/copilot/responsible-use/code-review#model-usage).
+
+<hr>
+
+**11 September 2025**
+
+Copilot Chat in VS Code includes a "Manage models" option which allows you to add models from a variety of LLM providers, such as Azure, Anthropic, Google, and xAI. By installing the AI Toolkit for VS Code, you can install even more models from the "Manage models" option. We've updated the documentation to include details of how to use this new feature.
+
+See [Changing the AI model for GitHub Copilot Chat](https://docs.github.com/copilot/how-tos/use-ai-models/change-the-chat-model?tool=vscode).
+
+<hr>
+
+**11 September 2025**
+
+You can now enable automatic Copilot code review with its own standalone repository rule. We've updated the documentation accordingly.
+
+See [Configuring automatic code review by GitHub Copilot](https://docs.github.com/copilot/how-tos/use-copilot-agents/request-a-code-review/configure-automatic-review).
+
+<hr>
+
+**8 September 2025**
+
+We've added a tutorial on planning a project with GitHub Copilot, including creating issues and sub-issues: [Planning a project with GitHub Copilot](https://docs.github.com/copilot/tutorials/plan-a-project). This tutorial provides step-by-step instructions on leveraging Copilot to plan a project from scratch.
+
+Additionally, we've updated [Using GitHub Copilot to create issues](https://docs.github.com/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues) with instructions to create sub-issues and to work with existing issues.
+
+<hr>
+
 **4 September 2025**
 
 We've updated the documentation to remove references to Copilot coding guidelines.
@@ -14,7 +112,7 @@ See: [Configure custom instructions for GitHub Copilot](https://docs.github.com/
 
 In addition to repository-wide custom instructions, specified in the `.github/copilot-instructions.md` file, Copilot Code Review now supports:
 
-* Path-specific custom instructions, specified in `.github/instructions/NAME.instructions.md` files.
+* Path-specific custom instructions, specified in `.github/instructions/**/NAME.instructions.md` files.
 * Custom instructions specified in the organization settings for Copilot.
 
 We have updated several articles in the GitHub documentation accordingly. We have also made changes to clarify the difference between the various types of custom instructions for Copilot Code Review, Copilot Chat, and Copilot Coding Agent.
@@ -25,7 +123,7 @@ For example, see: [Adding repository custom instructions for GitHub Copilot](htt
 
 **3 September 2025**
 
-We’ve updated [Choosing your enterprise’s plan for GitHub Copilot](https://docs.github.com/en/copilot/get-started/choose-enterprise-plan) to better highlight the long-term benefits of the Copilot Enterprise (CE) plan. The updated content focuses on the key advantages of CE, such as increased access to premium requests and earlier availability of new models.
+We’ve updated [Choosing your enterprise’s plan for GitHub Copilot](https://docs.github.com/copilot/get-started/choose-enterprise-plan) to better highlight the long-term benefits of the Copilot Enterprise (CE) plan. The updated content focuses on the key advantages of CE, such as increased access to premium requests and earlier availability of new models.
 
 <hr>
 

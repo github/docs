@@ -18,7 +18,7 @@ contentType: how-tos
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 >
-> Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_code-review_short %}.
+> **Support:** Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %}.
 
 For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
 
@@ -35,7 +35,7 @@ Some examples of instructions you could add are:
 
 > [!NOTE]
 > * {% data reusables.copilot.custom-instructions-chat-precedence %}
-> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
+> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/**/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
 > * {% data reusables.copilot.custom-instructions-conflict %}
 
 ## Adding organization custom instructions

@@ -76,7 +76,11 @@ type Options = {
   bail?: boolean
   commentLimitToExternalLinks?: boolean
   actionContext?: any
+  concurrency?: number
 }
+
+// Default concurrency limit for URL requests
+const DEFAULT_CONCURRENCY_LIMIT = 3
 
 const STATIC_PREFIXES: Record<string, string> = {
   assets: path.resolve('assets'),
@@ -113,6 +117,32 @@ const defaultData: Data = { urls: {} }
 const externalLinkCheckerDB = await JSONFilePreset<Data>(EXTERNAL_LINK_CHECKER_DB, defaultData)
 
 type DBType = typeof externalLinkCheckerDB
+
+// Simple concurrency limiter
+async function limitConcurrency<T, R>(
+  items: T[],
+  asyncFn: (item: T) => Promise<R>,
+  limit: number = 3,
+): Promise<R[]> {
+  const results: Promise<R>[] = []
+  const executing = new Set<Promise<R>>()
+
+  for (const item of items) {
+    const promise = asyncFn(item).then((result) => {
+      executing.delete(promise)
+      return result
+    })
+
+    results.push(promise)
+    executing.add(promise)
+
+    if (executing.size >= limit) {
+      await Promise.race(executing)
+    }
+  }
+
+  return Promise.all(results)
+}
 
 // Given a number and a percentage, return the same number with a *percentage*
 // max change of making a bit larger or smaller.
@@ -156,6 +186,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     REPORT_LABEL,
     EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
     CHECK_ANCHORS,
+    CONCURRENCY,
   } = process.env
 
   const octokit = github()
@@ -193,6 +224,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
     reportAuthor: REPORT_AUTHOR,
     actionContext: getActionContext(),
     externalServerErrorsAsWarning: EXTERNAL_SERVER_ERRORS_AS_WARNINGS,
+    concurrency: CONCURRENCY ? parseInt(CONCURRENCY, 10) : DEFAULT_CONCURRENCY_LIMIT,
   }
 
   if (opts.shouldComment || opts.createReport) {
@@ -238,6 +270,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  externalServerErrorsAsWarning {boolean} - Treat >=500 errors or temporary request errors as warning
  *  filter {Array<string>} - strings to match the pages' relativePath
  *  versions {Array<string>} - only certain pages' versions (e.g. )
+ *  concurrency {number} - Maximum number of concurrent URL requests (default: 3, env: CONCURRENCY)
  *
  */
 
@@ -263,6 +296,7 @@ async function main(
     reportRepository = 'github/docs-content',
     reportAuthor = 'docs-bot',
     reportLabel = 'broken link report',
+    concurrency = DEFAULT_CONCURRENCY_LIMIT,
   } = opts
 
   // Note! The reason we're using `warmServer()` in this script,
@@ -337,8 +371,9 @@ async function main(
 
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
-  const flawsGroups = await Promise.all(
-    pages.map((page: Page) =>
+  const flawsGroups = await limitConcurrency(
+    pages,
+    (page: Page) =>
       processPage(
         core,
         page,
@@ -348,7 +383,7 @@ async function main(
         externalLinkCheckerDB,
         versions as string[],
       ),
-    ),
+    concurrency, // Limit concurrent page checks
   )
   const t1 = new Date().getTime()
   debugTimeEnd(core, 'processPages')
@@ -653,14 +688,13 @@ async function processPage(
   versions: string[],
 ) {
   const { verbose, verboseUrl, bail } = opts
-  const allFlawsEach = await Promise.all(
-    page.permalinks
-      .filter((permalink) => {
-        return !versions.length || versions.includes(permalink.pageVersion)
-      })
-      .map((permalink) => {
-        return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
-      }),
+  const filteredPermalinks = page.permalinks.filter((permalink) => {
+    return !versions.length || versions.includes(permalink.pageVersion)
+  })
+  const allFlawsEach = await limitConcurrency(
+    filteredPermalinks,
+    (permalink) => processPermalink(core, permalink, page, pageMap, redirects, opts, db),
+    opts.concurrency || DEFAULT_CONCURRENCY_LIMIT, // Limit concurrent permalink checks per page
   )
 
   const allFlaws = allFlawsEach.flat()
@@ -714,8 +748,9 @@ async function processPermalink(
   $('a[href]').each((i, link) => {
     links.push(link)
   })
-  const newFlaws: LinkFlaw[] = await Promise.all(
-    links.map(async (link) => {
+  const newFlaws: LinkFlaw[] = await limitConcurrency(
+    links,
+    async (link) => {
       const { href } = (link as cheerio.TagElement).attribs
 
       // The global cache can't be used for anchor links because they
@@ -756,7 +791,8 @@ async function processPermalink(
           globalHrefCheckCache.set(href, flaw)
         }
       }
-    }),
+    },
+    opts.concurrency || DEFAULT_CONCURRENCY_LIMIT, // Limit concurrent link checks per permalink
   )
 
   for (const flaw of newFlaws) {
@@ -1073,6 +1109,20 @@ async function checkExternalURLCached(
   const now = new Date().getTime()
   const url = href.split('#')[0]
 
+  // Skip domains that are currently rate limited (with 1 hour TTL)
+  const { hostname } = new URL(url)
+  const rateLimitTime = _rateLimitedDomains.get(hostname)
+  if (rateLimitTime) {
+    const oneHourAgo = Date.now() - 60 * 60 * 1000 // 1 hour in ms
+    if (rateLimitTime > oneHourAgo) {
+      if (verbose) core.info(`Skipping ${url} - domain ${hostname} is rate limited`)
+      return { ok: false, statusCode: 429, skipReason: 'Domain rate limited' }
+    } else {
+      // Rate limit has expired, remove it
+      _rateLimitedDomains.delete(hostname)
+    }
+  }
+
   if (cacheMaxAge) {
     const tooOld = now - Math.floor(jitter(cacheMaxAge, 10))
     if (db && db.data.urls[url]) {
@@ -1122,105 +1172,70 @@ async function checkExternalURL(
   return _fetchCache.get(cleanURL)
 }
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
-
-// Global for recording which domains we get rate-limited on.
-// For example, if you got rate limited on `something.github.com/foo`
-// and now we're asked to fetch for `something.github.com/bar`
-// it's good to know to now bother yet.
-const _rateLimitedDomains = new Map()
+// Track domains that have returned 429 to skip future requests
+// Maps hostname to timestamp when rate limit was detected
+const _rateLimitedDomains = new Map<string, number>()
 
 async function innerFetch(
   core: CoreInject,
   url: string,
-  config: { verbose?: boolean; useGET?: boolean; patient?: boolean; retries?: number } = {},
+  config: { verbose?: boolean; patient?: boolean; retries?: number } = {},
 ) {
-  const { verbose, useGET, patient } = config
-
-  const { hostname } = new URL(url)
-  if (_rateLimitedDomains.has(hostname)) {
-    await sleep(_rateLimitedDomains.get(hostname))
-  }
-  // The way `got` does retries:
-  //
-  //   sleep = 1000 * Math.pow(2, retry - 1) + Math.random() * 100
-  //
-  // So, it means:
-  //
-  //   1. ~1000ms
-  //   2. ~2000ms
-  //   3. ~4000ms
-  //
-  // ...if the limit we set is 3.
-  // Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
-  // So there's no point in trying more attempts than 3 because it would
-  // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
-  const retry = {
-    limit: patient ? 6 : 2,
-  }
-  const timeout = { request: patient ? 10000 : 2000 }
+  const { verbose, patient } = config
 
   const headers = {
     'User-Agent':
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36',
   }
 
-  const retries = config.retries || 0
-  const method = useGET ? 'GET' : 'HEAD'
+  const retries = patient ? 3 : 2
+  const timeout = patient ? 10000 : 5000
 
-  if (verbose) core.info(`External URL ${method}: ${url} (retries: ${retries})`)
+  if (verbose) core.info(`External URL HEAD: ${url}`)
+
   try {
-    const r = await fetchWithRetry(
+    // Try HEAD first
+    let r = await fetchWithRetry(
       url,
       {
-        method,
+        method: 'HEAD',
         headers,
       },
       {
-        retries: retry.limit,
-        timeout: timeout.request,
+        retries,
+        timeout,
         throwHttpErrors: false,
       },
     )
-    if (verbose) {
-      core.info(`External URL ${method} ${url}: ${r.status} (retries: ${retries})`)
-    }
 
-    // If we get rate limited, remember that this hostname is now all
-    // rate limited. And sleep for the number of seconds that the
-    // `retry-after` header indicated.
-    if (r.status === 429) {
-      let sleepTime = Math.min(
-        60_000,
-        Math.max(
-          10_000,
-          r.headers.get('retry-after') ? getRetryAfterSleep(r.headers.get('retry-after')) : 1_000,
-        ),
+    // If HEAD doesn't work, try GET
+    if (r.status === 405 || r.status === 404 || r.status === 403) {
+      if (verbose) core.info(`External URL GET: ${url} (HEAD failed with ${r.status})`)
+      r = await fetchWithRetry(
+        url,
+        {
+          method: 'GET',
+          headers,
+        },
+        {
+          retries,
+          timeout,
+          throwHttpErrors: false,
+        },
       )
-      // Sprinkle a little jitter so it doesn't all start again all
-      // at the same time
-      sleepTime += Math.random() * 10 * 1000
-      // Give it a bit extra when we can be really patient
-      if (patient) sleepTime += 30 * 1000
-
-      _rateLimitedDomains.set(hostname, sleepTime + Math.random() * 10 * 1000)
-      if (verbose)
-        core.info(
-          chalk.yellow(
-            `Rate limited on ${hostname} (${url}). Sleeping for ${(sleepTime / 1000).toFixed(1)}s`,
-          ),
-        )
-      await sleep(sleepTime)
-      return innerFetch(core, url, Object.assign({}, config, { retries: retries + 1 }))
-    } else {
-      _rateLimitedDomains.delete(hostname)
     }
 
-    // Perhaps the server doesn't support HEAD requests.
-    // If so, try again with a regular GET.
-    if ((r.status === 405 || r.status === 404 || r.status === 403) && !useGET) {
-      return innerFetch(core, url, Object.assign({}, config, { useGET: true }))
+    if (verbose) {
+      core.info(`External URL ${url}: ${r.status}`)
     }
+
+    // Track rate limited domains with timestamp
+    const { hostname } = new URL(url)
+    if (r.status === 429) {
+      _rateLimitedDomains.set(hostname, Date.now())
+      if (verbose) core.info(`Domain ${hostname} is now rate limited for 1 hour`)
+    }
+
     if (verbose) {
       core.info((r.ok ? chalk.green : chalk.red)(`${r.status} on ${url}`))
     }
@@ -1234,17 +1249,6 @@ async function innerFetch(
     }
     throw err
   }
-}
-
-// Return number of milliseconds from a `Retry-After` header value
-function getRetryAfterSleep(headerValue: string | null) {
-  if (!headerValue) return 0
-  let ms = Math.round(parseFloat(headerValue) * 1000)
-  if (isNaN(ms)) {
-    const nextDate = new Date(headerValue)
-    ms = Math.max(0, nextDate.getTime() - new Date().getTime())
-  }
-  return ms
 }
 
 function checkImageSrc(src: string) {

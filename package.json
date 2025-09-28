@@ -9,11 +9,6 @@
     "url": "https://github.com/github/docs"
   },
   "type": "module",
-  "imports": {
-    "#src/*": {
-      "default": "./src/*"
-    }
-  },
   "exports": "./src/frame/server.ts",
   "scripts": {
     "add-content-type": "tsx src/content-render/scripts/add-content-type.ts",
@@ -28,7 +23,7 @@
     "cmp-files": "tsx src/workflows/cmp-files.ts",
     "content-changes-table-comment": "tsx src/workflows/content-changes-table-comment.ts",
     "copy-fixture-data": "tsx src/tests/scripts/copy-fixture-data.ts",
-    "count-translation-corruptions": "tsx src/languages/scripts/count-translation-corruptions.ts",
+    "count-translation-corruptions": "cross-env NODE_OPTIONS=--max-old-space-size=8192 tsx src/languages/scripts/count-translation-corruptions.ts",
     "create-enterprise-issue": "tsx src/ghes-releases/scripts/create-enterprise-issue.ts",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
@@ -96,7 +91,6 @@
     "sync-secret-scanning": "tsx src/secret-scanning/scripts/sync.ts",
     "sync-webhooks": "npx tsx src/rest/scripts/update-files.ts -o webhooks",
     "test": "vitest",
-    "test-local-dev": "tsx src/workflows/test-local-dev.ts",
     "test-moved-content": "tsx src/content-render/scripts/test-moved-content.ts",
     "tsc": "tsc --noEmit",
     "unallowed-contributions": "tsx src/workflows/unallowed-contributions.ts",
@@ -216,7 +210,7 @@
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
     "next": "^15.4.7",
-    "ora": "^8.0.1",
+    "ora": "^9.0.0",
     "parse5": "7.1.2",
     "quick-lru": "7.0.1",
     "react": "^18.3.1",
@@ -243,9 +237,10 @@
     "tcp-port-used": "1.0.2",
     "tsx": "^4.19.4",
     "unified": "^11.0.5",
+    "unist-util-find": "^3.0.0",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.1.1",
-    "walk-sync": "^3.0.0"
+    "walk-sync": "^4.0.1"
   },
   "devDependencies": {
     "@actions/core": "^1.10.1",

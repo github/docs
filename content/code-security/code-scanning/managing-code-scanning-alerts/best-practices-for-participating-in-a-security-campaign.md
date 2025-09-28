@@ -1,7 +1,7 @@
 ---
-title: Best practices for participating in a security campaign
+title: Best practices for participating in a code security campaign
 shortTitle: Best practices for campaigns
-intro: 'Learn how you can successfully take part in a security campaign and how it can benefit your career as well as your code.'
+intro: 'Learn how you can successfully take part in a security campaign for {% data variables.product.prodname_code_scanning %} alerts and how it can benefit your career as well as your code.'
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
@@ -15,9 +15,9 @@ topics:
   - Repositories
 ---
 
-## What is a security campaign
+## What is a code security campaign
 
-A security campaign is a group of security alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation.
+A security campaign is a group of {% data variables.product.prodname_code_scanning %} alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation.
 
 You can take part in a security campaign by fixing one or more of the alerts included in the campaign.
 
@@ -39,6 +39,8 @@ Adopting a few key best practices can help you participate successfully in a cam
 ### Notification settings
 
 You'll automatically receive email updates about security campaigns for any repositories you have **write** access to, so you can stay informed about relevant updates.
+
+{% data reusables.security.alert-assignee-mention %}
 
 ### View campaign details
 

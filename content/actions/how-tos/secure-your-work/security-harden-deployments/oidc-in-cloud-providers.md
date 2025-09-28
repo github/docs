@@ -104,7 +104,7 @@ jobs:
       with:
         debug: true
         script: |
-          const token = process.env['ACTIONS_RUNTIME_TOKEN']
+          const token = process.env['ACTIONS_ID_TOKEN_REQUEST_TOKEN']
           const runtimeUrl = process.env['ACTIONS_ID_TOKEN_REQUEST_URL']
           core.setOutput('TOKEN', token.trim())
           core.setOutput('IDTOKENURL', runtimeUrl.trim())

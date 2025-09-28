@@ -144,6 +144,88 @@
     ]
   },
   {
+    "action": "billing.budget_create",
+    "description": "A billing budget was created for a business or organization. Includes details about the budget limit, alerting preferences, and recipients.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "customer_id",
+      "target_amount",
+      "target_type",
+      "target_id",
+      "alert_enabled",
+      "status",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "pricing_target_type",
+      "pricing_target_id",
+      "budget_limit_type",
+      "alert_recipient_user_ids"
+    ]
+  },
+  {
+    "action": "billing.budget_delete",
+    "description": "A billing budget was deleted for a business or organization. Includes details about the removed budget and any alerting settings.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "customer_id",
+      "uuid",
+      "status",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "billing.budget_update",
+    "description": "A billing budget was updated for a business or organization. Includes details about the updated limit and alerting settings.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "customer_id",
+      "target_amount",
+      "target_type",
+      "target_id",
+      "alert_enabled",
+      "status",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header",
+      "old_target_amount",
+      "old_budget_limit_type",
+      "old_alert_enabled",
+      "old_target_id"
+    ]
+  },
+  {
     "action": "billing.change_billing_type",
     "description": "The way the account pays for GitHub was changed.",
     "docs_reference_links": "/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method",
@@ -182,6 +264,42 @@
       "request_access_security_header"
     ],
     "docs_reference_titles": "Managing your payment and billing information"
+  },
+  {
+    "action": "billing_customer.azure_subscription_linked",
+    "description": "Azure subscription has been linked on this account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "billing_customer.azure_subscription_unlinked",
+    "description": "Azure subscription has been unlinked on this account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
   },
   {
     "action": "billing.lock",
@@ -341,6 +459,50 @@
       "operation_type",
       "actor_is_bot"
     ]
+  },
+  {
+    "action": "business.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
+  },
+  {
+    "action": "business.set_actions_cache_storage_policy",
+    "description": "The cache storage policy for GitHub Actions was set for an enterprise.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Enforcing policies for GitHub Actions in your enterprise"
   },
   {
     "action": "business.set_actions_fork_pr_approvals_policy",
@@ -2346,6 +2508,100 @@
     "docs_reference_titles": "/apps/maintaining-github-apps/suspending-a-github-app-installation"
   },
   {
+    "action": "issue_dependencies.blocked_by_add",
+    "description": "An issue was marked as blocked by another issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocked_by_remove",
+    "description": "The blocked by relationship between an issue and another issue was removed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "org",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocking_add",
+    "description": "An issue was marked as blocking another issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "issue_dependencies.blocking_remove",
+    "description": "The blocking relationship between an issue and another issue was removed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "marketplace_agreement_signature.create",
     "description": "The GitHub Marketplace Developer Agreement was signed.",
     "docs_reference_links": "N/A",
@@ -3376,6 +3632,29 @@
     ]
   },
   {
+    "action": "org.set_actions_cache_storage_policy",
+    "description": "The cache storage policy for GitHub Actions was set for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
+  },
+  {
     "action": "org.set_actions_fork_pr_approvals_policy",
     "description": "The setting for requiring approvals for workflows from public forks was changed for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#requiring-approval-for-workflows-from-public-forks",
@@ -4083,7 +4362,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "project.access",
@@ -5660,6 +5939,60 @@
     ]
   },
   {
+    "action": "repo.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "visibility",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository"
+  },
+  {
+    "action": "repo.set_actions_cache_storage_policy",
+    "description": "The cache storage policy for GitHub Actions was set for a repository.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "visibility",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository"
+  },
+  {
     "action": "repo.set_actions_fork_pr_approvals_policy",
     "description": "The setting for requiring approvals for workflows from public forks was changed for a repository.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-required-approval-for-workflows-from-public-forks",
@@ -6402,6 +6735,58 @@
     ]
   },
   {
+    "action": "social_identity.linked",
+    "description": "A user linked a social identity to their account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user_id",
+      "action",
+      "actor_id",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "social_identity.unlinked",
+    "description": "A user unlinked a social identity from their account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "social_identity.unlinked_all",
+    "description": "A user unlinked all social identities from their account.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "user_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
     "action": "sponsors.agreement_sign",
     "description": "A GitHub Sponsors agreement was signed on behalf of an organization.",
     "docs_reference_links": "N/A",
@@ -6837,6 +7222,102 @@
       "@timestamp",
       "created_at",
       "operation_type"
+    ]
+  },
+  {
+    "action": "sub_issues.parent_issue_add",
+    "description": "A parent issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.parent_issue_remove",
+    "description": "A parent issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_add",
+    "description": "A sub-issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_remove",
+    "description": "A sub-issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
     ]
   },
   {
@@ -7782,7 +8263,7 @@
       "operation_type",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.login",
@@ -8000,7 +8481,7 @@
       "created_at",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Showing your private contributions on your profile"
+    "docs_reference_titles": "Manage visibility settings for private contributions"
   },
   {
     "action": "user.sign_in_from_unrecognized_device",
@@ -8086,7 +8567,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "user.suspend",

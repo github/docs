@@ -35,6 +35,7 @@
     thead {
       position: sticky;
       top: 105px; // 88 + 8 + 8 + 1, space for the site header
+      z-index: 1; // Ensure header stays above content including superscripts
 
       @include breakpoint-xxl {
         top: 65px !important; // 48 + 8 + 8 + 1, space for the site header

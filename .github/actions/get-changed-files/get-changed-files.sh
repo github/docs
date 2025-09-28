@@ -18,8 +18,9 @@ git fetch --depth=1 origin main
 git fetch --depth=1 origin ${INPUT_HEAD:-HEAD}
 
 # Get diff with status information
+# Find the merge-base (common ancestor) instead of using origin/main directly
 echo "__ running git diff with status __"
-DIFF_OUTPUT=$(git diff --name-status origin/main origin/${INPUT_HEAD:-HEAD})
+DIFF_OUTPUT=$(git diff --name-status origin/main...origin/${INPUT_HEAD:-HEAD})
 
 # Function to extract files by pattern from diff output
 extract_files() {

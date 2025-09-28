@@ -41,7 +41,7 @@ This report includes all premium request usage by user, both within and beyond t
 
 Your organization or enterprise's policies and budgets determine whether users can use premium requests over their included allowance. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-{% data reusables.copilot.zero-budget-changes %}
+{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Mapping spending to groups of users
 
