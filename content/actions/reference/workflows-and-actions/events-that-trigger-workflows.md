@@ -1287,7 +1287,7 @@ jobs:
             fs.writeFileSync(path.join(temp, 'pr_number.zip'), Buffer.from(download.data));
 
       - name: 'Unzip artifact'
-        run: unzip pr_number.zip -d "{% raw %}${{ runner.temp }}{% endraw %}/artifacts"
+        run: unzip "{% raw %}${{ runner.temp }}{% endraw %}/artifacts/pr_number.zip" -d "{% raw %}${{ runner.temp }}{% endraw %}/artifacts"
 
       - name: 'Comment on PR'
         uses: {% data reusables.actions.action-github-script %}
