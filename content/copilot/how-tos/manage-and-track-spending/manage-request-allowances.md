@@ -30,7 +30,7 @@ You can increase the allowance for users by ensuring the policy is enabled, edit
 
 ## Prerequisites
 
-* Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [Downloading a monthly usage report](/copilot/how-tos/monitoring-your-copilot-usage-and-entitlements#downloading-a-monthly-usage-report).
+* Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 * If a user receives licenses from multiple enterprises or standalone organizations, the user must select a billing entity to use premium requests. See [Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses](/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements#managing-premium-request-billing-with-multiple-copilot-licenses).
 
 ## Setting a policy for paid usage
