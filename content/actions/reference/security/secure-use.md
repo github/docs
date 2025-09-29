@@ -117,7 +117,6 @@ For additional examples and guidance on the risks of untrusted code checkout, se
 
 ### Good practices
 
-
 * Avoid using the `pull_request_target` workflow trigger if it's not necessary. For privilege separation between workflows, `workflow_run` is a better trigger. Only use these workflow triggers when the workflow actually needs the privileged context.
 
 * Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly check out untrusted code, including from pull request forks or from repositories that are not under your control. Workflows triggered on `workflow_run` should treat artifacts uploaded from other workflows with caution.

@@ -28,10 +28,13 @@ You can track your monthly usage of premium requests to help you get the most va
 There are multiple ways to view your premium request usage:
 
 * [View current usage directly within your IDE](#viewing-usage-in-your-ide)
-* [View current usage in your {% data variables.product.prodname_copilot_short %} settings](#viewing-usage-in-your-copilot-settings)
-* [Download a {% data variables.product.prodname_copilot_short %} premium request usage report](#downloading-a-copilot-premium-request-usage-report)
+* [View current usage in your {% data variables.product.prodname_copilot_short %} settings](#viewing-an-overview-in-your-copilot-settings)
+* [View detailed analytics of your usage](#viewing-detailed-analytics-of-your-usage)
+* [Download a usage report for your personal account](#downloading-a-usage-report-for-your-personal-account)
 
 If you reach your limit for premium requests, you will be notified with a message in each of the {% data variables.product.prodname_copilot_short %} interfaces you use.
+
+For information about viewing premium request usage for an organization or enterprise, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
 ### Viewing usage in your IDE
 
@@ -47,45 +50,39 @@ You can access usage information in the following IDEs.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
 
-### Viewing usage in your {% data variables.product.prodname_copilot_short %} settings
+### Viewing an overview in your {% data variables.product.prodname_copilot_short %} settings
 
-You can view your premium request usage at any time from your {% data variables.product.prodname_copilot_short %} settings page on {% data variables.product.prodname_dotcom_the_website %}.
+You can view an overview of your premium request usage at any time from your {% data variables.product.prodname_copilot_short %} "Features" page on {% data variables.product.prodname_dotcom_the_website %}.
 
 1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
-1. Click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.
-1. Under "Usage," view the "Premium requests" progress bar to see the percentage of your premium request quota used for the current month.
+1. Click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %} settings**.
+1. On the "Features" page, the "Usage" section displays a "Premium requests" progress bar showing the percentage of your premium request quota used in the current month.
 
-### Downloading a {% data variables.product.prodname_copilot_short %} premium request usage report
+### Viewing detailed analytics of your usage
 
-The premium request usage report includes all premium request usage, both within and beyond the allowance.
+{% data reusables.user-settings.access_billing_settings_url %}
+1. In the side bar, click **Premium request analytics** to show detailed analytics.
+1. Use the filter, "Group by", and "Timeframe" options to change the data displayed in the chart and table.
+   {% data reusables.billing.premium-request-analytics-start %}
+1. Optionally, to download the data shown in the chart, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
->[!NOTE]
-> For organizations and enterprises, only admins can download a usage report to understand {% data variables.product.prodname_copilot_short %} usage across their business. Individual members of the organization or enterprise cannot download the report for themselves.
+   ![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
 
-1. Navigate to your account.
+### Downloading a usage report for your personal account
 
-   In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture. Then:
-   * For **individual accounts**, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
-   * For **organizations**, click **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Your organizations**.
-   * For **enterprises**, click **Your enterprise**, or click **Your enterprises** then click the enterprise you want to view.
-1. Navigate to your billing settings.
-   * For **individual accounts**, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**, then click **Overview**.
-   * For **organizations**, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**. Then, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**, then click **Usage**.
-   * For **enterprises**, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**, then click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} Usage**.
-1. Download a CSV usage report.
-   * For **individual accounts**, in the sidebar under "Billing & Licensing," select **Usage**. Then click **Get usage report**, choose the report type and time frame, and click **Email me the report**.
-   * For **organizations**, click the **Get usage report** drop down, then click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-   * For **enterprises**, click the **Get usage report** drop down, then click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
+Reports include all premium request usage, both within and beyond your allowance.
 
-   The report contains {% data variables.product.prodname_copilot_short %} premium request usage from the past 45 days. Typically the report will be emailed to you within 30 minutes.
+{% data reusables.user-settings.access_billing_settings_url %}
+1. In the side bar, click **Premium request analytics** to show detailed analytics.
+1. At the top of the page, click **Get usage report** to generate a CSV report of your premium request use for the past 45 days.
+
+When the report is ready for you to download, you'll receive a message to your primary email account with a link to download the report. The link will expire after 24 hours. For details of the fields included in the reports, see [AUTOTITLE](/billing/reference/billing-reports#premium-request-analytics-usage-report-fields).
 
 ## Optimizing usage of premium requests
 
 You can use the following strategies to maximize the value of your premium requests:
 
 * **Choose the right model for the task**. Some models are better suited to different tasks. If you're using a premium request, you can strategically choose which model you use to get the best result from {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
-
-* **Define whether users can use premium requests over their included allowance**. Set a policy to control whether users can incur extra costs for premium requests when they use up their included allowance. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 
 * **Setting a budget**. Set a budget to track your overages and receive alerts when you reach 75%, 90%, or 100% of your budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending#managing-budgets-for-your-personal-account).
 
@@ -94,6 +91,8 @@ You can use the following strategies to maximize the value of your premium reque
 * **Upgrade if needed**. If you find yourself consistently hitting your monthly allowance, consider upgrading to a plan with more premium requests included.
 
 * **Avoid retrying large prompts unnecessarily**. Submitting the same long or complex prompt multiple times may use more premium requests. Try rephrasing or simplifying your request when needed.
+
+* **Define whether users can use premium requests over their included allowance** (enterprises and organizations only). Set a policy to control whether users can incur extra costs for premium requests when they use up their included allowance. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 
 {% data reusables.copilot.zero-budget-changes-link %}
 
