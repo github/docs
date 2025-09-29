@@ -57,7 +57,7 @@ If you use Microsoft Entra ID (previously known as Azure AD) as your IdP, you ca
 
 Enterprise owners can create teams at the enterprise level. {% data reusables.copilot.direct-assignment-rollout %}
 
-For instructions on creating an enterprise team and syncing it with an IdP group, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
+Most of the instructions in this article apply to organization-level teams. For instructions on creating an enterprise team and syncing it with an IdP group, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
 
 {% endif %}
 

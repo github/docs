@@ -108,6 +108,7 @@ copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
 copilot_claude_sonnet_40: 'Claude Sonnet 4'
+copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 copilot_claude_opus_41: 'Claude Opus 4.1'
 copilot_claude_opus: 'Claude Opus 4'
 # Gemini:
