@@ -109,7 +109,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
    For example: `Create a pull request to ...`.
 
    {% data variables.product.prodname_copilot_short %} responds with a brief summary of the task it will perform, asking for your confirmation before it proceeds.
- 
+
 1. Check that {% data variables.product.prodname_copilot_short %} has interpreted your prompt correctly, then tap **Accept** or **Dismiss**.
 
    {% data variables.product.prodname_copilot_short %} creates a pull request and gives you a link to it. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.

@@ -229,6 +229,7 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
 1. Setup access to Azure DevOps organization and projects for the application identity. See [Add organization users and manage access](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/add-organization-users).
 1. Add a `.github/workflows/copilot-setup-steps.yml` Actions workflow file in your repository if you do not already have one.
 1. Add an Azure login step to the `copilot-setup-steps` workflow job.
+
    ```yaml copy
    on:
      workflow_dispatch:
@@ -250,9 +251,11 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
              tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
              allow-no-subscriptions: true
    ```
+
    This configuration ensures the `azure/login` action is executed when {% data variables.copilot.copilot_coding_agent %} runs.
 1. In your repository’s {% data variables.product.prodname_copilot_short %} environment, add secrets for your `AZURE_CLIENT_ID` and `AZURE_TENANT_ID`.
 1. Configure the Azure DevOps MCP server by adding an `ado` object to your MCP configuration with defined tools you want {% data variables.copilot.copilot_coding_agent %} to use.
+
   ```json copy
   {
     "mcpServers": {
@@ -265,7 +268,6 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
     }
   }
    ```
-
 
 ## Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 
