@@ -122,7 +122,7 @@ jobs:
             core.setOutput('pull-request-number', pullRequest.number);
             core.setOutput('pull-request-url', pullRequest.html_url);
 
-      - name: Add 'ready-for-doc-review' label to PR
+      - name: Add 'ready-for-doc-review' and 'skip FR board' labels to PR
         if: env.CONTINUE_WORKFLOW == 'true'
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         env:
@@ -135,7 +135,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: Number(process.env.PULL_REQUEST_NUMBER),
-              labels: ['ready-for-doc-review']
+              labels: ['ready-for-doc-review','skip FR board']
             });
 
       - name: Assign PR to commenter
