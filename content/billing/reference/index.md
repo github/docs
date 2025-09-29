@@ -11,7 +11,7 @@ topics:
 children:
   - /product-usage-included
   - /actions-minute-multipliers
-  - /usage-reports
+  - /billing-reports
   - /supported-payment-methods
   - /azure-subscription
   - /billing-roles
@@ -23,4 +23,3 @@ children:
   - /enterprise-license-troubleshooting
 contentType: reference
 ---
-
