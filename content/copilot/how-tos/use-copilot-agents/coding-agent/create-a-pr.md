@@ -1,7 +1,7 @@
 ---
 title: Asking GitHub Copilot to create a pull request
 shortTitle: Create a PR
-intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including the agents panel, {% data variables.copilot.copilot_chat_short %}, the {% data variables.product.prodname_cli %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
+intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including {% data variables.product.prodname_github_issues %}, the agents panel, {% data variables.copilot.copilot_chat_short %}, the {% data variables.product.prodname_cli %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=asking+copilot+to+create+a+pull+request&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -14,6 +14,14 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request
   - /copilot/how-tos/agents/copilot-coding-agent/create-a-pr
   - /copilot/how-tos/agents/coding-agent/create-a-pr
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-copilot-to-work-on-an-issue
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/using-copilot-to-work-on-an-issue
+  - /early-access/copilot/coding-agent/using-copilot-coding-agent
+  - /copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue
+  - /copilot/how-tos/agents/copilot-coding-agent/using-copilot-to-work-on-an-issue
+  - /copilot/how-tos/agents/copilot-coding-agent/assign-copilot-to-an-issue
+  - /copilot/how-tos/agents/coding-agent/assign-copilot-to-an-issue
+  - /copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue
 contentType: how-tos
 ---
 
@@ -24,14 +32,196 @@ contentType: how-tos
 
 You can ask {% data variables.product.prodname_copilot_short %} to work on a task from:
 
-* The agents panel, available across {% data variables.product.github %}
-* The agents page on {% data variables.product.github %}
-* {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs and {% data variables.product.prodname_dotcom_the_website %}
-* The {% data variables.product.prodname_cli %}
-* Your preferred IDE or agentic coding tool with Model Context Protocol (MCP) support
-* The Raycast launcher on macOS
+* {% data variables.product.prodname_github_issues %}, by [assigning an issue to {% data variables.product.prodname_copilot_short %}](#assigning-an-issue-to-copilot)
+* The [agents panel or page](#asking-copilot-to-create-a-pull-request-from-the-agents-panel-or-page) on {% data variables.product.github %}
+* {% data variables.copilot.copilot_chat_short %} in [{% data variables.product.prodname_vscode %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code) and [other IDEs](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-other-ides) 
+* {% data variables.copilot.copilot_chat_short %} on [{% data variables.product.prodname_dotcom_the_website %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-githubcom)
+* The [{% data variables.product.prodname_cli %}](#asking-copilot-to-create-a-pull-request-from-the-github-cli)
+* Your preferred IDE or agentic coding tool with [Model Context Protocol (MCP)](#asking-copilot-to-create-a-pull-request-from-the-github-mcp-server) support
+* The [Raycast](#asking-copilot-to-create-a-pull-request-from-raycast) launcher on macOS
 
 {% data variables.product.prodname_copilot_short %} will start working on the task, raise a pull request, then request a review from you when it's finished working. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+
+## Assigning an issue to {% data variables.product.prodname_copilot_short %}
+
+You can ask {% data variables.product.prodname_copilot_short %} to start working on an issue by assigning the issue to {% data variables.product.prodname_copilot_short %}.
+
+You can assign an issue to {% data variables.product.prodname_copilot_short %}:
+
+* On {% data variables.product.prodname_dotcom_the_website %} (see the [next section](#assigning-an-issue-to-copilot-on-githubcom))
+* On [{% data variables.product.prodname_mobile %}](#assigning-an-issue-to-copilot-on-github-mobile)
+* Via the {% data variables.product.github %} API (see [later in this article](#assigning-an-issue-to-copilot-via-the-github-api))
+* Using {% data variables.product.prodname_cli %} (see [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit))
+
+### Assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
+
+1. Open the issue that you want to assign to {% data variables.product.prodname_copilot_short %}.
+1. In the right side menu, click **Assignees**.
+
+   ![Screenshot of the right sidebar of an issue. A header, labeled "Assignees", is outlined in dark orange.](/assets/images/help/issues/assignee-menu.png)
+
+1. Click **Copilot** from assignees list.
+
+   ![Screenshot of "Assignees" window on an issue. Copilot is available in the list.](/assets/images/help/copilot/coding-agent/assign-to-copilot.png)
+
+   Additional options are displayed.
+
+   ![Screenshot of "Assign to Copilot" dialog showing options for target repository, starting branch and additional instructions.](/assets/images/help/copilot/coding-agent/assign-to-copilot-dialog.png)
+
+1. In the **Optional prompt** field you can add specific guidance for {% data variables.product.prodname_copilot_short %}. Add any context, constraints, or specific requirements that will help {% data variables.product.prodname_copilot_short %} to understand and complete the task.
+
+   For example, you might include instructions about specific coding patterns or frameworks to use, testing requirements, code style preferences, files or directories that should or shouldn't be modified.
+
+   In addition to the details you supply here, {% data variables.product.prodname_copilot_short %} will use any custom instructions that have been configured for the target repository. See [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+
+1. You can use the dropdown menus in the dialog to change the repository that {% data variables.product.prodname_copilot_short %} will work in and the branch that it will branch off from.
+
+   > [!NOTE]
+   > If you don't specify a repository, {% data variables.product.prodname_copilot_short %} will work in the same repository as the issue. If you don't specify a branch, {% data variables.product.prodname_copilot_short %} will work from the default branch of the selected repository.
+
+   > [!TIP]
+   > When you assign an issue to {% data variables.product.prodname_copilot_short %}, it gets sent the issue title, description, any comments that currently exist, and any additional instructions you provide. After assigning the issue, {% data variables.product.prodname_copilot_short %} will not be aware of, and therefore won't react to, any further comments that are added to the issue. If you have more information, or changes to the original requirement, add this as a comment in the pull request that {% data variables.product.prodname_copilot_short %} raises.
+
+You can also assign issues to {% data variables.product.prodname_copilot_short %} from other places on {% data variables.product.prodname_dotcom_the_website %}:
+
+* From the list of issues on a repository's **{% octicon "issue-opened" aria-hidden="true" aria-label="issue-opened" %} Issues** page.
+* When viewing an issue in {% data variables.product.github %} {% data variables.projects.projects_v2_caps %}.
+
+### Assigning an issue to {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_mobile %}
+
+1. In {% data variables.product.prodname_mobile %}, navigate to the repository that contains the issue you want to assign to {% data variables.product.prodname_copilot_short %}.
+1. Click **Issues**.
+1. Open the issue that you want to assign to {% data variables.product.prodname_copilot_short %}.
+1. Tap the **{% octicon "info" aria-label="information" %}** icon.
+1. Beside "Assignees", tap **Edit**.
+1. Beside "{% data variables.product.prodname_copilot_short %}", click the plus sign.
+1. Click **Done**.
+
+### Assigning an issue to {% data variables.product.prodname_copilot_short %} via the {% data variables.product.github %} API
+
+You can assign issues to {% data variables.product.prodname_copilot_short %} using the GraphQL API.
+
+#### Creating and assigning a new issue
+
+1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
+1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `octo-org` with the repository owner, and `octo-repo` with the repository name.
+
+    ```graphql copy
+    query {
+      repository(owner: "octo-org", name: "octo-repo") {
+        suggestedActors(capabilities: [CAN_BE_ASSIGNED], first: 100) {
+          nodes {
+            login
+            __typename
+
+            ... on Bot {
+              id
+            }
+
+            ... on User {
+              id
+            }
+          }
+        }
+      }
+    }
+    ```
+
+    If {% data variables.copilot.copilot_coding_agent %} is enabled for the user and in the repository, the first node returned from the query will have the `login` value `copilot-swe-agent`.
+
+1. Make a note of the `id` value of this login.
+
+1. Fetch the GraphQL global ID of the repository you want to create the issue in, replacing `octo-org` with the repository owner, and `octo-repo` with the repository name.
+
+    ```graphql copy
+    query {
+      repository(owner: "octo-org", name: "octo-repo") {
+        id
+      }
+    }
+    ```
+
+1. Create the issue with the `createIssue` mutation. Replace `REPOSITORY_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
+
+    ```graphql copy
+    mutation {
+      createIssue(input: {repositoryId: "REPOSITORY_ID", title: "Implement comprehensive unit tests", body: "DETAILS", assigneeIds: ["BOT_ID"]}) {
+        issue {
+          id
+          title
+          assignees(first: 10) {
+            nodes {
+              login
+            }
+          }
+        }
+      }
+    }
+    ```
+
+#### Assigning an existing issue
+
+1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
+1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `octo-org` with the repository owner, and `octo-repo` with the repository name.
+
+    ```graphql copy
+    query {
+      repository(owner: "monalisa", name: "octocat") {
+        suggestedActors(capabilities: [CAN_BE_ASSIGNED], first: 100) {
+          nodes {
+            login
+            __typename
+
+            ... on Bot {
+              id
+            }
+
+            ... on User {
+              id
+            }
+          }
+        }
+      }
+    }
+    ```
+
+    If {% data variables.copilot.copilot_coding_agent %} is enabled for the user and in the repository, the first node returned from the query will have the `login` value `copilot-swe-agent`.
+
+1. Fetch the GraphQL global ID of the issue you want to assign to {% data variables.product.prodname_copilot_short %}, replacing `monalisa` with the repository owner, `octocat` with the name and `9000` with the issue number.
+
+    ```graphql copy
+    query {
+      repository(owner: "monalisa", name: "octocat") {
+        issue(number: 9000) {
+          id
+          title
+        }
+      }
+    }
+    ```
+
+1. Assign the existing issue to {% data variables.product.prodname_copilot_short %} using the `replaceActorsForAssignable` mutation. Replace `ISSUE_ID` with the ID returned from the previous step, and `BOT_ID` with the ID returned from the step before that.
+
+    ```graphql copy
+    mutation {
+      replaceActorsForAssignable(input: {assignableId: "ISSUE_ID", actorIds: ["BOT_ID"]}) {
+        assignable {
+          ... on Issue {
+            id
+            title
+            assignees(first: 10) {
+              nodes {
+                login
+              }
+            }
+          }
+        }
+      }
+    }
+    ```
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the agents panel or page
 

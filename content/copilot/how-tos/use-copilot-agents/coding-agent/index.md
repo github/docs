@@ -8,7 +8,6 @@ topics:
   - Copilot
 children:
   - /create-a-pr
-  - /assign-copilot-to-an-issue
   - /track-copilot-sessions
   - /review-copilot-prs
   - /extend-coding-agent-with-mcp
