@@ -1,11 +1,27 @@
 import { sentenceCase } from 'change-case'
 import GithubSlugger from 'github-slugger'
+
+interface RawPreview {
+  title: string
+  toggled_on: string[]
+  toggled_by: string
+  announcement?: unknown
+  updates?: unknown
+}
+
+interface ProcessedPreview extends Omit<RawPreview, 'announcement' | 'updates'> {
+  accept_header: string
+  href: string
+}
+
 const slugger = new GithubSlugger()
 const inputOrPayload = /(Input|Payload)$/m
 
-export default function processPreviews(previews) {
+export default function processPreviews(previews: RawPreview[]): ProcessedPreview[] {
   // clean up raw yml data
-  previews.forEach((preview) => {
+  // Using any type because we're mutating the preview object to add new properties
+  // that don't exist in the RawPreview interface (accept_header, href)
+  previews.forEach((preview: any) => {
     preview.title = sentenceCase(preview.title)
       .replace(/ -.+/, '') // remove any extra info that follows a hyphen
       .replace('it hub', 'itHub') // fix overcorrected `git hub` from sentenceCasing
@@ -16,7 +32,7 @@ export default function processPreviews(previews) {
 
     // filter out schema members that end in `Input` or `Payload`
     preview.toggled_on = preview.toggled_on.filter(
-      (schemaMember) => !inputOrPayload.test(schemaMember),
+      (schemaMember: string) => !inputOrPayload.test(schemaMember),
     )
 
     // remove unnecessary leading colon
@@ -32,5 +48,5 @@ export default function processPreviews(previews) {
     preview.href = `/graphql/overview/schema-previews#${slugger.slug(preview.title)}`
   })
 
-  return previews
+  return previews as ProcessedPreview[]
 }

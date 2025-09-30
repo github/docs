@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test'
 import { internalLinksOldVersion } from '../../lib/linting-rules/internal-links-old-version'
+import type { Rule } from '../../types'
 
 describe(internalLinksOldVersion.names.join(' - '), () => {
   test('links with old hardcoded versioning fail', async () => {
@@ -10,7 +11,7 @@ describe(internalLinksOldVersion.names.join(' - '), () => {
       '[Link to Enterprise 11.10.340](https://docs.github.com/enterprise/11.10.340/admin/yes)',
       '[Enterprise 2.8](http://help.github.com/enterprise/2.8/admin/)',
     ].join('\n')
-    const result = await runRule(internalLinksOldVersion, { strings: { markdown } })
+    const result = await runRule(internalLinksOldVersion as Rule, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(3)
     expect(errors.map((error) => error.lineNumber)).toEqual([1, 2, 3])
@@ -26,7 +27,7 @@ describe(internalLinksOldVersion.names.join(' - '), () => {
       // Current versioning links is excluded from this test
       '[New versioning](/github/site-policy/enterprise/2.2/yes)',
     ].join('\n')
-    const result = await runRule(internalLinksOldVersion, { strings: { markdown } })
+    const result = await runRule(internalLinksOldVersion as Rule, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })

@@ -1,16 +1,18 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, ellipsify } from 'markdownlint-rule-helpers'
+import type { RuleParams, RuleErrorCallback } from '../../types'
 
 import { getRange } from '../helpers/utils'
 /*
   This rule currently only checks for one hardcoded string but
-  can be generalized in the future to check for strings that 
+  can be generalized in the future to check for strings that
   have data reusables.
 */
 export const githubOwnedActionReferences = {
   names: ['GHD013', 'github-owned-action-references'],
   description: 'GitHub-owned action references should not be hardcoded',
   tags: ['feature', 'actions'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const filepath = params.name
     if (filepath.startsWith('data/reusables/actions/action-')) return
 

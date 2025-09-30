@@ -1,11 +1,13 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, ellipsify } from 'markdownlint-rule-helpers'
+import type { RuleParams, RuleErrorCallback } from '../../types'
 
 import { getRange } from '../helpers/utils'
 import frontmatter from '@/frame/lib/read-frontmatter'
 
 /*
   This rule currently only checks for one hardcoded string but
-  can be generalized in the future to check for strings that 
+  can be generalized in the future to check for strings that
   have data variables.
 */
 export const hardcodedDataVariable = {
@@ -13,7 +15,7 @@ export const hardcodedDataVariable = {
   description:
     'Strings that contain "personal access token" should use the product variable instead',
   tags: ['single-source'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     if (params.name.startsWith('data/variables/product.yml')) return
     const frontmatterString = params.frontMatterLines.join('\n')
     const fm = frontmatter(frontmatterString).data
