@@ -1,8 +1,17 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
+import type { RuleParams, RuleErrorCallback } from '../../types'
 
 import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
 import { forEachInlineChild, getRange } from '../helpers/utils'
+
+interface ImageToken {
+  content: string
+  lineNumber: number
+  line: string
+  range: [number, number]
+}
 
 export const incorrectAltTextLength = {
   names: ['GHD033', 'incorrect-alt-text-length'],
@@ -10,8 +19,8 @@ export const incorrectAltTextLength = {
   tags: ['accessibility', 'images'],
   parser: 'markdownit',
   asynchronous: true,
-  function: (params, onError) => {
-    forEachInlineChild(params, 'image', async function forToken(token) {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    forEachInlineChild(params, 'image', async function forToken(token: ImageToken) {
       let renderedString = token.content
 
       if (token.content.includes('{%') || token.content.includes('{{')) {

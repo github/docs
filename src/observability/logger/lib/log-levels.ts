@@ -12,6 +12,13 @@ export const LOG_LEVELS = {
   warn: 1,
   info: 2,
   debug: 3,
+} as const
+
+type LogLevel = keyof typeof LOG_LEVELS
+type LogLevelValue = (typeof LOG_LEVELS)[LogLevel]
+
+function isValidLogLevel(level: string): level is LogLevel {
+  return level in LOG_LEVELS
 }
 
 // We set the log level based on the LOG_LEVEL environment variable
@@ -19,19 +26,22 @@ export const LOG_LEVELS = {
 //   - 'info' in development
 //   - 'debug' in production
 //   - 'debug' in test - this is because `vitest` turns off logs unless --silent=false is passed
-export function getLogLevelNumber() {
-  let defaultLogLevel = 'info'
+export function getLogLevelNumber(): LogLevelValue {
+  let defaultLogLevel: LogLevel = 'info'
   if (
     !process.env.LOG_LEVEL &&
     (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test')
   ) {
     defaultLogLevel = 'debug'
   }
-  const logLevel = process.env.LOG_LEVEL?.toLowerCase() || defaultLogLevel
+
+  const envLogLevel = process.env.LOG_LEVEL?.toLowerCase() || defaultLogLevel
+  const logLevel = isValidLogLevel(envLogLevel) ? envLogLevel : defaultLogLevel
+
   return LOG_LEVELS[logLevel]
 }
 
-export const useProductionLogging = () => {
+export const useProductionLogging = (): boolean => {
   return (
     (process.env.NODE_ENV === 'production' && !process.env.CI) ||
     process.env.LOG_LIKE_PRODUCTION === 'true'

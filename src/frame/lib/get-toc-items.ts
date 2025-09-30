@@ -1,4 +1,15 @@
 import { productMap } from '@/products/lib/all-products'
+
+interface TocItem {
+  type: 'category' | 'subcategory' | 'article'
+  href: string
+}
+
+interface Page {
+  relativePath: string
+  markdown: string
+}
+
 const productTOCs = Object.values(productMap)
   .filter((product) => !product.external)
   .map((product) => product.toc.replace('content/', ''))
@@ -7,7 +18,7 @@ const linkString = /{% [^}]*?link.*? \/(.*?) ?%}/m
 const linksArray = new RegExp(linkString.source, 'gm')
 
 // return an array of objects like { type: 'category|subcategory|article', href: 'path' }
-export default function getTocItems(page) {
+export default function getTocItems(page: Page): TocItem[] | undefined {
   // only process product and category tocs
   if (!page.relativePath.endsWith('index.md')) return
   if (page.relativePath === 'index.md') return
@@ -23,19 +34,24 @@ export default function getTocItems(page) {
     return []
   }
 
-  return rawItems.map((item) => {
-    const tocItem = {}
+  return rawItems
+    .map((item: string) => {
+      const match = item.match(linkString)
+      if (!match) return null
 
-    // a product's toc items are always categories
-    // whereas a category's toc items can be either subcategories or articles
-    tocItem.type = productTOCs.includes(page.relativePath)
-      ? 'category'
-      : item.includes('topic_')
-        ? 'subcategory'
-        : 'article'
+      const tocItem: TocItem = {} as TocItem
 
-    tocItem.href = item.match(linkString)[1]
+      // a product's toc items are always categories
+      // whereas a category's toc items can be either subcategories or articles
+      tocItem.type = productTOCs.includes(page.relativePath)
+        ? 'category'
+        : page.relativePath.includes('/index.md')
+          ? 'subcategory'
+          : 'article'
 
-    return tocItem
-  })
+      tocItem.href = match[1]
+
+      return tocItem
+    })
+    .filter((item): item is TocItem => item !== null)
 }

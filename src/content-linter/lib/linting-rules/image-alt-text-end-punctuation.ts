@@ -5,14 +5,15 @@ import {
   isStringQuoted,
   isStringPunctuated,
 } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback } from '../../types'
 
 export const imageAltTextEndPunctuation = {
   names: ['GHD032', 'image-alt-text-end-punctuation'],
   description: 'Alternate text for images should end with punctuation',
   tags: ['accessibility', 'images'],
   parser: 'markdownit',
-  function: (params, onError) => {
-    forEachInlineChild(params, 'image', function forToken(token) {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    forEachInlineChild(params, 'image', function forToken(token: any) {
       const imageAltText = token.content.trim()
 
       // If the alt text is empty, there is nothing to check and you can't

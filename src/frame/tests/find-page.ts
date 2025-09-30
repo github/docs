@@ -18,7 +18,10 @@ describe('find page', () => {
       languageCode: 'en',
     })
 
-    const englishPermalink = page.permalinks[0].href
+    const englishPermalink = page?.permalinks[0].href
+    if (!page || !englishPermalink) {
+      throw new Error('Page or permalink not found')
+    }
     const redirectToFind = '/some-old-path'
 
     // add named keys
@@ -26,7 +29,12 @@ describe('find page', () => {
       [englishPermalink]: page,
     }
 
-    const redirectedPage = findPage(redirectToFind, pageMap, page.buildRedirects())
-    expect(typeof redirectedPage.title).toBe('string')
+    const redirectedPage = findPage(
+      redirectToFind,
+      pageMap as any, // Using any due to type conflicts between different Page type definitions
+      page.buildRedirects(),
+    )
+    expect(redirectedPage).toBeDefined()
+    expect(typeof redirectedPage?.title).toBe('string')
   })
 })
