@@ -303,7 +303,7 @@
     "markdownlint-rule-search-replace": "^1.2.0",
     "mkdirp": "^3.0.1",
     "mockdate": "^3.0.5",
-    "nock": "^14.0.4",
+    "nock": "^15.0.0",
     "nodemon": "3.1.10",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
