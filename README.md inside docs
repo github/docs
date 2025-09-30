@@ -1,0 +1,31 @@
+# ERIFY AI Documentation 👑🔥
+
+Welcome to the official **ERIFY AI** docs.  
+This space contains guides, references, and resources for building, deploying, and scaling ERIFY AI systems.
+
+---
+
+## 🚀 Overview
+ERIFY AI is the intelligence engine powering the ERIFY™ ecosystem.  
+It focuses on:
+- **Automation** ⚡ – smart pipelines, workflows, and bots.  
+- **Collaboration** 🤝 – enabling global teams and communities.  
+- **Scale** 🌍 – designed to expand across multiple products and services.  
+
+---
+
+## 📂 Documentation Structure
+- **Getting Started** → Setup & installation.  
+- **Core Concepts** → ERIFY AI architecture, pipelines, and key modules.  
+- **Guides** → How-to instructions for common tasks.  
+- **API Reference** → Endpoints, schemas, and usage examples.  
+- **Contributing** → Guidelines for contributors & collaborators.  
+
+---
+
+## 🛠️ Getting Started
+Clone the repo and install dependencies:
+```bash
+git clone https://github.com/erify-world/erify-ai.git
+cd erify-ai
+npm install   # or pip install -r requirements.txt
