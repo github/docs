@@ -4,8 +4,11 @@ Enabling the feature automatically assigns organization owners and security mana
 
 * "Review and manage {% data variables.product.prodname_code_scanning %} alert dismissal requests" permission for {% data variables.product.prodname_code_scanning %}.
 
-* "Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests" permission for {% data variables.product.prodname_secret_scanning %}. This permission can also be applied to custom roles.
+* "Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests" permission for {% data variables.product.prodname_secret_scanning %}. This permission can also be applied to custom roles. Individuals in these custom roles must also have the following permissions, which grant access to alerts in all repositories:
 
+   * "View {% data variables.product.prodname_secret_scanning %} alerts"
+   * "Dismiss or reopen {% data variables.product.prodname_secret_scanning %} alerts"
+  
 For more information about these permissions, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#permissions-for-organization-roles).
 
 To learn more about the security manager role, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).

@@ -28,7 +28,7 @@ You can track your monthly usage of premium requests to help you get the most va
 There are multiple ways to view your premium request usage:
 
 * [View current usage directly within your IDE](#viewing-usage-in-your-ide)
-* [View current usage in your {% data variables.product.prodname_copilot_short %} settings](#viewing-an-overview-in-your-copilot-settings)
+* [Viewing an overview in your Billing and licensing settings](#viewing-an-overview-in-your-billing-and-licensing-settings)
 * [View detailed analytics of your usage](#viewing-detailed-analytics-of-your-usage)
 * [Download a usage report for your personal account](#downloading-a-usage-report-for-your-personal-account)
 
@@ -50,13 +50,12 @@ You can access usage information in the following IDEs.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
 
-### Viewing an overview in your {% data variables.product.prodname_copilot_short %} settings
+### Viewing an overview in your Billing and licensing settings
 
-You can view an overview of your premium request usage at any time from your {% data variables.product.prodname_copilot_short %} "Features" page on {% data variables.product.prodname_dotcom_the_website %}.
+You can view an overview of your premium request usage at any time in your "Billing and licensing" settings on {% data variables.product.prodname_dotcom_the_website %}.
 
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, click your profile picture.
-1. Click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %} settings**.
-1. On the "Features" page, the "Usage" section displays a "Premium requests" progress bar showing the percentage of your premium request quota used in the current month.
+{% data reusables.user-settings.access_billing_settings_url %} The "Overview" page shows a summary of your current {% data variables.product.github %} usage.
+1. Scroll down to the "Metered usage" area and click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} **{% data variables.product.prodname_copilot_short %}** to show only your {% data variables.product.prodname_copilot_short %} use.
 
 ### Viewing detailed analytics of your usage
 
