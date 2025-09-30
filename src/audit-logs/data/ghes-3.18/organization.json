@@ -5381,8 +5381,8 @@
   },
   {
     "action": "org.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization",
     "fields": [
       "user_agent",
       "request_id",
@@ -5400,7 +5400,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization"
   },
   {
     "action": "org.confirm_business_invitation",
@@ -7989,8 +7990,8 @@
   },
   {
     "action": "org.update_repo_self_hosted_runners_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "The repository self-hosted runners policy was updated",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#limiting-the-use-of-self-hosted-runners",
     "fields": [
       "actor",
       "actor_id",
@@ -8005,7 +8006,8 @@
       "@timestamp",
       "created_at",
       "operation_type"
-    ]
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#limiting-the-use-of-self-hosted-runners"
   },
   {
     "action": "org.update_saml_provider_settings",
@@ -10558,7 +10560,8 @@
       "_document_id",
       "pull_request_url",
       "programmatic_access_type",
-      "actor_is_bot"
+      "actor_is_bot",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
   },
@@ -10583,7 +10586,8 @@
       "created_at",
       "_document_id",
       "pull_request_url",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
   },
@@ -10759,7 +10763,8 @@
       "_document_id",
       "token_scopes",
       "programmatic_access_type",
-      "request_access_security_header"
+      "request_access_security_header",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
   },
@@ -10864,7 +10869,8 @@
       "created_at",
       "_document_id",
       "pull_request_url",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review"
   },
@@ -11500,8 +11506,8 @@
   },
   {
     "action": "repo.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository",
     "fields": [
       "user_agent",
       "request_id",
@@ -11523,7 +11529,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository"
   },
   {
     "action": "repo.create",
@@ -16727,7 +16734,8 @@
       "trigger_id",
       "run_attempt",
       "programmatic_access_type",
-      "actor_is_bot"
+      "actor_is_bot",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "Viewing workflow run history"
   },
@@ -16762,7 +16770,8 @@
       "public_repo",
       "programmatic_access_type",
       "actor_is_bot",
-      "request_access_security_header"
+      "request_access_security_header",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "Understanding GitHub Actions"
   },
