@@ -65,7 +65,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 1. Add an `updates` section, with an entry for each package manager you want {% data variables.product.prodname_dependabot %} to monitor. This key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. For more information, see [About the dependabot.yml file](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#about-the-dependabotyml-file) in "{% data variables.product.prodname_dependabot %} options reference."
 1. For each package manager, use:
 
-    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem).
+    * `package-ecosystem` to specify the package manager. For more information about the supported package managers, see [`package-ecosystem`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-).
     * `directories` or `directory` to specify the location of multiple manifest or other definition files. For more information, see [Defining multiple locations for manifest files](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#defining-multiple-locations-for-manifest-files).
     * `schedule.interval` to specify how often to check for new versions.
 
@@ -172,4 +172,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore).
+For more information about checking for existing ignore preferences, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore--).
