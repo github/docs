@@ -79,7 +79,7 @@ Targeted edits in {% data variables.product.prodname_spark_short %} allow you to
 
 While {% data variables.product.prodname_spark_short %} is an extremely powerful tool, it may still make mistakes. These mistakes can be misunderstandings of your goals, or more simple syntax errors within your generated spark. You should always use {% data variables.product.prodname_spark_short %}’s provided application preview to verify that your spark behaves as intended in different scenarios. If you are comfortable with code, it is also best practice to ensure the generated code is up to your code quality standards.
 
-## Limitations of GitHub Spark
+## Limitations of {% data variables.product.prodname_spark %}
 
 ### Interpretation of user intent
 
@@ -87,7 +87,13 @@ While {% data variables.product.prodname_spark_short %} is an extremely powerful
 
 ### Limited scope
 
-{% data variables.product.prodname_spark_short %} is backed by {% data variables.product.prodname_copilot_short %}, and therefore has been trained on a large body of code and relevant applications. However it may still struggle with complex or truly novel applications. {% data variables.product.prodname_spark_short %} will perform best on common/personal application scenarios (e.g. productivity tools, learning aids, life management utilities), and when the natural language instruction is provided in English.  
+{% data variables.product.prodname_spark_short %} is backed by {% data variables.product.prodname_copilot_short %}, and therefore has been trained on a large body of code and relevant applications. However it may still struggle with complex or truly novel applications. {% data variables.product.prodname_spark_short %} will perform best on common/personal application scenarios (e.g. productivity tools, learning aids, life management utilities), and when the natural language instruction is provided in English.
+
+### Public code
+
+{% data variables.product.prodname_spark_short %} may generate code that is a match or near match of publicly available code, even if the "Suggestions matching public code" policy is set to "Block." See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+
+If this happens, {% data variables.product.prodname_copilot_short %} will not provide code references pointing to the original source of the code. See [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions).
 
 ### Security limitations
 

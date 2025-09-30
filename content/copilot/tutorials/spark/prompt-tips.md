@@ -5,7 +5,7 @@ intro: 'Learn how to get the best results when you are describing your app idea 
 allowTitleToDifferFromFilename: true
 versions:
   feature: spark
-product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} license can use {% data variables.product.prodname_spark_short %}.'
+product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license can use {% data variables.product.prodname_spark_short %}.'
 contentType: tutorials
 ---
 
