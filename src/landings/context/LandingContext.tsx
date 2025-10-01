@@ -1,8 +1,9 @@
 import { createContext, useContext } from 'react'
-import { FeaturedLink, getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
+import { getFeaturedLinksFromReq } from '@/landings/components/ProductLandingContext'
 import { mapRawTocItemToTocItem } from '@/landings/types'
 import type { TocItem } from '@/landings/types'
 import type { LearningTrack } from '@/types'
+import type { FeaturedLink } from '@/landings/components/ProductLandingContext'
 
 export type LandingType = 'bespoke' | 'discovery' | 'journey'
 
@@ -20,8 +21,7 @@ export type LandingContextT = {
   currentLayout: string
   heroImage?: string
   // For discovery landing pages
-  recommended?: string[] // Array of article paths
-  // For discovery landing pages
+  recommended?: Array<{ title: string; intro: string; href: string; category: string[] }> // Resolved article data
   introLinks?: Record<string, string>
 }
 
@@ -37,21 +37,21 @@ export const useLandingContext = (): LandingContextT => {
   return context
 }
 
+/**
+ * Server-side function to create LandingContext data from a request.
+ */
 export const getLandingContextFromRequest = async (
   req: any,
   landingType: LandingType,
 ): Promise<LandingContextT> => {
   const page = req.context.page
 
-  let recommended: string[] = []
+  let recommended: Array<{ title: string; intro: string; href: string; category: string[] }> = []
+
   if (landingType === 'discovery') {
-    // Support legacy `spotlight` property as `recommended` for pages like Copilot Cookbook
-    // However, `spotlight` will have lower priority than the `recommended` property
-    if (page.recommended && page.recommended.length > 0) {
+    // Use resolved recommended articles from the page after middleware processing
+    if (page.recommended && Array.isArray(page.recommended) && page.recommended.length > 0) {
       recommended = page.recommended
-    } else if (page.spotlight && page.spotlight.length > 0) {
-      // Remove the `image` property from spotlight items, since we don't use those for the carousel
-      recommended = page.spotlight.map((item: any) => item.article)
     }
   }
 

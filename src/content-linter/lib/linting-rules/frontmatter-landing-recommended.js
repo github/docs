@@ -5,13 +5,23 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '../helpers/utils'
 
 function isValidArticlePath(articlePath, currentFilePath) {
-  // Article paths in recommended are relative to the current page's directory
-  const relativePath = articlePath.startsWith('/') ? articlePath.substring(1) : articlePath
+  const ROOT = process.env.ROOT || '.'
+
+  // Strategy 1: Always try as an absolute path from content root first
+  const contentDir = path.join(ROOT, 'content')
+  const normalizedPath = articlePath.startsWith('/') ? articlePath.substring(1) : articlePath
+  const absolutePath = path.join(contentDir, `${normalizedPath}.md`)
+
+  if (fs.existsSync(absolutePath) && fs.statSync(absolutePath).isFile()) {
+    return true
+  }
+
+  // Strategy 2: Fall back to relative path from current file's directory
   const currentDir = path.dirname(currentFilePath)
-  const fullPath = path.join(currentDir, `${relativePath}.md`)
+  const relativePath = path.join(currentDir, `${normalizedPath}.md`)
 
   try {
-    return fs.existsSync(fullPath) && fs.statSync(fullPath).isFile()
+    return fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()
   } catch {
     return false
   }
