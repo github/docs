@@ -4,6 +4,14 @@ import type { Failbot } from '@github/failbot'
 import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
 
+// Shared type for resolved article information used across landing pages and carousels
+export interface ResolvedArticle {
+  title: string
+  intro: string
+  href: string
+  category: string[]
+}
+
 // Throughout our codebase we "extend" the Request object by attaching
 // things to it. For example `req.context = { currentCategory: 'foo' }`.
 // This type aims to match all the custom things we do to requests

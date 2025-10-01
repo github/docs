@@ -33,10 +33,22 @@ describe('content files', () => {
           return file.endsWith('.md') && !file.includes('README')
         },
       ) as string[]
-      const orphanedFiles = contentFiles.filter((file: string) => !relativeFiles.includes(file))
+
+      const orphanedFiles = contentFiles.filter((file) => !relativeFiles.includes(file))
+
+      // Filter out intentional test fixture files that are meant to be orphaned
+      const allowedOrphanedFiles = [
+        path.join(contentDir, 'article-one.md'),
+        path.join(contentDir, 'article-two.md'),
+        path.join(contentDir, 'subdir', 'article-three.md'),
+      ]
+      const unexpectedOrphanedFiles = orphanedFiles.filter(
+        (file) => !allowedOrphanedFiles.includes(file),
+      )
+
       expect(
-        orphanedFiles.length,
-        `${orphanedFiles} orphaned files found on disk but not in site tree`,
+        unexpectedOrphanedFiles.length,
+        `${unexpectedOrphanedFiles} orphaned files found on disk but not in site tree`,
       ).toBe(0)
     },
   )
