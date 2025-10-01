@@ -35,7 +35,7 @@ Some examples of instructions you could add are:
 
 > [!NOTE]
 > * {% data reusables.copilot.custom-instructions-chat-precedence %}
-> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
+> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/**/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
 > * {% data reusables.copilot.custom-instructions-conflict %}
 
 ## Adding organization custom instructions

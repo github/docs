@@ -9,7 +9,7 @@ topics:
   - Copilot
 children:
   - /about-coding-agent
-  - /coding-agent-for-business-and-enterprise
+  - /managing-access
   - /mcp-and-coding-agent
 contentType: concepts
 redirect_from:

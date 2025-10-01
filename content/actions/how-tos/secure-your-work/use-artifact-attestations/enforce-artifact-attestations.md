@@ -23,7 +23,7 @@ To set up an admission controller for enforcing GitHub artifact attestations, yo
 
 ### Deploy the Sigstore Policy Controller
 
-We have packaged the Sigstore Policy Controller as a [GitHub distributed Helm chart](https://github.com/github/artifact-attestations-helm-charts). Before you begin, ensure you have the following prerequisites:
+The Sigstore Policy Controller has been packaged and made available via a [Helm chart](https://github.com/sigstore/helm-charts). Before you begin, ensure you have the following prerequisites:
 
 * A Kubernetes cluster with version 1.27 or later
 * [Helm](https://helm.sh/docs/intro/install/) 3.0 or later
@@ -34,8 +34,8 @@ First, install the Helm chart that deploys the Sigstore Policy Controller:
 ```bash copy
 helm upgrade policy-controller --install --atomic \
   --create-namespace --namespace artifact-attestations \
-  oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller \
-  --version v0.12.0-github12
+  oci://ghcr.io/sigstore/helm-charts/policy-controller \
+  --version 0.10.5
 ```
 
 This installs the Policy Controller into the `artifact-attestations` namespace. At this point, no policies have been configured, and it will not enforce any attestations.
@@ -48,7 +48,7 @@ Once the policy controller has been deployed, you need to add the GitHub `TrustR
 helm upgrade trust-policies --install --atomic \
  --namespace artifact-attestations \
  oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
- --version v0.6.2 \
+ --version v0.7.0 \
  --set policy.enabled=true \
  --set policy.organization=MY-ORGANIZATION
 ```
@@ -86,7 +86,7 @@ For example, to enforce attestations for images that match the pattern `ghcr.io/
 helm upgrade trust-policies --install --atomic \
  --namespace artifact-attestations \
  oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies \
- --version v0.6.2 \
+ --version v0.7.0 \
  --set policy.enabled=true \
  --set policy.organization=MY-ORGANIZATION \
  --set-json 'policy.exemptImages=["index.docker.io/library/busybox**"]' \
@@ -119,13 +119,13 @@ To see the full set of options you may configure with the Helm chart, you can ru
 For policy controller options:
 
 ```bash copy
-helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/policy-controller --version v0.12.0-github12
+helm show values oci://ghcr.io/sigstore/helm-charts/policy-controller --version 0.10.5
 ```
 
 For trust policy options:
 
 ```bash copy
-helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies --version v0.6.2
+helm show values oci://ghcr.io/github/artifact-attestations-helm-charts/trust-policies --version v0.7.0
 ```
 
 For more information on the Sigstore Policy Controller, see the [Sigstore Policy Controller documentation](https://docs.sigstore.dev/policy-controller/overview/).

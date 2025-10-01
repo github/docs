@@ -3787,6 +3787,18 @@
       "requestPath": "/repos/{owner}/{repo}/languages"
     },
     {
+      "slug": "get-all-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
       "slug": "get-a-repository-readme",
       "subcategory": "contents",
       "verb": "get",
@@ -4041,7 +4053,7 @@
       "requestPath": "/orgs/{org}/external-group/{group_id}"
     },
     {
-      "slug": "list-external-groups-in-an-organization",
+      "slug": "list-external-groups-available-to-an-organization",
       "subcategory": "external-groups",
       "verb": "get",
       "requestPath": "/orgs/{org}/external-groups"

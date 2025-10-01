@@ -65,7 +65,7 @@ per-user configuration file).
 
 List only languages that have default queries.
 
-Available since `v2.23.0`.
+Available since `v2.23.1`.
 
 #### `--format=<fmt>`
 

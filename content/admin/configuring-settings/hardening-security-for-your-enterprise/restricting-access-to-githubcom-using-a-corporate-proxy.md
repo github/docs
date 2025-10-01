@@ -22,7 +22,6 @@ This feature is not enabled by default. An enterprise owner can enable the featu
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, select **Enable enterprise access restrictions**.
 
-
 ## Prerequisites
 
 * You must use an {% data variables.enterprise.prodname_emu_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}.
@@ -47,7 +46,7 @@ An enterprise owner can identify the correct enterprise ID to use in the header 
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, find the header for your enterprise.
-   
+
 ## Using the header
 
 For best results, configure your proxy to inject the header into all traffic to the following **supported endpoints**.

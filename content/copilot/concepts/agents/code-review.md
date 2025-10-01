@@ -31,6 +31,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 * {% data variables.product.prodname_vscode_shortname %}
 * {% data variables.product.prodname_vs %}
 * Xcode
+* JetBrains IDEs
 
 {% data variables.copilot.copilot_code-review_short %} is—with one exception—a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.
 

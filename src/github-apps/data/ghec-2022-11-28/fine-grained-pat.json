@@ -1113,6 +1113,12 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-premium-request-usage-report-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/premium_request/usage"
+    },
+    {
       "slug": "get-billing-usage-report-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
@@ -1153,6 +1159,12 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/packages"
+    },
+    {
+      "slug": "get-billing-premium-request-usage-report-for-a-user",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/premium_request/usage"
     },
     {
       "slug": "get-shared-storage-billing-for-a-user",
@@ -4785,6 +4797,18 @@
       "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
     },
     {
+      "slug": "get-all-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-a-repository",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/properties/values"
+    },
+    {
       "slug": "get-a-repository-readme",
       "subcategory": "contents",
       "verb": "get",
@@ -5179,7 +5203,7 @@
       "requestPath": "/orgs/{org}/external-group/{group_id}"
     },
     {
-      "slug": "list-external-groups-in-an-organization",
+      "slug": "list-external-groups-available-to-an-organization",
       "subcategory": "external-groups",
       "verb": "get",
       "requestPath": "/orgs/{org}/external-groups"

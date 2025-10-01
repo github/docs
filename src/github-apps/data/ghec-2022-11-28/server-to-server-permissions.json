@@ -541,6 +541,17 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/premium_request/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
         "slug": "get-billing-usage-report-for-an-organization",
         "subcategory": "enhanced-billing",
         "verb": "get",
@@ -2124,7 +2135,7 @@
       },
       {
         "category": "teams",
-        "slug": "list-external-groups-in-an-organization",
+        "slug": "list-external-groups-available-to-an-organization",
         "subcategory": "external-groups",
         "verb": "get",
         "requestPath": "/orgs/{org}/external-groups",
@@ -8612,6 +8623,23 @@
       }
     ]
   },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -9686,6 +9714,17 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -12149,6 +12188,17 @@
         "subcategory": "billing",
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/packages",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/premium_request/usage",
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,

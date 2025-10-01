@@ -8,7 +8,6 @@ topics:
 children:
   - /configure-network-settings
   - /configure-in-ide
-  - /customize-copilot-in-the-cli
   - /authenticate-to-ghecom
 redirect_from:
   - /copilot/configuring-github-copilot
@@ -16,4 +15,3 @@ redirect_from:
   - /copilot/how-tos/personal-settings
 contentType: how-tos
 ---
-

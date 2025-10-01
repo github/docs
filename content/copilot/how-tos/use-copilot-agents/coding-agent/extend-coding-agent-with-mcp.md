@@ -18,9 +18,6 @@ redirect_from:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## Prerequisite
 
 Before setting up an MCP server for {% data variables.copilot.copilot_coding_agent %}, read [AUTOTITLE](/copilot/concepts/coding-agent/mcp-and-coding-agent) to make sure you understand the concepts around MCP servers and {% data variables.copilot.copilot_coding_agent %}.
@@ -221,6 +218,56 @@ The [Cloudflare MCP server](https://github.com/cloudflare/mcp-server-cloudflare)
   }
 }
 ```
+
+### Example: Azure DevOps
+
+The [Azure DevOps MCP server](https://github.com/microsoft/azure-devops-mcp) creates a seamless connection between {% data variables.product.prodname_copilot_short %} and your Azure DevOps services, including work items, pipelines or documentation.
+
+To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding_agent %}, you must update the repository's copilot-setup-steps.yml file to include an Azure login workflow step.
+
+1. Configure OIDC in a Microsoft Entra application, trusting {% data variables.product.github %}. See [Use the Azure Login action with OpenID Connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect).
+1. Setup access to Azure DevOps organization and projects for the application identity. See [Add organization users and manage access](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/add-organization-users).
+1. Add a `.github/workflows/copilot-setup-steps.yml` Actions workflow file in your repository if you do not already have one.
+1. Add an Azure login step to the `copilot-setup-steps` workflow job.
+
+   ```yaml copy
+   on:
+     workflow_dispatch:
+   permissions:
+     id-token: write
+     contents: read
+   jobs:
+     copilot-setup-steps:
+       runs-on: ubuntu-latest
+       permissions:
+         id-token: write
+         contents: read
+       environment: copilot
+       steps:
+         - name: Azure login
+           uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5
+           with:
+             client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
+             tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
+             allow-no-subscriptions: true
+   ```
+
+   This configuration ensures the `azure/login` action is executed when {% data variables.copilot.copilot_coding_agent %} runs.
+1. In your repository’s {% data variables.product.prodname_copilot_short %} environment, add secrets for your `AZURE_CLIENT_ID` and `AZURE_TENANT_ID`.
+1. Configure the Azure DevOps MCP server by adding an `ado` object to your MCP configuration with defined tools you want {% data variables.copilot.copilot_coding_agent %} to use.
+
+  ```json copy
+  {
+    "mcpServers": {
+      "ado": {
+        "type": "local",
+        "command": "npx",
+        "args": ["-y", "@azure-devops/mcp", "<your-azure-devops-organization>", "-a", "azcli"],
+        "tools": ["wit_get_work_item", "wit_get_work_items_batch_by_ids", ...]
+      }
+    }
+  }
+   ```
 
 ## Reusing your MCP configuration from {% data variables.product.prodname_vscode %}
 

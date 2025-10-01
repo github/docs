@@ -119,6 +119,15 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/premium_request/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
         "slug": "get-billing-usage-report-for-an-organization",
         "subcategory": "enhanced-billing",
         "verb": "get",
@@ -5942,6 +5951,21 @@
       }
     ]
   },
+  "repository_custom_properties": {
+    "title": "Custom properties",
+    "displayTitle": "Repository permissions for \"Custom properties\"",
+    "permissions": [
+      {
+        "category": "repos",
+        "slug": "create-or-update-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "vulnerability_alerts": {
     "title": "Dependabot alerts",
     "displayTitle": "Repository permissions for \"Dependabot alerts\"",
@@ -6819,6 +6843,15 @@
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "get-all-custom-property-values-for-a-repository",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/properties/values",
         "additional-permissions": false,
         "access": "read"
       },
@@ -8550,6 +8583,15 @@
         "subcategory": "billing",
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/packages",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/premium_request/usage",
         "additional-permissions": false,
         "access": "read"
       },

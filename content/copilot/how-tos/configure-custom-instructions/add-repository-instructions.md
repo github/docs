@@ -20,7 +20,6 @@ redirect_from:
 This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -31,7 +30,6 @@ This version of this article is for using repository custom instructions on the 
 This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -42,7 +40,6 @@ This version of this article is for using repository custom instructions and pro
 This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -53,7 +50,6 @@ This version of this article is for using repository custom instructions in {% d
 This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -76,7 +72,6 @@ This version of this article is for using repository custom instructions in Xcod
 This version of this article is for using repository custom instructions in Eclipse. Click the tabs above for instructions on using custom instructions in other environments.
 
 {% data reusables.copilot.repository-custom-instructions-support %}
-* **{% data variables.copilot.copilot_code-review_short %}**
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -266,9 +261,9 @@ You can create several types of repository custom instructions for use on {% dat
 
 * **Agent instructions** are used by AI agents.
 
-  Supported by: **{% data variables.copilot.copilot_coding_agent %}**.
+  Supported by: **{% data variables.copilot.copilot_coding_agent %}** and {% data variables.copilot.copilot_cli_short %}.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence.
+  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
@@ -278,10 +273,7 @@ You can create your own custom instructions file from scratch. See [Writing your
 
 ### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
-1. Navigate to the Agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+1. Navigate to the agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
 
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 

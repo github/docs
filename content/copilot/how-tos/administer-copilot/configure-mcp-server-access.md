@@ -197,4 +197,4 @@ For enterprises that want a dynamic and fully managed option, Azure API Center (
 > [!NOTE]
 > Azure API Center includes a free tier for basic API cataloging and discovery. Larger organizations may choose to use paid Azure API Management plans for higher scale and advanced governance.
 
-For more information, see [Azure API Center Documentation](https://docs.microsoft.com/en-us/azure/api-center/) and [Azure API Center Quickstart](https://docs.microsoft.com/en-us/azure/api-center/quickstart-create-api-center).
+For more information, see [Azure API Center Documentation](https://learn.microsoft.com/en-us/azure/api-center/) and [Azure API Center Quickstart](https://learn.microsoft.com/en-us/azure/api-center/set-up-api-center).
