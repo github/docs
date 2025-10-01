@@ -1,4 +1,6 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
+import type { RuleParams, RuleErrorCallback } from '../../types'
 
 import { getFrontmatter } from '../helpers/utils'
 
@@ -7,7 +9,7 @@ export const frontmatterHiddenDocs = {
   description:
     'Articles with frontmatter property `hidden` can only be located in specific products',
   tags: ['frontmatter', 'feature', 'early-access'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const fm = getFrontmatter(params.lines)
     if (!fm || !fm.hidden) return
 
@@ -24,7 +26,8 @@ export const frontmatterHiddenDocs = {
 
     if (allowedProductPaths.some((allowedPath) => params.name.includes(allowedPath))) return
 
-    const hiddenLine = params.lines.find((line) => line.startsWith('hidden:'))
+    const hiddenLine = params.lines.find((line: string) => line.startsWith('hidden:'))
+    if (!hiddenLine) return
     const lineNumber = params.lines.indexOf(hiddenLine) + 1
 
     addError(

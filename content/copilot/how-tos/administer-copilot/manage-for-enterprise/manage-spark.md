@@ -23,10 +23,7 @@ For details about benefits, development experience, billing, and enterprise cons
 
 ## Prerequisites
 
-* Your enterprise must be on a {% data variables.copilot.copilot_enterprise_short %} plan.
-* During the {% data variables.release-phases.public_preview %}, the organization or enterprise must have the **Opt in to preview features** setting enabled. See:
-  * [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization)
-  * [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom)
+To use {% data variables.product.prodname_spark_short %}, your enterprise must be on a {% data variables.copilot.copilot_enterprise_short %} plan.
 
 ## Enabling {% data variables.product.prodname_spark_short %} for your {% data variables.product.prodname_copilot_short %} subscribers
 

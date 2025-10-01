@@ -18,7 +18,8 @@ describe('lint learning tracks', () => {
   if (yamlFileList.length < 1) return
 
   describe.each(yamlFileList)('%s', (yamlAbsPath) => {
-    let yamlContent
+    // Using any type because YAML content structure is dynamic and varies per file
+    let yamlContent: any
 
     beforeAll(async () => {
       const fileContents = await readFile(yamlAbsPath, 'utf8')
@@ -26,8 +27,10 @@ describe('lint learning tracks', () => {
     })
 
     test('contains valid liquid', () => {
-      const toLint = []
-      Object.values(yamlContent).forEach(({ title, description }) => {
+      // Using any[] for toLint since it contains mixed string content from various YAML properties
+      const toLint: any[] = []
+      // Using any for destructured params as YAML structure varies across different learning track files
+      Object.values(yamlContent).forEach(({ title, description }: any) => {
         toLint.push(title)
         toLint.push(description)
       })

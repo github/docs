@@ -1,10 +1,26 @@
 import { readFile, writeFile } from 'fs/promises'
+
 const STATIC_REDIRECTS = 'src/rest/data/client-side-rest-api-redirects.json'
 const REST_API_OVERRIDES = 'src/rest/lib/rest-api-overrides.json'
 
+interface OperationUrl {
+  originalUrl: string
+  category: string
+  subcategory?: string
+}
+
+interface RestApiOverrides {
+  operationUrls: Record<string, OperationUrl>
+  sectionUrls: Record<string, string>
+}
+
+interface RedirectMap {
+  [oldUrl: string]: string
+}
+
 // This is way to add redirects from one fragment to another from the
 // client's browser.
-export async function syncRestRedirects() {
+export async function syncRestRedirects(): Promise<void> {
   const clientSideRedirects = await getClientSideRedirects()
 
   await writeFile(STATIC_REDIRECTS, JSON.stringify(clientSideRedirects, null, 2), 'utf8')
@@ -13,11 +29,13 @@ export async function syncRestRedirects() {
 
 // Reads in src/rest/lib/rest-api-overrides.json and generates the
 // redirect file src/rest/data/client-side-rest-api-redirects.json
-async function getClientSideRedirects() {
-  const { operationUrls, sectionUrls } = JSON.parse(await readFile(REST_API_OVERRIDES, 'utf8'))
+async function getClientSideRedirects(): Promise<RedirectMap> {
+  const { operationUrls, sectionUrls }: RestApiOverrides = JSON.parse(
+    await readFile(REST_API_OVERRIDES, 'utf8'),
+  )
 
-  const operationRedirects = {}
-  Object.values(operationUrls).forEach((value) => {
+  const operationRedirects: RedirectMap = {}
+  Object.values(operationUrls).forEach((value: OperationUrl) => {
     const oldUrl = value.originalUrl.replace('/rest/reference', '/rest')
     const anchor = oldUrl.split('#')[1]
     const subcategory = value.subcategory
@@ -26,7 +44,7 @@ async function getClientSideRedirects() {
       : `/rest/${value.category}#${anchor}`
     operationRedirects[oldUrl] = redirectTo
   })
-  const redirects = {
+  const redirects: RedirectMap = {
     ...operationRedirects,
     ...sectionUrls,
   }
