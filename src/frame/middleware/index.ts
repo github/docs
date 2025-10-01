@@ -43,7 +43,6 @@ import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
 import breadcrumbs from './context/breadcrumbs'
 import glossaries from './context/glossaries'
-import resolveRecommended from './resolve-recommended'
 import renderProductName from './context/render-product-name'
 import features from '@/versions/middleware/features'
 import productExamples from './context/product-examples'
@@ -268,7 +267,6 @@ export default function (app: Express) {
   app.use(asyncMiddleware(glossaries))
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
-  app.use(asyncMiddleware(resolveRecommended))
   app.use(asyncMiddleware(learningTrack))
 
   if (ENABLE_FASTLY_TESTING) {

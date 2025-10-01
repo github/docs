@@ -95,8 +95,6 @@ class Page {
   public rawIncludeGuides?: string[]
   public introLinks?: Record<string, string>
   public rawIntroLinks?: Record<string, string>
-  public recommended?: string[]
-  public rawRecommended?: string[]
 
   // Derived properties
   public languageCode!: string
@@ -213,7 +211,6 @@ class Page {
     this.rawLearningTracks = this.learningTracks
     this.rawIncludeGuides = this.includeGuides as any
     this.rawIntroLinks = this.introLinks
-    this.rawRecommended = this.recommended
 
     // Is this the Homepage or a Product, Category, Topic, or Article?
     this.documentType = getDocumentType(this.relativePath)
