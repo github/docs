@@ -98,4 +98,3 @@ By making a contribution to this project, I certify that:
     personal information I submit with it, including my sign-off) is
     maintained indefinitely and may be redistributed consistent with
     this project or the open source license(s) involved.
-Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com
