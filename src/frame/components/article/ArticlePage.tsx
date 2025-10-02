@@ -21,6 +21,7 @@ import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -101,6 +102,7 @@ export const ArticlePage = () => {
   return (
     <DefaultLayout>
       <LinkPreviewPopover />
+      <UtmPreserver />
       {isDev && <ClientSideRefresh />}
       {router.pathname.includes('/rest/') && <RestRedirect />}
       {currentLayout === 'inline' ? (
