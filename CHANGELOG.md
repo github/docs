@@ -1,5 +1,14 @@
 # Docs changelog
 
+**1 October 2025**
+
+We’ve updated the Spark documentation to support the launch for Copilot Enterprise users, making it easier to understand and enable Spark:
+
+* Conceptual article: [About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark#enterprise-considerations) now includes enterprise considerations (governance, billing, infrastructure, and benefits).
+* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies.
+
+<hr>
+
 **25 September 2025**
 
 GitHub Copilot CLI has been released as a public preview. It allows you to use Copilot directly from your terminal. You can use it to answer questions, write and debug code, and interact with GitHub.com. For example, you can ask Copilot to make some changes to a project and create a pull request.
