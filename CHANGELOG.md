@@ -9,6 +9,28 @@ We’ve updated the Spark documentation to support the launch for Copilot Enterp
 
 <hr>
 
+**29 September 2025**
+
+Claude Sonnet 4.5 has been released as a Public Preview. At the time of launch, it will be available on the following platforms: 
+
+- **Copilot Chat** 
+  - Released for GitHub.com, VS Code, GitHub Mobile
+  - With: Copilot Pro, Pro+, Business, and Enterprise
+- **Copilot Coding Agent**
+  - With: Copilot Pro, and Copilot Pro+ 
+- **Copilot CLI**
+  - With: Copilot Pro, Pro+, Business, and Enterprise
+
+The following articles have been updated: 
+
+- [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
+- [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models)
+- [Hosting of models for GitHub Copilot Chat](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
+- [AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
+- [About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)
+
+<hr>
+
 **26 September 2025**
 
 To coincide with additional functionality for Copilot coding agent being added to the GitHub Mobile app, we've updated the following articles:
