@@ -9,6 +9,16 @@ We’ve updated the Spark documentation to support the launch for Copilot Enterp
 
 <hr>
 
+**26 September 2025**
+
+To coincide with additional functionality for Copilot coding agent being added to the GitHub Mobile app, we've updated the following articles:
+
+* [Using GitHub Copilot to work on an issue](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue#assigning-an-issue-to-copilot-on-github-mobile)
+* [Tracking GitHub Copilot's sessions](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions#tracking-sessions-from-github-mobile)
+* [Asking GitHub Copilot to create a pull request](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-github-mobile)
+
+<hr>
+
 **25 September 2025**
 
 GitHub Copilot CLI has been released as a public preview. It allows you to use Copilot directly from your terminal. You can use it to answer questions, write and debug code, and interact with GitHub.com. For example, you can ask Copilot to make some changes to a project and create a pull request.
