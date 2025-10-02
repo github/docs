@@ -2,6 +2,19 @@
 
 **25 September 2025**
 
+GitHub Copilot CLI has been released as a public preview. It allows you to use Copilot directly from your terminal. You can use it to answer questions, write and debug code, and interact with GitHub.com. For example, you can ask Copilot to make some changes to a project and create a pull request.
+
+GitHub Copilot CLI gives you quick access to a powerful AI agent, without having to leave your terminal. It can help you complete tasks more quickly by working on your behalf, and you can work iteratively with GitHub Copilot CLI to build the code you need.
+
+See:
+
+* [About GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+* [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+
+<hr>
+
+**25 September 2025**
+
 We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server. 
 
 See the updated docs: 
