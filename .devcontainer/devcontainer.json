@@ -60,7 +60,7 @@
 
   // Lifecycle commands
   // Install dependencies then install Copilot CLI
-  "onCreateCommand": "npm ci && npm config set \"//npm.pkg.github.com/:_authToken=$GITHUB_TOKEN\" && npm config set \"@github:registry=https://npm.pkg.github.com/\" && npm install -g @github/copilot",
+  "onCreateCommand": "npm ci && npm install -g @github/copilot@prerelease",
   // Start a web server and keep it running
   "postStartCommand": "nohup bash -c 'npm start &'",
   // Set port 4000 to be public
