@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how to build and deploy an intelligent web app with natural language using {% data variables.product.prodname_spark %}.'
 versions:
   feature: spark
-product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} license can use {% data variables.product.prodname_spark_short %}.'
+product: '{% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_enterprise_short %}'
 topics:
   - Copilot
 redirect_from:
@@ -26,7 +26,7 @@ This tutorial will guide you through the full lifecycle of building and deployin
 
 ### Prerequisites
 
-* A {% data variables.product.github %} account with {% data variables.copilot.copilot_pro_plus_short %}.
+* A {% data variables.product.github %} account with {% data variables.copilot.copilot_pro_plus_short %} or {% data variables.copilot.copilot_enterprise_short %} license.
 
 ## Step 1: Create your web app
 

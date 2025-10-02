@@ -21,7 +21,7 @@ export const DiscoveryLanding = () => {
       <div>
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">
-          <LandingCarousel flatArticles={flatArticles} recommended={recommended} />
+          <LandingCarousel recommended={recommended} />
           <ArticleGrid flatArticles={flatArticles} />
         </div>
       </div>

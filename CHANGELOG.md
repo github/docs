@@ -1,5 +1,59 @@
 # Docs changelog
 
+**1 October 2025**
+
+We’ve updated the Spark documentation to support the launch for Copilot Enterprise users, making it easier to understand and enable Spark:
+
+* Conceptual article: [About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark#enterprise-considerations) now includes enterprise considerations (governance, billing, infrastructure, and benefits).
+* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies.
+
+<hr>
+
+**29 September 2025**
+
+Claude Sonnet 4.5 has been released as a Public Preview. At the time of launch, it will be available on the following platforms: 
+
+- **Copilot Chat** 
+  - Released for GitHub.com, VS Code, GitHub Mobile
+  - With: Copilot Pro, Pro+, Business, and Enterprise
+- **Copilot Coding Agent**
+  - With: Copilot Pro, and Copilot Pro+ 
+- **Copilot CLI**
+  - With: Copilot Pro, Pro+, Business, and Enterprise
+
+The following articles have been updated: 
+
+- [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
+- [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models)
+- [Hosting of models for GitHub Copilot Chat](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
+- [AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
+- [About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)
+
+<hr>
+
+**26 September 2025**
+
+To coincide with additional functionality for Copilot coding agent being added to the GitHub Mobile app, we've updated the following articles:
+
+* [Using GitHub Copilot to work on an issue](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue#assigning-an-issue-to-copilot-on-github-mobile)
+* [Tracking GitHub Copilot's sessions](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions#tracking-sessions-from-github-mobile)
+* [Asking GitHub Copilot to create a pull request](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-github-mobile)
+
+<hr>
+
+**25 September 2025**
+
+GitHub Copilot CLI has been released as a public preview. It allows you to use Copilot directly from your terminal. You can use it to answer questions, write and debug code, and interact with GitHub.com. For example, you can ask Copilot to make some changes to a project and create a pull request.
+
+GitHub Copilot CLI gives you quick access to a powerful AI agent, without having to leave your terminal. It can help you complete tasks more quickly by working on your behalf, and you can work iteratively with GitHub Copilot CLI to build the code you need.
+
+See:
+
+* [About GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+* [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+
+<hr>
+
 **25 September 2025**
 
 We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server. 

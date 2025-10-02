@@ -44,6 +44,7 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | {% data variables.copilot.copilot_gemini_25_pro %}     | Deep reasoning and debugging                 | Complex code generation, debugging, and research workflows              | Reasoning, vision       | [{% data variables.copilot.copilot_gemini_25_pro %} model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf)                                    |
 | {% data variables.copilot.copilot_gemini_flash %}      | Working with visuals (diagrams, screenshots) | Real-time responses and visual reasoning for UI and diagram-based tasks | Vision                  | [{% data variables.copilot.copilot_gemini_flash %} model card](https://storage.googleapis.com/model-cards/documents/gemini-2-flash.pdf)                                     |
 | {% data variables.copilot.copilot_grok_code %}         | General-purpose coding and writing           | Fast, accurate code completions and explanations                        | Agent mode              | [{% data variables.copilot.copilot_grok_code %} model card](https://data.x.ai/2025-08-20-grok-4-model-card.pdf)                                                             |
+| {% data variables.copilot.copilot_qwen_25 %}           | General-purpose coding and writing           | Code generation, reasoning, and code repair / debugging                 | Reasoning               | [{% data variables.copilot.copilot_qwen_25 %} model card](https://arxiv.org/pdf/2409.12186)
 
 ## Task: General-purpose coding and writing
 

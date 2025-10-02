@@ -2,7 +2,29 @@ import fs from 'fs'
 import path from 'path'
 
 import frontmatter from '@gr2m/gray-matter'
-import { getLogLevelNumber } from './src/observability/logger/lib/log-levels.js'
+// Hardcoded log level function since next.config.js cannot import from TypeScript files
+// Matches ./src/observability/logger/lib/log-levels
+function getLogLevelNumber() {
+  const LOG_LEVELS = {
+    error: 0,
+    warn: 1,
+    info: 2,
+    debug: 3,
+  }
+
+  let defaultLogLevel = 'info'
+  if (
+    !process.env.LOG_LEVEL &&
+    (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test')
+  ) {
+    defaultLogLevel = 'debug'
+  }
+
+  const envLogLevel = process.env.LOG_LEVEL?.toLowerCase() || defaultLogLevel
+  const logLevel = LOG_LEVELS[envLogLevel] !== undefined ? envLogLevel : defaultLogLevel
+
+  return LOG_LEVELS[logLevel]
+}
 
 // Replace imports with hardcoded values
 const ROOT = process.env.ROOT || '.'

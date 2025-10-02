@@ -30,6 +30,9 @@ contentType: how-tos
 
 You can use your repository settings to specify content in your repository that {% data variables.product.prodname_copilot %} should ignore.
 
+> [!NOTE]
+> {% data variables.copilot.copilot_coding_agent %}, and Agent mode in {% data variables.copilot.copilot_chat_short %} in IDEs, do not support content exclusion. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent) and [AUTOTITLE](/copilot/how-tos/chat-with-copilot/chat-in-ide).
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 

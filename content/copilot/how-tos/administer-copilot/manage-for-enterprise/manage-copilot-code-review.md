@@ -19,7 +19,7 @@ For more information about {% data variables.copilot.copilot_for_prs %}, see [AU
 
 ## Enabling {% data variables.copilot.copilot_code-review_short %} for your {% data variables.product.prodname_copilot_short %} subscribers
 
-You can enable {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_for_prs %} for your members on the {% data variables.product.prodname_copilot_short %} policies page for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot).
+You can enable {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_for_prs %} for your members on the {% data variables.product.prodname_copilot_short %} policies page for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#defining-policies-for-your-enterprise).
 
 * "Enabled" means all users granted a {% data variables.product.prodname_copilot_short %} license by any of your organizations will be able to use the feature.
 * "Disabled" means no users granted a {% data variables.product.prodname_copilot_short %} license by your organizations will be able to use the feature.
