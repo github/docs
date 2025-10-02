@@ -14,6 +14,7 @@ redirect_from:
   - /billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise
 versions:
   ghec: '*'
+  ghes: '*'
 topics:
   - Billing
   - Enterprise
