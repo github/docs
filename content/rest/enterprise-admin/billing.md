@@ -19,4 +19,6 @@ The `manage_billing:enterprise` scope is required for {% data variables.product.
 
 > [!IMPORTANT] The API currently supports adding or removing up to 50 resources in a single operation.
 
+{% data reusables.billing.usage-reports-api-limitation %}
+
 <!-- Content after this section is automatically generated -->

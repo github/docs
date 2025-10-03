@@ -13,6 +13,7 @@ children:
   - /actions-minute-multipliers
   - /billing-reports
   - /supported-payment-methods
+  - /azure-billing
   - /azure-subscription
   - /billing-roles
   - /cost-center-allocation

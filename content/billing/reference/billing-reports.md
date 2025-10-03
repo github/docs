@@ -41,6 +41,8 @@ The detailed usage report includes the same fields as the summarized report and 
 
 This report sums the `quantity`, `gross_amount`, `discount_amount`, and `net_amount` fields based on the combination of the following values:  `date`, `sku`, `organization`, `repository`, `cost_center_name`, `username`, `workflow_path`.
 
+{% data reusables.billing.usage-reports-api-limitation %}
+
 ### Premium request analytics usage reports
 
 This report includes each recorded use of a premium request and includes the following fields: `Timestamp`,`User`,`Model`,`Requests Used`,`Exceeds Monthly Quota`, and `Total Monthly Quota`.
