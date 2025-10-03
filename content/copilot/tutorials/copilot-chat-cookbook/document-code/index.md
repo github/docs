@@ -10,6 +10,7 @@ versions:
 topics:
   - Copilot
 children:
+  - /creating-issues
   - /document-legacy-code
   - /explain-legacy-code
   - /explain-complex-logic

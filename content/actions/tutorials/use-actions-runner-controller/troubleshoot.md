@@ -157,6 +157,14 @@ A `401 Unauthorized` error when attempting to obtain an access token for a {% da
 
 {% data reusables.actions.self-hosted-runner-group-limit %}
 
+## Runner updates
+
+{% data reusables.actions.self-hosted-runner-update-warning %}
+
+Validate that your runner software version and/or custom runner image(s) in use are running the latest version.
+
+For more information, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners).
+
 ## Legal notice
 
 {% data reusables.actions.actions-runner-controller-legal-notice %}
