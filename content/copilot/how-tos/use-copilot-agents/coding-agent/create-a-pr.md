@@ -34,7 +34,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
 
 * {% data variables.product.prodname_github_issues %}, by [assigning an issue to {% data variables.product.prodname_copilot_short %}](#assigning-an-issue-to-copilot)
 * The [agents panel or page](#asking-copilot-to-create-a-pull-request-from-the-agents-panel-or-page) on {% data variables.product.github %}
-* {% data variables.copilot.copilot_chat_short %} in [{% data variables.product.prodname_vscode %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code) and [other IDEs](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-other-ides) 
+* {% data variables.copilot.copilot_chat_short %} in [{% data variables.product.prodname_vscode %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code) and [other IDEs](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-other-ides)
 * {% data variables.copilot.copilot_chat_short %} on [{% data variables.product.prodname_dotcom_the_website %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-githubcom)
 * The [{% data variables.product.prodname_cli %}](#asking-copilot-to-create-a-pull-request-from-the-github-cli)
 * Your preferred IDE or agentic coding tool with [Model Context Protocol (MCP)](#asking-copilot-to-create-a-pull-request-from-the-github-mcp-server) support
