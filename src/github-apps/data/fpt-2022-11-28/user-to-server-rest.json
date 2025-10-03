@@ -1153,6 +1153,12 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-premium-request-usage-report-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/premium_request/usage"
+    },
+    {
       "slug": "get-billing-usage-report-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
@@ -1187,6 +1193,12 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/packages"
+    },
+    {
+      "slug": "get-billing-premium-request-usage-report-for-a-user",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/premium_request/usage"
     },
     {
       "slug": "get-shared-storage-billing-for-a-user",

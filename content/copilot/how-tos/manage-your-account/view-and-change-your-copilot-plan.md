@@ -92,10 +92,13 @@ You can cancel your {% data variables.copilot.copilot_pro_short %} trial at any 
 
 If you're on a paid {% data variables.product.prodname_copilot_short %} plan, you can switch between monthly and yearly billing at any time. The change will take effect at the start of your next billing cycle.
 
+> [!TIP]
+> If you use volume billing for your {% data variables.product.github %} plan, you can also change your billing cycle for your plan with these steps.
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing-plans-two-platforms %}
 
-1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown on the right.
+1. In your {% data variables.product.prodname_copilot %} or {% data variables.product.github %} plan section, select the **Edit** dropdown on the right.
 1. Choose the option to switch your billing cycle:
 
    * If you're billed monthly, click **Change to yearly billing**.

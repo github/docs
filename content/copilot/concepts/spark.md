@@ -56,7 +56,7 @@ All sparks are hosted and deployed by Azure Container Apps (ACA).
 #### Create a repository with two-way syncing
 
 * You can create a repository for your spark in one click, allowing you to manage your app's code and collaborate with others using standard {% data variables.product.github %} workflows.
-  
+
 * There's a two-way sync between your spark and the repository, so changes made in either {% data variables.product.prodname_spark_short %} or the main branch of your repository are automatically reflected in both places. Any changes made to your spark prior to repository creation will be added to your repository so you have a full record of all changes and commits made to your spark since its creation.
 
 #### Invite collaborators
@@ -66,6 +66,34 @@ All sparks are hosted and deployed by Azure Container Apps (ACA).
 #### Leverage standard {% data variables.product.github %} features
 
 * Once you've created a repository for your spark, you can use all the standard {% data variables.product.github %} features such as pull requests, issues, and project boards to manage your spark development process, as well as leverage {% data variables.product.prodname_actions %} for CI/CD workflows.
+
+## Enterprise considerations
+
+If you’re an enterprise admin evaluating {% data variables.product.prodname_spark_short %}, there are specific benefits and controls available at the enterprise level.
+
+For details about enabling {% data variables.product.prodname_spark_short %} for your enterprise, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark).
+
+### Why enable {% data variables.product.prodname_spark_short %} for your enterprise?
+
+Enabling {% data variables.product.prodname_spark_short %} empowers your teams to move faster from idea to production while maintaining the security, governance, and cost controls that enterprise admins expect.
+
+Benefits include:
+
+* **Centralized control**. {% data variables.product.prodname_spark_short %} is included in the {% data variables.product.prodname_copilot_short %} license and respects existing enterprise access policies.
+* **Governance and security**. Built on {% data variables.product.github %} and Azure, sparks inherit enterprise-grade reliability, authentication, and compliance.
+* **Transparency and cost management**. {% data variables.product.prodname_spark_short %} consumption draws from {% data variables.product.prodname_copilot_short %} premium requests, which you can monitor through the {% data variables.product.github %} billing platform.
+* **Accelerated innovation**. Teams can validate ideas in hours instead of months, without relying on fragmented toolchains.
+
+### Billing
+
+Each natural-language prompt in {% data variables.product.prodname_spark_short %} consumes four premium requests.
+See [AUTOTITLE](/copilot/concepts/billing/billing-for-spark).
+
+### Infrastructure
+
+The {% data variables.product.prodname_spark_short %} development environment is powered by {% data variables.product.prodname_github_codespaces %}. If your enterprise disables {% data variables.product.prodname_codespaces %}, users can still access the {% data variables.product.prodname_spark_short %} interface but won’t be able to open the underlying codespace.
+
+All sparks are deployed to Azure Container Apps (ACA).
 
 ## Develop your spark with {% data variables.product.prodname_copilot_short %}
 
@@ -93,7 +121,7 @@ When you're ready to publish your spark, you can choose from the following visib
 
 * Private to you only
 * Visible to members of a specific organization on {% data variables.product.github %}
-* Visible to all {% data variables.product.github %} users.
+* Visible to all {% data variables.product.github %} users (may be disabled for certain {% data variables.enterprise.prodname_managed_users %} based on admin configuration)
 
 You can then share your spark with others, so they can view and interact with your app. The link to your spark remains undiscoverable except for those who have the link.
 

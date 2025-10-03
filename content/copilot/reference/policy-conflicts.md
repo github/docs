@@ -44,7 +44,8 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.copilot.copilot_mobile_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github-mobile) |
 | {% data variables.copilot.copilot_chat_short %} in the IDE | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-your-ide) |
 | {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/code-review) |
-| {% data variables.copilot.copilot_coding_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-coding-agent) |
+| {% data variables.copilot.copilot_coding_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom) |
+| {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/spark) |
 | {% data variables.copilot.copilot_extensions_short %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions) |
 | {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github) |
 | {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-in-github-desktop) |

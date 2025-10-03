@@ -51,10 +51,6 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
-{% ifversion secret-scanning-ai-generic-secret-detection %}
-In addition to these generic non-provider patterns, {% data variables.product.prodname_secret_scanning %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
-{% endif %}
-
 | Provider | Token |
 |----------|:--------------------|
 |  Generic | http_basic_authentication_header |
@@ -66,7 +62,20 @@ In addition to these generic non-provider patterns, {% data variables.product.pr
 |  Generic | postgres_connection_string |
 |  Generic | rsa_private_key |
 
->[!NOTE] Push protection and validity checks are not supported for non-provider patterns.
+>[!NOTE] Validity checks are not supported for non-provider patterns.
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### {% data variables.secret-scanning.copilot-secret-scanning %}
+
+{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+
+| Provider | Token |
+|----------|:--------------------|
+|  Generic | password |
+
+>[!NOTE] Push protection and validity checks are not supported for passwords.
+{% endif %}
 
 ### {% ifversion secret-scanning-alert-experimental-list %}Default{% else %}High confidence{% endif %} patterns
 

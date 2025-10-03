@@ -37,6 +37,7 @@ You can create issues from {% data variables.copilot.copilot_chat_short %}'s imm
    * {% prompt %}In OWNER/REPOSITORY, create a feature request to add fuzzy matching to search.{% endprompt %}
    * {% prompt %}Log a bug for a 500 error. This happens consistently when I try to log into the site.{% endprompt %}
    * {% prompt %}Create a task to change the application logo background to red and add the label "needs design review".{% endprompt %}
+   * {% prompt %}In octo-org/octo-repo, create an issue and add relevant code snippets to improve the API response format.{% endprompt %}
 
    > [!NOTE] You can only use {% data variables.product.prodname_copilot_short %} to create issues in repositories where you already have permission to create issues. This feature doesn't change your access or bypass repository permissions.
 
