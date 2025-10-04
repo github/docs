@@ -82,7 +82,7 @@ contentType: how-tos
 1. Delete local copies of your work repositories from your computer by running the following command:
 
    ```shell
-   rm -rf WORK_DIRECTORY
+   rm -rf --one-file-system -- WORK_DIRECTORY
    ```
   
    Replace `WORK_DIRECTORY` with the path to your work repository.
