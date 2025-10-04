@@ -1,4 +1,4 @@
----
+---content/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects.md
 title: 'About {% data variables.product.prodname_projects_v2 %}'
 intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
