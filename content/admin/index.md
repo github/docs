@@ -73,7 +73,7 @@ featuredLinks:
   startHere:
     - '{% ifversion ghec %}/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud{% endif %}'
     - /admin/managing-iam/understanding-iam-for-enterprises/about-identity-and-access-management
-    - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
     - '{% ifversion ghes %}/admin/getting-started-with-enterprise/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/set-up-payment/manage-enterprise-invoice{% endif %}'
