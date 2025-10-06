@@ -72,7 +72,7 @@ Options include:
 
 ## Unsupported features
 
-Because this restriction only applies to requests that are sent via a proxy that adds an enterprise header, certain {% data variables.product.github %} features do not support the restriction to block users from accessing or using their personal accounts. To block users on your  network from accessing these features, you will need to make the changes described below.
+Because this restriction only applies to requests that are sent via a proxy that adds an enterprise header, certain {% data variables.product.github %} features do not support the restriction to block users from accessing or using their personal accounts. To block users on your network from accessing these features, you will need to make the changes described below.
 
 | Feature | Associated endpoint | Notes |
 | ------- | ------------------- | ----- |
@@ -81,6 +81,7 @@ Because this restriction only applies to requests that are sent via a proxy that
 | SSH access | Port 22 on {% data variables.product.prodname_dotcom_the_website %} | To restrict access, block the endpoint entirely. |
 | SSH over HTTPS        | `ssh.github.com`          | To restrict access, block the endpoint entirely. |
 | {% data variables.product.github %}-hosted runners | Various | To enforce specific routing, use Azure private networking. See [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise). |
+| Self-hosted runners | Various | To enforce specific routing, utilize a proxy server. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-proxy-servers). |
 
 ### Endpoints that don't require restriction
 
