@@ -25,6 +25,7 @@ children:
   - /configuring-visibility-for-organization-membership
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization
+  - /custom-organization-roles
   - /managing-your-role-in-an-organization-owned-by-your-enterprise
   - /managing-requests-for-copilot-business-from-organizations-in-your-enterprise
   - /removing-organizations-from-your-enterprise
