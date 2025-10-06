@@ -61,6 +61,21 @@ This will prevent people on your network from accessing these endpoints with use
 
 >[!NOTE] Access to `github.com/login` is required to create support tickets. To ensure users with support entitlements can request help, you may want to exempt these users from the restriction.
 
+## Enabling access restrictions for multiple enterprises
+
+Enterprise owners can enforce the restriction across multiple enterprise accounts.
+
+1. Enable the feature for each enterprise account. See [Enabling access restrictions](#enabling-access-restrictions).
+1. Inject a header into all traffic going to certain supported endpoints. The header is in the following format.
+
+```text
+sec-GitHub-allowed-enterprise: ENTERPRISE1-ID, ENTERPRISE2-ID, ENTERPRISE3-ID ... ENTERPRISE20-ID.
+```
+
+Enterprise owners can find the correct enterprise ID to use in the header for each of the enterprises. See [Finding the header](#finding-the-header).
+
+> [!NOTE] We currently support up to 20 unique enterprise IDs to be included in the header.
+
 ### Lifting the restriction for certain users
 
 You may want to lift the restriction for certain users who need to contribute to open source resources using a personal account, or who may need to create support tickets in case of issues. To handle this, you must configure your network to  inject the header only for users that you intend to restrict.
