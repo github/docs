@@ -3863,6 +3863,42 @@
       "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
     },
     {
+      "slug": "get-immutable-releases-settings-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/immutable-releases"
+    },
+    {
+      "slug": "set-immutable-releases-settings-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/settings/immutable-releases"
+    },
+    {
+      "slug": "list-selected-repositories-for-immutable-releases-enforcement",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-immutable-releases-enforcement",
+      "subcategory": "orgs",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories"
+    },
+    {
+      "slug": "enable-a-selected-repository-for-immutable-releases-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}"
+    },
+    {
+      "slug": "disable-a-selected-repository-for-immutable-releases-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}"
+    },
+    {
       "slug": "list-hosted-compute-network-configurations-for-an-organization",
       "subcategory": "network-configurations",
       "verb": "get",
@@ -4771,6 +4807,24 @@
       "subcategory": "webhooks",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
+    },
+    {
+      "slug": "check-if-immutable-releases-are-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
+      "slug": "enable-immutable-releases",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
+      "slug": "disable-immutable-releases",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/immutable-releases"
     },
     {
       "slug": "list-repository-languages",
