@@ -1,8 +1,10 @@
 import { TokenKind } from 'liquidjs'
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getLiquidTokens, conditionalTags, getPositionData } from '../helpers/liquid-utils'
 import { isStringQuoted } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 /*
   Checks for instances where a Liquid conditional tag's argument is
@@ -12,18 +14,20 @@ import { isStringQuoted } from '../helpers/utils'
   {% if "foo" %}
   {% ifversion "bar" %}
 */
-export const liquidQuotedConditionalArg = {
+export const liquidQuotedConditionalArg: Rule = {
   names: ['GHD016', 'liquid-quoted-conditional-arg'],
   description: 'Liquid conditional tags should not quote the conditional argument',
   tags: ['liquid', 'format'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
+    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.js which lacks type definitions
     const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
-      .filter((token) => conditionalTags.includes(token.name))
-      .filter((token) => {
+      .filter((token: any) => token.kind === TokenKind.Tag)
+      .filter((token: any) => conditionalTags.includes(token.name))
+      .filter((token: any) => {
         const tokensArray = token.args.split(/\s+/g)
-        if (tokensArray.some((arg) => isStringQuoted(arg))) return true
+        // Using 'any' for args as they come from the untyped liquid token structure
+        if (tokensArray.some((arg: any) => isStringQuoted(arg))) return true
         return false
       })
 

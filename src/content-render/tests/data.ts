@@ -6,7 +6,8 @@ import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-v
 import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('data tag', () => {
-  let dd
+  // Using 'any' type as DataDirectory is from data-directory.js which lacks type definitions
+  let dd: any
   const enDirBefore = languages.en.dir
 
   beforeAll(() => {
@@ -41,7 +42,7 @@ describe('data tag', () => {
       currentLanguage: 'en',
       currentPath: '/en/liquid-tags/good-data-variable',
     }
-    const rendered = await page.render(context)
+    const rendered = await page!.render(context)
     // The test fixture contains:
     //   {% data variables.stuff.foo %}
     // which we control the value of here in the test.
@@ -57,7 +58,7 @@ describe('data tag', () => {
       currentPath: '/en/liquid-tags/bad-data-variable',
       currentLanguage: 'en',
     }
-    await expect(page.render(context)).rejects.toThrow(
+    await expect(page!.render(context)).rejects.toThrow(
       "Can't find the key 'foo.bar.tipu' in the scope., line:2, col:1",
     )
   })

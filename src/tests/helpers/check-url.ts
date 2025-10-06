@@ -13,7 +13,7 @@ const liquidEndRex = /{%-?\s*endif\s*-?%}$/
 //   {% ifversion ghes%}/foo/bar{%endif %}
 //
 // And if no liquid, just return as is.
-function stripLiquid(text) {
+function stripLiquid(text: string): string {
   if (liquidStartRex.test(text) && liquidEndRex.test(text)) {
     return text.replace(liquidStartRex, '').replace(liquidEndRex, '').trim()
   } else if (text.includes('{')) {
@@ -26,7 +26,9 @@ function stripLiquid(text) {
 // return undefined if it can found as a known page.
 // Otherwise, return an object with information that is used to
 // print a useful test error message in the assertion.
-export function checkURL(uri, index, redirectsContext) {
+// Using 'any' type for redirectsContext parameter as it's a complex context object
+// with dynamic structure that would require extensive type definitions
+export function checkURL(uri: string, index: number, redirectsContext: any) {
   const url = `/en${stripLiquid(uri).split('#')[0]}`
   if (!(url in redirectsContext.pages)) {
     // Some are written without a version, but don't work with the

@@ -6,11 +6,13 @@
  */
 
 export function printAnnotationResults(
-  results,
+  // Using 'any' type as results structure is dynamic and comes from various linting tools with different formats
+  results: any,
   { skippableRules = [], skippableFlawProperties = [] } = {},
 ) {
   for (const [file, flaws] of Object.entries(results)) {
-    for (const flaw of flaws) {
+    // Using 'any' type for flaws as they have varying structures depending on the linting rule
+    for (const flaw of flaws as any) {
       if (intersection(flaw.ruleNames, skippableRules)) {
         continue
       }
@@ -52,6 +54,7 @@ export function printAnnotationResults(
   }
 }
 
-function intersection(arr1, arr2) {
-  return arr1.some((item) => arr2.includes(item))
+// Using 'any' types for generic array intersection utility function
+function intersection(arr1: any[], arr2: any[]) {
+  return arr1.some((item: any) => arr2.includes(item))
 }

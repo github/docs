@@ -22,8 +22,8 @@ describe(tableColumnIntegrity.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Table row has 3 columns but header has 2')
+    if ((errors[0] as any).detail) {
+      expect((errors[0] as any).detail).toContain('Table row has 3 columns but header has 2')
     } else if (errors[0].errorDetail) {
       expect(errors[0].errorDetail).toContain('Table row has 3 columns but header has 2')
     } else {
@@ -38,8 +38,8 @@ describe(tableColumnIntegrity.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Table row has 2 columns but header has 3')
+    if ((errors[0] as any).detail) {
+      expect((errors[0] as any).detail).toContain('Table row has 2 columns but header has 3')
     } else if (errors[0].errorDetail) {
       expect(errors[0].errorDetail).toContain('Table row has 2 columns but header has 3')
     } else {

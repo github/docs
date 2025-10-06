@@ -20,7 +20,7 @@ describe('data-directory', () => {
   })
 
   test('option: preprocess function', async () => {
-    const preprocess = function (content) {
+    const preprocess = function (content: string) {
       return content.replace('markdown', 'MARKDOWN')
     }
     const data = dataDirectory(fixturesDir, { preprocess })
@@ -35,7 +35,7 @@ describe('data-directory', () => {
   })
 
   test('option: ignorePatterns', async () => {
-    const ignorePatterns = []
+    const ignorePatterns: RegExp[] = []
 
     // README is ignored by default
     expect('README' in dataDirectory(fixturesDir)).toBe(false)

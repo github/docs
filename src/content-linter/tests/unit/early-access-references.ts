@@ -41,7 +41,7 @@ describe(frontmatterEarlyAccessReferences.names.join(' - '), () => {
     expect(lineNumbers.includes(4)).toBe(false)
     expect(lineNumbers.includes(5)).toBe(false)
     expect(errors[0].errorRange).toEqual([8, 12])
-    expect(errors[1].errorRange).toEqual([15, 12], [28, 12])
+    expect(errors[1].errorRange).toEqual([15, 12])
   })
   test('early access file with early access references passes', async () => {
     const result = await runRule(frontmatterEarlyAccessReferences, {
