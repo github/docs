@@ -10,10 +10,15 @@ import {
   getPreviews,
 } from '../lib/index'
 
+interface GraphqlType {
+  kind: string
+  type: string
+}
+
 describe('graphql schema', () => {
-  const graphqlTypes = JSON.parse(readFileSync('src/graphql/lib/types.json')).map(
-    (item) => item.kind,
-  )
+  const graphqlTypes = (
+    JSON.parse(readFileSync('src/graphql/lib/types.json', 'utf-8')) as GraphqlType[]
+  ).map((item) => item.kind)
   for (const version in allVersions) {
     for (const type of graphqlTypes) {
       test(`getting the GraphQL ${type} schema works for ${version}`, async () => {

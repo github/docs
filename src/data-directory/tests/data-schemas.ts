@@ -4,6 +4,7 @@ import { extname, basename } from 'path'
 
 import walk from 'walk-sync'
 import { beforeAll, describe, expect, test } from 'vitest'
+import type { ValidateFunction, SchemaObject } from 'ajv'
 
 import { getJsonValidator, validateJson } from '@/tests/lib/validate-json-schema'
 import { formatAjvErrors } from '@/tests/helpers/schemas'
@@ -19,7 +20,8 @@ const yamlWalkOptions = {
 }
 
 for (const dataDir of directorySchemas) {
-  let schema, validate
+  let schema: SchemaObject
+  let validate: ValidateFunction
   const dataDirectoryName = basename(dataDir)
   const yamlFileList = walk(dataDir, yamlWalkOptions).sort()
 
@@ -32,7 +34,7 @@ for (const dataDir of directorySchemas) {
     test.each(yamlFileList)('%p', async (yamlAbsPath) => {
       const yamlContent = yaml.load(readFileSync(yamlAbsPath, 'utf8'))
       const isValid = validate(yamlContent)
-      const formattedErrors = isValid ? validate.errors : formatAjvErrors(validate.errors)
+      const formattedErrors = isValid ? undefined : formatAjvErrors(validate.errors || [])
       expect(isValid, formattedErrors).toBe(true)
     })
   })
@@ -43,6 +45,7 @@ describe('single data files', () => {
     const ymlData = yaml.load(readFileSync(filepath, 'utf8'))
     const schema = (await import(dataSchemas[filepath])).default
     const { isValid, errors } = validateJson(schema, ymlData)
-    expect(isValid, errors).toBe(true)
+    const formattedErrors = isValid ? undefined : formatAjvErrors(errors || [])
+    expect(isValid, formattedErrors).toBe(true)
   })
 })

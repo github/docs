@@ -7,8 +7,10 @@ import { DataDirectory } from '@/tests/helpers/data-directory'
 describe('liquid helper tags', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  const context = {}
-  let dd
+  // Using 'any' type as context is a test fixture with dynamic properties set in beforeAll
+  const context: any = {}
+  // Using 'any' type as DataDirectory is from data-directory.js which lacks type definitions
+  let dd: any
   const enDirBefore = languages.en.dir
 
   beforeAll(() => {

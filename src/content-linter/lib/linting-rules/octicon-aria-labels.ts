@@ -1,6 +1,7 @@
 import { TokenKind } from 'liquidjs'
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 import { addFixErrorDetail } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 /*
 Octicons should always have an aria-label attribute even if aria hidden. For example:
 
@@ -9,20 +10,21 @@ Octicons should always have an aria-label attribute even if aria hidden. For exa
   {% octicon "alert" aria-label="alert" aria-hidden="true" %}
   {% octicon "alert" aria-label="alert" aria-hidden="true" class="foo" %}
 
-  This is necessary for copilot to be able to recognize the svgs correctly when using our API. 
+  This is necessary for copilot to be able to recognize the svgs correctly when using our API.
 
 */
 
-export const octiconAriaLabels = {
+export const octiconAriaLabels: Rule = {
   names: ['GHD044', 'octicon-aria-labels'],
   description: 'Octicons should always have an aria-label attribute even if aria-hidden.',
   tags: ['accessibility', 'octicons'],
   parser: 'markdownit',
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
+    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.js which lacks type definitions
     const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
-      .filter((token) => token.name === 'octicon')
+      .filter((token: any) => token.kind === TokenKind.Tag)
+      .filter((token: any) => token.name === 'octicon')
 
     for (const token of tokens) {
       const { lineNumber, column, length } = getPositionData(token, params.lines)
