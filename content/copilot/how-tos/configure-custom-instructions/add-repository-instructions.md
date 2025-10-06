@@ -65,6 +65,14 @@ This version of this article is for using repository custom instructions in Xcod
 
 {% endxcode %}
 
+{% copilotcli %}
+
+This version of this article is for using repository custom instructions with the {% data variables.product.prodname_copilot %} CLI. Click the tabs above for instructions on using custom instructions in other environments.
+
+{% data reusables.copilot.repository-custom-instructions-prerequisites %}
+
+{% endcopilotcli %}
+
 {% eclipse %}
 
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
@@ -197,9 +205,45 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% endeclipse %}
 
+{% copilotcli %}
+
+{% data variables.product.prodname_copilot %} supports three types of repository custom instructions. See the table above for details of which {% data variables.product.prodname_copilot %} features support these types of instructions.
+
+* **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
+
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions).
+
+* **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
+
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
+
+  If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used. You should avoid potential conflicts between instructions as {% data variables.product.prodname_copilot_short %}'s choice between conflicting instructions is non-deterministic.
+
+* **Agent instructions** are used by AI agents.
+
+  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+
+  Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
+
+## Creating repository-wide custom instructions
+
+1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
+
+   Create the `.github` directory if it does not already exist.
+
+1. Add natural language instructions to the file, in Markdown format.
+
+   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+
+## Creating path-specific custom instructions
+
+{% data reusables.copilot.custom-instructions-path %}
+
+{% endcopilotcli %}
+
 {% vscode %}
 
-{% data variables.product.prodname_vscode_shortname %} supports two types of repository custom instructions:
+{% data variables.product.prodname_vscode_shortname %} supports three types of repository custom instructions. See the table above for details of which {% data variables.product.prodname_copilot %} features support these types of instructions.
 
 * **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 
@@ -210,6 +254,10 @@ Once saved, these instructions will apply to the current project in Eclipse that
   These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
+
+* **Agent instructions** are used by AI agents.
+
+  For {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, instructions must be in a file called `AGENTS.md` in the root of the workspace. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
 
 ## Creating repository-wide custom instructions
 
@@ -243,25 +291,19 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% webui %}
 
-You can create several types of repository custom instructions for use on {% data variables.product.prodname_dotcom_the_website %}:
+{% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} supports three types of repository custom instructions. See the table above for details of which {% data variables.product.prodname_copilot %} features support these types of instructions.
 
 * **Repository-wide custom instructions** apply to all requests made in the context of a repository.
-
-  Supported by: **{% data variables.copilot.copilot_chat_short %}**, **{% data variables.copilot.copilot_coding_agent %}**, and **{% data variables.copilot.copilot_code-review_short %}**.
 
   These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-1).
 
 * **Path-specific custom instructions** apply to requests made in the context of files that match a specified path.
-
-  Supported by: **{% data variables.copilot.copilot_coding_agent %}** and **{% data variables.copilot.copilot_code-review_short %}**.
 
   These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 
 * **Agent instructions** are used by AI agents.
-
-  Supported by: **{% data variables.copilot.copilot_coding_agent %}** and {% data variables.copilot.copilot_cli_short %}.
 
   You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
 
@@ -453,7 +495,7 @@ Answer all questions in less than 1000 characters, and words of no more than 12 
 
 ## Repository custom instructions in use
 
-The instructions in the file(s) are available for use by {% data variables.copilot.copilot_chat_short %} as soon as you save the file(s). The complete set of instructions will be automatically added to requests that you submit to {% data variables.product.prodname_copilot_short %} in the context of that repository. For example, they are added to the prompt you submit to {% data variables.copilot.copilot_chat_short %}.
+The instructions in the file(s) are available for use by {% data variables.product.prodname_copilot_short %} as soon as you save the file(s). The complete set of instructions will be automatically added to requests that you submit to {% data variables.product.prodname_copilot_short %} in the context of that repository. For example, they are added to the prompt you submit to {% data variables.copilot.copilot_chat_short %}.
 
 {% webui %}
 
