@@ -20,6 +20,7 @@ children:
   - /establishing-a-governance-framework-for-your-enterprise
   - /accessing-compliance-reports-for-your-enterprise
   - /about-teams
+  - /about-roles
 ---
 
 For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).

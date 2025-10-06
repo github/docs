@@ -22,12 +22,26 @@ To{% ifversion org-pre-defined-roles %} view organization role permissions and{%
 
 ## Creating a custom role
 
-Organization owners and users with the "Manage custom organization roles" permission can create up to 20 custom organization roles. On {% data variables.product.prodname_ghe_server %} earlier than 3.19, you can create up to 10.
+{% ifversion ent-owner-custom-org-roles %}Enterprise owners, organization{% else %}Organization{% endif %} owners, and users with the "Manage custom organization roles" permission can create up to {% ifversion ent-owner-custom-org-roles %}20{% else %}10{% endif %} custom organization roles.
+
+{% ifversion ent-owner-custom-org-roles %}
+
+### In an organization
+
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.custom-org-roles-settings-step %}
 {% data reusables.organizations.custom-org-roles-create-new-step %}
+
+{% ifversion ent-owner-custom-org-roles %}
+
+### In an enterprise
+
+Enterprise owners can define standard custom organization roles for their organization owners to assign. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-organization-roles).
+
+{% endif %}
 
 ## Editing a custom role
 

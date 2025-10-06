@@ -67,6 +67,18 @@ In situations where people tend to ask similar questions, such as how authentica
 **Suggested prompt**:
 > How does SSO work?
 
+## Hands-on practice
+
+Try the [Democratize team knowledge using Copilot Spaces](https://github.com/skills/democratize-team-knowledge-using-copilot-spaces) Skills exercise for practical experience to do the following:
+* Centralize scattered project management knowledge in Copilot Spaces
+* Convert tacit team insights into searchable, versioned artifacts
+* Give all team members equal access to processes, decisions, and rationale
+* Connect a repository as a structured knowledge source
+* Extract, refine, and standardize workflows collaboratively
+* Feed validated improvements back into living documentation
+* Accelerate onboarding and reduce single-person dependency risk
+* Enable consistent, repeatable project execution
+
 ## Next steps
 
 Once you’ve created a space to help with development tasks, consider sharing it with your team to reduce handoffs and repeated questions. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/collaborating-with-your-team-using-copilot-spaces).

@@ -15,6 +15,7 @@ export const allTools: ToolsMapping = {
   bash: 'Bash',
   cli: 'GitHub CLI',
   codespaces: 'Codespaces',
+  copilotcli: 'Copilot CLI',
   curl: 'curl',
   desktop: 'Desktop',
   eclipse: 'Eclipse',

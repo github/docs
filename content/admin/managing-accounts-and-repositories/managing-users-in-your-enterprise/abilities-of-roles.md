@@ -1,6 +1,7 @@
 ---
-title: Roles in an enterprise
-intro: "Learn which roles you can assign to control access to your enterprise's settings and data."
+title: Abilities of roles in an enterprise
+intro: Learn which roles you can assign to control access to your enterprise's settings and data.
+shortTitle: Capabilities of roles
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
@@ -8,11 +9,14 @@ redirect_from:
   - /articles/roles-for-an-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
   - /admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise
+  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
 versions:
   ghec: '*'
   ghes: '*'
 topics:
   - Enterprise
+allowTitleToDifferFromFilename: true
+contentType: reference
 ---
 
 ## About roles in an enterprise
@@ -35,33 +39,6 @@ All users that are part of your enterprise have one of the following roles.
 
 People with collaborator access to repositories are listed in your enterprise's "People" tab, but are not enterprise members and do not have access to the enterprise. See {% ifversion ghec %}[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators).{% else %}[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators).{% endif %}
 
-## How do I assign roles?
-
-{% ifversion ghec %}
-If you use an **enterprise with personal accounts**:
-
-* People become enterprise members when they are added as a member or owner of an organization. See [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
-* You can invite someone to become an enterprise owner or billing manager. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
-
-If you use an **{% data variables.enterprise.prodname_emu_enterprise %}**:
-
-* You must provision all users through your identity provider (IdP).
-* You select each user's enterprise role using your IdP. The role cannot be changed on {% data variables.product.prodname_dotcom %}.
-* To assign the guest collaborator role, you may need to update your IdP.
-
-For more information about the different types of enterprise accounts, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud#about-types-of-enterprises).
-
-{% elsif ghes %}
-
-When a user has joined your {% data variables.product.prodname_ghe_server %} instance, you can:
-
-* Add the user to an organization. See [AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization).
-* Invite the user to become an enterprise owner. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
-
-If you provision users with SCIM, you assign each user's enterprise role on your identity provider (IdP). The role cannot be changed on {% data variables.product.prodname_dotcom %}.
-
-{% endif %}
-
 ## Enterprise owners
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
@@ -70,8 +47,8 @@ Enterprise owners have complete control over the enterprise and can take every a
 * {% ifversion ghec %}Adding and removing {% elsif ghes %}Managing{% endif %} organizations{% ifversion remove-enterprise-members %}
 * Removing enterprise members from all organizations{% endif %}
 * Managing enterprise settings
-* Enforcing policy across organizations
-{% ifversion ghec %}- Managing billing settings{% endif %}
+* Enforcing policy across organizations{% ifversion ghec %}
+* Managing billing settings{% endif %}
 
 For security, we recommend making **only a few people** enterprise owners.
 
@@ -128,17 +105,6 @@ You can add unaffiliated users from your identity provider (for {% data variable
 
 {% endif %}
 
-## Custom organization roles
+## Next steps
 
-With {% data variables.product.prodname_ghe_cloud %} and starting from {% data variables.product.prodname_ghe_server %} 3.19, enterprise owners can create custom organization roles for use in all of the enterprise's organizations. This allows centralized management of common roles such as "Developer" or "SRE team". Only enterprise owners can create or edit these roles, and any organization owner or user with the "Manage organization roles" permission can assign them in an organization.
-
-When creating an organization role, enterprise owners can use the same organization and repository permissions and base roles as organization owners—there is no difference in how these roles function or what they can allow.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. Select the "Organization Roles" section in the left-hand menu.
-1. Create a new role using the "Create custom role" button, or edit an existing role using the ellipsis menu (...).
-
-See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) for more information about creating and assigning custom organization roles.
-
-At this time, up to 20 custom organization roles can be created by the enterprise. This limit is only for the enterprise - each organization can also create up to 20 custom organization roles.
+When you have decided which roles your users require, assign the roles to them. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/assign-roles).
