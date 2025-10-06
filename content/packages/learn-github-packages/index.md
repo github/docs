@@ -1,7 +1,7 @@
 ---
 title: Learn GitHub Packages
 shortTitle: Learn GitHub Packages
-intro: 'You can find out more about using packages in GitHub, including publishing new packages to {% data variables.product.prodname_registry %}, view and install existing packages, and, in special circumstances, delete existing packages.'
+intro: 'You can find out more about using packages in GitHub, including publishing new packages to {% data variables.product.prodname_registry %}, viewing and installing existing packages, and deleting existing packages in special circumstances.'
 redirect_from:
   - /packages/getting-started-with-github-container-registry
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages
