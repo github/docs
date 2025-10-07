@@ -35,7 +35,7 @@ export default function FineGrainedTokenEndpoints({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAppsServerSideProps } = await import('@/github-apps/lib/index.js')
+  const { getAppsServerSideProps } = await import('@/github-apps/lib/index')
   const { currentVersion, appsItems, categoriesWithoutSubcategories } =
     await getAppsServerSideProps(context, 'fine-grained-pat', { useDisplayTitle: false })
 

@@ -323,7 +323,7 @@
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^20 || ^22 || ^24"
+    "node": "^22 || ^24"
   },
   "cacheDirectories": [
     "node_modules",
