@@ -1,5 +1,21 @@
 import { TokenizationError } from 'liquidjs'
+// @ts-ignore - @primer/octicons doesn't provide TypeScript declarations
 import octicons from '@primer/octicons'
+
+// Note: Using 'any' for liquidjs-related types because liquidjs doesn't provide comprehensive TypeScript definitions
+interface LiquidTag {
+  icon: string
+  options: Record<string, string>
+  parse(tagToken: any): void
+  render(): Promise<string>
+}
+
+interface OcticonsMatch {
+  groups: {
+    icon: string
+    options?: string
+  }
+}
 
 const OptionsSyntax = /([a-zA-Z-]+)="([\w\s-]+)"*/g
 const Syntax = new RegExp('"(?<icon>[a-zA-Z-]+)"(?<options>(?:\\s' + OptionsSyntax.source + ')*)')
@@ -12,9 +28,12 @@ const SyntaxHelp = 'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<na
  * {% octicon "check" %}
  * {% octicon "check" width="64" aria-label="Example label" %}
  */
-export default {
-  parse(tagToken) {
-    const match = tagToken.args.match(Syntax)
+const Octicon: LiquidTag = {
+  icon: '',
+  options: {},
+
+  parse(tagToken: any): void {
+    const match: OcticonsMatch | null = tagToken.args.match(Syntax)
     if (!match) {
       throw new TokenizationError(SyntaxHelp, tagToken)
     }
@@ -32,7 +51,7 @@ export default {
 
     // Memoize any options passed
     if (match.groups.options) {
-      let optionsMatch
+      let optionsMatch: RegExpExecArray | null
 
       // Loop through each option matching the OptionsSyntax regex
       while ((optionsMatch = OptionsSyntax.exec(match.groups.options))) {
@@ -46,13 +65,15 @@ export default {
     }
   },
 
-  async render() {
+  async render(): Promise<string> {
     // Throw an error if the requested octicon does not exist.
     if (!Object.prototype.hasOwnProperty.call(octicons, this.icon)) {
       throw new Error(`Octicon ${this.icon} does not exist`)
     }
 
-    const result = octicons[this.icon].toSVG(this.options)
+    const result: string = octicons[this.icon].toSVG(this.options)
     return result
   },
 }
+
+export default Octicon

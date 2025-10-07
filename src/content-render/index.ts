@@ -1,15 +1,26 @@
 import { renderLiquid } from './liquid/index'
 import { renderMarkdown, renderUnified } from './unified/index'
 import { engine } from './liquid/engine'
+import type { Context } from '@/types'
 
-const globalCache = new Map()
+interface RenderOptions {
+  cache?: boolean | ((template: string, context: Context) => string)
+  filename?: string
+  textOnly?: boolean
+}
+
+const globalCache = new Map<string, string>()
 
 // parse multiple times because some templates contain more templates. :]
-export async function renderContent(template = '', context = {}, options = {}) {
+export async function renderContent(
+  template = '',
+  context: Context = {} as Context,
+  options: RenderOptions = {},
+): Promise<string> {
   // If called with a falsy template, it can't ever become something
   // when rendered. We can exit early to save some pointless work.
   if (!template) return template
-  let cacheKey = null
+  let cacheKey: string | null = null
   if (options && options.cache) {
     if (!context) throw new Error("If setting 'cache' in options, the 'context' must be set too")
     if (typeof options.cache === 'function') {
@@ -21,13 +32,13 @@ export async function renderContent(template = '', context = {}, options = {}) {
       throw new Error('cache option must return a string if truthy')
     }
     if (globalCache.has(cacheKey)) {
-      return globalCache.get(cacheKey)
+      return globalCache.get(cacheKey) as string
     }
   }
   try {
     template = await renderLiquid(template, context)
     if (context.markdownRequested) {
-      const md = await renderMarkdown(template, context, options)
+      const md = await renderMarkdown(template, context)
 
       return md
     }
@@ -45,7 +56,7 @@ export async function renderContent(template = '', context = {}, options = {}) {
   }
 }
 
-function getDefaultCacheKey(template, context) {
+function getDefaultCacheKey(template: string, context: Context): string {
   return `${template}:${context.currentVersion}:${context.currentLanguage}`
 }
 

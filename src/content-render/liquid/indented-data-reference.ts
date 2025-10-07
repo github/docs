@@ -3,6 +3,21 @@ import assert from 'assert'
 import { THROW_ON_EMPTY, IndentedDataReferenceError } from './error-handling'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 
+// Note: Using 'any' for liquidjs-related types because liquidjs doesn't provide comprehensive TypeScript definitions
+interface LiquidTag {
+  markup: string
+  liquid: any
+  parse(tagToken: any): void
+  render(scope: any): Promise<string | undefined>
+}
+
+interface LiquidScope {
+  environments: {
+    currentLanguage: string
+    [key: string]: any
+  }
+}
+
 // This class supports a tag that expects two parameters, a data reference and `spaces=NUMBER`:
 //
 // {% indented_data_reference foo.bar spaces=NUMBER %}
@@ -13,12 +28,15 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 // reference is used inside a block element (like a list or nested list) without
 // affecting the formatting when the reference is used elsewhere via {{ site.data.foo.bar }}.
 
-export default {
-  parse(tagToken) {
+const IndentedDataReference: LiquidTag = {
+  markup: '',
+  liquid: null as any,
+
+  parse(tagToken: any): void {
     this.markup = tagToken.args.trim()
   },
 
-  async render(scope) {
+  async render(scope: LiquidScope): Promise<string | undefined> {
     // obfuscate first legit space, remove all other spaces, then restore legit space
     // this way we can support spaces=NUMBER as well as spaces = NUMBER
     const input = this.markup
@@ -29,12 +47,15 @@ export default {
     const [dataReference, spaces] = input.split(' ')
 
     // if no spaces are specified, default to 2
-    const numSpaces = spaces ? spaces.replace(/spaces=/, '') : '2'
+    const numSpaces: string = spaces ? spaces.replace(/spaces=/, '') : '2'
 
     assert(parseInt(numSpaces) || numSpaces === '0', '"spaces=NUMBER" must include a number')
 
     // Get the referenced value from the context
-    const text = getDataByLanguage(dataReference, scope.environments.currentLanguage)
+    const text: string | undefined = getDataByLanguage(
+      dataReference,
+      scope.environments.currentLanguage,
+    )
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
         const message = `Can't find the key 'indented_data_reference ${dataReference}' in the scope.`
@@ -47,8 +68,10 @@ export default {
     }
 
     // add spaces to each line
-    const renderedReferenceWithIndent = text.replace(/^/gm, ' '.repeat(numSpaces))
+    const renderedReferenceWithIndent: string = text.replace(/^/gm, ' '.repeat(parseInt(numSpaces)))
 
     return this.liquid.parseAndRender(renderedReferenceWithIndent, scope.environments)
   },
 }
+
+export default IndentedDataReference

@@ -2,7 +2,20 @@
 // src/github-apps/data/fine-grained-pat-permissions.json
 // and src/github-apps/data/server-to-server-permissions.json
 
-const permissionObjects = {
+interface SchemaProperty {
+  type: string
+  enum?: string[]
+  description?: string
+  items?: object
+}
+
+interface Schema {
+  type: string
+  required?: string[]
+  properties: Record<string, SchemaProperty>
+}
+
+const permissionObjects: Schema = {
   type: 'object',
   required: ['access', 'category', 'subcategory', 'slug', 'verb', 'requestPath'],
   properties: {
@@ -32,7 +45,7 @@ const permissionObjects = {
   },
 }
 
-export default {
+const schema: Schema = {
   type: 'object',
   required: ['title', 'displayTitle', 'permissions'],
   properties: {
@@ -52,3 +65,5 @@ export default {
     },
   },
 }
+
+export default schema

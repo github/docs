@@ -10,6 +10,10 @@ import { globSync } from 'glob'
 import { program } from 'commander'
 import { createOperations, processOperations } from './utils/get-operations'
 
+interface ProgramOptions {
+  files: string[]
+}
+
 program
   .description('Generate dereferenced OpenAPI and decorated schema files.')
   .requiredOption(
@@ -18,9 +22,9 @@ program
   )
   .parse(process.argv)
 
-const filenames = program.opts().files
+const filenames: string[] = (program.opts() as ProgramOptions).files
 
-const filesToCheck = filenames.flatMap((filename) => globSync(filename))
+const filesToCheck: string[] = filenames.flatMap((filename: string) => globSync(filename))
 
 if (filesToCheck.length) {
   check(filesToCheck)
@@ -29,22 +33,22 @@ if (filesToCheck.length) {
   process.exit(1)
 }
 
-async function check(files) {
+async function check(files: string[]): Promise<void> {
   console.log('Verifying OpenAPI files are valid with decorator')
-  const documents = files.map((filename) => [
+  const documents: [string, any][] = files.map((filename: string) => [
     filename,
-    JSON.parse(fs.readFileSync(path.join(filename))),
+    JSON.parse(fs.readFileSync(path.join(filename), 'utf8')),
   ])
 
-  for (const [filename, schema] of documents) {
+  for (const [filename, schema] of documents as [string, any][]) {
     try {
       // munge OpenAPI definitions object in an array of operations objects
       const operations = await createOperations(schema)
       // process each operation, asynchronously rendering markdown and stuff
-      await processOperations(operations)
+      await processOperations(operations, {})
 
       console.log(`Successfully could decorate OpenAPI operations for document ${filename}`)
-    } catch (error) {
+    } catch (error: unknown) {
       console.error(error)
       console.log(
         `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
