@@ -58,12 +58,7 @@ You can be simultaneously signed into mobile with multiple accounts on {% data v
 > [!NOTE]
 > Social login is only available for {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_ghe_cloud %} users
 
-You can sign in to {% data variables.product.prodname_mobile %} using a supported social login provider. Currently, only Google is supported for social login on the {% data variables.product.prodname_mobile %} for Android. To use this option, make sure you originally created your {% data variables.product.github %} account using Google.
-
-For iOS users, social login with Google is not supported in {% data variables.product.prodname_mobile %}. Follow the steps below to sign in to {% data variables.product.prodname_mobile %} on iOS using an account that was created with Google:
-1. Open the native web browser Safari and sign in to your {% data variables.product.github %} account.
-1. Authorize {% data variables.product.prodname_mobile %} in your browser when prompted.
-1. If you are unable to sign in through your browser, you can set a password or passkey for your {% data variables.product.github %} account on {% data variables.product.github %}. After setting a password or passkey, use your username and password with two-factor authentication, or a passkey, to sign in to {% data variables.product.prodname_mobile %}.
+You can sign in to {% data variables.product.prodname_mobile %} using a supported social login provider. Currently, both Google and Apple are supported for social login on the {% data variables.product.prodname_mobile %} for Android and iOS users. To use this option, make sure you originally created your {% data variables.product.github %} account using the respective social login provider - Google or Apple.
 
 ### Prerequisites for {% data variables.enterprise.data_residency_site %} accounts
 
