@@ -1,1 +1,1 @@
-1. Select **Add README**.
+1. Toggle **Add README** to **On**.
