@@ -203,6 +203,7 @@ To use {% data variables.product.prodname_copilot %} for Xcode you must have Xco
 1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot).
 1. Make sure you have a compatible version of Xcode installed. To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
 1. Download the latest version of the {% data variables.product.prodname_copilot %} for Xcode extension from the [`github/CopilotForXcode` repository](https://github.com/github/CopilotForXcode/releases/latest/download/GitHubCopilotForXcode.dmg) and install it. A background item will be added for the application to be able to start itself when Xcode starts.
+1. Open the **{% data variables.product.prodname_copilot %} for Xcode** application from the Applications folder and step through the on-screen instructions for setting up the extension.
 
 ## Granting required permissions
 
