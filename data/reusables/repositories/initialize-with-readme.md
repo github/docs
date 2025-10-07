@@ -1,1 +1,1 @@
-1. Select **Initialize this repository with a README**.
+1. Select **Add README**.
