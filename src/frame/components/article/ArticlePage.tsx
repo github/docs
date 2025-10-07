@@ -7,6 +7,8 @@ import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { ArticleTitle } from '@/frame/components/article/ArticleTitle'
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { LearningTrackNav } from '@/learning-track/components/article/LearningTrackNav'
+import { JourneyTrackNav } from '@/journeys/components/JourneyTrackNav'
+import { JourneyTrackCard } from '@/journeys/components/JourneyTrackCard'
 import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
 import { Lead } from '@/frame/components/ui/Lead'
 import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
@@ -42,10 +44,14 @@ export const ArticlePage = () => {
     productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    currentJourneyTrack,
     supportPortalVaIframeProps,
     currentLayout,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
+  const isJourneyPath = !!currentJourneyTrack?.trackId
+  // Only show journey track components when feature flag is enabled
+  const showJourneyTracks = isJourneyPath && router.query?.feature === 'journey-navigation'
   const { t } = useTranslation(['pages'])
 
   const introProp = (
@@ -72,6 +78,7 @@ export const ArticlePage = () => {
   const toc = (
     <>
       {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
+      {showJourneyTracks && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
     </>
   )
@@ -122,6 +129,11 @@ export const ArticlePage = () => {
               <LearningTrackNav track={currentLearningTrack} />
             </div>
           ) : null}
+          {showJourneyTracks ? (
+            <div className="container-lg mt-4 px-3">
+              <JourneyTrackNav context={currentJourneyTrack} />
+            </div>
+          ) : null}
         </>
       ) : (
         <div className="container-xl px-3 px-md-6 my-4">
@@ -146,6 +158,12 @@ export const ArticlePage = () => {
           {isLearningPath ? (
             <div className="mt-4">
               <LearningTrackNav track={currentLearningTrack} />
+            </div>
+          ) : null}
+
+          {showJourneyTracks ? (
+            <div className="mt-4">
+              <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </div>

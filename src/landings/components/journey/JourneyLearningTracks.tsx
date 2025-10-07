@@ -1,11 +1,12 @@
 /* filepath: /workspaces/docs-internal/src/landings/components/journey/JourneyLearningTracks.tsx */
 import { ChevronDownIcon, ChevronUpIcon } from '@primer/octicons-react'
 import { Button, Details, Timeline, Token, useDetails } from '@primer/react'
-import type { JourneyLearningTrack } from './JourneyLanding'
+import { Link } from '@/frame/components/Link'
+import { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 import styles from './JourneyLearningTracks.module.css'
 
 type JourneyLearningTracksProps = {
-  tracks: JourneyLearningTrack[]
+  tracks: JourneyTrack[]
 }
 
 export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) => {
@@ -13,7 +14,7 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
     return null
   }
 
-  const renderTrackContent = (track: JourneyLearningTrack, trackIndex: number) => {
+  const renderTrackContent = (track: JourneyTrack, trackIndex: number) => {
     const { getDetailsProps, open } = useDetails({})
 
     return (
@@ -36,12 +37,12 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
           >
             {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
           </Button>
-          <ol className={styles.trackGuides}>
-            {(track.guides || []).map((guide) => (
-              <li key={guide.title}>
-                <a href={guide.href} className={`text-semibold ${styles.guideLink}`}>
-                  {guide.title}
-                </a>
+          <ol className={styles.trackGuides} data-testid="journey-articles">
+            {(track.guides || []).map((article: { href: string; title: string }) => (
+              <li key={article.title}>
+                <Link href={article.href} className={`text-semibold ${styles.guideLink}`}>
+                  {article.title}
+                </Link>
               </li>
             ))}
           </ol>
@@ -51,7 +52,7 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
   }
 
   return (
-    <>
+    <div data-testid="journey-tracks">
       {/* Desktop: Timeline component */}
       <div className={styles.timelineContainer}>
         <Timeline clipSidebar className={styles.timelineThinLine}>
@@ -60,7 +61,9 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
               <Timeline.Item key={track.id}>
                 <Timeline.Badge className={styles.timelineBadge}>{trackIndex + 1}</Timeline.Badge>
                 <Timeline.Body className={styles.learningTracks}>
-                  <div className="position-relative">{renderTrackContent(track, trackIndex)}</div>
+                  <div className="position-relative" data-testid="journey-track">
+                    {renderTrackContent(track, trackIndex)}
+                  </div>
                 </Timeline.Body>
               </Timeline.Item>
             )
@@ -74,12 +77,14 @@ export const JourneyLearningTracks = ({ tracks }: JourneyLearningTracksProps) =>
           <div key={track.id} className={styles.mobileItem}>
             <div className={styles.mobileBadge}>{trackIndex + 1}</div>
             <div className={styles.mobileTile}>
-              <div className="position-relative">{renderTrackContent(track, trackIndex)}</div>
+              <div className="position-relative" data-testid="journey-track">
+                {renderTrackContent(track, trackIndex)}
+              </div>
             </div>
             {trackIndex < tracks.length - 1 && <div className={styles.mobileConnector} />}
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }

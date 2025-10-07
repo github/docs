@@ -326,6 +326,11 @@ learning_track_nav:
   next_guide: Next
   more_guides: More guides →
   current_progress: '{i} of {n} in learning path'
+journey_track_nav:
+  prev_article: Previous
+  next_article: Next
+  more_articles: More articles →
+  current_progress: 'Article {i} of {n}'
 scroll_button:
   scroll_to_top: Scroll to top
 popovers:
