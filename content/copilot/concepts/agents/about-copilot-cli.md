@@ -93,7 +93,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
   * `List my open PRs`
 
-    This lists your open pull requests from any repository on GitHub. For more specific results, include the repository name in your prompt:
+    This lists your open pull requests from any repository on {% data variables.product.github %}. For more specific results, include the repository name in your prompt:
 
   * `List all open issues assigned to me in OWNER/REPO`
 
@@ -103,11 +103,11 @@ The following sections provide examples of tasks you can complete with {% data v
 
 * Ask {% data variables.product.prodname_copilot_short %} to make file changes and raise a pull request on {% data variables.product.prodname_dotcom_the_website %}.
 
-  * `In the root of this repo, add a Node script called user-info.js that outputs information about the user who ran the script. Create a pull request to add this file to the repo on GitHub.`
+  * `In the root of this repo, add a Node script called user-info.js that outputs information about the user who ran the script. Create a pull request to add this file to the repo on {% data variables.product.github %}.`
 
   * `Create a PR that updates the README at https://github.com/octo-org/octo-repo, changing the subheading "How to run" to "Example usage"`
 
-  Copilot creates a pull request on github.com, on your behalf. You are marked as the pull request author.
+  Copilot creates a pull request on {% data variables.product.prodname_dotcom_the_website %}, on your behalf. You are marked as the pull request author.
 
 * Ask {% data variables.product.prodname_copilot_short %} to create an issue for you on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -127,7 +127,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
 * Find specific types of issues.
 
-  `Use the Github MCP server to find good first issues for a new team member to work on from octo-org/octo-repo`
+  `Use the {% data variables.product.github %} MCP server to find good first issues for a new team member to work on from octo-org/octo-repo`
 
   > [!NOTE]
   > If you know that a specific MCP server can achieve a particular task, then specifying it in your prompt can help {% data variables.product.prodname_copilot_short %} to deliver the results you want.
@@ -138,7 +138,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
 * Create a {% data variables.product.prodname_actions %} workflow.
 
-  `Branch off from main and create a github actions workflow that will run on pull requests, or can be run manually. The workflow should run eslint to check for problems in the changes made in the PR. If warnings or errors are found these should be shown as messages in the diff view of the PR. I want to prevent code with errors from being merged into main so, if any errors are found, the workflow should cause the PR check to fail. Push the new branch and create a pull request.`
+  `Branch off from main and create a {% data variables.product.prodname_actions %} workflow that will run on pull requests, or can be run manually. The workflow should run eslint to check for problems in the changes made in the PR. If warnings or errors are found these should be shown as messages in the diff view of the PR. I want to prevent code with errors from being merged into main so, if any errors are found, the workflow should cause the PR check to fail. Push the new branch and create a pull request.`
 
 ## Security considerations
 
