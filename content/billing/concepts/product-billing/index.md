@@ -16,6 +16,7 @@ children:
   - /github-models
   - /github-packages
   - /git-lfs
+  - /github-spark
 contentType: concepts
 ---
 
