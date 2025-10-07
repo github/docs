@@ -25,18 +25,13 @@ topics:
 {% webui %}
 
 {% data reusables.repositories.create_new %}
-{% data reusables.repositories.owner-drop-down %}
 1. Type a short, memorable name for your repository. For example, "hello-world".
 
    ![Screenshot of the first step in creating a repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
 1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.github %}."
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
-1. Add **.gitignore.**
-1. Add **license.**
 {% data reusables.repositories.create-repo %}
-
-For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 
 Congratulations! You've successfully created your first repository, and initialized it with a _README_ file.
 
