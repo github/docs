@@ -175,7 +175,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // TODO: TEMP: This is a temporary solution to turn off/on new landing pages while we develop them
   if (currentLayoutName === 'bespoke-landing' || req.query?.feature === 'bespoke-landing') {
     props.bespokeContext = await getLandingContextFromRequest(req, 'bespoke')
-    additionalUINamespaces.push('bespoke_landing', 'product_landing')
+    additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'journey-landing' || req.query?.feature === 'journey-landing') {
     props.journeyContext = await getLandingContextFromRequest(req, 'journey')
     additionalUINamespaces.push('journey_landing', 'product_landing')
@@ -184,7 +184,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     req?.query?.feature === 'discovery-landing'
   ) {
     props.discoveryContext = await getLandingContextFromRequest(req, 'discovery')
-    additionalUINamespaces.push('discovery_landing', 'product_landing')
+    additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'product-landing') {
     props.productLandingContext = await getProductLandingContextFromRequest(req)
     additionalUINamespaces.push('product_landing')

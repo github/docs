@@ -261,18 +261,17 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
-bespoke_landing:
-  articles: Articles
-  all_categories: All categories
-  search_articles: Search articles
-discovery_landing:
-  recommended: Recommended
-  articles: Articles
-  all_categories: All categories
-  search_articles: Search articles
 journey_landing:
   articles: '{{ number }} Articles'
 product_landing:
+  article_grid:
+    heading: Articles
+    all_categories: All categories
+    search_articles: Search articles
+    no_articles_found: No articles found matching your criteria.
+    showing_results: Showing {start}-{end} of {total}
+  carousel:
+    recommended: Recommended
   quickstart: Quickstart
   reference: Reference
   overview: Overview
