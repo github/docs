@@ -1,6 +1,5 @@
 .permissionsBox {
-  border-radius: 0.625rem;
-  border-style: solid;
-  border-color: var(--borderColor-default);
-  padding: var(--base-size-16);
+  border-radius: 6px;
+  border: 1px solid var(--borderColor-default, var(--color-border-default));
+  padding: 1rem;
 }

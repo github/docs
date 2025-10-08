@@ -6,6 +6,7 @@ import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { loadSiteTree } from '@/frame/lib/page-data'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { formatAjvErrors } from '@/tests/helpers/schemas'
+import type { SiteTree, Tree } from '@/types'
 
 const latestEnterpriseRelease = EnterpriseServerReleases.latest
 
@@ -14,9 +15,9 @@ const siteTreeValidate = getJsonValidator(schema.childPage)
 describe('siteTree', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
-  let siteTree
+  let siteTree: SiteTree
   beforeAll(async () => {
-    siteTree = await loadSiteTree()
+    siteTree = (await loadSiteTree()) as SiteTree
   })
 
   test('has language codes as top-level keys', () => {
@@ -39,12 +40,12 @@ describe('siteTree', () => {
       // TODO: use new findPageInSiteTree helper when it's available
       const pageWithDynamicTitle = ghesSiteTree.childPages
         .find((child) => child.href === `/en/${ghesLatest}/admin`)
-        .childPages.find(
+        ?.childPages.find(
           (child) => child.href === `/en/${ghesLatest}/admin/installing-your-enterprise-server`,
         )
 
       // Confirm the raw title contains Liquid
-      expect(pageWithDynamicTitle.page.title).toEqual(
+      expect(pageWithDynamicTitle?.page.title).toEqual(
         'Installing {% data variables.product.prodname_enterprise %}',
       )
     })
@@ -58,18 +59,22 @@ describe('siteTree', () => {
   })
 })
 
-function validate(currentPage) {
-  ;(currentPage.childPages || []).forEach((childPage) => {
+function validate(currentPage: Tree): void {
+  const childPages: Tree[] = currentPage.childPages || []
+  childPages.forEach((childPage) => {
+    // Store page reference before validation to avoid type narrowing
+    const pageRef: Tree = childPage
     const isValid = siteTreeValidate(childPage)
-    let errors
+    let errors: string | undefined
 
     if (!isValid) {
-      errors = `file ${childPage.page.fullPath}: ${formatAjvErrors(siteTreeValidate.errors)}`
+      const fullPath = pageRef.page.fullPath
+      errors = `file ${fullPath}: ${formatAjvErrors(siteTreeValidate.errors || [])}`
     }
 
     expect(isValid, errors).toBe(true)
 
     // Run recursively until we run out of child pages
-    validate(childPage)
+    validate(pageRef)
   })
 }

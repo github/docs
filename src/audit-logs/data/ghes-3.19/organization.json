@@ -1387,7 +1387,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "GitHub Copilot billing"
+    "docs_reference_titles": "GitHub Copilot licenses"
   },
   {
     "action": "copilot.plan_downgrade_scheduled",

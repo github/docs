@@ -4,6 +4,7 @@ import { execSync } from 'child_process'
 
 import { renderLiquid } from '@/content-render/liquid/index'
 import shortVersionsMiddleware from '@/versions/middleware/short-versions'
+import type { ExtendedRequest } from '@/types'
 
 const { loadPages } = await import('@/frame/lib/page-data.js')
 const { allVersions } = await import('@/versions/lib/all-versions.js')
@@ -32,20 +33,20 @@ for (const page of pages) {
   console.log(`---\nStart: Creating directories for: ${page.relativePath}`)
   const dirnames = page.relativePath.substring(0, page.relativePath.lastIndexOf('/'))
 
-  fs.mkdirSync(`${contentCopilotDir}/${dirnames}`, { recursive: true }, (err) => {
-    if (err) throw err
-  })
+  fs.mkdirSync(`${contentCopilotDir}/${dirnames}`, { recursive: true })
   // Context needed to render the content liquid
-  const req = { language: 'en' }
-  const contextualize = (req) => {
-    req.context.currentVersionObj = req.context.allVersions[req.context.currentVersion]
+  const req = { language: 'en' } as ExtendedRequest
+  const contextualize = (req: ExtendedRequest): void => {
+    if (!req.context) return
+    if (!req.context.currentVersion) return
+    req.context.currentVersionObj = req.context.allVersions?.[req.context.currentVersion]
     shortVersionsMiddleware(req, null, () => {})
   }
 
   req.context = {
     currentLanguage: 'en',
     currentVersion: 'free-pro-team@latest',
-    page: {},
+    page: {} as any, // Empty page object used only for context initialization
     allVersions,
   }
   contextualize(req)
@@ -77,7 +78,8 @@ for (const page of pages) {
       'utf8',
     )
     console.log(`Done: written file\n---`)
-  } catch (err) {
+  } catch (err: any) {
+    // Standard catch-all for error handling in scripts
     console.log(err)
   }
 }

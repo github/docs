@@ -5,17 +5,21 @@ import path from 'path'
 import { allVersions } from '@/versions/lib/all-versions'
 
 const OPEN_API_RELEASES_DIR = '../github/app/api/description/config/releases'
-const configData = JSON.parse(await readFile('src/rest/lib/config.json', 'utf8'))
+const configData: { versionMapping: Record<string, string> } = JSON.parse(
+  await readFile('src/rest/lib/config.json', 'utf8'),
+)
 // Gets the full list of unpublished + active, deprecated + active,
 // or active schemas from the github/github repo
 // `openApiReleaseDir` is the path to the `app/api/description/config/releases`
 // directory in `github/github`
 // You can also specify getting specific versions of schemas.
-export async function getSchemas(directory = OPEN_API_RELEASES_DIR) {
+export async function getSchemas(
+  directory: string = OPEN_API_RELEASES_DIR,
+): Promise<{ currentReleases: string[]; unpublished: string[]; deprecated: string[] }> {
   const openAPIConfigs = await readdir(directory)
-  const unpublished = []
-  const deprecated = []
-  const currentReleases = []
+  const unpublished: string[] = []
+  const deprecated: string[] = []
+  const currentReleases: string[] = []
 
   // The file content in the `github/github` repo is YAML before it is
   // bundled into JSON.
@@ -23,7 +27,7 @@ export async function getSchemas(directory = OPEN_API_RELEASES_DIR) {
     const fileBaseName = path.basename(file, '.yaml')
     const newFileName = `${fileBaseName}.deref.json`
     const content = await readFile(path.join(directory, file), 'utf8')
-    const yamlContent = yaml.load(content)
+    const yamlContent = yaml.load(content) as { published?: boolean; deprecated?: boolean }
 
     const releaseMatch = Object.keys(configData.versionMapping).find((name) =>
       fileBaseName.startsWith(name),
@@ -62,7 +66,7 @@ export async function getSchemas(directory = OPEN_API_RELEASES_DIR) {
   return { currentReleases, unpublished, deprecated }
 }
 
-export async function validateVersionsOptions(versions) {
+export async function validateVersionsOptions(versions: string[]): Promise<void> {
   const schemas = await getSchemas()
   // Validate individual versions provided
   versions.forEach((version) => {
