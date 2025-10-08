@@ -1,42 +1,22 @@
 import fs from 'fs'
 import path from 'path'
+import type { NextConfig } from 'next'
 
 import frontmatter from '@gr2m/gray-matter'
-// Hardcoded log level function since next.config.js cannot import from TypeScript files
-// Matches ./src/observability/logger/lib/log-levels
-function getLogLevelNumber() {
-  const LOG_LEVELS = {
-    error: 0,
-    warn: 1,
-    info: 2,
-    debug: 3,
-  }
+import { getLogLevelNumber } from '@/observability/logger/lib/log-levels'
 
-  let defaultLogLevel = 'info'
-  if (
-    !process.env.LOG_LEVEL &&
-    (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test')
-  ) {
-    defaultLogLevel = 'debug'
-  }
-
-  const envLogLevel = process.env.LOG_LEVEL?.toLowerCase() || defaultLogLevel
-  const logLevel = LOG_LEVELS[envLogLevel] !== undefined ? envLogLevel : defaultLogLevel
-
-  return LOG_LEVELS[logLevel]
-}
-
-// Replace imports with hardcoded values
 const ROOT = process.env.ROOT || '.'
 
-// Hard-coded language keys to avoid TypeScript import in config file
+// Language keys are defined here because Next.js config compilation doesn't resolve the @/ path alias
+// Importing from src/languages/lib/languages.ts would fail when it tries to import @/frame/lib/constants
+// This must match the languages defined in src/languages/lib/languages.ts
 const languageKeys = ['en', 'es', 'ja', 'pt', 'zh', 'ru', 'fr', 'ko', 'de']
 
 const homepage = path.posix.join(ROOT, 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
-const productIds = data.children
+const productIds = data.children as string[]
 
-export default {
+const config: NextConfig = {
   // Transpile @primer/react so Next's webpack can process its CSS and other assets
   // This ensures CSS in node_modules/@primer/react is handled by the app's loaders.
   transpilePackages: ['@primer/react'],
@@ -106,3 +86,5 @@ export default {
     styledComponents: true,
   },
 }
+
+export default config
