@@ -50,6 +50,7 @@ import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
 import learningTrack from '@/learning-track/middleware/learning-track'
+import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
 import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
@@ -270,6 +271,7 @@ export default function (app: Express) {
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(resolveRecommended))
   app.use(asyncMiddleware(learningTrack))
+  app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

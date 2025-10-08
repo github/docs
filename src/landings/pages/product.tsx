@@ -208,6 +208,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     if (props.articleContext.currentLearningTrack?.trackName) {
       additionalUINamespaces.push('learning_track_nav')
     }
+    if (props.articleContext.currentJourneyTrack?.trackId) {
+      additionalUINamespaces.push('journey_track_nav')
+    }
   }
 
   addUINamespaces(req, props.mainContext.data.ui, additionalUINamespaces)

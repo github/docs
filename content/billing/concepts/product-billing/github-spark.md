@@ -1,11 +1,11 @@
 ---
-title: About billing for GitHub Spark
+title: GitHub Spark billing
 intro: 'Learn how {% data variables.product.prodname_spark %} is billed for users.'
 versions:
   feature: spark
 topics:
   - Copilot
-shortTitle: Billing for Spark
+shortTitle: GitHub Spark
 redirect_from:
   - /copilot/concepts/copilot-billing/about-billing-for-github-spark
   - /copilot/concepts/copilot-billing/billing-for-spark
