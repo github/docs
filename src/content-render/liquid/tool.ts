@@ -1,7 +1,7 @@
 import { allTools } from '@/tools/lib/all-tools'
 import { allPlatforms } from '@/tools/lib/all-platforms'
 
-export const tags = Object.keys(allTools).concat(allPlatforms).concat(['rowheaders'])
+export const tags: string[] = Object.keys(allTools).concat(allPlatforms).concat(['rowheaders'])
 
 // The trailing newline is important. Without it, the line immediately after
 // the `</div>` will be considered part of the previous block, which means the Markdown following the `</div>` will not be rendered to HTML correctly. For example:
@@ -44,23 +44,29 @@ export const tags = Object.keys(allTools).concat(allPlatforms).concat(['rowheade
 const template = '<div class="ghd-tool {{ tagName }}">{{ output }}</div>\n'
 
 export const Tool = {
-  type: 'block',
+  type: 'block' as const,
+  tagName: '',
+  // Liquid template objects don't have TypeScript definitions
+  templates: [] as any[],
 
-  parse(tagToken, remainTokens) {
+  // tagToken and remainTokens are Liquid internal types without TypeScript definitions
+  parse(tagToken: any, remainTokens: any) {
     this.tagName = tagToken.name
     this.templates = []
 
     const stream = this.liquid.parser.parseStream(remainTokens)
     stream
       .on(`tag:end${this.tagName}`, () => stream.stop())
-      .on('template', (tpl) => this.templates.push(tpl))
+      // tpl is a Liquid template object without TypeScript definitions
+      .on('template', (tpl: any) => this.templates.push(tpl))
       .on('end', () => {
         throw new Error(`tag ${tagToken.getText()} not closed`)
       })
     stream.start()
   },
 
-  render: function* (scope) {
+  // scope is a Liquid scope object, Generator yields/returns Liquid template values - no TypeScript definitions available
+  render: function* (scope: any): Generator<any, any, any> {
     const output = yield this.liquid.renderer.renderTemplates(this.templates, scope)
     return yield this.liquid.parseAndRender(template, {
       tagName: this.tagName,

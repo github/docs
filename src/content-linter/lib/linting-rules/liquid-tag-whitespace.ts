@@ -2,6 +2,15 @@ import { TokenKind } from 'liquidjs'
 
 import { getLiquidTokens, getPositionData } from '../helpers/liquid-utils'
 import { addFixErrorDetail } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
+
+interface LiquidToken {
+  kind: number
+  content: string
+  contentRange: [number, number]
+  begin: number
+  end: number
+}
 
 /*
 Liquid tags should start and end with one whitespace. For example:
@@ -16,14 +25,16 @@ Liquid tags should start and end with one whitespace. For example:
   {%data  arg1   arg2  %}
 */
 
-export const liquidTagWhitespace = {
+export const liquidTagWhitespace: Rule = {
   names: ['GHD042', 'liquid-tag-whitespace'],
   description:
     'Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace.',
   tags: ['liquid', 'format'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    const tokens = getLiquidTokens(content).filter((token) => token.kind === TokenKind.Tag)
+    const tokens = (getLiquidTokens(content) as LiquidToken[]).filter(
+      (token: LiquidToken) => token.kind === TokenKind.Tag,
+    )
     for (const token of tokens) {
       const { lineNumber, column, length } = getPositionData(token, params.lines)
 

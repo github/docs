@@ -4,12 +4,15 @@
 
 import { find } from 'unist-util-find'
 import { h } from 'hastscript'
+// @ts-ignore - @primer/octicons doesn't have TypeScript declarations
 import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import { getPreMeta } from './code-header'
 
-export function getPrompt(node, tree, code) {
+// node and tree are hast/unist AST nodes without proper TypeScript definitions
+// Returns a hast element node for the prompt button
+export function getPrompt(node: any, tree: any, code: string): any {
   const hasPrompt = Boolean(getPreMeta(node).prompt)
   if (!hasPrompt) return null
 
@@ -28,7 +31,12 @@ export function getPrompt(node, tree, code) {
   )
 }
 
-function buildPromptData(node, tree, code) {
+// node and tree are hast/unist AST nodes without proper TypeScript definitions
+function buildPromptData(
+  node: any,
+  tree: any,
+  code: string,
+): { promptContent: string; ariaLabel: string } {
   // Find a ref meta in the format 'ref=<id>'
   const ref = getPreMeta(node).ref
 
@@ -43,31 +51,38 @@ function buildPromptData(node, tree, code) {
     console.warn(`Can't find referenced code block with id=${ref}`)
     return promptOnly(code)
   }
-  const matchingCode = matchingCodeEl?.children[0].children[0].value || null
+  // Cast needed to access children property on untyped AST node
+  const matchingCode = (matchingCodeEl as any)?.children[0].children[0].value || null
   return promptAndContext(code, matchingCode)
 }
 
-function promptOnly(code) {
+function promptOnly(code: string): { promptContent: string; ariaLabel: string } {
   return {
     promptContent: code,
     ariaLabel: 'Run this prompt in Copilot Chat',
   }
 }
 
-function promptAndContext(code, matchingCode) {
+function promptAndContext(
+  code: string,
+  matchingCode: string,
+): { promptContent: string; ariaLabel: string } {
   return {
     promptContent: `${matchingCode}\n${code}`,
     ariaLabel: 'Run this prompt with context in Copilot Chat',
   }
 }
 
-function findMatchingCode(ref, tree) {
-  return find(tree, (node) => {
-    return node.type === 'element' && node.tagName === 'pre' && getPreMeta(node).id === ref
+// tree and node are hast/unist AST nodes without proper TypeScript definitions
+function findMatchingCode(ref: string, tree: any): any {
+  return find(tree, (node: any) => {
+    // Cast needed to access tagName property on untyped element node
+    return node.type === 'element' && (node as any).tagName === 'pre' && getPreMeta(node).id === ref
   })
 }
 
-function copilotIcon() {
+// Returns a hast element node for the Copilot icon
+function copilotIcon(): any {
   const copilotIconHtml = octicons.copilot.toSVG()
   const copilotIconAst = parse(String(copilotIconHtml), { sourceCodeLocationInfo: true })
   const copilotIcon = fromParse5(copilotIconAst, { file: copilotIconHtml })

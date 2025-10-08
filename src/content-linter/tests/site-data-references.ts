@@ -17,7 +17,7 @@ const getDataPathRegex =
 
 const rawLiquidPattern = /{%\s*raw\s*%}.*?{%\s*endraw\s*%}/gs
 
-const getDataReferences = (content) => {
+const getDataReferences = (content: string): string[] => {
   // When looking for things like `{% data reusables.foo %}` in the
   // content, we first have to exclude any Liquid that isn't real.
   // E.g.
@@ -26,14 +26,15 @@ const getDataReferences = (content) => {
   //  {% endraw %}
   const withoutRawLiquidBlocks = content.replace(rawLiquidPattern, '')
   const refs = withoutRawLiquidBlocks.match(patterns.dataReference) || []
-  return refs.map((ref) => ref.replace(getDataPathRegex, '$1'))
+  return refs.map((ref: string) => ref.replace(getDataPathRegex, '$1'))
 }
 
 describe('data references', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('every data reference found in English variable files is defined and has a value', async () => {
-    let errors = []
+    // value can be any type returned by getDataByLanguage - we check if it's a string
+    let errors: Array<{ key: string; value: unknown; variableFile: string }> = []
     const allVariables = getDeepDataByLanguage('variables', 'en')
     const variables = Object.values(allVariables)
     expect(variables.length).toBeGreaterThan(0)
@@ -42,13 +43,11 @@ describe('data references', () => {
       variables.map(async (variablesPerFile) => {
         const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
-        variableRefs.forEach((key) => {
+        variableRefs.forEach((key: string) => {
           const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') {
-            const variableFile = path.join(
-              'data/variables',
-              getFilenameByValue(allVariables, variablesPerFile),
-            )
+            const filename = getFilenameByValue(allVariables, variablesPerFile)
+            const variableFile = path.join('data/variables', filename || '')
             errors.push({ key, value, variableFile })
           }
         })
@@ -60,6 +59,7 @@ describe('data references', () => {
   })
 })
 
-function getFilenameByValue(object, value) {
+// object is the allVariables object with dynamic keys, value is the nested object we're searching for
+function getFilenameByValue(object: Record<string, unknown>, value: unknown): string | undefined {
   return Object.keys(object).find((key) => object[key] === value)
 }

@@ -1,21 +1,24 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import { getRange } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '../../types'
 
-export const internalLinksOldVersion = {
+export const internalLinksOldVersion: Rule = {
   names: ['GHD006', 'internal-links-old-version'],
   description: 'Internal links must not have a hardcoded version using old versioning syntax',
   tags: ['links', 'url', 'versioning'],
   parser: 'markdownit',
-  function: (params, onError) => {
-    filterTokens(params, 'inline', (token) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    filterTokens(params, 'inline', (token: MarkdownToken) => {
       if (
         params.name.endsWith('migrating-from-github-enterprise-1110x-to-2123.md') ||
         params.name.endsWith('all-releases.md')
       )
         return
-      for (const child of token.children) {
+      for (const child of token.children || []) {
         if (child.type !== 'link_open') continue
+        if (!child.attrs) continue
         // Things matched by this RegExp:
         //  - /enterprise/2.19/admin/blah
         //  - https://docs.github.com/enterprise/11.10.340/admin/blah

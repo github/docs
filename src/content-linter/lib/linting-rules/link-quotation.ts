@@ -1,36 +1,41 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import { getRange, quotePrecedesLinkOpen } from '../helpers/utils'
 import { escapeRegExp } from 'lodash-es'
+import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '../../types'
 
-export const linkQuotation = {
+export const linkQuotation: Rule = {
   names: ['GHD043', 'link-quotation'],
   description: 'Internal link titles must not be surrounded by quotations',
   tags: ['links', 'url'],
   parser: 'markdownit',
-  function: (params, onError) => {
-    filterTokens(params, 'inline', (token) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    filterTokens(params, 'inline', (token: MarkdownToken) => {
       const { children } = token
-      let previous_child = children[0]
+      if (!children) return
+      let previous_child: MarkdownToken = children[0]
       let inLinkWithPrecedingQuotes = false
       let linkUrl = ''
-      let content = []
-      let line = ''
+      let content: string[] = []
       for (let i = 1; i < children.length; i++) {
         const child = children[i]
-        if (child.type === 'link_open' && quotePrecedesLinkOpen(previous_child.content)) {
+        if (child.type === 'link_open' && quotePrecedesLinkOpen(previous_child.content || '')) {
+          if (!child.attrs) continue
           inLinkWithPrecedingQuotes = true
           linkUrl = escapeRegExp(child.attrs[0][1])
-          line = child.line
         } else if (inLinkWithPrecedingQuotes && child.type === 'text') {
-          content.push(escapeRegExp(child.content.trim()))
+          content.push(escapeRegExp((child.content || '').trim()))
         } else if (inLinkWithPrecedingQuotes && child.type === 'code_inline') {
-          content.push('`' + escapeRegExp(child.content.trim()) + '`')
+          content.push('`' + escapeRegExp((child.content || '').trim()) + '`')
         } else if (child.type === 'link_close') {
           const title = content.join(' ')
           const regex = new RegExp(`"\\[${title}\\]\\(${linkUrl}\\)({%.*%})?(!|\\.|\\?|,)?"`)
           if (regex.test(child.line)) {
-            const match = child.line.match(regex)[0]
+            const matchResult = child.line.match(regex)
+            if (!matchResult) continue
+            const match = matchResult[0]
             const range = getRange(child.line, match)
+            if (!range) continue
             let newLine = match
             if (newLine.startsWith('"')) {
               newLine = newLine.slice(1)
@@ -58,7 +63,6 @@ export const linkQuotation = {
           }
           inLinkWithPrecedingQuotes = false
           content = []
-          line = ''
           linkUrl = ''
         }
         previous_child = child
