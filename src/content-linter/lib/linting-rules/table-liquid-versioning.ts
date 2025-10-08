@@ -1,4 +1,7 @@
-import { addError, filterTokens } from 'markdownlint-rule-helpers'
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
+import { addError } from 'markdownlint-rule-helpers'
+
+import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'
 
 // Detects a Markdown table delimiter row
 const delimiterRegexPure = /(\s)*(:)?(-+)(:)?(\s)*(\|)/
@@ -9,13 +12,13 @@ const liquidRegex = /^{%-?\s*(ifversion|else|endif).*-?%}/
 // Detects a Markdown table row with a Liquid versioning tag
 const liquidAfterRowRegex = /(\|{1}).*(\|{1}).*{%\s*(ifversion|else|endif).*%}$/
 
-export const tableLiquidVersioning = {
+export const tableLiquidVersioning: Rule = {
   names: ['GHD040', 'table-liquid-versioning'],
   description: 'Tables must use the correct liquid versioning format',
   severity: 'error',
   tags: ['tables'],
 
-  function: function GHD040(params, onError) {
+  function: function GHD040(params: RuleParams, onError: RuleErrorCallback) {
     const lines = params.lines
     let inTable = false
     for (let i = 0; i < lines.length; i++) {
@@ -75,7 +78,7 @@ export const tableLiquidVersioning = {
   },
 }
 
-function isPreviousLineIndented(line, previousLine) {
+function isPreviousLineIndented(line: string, previousLine: string): boolean {
   if (!line || !previousLine) return false
   const numWhitespaceLine = line.length - line.trimLeft().length
   const numWhitespacePrevLine = previousLine.length - previousLine.trimLeft().length

@@ -2,8 +2,8 @@ import { describe, expect, test } from 'vitest'
 
 import getMiniTocItems from '@/frame/lib/get-mini-toc-items'
 
-function generateHeading(h) {
-  return (slug) => `<${h} id="${slug}">
+function generateHeading(h: string): (slug: string) => string {
+  return (slug: string) => `<${h} id="${slug}">
     <a href="${slug}" class="heading-link">
       ${slug}
     </a>

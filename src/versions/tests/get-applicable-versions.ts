@@ -7,9 +7,13 @@ import { allVersions } from '@/versions/lib/all-versions'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { latest } from '@/versions/lib/enterprise-server-releases'
 
+interface Versions {
+  [key: string]: string | string[]
+}
+
 describe('Versions frontmatter', () => {
   test('wildcard', async () => {
-    const versions = {
+    const versions: Versions = {
       fpt: '*',
       ghes: '*',
     }
@@ -19,7 +23,7 @@ describe('Versions frontmatter', () => {
   })
 
   test('greater than', async () => {
-    const versions = {
+    const versions: Versions = {
       fpt: '*',
       ghes: '>3.2',
     }
@@ -28,7 +32,7 @@ describe('Versions frontmatter', () => {
   })
 
   test('less than', async () => {
-    const versions = {
+    const versions: Versions = {
       fpt: '*',
       ghes: '<3.2',
     }
@@ -43,7 +47,7 @@ describe('general cases', () => {
     expect.assertions(2)
     try {
       getApplicableVersions('*')
-    } catch (e) {
+    } catch (e: any) {
       expect(e).toBeInstanceOf(Error)
       expect(e).toHaveProperty(
         'message',
@@ -57,13 +61,13 @@ describe('general cases', () => {
       .filter((name) => name !== 'README.md')
       .map((name) => path.basename(name, '.yml'))
     for (const possibleFeature of possibleFeatures) {
-      const versions = { feature: possibleFeature }
+      const versions: Versions = { feature: possibleFeature }
       const applicableVersions = getApplicableVersions(versions)
       expect(applicableVersions.every((v) => Object.keys(allVersions).includes(v)))
     }
     // Same thing but as an array each time
     for (const possibleFeature of possibleFeatures) {
-      const versions = { feature: [possibleFeature] }
+      const versions: Versions = { feature: [possibleFeature] }
       const applicableVersions = getApplicableVersions(versions)
       expect(applicableVersions.every((v) => Object.keys(allVersions).includes(v)))
     }
@@ -78,7 +82,7 @@ describe('invalid versions', () => {
   })
 
   test('no valid versions found at all', () => {
-    const versions = {
+    const versions: Versions = {
       never: '*',
       heard: 'of',
     }

@@ -24,8 +24,8 @@ import ajv from '@/tests/lib/validate-json-schema'
 // mdDict will be populated with:
 //
 // { '/foo/bar/0': 'item 1', '/foo/bar/1': 'item 2' }
-const mdDict = new Map()
-const lintableData = Object.keys(dataSchemas)
+const mdDict = new Map<string, string>()
+const lintableData: string[] = Object.keys(dataSchemas)
 
 // To redefine a custom keyword, you must remove it
 // then re-add it with the new definition. The default
@@ -37,7 +37,8 @@ ajv.addKeyword({
   type: 'string',
   // For docs on defining validate see
   // https://ajv.js.org/keywords.html#define-keyword-with-validate-function
-  validate: (compiled, data, schema, parentInfo) => {
+  // Using any for validate function params because AJV's type definitions for custom keywords are complex
+  validate: (compiled: any, data: any, schema: any, parentInfo: any): boolean => {
     mdDict.set(parentInfo.instancePath, data)
     return true
   },
@@ -55,13 +56,14 @@ ajv.addKeyword({
 // back to the location in the original schema file,
 // so we also need the parent path of the `lintable`
 // property in the schema.
-export async function getLintableYml(dataFilePath) {
+export async function getLintableYml(dataFilePath: string): Promise<Record<string, string> | null> {
   const matchingDataPath = lintableData.find(
     (ref) => dataFilePath === ref || dataFilePath.startsWith(ref),
   )
   if (!matchingDataPath) return null
 
   const schemaFilePath = dataSchemas[matchingDataPath]
+  if (!schemaFilePath) return null
   const schema = (await import(schemaFilePath)).default
   if (!schema) return null
 
@@ -78,13 +80,15 @@ export async function getLintableYml(dataFilePath) {
 // back to a file in the data directory.
 // The resulting key looks like:
 // 'data/variables/product.yml /pat_v1_caps'
-function addPathToKey(mdDict, dataFilePath) {
+function addPathToKey(mdDict: Map<string, string>, dataFilePath: string): Map<string, string> {
   const keys = Array.from(mdDict.keys())
   keys.forEach((key) => {
     const newKey = `${dataFilePath} ${key}`
     const value = mdDict.get(key)
-    mdDict.delete(key)
-    mdDict.set(newKey, value)
+    if (value !== undefined) {
+      mdDict.delete(key)
+      mdDict.set(newKey, value)
+    }
   })
   return mdDict
 }

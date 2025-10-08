@@ -4,6 +4,10 @@ import path from 'path'
 
 import yaml from 'js-yaml'
 
+interface DataStructure {
+  [key: string]: string | DataStructure
+}
+
 // This helper class exists so you can create a temporary root directory
 // full of data files.
 // For example, if you want to unit test with files that are not part
@@ -41,17 +45,24 @@ import yaml from 'js-yaml'
 // will create a single <tempdir>/data/ui.yml file.
 //
 export class DataDirectory {
-  constructor(data, root) {
+  root: string
+
+  constructor(data: DataStructure, root?: string) {
     this.root = root || this.createTempRoot('data-directory')
     this.create(data)
   }
 
-  createTempRoot(prefix) {
+  createTempRoot(prefix: string): string {
     const fullPath = path.join(os.tmpdir(), prefix)
     return fs.mkdtempSync(fullPath)
   }
 
-  create(data, root = null, isVariables = false, isReusables = false) {
+  create(
+    data: DataStructure,
+    root: string | null = null,
+    isVariables = false,
+    isReusables = false,
+  ): void {
     const here = root || this.root
 
     for (const [key, value] of Object.entries(data)) {
@@ -60,7 +71,8 @@ export class DataDirectory {
           fs.writeFileSync(path.join(here, `${key}.md`), value, 'utf-8')
         } else {
           fs.mkdirSync(path.join(here, key))
-          this.create(value, path.join(here, key), false, true)
+          // Using 'as' assertion because we know value must be an object when it's not a string in reusables context
+          this.create(value as DataStructure, path.join(here, key), false, true)
         }
       } else if (isVariables) {
         fs.writeFileSync(path.join(here, `${key}.yml`), yaml.dump(value), 'utf-8')
@@ -70,19 +82,20 @@ export class DataDirectory {
         } else {
           const there = path.join(here, key)
           fs.mkdirSync(there)
+          // Using 'as' assertions because nested directory values are always objects, not strings
           if (key === 'reusables') {
-            this.create(value, there, false, true)
+            this.create(value as DataStructure, there, false, true)
           } else if (key === 'variables') {
-            this.create(value, there, true, false)
+            this.create(value as DataStructure, there, true, false)
           } else {
-            this.create(value, there)
+            this.create(value as DataStructure, there)
           }
         }
       }
     }
   }
 
-  destroy() {
+  destroy(): void {
     fs.rmSync(this.root, { recursive: true })
   }
 }
