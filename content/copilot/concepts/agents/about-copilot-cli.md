@@ -266,17 +266,7 @@ You can mitigate the risks associated with using the automatic approval options 
 
 The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.cca_current_model %}. {% data variables.product.github %} reserves the right to change this model.
 
-You can change the model by setting the `COPILOT_MODEL` environment variable to one of the supported values. For example, change the model to {% data variables.copilot.copilot_gpt_5 %} by setting `COPILOT_MODEL` to `gpt-5`.
-
-{% rowheaders %}
-
-| Model name                                                       | `COPILOT_MODEL` value |
-|------------------------------------------------------------------|-----------------------|
-| {% data variables.copilot.cca_current_model %}                   | `claude-sonnet-4`     |
-| {% data variables.copilot.copilot_claude_sonnet_45 %}            | `claude-sonnet-4.5`   |
-| {% data variables.copilot.copilot_gpt_5 %}                       | `gpt-5`               |
-
-{% endrowheaders %}
+You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command and select a model from the list.
 
 Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
