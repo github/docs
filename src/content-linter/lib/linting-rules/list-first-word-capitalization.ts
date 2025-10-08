@@ -1,25 +1,26 @@
 import { addFixErrorDetail, getRange, filterTokensByOrder } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '../../types'
 
-export const listFirstWordCapitalization = {
+export const listFirstWordCapitalization: Rule = {
   names: ['GHD034', 'list-first-word-capitalization'],
   description: 'First word of list item should be capitalized',
   tags: ['ul', 'ol'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     // Skip site-policy directory as these are legal documents with specific formatting requirements
     if (params.name && params.name.includes('content/site-policy/')) return
 
     // We're going to look for a sequence of 3 tokens. If the markdown
     // is a really small string, it might not even have that many tokens
     // in it. Can bail early.
-    if (params.tokens.length < 3) return
+    if (!params.tokens || params.tokens.length < 3) return
 
     const inlineListItems = filterTokensByOrder(params.tokens, [
       'list_item_open',
       'paragraph_open',
       'inline',
-    ]).filter((token) => token.type === 'inline')
+    ]).filter((token: MarkdownToken) => token.type === 'inline')
 
-    inlineListItems.forEach((token) => {
+    inlineListItems.forEach((token: MarkdownToken) => {
       // Only proceed if all of the token's children start with a text
       // node that is not empty.
       // This filters out cases where the list item is inline code, or
@@ -27,12 +28,13 @@ export const listFirstWordCapitalization = {
       // This also avoids cases like `- **bold** text` where the first
       // child is a text node string but the text node content is empty.
       const firstWordTextNode =
+        token.children &&
         token.children.length > 0 &&
         token.children[0].type === 'text' &&
         token.children[0].content !== ''
       if (!firstWordTextNode) return
 
-      const content = token.content.trim()
+      const content = (token.content || '').trim()
       const firstWord = content.trim().split(' ')[0]
 
       // If the first character in the first word is not an alphanumeric,
@@ -49,6 +51,7 @@ export const listFirstWordCapitalization = {
 
       const lineNumber = token.lineNumber
       const range = getRange(token.line, firstWord)
+      if (!range) return
       addFixErrorDetail(
         onError,
         lineNumber,

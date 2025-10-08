@@ -1,21 +1,35 @@
 import yaml from 'js-yaml'
+// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import { liquid } from '@/content-render/index'
 import { allVersions } from '@/versions/lib/all-versions'
+import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '../../types'
 
-const scheduledYamlJobs = []
+interface YamlSchedule {
+  cron: string
+}
 
-export const yamlScheduledJobs = {
+interface YamlWorkflow {
+  on?: {
+    schedule?: YamlSchedule[]
+  }
+}
+
+const scheduledYamlJobs: string[] = []
+
+export const yamlScheduledJobs: Rule = {
   names: ['GHD021', 'yaml-scheduled-jobs'],
   description:
     'YAML snippets that include scheduled workflows must not run on the hour and must be unique',
   tags: ['feature', 'actions'],
   parser: 'markdownit',
   asynchronous: true,
-  function: (params, onError) => {
-    filterTokens(params, 'fence', async (token) => {
-      const lang = token.info.trim().split(/\s+/u).shift().toLowerCase()
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    filterTokens(params, 'fence', async (token: MarkdownToken) => {
+      if (!token.info) return
+      if (!token.content) return
+      const lang = token.info.trim().split(/\s+/u).shift()?.toLowerCase()
       if (lang !== 'yaml' && lang !== 'yml') return
       if (!token.content.includes('schedule:')) return
       if (!token.content.includes('- cron:')) return
@@ -26,15 +40,15 @@ export const yamlScheduledJobs = {
       }
       // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
       const renderedYaml = await liquid.parseAndRender(token.content, context)
-      const yamlObj = yaml.load(renderedYaml)
+      const yamlObj = yaml.load(renderedYaml) as YamlWorkflow
       if (!yamlObj.on) return
       if (!yamlObj.on.schedule) return
 
-      yamlObj.on.schedule.forEach((schedule) => {
+      yamlObj.on.schedule.forEach((schedule: YamlSchedule) => {
         if (schedule.cron.split(' ')[0] === '0') {
           addError(
             onError,
-            getLineNumber(token.content, schedule.cron) + token.lineNumber,
+            getLineNumber(token.content!, schedule.cron) + token.lineNumber,
             `YAML scheduled workflow must not run on the hour`,
             schedule.cron,
           )
@@ -43,7 +57,7 @@ export const yamlScheduledJobs = {
         if (scheduledYamlJobs.includes(schedule.cron)) {
           addError(
             onError,
-            getLineNumber(token.content, schedule.cron) + token.lineNumber,
+            getLineNumber(token.content!, schedule.cron) + token.lineNumber,
             `YAML scheduled workflow must be unique`,
             schedule.cron,
           )
@@ -55,7 +69,7 @@ export const yamlScheduledJobs = {
   },
 }
 
-function getLineNumber(tokenContent, schedule) {
+function getLineNumber(tokenContent: string, schedule: string): number {
   const contentLines = tokenContent.split('\n')
   return contentLines.findIndex((line) => line.includes(schedule)) + 1
 }

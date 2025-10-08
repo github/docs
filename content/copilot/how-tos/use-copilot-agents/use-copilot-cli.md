@@ -102,6 +102,14 @@ If all of the files you want to work with are in a different location, you can s
 /cwd /path/to/directory
 ```
 
+### Run shell commands
+
+You can prepend your input with `!` to directly run shell commands, without making a call to the model.
+
+```shell
+!git clone https://github.com/github/copilot-cli
+```
+
 ### Resume an interactive session
 
 You can return to a previous interactive session, and continue your conversation with {% data variables.product.prodname_copilot_short %}, by using the `--resume` command line option, then choosing the session you want to resume from the list that's displayed.
@@ -134,6 +142,10 @@ To extend the functionality available to you in {% data variables.copilot.copilo
 1. Press <kbd>Ctrl</kbd>+<kbd>S</kbd> to save the details.
 
 Details of your configured MCP servers are stored in the `mcp-config.json` file, which is located, by default, in the `~/.config` directory. This location can be changed by setting the `XDG_CONFIG_HOME` environment variable. For information about the JSON structure of a server definition, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp#writing-a-json-configuration-for-mcp-servers).
+
+### View context and usage statistics for the current session
+
+You can use the `/usage` slash command to view how many premium requests you've used in the current session, the duration of the session, how many lines of code have been edited, and the breakdown of token usage per model. When you have less than 20% of a model's token limit remaining, {% data variables.copilot.copilot_cli_short %} will display a warning that the context will be truncated when the token limit is reached.
 
 ## Find out more
 

@@ -51,7 +51,9 @@ describe('GHES version extraction for update-markdown', () => {
 
     expect(extractedVersion).toBe('3.10')
     // This should be false - 3.10 is NOT in the deprecated list
-    expect(deprecated.includes(extractedVersion)).toBe(false)
+    if (extractedVersion) {
+      expect(deprecated.includes(extractedVersion)).toBe(false)
+    }
 
     // The old buggy logic would have incorrectly flagged this as deprecated
     // because it would find '3.1' as a substring in the path

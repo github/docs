@@ -1,5 +1,21 @@
 import { visitParents } from 'unist-util-visit-parents'
 
+interface ElementNode {
+  type: 'element'
+  tagName: string
+  properties: {
+    // Properties can have any value type (strings, booleans, arrays, etc.)
+    [key: string]: any
+  }
+  _scoped?: boolean
+}
+
+interface AncestorNode {
+  properties?: {
+    className?: string[]
+  }
+}
+
 /**
  * Where it can mutate the AST to swap from:
  *
@@ -33,22 +49,23 @@ import { visitParents } from 'unist-util-visit-parents'
  *
  * */
 
-function matcher(node) {
+function matcher(node: any): node is ElementNode {
   return node.type === 'element' && node.tagName === 'td' && !('scope' in node.properties)
 }
 
-function insideRowheaders(ancestors) {
+function insideRowheaders(ancestors: AncestorNode[]): boolean {
   return ancestors.some(
-    (node) =>
+    (node: AncestorNode) =>
       node.properties &&
       node.properties.className &&
       node.properties.className.includes('rowheaders'),
   )
 }
 
-function visitor(node, ancestors) {
+// ancestors is an array of hast nodes without proper TypeScript definitions
+function visitor(node: ElementNode, ancestors: any[]): void {
   if (insideRowheaders(ancestors)) {
-    const tr = ancestors.at(-1)
+    const tr = ancestors.at(-1) as ElementNode
     if (!tr._scoped) {
       tr._scoped = true
       node.properties.scope = 'row'
@@ -57,6 +74,7 @@ function visitor(node, ancestors) {
   }
 }
 
+// tree is a hast root node without proper TypeScript definitions
 export default function rewriteForRowheaders() {
-  return (tree) => visitParents(tree, matcher, visitor)
+  return (tree: any) => visitParents(tree, matcher, visitor)
 }

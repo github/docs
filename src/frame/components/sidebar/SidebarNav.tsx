@@ -8,6 +8,8 @@ import { AllProductsLink } from './AllProductsLink'
 import { ApiVersionPicker } from '@/rest/components/ApiVersionPicker'
 import { Link } from '@/frame/components/Link'
 
+import styles from './SidebarNav.module.scss'
+
 type Props = {
   variant?: 'full' | 'overlay'
 }
@@ -22,20 +24,15 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
     // Early access does not have a "home page" unless it's local dev
     (process.env.NODE_ENV === 'development' || currentProduct.id !== 'early-access')
 
-  // we need to roughly account for the site header height plus the height of
-  // the side nav header (which is taller when we show the API version picker)
-  // so we don't cut off the bottom of the sidebar
-  const sidebarPaddingBottom = isRestPage ? '250px' : '185px'
-
   const isSearch = currentProduct?.id === 'search'
 
   return (
     <div
       data-container="nav"
-      className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '')}
-      style={
-        variant === 'full' ? { width: 326, height: 'calc(100vh - 65px)', top: '65px' } : undefined
-      }
+      className={cx(
+        variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '',
+        variant === 'full' && styles.sidebarFull,
+      )}
     >
       <nav
         aria-labelledby="allproducts-menu"
@@ -68,12 +65,16 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
               ? 'width-full d-xxl-none'
               : 'border-right d-none d-xxl-block overflow-y-auto',
             'bg-primary flex-shrink-0',
-          )}
-          style={
             variant === 'overlay'
-              ? { paddingBottom: sidebarPaddingBottom }
-              : { width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }
-          }
+              ? isRestPage
+                ? styles.sidebarContentOverlayRest
+                : styles.sidebarContentOverlay
+              : styles.sidebarContentFull,
+            variant === 'full' &&
+              (isRestPage
+                ? styles.sidebarContentFullWithPaddingRest
+                : styles.sidebarContentFullWithPadding),
+          )}
           role="region"
           aria-label="Page navigation content"
         >

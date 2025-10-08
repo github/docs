@@ -1,4 +1,4 @@
-import { visit } from 'unist-util-visit'
+import { visit, SKIP } from 'unist-util-visit'
 
 /**
  * Where it can mutate the AST to swap from:
@@ -49,22 +49,31 @@ import { visit } from 'unist-util-visit'
  * isn't the same all the way down. But Unified will still parse it.
  * */
 
-function matcher(node) {
+// node is a hast element node without proper TypeScript definitions
+function matcher(node: any): boolean {
   return node.type === 'element' && node.tagName === 'tr'
 }
 
-function visitor(node, index, parent) {
+// node, parent, and grandChild are hast element nodes without proper TypeScript definitions
+function visitor(
+  node: any,
+  index: number | undefined,
+  parent: any,
+): [typeof SKIP, number] | undefined {
   if (
     node.children.every(
-      (grandChild) =>
+      (grandChild: any) =>
         grandChild.type === 'element' && grandChild.tagName === 'td' && !grandChild.children.length,
     )
   ) {
-    parent.children.splice(index, 1)
-    return [visit.SKIP, index]
+    if (index !== undefined) {
+      parent.children.splice(index, 1)
+      return [SKIP, index]
+    }
   }
 }
 
+// tree is a hast root node without proper TypeScript definitions
 export default function rewriteEmptyTableRows() {
-  return (tree) => visit(tree, matcher, visitor)
+  return (tree: any) => visit(tree, matcher, visitor)
 }
