@@ -6,9 +6,9 @@ import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
 function isNewLandingPage(currentLayoutName: string): boolean {
   return (
     currentLayoutName === 'category-landing' ||
-    currentLayoutName === 'bespoke_landing' ||
-    currentLayoutName === 'discovery_landing' ||
-    currentLayoutName === 'journey_landing'
+    currentLayoutName === 'bespoke-landing' ||
+    currentLayoutName === 'discovery-landing' ||
+    currentLayoutName === 'journey-landing'
   )
 }
 
