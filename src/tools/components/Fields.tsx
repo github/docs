@@ -1,5 +1,6 @@
 import { ActionList } from '@primer/react'
 import { ReactNode } from 'react'
+import cx from 'classnames'
 
 import { PickerItem } from './Picker'
 
@@ -34,13 +35,10 @@ export const Fields = (fieldProps: {
             // variant span box in front of it. To date there isn't a possibility to have
             // an ActionMenu in Primer that allow non-selection variant items with selection
             // variant items
-            className={(item.extra?.arrow || item.extra?.info) && styles.extrasDisplay}
-            sx={{
-              ':hover': {
-                textDecoration: 'none',
-                textAlign: 'left',
-              },
-            }}
+            className={cx(
+              (item.extra?.arrow || item.extra?.info) && styles.extrasDisplay,
+              styles.linkItem,
+            )}
             role={item.extra?.arrow || item.extra?.info ? 'menuitem' : 'menuitemradio'}
           >
             {renderItem ? renderItem(item) : item.text}
