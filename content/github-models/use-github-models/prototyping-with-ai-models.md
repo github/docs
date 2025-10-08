@@ -271,7 +271,7 @@ For custom models accessed with your own API keys, rate limits are set and enfor
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1, o3, and gpt-5</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>1</td>
@@ -300,7 +300,7 @@ For custom models accessed with your own API keys, rate limits are set and enfor
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-mini, o3-mini, and o4-mini</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-mini, o3-mini, o4-mini, gpt-5-mini, gpt-5-nano, and gpt-5-chat</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>2</td>

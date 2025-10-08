@@ -7,7 +7,6 @@ import timeout from 'connect-timeout'
 
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
-import morgan from 'morgan'
 import helmet from './helmet'
 import cookieParser from './cookie-parser'
 import {
@@ -44,12 +43,14 @@ import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
 import breadcrumbs from './context/breadcrumbs'
 import glossaries from './context/glossaries'
+import resolveRecommended from './resolve-recommended'
 import renderProductName from './context/render-product-name'
 import features from '@/versions/middleware/features'
 import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
 import learningTrack from '@/learning-track/middleware/learning-track'
+import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
 import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
@@ -64,16 +65,13 @@ import dynamicAssets from '@/assets/middleware/dynamic-assets'
 import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants'
+import { initLoggerContext } from '@/observability/logger/lib/logger-context'
+import { getAutomaticRequestLogger } from '@/observability/logger/middleware/get-automatic-request-logger'
+import appRouterGateway from './app-router-gateway'
+import urlDecode from './url-decode'
 
 const { NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
-
-// By default, logging each request (with morgan), is on. And by default
-// it's off if you're in a production environment or running automated tests.
-// But if you set the env var, that takes precedence.
-const ENABLE_DEV_LOGGING = Boolean(
-  process.env.ENABLE_DEV_LOGGING ? JSON.parse(process.env.ENABLE_DEV_LOGGING) : !isTest,
-)
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
 
@@ -104,10 +102,9 @@ export default function (app: Express) {
   //
   app.set('trust proxy', true)
 
-  // *** Request logging ***
-  if (ENABLE_DEV_LOGGING) {
-    app.use(morgan('dev'))
-  }
+  // *** Logging ***
+  app.use(initLoggerContext) // Context for both inline logs (e.g. logger.info) and automatic logs
+  app.use(getAutomaticRequestLogger()) // Automatic logging for all requests e.g. "GET /path 200"
 
   // Put this early to make it as fast as possible because it's used
   // to check the health of each cluster.
@@ -205,6 +202,7 @@ export default function (app: Express) {
   app.set('etag', false) // We will manage our own ETags if desired
 
   // *** Config and context for redirects ***
+  app.use(urlDecode) // Must come before detectLanguage to decode @ symbols in version segments
   app.use(detectLanguage) // Must come before context, breadcrumbs, find-page, handle-errors, homepages
   app.use(asyncMiddleware(reloadTree)) // Must come before context
   app.use(asyncMiddleware(context)) // Must come before early-access-*, handle-redirects
@@ -227,6 +225,9 @@ export default function (app: Express) {
 
   // Check for a dropped connection before proceeding
   app.use(haltOnDroppedConnection)
+
+  // *** Add App Router Gateway here - before heavy contextualizers ***
+  app.use(asyncMiddleware(appRouterGateway))
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
@@ -268,7 +269,9 @@ export default function (app: Express) {
   app.use(asyncMiddleware(glossaries))
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
+  app.use(asyncMiddleware(resolveRecommended))
   app.use(asyncMiddleware(learningTrack))
+  app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

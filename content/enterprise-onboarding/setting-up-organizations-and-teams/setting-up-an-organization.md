@@ -26,9 +26,7 @@ Enterprise owners who create an organization owned by the enterprise account aut
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
-1. In the left sidebar, click **Organizations**.
-{%- endif %}
+{% data reusables.enterprise-accounts.click-organizations-tab %}
 1. Above the list of organizations, click **New organization**.
 1. Under "Organization name", type a name for your organization.
 1. Click **Create organization**.
@@ -44,9 +42,7 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invit
 After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
 {% data reusables.enterprise-accounts.click-organizations-tab %}
-{%- endif %}
 1. Above the list of organizations, click **Invite organization**.
 1. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
 1. Click **Invite organization**. The organization owners will receive an email inviting them to join the enterprise.

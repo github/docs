@@ -21,7 +21,7 @@ For more information about search for {% data variables.product.prodname_ghe_ser
 
 {% data variables.product.prodname_ghe_server %} reconciles the state of the search index with data on the instance automatically and regularly, including:
 
-* Issues, pull requests, repositories, and users in the database
+* Issues,{% ifversion ghes > 3.17 %} projects,{% endif %} pull requests, repositories, and users in the database
 * Git repositories (source code) on disk
 
 In normal use, enterprise owners do not need to create new indices or schedule repair jobs. For troubleshooting or other support purposes, {% data variables.contact.github_support %} may instruct you to run a repair job.

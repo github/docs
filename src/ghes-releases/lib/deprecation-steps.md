@@ -62,15 +62,30 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 1. Update all translation directories to the latest `main` branch.
 
-1. Hide search component temporarily while scraping docs in `src/search/components/Search.tsx`, by adding the `visually-hidden` class to the `form` element:
+1. Hide search components temporarily while scraping docs by adding the `visually-hidden` class to the search components:
+
+    **In `src/search/components/input/SearchBarButton.tsx`**, wrap the return statement content:
 
     ```javascript
     return (
-      <div data-testid="search">
-        <div className="position-relative z-2">
-          <form
-            role="search"
-            className="width-full d-flex visually-hidden"
+      <div className="visually-hidden">
+        {/* existing search button content */}
+      </div>
+    )
+    ```
+
+    **In `src/search/components/input/SearchOverlayContainer.tsx`**, wrap the return statement content:
+
+    ```javascript
+    if (isSearchOpen) {
+      return (
+        <div className="visually-hidden">
+          <SearchOverlay
+            // ... existing props
+          />
+        </div>
+      )
+    }
     ```
 
 1. Ensure your build is up to date:
@@ -93,7 +108,7 @@ All previously archived content lives in its own repository. For example, GHES 3
     npm run deprecate-ghes-archive
     ```
 
-1. Revert changes to `src/search/components/Search.tsx`.
+1. Revert changes to `src/search/components/input/SearchBarButton.tsx` and `src/search/components/input/SearchOverlayContainer.tsx`.
 
 1. Check in any change to `src/ghes-releases/lib/enterprise-dates.json`.
 
@@ -158,7 +173,7 @@ All previously archived content lives in its own repository. For example, GHES 3
 1. Poke around several deprecated pages by navigating to `docs.github.com/enterprise/<DEPRECATED VERSION>`, and ensure that:
    - Stylesheets are working properly
    - Images are rendering properly
-   - The search functionality was disabled
+   - The search functionality was disabled during scraping
    - Look at any console errors to ensure that no new unexpected errors were introduced. You can look at previous errors by viewing a previously completed deprecation page.
    - You should see a banner on the top of every deprecated page with the date that the version was deprecated.
    - You should see a banner at the top of every page for the oldes currently supported version with the date that it will be deprecated in the ~3 months.

@@ -17,8 +17,11 @@ versions:
 topics:
   - Enterprise
 children:
-  - /roles-in-an-enterprise
+  - /abilities-of-roles
   - /best-practices-for-user-security
+  - /create-enterprise-teams
+  - /invite-users-directly
+  - /assign-roles
   - /inviting-people-to-manage-your-enterprise
   - /managing-invitations-to-organizations-within-your-enterprise
   - /managing-organization-members-in-your-enterprise
@@ -40,3 +43,4 @@ children:
   - /enabling-guest-collaborators
 shortTitle: Manage users
 ---
+

@@ -57,9 +57,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. To the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
-
-{% ifversion dependabot-grouped-security-updates-config %}
+1. To the right of "{% data variables.product.prodname_dependabot %} security updates," click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
 
 ## Grouping {% data variables.product.prodname_dependabot_security_updates %} into a single pull request
 
@@ -82,7 +80,7 @@ Repository administrators can enable or disable grouped security updates for the
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "{% ifversion ghas-products %}{% data variables.product.prodname_dependabot %}{% else %}{% data variables.product.UI_advanced_security %}{% endif %}", to the right of "Grouped security updates", click **Enable** to enable the feature or **Disable** to disable it.
+1. Under "{% ifversion ghas-products %}{% data variables.product.prodname_dependabot %}{% else %}{% data variables.product.UI_advanced_security %}{% endif %}," to the right of "Grouped security updates," click **Enable** to enable the feature or **Disable** to disable it.
 
 ### Enabling or disabling grouped {% data variables.product.prodname_dependabot_security_updates %} for an organization
 
@@ -95,21 +93,18 @@ Organization owners can enable or disable grouped security updates for all repos
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under "{% data variables.product.UI_advanced_security %}", to the right of "Grouped security updates", click **Disable all** or **Enable all**.
+1. Under "{% data variables.product.UI_advanced_security %}," to the right of "Grouped security updates," click **Disable all** or **Enable all**.
 1. Optionally, to enable grouped {% data variables.product.prodname_dependabot_security_updates %} for new repositories in your organization, select **Automatically enable for new repositories**.
 
-{% endif %}
 {% endif %}
 
 ## Overriding the default behavior with a configuration file
 
-You can override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} by adding a `dependabot.yml` file to your repository. {% ifversion dependabot-grouped-security-updates-config %}With a `dependabot.yml` file, you can have more granular control of grouping, and override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} settings.{% endif %}
+You can override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} by adding a `dependabot.yml` file to your repository. With a `dependabot.yml` file, you can have more granular control of grouping, and override the default behavior of {% data variables.product.prodname_dependabot_security_updates %} settings.
 
-{% ifversion dependabot-grouped-security-updates-config %}
 Use the `groups` option with the `applies-to: security-updates` key to create sets of dependencies (per package manager), so that {% data variables.product.prodname_dependabot %} opens a single pull request to update multiple dependencies at the same time. You can define groups by package name (the `patterns` and `exclude-patterns` keys), dependency type (`dependency-type` key), and SemVer (the `update-types` key).
 
 {% data reusables.dependabot.dependabot-version-updates-groups-match-first %}
-{% endif %}
 
 If you only require _security_ updates and want to exclude _version_ updates, you can set `open-pull-requests-limit` to `0` in order to prevent version updates for a given `package-ecosystem`.
 
@@ -120,7 +115,7 @@ For more information about the configuration options available for security upda
 #  - Has a private registry
 #  - Ignores lodash dependency
 #  - Disables version-updates
-{% ifversion dependabot-grouped-security-updates-config %}#  - Defines a group by package name, for security updates for golang dependencies{%- endif %}
+#  - Defines a group by package name, for security updates for golang dependencies
 
 version: 2
 registries:
@@ -140,12 +135,12 @@ updates:
     open-pull-requests-limit: 0
     registries:
       - example
-  {% ifversion dependabot-grouped-security-updates-config %}- package-ecosystem: "gomod"
+  - package-ecosystem: "gomod"
     groups:
       golang:
         applies-to: security-updates
         patterns:
-          - "golang.org*"{% endif %}
+          - "golang.org*"
 ```
 
 > [!NOTE]

@@ -119,7 +119,7 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-projects-using-jira
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
-  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
+  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
   - /admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories

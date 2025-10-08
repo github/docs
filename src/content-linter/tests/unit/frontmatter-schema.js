@@ -48,4 +48,52 @@ describe(frontmatterSchema.names.join(' - '), () => {
     expect(errors[0].lineNumber).toBe(1)
     expect(errors[0].errorRange).toEqual(null)
   })
+
+  test('sidebarLink with valid object properties passes', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      'versions:',
+      "  fpt: '*'",
+      'sidebarLink:',
+      '  text: "All prompts"',
+      '  href: "/copilot/copilot-chat-cookbook"',
+      '---',
+    ].join('\n')
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
+
+  test('sidebarLink with missing text property fails', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      'versions:',
+      "  fpt: '*'",
+      'sidebarLink:',
+      '  href: "/copilot/copilot-chat-cookbook"',
+      '---',
+    ].join('\n')
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(5)
+  })
+
+  test('sidebarLink with missing href property fails', async () => {
+    const markdown = [
+      '---',
+      'title: Title',
+      'versions:',
+      "  fpt: '*'",
+      'sidebarLink:',
+      '  text: "All prompts"',
+      '---',
+    ].join('\n')
+    const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].lineNumber).toBe(5)
+  })
 })

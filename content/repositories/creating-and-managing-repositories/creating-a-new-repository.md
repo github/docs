@@ -32,14 +32,17 @@ topics:
 1. Optionally, if you chose to use a template, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
 {% data reusables.repositories.owner-drop-down %}
 {% data reusables.repositories.repo-name %}
+{%- ifversion custom-properties-on-create %}
+1. If custom properties are required for repository creation, set the required properties for the repository. Setting custom properties may affect the validity of your chosen repository name as well as the available repository visibility. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
+
+   ![Screenshot of the "Required properties" section of the repo creation form, showing the properties "production" and "security tier" having values set.](/assets/images/help/repository/repos-create-properties.png)
+{% endif %}
 {% data reusables.repositories.choose-repo-visibility %}
 1. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.github %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line), [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line), and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts).
     * You can create a README, which is a document describing your project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
     * You can create a _.gitignore_ file, which is a set of ignore rules. For more information, see [AUTOTITLE](/get-started/git-basics/ignoring-files).{% ifversion fpt or ghec %}
     * You can choose to add a software license for your project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
-{%- ifversion custom-properties-on-create %}
-1. If custom properties are required for repository creation, set the required properties for the repository. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).{% endif %}
 {% data reusables.repositories.create-repo %}
 {% ifversion fpt or ghec %}
 1. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.

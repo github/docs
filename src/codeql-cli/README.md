@@ -8,7 +8,7 @@ The pipeline is used to generate Markdown files that create article pages on the
 
 ![A flow chart describing how the automation pipeline for CodeQL CLI generates documentation](./codeql-cli-pipeline-flowchart.png)
 
-A [workflow](.github/workflows/sync-codeql-cli.yml) is used to trigger the automation of the CodeQL CLI documentation. The workflow is manually triggered by a member of the GitHub Docs team approximately every two weeks to align to releases of the CodeQL CLI. The workflow takes an input parameter that specifies the branch to pull the source files from in the semmle-code repo. If the branch input is omitted, the workflow will default to the `main` branch.
+A [workflow](https://github.com/github/docs-internal/blob/main/.github/workflows/sync-codeql-cli.yml) is used to trigger the automation of the CodeQL CLI documentation. The workflow is manually triggered by a member of the GitHub Docs team approximately every two weeks to align to releases of the CodeQL CLI. The workflow takes an input parameter that specifies the branch to pull the source files from in the semmle-code repo. If the branch input is omitted, the workflow will default to the `main` branch.
 
 The workflow runs the `src/codeql-cli/scripts/sync.js` script, which generates Markdown files under `content/code-security/codeql-cli/codeql-cli-manual`.
 

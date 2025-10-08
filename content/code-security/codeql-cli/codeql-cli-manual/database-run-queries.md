@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-run-queries
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -37,7 +40,7 @@ the results subdirectory of the database directory.
 The results can later be converted to readable formats by [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results), or query-for-query by with [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode) or [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
 
 If your queries produce results in a form that can be interpreted as
-source-code alerts, you may find [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) a more convenient way to run them. [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) combines [codeql database run-queries](/code-security/codeql-cli/codeql-cli-manual/database-run-queries) with [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results) in a single step. In particular, [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) can produce output in the SARIF format, which can be used with an variety of alert viewers.
+source-code alerts, you may find [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) a more convenient way to run them. [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) combines codeql database run-queries with [codeql database interpret-results](/code-security/codeql-cli/codeql-cli-manual/database-interpret-results) in a single step. In particular, [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) can produce output in the SARIF format, which can be used with an variety of alert viewers.
 
 Alternatively, if you have only a single query to run, you might prefer
 [codeql query run](/code-security/codeql-cli/codeql-cli-manual/query-run), which can display human-readable output for quick inspection of results while you're debugging.
@@ -226,10 +229,11 @@ appropriate terminal.
 
 `yes`: Assume the terminal can understand xterm control sequences. The
 feature still depends on being able to autodetect the _size_ of the
-terminal, and will also be disabled if `-q` is given.
+terminal (which is not implemented on Windows, sorry), and will also be
+disabled if `-q` is given.
 
 `25x80` (or similar): Like `yes`, and also explicitly give the size of
-the terminal.
+the terminal. (Unlike `yes`, this should work on Windows.)
 
 `25x80:/dev/pts/17` (or similar): show fancy progress on a _different_
 terminal than stderr. Mostly useful for internal testing.

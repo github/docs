@@ -66,7 +66,7 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
 
 1. Commit and push the changes.
 
-In the blame view, revisions are excluded only if the commit **introduced new lines**. If the commit was the last to **modify** a line, it will still appear in blame. You'll see an "Ignoring revisions in .git-blame-ignore-revs" banner indicating that some commits may be hidden:
+In the blame view, revisions are excluded if the commit **introduced new lines** or modified existing lines. If the commit was the last to **modify** a line, it will still appear in blame. You'll see an "Ignoring revisions in .git-blame-ignore-revs" banner indicating that some commits may be hidden:
 
 <!--Page used for the screenshots below: https://github.com/electron/electron/blame/main/lib/browser/ipc-main-internal.ts -->
 

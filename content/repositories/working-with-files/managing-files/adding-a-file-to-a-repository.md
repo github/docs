@@ -33,13 +33,9 @@ You can upload multiple files to {% data variables.product.github %} at the same
 
 {% endif %}
 
-{% ifversion push-protection-block-uploads %}
-
 Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui) and [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit).
 
 {% data reusables.secret-scanning.push-protection-web-UI-uploads-beta %}
-
-{% endif %}
 
 > [!WARNING]
 > Use Git to push files to your repository if you need to apply the logic in your `.gitattributes` file. For example, automatic conversion of line endings. Uploading a file through the {% data variables.product.github %} web interface will ignore `.gitattributes`.

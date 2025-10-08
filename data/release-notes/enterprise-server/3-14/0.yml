@@ -108,7 +108,7 @@ sections:
           Dependabot uses private registry configurations specified in the `dependabot.yml` file as expected, even if there is a configuration with `target-branch`. This ensures that security updates are applied correctly, regardless of your repository's configuration settings. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot).
         # https://github.com/github/releases/issues/4118
         - |
-          In the `dependabot.yml` file, users can apply the same configuration to manifest files from multiple directories using the `directories` key. Direct strings, glob syntax, and wildcards (`*`) are all supported for targeting directories. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories). [Updated: 2024-10-07]
+          In the `dependabot.yml` file, users can apply the same configuration to manifest files from multiple directories using the `directories` key. Direct strings, glob syntax, and wildcards (`*`) are all supported for targeting directories. See [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#directories-or-directory--). [Updated: 2024-10-07]
 
     - heading: Code security
       notes:
@@ -167,6 +167,10 @@ sections:
         # https://github.com/github/releases/issues/3898
         - |
           When using a JSON Web Token (JWT) to authenticate or request an installation token, developers of GitHub Apps can use the app's client ID for the JWT's `iss` claim. The application ID remains valid, but is considered deprecated.
+
+  changes:
+    - |
+      The API endpoint for setting and removing organization membership for a user (`PUT /orgs/{org}/memberships/{username}` and `DELETE /orgs/{org}/memberships/{username}`) requires `admin:org` permissions for classic tokens. Previously, the changes were allowed with the `read:org, repo` permissions. [Updated: 2025-07-16]
 
   known_issues:
     - |
@@ -244,5 +248,7 @@ sections:
       These release notes previously did not include a note for the deprecation of team discussions.
     - |
       These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.14.0, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
+
       The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
+    - |
+      The release notes previously did not include a note for the change in permissions required for managing user organization membership. [Updated: 2025-07-16]

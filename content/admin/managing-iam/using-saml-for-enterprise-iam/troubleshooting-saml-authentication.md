@@ -31,22 +31,24 @@ For more information about SAML response requirements, see [AUTOTITLE](/admin/id
 You can configure {% data variables.product.prodname_ghe_server %} to write verbose debug logs for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
 
 > [!WARNING]
+>
 > * Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the logs increases much faster than usual, which can negatively impact the performance of {% data variables.product.prodname_ghe_server %}.
 > * Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
+
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
-1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in the systemd journal for `github-unicorn`on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server).
+1. Attempt to sign in to {% data variables.location.product_location %} through your SAML IdP.
+1. Review the debug output in the `systemd` journal for `github-unicorn` on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server).
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
 ## Decoding responses
 
-Some output in the systemd journal for `github-unicorn` may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+Some output in the `systemd` journal for `github-unicorn` may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
-To decode the output, run the following command, replacing ENCODED_OUTPUT with the encoded output from the log.
+To decode the output, run the following command, replacing `ENCODED_OUTPUT` with the encoded output from the log.
 
 ```shell
 base64 --decode ENCODED_OUTPUT
@@ -110,3 +112,11 @@ This error can occur in version 3.17.0 or later of {% data variables.location.pr
 {% ifversion ghec %}
 {% data reusables.saml.authentication-loop %}
 {% endif %}
+
+## Error: Digest mismatch
+
+A "Digest mismatch" error indicates that your SAML IdP is using a different SAML signing certificate than the one you have uploaded to {% data variables.product.github %}{% ifversion ghes %} or that the **Signature Method** or **Digest Method** configured on {% data variables.product.github %} differs from what your IdP is using{% endif %}.
+
+{% ifversion ghes %}Re-download this SAML certificate from your IdP and validate it using an online tool, such as the [Format a x509 cert](https://www.samltool.com/format_x509cert.php) tool from OneLogin. Then upload the SAML certificate again in the "Authentication" section in your {% data variables.product.prodname_ghe_server %} management console. See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-management-console#accessing-the-management-console-as-an-unauthenticated-user).{% endif %}
+
+{% ifversion ghec %}Re-download this SAML certificate from your IdP and validate it using a tool such as the [Format a x509 cert](https://www.samltool.com/format_x509cert.php) tool from OneLogin. Then update the certificate saved in the {% data variables.product.github %} SAML settings.{% endif %}

@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-init
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -264,7 +267,7 @@ will use all the values provided, in order. Extractor options specified
 using this command-line option are processed after extractor options
 given via `--extractor-options-file`.
 
-When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
+When passed to codeql database init or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
 [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command) then the options also need to be passed there if desired.
@@ -290,7 +293,7 @@ will use all the values provided, in order. Extractor options specified
 using this command-line option are processed before extractor options
 given via `--extractor-option`.
 
-When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
+When passed to codeql database init or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
 [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command) then the options also need to be passed there if desired.

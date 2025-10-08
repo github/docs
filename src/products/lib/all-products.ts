@@ -1,4 +1,4 @@
-import fs from 'fs/promises'
+import fs from 'fs'
 import path from 'path'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
@@ -40,7 +40,7 @@ export interface ProductMap {
 
 // Both internal and external products are specified in content/index.md
 const homepage = path.posix.join(ROOT, 'content/index.md')
-export const { data } = frontmatter(await fs.readFile(homepage, 'utf8'))
+export const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 
 export const productIds: string[] = data?.children || []
 
@@ -53,13 +53,13 @@ for (const productId of productIds) {
 
   // Early Access may not exist in the current checkout
   try {
-    await fs.readdir(dir)
+    fs.readdirSync(dir)
   } catch {
     continue
   }
 
   const toc = path.posix.join(dir, 'index.md')
-  const fileContent = await fs.readFile(toc, 'utf8')
+  const fileContent = fs.readFileSync(toc, 'utf8')
   const { data: tocData } = frontmatter(fileContent)
   if (tocData) {
     const applicableVersions = getApplicableVersions(tocData.versions, toc)

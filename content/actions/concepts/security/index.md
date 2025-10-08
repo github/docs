@@ -9,6 +9,9 @@ versions:
 children:
   - /secrets
   - /github_token
-  - /about-security-hardening-with-openid-connect
+  - /openid-connect
+  - /artifact-attestations
+  - /script-injections
+  - /compromised-runners
+  - /kubernetes-admissions-controller
 ---
-

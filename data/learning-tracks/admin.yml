@@ -44,7 +44,7 @@ adopting_github_actions_for_your_enterprise_ghec:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/get-started/understanding-github-actions
+    - /actions/get-started/understand-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
@@ -52,9 +52,9 @@ adopting_github_actions_for_your_enterprise_ghec:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - >-
-      /actions/how-tos/security-for-github-actions/security-guides/security-hardening-for-github-actions
+      /actions/reference/security/secure-use
     - >-
-      /billing/managing-billing-for-your-products/about-billing-for-github-actions
+      /billing/concepts/product-billing/github-actions
 adopting_github_actions_for_your_enterprise_ghes:
   title: Adopt GitHub Actions for your enterprise
   description: >-
@@ -65,7 +65,7 @@ adopting_github_actions_for_your_enterprise_ghes:
   guides:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
-    - /actions/get-started/understanding-github-actions
+    - /actions/get-started/understand-github-actions
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
     - >-
@@ -77,9 +77,9 @@ adopting_github_actions_for_your_enterprise_ghes:
     - >-
       /admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
     - >-
-      /actions/how-tos/security-for-github-actions/security-guides/security-hardening-for-github-actions
+      /actions/reference/security/secure-use
     - >-
-      /billing/managing-billing-for-your-products/about-billing-for-github-actions
+      /billing/concepts/product-billing/github-actions
 increase_fault_tolerance:
   title: Increase the fault tolerance of your instance
   description: >-
@@ -150,12 +150,13 @@ configure_github_actions:
 configure_github_advanced_security:
   title: Configure {% data variables.product.prodname_GHAS %} products
   description: >-
-    Improve the quality and security of your developers' code with {% data variables.product.prodname_GHAS %} products.
+    Improve the quality and security of your developers' code with {% data
+    variables.product.prodname_GHAS %} products.
   versions:
     ghes: '*'
   guides:
     - >-
-      /billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security
+      /billing/concepts/product-billing/github-advanced-security
     - >-
       /admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
     - >-
@@ -176,7 +177,7 @@ get_started_with_your_enterprise_account:
     ghec: '*'
   guides:
     - /admin/managing-your-enterprise-account/about-enterprise-accounts
-    - /billing/managing-your-billing/about-billing-for-your-enterprise
+    - /billing/concepts/enterprise-billing/billing-for-enterprises
     - >-
       /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
     - >-

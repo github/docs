@@ -44,3 +44,18 @@ export function turnOffExperimentsBeforeEach(test: typeof Test) {
     await turnOffExperimentsInPage(page)
   })
 }
+
+export async function dismissCTAPopover(page: Page) {
+  // Set the CTA popover to permanently dismissed in localStorage
+  await page.evaluate(() => {
+    localStorage.setItem(
+      'ctaPopoverState',
+      JSON.stringify({
+        dismissedCount: 0,
+        lastDismissedAt: null,
+        permanentlyDismissed: true,
+      }),
+    )
+  })
+  await page.reload()
+}

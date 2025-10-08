@@ -20,11 +20,7 @@ redirect_from:
 allowTitleToDifferFromFilename: true
 ---
 
-{% ifversion ghes < 3.14 %}
 
-{% data reusables.security-overview.beta-overview-dashboard %}
-
-{% endif %}
 
 ## {% ifversion security-overview-dashboard-enterprise %}About security insights{% else %} About organization-level security insights{% endif %}
 
@@ -106,7 +102,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%.
 
 >[!NOTE]
-> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security landscape of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce non-security alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
+> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security landscape of your organization, and only includes alerts with a security severity ("Critical," "High," "Medium," or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce non-security alerts with a level of "Error," "Warning," or "Note." For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
 ### Detection tab
 
@@ -148,7 +144,7 @@ For more information on {% data variables.product.prodname_secret_scanning %} pu
 
 #### Impact analysis table
 
-The impact analysis table has separate tabs showing data for: "Repositories", "Advisories", and "SAST vulnerabilities".
+The impact analysis table has separate tabs showing data for: "Repositories," "Advisories," and "SAST vulnerabilities."
 
 * The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
 
@@ -177,7 +173,7 @@ The age of each closed alert is calculated by subtracting the date the alert was
 
 #### Net resolve rate
 
-The "Net resolve rate" metric is the rate at which alerts are being closed. This metric is similar to measuring "developer velocity", reflecting the speed and efficiency with which alerts are resolved.
+The "Net resolve rate" metric is the rate at which alerts are being closed. This metric is similar to measuring "developer velocity," reflecting the speed and efficiency with which alerts are resolved.
 
 The rate is calculated by dividing the number of alerts that were closed and remained closed during the chosen time period, by the number of alerts created during the time period.
 
@@ -235,7 +231,7 @@ The "Pull request alerts fixed with autofix suggestions" metric shows the ratio 
 Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%.
 
 >[!NOTE]
-> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security posture of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
+> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security posture of your organization, and only includes alerts with a security severity ("Critical," "High," "Medium," or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce alerts with a level of "Error," "Warning," or "Note." For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
 ### Alert trends graph
 
@@ -277,7 +273,7 @@ The age of each closed alert is calculated by subtracting the date the alert was
 
 ### Net resolve rate
 
-The "Net resolve rate" metric is the rate at which alerts are being closed. This metric is similar to measuring "developer velocity", reflecting the speed and efficiency with which alerts are resolved.
+The "Net resolve rate" metric is the rate at which alerts are being closed. This metric is similar to measuring "developer velocity," reflecting the speed and efficiency with which alerts are resolved.
 
 The rate is calculated by dividing the number of alerts that were closed and remained closed during the chosen time period, by the number of alerts created during the time period.
 
@@ -303,7 +299,7 @@ Green bars represent the number of new alerts created during the segmented time 
 
 ### Impact analysis table
 
-The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories".
+The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories."
 
 * The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
 

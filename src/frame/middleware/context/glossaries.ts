@@ -60,7 +60,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
           )
         }
         description = await executeWithFallback(
-          req.context,
+          req.context!,
           () => liquid.parseAndRender(description, req.context),
           (enContext: Context) => {
             const { term } = glossary

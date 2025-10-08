@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import statsd from '@/observability/lib/statsd'
-import got from 'got'
+import { fetchStream } from '@/frame/lib/fetch-utils'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
 import type { ExtendedRequest } from '@/types'
@@ -56,56 +56,76 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
     stream: true,
   }
 
+  let reader: ReadableStreamDefaultReader<Uint8Array> | null = null
+
   try {
     // TODO: We temporarily add ?ai_search=1 to use a new pattern in cgs-copilot production
-    const stream = got.stream.post(`${process.env.CSE_COPILOT_ENDPOINT}/answers?ai_search=1`, {
-      json: body,
-      headers: {
-        Authorization: getHmacWithEpoch(),
-        'Content-Type': 'application/json',
+    const response = await fetchStream(
+      `${process.env.CSE_COPILOT_ENDPOINT}/answers?ai_search=1`,
+      {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          Authorization: getHmacWithEpoch(),
+          'Content-Type': 'application/json',
+        },
       },
-    })
+      {
+        throwHttpErrors: false,
+      },
+    )
 
-    // Listen for data events to count characters
-    stream.on('data', (chunk: Buffer | string) => {
-      // Ensure we have a string for proper character count
-      const dataStr = typeof chunk === 'string' ? chunk : chunk.toString()
-      totalChars += dataStr.length
-    })
+    if (!response.ok) {
+      const errorMessage = `Upstream server responded with status code ${response.status}`
+      console.error(errorMessage)
+      statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
+      res.status(response.status).json({
+        errors: [{ message: errorMessage }],
+        upstreamStatus: response.status,
+      })
+      return
+    }
 
-    // Handle the upstream response before piping
-    stream.on('response', (upstreamResponse) => {
-      if (upstreamResponse.statusCode !== 200) {
-        const errorMessage = `Upstream server responded with status code ${upstreamResponse.statusCode}`
-        console.error(errorMessage)
-        statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
-        res.status(upstreamResponse.statusCode).json({
-          errors: [{ message: errorMessage }],
-          upstreamStatus: upstreamResponse.statusCode,
-        })
-        stream.destroy()
-      } else {
-        // Set response headers
-        res.setHeader('Content-Type', 'application/x-ndjson')
-        res.flushHeaders()
+    // Set response headers
+    res.setHeader('Content-Type', 'application/x-ndjson')
+    res.flushHeaders()
 
-        // Pipe the got stream directly to the response
-        stream.pipe(res)
+    // Stream the response body
+    if (!response.body) {
+      res.status(500).json({ errors: [{ message: 'No response body' }] })
+      return
+    }
+
+    reader = response.body.getReader()
+    const decoder = new TextDecoder()
+
+    try {
+      while (true) {
+        const { done, value } = await reader.read()
+
+        if (done) {
+          break
+        }
+
+        // Decode chunk and count characters
+        const chunk = decoder.decode(value, { stream: true })
+        totalChars += chunk.length
+
+        // Write chunk to response
+        res.write(chunk)
       }
-    })
 
-    // Handle stream errors
-    stream.on('error', (error: any) => {
-      console.error('Error streaming from cse-copilot:', error)
+      // Calculate metrics on stream end
+      const totalResponseTime = Date.now() - startTime // in ms
+      const charPerMsRatio = totalResponseTime > 0 ? totalChars / totalResponseTime : 0 // chars per ms
 
-      if (error?.code === 'ERR_NON_2XX_3XX_RESPONSE') {
-        const upstreamStatus = error?.response?.statusCode || 500
-        return res.status(upstreamStatus).json({
-          errors: [{ message: 'Upstream server error' }],
-          upstreamStatus,
-        })
-      }
+      statsd.gauge('ai-search.total_response_time', totalResponseTime, diagnosticTags)
+      statsd.gauge('ai-search.response_chars_per_ms', charPerMsRatio, diagnosticTags)
 
+      statsd.increment('ai-search.success_stream_end', 1, diagnosticTags)
+      res.end()
+    } catch (streamError) {
+      console.error('Error streaming from cse-copilot:', streamError)
       statsd.increment('ai-search.stream_error', 1, diagnosticTags)
 
       if (!res.headersSent) {
@@ -117,22 +137,20 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
         res.write(errorMessage)
         res.end()
       }
-    })
-
-    // Calculate metrics on stream end
-    stream.on('end', () => {
-      const totalResponseTime = Date.now() - startTime // in ms
-      const charPerMsRatio = totalResponseTime > 0 ? totalChars / totalResponseTime : 0 // chars per ms
-
-      statsd.gauge('ai-search.total_response_time', totalResponseTime, diagnosticTags)
-      statsd.gauge('ai-search.response_chars_per_ms', charPerMsRatio, diagnosticTags)
-
-      statsd.increment('ai-search.success_stream_end', 1, diagnosticTags)
-      res.end()
-    })
+    } finally {
+      if (reader) {
+        reader.releaseLock()
+        reader = null
+      }
+    }
   } catch (error) {
     statsd.increment('ai-search.route_error', 1, diagnosticTags)
     console.error('Error posting /answers to cse-copilot:', error)
     res.status(500).json({ errors: [{ message: 'Internal server error' }] })
+  } finally {
+    // Ensure reader lock is always released
+    if (reader) {
+      reader.releaseLock()
+    }
   }
 }

@@ -1,7 +1,7 @@
 ---
 title: Tool switching Liquid tags
 intro: Demonstrates the HTML that becomes of a the different tool Liquid tags like `webui`, `cli`, and `codespaces`
-defaultTool: desktop
+defaultTool: webui
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,13 +15,13 @@ This page has a tool switcher
 
 {% webui %}
 
-1. this is webui content
+1. This is webui content
 
 {% endwebui %}
 
 {% cli %}
 
-this is cli content
+This is cli content
 
 ```shell
 cli content
@@ -30,7 +30,7 @@ cli content
 {% endcli %}
 
 {% desktop %}
-  this is desktop content
+  This is desktop content
 {% enddesktop %}
 
 {% webui %}

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useTranslation } from '@/languages/components/useTranslation'
 
 import type { SearchResultAggregations } from '@/search/types'
+import styles from './Aggregations.module.scss'
 
 type Props = {
   aggregations: SearchResultAggregations
@@ -46,7 +47,7 @@ export function SearchResultsAggregations({ aggregations }: Props) {
 
   if (aggregations.toplevel && aggregations.toplevel.length > 0) {
     return (
-      <div>
+      <div className={styles.aggregations}>
         <CheckboxGroup>
           <CheckboxGroup.Label>
             {t('filter')}{' '}

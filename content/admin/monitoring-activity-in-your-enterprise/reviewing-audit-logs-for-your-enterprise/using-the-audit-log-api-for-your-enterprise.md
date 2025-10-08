@@ -65,9 +65,9 @@ curl --include -H "Authorization: Bearer TOKEN" \
 If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
 
 ```text
-link: <{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
-<{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
-<{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
+link: <{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
+<{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
+<{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
 Copy the corresponding pagination link into your next request. For example:
@@ -75,7 +75,7 @@ Copy the corresponding pagination link into your next request. For example:
 ```shell
 curl -I -H "Authorization: Bearer TOKEN" \
 --request GET \
-"{% data variables.product.rest_url %}/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
+"{% data variables.product.rest_url %}/enterprises/13827/audit-log?phrase%3A2022-11-01=&per_page=100&after=MS42Njc4NDA2MjM5NDFlKzEyfHRYa3AwSkxUd2xyRjA5bWxfOS1RbFE%3D&before="
 ```
 
 {% endif %}

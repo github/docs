@@ -133,9 +133,14 @@ function validateIfversionConditionals(cond, possibleVersionNames) {
     if (strParts.length === 2) {
       const [notKeyword, version] = strParts
       const isValidVersion = validateVersion(version)
-      const isValid = notKeyword === 'not' && isValidVersion
-      if (!isValid) {
+      const isFeatureBasedVersion = Object.keys(getAllFeatures()).includes(version)
+
+      if (notKeyword !== 'not' || !isValidVersion) {
         errors.push(`"${cond}" is not a valid conditional`)
+      } else if (isFeatureBasedVersion) {
+        errors.push(
+          `"${cond}" is not valid - the 'not' keyword cannot be used with feature-based version "${version}"`,
+        )
       }
     }
 

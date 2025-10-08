@@ -21,7 +21,7 @@ topics:
 ## About tasklists
 
 > [!IMPORTANT]
-> Tasklists are {% data variables.release-phases.retired %}. You can read more about this on the [GitHub Blog](https://github.blog/changelog/2025-04-29-closing-down-code-scanning-alerts-tracked-in-tasklists/).
+> Tasklist blocks are {% data variables.release-phases.retired %}. You can read more about this on the [{% data variables.product.github %} Blog](https://github.blog/changelog/2025-02-18-github-issues-projects-february-18th-update/).
 >
 > {% ifversion sub-issues %} You can use sub-issues as the replacement for tasklist blocks. Sub-issues provide a dedicated section within each issue, making it easier to track related work without relying on Markdown. For more information about sub-issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues). {% endif %}
 

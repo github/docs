@@ -78,7 +78,7 @@ Through the "{% data variables.product.UI_advanced_security %}" page of your org
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}".
+1. Click **Enable all** next to "{% data variables.product.prodname_code_scanning_caps %}."
 1. In the "Query suites" section of the "Enable {% data variables.product.prodname_code_scanning %} default setup" dialog box displayed, select the query suite your configuration of default setup will run. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
 1. To enable your configuration of default setup, click **Enable for eligible repositories**.
 1. Optionally, to recommend the "Extended" query suite throughout your organization when enabling default setup, select "Recommend the extended query suite for repositories enabling default setup."
@@ -90,12 +90,9 @@ Through the "{% data variables.product.UI_advanced_security %}" page of your org
 
 {% endif %}
 
-{% ifversion codeql-model-packs-org %}
-
 ### Extending {% data variables.product.prodname_codeql %} coverage in default setup
 
 Through your organization's security settings page, you can extend coverage in default setup using model packs for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup#extending-coverage-for-all-repositories-in-an-organization).
-{% endif %}
 
 ## Configuring default setup for a subset of repositories in an organization
 
@@ -116,7 +113,7 @@ Through security overview for your organization, you can find eligible repositor
 {% data reusables.security-overview.security-overview-coverage-view %}
 1. In the search bar, enter one of the following queries:
 
-{%- ifversion ghes > 3.12 %}
+{%- ifversion ghes %}
     - `code-scanning-default-setup:eligible is:public` shows repositories that have languages suitable for default setup and are eligible because they are visible to the public.
     - `code-scanning-default-setup:eligible advanced-security:enabled` shows private or internal repositories that have languages suitable for default setup and are eligible because they have {% data variables.product.prodname_GHAS %} enabled.
     - `code-scanning-default-setup:eligible is:private,internal advanced-security:not-enabled` shows private or internal repositories that have languages suitable for default setup but do not have {% data variables.product.prodname_GHAS %} enabled. Once you enable {% data variables.product.prodname_GHAS %} for these repositories, they can also be added to default setup.
@@ -145,7 +142,8 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 1. To confirm the enablement of {% data variables.product.prodname_code_scanning %} for the selected repositories, click **Apply changes NUMBER**. Alternatively, to select or deselect more repositories for {% data variables.product.prodname_code_scanning %} enablement, click {% octicon "x" aria-label="Close" %} to close the panel without applying your changes.
 
 > [!NOTE]
-{%- ifversion ghes > 3.12 %}
+
+{%- ifversion ghes %}
 > * Enabling {% data variables.product.prodname_code_scanning %} for multiple repositories in an organization using security overview will override any existing {% data variables.product.prodname_code_scanning %} configurations for the selected repositories, including any previous query suite selections and workflows for advanced setups.
 > * You can enable default setup for eligible repositories that do not contain {% data variables.product.prodname_codeql %}-supported languages. If a {% data variables.product.prodname_codeql %}-supported language is later added to one of these repositories, default setup will begin scanning that repository and consuming {% data variables.product.prodname_actions %} minutes.
 {%- else %}
@@ -158,7 +156,6 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 
 {% endif %}
 
-{% ifversion code-scanning-merge-protection-rulesets %}
 {% ifversion ghes or ghec %}
 
 ## Configuring merge protection for all repositories in an organization
@@ -169,5 +166,4 @@ You can use rulesets to prevent pull requests from being merged when one of the 
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection#creating-a-merge-protection-ruleset-for-all-repositories-in-an-organization). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
-{% endif %}
 {% endif %}

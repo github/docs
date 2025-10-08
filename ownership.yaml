@@ -7,7 +7,7 @@ ownership:
     kind: moda
     long_name: Docs on Moda
     description: Please use <https://catalog.githubapp.com/services/docs> instead.
-    exec_sponsor: nerdneha
+    exec_sponsor: ahalliop
     product_manager: docs-bot
     maintainer: anjuan
     team_slack: docs

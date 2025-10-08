@@ -3,22 +3,22 @@ title: "{% data variables.product.prodname_github_issues %} documentation"
 shortTitle: "{% data variables.product.prodname_github_issues %}"
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
-  overview: /issues/tracking-your-work-with-issues/about-issues
-  quickstart: /issues/tracking-your-work-with-issues/configuring-issues/quickstart
+  overview: /issues/tracking-your-work-with-issues/learning-about-issues/about-issues
+  quickstart: /issues/tracking-your-work-with-issues/learning-about-issues/quickstart
 featuredLinks:
   startHere:
     - /issues/tracking-your-work-with-issues/using-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
-    - /issues/tracking-your-work-with-issues/configuring-issues/planning-and-tracking-work-for-your-team-or-project
+    - /issues/tracking-your-work-with-issues/learning-about-issues/planning-and-tracking-work-for-your-team-or-project
   guideCards:
     - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
     - /issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue
     - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
     - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   popular:
-    - /issues/tracking-your-work-with-issues/about-issues
+    - /issues/tracking-your-work-with-issues/learning-about-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates

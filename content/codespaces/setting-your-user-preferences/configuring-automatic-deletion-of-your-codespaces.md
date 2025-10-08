@@ -67,7 +67,7 @@ You may have a codespace that you want to keep for longer than the retention per
 > [!NOTE]
 > The "Keep codespace" option is not available for organization-owned codespaces affected by an organization retention policy.
 
-Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage).
+Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. See [AUTOTITLE](/billing/concepts/product-billing/github-codespaces).
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "bookmark" aria-hidden="true" aria-label="bookmark" %} Keep codespace**.

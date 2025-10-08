@@ -24,7 +24,7 @@ describe('sidebar', () => {
     const $: cheerio.Root = await getDOM('/get-started/start-your-journey/hello-world')
     expect(
       $(
-        '[data-testid=sidebar] [data-testid=product-sidebar] a[aria-current="page"] div span',
+        '[data-testid=sidebar] [data-testid=product-sidebar] a[aria-current="page"] span span',
       ).text(),
     ).toBe('Hello World')
   })
@@ -35,7 +35,7 @@ describe('sidebar', () => {
     // from its regular title.
     expect(
       $(
-        '[data-testid=sidebar] [data-testid=product-sidebar] a[href*="/get-started/foo/bar"] div span',
+        '[data-testid=sidebar] [data-testid=product-sidebar] a[href*="/get-started/foo/bar"] span span',
       ).text(),
     ).toBe('Bar')
   })

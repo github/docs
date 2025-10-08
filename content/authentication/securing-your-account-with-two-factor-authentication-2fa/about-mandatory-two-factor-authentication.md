@@ -53,7 +53,7 @@ Currently, we don't support passkeys or security keys as primary 2FA methods sin
 * [About email verification and mandatory 2FA](#about-email-verification-and-mandatory-2fa)
 
 > [!NOTE]
-> We recommend retaining cookies on {% data variables.product.prodname_dotcom_the_website %}. If you set your browser to wipe your cookies every day, you'll never have a verified device for account recovery purposes, as the [`_device_id` cookie](https://github.com/privacy/cookies) is used to securely prove you've used that device previously. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#authenticating-with-a-verified-device-ssh-token-or-personal-access-token).
+> We recommend retaining cookies on {% data variables.product.prodname_dotcom_the_website %}. If you set your browser to wipe your cookies every day, you'll never have a verified device for account recovery purposes, as the [`_device_id` cookie](/free-pro-team@latest/site-policy/privacy-policies/github-cookies) is used to securely prove you've used that device previously. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials#authenticating-with-a-verified-device-ssh-token-or-personal-access-token).
 
 ### About TOTP apps and mandatory 2FA
 

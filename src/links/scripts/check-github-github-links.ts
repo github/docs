@@ -12,7 +12,7 @@
 
 import fs from 'fs/promises'
 
-import got, { RequestError } from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { program } from 'commander'
 
 import { getContents, getPathsWithMatchingStrings } from '@/workflows/git-utils'
@@ -188,18 +188,22 @@ async function main(opts: MainOptions, args: string[]) {
     await Promise.all(
       slice.map(async ({ linkPath, file }) => {
         // This isn't necessary but if it can't be constructed, it'll
-        // fail in quite a nice way and not "blame got".
+        // fail in quite a nice way and not "blame fetch".
         const url = new URL(BASE_URL + linkPath)
         try {
-          await got.head(url.href, {
-            retry: retryConfiguration,
-            timeout: timeoutConfiguration,
-          })
+          await fetchWithRetry(
+            url.href,
+            { method: 'HEAD' },
+            {
+              retries: retryConfiguration.limit,
+              timeout: timeoutConfiguration.request,
+              throwHttpErrors: true,
+            },
+          )
         } catch (error) {
-          if (error instanceof RequestError) {
+          if (error instanceof Error) {
             brokenLinks.push({ linkPath, file })
           } else {
-            console.warn(`URL when it threw: ${url}`)
             throw error
           }
         }

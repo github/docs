@@ -88,6 +88,27 @@ The {% data variables.product.prodname_dependabot_alerts %} count in {% data var
 
 You can configure {% data variables.product.prodname_dependabot %} to ignore specific dependencies in the configuration file, which will prevent security and version updates for those dependencies. If you only wish to use security updates, you will need to override the default behavior with a configuration file. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file) to prevent version updates from being activated. For information about ignoring dependencies, see [Ignoring specific dependencies](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-dependencies).
 
+## Why does {% data variables.product.prodname_dependabot %} sometimes fail to detect or update {% data variables.product.prodname_actions %} versions in monorepos?
+
+If your repository contains multiple {% data variables.product.prodname_actions %} (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
+
+* **Dash (`-`) separator** (for example, `@my-action-v0.1.0`):
+  * {% data variables.product.prodname_dependabot %} may group multiple actions under a single dependency entry or fail to detect new versions correctly. This occurs because {% data variables.product.prodname_dependabot %} relies on slash-based tag parsing to distinguish between actions.
+* **Slash (`/`) separator** (for example, `@my-action/v0.1.0`):
+  * {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag structure that aligns with {% data variables.product.prodname_dependabot %}'s parsing logic.
+
+**Recommendation:** For monorepos with multiple actions, use the `name/version` (slash) format for action tags. This ensures {% data variables.product.prodname_dependabot %} can parse the tag hierarchy correctly and update actions independently.
+
+* Example:
+
+   ```yaml
+   # Recommended: namespaced with slash
+   uses: my-org/monorepo/my-action@my-action/v0.1.0
+
+   # Not recommended: dash
+   uses: my-org/monorepo@my-action-v0.1.0
+   ```
+
 ## Further reading
 
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)

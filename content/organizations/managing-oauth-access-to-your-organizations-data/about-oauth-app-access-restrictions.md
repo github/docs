@@ -21,7 +21,7 @@ shortTitle: '{% data variables.product.prodname_oauth_app %} restrictions'
 
 {% data reusables.organizations.restricted-app-access-requests %}
 
-Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize privileged {% data variables.product.prodname_oauth_apps %} apps and use them to access data from the organization. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/privileged-oauth-apps).
+Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize privileged {% data variables.product.prodname_oauth_apps %} and use them to access data from the organization. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/privileged-oauth-apps).
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 

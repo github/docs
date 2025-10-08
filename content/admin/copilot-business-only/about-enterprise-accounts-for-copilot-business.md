@@ -12,9 +12,13 @@ redirect_from:
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
 ---
 
-You can use an enterprise account to manage licenses for {% data variables.copilot.copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
+<!-- expires 2025-10-20 -->
+<!-- Part of the Copilot direct licensing rollout -->
+<!-- Expired content will be addressed by the Drivers team -->
 
->[!NOTE] Access to this feature is currently managed by {% data variables.contact.contact_enterprise_sales %}.
+{% data reusables.copilot.cb-only-self-serve %}
+
+<!-- end expires 2025-10-20 -->
 
 ## What is an enterprise account for {% data variables.copilot.copilot_business_short %}?
 
@@ -22,7 +26,7 @@ To use {% data variables.product.prodname_copilot %}, a user must authenticate t
 
 If you don't already manage users through an organization or enterprise, you can create an enterprise account specifically for allocating {% data variables.copilot.copilot_business_short %} licenses.
 
-* You'll only pay for the {% data variables.product.prodname_copilot_short %} licenses you assign. For pricing, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business).
+* You'll only pay for the {% data variables.product.prodname_copilot_short %} licenses you assign. For pricing, see [AUTOTITLE](/billing/concepts/product-billing/github-copilot-licenses#licenses-for-github-copilot).
 * You won't pay for {% data variables.product.prodname_enterprise %} seats.
 * You won't be able to create organizations or repositories in the enterprise, or use features that require repositories or organizations, such as {% data variables.product.prodname_actions %}.
 

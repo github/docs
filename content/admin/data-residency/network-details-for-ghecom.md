@@ -24,6 +24,8 @@ To access your enterprise on {% data variables.enterprise.data_residency_site %}
 ## {% data variables.product.github %}'s hostnames
 
 * `*.{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's dedicated subdomain on {% data variables.enterprise.data_residency_site %}
+* `*.pages.{% data variables.enterprise.data_residency_domain %}`
+* `*.actions.{% data variables.enterprise.data_residency_domain %}`
 * `*.githubassets.com`
 * `*.githubusercontent.com`
 * `*.blob.core.windows.net`

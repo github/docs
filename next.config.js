@@ -1,7 +1,31 @@
 import fs from 'fs'
 import path from 'path'
 
-import frontmatter from 'gray-matter'
+import frontmatter from '@gr2m/gray-matter'
+// Hardcoded log level function since next.config.js cannot import from TypeScript files
+// Matches ./src/observability/logger/lib/log-levels
+function getLogLevelNumber() {
+  const LOG_LEVELS = {
+    error: 0,
+    warn: 1,
+    info: 2,
+    debug: 3,
+  }
+
+  let defaultLogLevel = 'info'
+  if (
+    !process.env.LOG_LEVEL &&
+    (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'test')
+  ) {
+    defaultLogLevel = 'debug'
+  }
+
+  const envLogLevel = process.env.LOG_LEVEL?.toLowerCase() || defaultLogLevel
+  const logLevel = LOG_LEVELS[envLogLevel] !== undefined ? envLogLevel : defaultLogLevel
+
+  return LOG_LEVELS[logLevel]
+}
+
 // Replace imports with hardcoded values
 const ROOT = process.env.ROOT || '.'
 
@@ -13,6 +37,9 @@ const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children
 
 export default {
+  // Transpile @primer/react so Next's webpack can process its CSS and other assets
+  // This ensures CSS in node_modules/@primer/react is handled by the app's loaders.
+  transpilePackages: ['@primer/react'],
   // speed up production `next build` by ignoring typechecking during that step of build.
   // type-checking still occurs in the Dockerfile build
   typescript: {
@@ -35,6 +62,9 @@ export default {
       'mixed-decls',
     ],
   },
+  // Don't use automatic Next.js logging in dev unless the log level is `debug` or higher
+  // See `src/observability/logger/README.md` for log levels
+  logging: getLogLevelNumber() < 3 ? false : {},
   async rewrites() {
     const DEFAULT_VERSION = 'free-pro-team@latest'
     return productIds.map((productId) => {
@@ -47,7 +77,7 @@ export default {
   webpack: (config) => {
     config.experiments = config.experiments || {}
     config.experiments.topLevelAwait = true
-    config.resolve.fallback = { fs: false }
+    config.resolve.fallback = { fs: false, async_hooks: false }
     return config
   },
 

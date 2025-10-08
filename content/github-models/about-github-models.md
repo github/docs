@@ -40,6 +40,10 @@ To use {% data variables.product.prodname_github_models %} in your organization,
 
 See [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale).
 
+## Searching {% data variables.product.prodname_github_models %}
+
+To search for available models, see [AUTOTITLE](/search-github/searching-on-github/searching-github-models). You can search for models by name, publisher, language, modality, and other filters.
+
 ## Prompts
 
 Manage your prompt configurations stored in the repository. Each prompt is saved as a `.prompt.yml` file, which defines the model, parameters, and test inputs. From here, you can create, edit, and organize prompts to support experimentation or production use.
@@ -63,6 +67,7 @@ To learn how others are using {% data variables.product.prodname_github_models %
 
 ## Further reading
 
+* [AUTOTITLE](/search-github/searching-on-github/searching-github-models)
 * [AUTOTITLE](/github-models/use-github-models/prototyping-with-ai-models)
 * [AUTOTITLE](/github-models/use-github-models/optimizing-your-ai-powered-app-with-github-models)
 * [AUTOTITLE](/github-models/use-github-models/evaluating-ai-models)

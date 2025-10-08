@@ -25,8 +25,6 @@ Only the project visibility is affected; to view an item on the project, someone
 
 Project admins and organization owners can control project visibility. Organization owners{% ifversion project-visibility-policy %} and enterprise owners{% endif %} can restrict the ability to change project visibility to just organization owners.
 
-In public{% ifversion ghec %}, internal, {% endif %} and private projects, insights are only visible to users with write permissions for the project.
-
 In private{% ifversion ghec %} and internal{% endif %} organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
 
 Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects).

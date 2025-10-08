@@ -67,6 +67,11 @@ If you @mention any {% data variables.product.github %} users in the notes, the 
 
 ## Editing a release
 
+{% ifversion immutable-releases-preview %}
+> [!NOTE]
+> If you have enabled immutable releases for your repository, you can only edit the title and release notes after a release is published. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).
+{% endif %}
+
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

@@ -12,6 +12,7 @@ children:
   - /managing-teams-and-people-with-access-to-your-repository
   - /managing-the-forking-policy-for-your-repository
   - /managing-pull-request-reviews-in-your-repository
+  - /managing-the-default-branch-name-for-your-repositories
   - /managing-the-commit-signoff-policy-for-your-repository
   - /managing-the-push-policy-for-your-repository
   - /managing-git-lfs-objects-in-archives-of-your-repository
@@ -23,3 +24,4 @@ children:
   - /managing-github-models-in-your-repository
 shortTitle: Manage repository settings
 ---
+

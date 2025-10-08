@@ -27,7 +27,7 @@ topics:
 
 You can easily enable and manage {% data variables.product.github %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
 
-For more information on purchasing {% data variables.product.prodname_GH_cs_or_sp %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+For more information on purchasing {% data variables.product.prodname_GH_cs_or_sp %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security) and [AUTOTITLE](/enterprise-cloud@latest/billing/how-tos/products/add-advanced-security){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ## About {% data variables.product.prodname_security_configurations %}
 
@@ -47,6 +47,8 @@ There are two types of {% data variables.product.prodname_security_configuration
 You can customize {% data variables.product.prodname_security_configurations %}, allowing you to choose different enablement settings for groups of repositories with specific security needs.
 
 You will only ever see enablement settings for features that have been installed on your {% data variables.product.prodname_ghe_server %} instance by an enterprise administrator.
+
+To learn how to create {% data variables.product.prodname_custom_security_configurations %}, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 
 {% endif %}
 

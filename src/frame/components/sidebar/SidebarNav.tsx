@@ -33,7 +33,9 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
     <div
       data-container="nav"
       className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '')}
-      style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
+      style={
+        variant === 'full' ? { width: 326, height: 'calc(100vh - 65px)', top: '65px' } : undefined
+      }
     >
       <nav
         aria-labelledby="allproducts-menu"
@@ -62,10 +64,16 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         )}
         <div
           className={cx(
-            variant === 'overlay' ? 'd-xxl-none' : 'border-right d-none d-xxl-block',
-            'bg-primary overflow-y-auto flex-shrink-0',
+            variant === 'overlay'
+              ? 'width-full d-xxl-none'
+              : 'border-right d-none d-xxl-block overflow-y-auto',
+            'bg-primary flex-shrink-0',
           )}
-          style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
+          style={
+            variant === 'overlay'
+              ? { paddingBottom: sidebarPaddingBottom }
+              : { width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }
+          }
           role="region"
           aria-label="Page navigation content"
         >

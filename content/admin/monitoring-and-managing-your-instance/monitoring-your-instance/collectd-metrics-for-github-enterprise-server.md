@@ -32,7 +32,7 @@ Plugins provide metrics to `collectd`. You can learn about each plugin available
 | `df` | Usage information about the instance's file system | [Plugin:DF](https://collectd.org/wiki/index.php/Plugin:DF) in the `collectd` wiki |
 | `disk` | Performance statistics for the instance's hard disks and other block devices | [Plugin:Disk](https://collectd.org/wiki/index.php/Plugin:Disk) in the `collectd` wiki |
 | `elasticsearch` | Statistics for Elasticsearch, which provides the instance's search functionality | [phobos182/collectd-elasticsearch](https://github.com/phobos182/collectd-elasticsearch/) repository on {% data variables.product.prodname_dotcom_the_website %} |
-| `fhcount` | Total, used, and unused file handles for the instance's Linux OS | [Manpage collectd.conf(5)](https://www.collectd.org/documentation/manpages/collectd.conf.html#plugin-fhcount) in the `collectd` wiki |
+| `fhcount` | Total, used, and unused file handles for the instance's Linux OS | [Manpage collectd.conf(5)](https://collectd.org/documentation/manpages/collectd.conf.html) in the `collectd` documentation |
 | `haproxy` | Front-end connections to the instance from HAProxy's management socket | [mleinart/collectd-haproxy](https://github.com/mleinart/collectd-haproxy) repository on {% data variables.product.prodname_dotcom_the_website %} |
 | `listener` | Active and queued connections to the instance's `github-unicorn`, `github-gitauth`, and `github-ernicorn` services | N/A |
 | `load` | System load average | [Plugin:Load](https://collectd.org/wiki/index.php/Plugin:Load) in the `collectd` wiki |

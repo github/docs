@@ -24,6 +24,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise
   - /copilot/copilot-business
   - /copilot/about-github-copilot/what-is-github-copilot
+contentType: get-started
 ---
 
 {% data variables.product.prodname_copilot %} is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration.

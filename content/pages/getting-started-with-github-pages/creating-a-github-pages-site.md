@@ -18,7 +18,7 @@ topics:
 shortTitle: Create a GitHub Pages site
 ---
 
-{% data reusables.pages.org-owners-can-restrict-pages-creation %}
+
 
 ## Creating a repository for your site
 
@@ -51,11 +51,11 @@ shortTitle: Create a GitHub Pages site
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 {%- ifversion ghec %}
-1. Optionally, if you're publishing a project site from a private or internal repository, choose the visibility for your site. Under "{% data variables.product.prodname_pages %}", select the visibility dropdown menu, then select public or private.
+1. Optionally, if you're publishing a project site from a private or internal repository, choose the visibility for your site. Under "{% data variables.product.prodname_pages %}," select the visibility dropdown menu, then select public or private.
    ![Screenshot of Pages settings for a repository. The visibility dropdown, currently set to "Private," is outlined in dark orange.](/assets/images/help/pages/public-or-private-visibility.png)
    {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3 %}
 {%- endif %}
-1. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-hidden="true" aria-label="link-external" %} Visit site**.
+1. To see your published site, under "{% data variables.product.prodname_pages %}," click **{% octicon "link-external" aria-hidden="true" aria-label="link-external" %} Visit site**.
 
 {% data reusables.pages.twenty-minutes-to-publish %}
 {% data reusables.pages.admin-must-push %}

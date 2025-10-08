@@ -42,7 +42,7 @@ Organization owners and users with push access to a repository can create checks
 
 ## Checks
 
-When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from checks and rerun failed checks.
+Pull requests have a **Checks** tab where you can view detailed build output from checks and rerun failed checks.
 
 > [!NOTE]
 > The **Checks** tab only gets populated for pull requests if you set up _checks_, not _commit statuses_, for the repository.

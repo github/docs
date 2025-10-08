@@ -19,7 +19,7 @@ topics:
   - SSO
 ---
 
-**Before** following the steps in this article, make sure that your enterprise uses **managed users**. You can do so by checking whether your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen. If you see this, your enterprise uses **managed users** and you can follow the steps in this article.
+**Before** following the steps in this article, make sure that your enterprise uses **managed users** and that you are signed in as the setup user whose username is your enterprise's shortcode suffixed with `_admin`. You can verify you are signed in with the correct user by checking whether your enterprise view has the "Viewing as SHORTCODE_admin" header bar at the top of the screen. If you see this, you are signed in with the correct user and you can follow the steps in this article. For more information about the setup user, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
 If your enterprise uses **personal accounts**, you must follow a different process to configure SAML single sign-on. See [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 
@@ -108,11 +108,14 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
 
-1. Under "SAML single sign-on", select **Add SAML configuration**.
+1. Under "SAML single sign-on," select **Add SAML configuration**.
 1. Under **Sign on URL**, type the HTTPS endpoint of your IdP for SSO requests that you noted while configuring your IdP.
 1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
-1. Under **Public Certificate**, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
+
+   > [!NOTE]
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+1. Under the same **Public Certificate** section, select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer.
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save SAML settings**.
 

@@ -288,8 +288,10 @@ ghe-reactivate-admin-login
 ### ghe-saml-mapping-csv
 
 {% ifversion scim-for-ghes-ga %}
+
 > [!NOTE]
 > This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+
 {% endif %}
 
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
@@ -1003,6 +1005,18 @@ All Storage tests passed
 
 ## High availability
 
+{% ifversion ghes > 3.17 %}
+
+### ghe-repl-decommission
+
+This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+
+```shell
+ghe-repl-decommission <UUID>
+```
+
+{% endif %}
+
 ### ghe-repl-promote
 
 This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
@@ -1072,8 +1086,6 @@ This utility completely disables replication on an existing replica node, removi
 ghe-repl-teardown
 ```
 
-{% ifversion ghes > 3.13 %}
-
 ### ghe-repl-stop-all
 
 This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
@@ -1081,7 +1093,6 @@ This utility disables replication of all datastores on all replica nodes. Run th
 ### ghe-repl-start-all
 
 This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
-{% endif %}
 
 ## Import and export
 

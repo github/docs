@@ -35,7 +35,8 @@ For more information about the identity providers (IdPs) that {% data variables.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "SAML single sign-on", select **Enable SAML authentication**.
+
+1. Under "SAML single sign-on," select **Enable SAML authentication**.
 
    > [!NOTE]
    > After enabling SAML SSO, you can download your single sign-on recovery codes so that you can access your organization even if your IdP is unavailable. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes).
@@ -46,8 +47,13 @@ For more information about the identity providers (IdPs) that {% data variables.
    > [!NOTE]
    > If you want to enable team synchronization for your organization, the "Issuer" field is a required. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization).
 
-1. Under "Public Certificate," paste a certificate to verify SAML responses.
+1. Under "Public Certificate", paste a certificate to verify SAML responses.
+
+   > [!NOTE]
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+
 {% data reusables.saml.edit-signature-and-digest-methods %}
+
 1. Before enabling SAML SSO for your organization, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 
    > [!TIP]

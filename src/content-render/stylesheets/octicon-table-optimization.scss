@@ -27,7 +27,7 @@ $dark-color: "%23ffffff";
   }
 
   @media (prefers-color-scheme: dark) {
-    [data-color-mode="auto"][data-dark-theme="dark"] & {
+    [data-color-mode="auto"][data-dark-theme*="dark"] & {
       background-image: octicon-svg($path, $dark-color);
     }
   }

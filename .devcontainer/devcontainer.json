@@ -6,7 +6,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version
-    "args": { "VARIANT": "22" }
+    "args": { "VARIANT": "24" }
   },
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
@@ -59,11 +59,13 @@
   },
 
   // Lifecycle commands
-  "onCreateCommand": "npm ci",
+  // Install dependencies then install Copilot CLI
+  "onCreateCommand": "npm ci && npm install -g @github/copilot@prerelease",
+  // Start a web server and keep it running
   "postStartCommand": "nohup bash -c 'npm start &'",
-  // Set the port to be public
+  // Set port 4000 to be public
   "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
-
+  
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node",
 

@@ -1,0 +1,1 @@
+Multiple types of custom instructions can apply to a {% data variables.copilot.copilot_chat_short %} conversation. Personal instructions take the highest priority, followed by repository instructions, with organization instructions prioritized last.  However, all sets of relevant instructions are still combined and provided to {% data variables.copilot.copilot_chat_short %}.

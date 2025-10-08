@@ -11,6 +11,6 @@ children:
   - /breaking-changes
   - /changelog
   - /explorer
-  - /rate-limits-and-node-limits-for-the-graphql-api
+  - /rate-limits-and-query-limits-for-the-graphql-api
 ---
 

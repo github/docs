@@ -8,20 +8,26 @@ topics:
   - Copilot
 children:
   - /copilot-chat-cookbook
-  - /choosing-the-right-ai-tool-for-your-task
-  - /comparing-ai-models-using-different-tasks
-  - /enhancing-copilot-agent-mode-with-mcp
-  - /quickstart-for-github-copilot-extensions-using-agents
-  - /speeding-up-development-work-with-copilot-spaces
-  - /using-copilot-to-explore-a-codebase
-  - /writing-tests-with-github-copilot
-  - /refactoring-code-with-github-copilot
-  - /learning-a-new-programming-language-with-github-copilot
-  - /modernizing-legacy-code-with-github-copilot
-  - /using-copilot-to-migrate-a-project
-  - /upgrading-projects-with-github-copilot
-  - /rolling-out-github-copilot-at-scale
+  - /customization-library
+  - /coding-agent
+  - /spark
+  - /enhance-agent-mode-with-mcp
+  - /compare-ai-models
+  - /speed-up-development-work
+  - /roll-out-at-scale
+  - /explore-a-codebase
+  - /explore-issues-and-discussions
+  - /explore-pull-requests
+  - /write-tests
+  - /refactor-code
+  - /learn-a-new-language
+  - /modernize-legacy-code
+  - /migrate-a-project
+  - /plan-a-project
+  - /upgrade-projects
+  - /try-extensions
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
+contentType: tutorials
 ---
 

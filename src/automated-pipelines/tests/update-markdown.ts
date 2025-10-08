@@ -5,7 +5,7 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 import { mkdirp } from 'mkdirp'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 import type { FrontmatterVersions } from '@/types'
 
 import { updateContentDirectory } from '../lib/update-markdown'

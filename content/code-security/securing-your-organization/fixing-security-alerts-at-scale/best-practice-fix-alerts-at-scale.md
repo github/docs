@@ -5,10 +5,14 @@ intro: 'Guidance on how to create successful security campaigns that engage deve
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.security-campaigns %}'
 type: reference
+audience:
+  - driver
+contentType: tutorials
 versions:
   feature: security-campaigns
 topics:
   - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---
@@ -17,11 +21,11 @@ topics:
 
 Successful security campaigns to fix alerts at scale have many features in common, including:
 
-* Selecting a related group of security alerts for remediation.
-* Using {% data variables.copilot.copilot_autofix_short %} suggestions where possible to help developers remediate alerts faster and more effectively.
+* Selecting a related group of security alerts for remediation.{% ifversion security-campaigns-autofix %}
+* For code campaigns, using {% data variables.copilot.copilot_autofix_short %} suggestions where possible to help developers remediate alerts faster and more effectively.{% endif %}
 * Making sure that the campaign managers are available for collaboration, reviews, and questions about fixes.
-* Providing access to educational information about the type of alerts included in the campaign.{% ifversion ghec %}
-* Making {% data variables.copilot.copilot_chat %} available for developers to use to learn about the vulnerabilities highlighted by the security alerts in the campaign. {% endif %}
+* Providing access to educational information about the type of alerts included in the campaign.
+* Making {% data variables.copilot.copilot_chat %} available for developers to use to learn about the vulnerabilities highlighted by the security alerts in the campaign.
 * Defining a realistic deadline for campaign, bearing in mind the number of alerts you aim to fix.
 * Publicizing the collaboration to developer teams and identifying the best way to engage them for your organization.
 
@@ -29,18 +33,35 @@ For information about the developer experience, see [AUTOTITLE](/code-security/c
 
 ## Selecting security alerts for remediation
 
-Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding and common vulnerabilities, you will benefit from a more strategic approach.
+Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding{% ifversion security-campaigns-secrets %}, exposed secrets,{% endif %} and common vulnerabilities, you will benefit from a more strategic approach.
 
-For example, if you have many alerts for cross-site scripting vulnerabilities, you could:
+{% ifversion security-campaigns-secrets %}
 
-* Create educational content for developers in a repository using resources from the OWASP Foundation, see [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
-* Create a campaign to remediate all alerts for this vulnerability, including a link to the educational content in the campaign description.
+### Example approach for a code campaign
+
+{% endif %}
+
+For a campaign to raise awareness and fix cross-site scripting vulnerabilities, you could:
+
+* Create educational content for developers in a repository using resources from the OWASP Foundation, see [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/).{% ifversion security-campaigns-autofix %}
+* Create a campaign to remediate all alerts for this vulnerability where {% data variables.copilot.copilot_autofix_short %} is supported, using the `autofix:supported` filter.{% endif %}
+* Include a link to the educational content in the campaign description.
 * Hold a training session or other event to highlight this opportunity to gain confidence in secure coding while fixing real bugs.
 * Make sure that the security team members assigned to manage the campaign are available to review the pull requests created to fix the campaign alerts, collaborating as needed.
 
-### Using {% data variables.copilot.copilot_autofix_short %} to help remediate security alerts
+{% ifversion security-campaigns-secrets %}
 
-{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help fix {% data variables.product.prodname_code_scanning %} alerts. When you select alerts to include in a security campaign, you can preferentially include alerts that are eligible to be fixed with the help of {% data variables.copilot.copilot_autofix %} using the `autofix:supported` filter.
+### Example approach for a secrets campaign
+
+{% data reusables.security.secrets-campaign-preview %}
+
+For a campaign to raise awareness and fix exposed passwords, you could:
+
+* Create educational content for developers about storing passwords securely, for example, as {% data variables.product.github %} secrets, see [AUTOTITLE](/code-security/getting-started/understanding-github-secret-types).
+* Create a campaign to remediate all alerts for exposed passwords, including a link to the educational content in the campaign description.
+* Make sure that the security team members assigned to manage the campaign are available to ensure secrets are revoked and rotated acceptably, collaborating as needed.
+
+{% endif %}
 
 ### Campaign filter templates
 
@@ -83,11 +104,11 @@ The OWASP Foundation provides many resources for learning about the most common 
 
 {% ifversion security-campaigns-autofix %}
 
-## Providing AI support for learning about security vulnerabilities
+## Providing AI support for learning about code vulnerabilities
 
-{% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution for each security alert. However, developers will often want more information about why the original code is insecure and how to test that the fix is correct and doesn't break other components.
+{% data variables.copilot.copilot_autofix %} is automatically triggered to suggest a resolution for each {% data variables.product.prodname_code_scanning %} alert. However, developers will often want more information about why the original code is insecure and how to test that the fix is correct and doesn't break other components.
 
-{% data variables.product.prodname_copilot %} is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
+{% data variables.product.prodname_copilot %} chat is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/manage-access/grant-access).
 
 {% endif %}
 

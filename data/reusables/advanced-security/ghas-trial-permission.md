@@ -1,0 +1,1 @@
+Enterprise owners <br> Otherwise, you need a trial of {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the {% data variables.product.prodname_ghe_cloud %} documentation

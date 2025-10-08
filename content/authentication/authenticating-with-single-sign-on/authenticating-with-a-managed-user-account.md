@@ -3,6 +3,8 @@ title: 'Authenticating with {% data variables.product.prodname_emus %}'
 shortTitle: Authenticate as a managed user
 intro: 'Learn how to authenticate to access an {% data variables.enterprise.prodname_emu_enterprise %} on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.emus %}'
+redirect_from:
+  - /authentication/authenticating-with-saml-single-sign-on/authenticating-with-a-managed-user-account
 versions:
   ghec: '*'
 topics:

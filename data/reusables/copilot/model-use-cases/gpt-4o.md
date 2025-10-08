@@ -1,1 +1,0 @@
-{% data variables.copilot.copilot_gpt_4o %} is a good choice for common development tasks that benefit from speed, responsiveness, and general-purpose reasoning. If you're working on tasks that require broad knowledge, fast iteration, or basic code understanding, {% data variables.copilot.copilot_gpt_4o %} is likely the model to use.

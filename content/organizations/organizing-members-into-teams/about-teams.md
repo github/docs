@@ -1,5 +1,5 @@
 ---
-title: About teams
+title: About organization teams
 intro: Teams are groups of organization members that reflect your company or group's structure with cascading access permissions and mentions.
 redirect_from:
   - /articles/about-teams
@@ -11,15 +11,20 @@ versions:
 topics:
   - Organizations
   - Teams
+allowTitleToDifferFromFilename: true
 ---
 
 ## About teams
 
 You can use teams to manage access for people in an organization, and for sending notifications. Organization owners and team maintainers can give teams admin, read, or write access to organization repositories. Organization members can send a notification to an entire team by mentioning the team's name. Teams can only be made up of members of your organization, outside collaborators are unable to be on a team.
 
-Organization owners and team maintainers can disable team notifications. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/configuring-team-notifications).
+{% ifversion not ghes %}
 
-Organization members can also send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
+>![TIP] If you use an enterprise account, you can also create teams at the enterprise level. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-teams).
+
+{% endif %}
+
+Organization members can send a notification to an entire team by requesting a review from that team. Organization members can request reviews from specific teams with read access to the repository where the pull request is opened. Teams can be designated as owners of certain types or areas of code in a CODEOWNERS file.
 
 For more information, see:
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)

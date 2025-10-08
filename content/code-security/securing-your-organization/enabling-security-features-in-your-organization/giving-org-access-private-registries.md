@@ -59,7 +59,7 @@ Any private registries used by the build must also be accessible to the workflow
 
 ## {% data variables.product.prodname_dependabot %} updates access to private registries
 
-{% data variables.product.prodname_dependabot %} uses any private registries defined in the `dependabot.yml` file. It does not have access to the organization-level private registries used by {% data variables.product.prodname_code_scanning %} default setup.
+{% data variables.product.prodname_dependabot %} can use any of the org-level private registries, as well as uses any private registries defined in the `dependabot.yml` file in the repo.
 
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 

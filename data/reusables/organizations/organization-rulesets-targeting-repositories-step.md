@@ -15,8 +15,7 @@ You can target repositories in your organization by custom properties. See [AUTO
 
 #### Targeting all repositories in your organization
 
-To target all repositories in your organization, in the "Target repositories" section, next to 
-"Repository targeting criteria", select **All repositories**.
+To target all repositories in your organization, in the "Target repositories" section, next to "Repository targeting criteria", select **All repositories**.
 
 #### Targeting select repositories in your organization
 

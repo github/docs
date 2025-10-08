@@ -125,6 +125,7 @@ async function getCurrentProductTreeTitles(input: Tree, context: Context): Promi
     childPages: childPages.filter(Boolean),
   }
   if (page.hidden) node.hidden = true
+  if (page.sidebarLink) node.sidebarLink = page.sidebarLink
   if (page.layout && typeof page.layout === 'string') node.layout = page.layout
   return node
 }
@@ -138,18 +139,20 @@ function excludeHidden(tree: TitlesTree) {
     documentType: tree.documentType,
     childPages: tree.childPages.map(excludeHidden).filter(Boolean) as TitlesTree[],
   }
+  if (tree.sidebarLink) newTree.sidebarLink = tree.sidebarLink
   if (tree.layout && typeof tree.layout === 'string') newTree.layout = tree.layout
   return newTree
 }
 
 function sidebarTree(tree: TitlesTree) {
-  const { href, title, shortTitle, childPages } = tree
+  const { href, title, shortTitle, childPages, sidebarLink } = tree
   const childChildPages = childPages.map(sidebarTree)
   const newTree: TitlesTree = {
     href,
     title: shortTitle || title,
     childPages: childChildPages,
   }
+  if (sidebarLink) newTree.sidebarLink = sidebarLink
   if (tree.layout && typeof tree.layout === 'string') newTree.layout = tree.layout
   return newTree
 }

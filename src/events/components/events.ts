@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import Cookies from '@/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'

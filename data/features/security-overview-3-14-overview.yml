@@ -1,7 +1,0 @@
-# Reference: #14180
-# Documentation for the addition of tool filters to the Overview page in the Security tab.
-# Ref 17108 Advanced Security available to Team plans
-versions:
-  fpt: '*'
-  ghes: '>3.13'
-  ghec: '*'

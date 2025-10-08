@@ -7,6 +7,9 @@ bash:
 bicep:
   name: Bicep
   comment: slash
+copilot:
+  name: Copilot Chat prompt
+  comment: none
 csharp:
   name: C#
   comment: slash

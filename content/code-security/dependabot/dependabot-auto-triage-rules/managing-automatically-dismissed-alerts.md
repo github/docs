@@ -28,11 +28,11 @@ redirect_from:
 {% data reusables.repositories.sidebar-security %}
 1. To filter to see all closed alerts, click **{% octicon "check" aria-hidden="true" aria-label="check" %} Closed**. Alternatively, use the `is:closed` filter query in the search bar.
 
-   ![Screenshot of the "Dependabot Alerts" page. A button, labelled "Closed" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-tab.png)
+   ![Screenshot of the "Dependabot Alerts" page. A button, labeled "Closed" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-tab.png)
 
 1. To see all auto-dismissed alerts, select **Closed as**, then in the dropdown menu, click **Auto-dismissed**.
 
-   ![Screenshot of the "Dependabot Alerts" page. A button, labelled "Closed as" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-as.png)
+   ![Screenshot of the "Dependabot Alerts" page. A button, labeled "Closed as" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-as.png)
 
 1. To reopen an auto-dismissed alert, to the left of the alert title, click the checkbox adjacent to the alert, then click **Reopen**.
 

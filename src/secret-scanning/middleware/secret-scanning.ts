@@ -46,6 +46,9 @@ export default async function secretScanning(
     if (entry.isduplicate) {
       entry.secretType += ' <br/><a href="#token-versions">Token versions</a>'
     }
+    if (entry.ismultipart) {
+      entry.secretType += ' <br/><a href="#multi-part-secrets">Multi-part secrets</a>'
+    }
   })
 
   return next()

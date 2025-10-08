@@ -1,6 +1,6 @@
 ## About {% data variables.copilot.copilot_sku_isolation %}
 
-As an {% ifversion ghec %}enterprise or {% endif %}organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_for_business %}{% ifversion ghec %} or {% data variables.copilot.copilot_enterprise %}, or both{% endif %}, and/or block access to {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
+As an enterprise or organization owner, you can use your network firewall to explicitly allow access to {% data variables.copilot.copilot_for_business %}, {% data variables.copilot.copilot_enterprise %}, or both, and/or block access to {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_free %}. This allows you to control which {% data variables.product.prodname_copilot %} plans your members can use within your network.
 
 Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot_short %} features:
 
@@ -16,12 +16,11 @@ Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the f
 
 You should ensure that your firewall allows access to all of the hostnames listed in [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot).
 
-## Configuring {% data variables.copilot.copilot_sku_isolation %} for your {% ifversion ghec %}enterprise or {% endif %}organization
+## Configuring {% data variables.copilot.copilot_sku_isolation %} for your enterprise or organization
 
-{% ifversion ghec %}Enterprise or organization {% else %}Organization {% endif %}owners can add the endpoints for {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}{% ifversion ghec %}, or both,{% endif %} to their allow-list. This will ensure that members can only access {% data variables.product.prodname_copilot_short %} through the allowed endpoint.
+Enterprise or organization owners can add the endpoints for {% data variables.copilot.copilot_business_short %}, {% data variables.copilot.copilot_enterprise_short %}, or both to their allow-list. This will ensure that members can only access {% data variables.product.prodname_copilot_short %} through the allowed endpoint.
 
-{% ifversion ghec %}
-> [!NOTE] If your enterprise account includes both {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, make sure both endpoints are added to your allow-list.{% endif %}
+> [!NOTE] If your enterprise account includes both {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans, make sure both endpoints are added to your allow-list.
 
 1. Ensure your members have updated to at least the minimum version of their {% data variables.product.prodname_copilot_short %} client listed below.
     * For {% data variables.product.prodname_vscode %}, use {% data variables.copilot.copilot_chat_short %} version 0.17 or later.

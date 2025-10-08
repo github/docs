@@ -1,7 +1,7 @@
 import type { Response } from 'express'
 
 import { Context } from '@/types'
-import { ExtendedRequestWithPageInfo } from '../types'
+import { ExtendedRequestWithPageInfo } from '@/article-api/types'
 import contextualize from '@/frame/middleware/context/context'
 
 export async function getArticleBody(req: ExtendedRequestWithPageInfo) {

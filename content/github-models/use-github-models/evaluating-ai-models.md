@@ -131,11 +131,13 @@ After applying the parameters, you can add additional columns to compare more mo
 
 Once the prompt is configured, run a structured evaluation to compare model outputs using real data and repeatable metrics.
 
-Model evaluation helps you understand how different models and prompt configurations perform across real inputs. In the Prompt view, you can apply evaluators to multiple models side by side and review metrics such as similarity, relevance, and groundedness.
+Model evaluation helps you understand how different models and prompt configurations perform across real inputs. In the Prompt view, you can apply evaluators to multiple models side by side and review metrics such as similarity, fluency, coherence, relevance, and groundedness.
 
 The following evaluators are available:
 
 * **Similarity**: Measures how closely a model's output matches an expected or reference answer. This is useful when you want to confirm that the model returns consistent and accurate responses aligned with a known result. The score ranges from 0 to 1, with higher values indicating greater similarity.
+* **Fluency**: Evaluates the linguistic quality of a response, including grammar, coherence, and readability. This results in linguistically correct responses.
+* **Coherence**: Assesses the ability of the LLM to generate text that reads naturally, flows smoothly, and resembles human-like language in its responses. Use it when assessing the readability and user-friendliness of a model’s generated responses in real-world applications.
 * **Relevance**: Refers to how effectively a response addresses a question. It assesses the accuracy, completeness, and direct relevance of the response based solely on the given information. The score ranges from 0 to 1, with higher values indicating stronger alignment with the input's intent.
 * **Groundedness**: Measures how well an answer is anchored in the provided context, evaluating its relevance, accuracy, and completeness based exclusively on that context. It assesses the extent to which the answer fully addresses the question without introducing unrelated or incorrect information. The score ranges from 0 to 1, with higher values indicating higher accuracy.
 * **Custom prompt**: Lets you define your own evaluation criteria for one LLM to assess the output of another. This allows you to score model outputs based on your own guidelines. You can choose between pass/fail or scored evaluations, making it ideal for scenarios where standard metrics do not capture testing expectations.

@@ -14,7 +14,7 @@ export const tableLiquidVersioning = {
   description: 'Tables must use the correct liquid versioning format',
   severity: 'error',
   tags: ['tables'],
-  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
+
   function: function GHD040(params, onError) {
     const lines = params.lines
     let inTable = false

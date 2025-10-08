@@ -16,6 +16,8 @@ topics:
 shortTitle: Jekyll build errors for Pages
 ---
 
+{% data reusables.pages.actions-is-preferred %}
+
 ## About Jekyll build errors
 
 If you are publishing from a branch, sometimes {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% ifversion fpt or ghec %}

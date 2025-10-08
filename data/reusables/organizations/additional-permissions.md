@@ -59,6 +59,7 @@ For more information, see [AUTOTITLE](/discussions).
 * View {% data variables.product.prodname_secret_scanning %} results
 * Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results
 
+{%- ifversion ghec %}
 ### Actions
 
 * Manage {% data variables.product.prodname_actions %} general settings
@@ -66,3 +67,4 @@ For more information, see [AUTOTITLE](/discussions).
 * Manage secrets
 * Manage variables
 * Manage environments (including environment secrets and variables)
+{%- endif %}

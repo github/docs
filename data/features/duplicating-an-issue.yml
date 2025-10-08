@@ -1,0 +1,6 @@
+# Reference: #18759
+# Versions for which duplicating issues is available
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.18'

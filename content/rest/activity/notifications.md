@@ -51,15 +51,15 @@ Reason Name | Description
 `approval_requested` | You were requested to review and approve a deployment. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments).
 `assign` | You were assigned to the issue.
 `author` | You created the thread.
-`comment` | You commented on the thread.
 `ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
+`comment` | You commented on the thread.
 `invitation` | You accepted an invitation to contribute to the repository.
 `manual` | You subscribed to the thread (via an issue or pull request).
 `member_feature_requested` | Organization members have requested to enable a feature such as Copilot.
 `mention` | You were specifically **@mentioned** in the content.
 `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
-`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) in your repository.{% endif %}
 `security_advisory_credit` | You were credited for contributing to a security advisory.
+`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) in your repository.{% endif %}
 `state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
 `subscribed` | You're watching the repository.
 `team_mention` | You were on a team that was mentioned.

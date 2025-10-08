@@ -2,8 +2,8 @@ A user is considered active if the user has performed any of the following activ
 
 * {% ifversion ghec %}Authenticating to access your enterprise's resources via SAML SSO{% else %}Signing into {% data variables.location.product_location %} {% endif %}
 * Creating a repository
-* Pushing to a repository via HTTPS{% ifversion ghes %}
-* Pushing to a repository via SSH{% endif %}
+* Pushing to an internal repository via HTTPS{% ifversion ghes %}
+* Pushing to an internal repository via SSH{% endif %}
 * Being added to a repository
 * Changing the visibility of a repository
 * Creating an issue or pull request
@@ -22,6 +22,11 @@ A user is considered active if the user has performed any of the following activ
 * Starring a repository
 * Deleting a repository
 * Joining an organization
+
+{% data variables.product.github %} **does not consider the following activities as active**:
+
+* Accessing resources by using a {% data variables.product.pat_generic %}, SSH key, or {% data variables.product.prodname_github_app %}.
+* Git operations (such as pushes, pulls, repository cloning) on private repositories.
 
 {% ifversion ghes %}
 A user will also be considered active if their account has been updated by LDAP.

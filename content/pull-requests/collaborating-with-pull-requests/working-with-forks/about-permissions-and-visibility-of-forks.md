@@ -14,7 +14,10 @@ topics:
 
 {% data reusables.repositories.you-can-fork %}
 
-If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork. If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not. You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% ifversion ghec or ghes %} You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
+* If you fork a private repository that belongs to a personal account, external collaborators also get access to the fork.
+* If you fork a private {% ifversion ghec or ghes %}or internal {% endif %}repository that belongs to an organization, teams within the organization get access to the fork, but external collaborators do not.
+* {% ifversion ghes %} You can add an external collaborator to a fork of a private repository that belongs to an organization if you are an owner of that organization or if your organization allows repository administrators to invite external collaborators.{% endif %}{% ifversion fpt or ghec %} You can add an external collaborator to a fork of a private repository owned by an organization if you are an organization owner, or if your organization allows repository administrators to invite external collaborators, and the external collaborator also has access to the upstream repository.{% endif %}
+{% ifversion ghec or ghes %} * You can add an external collaborator to a fork of an internal repository that belongs to an organization if the external collaborator also has access to the upstream repository.{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -38,7 +41,16 @@ If you delete a fork, any code contributions of that fork will still be accessib
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-Public forks do not inherit the permissions structure of the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
+Public forks do not inherit the permissions structure of the upstream repository.
+
+When you fork a public repository to your personal account, you can allow repository maintainers to push to your pull request branch. This includes giving them permission to make commits or delete the branch.
+
+This speeds up collaboration by letting maintainers:
+* Make direct commits to your branch
+* Run tests locally before merging
+You cannot give push permissions to a fork owned by an organization.
+
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork).
 
 {% ifversion push-rulesets %}
 
@@ -64,6 +76,7 @@ If you work with forks, or if you're the owner of a repository or organization t
 ### About forks within an organization
 
 Forks within the same organization copy the collaborators and team settings of their upstream repositories. If a repository is owned by an organization:
+
 * That organization controls the permissions of its forks.
 * Any teams from the upstream permission structure that exist and are visible in the target organization or user namespace will have their permissions copied.
 * Admin permissions remain with the upstream owner, except when a user forks into a different organization.

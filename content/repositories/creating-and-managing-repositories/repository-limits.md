@@ -9,13 +9,65 @@ topics:
   - Repositories
 ---
 
-Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
+Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time. Exceeding the recommended maximum limit increases the risk of degraded repository health, which includes, but is not limited to, slow response times for basic Git operations and UI latency.
+
+>[!NOTE] While following these guidelines can improve repository stability, it does not guarantee supportability, as other factors may lead to unexpected behavior.
 
 Most of the limits below affect both {% data variables.product.github %} and the API.
 
+## Repository size
+
+To ensure optimal performance and manageability, we recommend staying within the following maximum limits for repository structure and size.
+
+* **On-disk size**: 10 GB
+
+  On-disk size refers to the size of the `.git` folder (the compressed form of the repository). Large repositories can slow down fetch operations and increase clone times for developers and CI. To manage repository size:
+
+  * Use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) for binary files.
+  * Store programmatically generated files outside of Git, such as in object storage.
+
+* **Directory width (number of entries in a single directory)**: 3,000
+
+  Directories containing numerous frequently modified files can significantly increase repository maintenance costs and degrade the performance of basic Git operations. Segmenting files into a shallow directory structure will reduce the size of these trees and result in less new data created.
+
+* **Directory depth**: 50
+
+  Deep directory trees can make history-walking operations slower.
+
+* **Number of branches**: 5,000
+
+  Large numbers of branches can result in unnecessary data in fetch operations, leading to slow transfer times or in extreme cases throttled repository performance.
+
+## Activity
+
+To avoid throttling and performance issues, we recommend staying within the following operational limits.
+
+* **Push size**: This limit is enforced at 2GB.
+* **Single object size**:
+
+  The recommended maximum limit is 1MB. This is enforced at 100MB. To track large files in a Git repository, we recommend using {% data variables.large_files.product_name_short %}. See [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage).
+
+* **Git read operations (e.g. fetches, clones)**:
+
+  The recommended maximum limit is 15 operations per second per repository. Large amounts of read operations can result in throttled performance for a repository. Automated processes such as CI, machine users, or third-party applications, can degrade a repository's performance in some cases. Consider optimizing your CI's clone strategy and/or using a repository cache server. Note that shallow clones will impose less cost and burden on the server than full clones and therefore may perform better.
+
+* **Push rate**: The recommended maximum limit is 6 pushes per minute per repository.
+
 ## Text limits
 
-{% data variables.product.prodname_dotcom %} displays formatted previews of some files, such as Markdown and Mermaid diagrams. {% data variables.product.prodname_dotcom %} always attempts to render these previews if the files are small (generally less than 2 MB), but more complex files may time out and either fall back to plain text or not be displayed at all. These files are always available in their raw formats, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
+{% data variables.product.prodname_dotcom %} displays formatted previews of some files, such as Markdown and Mermaid diagrams. {% data variables.product.prodname_dotcom %} always attempts to render these previews if the files are small (generally less than 2 MB), but more complex files may time out and either fall back to plain text or not be displayed at all. These files are always available in their raw formats, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/main/index.html`. Click the **Raw** button to get the raw URL for a file.
+
+## Pull requests limits
+
+To reduce delays and performance issues in repositories with high pull request activity, we recommend staying within the following limits.
+
+* **Open pull requests (against the same branch)**: 1,000
+
+  Having many open pull requests targeting the same branch can slow down mergeability checks or lead to timeouts. If you're using a merge queue, consider disabling the "require this branch to be up to date before merging" setting. This limits mergeability checks to only the pull requests in the queue.
+
+* **Pull request merge rate**: 1 merged pull request per minute
+
+  Each merge triggers mergeability checks for all open pull requests, which can cause performance bottlenecks—especially in busy repositories. This can also lead to a race-to-merge situation that impacts developer productivity. To reduce load, disable the "require this branch to be up to date before merging" setting when using a merge queue.
 
 ## Diff limits
 

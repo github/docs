@@ -54,7 +54,7 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 * [Get the status of an autofix for a code scanning alert](/rest/code-scanning/code-scanning#get-the-status-of-an-autofix-for-a-code-scanning-alert)
 * [Commit an autofix for a code scanning alert](/rest/code-scanning/code-scanning#commit-an-autofix-for-a-code-scanning-alert)
 
-For information about the limitations of automatically generated fixes, see [Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions).
+{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} alerts won't be able to generate a fix for every alert in every situation. The feature operates on a best-effort basis and is not guaranteed to succeed 100% of the time. For information about the limitations of automatically generated fixes, see [Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning#limitations-of-suggestions).
 
 {% endif %}
 

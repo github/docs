@@ -22,6 +22,9 @@ topics:
 
 To get started with {% data variables.product.prodname_dotcom %}, you'll need to create a free personal account and verify your email address.
 
+You can also authenticate with Google or Apple - which are the supported social login providers when you create your account on {% data variables.product.prodname_dotcom %}.
+For iOS users, even if you have enabled the setting "Hide My Email addresses" for your Apple account, using social login will result in creating a new {% data variables.product.github %} account.
+
 {% data reusables.accounts.your-personal-account %}
 
 Later, you can explore the different types of accounts that {% data variables.product.prodname_dotcom %} offers, and decide if you need a billing plan. For more information, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts) and [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
@@ -32,6 +35,7 @@ Note that the steps in this article don't apply to {% data variables.product.pro
 
 1. Navigate to https://github.com/.
 1. Click **Sign up**.
+1. Alternatively, click on **Continue with Google** to sign up using social login.
 1. Follow the prompts to create your personal account.
 
 During sign up, you'll be asked to verify your email address. Without a verified email address, you won't be able to complete some basic {% data variables.product.prodname_dotcom %} tasks, such as creating a repository.

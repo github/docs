@@ -21,7 +21,7 @@ Some {% data variables.product.prodname_dotcom %} products have features that ar
 
 ## Core languages supported by {% data variables.product.prodname_dotcom %} features
 
-Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript,{% ifversion kotlin-supported-language %} Kotlin,{% endif %} PHP, Python, Ruby,{% ifversion dependabot-updates-cargo-private-registry-support %} Rust,{% endif %} Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
+Core languages for {% data variables.product.prodname_dotcom %} features include C, C++, C#, Go, Java, JavaScript,{% ifversion kotlin-supported-language %} Kotlin,{% endif %} PHP, Python, Ruby, Rust, Scala, and TypeScript. For features that support package managers, the currently supported package managers are included in the table with their relevant languages.
 
 Some features are supported for additional languages or package managers. If you want to know whether another language is supported for a feature or to request support for a language, visit {% data variables.contact.community_support_forum %}.
 

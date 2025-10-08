@@ -44,7 +44,7 @@ describe('get-data', () => {
     const jaTranslationsRoot = path.join(dd.root, 'translations', 'ja-JP')
     fs.mkdirSync(jaTranslationsRoot, { recursive: true })
     languages.ja.dir = jaTranslationsRoot
-    new DataDirectory( // eslint-disable-line no-new
+    new DataDirectory(
       {
         data: {
           ui: {
@@ -242,7 +242,7 @@ describe('get-data on corrupt translations', () => {
     const jaTranslationsRoot = path.join(dd.root, 'translations', 'ja-JP')
     fs.mkdirSync(jaTranslationsRoot, { recursive: true })
     languages.ja.dir = jaTranslationsRoot
-    new DataDirectory( // eslint-disable-line no-new
+    new DataDirectory(
       {
         data: {
           variables: {
