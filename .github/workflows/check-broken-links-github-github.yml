@@ -64,7 +64,7 @@ jobs:
       - name: Create issue from file
         if: ${{ hashFiles('broken_github_github_links.md') != '' }}
         id: github-github-broken-link-report
-        uses: peter-evans/create-issue-from-file@24452a72d85239eacf1468b0f1982a9f3fec4c94
+        uses: peter-evans/create-issue-from-file@fca9117c27cdc29c6c4db3b86c48e4115a786710
         with:
           token: ${{ env.GITHUB_TOKEN }}
           title: ${{ steps.check.outputs.title }}
