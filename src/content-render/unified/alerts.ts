@@ -4,9 +4,16 @@ Custom "Alerts", based on similar filter/styling in the monolith code.
 
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
+// @ts-ignore - no types available for @primer/octicons
 import octicons from '@primer/octicons'
+import type { Element } from 'hast'
 
-const alertTypes = {
+interface AlertType {
+  icon: string
+  color: string
+}
+
+const alertTypes: Record<string, AlertType> = {
   NOTE: { icon: 'info', color: 'accent' },
   IMPORTANT: { icon: 'report', color: 'done' },
   WARNING: { icon: 'alert', color: 'attention' },
@@ -17,14 +24,17 @@ const alertTypes = {
 // Must contain one of [!NOTE], [!IMPORTANT], ...
 const ALERT_REGEXP = new RegExp(`\\[!(${Object.keys(alertTypes).join('|')})\\]`, 'gi')
 
-const matcher = (node) =>
+// Using any due to conflicting unist/hast type definitions between dependencies
+const matcher = (node: any): boolean =>
   node.type === 'element' &&
   node.tagName === 'blockquote' &&
   ALERT_REGEXP.test(JSON.stringify(node.children))
 
-export default function alerts({ alertTitles = {} }) {
-  return (tree) => {
-    visit(tree, matcher, (node) => {
+export default function alerts({ alertTitles = {} }: { alertTitles?: Record<string, string> }) {
+  // Using any due to conflicting unist/hast type definitions between dependencies
+  return (tree: any) => {
+    // Using any due to conflicting unist/hast type definitions between dependencies
+    visit(tree, matcher, (node: any) => {
       const key = getAlertKey(node)
       if (!(key in alertTypes)) {
         console.warn(
@@ -48,13 +58,14 @@ export default function alerts({ alertTitles = {} }) {
   }
 }
 
-function getAlertKey(node) {
+function getAlertKey(node: Element): string {
   const body = JSON.stringify(node.children)
   const matches = body.match(ALERT_REGEXP)
-  return matches[0].slice(2, -1)
+  return matches![0].slice(2, -1)
 }
 
-function removeAlertSyntax(node) {
+// Using any to handle both array and object node types recursively
+function removeAlertSyntax(node: any): any {
   if (Array.isArray(node)) {
     return node.map(removeAlertSyntax)
   }
@@ -67,7 +78,7 @@ function removeAlertSyntax(node) {
   return node
 }
 
-function getOcticonSVG(name) {
+function getOcticonSVG(name: string): Element {
   return h(
     'svg',
     {
@@ -78,6 +89,6 @@ function getOcticonSVG(name) {
       className: 'octicon mr-2',
       ariaHidden: true,
     },
-    h('path', { d: octicons[name].heights[16].path.match(/d="(.*)"/)[1] }),
+    h('path', { d: octicons[name].heights[16].path.match(/d="(.*)"/)![1] }),
   )
 }

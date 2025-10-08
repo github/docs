@@ -24,7 +24,7 @@ describe('Permalink class', () => {
     const homepagePermalink = permalinks.find(
       (permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion,
     )
-    expect(homepagePermalink.href).toBe('/en')
+    expect(homepagePermalink?.href).toBe('/en')
   })
 
   test('derives info for non-enterprise versioned homepage', () => {

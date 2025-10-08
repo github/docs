@@ -2,7 +2,12 @@ import matter from '@gr2m/gray-matter'
 
 import { validateJson } from '@/tests/lib/validate-json-schema'
 
-function readFrontmatter(markdown, opts = {}) {
+interface ReadFrontmatterOptions {
+  schema?: Record<string, any> // Schema can have arbitrary properties for validation
+  filepath?: string | null
+}
+
+function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   const schema = opts.schema || { type: 'object', properties: {} }
   const filepath = opts.filepath || null
 
@@ -10,7 +15,7 @@ function readFrontmatter(markdown, opts = {}) {
 
   try {
     ;({ content, data } = matter(markdown))
-  } catch (e) {
+  } catch (e: any) {
     const defaultReason = 'invalid frontmatter entry'
 
     const reason = e.reason
@@ -21,7 +26,7 @@ function readFrontmatter(markdown, opts = {}) {
         : e.reason
       : defaultReason
 
-    const error = {
+    const error: any = {
       reason,
       message: 'YML parsing error!',
     }
@@ -33,7 +38,7 @@ function readFrontmatter(markdown, opts = {}) {
     return { errors }
   }
 
-  const validate = validateJson(schema, data)
+  const validate: any = validateJson(schema, data)
 
   // Combine the AJV-supplied `instancePath` and `params` into a more user-friendly frontmatter path.
   // For example, given:
@@ -44,7 +49,7 @@ function readFrontmatter(markdown, opts = {}) {
   //
   // The purpose is to help users understand that the error is on the `fpt` key within the `versions` object.
   // Note if the error is on a top-level FM property like `title`, the `instancePath` will be empty.
-  const cleanPropertyPath = (params, instancePath) => {
+  const cleanPropertyPath = (params: Record<string, any>, instancePath: string) => {
     const mainProps = Object.values(params)[0]
     if (!instancePath) return mainProps
 
@@ -55,8 +60,8 @@ function readFrontmatter(markdown, opts = {}) {
   const errors = []
 
   if (!validate.isValid && filepath) {
-    const formattedErrors = validate.errors.map((error) => {
-      const userFriendly = {}
+    const formattedErrors = validate.errors.map((error: any) => {
+      const userFriendly: any = {}
       userFriendly.property = cleanPropertyPath(error.params, error.instancePath)
       userFriendly.message = error.message
       userFriendly.reason = error.keyword

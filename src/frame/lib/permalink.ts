@@ -28,13 +28,20 @@ page.permalinks is an array of objects that looks like this:
 ]
 */
 class Permalink {
-  constructor(languageCode, pageVersion, relativePath, title) {
+  languageCode: string
+  pageVersion: string
+  relativePath: string
+  title: string
+  hrefWithoutLanguage: string
+  href: string
+
+  constructor(languageCode: string, pageVersion: string, relativePath: string, title: string) {
     this.languageCode = languageCode
     this.pageVersion = pageVersion
     this.relativePath = relativePath
     this.title = title
 
-    const permalinkSuffix = this.constructor.relativePathToSuffix(relativePath)
+    const permalinkSuffix = Permalink.relativePathToSuffix(relativePath)
 
     this.hrefWithoutLanguage = removeFPTFromPath(
       path.posix.join('/', pageVersion, permalinkSuffix),
@@ -46,18 +53,23 @@ class Permalink {
     return this
   }
 
-  static derive(languageCode, relativePath, title, applicableVersions) {
+  static derive(
+    languageCode: string,
+    relativePath: string,
+    title: string,
+    applicableVersions: string[],
+  ): Permalink[] {
     assert(relativePath, 'relativePath is required')
     assert(languageCode, 'languageCode is required')
 
-    const permalinks = applicableVersions.map((pageVersion) => {
+    const permalinks = applicableVersions.map((pageVersion: string) => {
       return new Permalink(languageCode, pageVersion, relativePath, title)
     })
 
     return permalinks
   }
 
-  static relativePathToSuffix(relativePath) {
+  static relativePathToSuffix(relativePath: string): string {
     if (relativePath === 'index.md') return '/'
     // When you turn `foo/bar.md`, which is a file path, into a URL pathname,
     // you just need to chop off the `.md` suffix.

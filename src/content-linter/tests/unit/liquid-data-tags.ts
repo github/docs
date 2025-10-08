@@ -3,6 +3,7 @@ import path from 'path'
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test'
+import type { Rule } from '@/content-linter/types'
 import {
   liquidDataReferencesDefined,
   liquidDataTagFormat,
@@ -31,7 +32,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
       '{% data ui.nested.nested.not-there %}',
       '{% data some.random.path %}',
     ]
-    const result = await runRule(liquidDataReferencesDefined, {
+    const result = await runRule(liquidDataReferencesDefined as Rule, {
       strings: { markdown: markdown.join('\n') },
     })
     const errors = result.markdown
@@ -45,7 +46,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
       '{% data variables.location.product_location %}',
       '{% data ui.header.notices.release_candidate %}',
     ].join('\n')
-    const result = await runRule(liquidDataReferencesDefined, { strings: { markdown } })
+    const result = await runRule(liquidDataReferencesDefined as Rule, { strings: { markdown } })
     const errors = result.markdown
     expect(errors.length).toBe(0)
   })
@@ -57,7 +58,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
       '{% data %}',
       '{% indented_data_reference %}',
     ]
-    const result = await runRule(liquidDataTagFormat, {
+    const result = await runRule(liquidDataTagFormat as Rule, {
       strings: { markdown: markdown.join('\n') },
     })
     const errors = result.markdown
@@ -69,7 +70,7 @@ describe(liquidDataReferencesDefined.names.join(' - '), () => {
       '{% data  ui.header.notices.release_candidate  %}',
       '{% indented_data_reference ui.header.notices.release_candidate  spaces=3 %}',
     ]
-    const result = await runRule(liquidDataTagFormat, {
+    const result = await runRule(liquidDataTagFormat as Rule, {
       strings: { markdown: markdown.join('\n') },
     })
     const errors = result.markdown

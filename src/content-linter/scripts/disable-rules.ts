@@ -9,7 +9,7 @@
 import fs from 'fs'
 import { spawn } from 'child_process'
 
-const rule = process.argv[2]
+const rule: string | undefined = process.argv[2]
 if (!rule) {
   console.error('Please specify a rule to disable.')
   process.exit(1)
@@ -38,36 +38,40 @@ const childProcess = spawn('npm', [
   rule,
 ])
 
-childProcess.stdout.on('data', (data) => {
+childProcess.stdout.on('data', (data: Buffer) => {
   if (verbose) console.log(data.toString())
 })
 
-childProcess.stderr.on('data', function (data) {
+childProcess.stderr.on('data', function (data: Buffer) {
   if (verbose) console.log(data.toString())
 })
 
 let matchingRulesFound = 0
-childProcess.on('close', (code) => {
+childProcess.on('close', (code: number | null) => {
   if (code === 0) {
     console.log(`No violations for rule, "${rule}" found.`)
     process.exit(0)
   }
 
-  const markdownViolations = JSON.parse(fs.readFileSync('markdown-violations.json', 'utf8'))
+  const markdownViolations: Record<string, Array<{ lineNumber: number }>> = JSON.parse(
+    fs.readFileSync('markdown-violations.json', 'utf8'),
+  )
   console.log(`${Object.values(markdownViolations).flat().length} violations found.`)
 
-  Object.entries(markdownViolations).forEach(([fileName, results]) => {
-    console.log(fileName)
-    console.log(results)
-    const fileLines = fs.readFileSync(fileName, 'utf8').split('\n')
-    results.forEach((result) => {
-      matchingRulesFound++
-      const lineIndex = result.lineNumber - 1
-      const offendingLine = fileLines[lineIndex]
-      fileLines[lineIndex] = offendingLine.concat(` <!-- markdownlint-disable-line ${rule} -->`)
-    })
-    fs.writeFileSync(fileName, fileLines.join('\n'), 'utf8')
-  })
+  Object.entries(markdownViolations).forEach(
+    ([fileName, results]: [string, Array<{ lineNumber: number }>]) => {
+      console.log(fileName)
+      console.log(results)
+      const fileLines = fs.readFileSync(fileName, 'utf8').split('\n')
+      results.forEach((result) => {
+        matchingRulesFound++
+        const lineIndex = result.lineNumber - 1
+        const offendingLine = fileLines[lineIndex]
+        fileLines[lineIndex] = offendingLine.concat(` <!-- markdownlint-disable-line ${rule} -->`)
+      })
+      fs.writeFileSync(fileName, fileLines.join('\n'), 'utf8')
+    },
+  )
 
   console.log(`${matchingRulesFound} violations ignored.`)
 })

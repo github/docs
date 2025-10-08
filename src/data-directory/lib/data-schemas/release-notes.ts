@@ -32,7 +32,7 @@ const section = {
       },
     },
   ],
-}
+} as const
 
 export default {
   type: 'object',
@@ -69,7 +69,10 @@ export default {
         'errata',
         'closing_down',
         'retired',
-      ].reduce((prev, curr) => ({ ...prev, [curr]: section }), {}),
+      ].reduce(
+        (prev: Record<string, typeof section>, curr: string) => ({ ...prev, [curr]: section }),
+        {},
+      ),
     },
   },
-}
+} as const

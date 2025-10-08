@@ -1,3 +1,12 @@
+import type { Response } from 'express'
+
+interface CacheControlOptions {
+  key?: string
+  public_?: boolean
+  immutable?: boolean
+  maxAgeZero?: boolean
+}
+
 // Return a function you can pass a Response object to and it will
 // set the `Cache-Control` header.
 //
@@ -11,9 +20,14 @@
 // Max age is in seconds
 // Max age should not be greater than 31536000 https://www.ietf.org/rfc/rfc2616.txt
 function cacheControlFactory(
-  maxAge = 60 * 60,
-  { key = 'cache-control', public_ = true, immutable = false, maxAgeZero = false } = {},
-) {
+  maxAge: number = 60 * 60,
+  {
+    key = 'cache-control',
+    public_ = true,
+    immutable = false,
+    maxAgeZero = false,
+  }: CacheControlOptions = {},
+): (res: Response) => void {
   const directives = [
     maxAge && public_ && 'public',
     maxAge && `max-age=${maxAge}`,
@@ -26,7 +40,7 @@ function cacheControlFactory(
   ]
     .filter(Boolean)
     .join(', ')
-  return (res) => {
+  return (res: Response) => {
     if (process.env.NODE_ENV !== 'production' && res.hasHeader('set-cookie') && maxAge) {
       console.warn(
         "You can't set a >0 cache-control header AND set-cookie or else the CDN will never respect the cache-control.",
@@ -50,7 +64,7 @@ const searchBrowserCacheControl = cacheControlFactory(60 * 60)
 const searchCdnCacheControl = cacheControlFactory(60 * 60 * 24, {
   key: 'surrogate-control',
 })
-export function searchCacheControl(res) {
+export function searchCacheControl(res: Response): void {
   searchBrowserCacheControl(res)
   searchCdnCacheControl(res)
 }
@@ -65,7 +79,7 @@ const defaultCDNCacheControl = cacheControlFactory(60 * 60 * 24, {
 const defaultBrowserCacheControl = cacheControlFactory(60)
 // A general default configuration that is useful to almost all responses
 // that can be cached.
-export function defaultCacheControl(res) {
+export function defaultCacheControl(res: Response): void {
   defaultCDNCacheControl(res)
   defaultBrowserCacheControl(res)
 }
@@ -74,7 +88,7 @@ export function defaultCacheControl(res) {
 // x-user-language is a custom request header derived from req.cookie:user_language
 // accept-language is truncated to one of our available languages
 // https://bit.ly/3u5UeRN
-export function languageCacheControl(res) {
+export function languageCacheControl(res: Response): void {
   defaultCacheControl(res)
   res.set('vary', 'accept-language, x-user-language')
 }
