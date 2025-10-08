@@ -369,3 +369,59 @@ The following example uses Swift, however other languages will work similarly.
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endxcode %}
+
+<!-- --------------------- -->
+<!-- Eclipse -->
+<!-- --------------------- -->
+
+{% eclipse %}
+
+{% data reusables.copilot.quickstart-intro %}
+
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for Eclipse. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
+
+{% ifversion fpt %}
+{% data reusables.copilot.quickstart-signup %}
+{% endif %}
+
+## Prerequisites
+
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
+* **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
+
+## Chat with {% data variables.product.prodname_copilot %}
+
+After you've installed the {% data variables.product.prodname_copilot %} plugin, you can ask {% data variables.product.prodname_copilot_short %} coding-related questions.
+
+> [!NOTE] {% data reusables.copilot.chat-access-denied %}
+
+1. Open an existing code file.
+1. In the menu bar of Eclipse, click **{% data variables.product.prodname_copilot_short %}**, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Open Chat**.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
+
+   {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
+
+1. Select a line of code in the editor.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
+
+## Get your first code completion suggestion
+
+The following example uses Java, however other languages will work similarly.
+
+1. Create a new Java class called `CalculateDaysBetween`.
+1. Within the class add the following comment:
+
+   ```java copy
+   // Take 2 dates and return the number of days between them
+   ```
+
+   {% data variables.product.prodname_copilot %} adds a suggestion of code to use for this class. Suggestions are displayed in grayed text.
+1. {% data reusables.copilot.accept-suggestion %}
+
+## Next steps
+
+{% data reusables.copilot.quickstart-nextsteps1 %}
+{% data reusables.copilot.quickstart-nextsteps2 %}
+
+{% endeclipse %}
