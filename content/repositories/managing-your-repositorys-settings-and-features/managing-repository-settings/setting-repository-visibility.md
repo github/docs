@@ -128,8 +128,8 @@ For information about improving repository security, see [AUTOTITLE](/code-secur
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Danger Zone" section, to the right of to "Change repository visibility", click **Change visibility**.
 1. Select a visibility.
-1. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
-1. Click **I understand, change repository visibility**.
+1. Click to confirm that you are changing the visibility of the correct repository.
+1. Click **I have read and understand these effects**.
 
 ## Further reading
 
