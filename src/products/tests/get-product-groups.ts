@@ -6,16 +6,33 @@ import {
   getLocalizedGroupNames,
 } from '@/products/lib/get-product-groups'
 
+// Mock data interface for tests - uses required name to match library expectations
+interface MockProductGroupData {
+  name: string
+  octicon?: string
+  children: string[]
+}
+
+// Mock data for testing edge cases with optional fields
+interface PartialProductGroupData {
+  name?: string
+  octicon?: string
+  children: string[]
+}
+
 describe('get-product-groups helper functions', () => {
   describe('createOcticonToNameMap', () => {
     test('creates correct mapping from childGroups', () => {
-      const mockChildGroups = [
+      const mockChildGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: ['get-started'] },
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: ['copilot'] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: ['code-security'] },
       ]
 
-      const octiconToName = createOcticonToNameMap(mockChildGroups)
+      // Using any to cast mock data structure to match library's expected ProductGroupData type
+      const octiconToName: { [key: string]: string } = createOcticonToNameMap(
+        mockChildGroups as any,
+      )
 
       expect(octiconToName['RocketIcon']).toBe('Get started')
       expect(octiconToName['CopilotIcon']).toBe('GitHub Copilot')
@@ -24,14 +41,17 @@ describe('get-product-groups helper functions', () => {
     })
 
     test('handles missing octicon or name gracefully', () => {
-      const mockChildGroups = [
+      const mockChildGroups: PartialProductGroupData[] = [
         { name: 'Valid Group', octicon: 'RocketIcon', children: [] },
         { octicon: 'MissingNameIcon', children: [] }, // missing name
         { name: 'Missing Octicon', children: [] }, // missing octicon
         { name: '', octicon: 'EmptyNameIcon', children: [] }, // empty name
       ]
 
-      const octiconToName = createOcticonToNameMap(mockChildGroups)
+      // Using any to test edge cases with partial/missing fields that wouldn't normally pass strict typing
+      const octiconToName: { [key: string]: string } = createOcticonToNameMap(
+        mockChildGroups as any,
+      )
 
       expect(octiconToName['RocketIcon']).toBe('Valid Group')
       expect(octiconToName['MissingNameIcon']).toBeUndefined()
@@ -42,19 +62,23 @@ describe('get-product-groups helper functions', () => {
 
   describe('mapEnglishToLocalizedNames', () => {
     test('maps English names to localized names using octicon as key', () => {
-      const englishGroups = [
+      const englishGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: [] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: [] },
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: [] },
       ]
 
-      const localizedByOcticon = {
+      const localizedByOcticon: { [key: string]: string } = {
         RocketIcon: 'Empezar',
         ShieldLockIcon: 'Seguridad',
         CopilotIcon: 'GitHub Copilot', // Some names stay the same
       }
 
-      const nameMap = mapEnglishToLocalizedNames(englishGroups, localizedByOcticon)
+      // Using any to cast mock data structure to match library's expected ProductGroupData type
+      const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
+        englishGroups as any,
+        localizedByOcticon,
+      )
 
       expect(nameMap['Get started']).toBe('Empezar')
       expect(nameMap['Security']).toBe('Seguridad')
@@ -63,18 +87,22 @@ describe('get-product-groups helper functions', () => {
     })
 
     test('handles missing translations gracefully', () => {
-      const englishGroups = [
+      const englishGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: [] },
         { name: 'Missing Translation', octicon: 'MissingIcon', children: [] },
         { name: 'No Octicon', children: [] },
       ]
 
-      const localizedByOcticon = {
+      const localizedByOcticon: { [key: string]: string } = {
         RocketIcon: 'Empezar',
         // MissingIcon is not in the localized map
       }
 
-      const nameMap = mapEnglishToLocalizedNames(englishGroups, localizedByOcticon)
+      // Using any to cast mock data structure to match library's expected ProductGroupData type
+      const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
+        englishGroups as any,
+        localizedByOcticon,
+      )
 
       expect(nameMap['Get started']).toBe('Empezar')
       expect(nameMap['Missing Translation']).toBeUndefined()
@@ -84,18 +112,22 @@ describe('get-product-groups helper functions', () => {
 
     test('handles different ordering between English and localized groups', () => {
       // English groups in one order
-      const englishGroups = [
+      const englishGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: [] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: [] },
       ]
 
       // Localized groups in different order (but mapped by octicon)
-      const localizedByOcticon = {
+      const localizedByOcticon: { [key: string]: string } = {
         ShieldLockIcon: 'Seguridad', // Security comes first in localized
         RocketIcon: 'Empezar', // Get started comes second
       }
 
-      const nameMap = mapEnglishToLocalizedNames(englishGroups, localizedByOcticon)
+      // Using any to cast mock data structure to match library's expected ProductGroupData type
+      const nameMap: { [key: string]: string } = mapEnglishToLocalizedNames(
+        englishGroups as any,
+        localizedByOcticon,
+      )
 
       // Should correctly map regardless of order
       expect(nameMap['Get started']).toBe('Empezar')
@@ -105,17 +137,20 @@ describe('get-product-groups helper functions', () => {
 
   describe('getLocalizedGroupNames integration', () => {
     test('returns empty object for English language', async () => {
-      const result = await getLocalizedGroupNames('en')
+      const result: { [key: string]: string } = await getLocalizedGroupNames('en')
       expect(result).toEqual({})
     })
 
     test('returns empty object when no translation root available', () => {
       // Test the fallback when translation root is not found
       const lang = 'unknown-lang'
-      const languages = { en: { dir: '/en' }, es: { dir: '/es' } }
+      const languages: { [key: string]: { dir: string } } = {
+        en: { dir: '/en' },
+        es: { dir: '/es' },
+      }
 
-      const translationRoot = languages[lang]?.dir
-      const result = translationRoot
+      const translationRoot: string | undefined = languages[lang]?.dir
+      const result: { [key: string]: string } = translationRoot
         ? {
             /* would proceed */
           }
@@ -126,7 +161,7 @@ describe('get-product-groups helper functions', () => {
 
     test('handles file read errors gracefully', () => {
       // Test the try/catch behavior when file read fails
-      let result
+      let result: { [key: string]: string }
       try {
         // Simulate file read error
         throw new Error('File not found')
@@ -141,28 +176,35 @@ describe('get-product-groups helper functions', () => {
   describe('full translation pipeline', () => {
     test('complete flow from English groups to localized names', () => {
       // Simulate the complete flow
-      const englishChildGroups = [
+      const englishChildGroups: MockProductGroupData[] = [
         { name: 'Get started', octicon: 'RocketIcon', children: ['get-started'] },
         { name: 'Security', octicon: 'ShieldLockIcon', children: ['code-security'] },
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: ['copilot'] },
       ]
 
       // Simulate what would come from a Spanish localized file
-      const mockLocalizedChildGroups = [
+      const mockLocalizedChildGroups: MockProductGroupData[] = [
         { name: 'Empezar', octicon: 'RocketIcon', children: ['get-started'] },
         { name: 'Seguridad', octicon: 'ShieldLockIcon', children: ['code-security'] },
         { name: 'GitHub Copilot', octicon: 'CopilotIcon', children: ['copilot'] },
       ]
 
       // Step 1: Create octicon -> localized name mapping
-      const localizedByOcticon = createOcticonToNameMap(mockLocalizedChildGroups)
+      // Using any to cast mock data structure to match library's expected ProductGroupData type
+      const localizedByOcticon: { [key: string]: string } = createOcticonToNameMap(
+        mockLocalizedChildGroups as any,
+      )
 
       // Step 2: Map English names to localized names
-      const localizedNames = mapEnglishToLocalizedNames(englishChildGroups, localizedByOcticon)
+      // Using any to cast mock data structure to match library's expected ProductGroupData type
+      const localizedNames: { [key: string]: string } = mapEnglishToLocalizedNames(
+        englishChildGroups as any,
+        localizedByOcticon,
+      )
 
       // Step 3: Use in final mapping
-      const finalResult = englishChildGroups.map((group) => {
-        const localizedName = localizedNames[group.name] || group.name
+      const finalResult = englishChildGroups.map((group: MockProductGroupData) => {
+        const localizedName: string = localizedNames[group.name] || group.name
         return {
           name: localizedName,
           octicon: group.octicon,

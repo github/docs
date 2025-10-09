@@ -44,7 +44,7 @@ export default function GraphqlReferencePage({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlSchema, getMiniToc } = await import('@/graphql/lib/index.js')
+  const { getGraphqlSchema, getMiniToc } = await import('@/graphql/lib/index')
 
   const req = context.req as any
   const res = context.res as any

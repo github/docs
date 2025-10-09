@@ -1,16 +1,21 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
+
+import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
 
 export const thirdPartyActionsReusable = {
   names: ['GHD054', 'third-party-actions-reusable'],
   description: 'Code examples with third-party actions must include disclaimer reusable',
   tags: ['actions', 'reusable', 'third-party'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     // Find all code fence blocks
-    filterTokens(params, 'fence', (token) => {
+    filterTokens(params, 'fence', (token: MarkdownToken) => {
       // Only check YAML code blocks (GitHub Actions workflows)
       if (token.info !== 'yaml' && token.info !== 'yaml copy') return
 
       const codeContent = token.content
+      if (!codeContent) return
+
       const lineNumber = token.lineNumber
 
       // Find third-party actions in the code block
@@ -41,8 +46,8 @@ export const thirdPartyActionsReusable = {
  * Third-party actions are identified by the pattern: owner/action@version
  * where owner is not 'actions' or 'github'
  */
-function findThirdPartyActions(yamlContent) {
-  const thirdPartyActions = []
+function findThirdPartyActions(yamlContent: string): string[] {
+  const thirdPartyActions: string[] = []
 
   // Pattern to match 'uses: owner/action@version' where owner is not actions or github
   const actionPattern = /uses:\s+([^{\s]+\/[^@\s]+@[^\s]+)/g
@@ -70,7 +75,11 @@ function findThirdPartyActions(yamlContent) {
  * Check if the disclaimer reusable is present before the given line number or inside the code block
  * Looks backward from the code block and also inside the code block content
  */
-function checkForDisclaimer(lines, codeBlockLineNumber, codeContent) {
+function checkForDisclaimer(
+  lines: string[],
+  codeBlockLineNumber: number,
+  codeContent: string,
+): boolean {
   const disclaimerPattern = /{% data reusables\.actions\.actions-not-certified-by-github-comment %}/
 
   // First, check inside the code block content
