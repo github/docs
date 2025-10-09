@@ -10,6 +10,8 @@ const dataSchemas: DataSchemas = {
   'data/code-languages.yml': '@/data-directory/lib/data-schemas/code-languages',
   'data/glossaries/candidates.yml': '@/data-directory/lib/data-schemas/glossaries-candidates.js',
   'data/glossaries/external.yml': '@/data-directory/lib/data-schemas/glossaries-external.js',
+  'data/tables/supported-code-languages.yml':
+    '@/data-directory/lib/data-schemas/supported-code-languages.js',
 }
 
 export default dataSchemas
