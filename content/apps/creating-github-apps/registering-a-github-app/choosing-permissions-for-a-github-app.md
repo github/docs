@@ -25,9 +25,19 @@ topics:
 
 Although {% data variables.product.prodname_github_apps %} don't have any permissions by default, they do have implicit permissions to read public resources when acting on behalf of a user. When a user authorizes the app to act on their behalf, the {% data variables.product.prodname_github_app %} can use the resulting user access token to make requests to the REST API and the GraphQL API to read public resources. To learn more about acting on behalf of a user, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-App permissions are classified as repository, organization, or account permissions. Repository permissions allow your app to access resources related to repositories that are owned by the account where the app is installed. Organization permissions allow your app to access resources related to the organization where the app is installed, if it is installed on an organization account. Account permissions allow your app to access resources related to a user if the user has also authorized your app. For more information about user authorization of apps, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
+App permissions are classified as repository, organization,{% ifversion enterprise-installed-apps %} enterprise,{% endif %} or account permissions.
 
-When a user installs an app on their account or organization, they see and grant the repository and organization permissions that the app requested. They will also see a list of account permissions that the app can request for individual users. When a user authorizes an app to act on their behalf, they will see and grant the account permissions that the app requested.
+* Repository permissions allow your app to access resources related to repositories that are owned by the account where the app is installed.
+* Organization permissions allow your app to access resources related to the organization where the app is installed, if it is installed on an organization account.
+{%- ifversion enterprise-installed-apps %}
+* Enterprise permissions allow the app to manage an enterprise, if it is installed on an enterprise account.{%- endif %}
+* Account permissions allow your app to access resources related to a user if the user has also authorized your app. For more information about user authorization of apps, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
+
+{% ifversion enterprise-installed-apps %}
+
+Enterprise permissions are only available if you are creating the app in an enterprise account or an organization that is enterprise-owned. An app with enterprise permissions must be `public` or `internal` to be installed on an enterprise account. The only enterprise it can be installed on is the enterprise that owns the app or the organization that owns the app, but there are no additional restrictions on which organizations or personal accounts it can be installed on.{% endif %}
+
+When a user installs an app on their user account or organization, they see and grant the repository and organization permissions that the app requested.{% ifversion enterprise-installed-apps %} When they install it on their enterprise, they see and grant only the enterprise permissions that the app requested. {% endif %}They will also see a list of account permissions that the app can request for individual users. When a user authorizes an app to act on their behalf, they will see and grant the account permissions that the app requested.
 
 The success of an API request with a user access token depends on the user's permissions as well as the app's permissions. For example, if the app was granted permission to write the contents of a repository, but the user can only read the contents, then the user access token can only read the contents. The success of an API request with an installation access token only depends on the app's permissions.
 
@@ -39,7 +49,8 @@ Some webhooks and API access requires "Administration" permissions. If your app 
 
 You can modify the permissions for apps you own or manage at any time.{% ifversion enterprise-apps-public-beta %}
 
-* When you modify the permissions of an app owned by an **enterprise account**, the changes are automatically accepted by organizations in the enterprise.
+* When an enterprise owner modifies the permissions of an app owned by an **enterprise account**, the changes are automatically accepted by organizations in the enterprise.{% ifversion enterprise-app-manager %}
+* When an enterprise app manager modifies the permissions of an app owned by an **enterprise account**, the changes are automatically accepted by organizations in the enterprise where the app manager is also an organization owner.{% endif %}
 * When you modify the permissions of an app owned by a **user or organization**,{% else %} When you do so,{% endif %} the owner of each account where the app was installed will be prompted to approve the new permissions. If the account owner does not approve the new permissions, their installation will continue to use the old permissions.
 
 For more information about modifying permissions, see [AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions).

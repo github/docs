@@ -4,4 +4,4 @@
 
 versions:
   ghec: '*'
-  ghes: '>=3.15'
+  ghes: '>=3.16'

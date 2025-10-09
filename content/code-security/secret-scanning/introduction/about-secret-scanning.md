@@ -1,7 +1,10 @@
 ---
 title: About secret scanning
 intro: '{% data variables.product.github %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: |
+  {% data reusables.gated-features.secret-scanning %}{% ifversion secret-risk-assessment %}
+
+  {% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
   - /articles/about-token-scanning
@@ -24,17 +27,15 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in repositories for known types of secrets and alerts repository administrators upon detection.
 
-<!-- expires 2025-04-04 -->
-
 {% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets, even if the repository is archived. {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan for new secret types in existing content in {% ifversion fpt or ghec %}public repositories{% else %}repositories with {% data variables.product.prodname_GH_secret_protection %} enabled{% endif %} where {% data variables.product.prodname_secret_scanning %} is enabled when new supported secret types are added.
-
-<!-- end expires 2025-04-04 -->
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
 {% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
 > [!TIP]
-> Regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% else %}{% endif %}
+> Regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets.
+>
+> To generate a report, open {% data reusables.security-overview.navigate-to-risk-assessment %}.{% endif %}{% else %}{% endif %}
 
 When a supported secret is leaked, {% data variables.product.github %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.github %}, where you can view, evaluate, and resolve them. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
 

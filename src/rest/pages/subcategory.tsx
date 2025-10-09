@@ -1,18 +1,18 @@
 import { GetServerSideProps } from 'next'
-import { Operation } from 'src/rest/components/types'
-import { RestReferencePage } from 'src/rest/components/RestReferencePage'
+import { Operation } from '@/rest/components/types'
+import { RestReferencePage } from '@/rest/components/RestReferencePage'
 import {
   addUINamespaces,
   getMainContext,
   MainContext,
   MainContextT,
-} from 'src/frame/components/context/MainContext'
+} from '@/frame/components/context/MainContext'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'src/automated-pipelines/components/AutomatedPageContext'
-import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
+} from '@/automated-pipelines/components/AutomatedPageContext'
+import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 
 type MinitocItemsT = {
   restOperationsMiniTocItems: MiniTocItem[]
@@ -35,7 +35,7 @@ export default function SubCategory({ mainContext, automatedPageContext, restOpe
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { default: getRest, getRestMiniTocItems } = await import('src/rest/lib/index.js')
+  const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
 
   const req = context.req as any
   const res = context.res as any
@@ -55,7 +55,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subCategory = category
   }
 
-  const restOperations = (await getRest(currentVersion, apiVersion, category, subCategory)) || []
+  const restData = await getRest(currentVersion, apiVersion)
+  const restOperations = (restData && restData[category] && restData[category][subCategory]) || []
 
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems generated from the Markdown pages in

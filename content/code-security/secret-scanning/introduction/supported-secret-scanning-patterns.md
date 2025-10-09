@@ -45,7 +45,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% endif %}
 * **Push protection:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.
 
-* **Validity check:** Token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see [{% data variables.product.prodname_AS %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security) in the Site Policy documentation.{% else %} {% ifversion ghes %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}{% endif %}
+* **Validity check:** Token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see [{% data variables.product.prodname_AS %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security) in the Site Policy documentation.{% else %} Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}
 
 ### Non-provider patterns
 
@@ -53,7 +53,6 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 | Provider | Token |
 |----------|:--------------------|
-|  Generic | password |
 |  Generic | http_basic_authentication_header |
 |  Generic | http_bearer_authentication_header |
 |  Generic | mongodb_connection_string |
@@ -63,7 +62,20 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 |  Generic | postgres_connection_string |
 |  Generic | rsa_private_key |
 
->[!NOTE] Push protection and validity checks are not supported for non-provider patterns.
+>[!NOTE] Validity checks are not supported for non-provider patterns.
+
+{% ifversion secret-scanning-ai-generic-secret-detection %}
+
+### {% data variables.secret-scanning.copilot-secret-scanning %}
+
+{% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
+
+| Provider | Token |
+|----------|:--------------------|
+|  Generic | password |
+
+>[!NOTE] Push protection and validity checks are not supported for passwords.
+{% endif %}
 
 ### {% ifversion secret-scanning-alert-experimental-list %}Default{% else %}High confidence{% endif %} patterns
 
@@ -73,10 +85,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 > [!NOTE]
 > Validity checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
-| Provider | Token | Partner | User | Push protection | Validity check |
-|----|:----|:----:|:----:|:----:|:----:|
+| Provider | Token | Partner | User | Push protection | Validity check | Base64 |
+|----|:----|:----:|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -84,10 +96,10 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHES 3.9+ table -->
 {% ifversion ghes %}
 
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
-|----|:----|:----:|:----:|:----:|
+| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check | Base64 |
+|----|:----|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
+| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasPushProtection %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.hasValidityCheck %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} | {% if entry.base64Supported %}<span role="img" class="octicon-bg-check" aria-label="Supported">✓</span>{% else %}<span role="img" class="octicon-bg-x" aria-label="Unsupported">✗</span>{% endif %} |
 {%- endfor %}
 
 {% endif %}
@@ -97,6 +109,18 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <a name="token-versions"></a>
 
 Service providers update the patterns used to generate tokens periodically and may support more than one version of a token. Push protection only supports the most recent token versions that {% data variables.product.prodname_secret_scanning %} can identify with confidence. This avoids push protection blocking commits unnecessarily when a result may be a false positive, which is more likely to happen with legacy tokens.<!-- markdownlint-disable-line MD053 -->
+
+#### Multi-part secrets
+
+<a name="multi-part-secrets"></a>
+
+By default, {% data variables.product.prodname_secret_scanning %} supports validation for pair-matched access keys and key IDs.
+
+{% data variables.product.prodname_secret_scanning_caps %} also supports validation for individual key IDs for Amazon AWS Access Key IDs, in addition to existing pair matching.
+
+A key ID will show as active if {% data variables.product.prodname_secret_scanning %} confirms the key ID exists, regardless of whether or not a corresponding access key is found. The key ID will show as `inactive` if it's invalid (for example, if it is not a real key ID).
+
+Where a valid pair is found, the {% data variables.product.prodname_secret_scanning %} alerts will be linked.<!-- markdownlint-disable-line MD053 -->
 
 ## Further reading
 

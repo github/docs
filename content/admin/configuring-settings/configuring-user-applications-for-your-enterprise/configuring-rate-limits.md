@@ -103,3 +103,13 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
    ```
 
 1. Wait for the configuration run to complete.
+
+## Controlling the rate for the live update service
+
+If the number of AJAX requests to your {% data variables.product.prodname_ghe_server %} instance causes problems, then you may need to edit the rate limit for the WebSockets controller used by these live updates. For details of how to view Alive requests, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
+
+When primary rate limits are enabled, by default a maximum of 100 requests is allowed per minute for each IP address. Administrators with access to the administrative shell can use the [ghe-config](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-config) utility to set `app.github.web-sockets-rate-limit` with the number of requests allowed per minute for each IP address or disable this rate limit. Setting the limit to any value that is not a positive integer (for example, `0`, `-1`, `disabled`) disables rate limiting on the WebSockets controller for live updates.
+
+{% data reusables.github-connect.rate-limit-live-dotcom-requests %}
+
+After you make any changes to the values of these settings, run [ghe-config-apply](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-config-apply) to apply the settings.

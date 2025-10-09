@@ -1,8 +1,8 @@
 import { reduce, sortBy } from 'lodash-es'
-import { allVersions } from './all-versions.js'
-import versionSatisfiesRange from './version-satisfies-range.js'
-import { next, nextNext } from './enterprise-server-releases.js'
-import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import { allVersions } from './all-versions'
+import versionSatisfiesRange from './version-satisfies-range'
+import { next, nextNext } from './enterprise-server-releases'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 let featureData = null
 
@@ -40,7 +40,7 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
     (result, value, key) => {
       if (key === 'feature') {
         if (typeof value === 'string') {
-          Object.assign(result, { ...featureData[value].versions })
+          Object.assign(result, { ...featureData[value]?.versions })
         } else if (Array.isArray(value)) {
           value.forEach((str) => {
             Object.assign(result, { ...featureData[str].versions })

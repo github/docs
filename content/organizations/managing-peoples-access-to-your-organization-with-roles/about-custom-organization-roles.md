@@ -6,7 +6,6 @@ versions:
 topics:
   - Organizations
 shortTitle: Custom organization roles
-permissions: 'Organization owners and users with the "Manage custom organization roles" permission'
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
 ---
 
@@ -49,10 +48,8 @@ Organization permissions do not grant read, write, or administrator access to an
 |  {% ifversion ghec %} |
 Manage organization OAuth app policies | Access to the "OAuth app policy" settings for the organization. | [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions) |
 |  {% endif %} |
-|  {% ifversion repository-properties %} |
 | Edit custom properties values at the organization level | Access to set custom property values on all repositories in the organization. | [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) |
 | Manage the organization's custom properties definitions | Access to create and edit custom property definitions for the organization. | [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) |
-|  {% endif %} |
 |  {% ifversion repo-rules-enterprise %} |
 | Manage organization ref update rules and rulesets | Access to manage rulesets and view ruleset insights at the organization level. | [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization) |
 |  {% endif %} |
@@ -66,6 +63,9 @@ Manage organization OAuth app policies | Access to the "OAuth app policy" settin
 |  {% endif %} |
 |  {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection) |
+|  {% endif %} |
+| {% ifversion secret-scanning-alert-dismiss-custom-role %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning) |
 |  {% endif %} |
 
 {% endrowheaders %}

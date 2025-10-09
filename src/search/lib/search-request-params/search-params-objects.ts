@@ -1,20 +1,17 @@
-/* 
+/*
   When a request is made to a /search endpoint with query parameters, e.g. ?query=foo&version=free-pro-team,
-  we need to validate and parse the parameters. This file contains the configuration for which parameters 
+  we need to validate and parse the parameters. This file contains the configuration for which parameters
   to expect based on the type of search request "e.g. general search vs autocomplete search" and how to validate them.
  */
 import languages from '@/languages/lib/languages'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 import { SearchTypes } from '@/search/types'
-import { latest } from '@/versions/lib/enterprise-server-releases'
 
 import type { SearchRequestQueryParams } from '@/search/lib/search-request-params/types'
 
 // Entry to this file, returns the query parameters to expect based on the type of search request
 export function getSearchRequestParamsObject(type: SearchTypes): SearchRequestQueryParams[] {
-  if (type === 'generalAutocomplete') {
-    return AUTOCOMPLETE_PARAMS_OBJ
-  } else if (type === 'aiSearchAutocomplete') {
+  if (type === 'aiSearchAutocomplete') {
     return AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ
   }
   return GENERAL_SEARCH_PARAMS_OBJ
@@ -120,20 +117,14 @@ const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
     cast: (size: string) => parseInt(size, 10),
     validate: (size: number) => size >= 0 && size <= MAX_AUTOCOMPLETE_SIZE,
   },
-  // We only want to enable for latest versions of fpt, ghec, and ghes
   {
     key: 'version',
     default_: 'free-pro-team',
     validate: (version: string) => {
-      const mappedVersion = versionToIndexVersionMap[version]
-      if (
-        mappedVersion === 'fpt' ||
-        mappedVersion === 'ghec' ||
-        mappedVersion === `ghes-${latest}`
-      ) {
-        return true
+      if (!versionToIndexVersionMap[version]) {
+        throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
       }
-      return false
+      return true
     },
   },
 ]
@@ -141,11 +132,6 @@ const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
 const AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
   ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
   { key: 'language', default_: 'en', validate: (language: string) => language === 'en' },
-]
-
-const AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
-  ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
-  { key: 'language', default_: 'en', validate: (language: string) => language in languages },
 ]
 
 function toBoolean(value: any): boolean {

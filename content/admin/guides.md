@@ -88,7 +88,6 @@ includeGuides:
   - /admin/managing-your-enterprise-account/about-enterprise-accounts
   - /admin/getting-started-with-enterprise/about-upgrades-to-new-releases
   - /admin/configuring-packages/configuring-package-ecosystem-support-for-your-enterprise
-  - /admin/configuring-packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script
@@ -96,7 +95,6 @@ includeGuides:
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
-  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-ssh-keys
@@ -121,7 +119,7 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-projects-using-jira
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
-  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
+  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
   - /admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories
@@ -137,4 +135,3 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
-

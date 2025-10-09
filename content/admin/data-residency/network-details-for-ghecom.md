@@ -24,6 +24,8 @@ To access your enterprise on {% data variables.enterprise.data_residency_site %}
 ## {% data variables.product.github %}'s hostnames
 
 * `*.{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's dedicated subdomain on {% data variables.enterprise.data_residency_site %}
+* `*.pages.{% data variables.enterprise.data_residency_domain %}`
+* `*.actions.{% data variables.enterprise.data_residency_domain %}`
 * `*.githubassets.com`
 * `*.githubusercontent.com`
 * `*.blob.core.windows.net`
@@ -36,39 +38,34 @@ To access your enterprise on {% data variables.enterprise.data_residency_site %}
 
 These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in the EU.
 
-#### Ranges for egress traffic
-
-* 108.143.221.96/28
-* 20.61.46.32/28
-* 20.224.62.160/28
-* 51.12.252.16/28
-* 74.241.131.48/28
-* 20.240.211.176/28
-
-#### Ranges for ingress traffic
-
-* 108.143.197.176/28
-* 20.123.213.96/28
-* 20.224.46.144/28
-* 20.240.194.240/28
-* 20.240.220.192/28
-* 20.240.211.208/28
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|---------------------------|
+| 108.143.221.96/28        | 108.143.197.176/28        |
+| 20.61.46.32/28           | 20.123.213.96/28          |
+| 20.224.62.160/28         | 20.224.46.144/28          |
+| 51.12.252.16/28          | 20.240.194.240/28         |
+| 74.241.131.48/28         | 20.240.220.192/28         |
+| 20.240.211.176/28        | 20.240.211.208/28         |
 
 ### Australia
 
 These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in Australia.
 
-#### Ranges for egress traffic
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|---------------------------|
+| 20.5.34.240/28           | 4.237.73.192/28           |
+| 20.5.146.128/28          | 20.5.226.112/28           |
+| 68.218.155.16/28         | 20.248.163.176/28         |
 
-* 20.5.34.240/28
-* 20.5.146.128/28
-* 68.218.155.16/28
+### US
 
-#### Ranges for ingress traffic
+These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in the US.
 
-* 4.237.73.192/28
-* 20.5.226.112/28
-* 20.248.163.176/28
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|---------------------------|
+| 20.221.76.128/28         | 74.249.180.192/28         |
+| 135.233.115.208/28       | 48.214.149.96/28          |
+| 20.118.27.192/28         | 172.202.123.176/28        |
 
 ## Supported regions for Azure private networking
 
@@ -78,7 +75,7 @@ If you use Azure private networking for {% data variables.product.company_short 
 
 | Runner type | Supported regions |
 | ----------- | ----------------- |
-| x64 | `francecentral`, `swedencentral`, `germanywestcentral` |
+| x64 | `francecentral`, `swedencentral`, `germanywestcentral`, `northeurope` |
 | arm64 | `francecentral`, `northeurope`, `germanywestcentral` |
 | GPU | `italynorth`, `swedencentral` |
 
@@ -88,25 +85,19 @@ If you use Azure private networking for {% data variables.product.company_short 
 | ----------- | ----------------- |
 | x64 | `australiaeast`, `australiacentral` |
 | arm64 | `australiaeast`, `australiacentral` |
-| GPU | N/A |
+| GPU | `australiaeast`, `australiacentral` |
+
+### Supported regions in the US
+
+| Runner type | Supported regions |
+| ----------- | ----------------- |
+| x64 | `centralus`, `eastus2`, `westus3` |
+| arm64 | `centralus`, `eastus2`, `westus3` |
+| GPU | `centralus`, `eastus2`, `westus3` |
 
 ## IP ranges for {% data variables.product.prodname_importer_proper_name %}
 
 If you're running a migration to your enterprise with {% data variables.product.prodname_importer_proper_name %}, you may need to add certain ranges to an IP allow list. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
-
-You must allow:
-
-* Ranges required for everyone
-* Additional ranges that depend on your data residency region
-
-### Required for everyone
-
-* 192.30.252.0/22
-* 185.199.108.0/22
-* 140.82.112.0/20
-* 143.55.64.0/20
-* 2a0a:a440::/29
-* 2606:50c0::/32
 
 ### Required in the EU
 
@@ -127,10 +118,15 @@ You must allow:
 
 ### Required in Australia
 
-* 20.213.236.72/29
-* 20.53.178.216/29
 * 20.213.241.72/29
 * 20.11.90.48/29
 * 20.5.34.240/28
 * 20.5.146.128/28
 * 68.218.155.16/28
+
+### Required in the US
+
+* 130.213.245.128/28
+* 20.171.204.144/28
+* 20.171.204.176/28
+* 4.150.167.192/28

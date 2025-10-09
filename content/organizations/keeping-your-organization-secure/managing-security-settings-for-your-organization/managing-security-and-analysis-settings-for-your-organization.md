@@ -43,9 +43,7 @@ If you have a license for {% data variables.product.prodname_GHAS %}, the page w
 
 You can enable or disable features for all repositories.
 
-{% ifversion code-security-multi-repo-enablement %}
 You can use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
-{% endif %}
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
@@ -73,7 +71,7 @@ You can use security overview to find a set of repositories and enable or disabl
 
    > [!NOTE]
    > * {% data reusables.code-scanning.limitation-org-enable-all %}
-   > * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning){% ifversion code-security-multi-repo-enablement %} and [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization){% endif %}.
+   > * Enabling {% data variables.product.prodname_code_scanning %} for all eligible repositories in an organization will not override existing {% data variables.product.prodname_code_scanning %} configurations. For information on configuring default setup with different settings for specific repositories, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale#configuring-default-setup-for-a-subset-of-repositories-in-an-organization).
 
 {% data reusables.security.displayed-information %}
 

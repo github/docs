@@ -1,9 +1,10 @@
-import React from 'react'
 import cx from 'classnames'
+import React from 'react'
 
+import { Link } from '@/frame/components/Link'
+import type { TocItem } from '@/landings/types'
 import { ActionList } from '@primer/react'
-import { Link } from 'src/frame/components/Link'
-import type { TocItem } from 'src/landings/components/ProductLandingContext'
+import styles from './TableOfContents.module.css'
 
 type Props = {
   items: Array<TocItem>
@@ -45,9 +46,9 @@ export const TableOfContents = (props: Props) => {
             const { fullPath, title, childTocItems } = item
             return (
               <React.Fragment key={fullPath}>
-                <ActionList.Item className="f4 color-fg-accent d-list-item d-block width-full text-underline">
-                  <Link href={fullPath}>{title}</Link>
-                </ActionList.Item>
+                <ActionList.LinkItem href={fullPath} as="a" className={styles.linkItem}>
+                  {title}
+                </ActionList.LinkItem>
                 {(childTocItems || []).length > 0 && (
                   <li className="f4 color-fg-accent d-list-item d-block width-full text-underline">
                     <ActionList
@@ -57,12 +58,14 @@ export const TableOfContents = (props: Props) => {
                     >
                       {(childTocItems || []).filter(Boolean).map((childItem) => {
                         return (
-                          <ActionList.Item
+                          <ActionList.LinkItem
                             key={childItem.fullPath}
-                            className="f4 color-fg-accent d-list-item d-block width-full text-underline"
+                            href={childItem.fullPath}
+                            as="a"
+                            className={styles.linkItem}
                           >
-                            <Link href={childItem.fullPath}>{childItem.title}</Link>
-                          </ActionList.Item>
+                            {childItem.title}
+                          </ActionList.LinkItem>
                         )
                       })}
                     </ActionList>

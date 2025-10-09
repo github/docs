@@ -24,11 +24,17 @@ export async function syncRestData(
   sourceDirectory: string,
   restSchemas: string[],
   progAccessSource: string,
+  injectIntoSchema?: (schema: Schema, schemaName: string) => Schema,
 ): Promise<void> {
   await Promise.all(
     restSchemas.map(async (schemaName) => {
       const file = path.join(sourceDirectory, schemaName)
-      const schema = JSON.parse(await readFile(file, 'utf-8')) as Schema
+      let schema = JSON.parse(await readFile(file, 'utf-8')) as Schema
+
+      if (injectIntoSchema) {
+        const injectedSchema = await injectIntoSchema(schema, schemaName)
+        schema = injectedSchema || schema // Fallback to original if injection returns null
+      }
 
       const operations: Operation[] = []
       console.log('Instantiating operation instances from schema ', schemaName)

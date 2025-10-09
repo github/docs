@@ -8,11 +8,10 @@ featuredLinks:
   startHere:
     - /graphql/guides/forming-calls-with-graphql
     - /graphql/guides/introduction-to-graphql
-    - /graphql/guides/using-the-explorer
+    - /graphql/guides/using-graphql-clients
   popular:
     - /graphql/overview/explorer
     - /graphql/overview/public-schema
-    - /graphql/overview/schema-previews
     - /graphql/guides/using-pagination-in-the-graphql-api
   guideCards:
     - /graphql/guides/migrating-from-rest-to-graphql
@@ -23,6 +22,7 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v4
+  - /graphql/overview/schema-previews
 versions:
   fpt: '*'
   ghec: '*'

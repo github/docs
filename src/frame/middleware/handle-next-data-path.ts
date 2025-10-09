@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
-import statsd from '@/observability/lib/statsd.js'
+import statsd from '@/observability/lib/statsd'
 
-import type { ExtendedRequest } from '@/types.js'
+import type { ExtendedRequest } from '@/types'
 
 const STATSD_KEY = 'middleware.handle_next_data_path'
 

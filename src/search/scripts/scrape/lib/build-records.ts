@@ -2,15 +2,31 @@ import eventToPromise from 'event-to-promise'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 import boxen from 'boxen'
-import { HTTPError } from 'got'
 
-import languages from '@/languages/lib/languages.js'
+import languages from '@/languages/lib/languages'
 import parsePageSectionsIntoRecords from '@/search/scripts/scrape/lib/parse-page-sections-into-records'
 import getPopularPages from '@/search/scripts/scrape/lib/popular-pages'
 import domwaiter from '@/search/scripts/scrape/lib/domwaiter'
 import { getAllVersionsKeyFromIndexVersion } from '@/search/lib/elasticsearch-versions'
 
 import type { Page, Permalink, Record, Config, Redirects } from '@/search/scripts/scrape/types'
+
+// Custom error class to replace got's HTTPError
+class HTTPError extends Error {
+  response: { ok: boolean; statusCode?: number }
+  request: { requestUrl?: { pathname?: string } }
+
+  constructor(
+    message: string,
+    response: { ok: boolean; statusCode?: number },
+    request: { requestUrl?: { pathname?: string } },
+  ) {
+    super(message)
+    this.name = 'HTTPError'
+    this.response = response
+    this.request = request
+  }
+}
 
 const pageMarker = chalk.green('|')
 const recordMarker = chalk.grey('.')

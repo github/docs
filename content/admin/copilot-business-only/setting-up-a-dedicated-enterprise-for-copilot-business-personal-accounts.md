@@ -12,7 +12,13 @@ redirect_from:
   - /early-access/copilot/using-copilot-business-without-github-enterprise-personal-accounts
 ---
 
-You can use an enterprise account to manage licenses for {% data variables.product.prodname_copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
+<!-- expires 2025-10-20 -->
+<!-- Part of the Copilot direct licensing rollout -->
+<!-- Expired content will be addressed by the Drivers team -->
+
+{% data reusables.copilot.cb-only-self-serve %}
+
+<!-- end expires 2025-10-20 -->
 
 This article describes the setup for an **enterprise with personal accounts**. If you haven't chosen an enterprise type, see [AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
 

@@ -1,7 +1,7 @@
-import type { ProductGroupT } from 'src/landings/components/ProductSelections'
+import type { ProductGroupT } from '@/landings/components/ProductSelections'
 
 import React from 'react'
-import { Link } from 'src/frame/components/Link'
+import { Link } from '@/frame/components/Link'
 import * as Octicons from '@primer/octicons-react'
 import { LinkExternalIcon } from '@primer/octicons-react'
 

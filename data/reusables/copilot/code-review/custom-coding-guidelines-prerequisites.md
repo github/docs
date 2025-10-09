@@ -1,1 +1,0 @@
-> [!NOTE] The custom coding guidelines feature is only available as part of a subscription to {% data variables.product.prodname_copilot_enterprise %}, and is currently only available to selected customers.

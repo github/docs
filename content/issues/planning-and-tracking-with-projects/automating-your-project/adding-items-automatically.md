@@ -69,11 +69,11 @@ You can create additional duplicates of the auto-add workflow, up to a maximum d
 Once you have duplicated a workflow, you can click **Edit** to start making changes to it. For more information, see [Configuring the auto-add workflow in your project](#configuring-the-auto-add-workflow-in-your-project).
 
 {% data reusables.projects.access-workflows %}
-1. In the list of workflows, next to "Auto-add to project" click {% octicon "kebab-horizontal" %}.
+1. In the list of workflows, next to "Auto-add to project" click {% octicon "kebab-horizontal" aria-label="kebab-horizontal" %}.
 
    ![Screenshot showing the list of workflows. The ellipsis button next to the auto-add workflow is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-add-menu.png)
 
-1. In the menu, click **{% octicon "duplicate" %} Duplicate workflow**.
+1. In the menu, click **{% octicon "duplicate" aria-label="duplicate" %} Duplicate workflow**.
 1. To save your new workflow, when prompted, type the name you want to use for the new workflow.
 
 {% endif %}

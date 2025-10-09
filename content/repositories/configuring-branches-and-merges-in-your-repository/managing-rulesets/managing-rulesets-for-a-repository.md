@@ -75,18 +75,7 @@ You can also view active ruselets:
 
 {% ifversion repo-rules-management %}
 
-## Using ruleset history
-
-{% data reusables.repositories.ruleset-beta-note %}
-
-{% data reusables.repositories.ruleset-history-conceptual %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.repo-rulesets-settings %}
-{% data reusables.repositories.ruleset-history %}
-
-### Importing a ruleset
+## Importing a ruleset
 
 {% data reusables.repositories.import-a-ruleset-conceptual %}
 
@@ -98,6 +87,17 @@ You can also view active ruselets:
 {% endif %}
 
 {% ifversion repo-rules-enterprise %}
+
+## Using ruleset history
+
+{% data reusables.repositories.ruleset-beta-note %}
+
+{% data reusables.repositories.ruleset-history-conceptual %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repo-rulesets-settings %}
+{% data reusables.repositories.ruleset-history %}
 
 ## Viewing insights for rulesets
 

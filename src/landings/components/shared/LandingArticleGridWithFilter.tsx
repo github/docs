@@ -1,0 +1,236 @@
+import { useState, useRef, useEffect } from 'react'
+import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
+import { SearchIcon } from '@primer/octicons-react'
+import cx from 'classnames'
+
+import { Link } from '@/frame/components/Link'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ArticleCardItems, ChildTocItem } from '@/landings/types'
+
+import styles from './LandingArticleGridWithFilter.module.scss'
+
+type ArticleGridProps = {
+  flatArticles: ArticleCardItems
+}
+
+const ALL_CATEGORIES = 'all_categories'
+
+// Hook to get current articles per page based on screen size
+const useResponsiveArticlesPerPage = () => {
+  const [articlesPerPage, setArticlesPerPage] = useState(9) // Default to desktop
+
+  useEffect(() => {
+    const updateArticlesPerPage = () => {
+      const width = window.innerWidth
+      if (width < 768) {
+        // Mobile: 1 column, show 8 articles per page
+        setArticlesPerPage(8)
+      } else if (width < 1012) {
+        // Tablet: 2 columns, show 8 articles per page (4 rows × 2 columns)
+        setArticlesPerPage(8)
+      } else {
+        // Desktop: 3 columns, show 9 articles per page (3 rows × 3 columns)
+        setArticlesPerPage(9)
+      }
+    }
+
+    updateArticlesPerPage()
+    window.addEventListener('resize', updateArticlesPerPage)
+    return () => window.removeEventListener('resize', updateArticlesPerPage)
+  }, [])
+
+  return articlesPerPage
+}
+
+export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
+  const { t } = useTranslation('product_landing')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
+  const articlesPerPage = useResponsiveArticlesPerPage()
+
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  // Reset to first page when articlesPerPage changes (screen size changes)
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [articlesPerPage])
+
+  // Extract unique categories from the articles
+  const categories: string[] = [
+    ALL_CATEGORIES,
+    ...new Set(flatArticles.flatMap((item) => item.category || [])),
+  ]
+
+  const applyFilters = () => {
+    let results = flatArticles
+
+    if (searchQuery) {
+      results = results.filter((token) => {
+        return Object.values(token).some((value) => {
+          if (typeof value === 'string') {
+            return value.toLowerCase().includes(searchQuery.toLowerCase())
+          } else if (Array.isArray(value)) {
+            return value.some((item) => {
+              if (typeof item === 'string') {
+                return item.toLowerCase().includes(searchQuery.toLowerCase())
+              }
+            })
+          }
+          return false
+        })
+      })
+    }
+
+    if (selectedCategory !== ALL_CATEGORIES) {
+      results = results.filter((item) => item.category?.includes(selectedCategory))
+    }
+
+    return results
+  }
+
+  const filteredResults = applyFilters()
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredResults.length / articlesPerPage)
+  const startIndex = (currentPage - 1) * articlesPerPage
+  const paginatedResults = filteredResults.slice(startIndex, startIndex + articlesPerPage)
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query)
+    setCurrentPage(1) // Reset to first page when searching
+  }
+
+  const handleFilter = (option: string, index: number) => {
+    setSelectedCategory(option)
+    setSelectedCategoryIndex(index)
+    setCurrentPage(1) // Reset to first page when filtering
+  }
+
+  const handlePageChange = (e: React.MouseEvent, pageNumber: number) => {
+    e.preventDefault()
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber)
+    }
+  }
+
+  return (
+    <div>
+      {/* Filter and Search Controls */}
+      <div className={styles.filterHeader}>
+        {/* Title and Dropdown Row */}
+        <div className={styles.titleAndDropdownRow}>
+          {/* Title */}
+          <h2 className={cx(styles.headerTitle, styles.headerTitleText)}>
+            {t('article_grid.heading')}
+          </h2>
+
+          {/* Category Dropdown */}
+          <div className={styles.categoryDropdown}>
+            <ActionMenu>
+              <ActionMenu.Button>
+                {categories[selectedCategoryIndex] === ALL_CATEGORIES
+                  ? t('article_grid.all_categories')
+                  : categories[selectedCategoryIndex]}
+              </ActionMenu.Button>
+              <ActionMenu.Overlay width="auto">
+                <ActionList selectionVariant="single">
+                  {categories.map((category, index) => (
+                    <ActionList.Item
+                      key={index}
+                      selected={index === selectedCategoryIndex}
+                      onSelect={() => handleFilter(category, index)}
+                    >
+                      {category === ALL_CATEGORIES ? t('article_grid.all_categories') : category}
+                    </ActionList.Item>
+                  ))}
+                </ActionList>
+              </ActionMenu.Overlay>
+            </ActionMenu>
+          </div>
+        </div>
+
+        {/* Search */}
+        <div className={styles.searchContainer}>
+          <form onSubmit={(e) => e.preventDefault()}>
+            <TextInput
+              leadingVisual={SearchIcon}
+              sx={{ width: '100%' }}
+              placeholder={t('article_grid.search_articles')}
+              ref={inputRef}
+              autoComplete="false"
+              onChange={(e) => {
+                const query = e.target.value || ''
+                handleSearch(query)
+              }}
+            />
+          </form>
+        </div>
+      </div>
+
+      {/* Results Grid */}
+      <div className={styles.articleGrid}>
+        {paginatedResults.map((article, index) => (
+          <ArticleCard key={startIndex + index} article={article} />
+        ))}
+        {filteredResults.length === 0 && (
+          <div className={styles.noArticlesContainer}>
+            <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
+          </div>
+        )}
+      </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className={styles.paginationContainer}>
+          <div className={styles.showingResults}>
+            {t('article_grid.showing_results')
+              .replace('{start}', String(startIndex + 1))
+              .replace(
+                '{end}',
+                String(Math.min(startIndex + articlesPerPage, filteredResults.length)),
+              )
+              .replace('{total}', String(filteredResults.length))}
+          </div>
+          <Pagination
+            pageCount={totalPages}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
+
+type ArticleCardProps = {
+  article: ChildTocItem
+}
+
+const ArticleCard = ({ article }: ArticleCardProps) => {
+  return (
+    <div
+      className={cx(
+        styles.articleCard,
+        styles.articleCardBox,
+        'border',
+        'border-default',
+        'rounded-2',
+      )}
+    >
+      <div className={styles.tagsContainer}>
+        {article.category &&
+          article.category.map((cat) => <Token key={cat} text={cat} className="mr-1 mb-2" />)}
+      </div>
+
+      <h3 className={styles.cardTitle}>
+        <Link href={article.fullPath} className={styles.cardTitleLink}>
+          {article.title}
+        </Link>
+      </h3>
+
+      {article.intro && <div className={styles.cardIntro}>{article.intro}</div>}
+    </div>
+  )
+}

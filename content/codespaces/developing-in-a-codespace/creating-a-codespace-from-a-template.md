@@ -66,7 +66,7 @@ You can create a codespace from any template repository, then publish your work 
 {% data reusables.codespaces.use-this-template %}
 
    > [!NOTE]
-   > If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-hidden="true" %} Code** dropdown. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
+   > If you're a maintainer of the template repository, and want to commit changes to the template repository itself, you should create a codespace from the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** dropdown. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 

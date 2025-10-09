@@ -2,7 +2,7 @@ import { EventType } from '@/events/types'
 import { CombinedSearchResponse } from '@/search/types'
 import { DEFAULT_VERSION } from '@/versions/components/useVersion'
 import { NextRouter } from 'next/router'
-import { sendEvent } from 'src/events/components/events'
+import { sendEvent } from '@/events/components/events'
 import { SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
 
 // Search context values for identifying each search event
@@ -45,18 +45,11 @@ export function executeGeneralSearch(
   router.push(asPath, undefined, { shallow: false })
 }
 
-export async function executeAISearch(
-  router: NextRouter,
-  version: string,
-  query: string,
-  debug = false,
-) {
-  let language = router.locale || 'en'
-
+export async function executeAISearch(version: string, query: string, debug = false) {
   const body = {
     query,
     version,
-    language,
+    client_name: 'docs.github.com-client',
     ...(debug && { debug: '1' }),
   }
 
@@ -87,6 +80,9 @@ export async function executeCombinedSearch(
   if (debug) {
     params.set('debug', '1')
   }
+
+  // Add client_name to identify requests from our frontend
+  params.set('client_name', 'docs.github.com-client')
 
   // Always fetch 4 results for autocomplete
   params.set('size', '4')

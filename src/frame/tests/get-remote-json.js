@@ -6,7 +6,7 @@ import { rimraf } from 'rimraf'
 import { afterAll, afterEach, beforeAll, describe, expect, test } from 'vitest'
 import nock from 'nock'
 
-import getRemoteJSON, { cache } from '#src/frame/lib/get-remote-json.js'
+import getRemoteJSON, { cache } from '@/frame/lib/get-remote-json'
 
 /**
  *

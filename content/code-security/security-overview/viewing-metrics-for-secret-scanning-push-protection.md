@@ -34,7 +34,7 @@ You can also find more granular metrics, such as:
 * The repositories that are bypassing push protection the most
 * The percentage distribution of reasons that users give when they bypass the protection
 
-{% ifversion security-overview-additional-tools %}Use the date picker to set the time range that you want to view alert activity and metrics for, and click in the search box to add further filters on the alerts and metrics displayed. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview#additional-filters-for-secret-scanning-alert-views).
+Use the date picker to set the time range that you want to view alert activity and metrics for, and click in the search box to add further filters on the alerts and metrics displayed. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview#additional-filters-for-secret-scanning-alert-views).
 
 You can see {% data variables.product.prodname_secret_scanning %} metrics if you have:
 
@@ -44,17 +44,11 @@ You can see {% data variables.product.prodname_secret_scanning %} metrics if you
 
 The metrics are based on activity from the default period or your selected period.
 
-{% else %}
-
-The metrics are based on activity from the default period or your selected period.
-
-{% endif %}
-
 ## Viewing metrics for {% data variables.product.prodname_secret_scanning %} push protection for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.
+1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_secret_scanning_caps %}**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your organization.
 {% data reusables.security-overview.filter-secret-scanning-metrics %}
 

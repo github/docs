@@ -39,32 +39,21 @@ Billing managers **are not** able to:
 * See private members of your organization
 * Be seen in the list of organization members
 * Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
-* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
+* Purchase, edit, or cancel subscriptions for {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}
 
 > [!TIP]
 > If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
 
 ## Inviting a billing manager
 
-{% ifversion enhanced-billing-platform %}
-
->[!NOTE] Enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024, have access to the new billing platform. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the new billing platform.
->
-> If you are on the new billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform#inviting-a-billing-manager).
-
-{% endif %}
-
-{% ifversion ghec %}
-
-If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
-
-{% endif %}
+>[!NOTE] If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a {% data variables.product.prodname_dotcom %} account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
-{% data reusables.organizations.billing-settings %}
-1. Under "Billing management", next to "Billing managers", click **Add**.
-1. Type the username or email address of the person you want to add and click **Send invitation**.
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+1. In the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**, then click **Additional billing details**.
+1. Next to "Billing managers", click **Invite**.
 
 ## Further reading
 

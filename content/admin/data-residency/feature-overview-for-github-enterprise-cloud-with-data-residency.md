@@ -20,17 +20,16 @@ The following features are currently unavailable on {% data variables.enterprise
 
 | Feature | Details | More information |
 | :- | :- | :- |
+| Restricting {% data variables.product.prodname_actions %} policies to verified creators | Currently unavailable | [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allow-enterprise-and-select-non-enterprise-actions-and-reusable-workflows) |
+| {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable | [AUTOTITLE](/rest/copilot/copilot-metrics) |
 | {% data variables.product.prodname_github_codespaces %} | Currently unavailable. | [AUTOTITLE](/codespaces/quickstart) |
-| {% data variables.product.prodname_marketplace %} | Currently, apps from {% data variables.product.prodname_marketplace %} are unavailable. {% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %} may not function as expected. For more information, see [GitHub Actions workflows from GitHub Marketplace](#github-actions-workflows-from-github-marketplace). | [AUTOTITLE](/search-github/searching-on-github/searching-github-marketplace) | [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect#github-connect-features) in the {% data variables.product.prodname_ghe_server %} documentation |
+| {% data variables.product.prodname_importer %} (the "Import repository" button on {% data variables.product.prodname_dotcom_the_website %}) | Instead, the **{% data variables.product.prodname_importer_proper_name %}** is available to migrate data. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer). | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
+| {% data variables.product.prodname_marketplace %} | Currently, apps from {% data variables.product.prodname_marketplace %} are unavailable. {% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %} may not function as expected. For more information, see [{% data variables.product.prodname_actions %} workflows from {% data variables.product.prodname_marketplace %}](#github-actions-workflows-from-github-marketplace). | [AUTOTITLE](/search-github/searching-on-github/searching-github-marketplace) | [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect#github-connect-features) in the {% data variables.product.prodname_ghe_server %} documentation |
+| {% data variables.product.prodname_github_models %} |  Currently unavailable | [AUTOTITLE](/github-models/about-github-models) |
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
-| Achievements | Currently unavailable. | [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile) |
-| {% data variables.product.prodname_importer %} | Currently unavailable | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
-| {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | N/A |
-| {% data variables.product.prodname_copilot_extensions %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat) |
-| {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable | [AUTOTITLE](/rest/copilot/copilot-metrics) |
-| Interactive maps | Currently can't use GeoJSON/TopoJSON syntax to create interactive maps. | [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps) |
-| Restricting {% data variables.product.prodname_actions %} policies to verified creators | Currently unavailable | [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allow-enterprise-and-select-non-enterprise-actions-and-reusable-workflows) |
+| {% data variables.product.prodname_secret_scanning_caps %} validity checks for partner patterns | Currently unavailable | [About validity checks](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#about-validity-checks) |
+| {% data variables.product.prodname_spark_short %} | Unavailable due to dependency on {% data variables.product.prodname_github_codespaces %} | [AUTOTITLE](/copilot/concepts/spark) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} | |
 
 ## Features that work differently
@@ -83,6 +82,7 @@ To allow people to use namespaces that match actions you have used from {% data 
 You can use {% data variables.product.prodname_github_connect %} to connect to {% data variables.enterprise.data_residency_site %} from {% data variables.product.prodname_ghe_server %}.
 
 * {% data variables.product.prodname_server_statistics %} is not available.
+* {% data variables.product.prodname_dotcom_the_website %} actions are not available.
 * Automatic user license sync requires {% data variables.product.prodname_ghe_server %} version 3.15 or later.
 
 To enable {% data variables.product.prodname_github_connect %}, you must configure your {% data variables.product.prodname_ghe_server %} instance to connect to your {% data variables.enterprise.data_residency_site %} subdomain. See [AUTOTITLE](/enterprise-server@latest/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom).

@@ -1,15 +1,6 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
-
-export type TocItem = {
-  fullPath: string
-  title: string
-  intro?: string
-  childTocItems?: Array<{
-    fullPath: string
-    title: string
-  }>
-}
+import type { SimpleTocItem } from '@/landings/types'
 export type FeaturedLink = {
   title: string
   href: string
@@ -48,6 +39,7 @@ export type ProductLandingContextT = {
   introLinks: Record<string, string> | null
   productVideo: string
   productVideoTranscript: string
+  heroImage?: string
   featuredLinks: Record<string, Array<FeaturedLink>>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
@@ -60,7 +52,7 @@ export type ProductLandingContextT = {
   }>
   changelogUrl?: string
   whatsNewChangelog?: Array<{ href: string; title: string; date: string }>
-  tocItems: Array<TocItem>
+  tocItems: Array<SimpleTocItem>
   hasGuidesPage: boolean
   ghesReleases: Array<Release>
 }
@@ -122,6 +114,7 @@ export const getProductLandingContextFromRequest = async (
     ...pick(page, ['introPlainText', 'beta_product', 'intro']),
     productVideo,
     productVideoTranscript: page.product_video_transcript || null,
+    heroImage: page.heroImage || null,
     hasGuidesPage,
     product: {
       href: productTree.href,

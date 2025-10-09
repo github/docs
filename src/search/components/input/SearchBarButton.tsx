@@ -1,27 +1,30 @@
-import { useRef } from 'react'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'
 import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { SearchOverlay } from './SearchOverlay'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
 
 import styles from './SearchBarButton.module.scss'
-import { useMultiQueryParams } from '../hooks/useMultiQueryParams'
 
 type Props = {
   isSearchOpen: boolean
   setIsSearchOpen: (value: boolean) => void
+  params: QueryParams
+  searchButtonRef: React.RefObject<HTMLButtonElement>
+  instanceId?: string
 }
 
-export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
+export function SearchBarButton({
+  isSearchOpen,
+  setIsSearchOpen,
+  params,
+  searchButtonRef,
+  instanceId,
+}: Props) {
   const { t } = useTranslation('search')
 
-  const { params, updateParams } = useMultiQueryParams()
   const urlSearchInputQuery = params['search-overlay-input']
-  const debug = params.debug === 'true'
-
-  const buttonRef = useRef(null)
 
   // Handle click events
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -40,17 +43,11 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
     }
   }
 
-  const shortcutElements = t('search.input.shortcut')
-    .split(/({{[^}]+}})/)
-    .filter((item) => item.trim() !== '')
-    .map((item) => <>{item.trim()}</>)
-  shortcutElements[1] = <kbd className={styles.forwardSlashIcon}>/</kbd>
-
   const placeHolderElements = t('search.input.placeholder')
     .split(/({{[^}]+}})/)
     .filter((item) => item.trim() !== '')
-    .map((item) => <>{item.trim()}</>)
-  placeHolderElements[1] = <CopilotIcon aria-hidden className="mr-1 ml-1" />
+    .map((item, index) => <span key={`${item.trim()}-${index}`}>{item.trim()}</span>)
+  placeHolderElements[1] = <CopilotIcon key="copilot-icon" aria-hidden className="mr-1 ml-1" />
 
   return (
     <>
@@ -60,22 +57,24 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"
-            ref={buttonRef}
+            data-instance={instanceId}
+            ref={searchButtonRef}
             className={styles.searchIconButton}
             onClick={handleClick}
             tabIndex={0}
-            aria-label={t('search.input.aria_label')}
+            aria-label={t('search.input.placeholder_no_icon')}
             icon={SearchIcon}
           />
           {/* On large and up the SearchBarButton is shown */}
           <button
             data-testid="search"
+            data-instance={instanceId}
             tabIndex={0}
-            aria-label={t`search.input.aria_label`}
+            aria-label={t('search.input.placeholder_no_icon')}
             className={styles.searchInputButton}
             onKeyDown={handleKeyDown}
             onClick={handleClick}
-            ref={buttonRef}
+            ref={searchButtonRef}
           >
             {/* Styled to look like an input */}
             <div
@@ -91,7 +90,6 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
                 ) : (
                   <>
                     <span className={styles.placeholderText}>{placeHolderElements}</span>
-                    <span className={styles.placeholderShortcutContainer}>{shortcutElements}</span>
                   </>
                 )}
               </span>
@@ -101,18 +99,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
             </span>
           </button>
         </>
-      ) : (
-        <SearchOverlay
-          searchOverlayOpen={isSearchOpen}
-          parentRef={buttonRef}
-          debug={debug}
-          params={params}
-          updateParams={updateParams}
-          onClose={() => {
-            setIsSearchOpen(false)
-          }}
-        />
-      )}
+      ) : null}
     </>
   )
 }

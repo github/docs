@@ -77,14 +77,3 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 ## Cloning with {% data variables.product.prodname_cli %}
 
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.github %} workflows in your terminal. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
-
-{% ifversion ghes < 3.13 %}
-
-## Cloning with Subversion
-
-{% data reusables.subversion.sunset %}
-
-You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.github %}. Subversion offers a different feature set than Git. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)
-
-You can also access repositories on {% data variables.product.github %} from Subversion clients. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients).
-{% endif %}

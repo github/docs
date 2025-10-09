@@ -1,1 +1,1 @@
-1. In the upper-right corner of any page, click your profile photo, then click **Feature preview**.
+1. In the upper-right corner of any page, click your profile picture, then click **Feature preview**.

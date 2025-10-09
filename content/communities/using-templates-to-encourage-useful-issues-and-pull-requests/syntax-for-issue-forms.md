@@ -35,12 +35,6 @@ body:
 
 You can set the following top-level keys for each issue form.
 
-{% ifversion issue-types %}
-
-{% data reusables.issues.release-stage %}
-
-{% endif %}
-
 | Key | Description | Required | Type |
 | :-- | :-- | :-- | :-- |
 | `name` | A name for the issue form template. Must be unique from all other templates, including Markdown templates. | Required | String |

@@ -1,10 +1,9 @@
-#!/usr/bin/env node
 import crypto from 'crypto'
 import fs from 'fs/promises'
 
 import { RequestError } from '@octokit/request-error'
 
-import { retryingGithub } from './github.js'
+import { retryingGithub } from './github'
 const github = retryingGithub()
 
 // https://docs.github.com/rest/reference/git#get-a-reference

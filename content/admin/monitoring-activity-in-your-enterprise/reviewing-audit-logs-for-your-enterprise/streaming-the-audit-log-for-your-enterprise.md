@@ -117,7 +117,7 @@ From {% data variables.product.prodname_dotcom %}:
 1. Under "Authentication", click **Access keys**.{% endif %}
 1. Configure the stream settings.
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes > 3.14 %}
     - Under "Region", select the bucket's region. For example, `us-east-1`.{% endif %}
     - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
     - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
@@ -315,6 +315,8 @@ To restart streaming, click **Resume stream**.
 {% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
+
+>[!NOTE] Not all API requests are included in the audit log stream after this feature is enabled. The streaming of API requests is limited to security relevant endpoints.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -60,7 +60,7 @@ For each dependency, you can see its ecosystem, the manifest file in which it wa
 {% endif %}
 
 {% ifversion ghes %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes %}.{% else %}, grouped by ecosystem.{% endif %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed.
 {% endif %}
 
 Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted. For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).

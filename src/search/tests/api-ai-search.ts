@@ -1,6 +1,6 @@
 import { expect, test, describe, beforeAll, afterAll } from 'vitest'
 
-import { post } from 'src/tests/helpers/e2etest.js'
+import { post } from '@/tests/helpers/e2etest'
 import { startMockServer, stopMockServer } from '@/tests/mocks/start-mock-server'
 
 describe('AI Search Routes', () => {
@@ -94,24 +94,8 @@ describe('AI Search Routes', () => {
     ])
   })
 
-  test('should handle validation errors: language missing', async () => {
-    let body = { query: 'example query', version: 'dotcom' }
-    const response = await post('/api/ai-search/v1', {
-      body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' },
-    })
-
-    const responseBody = JSON.parse(response.body)
-
-    expect(response.ok).toBe(false)
-    expect(responseBody['errors']).toEqual([
-      { message: `Missing required key 'language' in request body` },
-      { message: `Invalid 'language' in request body 'undefined'. Must be one of: en` },
-    ])
-  })
-
   test('should handle validation errors: version missing', async () => {
-    let body = { query: 'example query', language: 'en' }
+    let body = { query: 'example query' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -122,13 +106,10 @@ describe('AI Search Routes', () => {
     expect(response.ok).toBe(false)
     expect(responseBody['errors']).toEqual([
       { message: `Missing required key 'version' in request body` },
-      {
-        message: `Invalid 'version' in request body: 'undefined'. Must be one of: dotcom, ghec, ghes`,
-      },
     ])
   })
 
-  test('should handle multiple validation errors: query missing, invalid language and version', async () => {
+  test('should handle multiple validation errors: query missing and version', async () => {
     let body = { language: 'fr', version: 'fpt' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
@@ -140,9 +121,74 @@ describe('AI Search Routes', () => {
     expect(response.ok).toBe(false)
     expect(responseBody['errors']).toEqual([
       { message: `Missing required key 'query' in request body` },
-      {
-        message: `Invalid 'language' in request body 'fr'. Must be one of: en`,
-      },
     ])
+  })
+
+  test('should handle streaming response correctly', async () => {
+    // This test verifies the streaming response processing works
+    const body = { query: 'test streaming query', version: 'dotcom' }
+    const response = await fetch('http://localhost:4000/api/ai-search/v1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    })
+
+    expect(response.ok).toBe(true)
+    expect(response.headers.get('content-type')).toBe('application/x-ndjson')
+
+    // Verify we can read the stream without errors
+    if (response.body) {
+      const reader = response.body.getReader()
+      const decoder = new TextDecoder()
+      let chunks = []
+
+      try {
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) break
+          chunks.push(decoder.decode(value, { stream: true }))
+        }
+        expect(chunks.length).toBeGreaterThan(0)
+      } finally {
+        reader.releaseLock()
+      }
+    }
+  })
+
+  test('should handle invalid version parameter', async () => {
+    const body = { query: 'test query', version: 'invalid-version' }
+    const response = await post('/api/ai-search/v1', {
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const responseBody = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(400)
+    expect(responseBody.errors).toBeDefined()
+    expect(responseBody.errors[0].message).toContain("Invalid 'version' in request body")
+  })
+
+  test('should handle non-string query parameter', async () => {
+    const body = { query: 123, version: 'dotcom' }
+    const response = await post('/api/ai-search/v1', {
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const responseBody = JSON.parse(response.body)
+
+    expect(response.statusCode).toBe(400)
+    expect(responseBody.errors).toBeDefined()
+    expect(responseBody.errors[0].message).toBe("Invalid 'query' in request body. Must be a string")
+  })
+
+  test('should handle malformed JSON in request body', async () => {
+    const response = await post('/api/ai-search/v1', {
+      body: '{ invalid json }',
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    expect(response.statusCode).toBe(400)
   })
 })
