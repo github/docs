@@ -166,12 +166,6 @@ For more information, see [{% data variables.copilot.copilot_edits_short %}](htt
 
 1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
 
-   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_claude_sonnet_35 %}
-   * {% data variables.copilot.copilot_claude_sonnet_37 %}
-   * {% data variables.copilot.copilot_gemini_flash %}
-   * {% data variables.copilot.copilot_gemini_25_pro %}
-
    ![Screenshot of {% data variables.copilot.copilot_chat_short %} with the model picker highlighted with a dark orange outline.](/assets/images/help/copilot/vsc-chat-model-picker.png)
 
 1. Do one of the following:
@@ -312,12 +306,6 @@ When you use {% data variables.copilot.copilot_agent_short %} mode, each prompt 
 ### Attaching images to your chat prompt
 
 1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
-
-   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_claude_sonnet_35 %}
-   * {% data variables.copilot.copilot_claude_sonnet_37 %}
-   * {% data variables.copilot.copilot_gemini_flash %}
-   * {% data variables.copilot.copilot_gemini_25_pro %}
 
 1. Do one of the following:
 

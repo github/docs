@@ -145,14 +145,6 @@ You can attach an image to {% data variables.product.prodname_copilot_short %} a
 1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
 1. If you see the AI model picker at the top of the page, select one of the models that supports adding images to prompts:
 
-   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_gpt_5_mini %}
-   * {% data variables.copilot.copilot_gpt_5 %}
-   * {% data variables.copilot.copilot_claude_sonnet_35 %}
-   * {% data variables.copilot.copilot_claude_sonnet_37 %}
-   * {% data variables.copilot.copilot_gemini_flash %}
-   * {% data variables.copilot.copilot_gemini_25_pro %}
-
    ![Screenshot of the model picker with the list of models expanded.](/assets/images/help/copilot/model-picker-copilot-immersive.png)
 
 1. Do one of the following:
