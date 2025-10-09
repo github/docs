@@ -28,7 +28,7 @@ export default function GraphqlChangelog({ mainContext, schema, automatedPageCon
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlChangelog } = await import('@/graphql/lib/index.js')
+  const { getGraphqlChangelog } = await import('@/graphql/lib/index')
   const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items.js')
 
   const req = context.req as any

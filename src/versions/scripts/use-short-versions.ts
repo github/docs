@@ -10,7 +10,7 @@ import { deprecated, oldestSupported } from '@/versions/lib/enterprise-server-re
 const allVersionKeys = Object.values(allVersions)
 const dryRun = ['-d', '--dry-run'].includes(process.argv[2])
 
-const walkFiles = (pathToWalk, ext) => {
+const walkFiles = (pathToWalk: string, ext: string): string[] => {
   return walk(path.posix.join(process.cwd(), pathToWalk), {
     includeBasePath: true,
     directories: false,
@@ -20,7 +20,24 @@ const walkFiles = (pathToWalk, ext) => {
 const markdownFiles = walkFiles('content', '.md').concat(walkFiles('data', '.md'))
 const yamlFiles = walkFiles('data', '.yml')
 
-const operatorsMap = {
+interface ReplacementsMap {
+  [key: string]: string
+}
+
+interface VersionData {
+  versions?: Record<string, string> | string
+  [key: string]: any
+}
+
+interface OperatorsMap {
+  [key: string]: string
+  '==': string
+  ver_gt: string
+  ver_lt: string
+  '!=': string
+}
+
+const operatorsMap: OperatorsMap = {
   // old: new
   '==': '=',
   ver_gt: '>',
@@ -50,9 +67,10 @@ async function main() {
     const newContent = makeLiquidReplacements(contentReplacements, content)
 
     // B. UPDATE FRONTMATTER VERSIONS PROPERTY
-    const { data } = frontmatter(newContent)
+    const { data } = frontmatter(newContent) as { data: VersionData }
     if (data.versions && typeof data.versions !== 'string') {
-      Object.entries(data.versions).forEach(([plan, value]) => {
+      const versions = data.versions as Record<string, string>
+      Object.entries(versions).forEach(([plan, value]) => {
         // Update legacy versioning while we're here
         const valueToUse = value
           .replace('2.23', '3.0')
@@ -68,15 +86,16 @@ async function main() {
           console.error(`can't find supported version for ${plan}`)
           process.exit(1)
         }
-        delete data.versions[plan]
-        data.versions[versionObj.shortName] = valueToUse
+        delete versions[plan]
+        versions[versionObj.shortName] = valueToUse
       })
     }
 
     if (dryRun) {
       console.log(contentReplacements)
     } else {
-      fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+      // Using any for frontmatter.stringify options as gray-matter types don't include lineWidth
+      fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 } as any))
     }
   }
 
@@ -109,14 +128,15 @@ main().then(
 )
 
 // Convenience function to help with readability by removing this large but unneded property.
-function removeInputProps(arrayOfObjects) {
-  return arrayOfObjects.map((obj) => {
+// Using any for token objects as liquidjs doesn't provide TypeScript types
+function removeInputProps(arrayOfObjects: any[]): any[] {
+  return arrayOfObjects.map((obj: any) => {
     delete obj.input || delete obj.token.input
     return obj
   })
 }
 
-function makeLiquidReplacements(replacementsObj, text) {
+function makeLiquidReplacements(replacementsObj: ReplacementsMap, text: string): string {
   let newText = text
   Object.entries(replacementsObj).forEach(([oldCond, newCond]) => {
     const oldCondRegex = new RegExp(`({%-?)\\s*?${escapeRegExp(oldCond)}\\s*?(-?%})`, 'g')
@@ -139,8 +159,8 @@ function makeLiquidReplacements(replacementsObj, text) {
 // if currentVersion ver_gt "myVersion@myRelease -> ifversion myVersionShort > myRelease
 // if currentVersion ver_lt "myVersion@myRelease -> ifversion myVersionShort < myRelease
 // if enterpriseServerVersions contains currentVersion -> ifversion ghes
-function getLiquidReplacements(content, file) {
-  const replacements = {}
+function getLiquidReplacements(content: string, file: string): ReplacementsMap {
+  const replacements: ReplacementsMap = {}
 
   const tokenizer = new Tokenizer(content)
   const tokens = removeInputProps(tokenizer.readTopLevelTokens())
@@ -157,7 +177,7 @@ function getLiquidReplacements(content, file) {
       token
         .replace(/(if|elsif) /, '')
         .split(/ (or|and) /)
-        .forEach((op) => {
+        .forEach((op: any) => {
           if (op === 'or' || op === 'and') {
             newToken.push(op)
             return
@@ -193,7 +213,7 @@ function getLiquidReplacements(content, file) {
 
           // Handle numbered releases!
           if (versionObj.hasNumberedReleases) {
-            const newOperator = operatorsMap[operator]
+            const newOperator: string | undefined = operatorsMap[operator]
             if (!newOperator) {
               console.error(
                 `Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`,

@@ -35,6 +35,7 @@ import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
 import categoriesForSupport from './categories-for-support'
 import triggerError from '@/observability/middleware/trigger-error'
+import dataTables from '@/data-directory/middleware/data-tables'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
 import whatsNewChangelog from './context/whats-new-changelog'
@@ -256,6 +257,7 @@ export default function (app: Express) {
   app.head('/*path', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(dataTables))
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
   app.use(asyncMiddleware(whatsNewChangelog))

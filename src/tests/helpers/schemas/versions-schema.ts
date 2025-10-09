@@ -5,7 +5,20 @@ const releasePattern = '[a-z0-9-.]+'
 const delimiter = '@'
 const versionPattern = `${planPattern}${delimiter}${releasePattern}`
 
-export default {
+interface VersionSchema {
+  type: string
+  additionalProperties: boolean
+  required: string[]
+  properties: {
+    [key: string]: {
+      description: string
+      type: string
+      pattern?: string
+    }
+  }
+}
+
+const schema: VersionSchema = {
   type: 'object',
   additionalProperties: false,
   required: [
@@ -106,3 +119,5 @@ export default {
     },
   },
 }
+
+export default schema

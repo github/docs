@@ -3,7 +3,26 @@ import semver from 'semver'
 
 import versionSatisfiesRange from './version-satisfies-range'
 
-const rawDates = JSON.parse(fs.readFileSync('src/ghes-releases/lib/enterprise-dates.json', 'utf8'))
+interface VersionDateData {
+  releaseDate: string
+  releaseCandidateDate?: string
+  generalAvailabilityDate?: string
+  deprecationDate: string
+  [key: string]: any
+}
+
+interface EnhancedVersionDateData extends VersionDateData {
+  displayCandidateDate?: string | null
+  displayReleaseDate?: string | null
+}
+
+interface RawDatesData {
+  [version: string]: VersionDateData
+}
+
+const rawDates: RawDatesData = JSON.parse(
+  fs.readFileSync('src/ghes-releases/lib/enterprise-dates.json', 'utf8'),
+)
 
 // ============================================================================
 // STATICALLY DEFINED VALUES
@@ -91,7 +110,7 @@ export const latestStable = releaseCandidate ? supported[1] : latest
 export const oldestSupported = supported[supported.length - 1]
 
 // Enhanced dates object with computed display values for templates
-export const dates = Object.fromEntries(
+export const dates: Record<string, EnhancedVersionDateData> = Object.fromEntries(
   Object.entries(rawDates).map(([version, versionData]) => [
     version,
     {
@@ -100,11 +119,13 @@ export const dates = Object.fromEntries(
       displayReleaseDate: processDateForDisplay(versionData.generalAvailabilityDate),
     },
   ]),
-)
+) as Record<string, EnhancedVersionDateData>
 
 // Deprecation tracking
 export const nextDeprecationDate = dates[oldestSupported].deprecationDate
-export const isOldestReleaseDeprecated = new Date() > new Date(nextDeprecationDate)
+export const isOldestReleaseDeprecated = nextDeprecationDate
+  ? new Date() > new Date(nextDeprecationDate)
+  : false
 
 // Filtered version arrays for different use cases
 export const deprecatedOnNewSite = deprecated.filter((version) =>
@@ -133,7 +154,7 @@ export const deprecatedReleasesOnDeveloperSite = deprecated.filter((version) =>
  * @param {string|null} date - ISO date string
  * @returns {string|null} - Date string if in the past, null if future or invalid
  */
-function processDateForDisplay(date) {
+function processDateForDisplay(date: string | undefined): string | null {
   if (!date) return null
   const currentTimestamp = Math.floor(Date.now() / 1000)
   const dateTimestamp = Math.floor(new Date(date).getTime() / 1000)
@@ -146,24 +167,24 @@ function processDateForDisplay(date) {
  * @param {string} v2 - Next version
  * @throws {Error} If version sequence is invalid
  */
-function isValidNext(v1, v2) {
-  const semverV1 = semver.coerce(v1).raw
-  const semverV2 = semver.coerce(v2).raw
+function isValidNext(v1: string, v2: string): void {
+  const semverV1 = semver.coerce(v1)!.raw
+  const semverV2 = semver.coerce(v2)!.raw
   const isValid =
     semverV2 === semver.inc(semverV1, 'minor') || semverV2 === semver.inc(semverV1, 'major')
   if (!isValid)
     throw new Error(`The version "${v2}" is not one version ahead of "${v1}" as expected`)
 }
 
-export const findReleaseNumberIndex = (releaseNum) => {
+export const findReleaseNumberIndex = (releaseNum: string): number => {
   return all.findIndex((i) => i === releaseNum)
 }
 
-export const getNextReleaseNumber = (releaseNum) => {
+export const getNextReleaseNumber = (releaseNum: string): string => {
   return all[findReleaseNumberIndex(releaseNum) - 1]
 }
 
-export const getPreviousReleaseNumber = (releaseNum) => {
+export const getPreviousReleaseNumber = (releaseNum: string): string => {
   return all[findReleaseNumberIndex(releaseNum) + 1]
 }
 
@@ -180,6 +201,7 @@ export default {
   nextNext,
   supported,
   deprecated,
+  deprecatedWithFunctionalRedirects,
   legacyAssetVersions,
   all,
   latest,
@@ -193,11 +215,13 @@ export default {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
   lastReleaseWithLegacyFormat,
+  firstReleaseStoredInBlobStorage,
   deprecatedReleasesWithLegacyFormat,
   deprecatedReleasesWithNewFormat,
   deprecatedReleasesOnDeveloperSite,
   firstReleaseNote,
   firstRestoredAdminGuides,
+  findReleaseNumberIndex,
   getNextReleaseNumber,
   getPreviousReleaseNumber,
 }

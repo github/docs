@@ -1,7 +1,26 @@
 import { describe, expect, test } from 'vitest'
 
+interface TocItem {
+  title: string
+  intro: string
+  fullPath?: string
+}
+
+interface SpotlightItem {
+  article: string
+  image: string
+}
+
+interface ProcessedSpotlightItem {
+  article: string
+  title: string
+  description: string
+  url: string
+  image: string
+}
+
 // Mock data to simulate tocItems and spotlight configurations
-const mockTocItems = [
+const mockTocItems: TocItem[] = [
   {
     title: 'Test Debug Article',
     intro: 'A test article for debugging functionality.',
@@ -20,19 +39,22 @@ const mockTocItems = [
 ]
 
 // Helper function to simulate the spotlight processing logic from CategoryLanding
-function processSpotlight(spotlight, tocItems) {
-  const findArticleData = (articlePath) => {
-    const cleanPath = articlePath.startsWith('/') ? articlePath.slice(1) : articlePath
+function processSpotlight(
+  spotlight: SpotlightItem[] | undefined,
+  tocItems: TocItem[],
+): ProcessedSpotlightItem[] {
+  const findArticleData = (articlePath: string): TocItem | undefined => {
+    const cleanPath: string = articlePath.startsWith('/') ? articlePath.slice(1) : articlePath
     return tocItems.find(
-      (item) =>
+      (item: TocItem) =>
         item.fullPath?.endsWith(cleanPath) ||
         item.fullPath?.includes(cleanPath.split('/').pop() || ''),
     )
   }
 
   return (
-    spotlight?.map((spotlightItem) => {
-      const articleData = findArticleData(spotlightItem.article)
+    spotlight?.map((spotlightItem: SpotlightItem): ProcessedSpotlightItem => {
+      const articleData: TocItem | undefined = findArticleData(spotlightItem.article)
       return {
         article: spotlightItem.article,
         title: articleData?.title || 'Unknown Article',
@@ -46,7 +68,7 @@ function processSpotlight(spotlight, tocItems) {
 
 describe('spotlight processing logic', () => {
   test('processes spotlight object items correctly', () => {
-    const spotlight = [
+    const spotlight: SpotlightItem[] = [
       {
         article: '/debugging-errors/test-debug-article',
         image: '/assets/images/test-debugging.png',
@@ -57,7 +79,7 @@ describe('spotlight processing logic', () => {
       },
     ]
 
-    const result = processSpotlight(spotlight, mockTocItems)
+    const result: ProcessedSpotlightItem[] = processSpotlight(spotlight, mockTocItems)
 
     expect(result).toHaveLength(2)
     expect(result[0]).toEqual({
@@ -77,7 +99,7 @@ describe('spotlight processing logic', () => {
   })
 
   test('processes multiple spotlight items with different images', () => {
-    const spotlight = [
+    const spotlight: SpotlightItem[] = [
       {
         article: '/debugging-errors/test-debug-article',
         image: '/assets/images/debugging.png',
@@ -92,7 +114,7 @@ describe('spotlight processing logic', () => {
       },
     ]
 
-    const result = processSpotlight(spotlight, mockTocItems)
+    const result: ProcessedSpotlightItem[] = processSpotlight(spotlight, mockTocItems)
 
     expect(result).toHaveLength(3)
     expect(result[0].image).toBe('/assets/images/debugging.png')
@@ -102,13 +124,13 @@ describe('spotlight processing logic', () => {
   })
 
   test('finds articles by filename when full path does not match', () => {
-    const spotlight = [
+    const spotlight: SpotlightItem[] = [
       {
         article: 'test-debug-article',
         image: '/assets/images/debug.png',
       },
     ]
-    const result = processSpotlight(spotlight, mockTocItems)
+    const result: ProcessedSpotlightItem[] = processSpotlight(spotlight, mockTocItems)
 
     expect(result[0].title).toBe('Test Debug Article')
     expect(result[0].url).toBe('/en/category/debugging-errors/test-debug-article')
@@ -116,7 +138,7 @@ describe('spotlight processing logic', () => {
   })
 
   test('handles articles not found in tocItems', () => {
-    const spotlight = [
+    const spotlight: SpotlightItem[] = [
       {
         article: '/completely/nonexistent/path',
         image: '/assets/images/missing1.png',
@@ -127,7 +149,7 @@ describe('spotlight processing logic', () => {
       },
     ]
 
-    const result = processSpotlight(spotlight, mockTocItems)
+    const result: ProcessedSpotlightItem[] = processSpotlight(spotlight, mockTocItems)
 
     expect(result).toHaveLength(2)
     expect(result[0]).toEqual({
@@ -147,13 +169,13 @@ describe('spotlight processing logic', () => {
   })
 
   test('handles empty spotlight array', () => {
-    const spotlight = []
-    const result = processSpotlight(spotlight, mockTocItems)
+    const spotlight: SpotlightItem[] = []
+    const result: ProcessedSpotlightItem[] = processSpotlight(spotlight, mockTocItems)
     expect(result).toEqual([])
   })
 
   test('handles undefined spotlight', () => {
-    const result = processSpotlight(undefined, mockTocItems)
+    const result: ProcessedSpotlightItem[] = processSpotlight(undefined, mockTocItems)
     expect(result).toEqual([])
   })
 })

@@ -3,21 +3,36 @@ import { allVersions } from './all-versions'
 import versionSatisfiesRange from './version-satisfies-range'
 import { next, nextNext } from './enterprise-server-releases'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import type { Version } from '@/types'
 
-let featureData = null
+interface VersionsObject {
+  [key: string]: string | string[]
+}
+
+interface GetApplicableVersionsOptions {
+  doNotThrow?: boolean
+  includeNextVersion?: boolean
+}
+
+// Using any for feature data as it's dynamically loaded from YAML files
+let featureData: any = null
 
 const allVersionKeys = Object.keys(allVersions)
 
 // return an array of versions that an article's product versions encompasses
-function getApplicableVersions(versionsObj, filepath, opts = {}) {
+function getApplicableVersions(
+  versionsObj: VersionsObject | string | undefined,
+  filepath?: string,
+  opts: GetApplicableVersionsOptions = {},
+): string[] {
   if (typeof versionsObj === 'undefined') {
-    throw new Error(`No \`versions\` frontmatter found in ${filepath}`)
+    throw new Error(`No \`versions\` frontmatter found in ${filepath || 'undefined'}`)
   }
 
   // Catch an old frontmatter value that was used to indicate an article was available in all versions.
   if (versionsObj === '*') {
     throw new Error(
-      `${filepath} contains the invalid versions frontmatter: *. Please explicitly list out all the versions that apply to this article.`,
+      `${filepath || 'undefined'} contains the invalid versions frontmatter: *. Please explicitly list out all the versions that apply to this article.`,
     )
   }
 
@@ -35,34 +50,39 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
   //    fpt: '*'
   //    ghes: '>=2.23'
   // where the feature is bringing the ghes versions into the mix.
-  const featureVersionsObj = reduce(
-    versionsObj,
-    (result, value, key) => {
-      if (key === 'feature') {
-        if (typeof value === 'string') {
-          Object.assign(result, { ...featureData[value]?.versions })
-        } else if (Array.isArray(value)) {
-          value.forEach((str) => {
-            Object.assign(result, { ...featureData[str].versions })
-          })
-        }
-        delete result[key]
-      }
-      return result
-    },
-    {},
-  )
+  const featureVersionsObj: VersionsObject =
+    typeof versionsObj === 'string'
+      ? {}
+      : reduce(
+          versionsObj,
+          (result: any, value, key) => {
+            if (key === 'feature') {
+              if (typeof value === 'string') {
+                Object.assign(result, { ...featureData[value]?.versions })
+              } else if (Array.isArray(value)) {
+                value.forEach((str) => {
+                  Object.assign(result, { ...featureData[str].versions })
+                })
+              }
+              delete result[key]
+            }
+            return result
+          },
+          {},
+        )
 
   // Get available versions for feature and standard versions.
   const foundFeatureVersions = evaluateVersions(featureVersionsObj)
-  const foundStandardVersions = evaluateVersions(versionsObj)
+  const foundStandardVersions = typeof versionsObj === 'string' ? [] : evaluateVersions(versionsObj)
 
   // Combine them!
-  const applicableVersions = Array.from(new Set(foundStandardVersions.concat(foundFeatureVersions)))
+  const applicableVersions: string[] = Array.from(
+    new Set(foundStandardVersions.concat(foundFeatureVersions)),
+  )
 
   if (!applicableVersions.length && !opts.doNotThrow) {
     throw new Error(
-      `${filepath} is not available in any currently supported version. Make sure the \`versions\` property includes at least one supported version.`,
+      `${filepath || 'undefined'} is not available in any currently supported version. Make sure the \`versions\` property includes at least one supported version.`,
     )
   }
 
@@ -74,35 +94,38 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
   // Strip out not-yet-supported versions if the option to include them is not provided.
   if (!opts.includeNextVersion) {
     sortedVersions = sortedVersions.filter(
-      (v) => !(v.endsWith(`@${next}`) || v.endsWith(`@${nextNext}`)),
+      (v: string) => !(v.endsWith(`@${next}`) || v.endsWith(`@${nextNext}`)),
     )
   }
 
   return sortedVersions
 }
 
-function evaluateVersions(versionsObj) {
+function evaluateVersions(versionsObj: VersionsObject): string[] {
   // get an array like: [ 'free-pro-team@latest', 'enterprise-server@2.21', 'enterprise-cloud@latest' ]
-  const versions = []
+  const versions: string[] = []
 
   // where versions obj is something like:
   //   fpt: '*'
   //   ghes: '>=2.19'
   //   ghec: '*'
   // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.js)
-  Object.entries(versionsObj).forEach(([plan, planValue]) => {
+  Object.entries(versionsObj).forEach(([plan, planValue]: [string, string | string[]]) => {
+    // Skip non-string plan values for semantic comparison
+    if (typeof planValue !== 'string') return
+
     // For each available plan (e.g., `ghes`), get the matching versions from allVersions.
     // This will be an array of one or more version objects.
-    const matchingVersionObjs = Object.values(allVersions).filter(
-      (relevantVersionObj) =>
+    const matchingVersionObjs: Version[] = Object.values(allVersions).filter(
+      (relevantVersionObj: Version) =>
         relevantVersionObj.plan === plan || relevantVersionObj.shortName === plan,
     )
 
     // For each matching version found above, compare it to the provided planValue.
     // E.g., compare `enterprise-server@2.19` to `ghes: >=2.19`.
-    matchingVersionObjs.forEach((relevantVersionObj) => {
+    matchingVersionObjs.forEach((relevantVersionObj: Version) => {
       // If the version doesn't require any semantic comparison, we can assume it applies.
-      if (!(relevantVersionObj.hasNumberedReleases || relevantVersionObj.internalLatestRelease)) {
+      if (!relevantVersionObj.hasNumberedReleases) {
         versions.push(relevantVersionObj.version)
         return
       }
@@ -117,11 +140,9 @@ function evaluateVersions(versionsObj) {
       }
 
       // Determine which release to use for semantic comparison.
-      const releaseToCompare = relevantVersionObj.hasNumberedReleases
-        ? relevantVersionObj.currentRelease
-        : relevantVersionObj.internalLatestRelease
+      const releaseToCompare: string = relevantVersionObj.currentRelease
 
-      if (versionSatisfiesRange(releaseToCompare, planValue)) {
+      if (releaseToCompare && versionSatisfiesRange(releaseToCompare, planValue)) {
         versions.push(relevantVersionObj.version)
       }
     })
