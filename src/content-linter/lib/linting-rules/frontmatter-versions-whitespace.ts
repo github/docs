@@ -1,12 +1,19 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
+import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'
 
-export const frontmatterVersionsWhitespace = {
+interface Frontmatter {
+  versions?: Record<string, string | string[]>
+  [key: string]: any
+}
+
+export const frontmatterVersionsWhitespace: Rule = {
   names: ['GHD051', 'frontmatter-versions-whitespace'],
   description: 'Versions frontmatter should not contain unnecessary whitespace',
   tags: ['frontmatter', 'versions'],
-  function: (params, onError) => {
-    const fm = getFrontmatter(params.lines)
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    const fm = getFrontmatter(params.lines) as Frontmatter | null
     if (!fm || !fm.versions) return
 
     const versionsObj = fm.versions
@@ -58,7 +65,7 @@ export const frontmatterVersionsWhitespace = {
  * Allows whitespace in complex expressions like '<3.6 >3.8'
  * but disallows leading/trailing whitespace
  */
-function checkForUnwantedWhitespace(value) {
+function checkForUnwantedWhitespace(value: string): boolean {
   // Don't flag if the value is just whitespace or empty
   if (!value || value.trim() === '') return false
 
@@ -82,7 +89,7 @@ function checkForUnwantedWhitespace(value) {
 /**
  * Get the cleaned version of a value by removing appropriate whitespace
  */
-function getCleanedValue(value) {
+function getCleanedValue(value: string): string {
   // For values with operators, just trim leading/trailing whitespace
   const hasOperators = /[<>=]/.test(value)
   if (hasOperators) {

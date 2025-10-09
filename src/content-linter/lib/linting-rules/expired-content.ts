@@ -1,4 +1,7 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, newLineRe } from 'markdownlint-rule-helpers'
+
+import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '@/content-linter/types'
 
 // This rule looks for opening and closing HTML comment tags that
 // contain an expiration date in the format:
@@ -8,20 +11,20 @@ import { addError, newLineRe } from 'markdownlint-rule-helpers'
 //
 // The `end expires` closing tag closes the content that is expired
 // and must be removed.
-export const expiredContent = {
+export const expiredContent: Rule = {
   names: ['GHD038', 'expired-content'],
   description: 'Expired content must be remediated.',
   tags: ['expired'],
-  function: (params, onError) => {
-    const tokensToCheck = params.tokens.filter(
-      (token) => token.type === 'inline' || token.type === 'html_block',
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    const tokensToCheck = (params.tokens || []).filter(
+      (token: MarkdownToken) => token.type === 'inline' || token.type === 'html_block',
     )
 
-    tokensToCheck.forEach((token) => {
+    tokensToCheck.forEach((token: MarkdownToken) => {
       // Looking for just opening tag with format:
       // <!-- expires yyyy-mm-dd -->
-      const match = token.content.match(/<!--\s*expires\s(\d\d\d\d)-(\d\d)-(\d\d)\s*-->/)
-      if (!match) return
+      const match = token.content?.match(/<!--\s*expires\s(\d\d\d\d)-(\d\d)-(\d\d)\s*-->/)
+      if (!match || !token.content) return
 
       const expireDate = new Date(match.splice(1, 3).join(' '))
       const today = new Date()
@@ -57,20 +60,20 @@ export const DAYS_TO_WARN_BEFORE_EXPIRED = 14
 //
 // The `end expires` closing tag closes the content that is expired
 // and must be removed.
-export const expiringSoon = {
+export const expiringSoon: Rule = {
   names: ['GHD039', 'expiring-soon'],
   description: 'Content that expires soon should be proactively addressed.',
   tags: ['expired'],
-  function: (params, onError) => {
-    const tokensToCheck = params.tokens.filter(
-      (token) => token.type === 'inline' || token.type === 'html_block',
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    const tokensToCheck = (params.tokens || []).filter(
+      (token: MarkdownToken) => token.type === 'inline' || token.type === 'html_block',
     )
 
-    tokensToCheck.forEach((token) => {
+    tokensToCheck.forEach((token: MarkdownToken) => {
       // Looking for just opening tag with format:
       // <!-- expires yyyy-mm-dd -->
-      const match = token.content.match(/<!--\s*expires\s(\d\d\d\d)-(\d\d)-(\d\d)\s*-->/)
-      if (!match) return
+      const match = token.content?.match(/<!--\s*expires\s(\d\d\d\d)-(\d\d)-(\d\d)\s*-->/)
+      if (!match || !token.content) return
 
       const expireDate = new Date(match.splice(1, 3).join(' '))
       const today = new Date()

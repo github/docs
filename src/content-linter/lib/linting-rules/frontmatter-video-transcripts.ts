@@ -1,16 +1,26 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import path from 'path'
 
 import { getFrontmatter } from '../helpers/utils'
+import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'
 
-export const frontmatterVideoTranscripts = {
+interface Frontmatter {
+  product_video?: string
+  product_video_transcript?: string
+  title?: string
+  layout?: string
+  [key: string]: any
+}
+
+export const frontmatterVideoTranscripts: Rule = {
   names: ['GHD011', 'frontmatter-video-transcripts'],
   description: 'Video transcript must be configured correctly',
   tags: ['frontmatter', 'feature', 'video-transcripts'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const filepath = params.name
 
-    const fm = getFrontmatter(params.lines)
+    const fm = getFrontmatter(params.lines) as Frontmatter | null
     if (!fm) return
 
     const isTranscriptContent =
@@ -29,7 +39,7 @@ export const frontmatterVideoTranscripts = {
           null, // No fix possible
         )
       }
-      if (!fm.title.startsWith('Transcript - ')) {
+      if (fm.title && !fm.title.startsWith('Transcript - ')) {
         const lineNumber = params.lines.findIndex((line) => line.startsWith('title:')) + 1
         const lineContent = params.lines[lineNumber - 1]
         addError(

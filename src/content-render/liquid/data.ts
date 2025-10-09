@@ -1,4 +1,5 @@
 import { TokenizationError } from 'liquidjs'
+import type { TagToken, Liquid, Template } from 'liquidjs'
 
 import { THROW_ON_EMPTY, DataReferenceError } from './error-handling'
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
@@ -6,8 +7,22 @@ import { getDataByLanguage } from '@/data-directory/lib/get-data'
 const Syntax = /([a-z0-9/\\_.\-[\]]+)/i
 const SyntaxHelp = "Syntax Error in 'data' - Valid syntax: data [path]"
 
+// Using any for scope because it has custom environments property not in Liquid's Scope type
+interface CustomScope {
+  environments: any
+  [key: string]: any
+}
+
+interface DataTag {
+  path: string
+  tagToken: TagToken
+  liquid: Liquid
+  parse(tagToken: TagToken): void
+  render(scope: CustomScope): Promise<Template | undefined>
+}
+
 export default {
-  parse(tagToken) {
+  parse(tagToken: TagToken) {
     if (!tagToken || !Syntax.test(tagToken.args)) {
       throw new TokenizationError(SyntaxHelp, tagToken)
     }
@@ -16,7 +31,7 @@ export default {
     this.tagToken = tagToken
   },
 
-  async render(scope) {
+  async render(scope: CustomScope) {
     let text = getDataByLanguage(this.path, scope.environments.currentLanguage)
     if (text === undefined) {
       if (scope.environments.currentLanguage === 'en') {
@@ -35,9 +50,9 @@ export default {
 
     return this.liquid.parseAndRender(text, scope.environments)
   },
-}
+} as DataTag
 
-function handleIndent(tagToken, text) {
+function handleIndent(tagToken: TagToken, text: string): string {
   // Any time what we're about to replace in here has more than one line,
   // if the use of `{% data ... %}` was itself indented, from the left,
   // keep *that* indentation, in replaced output, for every line.
@@ -67,17 +82,20 @@ function handleIndent(tagToken, text) {
 // When a reusable has multiple lines, and the input line is a blockquote,
 // keep the blockquote character on every successive line.
 const blockquoteRegexp = /^\n?([ \t]*>[ \t]?)/
-function handleBlockquote(tagToken, text) {
+function handleBlockquote(tagToken: TagToken, text: string): string {
   // If the text isn't multiline, skip
   if (text.split('\n').length <= 1) return text
 
   // If the line with the liquid tag starts with a blockquote...
   const { input, content } = tagToken
+  if (!content) return text
   const inputLine = input.split('\n').find((line) => line.includes(content))
-  if (!blockquoteRegexp.test(inputLine)) return text
+  if (!inputLine || !blockquoteRegexp.test(inputLine)) return text
 
   // Keep the character on successive lines
-  const start = inputLine.match(blockquoteRegexp)[0]
+  const match = inputLine.match(blockquoteRegexp)
+  if (!match) return text
+  const start = match[0]
   return text
     .split('\n')
     .map((line, i) => {
