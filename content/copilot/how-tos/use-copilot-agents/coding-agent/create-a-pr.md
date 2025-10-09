@@ -39,6 +39,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to work on a tas
 * The [{% data variables.product.prodname_cli %}](#asking-copilot-to-create-a-pull-request-from-the-github-cli)
 * Your preferred IDE or agentic coding tool with [Model Context Protocol (MCP)](#asking-copilot-to-create-a-pull-request-from-the-github-mcp-server) support
 * The [Raycast](#asking-copilot-to-create-a-pull-request-from-raycast) launcher on macOS
+* The ["New repository" form](#asking-copilot-to-create-a-pull-request-from-the-new-repository-page) on {% data variables.product.github %}
 
 {% data variables.product.prodname_copilot_short %} will start working on the task, raise a pull request, then request a review from you when it's finished working. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
@@ -233,6 +234,19 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
    * **Navigate to the agents page**: Go to [github.com/copilot/agents](https://github.com/copilot/agents). You can also get here by opening the agents panel, then clicking **View all**.
 
 {% data reusables.copilot.coding-agent.new-agent-task-form-instructions %}
+
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the "New repository" page
+
+When creating a new repository, you can ask {% data variables.product.prodname_copilot_short %} to seed the new repository by entering a prompt.
+
+{% data reusables.repositories.create_new %}
+{% data reusables.repositories.owner-drop-down %}
+1. In the **Prompt** field, enter a prompt describing what you want {% data variables.product.prodname_copilot_short %} to build.
+
+    For example, `Create a Rust CLI for converting CSV spreadsheets to Markdown`
+{% data reusables.repositories.create-repo %}
+
+    {% data variables.product.prodname_copilot_short %} will immediately open a draft pull request. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 
