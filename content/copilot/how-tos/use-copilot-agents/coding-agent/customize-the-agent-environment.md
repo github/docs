@@ -88,7 +88,6 @@ In your `copilot-setup-steps.yml` file, you can only customize the following set
 * `steps` (see above)
 * `permissions` (see above)
 * `runs-on` (see below)
-* `container `
 * `services`
 * `snapshot`
 * `timeout-minutes` (maximum value: `59`)

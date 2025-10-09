@@ -56,7 +56,7 @@ You can also configure and manage team synchronization for an individual organiz
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-1. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**.
+1. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**. {% data reusables.identity-and-permissions.sync-app-registration %}
 1. To disable team synchronization, under "Team synchronization", click **Disable team synchronization**.
 
 {% ifversion team-sync-manage-org-invites %}
