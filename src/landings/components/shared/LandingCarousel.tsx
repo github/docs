@@ -42,8 +42,8 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
   const [currentPage, setCurrentPage] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
-  const { t } = useTranslation('discovery_landing')
-  const headingText = heading || t('recommended')
+  const { t } = useTranslation('product_landing')
+  const headingText = heading || t('carousel.recommended')
   // Ref to store timeout IDs for cleanup
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 

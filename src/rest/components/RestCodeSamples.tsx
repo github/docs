@@ -100,7 +100,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const [selectedLanguage, setSelectedLanguage] = useState(languageSelectOptions[0])
   const [selectedExample, setSelectedExample] = useState(exampleSelectOptions[0])
   const [selectedResponse, setSelectedResponse] = useState(responseSelectOptions[0])
-  const [responseMaxHeight, setResponseMaxHeight] = useState(0)
 
   const isSingleExample = languageExamples.length === 1
   const displayedExample: ExampleT = languageExamples[selectedExample.languageIndex]
@@ -116,19 +115,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const handleLanguageSelection = (languageKey: CodeSampleKeys) => {
     setSelectedLanguage(languageKey)
     Cookies.set('codeSampleLanguagePreferred', languageKey)
-  }
-
-  const handleResponseResize = () => {
-    if (requestCodeExample.current) {
-      const requestCodeHeight = requestCodeExample.current.clientHeight || 0
-      const { innerHeight: height } = window
-      if (responseCodeExample) {
-        // 520 pixels roughly accounts for the space taken up by the
-        // nav bar, headers, language picker, method section, and response
-        // picker
-        setResponseMaxHeight(height - requestCodeHeight - 520)
-      }
-    }
   }
 
   // Change the language based on cookies
@@ -152,7 +138,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
       highlightElement(reqElem)
-      handleResponseResize()
     }
   }, [selectedLanguage])
 
@@ -195,15 +180,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       firstRender.current = false
     }
   }, [])
-
-  // Handle the resizing of the response section when the window is resized
-  useEffect(() => {
-    handleResponseResize()
-    window.addEventListener('resize', handleResponseResize)
-    return () => {
-      window.removeEventListener('resize', handleResponseResize)
-    }
-  })
 
   const [isCopied, setCopied] = useClipboard(displayedExample[selectedLanguage] as string, {
     successDuration: 1400,
@@ -360,7 +336,6 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                 'border-top rounded-1 my-0',
               )}
               data-highlight={'json'}
-              style={{ maxHeight: responseMaxHeight }}
               // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
             >

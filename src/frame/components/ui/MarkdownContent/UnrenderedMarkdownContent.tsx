@@ -12,6 +12,8 @@ import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
 
+import styles from './MarkdownContent.module.scss'
+
 export type MarkdownContentPropsT = {
   children: string
   className?: string
@@ -72,11 +74,11 @@ export const UnrenderedMarkdownContent = ({
       }
 
       return (
-        <div style={{ position: 'relative' }}>
+        <div className={styles.codeBlockContainer}>
           <IconButton
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
-            className="btn-octicon"
+            className={cx('btn-octicon', styles.copyButton)}
             aria-label={getAriaLabel()}
             onClick={async () => {
               await copyToClipboard()
@@ -87,12 +89,6 @@ export const UnrenderedMarkdownContent = ({
                 eventGroupKey: eventGroupKey,
                 eventGroupId: eventGroupId,
               })
-            }}
-            sx={{
-              position: 'absolute',
-              right: '-.7rem',
-              top: '-.7rem',
-              zIndex: 1,
             }}
           ></IconButton>
           <code {...props}>{props.children}</code>

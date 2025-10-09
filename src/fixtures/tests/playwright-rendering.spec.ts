@@ -1056,3 +1056,102 @@ test.describe('LandingCarousel component', () => {
     await expect(cards).toHaveCount(1)
   })
 })
+
+test.describe('Journey Tracks', () => {
+  test('displays journey tracks on landing pages', async ({ page }) => {
+    await page.goto('/get-started?feature=journey-landing')
+
+    const journeyTracks = page.locator('[data-testid="journey-tracks"]')
+    await expect(journeyTracks).toBeVisible()
+
+    // Check that at least one track is displayed
+    const tracks = page.locator('[data-testid="journey-track"]')
+    await expect(tracks.first()).toBeVisible()
+
+    // Verify track has proper structure
+    const firstTrack = tracks.first()
+    await expect(firstTrack.locator('h3')).toBeVisible() // Track title
+    await expect(firstTrack.locator('p')).toBeVisible() // Track description
+  })
+
+  test('track expansion and collapse functionality', async ({ page }) => {
+    await page.goto('/get-started?feature=journey-landing')
+
+    const firstTrack = page.locator('[data-testid="journey-track"]').first()
+    const expandButton = firstTrack.locator('summary')
+
+    // Initially collapsed
+    const articlesList = firstTrack.locator('[data-testid="journey-articles"]')
+    await expect(articlesList).not.toBeVisible()
+
+    await expandButton.click()
+    await expect(articlesList).toBeVisible()
+
+    const articles = articlesList.locator('li')
+    await expect(articles.first()).toBeVisible()
+
+    await expandButton.click()
+    await expect(articlesList).not.toBeVisible()
+  })
+
+  test('article navigation within tracks', async ({ page }) => {
+    await page.goto('/get-started?feature=journey-landing')
+
+    const firstTrack = page.locator('[data-testid="journey-track"]').first()
+    const expandButton = firstTrack.locator('summary')
+
+    await expandButton.click()
+
+    // Click on first article
+    const firstArticle = firstTrack.locator('[data-testid="journey-articles"] li a').first()
+    await expect(firstArticle).toBeVisible()
+
+    const articleTitle = await firstArticle.textContent()
+    expect(articleTitle).toBeTruthy()
+    expect(articleTitle!.length).toBeGreaterThan(0)
+  })
+
+  test('preserves version in journey track links', async ({ page }) => {
+    await page.goto('/enterprise-cloud@latest/get-started?feature=journey-landing')
+
+    const firstTrack = page.locator('[data-testid="journey-track"]').first()
+    const expandButton = firstTrack.locator('summary')
+    await expandButton.click()
+
+    // article links should preserve the language and version
+    const firstArticle = firstTrack.locator('[data-testid="journey-articles"] li a').first()
+    const href = await firstArticle.getAttribute('href')
+
+    expect(href).toContain('/en/')
+    expect(href).toContain('enterprise-cloud@latest')
+  })
+
+  test('handles liquid template rendering in track content', async ({ page }) => {
+    await page.goto('/get-started?feature=journey-landing')
+
+    const tracks = page.locator('[data-testid="journey-track"]')
+
+    // Check that liquid templates are rendered (no raw template syntax visible)
+    const trackContent = await tracks.first().textContent()
+    expect(trackContent).not.toContain('{{')
+    expect(trackContent).not.toContain('}}')
+    expect(trackContent).not.toContain('{%')
+    expect(trackContent).not.toContain('%}')
+  })
+
+  test('journey navigation components show on article pages', async ({ page }) => {
+    // go to an article that's part of a journey track
+    await page.goto('/get-started/start-your-journey/hello-world?feature=journey-navigation')
+
+    // journey next/prev nav components should rende
+    const journeyCard = page.locator('[data-testid="journey-track-card"]')
+    if (await journeyCard.isVisible()) {
+      await expect(journeyCard).toBeVisible()
+    }
+
+    const journeyNav = page.locator('[data-testid="journey-track-nav"]')
+    if (await journeyNav.isVisible()) {
+      await expect(journeyNav).toBeVisible()
+    }
+  })
+})

@@ -530,6 +530,27 @@
     ]
   },
   {
+    "action": "billing.overage_policy_updated",
+    "description": "The premium request paid usage policy for your GitHub account was changed.",
+    "docs_reference_links": "/copilot/how-tos/manage-and-track-spending/manage-request-allowances#setting-a-policy-for-paid-usage",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/copilot/how-tos/manage-and-track-spending/manage-request-allowances#setting-a-policy-for-paid-usage"
+  },
+  {
     "action": "billing.unlock",
     "description": "N/A",
     "docs_reference_links": "N/A",
@@ -4319,7 +4340,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "GitHub Copilot billing"
+    "docs_reference_titles": "GitHub Copilot licenses"
   },
   {
     "action": "copilot.plan_downgrade_scheduled",

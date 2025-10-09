@@ -261,6 +261,9 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 ## Creating repository-wide custom instructions
 
+> [!NOTE]
+> {% data reusables.copilot.custom-instructions-ccr-support %} See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=vscode).
+
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
    Create the `.github` directory if it does not already exist.

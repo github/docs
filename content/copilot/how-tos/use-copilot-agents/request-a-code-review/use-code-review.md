@@ -134,6 +134,9 @@ To provide feedback, hover over the comment and click the thumbs up or thumbs do
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with custom instructions
 
+> [!NOTE]
+> {% data reusables.copilot.custom-instructions-ccr-support %}
+
 {% data reusables.copilot.code-review.custom-instructions-information %}
 
 {% endvscode %}

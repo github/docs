@@ -197,6 +197,39 @@ export const schema = {
     learningTracks: {
       type: 'array',
     },
+    // Journey tracks for journey landing pages
+    journeyTracks: {
+      type: 'array',
+      items: {
+        type: 'object',
+        required: ['id', 'title', 'guides'],
+        properties: {
+          id: {
+            type: 'string',
+            description: 'Unique identifier for the journey track',
+          },
+          title: {
+            type: 'string',
+            translatable: true,
+            description: 'Display title for the journey track',
+          },
+          description: {
+            type: 'string',
+            translatable: true,
+            description: 'Optional description for the journey track',
+          },
+          guides: {
+            type: 'array',
+            items: {
+              type: 'string',
+            },
+            description: 'Array of article paths that make up this journey track',
+          },
+        },
+        additionalProperties: false,
+      },
+      description: 'Array of journey tracks for journey landing pages',
+    },
     // Used in `product-landing.html`
     beta_product: {
       type: 'boolean',

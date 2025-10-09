@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
+
 import styles from './ScrollButton.module.scss'
 
 const { transition200, opacity0, opacity100, customFocus } = styles
@@ -70,8 +71,8 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
           'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',
           'd-flex flex-items-center flex-justify-center',
           customFocus,
+          styles.scrollButton,
         )}
-        style={{ width: 40, height: 40 }}
         aria-label={ariaLabel}
       >
         <ChevronUpIcon />
