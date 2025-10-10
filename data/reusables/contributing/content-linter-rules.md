@@ -72,6 +72,7 @@
 | GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | warning | actions, reusable, third-party |
 | GHD055 | frontmatter-validation | Frontmatter properties must meet character limits and required property requirements | warning | frontmatter, character-limits, required-properties |
 | GHD056 | frontmatter-landing-recommended | Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist | error | frontmatter, landing, recommended |
+| GHD057 | ctas-schema | CTA URLs must conform to the schema | error | ctas, schema, urls |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |

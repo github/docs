@@ -316,6 +316,12 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
+  'ctas-schema': {
+    // GHD057
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
 }
 
 // Configures rules from the `github/markdownlint-github` repo

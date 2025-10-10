@@ -1,18 +1,28 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
+
+import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
+
+interface HeadingInfo {
+  token: MarkdownToken
+  lineNumber: number
+  level: number
+  line: string
+}
 
 export const headerContentRequirement = {
   names: ['GHD053', 'header-content-requirement'],
   description: 'Headers must have content between them, such as an introduction',
   tags: ['headers', 'structure', 'content'],
-  function: (params, onError) => {
-    const headings = []
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    const headings: HeadingInfo[] = []
 
     // Collect all heading tokens with their line numbers and levels
-    filterTokens(params, 'heading_open', (token) => {
+    filterTokens(params, 'heading_open', (token: MarkdownToken) => {
       headings.push({
         token,
         lineNumber: token.lineNumber,
-        level: parseInt(token.tag.slice(1)), // Extract number from h1, h2, etc.
+        level: parseInt(token.tag!.slice(1)), // Extract number from h1, h2, etc.
         line: params.lines[token.lineNumber - 1],
       })
     })
@@ -49,7 +59,11 @@ export const headerContentRequirement = {
  * Check if there is meaningful content between two headings
  * Returns true if content exists, false if only whitespace/empty lines
  */
-function checkForContentBetweenHeadings(lines, startLineNumber, endLineNumber) {
+function checkForContentBetweenHeadings(
+  lines: string[],
+  startLineNumber: number,
+  endLineNumber: number,
+): boolean {
   // Convert to 0-based indexes and skip the heading lines themselves
   const startIndex = startLineNumber // Skip the current heading line
   const endIndex = endLineNumber - 2 // Stop before the next heading line
@@ -82,7 +96,7 @@ function checkForContentBetweenHeadings(lines, startLineNumber, endLineNumber) {
  * Check if a line contains only Liquid tags that don't produce visible content
  * This helps avoid false positives for conditional blocks
  */
-function isNonContentLiquidTag(line) {
+function isNonContentLiquidTag(line: string): boolean {
   // Match common non-content Liquid tags
   const nonContentTags = [
     /^{%\s*ifversion\s+.*%}$/,

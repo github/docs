@@ -53,6 +53,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 | Provider | Token |
 |----------|:--------------------|
+|  Generic | ec_private_key |
 |  Generic | http_basic_authentication_header |
 |  Generic | http_bearer_authentication_header |
 |  Generic | mongodb_connection_string |

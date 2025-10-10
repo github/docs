@@ -42,7 +42,9 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(3)
     expect(errors.map((error) => error.lineNumber)).toEqual([6, 7, 8])
-    expect(errors[0].errorRange).toEqual([1, 22], [1, 29], [1, 23])
+    expect(errors[0].errorRange).toEqual([1, 22])
+    expect(errors[1].errorRange).toEqual([1, 29])
+    expect(errors[2].errorRange).toEqual([1, 30])
   })
   test('unless conditional with quote args fails', async () => {
     const markdown = [

@@ -1,5 +1,6 @@
 import { describe, expect, test } from 'vitest'
 import markdownlint from 'markdownlint'
+// @ts-ignore - markdownlint-rule-search-replace doesn't provide TypeScript declarations
 import searchReplace from 'markdownlint-rule-search-replace'
 
 import { searchReplaceConfig } from '../../style/github-docs'

@@ -1,4 +1,6 @@
+// @ts-ignore - markdownlint-rule-search-replace doesn't provide TypeScript declarations
 import searchReplace from 'markdownlint-rule-search-replace'
+// @ts-ignore - @github/markdownlint-github doesn't provide TypeScript declarations
 import markdownlintGitHub from '@github/markdownlint-github'
 
 import { codeFenceLineLength } from '@/content-linter/lib/linting-rules/code-fence-line-length'
@@ -55,11 +57,15 @@ import { frontmatterValidation } from '@/content-linter/lib/linting-rules/frontm
 import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
+import { ctasSchema } from '@/content-linter/lib/linting-rules/ctas-schema'
 
-const noDefaultAltText = markdownlintGitHub.find((elem) =>
+// Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
+// The elements in the array have a 'names' property that contains rule identifiers
+const noDefaultAltText = markdownlintGitHub.find((elem: any) =>
   elem.names.includes('no-default-alt-text'),
 )
-const noGenericLinkText = markdownlintGitHub.find((elem) =>
+// Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
+const noGenericLinkText = markdownlintGitHub.find((elem: any) =>
   elem.names.includes('no-generic-link-text'),
 )
 
@@ -117,6 +123,7 @@ export const gitHubDocsMarkdownlint = {
     thirdPartyActionsReusable, // GHD054
     frontmatterValidation, // GHD055
     frontmatterLandingRecommended, // GHD056
+    ctasSchema, // GHD057
 
     // Search-replace rules
     searchReplace, // Open-source plugin

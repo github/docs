@@ -25,6 +25,7 @@
     "copy-fixture-data": "tsx src/tests/scripts/copy-fixture-data.ts",
     "count-translation-corruptions": "cross-env NODE_OPTIONS=--max-old-space-size=8192 tsx src/languages/scripts/count-translation-corruptions.ts",
     "create-enterprise-issue": "tsx src/ghes-releases/scripts/create-enterprise-issue.ts",
+    "cta-builder": "tsx src/content-render/scripts/cta-builder.ts",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "docsaudit": "tsx src/metrics/scripts/docsaudit.ts",

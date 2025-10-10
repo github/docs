@@ -1,20 +1,38 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import matter from '@gr2m/gray-matter'
 
+import type { RuleParams, RuleErrorCallback, MarkdownToken } from '@/content-linter/types'
+
 // Adds an error object with details conditionally via the onError callback
-export function addFixErrorDetail(onError, lineNumber, expected, actual, range, fixInfo) {
+export function addFixErrorDetail(
+  onError: RuleErrorCallback,
+  lineNumber: number,
+  expected: string,
+  actual: string,
+  // Using flexible type to accommodate different range formats from various linting rules
+  range: [number, number] | number[] | null,
+  // Using any for fixInfo as markdownlint-rule-helpers accepts various fix info structures
+  fixInfo: any,
+): void {
   addError(onError, lineNumber, `Expected: ${expected}`, ` Actual: ${actual}`, range, fixInfo)
 }
 
-export function forEachInlineChild(params, type, handler) {
-  filterTokens(params, 'inline', (token) => {
-    for (const child of token.children.filter((c) => c.type === type)) {
+export function forEachInlineChild(
+  params: RuleParams,
+  type: string,
+  // Using any for child and token types because different linting rules pass tokens with varying structures
+  // beyond the base MarkdownToken interface (e.g., ImageToken with additional properties)
+  handler: (child: any, token: any) => void,
+): void {
+  filterTokens(params, 'inline', (token: MarkdownToken) => {
+    for (const child of token.children!.filter((c) => c.type === type)) {
       handler(child, token)
     }
   })
 }
 
-export function getRange(line, content) {
+export function getRange(line: string, content: string): [number, number] | null {
   if (content.length === 0) {
     // This function assumes that the content is something. If it's an
     // empty string it can never produce a valid range.
@@ -24,7 +42,7 @@ export function getRange(line, content) {
   return startColumnIndex !== -1 ? [startColumnIndex + 1, content.length] : null
 }
 
-export function isStringQuoted(text) {
+export function isStringQuoted(text: string): boolean {
   // String starts with either a single or double quote
   // ends with either a single or double quote
   // and optionally ends with a question mark or exclamation point
@@ -32,7 +50,7 @@ export function isStringQuoted(text) {
   return /^['"].*['"][?!]?$/.test(text)
 }
 
-export function isStringPunctuated(text) {
+export function isStringPunctuated(text: string): boolean {
   // String ends with punctuation of either
   // . ? ! and optionally ends with single
   // or double quotes. This also allows
@@ -41,7 +59,7 @@ export function isStringPunctuated(text) {
   return /^.*[.?!]['"]?$/.test(text)
 }
 
-export function doesStringEndWithPeriod(text) {
+export function doesStringEndWithPeriod(text: string): boolean {
   // String ends with punctuation of either
   // . ? ! and optionally ends with single
   // or double quotes. This also allows
@@ -50,7 +68,7 @@ export function doesStringEndWithPeriod(text) {
   return /^.*\.['"]?$/.test(text)
 }
 
-export function quotePrecedesLinkOpen(text) {
+export function quotePrecedesLinkOpen(text: string | undefined): boolean {
   if (!text) return false
   return text.endsWith('"') || text.endsWith("'")
 }
@@ -87,12 +105,15 @@ export function quotePrecedesLinkOpen(text) {
 //      { type: 'paragraph_close'},   <-- Index 5 - NOT INCLUDED
 //   ]
 //
-export function filterTokensByOrder(tokens, tokenOrder) {
-  const matches = []
+export function filterTokensByOrder(
+  tokens: MarkdownToken[],
+  tokenOrder: string[],
+): MarkdownToken[] {
+  const matches: MarkdownToken[] = []
 
   // Get a list of token indexes that match the
   // first token (root) in the tokenOrder array
-  const tokenRootIndexes = []
+  const tokenRootIndexes: number[] = []
   const firstTokenOrderType = tokenOrder[0]
   tokens.forEach((token, index) => {
     if (token.type === firstTokenOrderType) {
@@ -125,7 +146,8 @@ export const docsDomains = ['docs.github.com', 'help.github.com', 'developer.git
 // This is the format we get from Markdownlint.
 // Returns null if the lines do not contain
 // frontmatter properties.
-export function getFrontmatter(lines) {
+// Returns frontmatter as a Record with any values since YAML can contain various types
+export function getFrontmatter(lines: string[]): Record<string, any> | null {
   const fmString = lines.join('\n')
   const { data } = matter(fmString)
   // If there is no frontmatter or the frontmatter contains
@@ -134,7 +156,7 @@ export function getFrontmatter(lines) {
   return data
 }
 
-export function getFrontmatterLines(lines) {
+export function getFrontmatterLines(lines: string[]): string[] {
   const indexStart = lines.indexOf('---')
   if (indexStart === -1) return []
   const indexEnd = lines.indexOf('---', indexStart + 1)
