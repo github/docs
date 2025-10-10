@@ -55,6 +55,7 @@ import { frontmatterValidation } from '@/content-linter/lib/linting-rules/frontm
 import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
+import { ctasSchema } from '@/content-linter/lib/linting-rules/ctas-schema'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -117,6 +118,7 @@ export const gitHubDocsMarkdownlint = {
     thirdPartyActionsReusable, // GHD054
     frontmatterValidation, // GHD055
     frontmatterLandingRecommended, // GHD056
+    ctasSchema, // GHD057
 
     // Search-replace rules
     searchReplace, // Open-source plugin
