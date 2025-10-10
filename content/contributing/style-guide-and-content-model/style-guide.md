@@ -149,7 +149,7 @@ We should only use a CTA when the answer to both questions is yes.
 
 A CTA is an explicit direction to the user to take an immediate action, such as “Try Copilot for free” or “Create your own repository”. A CTA in our documentation should only lead people to a {% data variables.product.company_short %}-owned domain.
 
-For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs) on {% data variables.product.prodname_dotcom_the_website %}.
+For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=text&ref_plan=enterprise) on {% data variables.product.prodname_dotcom_the_website %}.
 
 Style a CTA using the following format.
 

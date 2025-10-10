@@ -22,8 +22,8 @@ There are a few ways that you can get access to {% data variables.product.prodna
 
 * **Sign up for a paid plan**. You can subscribe to either:
 
-  * **{% data variables.copilot.copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
-  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_cta=Copilot+Pro%2B&ref_loc=subscriptions+page&ref_page=docs).
+  * **{% data variables.copilot.copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
+  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
