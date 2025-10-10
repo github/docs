@@ -21,7 +21,7 @@ export type LandingContextT = {
   currentLearningTrack?: LearningTrack
   currentLayout: string
   heroImage?: string
-  // For discovery landing pages
+  // For landing pages with carousels
   recommended?: Array<{ title: string; intro: string; href: string; category: string[] }> // Resolved article data
   introLinks?: Record<string, string>
   // For journey landing pages
@@ -51,7 +51,7 @@ export const getLandingContextFromRequest = async (
 
   let recommended: Array<{ title: string; intro: string; href: string; category: string[] }> = []
 
-  if (landingType === 'discovery') {
+  if (landingType === 'discovery' || landingType === 'bespoke') {
     // Use resolved recommended articles from the page after middleware processing
     if (page.recommended && Array.isArray(page.recommended) && page.recommended.length > 0) {
       recommended = page.recommended
