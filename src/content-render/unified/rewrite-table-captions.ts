@@ -1,4 +1,6 @@
 import { visit } from 'unist-util-visit'
+import type { Node, Parent } from 'unist'
+import type { Element } from 'hast'
 
 /**
  * A rehype plugin that automatically adds aria-labelledby attributes to tables
@@ -30,16 +32,24 @@ import { visit } from 'unist-util-visit'
  * 4. Skipping tables that already have accessibility attributes
  */
 
-function isTableElement(node) {
-  return node.type === 'element' && node.tagName === 'table'
+interface HeadingInfo {
+  id: string
+  text: string
 }
 
-function isHeadingElement(node) {
-  return node.type === 'element' && ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)
+function isTableElement(node: Node): node is Element {
+  return node.type === 'element' && (node as Element).tagName === 'table'
 }
 
-function hasExistingAccessibilityAttributes(tableNode) {
+function isHeadingElement(node: Node): node is Element {
   return (
+    node.type === 'element' &&
+    ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes((node as Element).tagName)
+  )
+}
+
+function hasExistingAccessibilityAttributes(tableNode: Element): boolean {
+  return !!(
     tableNode.properties &&
     (tableNode.properties.ariaLabel ||
       tableNode.properties.ariaLabelledBy ||
@@ -48,13 +58,13 @@ function hasExistingAccessibilityAttributes(tableNode) {
   )
 }
 
-function hasExistingCaption(tableNode) {
+function hasExistingCaption(tableNode: Element): boolean {
   return tableNode.children?.some(
-    (child) => child.type === 'element' && child.tagName === 'caption',
+    (child) => child.type === 'element' && (child as Element).tagName === 'caption',
   )
 }
 
-function findPrecedingHeading(parent, tableIndex) {
+function findPrecedingHeading(parent: Parent, tableIndex: number): HeadingInfo | null {
   if (!parent.children || tableIndex === 0) return null
 
   // Look backwards from the table position for the nearest heading
@@ -66,7 +76,7 @@ function findPrecedingHeading(parent, tableIndex) {
       const headingId = node.properties?.id
       if (headingId) {
         return {
-          id: headingId,
+          id: headingId as string,
           text: extractTextFromNode(node),
         }
       }
@@ -75,7 +85,7 @@ function findPrecedingHeading(parent, tableIndex) {
     // Stop searching if we hit another table or significant content block
     if (
       isTableElement(node) ||
-      (node.type === 'element' && ['section', 'article', 'div'].includes(node.tagName))
+      (node.type === 'element' && ['section', 'article', 'div'].includes((node as Element).tagName))
     ) {
       break
     }
@@ -84,13 +94,13 @@ function findPrecedingHeading(parent, tableIndex) {
   return null
 }
 
-function extractTextFromNode(node) {
+function extractTextFromNode(node: Node): string {
   if (node.type === 'text') {
-    return node.value
+    return (node as any).value
   }
 
-  if (node.type === 'element' && node.children) {
-    return node.children
+  if (node.type === 'element' && (node as Element).children) {
+    return (node as Element).children
       .map((child) => extractTextFromNode(child))
       .filter(Boolean)
       .join('')
@@ -101,8 +111,8 @@ function extractTextFromNode(node) {
 }
 
 export default function addTableAccessibilityLabels() {
-  return (tree) => {
-    visit(tree, (node, index, parent) => {
+  return (tree: Node) => {
+    visit(tree, (node: Node, index: number | undefined, parent: Parent | undefined) => {
       if (!isTableElement(node) || !parent || typeof index !== 'number') {
         return
       }

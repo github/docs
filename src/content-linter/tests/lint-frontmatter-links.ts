@@ -9,10 +9,12 @@ const pages = await loadPageMap(pageList)
 const redirects = await loadRedirects(pageList)
 
 const liquidElsif = /{%\s*elsif/
-const containsLiquidElseIf = (text) => liquidElsif.test(text)
+const containsLiquidElseIf = (text: string) => liquidElsif.test(text)
 
 describe('front matter', () => {
-  function makeCustomErrorMessage(page, trouble, key) {
+  // Using any type for page because it comes from loadPages which returns dynamic page objects with varying properties
+  // Using any[] for trouble because the error objects have different shapes depending on the validation that failed
+  function makeCustomErrorMessage(page: any, trouble: any[], key: string) {
     let customErrorMessage = `In the front matter of ${page.relativePath} `
     if (trouble.length > 0) {
       if (trouble.length === 1) {
@@ -20,7 +22,8 @@ describe('front matter', () => {
       } else {
         customErrorMessage += `there are ${trouble.length} .${key} front matter entries that are not correct.`
       }
-      const nonWarnings = trouble.filter((t) => !t.warning)
+      // Using any type because trouble array contains objects with varying error properties
+      const nonWarnings = trouble.filter((t: any) => !t.warning)
       for (const { uri, index, redirects } of nonWarnings) {
         customErrorMessage += `\nindex: ${index} URI: ${uri}`
         if (redirects) {
@@ -29,7 +32,8 @@ describe('front matter', () => {
           customErrorMessage += '\tPage not found'
         }
       }
-      if (trouble.find((t) => t.redirects)) {
+      // Using any type because trouble array contains objects with varying error properties
+      if (trouble.find((t: any) => t.redirects)) {
         customErrorMessage += `\n\nNOTE! To automatically fix the redirects run this command:\n`
         customErrorMessage += `\n\t./src/links/scripts/update-internal-links.js content/${page.relativePath}\n\n`
       }
@@ -46,7 +50,8 @@ describe('front matter', () => {
       const redirectsContext = { redirects, pages }
 
       const trouble = page.includeGuides
-        .map((uri, i) => checkURL(uri, i, redirectsContext))
+        // Using any type for uri because includeGuides can contain various URI formats
+        .map((uri: any, i: number) => checkURL(uri, i, redirectsContext))
         .filter(Boolean)
 
       const customErrorMessage = makeCustomErrorMessage(page, trouble, 'includeGuides')

@@ -1,5 +1,6 @@
-import { TokenKind } from 'liquidjs'
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
+import { TokenKind } from 'liquidjs'
 
 import { getDataByLanguage } from '@/data-directory/lib/get-data'
 import {
@@ -8,6 +9,8 @@ import {
   OUTPUT_OPEN,
   OUTPUT_CLOSE,
 } from '../helpers/liquid-utils'
+
+import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 /*
   Checks for instances where a Liquid data or indented_data_reference
@@ -19,11 +22,12 @@ export const liquidDataReferencesDefined = {
     'Liquid data or indented data references were found in content that have no value or do not exist in the data directory',
   tags: ['liquid'],
   parser: 'markdownit',
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
+    // Using any type because getLiquidTokens returns tokens from liquidjs library without complete type definitions
     const tokens = getLiquidTokens(content)
-      .filter((token) => token.kind === TokenKind.Tag)
-      .filter((token) => token.name === 'data' || token.name === 'indented_data_reference')
+      .filter((token: any) => token.kind === TokenKind.Tag)
+      .filter((token: any) => token.name === 'data' || token.name === 'indented_data_reference')
 
     if (!tokens.length) return
 
@@ -54,12 +58,16 @@ export const liquidDataTagFormat = {
   description:
     'Liquid data or indented data references tags must be correctly formatted and have the correct number of arguments and spacing',
   tags: ['liquid', 'format'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const CHECK_LIQUID_TAGS = [OUTPUT_OPEN, OUTPUT_CLOSE, '{', '}']
     const content = params.lines.join('\n')
-    const tokenTags = getLiquidTokens(content).filter((token) => token.kind === TokenKind.Tag)
-    const dataTags = tokenTags.filter((token) => token.name === 'data')
-    const indentedDataTags = tokenTags.filter((token) => token.name === 'indented_data_reference')
+    // Using any type because getLiquidTokens returns tokens from liquidjs library without complete type definitions
+    // Tokens have properties like 'kind', 'name', 'args', and 'content' that aren't fully typed
+    const tokenTags = getLiquidTokens(content).filter((token: any) => token.kind === TokenKind.Tag)
+    const dataTags = tokenTags.filter((token: any) => token.name === 'data')
+    const indentedDataTags = tokenTags.filter(
+      (token: any) => token.name === 'indented_data_reference',
+    )
 
     for (const token of dataTags) {
       // A data tag has only one argument, the data directory path.
@@ -125,9 +133,9 @@ export const liquidDataTagFormat = {
 }
 
 // Convenient wrapper because linting is always about English content
-const getData = (liquidRef) => getDataByLanguage(liquidRef, 'en')
+const getData = (liquidRef: string) => getDataByLanguage(liquidRef, 'en')
 
-const hasData = (liquidRef) => {
+const hasData = (liquidRef: string): boolean => {
   try {
     // If a reusable contains a nonexistent data reference, it will
     // return undefined. If the data reference is inherently broken

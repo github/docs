@@ -7,9 +7,20 @@ import statsd from '@/observability/lib/statsd'
 
 // The only reason this is exported is for the sake of the unit tests'
 // ability to test in-memory miss after purging this with a mutation
-export const cache = new Map()
+// Using any type for cache values because this function can fetch any JSON structure
+// The returned JSON content structure is unknown until runtime
+export const cache = new Map<string, any>()
 
 const inProd = process.env.NODE_ENV === 'production'
+
+interface GetRemoteJSONConfig {
+  retry?: {
+    limit?: number
+  }
+  timeout?: {
+    response?: number
+  }
+}
 
 // Wrapper on `got()` that is able to both cache in memory and on disk.
 // The on-disk caching is in `.remotejson/`.
@@ -21,7 +32,12 @@ const inProd = process.env.NODE_ENV === 'production'
 //  1. Is it in memory cache?
 //  2. No, is it on disk?
 //  3. No, download from the internet then store responses in memory and disk
-export default async function getRemoteJSON(url, config) {
+// Using any return type because this function fetches arbitrary JSON from remote URLs
+// The JSON structure varies depending on the URL and cannot be known at compile time
+export default async function getRemoteJSON(
+  url: string,
+  config?: GetRemoteJSONConfig,
+): Promise<any> {
   // We could get fancy and make the cache key depend on the `config` too
   // given that this is A) only used for archived enterprise stuff,
   // and B) the config is only applicable on cache miss when doing the `got()`.
@@ -59,7 +75,14 @@ export default async function getRemoteJSON(url, config) {
         }
       }
     } catch (error) {
-      if (!(error instanceof SyntaxError || (error instanceof Error && error.code === 'ENOENT'))) {
+      if (
+        !(
+          error instanceof SyntaxError ||
+          (error instanceof Error &&
+            'code' in error &&
+            (error as NodeJS.ErrnoException).code === 'ENOENT')
+        )
+      ) {
         throw error
       }
     }

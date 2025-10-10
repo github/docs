@@ -1,8 +1,17 @@
+// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
 import { liquid } from '@/content-render/index'
 import { isLiquidError } from '@/languages/lib/render-with-fallback'
+
+import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
+
+interface ErrorMessageInfo {
+  errorDescription: string
+  lineNumber: number
+  columnNumber: number
+}
 
 /*
   Attempts to parse all liquid in the frontmatter of a file
@@ -12,7 +21,7 @@ export const frontmatterLiquidSyntax = {
   names: ['GHD017', 'frontmatter-liquid-syntax'],
   description: 'Frontmatter properties must use valid Liquid',
   tags: ['liquid', 'frontmatter'],
-  function: (params, onError) => {
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
     const fm = getFrontmatter(params.lines)
     if (!fm) return
 
@@ -31,7 +40,7 @@ export const frontmatterLiquidSyntax = {
         // If the error source is not a Liquid error but rather a
         // ReferenceError or bad type we should allow that error to be thrown
         if (!isLiquidError(error)) throw error
-        const { errorDescription, columnNumber } = getErrorMessageInfo(error.message)
+        const { errorDescription, columnNumber } = getErrorMessageInfo((error as Error).message)
         const lineNumber = params.lines.findIndex((line) => line.trim().startsWith(`${key}:`)) + 1
         // Add the key length plus 3 to the column number to account colon and
         // for the  space after the key and column number starting at 1.
@@ -42,7 +51,7 @@ export const frontmatterLiquidSyntax = {
           startRange + value.length - 1 > params.lines[lineNumber - 1].length
             ? params.lines[lineNumber - 1].length - startRange + 1
             : value.length
-        const range = [startRange, endRange]
+        const range: [number, number] = [startRange, endRange]
         addError(
           onError,
           lineNumber,
@@ -64,20 +73,22 @@ export const liquidSyntax = {
   names: ['GHD018', 'liquid-syntax'],
   description: 'Markdown content must use valid Liquid',
   tags: ['liquid'],
-  function: function GHD018(params, onError) {
+  function: function GHD018(params: RuleParams, onError: RuleErrorCallback) {
     try {
       liquid.parse(params.lines.join('\n'))
     } catch (error) {
       // If the error source is not a Liquid error but rather a
       // ReferenceError or bad type we should allow that error to be thrown
       if (!isLiquidError(error)) throw error
-      const { errorDescription, lineNumber, columnNumber } = getErrorMessageInfo(error.message)
+      const { errorDescription, lineNumber, columnNumber } = getErrorMessageInfo(
+        (error as Error).message,
+      )
       const line = params.lines[lineNumber - 1]
       // We don't have enough information to know the length of the full
       // liquid tag without doing some regex testing and making assumptions
       // about if the end tag is correctly formed, so we just give a
       // range from the start of the tag to the end of the line.
-      const range = [columnNumber, line.slice(columnNumber - 1).length]
+      const range: [number, number] = [columnNumber, line.slice(columnNumber - 1).length]
       addError(
         onError,
         lineNumber,
@@ -90,7 +101,7 @@ export const liquidSyntax = {
   },
 }
 
-function getErrorMessageInfo(message) {
+function getErrorMessageInfo(message: string): ErrorMessageInfo {
   const [errorDescription, lineString, columnString] = message.split(',')
   // There has to be a line number so we'll default to line 1 if the message
   // doesn't contain a line number.
