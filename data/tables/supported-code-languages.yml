@@ -119,6 +119,14 @@ languages:
     depUpdates: 'RubyGems'
     actions: 'supported'
     packages: 'RubyGems'
+  Rust:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'supported'
+    depUpdates: 'supported'
+    actions: 'supported'
+    packages: 'not-supported'
   Scala:
     copilot: 'supported'
     codeNavigation: 'not-supported'
