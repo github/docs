@@ -118,9 +118,6 @@ sections:
         # https://github.com/github/releases/issues/4042
         - |
           Push rulesets are generally available. Users can block pushes to private and internal repositories, and their forks, based on file type, path, or size. Unlike pre-receive hooks, push rules are built-in, configurable via the UI or API, and support audit logs, evaluate mode, and bypass lists. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
-        # https://github.com/github/releases/issues/5128
-        - |
-          Enterprise administrators can manage rules more efficiently with the general availability of ruleset history, import, and export. Ruleset history allows tracking and rolling back changes, while import and export simplify sharing and reusing rulesets, including GitHub's ruleset-recipes. See [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
         # https://github.com/github/releases/issues/5129
         - |
           Repository administrators can easily convert a fork into a standalone repository by leaving the fork network, which stops automatic syncing with the upstream repository. This is useful for taking a project in a new direction or maintaining separate versions.
