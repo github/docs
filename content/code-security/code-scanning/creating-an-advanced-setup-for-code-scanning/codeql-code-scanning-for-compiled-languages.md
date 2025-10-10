@@ -49,8 +49,8 @@ You can use dependency caching with {% data variables.product.prodname_codeql %}
 The {% data variables.product.prodname_codeql %} action supports three different build modes for compiled languages:
 
 * `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported for {% data variables.code-scanning.no_build_support %}).
-* `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
-* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages{% ifversion codeql-rust-public-preview %}, except Rust{% endif %}).
+* `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for {% data variables.code-scanning.autobuild_support %}).
+* `manual` - you define the build steps to use for the codebase in the workflow (supported for {% data variables.code-scanning.manual_build_support %}).
 
 ### Comparison of the build modes
 
@@ -251,6 +251,9 @@ If you added manual build steps for compiled languages and {% data variables.pro
 * [Building C#](#building-c)
 * [Building Go](#building-go)
 * [Building Java and Kotlin](#building-java-and-kotlin)
+{% ifversion codeql-rust-available %}
+* [Building Rust](#building-rust)
+{% endif %}
 * [Building Swift](#building-swift)
 
 > [!NOTE]
@@ -493,6 +496,22 @@ The following executables will likely be required for a range of Java projects, 
 You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 
 Windows runners require `powershell.exe` to be on the `PATH`.
+
+{% ifversion codeql-rust-available %}
+
+## Building Rust
+
+{% data variables.product.prodname_codeql %} supports build mode `none` for Rust code.
+
+### No build for Rust
+
+{% data variables.product.prodname_codeql %} uses `rust-analyzer` to compile and run build scripts (`build.rs` files) and compile macro code, but does not invoke a full build. A database is created from all Rust files present. A `Cargo.toml` or `rust-project.json` file must be present.
+
+### Runner requirements for Rust
+
+Rust analysis requires `rustup` and `cargo` to be installed.
+
+{% endif %}
 
 ## Building Swift
 
