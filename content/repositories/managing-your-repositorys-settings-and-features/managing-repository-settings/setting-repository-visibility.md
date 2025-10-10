@@ -130,6 +130,7 @@ For information about improving repository security, see [AUTOTITLE](/code-secur
 1. Select a visibility.
 1. Click to confirm that you are changing the visibility of the correct repository.
 1. Click **I have read and understand these effects**.
+1. Click **Make this repository public** or **Make this repository private**.
 
 ## Further reading
 
