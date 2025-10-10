@@ -71,7 +71,7 @@ When you've determined whether premium requests and {% data variables.copilot.co
 
 Sign up:
 
-<a href="https://github.com/github-copilot/purchase?priority=business&cft=copilot_li.copilot_plans.cfb" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Business</span></a>  <a href="https://github.com/github-copilot/purchase?priority=enterprise&cft=copilot_li.copilot_plans.ce" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Enterprise</span></a>
+<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=business" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Business</span></a>  <a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=purchase&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Copilot Enterprise</span></a>
 
 {% endnote %}
 

@@ -20319,7 +20319,7 @@ type IssueTimelineConnection {
 An item in an issue timeline
 """
 union IssueTimelineItem =
-    AssignedEvent
+  | AssignedEvent
   | ClosedEvent
   | Commit
   | CrossReferencedEvent
@@ -20358,7 +20358,7 @@ type IssueTimelineItemEdge {
 An item in an issue timeline
 """
 union IssueTimelineItems =
-    AddedToProjectEvent
+  | AddedToProjectEvent
   | AssignedEvent
   | BlockedByAddedEvent
   | BlockedByRemovedEvent
@@ -31301,7 +31301,7 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
 Types of memberships that can be restored for an Organization member.
 """
 union OrgRestoreMemberAuditEntryMembership =
-    OrgRestoreMemberMembershipOrganizationAuditEntryData
+  | OrgRestoreMemberMembershipOrganizationAuditEntryData
   | OrgRestoreMemberMembershipRepositoryAuditEntryData
   | OrgRestoreMemberMembershipTeamAuditEntryData
 
@@ -33769,7 +33769,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
 An audit entry in an organization audit log.
 """
 union OrganizationAuditEntry =
-    MembersCanDeleteReposClearAuditEntry
+  | MembersCanDeleteReposClearAuditEntry
   | MembersCanDeleteReposDisableAuditEntry
   | MembersCanDeleteReposEnableAuditEntry
   | OauthApplicationCreateAuditEntry
@@ -38589,7 +38589,7 @@ type ProjectV2ItemFieldUserValue {
 Project field values
 """
 union ProjectV2ItemFieldValue =
-    ProjectV2ItemFieldDateValue
+  | ProjectV2ItemFieldDateValue
   | ProjectV2ItemFieldIterationValue
   | ProjectV2ItemFieldLabelValue
   | ProjectV2ItemFieldMilestoneValue
@@ -42911,7 +42911,7 @@ type PullRequestTimelineConnection {
 An item in a pull request timeline
 """
 union PullRequestTimelineItem =
-    AssignedEvent
+  | AssignedEvent
   | BaseRefDeletedEvent
   | BaseRefForcePushedEvent
   | ClosedEvent
@@ -42964,7 +42964,7 @@ type PullRequestTimelineItemEdge {
 An item in a pull request timeline
 """
 union PullRequestTimelineItems =
-    AddedToMergeQueueEvent
+  | AddedToMergeQueueEvent
   | AddedToProjectEvent
   | AssignedEvent
   | AutoMergeDisabledEvent
@@ -54904,7 +54904,7 @@ enum RuleEnforcement {
 Types which can be parameters for `RepositoryRule` objects.
 """
 union RuleParameters =
-    BranchNamePatternParameters
+  | BranchNamePatternParameters
   | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
   | CommitMessagePatternParameters
