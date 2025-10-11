@@ -1325,6 +1325,18 @@
   base64Supported: false
   isduplicate: true
 - provider: Azure
+  supportedSecret: Azure Storage Account Access Key Base64 Encoded
+  secretType: azure_storage_account_key_base64
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: true
+  isduplicate: false
+- provider: Azure
   supportedSecret: Azure Text Analytics Key
   secretType: azure_text_analytics_key
   versions:
@@ -3195,6 +3207,18 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
+  isduplicate: false
+- provider: Hugging Face
+  supportedSecret: Hugging Face User Access Token Base64 Encoded
+  secretType: hf_user_access_token_base64
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: true
   isduplicate: false
 - provider: Intercom
   supportedSecret: Intercom Access Token
@@ -5512,6 +5536,18 @@
   hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
+  isduplicate: false
+- provider: Twilio
+  supportedSecret: Twilio Account String Identifier Base64 Encoded
+  secretType: twilio_account_sid_base64
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: true
   isduplicate: false
 - provider: Twilio
   supportedSecret: Twilio API Key
