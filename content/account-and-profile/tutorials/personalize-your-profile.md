@@ -1,6 +1,6 @@
 ---
 title: Personalize your profile
-intro: You can share information about yourself with other users by setting a profile picture and adding a bio to your profile.
+intro: Learn how to customize your GitHub profile by setting a profile picture, adding a bio, and personalizing your presence to share information about yourself with the GitHub community.
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
@@ -23,11 +23,14 @@ contentType: tutorials
 ---
 
 > [!NOTE]
-> Your profile name for your is {% data variables.product.github %} account is **required**. All other profile information described in this article is **optional**.
+> Your profile name for your {% data variables.product.github %} account is **required**. All other profile information described in this article is **optional**.
 
 ## Changing your profile picture
 
 Your profile picture helps identify you across {% data variables.product.github %} in pull requests, comments, contributions pages, and graphs.
+
+> [!TIP]
+> When choosing a profile picture, consider using an image with good contrast and clear visibility at small sizes. Profile pictures are displayed at various sizes throughout GitHub, and a recognizable image helps other users identify your contributions more easily.
 
 ### Setting a profile picture
 
@@ -48,46 +51,56 @@ Your profile picture helps identify you across {% data variables.product.github 
 Your {% data variables.product.github %} profile name **does not** need to correlate with your real-world identity.
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Public profile", in the "Name" field, type the name you want to be displayed on your profile.
+1. Under "Name", type the name you want to be displayed on your profile.
+{% data reusables.profile.update-profile %}
 
 ## Adding a bio to your profile
 
+Add a bio to your profile to share information about yourself with other {% data variables.product.github %} users.
+
 {% data reusables.user-settings.access_settings %}
-1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
+1. Under "Bio", type the content you want displayed on your profile. The bio field is limited to 160 characters.
+{% data reusables.profile.update-profile %}
 
-   > [!TIP]
-   > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
+{% tip %}
 
+**Tip:** When writing a bio, it's helpful to be concise and include information you want others to know about you at a glance, such as your interests or role.
+
+{% endtip %}
+
+## Setting your location
+
+You can set a location in your profile to display your general area to others.
+
+{% data reusables.user-settings.access_settings %}
+1. Under "Location", type your location.
 {% data reusables.profile.update-profile %}
 
 {% ifversion profile-pronouns %}
 
-## Adding pronouns to your profile
+## Adding your pronouns to your profile
 
-Add pronouns to your public user profile to share information about yourself with other {% data variables.product.github %} users.
+You can add your pronouns to your profile.
 
 {% data reusables.user-settings.access_settings %}
-
-1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
-
+1. Under "Pronouns", select a pronoun from the list, or select **Don't specify** or **Custom** and type your custom pronouns.
 {% data reusables.profile.update-profile %}
 
 {% endif %}
 
-## Setting your location and time zone
+## Setting your company
+
+You can include the name of your company or organization in your profile.
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Public profile", in the "Location" field, type the location you want to be displayed on your profile.
-1. Optionally, display the current local time on your profile.
-   * Select **Display current local time**.
-   * Select the **Time zone** dropdown menu, then click your local time zone.
+1. Under "Company", type the name of your company or organization. If the organization has a {% data variables.product.github %} account, typing the name may show suggestions that you can select.
 {% data reusables.profile.update-profile %}
 
-{% ifversion profile-social-links %}
+{% ifversion profile-social-accounts %}
 
 ## Adding links to your social accounts
 
-You can add up to four links to social accounts on your profile.
+You can display links to your social profiles on your {% data variables.product.github %} profile.
 
 {% data reusables.user-settings.access_settings %}
 1. Under "Social accounts", in a blank "Link to social profile" field, type the full URL of the social account. For example, for the `@GitHub` Twitter account, type `https://twitter.com/github`.
@@ -114,7 +127,6 @@ You can set a status to display information about your current availability.
 1. In the top right corner of {% data variables.product.prodname_dotcom %}, click your profile picture, then click **{% octicon "smiley" aria-hidden="true" aria-label="smiley" %} Set status** or, if you already have a status set, click your current status.
 
    ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile-global-nav-update.png)
-
 1. In the "What's happening" field, type a status message.
 1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
 1. Optionally, if you'd like to share that you have limited availability, select "Busy."
@@ -125,7 +137,5 @@ You can set a status to display information about your current availability.
 ## Next steps
 
 * To learn more about GitHub profiles, see [AUTOTITLE](/account-and-profile/concepts/about-your-profile).
-
 * For reference information, see [AUTOTITLE](/account-and-profile/reference/profile-reference).
-
 * For more detailed profile customizations, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-github-profile).
