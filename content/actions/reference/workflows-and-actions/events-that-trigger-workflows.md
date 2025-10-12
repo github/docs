@@ -846,6 +846,8 @@ on:
       - v1.**
 ```
 
+A push to a tag that is not reachable from the repository's branches does not run any workflows.
+
 ### Running your workflow only when a push affects specific files
 
 You can use the `paths` or `paths-ignore` filter to configure your workflow to run when a push to specific files occurs. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore).
