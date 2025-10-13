@@ -112,6 +112,7 @@ children:
   - /enforcing-policies
   - /monitoring-activity-in-your-enterprise
   - /monitoring-and-managing-your-instance
+  - /managing-github-apps-for-your-enterprise
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
   - /managing-code-security
