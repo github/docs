@@ -203,7 +203,7 @@ prodname_GH_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection an
 
 ## Short or UI names
 prodname_AS: 'Advanced Security'
-prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Advanced Security{% endif %}'
+prodname_code_security: '{% ifversion ghas-products %}Code Scanning{% else %}Advanced Security{% endif %}'
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
 prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
 prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
