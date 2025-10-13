@@ -330,6 +330,9 @@ The following examples are designed to give you an idea of some of the build com
   bazel shutdown
   ```
 
+ > [!NOTE]
+ > Bazel build for Go is currently not supported.
+
 * Project built using a custom build script:
 
   ```shell
