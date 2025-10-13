@@ -144,9 +144,7 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.copilot.copilot_coding_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
 * **You cannot select the AI model used by {% data variables.copilot.copilot_coding_agent %}**. A model picker is not available to switch between models, and {% data variables.product.company_short %} reserves the right to change models at any time.
 
-  If you are a {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_pro_plus %} subscriber, {% data variables.copilot.copilot_coding_agent %} uses {% data variables.copilot.copilot_claude_sonnet_45 %}.
-  
-  If you are a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscriber, {% data variables.copilot.copilot_coding_agent %} uses {% data variables.copilot.cca_current_model %} by default, or {% data variables.copilot.copilot_claude_sonnet_45 %} if the model has been enabled by an administrator. See [AUTOTITLE](/copilot/concepts/policies).
+  Currently, {% data variables.copilot.copilot_coding_agent %} uses {% data variables.copilot.copilot_claude_sonnet_45 %}.
 
 ## Hands-on practice
 

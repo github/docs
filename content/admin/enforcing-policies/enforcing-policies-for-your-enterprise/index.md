@@ -14,7 +14,6 @@ topics:
   - Enterprise
   - Policies
 children:
-  - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-policies-for-projects-in-your-enterprise
   - /restricting-email-notifications-for-your-enterprise
@@ -29,3 +28,4 @@ children:
   - /managing-policies-for-code-governance
 shortTitle: Enforce policies
 ---
+

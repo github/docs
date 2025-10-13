@@ -27,7 +27,7 @@ To get started with {% data variables.product.prodname_ghe_cloud %}, decide whic
 
 ### 2. About enterprise accounts
 
-An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.github %} organizations, including member access, billing and usage and security. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts).
+An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.github %} organizations, including member access, billing and usage and security. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
 ### 3. Creating an enterprise account
 

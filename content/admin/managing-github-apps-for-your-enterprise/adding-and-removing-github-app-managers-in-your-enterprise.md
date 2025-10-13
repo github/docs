@@ -1,6 +1,6 @@
 ---
 title: Adding and removing GitHub App managers in your enterprise
-intro: 'Enterprise owners can grant or revoke access for a user to manage individual {% data variables.product.prodname_github_apps %} owned by the enterprise.'
+intro: Enterprise owners can grant or revoke access for a user to manage individual {% data variables.product.prodname_github_apps %} owned by the enterprise.
 versions:
   feature: enterprise-app-manager
 type: how_to
@@ -8,7 +8,10 @@ topics:
   - Enterprise
   - GitHub Apps
 permissions: Enterprise owners.
-shortTitle: Enterprise App managers
+shortTitle: Add app managers
+redirect_from:
+  - /admin/managing-your-enterprise-account/adding-and-removing-github-app-managers-in-your-enterprise
+contentType: other
 ---
 
 ## About {% data variables.product.prodname_github_app %} managers

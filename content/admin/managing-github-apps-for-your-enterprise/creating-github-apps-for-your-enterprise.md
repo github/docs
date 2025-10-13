@@ -1,6 +1,6 @@
 ---
 title: Creating GitHub Apps for your enterprise
-intro: 'Learn how to create a {% data variables.product.prodname_github_app %} for your enterprise.'
+intro: Learn how to create a {% data variables.product.prodname_github_app %} for your enterprise.
 versions:
   feature: enterprise-apps-public-beta
 type: how_to
@@ -8,6 +8,9 @@ topics:
   - Enterprise
 permissions: Enterprise owners.
 shortTitle: Create a GitHub App
+redirect_from:
+  - /admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise
+contentType: other
 ---
 
 You can create a {% data variables.product.prodname_github_app %} under your enterprise account. The app can only be installed on{% ifversion enterprise-installed-apps %} your enterprise or{% endif %} organizations within your enterprise, and can only be authorized by members of your enterprise. The app can't be installed on user accounts.

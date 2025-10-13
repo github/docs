@@ -1,7 +1,7 @@
 ---
-title: About the audit log for your enterprise
+title: Audit log for an enterprise
 intro: 'To support debugging and internal and external compliance, {% data variables.product.github %} provides logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events.'
-shortTitle: About audit logs
+shortTitle: Audit logs
 redirect_from:
   - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
@@ -11,10 +11,11 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
   - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
   - /admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/auditing-activity-in-your-enterprise
+  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
 versions:
   ghes: '*'
   ghec: '*'
-type: overview
+contentType: concepts
 topics:
   - Auditing
   - Enterprise
@@ -22,7 +23,7 @@ topics:
   - Security
 ---
 
-## About audit logs
+## What are audit logs?
 
 > [!NOTE]
 > {% data reusables.webhooks.webhooks-as-audit-log-alternative %}
@@ -38,7 +39,7 @@ topics:
 
 In addition to viewing your audit log, you can monitor activity in your enterprise in other ways, such as {% ifversion ghes %}viewing push logs and {% endif %}managing global webhooks. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity). You can also use the audit log, and other tools, to monitor the actions taken in response to security alerts. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
 
-## Using your audit logs
+## How to use audit logs
 
 As an enterprise owner{% ifversion ghes %} or site administrator{% endif %}, you can interact with the audit log data for your enterprise in several ways:
 * You can view the audit log for your enterprise. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise).

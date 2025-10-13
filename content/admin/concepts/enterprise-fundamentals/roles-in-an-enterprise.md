@@ -1,19 +1,21 @@
 ---
-title: About roles in an enterprise
+title: Roles in an enterprise
 intro: 'Learn how roles allow you to control people''s access to your enterprise''s settings and resources.'
 versions:
   ghec: '*'
   ghes: '*'
-shortTitle: About roles
-type: overview
+shortTitle: Roles
 topics:
   - Enterprise
   - Fundamentals
+redirect_from:
+  - /admin/overview/about-roles
+contentType: concepts
 ---
 
 ## What are roles?
 
-A role is a set of permissions that you can assign to individuals or teams. A permission is the ability to perform a specific action, such as changing billing settings.
+A role is a **set of permissions** that you can assign to individuals or teams. A permission is the ability to perform a specific action, such as changing billing settings.
 
 A user in an enterprise has a role for both the enterprise account itself and for each individual organization in the enterprise.
 
@@ -35,7 +37,7 @@ Enterprise roles are assigned when a user is invited to the enterprise (personal
 
 Organization administrators can grant organization roles and create custom organization roles, but can't affect roles at the enterprise level.
 
-## Next steps
+## Further reading
 
 Review the predefined roles and fine-grained permissions available with custom organization roles, and plan out what roles will be required for your teams to do their jobs on {% data variables.product.github %}.
 
