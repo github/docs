@@ -30,9 +30,8 @@ There are multiple ways to view your premium request usage:
 * [View current usage directly within your IDE](#viewing-usage-in-your-ide)
 * [Viewing an overview in your Billing and licensing settings](#viewing-an-overview-in-your-billing-and-licensing-settings)
 * [View detailed analytics of your usage](#viewing-detailed-analytics-of-your-usage)
-* [Download a usage report for your personal account](#downloading-a-usage-report-for-your-personal-account)
 
-If you reach your limit for premium requests, you will be notified with a message in each of the {% data variables.product.prodname_copilot_short %} interfaces you use.
+If you reach your limit for premium requests, you will be notified with a message in each of the {% data variables.product.prodname_copilot_short %} interfaces you use. To download a usage report, see [Downloading usage reports](/billing/how-tos/products/view-productlicense-use#downloading-usage-reports).
 
 For information about viewing premium request usage for an organization or enterprise, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 
@@ -67,15 +66,9 @@ You can view an overview of your premium request usage at any time in your "Bill
 
    ![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
 
-### Downloading a usage report for your personal account
+### Downloading a usage report
 
-Reports include all premium request usage, both within and beyond your allowance.
-
-{% data reusables.user-settings.access_billing_settings_url %}
-1. In the side bar, click **Premium request analytics** to show detailed analytics.
-1. At the top of the page, click **Get usage report** to generate a CSV report of your premium request use for the past 45 days.
-
-When the report is ready for you to download, you'll receive a message to your primary email account with a link to download the report. The link will expire after 24 hours. For details of the fields included in the reports, see [AUTOTITLE](/billing/reference/billing-reports#premium-request-analytics-usage-report-fields).
+For details on how to request a usage report, see [AUTOTITLE](/billing/how-tos/products/view-productlicense-use#downloading-usage-reports).
 
 ## Optimizing usage of premium requests
 

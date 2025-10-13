@@ -32,6 +32,7 @@ describe('POST /events', () => {
       path: '/github/docs/issues',
       hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
+      title: 'Issues · github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       path_language: 'en',
@@ -44,6 +45,9 @@ describe('POST /events', () => {
       is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
+      screen_width: 1920,
+      screen_height: 1080,
+      pixel_ratio: 2,
 
       // Location information
       timezone: -7,
@@ -64,6 +68,7 @@ describe('POST /events', () => {
       path: '/github/docs/issues',
       hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
+      title: 'Issues · github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       path_language: 'en',
@@ -76,6 +81,9 @@ describe('POST /events', () => {
       is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
+      screen_width: 1920,
+      screen_height: 1080,
+      pixel_ratio: 2,
 
       // Location information
       timezone: -7,
