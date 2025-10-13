@@ -44,6 +44,10 @@ const context = {
       description: 'The browser value of `document.referrer`.',
       format: 'uri-reference',
     },
+    title: {
+      type: 'string',
+      description: 'The browser value of `document.title`.',
+    },
     href: {
       type: 'string',
       description: 'The browser value of `location.href`.',
@@ -142,12 +146,27 @@ const context = {
     viewport_width: {
       type: 'number',
       description: 'The viewport width, not the overall device size.',
-      minimum: 1,
+      minimum: 0,
     },
     viewport_height: {
       type: 'number',
       description: 'The viewport height, not the overall device height.',
-      minimum: 1,
+      minimum: 0,
+    },
+    screen_width: {
+      type: 'number',
+      description: 'The screen width of the device.',
+      minimum: 0,
+    },
+    screen_height: {
+      type: 'number',
+      description: 'The screen height of the device.',
+      minimum: 0,
+    },
+    pixel_ratio: {
+      type: 'number',
+      description: 'The device pixel ratio.',
+      minimum: 0,
     },
 
     // Location information
