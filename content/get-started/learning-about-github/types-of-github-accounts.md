@@ -11,8 +11,8 @@ redirect_from:
   - /github/getting-started-with-github/learning-about-github/types-of-github-accounts
 versions:
   fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  ghes: '#'
+  ghec: '&'
 topics:
   - Accounts
   - CLI
