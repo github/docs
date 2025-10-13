@@ -5,11 +5,13 @@ intro: 'Learn {% data variables.product.company_short %}-recommended practices f
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
+contentType: concepts
 topics:
   - Accounts
   - Enterprise
   - Fundamentals
+redirect_from:
+  - /admin/overview/best-practices-for-enterprises
 ---
 
 {% ifversion ghec %}
@@ -62,5 +64,4 @@ Organizations can have more than one organization owner to avoid lapses in owner
 
 ## Further reading
 
-* [AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)

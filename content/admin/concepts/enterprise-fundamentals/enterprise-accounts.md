@@ -1,6 +1,6 @@
 ---
-title: About enterprise accounts
-intro: Learn how enterprise accounts enable scalability by simplifying administration and billing across multiple organizations.
+title: Enterprise accounts
+intro: 'Learn how enterprise accounts enable scalability by simplifying administration and billing across multiple organizations.'
 redirect_from:
   - /articles/about-github-business-accounts
   - /articles/about-enterprise-accounts
@@ -10,10 +10,11 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts
   - /admin/overview/about-enterprise-accounts
+  - /admin/managing-your-enterprise-account/about-enterprise-accounts
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
+contentType: concepts
 topics:
   - Accounts
   - Enterprise
@@ -52,7 +53,7 @@ Administrators for the enterprise account can:
 
 ## What if I use multiple deployment options?
 
-If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you'll have an enterprise account for each.
+If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you'll have **an enterprise account for each.**
 
 For the most part, you will manage each enterprise account separately. For example, you will configure the policies and settings for your {% data variables.product.prodname_ghe_server %} instance using the enterprise account on {% data variables.product.prodname_ghe_server %}.
 

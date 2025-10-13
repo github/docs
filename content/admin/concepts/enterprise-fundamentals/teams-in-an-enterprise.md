@@ -1,13 +1,15 @@
 ---
-title: About teams in an enterprise
+title: Teams in an enterprise
 intro: 'Learn how teams simplify administration of user access, licensing, and communication.'
 versions:
   ghec: '*'
-shortTitle: About teams
-type: overview
+shortTitle: Teams
 topics:
   - Enterprise
   - Fundamentals
+redirect_from:
+  - /admin/overview/about-teams
+contentType: concepts
 ---
 
 ## What are teams?
@@ -54,3 +56,7 @@ Unlike organization teams, enterprise teams currently do **not** support:
 In addition, enterprise teams are currently limited to 50 teams for a single enterprise and 500 users to each team.
 
 For more information about the capabilities of organization teams, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
+
+## Further reading
+
+* [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)
