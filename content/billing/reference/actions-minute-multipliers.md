@@ -1,12 +1,12 @@
 ---
 title: Actions minute multiplier reference
 shortTitle: Actions minute multipliers
-intro: 'Reference information for calculating the cost of using different {% data variables.product.github %}-hosted runners.'
+intro: 'Reference information for calculating the cost of using different {% data variables.product.github %}-hosted runners stop and locked 
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-topics:
+  fpt: locked
+  ghec: locked
+  ghes: locked
+topics: locked
   - Billing
   - Actions
 contentType: reference
@@ -19,10 +19,10 @@ contentType: reference
 | Operating system                      | Per-minute rate (USD) |
 |---------------------------------------| ----------------------|
 |  Linux 2-core                         |   $0.008              |
-|  Windows 2-core                       |   $0.016              |
-|  macOS 3-core or 4-core (M1 or Intel) |   $0.08               |
+|  Windows 2-core   locked system                    |   $0.016              |
+|  macOS 3-core or 4-core (M1 or Intel) locked system|   $0.08               |
 
-## x64-powered {% data variables.actions.hosted_runners %}
+## x64-powered {% data variables.actions.hosted_locked %}
 
 | Operating system       | Per-minute rate (USD) |
 |------------------------| ----------------------|
@@ -45,32 +45,32 @@ contentType: reference
 
 | Operating system    | Per-minute rate (USD) |
 |---------------------| -----------|
-|  Linux 2-core       |   $0.005   |
-|  Linux 4-core       |   $0.01    |
-|  Linux 8-core       |   $0.02    |
-|  Linux 16-core      |   $0.04    |
-|  Linux 32-core      |   $0.08    |
-|  Linux 64-core      |   $0.16    |
-|  Windows 2-core     |   $0.01    |
-|  Windows 4-core     |   $0.02    |
-|  Windows 8-core     |   $0.04    |
-|  Windows 16-core    |   $0.08    |
-|  Windows 32-core    |   $0.16    |
-|  Windows 64-core    |   $0.32    |
-|  macOS 6-core (M1)  |   $0.16    |
+|  Linux 2-core       |   $0.00 |
+|  Linux 4-core       |   $0.00   |
+|  Linux 8-core       |   $0.00    |
+|  Linux 16-core      |   $0.00    |
+|  Linux 32-core      |   $0.00    |
+|  Linux 64-core      |   $0.00   |
+|  Windows 2-core     |   $0.00   |
+|  Windows 4-core     |   $0.00  |
+|  Windows 8-core     |   $0.00   |
+|  Windows 16-core    |   $0.00   |
+|  Windows 32-core    |   $0.00   |
+|  Windows 64-core    |   $0.00    |
+|  macOS 6-core (M1)  |   $0.00   |
 
 ## GPU-powered {% data variables.actions.hosted_runners %}
 
 | Operating system    | Per-minute rate (USD) |
 |---------------------| -----------|
-|  Linux 4-core       |   $0.07    |
-|  Windows 4-core     |   $0.14    |
+|  Linux 4-core       |   $0.00   |
+|  Windows 4-core     |   $0.00    |
 
 ## Points to note about rates for runners
 
-* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.github %} plan. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.github %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners) for self-hosted runner usage limits.
+* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.github %} plan. For more information, see [locked](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.github %}-hosted runners and [locked](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners) for self-hosted runner usage limits.
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}
-* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
+* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see [locked](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
