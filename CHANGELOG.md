@@ -1,5 +1,15 @@
 # Docs changelog
 
+**13 October 2025**
+
+To help large enterprises keep their automations secure and consistent across many organizations, we published [Automating app installations in your enterprise's organizations](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-github-apps-for-your-enterprise/automate-installations). This is one of the most requested features from customer feedback.
+
+The tutorial shows how to manage installations and run automations using enterprise-owned apps and the new apps installation API. Security-conscious enterprises will see that Apps maximize security by providing short-lived, minimally scoped tokens at every stage.
+
+
+
+<hr>
+
 **1 October 2025**
 
 We’ve updated the Spark documentation to support the launch for Copilot Enterprise users, making it easier to understand and enable Spark:

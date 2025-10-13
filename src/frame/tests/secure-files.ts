@@ -10,15 +10,16 @@ import { glob } from 'glob'
  * path: Path to secure files (must match entry in CODEOWNERS if code owner required)
  * requiredCodeOwner: (optional) Name of code owner if a code owner is required
  */
-const secureFiles = [
+type SecureFile = {
+  name: string
+  path: string
+  requiredCodeOwner?: string
+}
+
+const secureFiles: SecureFile[] = [
   {
     name: 'Security hardening your deployments',
     path: 'content/actions/how-tos/secure-your-work/security-harden-deployments/**',
-  },
-  {
-    name: 'RAI transparency note reusable directory',
-    path: 'data/reusables/rai',
-    requiredCodeOwner: 'github/legal-product',
   },
 ]
 

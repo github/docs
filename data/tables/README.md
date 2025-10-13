@@ -1,4 +1,4 @@
-# Data-driven tables
+# YAML-powered tables
 
 ## Overview
 
@@ -34,7 +34,7 @@ Every data-driven table needs **three files** that work together:
 |-----------|----------|---------|
 | **Data file** | `data/tables/` | Stores the table content in YAML format |
 | **Content file** | `content/` | Displays the table using Liquid templating |
-| **Schema file** | `src/data-directory/lib/data-schemas/` | Validates the YAML structure |
+| **Schema file** | `src/data-directory/lib/data-schemas/tables/` | Validates the YAML structure |
 
 **Estimated time**: 30-60 minutes for a new table
 
@@ -49,7 +49,7 @@ Create a new `.yml` file in `data/tables/` with a descriptive name.
 Create a YAML structure that will allow me to generate a table that looks like: 
 [describe your table headers, rows, and columns OR attach an example]
 
-See src/secret-scanning/data/public-docs.yml for an example.
+See data/tables/supported-code-languages.yml for an example.
 ```
 
 ### Step 2: Create the content display
@@ -62,7 +62,7 @@ Create a Markdown table that is dynamically rendered using Liquid code.
 Pull data from data/tables/TABLE_NAME.yml. 
 The table should look like: [describe your desired output OR attach an example]
 
-See content/code-security/secret-scanning/introduction/supported-secret-scanning-patterns.md for an example.
+See content/get-started/learning-about-github/github-language-support.md for an example.
 Liquid docs: https://shopify.github.io/liquid
 ```
 
@@ -70,14 +70,14 @@ Liquid docs: https://shopify.github.io/liquid
 
 ### Step 3: Create the schema file
 
-Create a `.ts` file in `src/data-directory/lib/data-schemas/` with the same name as your YAML file.
+Create a `.ts` file in `src/data-directory/lib/data-schemas/tables/` with the same name as your YAML file.
 
 **Copilot prompt template:**
 ```
 Create a TypeScript schema following prior art under data-schemas that enforces 
 the structure of the data/TABLE_NAME.yml file.
 
-See src/data-directory/lib/data-schemas/learning-tracks.ts for an example.
+See src/data-directory/lib/data-schemas/tables/supported-code-languages.ts for an example.
 ```
 
 ## Testing and validation

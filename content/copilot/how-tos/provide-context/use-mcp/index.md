@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /extend-copilot-chat-with-mcp
+  - /set-up-the-github-mcp-server
   - /use-the-github-mcp-server
 redirect_from:
   - /copilot/customizing-copilot/using-model-context-protocol
@@ -15,4 +16,3 @@ redirect_from:
   - /copilot/how-tos/context/use-mcp
 contentType: how-tos
 ---
-

@@ -151,16 +151,34 @@ A CTA is an explicit direction to the user to take an immediate action, such as 
 
 For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=text&ref_plan=enterprise) on {% data variables.product.prodname_dotcom_the_website %}.
 
-Style a CTA using the following format.
+### Required CTA parameters
+
+* `ref_product`:
+  * **Purpose**: The GitHub product the CTA leads users to.
+  * **Allowed values**: `copilot`, `ghec`, `desktop`
+  * **Example**: `ref_product=copilot`
+* `ref_type`:
+  * **Purpose**: The type of action the CTA encourages users to take.
+  * **Allowed values**: `trial`, `purchase`, `engagement`
+  * **Example**: `ref_type=purchase`
+* `ref_style`:
+  * **Purpose**: The way we are formatting the CTA in the docs.
+  * **Allowed values**: `button` or `text`
+  * **Example**: `ref_style=button`
+* `ref_plan` (_optional_):
+  * **Purpose**: For links to sign up for or trial a plan, the specific plan we link to.
+  * **Allowed values**: `enterprise`, `business`, `pro`, `free`
+  * **Example**: `ref_plan=business`
+
+Replace the placeholders with the relevant information for your CTA, where `DESTINATION/URL` is the URL that the button should navigate to:
 
 ```html
-{% raw %}<a href="https://github.com/DESTINATION/URL?ref_cta=CTA+NAME&ref_loc=LOCATION&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
+{% raw %}<a href="https://github.com/DESTINATION/URL?ref_product=PRODUCT&ref_type=TYPE&ref_style=STYLE&ref_plan=PLAN" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
 ```
 
-Replace the placeholders with the relevant information for your CTA.
-* `DESTINATION/URL`: The URL that the button should navigate to.
-* `CTA+NAME`: The name of the CTA. For example, `GHEC+trial` or `Copilot+Business+Trial`.
-* `LOCATION`: The location in {% data variables.product.prodname_docs %} of the CTA. For example, `Setting+up+a+trial+of+GitHub+Enterprise+Cloud`.
+### Getting help with CTAs
+
+For help building a valid CTA URL, you can enter the command `npm run cta-builder` in your docs repo checkout. Answer each question and at the end you'll see your valid CTA.
 
 ## Code
 
