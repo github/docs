@@ -27,7 +27,7 @@ includeGuides:
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
-  - /admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
+  - /admin/concepts/identity-and-access-management/enterprise-managed-users
   - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
   - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
@@ -85,7 +85,7 @@ includeGuides:
   - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
   - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment
   - /admin/overview/about-data-residency
-  - /admin/managing-your-enterprise-account/about-enterprise-accounts
+  - /admin/concepts/enterprise-fundamentals/enterprise-accounts
   - /admin/getting-started-with-enterprise/about-upgrades-to-new-releases
   - /admin/configuring-packages/configuring-package-ecosystem-support-for-your-enterprise
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
@@ -103,7 +103,7 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/disabling-git-ssh-access-on-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users
-  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
+  - /admin/concepts/security-and-compliance/audit-log-for-an-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise

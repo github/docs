@@ -1,16 +1,20 @@
 ---
-title: About enterprise policies
+title: Enterprise policies
 intro: 'With enterprise policies, you can manage the policies for all the organizations owned by your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
+shortTitle: Policies
+contentType: concepts
 topics:
   - Enterprise
   - Policies
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
 ---
+
+## What are enterprise policies and why are they important?
 
 To help you enforce business rules and regulatory compliance, policies provide a single point of management for all the organizations owned by an enterprise account.
 
@@ -18,7 +22,7 @@ To help you enforce business rules and regulatory compliance, policies provide a
 
 For example, with the "Base permissions" policy, you can allow organization owners to configure the "Base permissions" policy for their organization, or you can enforce a specific base permissions level, such as "Read", for all organizations within the enterprise.
 
-## Enforcing policies
+## What are the steps to enforce enterprise policies?
 
 By default, no enterprise policies are enforced. To identify policies that should be enforced to meet the unique requirements of your business, we recommend reviewing all the available policies in your enterprise account, starting with repository management policies.
 

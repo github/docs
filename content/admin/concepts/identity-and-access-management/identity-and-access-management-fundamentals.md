@@ -1,15 +1,16 @@
 ---
-title: About identity and access management
-shortTitle: About IAM
+title: Identity and access management fundamentals
+shortTitle: Fundamentals
 intro: 'Administrators must decide how users will access the enterprise''s resources on {% data variables.product.github %}.'
 versions:
   ghec: '*'
   ghes: '*'
-type: overview
+contentType: concepts
 redirect_from:
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management
+  - /admin/managing-iam/understanding-iam-for-enterprises/about-identity-and-access-management
 topics:
   - Accounts
   - Authentication
@@ -18,7 +19,7 @@ topics:
   - SSO
 ---
 
-## About IAM for {% data variables.product.github %}
+## What is IAM for {% data variables.product.github %}?
 
 {% ifversion ghec %}
 
@@ -32,7 +33,7 @@ Administrators who configure a {% data variables.product.prodname_ghe_server %} 
 
 {% endif %}
 
-## Authentication methods
+## Which authentication method are available to me?
 
 {% ifversion ghec %}
 
@@ -81,7 +82,7 @@ If you choose to use external authentication, you can also configure fallback au
 
 {% endif %}
 
-## About provisioning
+## How does provisioning work?
 
 {% ifversion ghec %}
 
@@ -97,7 +98,7 @@ If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.
 
 {% ifversion emu-public-scim-schema %}
 
-## About supported IdPs
+## Which IdPs are supported?
 
 {% data reusables.enterprise_user_management.ghec-supported-idps %}
 
@@ -105,9 +106,7 @@ If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.
 
 ## Further reading
 
-* [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)
 * [AUTOTITLE](/admin/overview/about-enterprise-accounts)
 {%- ifversion ghec %}
 * [AUTOTITLE](/organizations/managing-membership-in-your-organization/can-i-create-accounts-for-people-in-my-organization)
-* [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)
 {%- endif %}

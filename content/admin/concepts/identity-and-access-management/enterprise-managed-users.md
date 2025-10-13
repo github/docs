@@ -1,6 +1,6 @@
 ---
-title: 'About {% data variables.product.prodname_emus %}'
-shortTitle: About managed users
+title: About {% data variables.product.prodname_emus %}
+shortTitle: Enterprise Managed Users
 intro: 'Learn how your enterprise can manage the lifecycle and authentication of users on {% data variables.product.prodname_dotcom %} from your identity provider (IdP).'
 redirect_from:
   - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
@@ -16,9 +16,10 @@ redirect_from:
   - /admin/identity-and-access-management/using-enterprise-managed-users-for-iam
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/about-enterprise-managed-users
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users
+  - /admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
 versions:
   ghec: '*'
-type: overview
+contentType: concepts
 topics:
   - Accounts
   - Authentication
@@ -27,7 +28,9 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-With {% data variables.product.prodname_emus %}, you manage the lifecycle and authentication of your users on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} from an external identity management system, or IdP:
+## What are Enterprise Managed Users in {% data variables.product.github %}?
+
+With {% data variables.product.prodname_emus %}, you manage the lifecycle and authentication of your users on {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %} **from an external identity management system, or IdP**:
 
 * Your IdP **provisions new user accounts** on {% data variables.product.prodname_dotcom %}, with access to your enterprise.
 * Users must **authenticate on your IdP** to access your enterprise's resources on {% data variables.product.prodname_dotcom %}.
@@ -37,11 +40,11 @@ With {% data variables.product.prodname_emus %}, you manage the lifecycle and au
 
 > [!NOTE] {% data variables.product.prodname_emus %} is not the best solution for every customer. To determine whether it's right for your enterprise, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
 
-## Identity management systems
+## How does EMUs integrate with identity management systems?
 
 {% data reusables.enterprise_user_management.emu-paved-path-iam-integrations %}
 
-### Partner identity providers
+### What are partner identity providers?
 
 Partner IdPs provide authentication using SAML or OIDC, and provide provisioning with System for Cross-domain Identity Management (SCIM).
 
@@ -57,7 +60,7 @@ Partner IdPs provide authentication using SAML or OIDC, and provide provisioning
 
 When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}.
 
-### Other identity management systems
+### Can I use identity management systems other than the supported partners?
 
 If you cannot use a single partner IdP for both authentication and provisioning, you can use another identity management system or combination of systems. The system must:
 
@@ -67,7 +70,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 
 {% data reusables.emus.mixed-systems-note %}
 
-## Usernames and profile information
+## How are usernames and profile information managed for EMUs?
 
 {% data variables.product.prodname_dotcom %} automatically creates a username for each developer by normalizing an identifier provided by your IdP. If the unique parts of the identifier are removed during normalization, a conflict may occur. See [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#resolving-username-problems).
 
@@ -76,13 +79,13 @@ The profile name and email address of a {% data variables.enterprise.prodname_ma
 * The IdP can only provide one email address.
 * Changing a user's email address in your IdP will unlink the user from the contribution history associated with the old email address.
 
-## Managing roles and access
+## How are roles and access managed for EMUs?
 
 In your IdP, you can give each {% data variables.enterprise.prodname_managed_user %} a **role in your enterprise**, such as member, owner, or guest collaborator. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
 Organization memberships (and repository access) can be managed manually, or you can **update memberships automatically using IdP groups**. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 
-## Authentication for {% data variables.enterprise.prodname_managed_users %}
+## How do {% data variables.enterprise.prodname_managed_users %} authenticate to {% data variables.product.prodname_dotcom %}?
 
 The locations where {% data variables.enterprise.prodname_managed_users %} can authenticate to {% data variables.product.prodname_dotcom %} depends on how you configure authentication (SAML or OIDC). See [AUTOTITLE](/authentication/authenticating-with-single-sign-on/authenticating-with-a-managed-user-account).
 

@@ -5,7 +5,6 @@ versions:
   ghec: '*'
   ghes: '*'
 children:
-  - /about-enterprise-accounts
   - /creating-an-enterprise-account
   - /creating-a-readme-for-an-enterprise
   - /deleting-an-enterprise-account
