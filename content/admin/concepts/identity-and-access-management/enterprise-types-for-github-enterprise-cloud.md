@@ -1,10 +1,9 @@
 ---
-title: Choosing an enterprise type for GitHub Enterprise Cloud
-shortTitle: Choosing an enterprise type
-intro: 'Decide whether {% data variables.product.prodname_emus %} is right for your enterprise by asking yourself some questions.'
+title: Enterprise types for GitHub Enterprise Cloud
+shortTitle: Enterprise types
+intro: 'Understand the types of enterprises available in {% data variables.product.prodname_ghe_cloud %} and decide whether {% data variables.product.prodname_emus %} is right for you by asking yourself some questions.'
 versions:
   ghec: '*'
-type: overview
 topics:
   - Accounts
   - Authentication
@@ -15,6 +14,8 @@ redirect_from:
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/identifying-the-best-authentication-method-for-your-enterprise
   - /admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise
   - /admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud
+  - /admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud
+contentType: concepts
 ---
 
 **Before** you create your enterprise account, you must choose an enterprise type:

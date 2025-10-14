@@ -9,6 +9,7 @@ topics:
   - Enterprise
 children:
   - /identity-and-access-management-fundamentals
+  - /enterprise-types-for-github-enterprise-cloud
   - /enterprise-managed-users
 contentType: concepts
 ---
