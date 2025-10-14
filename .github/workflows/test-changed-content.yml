@@ -51,4 +51,4 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
           DELETED_FILES: ${{ steps.changed_files.outputs.filtered_deleted_files }}
-        run: npm test -- src/content-render/tests/render-changed-and-deleted-files.js
+        run: npm test -- src/content-render/tests/render-changed-and-deleted-files.ts
