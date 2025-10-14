@@ -2,10 +2,21 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 
 const allowedCodeFenceLanguages = Object.keys(
-  yaml.load(fs.readFileSync('data/code-languages.yml', 'utf8')),
+  yaml.load(fs.readFileSync('data/code-languages.yml', 'utf8')) as Record<string, unknown>,
 )
 
-export const baseConfig = {
+type RuleConfig = {
+  severity: 'error' | 'warning'
+  'partial-markdown-files': boolean
+  'yml-files': boolean
+  [key: string]: any
+}
+
+type BaseConfig = {
+  [key: string]: boolean | RuleConfig
+}
+
+export const baseConfig: BaseConfig = {
   // Don't run all rules by default. This must be done first to
   // enable a specific set of rules.
   default: false,

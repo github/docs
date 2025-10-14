@@ -3,11 +3,12 @@ import {
   shouldShowRequestContentType,
   shouldShowResponseContentType,
   generateExampleOptionTexts,
+  type CodeExample,
 } from '@/rest/lib/code-example-utils'
 
 describe('Request Content Type Logic', () => {
   test('detects request content types differ correctly', () => {
-    const codeExamples = [
+    const codeExamples: CodeExample[] = [
       {
         description: 'Example',
         request: { contentType: 'text/plain' },
@@ -25,7 +26,7 @@ describe('Request Content Type Logic', () => {
   })
 
   test('detects response content types differ correctly', () => {
-    const codeExamples = [
+    const codeExamples: CodeExample[] = [
       {
         description: 'JSON example',
         request: { contentType: 'application/json' },
@@ -43,7 +44,7 @@ describe('Request Content Type Logic', () => {
   })
 
   test('generates correct options for markdown/raw scenario', () => {
-    const markdownRawExamples = [
+    const markdownRawExamples: CodeExample[] = [
       {
         description: 'Example',
         request: {
@@ -70,7 +71,7 @@ describe('Request Content Type Logic', () => {
   })
 
   test('generates correct options when both request and response differ', () => {
-    const mixedExamples = [
+    const mixedExamples: CodeExample[] = [
       {
         description: 'JSON request',
         request: {
@@ -100,7 +101,7 @@ describe('Request Content Type Logic', () => {
   })
 
   test('does not show content types when they are all the same', () => {
-    const sameContentTypeExamples = [
+    const sameContentTypeExamples: CodeExample[] = [
       {
         description: 'First example',
         request: {
@@ -127,7 +128,7 @@ describe('Request Content Type Logic', () => {
   })
 
   test('handles single example correctly', () => {
-    const singleExample = [
+    const singleExample: CodeExample[] = [
       {
         description: 'Only example',
         request: {

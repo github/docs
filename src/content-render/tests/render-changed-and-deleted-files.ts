@@ -47,7 +47,7 @@ function getDeletedContentFiles() {
   return getContentFiles(process.env.DELETED_FILES)
 }
 
-function getContentFiles(spaceSeparatedList) {
+function getContentFiles(spaceSeparatedList: string | undefined): string[] {
   return (spaceSeparatedList || '').split(/\s+/g).filter((filePath) => {
     // This filters out things like '', or `data/foo.md` or `content/something/README.md`
     return (
@@ -69,9 +69,11 @@ describe('changed-content', () => {
 
   // `test.each` will throw if the array is empty, so we need to add a dummy
   // when there are no changed files in the environment.
-  if (!changedContentFiles.length) changedContentFiles.push(EMPTY)
+  const testFiles: Array<string | symbol> = changedContentFiles.length
+    ? changedContentFiles
+    : [EMPTY]
 
-  test.each(changedContentFiles)('changed-content: %s', async (file) => {
+  test.each(testFiles)('changed-content: %s', async (file: string | symbol) => {
     // Necessary because `test.each` will throw if the array is empty
     if (file === EMPTY) return
 
@@ -79,13 +81,13 @@ describe('changed-content', () => {
       return path.join(p.basePath, p.relativePath) === file
     })
     if (!page) {
-      throw new Error(`Could not find page for ${file} in all loaded English content`)
+      throw new Error(`Could not find page for ${file as string} in all loaded English content`)
     }
     // Each version of the page should successfully render
     for (const { href } of page.permalinks) {
       const res = await get(href)
       if (!res.ok) {
-        let msg = `This error happened when rendering from: ${file}\n`
+        let msg = `This error happened when rendering from: ${file as string}\n`
         msg +=
           'To see the full error from vitest re-run the test with DEBUG_MIDDLEWARE_TESTS=true set\n'
         msg += `Or, to view it locally start the server (npm run dev) and visit http://localhost:4000${href}`
@@ -101,9 +103,11 @@ describe('deleted-content', () => {
 
   // `test.each` will throw if the array is empty, so we need to add a dummy
   // when there are no deleted files in the environment.
-  if (!deletedContentFiles.length) deletedContentFiles.push(EMPTY)
+  const testFiles: Array<string | symbol> = deletedContentFiles.length
+    ? deletedContentFiles
+    : [EMPTY]
 
-  test.each(deletedContentFiles)('deleted-content: %s', async (file) => {
+  test.each(testFiles)('deleted-content: %s', async (file: string | symbol) => {
     // Necessary because `test.each` will throw if the array is empty
     if (file === EMPTY) return
 
@@ -111,20 +115,22 @@ describe('deleted-content', () => {
       return path.join(p.basePath, p.relativePath) === file
     })
     if (page) {
-      throw new Error(`The supposedly deleted file ${file} is still in list of loaded pages`)
+      throw new Error(
+        `The supposedly deleted file ${file as string} is still in list of loaded pages`,
+      )
     }
     // You can't know what the possible permalinks were for a deleted page,
     // because it's deleted so we can't look at its `versions` front matter.
     // However, we always make sure all pages work in versionless.
     const indexmdSuffixRegex = new RegExp(`${path.sep}index\\.md$`)
     const mdSuffixRegex = /\.md$/
-    const relativePath = file.split(path.sep).slice(1).join(path.sep)
+    const relativePath = (file as string).split(path.sep).slice(1).join(path.sep)
     const href = `/en/${relativePath.replace(indexmdSuffixRegex, '').replace(mdSuffixRegex, '')}`
 
     const res = await head(href)
     const error =
       res.statusCode === 404
-        ? `The deleted file ${file} did not set up a redirect when deleted.`
+        ? `The deleted file ${file as string} did not set up a redirect when deleted.`
         : ''
     // Certain articles that are deleted and moved under a directory with the same article name
     // should just route to the subcategory page instead of redirecting (docs content team confirmed).

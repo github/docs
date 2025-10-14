@@ -10,6 +10,29 @@ import { getDocsVersion } from '@/versions/lib/all-versions'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index'
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
+type RestVersions = {
+  [category: string]: {
+    [subcategory: string]: {
+      versions: string[]
+    }
+  }
+}
+
+type MarkdownUpdate = {
+  data: {
+    title: string
+    shortTitle: string
+    intro: string
+    versions: any
+    [key: string]: any
+  }
+  content: string
+}
+
+type MarkdownUpdates = {
+  [filepath: string]: MarkdownUpdate
+}
+
 const { frontmatterDefaults, targetDirectory, indexOrder } = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf-8'),
 )
@@ -32,7 +55,7 @@ export async function updateRestFiles() {
  * @param {string} filePath - File path to parse
  * @returns {string|null} - GHES version or null if not a GHES file
  */
-export function getGHESVersionFromFilepath(filePath) {
+export function getGHESVersionFromFilepath(filePath: string): string | null {
   // Normalize path separators to handle both Unix and Windows paths
   const normalizedPath = filePath.replace(/\\/g, '/')
   const pathParts = normalizedPath.split('/')
@@ -49,7 +72,10 @@ export function getGHESVersionFromFilepath(filePath) {
 
 // The data files are split up by version, so all files must be
 // read to get a complete list of versions.
-async function getDataFrontmatter(dataDirectory, schemaFilename) {
+async function getDataFrontmatter(
+  dataDirectory: string,
+  schemaFilename: string,
+): Promise<RestVersions> {
   const fileList = walk(dataDirectory, { includeBasePath: true })
     .filter((file) => path.basename(file) === schemaFilename)
     // Ignore any deprecated versions. This allows us to stop supporting
@@ -67,7 +93,7 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
       return !deprecated.includes(ghesVersion)
     })
 
-  const restVersions = {}
+  const restVersions: RestVersions = {}
 
   for (const file of fileList) {
     const data = JSON.parse(await readFile(file, 'utf-8'))
@@ -112,8 +138,8 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
     }
   }
 */
-async function getMarkdownContent(versions) {
-  const markdownUpdates = {}
+async function getMarkdownContent(versions: RestVersions): Promise<MarkdownUpdates> {
+  const markdownUpdates: MarkdownUpdates = {}
 
   for (const [category, subcategoryObject] of Object.entries(versions)) {
     const subcategories = Object.keys(subcategoryObject)

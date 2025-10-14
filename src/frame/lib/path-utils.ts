@@ -9,7 +9,8 @@ const supportedVersions = new Set(Object.keys(allVersions))
 
 // Extracts the language code from the path
 // if href is '/en/something', returns 'en'
-export function getLangFromPath(href) {
+export function getLangFromPath(href: string | undefined): string | null {
+  if (!href) return null
   // first remove the version from the path so we don't match, say, `/free-pro-team` as `/fr/`
   const match = getPathWithoutVersion(href).match(patterns.getLanguageCode)
   return match ? match[1] : null
@@ -17,7 +18,8 @@ export function getLangFromPath(href) {
 
 // Add the language to the given HREF
 // /articles/foo -> /en/articles/foo
-export function getPathWithLanguage(href, languageCode) {
+export function getPathWithLanguage(href: string | undefined, languageCode: string): string {
+  if (!href) return `/${languageCode}`
   return slash(path.posix.join('/', languageCode, getPathWithoutLanguage(href))).replace(
     patterns.trailingSlash,
     '$1',
@@ -26,12 +28,14 @@ export function getPathWithLanguage(href, languageCode) {
 
 // Remove the language from the given HREF
 // /en/articles/foo -> /articles/foo
-export function getPathWithoutLanguage(href) {
+export function getPathWithoutLanguage(href: string | undefined): string {
+  if (!href) return '/'
   return slash(href.replace(patterns.hasLanguageCode, '/'))
 }
 
 // Remove the version segment from the path
-export function getPathWithoutVersion(href) {
+export function getPathWithoutVersion(href: string | undefined): string {
+  if (!href) return '/'
   const versionFromPath = getVersionStringFromPath(href)
 
   // If the derived version is not found in the list of all versions, just return the HREF
@@ -41,7 +45,16 @@ export function getPathWithoutVersion(href) {
 }
 
 // Return the version segment in a path
-export function getVersionStringFromPath(href, supportedOnly = false) {
+export function getVersionStringFromPath(
+  href: string | undefined,
+  supportedOnly: true,
+): string | undefined
+export function getVersionStringFromPath(href: string | undefined, supportedOnly?: false): string
+export function getVersionStringFromPath(
+  href: string | undefined,
+  supportedOnly = false,
+): string | undefined {
+  if (!href) return nonEnterpriseDefaultVersion
   href = getPathWithoutLanguage(href)
 
   // Some URLs don't ever have a version in the URL and it won't be found
@@ -90,15 +103,16 @@ export function getVersionStringFromPath(href, supportedOnly = false) {
 }
 
 // Return the corresponding object for the version segment in a path
-export function getVersionObjectFromPath(href) {
-  const versionFromPath = getVersionStringFromPath(href)
+export function getVersionObjectFromPath(href: string | undefined) {
+  const versionFromPath = getVersionStringFromPath(href, false)
 
   return allVersions[versionFromPath]
 }
 
 // TODO needs refactoring + tests
 // Return the product segment from the path
-export function getProductStringFromPath(href) {
+export function getProductStringFromPath(href: string | undefined): string {
+  if (!href) return 'homepage'
   href = getPathWithoutLanguage(href)
 
   if (href === '/') return 'homepage'
@@ -124,14 +138,15 @@ export function getProductStringFromPath(href) {
   return productString
 }
 
-export function getCategoryStringFromPath(href) {
+export function getCategoryStringFromPath(href: string | undefined): string | undefined {
+  if (!href) return undefined
   href = getPathWithoutLanguage(href)
 
-  if (href === '/') return null
+  if (href === '/') return undefined
 
   const pathParts = href.split('/')
 
-  if (pathParts.includes('early-access')) return null
+  if (pathParts.includes('early-access')) return undefined
 
   const productIndex = productIds.includes(pathParts[2]) ? 2 : 1
 

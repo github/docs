@@ -2,9 +2,19 @@ import { Tokenizer, TokenKind } from 'liquidjs'
 
 import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
-const liquidTokenCache = new Map()
+// Using `any` for the cache because TopLevelToken is a complex union type from liquidjs
+// that includes TagToken, OutputToken, and HTMLToken with different properties.
+// The cache is private to this module and we control all access to it.
+const liquidTokenCache = new Map<string, any>()
 
-export function getLiquidTokens(content, { noCache = false } = {}) {
+// Returns `any[]` instead of `TopLevelToken[]` because TopLevelToken is a union type
+// (TagToken | OutputToken | HTMLToken) and consumers of this function access properties
+// like `name` and `args` that only exist on TagToken. Using `any` here avoids complex
+// type narrowing throughout the codebase.
+export function getLiquidTokens(
+  content: string,
+  { noCache = false }: { noCache?: boolean } = {},
+): any[] {
   if (!content) return []
 
   if (noCache) {
@@ -30,7 +40,12 @@ export const TAG_CLOSE = '}}'
 export const conditionalTags = ['if', 'elseif', 'unless', 'case', 'ifversion']
 const CONDITIONAL_TAG_NAMES = ['if', 'ifversion', 'elsif', 'else', 'endif']
 
-export function getPositionData(token, lines) {
+// Token is `any` because it's used with different token types from liquidjs
+// that all have `begin` and `end` properties but are part of complex union types.
+export function getPositionData(
+  token: any,
+  lines: string[],
+): { lineNumber: number; column: number; length: number } {
   // Liquid indexes are 0-based, but we want to
   // covert to the system used by Markdownlint
   const begin = token.begin + 1
@@ -62,9 +77,14 @@ export function getPositionData(token, lines) {
  * by Markdownlint:
  * [ { lineNumber: 1, column: 1, deleteCount: 3, }]
  */
-export function getContentDeleteData(token, tokenEnd, lines) {
+// Token is `any` because it's used with different token types from liquidjs.
+export function getContentDeleteData(
+  token: any,
+  tokenEnd: number,
+  lines: string[],
+): Array<{ lineNumber: number; column: number; deleteCount: number }> {
   const { lineNumber, column } = getPositionData(token, lines)
-  const errorInfo = []
+  const errorInfo: Array<{ lineNumber: number; column: number; deleteCount: number }> = []
   let begin = column - 1
   // Subtract one from end of next token tag. The end of the
   // current tag is one position before that.
@@ -103,13 +123,15 @@ export function getContentDeleteData(token, tokenEnd, lines) {
 // related elsif, else, and endif tags).
 // Docs doesn't use the standard `if` tag for versioning, instead the
 // `ifversion` tag is used.
-export function getLiquidIfVersionTokens(content) {
+// Returns `any[]` because the tokens need to be accessed as TagToken with `name` and `args` properties,
+// but TopLevelToken union type would require complex type narrowing.
+export function getLiquidIfVersionTokens(content: string): any[] {
   const tokens = getLiquidTokens(content)
     .filter((token) => token.kind === TokenKind.Tag)
     .filter((token) => CONDITIONAL_TAG_NAMES.includes(token.name))
 
   let inIfStatement = false
-  const ifVersionTokens = []
+  const ifVersionTokens: any[] = []
   for (const token of tokens) {
     if (token.name === 'if') {
       inIfStatement = true
@@ -125,7 +147,7 @@ export function getLiquidIfVersionTokens(content) {
   return ifVersionTokens
 }
 
-export function getSimplifiedSemverRange(release) {
+export function getSimplifiedSemverRange(release: string): string {
   // Liquid conditionals only use the format > or < but not
   // >= or <=. Not sure exactly why.
   // if startswith >, we'll check to see if the release number
