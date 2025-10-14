@@ -38,7 +38,7 @@ If there are {% data variables.copilot.copilot_pro_short %} or {% data variables
 
 Alternatively, you can disable the agent for all repositories owned by your enterprise.
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Part of the Copilot direct licensing rollout -->
 <!-- Expired content will be addressed by the Drivers team -->
 
@@ -48,4 +48,4 @@ Alternatively, you can disable the agent for all repositories owned by your ente
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
 1. Select **Block {% data variables.copilot.copilot_code-review_short %} in all enterprise repositories**.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->

@@ -12,13 +12,13 @@ redirect_from:
   - /early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account
 ---
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Part of the Copilot direct licensing rollout -->
 <!-- Expired content will be addressed by the Drivers team -->
 
 {% data reusables.copilot.cb-only-self-serve %}
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 ## What is an enterprise account for {% data variables.copilot.copilot_business_short %}?
 

@@ -152,7 +152,7 @@ git@gitlab.com:gitlab-org/gitlab-runner.git:
 
 As an enterprise owner, you can use the enterprise settings to specify files that {% data variables.product.prodname_copilot %} should ignore. The files can be within a Git repository or anywhere on the file system that is not under Git control.
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Temporarily documents the old and new UI for direct Copilot licensing -->
 <!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
@@ -162,7 +162,7 @@ As an enterprise owner, you can use the enterprise settings to specify files tha
 1. If you see tabs at the top of the page, click the **Content exclusion** tab. Otherwise, click the {% octicon "chevron-right" aria-label="Go to content exclusion settings" %} icon next to "Content exclusion".
 1. Use paths to specify which content to exclude. See the previous section, [Configuring content exclusion for your organization](#configuring-content-exclusion-for-your-organization).
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 > [!NOTE]
 > The key difference between setting content exclusion at the enterprise level and the organization level is that rules set at the enterprise level apply to all {% data variables.product.prodname_copilot_short %} users in the enterprise, whereas the rules set by organization owners only apply to users who are assigned a {% data variables.product.prodname_copilot_short %} seat by that organization.

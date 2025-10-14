@@ -52,7 +52,7 @@ When you assign licenses to an enterprise team, users receive or lose access to 
 
 If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, you can assign licenses for either {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}.
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Temporarily documents the old and new UI for direct Copilot licensing -->
 <!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
@@ -68,7 +68,7 @@ If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} p
        * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Enabled**.
        * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click either **Copilot: Enterprise** or **Copilot: Business** to assign a specific Copilot plan to the organization.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 ### Next steps
 

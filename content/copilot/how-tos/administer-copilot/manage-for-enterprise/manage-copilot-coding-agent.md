@@ -58,7 +58,7 @@ You can choose to stop anyone using the agent in some or all of your repositorie
 
 Alternatively, you can disable the agent for all repositories owned by your enterprise.
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Part of the Copilot direct licensing rollout -->
 <!-- Expired content will be addressed by the Drivers team -->
 
@@ -68,4 +68,4 @@ Alternatively, you can disable the agent for all repositories owned by your ente
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
 1. Select **Block {% data variables.copilot.copilot_coding_agent %} in all enterprise repositories**.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->

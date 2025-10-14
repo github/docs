@@ -18,7 +18,7 @@ redirect_from:
 contentType: how-tos
 ---
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Temporarily documents the old and new UI for direct Copilot licensing -->
 <!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
@@ -35,7 +35,7 @@ contentType: how-tos
        * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Disabled**.
        * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click **Remove access**.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 ## Further reading
 

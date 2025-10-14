@@ -12,13 +12,13 @@ redirect_from:
   - /early-access/copilot/using-copilot-business-without-github-enterprise-personal-accounts
 ---
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Part of the Copilot direct licensing rollout -->
 <!-- Expired content will be addressed by the Drivers team -->
 
 {% data reusables.copilot.cb-only-self-serve %}
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 This article describes the setup for an **enterprise with personal accounts**. If you haven't chosen an enterprise type, see [AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
 
