@@ -16,6 +16,14 @@ export const reportingConfig = {
     // Example: 'GHD030' // Uncomment to exclude code-fence-line-length warnings
     'british-english-quotes', // Exclude from reports but keep for pre-commit
   ],
+
+  // Files to exclude from specific rules in reports
+  // Format: { 'rule-name': ['file/path/pattern1', 'file/path/pattern2'] }
+  excludeFilesFromRules: {
+    'todocs-placeholder': [
+      'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md',
+    ],
+  },
 }
 
 const githubDocsConfig = {
