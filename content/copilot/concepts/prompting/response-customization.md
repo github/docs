@@ -34,7 +34,7 @@ contentType: concepts
 
 {% jetbrains %}
 
-> [!NOTE] This version of this article is about custom instructions in JetBrains IDEs. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
+> [!NOTE] This version of this article is about custom instructions and prompt files in JetBrains IDEs. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
 {% endjetbrains %}
 
 {% xcode %}
@@ -74,7 +74,7 @@ You can create two types of repository custom instructions for {% data variables
 There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}:
 
 * **Repository custom instructions** allow you to specify instructions and preferences that {% data variables.product.prodname_copilot_short %} will consider when working in the context of the repository.
-* **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
+* **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. {% data reusables.copilot.prompt-files-available-in-editors %}
 
 While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
 
@@ -88,7 +88,14 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 
 {% jetbrains %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you.
+
+There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in JetBrains IDEs:
+
+* **Repository custom instructions** allow you to specify instructions and preferences that {% data variables.product.prodname_copilot_short %} will consider when working in the context of the repository.
+* **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. {% data reusables.copilot.prompt-files-available-in-editors %}
+
+While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
 
 {% endjetbrains %}
 
@@ -228,6 +235,55 @@ Common use cases include:
 ### Example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
+
+## About prompt files
+
+> [!NOTE] Prompt files are {% data variables.release-phases.public_preview %} and subject to change.
+
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.copilot.copilot_chat_short %} (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions and additional context.
+
+Common use cases include:
+
+* **Code generation**. Create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
+* **Domain expertise**. Share specialized knowledge through prompts, such as security practices, or compliance checks.
+* **Team collaboration**. Document patterns and guidelines with references to specs and documentation.
+* **Onboarding**. Create step-by-step guides for complex processes or project-specific patterns.
+
+You can have multiple prompt files in your workspace, each of which defines a prompt for a different purpose.
+
+### Examples
+
+The following examples demonstrate how to use prompt files.
+
+* `New React form.prompt.md` - contains instructions for a reusable task to generate a form using React.
+
+  ```markdown
+  Your goal is to generate a new React form component.
+
+  Ask for the form name and fields if not provided.
+
+  Requirements for the form:
+  - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+  - Use `react-hook-form` for form state management:
+    - Always define TypeScript types for your form data
+    - Prefer *uncontrolled* components using register
+    - Use `defaultValues` to prevent unnecessary rerenders
+  - Use `yup` for validation:
+    - Create reusable validation schemas in separate files
+    - Use TypeScript types to ensure type safety
+    - Customize UX-friendly validation rules
+  ```
+
+* `API security review.prompt.md` - contains reusable information about security practices for REST APIs, which can be used to do security reviews of REST APIs.
+
+  ```markdown
+  Secure REST API review:
+  - Ensure all endpoints are protected by authentication and authorization
+  - Validate all user inputs and sanitize data
+  - Implement rate limiting and throttling
+  - Implement logging and monitoring for security events
+  …
+  ```
 
 {% endjetbrains %}
 

@@ -631,3 +631,43 @@ To enable prompt files, configure the workspace settings.
 For more information about prompt files, see [Custom instructions for {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% endvscode %}
+
+{% jetbrains %}
+
+## Using prompt files
+
+{% data reusables.copilot.prompt-files-preview-note %}
+
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.copilot.copilot_chat_short %} (for example, `Rewrite #file:x.ts`). You can have multiple prompt files in your workspace, each of which defines a prompt for a different purpose.
+
+When writing prompt instructions, you can reference other files in the workspace by using Markdown links—for example, `[index](../../web/index.ts)`—or by using the `#file:../../web/index.ts` syntax. Paths are relative to the prompt file. Referencing other files allows you to provide additional context, such as API specifications or product documentation.
+
+Once prompt files are saved, their instructions will apply to the current workspace in JetBrains IDEs that you open with {% data variables.product.prodname_copilot_short %} enabled.
+
+### Creating prompt files using the command line
+
+1. Create the `.github/prompts` directory if it doesn't already exist in your workspace. This directory will be the location for your prompt files.
+1. Create a prompt file in the `.github/prompts` directory. The prompt file name can contain alphanumeric characters and spaces and should describe the purpose of the prompt information the file will contain. The file name must end with the `.prompt.md` file name extension, for example `TESTPROMPT.prompt.md`.
+1. Write the prompt instructions using Markdown formatting, and save the file.
+
+### Creating prompt files using the settings page
+
+{% data reusables.copilot.jetbrains-settings %}
+1. Under **Tools**, under **{% data variables.product.prodname_copilot %}**, click **Edit Settings**.
+1. Under "Settings Categories", click **Customizations**.
+1. Under "Prompt Files", click **Workspace**, to create a prompt file in your workspace.
+1. Enter a name for the prompt file, excluding the `.prompt.md` file name extension. The prompt file name can contain alphanumeric characters and spaces and should describe the purpose of the prompt information the file will contain.
+1. Click **Ok** to save the prompt file name.
+1. Write the prompt instructions using Markdown formatting, and save the file.
+
+### Using prompt files
+
+1. In the chat input box, type `/` followed by the name of the prompt file. For example, `/TESTPROMPT`.
+1. Optionally, attach additional files, to provide more context.
+1. Optionally, type additional information in the chat prompt box.
+
+   Whether you need to do this or not depends on the contents of the prompt you are using.
+
+1. Submit the chat prompt.
+
+{% endjetbrains %}
