@@ -70,7 +70,7 @@ includeGuides:
   - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
   - /admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds
-  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/setting-up-external-monitoring
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/setting-up-external-monitoring-with-collectd
   - /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
   - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
   - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
