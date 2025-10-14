@@ -1,24 +1,10 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
-type UtmPreserverProps = {
-  // CSS selector for links that should preserve UTM parameters
-  linkSelector?: string
-  // Specific page paths where this component should be active
-  activePaths?: string[]
-}
-
-export const UtmPreserver = ({
-  linkSelector = 'a[href*="github.com/copilot"], a[href*="github.com/github-copilot"]',
-  activePaths = ['/copilot/get-started/plans'],
-}: UtmPreserverProps) => {
+export const UtmPreserver = () => {
   const router = useRouter()
 
   useEffect(() => {
-    // Check if current page should have UTM preservation
-    const shouldPreserveUtm = activePaths.some((path) => router.asPath.includes(path))
-    if (!shouldPreserveUtm) return
-
     // Extract UTM parameters from current URL
     const getUtmParams = (): URLSearchParams => {
       const urlParams = new URLSearchParams(window.location.search)
@@ -31,6 +17,22 @@ export const UtmPreserver = ({
       }
 
       return utmParams
+    }
+
+    const utmParams = getUtmParams()
+    if (utmParams.toString() === '') return
+
+    // Check if a link should have UTM parameters preserved
+    const shouldPreserveUtm = (url: string): boolean => {
+      const lowercaseUrl = url.toLowerCase()
+
+      // Preserve UTM for any external github.com links (including subdomains like blog.github.com)
+      // but NOT for docs.github.com (which are internal links anyway)
+      const hasProtocol = lowercaseUrl.startsWith('https://') || lowercaseUrl.startsWith('http://')
+      const isGithubCom = lowercaseUrl.includes('github.com')
+      const isDocsGithubCom = lowercaseUrl.includes('docs.github.com')
+
+      return hasProtocol && isGithubCom && !isDocsGithubCom
     }
 
     // Add UTM parameters to a URL
@@ -51,14 +53,10 @@ export const UtmPreserver = ({
 
     // Apply UTM parameters to relevant links
     const applyUtmToLinks = (): void => {
-      const utmParams = getUtmParams()
-
-      if (utmParams.toString() === '') return
-
-      const links = document.querySelectorAll<HTMLAnchorElement>(linkSelector)
+      const links = document.querySelectorAll<HTMLAnchorElement>('a[href]')
 
       links.forEach((link) => {
-        if (link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'))) {
+        if (link.href && shouldPreserveUtm(link.href)) {
           link.href = addUtmParamsToUrl(link.href, utmParams)
         }
       })
@@ -67,15 +65,9 @@ export const UtmPreserver = ({
     // Handle click events for dynamic link modification
     const handleLinkClick = (event: Event): void => {
       const link = (event.target as Element)?.closest('a') as HTMLAnchorElement
-      if (!link) return
+      if (!link || !link.href) return
 
-      // Check if this link matches our selector
-      if (!link.matches(linkSelector)) return
-
-      const utmParams = getUtmParams()
-      if (utmParams.toString() === '') return
-
-      if (link.href && (link.href.startsWith('http://') || link.href.startsWith('https://'))) {
+      if (shouldPreserveUtm(link.href)) {
         link.href = addUtmParamsToUrl(link.href, utmParams)
       }
     }
@@ -99,7 +91,7 @@ export const UtmPreserver = ({
       document.removeEventListener('click', handleLinkClick, true)
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [router.asPath, router.events, linkSelector, activePaths])
+  }, [router.asPath, router.events])
 
   // This component doesn't render anything
   return null

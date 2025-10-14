@@ -13,6 +13,7 @@ import { ProductArticlesList } from '@/landings/components/ProductArticlesList'
 import { ProductReleases } from '@/landings/components/ProductReleases'
 import { useVersion } from '@/versions/components/useVersion'
 import { RestRedirect } from '@/rest/components/RestRedirect'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const ProductLanding = () => {
   const router = useRouter()
@@ -23,6 +24,7 @@ export const ProductLanding = () => {
 
   return (
     <DefaultLayout>
+      <UtmPreserver />
       <div data-search="article-body">
         {router.query.productId === 'rest' && <RestRedirect />}
         <LandingSection className="pt-3">
