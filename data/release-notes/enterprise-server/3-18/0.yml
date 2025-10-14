@@ -14,7 +14,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/6173
         - |
-          Operators use native Prometheus metrics to monitor the appliance. This feature is currently in public preview and should only be used in pre-production environments. You can view the Prometheus-based dashboards directly in the appliance or export Prometheus metrics to third-party observability systems. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance).
+          Operators use native Prometheus metrics to monitor the appliance. This feature is currently in public preview and should only be used in pre-production environments. You can view the Prometheus-based dashboards directly in the appliance or export Prometheus metrics to third-party observability systems. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
         # https://github.com/github/releases/issues/6019
         - |
           Admins can enable a larger item limit on projects, which supports up to 50,000 items. After the upgrade, the `memex-project-items` index will be migrated and an index repair started Once the `memex-project-items` index repair is completed, the new index is automatically promoted to primary and `ENABLE_PROJECTS_INCREASED_LIMITS` can be enabled. If `ENABLE_PROJECTS_INCREASED_LIMITS` is enabled before the index repair is completed, project data will appear to be missing from any partially repaired projects. This problem will resolve itself once the repair completes.
