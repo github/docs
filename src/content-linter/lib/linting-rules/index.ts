@@ -58,6 +58,9 @@ import { headerContentRequirement } from '@/content-linter/lib/linting-rules/hea
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
 import { ctasSchema } from '@/content-linter/lib/linting-rules/ctas-schema'
+import { journeyTracksLiquid } from './journey-tracks-liquid'
+import { journeyTracksGuidePathExists } from './journey-tracks-guide-path-exists'
+import { journeyTracksUniqueIds } from './journey-tracks-unique-ids'
 
 // Using any type because @github/markdownlint-github doesn't provide TypeScript declarations
 // The elements in the array have a 'names' property that contains rule identifiers
@@ -124,6 +127,9 @@ export const gitHubDocsMarkdownlint = {
     frontmatterValidation, // GHD055
     frontmatterLandingRecommended, // GHD056
     ctasSchema, // GHD057
+    journeyTracksLiquid, // GHD058
+    journeyTracksGuidePathExists, // GHD059
+    journeyTracksUniqueIds, // GHD060
 
     // Search-replace rules
     searchReplace, // Open-source plugin
