@@ -19,7 +19,7 @@ redirect_from:
 contentType: how-tos
 ---
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Temporarily documents the old and new UI for direct Copilot licensing -->
 <!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
@@ -32,4 +32,4 @@ contentType: how-tos
 
 1. In the pop-up window that appears, review the effects of downgrading the organization, then click **Confirm and downgrade**.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->

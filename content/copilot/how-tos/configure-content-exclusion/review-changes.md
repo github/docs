@@ -56,7 +56,7 @@ Organization and repository settings include the ability to exclude content from
 
 ## Reviewing changes in your enterprise
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Temporarily documents the old and new UI for direct Copilot licensing -->
 <!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
@@ -74,7 +74,7 @@ Organization and repository settings include the ability to exclude content from
 
 {% data reusables.copilot.more-details-content-exclusion-logs %}
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 {% endif %}
 
