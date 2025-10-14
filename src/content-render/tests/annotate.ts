@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 import cheerio from 'cheerio'
 
 import { renderContent } from '@/content-render/index'
+import type { Context } from '@/types'
 
 const example = `
 \`\`\`yaml annotate
@@ -131,7 +132,7 @@ on: [push]
 `
 
     // Create a mock context with pages for AUTOTITLE resolution
-    const mockPages = {
+    const mockPages: Record<string, { href: string; rawTitle: string }> = {
       '/get-started/start-your-journey/hello-world': {
         href: '/get-started/start-your-journey/hello-world',
         rawTitle: 'Hello World',
@@ -147,7 +148,8 @@ on: [push]
       currentVersion: 'free-pro-team@latest',
       pages: mockPages,
       redirects: {},
-    }
+      // Mock test object doesn't need all Context properties, using 'as unknown as' to bypass strict type checking
+    } as unknown as Context
 
     const res = await renderContent(example, mockContext)
     const $ = cheerio.load(res)

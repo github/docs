@@ -1,16 +1,21 @@
 import path from 'path'
 import fs from 'fs/promises'
 
-import Page from './page'
+import PageClass from './page'
+import type { UnversionedTree, Page } from '@/types'
 
-export default async function createTree(originalPath, rootPath, previousTree) {
+export default async function createTree(
+  originalPath: string,
+  rootPath?: string,
+  previousTree?: UnversionedTree,
+): Promise<UnversionedTree | undefined> {
   const basePath = rootPath || originalPath
 
   // On recursive runs, this is processing page.children items in `/<link>` format.
   // If the path exists as is, assume this is a directory with a child index.md.
   // Otherwise, assume it's a child .md file and add `.md` to the path.
-  let filepath
-  let mtime
+  let filepath: string
+  let mtime: number
   // This kills two birds with one stone. We (attempt to) read it as a file,
   // to find out if it's a directory or a file and whence we know that
   // we also collect it's modification time.
@@ -18,7 +23,7 @@ export default async function createTree(originalPath, rootPath, previousTree) {
     filepath = `${originalPath}.md`
     mtime = await getMtime(filepath)
   } catch (error) {
-    if (error.code !== 'ENOENT') {
+    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
       throw error
     }
     filepath = `${originalPath}/index.md`
@@ -30,7 +35,7 @@ export default async function createTree(originalPath, rootPath, previousTree) {
     try {
       mtime = await getMtime(filepath)
     } catch (error) {
-      if (error.code !== 'ENOENT') {
+      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
         throw error
       }
       // Throw an error if we can't find a content file associated with the children: entry.
@@ -51,7 +56,7 @@ export default async function createTree(originalPath, rootPath, previousTree) {
   // Reading in a file from disk is slow and best avoided if we can be
   // certain it isn't necessary. If the previous tree is known and that
   // tree's page node's `mtime` hasn't changed, we can use that instead.
-  let page
+  let page: Page
   if (previousTree && previousTree.page.mtime === mtime) {
     // A save! We can use the same exact Page instance from the previous
     // tree because the assumption is that since the `.md` file it was
@@ -61,20 +66,22 @@ export default async function createTree(originalPath, rootPath, previousTree) {
   } else {
     // Either the previous tree doesn't exist yet or the modification time
     // of the file on disk has changed.
-    page = await Page.init({
+    const newPage = await PageClass.init({
       basePath,
       relativePath,
       languageCode: 'en',
       mtime,
-    })
-  }
-
-  if (!page) {
-    throw Error(`Cannot initialize page for ${filepath}`)
+      // PageInitOptions doesn't include mtime in its type definition, but PageReadResult uses `& any`
+      // which allows additional properties to be passed through to the Page constructor
+    } as any)
+    if (!newPage) {
+      throw Error(`Cannot initialize page for ${filepath}`)
+    }
+    page = newPage as unknown as Page
   }
 
   // Create the root tree object on the first run, and create children recursively.
-  const item = {
+  const item: UnversionedTree = {
     page,
     // This is only here for the sake of reloading the tree later which
     // only happens in development mode.
@@ -86,18 +93,23 @@ export default async function createTree(originalPath, rootPath, previousTree) {
     // this value now will be different from what it was before.
     // It's not enough to rely on *length* of the array before and after
     // because the change could have been to remove one and add another.
-    children: page.children,
+    // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
+    children: (page as any).children || [],
+    childPages: [],
   }
 
   // Process frontmatter children recursively.
-  if (item.page.children) {
-    assertUniqueChildren(item.page)
+  // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
+  if ((page as any).children) {
+    assertUniqueChildren(page as any)
     item.childPages = (
       await Promise.all(
-        item.page.children.map(async (child, i) => {
-          let childPreviousTree
+        // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
+        ((page as any).children as string[]).map(async (child: string, i: number) => {
+          let childPreviousTree: UnversionedTree | undefined
           if (previousTree && previousTree.childPages) {
-            if (equalArray(item.page.children, previousTree.children)) {
+            // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
+            if (equalArray((page as any).children, previousTree.children)) {
               // We can only safely rely on picking the same "n'th" item
               // from the array if we're confident the names are the same
               // as they were before.
@@ -119,22 +131,25 @@ export default async function createTree(originalPath, rootPath, previousTree) {
             // (early exit instead of returning a tree). So let's
             // mutate the `page.children` so we can benefit from the
             // ability to reload the site tree on consecutive requests.
-            item.page.children = item.page.children.filter((c) => c !== child)
+            // Page class has dynamic frontmatter properties like 'children' that aren't in the type definition
+            ;(page as any).children = ((page as any).children as string[]).filter(
+              (c: string) => c !== child,
+            )
           }
           return subTree
         }),
       )
-    ).filter(Boolean)
+    ).filter((tree): tree is UnversionedTree => tree !== undefined)
   }
 
   return item
 }
 
-function equalArray(arr1, arr2) {
+function equalArray(arr1: string[], arr2: string[]): boolean {
   return arr1.length === arr2.length && arr1.every((value, i) => value === arr2[i])
 }
 
-async function getMtime(filePath) {
+async function getMtime(filePath: string): Promise<number> {
   // Use mtimeMs, which is a regular floating point number, instead of the
   // mtime which is a Date based on that same number.
   // Otherwise, if we use the Date instances, we have to compare
@@ -150,10 +165,11 @@ async function getMtime(filePath) {
   return Math.round(mtimeMs)
 }
 
-function assertUniqueChildren(page) {
+// Page class has dynamic frontmatter properties that aren't in the type definition
+function assertUniqueChildren(page: any): void {
   if (page.children.length !== new Set(page.children).size) {
-    const count = {}
-    page.children.forEach((entry) => (count[entry] = 1 + (count[entry] || 0)))
+    const count: Record<string, number> = {}
+    page.children.forEach((entry: string) => (count[entry] = 1 + (count[entry] || 0)))
     let msg = `${page.relativePath} has duplicates in the 'children' key.`
     for (const [entry, times] of Object.entries(count)) {
       if (times > 1) msg += ` '${entry}' is repeated ${times} times. `

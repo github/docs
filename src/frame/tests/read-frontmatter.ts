@@ -22,9 +22,9 @@ versions:
 describe('frontmatter', () => {
   test('parses frontmatter and content in a given string (no options required)', () => {
     const { data, content, errors } = parse(fixture1)
-    expect(data.title).toBe('Hello, World')
-    expect(data.meaning_of_life).toBe(42)
-    expect(content.trim()).toBe('I am content.')
+    expect(data!.title).toBe('Hello, World')
+    expect(data!.meaning_of_life).toBe(42)
+    expect(content!.trim()).toBe('I am content.')
     expect(errors.length).toBe(0)
   })
 
@@ -85,9 +85,9 @@ I am content.
       }
 
       const { data, content, errors } = parse(fixture1, { schema })
-      expect(data.title).toBe('Hello, World')
-      expect(data.meaning_of_life).toBe(42)
-      expect(content.trim()).toBe('I am content.')
+      expect(data!.title).toBe('Hello, World')
+      expect(data!.meaning_of_life).toBe(42)
+      expect(content!.trim()).toBe('I am content.')
       expect(errors.length).toBe(0)
     })
 
@@ -102,9 +102,9 @@ I am content.
       }
 
       const { data, content, errors } = parse(fixture1, { schema })
-      expect(data.title).toBe('Hello, World')
-      expect(data.meaning_of_life).toBe(42)
-      expect(content.trim()).toBe('I am content.')
+      expect(data!.title).toBe('Hello, World')
+      expect(data!.meaning_of_life).toBe(42)
+      expect(content!.trim()).toBe('I am content.')
       expect(errors.length).toBe(1)
       const expectedError = {
         instancePath: '/meaning_of_life',
@@ -121,7 +121,10 @@ I am content.
 
     test('creates errors if versions frontmatter does not match semver format', () => {
       const schema = { type: 'object', required: ['versions'], properties: {} }
-      schema.properties.versions = Object.assign({}, frontmatterSchema.properties.versions)
+      ;(schema.properties as any).versions = Object.assign(
+        {},
+        (frontmatterSchema.properties as any).versions,
+      )
 
       const { errors } = parse(fixture2, { schema })
       const expectedError = {

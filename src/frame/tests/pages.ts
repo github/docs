@@ -10,6 +10,7 @@ import libLanguages from '@/languages/lib/languages'
 import { liquid } from '@/content-render/index'
 import patterns from '@/frame/lib/patterns'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import type { Page } from '@/types'
 
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
@@ -17,7 +18,7 @@ const slugger = new GithubSlugger()
 describe('pages module', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
-  let pages
+  let pages: Page[]
 
   beforeAll(async () => {
     pages = await loadPages()
@@ -50,29 +51,30 @@ describe('pages module', () => {
       const englishPages = chain(pages)
         .filter(['languageCode', 'en'])
         .filter('redirect_from')
-        .map((pages) => pick(pages, ['redirect_from', 'applicableVersions', 'fullPath']))
+        .map((page) => pick(page, ['redirect_from', 'applicableVersions', 'fullPath']))
         .value()
 
       // Map from redirect path to Set of file paths
-      const redirectToFiles = new Map()
-      const versionedRedirects = []
+      const redirectToFiles = new Map<string, Set<string>>()
+      const versionedRedirects: Array<{ path: string; file: string }> = []
 
-      englishPages.forEach((page) => {
-        page.redirect_from.forEach((redirect) => {
-          page.applicableVersions.forEach((version) => {
+      // Page objects have dynamic properties from chain/lodash that aren't fully typed
+      englishPages.forEach((page: any) => {
+        page.redirect_from.forEach((redirect: string) => {
+          page.applicableVersions.forEach((version: string) => {
             const versioned = removeFPTFromPath(path.posix.join('/', version, redirect))
             versionedRedirects.push({ path: versioned, file: page.fullPath })
             if (!redirectToFiles.has(versioned)) {
-              redirectToFiles.set(versioned, new Set())
+              redirectToFiles.set(versioned, new Set<string>())
             }
-            redirectToFiles.get(versioned).add(page.fullPath)
+            redirectToFiles.get(versioned)!.add(page.fullPath)
           })
         })
       })
 
       // Only consider as duplicate if more than one unique file defines the same redirect
       const duplicates = Array.from(redirectToFiles.entries())
-        .filter(([_, files]) => files.size > 1)
+        .filter(([, files]) => files.size > 1)
         .map(([path]) => path)
 
       // Build a detailed message with sources for each duplicate
@@ -96,7 +98,8 @@ describe('pages module', () => {
           return (
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
-            !page.allowTitleToDifferFromFilename && // ignore docs with override
+            // Page class has dynamic frontmatter properties like 'allowTitleToDifferFromFilename' not in type definition
+            !(page as any).allowTitleToDifferFromFilename && // ignore docs with override
             slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md') &&
             slugger.slug(decode(page.shortTitle || '')) !== path.basename(page.relativePath, '.md')
           )
@@ -127,7 +130,8 @@ describe('pages module', () => {
     test('every page has valid frontmatter', async () => {
       const frontmatterErrors = chain(pages)
         // .filter(page => page.languageCode === 'en')
-        .map((page) => page.frontmatterErrors)
+        // Page class has dynamic error properties like 'frontmatterErrors' not in type definition
+        .map((page) => (page as any).frontmatterErrors)
         .filter(Boolean)
         .flatten()
         .value()
@@ -141,17 +145,18 @@ describe('pages module', () => {
     })
 
     test('every page has valid Liquid templating', async () => {
-      const liquidErrors = []
+      const liquidErrors: Array<{ filename: string; error: string }> = []
 
       for (const page of pages) {
-        const markdown = page.raw
+        // Page class has dynamic properties like 'raw' markdown not in type definition
+        const markdown = (page as any).raw
         if (!patterns.hasLiquid.test(markdown)) continue
         try {
           await liquid.parse(markdown)
         } catch (error) {
           liquidErrors.push({
             filename: page.fullPath,
-            error: error.message,
+            error: (error as Error).message,
           })
         }
       }
