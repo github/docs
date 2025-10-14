@@ -71,8 +71,8 @@ changelog:
   label: enterprise
 featuredLinks:
   startHere:
-    - '{% ifversion ghec %}/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud{% endif %}'
     - '/admin/concepts/identity-and-access-management\identity-and-access-management-fundamentals'
+    - '{% ifversion ghec %}/admin/concepts/identity-and-access-management/enterprise-types-for-github-enterprise-cloud{% endif %}'
     - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
     - '{% ifversion ghes %}/admin/getting-started-with-enterprise/about-upgrades-to-new-releases{% endif %}'
