@@ -330,6 +330,24 @@ export const githubDocsFrontmatterConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
+  'journey-tracks-liquid': {
+    // GHD058
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'journey-tracks-guide-path-exists': {
+    // GHD059
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'journey-tracks-unique-ids': {
+    // GHD060
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
 }
 
 // Configures rules from the `github/markdownlint-github` repo
