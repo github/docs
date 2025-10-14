@@ -1,19 +1,36 @@
 import chalk from 'chalk'
 
-function isNumber(value) {
+interface LintResult {
+  ruleDescription: string
+  ruleNames: string[]
+  lineNumber: number
+  columnNumber?: number
+  severity: string
+  errorDetail?: string
+  errorContext?: string
+  context?: string
+  fixable?: boolean
+}
+
+type LintResults = Record<string, LintResult[]>
+
+function isNumber(value: unknown): value is number {
   return typeof value === 'number' && !isNaN(value)
 }
 
-function shorten(text, length = 70) {
+function shorten(text: string, length = 70): string {
   if (text.length <= length) return text
   return `${text.slice(0, length - 3)}…`
 }
 
-export function prettyPrintResults(results, { fixed = false } = {}) {
+export function prettyPrintResults(
+  results: LintResults,
+  { fixed = false }: { fixed?: boolean } = {},
+): void {
   const PREFIX_PADDING = ' '.repeat(4)
   const columnPadding = 'Description'.length // The longest column header word
 
-  function label(text, padding = columnPadding) {
+  function label(text: string, padding = columnPadding): string {
     if (padding < text.length) throw new Error('Padding must be greater than text length')
     return `${PREFIX_PADDING}${chalk.dim(text.padEnd(padding))}`
   }
@@ -114,7 +131,8 @@ export function prettyPrintResults(results, { fixed = false } = {}) {
   }
 }
 
-function chalkFunColors(text) {
+function chalkFunColors(text: string): string {
+  // Valid chalk color method names for terminal output
   const colors = [
     'red',
     'yellow',
@@ -126,19 +144,21 @@ function chalkFunColors(text) {
     'greenBright',
     'magentaBright',
     'cyanBright',
-  ].sort(() => Math.random() - 0.5)
+  ] as const
+  const shuffledColors = [...colors].sort(() => Math.random() - 0.5)
   let colorIndex = 0
   return text
     .split('')
     .map((char) => {
-      const color = colors[colorIndex]
-      colorIndex = (colorIndex + 1) % colors.length
-      return chalk[color](char)
+      const color = shuffledColors[colorIndex]
+      colorIndex = (colorIndex + 1) % shuffledColors.length
+      // Chalk's TypeScript types don't support dynamic property access, but these are valid color methods
+      return (chalk as any)[color](char)
     })
     .join('')
 }
 
-function indentWrappedString(str, startingIndent) {
+function indentWrappedString(str: string, startingIndent: number): string {
   const NEW_LINE_PADDING = ' '.repeat(16)
   const width = process.stdout.columns || 80 // Use terminal width, default to 80 if not available
   let indentedString = ''

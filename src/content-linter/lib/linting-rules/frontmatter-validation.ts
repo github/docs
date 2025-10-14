@@ -1,9 +1,27 @@
+// @ts-ignore - no types available for markdownlint-rule-helpers
 import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
 
+import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
+
+interface PropertyLimits {
+  max: number
+  recommended: number
+  required?: boolean
+}
+
+interface ContentRules {
+  title: PropertyLimits
+  shortTitle: PropertyLimits
+  intro: PropertyLimits
+  requiredProperties: string[]
+}
+
+type ContentType = 'category' | 'mapTopic' | 'article' | null
+
 // Strip liquid tags from text for character counting purposes
-function stripLiquidTags(text) {
-  if (typeof text !== 'string') return text
+function stripLiquidTags(text: unknown): string {
+  if (typeof text !== 'string') return text as string
   // Remove both {% %} and {{ }} liquid tags
   return text.replace(/\{%.*?%\}/g, '').replace(/\{\{.*?\}\}/g, '')
 }
@@ -13,15 +31,15 @@ export const frontmatterValidation = {
   description:
     'Frontmatter properties must meet character limits and required property requirements',
   tags: ['frontmatter', 'character-limits', 'required-properties'],
-  function: (params, onError) => {
-    const fm = getFrontmatter(params.lines)
+  function: (params: RuleParams, onError: RuleErrorCallback) => {
+    const fm = getFrontmatter(params.lines as string[])
     if (!fm) return
 
     // Detect content type based on frontmatter properties and file path
     const contentType = detectContentType(fm, params.name)
 
     // Define character limits and requirements for different content types
-    const contentRules = {
+    const contentRules: Record<string, ContentRules> = {
       category: {
         title: { max: 70, recommended: 67 },
         shortTitle: { max: 30, recommended: 27 },
@@ -42,7 +60,7 @@ export const frontmatterValidation = {
       },
     }
 
-    const rules = contentRules[contentType]
+    const rules = contentType ? contentRules[contentType] : null
     if (!rules) return
 
     // Check required properties
@@ -61,14 +79,21 @@ export const frontmatterValidation = {
 
     // Check title length
     if (fm.title) {
-      validatePropertyLength(onError, params.lines, 'title', fm.title, rules.title, 'Title')
+      validatePropertyLength(
+        onError,
+        params.lines as string[],
+        'title',
+        fm.title,
+        rules.title,
+        'Title',
+      )
     }
 
     // Check shortTitle length
     if (fm.shortTitle) {
       validatePropertyLength(
         onError,
-        params.lines,
+        params.lines as string[],
         'shortTitle',
         fm.shortTitle,
         rules.shortTitle,
@@ -78,17 +103,24 @@ export const frontmatterValidation = {
 
     // Check intro length if it exists
     if (fm.intro && rules.intro) {
-      validatePropertyLength(onError, params.lines, 'intro', fm.intro, rules.intro, 'Intro')
+      validatePropertyLength(
+        onError,
+        params.lines as string[],
+        'intro',
+        fm.intro,
+        rules.intro,
+        'Intro',
+      )
     }
 
     // Cross-property validation: if title is longer than shortTitle limit, shortTitle must exist
     const strippedTitle = stripLiquidTags(fm.title)
-    if (fm.title && strippedTitle.length > rules.shortTitle.max && !fm.shortTitle) {
-      const titleLine = findPropertyLine(params.lines, 'title')
+    if (fm.title && (strippedTitle as string).length > rules.shortTitle.max && !fm.shortTitle) {
+      const titleLine = findPropertyLine(params.lines as string[], 'title')
       addError(
         onError,
         titleLine,
-        `Title is ${strippedTitle.length} characters, which exceeds the shortTitle limit of ${rules.shortTitle.max} characters. A shortTitle must be provided.`,
+        `Title is ${(strippedTitle as string).length} characters, which exceeds the shortTitle limit of ${rules.shortTitle.max} characters. A shortTitle must be provided.`,
         fm.title,
         null,
         null,
@@ -98,10 +130,10 @@ export const frontmatterValidation = {
     // Special validation for articles: should have at least one topic
     if (contentType === 'article' && fm.topics) {
       if (!Array.isArray(fm.topics)) {
-        const topicsLine = findPropertyLine(params.lines, 'topics')
+        const topicsLine = findPropertyLine(params.lines as string[], 'topics')
         addError(onError, topicsLine, 'Topics must be an array', String(fm.topics), null, null)
       } else if (fm.topics.length === 0) {
-        const topicsLine = findPropertyLine(params.lines, 'topics')
+        const topicsLine = findPropertyLine(params.lines as string[], 'topics')
         addError(
           onError,
           topicsLine,
@@ -115,9 +147,16 @@ export const frontmatterValidation = {
   },
 }
 
-function validatePropertyLength(onError, lines, propertyName, propertyValue, limits, displayName) {
+function validatePropertyLength(
+  onError: RuleErrorCallback,
+  lines: string[],
+  propertyName: string,
+  propertyValue: string,
+  limits: PropertyLimits,
+  displayName: string,
+): void {
   const strippedValue = stripLiquidTags(propertyValue)
-  const propertyLength = strippedValue.length
+  const propertyLength = (strippedValue as string).length
   const propertyLine = findPropertyLine(lines, propertyName)
 
   // Only report the most severe error - maximum takes precedence over recommended
@@ -142,7 +181,8 @@ function validatePropertyLength(onError, lines, propertyName, propertyValue, lim
   }
 }
 
-function detectContentType(frontmatter, filePath) {
+// frontmatter object structure varies based on YAML content, using any for flexibility
+function detectContentType(frontmatter: any, filePath: string): ContentType {
   // Only apply validation to markdown files
   if (!filePath || !filePath.endsWith('.md')) {
     return null
@@ -168,7 +208,7 @@ function detectContentType(frontmatter, filePath) {
   return 'article'
 }
 
-function findPropertyLine(lines, property) {
+function findPropertyLine(lines: string[], property: string): number {
   const line = lines.find((line) => line.trim().startsWith(`${property}:`))
   return line ? lines.indexOf(line) + 1 : 1
 }

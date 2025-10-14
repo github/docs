@@ -1,6 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
 import { getGHExample, getShellExample } from '../components/get-rest-code-samples'
+import type { CodeSample, Operation } from '@/rest/components/types'
+import type { VersionItem } from '@/frame/components/context/MainContext'
 
 describe('CLI examples generation', () => {
   const mockOperation = {
@@ -9,14 +11,16 @@ describe('CLI examples generation', () => {
     serverUrl: 'https://api.github.com',
     subcategory: 'code-scanning',
     parameters: [],
-  }
+    // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+  } as unknown as Operation
 
   const mockVersions = {
     'free-pro-team@latest': {
       apiVersions: ['2022-11-28'],
       latestApiVersion: '2022-11-28',
     },
-  }
+    // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+  } as unknown as Record<string, VersionItem>
 
   test('GitHub CLI example properly escapes contractions in string values', () => {
     const codeSample = {
@@ -33,7 +37,8 @@ describe('CLI examples generation', () => {
             "This alert is not actually correct, because there's a sanitizer included in the library.",
         },
       },
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as CodeSample
 
     const result = getGHExample(mockOperation, codeSample, 'free-pro-team@latest', mockVersions)
 
@@ -61,7 +66,8 @@ describe('CLI examples generation', () => {
         },
         contentType: 'application/json',
       },
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as CodeSample
 
     const result = getShellExample(mockOperation, codeSample, 'free-pro-team@latest', mockVersions)
 
@@ -83,7 +89,8 @@ describe('CLI examples generation', () => {
           body: "It's not working because there's an issue and we can't fix it",
         },
       },
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as CodeSample
 
     const mockSimpleOperation = {
       verb: 'post',
@@ -91,7 +98,8 @@ describe('CLI examples generation', () => {
       serverUrl: 'https://api.github.com',
       subcategory: 'issues',
       parameters: [],
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as Operation
 
     const result = getGHExample(
       mockSimpleOperation,
@@ -121,7 +129,8 @@ describe('CLI examples generation', () => {
             'This alert is not actually correct because there is a sanitizer included in the library.',
         },
       },
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as CodeSample
 
     const result = getGHExample(mockOperation, codeSample, 'free-pro-team@latest', mockVersions)
 
@@ -143,7 +152,8 @@ describe('CLI examples generation', () => {
         },
         contentType: 'application/x-www-form-urlencoded',
       },
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as CodeSample
 
     const mockSimpleOperation = {
       verb: 'post',
@@ -151,7 +161,8 @@ describe('CLI examples generation', () => {
       serverUrl: 'https://api.github.com',
       subcategory: 'pulls',
       parameters: [],
-    }
+      // Partial mock object for testing - 'as unknown as' bypasses strict type checking for missing properties
+    } as unknown as Operation
 
     const result = getShellExample(
       mockSimpleOperation,
