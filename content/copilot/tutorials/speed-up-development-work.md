@@ -69,7 +69,7 @@ In situations where people tend to ask similar questions, such as how authentica
 
 ## Hands-on practice
 
-Try the [Democratize team knowledge using Copilot Spaces](https://github.com/skills/democratize-team-knowledge-using-copilot-spaces) Skills exercise for practical experience to do the following:
+Try the [Scale institutional knowledge using Copilot Spaces](https://github.com/skills/scale-institutional-knowledge-using-copilot-spaces) Skills exercise for practical experience to do the following:
 * Centralize scattered project management knowledge in Copilot Spaces
 * Convert tacit team insights into searchable, versioned artifacts
 * Give all team members equal access to processes, decisions, and rationale
