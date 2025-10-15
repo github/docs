@@ -81,7 +81,9 @@ To enable dependency review for a repository, ensure that the dependency graph i
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 1. Click **{% data variables.product.UI_advanced_security %}**.{% ifversion fpt or ghec %}
-1. Next to Dependency graph, click **Enable**.{% endif %}
+1. To the right of {% data variables.product.prodname_code_security %}, click **Enable**.
+1. Under {% data variables.product.prodname_code_security %}, check that dependency graph is enabled for the repository. {% elsif ghes %}
+1. Check that dependency graph is configured for your enterprise.{% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %}
 
