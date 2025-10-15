@@ -6,7 +6,7 @@ import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have
 // been loaded from disk
-const nl = (str) => str.replace(/\n/g, EOL)
+const nl = (str: string): string => str.replace(/\n/g, EOL)
 
 describe('renderContent', () => {
   test('takes a template and a context and returns a string (async)', async () => {
@@ -44,7 +44,7 @@ describe('renderContent', () => {
 
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
-    expect($('ul p').length, 0)
+    expect($('ul p').length).toBe(0)
   })
 
   test('renders text only', async () => {

@@ -1,9 +1,33 @@
 import { describe, expect, test } from 'vitest'
-import { getProgAccessData } from '../scripts/sync'
+
+type ProgAccessDataRaw = {
+  operation_ids: string
+  user_to_server: { enabled: boolean }
+  server_to_server: { enabled: boolean }
+  disabled_for_patv2: boolean
+  permission_sets: Array<Record<string, string>>
+  allows_permissionless_access: boolean
+  allows_public_read: boolean
+  basic_auth: boolean
+}
+
+type ProgAccessData = {
+  [operationId: string]: {
+    userToServerRest: boolean
+    serverToServer: boolean
+    fineGrainedPat: boolean
+    permissions: Array<Record<string, string>>
+    allowPermissionlessAccess: boolean
+    allowsPublicRead: boolean
+    basicAuth: boolean
+  }
+}
+
+type ProgActorResources = Record<string, unknown>
 
 describe('getProgAccessData', () => {
   test('handles single operationIds correctly', async () => {
-    const mockProgAccessDataRaw = [
+    const mockProgAccessDataRaw: ProgAccessDataRaw[] = [
       {
         operation_ids: 'single-operation-id',
         user_to_server: { enabled: true },
@@ -16,7 +40,7 @@ describe('getProgAccessData', () => {
       },
     ]
 
-    const mockProgActorResources = {}
+    const mockProgActorResources: ProgActorResources = {}
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
@@ -33,7 +57,7 @@ describe('getProgAccessData', () => {
   })
 
   test('handles comma-separated operationIds correctly', async () => {
-    const mockProgAccessDataRaw = [
+    const mockProgAccessDataRaw: ProgAccessDataRaw[] = [
       {
         operation_ids: 'teams/remove-repo-in-org,teams/remove-repo-legacy',
         user_to_server: { enabled: true },
@@ -52,7 +76,7 @@ describe('getProgAccessData', () => {
       },
     ]
 
-    const mockProgActorResources = {}
+    const mockProgActorResources: ProgActorResources = {}
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
@@ -82,7 +106,7 @@ describe('getProgAccessData', () => {
   })
 
   test('handles multiple comma-separated operationIds correctly', async () => {
-    const mockProgAccessDataRaw = [
+    const mockProgAccessDataRaw: ProgAccessDataRaw[] = [
       {
         operation_ids: 'operation1,operation2,operation3',
         user_to_server: { enabled: false },
@@ -95,7 +119,7 @@ describe('getProgAccessData', () => {
       },
     ]
 
-    const mockProgActorResources = {}
+    const mockProgActorResources: ProgActorResources = {}
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
@@ -121,7 +145,7 @@ describe('getProgAccessData', () => {
   })
 
   test('handles comma-separated operationIds with whitespace correctly', async () => {
-    const mockProgAccessDataRaw = [
+    const mockProgAccessDataRaw: ProgAccessDataRaw[] = [
       {
         operation_ids: 'operation-a, operation-b , operation-c',
         user_to_server: { enabled: true },
@@ -134,7 +158,7 @@ describe('getProgAccessData', () => {
       },
     ]
 
-    const mockProgActorResources = {}
+    const mockProgActorResources: ProgActorResources = {}
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
@@ -159,7 +183,7 @@ describe('getProgAccessData', () => {
   })
 
   test('handles mixed single and comma-separated operationIds correctly', async () => {
-    const mockProgAccessDataRaw = [
+    const mockProgAccessDataRaw: ProgAccessDataRaw[] = [
       {
         operation_ids: 'single-operation',
         user_to_server: { enabled: true },
@@ -182,7 +206,7 @@ describe('getProgAccessData', () => {
       },
     ]
 
-    const mockProgActorResources = {}
+    const mockProgActorResources: ProgActorResources = {}
 
     const result = await processProgAccessDataMock(mockProgAccessDataRaw, mockProgActorResources)
 
@@ -221,8 +245,11 @@ describe('getProgAccessData', () => {
 
 // Helper function to simulate the data processing logic from sync.js
 // without needing to set up the full file system or remote API calls
-async function processProgAccessDataMock(progAccessDataRaw, progActorResources) {
-  const progAccessData = {}
+async function processProgAccessDataMock(
+  progAccessDataRaw: ProgAccessDataRaw[],
+  progActorResources: ProgActorResources,
+): Promise<{ progAccessData: ProgAccessData; progActorResources: ProgActorResources }> {
+  const progAccessData: ProgAccessData = {}
 
   for (const operation of progAccessDataRaw) {
     const operationData = {

@@ -5,8 +5,16 @@ import { validateIfversionConditionalsVersions } from '../../lib/linting-rules/l
 import { liquidIfversionVersions } from '../../lib/linting-rules/liquid-ifversion-versions'
 import { supported } from '@/versions/lib/enterprise-server-releases'
 
+type FeatureVersions = {
+  versions: {
+    [key: string]: string
+  }
+}
+
+type AllFeatures = Record<string, FeatureVersions>
+
 describe(liquidIfversionVersions.names.join(' - '), () => {
-  const envVarValueBefore = process.env.ROOT
+  const envVarValueBefore: string | undefined = process.env.ROOT
 
   beforeAll(() => {
     process.env.ROOT = 'src/fixtures/fixtures'
@@ -136,13 +144,13 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
 describe.skip('test validateIfversionConditionalsVersions function', () => {
   test('most basic example without feature', () => {
     const condition = 'ghes or ghec or fpt'
-    const allFeatures = {}
+    const allFeatures: AllFeatures = {}
     const errors = validateIfversionConditionalsVersions(condition, allFeatures)
     expect(errors.length).toBe(1)
   })
   test('most basic example with feature', () => {
     const condition = 'some-feature'
-    const allFeatures = {
+    const allFeatures: AllFeatures = {
       'some-feature': {
         versions: {
           ghec: '*',
@@ -156,19 +164,19 @@ describe.skip('test validateIfversionConditionalsVersions function', () => {
   })
   test("any 'and' always yields no errors", () => {
     const condition = 'ghes and ghec or fpt'
-    const allFeatures = {}
+    const allFeatures: AllFeatures = {}
     const errors = validateIfversionConditionalsVersions(condition, allFeatures)
     expect(errors.length).toBe(0)
   })
   test("any 'not' always yields no errors", () => {
     const condition = 'ghes or ghec or not fpt'
-    const allFeatures = {}
+    const allFeatures: AllFeatures = {}
     const errors = validateIfversionConditionalsVersions(condition, allFeatures)
     expect(errors.length).toBe(0)
   })
   test('combined with feature it is all versions', () => {
     const condition = 'ghec or fpt or some-feature'
-    const allFeatures = {
+    const allFeatures: AllFeatures = {
       'some-feature': {
         versions: {
           ghes: `>=${supported.at(-1)}`,
@@ -180,8 +188,8 @@ describe.skip('test validateIfversionConditionalsVersions function', () => {
   })
   test('less or equal than a future version', () => {
     const condition = 'ghec or fpt or some-feature'
-    const latestToday = parseFloat(supported.at(-1))
-    const allFeatures = {
+    const latestToday = parseFloat(supported.at(-1)!)
+    const allFeatures: AllFeatures = {
       'some-feature': {
         versions: {
           ghes: `<=${latestToday + 0.1}`,
@@ -193,8 +201,8 @@ describe.skip('test validateIfversionConditionalsVersions function', () => {
   })
   test('less than a future version', () => {
     const condition = 'ghec or fpt or some-feature'
-    const latestToday = parseFloat(supported.at(-1))
-    const allFeatures = {
+    const latestToday = parseFloat(supported.at(-1)!)
+    const allFeatures: AllFeatures = {
       'some-feature': {
         versions: {
           ghes: `<${latestToday + 0.1}`,
@@ -206,7 +214,7 @@ describe.skip('test validateIfversionConditionalsVersions function', () => {
   })
   test('combined with feature it is eventually all versions (1)', () => {
     const condition = `ghec or fpt or ghes >${supported.at(-1)} or some-feature`
-    const allFeatures = {
+    const allFeatures: AllFeatures = {
       'some-feature': {
         versions: {
           ghes: `>=${supported.at(-1)}`,
@@ -218,7 +226,7 @@ describe.skip('test validateIfversionConditionalsVersions function', () => {
   })
   test('combined with feature it is eventually all versions (2)', () => {
     const condition = `ghec or fpt or ghes >=${supported.at(-1)} or some-feature`
-    const allFeatures = {
+    const allFeatures: AllFeatures = {
       'some-feature': {
         versions: {
           ghes: `>${supported.at(-1)}`,
