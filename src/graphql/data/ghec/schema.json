@@ -10393,6 +10393,67 @@
       ]
     },
     {
+      "name": "AddedToProjectV2Event",
+      "kind": "objects",
+      "id": "addedtoprojectv2event",
+      "href": "/graphql/reference/objects#addedtoprojectv2event",
+      "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the AddedToProjectV2Event object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "AnnouncementBanner",
       "kind": "objects",
       "id": "announcementbanner",
@@ -17305,6 +17366,67 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "ConvertedFromDraftEvent",
+      "kind": "objects",
+      "id": "convertedfromdraftevent",
+      "href": "/graphql/reference/objects#convertedfromdraftevent",
+      "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ConvertedFromDraftEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -31463,6 +31585,22 @@
         {
           "name": "blocking",
           "description": "<p>Count of issues this issue is blocking.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "totalBlockedBy",
+          "description": "<p>Total count of issues this issue is blocked by (open and closed).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "totalBlocking",
+          "description": "<p>Total count of issues this issue is blocking (open and closed).</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -51609,6 +51747,83 @@
       ]
     },
     {
+      "name": "ProjectV2ItemStatusChangedEvent",
+      "kind": "objects",
+      "id": "projectv2itemstatuschangedevent",
+      "href": "/graphql/reference/objects#projectv2itemstatuschangedevent",
+      "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectV2ItemStatusChangedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "previousStatus",
+          "description": "<p>The previous status of the project item.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "status",
+          "description": "<p>The new status of the project item.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2IterationField",
       "kind": "objects",
       "id": "projectv2iterationfield",
@@ -59940,6 +60155,67 @@
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
           "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RemovedFromProjectV2Event",
+      "kind": "objects",
+      "id": "removedfromprojectv2event",
+      "href": "/graphql/reference/objects#removedfromprojectv2event",
+      "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RemovedFromProjectV2Event object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -86124,6 +86400,31 @@
       ]
     },
     {
+      "name": "ProjectV2Event",
+      "kind": "interfaces",
+      "id": "projectv2event",
+      "href": "/graphql/reference/interfaces#projectv2event",
+      "description": "<p>Represents an event related to a project on the timeline of an issue or pull request.</p>",
+      "fields": [
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "ProjectV2FieldCommon",
       "kind": "interfaces",
       "id": "projectv2fieldcommon",
@@ -89917,6 +90218,10 @@
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "ASSIGNED_EVENT",
           "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
         },
@@ -89947,6 +90252,10 @@
         {
           "name": "CONNECTED_EVENT",
           "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
@@ -90021,12 +90330,20 @@
           "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
           "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
@@ -92024,6 +92341,10 @@
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "ASSIGNED_EVENT",
           "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
         },
@@ -92090,6 +92411,10 @@
         {
           "name": "CONNECTED_EVENT",
           "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
@@ -92192,6 +92517,10 @@
           "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "PULL_REQUEST_COMMIT",
           "description": "<p>Represents a Git commit part of a pull request.</p>"
         },
@@ -92226,6 +92555,10 @@
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
           "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
@@ -95698,6 +96031,11 @@
           "href": "/graphql/reference/objects#addedtoprojectevent"
         },
         {
+          "name": "AddedToProjectV2Event",
+          "id": "addedtoprojectv2event",
+          "href": "/graphql/reference/objects#addedtoprojectv2event"
+        },
+        {
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
@@ -95736,6 +96074,11 @@
           "name": "ConnectedEvent",
           "id": "connectedevent",
           "href": "/graphql/reference/objects#connectedevent"
+        },
+        {
+          "name": "ConvertedFromDraftEvent",
+          "id": "convertedfromdraftevent",
+          "href": "/graphql/reference/objects#convertedfromdraftevent"
         },
         {
           "name": "ConvertedNoteToIssueEvent",
@@ -95828,6 +96171,11 @@
           "href": "/graphql/reference/objects#pinnedevent"
         },
         {
+          "name": "ProjectV2ItemStatusChangedEvent",
+          "id": "projectv2itemstatuschangedevent",
+          "href": "/graphql/reference/objects#projectv2itemstatuschangedevent"
+        },
+        {
           "name": "ReferencedEvent",
           "id": "referencedevent",
           "href": "/graphql/reference/objects#referencedevent"
@@ -95836,6 +96184,11 @@
           "name": "RemovedFromProjectEvent",
           "id": "removedfromprojectevent",
           "href": "/graphql/reference/objects#removedfromprojectevent"
+        },
+        {
+          "name": "RemovedFromProjectV2Event",
+          "id": "removedfromprojectv2event",
+          "href": "/graphql/reference/objects#removedfromprojectv2event"
         },
         {
           "name": "RenamedTitleEvent",
@@ -96660,6 +97013,11 @@
           "href": "/graphql/reference/objects#addedtoprojectevent"
         },
         {
+          "name": "AddedToProjectV2Event",
+          "id": "addedtoprojectv2event",
+          "href": "/graphql/reference/objects#addedtoprojectv2event"
+        },
+        {
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
@@ -96748,6 +97106,11 @@
           "name": "ConvertToDraftEvent",
           "id": "converttodraftevent",
           "href": "/graphql/reference/objects#converttodraftevent"
+        },
+        {
+          "name": "ConvertedFromDraftEvent",
+          "id": "convertedfromdraftevent",
+          "href": "/graphql/reference/objects#convertedfromdraftevent"
         },
         {
           "name": "ConvertedNoteToIssueEvent",
@@ -96870,6 +97233,11 @@
           "href": "/graphql/reference/objects#pinnedevent"
         },
         {
+          "name": "ProjectV2ItemStatusChangedEvent",
+          "id": "projectv2itemstatuschangedevent",
+          "href": "/graphql/reference/objects#projectv2itemstatuschangedevent"
+        },
+        {
           "name": "PullRequestCommit",
           "id": "pullrequestcommit",
           "href": "/graphql/reference/objects#pullrequestcommit"
@@ -96913,6 +97281,11 @@
           "name": "RemovedFromProjectEvent",
           "id": "removedfromprojectevent",
           "href": "/graphql/reference/objects#removedfromprojectevent"
+        },
+        {
+          "name": "RemovedFromProjectV2Event",
+          "id": "removedfromprojectv2event",
+          "href": "/graphql/reference/objects#removedfromprojectv2event"
         },
         {
           "name": "RenamedTitleEvent",

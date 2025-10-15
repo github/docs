@@ -4,6 +4,7 @@ import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { useLandingContext } from '@/landings/context/LandingContext'
 import { LandingHero } from '@/landings/components/shared/LandingHero'
 import { ArticleGrid } from '@/landings/components/shared/LandingArticleGridWithFilter'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { LandingCarousel } from '@/landings/components/shared/LandingCarousel'
 
 import type { ArticleCardItems } from '@/landings/types'
@@ -18,6 +19,7 @@ export const BespokeLanding = () => {
 
   return (
     <DefaultLayout>
+      <UtmPreserver />
       <div data-search="article-body">
         <LandingHero title={title} intro={intro} heroImage={heroImage} introLinks={introLinks} />
 

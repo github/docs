@@ -6,6 +6,7 @@ import { LearningTracks } from '@/learning-track/components/guides/LearningTrack
 import { ArticleCards } from '@/landings/components/ArticleCards'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useMainContext } from '@/frame/components/context/MainContext'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const ProductGuides = () => {
   const { title, learningTracks, includeGuides } = useProductGuidesContext()
@@ -18,6 +19,7 @@ export const ProductGuides = () => {
 
   return (
     <DefaultLayout>
+      <UtmPreserver />
       <LandingSection className="pt-3">
         <GuidesHero />
       </LandingSection>

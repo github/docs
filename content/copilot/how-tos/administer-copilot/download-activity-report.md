@@ -29,7 +29,7 @@ You can download a CSV report for {% data variables.product.prodname_copilot_sho
 
 ## Downloading the report for an enterprise
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Temporarily documents the old and new UI for direct Copilot licensing -->
 <!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
 
@@ -38,7 +38,7 @@ You can download a CSV report for {% data variables.product.prodname_copilot_sho
    * If you're on the `/enterprise_licensing/copilot` page, select **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**, then click **Activity report (new)**.
    * If you're on the `/settings/copilot` page, click **{% octicon "file" aria-label="The file icon" %} Get Usage report**, then click **Activity report (new)**.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->
 
 ## Downloading the report for an organization
 
