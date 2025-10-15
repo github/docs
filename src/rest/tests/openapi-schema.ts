@@ -15,7 +15,8 @@ import { nonAutomatedRestPaths } from '../lib/config'
 
 const schemasPath = 'src/rest/data'
 
-async function getFlatListOfOperations(version) {
+// Operations have dynamic structure from OpenAPI schema - using any to avoid complex type definitions
+async function getFlatListOfOperations(version: string): Promise<any[]> {
   const flatList = []
 
   if (isApiVersioned(version)) {
@@ -33,7 +34,8 @@ async function getFlatListOfOperations(version) {
   return flatList
 }
 
-function createCategoryList(operations) {
+// OpenAPI operations object has dynamic structure based on categories and subcategories
+function createCategoryList(operations: any): any[] {
   const catSubCatList = []
   for (const category of Object.keys(operations)) {
     const subcategories = Object.keys(operations[category])
@@ -47,19 +49,20 @@ function createCategoryList(operations) {
 
 describe('markdown for each rest version', () => {
   // Unique set of all categories across all versions of the OpenAPI schema
-  const allCategories = new Set()
-  // Entire schema including categories and subcategories
-  const openApiSchema = {}
+  const allCategories = new Set<string>()
+  // Entire schema including categories and subcategories - using any due to dynamic OpenAPI structure
+  const openApiSchema: Record<string, any> = {}
   // All applicable version of categories based on frontmatter in the categories index.md file
-  const categoryApplicableVersions = {}
+  const categoryApplicableVersions: Record<string, any> = {}
 
-  function getApplicableVersionFromFile(file) {
+  function getApplicableVersionFromFile(file: string) {
     const currentFile = fs.readFileSync(file, 'utf8')
-    const { data } = frontmatter(currentFile)
+    // Frontmatter data structure is dynamic based on file content
+    const { data } = frontmatter(currentFile) as { data: any }
     return getApplicableVersions(data.versions, file)
   }
 
-  function getCategorySubcategory(file) {
+  function getCategorySubcategory(file: string) {
     const fileSplit = file.split('/')
     const cat = fileSplit[fileSplit.length - 2]
     const subCat = fileSplit[fileSplit.length - 1].replace('.md', '')
@@ -133,9 +136,14 @@ describe('markdown for each rest version', () => {
 describe('rest file structure', () => {
   test('children of content/rest/index.md are in alphabetical order', async () => {
     const indexContent = fs.readFileSync('content/rest/index.md', 'utf8')
-    const { data } = readFrontmatter(indexContent)
-    const nonAutomatedChildren = nonAutomatedRestPaths.map((child) => child.replace('/rest', ''))
-    const sortableChildren = data.children.filter((child) => !nonAutomatedChildren.includes(child))
+    // Frontmatter data structure is dynamic based on file content
+    const { data } = readFrontmatter(indexContent) as { data: any }
+    const nonAutomatedChildren = nonAutomatedRestPaths.map((child: string) =>
+      child.replace('/rest', ''),
+    )
+    const sortableChildren = data.children.filter(
+      (child: string) => !nonAutomatedChildren.includes(child),
+    )
     expect(sortableChildren).toStrictEqual([...sortableChildren].sort())
   })
 })
@@ -182,7 +190,7 @@ describe('OpenAPI schema validation', () => {
   })
 })
 
-async function findOperation(version, method, path) {
+async function findOperation(version: string, method: string, path: string) {
   const allOperations = await getFlatListOfOperations(version)
   return allOperations.find((operation) => {
     return operation.requestPath === path && operation.verb.toLowerCase() === method.toLowerCase()
@@ -203,7 +211,8 @@ describe('code examples are defined', () => {
       expect(operation.serverUrl).toBe(domain)
       expect(isPlainObject(operation)).toBe(true)
       expect(operation.codeExamples).toBeDefined()
-      operation.codeExamples.forEach((example) => {
+      // Code examples have dynamic structure from OpenAPI schema
+      operation.codeExamples.forEach((example: any) => {
         expect(isPlainObject(example.request)).toBe(true)
         expect(isPlainObject(example.response)).toBe(true)
       })
