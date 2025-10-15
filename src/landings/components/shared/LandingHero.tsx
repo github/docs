@@ -1,3 +1,4 @@
+import { LinkExternalIcon } from '@primer/octicons-react'
 import styles from './LandingHero.module.scss'
 import { useTranslation } from '@/languages/components/useTranslation'
 
@@ -41,7 +42,12 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
                   href={primaryAction[1]}
                   className={`${styles.heroAction} ${styles.heroPrimaryAction}`}
                 >
-                  {t(primaryAction[0])}
+                  {t(primaryAction[0])}{' '}
+                  {primaryAction[1].startsWith('https') && (
+                    <span className="ml-1">
+                      <LinkExternalIcon aria-label="(external site)" size="small" />
+                    </span>
+                  )}
                 </a>
               )}
               {secondaryAction && (
@@ -49,7 +55,12 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
                   href={secondaryAction[1]}
                   className={`${styles.heroAction} ${styles.heroSecondaryAction}`}
                 >
-                  {t(secondaryAction[0])}
+                  {t(secondaryAction[0])}{' '}
+                  {secondaryAction[1].startsWith('https') && (
+                    <span className="ml-1">
+                      <LinkExternalIcon aria-label="(external site)" size="small" />
+                    </span>
+                  )}
                 </a>
               )}
             </div>
