@@ -1002,8 +1002,6 @@ All `include` combinations are processed after `exclude`. This allows you to use
 
 ## `jobs.<job_id>.strategy.fail-fast`
 
-`jobs.<job_id>.strategy.fail-fast` applies to the entire matrix. If `jobs.<job_id>.strategy.fail-fast` is set to `true` or its expression evaluates to `true`, {% data variables.product.github %} will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails. This property defaults to `true`.
-
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
 ## `jobs.<job_id>.strategy.max-parallel`
