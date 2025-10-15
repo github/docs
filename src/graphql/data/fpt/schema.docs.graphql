@@ -1387,6 +1387,36 @@ type AddedToProjectEvent implements Node {
 }
 
 """
+Represents a 'added_to_project_v2' event on a given issue or pull request.
+"""
+type AddedToProjectV2Event implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the AddedToProjectV2Event object
+  """
+  id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
+}
+
+"""
 An announcement banner for an enterprise or organization.
 """
 type AnnouncementBanner {
@@ -7177,6 +7207,36 @@ type ConvertToDraftEvent implements Node & UniformResourceLocatable {
   The HTTP URL for this convert to draft event.
   """
   url: URI!
+}
+
+"""
+Represents a 'converted_from_draft' event on a given issue or pull request.
+"""
+type ConvertedFromDraftEvent implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the ConvertedFromDraftEvent object
+  """
+  id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
 }
 
 """
@@ -20013,6 +20073,16 @@ type IssueDependenciesSummary {
   Count of issues this issue is blocking
   """
   blocking: Int!
+
+  """
+  Total count of issues this issue is blocked by (open and closed)
+  """
+  totalBlockedBy: Int!
+
+  """
+  Total count of issues this issue is blocking (open and closed)
+  """
+  totalBlocking: Int!
 }
 
 """
@@ -20359,6 +20429,7 @@ An item in an issue timeline
 """
 union IssueTimelineItems =
   | AddedToProjectEvent
+  | AddedToProjectV2Event
   | AssignedEvent
   | BlockedByAddedEvent
   | BlockedByRemovedEvent
@@ -20367,6 +20438,7 @@ union IssueTimelineItems =
   | ClosedEvent
   | CommentDeletedEvent
   | ConnectedEvent
+  | ConvertedFromDraftEvent
   | ConvertedNoteToIssueEvent
   | ConvertedToDiscussionEvent
   | CrossReferencedEvent
@@ -20385,8 +20457,10 @@ union IssueTimelineItems =
   | ParentIssueAddedEvent
   | ParentIssueRemovedEvent
   | PinnedEvent
+  | ProjectV2ItemStatusChangedEvent
   | ReferencedEvent
   | RemovedFromProjectEvent
+  | RemovedFromProjectV2Event
   | RenamedTitleEvent
   | ReopenedEvent
   | SubIssueAddedEvent
@@ -20466,6 +20540,11 @@ enum IssueTimelineItemsItemType {
   ADDED_TO_PROJECT_EVENT
 
   """
+  Represents a 'added_to_project_v2' event on a given issue or pull request.
+  """
+  ADDED_TO_PROJECT_V2_EVENT
+
+  """
   Represents an 'assigned' event on any assignable object.
   """
   ASSIGNED_EVENT
@@ -20504,6 +20583,11 @@ enum IssueTimelineItemsItemType {
   Represents a 'connected' event on a given issue or pull request.
   """
   CONNECTED_EVENT
+
+  """
+  Represents a 'converted_from_draft' event on a given issue or pull request.
+  """
+  CONVERTED_FROM_DRAFT_EVENT
 
   """
   Represents a 'converted_note_to_issue' event on a given issue or pull request.
@@ -20596,6 +20680,11 @@ enum IssueTimelineItemsItemType {
   PINNED_EVENT
 
   """
+  Represents a 'project_v2_item_status_changed' event on a given issue or pull request.
+  """
+  PROJECT_V2_ITEM_STATUS_CHANGED_EVENT
+
+  """
   Represents a 'referenced' event on a given `ReferencedSubject`.
   """
   REFERENCED_EVENT
@@ -20604,6 +20693,11 @@ enum IssueTimelineItemsItemType {
   Represents a 'removed_from_project' event on a given issue or pull request.
   """
   REMOVED_FROM_PROJECT_EVENT
+
+  """
+  Represents a 'removed_from_project_v2' event on a given issue or pull request.
+  """
+  REMOVED_FROM_PROJECT_V2_EVENT
 
   """
   Represents a 'renamed' event on a given issue or pull request
@@ -37668,6 +37762,21 @@ type ProjectV2Edge {
 }
 
 """
+Represents an event related to a project on the timeline of an issue or pull request.
+"""
+interface ProjectV2Event {
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
+}
+
+"""
 A field inside a project.
 """
 type ProjectV2Field implements Node & ProjectV2FieldCommon {
@@ -38729,6 +38838,46 @@ enum ProjectV2ItemOrderField {
   Order project v2 items by the their position in the project
   """
   POSITION
+}
+
+"""
+Represents a 'project_v2_item_status_changed' event on a given issue or pull request.
+"""
+type ProjectV2ItemStatusChangedEvent implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the ProjectV2ItemStatusChangedEvent object
+  """
+  id: ID!
+
+  """
+  The previous status of the project item.
+  """
+  previousStatus: String!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  The new status of the project item.
+  """
+  status: String!
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
 }
 
 """
@@ -42966,6 +43115,7 @@ An item in a pull request timeline
 union PullRequestTimelineItems =
   | AddedToMergeQueueEvent
   | AddedToProjectEvent
+  | AddedToProjectV2Event
   | AssignedEvent
   | AutoMergeDisabledEvent
   | AutoMergeEnabledEvent
@@ -42984,6 +43134,7 @@ union PullRequestTimelineItems =
   | CommentDeletedEvent
   | ConnectedEvent
   | ConvertToDraftEvent
+  | ConvertedFromDraftEvent
   | ConvertedNoteToIssueEvent
   | ConvertedToDiscussionEvent
   | CrossReferencedEvent
@@ -43008,6 +43159,7 @@ union PullRequestTimelineItems =
   | ParentIssueAddedEvent
   | ParentIssueRemovedEvent
   | PinnedEvent
+  | ProjectV2ItemStatusChangedEvent
   | PullRequestCommit
   | PullRequestCommitCommentThread
   | PullRequestReview
@@ -43017,6 +43169,7 @@ union PullRequestTimelineItems =
   | ReferencedEvent
   | RemovedFromMergeQueueEvent
   | RemovedFromProjectEvent
+  | RemovedFromProjectV2Event
   | RenamedTitleEvent
   | ReopenedEvent
   | ReviewDismissedEvent
@@ -43104,6 +43257,11 @@ enum PullRequestTimelineItemsItemType {
   ADDED_TO_PROJECT_EVENT
 
   """
+  Represents a 'added_to_project_v2' event on a given issue or pull request.
+  """
+  ADDED_TO_PROJECT_V2_EVENT
+
+  """
   Represents an 'assigned' event on any assignable object.
   """
   ASSIGNED_EVENT
@@ -43187,6 +43345,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'connected' event on a given issue or pull request.
   """
   CONNECTED_EVENT
+
+  """
+  Represents a 'converted_from_draft' event on a given issue or pull request.
+  """
+  CONVERTED_FROM_DRAFT_EVENT
 
   """
   Represents a 'converted_note_to_issue' event on a given issue or pull request.
@@ -43314,6 +43477,11 @@ enum PullRequestTimelineItemsItemType {
   PINNED_EVENT
 
   """
+  Represents a 'project_v2_item_status_changed' event on a given issue or pull request.
+  """
+  PROJECT_V2_ITEM_STATUS_CHANGED_EVENT
+
+  """
   Represents a Git commit part of a pull request.
   """
   PULL_REQUEST_COMMIT
@@ -43357,6 +43525,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'removed_from_project' event on a given issue or pull request.
   """
   REMOVED_FROM_PROJECT_EVENT
+
+  """
+  Represents a 'removed_from_project_v2' event on a given issue or pull request.
+  """
+  REMOVED_FROM_PROJECT_V2_EVENT
 
   """
   Represents a 'renamed' event on a given issue or pull request
@@ -46026,6 +46199,36 @@ type RemovedFromProjectEvent implements Node {
     @deprecated(
       reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
     )
+}
+
+"""
+Represents a 'removed_from_project_v2' event on a given issue or pull request.
+"""
+type RemovedFromProjectV2Event implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the RemovedFromProjectV2Event object
+  """
+  id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
 }
 
 """
