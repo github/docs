@@ -3,6 +3,7 @@ import type { Failbot } from '@github/failbot'
 
 import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
+import type { MiniTocItem } from '@/frame/lib/get-mini-toc-items'
 
 // Shared type for resolved article information used across landing pages and carousels
 export interface ResolvedArticle {
@@ -180,7 +181,7 @@ export type Context = {
   featuredLinks?: FeaturedLinksExpanded
   currentLearningTrack?: LearningTrack | null
   renderedPage?: string
-  miniTocItems?: string | undefined
+  miniTocItems?: MiniTocItem[]
   markdownRequested?: boolean
 }
 export type LearningTracks = {

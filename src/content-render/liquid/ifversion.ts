@@ -1,6 +1,30 @@
-import { Tag, isTruthy, Value, TokenizationError } from 'liquidjs'
+import {
+  Tag,
+  isTruthy,
+  Value,
+  TokenizationError,
+  type TagToken,
+  type Context,
+  type Emitter,
+  type Template,
+  type TopLevelToken,
+} from 'liquidjs'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
-import supportedOperators from './ifversion-supported-operators'
+import supportedOperators, {
+  type IfversionSupportedOperator,
+} from './ifversion-supported-operators'
+
+interface Branch {
+  cond: string
+  templates: Template[]
+}
+
+interface VersionObj {
+  shortName: string
+  hasNumberedReleases?: boolean
+  currentRelease?: string
+  internalLatestRelease?: string
+}
 
 const SyntaxHelp =
   "Syntax Error in 'ifversion' with range - Valid syntax: ifversion [plan] [operator] [releaseNumber]"
@@ -14,15 +38,20 @@ const notRegex = /(?:^|\s)not\s/
 // using semver to evaluate release numbers instead of doing standard number comparisons, which
 // don't work the way we want because they evaluate 3.2 > 3.10 = true.
 export default class extends Tag {
+  tagToken: TagToken
+  branches: Branch[]
+  elseTemplates: Template[]
+  currentVersionObj: VersionObj | null = null
+
   // The following is verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
-  constructor(tagToken, remainTokens, liquid) {
+  constructor(tagToken: TagToken, remainTokens: TopLevelToken[], liquid: any) {
     super(tagToken, remainTokens, liquid)
 
     this.tagToken = tagToken
     this.branches = []
     this.elseTemplates = []
 
-    let p
+    let p: Template[]
     const stream = this.liquid.parser
       .parseStream(remainTokens)
       .on('start', () =>
@@ -31,7 +60,7 @@ export default class extends Tag {
           templates: (p = []),
         }),
       )
-      .on('tag:elsif', (token) => {
+      .on('tag:elsif', (token: any) => {
         this.branches.push({
           cond: token.args,
           templates: (p = []),
@@ -39,7 +68,7 @@ export default class extends Tag {
       })
       .on('tag:else', () => (p = this.elseTemplates))
       .on('tag:endif', () => stream.stop())
-      .on('template', (tpl) => p.push(tpl))
+      .on('template', (tpl: Template) => p.push(tpl))
       .on('end', () => {
         throw new Error(`tag ${tagToken.getText()} not closed`)
       })
@@ -49,10 +78,10 @@ export default class extends Tag {
 
   // The following is _mostly_ verbatim from https://github.com/harttle/liquidjs/blob/v9.22.1/src/builtin/tags/if.ts
   // The additions here are the handleNots(), handleOperators(), and handleVersionNames() calls.
-  *render(ctx, emitter) {
+  *render(ctx: Context, emitter: Emitter): Generator<any, void, unknown> {
     const r = this.liquid.renderer
 
-    this.currentVersionObj = ctx.environments.currentVersionObj
+    this.currentVersionObj = (ctx.environments as any).currentVersionObj
 
     for (const branch of this.branches) {
       let resolvedBranchCond = branch.cond
@@ -67,8 +96,8 @@ export default class extends Tag {
       // Resolve version names to boolean values for Markdown API context.
       // This will replace syntax like `fpt or ghec` with `true or false` based on current version.
       // Only apply this transformation in Markdown API context to avoid breaking existing functionality.
-      if (ctx.environments.markdownRequested) {
-        resolvedBranchCond = this.handleVersionNames(resolvedBranchCond, ctx)
+      if ((ctx.environments as any).markdownRequested) {
+        resolvedBranchCond = this.handleVersionNames(resolvedBranchCond)
       }
 
       // Use Liquid's native function for the final evaluation.
@@ -82,13 +111,13 @@ export default class extends Tag {
     yield r.renderTemplates(this.elseTemplates, ctx, emitter)
   }
 
-  handleNots(resolvedBranchCond) {
+  handleNots(resolvedBranchCond: string): string {
     if (!notRegex.test(resolvedBranchCond)) return resolvedBranchCond
 
     const condArray = resolvedBranchCond.split(' ')
 
     // Find the first index in the array that contains "not".
-    const notIndex = condArray.findIndex((el) => el === 'not')
+    const notIndex = condArray.findIndex((el: string) => el === 'not')
 
     // E.g., ['not', 'fpt']
     const condParts = condArray.slice(notIndex, notIndex + 2)
@@ -99,10 +128,10 @@ export default class extends Tag {
     // If the current version is the version being evaluated in the conditional,
     // that is negated and resolved to false. If it's NOT the version being
     // evaluated, that resolves to true.
-    const resolvedBoolean = !(versionToEvaluate === this.currentVersionObj.shortName)
+    const resolvedBoolean = !(versionToEvaluate === this.currentVersionObj!.shortName)
 
     // Replace syntax like `not fpt` with `true` or `false`.
-    resolvedBranchCond = resolvedBranchCond.replace(condParts.join(' '), resolvedBoolean)
+    resolvedBranchCond = resolvedBranchCond.replace(condParts.join(' '), String(resolvedBoolean))
 
     // Run this function recursively until we've resolved all the nots.
     if (notRegex.test(resolvedBranchCond)) {
@@ -112,14 +141,16 @@ export default class extends Tag {
     return resolvedBranchCond
   }
 
-  handleOperators(resolvedBranchCond) {
+  handleOperators(resolvedBranchCond: string): string {
     if (!supportedOperatorsRegex.test(resolvedBranchCond)) return resolvedBranchCond
 
     // If this conditional contains multiple parts using `or` or `and`, get only the conditional with operators.
     const condArray = resolvedBranchCond.split(' ')
 
     // Find the first index in the array that contains an operator.
-    const operatorIndex = condArray.findIndex((el) => supportedOperators.find((op) => el === op))
+    const operatorIndex = condArray.findIndex((el: string) =>
+      supportedOperators.find((op: string) => el === op),
+    )
 
     // E.g., ['ghes', '<', '3.1']
     const condParts = condArray.slice(operatorIndex - 1, operatorIndex + 2)
@@ -129,7 +160,8 @@ export default class extends Tag {
 
     // Make sure the operator is supported and the release number matches `\d\d?\.\d\d?`
     const syntaxError =
-      !supportedOperators.includes(operator) || !releaseRegex.test(releaseToEvaluate)
+      !supportedOperators.includes(operator as IfversionSupportedOperator) ||
+      !releaseRegex.test(releaseToEvaluate)
 
     if (syntaxError) {
       throw new TokenizationError(SyntaxHelp, this.tagToken)
@@ -154,25 +186,25 @@ export default class extends Tag {
       ? this.currentVersionObj.currentRelease
       : this.currentVersionObj.internalLatestRelease
 
-    let resolvedBoolean
+    let resolvedBoolean: boolean
     if (operator === '!=') {
       // If this is the current plan, compare the release numbers. (Our semver package doesn't handle !=.)
       // If it's not the current version, it's always true.
       resolvedBoolean =
-        versionShortName === this.currentVersionObj.shortName
+        versionShortName === this.currentVersionObj!.shortName
           ? releaseToEvaluate !== currentRelease
           : true
     } else {
       // If this is the current plan, evaluate the operator using semver.
       // If it's not the current plan, it's always false.
       resolvedBoolean =
-        versionShortName === this.currentVersionObj.shortName
-          ? versionSatisfiesRange(currentRelease, `${operator}${releaseToEvaluate}`)
+        versionShortName === this.currentVersionObj!.shortName
+          ? versionSatisfiesRange(currentRelease!, `${operator}${releaseToEvaluate}`)
           : false
     }
 
     // Replace syntax like `fpt or ghes < 3.0` with `fpt or true` or `fpt or false`.
-    resolvedBranchCond = resolvedBranchCond.replace(condParts.join(' '), resolvedBoolean)
+    resolvedBranchCond = resolvedBranchCond.replace(condParts.join(' '), String(resolvedBoolean))
 
     // Run this function recursively until we've resolved all the special operators.
     if (supportedOperatorsRegex.test(resolvedBranchCond)) {
@@ -182,7 +214,7 @@ export default class extends Tag {
     return resolvedBranchCond
   }
 
-  handleVersionNames(resolvedBranchCond, ctx) {
+  handleVersionNames(resolvedBranchCond: string): string {
     if (!this.currentVersionObj) {
       console.warn('currentVersionObj not found in ifversion context.')
       return resolvedBranchCond
@@ -190,13 +222,13 @@ export default class extends Tag {
 
     // Split the condition into tokens for processing
     const tokens = resolvedBranchCond.split(/\s+/)
-    const processedTokens = tokens.map((token) => {
+    const processedTokens = tokens.map((token: string) => {
       // Check if the token is a version short name (fpt, ghec, ghes, ghae)
       const versionShortNames = ['fpt', 'ghec', 'ghes', 'ghae']
       if (versionShortNames.includes(token)) {
         // Transform version names to boolean values for Markdown API
         // This fixes the original issue where version names were undefined in API context
-        return token === this.currentVersionObj.shortName ? 'true' : 'false'
+        return token === this.currentVersionObj!.shortName ? 'true' : 'false'
       }
       // Return the token unchanged if it's not a version name
       return token

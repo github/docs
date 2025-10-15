@@ -7,42 +7,98 @@ import {
   isUnionType,
   isEnumType,
   isInputObjectType,
+  GraphQLSchema,
 } from 'graphql'
 import path from 'path'
 
-const graphqlTypes = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), './src/graphql/lib/types.json')),
+interface GraphQLTypeInfo {
+  type: string
+  kind: string
+}
+
+interface TypeInfo {
+  name: string
+  id: string
+  kind: string
+  href: string
+}
+
+interface ArgumentInfo {
+  name: string
+  defaultValue?: any // GraphQL default values can be of various types
+  description: string
+  type: TypeInfo
+}
+
+interface FieldNode {
+  name: { value: string }
+  type: any // GraphQL AST type nodes have complex nested structure
+}
+
+interface ArgumentNode {
+  name: { value: string }
+  defaultValue?: { value: any } // GraphQL default values can be of various types
+  description: { value: string }
+  type: any // GraphQL AST type nodes have complex nested structure
+}
+
+interface DirectiveNode {
+  name: { value: string }
+  arguments: Array<{ value: { value: string; kind?: string } }>
+}
+
+interface SchemaMember {
+  name: string
+  isDeprecated?: boolean
+}
+
+interface PreviewInfo {
+  toggled_by: string[]
+}
+
+const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
+  await fs.readFile(path.join(process.cwd(), './src/graphql/lib/types.json'), 'utf-8'),
 )
 
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
-function addPeriod(string) {
+function addPeriod(string: string): string {
   return string.endsWith('.') ? string : string + '.'
 }
 
-async function getArguments(args, schema) {
+async function getArguments(
+  args: ArgumentNode[],
+  schema: GraphQLSchema,
+): Promise<ArgumentInfo[] | undefined> {
   if (!args.length) return
 
-  const newArgs = []
+  const newArgs: ArgumentInfo[] = []
 
   for (const arg of args) {
-    const newArg = {}
-    const type = {}
+    const newArg: Partial<ArgumentInfo> = {}
+    const type: Partial<TypeInfo> = {}
     newArg.name = arg.name.value
     newArg.defaultValue = arg.defaultValue ? arg.defaultValue.value : undefined
     newArg.description = await getDescription(arg.description.value)
-    type.name = getType(arg)
-    type.id = getId(type.name)
-    type.kind = getTypeKind(type.name, schema)
-    type.href = getFullLink(type.kind, type.id)
-    newArg.type = type
-    newArgs.push(newArg)
+    const typeName = getType(arg)
+    if (!typeName) continue // Skip if type cannot be determined
+    type.name = typeName
+    type.id = getId(typeName)
+    const typeKind = getTypeKind(typeName, schema)
+    if (!typeKind) continue // Skip if type kind cannot be determined
+    type.kind = typeKind
+    type.href = getFullLink(typeKind, type.id)
+    newArg.type = type as TypeInfo
+    newArgs.push(newArg as ArgumentInfo)
   }
 
   return newArgs
 }
 
-async function getDeprecationReason(directives, schemaMember) {
+async function getDeprecationReason(
+  directives: DirectiveNode[],
+  schemaMember: SchemaMember,
+): Promise<string | undefined> {
   if (!schemaMember.isDeprecated) return
 
   // it's possible for a schema member to be deprecated and under preview
@@ -55,32 +111,36 @@ async function getDeprecationReason(directives, schemaMember) {
   return renderContent(deprecationDirective[0].arguments[0].value.value)
 }
 
-function getDeprecationStatus(directives) {
+function getDeprecationStatus(directives: DirectiveNode[]): boolean | undefined {
   if (!directives.length) return
 
   return directives[0].name.value === 'deprecated'
 }
 
-async function getDescription(rawDescription) {
+async function getDescription(rawDescription: string): Promise<string> {
   rawDescription = rawDescription.replace(singleQuotesInsteadOfBackticks, '`$1`')
 
   return renderContent(addPeriod(rawDescription))
 }
 
-function getFullLink(baseType, id) {
+function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
 }
 
-function getId(path) {
+function getId(path: string): string {
   return removeMarkers(path).toLowerCase()
 }
 
 // e.g., given `ObjectTypeDefinition`, get `objects`
-function getKind(type) {
-  return graphqlTypes.find((graphqlType) => graphqlType.type === type).kind
+function getKind(type: string): string {
+  return graphqlTypes.find((graphqlType) => graphqlType.type === type)!.kind
 }
 
-async function getPreview(directives, schemaMember, previewsPerVersion) {
+async function getPreview(
+  directives: DirectiveNode[],
+  schemaMember: SchemaMember,
+  previewsPerVersion: PreviewInfo[],
+): Promise<PreviewInfo | undefined> {
   if (!directives.length) return
 
   // it's possible for a schema member to be deprecated and under preview
@@ -110,7 +170,7 @@ async function getPreview(directives, schemaMember, previewsPerVersion) {
 // 2. nullable lists: `[foo]`, `[foo!]`
 // 3. non-null lists: `[foo]!`, `[foo!]!`
 // see https://github.com/rmosolgo/graphql-ruby/blob/master/guides/type_definitions/lists.md#lists-nullable-lists-and-lists-of-nulls
-function getType(field) {
+function getType(field: FieldNode): string | undefined {
   // 1. single items
   if (field.type.kind !== 'ListType') {
     // nullable item, e.g. `license` query has `License` type
@@ -153,9 +213,10 @@ function getType(field) {
   }
 
   console.error(`cannot get type of ${field.name.value}`)
+  return undefined
 }
 
-function getTypeKind(type, schema) {
+function getTypeKind(type: string, schema: GraphQLSchema): string | undefined {
   type = removeMarkers(type)
 
   const typeFromSchema = schema.getType(type)
@@ -180,9 +241,10 @@ function getTypeKind(type, schema) {
   }
 
   console.error(`cannot find type kind of ${type}`)
+  return undefined
 }
 
-function removeMarkers(str) {
+function removeMarkers(str: string): string {
   return str.replace('[', '').replace(']', '').replace(/!/g, '')
 }
 
