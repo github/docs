@@ -9,6 +9,7 @@
 | {% data variables.copilot.copilot_gpt_4o %}                    | 0                             | 1                                                                  |
 | {% data variables.copilot.copilot_o3 %}                        | 1                             | Not applicable                                                     |
 | {% data variables.copilot.copilot_o4_mini %}                   | 0.33                          | Not applicable                                                     |
+| {% data variables.copilot.copilot_claude_haiku_45 %}           | 0.33                          | Not applicable                                                     |
 | {% data variables.copilot.copilot_claude_sonnet_45 %}          | 1                             | Not applicable                                                     |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}          | 1                             | 1                                                                  |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}          | 1                             | Not applicable                                                     |

@@ -35,6 +35,7 @@ When using OpenAI's models, input requests and output responses continue to run 
 
 Used for:
 
+* {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_45 %}
 * {% data variables.copilot.copilot_claude_opus_41 %}
 * {% data variables.copilot.copilot_claude_opus %}
@@ -43,7 +44,7 @@ Used for:
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
 * {% data variables.copilot.copilot_claude_sonnet_40 %}
 
-{% data variables.copilot.copilot_claude_opus_41 %} is hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_opus %} and {% data variables.copilot.copilot_claude_sonnet_40 %} are hosted by Anthropic PBC and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_45 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
+{% data variables.copilot.copilot_claude_haiku_45 %} and {% data variables.copilot.copilot_claude_opus_41 %} are hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_opus %} and {% data variables.copilot.copilot_claude_sonnet_40 %} are hosted by Anthropic PBC and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_45 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
 * Amazon Bedrock: Amazon makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 * Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic.

@@ -1,18 +1,34 @@
 import { describe, expect, test } from 'vitest'
 import { octiconAriaLabels } from '../../lib/linting-rules/octicon-aria-labels'
 
+interface ErrorInfo {
+  lineNumber: number
+  detail?: string
+  context?: string
+  range?: [number, number]
+  fixInfo?: any // Matches RuleErrorCallback signature - fixInfo structure varies by rule
+}
+
 describe('octicon-aria-labels', () => {
   const rule = octiconAriaLabels
 
-  test('detects octicon without aria-label', () => {
-    const errors = []
-    const onError = (errorInfo) => {
+  // Helper to create onError callback that captures errors
+  function createErrorCollector() {
+    const errors: ErrorInfo[] = []
+    // Using any because the actual rule implementation calls onError with an object,
+    // not individual parameters as defined in RuleErrorCallback
+    const onError = (errorInfo: any) => {
       errors.push(errorInfo)
     }
+    return { errors, onError }
+  }
+
+  test('detects octicon without aria-label', () => {
+    const { errors, onError } = createErrorCollector()
 
     const content = ['This is a test with an octicon:', '{% octicon "alert" %}', 'Some more text.']
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(2)
@@ -21,10 +37,7 @@ describe('octicon-aria-labels', () => {
   })
 
   test('ignores octicons with aria-label', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with a proper octicon:',
@@ -32,16 +45,13 @@ describe('octicon-aria-labels', () => {
       'Some more text.',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(0)
   })
 
   test('detects multiple octicons without aria-label', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with multiple octicons:',
@@ -51,7 +61,7 @@ describe('octicon-aria-labels', () => {
       'More text.',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(2)
@@ -61,10 +71,7 @@ describe('octicon-aria-labels', () => {
   })
 
   test('ignores non-octicon liquid tags', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with non-octicon tags:',
@@ -74,16 +81,13 @@ describe('octicon-aria-labels', () => {
       '{% endif %}',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(0)
   })
 
   test('suggests correct fix for octicon with other attributes', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with an octicon with other attributes:',
@@ -91,7 +95,7 @@ describe('octicon-aria-labels', () => {
       'Some more text.',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(2)
@@ -101,10 +105,7 @@ describe('octicon-aria-labels', () => {
   })
 
   test('handles octicons with unusual spacing', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with unusual spacing:',
@@ -112,7 +113,7 @@ describe('octicon-aria-labels', () => {
       'Some more text.',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(2)
@@ -120,10 +121,7 @@ describe('octicon-aria-labels', () => {
   })
 
   test('handles octicons split across multiple lines', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with a multi-line octicon:',
@@ -133,17 +131,14 @@ describe('octicon-aria-labels', () => {
       'Some more text.',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(1)
     expect(errors[0].detail).toContain('aria-label=chevron-down')
   })
 
   test('falls back to "icon" when octicon name cannot be determined', () => {
-    const errors = []
-    const onError = (errorInfo) => {
-      errors.push(errorInfo)
-    }
+    const { errors, onError } = createErrorCollector()
 
     const content = [
       'This is a test with a malformed octicon:',
@@ -151,7 +146,7 @@ describe('octicon-aria-labels', () => {
       'Some more text.',
     ]
 
-    rule.function({ lines: content }, onError)
+    rule.function({ name: 'test.md', lines: content, frontMatterLines: [] }, onError)
 
     expect(errors.length).toBe(1)
     expect(errors[0].detail).toContain('aria-label=icon')

@@ -2,9 +2,15 @@ import { describe, expect, test } from 'vitest'
 import { shouldIncludeResult } from '../../lib/helpers/should-include-result'
 import { reportingConfig } from '../../style/github-docs'
 
+interface LintFlaw {
+  severity: string
+  ruleNames: string[]
+  errorDetail?: string
+}
+
 describe('lint report exclusions', () => {
   // Helper function to simulate the reporting logic from lint-report.ts
-  function shouldIncludeInReport(flaw, filePath) {
+  function shouldIncludeInReport(flaw: LintFlaw, filePath: string): boolean {
     if (!flaw.ruleNames || !Array.isArray(flaw.ruleNames)) {
       return false
     }

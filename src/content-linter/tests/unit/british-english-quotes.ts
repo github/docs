@@ -23,7 +23,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'The article "[AUTOTITLE]", covers this topic.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(1)
     if (errors[0].detail) {
@@ -43,7 +44,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'See the guide titled "Getting Started", for details.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(4)
     if (errors[0].detail) {
       expect(errors[0].detail).toContain('period inside')
@@ -65,7 +67,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       "The term 'API endpoint', refers to a specific URL.",
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(2)
     if (errors[0].detail) {
       expect(errors[0].detail).toContain('period inside')
@@ -86,7 +89,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'The command `git commit -m "Fix bug";` creates a commit.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(0)
   })
 
@@ -97,7 +101,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'The webhook URL http://api.service.com"endpoint" should work.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(0)
   })
 
@@ -107,7 +112,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'The guide "Setup Instructions", explains everything.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail and fixInfo properties not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(2)
 
     // Check that fix info is provided
@@ -124,7 +130,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'As Fatima noted, "Testing is crucial"; quality depends on it.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(2)
     expect(errors[0].lineNumber).toBe(1)
     expect(errors[1].lineNumber).toBe(2)
@@ -136,7 +143,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'The message "Error: \'Invalid input\'" appears sometimes.',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(1)
     if (errors[0].detail) {
       expect(errors[0].detail).toContain('period inside')
@@ -150,7 +158,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'Reference "[AUTOTITLE]" .',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(3)
     if (errors[0].detail) {
       expect(errors[0].detail).toContain('period inside')
@@ -194,7 +203,8 @@ describe(britishEnglishQuotes.names.join(' - '), () => {
       'Dmitri explained, "The workflow has multiple stages."',
     ].join('\n')
     const result = await runRule(britishEnglishQuotes, { strings: { markdown } })
-    const errors = result.markdown
+    // Markdownlint error objects include detail property not in base LintError type
+    const errors = result.markdown as any[]
     expect(errors.length).toBe(4)
     expect(errors[0].lineNumber).toBe(3) // config.yml line
     expect(errors[1].lineNumber).toBe(4) // Docker Basics line

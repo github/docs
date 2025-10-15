@@ -6,7 +6,7 @@ import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have
 // been loaded from disk
-const nl = (str) => str.replace(/\n/g, EOL)
+const nl = (str: string) => str.replace(/\n/g, EOL)
 
 describe('table accessibility labels', () => {
   test('adds aria-labelledby to tables following headings', async () => {

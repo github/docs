@@ -30,7 +30,7 @@ describe('mini toc items', () => {
     ].join('\n')
     const tocItems = getMiniTocItems(html, 3)
     expect(tocItems.length).toBe(2)
-    expect(tocItems[0].items.length).toBe(3)
+    expect(tocItems[0].items?.length).toBe(3)
   })
 
   /**
@@ -56,10 +56,11 @@ describe('mini toc items', () => {
     ].join('\n')
     const tocItems = getMiniTocItems(html, 3)
     expect(tocItems.length).toBe(4)
-    expect(tocItems[3].items.length).toBe(1)
+    expect(tocItems[3].items?.length).toBe(1)
   })
 
-  // Mock scenario from: /en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization
+  // Mock scenario from:
+  // /en/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization
   test('creates empty toc', async () => {
     const html = h1('test')
     const tocItems = getMiniTocItems(html, 3)
@@ -86,6 +87,6 @@ describe('mini toc items', () => {
     ].join('\n')
     const tocItems = getMiniTocItems(html, 5)
     expect(tocItems.length).toBe(3)
-    expect(tocItems[1].items[0].items[0].items.length).toBe(1)
+    expect(tocItems[1].items?.[0].items?.[0].items?.length).toBe(1)
   })
 })

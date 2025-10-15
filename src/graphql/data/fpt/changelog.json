@@ -4,6 +4,41 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'AddedToProjectV2Event' was added</p>",
+          "<p>Type <code>ConvertedFromDraftEvent</code> was added</p>",
+          "<p>Type 'ProjectV2Event' was added</p>",
+          "<p>Type 'ProjectV2ItemStatusChangedEvent' was added</p>",
+          "<p>Type 'RemovedFromProjectV2Event' was added</p>",
+          "<p>Field <code>totalBlockedBy</code> was added to object type <code>IssueDependenciesSummary</code></p>",
+          "<p>Field <code>totalBlocking</code> was added to object type <code>IssueDependenciesSummary</code></p>",
+          "<p>Member 'AddedToProjectV2Event<code>was added to Union type</code>IssueTimelineItems'</p>",
+          "<p>Member <code>ConvertedFromDraftEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member 'ProjectV2ItemStatusChangedEvent<code>was added to Union type</code>IssueTimelineItems'</p>",
+          "<p>Member 'RemovedFromProjectV2Event<code>was added to Union type</code>IssueTimelineItems'</p>",
+          "<p>Enum value 'ADDED_TO_PROJECT_V2_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'CONVERTED_FROM_DRAFT_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'PROJECT_V2_ITEM_STATUS_CHANGED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'REMOVED_FROM_PROJECT_V2_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Member 'AddedToProjectV2Event<code>was added to Union type</code>PullRequestTimelineItems'</p>",
+          "<p>Member <code>ConvertedFromDraftEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member 'ProjectV2ItemStatusChangedEvent<code>was added to Union type</code>PullRequestTimelineItems'</p>",
+          "<p>Member 'RemovedFromProjectV2Event<code>was added to Union type</code>PullRequestTimelineItems'</p>",
+          "<p>Enum value 'ADDED_TO_PROJECT_V2_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'CONVERTED_FROM_DRAFT_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'PROJECT_V2_ITEM_STATUS_CHANGED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'REMOVED_FROM_PROJECT_V2_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-10-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>CopilotCodeReviewParameters</code> was added</p>",
           "<p>Type <code>CopilotCodeReviewParametersInput</code> was added</p>",
           "<p>Enum value 'COPILOT_CODE_REVIEW<code>was added to enum</code>RepositoryRuleType'</p>",

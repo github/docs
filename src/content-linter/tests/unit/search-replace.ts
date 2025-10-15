@@ -179,7 +179,7 @@ describe(searchReplace.names.join(' - '), () => {
 
     const result = await runRule(searchReplace, {
       strings: { markdown },
-      config: searchReplaceConfig,
+      ruleConfig: searchReplaceConfig['search-replace'],
       markdownlintOptions: { frontMatter: null },
     })
     const errors = result.markdown
