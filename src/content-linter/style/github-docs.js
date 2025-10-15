@@ -1,6 +1,5 @@
-// Configuration for which rules should be included in automated weekly reports
 export const reportingConfig = {
-  // Always include all rules with these severities
+  // Always include all rules with these severities in automated weekly reports
   includeSeverities: ['error'],
 
   // Specific rules to include regardless of severity
@@ -10,18 +9,19 @@ export const reportingConfig = {
     'expired-content',
   ],
 
-  // Specific rules to exclude from reports (overrides severity-based inclusion)
+  // Specific rules to exclude from CI and reports (overrides severity-based inclusion)
   // Add rule names here if you want to suppress them from reports
   excludeRules: [
     // Example: 'GHD030' // Uncomment to exclude code-fence-line-length warnings
     'british-english-quotes', // Exclude from reports but keep for pre-commit
   ],
 
-  // Files to exclude from specific rules in reports
+  // Files to exclude from specific rules in CI and reports
   // Format: { 'rule-name': ['file/path/pattern1', 'file/path/pattern2'] }
   excludeFilesFromRules: {
     'todocs-placeholder': [
       'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md',
+      'content/contributing/collaborating-on-github-docs/index.md',
     ],
   },
 }
