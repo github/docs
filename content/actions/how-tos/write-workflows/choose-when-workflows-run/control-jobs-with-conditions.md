@@ -23,7 +23,7 @@ name: example-workflow
 on: [push]
 jobs:
   production-deploy:
-    if: github.repository == 'octo-org/octo-repo-prod'
+    if: ${{ github.repository == 'octo-org/octo-repo-prod' }}
     runs-on: ubuntu-latest
     steps:
       - uses: {% data reusables.actions.action-checkout %}
