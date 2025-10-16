@@ -57,7 +57,7 @@ This table lists the AI models available in {% data variables.product.prodname_c
 | {% data variables.copilot.copilot_claude_sonnet_40 %}          | Anthropic | GA                                                              | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_gemini_25_pro %}             | Google    | GA                                                              | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.copilot_gemini_flash %}              | Google    | {% data variables.release-phases.closing_down_caps %}: 2025-10-23 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.copilot.copilot_grok_code %}                 | xAI       | {% data variables.release-phases.public_preview_caps %}         | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.copilot.copilot_grok_code %}                 | xAI       | GA           | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
 

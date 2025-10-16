@@ -36,9 +36,7 @@ As an alternative, you can simply use [GitHub Codespaces](https://docs.github.co
 
 In a matter of minutes, you will be ready to edit, review and test your changes directly from the comfort of your browser.
 
-### Using browser shortcuts
 
-The [`src/bookmarklets`](../src/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`src/bookmarklets/README.md`](../src/bookmarklets/README.md) for details.
 
 ### Enabling different languages
 
