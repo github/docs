@@ -592,16 +592,11 @@ In Kubernetes mode, ARC uses runner container hooks to create a new pod in the s
 
 #### Prerequisites
 
-Kubernetes mode relies on persistent volumes to share job details between the runner pod and the container job pod. For more information, see the [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) section in the Kubernetes documentation.
+Kubernetes mode supports two approaches for sharing job data between the runner pod and the container job pod. You can use persistent volumes, which remain the recommended option for scenarios requiring concurrent write access, or you can use container lifecycle hooks to restore and export job filesystems between pods without relying on RWX volumes. The lifecycle hook approach improves portability and performance by leveraging local storage and is ideal for clusters without shared storage.
 
-To use Kubernetes mode, you must do the following.
+#### Configuring Kubernetes mode with persistent volumes
 
-* Create persistent volumes available for the runner pods to claim.
-* Use a solution to automatically provision persistent volumes on demand.
-
-For testing, you can use a solution like [OpenEBS](https://github.com/openebs/openebs).
-
-#### Configuring Kubernetes mode
+To use Kubernetes mode, you must create persistent volumes that the runner pods can claim and use a solution that automatically provisions these volumes on demand. For testing, you can use a solution like [OpenEBS](https://github.com/openebs/openebs).
 
 To enable Kubernetes mode, set the `containerMode.type` to `kubernetes` in your [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file.
 
@@ -618,26 +613,41 @@ containerMode:
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
-> [!NOTE]
-> When Kubernetes mode is enabled, workflows that are not configured with a container job will fail with an error similar to:
->
-> ```bash
-> Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
-> ```
->
-> To allow jobs without a job container to run, set `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container. This instructs the runner to disable this check.
->
-> ```yaml
-> template:
->   spec:
->     containers:
->       - name: runner
->         image: ghcr.io/actions/actions-runner:latest
->         command: ["/home/runner/run.sh"]
->         env:
->           - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
->             value: "false"
-> ```
+#### Configuring Kubernetes mode with container lifecycle hooks  
+
+To enable Kubernetes mode using container lifecycle hooks, set the `containerMode.type` to `kubernetes-novolume` in your `values.yaml` file:
+
+```yaml
+containerMode:
+  type: "kubernetes-novolume"
+```
+
+>[!NOTE]
+>When using `kubernetes-novolume` mode, the container must run as `root` to support lifecycle hook operations.
+
+#### Troubleshooting Kubernetes mode
+
+When Kubernetes mode is enabled, workflows that are not configured with a container job will fail with an error similar to:
+
+ ```bash
+ Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
+ ```
+
+To allow jobs without a job container to run, set `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container. This instructs the runner to disable this check.
+> [!WARNING]
+>Allowing jobs to run without a container in `kubernetes` or `kubernetes-novolume` mode can give the >runner pod elevated privileges with the Kubernetes API server, including the ability to create pods and access secrets. Before changing this default, we recommend carefully reviewing the potential security implications.
+
+```yaml
+  template:
+    spec:
+      containers:
+        - name: runner
+          image: ghcr.io/actions/actions-runner:latest
+          command: ["/home/runner/run.sh"]
+          env:
+            - name: ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER
+              value: "false"
+```
 
 ### Customizing container modes
 

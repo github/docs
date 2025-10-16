@@ -71,7 +71,9 @@ We recommend using actions to interact with the software installed on runners. T
 
 If there is a tool that you'd like to request, please open an issue at [actions/runner-images](https://github.com/actions/runner-images). This repository also contains announcements about all major software updates on runners.
 
-> [!NOTE] You can also install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. See [AUTOTITLE](/actions/using-github-hosted-runners/customizing-github-hosted-runners).
+> [!NOTE]
+> * You can also install additional software on {% data variables.product.prodname_dotcom %}-hosted runners. See [AUTOTITLE](/actions/using-github-hosted-runners/customizing-github-hosted-runners).
+> * While nested virtualization is technically possible while using runners, it is not officially supported. Any use of nested VMs is experimental and done at your own risk, we offer no guarantees regarding stability, performance, or compatibility.
 
 ## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
 
