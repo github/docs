@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getBodyParams } from '../../rest/scripts/utils/get-body-params'
+import { getBodyParams, type TransformedParam } from '../../rest/scripts/utils/get-body-params'
 
 describe('oneOf handling in webhook parameters', () => {
   test('should handle oneOf fields correctly for secret_scanning_alert_location details', async () => {
@@ -122,15 +122,19 @@ describe('oneOf handling in webhook parameters', () => {
       },
     }
 
-    const result = await getBodyParams(mockSchema, true)
+    const result: TransformedParam[] = await getBodyParams(mockSchema, true)
 
     // Find the location parameter
-    const locationParam = result.find((param) => param.name === 'location')
+    const locationParam: TransformedParam | undefined = result.find(
+      (param) => param.name === 'location',
+    )
     expect(locationParam).toBeDefined()
     expect(locationParam?.childParamsGroups).toBeDefined()
 
     // Find the details parameter within location
-    const detailsParam = locationParam?.childParamsGroups?.find((param) => param.name === 'details')
+    const detailsParam: TransformedParam | undefined = locationParam?.childParamsGroups?.find(
+      (param) => param.name === 'details',
+    )
     expect(detailsParam).toBeDefined()
     expect(detailsParam?.type).toBe('object')
 
@@ -139,11 +143,19 @@ describe('oneOf handling in webhook parameters', () => {
     expect(detailsParam?.childParamsGroups?.length).toBeGreaterThan(1)
 
     // Check that we have the expected oneOf objects
-    const childParams = detailsParam?.childParamsGroups || []
-    const commitParam = childParams.find((param) => param.name === 'commit')
-    const issueTitleParam = childParams.find((param) => param.name === 'issue_title')
-    const issueBodyParam = childParams.find((param) => param.name === 'issue_body')
-    const issueCommentParam = childParams.find((param) => param.name === 'issue_comment')
+    const childParams: TransformedParam[] = detailsParam?.childParamsGroups || []
+    const commitParam: TransformedParam | undefined = childParams.find(
+      (param) => param.name === 'commit',
+    )
+    const issueTitleParam: TransformedParam | undefined = childParams.find(
+      (param) => param.name === 'issue_title',
+    )
+    const issueBodyParam: TransformedParam | undefined = childParams.find(
+      (param) => param.name === 'issue_body',
+    )
+    const issueCommentParam: TransformedParam | undefined = childParams.find(
+      (param) => param.name === 'issue_comment',
+    )
 
     expect(commitParam).toBeDefined()
     expect(commitParam?.description).toContain("commit' secret scanning location type")
@@ -193,9 +205,11 @@ describe('oneOf handling in webhook parameters', () => {
       },
     }
 
-    const result = await getBodyParams(mockSchemaWithoutTitles, true)
+    const result: TransformedParam[] = await getBodyParams(mockSchemaWithoutTitles, true)
 
-    const detailsParam = result.find((param) => param.name === 'details')
+    const detailsParam: TransformedParam | undefined = result.find(
+      (param) => param.name === 'details',
+    )
     expect(detailsParam).toBeDefined()
     expect(detailsParam?.childParamsGroups?.length).toBe(2)
 
@@ -244,18 +258,26 @@ describe('oneOf handling in webhook parameters', () => {
       },
     }
 
-    const result = await getBodyParams(mockNestedOneOfSchema, true)
+    const result: TransformedParam[] = await getBodyParams(mockNestedOneOfSchema, true)
 
-    const wrapperParam = result.find((param) => param.name === 'wrapper')
+    const wrapperParam: TransformedParam | undefined = result.find(
+      (param) => param.name === 'wrapper',
+    )
     expect(wrapperParam).toBeDefined()
 
-    const innerParam = wrapperParam?.childParamsGroups?.find((param) => param.name === 'inner')
+    const innerParam: TransformedParam | undefined = wrapperParam?.childParamsGroups?.find(
+      (param) => param.name === 'inner',
+    )
     expect(innerParam).toBeDefined()
     expect(innerParam?.oneOfObject).toBe(true)
     expect(innerParam?.childParamsGroups?.length).toBe(2)
 
-    const optionA = innerParam?.childParamsGroups?.find((param) => param.name === 'option_a')
-    const optionB = innerParam?.childParamsGroups?.find((param) => param.name === 'option_b')
+    const optionA: TransformedParam | undefined = innerParam?.childParamsGroups?.find(
+      (param) => param.name === 'option_a',
+    )
+    const optionB: TransformedParam | undefined = innerParam?.childParamsGroups?.find(
+      (param) => param.name === 'option_b',
+    )
 
     expect(optionA).toBeDefined()
     expect(optionA?.description).toContain('Option A description')
