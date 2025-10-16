@@ -23,7 +23,9 @@ name: example-workflow
 on: [push]
 jobs:
   production-deploy:
+{% raw %}
     if: ${{ github.repository == 'octo-org/octo-repo-prod' }}
+{% endraw %}
     runs-on: ubuntu-latest
     steps:
       - uses: {% data reusables.actions.action-checkout %}
