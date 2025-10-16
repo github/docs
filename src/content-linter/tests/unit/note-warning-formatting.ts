@@ -46,8 +46,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(2)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Add a blank line before {% note %}')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Add a blank line before {% note %}')
     }
   })
 
@@ -63,8 +63,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(4)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Add a blank line after {% endnote %}')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Add a blank line after {% endnote %}')
     }
   })
 
@@ -78,8 +78,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(2)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Add a blank line before > [!WARNING]')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Add a blank line before > [!WARNING]')
     }
   })
 
@@ -94,8 +94,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(4)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Add a blank line after > [!DANGER]')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Add a blank line after > [!DANGER]')
     }
   })
 
@@ -117,8 +117,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(8)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Do not include more than 2 bullet points')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Do not include more than 2 bullet points')
     }
   })
 
@@ -137,8 +137,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(7)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Do not include more than 2 bullet points')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Do not include more than 2 bullet points')
     }
   })
 
@@ -156,12 +156,12 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(4)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('should start with **Note:**')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('should start with **Note:**')
     }
     expect(errors[0].fixInfo).toBeDefined()
     if (errors[0].fixInfo) {
-      expect(errors[0].fixInfo.insertText).toBe('**Note:** ')
+      expect(errors[0].fixInfo?.insertText).toBe('**Note:** ')
     }
   })
 
@@ -177,8 +177,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('should be inside a callout block')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('should be inside a callout block')
     }
   })
 
@@ -194,8 +194,8 @@ describe(noteWarningFormatting.names.join(' - '), () => {
     const errors = result.markdown
     expect(errors.length).toBe(1)
     expect(errors[0].lineNumber).toBe(3)
-    if (errors[0].detail) {
-      expect(errors[0].detail).toContain('Warning prefix should be inside a callout block')
+    if (errors[0].errorDetail) {
+      expect(errors[0].errorDetail).toContain('Warning prefix should be inside a callout block')
     }
   })
 

@@ -6,8 +6,20 @@ import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rule
 // Configure the test fixture to not split frontmatter and content
 const fmOptions = { markdownlintOptions: { frontMatter: null } }
 
+interface ValidTestCase {
+  name: string
+  content: string
+}
+
+interface InvalidTestCase {
+  name: string
+  content: string
+  expectedErrors: number
+  expectedMessage?: string
+}
+
 // Valid cases - should pass
-const validCases = [
+const validCases: ValidTestCase[] = [
   {
     name: 'valid-simple-versions',
     content: `---
@@ -52,7 +64,7 @@ This is a test.
 ]
 
 // Invalid cases - should fail
-const invalidCases = [
+const invalidCases: InvalidTestCase[] = [
   {
     name: 'trailing-whitespace',
     content: `---
@@ -184,7 +196,7 @@ versions:
       })
       expect(result.content.length).toBe(1)
       expect(result.content[0].fixInfo).toBeDefined()
-      expect(result.content[0].fixInfo.insertText).toBe('*')
+      expect(result.content[0].fixInfo?.insertText).toBe('*')
     })
 
     test('should provide fix information for leading whitespace', async () => {
@@ -202,7 +214,7 @@ versions:
       })
       expect(result.content.length).toBe(1)
       expect(result.content[0].fixInfo).toBeDefined()
-      expect(result.content[0].fixInfo.insertText).toBe('*')
+      expect(result.content[0].fixInfo?.insertText).toBe('*')
     })
   })
 
