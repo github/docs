@@ -14,7 +14,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/6173
         - |
-          Operators use native Prometheus metrics to monitor the appliance. This feature is currently in public preview and should only be used in pre-production environments. You can view the Prometheus-based dashboards directly in the appliance or export Prometheus metrics to third-party observability systems. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
+          Operators use OpenTelemetry metrics to monitor the appliance. This feature is currently in public preview and should only be used in preproduction environments. You can also export Prometheus metrics to third-party observability systems. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
         # https://github.com/github/releases/issues/6019
         - |
           Admins can enable a larger item limit on projects, which supports up to 50,000 items. After the upgrade, the `memex-project-items` index will be migrated and an index repair started Once the `memex-project-items` index repair is completed, the new index is automatically promoted to primary and `ENABLE_PROJECTS_INCREASED_LIMITS` can be enabled. If `ENABLE_PROJECTS_INCREASED_LIMITS` is enabled before the index repair is completed, project data will appear to be missing from any partially repaired projects. This problem will resolve itself once the repair completes.
@@ -185,9 +185,6 @@ sections:
 
   known_issues:
     - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.18 release will be added between now and the general availability release.
-    # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
-    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
@@ -224,9 +221,7 @@ sections:
     - |
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
     - |
-      The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.
-    - |
-      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.16 %}3.16{% endif %} {% ifversion ghes = 3.17 %}3.17{% endif %} {% ifversion ghes = 3.18 %}3.18{% endif %} with caution.
+      The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.  
   
   closing_down:
     # https://github.com/github/releases/issues/5177
