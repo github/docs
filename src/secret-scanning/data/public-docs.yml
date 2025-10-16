@@ -1322,20 +1322,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: true
-- provider: Azure
-  supportedSecret: Azure Storage Account Access Key Base64 Encoded
-  secretType: azure_storage_account_key_base64
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
   base64Supported: true
-  isduplicate: false
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Text Analytics Key
   secretType: azure_text_analytics_key
@@ -2670,20 +2658,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: GitHub Secret Scanning
-  supportedSecret: GitHub Secret Scanning Base64 Encoded
-  secretType: secret_scanning_sample_token_base64
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
   base64Supported: true
-  isduplicate: false
+  isduplicate: true
 - provider: GitLab
   supportedSecret: GitLab Access Token
   secretType: gitlab_access_token
@@ -3206,20 +3182,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
-- provider: Hugging Face
-  supportedSecret: Hugging Face User Access Token Base64 Encoded
-  secretType: hf_user_access_token_base64
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
   base64Supported: true
-  isduplicate: false
+  isduplicate: true
 - provider: Intercom
   supportedSecret: Intercom Access Token
   secretType: intercom_access_token
@@ -3939,7 +3903,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -5535,20 +5499,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Twilio
-  supportedSecret: Twilio Account String Identifier Base64 Encoded
-  secretType: twilio_account_sid_base64
-  versions:
-    fpt: '*'
-    ghec: '*'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
   base64Supported: true
-  isduplicate: false
+  isduplicate: true
 - provider: Twilio
   supportedSecret: Twilio API Key
   secretType: twilio_api_key
