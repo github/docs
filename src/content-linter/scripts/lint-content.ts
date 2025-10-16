@@ -430,10 +430,14 @@ function getFormattedResults(allResults, isPrecommit) {
         const formattedResults = results
           .map((flaw) => formatResult(flaw, isPrecommit))
           .filter((flaw) => shouldIncludeResult(flaw, key))
-        const errors = formattedResults.filter((result) => result.severity === 'error')
-        const warnings = formattedResults.filter((result) => result.severity === 'warning')
-        const sortedResult = [...errors, ...warnings]
-        output[key] = [...sortedResult]
+
+        // Only add the file to output if there are results after filtering
+        if (formattedResults.length > 0) {
+          const errors = formattedResults.filter((result) => result.severity === 'error')
+          const warnings = formattedResults.filter((result) => result.severity === 'warning')
+          const sortedResult = [...errors, ...warnings]
+          output[key] = [...sortedResult]
+        }
       }
     })
   return output

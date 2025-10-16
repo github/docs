@@ -8,7 +8,7 @@ export const codeAnnotationCommentSpacing = {
   description:
     'Code comments in annotation blocks must have exactly one space after the comment character(s)',
   tags: ['code', 'comments', 'annotate', 'spacing'],
-  parser: 'markdownit',
+  parser: 'markdownit' as const,
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     filterTokens(params, 'fence', (token: MarkdownToken) => {
       if (!token.info?.includes('annotate')) return

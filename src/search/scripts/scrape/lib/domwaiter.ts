@@ -62,7 +62,7 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
 
   if (opts.json) {
     try {
-      const response = await fetchWithRetry(page.url!, undefined, { retries: 3 })
+      const response = await fetchWithRetry(page.url!, undefined, { retries: 3, timeout: 60000 })
       if (!response.ok) {
         throw new HTTPError(
           `HTTP ${response.status}: ${response.statusText}`,
@@ -74,11 +74,14 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
       const pageCopy = Object.assign({}, page, { json })
       emitter.emit('page', pageCopy)
     } catch (err) {
+      if (err instanceof Error) {
+        err.message = `Failed to fetch ${page.url}: ${err.message}`
+      }
       emitter.emit('error', err)
     }
   } else {
     try {
-      const response = await fetchWithRetry(page.url!, undefined, { retries: 3 })
+      const response = await fetchWithRetry(page.url!, undefined, { retries: 3, timeout: 60000 })
       if (!response.ok) {
         throw new HTTPError(
           `HTTP ${response.status}: ${response.statusText}`,
@@ -91,6 +94,9 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
       if (opts.parseDOM) (pageCopy as any).$ = cheerio.load(body)
       emitter.emit('page', pageCopy)
     } catch (err) {
+      if (err instanceof Error) {
+        err.message = `Failed to fetch ${page.url}: ${err.message}`
+      }
       emitter.emit('error', err)
     }
   }

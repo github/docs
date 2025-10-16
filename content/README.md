@@ -25,6 +25,7 @@ See the [contributing docs](https://docs.github.com/en/contributing) for general
   - [`defaultTool`](#defaulttool)
   - [`learningTracks`](#learningtracks)
   - [`includeGuides`](#includeguides)
+  - [`journeyTracks`](#journeytracks)
   - [`type`](#type)
   - [`topics`](#topics)
   - [`communityRedirect`](#communityRedirect)
@@ -250,6 +251,35 @@ includeGuides:
   - /actions/guides/setting-up-continuous-integration-using-workflow-templates
   - /actions/guides/building-and-testing-nodejs
   - /actions/guides/building-and-testing-powershell
+```
+
+### `journeyTracks`
+- Purpose: Define journeys for journey landing pages.
+- Type: `Array` of objects with the following properties:
+  - `id` (required): Unique identifier for the journey. The id only needs to be unique for journeys within a single journey landing page.
+  - `title` (required): Display title for the journey (supports Liquid variables)
+  - `description` (optional): Description of the journey (supports Liquid variables)
+  - `guides` (required): Array of article paths that make up this journey
+- Only applicable when used with `layout: journey-landing`.
+- Optional.
+
+Example:
+
+```yaml
+journeyTracks:
+  - id: 'getting_started'
+    title: 'Getting started with {% data variables.product.prodname_actions %}'
+    description: 'Learn the basics of GitHub Actions.'
+    guides:
+      - '/actions/quickstart'
+      - '/actions/learn-github-actions'
+      - '/actions/using-workflows'
+  - id: 'advanced'
+    title: 'Advanced {% data variables.product.prodname_actions %}'
+    description: 'Dive deeper into advanced features.'
+    guides:
+      - '/actions/using-workflows/workflow-syntax-for-github-actions'
+      - '/actions/deployment/deploying-with-github-actions'
 ```
 
 ### `type`

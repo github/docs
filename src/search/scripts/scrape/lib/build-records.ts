@@ -37,10 +37,10 @@ dotenv.config()
 // These defaults are known to work fine in GitHub Actions.
 // For local development, you can override these in your local .env file.
 // For example:
-//  echo 'BUILD_RECORDS_MAX_CONCURRENT=20' >> .env
-//  echo 'BUILD_RECORDS_MIN_TIME=50' >> .env
-const MAX_CONCURRENT = parseInt(process.env.BUILD_RECORDS_MAX_CONCURRENT || '100', 10)
-const MIN_TIME = parseInt(process.env.BUILD_RECORDS_MIN_TIME || '5', 10)
+//  echo 'BUILD_RECORDS_MAX_CONCURRENT=5' >> .env
+//  echo 'BUILD_RECORDS_MIN_TIME=200' >> .env
+const MAX_CONCURRENT = parseInt(process.env.BUILD_RECORDS_MAX_CONCURRENT || '5', 10)
+const MIN_TIME = parseInt(process.env.BUILD_RECORDS_MIN_TIME || '200', 10)
 
 // These products, forcibly always get a popularity of 0 independent of
 // their actual popularity which comes from an external JSON file.
