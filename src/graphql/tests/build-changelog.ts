@@ -14,10 +14,46 @@ import {
 } from '../scripts/build-changelog'
 import readJsonFile from '@/frame/lib/read-json-file'
 
-const expectedChangelogEntry = readJsonFile('src/graphql/tests/fixtures/changelog-entry.json')
-const expectedUpdatedChangelogFile = readJsonFile(
+interface Preview {
+  title: string
+  description: string
+  toggled_by: string
+  announcement: any
+  updates: any
+  toggled_on: string[]
+  owning_teams: string[]
+}
+
+interface UpcomingChange {
+  location: string
+  description: string
+  date: string
+}
+
+interface ChangelogEntry {
+  [key: string]: any
+}
+
+interface IgnoredChange {
+  type: string
+  [key: string]: any
+}
+
+interface IgnoredChangesSummary {
+  totalCount: number
+  typeCount: number
+  types: Array<{
+    type: string
+    count: number
+  }>
+}
+
+const expectedChangelogEntry: ChangelogEntry = readJsonFile(
+  'src/graphql/tests/fixtures/changelog-entry.json',
+) as ChangelogEntry
+const expectedUpdatedChangelogFile: ChangelogEntry[] = readJsonFile(
   'src/graphql/tests/fixtures/updated-changelog-file.json',
-)
+) as ChangelogEntry[]
 
 describe('creating a changelog from old schema and new schema', () => {
   afterEach(() => {
@@ -44,7 +80,13 @@ describe('creating a changelog from old schema and new schema', () => {
 
     // This should generate TypeDescriptionAdded change type
     // which should be silently ignored if not in CHANGES_TO_REPORT
-    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
+    const entry: ChangelogEntry | null = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      [],
+      [],
+      [],
+    )
 
     // Should return null since TypeDescriptionAdded is not in CHANGES_TO_REPORT
     // and will be silently ignored without throwing an error
@@ -72,7 +114,13 @@ describe('creating a changelog from old schema and new schema', () => {
 
     // This should generate DirectiveUsage* change types that are not in CHANGES_TO_REPORT
     // The system should silently ignore these and not throw errors
-    const entry = await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
+    const entry: ChangelogEntry | null = await createChangelogEntry(
+      oldSchemaString,
+      newSchemaString,
+      [],
+      [],
+      [],
+    )
 
     // Should return null since directive usage changes are typically ignored
     expect(entry).toBeNull()
@@ -123,14 +171,15 @@ describe('creating a changelog from old schema and new schema', () => {
     - Query.previewField
   owning_teams:
     - '@github/engineering'
-`)
+`) as Preview[]
 
     const oldUpcomingChanges = yaml.load(`
 upcoming_changes:
   - location: EnterprisePendingCollaboratorEdge.isUnlicensed
     description: '\`isUnlicensed\` will be removed.'
     date: '2021-01-01T00:00:00+00:00'
-`).upcoming_changes
+`) as { upcoming_changes: UpcomingChange[] }
+    const oldUpcomingChangesArray: UpcomingChange[] = oldUpcomingChanges.upcoming_changes
 
     const newUpcomingChanges = yaml.load(`
 upcoming_changes:
@@ -140,14 +189,15 @@ upcoming_changes:
   - location: EnterprisePendingCollaboratorEdge.isUnlicensed
     description: '\`isUnlicensed\` will be removed.'
     date: '2021-01-01T00:00:00+00:00'
-`).upcoming_changes
+`) as { upcoming_changes: UpcomingChange[] }
+    const newUpcomingChangesArray: UpcomingChange[] = newUpcomingChanges.upcoming_changes
 
-    const entry = await createChangelogEntry(
+    const entry: ChangelogEntry | null = await createChangelogEntry(
       oldSchemaString,
       newSchemaString,
       previews,
-      oldUpcomingChanges,
-      newUpcomingChanges,
+      oldUpcomingChangesArray,
+      newUpcomingChangesArray,
     )
     expect(entry).toEqual(expectedChangelogEntry)
   })
@@ -158,7 +208,13 @@ upcoming_changes:
       i: Int!
     }`
 
-    const nullEntry = await createChangelogEntry(schemaString, schemaString, [], [], [])
+    const nullEntry: ChangelogEntry | null = await createChangelogEntry(
+      schemaString,
+      schemaString,
+      [],
+      [],
+      [],
+    )
     expect(nullEntry).toBeNull()
   })
 })
@@ -189,14 +245,14 @@ describe('updating the changelog file', () => {
     const testTargetPath = 'src/graphql/tests/fixtures/example-changelog.json'
     const previousContents = await fs.readFile(testTargetPath)
 
-    const exampleEntry = { someStuff: true }
+    const exampleEntry: ChangelogEntry = { someStuff: true }
     const expectedDate = '2020-11-20'
     MockDate.set(expectedDate)
 
     prependDatedEntry(exampleEntry, testTargetPath)
-    const newContents = await fs.readFile(testTargetPath, 'utf8')
+    const newContents: string = await fs.readFile(testTargetPath, 'utf8')
     // reset the file:
-    await fs.writeFile(testTargetPath, previousContents)
+    await fs.writeFile(testTargetPath, previousContents.toString())
 
     expect(exampleEntry).toEqual({ someStuff: true, date: expectedDate })
     expect(JSON.parse(newContents)).toEqual(expectedUpdatedChangelogFile)
@@ -223,7 +279,7 @@ describe('ignored changes tracking', () => {
     // This should generate a TypeDescriptionAdded change type that gets ignored
     await createChangelogEntry(oldSchemaString, newSchemaString, [], [], [])
 
-    const ignoredChanges = getLastIgnoredChanges()
+    const ignoredChanges: IgnoredChange[] = getLastIgnoredChanges()
     expect(ignoredChanges.length).toBe(1)
     expect(ignoredChanges[0].type).toBe('TYPE_DESCRIPTION_ADDED')
   })
@@ -250,10 +306,11 @@ describe('ignored changes tracking', () => {
 
     const summary = getIgnoredChangesSummary()
     expect(summary).toBeTruthy()
-    expect(summary.totalCount).toBe(2)
-    expect(summary.typeCount).toBe(1)
-    expect(summary.types[0].type).toBe('DIRECTIVE_USAGE_FIELD_DEFINITION_ADDED')
-    expect(summary.types[0].count).toBe(2)
+    const typedSummary = summary as IgnoredChangesSummary
+    expect(typedSummary.totalCount).toBe(2)
+    expect(typedSummary.typeCount).toBe(1)
+    expect(typedSummary.types[0].type).toBe('DIRECTIVE_USAGE_FIELD_DEFINITION_ADDED')
+    expect(typedSummary.types[0].count).toBe(2)
   })
 
   test('returns null summary when no changes ignored', async () => {

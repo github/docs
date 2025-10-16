@@ -1,7 +1,6 @@
-// When updating this file to typescript,
-// update links in content/contributing as well
-
 import path from 'path'
+import type { Link, LinkReference, Definition, Text } from 'mdast'
+import type { Node } from 'unist'
 
 import stripAnsi from 'strip-ansi'
 import { visit } from 'unist-util-visit'
@@ -15,6 +14,7 @@ import { allVersions } from '@/versions/lib/all-versions'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import readJsonFile from '@/frame/lib/read-json-file'
 import findPage from '@/frame/lib/find-page'
+import type { Context, Page } from '@/types'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -26,15 +26,18 @@ const LOG_ERROR_ANNOTATIONS =
   CI || Boolean(JSON.parse(process.env.LOG_ERROR_ANNOTATIONS || 'false'))
 
 const supportedPlans = new Set(Object.values(allVersions).map((v) => v.plan))
-const externalRedirects = readJsonFile('./src/redirects/lib/external-sites.json')
+const externalRedirects = readJsonFile('./src/redirects/lib/external-sites.json') as Record<
+  string,
+  string
+>
 
 // The reason we "memoize" which lines we've logged is because the same
 // error might happen more than once in the whole space of one CI run.
-const _logged = new Set()
+const _logged = new Set<string>()
 
 // Printing this to stdout in this format, will automatically be picked up
 // by Actions to turn that into a PR inline annotation.
-function logError(file, line, message, title = 'Error') {
+function logError(file: string, line: number, message: string, title = 'Error') {
   if (LOG_ERROR_ANNOTATIONS) {
     const hash = `${file}:${line}:${message}`
     if (_logged.has(hash)) return
@@ -56,21 +59,26 @@ const AUTOTITLE = /^\s*AUTOTITLE\s*$/
 // which we use to know that we need to fall back to English.
 export class TitleFromAutotitleError extends Error {}
 
-// Matches any link nodes with an href that starts with `/`
-const matcherInternalLinks = (node) => node.type === 'link' && node.url && node.url.startsWith('/')
+interface LinkNode extends Link {
+  originalHref?: string
+  _originalHref?: string
+}
 
-// Matches any link nodes with an href that starts with `#`
-const matcherAnchorLinks = (node) => node.type === 'link' && node.url && node.url.startsWith('#')
+interface NodeToProcess {
+  url: string
+  child: Text
+  originalHref?: string
+}
 
 // Content authors write links like `/some/article/path`, but they need to be
 // rewritten on the fly to match the current language and page version
-export default function rewriteLocalLinks(context) {
-  const { currentLanguage, autotitleLanguage, currentVersion } = context
-  // There's no languageCode or version passed, so nothing to do
-  if (!currentLanguage || !currentVersion) return
-
-  return async function (tree) {
-    const nodes = []
+export default function rewriteLocalLinks(context?: Context) {
+  return async function (tree: Node): Promise<void> {
+    if (!context) return
+    const { currentLanguage, autotitleLanguage, currentVersion } = context
+    // There's no languageCode or version passed, so nothing to do
+    if (!currentLanguage || !currentVersion) return
+    const nodes: NodeToProcess[] = []
 
     // For links using linkReference and definition, we must
     // first get the list of definitions and later resolve
@@ -83,20 +91,24 @@ export default function rewriteLocalLinks(context) {
     //    [Some link](/abc/123)
     // And then we can treat it like a regular 'link';
     // see https://github.github.com/gfm/#link-reference-definitions for spec
-    const definitions = new Map()
-    visit(tree, 'definition', (node) => {
-      definitions.set(node.identifier, node)
+    const definitions = new Map<string, Definition>()
+    visit(tree, 'definition', (node: Node) => {
+      const defNode = node as Definition
+      definitions.set(defNode.identifier, defNode)
     })
 
-    visit(tree, 'linkReference', (node) => {
-      const definition = definitions.get(node.identifier)
+    visit(tree, 'linkReference', (node: Node) => {
+      const linkRefNode = node as LinkReference
+      const definition = definitions.get(linkRefNode.identifier)
       if (definition) {
         // Replace the LinkReference node with a Link node
-        node.type = 'link'
-        node.url = definition.url
-        node.title = definition.title
+        // Using 'as any' because we're mutating the node type at runtime,
+        // which TypeScript doesn't allow as LinkReference and Link are incompatible types
+        ;(linkRefNode as any).type = 'link'
+        ;(linkRefNode as any).url = definition.url
+        ;(linkRefNode as any).title = definition.title
       } else {
-        console.warn(`Definition not found for identifier: ${node.identifier}`)
+        console.warn(`Definition not found for identifier: ${linkRefNode.identifier}`)
       }
     })
 
@@ -105,21 +117,37 @@ export default function rewriteLocalLinks(context) {
   }
 }
 
-async function processTree(tree, language, version, nodes, context) {
+async function processTree(
+  tree: Node,
+  language: string,
+  version: string,
+  nodes: NodeToProcess[],
+  context: Context,
+) {
   // internal links begin with `/something`
-  visit(tree, matcherInternalLinks, (node) => {
-    processLinkNode(node, language, version, nodes)
+  visit(tree, 'link', (node: Node) => {
+    const linkNode = node as Link
+    if (linkNode.url && linkNode.url.startsWith('/')) {
+      processLinkNode(linkNode, language, version, nodes)
+    }
   })
 
   if (!isProd) {
     // handles anchor links
-    visit(tree, matcherAnchorLinks, (node) => {
-      for (const child of node.children || []) {
-        if (child.value && AUTOTITLE.test(child.value)) {
-          throw new Error(
-            `Found anchor link with text AUTOTITLE ('${node.url}'). ` +
-              'Update the anchor link with text that is not AUTOTITLE.',
-          )
+    visit(tree, 'link', (node: Node) => {
+      const linkNode = node as Link
+      if (linkNode.url && linkNode.url.startsWith('#')) {
+        for (const child of linkNode.children || []) {
+          if (
+            child.type === 'text' &&
+            (child as Text).value &&
+            AUTOTITLE.test((child as Text).value)
+          ) {
+            throw new Error(
+              `Found anchor link with text AUTOTITLE ('${linkNode.url}'). ` +
+                'Update the anchor link with text that is not AUTOTITLE.',
+            )
+          }
         }
       }
     })
@@ -128,25 +156,27 @@ async function processTree(tree, language, version, nodes, context) {
   // nodes[] contains all the link nodes that need new titles
   // and now we call to get those titles
   await Promise.all(
-    nodes.map(({ url, child, originalHref }) =>
+    nodes.map(({ url, child, originalHref }: NodeToProcess) =>
       getNewTitleSetter(child, url, context, originalHref),
     ),
   )
 }
 
-function processLinkNode(node, language, version, nodes) {
-  const newHref = getNewHref(node, language, version)
+function processLinkNode(node: Link, language: string, version: string, nodes: NodeToProcess[]) {
+  const linkNode = node as LinkNode
+  const newHref = getNewHref(linkNode, language, version)
   if (newHref) {
-    node.originalHref = node.url
-    node.url = newHref
+    linkNode.originalHref = linkNode.url
+    linkNode.url = newHref
   }
-  for (const child of node.children) {
-    if (child.value) {
-      if (AUTOTITLE.test(child.value)) {
+  for (const child of linkNode.children) {
+    if (child.type === 'text' && (child as Text).value) {
+      const textChild = child as Text
+      if (AUTOTITLE.test(textChild.value)) {
         nodes.push({
-          url: node.url,
-          child,
-          originalHref: node._originalHref,
+          url: linkNode.url,
+          child: textChild,
+          originalHref: linkNode._originalHref,
         })
       } else if (
         // This means CI and local dev
@@ -155,13 +185,14 @@ function processLinkNode(node, language, version, nodes) {
         language === 'en'
       ) {
         // Throw if the link text *almost*  is AUTOTITLE
+        const textChild = child as Text
         if (
-          child.value.toUpperCase() === 'AUTOTITLE' ||
-          distance(child.value.toUpperCase(), 'AUTOTITLE') <= 2
+          textChild.value.toUpperCase() === 'AUTOTITLE' ||
+          distance(textChild.value.toUpperCase(), 'AUTOTITLE') <= 2
         ) {
           throw new Error(
-            `Found link text '${child.value}', expected 'AUTOTITLE'. ` +
-              `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`,
+            `Found link text '${textChild.value}', expected 'AUTOTITLE'. ` +
+              `Find the mention of the link text '${textChild.value}' and change it to 'AUTOTITLE'. Case matters.`,
           )
         }
       }
@@ -169,26 +200,31 @@ function processLinkNode(node, language, version, nodes) {
   }
 }
 
-async function getNewTitleSetter(child, href, context, originalHref) {
+async function getNewTitleSetter(
+  child: Text,
+  href: string,
+  context: Context,
+  originalHref?: string,
+) {
   child.value = await getNewTitle(href, context, child, originalHref)
 }
 
-async function getNewTitle(href, context, child, originalHref) {
-  const page = findPage(href, context.pages, context.redirects)
+async function getNewTitle(href: string, context: Context, child: Text, originalHref?: string) {
+  const page = findPage(href, context.pages, context.redirects) as Page | undefined
   if (!page) {
     // The child.position.start.line is 1-based and already represents the line number
     // in the original file (including frontmatter), so no offset adjustment is needed
-    const line = child.position.start.line
+    const line = child.position?.start.line || 1
 
     const linkText = originalHref || href
     const message = `The link '${linkText}' could not be resolved in one or more versions of the documentation. Make sure that this link can be reached from all versions of the documentation it appears in. (Line: ${line})`
-    logError(context.page.fullPath, line, message, 'Link Resolution Error')
+    logError(context.page!.fullPath, line, message, 'Link Resolution Error')
     throw new TitleFromAutotitleError(message)
   }
   return await page.renderProp('title', context, { textOnly: true })
 }
 
-function getNewHref(node, languageCode, version) {
+function getNewHref(node: LinkNode, languageCode: string, version: string): string | undefined {
   const { url } = node
   // Exceptions to link rewriting
   if (url.startsWith('/assets')) return
