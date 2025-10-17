@@ -221,7 +221,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Agent instructions** are used by AI agents.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+  {% data reusables.copilot.custom-instructions-agents %}
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
@@ -257,7 +257,10 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Agent instructions** are used by AI agents.
 
-  For {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, instructions must be in a file called `AGENTS.md` in the root of the workspace. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+   {% data reusables.copilot.custom-instructions-agents %}
+
+   > [!NOTE]
+   > Support of `AGENTS.md` files outside of the workspace root is currently turned off by default. For details of how to enable this feature, see [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_use-an-agentsmd-file) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Creating repository-wide custom instructions
 
