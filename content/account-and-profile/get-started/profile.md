@@ -1,6 +1,6 @@
 ---
 title: Profile
-intro: 'Get started with your {% data variables.product.github %} profile.'
+intro: Get started with your {% data variables.product.github %} profile.
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,6 +8,7 @@ versions:
 topics:
   - Profiles
 shortTitle: Profile
+contentType: get-started
 ---
 
 ## About your {% data variables.product.github %} profile

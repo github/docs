@@ -1,7 +1,7 @@
 ---
 title: Username reference
 shortTitle: Username reference
-intro: 'Find information about changing your {% data variables.product.github %} username.'
+intro: Find information about changing your {% data variables.product.github %} username.
 topics:
   - Accounts
   - Usernames
@@ -9,6 +9,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+contentType: reference
 ---
 
 ## Changing your username
