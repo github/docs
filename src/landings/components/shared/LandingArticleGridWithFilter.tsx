@@ -116,9 +116,9 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
   }
 
   return (
-    <div>
+    <div data-testid="article-grid-container">
       {/* Filter and Search Controls */}
-      <div className={styles.filterHeader}>
+      <div className={styles.filterHeader} data-testid="filter-header">
         {/* Title and Dropdown Row */}
         <div className={styles.titleAndDropdownRow}>
           {/* Title */}
@@ -170,12 +170,12 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
       </div>
 
       {/* Results Grid */}
-      <div className={styles.articleGrid}>
+      <div className={styles.articleGrid} data-testid="article-grid">
         {paginatedResults.map((article, index) => (
           <ArticleCard key={startIndex + index} article={article} />
         ))}
         {filteredResults.length === 0 && (
-          <div className={styles.noArticlesContainer}>
+          <div className={styles.noArticlesContainer} data-testid="no-articles-message">
             <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
           </div>
         )}
@@ -218,6 +218,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         'border-default',
         'rounded-2',
       )}
+      data-testid="article-card"
     >
       <div className={styles.tagsContainer}>
         {article.category &&
