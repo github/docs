@@ -18,6 +18,7 @@ versions:
 topics:
   - Accounts
 shortTitle: Personal dashboard quickstart
+contentType: get-started
 ---
 
 ## Accessing your personal dashboard
