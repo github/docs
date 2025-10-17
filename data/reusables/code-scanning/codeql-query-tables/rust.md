@@ -3,6 +3,7 @@
 | Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Access of invalid pointer](https://codeql.github.com/codeql-query-help/rust/rust-access-invalid-pointer/) | 476, 825 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
+| ['Secure' attribute is not set to true](https://codeql.github.com/codeql-query-help/rust/rust-insecure-cookie/) | 319, 614 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Cleartext logging of sensitive information](https://codeql.github.com/codeql-query-help/rust/rust-cleartext-logging/) | 312, 359, 532 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Cleartext storage of sensitive information in a database](https://codeql.github.com/codeql-query-help/rust/rust-cleartext-storage-database/) | 312 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Cleartext transmission of sensitive information](https://codeql.github.com/codeql-query-help/rust/rust-cleartext-transmission/) | 319 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
