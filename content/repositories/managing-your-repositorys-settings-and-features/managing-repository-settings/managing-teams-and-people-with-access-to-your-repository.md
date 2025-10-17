@@ -36,7 +36,9 @@ For more information about repository roles, see [AUTOTITLE](/account-and-profil
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.click-collaborators-teams %}
-1. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find. Optionally, use the dropdown menus to filter your search. {% ifversion org-custom-role-with-repo-permissions %}
+
+1. Under "Manage access", click **Add people**.
+1. In the search field, start typing the name of the team or person you'd like to find. Optionally, use the dropdown menus to filter your search. {% ifversion org-custom-role-with-repo-permissions %}
 
    You can also toggle between the **Direct access** and **Organization access** tabs to view who has direct access to the repository and who can access the repository via a team or organization role.{% endif %}
 
