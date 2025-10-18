@@ -38,10 +38,10 @@ To get the list of domains required by {% data variables.product.prodname_github
 
 `gh api meta --jq .domains.codespaces`
 
+This error can also be caused by browser privacy features such as Enhanced Tracking Protection (ETP) in Firefox or LibreWolf:
+
 * Firefox’s Enhanced Tracking Protection (ETP) can cause this error, especially in Strict mode. Add your codespace URL as an exception or turn ETP off.
-
 * LibreWolf, however, does not have the ability to turn off ETP. LibreWolf also forces Strict mode on ETP as well, meaning you must add it as an exception. To add exceptions, go to [Mozilla's guide](https://support.mozilla.org/en-US/kb/manage-enhanced-tracking-protection-exceptions) on how to add exceptions.
-
 ### "We are having trouble fetching your codespace information"
 
 This is a transitional error. Wait for a few minutes and try again.
