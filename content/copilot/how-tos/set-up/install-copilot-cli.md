@@ -27,6 +27,7 @@ To find out about {% data variables.copilot.copilot_cli_short %} before you inst
 * **A {% data variables.product.prodname_copilot %} subscription**. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=text).
 * **Node.js** version 22 or later
 * **npm** version 10 or later
+* **(On Windows)** PowerShell version 6 or later.
 
 If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.copilot.copilot_cli_short %} if your organization owner or enterprise administrator has disabled it in the organization or enterprise settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
 
