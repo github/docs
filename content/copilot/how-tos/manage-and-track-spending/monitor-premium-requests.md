@@ -45,7 +45,7 @@ You can access usage information in the following IDEs.
 
 * **In {% data variables.product.prodname_vscode %}**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar.
 * **In {% data variables.product.prodname_vs %}**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the top right corner, then click **{% data variables.product.prodname_copilot_short %} Consumptions**.
-* **In JetBrains IDEs**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then select **View quote usage**.
+* **In JetBrains IDEs**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then select **View quota usage**.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
 
