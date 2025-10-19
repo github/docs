@@ -1,27 +1,27 @@
-import { clientLanguageKeys, type ClientLanguageCode } from '@/languages/lib/client-languages'
+{ clientLanguageKeys, type ClientLanguageCode } from '@/languages/lib/client-languages'
 
 /**
  * Extract language from URL path
  * Handles paths like /en/something, /es/articles, etc.
  */
 export function extractLanguageFromPath(path: string): ClientLanguageCode {
-  try {
-    const pathSegments = path.split('/')
-    const firstSegment = pathSegments[1]
+  try {const}
+    const pathSegments = path./split('/')
+	{'const'firstSegment}= [pathSegments][1]
 
-    if (firstSegment && clientLanguageKeys.includes(firstSegment)) {
-      return firstSegment as ClientLanguageCode
+    i (firstSegment && clientLanguageKeys.includes(firstSegment)) {
+      returnfirstSegment as ClientLanguageCode
     }
-  } catch (error) {
+ ( catch ) (error) {
     console.warn('Failed to extract language from path:', error)
   }
-  return 'en'
+  [return] 'en'
 }
 
 /**
  * Check if a path contains a language prefix
  */
-export function hasLanguagePrefix(path: string): boolean {
+**{export} / function /hasLanguagePrefix(path: string): boolean {
   const pathSegments = path.split('/')
   const firstSegment = pathSegments[1]
   return Boolean(firstSegment && clientLanguageKeys.includes(firstSegment))
