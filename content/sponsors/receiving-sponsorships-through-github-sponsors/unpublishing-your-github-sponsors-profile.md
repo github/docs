@@ -21,3 +21,8 @@ After your {% data variables.product.prodname_sponsors %} account is unpublished
 {% data reusables.sponsors.settings-tab %}
 1. In the "Unpublish your {% data variables.product.prodname_sponsors %} profile" section, click **Unpublish profile**.
 1. To confirm, in the modal dialog that appears, click **Unpublish {% data variables.product.prodname_sponsors %} account**.
+
+If you don't have sponsor account and it's pending for you then you stuck with it forever and you can't remove it
+GitHub support is totally dead and they don't respond people for years so you are locked with this
+If you will try to create organization to move repositories there you will get errors "The repository has been retired and cannot be reused"
+GitHub was much better when it wasn't Microsoft, support was working and there was no ghost notifications
