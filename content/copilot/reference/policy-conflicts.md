@@ -53,6 +53,7 @@ Feature, model, and privacy settings for users are set according to the **least 
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | {% data variables.product.prodname_github_models %}, one policy per model | Least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp) |
+| {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
 
 ## Next steps
 
