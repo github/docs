@@ -1,5 +1,5 @@
 # Reference: #14514
-# Documentation for security campaigns
+# Documentation for security campaigns for code scanning alerts
 # Ref 17108 Advanced Security available to Team plans
 versions:
   fpt: '*'

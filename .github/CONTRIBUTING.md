@@ -2,86 +2,113 @@
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:.
 
+**📖 For comprehensive contribution guidance, please visit our official documentation at [docs.github.com/en/contributing](https://docs.github.com/en/contributing). This is our canonical source for all contribution processes and policies.**
+
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
-In this guide you will get an overview of the contribution workflow from opening an issue, creating a PR, reviewing, and merging the PR.
+This guide provides repository-specific information to supplement the official contribution documentation. For detailed processes, policies, and best practices, always refer to [docs.github.com/en/contributing](https://docs.github.com/en/contributing).
 
-Use the table of contents icon <img alt="Table of contents icon" src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+Use the table of contents icon <img alt="Table of contents icon" src="/contributing/images/table-of-contents.png" width="25" height="25" /> in the top corner of this document to get to a specific section of this guide quickly.
 
 ## New contributor guide
 
-To get an overview of the project, read the [README](../README.md) file. Here are some resources to help you get started with open source contributions:
+**Start here:** Visit [docs.github.com/en/contributing](https://docs.github.com/en/contributing) for complete contributor onboarding and guidelines.
+
+For repository-specific setup, read the [README](../README.md) file. The official docs site also provides these helpful resources:
 
 - [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
 - [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
 - [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
 
+## Contribution types and what we're looking for
+
+Content we accept:
+* Technical and grammatical corrections
+* Typo fixes
+* Expanded explanations of existing products or features, when the expansion has a compelling reason
+* New content filling important gaps in our documentation. For example, [this pull request](https://github.com/github/docs/pull/38048) added a useful section on security hardening for GitHub Actions.
+
+Content we do not currently accept:
+* Edits purely for tone, readability, or efficiency
+* Topics that are too niche or a matter of personal preference
+* Changes to the underlying site and workflows
+
+These are general guidelines, but if you’re not sure what category your proposed change would fall under, feel free to open an issue to discuss it with us!
 
 ## Getting started
 
-To navigate our codebase with confidence, see [the introduction to working in the docs repository](/contributing/README.md) :confetti_ball:. For more information on how we write our markdown files, see "[Using Markdown and Liquid in GitHub Docs](https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs)."
+📚 **Primary resource:** [docs.github.com/en/contributing](https://docs.github.com/en/contributing) contains our complete contribution workflow and policies.
 
-Check to see what [types of contributions](/contributing/types-of-contributions.md) we accept before making changes. Some of them don't even require writing a single line of code :sparkles:.
+For repository-specific information:
+- See [the introduction to working in the docs repository](/contributing/README.md) :confetti_ball:
+- Check our [types of contributions](/contributing/types-of-contributions.md) we accept
+- Review our markdown style guidelines in the `/contributing` directory
+
+### Writing style guidelines
+
+When contributing content, please follow these key principles from our [style guide](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide):
+
+- **Clarity and simplicity**: The goal of our writing style is clarity and simplicity.
+- **Meaning over grammar**: Grammatical correctness is important, but not as important as clarity and meaning.
+- **Second person**: The docs use second-person ("you") to communicate directly with readers.
+- **Inclusive language**: Use inclusive language by not assuming gender or ability level, and by avoiding slang and idioms.
+- **Accessible technical language**: Jargon is sometimes necessary, but don't assume every reader has your technical expertise.
+- **Active voice**: Use active voice wherever possible. Active voice means avoiding "be" verbs like "is" or "are" when you can, but also choosing more dynamic verbs to get your point across. "Press (a key)" is less dynamic than "tap (a key)," for example.
+- **Clear terminology**: Avoid technical abbreviations like "repo" and "PR," and Latin abbreviations like "i.e." and "e.g."
+
+For complete style guidance, see our [style guide](https://docs.github.com/en/contributing/style-guide-and-content-model/style-guide).
 
 ### Issues
 
-#### Create a new issue
+**For detailed issue guidelines, see [docs.github.com/en/contributing](https://docs.github.com/en/contributing).**
 
-If you spot a problem with the docs, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose).
-
-#### Solve an issue
-
-Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See "[Label reference](https://docs.github.com/en/contributing/collaborating-on-github-docs/label-reference)" for more information. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
+#### Repository-specific notes:
+- Search [existing issues](https://github.com/github/docs/issues) before creating new ones
+- Use our [label reference](https://docs.github.com/en/contributing/collaborating-on-github-docs/label-reference) to categorize appropriately
+- Follow the issue templates provided in this repository
 
 ### Make Changes
 
-#### Make changes in the UI
+**Complete change guidelines are available at [docs.github.com/en/contributing](https://docs.github.com/en/contributing).**
 
-Click **Make a contribution** at the bottom of any docs page to make small changes such as a typo, sentence fix, or a broken link. This takes you to the `.md` file where you can make your changes and [create a pull request](#pull-request) for a review.
+#### Repository-specific options:
 
- <img src="/contributing/images/contribution_cta.png" />
+**Make changes in the UI:** Click **Make a contribution** at the bottom of any docs page for small changes like typos or broken links.
 
-#### Make changes in a codespace
+<img src="/contributing/images/contribution_cta.png" />
 
-For more information about using a codespace for working on GitHub documentation, see "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)."
+**Make changes in a codespace:** See "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)" for documentation-specific setup.
 
-#### Make changes locally
-
-1. Fork the repository.
-- Using GitHub Desktop:
-  - [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop.
-  - Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
-
-- Using the command line:
-  - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
-
-2. Install or update to **Node.js**, at the version specified in `.node-version`. For more information, see [the development guide](../contributing/development.md).
-
-3. Create a working branch and start with your changes!
+**Make changes locally:** 
+1. Fork the repository (see [official forking guide](https://docs.github.com/en/contributing))
+2. Install Node.js at the version specified in `.node-version` (see [development guide](../contributing/development.md))
+3. Create a working branch and start with your changes
 
 ### Commit your update
 
-Commit the changes once you are happy with them. Don't forget to use the "[Self review checklist](https://docs.github.com/en/contributing/collaborating-on-github-docs/self-review-checklist)" to speed up the review process :zap:.
+Follow the guidelines at [docs.github.com/en/contributing](https://docs.github.com/en/contributing) for commit best practices. 
+
+Use our "[Self review checklist](https://docs.github.com/en/contributing/collaborating-on-github-docs/self-review-checklist)" before committing.
 
 ### Pull Request
 
-When you're finished with the changes, create a pull request, also known as a PR.
-- Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
-- Don't forget to [link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if you are solving one.
-- Enable the checkbox to [allow maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork) so the branch can be updated for a merge.
-Once you submit your PR, a Docs team member will review your proposal. We may ask questions or request additional information.
-- We may ask for changes to be made before a PR can be merged, either using [suggested changes](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/incorporating-feedback-in-your-pull-request) or pull request comments. You can apply suggested changes directly through the UI. You can make any other changes in your fork, then commit them to your branch.
-- As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
-- If you run into any merge issues, checkout this [git tutorial](https://github.com/skills/resolve-merge-conflicts) to help you resolve merge conflicts and other issues.
+**Complete pull request (PR) guidelines:** [docs.github.com/en/contributing](https://docs.github.com/en/contributing)
+
+**Repository-specific notes:**
+- Fill the "Ready for review" template
+- [Link PR to issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) if applicable
+- Enable [maintainer edits](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)
+
+A Docs team member will review following our [standard review process](https://docs.github.com/en/contributing).
 
 ### Your PR is merged!
 
 Congratulations :tada::tada: The GitHub team thanks you :sparkles:.
 
-Once your PR is merged, your contributions will be publicly visible on the [GitHub docs](https://docs.github.com/en).
+Once merged, your contributions will be visible on [GitHub docs](https://docs.github.com/en). 
 
-Now that you are part of the GitHub docs community, see how else you can [contribute to the docs](/contributing/types-of-contributions.md).
+Continue contributing using our [types of contributions guide](/contributing/types-of-contributions.md) or explore more opportunities at [docs.github.com/en/contributing](https://docs.github.com/en/contributing).
 
 ## Windows
 

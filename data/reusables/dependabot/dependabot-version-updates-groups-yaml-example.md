@@ -28,27 +28,27 @@ updates:
 As a result:
 * Version updates are grouped by dependency type.
 * Development dependencies matching the pattern `rubocop*` are excluded from the `development-dependencies` group.
-* Instead, development dependencies matching `rubocop*` will be included in the `rubocop` group. Due to the ordering, production dependencies matching `rubocop*` will be included in the `production-dependencies` group.{% ifversion dependabot-grouped-security-updates-config %}
-* In addition, all groups default to applying to version updates only, since the `applies-to` key is absent.{% endif %}
+* Instead, development dependencies matching `rubocop*` will be included in the `rubocop` group. Due to the ordering, production dependencies matching `rubocop*` will be included in the `production-dependencies` group.
+* In addition, all groups default to applying to version updates only, since the `applies-to` key is absent.
 
 ### Example 2: Grouped updates with excluded dependencies
 
 In this example, the `dependabot.yml` file:
-* Creates a group called "`support-dependencies`", as part of a customized Bundler configuration.
+* Creates a group called "`support-dependencies`," as part of a customized Bundler configuration.
 * Uses `patterns` that match with the name of a dependency (or multiple dependencies) to include dependencies in the group.
-* Uses `exclude-patterns` that match with the name of a dependency (or multiple dependencies) to exclude dependencies from the group. {% ifversion dependabot-grouped-security-updates-config %}
-* Applies the grouping to version updates only, since `applies-to: version-updates` is used.{% endif %}
+* Uses `exclude-patterns` that match with the name of a dependency (or multiple dependencies) to exclude dependencies from the group.
+* Applies the grouping to version updates only, since `applies-to: version-updates` is used.
 
 ```yaml
 version: 2
 updates:
   # Keep bundler dependencies up to date
-  - package-ecosystem: "bundler"{% ifversion dependabot-updates-multidirectory-support %}
+  - package-ecosystem: "bundler"
     directories:
       - "/frontend"
       - "/backend"
-      - "/admin"{% else %}
-    directory: "/"{% endif %}
+      - "/admin"
+
     schedule:
       interval: "weekly"
     # Create a group of dependencies to be updated together in one pull request
@@ -57,8 +57,8 @@ updates:
       # and branch names
       support-dependencies:
         # Define patterns to include dependencies in the group (based on
-        # dependency name){% ifversion dependabot-grouped-security-updates-config %}
-        applies-to: version-updates # Applies the group rule to version updates{%- endif %}
+        # dependency name)
+        applies-to: version-updates # Applies the group rule to version updates
         patterns:
           - "rubocop" # A single dependency name
           - "rspec*"  # A wildcard string that matches multiple dependency names
@@ -79,10 +79,10 @@ As a result:
 ### Example 3: Individual pull requests for major updates and grouped for minor/patch updates
 
 In this example, the `dependabot.yml` file:
-* Creates a group called "`angular`".
+* Creates a group called "`angular`."
 * Uses `patterns` that match with the name of a dependency to include dependencies in the group.
-* Uses `update-type` to only include `minor` or `patch` updates in the group.{% ifversion dependabot-grouped-security-updates-config %}
-* Applies the grouping to version updates only, since `applies-to: version-updates` is used.{% endif %}
+* Uses `update-type` to only include `minor` or `patch` updates in the group.
+* Applies the grouping to version updates only, since `applies-to: version-updates` is used.
 
 ```yaml
 version: 2
@@ -94,8 +94,8 @@ updates:
     groups:
       # Specify a name for the group, which will be used in pull request titles
       # and branch names
-      angular:{% ifversion dependabot-grouped-security-updates-config %}
-        applies-to: version-updates{%- endif %}
+      angular:
+        applies-to: version-updates
         patterns:
           - "@angular*"
         update-types:
@@ -110,8 +110,8 @@ As a result:
 ### Example 4: Grouped pull requests for minor/patch updates and no pull requests for major updates
 
 In this example, the `dependabot.yml` file:
-* Creates two groups called "`angular`" and "`minor-and-patch`". {% ifversion dependabot-grouped-security-updates-config %}
-* Uses `applies-to` so that the first group applies to version updates only, and the second group applies to security updates only.{% endif %}
+* Creates two groups called "`angular`" and "`minor-and-patch`".
+* Uses `applies-to` so that the first group applies to version updates only, and the second group applies to security updates only.
 * Uses `update-type` to only include `minor` or `patch` updates for both groups.
 * Uses an `ignore` condition to exclude updates to `major` versions of `@angular*` packages.
 
@@ -124,20 +124,20 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      angular:{% ifversion dependabot-grouped-security-updates-config %}
-        applies-to: version-updates{%- endif %}
+      angular:
+        applies-to: version-updates
         patterns:
           - "@angular*"
         update-types:
           - "minor"
-          - "patch"{% ifversion dependabot-grouped-security-updates-config %}
+          - "patch"
       minor-and-patch:
         applies-to: security-updates
         patterns:
           - "@angular*"
         update-types:
           - "patch"
-          - "minor"{%- endif %}
+          - "minor"
     ignore:
       - dependency-name: "@angular*"
         update-types: ["version-update:semver-major"]

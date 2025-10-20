@@ -7,6 +7,8 @@ import { DefaultLayout } from '@/frame/components/DefaultLayout'
 import { ArticleTitle } from '@/frame/components/article/ArticleTitle'
 import { useArticleContext } from '@/frame/components/context/ArticleContext'
 import { LearningTrackNav } from '@/learning-track/components/article/LearningTrackNav'
+import { JourneyTrackNav } from '@/journeys/components/JourneyTrackNav'
+import { JourneyTrackCard } from '@/journeys/components/JourneyTrackCard'
 import { MarkdownContent } from '@/frame/components/ui/MarkdownContent'
 import { Lead } from '@/frame/components/ui/Lead'
 import { PermissionsStatement } from '@/frame/components/ui/PermissionsStatement'
@@ -21,6 +23,7 @@ import { Breadcrumbs } from '@/frame/components/page-header/Breadcrumbs'
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { LinkPreviewPopover } from '@/links/components/LinkPreviewPopover'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 const ClientSideRefresh = dynamic(() => import('@/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -41,10 +44,14 @@ export const ArticlePage = () => {
     productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    currentJourneyTrack,
     supportPortalVaIframeProps,
     currentLayout,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
+  const isJourneyPath = !!currentJourneyTrack?.trackId
+  // Only show journey track components when feature flag is enabled
+  const showJourneyTracks = isJourneyPath && router.query?.feature === 'journey-navigation'
   const { t } = useTranslation(['pages'])
 
   const introProp = (
@@ -71,6 +78,7 @@ export const ArticlePage = () => {
   const toc = (
     <>
       {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
+      {showJourneyTracks && <JourneyTrackCard journey={currentJourneyTrack} />}
       {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
     </>
   )
@@ -101,6 +109,7 @@ export const ArticlePage = () => {
   return (
     <DefaultLayout>
       <LinkPreviewPopover />
+      <UtmPreserver />
       {isDev && <ClientSideRefresh />}
       {router.pathname.includes('/rest/') && <RestRedirect />}
       {currentLayout === 'inline' ? (
@@ -118,6 +127,11 @@ export const ArticlePage = () => {
           {isLearningPath ? (
             <div className="container-lg mt-4 px-3">
               <LearningTrackNav track={currentLearningTrack} />
+            </div>
+          ) : null}
+          {showJourneyTracks ? (
+            <div className="container-lg mt-4 px-3">
+              <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </>
@@ -144,6 +158,12 @@ export const ArticlePage = () => {
           {isLearningPath ? (
             <div className="mt-4">
               <LearningTrackNav track={currentLearningTrack} />
+            </div>
+          ) : null}
+
+          {showJourneyTracks ? (
+            <div className="mt-4">
+              <JourneyTrackNav context={currentJourneyTrack} />
             </div>
           ) : null}
         </div>

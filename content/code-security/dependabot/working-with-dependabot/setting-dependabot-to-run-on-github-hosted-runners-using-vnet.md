@@ -28,7 +28,7 @@ To use {% data variables.product.company_short %}-hosted runners with Azure VNET
 
 ## Configuring Azure resources
 
-To learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network, see [Configuring your Azure resources](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#configuring-your-azure-resources).
+To learn how to use {% data variables.product.company_short %}-hosted runners with an Azure private network, see [Configuring your Azure resources](/enterprise-cloud@latest/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#configuring-your-azure-resources) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 > [!NOTE]
 >
@@ -41,9 +41,9 @@ To learn how to use {% data variables.product.company_short %}-hosted runners wi
 
 After configuring your Azure resources, you can use an Azure Virtual Network (VNET) for private networking by creating a network configuration{% ifversion ghec %} at the enterprise or organization level{% else %} at the organization level{% endif %}. Then, you can associate that network configuration to runner groups.
 
-1. Add a new network configuration for your enterprise. See [Add a new network configuration for your enterprise](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#1-add-a-new-network-configuration-for-your-enterprise)
-1. Create a runner group for the enterprise and select the organizations that you want to run {% data variables.product.prodname_dependabot_updates %} for. See [Create a runner group for your enterprise](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#2-create-a-runner-group-for-your-enterprise)
-1. Create and add a {% data variables.product.company_short %}-hosted runner to the enterprise runner group. See [Adding a larger runner to an enterprise](/actions/using-github-hosted-runners/using-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-enterprise). Important points are as follows:
+1. Add a new network configuration for your enterprise. See [Add a new network configuration for your enterprise](/enterprise-cloud@latest/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#1-add-a-new-network-configuration-for-your-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+1. Create a runner group for the enterprise and select the organizations that you want to run {% data variables.product.prodname_dependabot_updates %} for. See [Create a runner group for your enterprise](/enterprise-cloud@latest/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#2-create-a-runner-group-for-your-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+1. Create and add a {% data variables.product.company_short %}-hosted runner to the enterprise runner group. See [Adding a larger runner to an enterprise](/enterprise-cloud@latest/actions/using-github-hosted-runners/using-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation. Important points are as follows:
    * The runner name must be **dependabot**
    * Choose a Linux x64 platform.
    * Select the suitable Ubuntu version.

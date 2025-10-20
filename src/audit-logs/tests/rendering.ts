@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { getDOM } from '@/tests/helpers/e2etest'
+import { allVersions } from '@/versions/lib/all-versions'
 import { getCategorizedAuditLogEvents } from '../lib'
 
 describe('audit log events docs', () => {
@@ -45,32 +45,33 @@ describe('audit log events docs', () => {
 
         const versionedAuditLogEventsPage = `/${version}${page.path}`
         const $ = await getDOM(versionedAuditLogEventsPage)
-        const categoryH2Ids = $('h2')
-          .map((_, h2) => $(h2).attr('id'))
+        const categoryH3Ids = $('h3')
+          .map((_, h3) => $(h3).attr('id'))
           .get()
-        const categoryNames = categoryH2Ids.map((category) => category)
+        const categoryNames = categoryH3Ids.map((category) => category)
 
         const everyAuditLogCategoryPresent = auditLogCategories.every((category) =>
           categoryNames.includes(category),
         )
 
-        expect(categoryH2Ids.length).toBeGreaterThan(0)
+        expect(categoryH3Ids.length).toBeGreaterThan(0)
         expect(everyAuditLogCategoryPresent).toBe(true)
 
         // Spot check audit log event data by checking all the event actions under
         // the workflows category which is available across all audit log event
         // pages.
         const workflowsEventActions = auditLogEvents.workflows.map((e) => e.action)
-        // each row corresponds to an audit log event, the format is:
+        // each definition list item corresponds to an audit log event, the format is:
         //
-        // event action | event description
+        // <dt>event action</dt>
+        // <dd>event description</dd>
         //
         // we grab all the rendered workflow event action names and for our
         // comparison we check that all the action names from the audit log
         // schema data are included in the rendered action names.
-        const workflowsEventTRs = $('#workflows + table > tbody > tr').get()
-        const renderedWorkflowsEventActions = workflowsEventTRs.map((tr) => {
-          return $(tr.children[0]).text()
+        const workflowsEventDTs = $('#workflows + div > div > dl > dt').get()
+        const renderedWorkflowsEventActions = workflowsEventDTs.map((dt) => {
+          return $(dt).find('code').text()
         })
         const everyWorkflowsEventActionPresent = workflowsEventActions.every((action) =>
           renderedWorkflowsEventActions.includes(action),
@@ -96,5 +97,50 @@ describe('audit log events docs', () => {
     const leadSelector = '[data-search=lead] p'
     const $lead = $(leadSelector)
     expect($lead.length).toBe(1)
+  })
+
+  test('category notes are rendered when present', async () => {
+    // Test organization page which should have category notes
+    const $ = await getDOM(
+      '/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization',
+    )
+
+    // Look for category note elements - they should appear before tables
+    const categoryNotes = $('.category-note')
+
+    // If there are categories with notes configured, we should see them rendered
+    if (categoryNotes.length > 0) {
+      categoryNotes.each((_, note) => {
+        const $note = $(note)
+        expect($note.text().length).toBeGreaterThan(0)
+
+        // Should be followed by a div (the category events)
+        const $nextDiv = $note.next('div')
+        expect($nextDiv.length).toBe(1)
+      })
+    }
+  })
+
+  test('git category note is rendered on appropriate pages', async () => {
+    // Test enterprise page which should have git category note for GHES
+    const $ = await getDOM(
+      '/enterprise-server@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise',
+    )
+
+    // Look for git category heading
+    const gitHeading = $('#git')
+    if (gitHeading.length > 0) {
+      // Should have a category note before the div
+      const $noteOrTable = gitHeading.next()
+
+      // Either the next element is a note (followed by div) or directly a div
+      if ($noteOrTable.hasClass('category-note')) {
+        expect($noteOrTable.text()).toContain('Git events')
+        expect($noteOrTable.next('div').length).toBe(1)
+      } else if ($noteOrTable.is('div')) {
+        // Direct div is fine too - means no note for this category
+        expect($noteOrTable.is('div')).toBe(true)
+      }
+    }
   })
 })

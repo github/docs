@@ -82,7 +82,7 @@ export default async function processLearningTracks(
       const trackVersions = getApplicableVersions(track.versions)
 
       // If the current version is not included, do not display the track.
-      if (!trackVersions.includes(context.currentVersion)) {
+      if (!context.currentVersion || !trackVersions.includes(context.currentVersion)) {
         continue
       }
     }

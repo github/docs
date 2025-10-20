@@ -44,6 +44,11 @@ In general, you can calculate your primary rate limit for the REST API based on 
 
 {% data reusables.rest-api.primary-rate-limit-authenticated-users %}
 
+{% ifversion ghec %}
+> [!NOTE]
+> The [Enterprise audit logs API endpoint](/rest/enterprise-admin/audit-log#get-the-audit-log-for-an-enterprise) has a rate limit of 1,750 queries per hour, per user and IP address. If your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the GitHub API.
+{% endif %}
+
 ### Primary rate limit for Git LFS access
 
 API requests are required when you upload or download Git LFS content. These count towards a separate rate limiting bucket with a limit of 300 requests per minute for unauthenticated requests and 3,000 requests per minute for authenticated requests.

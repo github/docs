@@ -1,11 +1,11 @@
 import { describe, expect, test, vi } from 'vitest'
 import type { Response } from 'express'
 
-import { liquid } from '@/content-render/index.js'
-import shortVersionsMiddleware from '@/versions/middleware/short-versions.js'
+import { liquid } from '@/content-render/index'
+import shortVersionsMiddleware from '@/versions/middleware/short-versions'
 import featureVersionsMiddleware from '@/versions/middleware/features'
-import { allVersions } from '@/versions/lib/all-versions.js'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { allVersions } from '@/versions/lib/all-versions'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import type { Context, ExtendedRequest, Page } from '@/types'
 
 // Setup these variables so we don't need to manually update tests as GHES

@@ -1,6 +1,6 @@
 ---
 title: Changing your two-factor authentication method
-intro: You can change two-factor authentication (2FA) method without disabling 2FA entirely.
+intro: You can change your two-factor authentication (2FA) method without disabling 2FA entirely.
 redirect_from:
   - /articles/changing-two-factor-authentication-delivery-methods
   - /articles/changing-two-factor-authentication-delivery-methods-for-your-mobile-device

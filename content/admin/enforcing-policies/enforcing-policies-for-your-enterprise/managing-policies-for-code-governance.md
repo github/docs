@@ -44,6 +44,8 @@ You can edit a ruleset to change parts of the ruleset, such as the name, bypass 
 1. In the left sidebar, in the "Policies" section, click **Code**, then click **Rulesets**.
 1. To the right of the ruleset's name, select {% octicon "kebab-horizontal" aria-label="Open additional options" %}, then click **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete ruleset**.
 
+{% ifversion repo-rules-history %}
+
 ## Using ruleset history
 
 {% data reusables.repositories.ruleset-beta-note %}
@@ -55,6 +57,10 @@ You can edit a ruleset to change parts of the ruleset, such as the name, bypass 
 1. To view the history of changes to the ruleset, select {% octicon "kebab-horizontal" aria-label="Open additional options" %} to the right of the ruleset's name, then click **{% octicon "history" aria-hidden="true" aria-label="history" %} History**.
 1. To the right of the specific iteration, select {% octicon "kebab-horizontal" aria-label="Open additional options" %}, then click **Compare changes**, **Restore**, or **Download**.
 
+{% endif %}
+
+{% ifversion repo-rules-management %}
+
 ## Importing a ruleset
 
 You can import a ruleset from another repository, organization or enterprise using the exported JSON file from the previous section. This can be useful if you want to apply the same ruleset to multiple repositories, organizations or enterprises.
@@ -64,6 +70,8 @@ You can import a ruleset from another repository, organization or enterprise usi
 1. Select the **New ruleset** dropdown, then click **Import a ruleset**.
 1. Open the exported JSON file.
 1. Review the imported ruleset and click **Create**.
+
+{% endif %}
 
 ## Viewing insights for rulesets
 

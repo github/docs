@@ -5,7 +5,8 @@
 * Java/Kotlin
 * JavaScript/TypeScript
 * Python
-* Ruby{% ifversion codeql-rust-public-preview %}
+* Ruby{% ifversion codeql-rust-available %}
+* Rust{% else ifversion codeql-rust-public-preview %}
 * Rust (public preview){% endif %}
 * Swift
 {% ifversion code-scanning-actions-language %}* {% data variables.product.prodname_actions %} workflows{% endif %}

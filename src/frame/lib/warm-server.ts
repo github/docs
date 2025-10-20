@@ -1,6 +1,9 @@
-import statsd from '@/observability/lib/statsd.js'
-import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
+import statsd from '@/observability/lib/statsd'
+import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data'
+import loadRedirects from '@/redirects/lib/precompile'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 // Instrument these functions so that
 // it's wrapped in a timer that reports to Datadog
@@ -19,12 +22,9 @@ let promisedWarmServer: any
 async function warmServer(languagesOnly = []) {
   const startTime = Date.now()
 
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(
-      'Priming context information...',
-      languagesOnly && languagesOnly.length ? `${languagesOnly.join(',')} only` : '',
-    )
-  }
+  logger.debug(
+    `Priming context information...${languagesOnly && languagesOnly.length ? ` ${languagesOnly.join(',')} only` : ''}`,
+  )
 
   const unversionedTree = await dog.loadUnversionedTree(languagesOnly)
   const siteTree = await dog.loadSiteTree(unversionedTree, languagesOnly)
@@ -34,9 +34,7 @@ async function warmServer(languagesOnly = []) {
 
   statsd.gauge('memory_heap_used', process.memoryUsage().heapUsed, ['event:warm-server'])
 
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(`Context primed in ${Date.now() - startTime} ms`)
-  }
+  logger.debug(`Context primed in ${Date.now() - startTime} ms`)
 
   return {
     pages: pageMap,

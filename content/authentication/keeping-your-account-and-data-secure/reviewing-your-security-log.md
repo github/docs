@@ -41,9 +41,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 |  {% endif %} |
 | `oauth_access` | Contains all activities related to OAuth access tokens. |
 | `oauth_authorization` | Contains all activities related to authorizing {% data variables.product.prodname_oauth_apps %}. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps). |
-|  {% ifversion passkeys %} |
 | `passkey` | Contains activities related to your passkeys. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys). |
-|  {% endif %} |
 |  {% ifversion fpt or ghec %} |
 | `payment_method` | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.
 |  {% endif %} |

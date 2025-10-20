@@ -79,7 +79,7 @@ The owner of a {% data variables.product.prodname_github_app %} can view recent 
 
 Only the owner of the sponsored account can view deliveries for sponsorship webhooks for that account.
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to view webhook deliveries for, click **Dashboard**.
 1. In the sidebar, click **Webhooks**.
 {% data reusables.webhooks.webhook_url_list %}

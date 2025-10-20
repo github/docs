@@ -59,6 +59,13 @@ How exactly you sign your build will depend on what sort of code you're writing,
 
 For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %}, [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect),{% endif %} and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
+{% ifversion fpt or ghec %}
+
+## Use immutable releases
+
+If you are using release assets from other projects in your build system, or creating releases for your own work, you should reduce security risk by ensuring those releases are immutable, meaning they cannot be changed after publication. Immutable releases help prevent supply chain attacks and accidental breaking changes. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/immutable-releases).
+{% endif %}
+
 ## Harden security for {% data variables.product.prodname_actions %}
 
 There are many further steps you can take to additionally secure {% data variables.product.prodname_actions %}. In particular, be careful when evaluating third-party workflows, and consider using `CODEOWNERS` to limit who can make changes to your workflows.

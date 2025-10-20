@@ -3,7 +3,7 @@ import type { Response } from 'express'
 import type { ExtendedRequest, Page } from '@/types'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import shortVersions from '@/versions/middleware/short-versions'
 
 import warmServer from '@/frame/lib/warm-server'
 

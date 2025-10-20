@@ -1,4 +1,4 @@
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 
 type Token = {
   name?: string

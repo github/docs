@@ -1,18 +1,20 @@
 ---
 title: Workflows and actions
-intro: "Learn about the concepts of workflows and actions in GitHub Actions."
+intro: Learn about the concepts of workflows and actions in GitHub Actions.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
 children:
-  - /about-workflows
+  - /workflows
   - /variables
-  - /avoiding-duplication
-  - /about-custom-actions
   - /contexts
   - /expressions
-  - /about-monitoring-workflows
+  - /reusing-workflow-configurations
+  - /custom-actions
+  - /deployment-environments
+  - /concurrency
+  - /workflow-artifacts
+  - /dependency-caching
   - /notifications-for-workflow-runs
-  - /about-troubleshooting-workflows
 ---

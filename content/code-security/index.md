@@ -5,13 +5,13 @@ intro: 'Build security into your {% data variables.product.github %} workflow to
 redirect_from:
   - /code-security/guides
 introLinks:
-  overview: /code-security/getting-started/github-security-features
-  try_ghas_for_free: '{% ifversion ghec %}/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security{% endif %}'
-  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization{% endif %}'
+  overview: '{% ifversion ghes %}/code-security/getting-started/github-security-features{% endif %}'
+  generate_secret_risk_assessment_report_for_free: '{% ifversion secret-risk-assessment %}/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment{% endif %}'
 featuredLinks:
   startHere: # Links aimed at the builder audience
+    - '{% ifversion fpt or ghec %}/code-security/getting-started/github-security-features{% endif %}'
     - /code-security/getting-started/quickstart-for-securing-your-repository
-    - /code-security/secret-scanning/working-with-secret-scanning-and-push-protection
+    - '{% ifversion ghes %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection{% endif %}'
     - /code-security/getting-started/dependabot-quickstart-guide
     - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
   guideCards:

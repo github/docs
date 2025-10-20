@@ -23,7 +23,7 @@ import path from 'path'
 
 import { program } from 'commander'
 import walkFiles from '@/workflows/walk-files'
-import { ROOT } from '@/frame/lib/constants.js'
+import { ROOT } from '@/frame/lib/constants'
 
 program
   .description('Delete orphan translation files')

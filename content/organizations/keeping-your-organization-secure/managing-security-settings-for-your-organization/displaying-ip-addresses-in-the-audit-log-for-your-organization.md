@@ -38,6 +38,7 @@ After you enable the feature, you can access the audit log to view events that i
 
 * The actor is an organization member or owner
 * The target is either an organization-owned repository that is private or internal, or an organization resource that is not a repository, such as a project.
+* For `api.request` events, the request was not triggered by GraphQL.
 
 ## Enabling display of IP addresses in the audit log
 

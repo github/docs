@@ -162,13 +162,9 @@ Push protection proactively scans your code, and any repository contributors' co
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
-{% ifversion push-protection-delegated-bypass %}
-
 ### Delegated bypass for push protection
 
 Delegated bypass for push protection lets you control which individuals, roles and teams can bypass push protection, and implements a review and approval cycle for pushes containing secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
-
-{% endif %}
 
 ### Custom patterns
 

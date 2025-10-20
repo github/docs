@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
 import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
+import type { SidebarLink } from '@/types'
 
 export type ProductT = {
   external: boolean
@@ -54,6 +55,8 @@ export type ProductTreeNode = {
   title: string
   href: string
   childPages: Array<ProductTreeNode>
+  sidebarLink?: SidebarLink
+  layout?: string
 }
 
 type UIString = Record<string, string>

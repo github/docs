@@ -1,9 +1,9 @@
-import { languageKeys } from '@/languages/lib/languages.js'
-import { allVersionKeys } from '@/versions/lib/all-versions.js'
+import { languageKeys } from '@/languages/lib/languages'
+import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
-import { allTools } from '@/tools/lib/all-tools.js'
+import { allTools } from '@/tools/lib/all-tools'
 
-const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
+const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'
 
 const context = {
   type: 'object',
@@ -43,6 +43,10 @@ const context = {
       type: 'string',
       description: 'The browser value of `document.referrer`.',
       format: 'uri-reference',
+    },
+    title: {
+      type: 'string',
+      description: 'The browser value of `document.title`.',
     },
     href: {
       type: 'string',
@@ -142,12 +146,27 @@ const context = {
     viewport_width: {
       type: 'number',
       description: 'The viewport width, not the overall device size.',
-      minimum: 1,
+      minimum: 0,
     },
     viewport_height: {
       type: 'number',
       description: 'The viewport height, not the overall device height.',
-      minimum: 1,
+      minimum: 0,
+    },
+    screen_width: {
+      type: 'number',
+      description: 'The screen width of the device.',
+      minimum: 0,
+    },
+    screen_height: {
+      type: 'number',
+      description: 'The screen height of the device.',
+      minimum: 0,
+    },
+    pixel_ratio: {
+      type: 'number',
+      description: 'The device pixel ratio.',
+      minimum: 0,
     },
 
     // Location information

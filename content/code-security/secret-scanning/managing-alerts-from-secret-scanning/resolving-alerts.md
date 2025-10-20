@@ -1,7 +1,7 @@
 ---
 title: Resolving alerts from secret scanning
 intro: 'After reviewing the details of a secret scanning alert, you should fix and then close the alert.'
-permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
+permissions: 'Repository owners, organization owners, security managers, commit authors, and users with the **admin** role'
 versions:
   fpt: '*'
   ghes: '*'

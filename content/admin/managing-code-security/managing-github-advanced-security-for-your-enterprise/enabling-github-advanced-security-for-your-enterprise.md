@@ -32,7 +32,7 @@ For guidance on a phased deployment of {% data variables.product.prodname_GHAS %
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
+{% data reusables.enterprise-accounts.license-tab-ghes %}
 1. If your license includes {% data variables.product.prodname_GHAS_cs_or_sp %}, the license page includes a section showing details of current usage.
 
 ## Prerequisites for enabling {% data variables.product.prodname_cs_and_sp %}

@@ -1,0 +1,153 @@
+# Rendering code lives in content/get-started/learning-about-github/github-language-support.md
+
+# Features configuration - simplified structure
+features:
+  copilot:
+    name: 'GitHub Copilot'
+    link: '/copilot/about-github-copilot/what-is-github-copilot'
+    fptAndGhec: true
+    ghes: false
+  codeNavigation:
+    name: 'Code navigation'
+    link: '/repositories/working-with-files/using-files/navigating-code-on-github'
+    fptAndGhec: true
+    ghes: false
+  codeScanning:
+    name: 'Code scanning'
+    link: '/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning'
+    fptAndGhec: true
+    ghes: true
+  depGraph:
+    name: 'Dependency graph, Dependabot alerts'
+    link: '/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems'
+    fptAndGhec: true
+    ghes: true
+  depUpdates:
+    name: 'Dependabot version updates, Dependabot security updates'
+    link: '/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems'
+    fptAndGhec: true
+    ghes: true
+  actions:
+    name: 'GitHub Actions'
+    link: '/actions/automating-builds-and-tests/about-continuous-integration#supported-languages'
+    fptAndGhec: true
+    ghes: true
+  packages:
+    name: 'GitHub Packages'
+    link: '/packages/learn-github-packages/introduction-to-github-packages#supported-clients-and-formats'
+    fptAndGhec: true
+    ghes: true
+
+languages:
+  C:
+    copilot: 'supported'
+    codeNavigation: 'not-supported'
+    codeScanning: 'supported'
+    depGraph: 'not-supported'
+    depUpdates: 'not-supported'
+    actions: 'supported'
+    packages: 'not-supported'
+  C++:
+    copilot: 'supported'
+    codeNavigation: 'not-supported'
+    codeScanning: 'supported'
+    depGraph: 'not-supported'
+    depUpdates: 'not-supported'
+    actions: 'supported'
+    packages: 'not-supported'
+  C#:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: '`dotnet` CLI'
+    depUpdates: '`dotnet` CLI'
+    actions: 'supported'
+    packages: '`dotnet` CLI'
+  Go:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'Go modules'
+    depUpdates: 'Go modules'
+    actions: 'supported'
+    packages: 'not-supported'
+  Java:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'Maven, Gradle'
+    depUpdates: 'Maven, Gradle'
+    actions: 'supported'
+    packages: 'Maven, Gradle'
+  JavaScript:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'npm, Yarn'
+    depUpdates: 'npm'
+    actions: 'supported'
+    packages: 'npm'
+  Kotlin:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'Maven, Gradle'
+    depUpdates: 'Maven, Gradle'
+    actions: 'supported'
+    packages: 'Maven, Gradle'
+  PHP:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'third-party [^1]'
+    depGraph: 'Composer'
+    depUpdates: 'Composer'
+    actions: 'supported'
+    packages: 'not-supported'
+  Python:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'pip'
+    depUpdates: 'pip'
+    actions: 'supported'
+    packages: 'not-supported'
+  Ruby:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'RubyGems'
+    depUpdates: 'RubyGems'
+    actions: 'supported'
+    packages: 'RubyGems'
+  Rust:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'supported'
+    depUpdates: 'supported'
+    actions: 'supported'
+    packages: 'not-supported'
+  Scala:
+    copilot: 'supported'
+    codeNavigation: 'not-supported'
+    codeScanning: 'third-party [^1]'
+    depGraph: 'Maven'
+    depUpdates: 'Maven, Gradle'
+    actions: 'supported'
+    packages: 'not-supported'
+  Swift:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'supported'
+    depUpdates: 'supported'
+    actions: 'supported'
+    packages: 'Swift Package Manager'
+  TypeScript:
+    copilot: 'supported'
+    codeNavigation: 'supported'
+    codeScanning: 'supported'
+    depGraph: 'npm, Yarn'
+    depUpdates: 'npm'
+    actions: 'supported'
+    packages: 'npm'

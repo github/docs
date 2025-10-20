@@ -1,25 +1,22 @@
 import type { Response, NextFunction } from 'express'
-import got from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 
-import statsd from '@/observability/lib/statsd.js'
+import statsd from '@/observability/lib/statsd'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
   deprecatedWithFunctionalRedirects,
   firstReleaseStoredInBlobStorage,
-} from '@/versions/lib/enterprise-server-releases.js'
-import patterns from '@/frame/lib/patterns.js'
-import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
+} from '@/versions/lib/enterprise-server-releases'
+import patterns from '@/frame/lib/patterns'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file.js'
-import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control.js'
-import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages.js'
-import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect.js'
-import getRemoteJSON from '@/frame/lib/get-remote-json.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
+import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages'
+import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
+import getRemoteJSON from '@/frame/lib/get-remote-json'
 import { ExtendedRequest } from '@/types'
 
 const OLD_PUBLIC_AZURE_BLOB_URL = 'https://githubdocs.azureedge.net'
@@ -75,7 +72,7 @@ const cacheAggressively = (res: Response) => {
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = { limit: 3 }
@@ -106,7 +103,7 @@ export default async function archivedEnterpriseVersions(
 
   // Redirects for releases 3.0+
   if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
-    const redirectTo = getRedirect(req.path, req.context)
+    const redirectTo = req.context ? getRedirect(req.path, req.context) : undefined
     if (redirectTo) {
       if (redirectCode === 302) {
         languageCacheControl(res) // call first to get `vary`
@@ -193,11 +190,15 @@ export default async function archivedEnterpriseVersions(
   }
   // Retrieve the page from the archived repo
   const doGet = () =>
-    got(getProxyPath(req.path, requestedVersion), {
-      throwHttpErrors: false,
-      retry: retryConfiguration,
-      timeout: timeoutConfiguration,
-    })
+    fetchWithRetry(
+      getProxyPath(req.path, requestedVersion),
+      {},
+      {
+        retries: retryConfiguration.limit,
+        timeout: timeoutConfiguration.response,
+        throwHttpErrors: false,
+      },
+    )
 
   const statsdTags = [`version:${requestedVersion}`]
   const r = await statsd.asyncTimer(doGet, 'archive_enterprise_proxy', [
@@ -205,7 +206,8 @@ export default async function archivedEnterpriseVersions(
     `path:${req.path}`,
   ])()
 
-  if (r.statusCode === 200) {
+  if (r.status === 200) {
+    const body = await r.text()
     const [, withoutLanguagePath] = splitByLanguage(req.path)
     const isDeveloperPage = withoutLanguagePath?.startsWith(
       `/enterprise/${requestedVersion}/developer`,
@@ -213,13 +215,13 @@ export default async function archivedEnterpriseVersions(
     res.set('x-robots-tag', 'noindex')
 
     // make stubbed redirect files (which exist in versions <2.13) redirect with a 301
-    const staticRedirect = r.body.match(patterns.staticRedirect)
+    const staticRedirect = body.match(patterns.staticRedirect)
     if (staticRedirect) {
       cacheAggressively(res)
       return res.redirect(redirectCode, staticRedirect[1])
     }
 
-    res.set('content-type', r.headers['content-type'])
+    res.set('content-type', r.headers.get('content-type') || '')
 
     cacheAggressively(res)
 
@@ -233,7 +235,7 @@ export default async function archivedEnterpriseVersions(
       // `x-host` is a custom header set by Fastly.
       // GLB automatically deletes the `x-forwarded-host` header.
       const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
-      r.body = r.body
+      let modifiedBody = body
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
           `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets/cb-`,
@@ -242,6 +244,8 @@ export default async function archivedEnterpriseVersions(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/`,
           `${req.protocol}://${host}/enterprise-server@${requestedVersion}/`,
         )
+
+      return res.send(modifiedBody)
     }
 
     // Releases 3.1 and lower were previously hosted in the
@@ -250,23 +254,42 @@ export default async function archivedEnterpriseVersions(
     // The image paths all need to be updated to reference the images in the
     // new archived enterprise repo's root assets directory.
     if (versionSatisfiesRange(requestedVersion, `<${firstReleaseStoredInBlobStorage}`)) {
-      r.body = r.body.replaceAll(
+      let modifiedBody = body.replaceAll(
         `${OLD_GITHUB_IMAGES_ENTERPRISE_DIR}/${requestedVersion}`,
         `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}`,
       )
       if (versionSatisfiesRange(requestedVersion, '<=2.18') && isDeveloperPage) {
-        r.body = r.body.replaceAll(
+        modifiedBody = modifiedBody.replaceAll(
           `${OLD_DEVELOPER_SITE_CONTAINER}/${requestedVersion}`,
           `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/developer`,
         )
         // Update all hrefs to add /developer to the path
-        r.body = r.body.replaceAll(
+        modifiedBody = modifiedBody.replaceAll(
           `="/enterprise/${requestedVersion}`,
           `="/enterprise/${requestedVersion}/developer`,
         )
         // The changelog is the only thing remaining on developer.github.com
-        r.body = r.body.replaceAll('href="/changes', 'href="https://developer.github.com/changes')
+        modifiedBody = modifiedBody.replaceAll(
+          'href="/changes',
+          'href="https://developer.github.com/changes',
+        )
       }
+
+      // Continue with remaining replacements
+      modifiedBody = modifiedBody.replaceAll(
+        /="(\.\.\/)*assets/g,
+        `="${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets`,
+      )
+
+      // Fix broken hrefs on the 2.16 landing page
+      if (requestedVersion === '2.16' && req.path === '/en/enterprise/2.16') {
+        modifiedBody = modifiedBody.replaceAll('ref="/en/enterprise', 'ref="/en/enterprise/2.16')
+      }
+
+      // Remove the search results container from the page
+      modifiedBody = modifiedBody.replaceAll('<div id="search-results-container"></div>', '')
+
+      return res.send(modifiedBody)
     }
 
     // In all releases, some assets were incorrectly scraped and contain
@@ -278,21 +301,21 @@ export default async function archivedEnterpriseVersions(
     // We want to update the URLs in the format
     // "../../../../../../assets/" to prefix the assets directory with the
     // new archived enterprise repo URL.
-    r.body = r.body.replaceAll(
+    let modifiedBody = body.replaceAll(
       /="(\.\.\/)*assets/g,
       `="${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets`,
     )
 
     // Fix broken hrefs on the 2.16 landing page
     if (requestedVersion === '2.16' && req.path === '/en/enterprise/2.16') {
-      r.body = r.body.replaceAll('ref="/en/enterprise', 'ref="/en/enterprise/2.16')
+      modifiedBody = modifiedBody.replaceAll('ref="/en/enterprise', 'ref="/en/enterprise/2.16')
     }
 
     // Remove the search results container from the page, which removes a white
     // box that prevents clicking on page links
-    r.body = r.body.replaceAll('<div id="search-results-container"></div>', '')
+    modifiedBody = modifiedBody.replaceAll('<div id="search-results-container"></div>', '')
 
-    return res.send(r.body)
+    return res.send(modifiedBody)
   }
   // In releases 2.13 - 2.17, we lost access to frontmatter redirects
   //  during the archival process. This workaround finds potentially

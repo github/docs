@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
-import statsd from '@/observability/lib/statsd.js'
-import { noCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import statsd from '@/observability/lib/statsd'
+import { noCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystrings'
@@ -45,6 +45,8 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'utm_campaign',
   // Used by experiments
   'feature',
+  // Used to track API requests from external sources
+  'client_name',
 ])
 
 export default function handleInvalidQuerystrings(

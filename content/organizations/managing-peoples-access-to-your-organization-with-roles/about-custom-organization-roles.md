@@ -6,7 +6,6 @@ versions:
 topics:
   - Organizations
 shortTitle: Custom organization roles
-permissions: 'Organization owners and users with the "Manage custom organization roles" permission'
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
 ---
 

@@ -1504,22 +1504,8 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
-  - location: SearchType.ISSUE_ADVANCED
-    description: '`ISSUE_ADVANCED` will be removed.'
-    reason:
-      Search for issues and pull requests will be overridden by advanced search
-      on September 4, 2025. You can read more about this change on https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/.
-    date: '2025-09-04'
-    criticality: breaking
-    owner: github/issues_advanced_search
-  - location: ClosedEvent.stateReason
-    description: '`stateReason` will be removed.'
-    reason: The state reason for duplicate issue is now returned by default.
-    date: '2025-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: issues
-  - location: Issue.stateReason
-    description: '`stateReason` will be removed.'
+  - location: Issue.stateReason.enableDuplicate
+    description: '`enableDuplicate` will be removed.'
     reason: The state reason for duplicate issue is now returned by default.
     date: '2025-10-01T00:00:00+00:00'
     criticality: breaking
@@ -1532,6 +1518,18 @@ upcoming_changes:
     date: '2025-10-01T00:00:00+00:00'
     criticality: breaking
     owner: github/advisory-database
+  - location: NotificationThread.list
+    description: '`list` will be removed. Use the `optionalList` field instead.'
+    reason: Null values are possible for this field.
+    date: '2026-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/notifications
+  - location: NotificationThread.subject
+    description: '`subject` will be removed. Use the `optionalSubject` field instead.'
+    reason: Null values are possible for this field.
+    date: '2026-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/notifications
   - location: AuditEntry.action
     description: '`action` will be removed.'
     reason: The GraphQL audit-log is deprecated. Please use the REST API instead.

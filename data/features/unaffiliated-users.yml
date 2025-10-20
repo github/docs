@@ -1,0 +1,6 @@
+# Issue 19374: Originally part of the Copilot direct licensing ship
+# FBV created in case it ships to GHES later
+
+versions:
+  fpt: '*'
+  ghec: '*'

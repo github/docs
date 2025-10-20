@@ -11,5 +11,6 @@ children:
   - /upgrade-requirements
   - /enabling-automatic-update-checks
   - /taking-a-snapshot
+  - /check-system-capacity-before-upgrading
 shortTitle: Prepare to upgrade
 ---

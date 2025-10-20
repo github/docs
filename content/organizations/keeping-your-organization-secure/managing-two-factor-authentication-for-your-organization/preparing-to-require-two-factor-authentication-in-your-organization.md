@@ -20,14 +20,14 @@ When requiring two-factor authentication in your organization, consider if you a
 
 We recommend that you notify {% ifversion fpt or ghec %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} at least one week before you require 2FA in your organization.
 
-When you require use of 2FA for your organization, {% ifversion ghes < 3.17 %}members and {% endif %}outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories.{% ifversion fpt or ghec %} If you require secure methods of 2FA, outside collaborators who have SMS 2FA configured will be removed. {% endif %} They will also lose access to their forks of the organization's private repositories.
+When you require use of 2FA for your organization, {% ifversion ghes < 3.17 %}members and {% endif %}outside collaborators (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories.{% ifversion fpt or ghec %} If you require secure methods of 2FA, outside collaborators who have SMS 2FA configured will be removed.{% endif %} They will also lose access to their forks of the organization's private repositories.
 {% ifversion fpt or ghec or ghes > 3.16 %}
 Members {% ifversion fpt or ghec %}and billing managers {% endif %}will retain membership but not be able to access your organization resources until they meet your 2FA requirement{% ifversion fpt or ghec %} and 2FA security level{% endif %}.
 {% endif %}
 
 Before requiring 2FA in your organization, we recommend that you:
 
-* Enable 2FA on your personal account{% ifversion fpt or ghec %} with a secure method {% endif %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
+* Enable 2FA on your personal account{% ifversion fpt or ghec %} with a secure method{% endif %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa).
 * Ask the people in your organization to set up 2FA for their accounts{% ifversion fpt or ghec %} with secure methods{% endif %}.
 {% ifversion fpt or ghec %}
 * View the 2FA security levels of users in your organization, to judge the impact of adding a 2FA requirement. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).

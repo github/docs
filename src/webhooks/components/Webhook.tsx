@@ -157,9 +157,7 @@ export function Webhook({ webhook }: Props) {
           <Flash className="mb-5" variant="danger">
             <p>{t('action_type_switch_error')}</p>
             <p>
-              <code className="f6" style={{ background: 'none' }}>
-                {error.toString()}
-              </code>
+              <code className={`f6 ${styles.errorCode}`}>{error.toString()}</code>
             </p>
           </Flash>
         )}

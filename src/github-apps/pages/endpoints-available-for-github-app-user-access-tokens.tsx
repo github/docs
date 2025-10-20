@@ -35,7 +35,7 @@ export default function UserGitHubAppEndpoints({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getAppsServerSideProps } = await import('@/github-apps/lib/index.js')
+  const { getAppsServerSideProps } = await import('@/github-apps/lib/index')
   const { currentVersion, appsItems, categoriesWithoutSubcategories } =
     await getAppsServerSideProps(context, 'user-to-server-rest', { useDisplayTitle: false })
 

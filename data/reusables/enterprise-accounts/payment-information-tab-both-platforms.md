@@ -1,1 +1,1 @@
-1. Under "Billing & Licensing" (new platform) or "Billing", click **Payment information**.
+1. Under "Billing & Licensing", click **Payment information**.

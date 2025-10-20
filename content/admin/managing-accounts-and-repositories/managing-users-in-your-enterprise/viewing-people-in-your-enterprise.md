@@ -82,8 +82,6 @@ If a user has multiple roles in an enterprise, the user is counted once for each
 
 An "outside collaborator" is a user who has access to a repository in an organization, but is not a member of the organization. The user might be an outside collaborator in one organization in your enterprise and a member of another organization. In this case, the user counts towards each total. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization).
 
-If your enterprise uses {% ifversion ghec %}{% data variables.enterprise.prodname_managed_users %}{% else %}SCIM provisioning{% endif %}, an "unaffiliated" user is someone who been provisioned with a user account, but is not a member of any of your organizations.
-
 {% ifversion ghec %}
 
 #### User licenses consumed

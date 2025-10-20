@@ -1,5 +1,6 @@
-# Reference: #16543 (C/C++ public preview)
+# Reference: #19520 (C/C++ GA)
 
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>= 3.20'

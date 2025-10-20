@@ -15,20 +15,19 @@ type Experiment = {
 }
 
 // Update this with the name of the experiment, e.g. | 'example_experiment'
-export type ExperimentNames = 'ai_search_experiment'
+export type ExperimentNames = 'placeholder_experiment'
 
 export const EXPERIMENTS = {
-  ai_search_experiment: {
-    key: 'ai_search_experiment',
-    isActive: true, // Set to false when the experiment is over
-    // We still use an experiment for the AI Search until we:
-    // 1. Move analytics over the main dashboard
-    // 2. Don't require an emergency rollback, which experiments provides us
-    percentOfUsersToGetExperiment: 100, // 100% of users will get the experiment
-    includeVariationInContext: true, // All events will include the `experiment_variation` of the `ai_search_experiment`
-    limitToLanguages: ['en'], // Only users with the `en` language will be included in the experiment
-    alwaysShowForStaff: true, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
-    turnOnWithURLParam: 'ai_search', /// When the query param `?feature=ai_search` is set, the experiment will be enabled
+  // Placeholder experiment to maintain type compatibility
+  placeholder_experiment: {
+    key: 'placeholder_experiment',
+    isActive: false, // Inactive placeholder
+    percentOfUsersToGetExperiment: 0,
+    includeVariationInContext: false,
+    limitToLanguages: [],
+    limitToVersions: [],
+    alwaysShowForStaff: false,
+    turnOnWithURLParam: 'placeholder', // Placeholder URL param
   },
   /*  Add new experiments here, example:
   'example_experiment': {

@@ -1,58 +1,109 @@
-.search-cache
+# Test coverage reports
+.coverage/
+
+# macOS system files
 .DS_Store
+
+# Environment variables (contains secrets)
 .env
-.vscode/settings.json
-.idea/
-/node_modules/
-npm-debug.log
-coverage/
-/assets/images/early-access
-/content/early-access
-/data/early-access
-/src/dev-toc/static
-.next
+
+# ESLint cache for faster linting
 .eslintcache
-*.tsbuildinfo
-/translations/
-.node-version
-.linkinator/full.log
-next-env.d.ts
-nohup.out
 
-# blc: broken link checker
-blc_output.log
-blc_output_internal.log
-broken_links.md
-# This one is purely for historical reasons because so many people might
-# still have these files on their disk.
-lib/redirects/.redirects-cache*.json
+# JetBrains IDE files
+.idea/
 
-
-# Logs from scripts
-*/logs/
-external-link-checker-db.json
-
-# Playwright related
-/test-results/
-/playwright-report/
-/playwright/.cache/
-
-# Automated content source
-rest-api-description
-semmle-code
-models-gateway
-
+# Tracks package-lock.json installation state
 .installed.package-lock.json
-assets/images/help/writing/unordered-list-rendered (1).png
 
-# Used by getRemoteJSON()
-.remotejson-cache/
+# Linkinator full site link check results
+.linkinator/
 
-# Used by precompute-pageinfo
+# Next.js build output
+.next/
+
+# Node.js version specification
+.node-version
+
+# Precomputed page info cache (brotli compressed)
 .pageinfo-cache.json.br
 
-# Cloned and used for indexing Elasticsearch data
+# getRemoteJSON() disk cache for archived content
+.remotejson-cache/
+
+# VS Code workspace settings
+.vscode/settings.json
+
+# TypeScript incremental build info
+*.tsbuildinfo
+
+# Accidentally committed file that should be ignored
+assets/images/help/writing/unordered-list-rendered (1).png
+
+# Old broken link checker output
+blc_output.log
+
+# Old internal broken link checker output
+blc_output_internal.log
+
+# Old broken links report
+broken_links.md
+
+# Directories from the docs-early-access repo. Used for symlinks in local docs-internal checkouts. Don't add trailing slashes.
+content/early-access
+data/early-access
+assets/images/early-access
+
+# Test coverage reports
+coverage/
+
+# Cloned for Elasticsearch indexing data
 docs-internal-data/
 
-# For intermediate data (like scraping for Elasticsearch indexing)
+# External link checker cache database
+external-link-checker-db.json
+
+# Historical redirects cache (legacy)
+lib/redirects/.redirects-cache*.json
+
+# Script execution logs
+logs/
+
+# GitHub Models API descriptions
+models-gateway/
+
+# Next.js TypeScript environment definitions
+next-env.d.ts
+
+# Node.js dependencies
+node_modules/
+
+# Background process output
+nohup.out
+
+# NPM debug logs
+npm-debug.log
+
+# Playwright test reports
+playwright-report/
+
+# Playwright browser cache
+playwright/.cache/
+
+# REST API OpenAPI descriptions
+rest-api-description/
+
+# CodeQL CLI documentation source
+semmle-code/
+
+# Development table of contents static HTML files
+src/dev-toc/static/
+
+# Playwright test result artifacts
+test-results/
+
+# Temporary data files
 tmp/
+
+# Localized content from translation repositories
+translations/

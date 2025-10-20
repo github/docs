@@ -31,7 +31,7 @@ You can enable the "Parent issue" field to see which parent issues the issues in
 
 1. Under "Hidden fields", click **Parent issue**.
 
-## Enabling the Sub-issue progress
+## Enabling the Sub-issue progress field
 
 You can enable the "Sub-issue progress" field to see how many sub-issues have been completed.
 

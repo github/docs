@@ -1,6 +1,6 @@
 import type { NextFunction, Response } from 'express'
 
-import statsd from '@/observability/lib/statsd.js'
+import statsd from '@/observability/lib/statsd'
 import { ExtendedRequest } from '@/types'
 
 class AbortError extends Error {

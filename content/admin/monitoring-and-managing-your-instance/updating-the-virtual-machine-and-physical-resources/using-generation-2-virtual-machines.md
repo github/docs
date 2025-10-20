@@ -4,7 +4,7 @@ intro: 'New installs of {% data variables.product.prodname_ghe_server %} 3.14 or
 redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/using-generation-2-virtual-machines
 versions:
-  ghes: '>3.13'
+  ghes: '*'
 type: reference
 topics:
   - Enterprise

@@ -12,6 +12,7 @@ topics:
 children:
   - /about-your-exposure-to-vulnerable-dependencies
   - /prioritizing-dependabot-alerts-using-metrics
+  - /prioritizing-dependabot-alerts-using-production-context
 redirect_from:
   - /code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilites
 ---

@@ -22,6 +22,9 @@ The migration log lists the steps that were completed as part of the migration a
 * The source of the migration
 * How long the migration took
 
+> [!IMPORTANT]  
+> Issues should be enabled in the target repository for the migration log to be created.
+
 You can access the migration log for a repository migration in multiple ways.
 
 * On {% data variables.product.prodname_dotcom %}, by viewing the "Migration Log" issue in the migrated repository. You can use this issue to discuss any warnings with your team and record any decisions.

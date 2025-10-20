@@ -18,7 +18,7 @@ topics:
 
 {% ifversion ghec %}
 
-When you create a security configuration with {% data variables.product.prodname_AS %} features enabled, your enterprise will incur usage costs when you apply the configuration to repositories if your enterprise account has metered billing. If you have bought volume/subscription licenses for {% data variables.product.prodname_GHAS %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}, you will need enough licenses to cover any additional unique committers.
+When you create a security configuration with {% data variables.product.prodname_AS %} features enabled, your enterprise will incur usage costs when you apply the configuration to repositories if your enterprise account has metered billing. If you have bought volume/subscription licenses for {% data variables.product.prodname_GHAS %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}, you will need enough licenses to cover any additional unique committers. See [AUTOTITLE](/billing/how-tos/products/add-advanced-security).
 
 {% endif %}
 

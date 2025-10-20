@@ -35,7 +35,7 @@ export default function SubCategory({ mainContext, automatedPageContext, restOpe
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index.js')
+  const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
 
   const req = context.req as any
   const res = context.res as any
@@ -55,7 +55,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     subCategory = category
   }
 
-  const restOperations = (await getRest(currentVersion, apiVersion, category, subCategory)) || []
+  const restData = await getRest(currentVersion, apiVersion)
+  const restOperations = (restData && restData[category] && restData[category][subCategory]) || []
 
   // Gets the miniTocItems in the article context. At this point it will only
   // include miniTocItems generated from the Markdown pages in

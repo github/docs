@@ -20,7 +20,7 @@ You can set your own custom variables or use the default environment variables t
 You can set a custom variable in two ways.
 
 * To define an environment variable for use in a single workflow, you can use the `env` key in the workflow file. For more information, see [Defining environment variables for a single workflow](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#defining-environment-variables-for-a-single-workflow).
-* To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see [Defining configuration variables for multiple workflows](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#defining-configuration-variables-for-multiple-workflows).
+* To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. When creating a variable in an organization, you can use a policy to limit access by repository. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories. For more information, see [Defining configuration variables for multiple workflows](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#defining-configuration-variables-for-multiple-workflows).
 
 > [!WARNING]
 > By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead. For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).

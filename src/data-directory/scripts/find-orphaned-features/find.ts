@@ -36,10 +36,10 @@ import { TokenizationError } from 'liquidjs'
 
 import type { Page } from '@/types'
 import warmServer from '@/frame/lib/warm-server'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
-import languages from '@/languages/lib/languages.js'
-import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
+import languages from '@/languages/lib/languages'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 const EXCEPTIONS = new Set([
   // From data/features/placeholder.yml. Used by tests.

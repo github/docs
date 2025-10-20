@@ -1,0 +1,23 @@
+/* Accessibility fixes for tooltip text spacing and other a11y improvements */
+
+/* Fix tooltip text spacing inheritance - Issue #11442 */
+.tooltipped {
+  &::before,
+  &::after {
+    /* Allow tooltips to inherit user's custom text spacing preferences */
+    letter-spacing: inherit !important;
+    word-spacing: inherit !important;
+    line-height: inherit !important;
+  }
+}
+
+/* Enhanced focus indicators for high contrast mode */
+@media (prefers-contrast: high) {
+  .tooltipped {
+    &:focus-visible::before,
+    &:focus-visible::after {
+      outline: 2px solid var(--color-focus-outset);
+      outline-offset: 2px;
+    }
+  }
+}

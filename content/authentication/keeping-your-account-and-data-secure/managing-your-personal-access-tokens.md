@@ -118,6 +118,146 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 
 If you selected an organization as the resource owner and the organization requires approval for {% data variables.product.pat_v2 %}s, then your token will be marked as `pending` until it is reviewed by an organization administrator. Your token will only be able to read public resources until it is approved. If you are an owner of the organization, your request is automatically approved. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization).
 
+### Pre-filling {% data variables.product.pat_v2 %} details using URL parameters
+
+You can share templates for a {% data variables.product.pat_v2 %} via links. Storing token details this way makes it easier to automate workflows and improve your developer experience by directing users to token creation with relevant fields already completed.
+
+Each supported field can be set using a specific query parameter. All parameters are optional and validated by the token generation form to ensure that the combinations of permissions and resource owner makes sense.
+
+An example URL template is shown here, with line breaks for legibility:
+
+```http copy
+https://github.com/settings/personal-access-tokens/new
+  ?name=Repo-reading+token
+  &description=Just+contents:read
+  &target_name=octodemo
+  &expires_in=45
+  &contents=read
+```
+
+Try the URL to create a token with `contents:read` and `metadata:read`, with the given name and description and an expiration date 45 days in the future. You'll see an error message indicating `Cannot find the specified resource owner: octodemo` because you're not a member of the `octodemo` organization.
+
+Below are some example URLs that generate the tokens we see most often:
+
+* [Read repo contents](https://github.com/settings/personal-access-tokens/new?name=Repo-reading+token&description=Just+contents:read&contents=read)
+* [Push access to repos](https://github.com/settings/personal-access-tokens/new?name=Repo-writing+token&description=Just+contents:write&contents=write)
+* [GitHub Models access](https://github.com/settings/personal-access-tokens/new?name=GitHub+Models+token&description=Used%20to%20call%20GitHub%20Models%20APIs%20to%20easily%20run%20LLMs%3A%20https%3A%2F%2Fdocs.github.com%2Fgithub-models%2Fquickstart%23step-2-make-an-api-call&user_models=read)<!-- markdownlint-disable-line search-replace Custom rule -->
+* [Update code and open a PR](https://github.com/settings/personal-access-tokens/new?name=Core-loop+token&description=Write%20code%20and%20push%20it%20to%20main%21%20Includes%20permission%20to%20edit%20workflow%20files%20for%20Actions%20-%20remove%20%60workflows%3Awrite%60%20if%20you%20don%27t%20need%20to%20do%20that&contents=write&pull_requests=write&workflows=write)
+* [Manage Copilot licenses in an organization](https://github.com/settings/personal-access-tokens/new?name=Core-loop+token&description=Enable%20or%20disable%20copilot%20access%20for%20users%20with%20the%20Seat%20Management%20APIs%3A%20https%3A%2F%2Fdocs.github.com%2Frest%2Fcopilot%2Fcopilot-user-management%0ABe%20sure%20to%20select%20an%20organization%20for%20your%20resource%20owner%20below%21&organization_copilot_seat_management=write)<!-- markdownlint-disable-line search-replace Custom rule -->
+
+#### Supported Query Parameters
+
+To create your own token template, follow the query parameter details provided in this table:
+
+| Parameter      | Type   | Example Value    | Valid Values | Description           |
+|----------------|--------|------------------|--------------|-----------------------|
+| `name`        | string | `Deploy%20Bot`    | ≤ 40 characters, URL-encoded | Pre-fills the token’s display name. |
+| `description` | string | `Used+for+deployments` |   ≤ 1024 chars, URL-encoded  | Pre-fills the description for the token. |
+| `target_name` | string | `octodemo`  |   User or organization slug  | Sets the token's resource target. This is the owner of the repositories that the token will be able to access. If not provided, defaults to the current user's account. |
+| `expires_in`  | integer| `30` or `none` | Integer between 1 and 366, or `none` | Days until expiration or `none` for non-expiring. If not provided, the default is 30 days, or less if the target has a token lifetime policy set. |
+| `<permission>` | string | `contents=read` | A series of permission and access levels. | The permissions the token should have. Permissions can be set to `read`, `write`, or `admin`, but not every permission supports each of those levels. |
+
+#### Permissions
+
+Each supported permission is set using its name as a query parameter, with the value specifying the desired access level. Valid access levels are `read`, `write`, and `admin`. Some permissions only support `read`, some only support `write`, and only a few have `admin`. Use as many permissions as needed, in the form `&contents=read&pull_requests=write&...`.
+
+You do not need to include both `read` and `write` for a permission in your URL—`write` always includes `read`, and `admin` always includes `write`.
+
+##### Account Permissions
+
+Account permissions are only used when the current user is set as the resource owner.
+
+| Parameter name | Display name  | Access levels |
+|---|---|---|
+| `blocking` | Block another user | `read`, `write` |
+| `codespaces_user_secrets` | Codespaces user secrets | `read`, `write` |
+| `copilot_messages` | Copilot Chat | `read` |
+| `copilot_editor_context` | Copilot Editor Context | `read` |
+| `emails` | Email addresses | `read`, `write` |
+| `user_events` | Events | `read` |
+| `followers` | Followers | `read`, `write` |
+| `gpg_keys` | GPG keys | `read`, `write` |
+| `gists` | Gists | `write` |
+| `keys` | Git SSH keys | `read`, `write` |
+| `interaction_limits` | Interaction limits | `read`, `write` |
+| `knowledge_bases` | Knowledge bases | `read`, `write` |
+| `user_models` | Models | `read` |
+| `plan` | Plan | `read` |
+| `private_repository_invitations` | Private repository invitations | `read` |
+| `profile` | Profile | `write` |
+| `git_signing_ssh_public_keys` | SSH signing keys | `read`, `write` |
+| `starring` | Starring | `read`, `write` |
+| `watching` | Watching | `read`, `write` |
+
+##### Repository Permissions
+
+Repository permissions work for both user and organization resource owners.
+
+| Parameter name | Display name  | Access levels |
+|---|---|---|
+| `actions` | Actions | `read`, `write` |
+| `administration` | Administration | `read`, `write` |
+| `attestations` | Attestations | `read`, `write` |
+| `security_events` | Code scanning alerts | `read`, `write` |
+| `codespaces` | Codespaces | `read`, `write` |
+| `codespaces_lifecycle_admin` | Codespaces lifecycle admin | `read`, `write` |
+| `codespaces_metadata` | Codespaces metadata | `read` |
+| `codespaces_secrets` | Codespaces secrets | `write` |
+| `statuses` | Commit statuses | `read`, `write` |
+| `contents` | Contents | `read`, `write` |
+| `repository_custom_properties` | Custom properties | `read`, `write` |
+| `vulnerability_alerts` | Dependabot alerts | `read`, `write` |
+| `dependabot_secrets` | Dependabot secrets | `read`, `write` |
+| `deployments` | Deployments | `read`, `write` |
+| `discussions` | Discussions | `read`, `write` |
+| `environments` | Environments | `read`, `write` |
+| `issues` | Issues | `read`, `write` |
+| `merge_queues` | Merge queues | `read`, `write` |
+| `metadata` | Metadata | `read` |
+| `pages` | Pages | `read`, `write` |
+| `pull_requests` | Pull requests | `read`, `write` |
+| `repository_advisories` | Repository security advisories | `read`, `write` |
+| `secret_scanning_alerts` | Secret scanning alerts | `read`, `write` |
+| `secrets` | Secrets | `read`, `write` |
+| `actions_variables` | Variables | `read`, `write` |
+| `repository_hooks` | Webhooks | `read`, `write` |
+| `workflows` | Workflows | `write` |
+
+##### Organization Permissions
+
+Organization permissions can only be used if the resource owner is an organization.
+
+| Parameter name | Display name  | Access levels |
+|---|---|---|
+| `organization_api_insights` | API Insights | `read` |
+| `organization_administration` | Administration | `read`, `write` |
+| `organization_user_blocking` | Blocking users | `read`, `write` |
+| `organization_campaigns` | Campaigns | `read`, `write` |
+| `organization_custom_org_roles` | Custom organization roles | `read`, `write` |
+| `organization_custom_properties` | Custom repository properties | `read`, `write`, `admin` |
+| `organization_custom_roles` | Custom repository roles | `read`, `write` |
+| `organization_events` | Events | `read` |
+| `organization_copilot_seat_management` | GitHub Copilot Business | `read`, `write` |
+| `issue_types` | Issue Types | `read`, `write` |
+| `organization_knowledge_bases` | Knowledge bases | `read`, `write` |
+| `members` | Members | `read`, `write` |
+| `organization_models` | Models | `read` |
+| `organization_network_configurations` | Network configurations | `read`, `write` |
+| `organization_announcement_banners` | Organization announcement banners | `read`, `write` |
+| `organization_codespaces` | Organization codespaces | `read`, `write` |
+| `organization_codespaces_secrets` | Organization codespaces secrets | `read`, `write` |
+| `organization_codespaces_settings` | Organization codespaces settings | `read`, `write` |
+| `organization_dependabot_secrets` | Organization dependabot secrets | `read`, `write` |
+| `organization_code_scanning_dismissal_requests` | Code scanning dismissal requests | `read`, `write` |
+| `organization_private_registries` | Private registries | `read`, `write` |
+| `organization_plan` | Plan | `read` |
+| `organization_projects` | Projects | `read`, `write`, `admin` |
+| `organization_secrets` | Secrets | `read`, `write` |
+| `organization_self_hosted_runners` | Self-hosted runners | `read`, `write` |
+| `team_discussions` | Team discussions | `read`, `write` |
+| `organization_actions_variables` | Variables | `read`, `write` |
+| `organization_hooks` | Webhooks | `read`, `write` |
+
 ## Creating a {% data variables.product.pat_v1 %}
 
 > [!NOTE]

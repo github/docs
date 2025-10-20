@@ -1,0 +1,6 @@
+# References:
+# Issue #19055 - Dependabot updates ecosystem support [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.19'

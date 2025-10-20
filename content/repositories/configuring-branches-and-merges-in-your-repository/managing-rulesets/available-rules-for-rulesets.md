@@ -142,7 +142,7 @@ You can use the commit status API to allow external services to mark commits wit
 
 After enabling required status checks, all required status checks must pass before collaborators can merge changes into the branch or tag. {% ifversion repo-rules-ignorecheck %} Optionally, you can select "Do not require status checks on creation" if you wish to allow branch creation regardless of the status check result. {% endif %}
 
-Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check rule, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source", you can still manually verify the author of each status, listed in the merge box.
+Any person or integration with write permissions to a repository can set the state of any status check in the repository, but in some cases you may only want to accept a status check from a specific {% data variables.product.prodname_github_app %}. When you add a required status check rule, you can select an app as the expected source of status updates. The app must be installed in the repository with the `statuses:write` permission, must have recently submitted a check run, and must be associated with a pre-existing required status check in the ruleset. If the status is set by any other person or integration, merging won't be allowed. If you select "any source," you can still manually verify the author of each status, listed in the merge box.
 
 To troubleshoot issues with configuring status checks in rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/troubleshooting-rules#troubleshooting-required-status-checks).
 
@@ -162,8 +162,6 @@ You can think of required status checks as being either "loose" or "strict." The
 
 For status check troubleshooting information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks).
 
-{% ifversion code-scanning-merge-protection-rulesets %}
-
 ## Set {% data variables.product.prodname_code_scanning %} merge protection
 
 If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
@@ -171,8 +169,6 @@ If your repositories are configured with {% data variables.product.prodname_code
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
-
-{% endif %}
 
 ## Block force pushes
 
@@ -242,7 +238,7 @@ Metadata restrictions block "ref updates." If a contributor pushes work that inc
 
 Metadata restrictions can increase friction for people contributing to a repository. Generally, if you impose metadata restrictions, you should do so on a limited set of branches to avoid impacting contributors' daily work. For example, instead of requiring consistent commit messages on any topic branch that a contributor might work on, you should require consistent commit messages on `main` only, then require pull requests into `main`.
 
-If you use squash merges, you should be aware that metadata restrictions are evaluated before the merge, so all commits on the pull request must meet the requirements. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
+If you use squash merges, the individual commits in the pull request are ignored. Instead, restrictions are only validated against the metadata of the single, resulting merge commit. The pull request page validates this information before the merge is allowed, ensuring the final commit is compliant. For metadata restrictions that apply to committer emails, the pattern must also include `noreply@github.com` for squash merges to satisfy the restriction.
 
 When you add metadata restrictions to an existing branch or tag, the rules are enforced for new commits pushed to the branch or tag from that point forward, but they are not enforced against the existing history of the branch or tag.
 

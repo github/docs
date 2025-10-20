@@ -12,6 +12,8 @@ import useCopyClipboard from '@/rest/components/useClipboard'
 import { EventType } from '@/events/types'
 import { sendEvent } from '@/events/components/events'
 
+import styles from './MarkdownContent.module.scss'
+
 export type MarkdownContentPropsT = {
   children: string
   className?: string
@@ -29,12 +31,13 @@ export const UnrenderedMarkdownContent = ({
   className,
   openLinksInNewTab = true,
   includeQueryParams = true,
-  codeBlocksCopyable = true,
+  codeBlocksCopyable = false,
   eventGroupKey = '',
   eventGroupId = '',
   ...restProps
 }: MarkdownContentPropsT) => {
   const { t } = useTranslation('search')
+
   // Overrides for ReactMarkdown components
   const components = {} as Components
   if (codeBlocksCopyable) {
@@ -50,19 +53,33 @@ export const UnrenderedMarkdownContent = ({
         text = text.replace(/\n$/, '')
       }
 
+      // Extract language from className for better accessibility
+      const language = props.className?.startsWith('language-')
+        ? props.className.replace('language-', '')
+        : ''
+
       const [isCopied, copyToClipboard] = useCopyClipboard(text, {
         successDuration: 2000,
       })
 
+      // Create more descriptive aria-label
+      const getAriaLabel = () => {
+        if (isCopied) {
+          return t('search.ai.response.copied_code')
+        }
+        return t('search.ai.response.copy_code_lang').replace(
+          '{language}',
+          language ? `${language} ` : '',
+        )
+      }
+
       return (
-        <div style={{ position: 'relative' }}>
+        <div className={styles.codeBlockContainer}>
           <IconButton
             size="small"
             icon={isCopied ? CheckIcon : CopyIcon}
-            className="btn-octicon"
-            aria-label={
-              isCopied ? t('search.ai.response.copied_code') : t('search.ai.response.copy_code')
-            }
+            className={cx('btn-octicon', styles.copyButton)}
+            aria-label={getAriaLabel()}
             onClick={async () => {
               await copyToClipboard()
               announce(t('search.ai.response.copied_code'))
@@ -72,12 +89,6 @@ export const UnrenderedMarkdownContent = ({
                 eventGroupKey: eventGroupKey,
                 eventGroupId: eventGroupId,
               })
-            }}
-            sx={{
-              position: 'absolute',
-              right: '-.7rem',
-              top: '-.7rem',
-              zIndex: 1,
             }}
           ></IconButton>
           <code {...props}>{props.children}</code>

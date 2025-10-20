@@ -47,7 +47,7 @@ If you do not need to work with files locally, {% data variables.product.github 
    > If you are using an older Chrome OS device, another method is required:
    >
    > 1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-   > 1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+   > 1. From the terminal emulator that you installed, install Git. For example, in Termux, enter `pkg install git` and then type `y` when prompted.
 
 1. [Set your username in Git](/get-started/git-basics/setting-your-username-in-git).
 1. [Set your commit email address in Git](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).

@@ -23,7 +23,6 @@ redirect_from:
 | Automatically test and build your application | [AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration) |
 | Deploy your application | [AUTOTITLE](/actions/deployment/about-deployments/about-continuous-deployment) |
 | Automatically and securely package code into artifacts and containers | [AUTOTITLE](/actions/publishing-packages/about-packaging-with-github-actions) |
-| Automate your project management tasks | [AUTOTITLE](/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management) |
 
 {% data variables.product.prodname_actions %} helps your team work faster at scale. When large repositories start using {% data variables.product.prodname_actions %}, pull requests are typically merged faster, allowing teams to merge more pull requests per day.
 

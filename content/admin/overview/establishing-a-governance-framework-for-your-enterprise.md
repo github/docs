@@ -94,7 +94,13 @@ See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protectio
 
 Push protection can be enabled at the organization, repository, and user account level. See [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository).
 
-{% ifversion push-protection-delegated-bypass %}
+{% ifversion push-protected-pattern-configuration %}
+
+{% data reusables.secret-scanning.push-protected-pattern-configuration-org-enterprise-preview %}
+
+To align secret detection with internal security policies and more effectively prevent unauthorized exposure of sensitive information in your repositories, you can customize which secret patterns are included in push protection at the enterprise or organization level. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#specifying-patterns-to-include-in-push-protection-for-your-enterprise) and [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#specifying-patterns-to-include-in-push-protection).
+
+{% endif %}
 
 ## Setting up an approval process for sensitive actions
 
@@ -105,8 +111,6 @@ You may want to set up an approval process for better control over who in your e
 Approval processes are available for:
 * Bypasses of push protection—You can choose who is allowed to bypass push protection, and add a review and approval cycle for pushes containing secrets from all other contributors. For more information about **delegated bypass for push protection**, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).{% ifversion security-delegated-alert-dismissal %}
 * Dismissals of alerts for {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}—You can provide additional control and visibility over alert assessment by ensuring that only designated individuals can dismiss (or close) alerts. For more information about **delegated alert dismissal**, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning) and [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/enabling-delegated-alert-dismissal-for-code-scanning).
-
-{% endif %}
 
 {% endif %}
 

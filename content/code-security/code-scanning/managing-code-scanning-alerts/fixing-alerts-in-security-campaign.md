@@ -20,8 +20,8 @@ topics:
 When a campaign targets security alerts in a repository that you have write access to, you can navigate to the list of repository alerts in the campaign.
 
 * Display the **Security** tab for the repository and click one of the campaigns under "Campaigns" in the sidebar.
-* If you have enabled email notifications for "All activity" or "Security alerts" in the repository, click **View security campaign** in the campaign email.
 * If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under "Campaigns" in the sidebar.
+* Alternatively, click **View security campaign** in the campaign's email notification.
 
 This view shows the alerts in the current repository for a campaign called "SQL injection (CWE-89)" (highlighted gray) that is managed by "octocat" (outlined in dark orange).
 

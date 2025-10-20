@@ -1,8 +1,8 @@
 import type { NextFunction, Response } from 'express'
 
 import { formatReleases, renderPatchNotes } from '@/release-notes/lib/release-notes-utils'
-import { all, latestStable } from '@/versions/lib/enterprise-server-releases.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
+import { all, latestStable } from '@/versions/lib/enterprise-server-releases'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import { getReleaseNotes } from './get-release-notes'
 import type { Context, ExtendedRequest } from '@/types'
 

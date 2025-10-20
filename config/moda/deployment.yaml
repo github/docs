@@ -7,12 +7,24 @@ environments:
       profile: general
       region: iad
 
-  # 12 staging environments, evergreens only
+  # 15 staging environments, evergreens only
   # they should all contain the same configs
+  - name: staging-balsam
+    require_pipeline: false
+    notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: staging
+    required_review_tasks: []
+    auto_deploy: true
+    skip_auto_merge: true
+    cluster_selector:
+      profile: general
+      region: iad
+    extra_completed_message: ':balsam: Review at https://docs-internal-staging-balsam.githubapp.com/'
+
   - name: staging-boxwood
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -24,7 +36,7 @@ environments:
   - name: staging-cedar
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -36,7 +48,7 @@ environments:
   - name: staging-cypress
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -48,7 +60,7 @@ environments:
   - name: staging-fir
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -60,7 +72,7 @@ environments:
   - name: staging-hemlock
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -69,10 +81,22 @@ environments:
       region: iad
     extra_completed_message: ':hemlock: Review at https://docs-internal-staging-hemlock.githubapp.com/'
 
+  - name: staging-hinoki
+    require_pipeline: false
+    notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: staging
+    required_review_tasks: []
+    auto_deploy: true
+    skip_auto_merge: true
+    cluster_selector:
+      profile: general
+      region: iad
+    extra_completed_message: ':hinoki: Review at https://docs-internal-staging-hinoki.githubapp.com/'
+
   - name: staging-holly
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -84,7 +108,7 @@ environments:
   - name: staging-juniper
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -96,7 +120,7 @@ environments:
   - name: staging-laurel
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -108,7 +132,7 @@ environments:
   - name: staging-pine
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -120,7 +144,7 @@ environments:
   - name: staging-redwood
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -132,7 +156,7 @@ environments:
   - name: staging-sequoia
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -144,7 +168,7 @@ environments:
   - name: staging-spruce
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
-    secret_environment: production
+    secret_environment: staging
     required_review_tasks: []
     auto_deploy: true
     skip_auto_merge: true
@@ -152,6 +176,18 @@ environments:
       profile: general
       region: iad
     extra_completed_message: ':spruce: Review at https://docs-internal-staging-spruce.githubapp.com/'
+
+  - name: staging-yew
+    require_pipeline: false
+    notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: staging
+    required_review_tasks: []
+    auto_deploy: true
+    skip_auto_merge: true
+    cluster_selector:
+      profile: general
+      region: iad
+    extra_completed_message: ':yew: Review at https://docs-internal-staging-yew.githubapp.com/'
 
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle

@@ -1,0 +1,2 @@
+> [!NOTE]
+> Commits will only appear on your contributions calendar if the email address you used to author the commits is connected to your {% data variables.product.github %} account. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)

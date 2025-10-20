@@ -77,7 +77,7 @@ You can edit a webhook that was created for an app that you published in {% data
 
 You can edit a webhook that was created for a {% data variables.product.prodname_sponsors %} account. Only the owner of the sponsored account can edit sponsorship webhooks for that account.
 
-1. In the upper-right corner of any page, click your profile photo, then click **Your sponsors**.
+1. In the upper-right corner of any page, click your profile picture, then click **Your sponsors**.
 1. Next to the account you want to edit a webhook for, click **Dashboard**.
 1. In the left sidebar, click **Webhooks**.
 {% data reusables.webhooks.edit_webhook %}

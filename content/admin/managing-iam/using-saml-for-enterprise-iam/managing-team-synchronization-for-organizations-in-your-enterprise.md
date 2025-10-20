@@ -44,7 +44,7 @@ You can also configure and manage team synchronization for an individual organiz
 * You must use an Entra ID commercial tenant, not Gov Cloud.
 * You or your Entra ID administrator must be a Global administrator or a Privileged Role administrator in Entra ID.
 * You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
-* You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on).
+* You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see [AUTOTITLE](/authentication/authenticating-with-single-sign-on).
 
 ## Managing team synchronization for Entra ID
 
@@ -56,7 +56,7 @@ You can also configure and manage team synchronization for an individual organiz
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-1. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**.
+1. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**. {% data reusables.identity-and-permissions.sync-app-registration %}
 1. To disable team synchronization, under "Team synchronization", click **Disable team synchronization**.
 
 {% ifversion team-sync-manage-org-invites %}

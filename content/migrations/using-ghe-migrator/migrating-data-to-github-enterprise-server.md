@@ -35,6 +35,12 @@ shortTitle: Migrate data
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
+1. Ensure the migration archive has sufficient read permissions.
+
+   ```shell
+   chmod 644 /home/admin/MIGRATION-GUID.tar.gz
+   ```
+
 1. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
 
    ```shell

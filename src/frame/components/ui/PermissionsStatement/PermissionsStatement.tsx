@@ -1,7 +1,8 @@
-import { Box } from '@primer/react'
 import { PersonIcon, BriefcaseIcon } from '@primer/octicons-react'
 
 import { useTranslation } from '@/languages/components/useTranslation'
+
+import styles from './PermissionsStatement.module.scss'
 
 type Props = {
   product?: string
@@ -12,7 +13,7 @@ export function PermissionsStatement({ product, permissions }: Props) {
   const { t } = useTranslation('pages')
   if (!permissions && !product) return null
   return (
-    <Box sx={{ borderRadius: 10, borderStyle: 'solid', borderColor: 'border.default', p: 3 }}>
+    <div className={styles.permissionsBox}>
       <div data-search="hide" data-testid="permissions-callout">
         <div className="mb-3 d-inline-block">
           <h2 className="f4">{t('permissions_callout_title')}</h2>
@@ -30,6 +31,6 @@ export function PermissionsStatement({ product, permissions }: Props) {
           </div>
         )}
       </div>
-    </Box>
+    </div>
   )
 }

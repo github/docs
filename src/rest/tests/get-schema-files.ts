@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import { getOpenApiSchemaFiles } from '../scripts/utils/sync'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
 
 const supportedReleases = Object.keys(allVersions).map(
   (version) => allVersions[version].openApiVersionName,

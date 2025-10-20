@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest } from '@/types'
-import { defaultCacheControl } from './cache-control.js'
+import { defaultCacheControl } from './cache-control'
 
 export default function fastHead(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('request is not contextualized')

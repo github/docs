@@ -80,6 +80,9 @@ Across all organizations owned by your enterprise, you can set a base repository
 1. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Base permissions", select the dropdown menu and click a policy.
 
+> [!NOTE]
+> Internal repositories have a minimum visibility level of read, even if the base permission has been set to none.
+
 ## Enforcing a policy for repository creation
 
 Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level.

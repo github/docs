@@ -1,6 +1,6 @@
 import type { Response, NextFunction } from 'express'
 
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 // We'll check if the current request path is one of these, or ends with

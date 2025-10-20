@@ -10,7 +10,7 @@ import {
   generateUpdateProjectV2ItemFieldMutation,
   getFeature,
   getSize,
-} from './projects.js'
+} from './projects'
 
 /**
  * Determines if a PR is authored by Copilot and extracts the human assignee

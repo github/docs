@@ -1,8 +1,8 @@
 import path from 'path'
-import { supported, latest } from '@/versions/lib/enterprise-server-releases.js'
-import patterns from '@/frame/lib/patterns.js'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { supported, latest } from '@/versions/lib/enterprise-server-releases'
+import patterns from '@/frame/lib/patterns'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersions } from '@/versions/lib/all-versions'
 const latestNewVersion = `enterprise-server@${latest}`
 const oldVersions = ['dotcom'].concat(supported)
 const newVersions = Object.keys(allVersions)

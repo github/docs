@@ -1,8 +1,8 @@
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import { get } from '@/tests/helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { latest } from '@/versions/lib/enterprise-server-releases.js'
+import { get } from '@/tests/helpers/e2etest'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { latest } from '@/versions/lib/enterprise-server-releases'
 
 const makeURL = (pathname: string): string =>
   `/api/article/meta?${new URLSearchParams({ pathname })}`

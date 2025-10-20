@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/bqrs-interpret
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -102,7 +105,7 @@ all queries. It loads query help for /path/to/query.ql from the
 /path/to/query.md file. If this flag is not supplied the default
 behavior is to include help only for custom queries i.e. those in query
 packs which are not of the form \`codeql/\<lang\&rt;-queries\`. This
-option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+option has no effect when passed to codeql bqrs interpret.
 
 #### `--sarif-include-query-help=<mode>`
 
@@ -117,7 +120,7 @@ queries i.e. those in query packs which are not of the form
 
 `never`: Do not include query help for any queries.
 
-This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+This option has no effect when passed to codeql bqrs interpret.
 
 Available since `v2.15.2`.
 
@@ -132,7 +135,7 @@ Available since `v2.18.1`.
 
 \[SARIF formats only] Place the rule object for each query under its
 corresponding QL pack in the `<run>.tool.extensions` property. This
-option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+option has no effect when passed to codeql bqrs interpret.
 
 #### `--[no-]sarif-multicause-markdown`
 

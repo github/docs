@@ -37,7 +37,7 @@ To use the action in your current workflow place this snippet under `jobs`.
 ```yaml
 - name: Upload GitHub Pages artifact
 {%- ifversion fpt or ghec %}
-  uses: actions/upload-pages-artifact@v3
+  uses: actions/upload-pages-artifact@v4
 {%- elsif ghes %}
   uses: actions/upload-pages-artifact@v2
 {%- endif %}
@@ -103,7 +103,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
 {%- ifversion fpt or ghec %}
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
 {%- elsif ghes %}
         uses: actions/upload-pages-artifact@v2
 {%- endif %}
@@ -145,7 +145,7 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Upload Artifact
 {%- ifversion fpt or ghec %}
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
 {%- elsif ghes %}
         uses: actions/upload-pages-artifact@v2
 {%- endif %}

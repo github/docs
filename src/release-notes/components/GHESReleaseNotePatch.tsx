@@ -6,6 +6,8 @@ import { PatchNotes } from './PatchNotes'
 import { Link } from '@/frame/components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
 
+import styles from './PatchNotes.module.scss'
+
 type Props = {
   patch: ReleaseNotePatch
   currentVersion: CurrentVersion
@@ -26,8 +28,7 @@ export function GHESReleaseNotePatch({
   return (
     <div ref={containerRef} className="mb-10 pb-6" id={patch.version}>
       <header
-        style={{ zIndex: 1, marginTop: -1 }}
-        className="container-md border-top border-bottom px-3 pt-4 pb-2"
+        className={`container-md border-top border-bottom px-3 pt-4 pb-2 ${styles.patchHeader}`}
       >
         <div className="d-flex flex-justify-between flex-wrap">
           <h2 className="border-bottom-0 m-0 p-0 mt-2">
@@ -36,8 +37,7 @@ export function GHESReleaseNotePatch({
 
           {patch.release_candidate && (
             <span
-              className="IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3 flex-items-center d-inline-flex"
-              style={{ whiteSpace: 'pre' }}
+              className={`IssueLabel color-bg-attention-emphasis color-fg-on-emphasis ml-3 flex-items-center d-inline-flex ${styles.releaseLabel}`}
             >
               Release Candidate
             </span>

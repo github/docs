@@ -1,3 +1,0 @@
-> [!NOTE]
-> * It is possible for multiple types of custom instructions to apply to a conversation. Personal instructions take the highest priority, followed by repository instructions, with organization instructions prioritized last.  However, all sets of relevant instructions are still combined and provided to {% data variables.copilot.copilot_chat_short %}.
-> * Whenever possible, you should avoid providing conflicting sets of instructions. If you are concerned about response quality, you can also choose to temporarily disable repository instructions. See [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui#enabling-or-disabling-repository-custom-instructions).

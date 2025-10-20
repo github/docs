@@ -16,7 +16,7 @@ By default, {% data variables.product.company_short %} stores data for {% data v
 
 You can **get started with data residency** by setting up a trial of {% data variables.product.prodname_ghe_cloud %}.
 
-<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=about+ghec+with+data+residency&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ## What is {% data variables.product.prodname_ghe_cloud %}?
 

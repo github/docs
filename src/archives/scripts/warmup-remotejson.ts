@@ -19,11 +19,11 @@
 import { program } from 'commander'
 import semver, { SemVer } from 'semver'
 
-import getRemoteJSON from '@/frame/lib/get-remote-json.js'
+import getRemoteJSON from '@/frame/lib/get-remote-json'
 import {
   deprecated,
   lastVersionWithoutArchivedRedirectsFile,
-} from '@/versions/lib/enterprise-server-releases.js'
+} from '@/versions/lib/enterprise-server-releases'
 
 program
   .description(

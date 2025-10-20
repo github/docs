@@ -6,7 +6,6 @@ versions:
   ghec: '*'
   ghes: '*'
 type: tutorial
-permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects
 ---

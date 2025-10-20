@@ -73,7 +73,7 @@ You can also view active ruselets:
 {% data reusables.repositories.repo-rulesets-settings %}
 {% data reusables.repositories.delete-ruleset-steps %}
 
-{% ifversion repo-rules-management %}
+{% ifversion repo-rules-history %}
 
 ## Using ruleset history
 
@@ -86,7 +86,11 @@ You can also view active ruselets:
 {% data reusables.repositories.repo-rulesets-settings %}
 {% data reusables.repositories.ruleset-history %}
 
-### Importing a ruleset
+{% endif %}
+
+{% ifversion repo-rules-management %}
+
+## Importing a ruleset
 
 {% data reusables.repositories.import-a-ruleset-conceptual %}
 
@@ -94,10 +98,6 @@ You can also view active ruselets:
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repo-rulesets-settings %}
 {% data reusables.repositories.import-a-ruleset %}
-
-{% endif %}
-
-{% ifversion repo-rules-enterprise %}
 
 ## Viewing insights for rulesets
 

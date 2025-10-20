@@ -175,4 +175,4 @@ If you define a customized session duration value less than 24 hours, {% data va
 To prevent authentication errors, we recommend a minimum session duration of 4 hours. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#users-are-repeatedly-redirected-to-authenticate).
 {% endif %}
 
->[!NOTE] For Microsoft Entra ID (previously known as Azure AD), the configurable lifetime policy for SAML tokens does not control session timeout for {% data variables.product.github %}.
+>[!NOTE] Microsoft Entra ID (previously known as Azure AD) **does not support the `SessionNotOnOrAfter` attribute**. Additionally, the configurable lifetime policy for SAML tokens issued by Entra ID **does not control session timeout** for {% data variables.product.github %}.

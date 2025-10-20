@@ -17,7 +17,13 @@ The term "source repository" refers to the repository you're importing, and "imp
 
 ## Using forks
 
-If the source repository is on {% data variables.product.prodname_dotcom %}, you may be able to use a fork instead of importing the repository. {% data reusables.repositories.about-forks %} For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
+If the source repository is on {% data variables.product.prodname_dotcom %}, you may be able to use a fork instead of importing the repository. Forks let you make changes to a project without affecting the original repository, also known as the "upstream" repository.
+
+After you fork a repository, you can:
+
+* Fetch updates from the upstream repository to keep your fork up to date
+* Contribute back to the original project by creating pull requests from your fork
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks).
 
 You can programmatically fork a repository using the REST API. For more information, see [AUTOTITLE](/rest/repos/forks).
 

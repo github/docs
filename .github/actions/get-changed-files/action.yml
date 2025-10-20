@@ -33,6 +33,7 @@ runs:
     - name: Gather changed files
       id: get_changes
       env:
+        INPUT_FILES: ${{ inputs.files }}
         INPUT_HEAD: ${{ inputs.head || github.event.pull_request.head.ref || github.event.merge_group.head_ref ||  github.ref_name }}
         INPUT_OUTPUT_FILE: ${{ inputs.output_file }}
       shell: bash

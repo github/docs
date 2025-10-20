@@ -3,7 +3,7 @@ title: Enterprise onboarding
 intro: 'Learn how to successfully onboard your company to {% data variables.product.prodname_ghe_cloud %}.'
 introLinks:
   overview: '/enterprise-onboarding/getting-started-with-your-enterprise'
-  try_ghec_for_free: 'https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=enterprise+administrators+landing+page&ref_page=docs'
+  try_ghec_for_free: 'https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise'
 featuredLinks:
   startHere:
   - '/enterprise-onboarding/getting-started-with-your-enterprise'
@@ -13,6 +13,33 @@ featuredLinks:
   - '/enterprise-onboarding/github-actions-for-your-enterprise'
   - '/enterprise-onboarding/feature-enhancements'
 layout: product-landing
+journeyTracks:
+  - id: 'getting_started'
+    title: 'Getting started with your enterprise'
+    description: 'Learn how to start a trial of {% data variables.product.prodname_enterprise %}, and about enterprise billing and migrations.'
+    guides:
+      - '/enterprise-onboarding/getting-started-with-your-enterprise/setting-up-a-trial-of-github-enterprise'
+      - '/enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise'
+      - '/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing'
+      - '/enterprise-onboarding/getting-started-with-your-enterprise/about-migrating-to-github-enterprise-cloud'
+      - '/enterprise-onboarding/getting-started-with-your-enterprise/securing-your-enterprise-with-managed-users'
+      - '/enterprise-onboarding/getting-started-with-your-enterprise/securing-enterprise-resources-with-single-sign-on'
+  - id: 'organizations_and_teams'
+    title: 'Setting up organizations and teams in your enterprise'
+    description: 'Learn how to add and manage organizations and teams in your enterprise.'
+    guides:
+      - '/enterprise-onboarding/setting-up-organizations-and-teams/setting-up-an-organization'
+      - '/enterprise-onboarding/setting-up-organizations-and-teams/managing-organization-members'
+      - '/enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations'
+      - '/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams'
+      - '/enterprise-onboarding/setting-up-organizations-and-teams/best-practices-for-organizations-in-your-enterprise'
+  - id: 'support'
+    title: 'Creating a support model for your enterprise'
+    description: 'Learn about {% data variables.product.github %} support and how to set up a support model for your enterprise.'
+    guides:
+      - '/enterprise-onboarding/support-for-your-enterprise/understanding-support'
+      - '/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal'
+      - '/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements'
 versions:
   ghec: '*'
 topics:

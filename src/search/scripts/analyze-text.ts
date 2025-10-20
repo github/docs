@@ -10,8 +10,8 @@ import { Command, Option } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
-import { languageKeys } from '@/languages/lib/languages.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { languageKeys } from '@/languages/lib/languages'
+import { allVersions } from '@/versions/lib/all-versions'
 
 import type { IndicesAnalyzeAnalyzeToken } from '@elastic/elasticsearch/lib/api/types'
 

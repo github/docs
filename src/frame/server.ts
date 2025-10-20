@@ -1,7 +1,10 @@
 import { main } from './start-server'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
 
 try {
   await main()
 } catch (error) {
-  console.error(error)
+  logger.error('Uncaught top-level error', { error })
 }

@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 import sharp from 'sharp'
 
-import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { get, getDOM } from '@/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { get, getDOM } from '@/tests/helpers/e2etest'
 
 type Manifest = {
   name: string

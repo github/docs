@@ -2,7 +2,7 @@ import { join } from 'path'
 import { existsSync } from 'fs'
 import fs from 'fs/promises'
 
-import { getPlanVersionFromIndexVersion } from '@/search/lib/elasticsearch-versions.js'
+import { getPlanVersionFromIndexVersion } from '@/search/lib/elasticsearch-versions'
 
 import type { Redirects, PopularPages } from '@/search/scripts/scrape/types'
 

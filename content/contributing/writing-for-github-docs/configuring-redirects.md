@@ -38,7 +38,7 @@ See [`redirect_from`](https://github.com/github/docs/blob/main/content/README.md
 
 If a URL for a page is entered without a version (`https://docs.github.com/ARTICLE` instead of `https://docs.github.com/VERSION/ARTICLE`), the site will automatically redirect it to the first available version of the page.<!-- markdownlint-disable-line search-replace -->
 
-The order of precedence is specified in [`lib/all-versions.js`](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js). The current order of precedence is:
+The order of precedence is specified in [`lib/all-versions.ts`](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.ts). The current order of precedence is:
 
 1. {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} (`fpt`)
 1. {% data variables.product.prodname_ghe_cloud %} (`ghec`)

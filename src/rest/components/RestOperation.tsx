@@ -102,8 +102,10 @@ export function RestOperation({ operation }: Props) {
           )}
         </div>
         <div
-          className="col-md-12 col-lg-6 position-sticky flex-self-start"
-          style={{ top: '6.5em' }}
+          className={cx(
+            'col-md-12 col-lg-6 position-sticky flex-self-start',
+            styles.stickyCodeColumn,
+          )}
         >
           {hasCodeSamples && (
             <RestCodeSamples

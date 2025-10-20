@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest'
 
-import { get } from '@/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+} from '@/frame/middleware/set-fastly-surrogate-key'
 
 describe('webhooks v1 middleware', () => {
   test('basic get webhook', async () => {

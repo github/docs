@@ -1,4 +1,4 @@
-import languages from '@/languages/lib/languages.js'
+import languages from '@/languages/lib/languages'
 import { utcTimestamp } from '@/search/lib/helpers/time'
 import { allIndexVersionKeys, versionToIndexVersionMap } from '@/search/lib/elasticsearch-versions'
 

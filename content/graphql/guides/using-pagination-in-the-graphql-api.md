@@ -46,7 +46,7 @@ In this example, `pageInfo.startCursor` gives the cursor for the first item on t
 
 ## Changing the number of items per page
 
-The `first` and `last` arguments control how many items are returned. The maximum number of items you can fetch using the `first` or `last` argument is 100. You may need to request fewer than 100 items if your query touches a lot of data in order to avoid hitting a rate or node limit. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-node-limits-for-the-graphql-api).
+The `first` and `last` arguments control how many items are returned. The maximum number of items you can fetch using the `first` or `last` argument is 100. You may need to request fewer than 100 items if your query touches a lot of data in order to avoid hitting a rate or node limit. For more information, see [AUTOTITLE](/graphql/overview/rate-limits-and-query-limits-for-the-graphql-api).
 
 ## Traversing the data set using pagination
 

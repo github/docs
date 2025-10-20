@@ -138,7 +138,11 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can choo
 
 By default, to hide the existence of private resources, when an unauthenticated user attempts to access your enterprise, {% data variables.product.company_short %} displays a 404 error.
 
-To prevent confusion from your developers, you can change this behavior so that users are automatically redirected to single sign-on (SSO) through your identity provider (IdP). When you enable automatic redirects, anyone who visits the URL for any of your enterprise's resources will be able to see that the resource exists. However, they'll only be able to see the resource if they have appropriate access after authenticating with your IdP.
+To prevent confusion from your developers, you can change this behavior by enabling the "Automatically redirect users to sign in" setting so that users are automatically redirected to single sign-on (SSO) through your identity provider (IdP). When you enable this setting, anyone who visits the URL for any of your enterprise's resources will be able to see that the resource exists. However, they'll only be able to see the resource if they have appropriate access after authenticating with your IdP.
+
+The configuration of this setting also affects {% data variables.product.prodname_emus %} who use Git Credential Manager (GCM). For more details, see the [`git-credential-manager` repository](https://github.com/git-ecosystem/git-credential-manager)
+
+If "Automatically redirect users to sign in" is enabled, {% data variables.product.github %} sends the server hints that let GCM automatically filter accounts for your enterprise members. If the setting is disabled, users who use GCM must turn off account filtering locally in GCM to avoid being prompted for authentication each time they perform a Git operation. For more details, see [AUTOTITLE](/get-started/git-basics/caching-your-github-credentials-in-git).
 
 > [!NOTE]
 > If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).

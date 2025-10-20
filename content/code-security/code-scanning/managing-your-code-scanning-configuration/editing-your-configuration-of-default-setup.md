@@ -36,7 +36,7 @@ If you need to change any other aspects of your {% data variables.product.prodna
 
 {% ifversion code-scanning-default-setup-customize-labels %}
 
-1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label", enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
+1. Optionally, to use labeled runners, in the "Runner type" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} to open a dropdown menu, then select **Labeled runner**. Then, next to "Runner label," enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#assigning-labels-to-runners).
 
 {% endif %}
 
@@ -46,25 +46,11 @@ If you need to change any other aspects of your {% data variables.product.prodna
 
 ## Defining the alert severities that cause a check failure for a pull request
 
-{% ifversion code-scanning-merge-protection-rulesets %}
-
 You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
 
 {% data reusables.code-scanning.merge-protection-rulesets-conditions %}
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% else %}
-
-{% data reusables.code-scanning.pull-request-checks %}
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-
-1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-
-{% endif %}
 
 ## Including local sources of tainted data in default setup
 
@@ -90,8 +76,6 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 1. The model packs will be automatically detected and used in your {% data variables.product.prodname_code_scanning %} analysis.
 1. If you later change your configuration to use advanced setup, any model packs in the `.github/codeql/extensions` directory will still be recognized and used.
 
-{% ifversion codeql-model-packs-org %}
-
 ### Extending coverage for all repositories in an organization
 
 >[!NOTE]
@@ -105,11 +89,9 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 1. Click **{% data variables.product.UI_advanced_security %}**.
 {% endif %}
 1. Find the "{% data variables.product.prodname_code_scanning_caps %}" section.
-1. Next to "Expand {% data variables.product.prodname_codeql %} analysis", click **Configure**.
+1. Next to "Expand {% data variables.product.prodname_codeql %} analysis," click **Configure**.
 1. Enter references to the published model packs you want to use, one per line, then click **Save**.
 
     ![Screenshot of the "Expand CodeQL analysis" view" in the settings for an organization.](/assets/images/help/security/enable-codeql-org-model-packs.png)
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
-
-{% endif %}

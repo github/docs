@@ -1,0 +1,110 @@
+.carousel {
+  margin-top: 3rem;
+  --carousel-transition-duration: 0.1s;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--fgColor-default);
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+  }
+}
+
+.navButton {
+  min-width: 32px !important;
+  padding: 6px !important;
+  border-radius: 6px !important;
+
+  &:disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5 !important;
+  }
+}
+
+.itemsGrid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  transition: opacity var(--carousel-transition-duration) ease-in-out;
+  opacity: 1;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1012px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.animating {
+    opacity: 0.3;
+  }
+}
+
+.articleCard {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  min-height: 120px; /* Ensures consistent card heights */
+  box-shadow:
+    0px 1px 3px 0px rgba(31, 35, 40, 0.08),
+    0px 1px 0px 0px rgba(31, 35, 40, 0.06);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-decoration: none !important;
+  color: inherit;
+
+  &:hover {
+    box-shadow:
+      0 0.25rem 0.5rem 0 rgba(31, 35, 40, 0.12),
+      0 0.125rem 0.25rem 0 rgba(31, 35, 40, 0.08);
+    transform: translateY(-2px);
+    background-color: var(--bgColor-muted, var(--color-canvas-subtle));
+    text-decoration: none !important;
+  }
+}
+
+.articleTitle {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.articleLink {
+  color: var(--fgColor-accent);
+  text-decoration: none;
+}
+
+.articleDescription {
+  margin: 0;
+  color: var(--fgColor-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-decoration: none !important;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--fgColor-muted);
+}

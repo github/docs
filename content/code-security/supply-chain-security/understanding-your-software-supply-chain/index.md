@@ -23,4 +23,7 @@ children:
   - /enforcing-dependency-review-across-an-organization
   - /exploring-the-dependencies-of-a-repository
   - /troubleshooting-the-dependency-graph
+  - /immutable-releases
+  - /preventing-changes-to-your-releases
+  - /verifying-the-integrity-of-a-release
 ---

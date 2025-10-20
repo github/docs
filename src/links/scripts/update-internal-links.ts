@@ -14,8 +14,8 @@ import { program } from 'commander'
 import chalk from 'chalk'
 import yaml from 'js-yaml'
 
-import { updateInternalLinks } from '@/links/lib/update-internal-links.js'
-import frontmatter from '@/frame/lib/read-frontmatter.js'
+import { updateInternalLinks } from '@/links/lib/update-internal-links'
+import frontmatter from '@/frame/lib/read-frontmatter'
 import walkFiles from '@/workflows/walk-files'
 
 program

@@ -36,6 +36,8 @@ If members of your enterprise access {% data variables.location.product_location
 * Interactions with a resource owned by the personal account, including a repository, gist, or project
 * Interactions with a public repository owned by an organization in your enterprise
 
+{% data variables.product.github %} does not display IP address in the audit log for `api.request` events triggered by GraphQL requests.
+
 ## Enabling display of IP addresses in the audit log
 
 {% data reusables.enterprise-accounts.access-enterprise %}

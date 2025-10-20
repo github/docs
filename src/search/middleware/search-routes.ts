@@ -6,13 +6,10 @@
 // TODO: Move the routes implementations in this files to lib/routes so you can at-a-glance see all of the routes without the implementation logic
 import express, { Request, Response } from 'express'
 
-import FailBot from '@/observability/lib/failbot.js'
-import { searchCacheControl } from '@/frame/middleware/cache-control.js'
-import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import FailBot from '@/observability/lib/failbot'
+import { searchCacheControl } from '@/frame/middleware/cache-control'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { getAISearchAutocompleteResults } from '@/search/lib/get-elasticsearch-results/ai-search-autocomplete'
 import { getSearchFromRequestParams } from '@/search/lib/search-request-params/get-search-from-request-params'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'

@@ -24,6 +24,8 @@ To access your enterprise on {% data variables.enterprise.data_residency_site %}
 ## {% data variables.product.github %}'s hostnames
 
 * `*.{% data variables.enterprise.data_residency_domain %}`, where SUBDOMAIN is your enterprise's dedicated subdomain on {% data variables.enterprise.data_residency_site %}
+* `*.pages.{% data variables.enterprise.data_residency_domain %}`
+* `*.actions.{% data variables.enterprise.data_residency_domain %}`
 * `*.githubassets.com`
 * `*.githubusercontent.com`
 * `*.blob.core.windows.net`
@@ -92,6 +94,68 @@ If you use Azure private networking for {% data variables.product.company_short 
 | x64 | `centralus`, `eastus2`, `westus3` |
 | arm64 | `centralus`, `eastus2`, `westus3` |
 | GPU | `centralus`, `eastus2`, `westus3` |
+
+### IP ranges for Azure private networking
+
+#### EU
+
+Actions IPs:
+* 74.241.192.231
+* 20.4.161.108
+* 74.241.204.117
+* 20.31.193.160
+
+EU region:
+* 108.143.197.176/28
+* 20.123.213.96/28
+* 20.224.46.144/28
+* 20.240.194.240/28
+* 20.240.220.192/28
+* 20.240.211.208/28
+
+#### Austrailia
+
+Actions IPs:
+* 4.147.140.77
+* 20.53.114.78
+
+Austraila region:
+* 4.237.73.192/28
+* 20.5.226.112/28
+* 20.248.163.176/28
+
+#### Required for all regions
+
+* `Storage` service tag
+* Communication requirements for github.com
+  * 192.30.252.0/22
+  * 185.199.108.0/22
+  * 140.82.112.0/20
+  * 143.55.64.0/20
+  * 20.201.28.151/32
+  * 20.205.243.166/32
+  * 20.87.245.0/32
+  * 4.237.22.38/32
+  * 20.207.73.82/32
+  * 20.27.177.113/32
+  * 20.200.245.247/32
+  * 20.175.192.147/32
+  * 20.233.83.145/32
+  * 20.29.134.23/32
+  * 20.199.39.232/32
+  * 20.217.135.5/32
+  * 4.225.11.198/32
+  * 4.208.26.197/32
+  * 20.26.156.215/32
+
+### Domains for Azure private networking
+
+* `*.<TENANT>.ghe.com`
+* `<TENANT>.ghe.com`
+* `github.com`
+* `*.githubusercontent.com`
+* `*.blob.core.windows.net`
+* `*.web.core.windows.net`
 
 ## IP ranges for {% data variables.product.prodname_importer_proper_name %}
 

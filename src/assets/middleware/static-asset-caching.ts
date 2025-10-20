@@ -1,10 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest } from '@/types'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 export default function setStaticAssetCaching(
   req: ExtendedRequest,

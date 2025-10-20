@@ -31,7 +31,7 @@ If you want to use {% data variables.product.prodname_vscode %} as your default 
 
    * {% data reusables.codespaces.application-installed-locally %}<br><br>
 
-   * If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace.
+   * If you choose **{% data variables.product.prodname_vscode %}** (web client), {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace.
 
      You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.<br><br>
 

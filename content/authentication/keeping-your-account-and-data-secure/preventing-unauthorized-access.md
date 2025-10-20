@@ -19,8 +19,7 @@ shortTitle: Unauthorized access
 After changing your password, you should perform these actions to make sure that your account is secure:
 
 * Enable two-factor authentication on your account so that access requires more than just a password. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication).
-{%- ifversion passkeys %}
-* Add a passkey to your account to enable a secure, passwordless login. Passkeys are phishing-resistant, and they don't require memorization or active management. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).{% endif %}
+* Add a passkey to your account to enable a secure, passwordless login. Passkeys are phishing-resistant, and they don't require memorization or active management. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 * Review your SSH keys, deploy keys, and authorized OAuth apps and GitHub Apps and revoke unauthorized or unfamiliar access in your SSH and Applications settings. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys), [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys), [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-oauth-apps), and [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations).
 {% ifversion fpt or ghec %}
 * Verify all your email addresses. If an attacker added their email address to your account, it could allow them to force an unintended password reset. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).

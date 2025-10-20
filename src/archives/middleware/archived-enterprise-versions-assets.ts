@@ -1,13 +1,10 @@
-import got from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import type { Response, NextFunction } from 'express'
 
-import patterns from '@/frame/lib/patterns.js'
+import patterns from '@/frame/lib/patterns'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { archivedCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
 import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for
@@ -52,6 +49,22 @@ export default async function archivedEnterpriseVersionsAssets(
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived || !requestedVersion) return next()
 
+  // If this looks like a Next.js chunk or build manifest request from an archived page,
+  // just return 204 No Content instead of trying to proxy it.
+  // This suppresses noise from hydration requests that don't affect
+  // content viewing since archived pages render fine server-side.
+  // Only target specific problematic asset types, not all _next/static assets.
+  if (
+    (req.path.includes('/_next/static/chunks/') ||
+      req.path.includes('/_buildManifest.js') ||
+      req.path.includes('/_ssgManifest.js')) &&
+    (req.get('referrer') || '').match(/enterprise(-server@|\/)[\d.]+/)
+  ) {
+    archivedCacheControl(res)
+    setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
+    return res.sendStatus(204) // No Content - silently ignore
+  }
+
   // In all of the `docs-ghes-<relase number` repos, the asset directories
   // are at the root. This removes the version and release number from the
   // asset path so that we can proxy the request to the correct location.
@@ -72,11 +85,31 @@ export default async function archivedEnterpriseVersionsAssets(
 
   const proxyPath = `https://github.github.com/docs-ghes-${requestedVersion}${assetPath}`
   try {
-    const r = await got(proxyPath)
+    const r = await fetchWithRetry(
+      proxyPath,
+      {},
+      {
+        retries: 0,
+        throwHttpErrors: true,
+      },
+    )
+
+    const body = await r.arrayBuffer()
 
     res.set('accept-ranges', 'bytes')
-    res.set('content-type', r.headers['content-type'])
-    res.set('content-length', r.headers['content-length'])
+    const contentType = r.headers.get('content-type')
+    if (contentType) {
+      // Match got's behavior by adding charset=utf-8 to SVG files
+      if (contentType === 'image/svg+xml') {
+        res.set('content-type', `${contentType}; charset=utf-8`)
+      } else {
+        res.set('content-type', contentType)
+      }
+    }
+    const contentLength = r.headers.get('content-length')
+    if (contentLength) {
+      res.set('content-length', contentLength)
+    }
     res.set('x-is-archived', 'true')
     res.set('x-robots-tag', 'noindex')
 
@@ -85,7 +118,7 @@ export default async function archivedEnterpriseVersionsAssets(
     archivedCacheControl(res)
     setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
 
-    return res.send(r.body)
+    return res.send(Buffer.from(body))
   } catch (err) {
     // Primarily for the developers working on tests that mock
     // requests. If you don't set up `nock` correctly, you might

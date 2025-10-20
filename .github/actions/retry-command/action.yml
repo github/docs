@@ -7,11 +7,11 @@ inputs:
   max_attempts:
     description: 'Maximum number of retry attempts'
     required: false
-    default: '8'
+    default: '12'
   delay:
     description: 'Delay between attempts in seconds'
     required: false
-    default: '15'
+    default: '30'
 
 runs:
   using: 'composite'

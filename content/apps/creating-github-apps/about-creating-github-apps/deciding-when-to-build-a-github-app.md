@@ -74,7 +74,7 @@ _{% data variables.product.prodname_actions %}_ provide automation that can perf
 
 _{% data variables.product.prodname_github_apps %}_ run persistently on a server or compute infrastructure that you provide or run on a user device. They can react to {% data variables.product.company_short %} webhook events as well as events from outside the {% data variables.product.prodname_dotcom %} ecosystem. They are a good option for operations that span multiple repositories or organizations, or for providing hosted services to other organizations and enterprises. A {% data variables.product.prodname_github_app %} is the best choice when building a tool with functions that occur primarily outside of {% data variables.product.prodname_dotcom %} or require more execution time or permissions than what a {% data variables.product.prodname_actions %} workflow is allotted.
 
-For more information about comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#comparing-github-actions-to-github-apps).
+For more information about comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/actions/concepts/overview/github-actions-vs-github-apps#comparing-github-actions-to-github-apps).
 
 You can use a {% data variables.product.prodname_github_app %} to authenticate in a {% data variables.product.prodname_actions %}
 workflow if the built in `GITHUB_TOKEN` does not have sufficient permissions. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).

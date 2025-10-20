@@ -47,7 +47,11 @@ The permissions for a package are either inherited from the repository where the
 
 ## About billing for {% data variables.product.prodname_registry %}
 
-{% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
+{% data reusables.package_registry.packages-billing %}
+
+{% data reusables.billing.default-over-quota-behavior %}
+
+For more information, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
 
 {% endif %}
 

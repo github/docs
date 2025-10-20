@@ -40,7 +40,7 @@ Once you authorize a {% data variables.product.prodname_github_app %}, the app c
 
 The {% data variables.product.prodname_github_app %} can only do things that both you and the app have permission to do. For example, if you have write access to a repository but the {% data variables.product.prodname_github_app %} only has read access, then the app can only read the contents of the repository even when it is acting on your behalf. Similarly, if you have access to repositories `A` and `B`, and the {% data variables.product.prodname_github_app %} has access to repositories `B` and `C`, then the app can only access repository `B` when acting on your behalf. For more information about the permissions granted to a {% data variables.product.prodname_github_app %}, see [Difference between authorization and installation](#difference-between-authorization-and-installation).
 
-When an app acts on your behalf, it will attribute the activity to you in conjunction with the app. For example, if the app posts a comment on your behalf, the {% data variables.product.company_short %} UI will show your avatar photo along with the app's identicon badge as the author of the issue.
+When an app acts on your behalf, it will attribute the activity to you in conjunction with the app. For example, if the app posts a comment on your behalf, the {% data variables.product.company_short %} UI will show your profile picture along with the app's identicon badge as the author of the issue.
 
 ![Screenshot of a comment that has a user avatar with an overlaid app identicon badge. The avatar is highlighted with an orange outline.](/assets/images/help/apps/github-app-acting-on-your-behalf.png)
 

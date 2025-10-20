@@ -3,6 +3,7 @@ title: Prioritizing Dependabot alerts using metrics
 shortTitle: Prioritize Dependabot alerts using metrics
 intro: 'You can prioritize {% data variables.product.prodname_dependabot_alerts %} in your organization by analyzing the provided metrics. Using this approach, you can tell your developers to focus on the most important vulnerabilities first.'
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: dependabot-metrics
@@ -29,6 +30,8 @@ Application Security (AppSec) managers often face a flood of {% data variables.p
 * **Dependency scope**: Differentiates between runtime and development dependencies. Determines if the vulnerable code is actually used in your application.
 * **Alerts closed in the last 30 days, including the number of alerts fixed by {% data variables.product.prodname_dependabot %}, manually dismissed, and auto dismissed**: Tracks alert resolution progress. Illustrates how {% data variables.product.prodname_GH_code_security %} can help you detect vulnerabilities early.
 * **Table showing the total number of open alerts for each repository, as well as severity and expoitability data**: Allows you to dig deeper at the repository level.
+
+For more information about these metrics, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-dependabot-alerts).
 
 Additionally, you can specify complex filters, which are combinations of the individual filters that are available. For more information about filters, see [{% data variables.product.prodname_dependabot %} dashboard view filters](/code-security/security-overview/filtering-alerts-in-security-overview#dependabot-dashboard-view-filters).
 

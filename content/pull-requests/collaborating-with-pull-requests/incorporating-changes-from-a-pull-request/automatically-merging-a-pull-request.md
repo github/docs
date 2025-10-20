@@ -16,7 +16,7 @@ shortTitle: Merge PR automatically
 ---
 ## About auto-merge
 
-If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and all required status checks have passed. Auto-merge prevents you from waiting around for requirements to be met, so you can move on to other tasks.
+If you enable auto-merge for a pull request, the pull request will merge automatically when all required reviews are met and all required status checks have passed. Auto-merge helps you avoid waiting around for requirements to be met, so you can move on to other tasks.
 
 Before you can use auto-merge with a pull request, auto-merge must be enabled for the repository. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository).
 

@@ -11,3 +11,5 @@ You will receive an email notification if:
 * You are watching the repository.
 * You have enabled notifications for "All Activity", or for custom "Security alerts" on the repository.
 * In your notification settings, under "Subscriptions", then under "Watching", you have selected to receive notifications by email.
+
+{% data reusables.security.alert-assignee-mention %}

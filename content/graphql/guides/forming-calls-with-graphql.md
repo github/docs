@@ -49,7 +49,7 @@ If you access {% data variables.product.github %} at a different domain, such as
 
 ## Communicating with GraphQL
 
-Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use `curl` or any other HTTP-speaking library.
+Because GraphQL operations consist of multiline JSON, GitHub recommends using the [GraphQL Clients](/graphql/guides/using-graphql-clients) to make GraphQL calls. You can also use `curl` or any other HTTP-speaking library.
 
 In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see [AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql).
 

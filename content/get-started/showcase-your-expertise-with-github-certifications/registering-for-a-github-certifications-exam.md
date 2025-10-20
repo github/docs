@@ -16,7 +16,7 @@ shortTitle: Registering for an exam
 
 ## About registration
 
-When you’re prepared and ready to schedule your exam, you can register from any certification details page on the [{% data variables.product.prodname_certifications_singular %} Registration](https://examregistration.github.com/overview) page.
+When you’re prepared and ready to schedule your exam, you can register from any certification details page on the [{% data variables.product.prodname_certifications_singular %} Registration](https://learn.github.com/credentials) page.
 
 During the scheduling process you can choose if you want to take the exam in a local test center or online. With an online proctored exam, you can take your exam at almost any time using your own computer, but it requires installation of a secure browser and reliable access to the internet. Local test centers provide a secure computer environment to take your exam. For more information, see [Computer specifications](https://www.psiexams.com/become-psi-test-center/computer-specifications/) in the PSI documentation.
 

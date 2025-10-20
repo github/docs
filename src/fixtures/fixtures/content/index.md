@@ -26,12 +26,14 @@ children:
   # as if the URL had been `/en/free-pro-team@latest/get-started/anything`.
   - search
   - get-started
+  - test-journey
   - early-access
   - pages
   - code-security
   - actions
   - rest
   - webhooks
+  - video-transcripts
   # - account-and-profile
   # - authentication
   # - repositories

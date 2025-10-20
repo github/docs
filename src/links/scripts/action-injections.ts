@@ -7,7 +7,7 @@ import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 
-import github from '@/workflows/github.js'
+import github from '@/workflows/github'
 
 export type CoreInject = {
   info: (message: string) => void

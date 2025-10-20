@@ -2,6 +2,10 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 
 | Option | Description | Example |
 |:---|:---|:---|
+| {% ifversion fpt or ghec %} |
+| `artifact-registry` | Displays alerts only for dependencies that have been promoted to production in the specified repository manager.| `artifact-registry:jfrog-artifactory` will show any alerts alerts for dependencies that have been promoted to production in JFrog Artifactory. |
+| `artifact-registry-url` | Displays alerts related to artifacts present in a production-approved registry URL. | `artifact-registry-url:my-registry.example.com` will show any alerts for vulnerabilities affecting artifacts stored in the `my-registry.example.com` registry URL. |
+| {% endif %} |
 | `CVE-ID`| Displays alerts associated with this `CVE-ID` | `CVE-2020-28482` will show any alerts whose underlying advisory has this CVE ID number. |
 | `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |
 | `GHSA-ID`| Displays alerts associated with this `GHSA-ID` | `GHSA-49wp-qq6x-g2rf` will show any alerts whose underlying advisory has this {% data variables.product.prodname_advisory_database %} ID. |
@@ -20,6 +24,8 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `epss_percentage` | Displays alerts based on their EPSS-predicted probability of exploitation | Use `epss_percentage:>0.01` to see alerts with an EPSS percentage greater than 1% |
 |{% endif %}|
 | `sort` | Displays alerts according to the selected sort order | The default sorting option for alerts is `sort:most-important`, which ranks alerts by importance</br>Use `sort:newest` to show the latest alerts reported by {% data variables.product.prodname_dependabot %}{% ifversion dependabot-alerts-epss-score %}</br>Use `sort:epss-percentage` to show alerts ordered by descending EPSS score.{% endif %} |
+| `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). | Use `team:octo-team` to show alerts for repositories that the `octo-team` team has write access to. |
+| `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). | Use `topic:nextjs` to show alerts for repositories that are classified with the `nextjs` topic. |
 
 {% ifversion dependabot-alerts-epss-score %}
 

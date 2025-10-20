@@ -1,6 +1,6 @@
 import semver from 'semver'
-import { supported, latestStable, latest } from '@/versions/lib/enterprise-server-releases.js'
-import { renderContent } from '@/content-render/index.js'
+import { supported, latestStable, latest } from '@/versions/lib/enterprise-server-releases'
+import { renderContent } from '@/content-render/index'
 import type { Context, GHESReleasePatch, ReleaseNotes } from '@/types'
 
 /**

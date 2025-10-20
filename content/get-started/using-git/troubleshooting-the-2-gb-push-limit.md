@@ -1,6 +1,7 @@
 ---
-title: Troubleshooting the 2 GB push limit
-intro: 'Learn how to work around the 2 GB push limit.'
+title: Troubleshooting the 2 GiB push limit
+intro: 'Learn how to work around the 2 GiB push limit.'
+allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,18 +10,18 @@ shortTitle: Maximum push limit
 
 ## About the push limit
 
-{% data variables.product.prodname_dotcom %} has a maximum 2 GB limit for a single push. You might hit this limit when trying to upload very large repositories for the first time, importing large repositories from other platforms, or when trying to rewrite the history of large existing repositories.
+{% data variables.product.prodname_dotcom %} has a maximum 2 GiB limit for a single push. You might hit this limit when trying to upload very large repositories for the first time, importing large repositories from other platforms, or when trying to rewrite the history of large existing repositories.
 
 If you hit this limit, you may see one of the following error messages:
 
 * `fatal: the remote end hung up unexpectedly`
 * `remote: fatal: pack exceeds maximum allowed size`
 
-You can either split up your push into smaller parts, or delete the Git history and start from scratch. If you have made a single commit that's larger than 2 GB and you can't delete the Git history and start from scratch, then you will need to perform an interactive rebase to split the large commit into multiple smaller ones.
+You can either split up your push into smaller parts, or delete the Git history and start from scratch. If you have made a single commit that's larger than 2 GiB and you can't delete the Git history and start from scratch, then you will need to perform an interactive rebase to split the large commit into multiple smaller ones.
 
 ## Splitting up a large push
 
-You can avoid hitting the limit by breaking your push into smaller parts, each of which should be under 2 GB in size. If a branch is within this size limit, you can push it all at once. However, if a branch is larger than 2 GB, you'll need to split the push into even smaller portions and push only a few commits at a time.
+You can avoid hitting the limit by breaking your push into smaller parts, each of which should be under 2 GiB in size. If a branch is within this size limit, you can push it all at once. However, if a branch is larger than 2 GiB, you'll need to split the push into even smaller portions and push only a few commits at a time.
 
 1. If you haven't configured the remote yet, add the repository as a new remote. For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories#adding-a-remote-repository).
 1. To find suitable commits spread out along the history of the main branch in your local repository, run the following command:
@@ -57,7 +58,7 @@ echo "$step_commits" | while read commit message; do git push REMOTE-NAME +$comm
 
 ## Starting from scratch
 
-If the repository does not have any history, or your initial commit was over 2 GB on its own and you don't mind resetting the Git history, you can also start from scratch.
+If the repository does not have any history, or your initial commit was over 2 GiB on its own and you don't mind resetting the Git history, you can also start from scratch.
 
 1. On your local copy, delete the hidden `.git` folder to remove all the previous Git history and convert it back into a normal folder full of files.
 1. Create a new empty folder.
@@ -66,6 +67,6 @@ If the repository does not have any history, or your initial commit was over 2 G
 
    If you do not already use {% data variables.large_files.product_name_short %}, you can skip this step, or you can set up the tracking rules you intend to use in the `.gitattributes` file in the new folder before you copy any other files across. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage).
 
-1. Move batches of files that are smaller than 2 GB from the old folder to the new folder. After each batch is moved, create a commit and push it before moving the next batch. You can take a cautious approach and stick to around 2 GB. Alternatively, if you have a folder with files meant for {% data variables.large_files.product_name_short %}, you can ignore those files when considering the 2 GB limit per batch.
+1. Move batches of files that are smaller than 2 GiB from the old folder to the new folder. After each batch is moved, create a commit and push it before moving the next batch. You can take a cautious approach and stick to around 2 GiB. Alternatively, if you have a folder with files meant for {% data variables.large_files.product_name_short %}, you can ignore those files when considering the 2 GiB limit per batch.
 
 Once the old folder is empty, the {% data variables.product.prodname_dotcom %} repository should contain everything. If you are using {% data variables.large_files.product_name_short %}, all files meant for {% data variables.large_files.product_name_short %} should be pushed to {% data variables.large_files.product_name_short %} storage.

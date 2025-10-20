@@ -121,7 +121,7 @@ If you need more context or clarity on a specific issue or discussion, you can u
 
 To ask a question about an issue or discussion:
 
-1. From anywhere on {% data variables.product.github %},  click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar in the top right of the page.
+1. From anywhere on {% data variables.product.github %},  click the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon next to the search bar in the top right of the page.
 
    ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)
 

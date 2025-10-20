@@ -39,6 +39,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 * [`defaultTool`](#defaulttool)
 * [`learningTracks`](#learningtracks)
 * [`includeGuides`](#includeguides)
+* [`journeyTracks`](#journeytracks)
 * [`type`](#type)
 * [`topics`](#topics)
 * [`communityRedirect`](#communityredirect)
@@ -46,7 +47,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 
 ### `versions`
 
-* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
+* Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.ts) to which a page applies.
 For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
 * Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 * This frontmatter value is currently **required** for all pages.
@@ -102,7 +103,7 @@ For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-gi
 
 * Purpose: Set a human-friendly title for use in the rendered page's `<title>` tag and an `h1` element at the top of the page.
 * Type: `String`
-* Optional. If omitted, the page `<title>` will still be set, albeit with a generic value like `GitHub.com` or `GitHub Enterprise`.
+* **Required**.
 
 ### `shortTitle`
 
@@ -247,6 +248,36 @@ includeGuides:
   - /actions/guides/setting-up-continuous-integration-using-workflow-templates
   - /actions/guides/building-and-testing-nodejs
   - /actions/guides/building-and-testing-powershell
+```
+
+### `journeyTracks`
+
+* Purpose: Define journeys for journey landing pages.
+* Type: `Array` of objects with the following properties:
+  * `id` (required): Unique identifier for the journey. The id only needs to be unique for journeys within a single journey landing page.
+  * `title` (required): Display title for the journey (supports Liquid variables)
+  * `description` (optional): Description of the journey (supports Liquid variables)
+  * `guides` (required): Array of article paths that make up this journey
+* Only applicable when used with `layout: journey-landing`.
+* Optional.
+
+Example:
+
+```yaml
+journeyTracks:
+  - id: 'getting_started'
+    title: 'Getting started with {% data variables.product.prodname_actions %}'
+    description: 'Learn the basics of GitHub Actions.'
+    guides:
+      - '/actions/quickstart'
+      - '/actions/learn-github-actions'
+      - '/actions/using-workflows'
+  - id: 'advanced'
+    title: 'Advanced {% data variables.product.prodname_actions %}'
+    description: 'Dive deeper into advanced features.'
+    guides:
+      - '/actions/using-workflows/workflow-syntax-for-github-actions'
+      - '/actions/deployment/deploying-with-github-actions'
 ```
 
 ### `type`

@@ -1,10 +1,10 @@
 import type { Response, NextFunction } from 'express'
 
 import { ExtendedRequest } from '@/types'
-import statsd from '@/observability/lib/statsd.js'
-import { allTools } from '@/tools/lib/all-tools.js'
-import { allPlatforms } from '@/tools/lib/all-platforms.js'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import statsd from '@/observability/lib/statsd'
+import { allTools } from '@/tools/lib/all-tools'
+import { allPlatforms } from '@/tools/lib/all-platforms'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 

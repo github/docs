@@ -23,6 +23,7 @@ children:
   - /contacting-your-sponsors
   - /tax-information-for-github-sponsors
   - /unlinking-your-patreon-account-from-your-github-sponsors-profile
+  - /delete-stripe-account
   - /disabling-your-github-sponsors-account
   - /unpublishing-your-github-sponsors-profile
 ---

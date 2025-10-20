@@ -56,7 +56,7 @@ export const CookBookArticleCard = ({
               />
             )}
         <div>
-          <h3 className="h4">
+          <h3 className="h4 fgColor-accent">
             <Link href={url}>{title}</Link>
           </h3>
           <div className="fgColor-muted mb-3 mt-2">{description}</div>

@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/dataset-check
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -64,7 +67,7 @@ Select output format. Possible choices:
 
 \[Advanced] Expend extra effort to compute precise locations for
 inconsistencies. This will take more time, but may make it easier to
-debug extractor behaviour.
+debug extractor behavior.
 
 #### `--max-resolve-depth=<n>`
 

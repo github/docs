@@ -33,6 +33,8 @@ See [AUTOTITLE](/github-models/about-github-models).
 
 ## Best practices for using {% data variables.product.prodname_github_models %} at scale
 
+The following best practices can help you effectively use {% data variables.product.prodname_github_models %} across your organization.
+
 ### Compare and evaluate AI models for governance and compliance
 
 Review and compare available AI models against your company’s governance, data security, and compliance requirements. You can do this in any Models-enabled {% data variables.product.github %} repository or in the {% data variables.product.prodname_github_models %} catalog from the {% data variables.product.prodname_marketplace %} at https://github.com/marketplace?type=models. Your considerations may include:
@@ -113,7 +115,7 @@ Large software development projects often contain issues full of technical detai
          important questions.
      - role: user
        content: 'Summarize this issue, please - {% raw %}{{input}}{% endraw %}'
-   model: gpt-4o
+   model: openai/gpt-4o
    modelParameters:
      max_tokens: 4096
    ```

@@ -8,12 +8,12 @@ import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import matter from '@/frame/lib/read-frontmatter.js'
-import { renderContent } from '@/content-render/index.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
+import matter from '@/frame/lib/read-frontmatter'
+import { renderContent } from '@/content-render/index'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import contextualize from '@/frame/middleware/context/context'
-import shortVersions from '@/versions/middleware/short-versions.js'
-import { ROOT } from '@/frame/lib/constants.js'
+import shortVersions from '@/versions/middleware/short-versions'
+import { ROOT } from '@/frame/lib/constants'
 import type { Context, ExtendedRequest, MarkdownFrontmatter } from '@/types'
 
 const slugger = new GithubSlugger()

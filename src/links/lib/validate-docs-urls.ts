@@ -2,13 +2,13 @@ import type { Response } from 'express'
 import cheerio from 'cheerio'
 
 import warmServer from '@/frame/lib/warm-server'
-import { liquid } from '@/content-render/index.js'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import { liquid } from '@/content-render/index'
+import shortVersions from '@/versions/middleware/short-versions'
 import contextualize from '@/frame/middleware/context/context'
-import features from '@/versions/middleware/features.js'
-import findPage from '@/frame/middleware/find-page.js'
-import { createMinimalProcessor } from '@/content-render/unified/processor.js'
-import getRedirect from '@/redirects/lib/get-redirect.js'
+import features from '@/versions/middleware/features'
+import findPage from '@/frame/middleware/find-page'
+import { createMinimalProcessor } from '@/content-render/unified/processor'
+import getRedirect from '@/redirects/lib/get-redirect'
 import type { ExtendedRequest, Page } from '@/types'
 
 export type DocsUrls = {
@@ -129,7 +129,7 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
   }
   await contextualize(req as ExtendedRequest, res as Response, next)
   await shortVersions(req as ExtendedRequest, res as Response, next)
-  await findPage(req, res, next)
+  await findPage(req as ExtendedRequest, res as Response, next)
   features(req as ExtendedRequest, res as Response, next)
 
   const markdown = await liquid.parseAndRender(page.markdown, req.context)
