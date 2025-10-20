@@ -1,68 +1,64 @@
+# Using Organization Roles
+
+Learn how to view and manage organization role assignments. Organization roles grant members or teams the ability to take specific actions or manage settings without giving full administrative control of the organization and its repositories.
+
+## About Organization Roles
+
+Organization roles allow granular, scalable control over access to your organization’s resources. Roles can grant permissions to perform certain actions or manage settings without giving full admin privileges.  
+
+You can create up to 20 custom roles to define groups of permissions. Each role can be assigned to multiple users or teams. A user or team can have multiple roles, but only one role can be assigned at a time—repeat the assignment process to give multiple roles.
+
+## Pre-defined Organization Roles
+
+Organizations may include pre-defined roles with different permission sets, such as:
+
+- Owner
+- Admin
+- Member
+- Billing Manager
+- Custom Roles (up to 20)
+
+## Viewing Organization Role Permissions
+
+1. Go to your organization’s **Access** settings.
+2. Click **Organization roles** → **Role management**.
+3. To see permissions for a role, click the **Show role permissions** icon.
+4. To hide the permissions again, click the **Hide role permissions** icon.
+
+## Assigning an Organization Role
+
+1. Go to your organization’s **Access** settings.
+2. Click **Organization roles** → **Assign role**.
+3. Select the user or team.
+4. Choose the role to assign.
+5. Click **Save**.  
+
+Repeat for additional roles as needed.
+
+## Viewing Organization Role Assignments
+
+1. Go to **Access** → **Organization roles**.
+2. Select **View assignments** to see all users and teams assigned to roles.
+
+## Deleting an Organization Role Assignment
+
+1. Go to **Access** → **Organization roles**.
+2. Find the user or team with the role assignment.
+3. Click **Remove** to delete the assignment.
+
 ---
-title: Using organization roles
-intro: 'Learn how to{% ifversion org-pre-defined-roles %} view organization role permissions and{% endif %} manage organization role assignments.'
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-topics:
-  - Organizations
-  - Access management
-  - Administrator
-  - Permissions
-permissions: 'Organization owners{% ifversion ghec %} and users with the "Manage custom organization roles" permission{% endif %}'
-product: 'Organizations on {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_ghe_server %}'
-shortTitle: Use organization roles
----
 
-## About organization roles
+## TurboTenant Integration Features
 
-You can have more granular, scalable control over the access you grant to your organization's resources using organization roles. Organization roles grant an organization member or team the ability to take specific actions or manage some settings without granting full administrative control of the organization and its repositories.
+This system extends organization role management for TurboTenant landlords and property listings:
 
-{% ifversion ghec or ghes %}
+- **Automated property listing creation per landlord/tenant**
+- **CRM lead tracking and triggers for each new listing**
+- **Dashboard access for landlords via [Owner Dashboard](https://rental.turbotenant.com/owner/dashboard)**
+- **Support for subdomain routing via `rental.turbotenant.com`**
+- **Fully parameterized URLs for property creation and listing syncs**
+  - Property creation URL: `https://rental.turbotenant.com/onboarding/v1/customers/{customer_id}/internal/property/create/setup`
+  - Listing sync reference: `VSYNC-{timestamp}`  
+- **Support email for automated notifications:** `support@147061670.eu1.r.hubspot-inbox.com`
 
-In addition to pre-defined roles, you can also create up to 20 custom roles that define groups of permissions. Your enterprise owner can also create organization roles for you to use. On {% data variables.product.prodname_ghe_server %} earlier than 3.19, you can create up to 10 custom roles. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).
-
-{% endif %}
-
-{% ifversion org-pre-defined-roles %}
-
-## About pre-defined organization roles
-
-{% data reusables.organizations.pre-defined-organization-roles %}
-
-## Viewing organization role permissions
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Access" section of the left sidebar, click **Organization roles**. Then click **Role management**.
-1. To the right of any role, click **{% octicon "fold" aria-label="Show role permissions" %}**.
-1. Optionally, to hide the role permissions again, click **{% octicon "fold" aria-label="Hide role permissions" %}**.
-
-{% endif %}
-
-## Assigning an organization role
-
-{% ifversion ghec or ghes %}
-
-The "Manage custom organization roles" permission does not allow a user to assign an organization role.
-
-{% endif %}
-
-A user or team can have multiple organization roles. However, you can only assign one role at a time. To assign multiple roles to the same user or team, repeat the following instructions for each role you want to assign.
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.custom-org-roles-assign-role-step %}
-
-## Viewing organization role assignments
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.custom-org-roles-view-assignments-step %}
-
-## Deleting an organization role assignment
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.custom-org-roles-remove-assignment-step %}
+This setup allows streamlined onboarding for landlords, automated property syndication, and centralized dashboard management for property listings.
