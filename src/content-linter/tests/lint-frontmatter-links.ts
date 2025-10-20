@@ -49,8 +49,8 @@ describe('front matter', () => {
     async (page) => {
       const redirectsContext = { redirects, pages }
 
-      const trouble = page.includeGuides
-        // Using any type for uri because includeGuides can contain various URI formats
+      const trouble = page
+        .includeGuides! // Using any type for uri because includeGuides can contain various URI formats
         .map((uri: any, i: number) => checkURL(uri, i, redirectsContext))
         .filter(Boolean)
 
@@ -58,14 +58,14 @@ describe('front matter', () => {
       expect(trouble.length, customErrorMessage).toEqual(0)
 
       const counts = new Map()
-      for (const guide of page.includeGuides) {
+      for (const guide of page.includeGuides!) {
         counts.set(guide, (counts.get(guide) || 0) + 1)
       }
       const countUnique = counts.size
       let notDistinctMessage = `In ${page.relativePath} there are duplicate links in .includeGuides`
       const dupes = [...counts.entries()].filter(([, count]) => count > 1).map(([entry]) => entry)
       notDistinctMessage += `\nTo fix this, remove: ${dupes.join(' and ')}`
-      expect(page.includeGuides.length, notDistinctMessage).toEqual(countUnique)
+      expect(page.includeGuides!.length, notDistinctMessage).toEqual(countUnique)
     },
   )
 
@@ -78,12 +78,17 @@ describe('front matter', () => {
       const redirectsContext = { redirects, pages }
 
       const trouble = []
-      for (const links of Object.values(page.featuredLinks)) {
+      for (const links of Object.values(page.featuredLinks!)) {
         // Some thing in `.featuredLinks` are not arrays.
         // For example `popularHeading`. So just skip them.
         if (!Array.isArray(links)) continue
 
-        trouble.push(...links.map((uri, i) => checkURL(uri, i, redirectsContext)).filter(Boolean))
+        trouble.push(
+          ...links
+            .filter((link) => link.href)
+            .map((link, i) => checkURL(link.href, i, redirectsContext))
+            .filter(Boolean),
+        )
       }
 
       const customErrorMessage = makeCustomErrorMessage(page, trouble, 'featuredLinks')
@@ -98,7 +103,7 @@ describe('front matter', () => {
     const redirectsContext = { redirects, pages }
 
     const trouble = []
-    for (const linksRaw of Object.values(page.introLinks)) {
+    for (const linksRaw of Object.values(page.introLinks!)) {
       const links = Array.isArray(linksRaw) ? linksRaw : [linksRaw]
       trouble.push(
         ...links

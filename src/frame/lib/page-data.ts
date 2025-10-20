@@ -1,5 +1,8 @@
 import path from 'path'
 
+import type { Language } from '@/languages/lib/languages'
+import type { UnversionedTree, UnversionLanguageTree, SiteTree, Tree } from '@/types'
+
 import languages from '@/languages/lib/languages'
 import { allVersions } from '@/versions/lib/all-versions'
 import createTree from './create-tree'
@@ -9,6 +12,10 @@ import Page from './page'
 import Permalink from './permalink'
 import frontmatterSchema from './frontmatter'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
+
+interface FileSystemError extends Error {
+  code?: string
+}
 
 // If you run `export DEBUG_TRANSLATION_FALLBACKS=true` in your terminal,
 // every time a translation file fails to initialize we fall back to English
@@ -29,7 +36,7 @@ class FrontmatterParsingError extends Error {}
 // Note! As of Nov 2022, the schema says that 'product' is translatable
 // which is surprising since only a single page has prose in it.
 const translatableFrontmatterKeys = Object.entries(frontmatterSchema.schema.properties)
-  .filter(([, value]) => value.translatable)
+  .filter(([, value]: [string, any]) => value.translatable)
   .map(([key]) => key)
 
 /**
@@ -37,13 +44,18 @@ const translatableFrontmatterKeys = Object.entries(frontmatterSchema.schema.prop
  * first since it's the most expensive work. This gets us a nested object with pages attached that we can use
  * as the basis for the siteTree after we do some versioning. We can also use it to derive the pageList.
  */
-export async function loadUnversionedTree(languagesOnly = []) {
+export async function loadUnversionedTree(
+  languagesOnly: string[] = [],
+): Promise<UnversionLanguageTree> {
   if (languagesOnly && !Array.isArray(languagesOnly)) {
     throw new Error("'languagesOnly' has to be an array")
   }
-  const unversionedTree = {}
-  unversionedTree.en = await createTree(path.join(languages.en.dir, 'content'))
-  setCategoryApplicableVersions(unversionedTree.en)
+  const unversionedTree: UnversionLanguageTree = {} as UnversionLanguageTree
+  const enTree = await createTree(path.join(languages.en.dir, 'content'))
+  if (enTree) {
+    unversionedTree.en = enTree
+    setCategoryApplicableVersions(unversionedTree.en)
+  }
 
   const languagesValues = Object.entries(languages)
     .filter(([language]) => {
@@ -70,14 +82,14 @@ export async function loadUnversionedTree(languagesOnly = []) {
   return unversionedTree
 }
 
-function setCategoryApplicableVersions(tree) {
+function setCategoryApplicableVersions(tree: UnversionedTree): void {
   // Now that the tree has been fully computed, we can for any node that
   // is a category page, re-set its `.applicableVersions` and `.permalinks`
   // based on the union set of all its immediate children's
   // `.applicableVersions`.
   for (const childPage of tree.childPages) {
     if (childPage.page.relativePath.endsWith('index.md')) {
-      const combinedApplicableVersions = []
+      const combinedApplicableVersions: string[] = []
       let moreThanOneChild = false
       for (const childChildPage of childPage.childPages || []) {
         for (const version of childChildPage.page.applicableVersions) {
@@ -112,12 +124,16 @@ function setCategoryApplicableVersions(tree) {
   }
 }
 
-function equalSets(setA, setB) {
+function equalSets(setA: Set<string>, setB: Set<string>): boolean {
   return setA.size === setB.size && [...setA].every((x) => setB.has(x))
 }
 
-async function translateTree(dir, langObj, enTree) {
-  const item = {}
+async function translateTree(
+  dir: string,
+  langObj: Language,
+  enTree: UnversionedTree,
+): Promise<UnversionedTree> {
+  const item: Partial<UnversionedTree> = {}
   const enPage = enTree.page
   const { ...enData } = enPage
 
@@ -170,13 +186,14 @@ async function translateTree(dir, langObj, enTree) {
         if (THROW_TRANSLATION_ERRORS) {
           throw new Error(message)
         }
-        data[property] = enData[property]
+        // Using any because the property is dynamic
+        ;(data as any)[property] = (enData as any)[property]
       }
     }
   } catch (error) {
     // If it didn't work because it didn't exist, don't fret,
     // we'll use the English equivalent's data and content.
-    if (error.code === 'ENOENT' || error instanceof FrontmatterParsingError) {
+    if ((error as FileSystemError).code === 'ENOENT' || error instanceof FrontmatterParsingError) {
       data = enData
       content = enPage.markdown
       const message = `Unable to initialize ${fullPath} because translation content file does not exist.`
@@ -204,14 +221,14 @@ async function translateTree(dir, langObj, enTree) {
     code: langObj.code,
   })
 
-  translatedData.title = correctTranslatedContentStrings(translatedData.title, enPage.title, {
+  translatedData.title = correctTranslatedContentStrings(translatedData.title || '', enPage.title, {
     relativePath,
     code: langObj.code,
   })
   if (translatedData.shortTitle) {
     translatedData.shortTitle = correctTranslatedContentStrings(
       translatedData.shortTitle,
-      enPage.shortTitle,
+      enPage.shortTitle || '',
       {
         relativePath,
         code: langObj.code,
@@ -225,7 +242,8 @@ async function translateTree(dir, langObj, enTree) {
     })
   }
 
-  item.page = new Page(
+  // Using any to handle the complex object merging for Page constructor
+  ;(item as UnversionedTree).page = new Page(
     Object.assign(
       {},
       // By default, shallow-copy everything from the English equivalent.
@@ -239,20 +257,23 @@ async function translateTree(dir, langObj, enTree) {
       },
       // And the translations translated properties.
       translatedData,
-    ),
-  )
-  if (item.page.children) {
-    item.childPages = await Promise.all(
+    ) as any,
+  ) as any
+  if (
+    ((item as UnversionedTree).page as any).children &&
+    ((item as UnversionedTree).page as any).children.length > 0
+  ) {
+    ;(item as UnversionedTree).childPages = await Promise.all(
       enTree.childPages
-        .filter((childTree) => {
+        .filter((childTree: UnversionedTree) => {
           // Translations should not get early access pages at all.
           return childTree.page.relativePath.split(path.sep)[0] !== 'early-access'
         })
-        .map((childTree) => translateTree(dir, langObj, childTree)),
+        .map((childTree: UnversionedTree) => translateTree(dir, langObj, childTree)),
     )
   }
 
-  return item
+  return item as UnversionedTree
 }
 
 /**
@@ -267,9 +288,12 @@ async function translateTree(dir, langObj, enTree) {
  *
  * Order of languages and versions doesn't matter, but order of child page arrays DOES matter (for navigation).
 */
-export async function loadSiteTree(unversionedTree, languagesOnly = []) {
+export async function loadSiteTree(
+  unversionedTree?: UnversionLanguageTree,
+  languagesOnly: string[] = [],
+): Promise<SiteTree> {
   const rawTree = Object.assign({}, unversionedTree || (await loadUnversionedTree(languagesOnly)))
-  const siteTree = {}
+  const siteTree: SiteTree = {}
 
   const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
   // For every language...
@@ -278,7 +302,7 @@ export async function loadSiteTree(unversionedTree, languagesOnly = []) {
       if (!(langCode in rawTree)) {
         throw new Error(`No tree for language ${langCode}`)
       }
-      const treePerVersion = {}
+      const treePerVersion: { [version: string]: Tree } = {}
       // in every version...
       await Promise.all(
         versions.map(async (version) => {
@@ -298,10 +322,10 @@ export async function loadSiteTree(unversionedTree, languagesOnly = []) {
   return siteTree
 }
 
-export async function versionPages(obj, version, langCode) {
+export async function versionPages(obj: any, version: string, langCode: string): Promise<Tree> {
   // Add a versioned href as a convenience for use in layouts.
   const permalink = obj.page.permalinks.find(
-    (pl) =>
+    (pl: any) =>
       pl.pageVersion === version ||
       (pl.pageVersion === 'homepage' && version === nonEnterpriseDefaultVersion),
   )
@@ -316,9 +340,9 @@ export async function versionPages(obj, version, langCode) {
   const versionedChildPages = await Promise.all(
     obj.childPages
       // Drop child pages that do not apply to the current version
-      .filter((childPage) => childPage.page.applicableVersions.includes(version))
+      .filter((childPage: any) => childPage.page.applicableVersions.includes(version))
       // Version the child pages recursively.
-      .map((childPage) => versionPages(Object.assign({}, childPage), version, langCode)),
+      .map((childPage: any) => versionPages(Object.assign({}, childPage), version, langCode)),
   )
 
   obj.childPages = [...versionedChildPages]
@@ -327,12 +351,15 @@ export async function versionPages(obj, version, langCode) {
 }
 
 // Derive a flat array of Page objects in all languages.
-export async function loadPageList(unversionedTree, languagesOnly = []) {
+export async function loadPageList(
+  unversionedTree?: UnversionLanguageTree,
+  languagesOnly: string[] = [],
+): Promise<Page[]> {
   if (languagesOnly && !Array.isArray(languagesOnly)) {
     throw new Error("'languagesOnly' has to be an array")
   }
   const rawTree = unversionedTree || (await loadUnversionedTree(languagesOnly))
-  const pageList = []
+  const pageList: Page[] = []
 
   const langCodes = (languagesOnly.length && languagesOnly) || Object.keys(languages)
   await Promise.all(
@@ -344,13 +371,15 @@ export async function loadPageList(unversionedTree, languagesOnly = []) {
     }),
   )
 
-  async function addToCollection(item, collection) {
+  async function addToCollection(item: UnversionedTree, collection: Page[]): Promise<void> {
     if (!item.page) return
-    collection.push(item.page)
+    collection.push(item.page as any)
 
     if (!item.childPages) return
     await Promise.all(
-      item.childPages.map(async (childPage) => await addToCollection(childPage, collection)),
+      item.childPages.map(
+        async (childPage: UnversionedTree) => await addToCollection(childPage, collection),
+      ),
     )
   }
 
@@ -360,19 +389,25 @@ export async function loadPageList(unversionedTree, languagesOnly = []) {
 export const loadPages = loadPageList
 
 // Create an object from the list of all pages with permalinks as keys for fast lookup.
-export function createMapFromArray(pageList) {
-  const pageMap = pageList.reduce((pageMap, page) => {
-    for (const permalink of page.permalinks) {
-      pageMap[permalink.href] = page
-    }
-    return pageMap
-  }, {})
+export function createMapFromArray(pageList: Page[]): Record<string, Page> {
+  const pageMap = pageList.reduce(
+    (pageMap: Record<string, Page>, page: Page) => {
+      for (const permalink of page.permalinks) {
+        pageMap[permalink.href] = page
+      }
+      return pageMap
+    },
+    {} as Record<string, Page>,
+  )
 
   return pageMap
 }
 
-export async function loadPageMap(pageList, languagesOnly = []) {
-  const pages = pageList || (await loadPageList(languagesOnly))
+export async function loadPageMap(
+  pageList?: Page[],
+  languagesOnly: string[] = [],
+): Promise<Record<string, Page>> {
+  const pages = pageList || (await loadPageList(undefined, languagesOnly))
   const pageMap = createMapFromArray(pages)
   return pageMap
 }
