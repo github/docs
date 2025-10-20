@@ -258,8 +258,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Anthropic
   supportedSecret: Anthropic Session ID
   secretType: anthropic_session_id
@@ -609,8 +609,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Cognitive Services Key
   secretType: azure_cognitive_services_key
@@ -713,8 +713,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Custom Vision Prediction Key
   secretType: azure_custom_vision_prediction_key
@@ -830,8 +830,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Health Decision Support Key
   secretType: azure_health_decision_support_key
@@ -1102,8 +1102,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Personalizer Key
   secretType: azure_personalizer_key
@@ -1517,8 +1517,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Brevo
   supportedSecret: Sendinblue SMTP Key
   secretType: sendinblue_smtp_key
@@ -1984,8 +1984,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Datadog
   supportedSecret: Datadog API Key
   secretType: datadog_api_key
@@ -2671,8 +2671,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
   secretType: gocardless_live_access_token
@@ -2818,8 +2818,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Grafana
   supportedSecret: Grafana Cloud API Key
   secretType: grafana_cloud_api_key
@@ -2883,8 +2883,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: GuardSquare
   supportedSecret: GuardSquare AppSweep API Key
   secretType: guardsquare_appsweep_api_key
@@ -3272,8 +3272,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Langchain
   supportedSecret: Langchain API Personal Key
   secretType: langchain_api_personal_key
