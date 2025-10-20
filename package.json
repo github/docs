@@ -252,7 +252,7 @@
     "@graphql-inspector/core": "^6.1.0",
     "@graphql-tools/load": "^8.0.19",
     "@octokit/rest": "22.0.0",
-    "@playwright/test": "^1.50",
+    "@playwright/test": "^1.56",
     "@types/accept-language-parser": "1.5.7",
     "@types/cheerio": "^0.22.35",
     "@types/connect-timeout": "1.9.0",
