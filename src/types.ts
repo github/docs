@@ -225,7 +225,7 @@ export type FeaturedLinkExpanded = {
   intro?: string
 }
 
-type FeaturedLinksExpanded = {
+export type FeaturedLinksExpanded = {
   [key: string]: FeaturedLinkExpanded[]
 }
 

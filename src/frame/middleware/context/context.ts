@@ -70,10 +70,10 @@ export default async function contextualize(
   req.context.redirects = redirects
   req.context.site = {
     data: {
-      ui: getUIDataMerged(req.language),
+      ui: getUIDataMerged(req.language!),
     },
   }
-  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language)
+  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language!)
   req.context.siteTree = siteTree
   req.context.pages = pageMap
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion

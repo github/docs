@@ -12,7 +12,7 @@ import {
 import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('get-data', () => {
-  let dd
+  let dd: DataDirectory
   const enDirBefore = languages.en.dir
   // Only `en` is available in tests, so pretend we also have Japanese
   languages.ja = Object.assign({}, languages.en, {})
@@ -219,7 +219,7 @@ front: >'matter
 `.trim()
 
 describe('get-data on corrupt translations', () => {
-  let dd
+  let dd: DataDirectory
   const enDirBefore = languages.en.dir
   // Only `en` is available in vitest tests, so pretend we also have Japanese
   languages.ja = Object.assign({}, languages.en, {})

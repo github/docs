@@ -1,3 +1,4 @@
+// csp-parse doesn't have TypeScript types
 import CspParse from 'csp-parse'
 import { beforeAll, describe, expect, test, vi } from 'vitest'
 
@@ -9,6 +10,11 @@ import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
 } from '@/frame/middleware/set-fastly-surrogate-key'
+
+interface Category {
+  name: string
+  published_articles: string[]
+}
 
 describe('server', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -81,11 +87,14 @@ describe('server', () => {
     // it will render a very basic plain text 404 response.
     const $ = await getDOM('/en/not-a-real-page', { allow404: true })
     expect($('h1').first().text()).toBe('Ooops!')
-    expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
+    // Using type assertion because cheerio v1 types don't include text() on root
+    expect(($ as any).text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
-      $.text().includes(
-        'We track these errors automatically, but if the problem persists please feel free to contact us.',
-      ),
+      ($ as any)
+        .text()
+        .includes(
+          'We track these errors automatically, but if the problem persists please feel free to contact us.',
+        ),
     ).toBe(true)
     expect($.res.statusCode).toBe(404)
   })
@@ -107,11 +116,14 @@ describe('server', () => {
   test('renders a 500 page when errors are thrown', async () => {
     const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').first().text()).toBe('Ooops!')
-    expect($.text().includes('It looks like something went wrong.')).toBe(true)
+    // Using type assertion because cheerio v1 types don't include text() on root
+    expect(($ as any).text().includes('It looks like something went wrong.')).toBe(true)
     expect(
-      $.text().includes(
-        'We track these errors automatically, but if the problem persists please feel free to contact us.',
-      ),
+      ($ as any)
+        .text()
+        .includes(
+          'We track these errors automatically, but if the problem persists please feel free to contact us.',
+        ),
     ).toBe(true)
     expect($.res.statusCode).toBe(500)
   })
@@ -154,7 +166,7 @@ describe('server', () => {
     const categories = JSON.parse(res.body)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
-    categories.forEach((category) => {
+    categories.forEach((category: Category) => {
       expect('name' in category).toBe(true)
       expect('published_articles' in category).toBe(true)
     })

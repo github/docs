@@ -6,6 +6,32 @@ import { allVersions } from '@/versions/lib/all-versions'
 import { allTools } from '@/tools/lib/all-tools'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
+interface SchemaProperty {
+  type?: string | string[]
+  translatable?: boolean
+  deprecated?: boolean
+  default?: any
+  minimum?: number
+  maximum?: number
+  enum?: any[]
+  errorMessage?: string
+  items?: any
+  properties?: Record<string, any>
+  required?: string[]
+  additionalProperties?: boolean
+  format?: string
+  description?: string
+  minItems?: number
+  maxItems?: number
+}
+
+interface Schema {
+  type: string
+  required: string[]
+  additionalProperties: boolean
+  properties: Record<string, SchemaProperty>
+}
+
 const layoutNames = [
   'default',
   'graphql-explorer',
@@ -38,7 +64,7 @@ export const contentTypesEnum = [
   'other', // Everything else.
 ]
 
-export const schema = {
+export const schema: Schema = {
   type: 'object',
   required: ['title', 'versions'],
   additionalProperties: false,
@@ -383,8 +409,8 @@ export const schema = {
 }
 
 // returns a list of deprecated properties
-export const deprecatedProperties = Object.keys(schema.properties).filter((prop) => {
-  return schema.properties[prop].deprecated
+export const deprecatedProperties = Object.keys(schema.properties).filter((prop: string) => {
+  return (schema.properties as Record<string, SchemaProperty>)[prop].deprecated
 })
 
 const featureVersionsProp = {
@@ -407,17 +433,17 @@ const semverRange = {
   errorMessage: 'Must be a valid SemVer range: ${0}',
 }
 
-schema.properties.versions = {
+;(schema.properties as Record<string, any>).versions = {
   type: ['object', 'string'], // allow a '*' string to indicate all versions
   additionalProperties: false, // don't allow any versions in FM that aren't defined in lib/all-versions
-  properties: Object.values(allVersions).reduce((acc, versionObj) => {
+  properties: Object.values(allVersions).reduce((acc: any, versionObj) => {
     acc[versionObj.plan] = semverRange
     acc[versionObj.shortName] = semverRange
     return acc
   }, featureVersionsProp),
 }
 
-export function frontmatter(markdown, opts = {}) {
+export function frontmatter(markdown: string, opts: any = {}) {
   const defaults = {
     schema,
   }
