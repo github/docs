@@ -26,14 +26,15 @@ The {% data variables.product.github %} MCP server is available to all {% data v
 
 The {% data variables.product.github %} MCP server in {% data variables.product.prodname_vscode %} can be configured remotely or locally. The remote {% data variables.product.github %} MCP server is hosted by {% data variables.product.github %} and is the recommended option for most users. The local {% data variables.product.github %} MCP server is hosted on your machine and is recommended for users who want to customize their setup or have specific security requirements.
 
-The steps below describe remote configuration with one-click OAuth authentication. For information on manually configuring the remote or local {% data variables.product.github %} MCP server, see the [{% data variables.product.github %} MCP server documentation](https://github.com/mcp/github/github-mcp-server).
+The steps below describe remote configuration through the MCP marketplace in {% data variables.product.prodname_vscode %}'s extension panel. The MCP marketplace is powered by the {% data variables.product.github %} MCP Registry. See [MCP Registry](https://github.com/mcp).
 
-1. Go to the [{% data variables.product.github %} page of the MCP Registry](https://github.com/mcp/github/github-mcp-server).
-1. Click **Install MCP server** and select **Install in {% data variables.product.prodname_vscode %}**.
-1. In {% data variables.product.prodname_vscode %}, on the {% data variables.product.github %} MCP Server configuration page, click **Install**.
-1. In the popup, when prompted to authenticate, click **Allow**.
-1. In your browser, you will be prompted to authorize. To the right of your profile picture, click **Continue**.
-1. Follow the prompts on screen to complete the authorization process.
+For information on manually configuring the remote or local {% data variables.product.github %} MCP server, see the [{% data variables.product.github %} MCP server documentation](https://github.com/mcp/github/github-mcp-server).
+
+1. In {% data variables.product.prodname_vscode %}, open the extensions panel by clicking the extensions icon in the sidebar or pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Mac).
+1. In the extensions search bar, click the filter icon and select **MCP Registry** from the dropdown.
+1. If it is your first time using the MCP Registry, follow the prompts on screen to enable the registry.
+1. In the search bar, type `github` and select the {% data variables.product.github %} MCP server from the search results.
+1. On the {% data variables.product.github %} MCP server configuration page, click **Install**.
 1. To check that the {% data variables.product.github %} MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type and select **MCP: List Servers**. You should see `github` listed as a configured server.
 
