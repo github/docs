@@ -24,9 +24,6 @@ Your account is selected for mandatory 2FA if you have taken some action on {% d
 
 {% data variables.product.prodname_dotcom %} is continually assessing improvements to our account security features and 2FA requirements, so these criteria may change over time.
 
-> [!NOTE]
-> If your account has an education coupon active, it is exempt from mandatory 2FA.
-
 ### About mandatory 2FA for organizations and enterprises
 
 Mandatory 2FA is required by {% data variables.product.prodname_dotcom %} itself to improve security for both individual developers and the broader software development ecosystem. Your administrator may also require 2FA enablement as a requirement to join their organization or enterprise, but those requirements are separate from this program. To find which users have enabled 2FA or are required to do so, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-whether-members-in-your-enterprise-have-2fa-enabled) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
