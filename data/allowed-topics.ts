@@ -10,7 +10,7 @@
 // content model, add the entry to this list, and ensure you loop in the
 // content and/or content strategy team for review.
 
-export default [
+const allowedTopics = [
   '2FA',
   'Access management',
   'Accounts',
@@ -170,4 +170,6 @@ export default [
   'Xamarin.iOS',
   'Xamarin',
   'Xcode',
-]
+] as const
+
+export default allowedTopics

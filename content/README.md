@@ -288,7 +288,7 @@ journeyTracks:
 - Optional.
 
 ### `topics`
-- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.js) will fail.
+- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.ts). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.ts) will fail.
 - Type: Array of `String`s
 - Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
