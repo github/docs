@@ -413,7 +413,7 @@ The footnote will render like this:
 
 ## Alerts
 
-Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.github %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
+Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. (They are also known as "callouts" or "admonitions".) On {% data variables.product.github %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
 
 Use alerts only when they are crucial for user success and limit them to one or two per article to prevent overloading the reader. Additionally, you should avoid placing alerts consecutively. Alerts cannot be nested within other elements.
 
