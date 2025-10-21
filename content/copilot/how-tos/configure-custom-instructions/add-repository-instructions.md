@@ -545,6 +545,10 @@ You can click the reference to open the file.
 
 {% data reusables.copilot.custom-instructions-reference %}
 
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+
 {% endxcode %}
 
 {% webui %}
@@ -563,6 +567,10 @@ You can click the reference to open the file.
 Your choice persists, for all repositories containing a custom instructions file, until you change it.
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
 
 {% endwebui %}
 
@@ -592,6 +600,10 @@ Your choice persists, for all repositories containing a custom instructions file
    ![Screenshot of the {% data variables.product.prodname_vs %} Options dialog showing the "Enable custom instructions" option checkbox selected.](/assets/images/help/copilot/vs-custom-instructions-option.png)
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
 
 {% endvisualstudio %}
 
@@ -633,6 +645,10 @@ To enable prompt files, configure the workspace settings.
 
 For more information about prompt files, see [Custom instructions for {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
 
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library)
+
 {% endvscode %}
 
 {% jetbrains %}
@@ -673,4 +689,24 @@ Once prompt files are saved, their instructions will apply to the current worksp
 
 1. Submit the chat prompt.
 
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library)
+
 {% endjetbrains %}
+
+{% eclipse %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+
+{% endeclipse %}
+
+{% copilotcli %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+
+{% endcopilotcli %}
