@@ -12,7 +12,7 @@
   "exports": "./src/frame/server.ts",
   "scripts": {
     "add-content-type": "tsx src/content-render/scripts/add-content-type.ts",
-    "ai-edit": "tsx src/ai-editors/scripts/ai-edit.ts",
+    "ai-tools": "tsx src/ai-tools/scripts/ai-tools.ts",
     "all-documents": "tsx src/content-render/scripts/all-documents/cli.ts",
     "analyze-text": "tsx src/search/scripts/analyze-text.ts",
     "analyze-comment": "tsx src/events/scripts/analyze-comment-cli.ts",

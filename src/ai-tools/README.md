@@ -1,25 +1,32 @@
-# AI-powered editors
+# AI-powered tools
 
 A CLI tool for using AI to edit documentation according to defined prompts.
 
-This tool runs an AI review of content files based on an (extensible) set of prompt-driven guidelines. The default is versioning. In the future we might add: scannability, readability, style, technical accuracy.
+This tool refines content files using AI based on an (extensible) set of prompt-driven guidelines. The default is versioning refinement. In the future we might add: scannability, readability, style, technical accuracy.
 
 This script calls the [Models API](https://docs.github.com/en/rest/models/inference?apiVersion=2022-11-28#run-an-inference-request). It requires a personal access token with Models scopes in your `.env` file.
 
 ## Usage
 
 ```sh
-tsx src/ai-editors/scripts/ai-edit.js --editor <type> --response <type> --files <file1.md>
+# Direct command
+tsx src/ai-tools/scripts/ai-tools.ts --refine <type> --files <file1.md>
+
+# Or via npm script
+npm run ai-tools -- --refine <type> --files <file1.md>
 ```
 
 * `--files, -f`: One or more content file paths to process (required).
-* `--response, -r`: Specify the AI response format. Options: `rewrite` (default), `list`, `json`.
-* `--editor, -e`: Specify one or more editor types (default: `versioning`).
+* `--refine, -r`: Specify one or more refinement types (default: `versioning`).
 
-**Example:**
+**Examples:**
 
 ```sh
-tsx src/ai-editors/scripts/ai-edit.js --files content/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo.md --editor versioning --response list
+# Direct command
+tsx src/ai-tools/scripts/ai-tools.ts --files content/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo.md --refine versioning
+
+# Via npm script  
+npm run ai-tools -- --files content/copilot/tutorials/coding-agent/get-the-best-results.md --refine intro
 ```
 
 ## Requirements
