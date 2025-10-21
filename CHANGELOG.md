@@ -1,5 +1,13 @@
 # Docs changelog
 
+**17 October 2025**
+
+We have updated the [Account and profile](https://docs.github.com/en/account-and-profile) and [Subscriptions and notifications](https://docs.github.com/en/subscriptions-and-notifications) docs for improved usability, scannability, and information architecture.
+
+To support accomplishing tasks without context switching or sifting through unrelated content, articles are now organized by content type and focused on jobs-to-be-done. Additionally, related information is now linked from content type to content type.
+
+<hr>
+
 **14 October 2025**
 
 We've added a new tutorial about how to [Review AI-generated code](https://docs.github.com/en/copilot/tutorials/review-ai-generated-code). The article gives techniques to verify and validate AI-generated code, and also suggests how Copilot can help with reviews.
