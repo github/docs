@@ -78,6 +78,10 @@ router.post(
           // JSON.stringify removes `undefined` values but not `null`, and we don't want to send `null` to Hydro
           body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
           body.context.is_staff = Boolean(req.cookies?.staffonly)
+          // Add IP address and user agent from request
+          // Moda forwards the client's IP using the `fastly-client-ip` header
+          body.context.ip = req.headers['fastly-client-ip'] as string | undefined
+          body.context.user_agent ??= req.headers['user-agent']
         }
         const validate = validators[type]
         if (!validate(body)) {

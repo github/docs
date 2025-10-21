@@ -122,6 +122,7 @@ export function sendEvent<T extends EventType>({
       screen_width: window.screen.width,
       screen_height: window.screen.height,
       pixel_ratio: window.devicePixelRatio || 1,
+      user_agent: navigator.userAgent,
 
       // Location information
       timezone: new Date().getTimezoneOffset() / -60,

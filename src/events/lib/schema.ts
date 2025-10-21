@@ -168,6 +168,14 @@ const context = {
       description: 'The device pixel ratio.',
       minimum: 0,
     },
+    ip: {
+      type: 'string',
+      description: 'The IP address of the user.',
+    },
+    user_agent: {
+      type: 'string',
+      description: 'The raw user agent string from the browser.',
+    },
 
     // Location information
     timezone: {

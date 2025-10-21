@@ -24,11 +24,15 @@ interface EditorType {
 
 interface EditorTypes {
   versioning: EditorType
+  intro: EditorType
 }
 
 const editorTypes: EditorTypes = {
   versioning: {
     description: 'Refine versioning according to simplification guidance.',
+  },
+  intro: {
+    description: 'Refine intro frontmatter based on SEO and content guidelines.',
   },
 }
 
@@ -88,7 +92,7 @@ program
 
           for (const editorType of editors) {
             spinner.text = `Running the AI-powered ${editorType} refinement...`
-            const answer = await callEditor(editorType, content)
+            const answer = await callEditor(editorType, content, options.write || false)
             spinner.stop()
 
             if (options.write) {
@@ -125,9 +129,20 @@ interface PromptData {
   max_tokens?: number
 }
 
-async function callEditor(editorType: keyof EditorTypes, content: string): Promise<string> {
+async function callEditor(
+  editorType: keyof EditorTypes,
+  content: string,
+  writeMode: boolean,
+): Promise<string> {
   const markdownPromptPath = path.join(promptDir, `${editorType}.md`)
-  const markdownPrompt = fs.readFileSync(markdownPromptPath, 'utf8')
+  let markdownPrompt = fs.readFileSync(markdownPromptPath, 'utf8')
+
+  // For intro type in write mode, append special instructions
+  if (editorType === 'intro' && writeMode) {
+    markdownPrompt +=
+      '\n\n**WRITE MODE**: Output only the complete updated file content with the new intro in the frontmatter. Do not include analysis or explanations - just return the file ready to write.'
+  }
+
   const prompt = yaml.load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
 
   prompt.messages.forEach((msg) => {
