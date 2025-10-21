@@ -1008,7 +1008,7 @@ test('open search, Ask AI returns 400 error and shows general search results', a
 
 test.describe('LandingCarousel component', () => {
   test('displays carousel on test page', async ({ page }) => {
-    await page.goto('/get-started/carousel?feature=discovery-landing')
+    await page.goto('/get-started/carousel')
 
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
@@ -1026,7 +1026,7 @@ test.describe('LandingCarousel component', () => {
 
   test('navigation works on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 800 })
-    await page.goto('/get-started/carousel?feature=discovery-landing')
+    await page.goto('/get-started/carousel')
 
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
@@ -1046,7 +1046,7 @@ test.describe('LandingCarousel component', () => {
 
   test('responsive behavior on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
-    await page.goto('/get-started/carousel?feature=discovery-landing')
+    await page.goto('/get-started/carousel')
 
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
@@ -1059,7 +1059,7 @@ test.describe('LandingCarousel component', () => {
 
 test.describe('Journey Tracks', () => {
   test('displays journey tracks on landing pages', async ({ page }) => {
-    await page.goto('/get-started?feature=journey-landing')
+    await page.goto('/get-started/test-journey')
 
     const journeyTracks = page.locator('[data-testid="journey-tracks"]')
     await expect(journeyTracks).toBeVisible()
@@ -1075,7 +1075,7 @@ test.describe('Journey Tracks', () => {
   })
 
   test('track expansion and collapse functionality', async ({ page }) => {
-    await page.goto('/get-started?feature=journey-landing')
+    await page.goto('/get-started/test-journey')
 
     const firstTrack = page.locator('[data-testid="journey-track"]').first()
     const expandButton = firstTrack.locator('summary')
@@ -1095,7 +1095,7 @@ test.describe('Journey Tracks', () => {
   })
 
   test('article navigation within tracks', async ({ page }) => {
-    await page.goto('/get-started?feature=journey-landing')
+    await page.goto('/get-started/test-journey')
 
     const firstTrack = page.locator('[data-testid="journey-track"]').first()
     const expandButton = firstTrack.locator('summary')
@@ -1112,7 +1112,7 @@ test.describe('Journey Tracks', () => {
   })
 
   test('preserves version in journey track links', async ({ page }) => {
-    await page.goto('/enterprise-cloud@latest/get-started?feature=journey-landing')
+    await page.goto('/enterprise-cloud@latest/get-started/test-journey')
 
     const firstTrack = page.locator('[data-testid="journey-track"]').first()
     const expandButton = firstTrack.locator('summary')
@@ -1127,7 +1127,7 @@ test.describe('Journey Tracks', () => {
   })
 
   test('handles liquid template rendering in track content', async ({ page }) => {
-    await page.goto('/get-started?feature=journey-landing')
+    await page.goto('/get-started/test-journey')
 
     const tracks = page.locator('[data-testid="journey-track"]')
 
