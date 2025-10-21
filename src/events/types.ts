@@ -50,6 +50,8 @@ export type EventProps = {
     screen_width?: number
     screen_height?: number
     pixel_ratio?: number
+    ip?: string
+    user_agent?: string
     timezone: number
     user_language: string
     os_preference: string
