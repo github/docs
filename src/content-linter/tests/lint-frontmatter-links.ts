@@ -35,7 +35,7 @@ describe('front matter', () => {
       // Using any type because trouble array contains objects with varying error properties
       if (trouble.find((t: any) => t.redirects)) {
         customErrorMessage += `\n\nNOTE! To automatically fix the redirects run this command:\n`
-        customErrorMessage += `\n\t./src/links/scripts/update-internal-links.js content/${page.relativePath}\n\n`
+        customErrorMessage += `\n\t./src/links/scripts/update-internal-links.ts content/${page.relativePath}\n\n`
       }
     }
     return customErrorMessage

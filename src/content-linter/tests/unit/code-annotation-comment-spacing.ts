@@ -232,7 +232,7 @@ describe(codeAnnotationCommentSpacing.names.join(' - '), () => {
       'echo "Hello"',
       '',
       '// This JS-style comment is fine',
-      'node script.js',
+      'node script.ts',
       '',
       '--This SQL comment needs space',
       'psql -c "SELECT 1;"',

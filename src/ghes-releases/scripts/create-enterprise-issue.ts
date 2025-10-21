@@ -63,7 +63,7 @@ async function run() {
   const releaseType = process.argv[2]
   if (releaseType !== 'release' && releaseType !== 'deprecation') {
     throw new Error(
-      "Please specify either 'release' or 'deprecation'\nExample: src/versions/scripts/create-enterprise-issue.js release",
+      "Please specify either 'release' or 'deprecation'\nExample: src/versions/scripts/create-enterprise-issue.ts release",
     )
   }
 

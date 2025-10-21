@@ -42,7 +42,7 @@ In a matter of minutes, you will be ready to edit, review and test your changes 
 
 By default the local server won't run with all supported languages enabled. If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable. For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
 
-The supported language codes are defined in [lib/languages.js](../src/languages/lib/languages.js).
+The supported language codes are defined in [lib/languages.ts](../src/languages/lib/languages.ts).
 
 ## Site structure
 

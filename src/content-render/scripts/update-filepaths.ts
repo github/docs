@@ -165,7 +165,7 @@ function moveFile(result: string[], options: ScriptOptions): void {
   const stdout = execFileSync(
     'tsx',
     [
-      'src/content-render/scripts/move-content.js',
+      'src/content-render/scripts/move-content.ts',
       '--no-git',
       '--verbose',
       contentPath,

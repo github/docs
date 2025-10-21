@@ -38,15 +38,13 @@ export const getDeepDataByLanguage = memoize(
     }
 
     // The `dir` argument is only used for testing purposes.
-    // For example, our unit tests that depend on using a fixtures
-    // root.
+    // For example, our unit tests that depend on using a fixtures root.
     // If we don't allow those tests to override the `dir` argument,
-    // it'll be stuck from the first time `languages.js` was imported.
-    let actualDir = dir
-    if (actualDir === null) {
-      actualDir = languages[langCode].dir
+    // it'll be stuck from the first time `languages.ts` was imported.
+    if (dir === null) {
+      dir = languages[langCode].dir
     }
-    return getDeepDataByDir(dottedPath, actualDir)
+    return getDeepDataByDir(dottedPath, dir)
   },
 )
 

@@ -109,7 +109,7 @@ function evaluateVersions(versionsObj: VersionsObject): string[] {
   //   fpt: '*'
   //   ghes: '>=2.19'
   //   ghec: '*'
-  // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.js)
+  // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.ts)
   Object.entries(versionsObj).forEach(([plan, planValue]: [string, string | string[]]) => {
     // Skip non-string plan values for semantic comparison
     if (typeof planValue !== 'string') return

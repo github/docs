@@ -25,7 +25,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
 )
 
 // Supply all route handlers with a baseline `req.context` object
-// Note that additional middleware in middleware/index.js adds to this context object
+// Note that additional middleware in middleware/index.ts adds to this context object
 export default async function contextualize(
   req: ExtendedRequest,
   res: Response,

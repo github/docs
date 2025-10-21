@@ -1,5 +1,5 @@
-# These urls are exceptions to the versionless redirect fallbacks (described in lib/all-versions.js).
-# See the comment in lib/redirects/precompile.js for an explanation of these exceptions.
+# These urls are exceptions to the versionless redirect fallbacks (described in lib/all-versions.ts).
+# See the comment in lib/redirects/precompile.ts for an explanation of these exceptions.
 # Originally shipped in pull #20947 on 10/15/21
 # Updated in pull #27307 on 07/21/22
 

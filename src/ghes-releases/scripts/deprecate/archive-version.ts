@@ -120,7 +120,7 @@ async function main() {
       if (!singlePage) {
         // create redirect html files to preserve frontmatter redirects
         await createRedirectsFile(pageList, path.join(tmpArchivalDirectory, version))
-        console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
+        console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.ts`)
       } else {
         console.log('🏁 Scraping a single page is complete')
       }

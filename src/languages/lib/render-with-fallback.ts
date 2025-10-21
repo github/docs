@@ -131,7 +131,7 @@ export async function renderContentWithFallback(
       const enPage = context.getEnglishPage(context)
       const englishTemplate = (enPage as any)[property] as string
       // If you don't change the context, it'll confuse the liquid plugins
-      // like `data.js` that uses `environment.scope.currentLanguage`
+      // like `data.ts` that uses `environment.scope.currentLanguage`
       const enContext = Object.assign({}, context, { currentLanguage: 'en' })
 
       // Render the English fallback content
