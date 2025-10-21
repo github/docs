@@ -13,7 +13,7 @@ See documentation below for:
 Print usage info for any script in this directory:
 
 ```bash
-tsx src/metrics/scripts/<SCRIPT_NAME>.js --help
+tsx src/metrics/scripts/<SCRIPT_NAME>.ts --help
 ```
 If you get `command not found: tsx`, run: 
 ```
@@ -32,7 +32,7 @@ If the URL doesn't include a version, `docstat` will return data for **all versi
 
 ### Usage
 
-The steps below show the [global alias](#set-a-global-alias). Use the full command path (`tsx src/metrics/scripts/docstat.js`) if you don't set up an alias.
+The steps below show the [global alias](#set-a-global-alias). Use the full command path (`tsx src/metrics/scripts/docstat.ts`) if you don't set up an alias.
 
 To see the available options:
 ```
@@ -66,7 +66,7 @@ To use `docstat` from any location in Terminal, set up a global alias:
 1. Open your shell configuration file (like `~/.bash_profile` or `~/.zshrc`) in a text editor.
 2. Add the following line, replacing the path with the actual path to your local directory, for example:
     ```bash
-    alias docstat="tsx ~/gh-repos/docs-internal/src/metrics/scripts/docstat.js"
+    alias docstat="tsx ~/gh-repos/docs-internal/src/metrics/scripts/docstat.ts"
     ```
 3. Save the file and reload your configuration:
     ```bash
@@ -80,15 +80,15 @@ Run `docsaudit` on a top-level content directory to gather data about its filesâ
 
 To see the available options:
 ```
-tsx src/metrics/scripts/docsaudit.js --help
+tsx src/metrics/scripts/docsaudit.ts --help
 ```
 Run the script on any top-level content directory:
 ```
-tsx src/metrics/scripts/docsaudit.js <content directory name>
+tsx src/metrics/scripts/docsaudit.ts <content directory name>
 ```
 For example:
 ```
-tsx src/metrics/scripts/docsaudit.js actions
+tsx src/metrics/scripts/docsaudit.ts actions
 ```
 
 ## Future development

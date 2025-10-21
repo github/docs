@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { shouldFilterMetadataPermission, calculateAdditionalPermissions } from '../scripts/sync.js'
+import { shouldFilterMetadataPermission, calculateAdditionalPermissions } from '../scripts/sync'
 
 describe('metadata permissions filtering', () => {
   // Mock data structure representing operations with metadata permissions

@@ -39,7 +39,7 @@ You cannot use `feature:` to specify multiple concurrent versions, as this is no
 
 ## Schema enforcement
 
-The schema for validating the feature versioning lives in [`src/data-directory/lib/data-schemas/features.js`](../../src/data-directory/lib/data-schemas/features.js).
+The schema for validating the feature versioning lives in [`src/data-directory/lib/data-schemas/features.ts`](../../src/data-directory/lib/data-schemas/features.ts).
 
 ## Script to remove feature tags
 

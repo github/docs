@@ -14,7 +14,7 @@ Before committing content changes, always:
 1. **Use the content linter** to validate content: `npm run lint-content -- --paths <file-paths>`
 2. **Check for proper variable usage** in your content
 3. **Verify [AUTOTITLE] links** point to existing articles
-4. **Run tests** on changed content: `npm run test -- src/content-render/tests/render-changed-and-deleted-files.js`
+4. **Run tests** on changed content: `npm run test -- src/content-render/tests/render-changed-and-deleted-files.ts`
 
 ## Bullet lists
 

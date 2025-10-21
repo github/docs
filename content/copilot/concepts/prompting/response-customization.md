@@ -1,5 +1,5 @@
 ---
-title: About customizing GitHub Copilot Chat responses
+title: About customizing GitHub Copilot responses
 shortTitle: Response customization
 intro: Learn about customizing the behavior of {% data variables.product.prodname_copilot %} to fit with your preferences and requirements.
 versions:
@@ -47,21 +47,21 @@ contentType: concepts
 > [!NOTE] This version of this article is about custom instructions in Eclipse. Click the tabs above for other environments. <!-- markdownlint-disable-line MD027 -->
 {% endeclipse %}
 
-## About customizing {% data variables.copilot.copilot_chat %} responses
+## About customizing {% data variables.product.prodname_copilot_short %} responses
 
 {% webui %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to your personal preferences, the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create custom instructions that automatically add this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data variables.product.prodname_copilot %} can provide responses that are tailored to your personal preferences, the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create custom instructions that automatically add this information for you. The additional information is not displayed, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
 ### Types of custom instructions
 
-* **Personal custom instructions** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
+* **Personal custom instructions** apply to all conversations you have with {% data variables.product.prodname_copilot_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
 * **Repository custom instructions** apply to conversations within the context of a specific repository. They are useful for defining project-specific coding standards, frameworks, or tools. For example, you can specify that a repository uses TypeScript and a particular library, ensuring consistent responses for all contributors.
 * **Organization custom instructions (public preview)** apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_enterprise_short %} subscription.
 
 ### About repository custom instructions
 
-You can create two types of repository custom instructions for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}:
+You can create two types of repository custom instructions for {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %}:
 
 {% data reusables.copilot.custom-instructions-about %}
 
@@ -69,9 +69,9 @@ You can create two types of repository custom instructions for {% data variables
 
 {% vscode %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create files in your repository that automatically add this information for you.
+{% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create files in your repository that automatically add this information for you.
 
-There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}:
+There are two types of files you can use to provide context and instructions to {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}:
 
 * **Repository custom instructions** allow you to specify instructions and preferences that {% data variables.product.prodname_copilot_short %} will consider when working in the context of the repository.
 * **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. {% data reusables.copilot.prompt-files-available-in-editors %}
@@ -82,15 +82,15 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 
 {% visualstudio %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat input box, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
 {% endvisualstudio %}
 
 {% jetbrains %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you.
+{% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create a custom instructions file in your repository that automatically adds this information for you.
 
-There are two types of files you can use to provide context and instructions to {% data variables.copilot.copilot_chat %} in JetBrains IDEs:
+There are two types of files you can use to provide context and instructions to {% data variables.product.prodname_copilot_short %} in JetBrains IDEs:
 
 * **Repository custom instructions** allow you to specify instructions and preferences that {% data variables.product.prodname_copilot_short %} will consider when working in the context of the repository.
 * **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. {% data reusables.copilot.prompt-files-available-in-editors %}
@@ -101,15 +101,15 @@ While custom instructions help to add codebase-wide context to each AI workflow,
 
 {% xcode %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat input box, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
 {% endxcode %}
 
 {% eclipse %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat input box, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
-There are two types of repository custom instructions you can use to provide context and instructions to {% data variables.copilot.copilot_chat_short %} in Eclipse:
+There are two types of repository custom instructions you can use to provide context and instructions to {% data variables.product.prodname_copilot_short %} in Eclipse:
 
 * **Workspace custom instructions** which apply to all projects in a workspace, and allow you to specify workspace-wide instructions and preferences, in a single file.
 * **Project custom instructions** which apply to a specific project.
@@ -204,7 +204,7 @@ The following examples demonstrate how to use prompt files.
 
 ## About repository custom instructions
 
-Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement a {% data variables.product.prodname_copilot_short %} prompt.
 
 Common use cases include:
 
@@ -216,7 +216,7 @@ Common use cases include:
 
 {% data reusables.copilot.repository-custom-instructions-example %}
 
-{% data reusables.copilot.repository-cust-instr-code-review %}
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
 
 {% endvisualstudio %}
 
@@ -224,7 +224,7 @@ Common use cases include:
 
 ## About repository custom instructions
 
-Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement a {% data variables.product.prodname_copilot_short %} prompt.
 
 Common use cases include:
 
@@ -235,6 +235,8 @@ Common use cases include:
 ### Example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
+
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
 
 ## About prompt files
 
@@ -291,7 +293,7 @@ The following examples demonstrate how to use prompt files.
 
 ## About repository custom instructions
 
-Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+Repository custom instructions consist of a single file, `.github/copilot-instructions.md`, that you create in a repository. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement a {% data variables.product.prodname_copilot_short %} prompt.
 
 Common use cases include:
 
@@ -309,9 +311,9 @@ Common use cases include:
 
 ## About repository custom instructions
 
-**Workspace custom instructions** apply to all projects in a workspace, and allow you to specify workspace-wide instructions and preferences. You can use workspace custom instructions to provide context and instructions to {% data variables.copilot.copilot_chat_short %} in Eclipse.
+**Workspace custom instructions** apply to all projects in a workspace, and allow you to specify workspace-wide instructions and preferences. You can use workspace custom instructions to provide context and instructions to {% data variables.product.prodname_copilot_short %} in Eclipse.
 
-**Project custom instructions** consist of a single file, `.github/copilot-instructions.md`, that you create in a project. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement chat questions.
+**Project custom instructions** consist of a single file, `.github/copilot-instructions.md`, that you create in a project. The instructions you add to the file should be short, self-contained statements that add context or relevant information to supplement a {% data variables.product.prodname_copilot_short %} prompt.
 
 Common use cases include:
 
@@ -322,6 +324,8 @@ Common use cases include:
 ### Example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
+
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
 
 {% endeclipse %}
 
@@ -353,7 +357,7 @@ Answer all questions in less than 1000 characters, and words of no more than 12 
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot)
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
-* [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/copilot/customizing-copilot/adding-organization-custom-instructions-for-github-copilot)
 
 {% endwebui %}
 

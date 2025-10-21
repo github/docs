@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - src/languages/scripts/count-translation-corruptions.ts
-      - src/languages/lib/correct-translation-content.js
+      - src/languages/lib/correct-translation-content.ts
       - .github/workflows/count-translation-corruptions.yml
       - .github/actions/node-npm-setup/action.yml
       - .github/actions/clone-translations/action.yml

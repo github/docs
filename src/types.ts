@@ -26,7 +26,7 @@ export type ExtendedRequest = Request & {
 }
 
 // TODO: Make this type from inference using AJV based on the schema.
-// For now, it's based on `schema` in frame/lib/frontmatter.js
+// For now, it's based on `schema` in frame/lib/frontmatter.ts
 export type PageFrontmatter = {
   title: string
   versions: FrontmatterVersions

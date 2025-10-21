@@ -2,7 +2,7 @@ import { schema } from '@/frame/lib/frontmatter'
 
 // Secret scanning entries have `versions` blocks that match `versions` frontmatter,
 // so we can import that part of the FM schema.
-// Access the versions property which is defined dynamically in frontmatter.js
+// Access the versions property which is defined dynamically in frontmatter.ts
 const versionsProps = Object.assign({}, (schema.properties as Record<string, any>).versions)
 
 // The secret-scanning.json contains an array of objects that look like this:

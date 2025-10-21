@@ -93,12 +93,12 @@ const context = {
     page_document_type: {
       type: 'string',
       description: 'The generic page document type based on URL path.',
-      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.js
+      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.ts
     },
     page_type: {
       type: 'string',
       description: 'Optional page type from the content frontmatter.',
-      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.js
+      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.ts
     },
     status: {
       type: 'number',

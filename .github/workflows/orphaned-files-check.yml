@@ -14,10 +14,10 @@ on:
       - .github/workflows/orphaned-files-check.yml
       # In case any of the dependencies affect the script
       - 'package*.json'
-      - src/assets/scripts/find-orphaned-assets.js
+      - src/assets/scripts/find-orphaned-assets.ts
       - src/content-render/scripts/reusables-cli/find/unused.ts
       - src/workflows/walk-files.ts
-      - src/languages/lib/languages.js
+      - src/languages/lib/languages.ts
       - .github/actions/clone-translations/action.yml
       - .github/actions/node-npm-setup/action.yml
 
