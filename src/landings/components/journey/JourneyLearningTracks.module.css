@@ -78,7 +78,7 @@
 
 /* Hide only the timeline line that extends below the last badge, preserve everything else */
 .timelineContainer :global(.Timeline-Item:last-child::before) {
-  background: linear-gradient(to bottom, var(--borderColor-default, #d1d9e0) 0%, var(--borderColor-default, #d1d9e0) 30%, transparent 30%, transparent 100%) !important;
+  background: linear-gradient(to bottom, var(--borderColor-muted, var(--color-border-muted)) 0%, var(--borderColor-muted, var(--color-border-muted)) 30%, transparent 30%, transparent 100%) !important;
 }
 
 .timelineBadge {
