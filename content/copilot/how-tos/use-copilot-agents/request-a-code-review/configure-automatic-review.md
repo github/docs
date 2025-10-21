@@ -29,7 +29,7 @@ The three sections in this article tell you how to configure automatic code revi
 ## Configuring automatic code review for your own pull requests
 
 > [!NOTE]
-> This is only available if you are on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan.
+> **Support:** This is only available if you are on the {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} plan on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.copilot.your-copilot %}
 1. Locate the **Automatic {% data variables.copilot.copilot_code-review_short %}** option and click the dropdown button.
