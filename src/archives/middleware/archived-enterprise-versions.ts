@@ -72,7 +72,7 @@ const cacheAggressively = (res: Response) => {
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = { limit: 3 }

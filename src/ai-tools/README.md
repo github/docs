@@ -9,11 +9,17 @@ This script calls the [Models API](https://docs.github.com/en/rest/models/infere
 ## Usage
 
 ```sh
+<<<<<<< HEAD:src/ai-editors/README.md
+tsx src/ai-editors/scripts/ai-edit.ts --editor <type> --response <type> --files <file1.md>
+||||||| 5ae4ec0f5cb:src/ai-editors/README.md
+tsx src/ai-editors/scripts/ai-edit.js --editor <type> --response <type> --files <file1.md>
+=======
 # Direct command
 tsx src/ai-tools/scripts/ai-tools.ts --refine <type> --files <file1.md>
 
 # Or via npm script
 npm run ai-tools -- --refine <type> --files <file1.md>
+>>>>>>> origin/main:src/ai-tools/README.md
 ```
 
 * `--files, -f`: One or more content file paths to process (required).
@@ -22,11 +28,17 @@ npm run ai-tools -- --refine <type> --files <file1.md>
 **Examples:**
 
 ```sh
+<<<<<<< HEAD:src/ai-editors/README.md
+tsx src/ai-editors/scripts/ai-edit.ts --files content/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo.md --editor versioning --response list
+||||||| 5ae4ec0f5cb:src/ai-editors/README.md
+tsx src/ai-editors/scripts/ai-edit.js --files content/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo.md --editor versioning --response list
+=======
 # Direct command
 tsx src/ai-tools/scripts/ai-tools.ts --files content/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo.md --refine versioning
 
 # Via npm script  
 npm run ai-tools -- --files content/copilot/tutorials/coding-agent/get-the-best-results.md --refine intro
+>>>>>>> origin/main:src/ai-tools/README.md
 ```
 
 ## Requirements

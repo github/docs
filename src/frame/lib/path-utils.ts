@@ -91,7 +91,7 @@ export function getVersionStringFromPath(
   // version part is *not* supported, they get back `undefined`.
   // But this function is used in many other places where it potentially
   // doesn't care if the version is supported.
-  // For example, in lib/redirects/permalinks.js it needs to know if the
+  // For example, in lib/redirects/permalinks.ts it needs to know if the
   // URL didn't contain a valid version.
   if (supportedOnly) {
     return

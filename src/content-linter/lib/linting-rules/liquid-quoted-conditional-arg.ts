@@ -20,7 +20,7 @@ export const liquidQuotedConditionalArg: Rule = {
   tags: ['liquid', 'format'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.js which lacks type definitions
+    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.ts which lacks type definitions
     const tokens = getLiquidTokens(content)
       .filter((token: any) => token.kind === TokenKind.Tag)
       .filter((token: any) => conditionalTags.includes(token.name))

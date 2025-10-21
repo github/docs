@@ -28,13 +28,13 @@ export async function precompileRedirects(pageList: Page[]): Promise<Redirects> 
 
   // NOTE: Exception redirects **MUST COME AFTER** pageList redirects above in order
   // to properly override them. Exception redirects are unicorn one-offs that are not
-  // otherwise handled by the versionless redirect fallbacks (see lib/all-versions.js).
+  // otherwise handled by the versionless redirect fallbacks (see lib/all-versions.ts).
   //
   // Examples of exceptions:
   // * We deprecate the FPT version of a page, and we want the FPT version to redirect
-  //   to a different version that goes against the order in lib/all-versions.js.
+  //   to a different version that goes against the order in lib/all-versions.ts.
   // * We deprecate a non-FPT version of a page, and we want the old version to redirect
-  //   to a different version. Because the order in lib/all-versions.js only covers
+  //   to a different version. Because the order in lib/all-versions.ts only covers
   //   versionless links (like `/foo`), we need to specify an exception for the old
   //   versioned links (like `/enterprise-cloud@latest/foo`).
   // * We deprecate a version of a page, and instead of falling back to the next

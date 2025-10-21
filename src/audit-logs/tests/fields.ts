@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { getAuditLogEvents, getCategorizedAuditLogEvents } from '../lib/index.js'
+import { getAuditLogEvents, getCategorizedAuditLogEvents } from '../lib/index'
 import type { AuditLogEventT } from '../types'
 
 describe('Audit log fields functionality', () => {

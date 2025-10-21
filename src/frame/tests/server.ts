@@ -296,7 +296,7 @@ describe('static routes', () => {
   })
 
   test('rewrites /assets requests from a cache-busting prefix', async () => {
-    // The rewrite-asset-urls.js Markdown plugin will do this to img tags.
+    // The rewrite-asset-urls.ts Markdown plugin will do this to img tags.
     const res = await get('/assets/cb-123456/images/site/be-social.gif')
     expect(res.statusCode).toBe(200)
     expect(res.headers['set-cookie']).toBeUndefined()

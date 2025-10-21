@@ -7,7 +7,7 @@ name: Move content script test
 on:
   pull_request:
     paths:
-      - src/content-render/scripts/move-content.js
+      - src/content-render/scripts/move-content.ts
       - src/content-render/scripts/test-move-content.ts
       - 'src/frame/lib/**/*.js'
       - .github/workflows/move-content.yml

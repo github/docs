@@ -46,7 +46,7 @@ export default async function reloadTree(req: ExtendedRequest, res: Response, ne
     path.join(languages.en.dir, 'content'),
     undefined,
     warmed.unversionedTree.en,
-  )) as UnversionedTree // Note! Have to use `as` until create-tree.js is JS
+  )) as UnversionedTree
   const after = getMtimes(warmed.unversionedTree.en)
   // The next couple of operations are much slower (in total) than
   // refreshing the tree. So we want to know if the tree changed before
