@@ -15,30 +15,124 @@ const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
 // Actor type mapping from generic names to actual YAML values
-export const actorTypeMap = {
+export const actorTypeMap: Record<string, string> = {
   fine_grained_pat: 'fine_grained_personal_access_token',
   server_to_server: 'github_app',
   user_to_server: 'user_access_token',
 }
 
-// Also need to handle the actual values that come from the source data
-// UserProgrammaticAccess maps to fine_grained_pat functionality
-const sourceDataActorMap = {
-  UserProgrammaticAccess: 'fine_grained_pat',
+interface AppDataOperation {
+  slug: string
+  subcategory: string
+  verb: string
+  requestPath: string
 }
 
-export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource) {
+interface AppDataOperationWithCategory extends AppDataOperation {
+  category: string
+}
+
+interface PermissionData {
+  title: string
+  displayTitle: string
+  permissions: Array<
+    AppDataOperationWithCategory & {
+      access: string
+      'user-to-server'?: boolean
+      'server-to-server'?: boolean
+      'additional-permissions'?: boolean
+    }
+  >
+}
+
+interface GitHubAppsData {
+  [pageType: string]: {
+    [category: string]: AppDataOperation[] | PermissionData
+  }
+}
+
+interface ProgAccessOperationData {
+  userToServerRest: boolean
+  serverToServer: boolean
+  fineGrainedPat: boolean
+  permissions: Array<Record<string, string>>
+  allowPermissionlessAccess?: boolean
+  allowsPublicRead?: boolean
+  basicAuth?: boolean
+  disabledForPatV2?: boolean
+}
+
+interface ProgAccessData {
+  [operationId: string]: ProgAccessOperationData
+}
+
+interface ProgActorResource {
+  title?: string
+  resource_group?: string
+  visibility?: string
+  excluded_actors?: string[]
+}
+
+interface ProgActorResources {
+  [key: string]: ProgActorResource
+}
+
+interface OpenApiOperation {
+  operationId: string
+  summary: string
+  'x-github': {
+    category: string
+    subcategory: string
+  }
+}
+
+interface OpenApiData {
+  paths: {
+    [path: string]: {
+      [verb: string]: OpenApiOperation
+    }
+  }
+}
+
+interface AppsDataConfig {
+  pages: {
+    [pageType: string]: unknown
+  }
+}
+
+interface ProgAccessRawOperation {
+  operation_ids: string
+  user_to_server: {
+    enabled: boolean
+  }
+  server_to_server: {
+    enabled: boolean
+  }
+  disabled_for_patv2?: boolean
+  permission_sets?: Array<Record<string, string>>
+  allows_permissionless_access?: boolean
+  allows_public_read?: boolean
+  basic_auth?: boolean
+}
+
+export async function syncGitHubAppsData(
+  openApiSource: string,
+  sourceSchemas: string[],
+  progAccessSource: string,
+): Promise<void> {
   console.log(
     `Generating GitHub Apps data from ${openApiSource}, ${sourceSchemas} and ${progAccessSource}`,
   )
   const { progAccessData, progActorResources } = await getProgAccessData(progAccessSource)
 
   for (const schemaName of sourceSchemas) {
-    const data = JSON.parse(await readFile(path.join(openApiSource, schemaName), 'utf8'))
-    const appsDataConfig = JSON.parse(await readFile(CONFIG_FILE, 'utf8'))
+    const data = JSON.parse(
+      await readFile(path.join(openApiSource, schemaName), 'utf8'),
+    ) as OpenApiData
+    const appsDataConfig = JSON.parse(await readFile(CONFIG_FILE, 'utf8')) as AppsDataConfig
 
     // Initialize the data structure with keys for each page type
-    const githubAppsData = {}
+    const githubAppsData: GitHubAppsData = {}
     for (const pageType of Object.keys(appsDataConfig.pages)) {
       githubAppsData[pageType] = {}
     }
@@ -54,13 +148,16 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         const isFineGrainedPat =
           isUserAccessToken && !progAccessData[operation.operationId].disabledForPatV2
         const { category, subcategory } = operation['x-github']
-        const appDataOperation = {
+        const appDataOperation: AppDataOperation = {
           slug: slug(operation.summary),
           subcategory,
           verb,
           requestPath,
         }
-        const appDataOperationWithCategory = Object.assign({ category }, appDataOperation)
+        const appDataOperationWithCategory: AppDataOperationWithCategory = Object.assign(
+          { category },
+          appDataOperation,
+        )
         // server-to-server
         if (isInstallationAccessToken) {
           addAppData(githubAppsData['server-to-server-rest'], category, appDataOperation)
@@ -85,11 +182,6 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
               ),
           )
 
-          // Debug logging for checks-related operations
-          const hasChecksPermission = progAccessData[operation.operationId].permissions.some(
-            (permissionSet) => permissionSet.checks,
-          )
-
           if (!allPermissionSetsExcluded) {
             addAppData(githubAppsData['fine-grained-pat'], category, appDataOperation)
           }
@@ -99,9 +191,9 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
           for (const [permissionName, readOrWrite] of Object.entries(permissionSet)) {
             const { title, displayTitle } = getDisplayTitle(permissionName, progActorResources)
-            if (progActorResources[permissionName]['visibility'] === 'private') continue
+            if (progActorResources[permissionName]?.['visibility'] === 'private') continue
 
-            const excludedActors = progActorResources[permissionName]['excluded_actors']
+            const excludedActors = progActorResources[permissionName]?.['excluded_actors']
 
             const additionalPermissions = calculateAdditionalPermissions(
               progAccessData[operation.operationId].permissions,
@@ -143,7 +235,9 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
                 ),
                 'additional-permissions': additionalPermissions,
               }
-              serverToServerPermissions[permissionName].permissions.push(
+              const permissionsArray = (serverToServerPermissions[permissionName] as PermissionData)
+                .permissions
+              permissionsArray.push(
                 Object.assign(
                   {},
                   appDataOperationWithCategory,
@@ -174,7 +268,9 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
                 }
               }
 
-              findGrainedPatPermissions[permissionName].permissions.push(
+              const permissionsArray = (findGrainedPatPermissions[permissionName] as PermissionData)
+                .permissions
+              permissionsArray.push(
                 Object.assign({}, appDataOperationWithCategory, {
                   'additional-permissions': additionalPermissions,
                   access: readOrWrite,
@@ -214,7 +310,10 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
   }
 }
 
-export async function getProgAccessData(progAccessSource, isRest = false) {
+export async function getProgAccessData(
+  progAccessSource: string,
+  isRest = false,
+): Promise<{ progAccessData: ProgAccessData; progActorResources: ProgActorResources }> {
   const useRemoteGitHubFiles = progAccessSource === 'rest-api-description'
   // check for required PAT
   if (useRemoteGitHubFiles && !process.env.GITHUB_TOKEN) {
@@ -223,8 +322,8 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
     )
   }
 
-  let progAccessDataRaw
-  let progActorResources
+  let progAccessDataRaw: ProgAccessRawOperation[]
+  let progActorResources: ProgActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorDirectory =
     'config/access_control/fine_grained_permissions/programmatic_actor_fine_grained_resources'
@@ -232,14 +331,14 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
   if (!useRemoteGitHubFiles) {
     progAccessDataRaw = yaml.load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
-    )
+    ) as ProgAccessRawOperation[]
     progActorResources = await getProgActorResourceContent({
       gitHubSourceDirectory: path.join(progAccessSource, progActorDirectory),
     })
   } else {
     progAccessDataRaw = yaml.load(
       await getContents('github', 'github', 'master', progAccessFilepath),
-    )
+    ) as ProgAccessRawOperation[]
     progActorResources = await getProgActorResourceContent({
       owner: 'github',
       repo: 'github',
@@ -248,9 +347,9 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
     })
   }
 
-  const progAccessData = {}
+  const progAccessData: ProgAccessData = {}
   for (const operation of progAccessDataRaw) {
-    const operationData = {
+    const operationData: ProgAccessOperationData = {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
       fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
@@ -260,6 +359,7 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
       allowPermissionlessAccess: operation.allows_permissionless_access,
       allowsPublicRead: operation.allows_public_read,
       basicAuth: operation.basic_auth,
+      disabledForPatV2: operation.disabled_for_patv2,
     }
 
     // Handle comma-separated operation IDs
@@ -272,9 +372,12 @@ export async function getProgAccessData(progAccessSource, isRest = false) {
   return { progAccessData, progActorResources }
 }
 
-function getDisplayPermissions(permissionSets, progActorResources) {
+function getDisplayPermissions(
+  permissionSets: Array<Record<string, string>>,
+  progActorResources: ProgActorResources,
+): Array<Record<string, string>> {
   const displayPermissions = permissionSets.map((permissionSet) => {
-    const displayPermissionSet = {}
+    const displayPermissionSet: Record<string, string> = {}
     Object.entries(permissionSet).forEach(([key, value]) => {
       const { displayTitle } = getDisplayTitle(key, progActorResources, true)
       displayPermissionSet[displayTitle] = value
@@ -286,33 +389,45 @@ function getDisplayPermissions(permissionSets, progActorResources) {
   return displayPermissions
 }
 
-function sortObjectByKeys(obj) {
+function sortObjectByKeys<T>(obj: Record<string, T>): Record<string, T> {
   return Object.keys(obj)
     .sort()
-    .reduce((acc, key) => {
-      acc[key] = obj[key]
-      return acc
-    }, {})
+    .reduce(
+      (acc, key) => {
+        acc[key] = obj[key]
+        return acc
+      },
+      {} as Record<string, T>,
+    )
 }
 
-function sortObjectByTitle(obj) {
+function sortObjectByTitle(obj: Record<string, PermissionData | unknown>): Record<string, unknown> {
   return Object.keys(obj)
     .sort((a, b) => {
-      if (obj[a].displayTitle > obj[b].displayTitle) {
+      const aData = obj[a] as PermissionData
+      const bData = obj[b] as PermissionData
+      if (aData.displayTitle > bData.displayTitle) {
         return 1
       }
-      if (obj[a].displayTitle < obj[b].displayTitle) {
+      if (aData.displayTitle < bData.displayTitle) {
         return -1
       }
       return 0
     })
-    .reduce((acc, key) => {
-      acc[key] = obj[key]
-      return acc
-    }, {})
+    .reduce(
+      (acc, key) => {
+        acc[key] = obj[key]
+        return acc
+      },
+      {} as Record<string, unknown>,
+    )
 }
 
-function getDisplayTitle(permissionName, progActorResources, isRest = false) {
+function getDisplayTitle(
+  permissionName: string,
+  progActorResources: ProgActorResources,
+  isRest = false,
+): { title: string; displayTitle: string } {
   const tempTitle = permissionName.replace(/_/g, ' ')
   const permissionNameExists = progActorResources[permissionName]
   if (!permissionNameExists) {
@@ -328,7 +443,7 @@ function getDisplayTitle(permissionName, progActorResources, isRest = false) {
 
   if (!title) {
     console.warn(`No title found for title ${title} resource group ${resourceGroup}`)
-    return ''
+    return { title: '', displayTitle: '' }
   }
 
   const displayTitle = isRest
@@ -342,14 +457,16 @@ function getDisplayTitle(permissionName, progActorResources, isRest = false) {
   return { title, displayTitle }
 }
 
-function sentenceCase(str) {
+function sentenceCase(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 /**
  * Calculates whether an operation has additional permissions beyond a single permission.
  */
-export function calculateAdditionalPermissions(permissionSets) {
+export function calculateAdditionalPermissions(
+  permissionSets: Array<Record<string, string>>,
+): boolean {
   return (
     permissionSets.length > 1 ||
     permissionSets.some((permissionSet) => Object.keys(permissionSet).length > 1)
@@ -360,7 +477,10 @@ export function calculateAdditionalPermissions(permissionSets) {
  * Determines whether a metadata permission should be filtered out when it has additional permissions.
  * Prevents misleading documentation where mutating operations appear to only need metadata access.
  */
-export function shouldFilterMetadataPermission(permissionName, permissionSets) {
+export function shouldFilterMetadataPermission(
+  permissionName: string,
+  permissionSets: Array<Record<string, string>>,
+): boolean {
   if (permissionName !== 'metadata') {
     return false
   }
@@ -368,7 +488,11 @@ export function shouldFilterMetadataPermission(permissionName, permissionSets) {
   return calculateAdditionalPermissions(permissionSets)
 }
 
-export function isActorExcluded(excludedActors, actorType, actorTypeMap = {}) {
+export function isActorExcluded(
+  excludedActors: string[] | undefined | null | unknown,
+  actorType: string,
+  actorTypeMap: Record<string, string> = {},
+): boolean {
   if (!excludedActors || !Array.isArray(excludedActors)) {
     return false
   }
@@ -394,14 +518,21 @@ export function isActorExcluded(excludedActors, actorType, actorTypeMap = {}) {
 
   return false
 }
-function addAppData(storage, category, data) {
+function addAppData(
+  storage: Record<string, AppDataOperation[] | PermissionData>,
+  category: string,
+  data: AppDataOperation,
+): void {
   if (!storage[category]) {
     storage[category] = []
   }
-  storage[category].push(data)
+  ;(storage[category] as AppDataOperation[]).push(data)
 }
 
-async function validateAppData(data, pageType) {
+async function validateAppData(
+  data: Record<string, AppDataOperation[] | PermissionData>,
+  pageType: string,
+): Promise<void> {
   if (pageType.includes('permissions')) {
     for (const value of Object.values(data)) {
       const { isValid, errors } = validateJson(permissionSchema, value)
@@ -412,7 +543,7 @@ async function validateAppData(data, pageType) {
     }
   } else {
     for (const arrayItems of Object.values(data)) {
-      for (const item of arrayItems) {
+      for (const item of arrayItems as AppDataOperation[]) {
         const { isValid, errors } = validateJson(enabledSchema, item)
         if (!isValid) {
           console.error(JSON.stringify(errors, null, 2))
@@ -421,6 +552,14 @@ async function validateAppData(data, pageType) {
       }
     }
   }
+}
+
+interface ProgActorResourceContentOptions {
+  owner?: string
+  repo?: string
+  branch?: string
+  path?: string
+  gitHubSourceDirectory?: string | null
 }
 
 // When getting files from the GitHub repo locally (or in a Codespace)
@@ -434,21 +573,21 @@ async function getProgActorResourceContent({
   branch,
   path,
   gitHubSourceDirectory = null,
-}) {
+}: ProgActorResourceContentOptions): Promise<ProgActorResources> {
   // Get files either locally from disk or from the GitHub remote repo
-  let files
+  let files: string[]
   if (gitHubSourceDirectory) {
     files = await getProgActorContentFromDisk(gitHubSourceDirectory)
   } else {
-    files = await getDirectoryContents(owner, repo, branch, path)
+    files = await getDirectoryContents(owner!, repo!, branch!, path!)
   }
 
   // We need to format the file content into a single object. Each file
   // contains a single key and a single value that needs to be added
   // to the object.
-  const progActorResources = {}
+  const progActorResources: ProgActorResources = {}
   for (const file of files) {
-    const fileContent = yaml.load(file)
+    const fileContent = yaml.load(file) as Record<string, ProgActorResource>
     // Each file should only contain a single key and value.
     if (Object.keys(fileContent).length !== 1) {
       throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)
@@ -460,7 +599,7 @@ async function getProgActorResourceContent({
   return progActorResources
 }
 
-async function getProgActorContentFromDisk(directory) {
+async function getProgActorContentFromDisk(directory: string): Promise<string[]> {
   const files = walk(directory, {
     includeBasePath: true,
     directories: false,
