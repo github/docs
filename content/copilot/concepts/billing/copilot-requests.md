@@ -43,7 +43,7 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | [{% data variables.copilot.copilot_extensions_short %}](/copilot/concepts/copilot-extensions/about-copilot-extensions) | {% data variables.copilot.copilot_extensions_short %} uses **one premium request** per user prompt, multiplied by the model's rate. |
 | [{% data variables.copilot.copilot_spaces %}](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. |
 | [{% data variables.product.prodname_spark_short %}](/copilot/tutorials/building-ai-app-prototypes) | Each prompt to {% data variables.product.prodname_spark_short %} uses a fixed rate of **four premium requests**. |
-| [{% data variables.copilot.copilot_cli_short %}](/copilot/concepts/agents/about-copilot-cli) | Each prompt to {% data variables.copilot.copilot_cli_short %} uses **one premium request**. |
+| [{% data variables.copilot.copilot_cli_short %}](/copilot/concepts/agents/about-copilot-cli) | Each prompt to {% data variables.copilot.copilot_cli_short %} uses **one premium request** with the default model. For other models, this is multiplied by the model's rate. |
 
 > [!TIP]
 > For instructions on viewing how many premium requests you have used and advice on how to optimize usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).
