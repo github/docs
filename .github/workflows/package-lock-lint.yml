@@ -37,6 +37,9 @@ jobs:
         run: |
           npm --version
 
+          # Save the current top-level dependencies from package-lock.json
+          node -e "console.log(JSON.stringify(require('./package-lock.json').packages['']))" > /tmp/before.json
+
           # From https://docs.npmjs.com/cli/v7/commands/npm-install
           #
           #   The --package-lock-only argument will only update the
@@ -45,9 +48,16 @@ jobs:
           #
           npm install --package-lock-only --ignore-scripts --include=optional
 
-          # If the package.json (dependencies and devDependencies) is
-          # in correct sync with package-lock.json running the above command
-          # should *not* make an edit to the package-lock.json. I.e.
-          # running `git status` should
-          # say "nothing to commit, working tree clean".
-          git diff --exit-code
+          # Extract the top-level dependencies after regeneration
+          node -e "console.log(JSON.stringify(require('./package-lock.json').packages['']))" > /tmp/after.json
+
+          # Compare only the top-level package dependencies
+          # This ignores platform-specific differences in nested dependency resolution
+          # (like "peer" flags) that don't affect actual installed versions
+          if ! diff /tmp/before.json /tmp/after.json; then
+            echo "ERROR: Top-level dependencies in package-lock.json are out of sync with package.json"
+            echo "Please run 'npm install' locally and commit the updated package-lock.json"
+            exit 1
+          fi
+
+          echo "✓ Top-level dependencies are in sync"

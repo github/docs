@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { fileURLToPath } from 'url'
 import { Command } from 'commander'
 import fs from 'fs'
