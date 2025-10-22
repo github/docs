@@ -1,5 +1,5 @@
 ---
-title: Test Journey Landing
+title: Journey Landing
 intro: 'Test page for journey tracks functionality'
 layout: journey-landing
 versions:
