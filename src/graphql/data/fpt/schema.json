@@ -49821,6 +49821,17 @@
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#projectv2itemorder"
               }
+            },
+            {
+              "name": "query",
+              "defaultValue": "",
+              "description": "<p>Search query for filtering items.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
             }
           ]
         },
