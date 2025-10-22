@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 import { ChevronLeftIcon, ChevronRightIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 import type { ResolvedArticle } from '@/types'
 import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
 import styles from './LandingCarousel.module.scss'
 
 type LandingCarouselProps = {
@@ -42,6 +44,8 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
   const [isAnimating, setIsAnimating] = useState(false)
   const itemsPerView = useResponsiveItemsPerView()
   const { t } = useTranslation('product_landing')
+  const router = useRouter()
+  const { currentVersion } = useVersion()
   const headingText = heading || t('carousel.recommended')
   // Ref to store timeout IDs for cleanup
   const animationTimeoutRef = useRef<NodeJS.Timeout | null>(null)
@@ -145,7 +149,7 @@ export const LandingCarousel = ({ heading = '', recommended }: LandingCarouselPr
         {visibleItems.map((article: ResolvedArticle, index) => (
           <a
             key={startIndex + index}
-            href={article.href}
+            href={`/${router.locale}/${currentVersion}${article.href}`}
             className={cx(styles.articleCard, 'border', 'border-default', 'rounded-2')}
           >
             <h3 className={styles.articleTitle}>
