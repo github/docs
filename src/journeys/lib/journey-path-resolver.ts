@@ -2,6 +2,7 @@ import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-
 import { renderContent } from '@/content-render/index'
 import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import Permalink from '@/frame/lib/permalink'
 import getLinkData from './get-link-data'
 
 export interface JourneyContext {
@@ -170,7 +171,8 @@ export async function resolveJourneyContext(
           trackName: track.id,
           trackTitle: track.title,
           journeyTitle: journeyPage.title || '',
-          journeyPath: journeyPage.permalink || `/${journeyPage.relativePath || ''}`,
+          journeyPath:
+            journeyPage.permalink || Permalink.relativePathToSuffix(journeyPage.relativePath || ''),
           currentGuideIndex: guideIndex,
           numberOfGuides: track.guides.length,
         }
