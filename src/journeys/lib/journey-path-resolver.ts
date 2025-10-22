@@ -84,24 +84,6 @@ function normalizeGuidePath(path: string): string {
 }
 
 /**
- * Helper function to append the journey-navigation feature flag to URLs
- */
-function appendJourneyFeatureFlag(href: string): string {
-  if (!href) return href
-
-  try {
-    // we have to pass some URL here, we just throw it away though
-    const url = new URL(href, 'https://docs.github.com')
-    url.searchParams.set('feature', 'journey-navigation')
-    return url.pathname + url.search
-  } catch {
-    // fallback if URL parsing fails
-    const separator = href.includes('?') ? '&' : '?'
-    return `${href}${separator}feature=journey-navigation`
-  }
-}
-
-/**
  * Resolves the journey context for a given article path.
  *
  * The journey context includes information about the journey track, the current
@@ -189,7 +171,7 @@ export async function resolveJourneyContext(
             if (resultData && resultData.length > 0) {
               const linkResult = resultData[0]
               result.prevGuide = {
-                href: appendJourneyFeatureFlag(linkResult.href),
+                href: linkResult.href,
                 title: linkResult.title || '',
               }
             }
@@ -210,7 +192,7 @@ export async function resolveJourneyContext(
             if (resultData && resultData.length > 0) {
               const linkResult = resultData[0]
               result.nextGuide = {
-                href: appendJourneyFeatureFlag(linkResult.href),
+                href: linkResult.href,
                 title: linkResult.title || '',
               }
             }
@@ -251,7 +233,7 @@ export async function resolveJourneyTracks(
           const linkData = await getLinkData(guidePath, context, { title: true })
           const baseHref = linkData?.[0]?.href || guidePath
           return {
-            href: appendJourneyFeatureFlag(baseHref),
+            href: baseHref,
             title: linkData?.[0]?.title || 'Untitled Guide',
           }
         }),

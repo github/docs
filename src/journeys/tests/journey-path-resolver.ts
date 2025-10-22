@@ -82,7 +82,7 @@ describe('journey-path-resolver', () => {
       )
 
       expect(result?.prevGuide).toEqual({
-        href: '/en/enterprise-cloud@latest/enterprise-onboarding/setup?feature=journey-navigation',
+        href: '/en/enterprise-cloud@latest/enterprise-onboarding/setup',
         title: 'Mock Title for /enterprise-onboarding/setup',
       })
     })
@@ -95,7 +95,7 @@ describe('journey-path-resolver', () => {
       )
 
       expect(result?.nextGuide).toEqual({
-        href: '/en/enterprise-cloud@latest/enterprise-onboarding/deploy?feature=journey-navigation',
+        href: '/en/enterprise-cloud@latest/enterprise-onboarding/deploy',
         title: 'Mock Title for /enterprise-onboarding/deploy',
       })
     })
@@ -184,7 +184,7 @@ describe('journey-path-resolver', () => {
 
       expect(result[0].guides).toHaveLength(2)
       expect(result[0].guides[0]).toEqual({
-        href: '/en/enterprise-cloud@latest/enterprise-onboarding/setup?feature=journey-navigation',
+        href: '/en/enterprise-cloud@latest/enterprise-onboarding/setup',
         title: 'Mock Title for /enterprise-onboarding/setup',
       })
     })

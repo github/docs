@@ -1138,22 +1138,6 @@ test.describe('Journey Tracks', () => {
     expect(trackContent).not.toContain('{%')
     expect(trackContent).not.toContain('%}')
   })
-
-  test('journey navigation components show on article pages', async ({ page }) => {
-    // go to an article that's part of a journey track
-    await page.goto('/get-started/start-your-journey/hello-world?feature=journey-navigation')
-
-    // journey next/prev nav components should rende
-    const journeyCard = page.locator('[data-testid="journey-track-card"]')
-    if (await journeyCard.isVisible()) {
-      await expect(journeyCard).toBeVisible()
-    }
-
-    const journeyNav = page.locator('[data-testid="journey-track-nav"]')
-    if (await journeyNav.isVisible()) {
-      await expect(journeyNav).toBeVisible()
-    }
-  })
 })
 
 test.describe('LandingArticleGridWithFilter component', () => {
