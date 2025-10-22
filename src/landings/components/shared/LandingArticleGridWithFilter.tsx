@@ -61,7 +61,9 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
   // Extract unique categories from the articles
   const categories: string[] = [
     ALL_CATEGORIES,
-    ...new Set(flatArticles.flatMap((item) => item.category || [])),
+    ...Array.from(new Set(flatArticles.flatMap((item) => item.category || []))).sort((a, b) =>
+      a.localeCompare(b),
+    ),
   ]
 
   const applyFilters = () => {
