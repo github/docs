@@ -1,23 +1,74 @@
-import { diff, ChangeType } from '@graphql-inspector/core'
+import { diff, ChangeType, Change } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
 import { renderContent } from '@/content-render/index'
 
+interface UpcomingChange {
+  location: string
+  date: string
+  description: string
+}
+
+interface Preview {
+  title: string
+  toggled_on: string[]
+}
+
+interface ChangelogSchemaChange {
+  title: string
+  changes: string[]
+}
+
+interface ChangelogPreviewChange {
+  title: string
+  changes: string[]
+}
+
+interface ChangelogUpcomingChange {
+  title: string
+  changes: string[]
+}
+
+export interface ChangelogEntry {
+  date?: string
+  schemaChanges: ChangelogSchemaChange[]
+  previewChanges: ChangelogPreviewChange[]
+  upcomingChanges: ChangelogUpcomingChange[]
+}
+
+interface PreviewChanges {
+  title: string
+  changes: Change[]
+}
+
+interface SegmentedChanges {
+  schemaChangesToReport: Change[]
+  previewChangesToReport: Record<string, PreviewChanges>
+}
+
+interface IgnoredChangeType {
+  type: string
+  count: number
+}
+
+interface IgnoredChangesSummary {
+  totalCount: number
+  typeCount: number
+  types: IgnoredChangeType[]
+}
+
 /**
  * Tag `changelogEntry` with `date: YYYY-mm-dd`, then prepend it to the JSON
  * structure written to `targetPath`. (`changelogEntry` and that file are modified in place.)
- * @param {object} changelogEntry
- * @param {string} targetPath
- * @return {void}
  */
-export function prependDatedEntry(changelogEntry, targetPath) {
+export function prependDatedEntry(changelogEntry: ChangelogEntry, targetPath: string): void {
   // Build a `yyyy-mm-dd`-formatted date string
   // and tag the changelog entry with it
   const todayString = new Date().toISOString().slice(0, 10)
   changelogEntry.date = todayString
 
-  const previousChangelogString = fs.readFileSync(targetPath)
-  const previousChangelog = JSON.parse(previousChangelogString)
+  const previousChangelogString = fs.readFileSync(targetPath, 'utf8')
+  const previousChangelog = JSON.parse(previousChangelogString) as ChangelogEntry[]
   // add a new entry to the changelog data
   previousChangelog.unshift(changelogEntry)
   // rewrite the updated changelog
@@ -29,28 +80,23 @@ export function prependDatedEntry(changelogEntry, targetPath) {
  * changes that warrant a changelog entry, return a changelog entry.
  * Based on the parsed `previews`, identify changes that are under a preview.
  * Otherwise, return null.
- * @param {string} [oldSchemaString]
- * @param {string} [newSchemaString]
- * @param {Array<object>} [previews]
- * @param {Array<object>} [oldUpcomingChanges]
- * @param {Array<object>} [newUpcomingChanges]
- * @return {object?}
  */
 export async function createChangelogEntry(
-  oldSchemaString,
-  newSchemaString,
-  previews,
-  oldUpcomingChanges,
-  newUpcomingChanges,
-) {
+  oldSchemaString: string,
+  newSchemaString: string,
+  previews: Preview[],
+  oldUpcomingChanges: UpcomingChange[],
+  newUpcomingChanges: UpcomingChange[],
+): Promise<ChangelogEntry | null> {
   // Create schema objects out of the strings
-  const oldSchema = await loadSchema(oldSchemaString, {})
-  const newSchema = await loadSchema(newSchemaString, {})
+  // Using 'as any' because loadSchema accepts string schema directly without requiring loaders
+  const oldSchema = await loadSchema(oldSchemaString, {} as any)
+  const newSchema = await loadSchema(newSchemaString, {} as any)
 
   // Generate changes between the two schemas
   const changes = await diff(oldSchema, newSchema)
-  const changesToReport = []
-  const ignoredChanges = []
+  const changesToReport: Change[] = []
+  const ignoredChanges: Change[] = []
   changes.forEach((change) => {
     if (CHANGES_TO_REPORT.includes(change.type)) {
       changesToReport.push(change)
@@ -76,14 +122,14 @@ export async function createChangelogEntry(
   }
 
   // Store ignored changes for potential workflow outputs
-  createChangelogEntry.lastIgnoredChanges = ignoredChanges
+  ;(createChangelogEntry as any).lastIgnoredChanges = ignoredChanges
 
   const { schemaChangesToReport, previewChangesToReport } = segmentPreviewChanges(
     changesToReport,
     previews,
   )
 
-  const addedUpcomingChanges = newUpcomingChanges.filter(function (change) {
+  const addedUpcomingChanges = newUpcomingChanges.filter(function (change): boolean {
     // Manually check each of `newUpcomingChanges` for an equivalent entry
     // in `oldUpcomingChanges`.
     return !oldUpcomingChanges.find(function (oldChange) {
@@ -98,10 +144,10 @@ export async function createChangelogEntry(
   // If there were any changes, create a changelog entry
   if (
     schemaChangesToReport.length > 0 ||
-    previewChangesToReport.length > 0 ||
+    Object.keys(previewChangesToReport).length > 0 ||
     addedUpcomingChanges.length > 0
   ) {
-    const changelogEntry = {
+    const changelogEntry: ChangelogEntry = {
       schemaChanges: [],
       previewChanges: [],
       upcomingChanges: [],
@@ -109,11 +155,11 @@ export async function createChangelogEntry(
 
     const cleanedSchemaChanges = cleanMessagesFromChanges(schemaChangesToReport)
     const renderedScheamChanges = await Promise.all(
-      cleanedSchemaChanges.map(async (change) => {
+      cleanedSchemaChanges.map(async (change): Promise<string> => {
         return await renderContent(change)
       }),
     )
-    const schemaChange = {
+    const schemaChange: ChangelogSchemaChange = {
       title: 'The GraphQL schema includes these changes:',
       // Replace single quotes which wrap field/argument/type names with backticks
       changes: renderedScheamChanges,
@@ -124,7 +170,7 @@ export async function createChangelogEntry(
       const previewChanges = previewChangesToReport[previewTitle]
       const cleanedPreviewChanges = cleanMessagesFromChanges(previewChanges.changes)
       const renderedPreviewChanges = await Promise.all(
-        cleanedPreviewChanges.map(async (change) => {
+        cleanedPreviewChanges.map(async (change): Promise<string> => {
           return renderContent(change)
         }),
       )
@@ -146,10 +192,10 @@ export async function createChangelogEntry(
         const location = change.location
         const description = change.description
         const date = change.date.split('T')[0]
-        return 'On member `' + location + '`:' + description + ' **Effective ' + date + '**.'
+        return `On member \`${location}\`:${description} **Effective ${date}**.`
       })
       const renderedUpcomingChanges = await Promise.all(
-        cleanedUpcomingChanges.map(async (change) => {
+        cleanedUpcomingChanges.map(async (change): Promise<string> => {
           return await renderContent(change)
         }),
       )
@@ -167,10 +213,8 @@ export async function createChangelogEntry(
 
 /**
  * Prepare the preview title from github/github source for the docs.
- * @param {string} title
- * @return {string}
  */
-export function cleanPreviewTitle(title) {
+export function cleanPreviewTitle(title: string): string {
   if (title === 'UpdateRefsPreview') {
     title = 'Update refs preview'
   } else if (title === 'MergeInfoPreview') {
@@ -184,10 +228,8 @@ export function cleanPreviewTitle(title) {
 /**
  * Turn the given title into an HTML-ready anchor.
  * (ported from graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L281)
- * @param {string} [previewTitle]
- * @return {string}
  */
-export function previewAnchor(previewTitle) {
+export function previewAnchor(previewTitle: string): string {
   return previewTitle
     .toLowerCase()
     .replace(/ /g, '-')
@@ -196,11 +238,9 @@ export function previewAnchor(previewTitle) {
 
 /**
  * Turn changes from graphql-inspector into messages for the HTML changelog.
- * @param {Array<object>} changes
- * @return {Array<string>}
  */
-export function cleanMessagesFromChanges(changes) {
-  return changes.map(function (change) {
+export function cleanMessagesFromChanges(changes: Change[]): string[] {
+  return changes.map(function (change): string {
     // replace single quotes around graphql names with backticks,
     // to match previous behavior from graphql-schema-comparator
     return change.message.replace(/'([a-zA-Z. :!]+)'/g, '`$1`')
@@ -212,29 +252,29 @@ export function cleanMessagesFromChanges(changes) {
  * one for changes in the main schema,
  * and another for changes that are under preview.
  * (Ported from /graphql-docs/lib/graphql_docs/update_internal_developer/change_log.rb#L230)
- * @param {Array<object>} changesToReport
- * @param {object} previews
- * @return {object}
  */
-export function segmentPreviewChanges(changesToReport, previews) {
+export function segmentPreviewChanges(
+  changesToReport: Change[],
+  previews: Preview[],
+): SegmentedChanges {
   // Build a map of `{ path => previewTitle` }
   // for easier lookup of change to preview
-  const pathToPreview = {}
-  previews.forEach(function (preview) {
+  const pathToPreview: Record<string, string> = {}
+  previews.forEach(function (preview): void {
     preview.toggled_on.forEach(function (path) {
       pathToPreview[path] = preview.title
     })
   })
-  const schemaChanges = []
-  const changesByPreview = {}
+  const schemaChanges: Change[] = []
+  const changesByPreview: Record<string, PreviewChanges> = {}
 
-  changesToReport.forEach(function (change) {
+  changesToReport.forEach(function (change): void {
     // For each change, see if its path _or_ one of its ancestors
     // is covered by a preview. If it is, mark this change as belonging to a preview
-    const pathParts = change.path.split('.')
-    let testPath = null
-    let previewTitle = null
-    let previewChanges = null
+    const pathParts = change.path?.split('.') || []
+    let testPath: string | null = null
+    let previewTitle: string | null = null
+    let previewChanges: PreviewChanges | null = null
     while (pathParts.length > 0 && !previewTitle) {
       testPath = pathParts.join('.')
       previewTitle = pathToPreview[testPath]
@@ -294,28 +334,28 @@ const CHANGES_TO_REPORT = [
 
 /**
  * Get the ignored change types from the last changelog entry creation
- * @returns {Array} Array of ignored change objects
  */
-export function getLastIgnoredChanges() {
-  return createChangelogEntry.lastIgnoredChanges || []
+export function getLastIgnoredChanges(): Change[] {
+  return (createChangelogEntry as any).lastIgnoredChanges || []
 }
 
 /**
  * Get summary of ignored change types for workflow outputs
- * @returns {Object} Summary with counts and types
  */
-export function getIgnoredChangesSummary() {
+export function getIgnoredChangesSummary(): IgnoredChangesSummary | null {
   const ignored = getLastIgnoredChanges()
   if (ignored.length === 0) return null
 
   const types = [...new Set(ignored.map((change) => change.type))]
-  const summary = {
+  const summary: IgnoredChangesSummary = {
     totalCount: ignored.length,
     typeCount: types.length,
-    types: types.map((type) => ({
-      type,
-      count: ignored.filter((change) => change.type === type).length,
-    })),
+    types: types.map(
+      (type): IgnoredChangeType => ({
+        type,
+        count: ignored.filter((change) => change.type === type).length,
+      }),
+    ),
   }
 
   return summary

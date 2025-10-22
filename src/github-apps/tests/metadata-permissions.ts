@@ -1,9 +1,38 @@
 import { describe, expect, test } from 'vitest'
 import { shouldFilterMetadataPermission, calculateAdditionalPermissions } from '../scripts/sync'
 
+type PermissionSet = Record<string, string>
+
+interface Operation {
+  operationId: string
+  permissionSets: PermissionSet[]
+}
+
+interface ProgAccessData {
+  userToServerRest: boolean
+  serverToServer: boolean
+  permissions: PermissionSet[]
+}
+
+interface ActorResource {
+  title: string
+  visibility: string
+}
+
+interface FilteredOperation {
+  operationId: string
+  permission: string
+  additionalPermissions: boolean
+}
+
+interface MetadataPermission {
+  operationId: string
+  additionalPermissions: boolean
+}
+
 describe('metadata permissions filtering', () => {
   // Mock data structure representing operations with metadata permissions
-  const mockOperationsWithMetadata = [
+  const mockOperationsWithMetadata: Operation[] = [
     {
       operationId: 'repos/enable-automated-security-fixes',
       permissionSets: [{ metadata: 'read', administration: 'write' }],
@@ -23,7 +52,7 @@ describe('metadata permissions filtering', () => {
   ]
 
   // Mock programmatic access data
-  const mockProgAccessData = {
+  const mockProgAccessData: Record<string, ProgAccessData> = {
     'repos/enable-automated-security-fixes': {
       userToServerRest: true,
       serverToServer: true,
@@ -47,7 +76,7 @@ describe('metadata permissions filtering', () => {
   }
 
   // Mock actor resources
-  const mockProgActorResources = {
+  const mockProgActorResources: Record<string, ActorResource> = {
     metadata: {
       title: 'Metadata',
       visibility: 'public',
@@ -95,8 +124,8 @@ describe('metadata permissions filtering', () => {
   })
 
   test('filters metadata operations with additional permissions', () => {
-    const filteredOperations = []
-    const metadataPermissions = []
+    const filteredOperations: FilteredOperation[] = []
+    const metadataPermissions: MetadataPermission[] = []
 
     for (const operation of mockOperationsWithMetadata) {
       const progData = mockProgAccessData[operation.operationId]
@@ -137,15 +166,15 @@ describe('metadata permissions filtering', () => {
     // Should have other permissions from operations with additional permissions
     const adminPermission = filteredOperations.find((op) => op.permission === 'administration')
     expect(adminPermission).toBeDefined()
-    expect(adminPermission.operationId).toBe('repos/enable-automated-security-fixes')
-    expect(adminPermission.additionalPermissions).toBe(true)
+    expect(adminPermission!.operationId).toBe('repos/enable-automated-security-fixes')
+    expect(adminPermission!.additionalPermissions).toBe(true)
 
     const orgAdminPermission = filteredOperations.find(
       (op) => op.permission === 'organization_administration',
     )
     expect(orgAdminPermission).toBeDefined()
-    expect(orgAdminPermission.operationId).toBe('orgs/update-webhook')
-    expect(orgAdminPermission.additionalPermissions).toBe(true)
+    expect(orgAdminPermission!.operationId).toBe('orgs/update-webhook')
+    expect(orgAdminPermission!.additionalPermissions).toBe(true)
   })
 
   test('preserves non-metadata permissions regardless of additional permissions', () => {
@@ -168,11 +197,11 @@ describe('metadata permissions filtering', () => {
     expect(shouldFilterMetadataPermission('metadata', [])).toBe(false)
 
     // Permission set with empty object (edge case)
-    const edgeCase1 = [{ metadata: 'read' }, {}]
+    const edgeCase1: Record<string, string>[] = [{ metadata: 'read' }, {}]
     expect(shouldFilterMetadataPermission('metadata', edgeCase1)).toBe(true)
 
     // Multiple permission sets with metadata in different sets
-    const edgeCase2 = [{ metadata: 'read' }, { admin: 'write' }]
+    const edgeCase2: Record<string, string>[] = [{ metadata: 'read' }, { admin: 'write' }]
     expect(shouldFilterMetadataPermission('metadata', edgeCase2)).toBe(true)
   })
 
@@ -207,17 +236,23 @@ describe('metadata permissions filtering', () => {
 
   test('handles complex permission structures from real data', () => {
     // Multiple permission sets (should filter metadata)
-    const multiplePermissionSets = [{ metadata: 'read' }, { administration: 'write' }]
+    const multiplePermissionSets: Record<string, string>[] = [
+      { metadata: 'read' },
+      { administration: 'write' },
+    ]
     expect(shouldFilterMetadataPermission('metadata', multiplePermissionSets)).toBe(true)
 
     // Single permission set with multiple permissions (should filter metadata)
-    const multiplePermissionsInSet = [
+    const multiplePermissionsInSet: Record<string, string>[] = [
       { metadata: 'read', contents: 'write', pull_requests: 'write' },
     ]
     expect(shouldFilterMetadataPermission('metadata', multiplePermissionsInSet)).toBe(true)
 
     // Multiple permission sets where metadata is not in the first set
-    const metadataInSecondSet = [{ administration: 'write' }, { metadata: 'read' }]
+    const metadataInSecondSet: Record<string, string>[] = [
+      { administration: 'write' },
+      { metadata: 'read' },
+    ]
     expect(shouldFilterMetadataPermission('metadata', metadataInSecondSet)).toBe(true)
   })
 
@@ -250,7 +285,7 @@ describe('metadata permissions filtering', () => {
   })
 
   test('verifies consistency with additional-permissions flag calculation', () => {
-    const testCases = [
+    const testCases: Array<{ permissionSets: Record<string, string>[]; expected: boolean }> = [
       // Single permission, single set - no additional permissions
       { permissionSets: [{ metadata: 'read' }], expected: false },
 
@@ -283,12 +318,7 @@ describe('metadata permissions filtering', () => {
     // - DELETE /orgs/{org}/actions/permissions/repositories/{repository_id}
     // Because they have metadata + organization_administration permissions
 
-    const mockMutatingOperation = {
-      operationId: 'actions/set-selected-repositories-enabled-github-actions-organization',
-      permissionSets: [{ metadata: 'read', organization_administration: 'write' }],
-    }
-
-    const progData = {
+    const progData: ProgAccessData = {
       userToServerRest: true,
       serverToServer: true,
       permissions: [{ metadata: 'read', organization_administration: 'write' }],
