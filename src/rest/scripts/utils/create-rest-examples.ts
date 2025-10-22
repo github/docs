@@ -5,11 +5,54 @@ const DEFAULT_EXAMPLE_DESCRIPTION = 'Example'
 const DEFAULT_EXAMPLE_KEY = 'default'
 const DEFAULT_ACCEPT_HEADER = 'application/vnd.github.v3+json'
 
+// OpenAPI operation structure is dynamic and complex
+type Operation = any
+
+interface RequestExample {
+  key: string
+  request: {
+    contentType?: string
+    description: string
+    acceptHeader: string
+    bodyParameters?: any
+    parameters?: Record<string, any>
+  }
+}
+
+interface ResponseExample {
+  key: string
+  response: {
+    statusCode: string
+    contentType?: string
+    description: string
+    example?: any
+    schema?: any
+  }
+}
+
+interface MergedExample {
+  key: string
+  request: {
+    contentType?: string
+    description: string
+    acceptHeader: string
+    bodyParameters?: any
+    parameters?: Record<string, any>
+  }
+  response?: {
+    statusCode: string
+    contentType?: string
+    description: string
+    example?: any
+    schema?: any
+  }
+}
+
 // Retrieves request and response examples and attempts to
 // merge them to create matching request/response examples
 // The key used in the media type `examples` property is
 // used to match requests to responses.
-export default async function getCodeSamples(operation) {
+export default async function getCodeSamples(operation: Operation): Promise<MergedExample[]> {
   const responseExamples = getResponseExamples(operation)
   const requestExamples = getRequestExamples(operation)
 
@@ -18,7 +61,7 @@ export default async function getCodeSamples(operation) {
   // If there are multiple examples and if the request body
   // has the same description, add a number to the example
   if (mergedExamples.length > 1) {
-    const count = {}
+    const count: Record<string, number> = {}
     mergedExamples.forEach((item) => {
       count[item.request.description] = (count[item.request.description] || 0) + 1
     })
@@ -33,7 +76,7 @@ export default async function getCodeSamples(operation) {
               ' ' +
               (i + 1) +
               ': Status Code ' +
-              example.response.statusCode
+              example.response!.statusCode
             : example.request.description,
       },
     }))
@@ -44,7 +87,10 @@ export default async function getCodeSamples(operation) {
   return mergedExamples
 }
 
-export function mergeExamples(requestExamples, responseExamples) {
+export function mergeExamples(
+  requestExamples: RequestExample[],
+  responseExamples: ResponseExample[],
+): MergedExample[] {
   // There is always at least one request example, but it won't create
   // a meaningful example unless it has a response example.
   if (requestExamples.length === 1 && responseExamples.length === 0) {
@@ -97,14 +143,17 @@ export function mergeExamples(requestExamples, responseExamples) {
   // Iterates over the larger array or "target" (or if equal requests) to see
   // if there are any matches in the smaller array or "source"
   // (or if equal responses) that can be added to target array. If a request
+  // If a request
   // example and response example have matching keys they will be merged into
   // an example. If there is more than one key match, the first match will
   // be used.
-  return target.filter((targetEx) => {
-    const match = source.find((srcEx) => srcEx.key === targetEx.key)
-    if (match) return Object.assign(targetEx, match)
-    return false
-  })
+  return target
+    .filter((targetEx) => {
+      const match = source.find((srcEx) => srcEx.key === targetEx.key)
+      if (match) return Object.assign(targetEx, match)
+      return false
+    })
+    .map((ex) => ex as MergedExample)
 }
 
 /*
@@ -124,8 +173,8 @@ export function mergeExamples(requestExamples, responseExamples) {
     }
   }
 */
-export function getRequestExamples(operation) {
-  const requestExamples = []
+export function getRequestExamples(operation: Operation): RequestExample[] {
+  const requestExamples: RequestExample[] = []
   const parameterExamples = getParameterExamples(operation)
 
   // When no request body or parameters are defined, we create a generic
@@ -160,7 +209,7 @@ export function getRequestExamples(operation) {
   // Requests can have multiple content types each with their own set of
   // examples.
   Object.keys(operation.requestBody.content).forEach((contentType) => {
-    let examples = {}
+    let examples: Record<string, any> = {}
     // This is a fallback to allow using the `example` property in
     // the schema. If we start to enforce using examples vs. example using
     // a linter, we can remove the check for `example`.
@@ -232,8 +281,8 @@ export function getRequestExamples(operation) {
     }
   }
 */
-export function getResponseExamples(operation) {
-  const responseExamples = []
+export function getResponseExamples(operation: Operation): ResponseExample[] {
+  const responseExamples: ResponseExample[] = []
   Object.keys(operation.responses).forEach((statusCode) => {
     // We don't want to create examples for error codes
     // Error codes are displayed in the status table in the docs
@@ -259,7 +308,7 @@ export function getResponseExamples(operation) {
     // Responses can have multiple content types each with their own set of
     // examples.
     Object.keys(content).forEach((contentType) => {
-      let examples = {}
+      let examples: Record<string, any> = {}
       // This is a fallback to allow using the `example` property in
       // the schema. If we start to enforce using examples vs. example using
       // a linter, we can remove the check for `example`.
@@ -332,13 +381,13 @@ export function getResponseExamples(operation) {
     }
   }
 */
-export function getParameterExamples(operation) {
+export function getParameterExamples(operation: Operation): Record<string, Record<string, any>> {
   if (!operation.parameters) {
     return {}
   }
-  const parameters = operation.parameters.filter((param) => param.in === 'path')
-  const parameterExamples = {}
-  parameters.forEach((parameter) => {
+  const parameters = operation.parameters.filter((param: any) => param.in === 'path')
+  const parameterExamples: Record<string, Record<string, any>> = {}
+  parameters.forEach((parameter: any) => {
     const examples = parameter.examples
     // If there are no examples, create an example from the uppercase parameter
     // name, so that it is more visible that the value is fake data
