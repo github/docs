@@ -37388,6 +37388,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     Ordering options for project v2 items returned from the connection
     """
     orderBy: ProjectV2ItemOrder = {field: POSITION, direction: ASC}
+
+    """
+    Search query for filtering items
+    """
+    query: String = ""
   ): ProjectV2ItemConnection!
 
   """
