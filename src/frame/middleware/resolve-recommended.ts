@@ -132,7 +132,11 @@ async function resolveRecommended(
       try {
         const foundPage = tryResolveArticlePath(rawPath, page?.relativePath, req)
 
-        if (foundPage) {
+        if (
+          foundPage &&
+          (!req.context?.currentVersion ||
+            foundPage.applicableVersions.includes(req.context.currentVersion))
+        ) {
           const href = getPageHref(foundPage)
           const category = foundPage.relativePath
             ? foundPage.relativePath.split('/').slice(0, -1).filter(Boolean)
