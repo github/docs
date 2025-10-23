@@ -14,6 +14,4 @@ The pre-release products and features listed below use data handling that is the
 
 | Product / Feature                                  | DPA Coverage Date   |
 |:---------------------------------------------------|:-------------------:|
-| Copilot CLI                                        | 28 October 2025     |
-| Copilot Enterprise & Users Usage Metrics Dashboard | 28 October 2025     |
-| Spark                                              | 28 October 2025     |
+| Coming Soon!                                       | 27 October 2025     |
