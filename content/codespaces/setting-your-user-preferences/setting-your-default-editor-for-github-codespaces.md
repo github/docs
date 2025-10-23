@@ -1,4 +1,4 @@
----
+--- 
 title: Setting your default editor for GitHub Codespaces
 shortTitle: Set the default editor
 intro: '{% data reusables.codespaces.about-changing-default-editor %}'
