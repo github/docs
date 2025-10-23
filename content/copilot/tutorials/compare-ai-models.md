@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks
   - /copilot/tutorials/comparing-ai-models-using-different-tasks
 contentType: tutorials
+category:
+  - Rapid prototyping
 ---
 
 ## Overview

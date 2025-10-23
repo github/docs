@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/tutorials/building-ai-app-prototypes
   - /copilot/tutorials/build-apps-with-spark
 contentType: tutorials
+category:
+  - Rapid prototyping
 ---
 
 > [!NOTE]

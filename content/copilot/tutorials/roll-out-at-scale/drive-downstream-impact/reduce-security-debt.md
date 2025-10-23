@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/reduce-security-debt
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/reduce-security-debt
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
 ---
 
 {% data reusables.copilot.essp-intro %}

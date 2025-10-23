@@ -9,6 +9,8 @@ redirect_from:
   - /copilot/tutorials/building-your-first-app-in-minutes-with-github-spark
   - /copilot/tutorials/spark/easy-apps-with-spark
 contentType: tutorials
+category:
+  - Rapid prototyping
 ---
 
 Have you ever had a great idea for an app, but you didn't have the tools to build it? With the help of AI, you can now bring your app ideas to life in minutes using only natural language. In this article, we'll use {% data variables.product.prodname_spark %} to build, improve, and share a word search app without writing a single line of code ourselves.

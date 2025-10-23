@@ -17,6 +17,8 @@ layout: inline
 topics:
   - Copilot
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
 ---
 
 ## Introduction
