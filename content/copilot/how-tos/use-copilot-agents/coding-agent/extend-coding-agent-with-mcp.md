@@ -29,6 +29,8 @@ As a repository administrator, you can configure MCP servers for use within your
 > [!WARNING]
 > Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
 
+{% data reusables.copilot.mcp.coding-agent-limitations %}
+
 ## Adding an MCP configuration to your repository
 
 Repository administrators can configure MCP servers by following these steps:
