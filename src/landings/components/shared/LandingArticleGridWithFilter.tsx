@@ -1,19 +1,43 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { ArticleCardItems, ChildTocItem } from '@/landings/types'
+import { ArticleCardItems, ChildTocItem, TocItem } from '@/landings/types'
 
 import styles from './LandingArticleGridWithFilter.module.scss'
 
 type ArticleGridProps = {
-  flatArticles: ArticleCardItems
+  tocItems: TocItem[]
 }
 
 const ALL_CATEGORIES = 'all_categories'
+
+// Helper function to recursively flatten nested articles
+// Excludes index pages (pages with childTocItems)
+const flattenArticlesRecursive = (articles: ArticleCardItems): ArticleCardItems => {
+  const flattened: ArticleCardItems = []
+
+  for (const article of articles) {
+    // If the article has children, recursively process them but don't include the parent (index page)
+    if (article.childTocItems && article.childTocItems.length > 0) {
+      flattened.push(...flattenArticlesRecursive(article.childTocItems))
+    } else {
+      // Only add articles that don't have children (actual article pages, not index pages)
+      flattened.push(article)
+    }
+  }
+
+  return flattened
+}
+
+// Wrapper function that flattens and sorts alphabetically by title (only once)
+const flattenArticles = (articles: ArticleCardItems): ArticleCardItems => {
+  const flattened = flattenArticlesRecursive(articles)
+  return flattened.sort((a, b) => a.title.localeCompare(b.title))
+}
 
 // Hook to get current articles per page based on screen size
 const useResponsiveArticlesPerPage = () => {
@@ -42,7 +66,7 @@ const useResponsiveArticlesPerPage = () => {
   return articlesPerPage
 }
 
-export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
+export const ArticleGrid = ({ tocItems }: ArticleGridProps) => {
   const { t } = useTranslation('product_landing')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
@@ -53,6 +77,12 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
 
+  // Extract child items from tocItems and recursively flatten nested articles to ensure we get all articles with categories
+  const allArticles = useMemo(
+    () => flattenArticles(tocItems.flatMap((item) => item.childTocItems || [])),
+    [tocItems],
+  )
+
   // Reset to first page when articlesPerPage changes (screen size changes)
   useEffect(() => {
     setCurrentPage(1)
@@ -61,13 +91,13 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
   // Extract unique categories from the articles
   const categories: string[] = [
     ALL_CATEGORIES,
-    ...Array.from(new Set(flatArticles.flatMap((item) => item.category || []))).sort((a, b) =>
+    ...Array.from(new Set(allArticles.flatMap((item) => item.category || []))).sort((a, b) =>
       a.localeCompare(b),
     ),
   ]
 
   const applyFilters = () => {
-    let results = flatArticles
+    let results = allArticles
 
     if (searchQuery) {
       results = results.filter((token) => {

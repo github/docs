@@ -1,9 +1,9 @@
 import path from 'path'
 
+import languages from '@/languages/lib/languages-server'
 import type { Language } from '@/languages/lib/languages'
 import type { UnversionedTree, UnversionLanguageTree, SiteTree, Tree } from '@/types'
 
-import languages from '@/languages/lib/languages'
 import { allVersions } from '@/versions/lib/all-versions'
 import createTree from './create-tree'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'

@@ -4,7 +4,7 @@ import path from 'path'
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
 import { allVersions, getOpenApiVersion } from '@/versions/lib/all-versions'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import type { Context } from '@/types'
 import type { Operation } from '@/rest/components/types'
 

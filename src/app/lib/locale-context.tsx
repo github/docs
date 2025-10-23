@@ -1,55 +1,51 @@
 'use client'
 
 import { createContext, useContext, ReactNode, useMemo } from 'react'
-import {
-  clientLanguages,
-  clientLanguageKeys,
-  type ClientLanguageCode,
-} from '@/languages/lib/client-languages'
+import { languages, languageKeys, type LanguageCode } from '@/languages/lib/languages'
 
 interface LocaleContextType {
-  readonly locale: ClientLanguageCode
-  readonly isValidLocale: (locale: string) => locale is ClientLanguageCode
-  readonly getSupportedLocales: () => readonly ClientLanguageCode[]
-  readonly getLocaleDisplayName: (locale: ClientLanguageCode) => string
-  readonly getLocaleNativeName: (locale: ClientLanguageCode) => string
+  readonly locale: LanguageCode
+  readonly isValidLocale: (locale: string) => locale is LanguageCode
+  readonly getSupportedLocales: () => readonly LanguageCode[]
+  readonly getLocaleDisplayName: (locale: LanguageCode) => string
+  readonly getLocaleNativeName: (locale: LanguageCode) => string
 }
 
 const LocaleContext = createContext<LocaleContextType | null>(null)
 
 interface LocaleProviderProps {
   readonly children: ReactNode
-  readonly locale: ClientLanguageCode
+  readonly locale: LanguageCode
 }
 
 // Use client languages as the source of truth for supported locales
-const SUPPORTED_LOCALES: readonly ClientLanguageCode[] = clientLanguageKeys as ClientLanguageCode[]
+const SUPPORTED_LOCALES: readonly LanguageCode[] = languageKeys as LanguageCode[]
 
 /**
  * Validates if a string is a supported locale
  */
-function isValidLocale(locale: string): locale is ClientLanguageCode {
-  return clientLanguageKeys.includes(locale)
+function isValidLocale(locale: string): locale is LanguageCode {
+  return languageKeys.includes(locale)
 }
 
 /**
- * Gets display name for a locale from client languages data
+ * Gets display name for a locale from languages module
  */
-function getLocaleDisplayName(locale: ClientLanguageCode): string {
-  return clientLanguages[locale]?.name || locale
+function getLocaleDisplayName(locale: LanguageCode): string {
+  return languages[locale]?.name || locale
 }
 
 /**
- * Gets native name for a locale from client languages data
+ * Gets native name for a locale from languages module
  */
-function getLocaleNativeName(locale: ClientLanguageCode): string {
-  return clientLanguages[locale]?.nativeName || clientLanguages[locale]?.name || locale
+function getLocaleNativeName(locale: LanguageCode): string {
+  return languages[locale]?.nativeName || languages[locale]?.name || locale
 }
 
 /**
  * Gets browser language preference as a valid locale
  */
-function getBrowserLocale(): ClientLanguageCode {
+function getBrowserLocale(): LanguageCode {
   if (typeof window === 'undefined') return 'en'
 
   const browserLang = window.navigator.language.split('-')[0]
@@ -77,7 +73,7 @@ export function LocaleProvider({ children, locale }: LocaleProviderProps): JSX.E
 /**
  * Hook to get current locale with enhanced error handling
  */
-export function useLocale(): ClientLanguageCode {
+export function useLocale(): LanguageCode {
   const context = useContext(LocaleContext)
 
   if (context) {
@@ -118,4 +114,4 @@ export function useLocaleContext(): LocaleContextType {
 }
 
 export { isValidLocale, getLocaleDisplayName, getLocaleNativeName }
-export type { LocaleContextType, ClientLanguageCode }
+export type { LocaleContextType, LanguageCode }

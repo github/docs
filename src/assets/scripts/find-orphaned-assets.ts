@@ -11,7 +11,7 @@ import { program } from 'commander'
 import walk from 'walk-sync'
 
 import walkFiles from '@/workflows/walk-files'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',

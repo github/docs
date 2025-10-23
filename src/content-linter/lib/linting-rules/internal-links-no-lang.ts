@@ -2,7 +2,7 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
 
 import { addFixErrorDetail, getRange } from '../helpers/utils'
-import { allLanguageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages'
 import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 export const internalLinksNoLang: Rule = {
@@ -28,7 +28,7 @@ export const internalLinksNoLang: Rule = {
           .filter((attr: [string, string]) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
           // Filter out link paths that start with language code
           .filter((attr: [string, string]) =>
-            allLanguageKeys.some((lang) => attr[1].split('/')[1] === lang),
+            languageKeys.some((lang) => attr[1].split('/')[1] === lang),
           )
           // Get the link path from the attribute
           .map((attr: [string, string]) => attr[1])

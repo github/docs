@@ -11,7 +11,7 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#sexually-obscene-content
 ---
 
-We do not tolerate content associated with sexual exploitation or abuse of another individual, including where minors are concerned. We do not allow sexually themed or suggestive content that serves little or no purpose other than to solicit an erotic or shocking response, particularly where that content is amplified by its placement in profiles or other social contexts. This includes:
+We do not tolerate content associated with sexual exploitation or abuse of another individual, including where [minors are concerned](/site-policy/acceptable-use-policies/github-child-sexual-exploitation-or-abuse). We do not allow sexually themed or suggestive content that serves little or no purpose other than to solicit an erotic or shocking response, particularly where that content is amplified by its placement in profiles or other social contexts. This includes:
 
 * Pornographic content
 * Non-consensual intimate imagery

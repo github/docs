@@ -1,8 +1,9 @@
 .learningTracks {
-  border: 1px solid var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0));
   border-radius: 12px;
   padding: 1.5rem;
-  padding-bottom: .75rem;
+  padding-bottom: 0.75rem;
   margin-bottom: 1rem;
   margin-left: 1rem;
   box-shadow:
@@ -10,7 +11,10 @@
     0px 1px 0px 0px rgba(31, 35, 40, 0.06);
   position: relative;
   z-index: 1;
-  background-color: var(--bgColor-default, var(--color-canvas-default, #ffffff));
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default, #ffffff)
+  );
 }
 
 .trackHeader {
@@ -60,13 +64,14 @@
   width: 1.5rem;
   height: 1.5rem;
   background-color: transparent;
-  border: 1px solid var(--borderColor-default, var(--color-border-default, #d0d7de));
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d0d7de));
   color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -78,12 +83,19 @@
 
 /* Hide only the timeline line that extends below the last badge, preserve everything else */
 .timelineContainer :global(.Timeline-Item:last-child::before) {
-  background: linear-gradient(to bottom, var(--borderColor-muted, var(--color-border-muted)) 0%, var(--borderColor-muted, var(--color-border-muted)) 30%, transparent 30%, transparent 100%) !important;
+  background: linear-gradient(
+    to bottom,
+    var(--borderColor-muted, var(--color-border-muted)) 0%,
+    var(--borderColor-muted, var(--color-border-muted)) 30%,
+    transparent 30%,
+    transparent 100%
+  ) !important;
 }
 
 .timelineBadge {
   background-color: var(--color-canvas-subtle, #f6f8fa) !important;
-  border: 1px solid var(--borderColor-default, var(--color-border-default, #d1d9e0)) !important;
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0)) !important;
 }
 
 /* Fix entire timeline component overlapping header */
@@ -118,7 +130,8 @@
   height: 2rem;
   background-color: var(--color-canvas-subtle, #f6f8fa);
   color: var(--fgColor-muted, var(--color-fg-muted));
-  border: 1px solid var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0));
   border-radius: 50%;
   display: inline-flex;
   align-items: center;
@@ -131,26 +144,32 @@
 
 /* Add connecting line from badge downward */
 .mobileBadge::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 100%;
   width: 1px;
   height: 2.5rem;
-  background-color: var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d1d9e0)
+  );
   transform: translateX(-50%);
   z-index: 1;
 }
 
 /* Add connecting line above badge (except first item) */
 .mobileItem:not(:first-child) .mobileBadge::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: 100%;
   width: 1px;
   height: 2.5rem;
-  background-color: var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d1d9e0)
+  );
   transform: translateX(-50%);
   z-index: 1;
 }
@@ -158,7 +177,10 @@
 .mobileConnector {
   width: 1px;
   height: 1rem;
-  background-color: var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d1d9e0)
+  );
   margin: 0 auto;
 }
 
@@ -167,7 +189,8 @@
 }
 
 .mobileItem .mobileTile {
-  border: 1px solid var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0));
   border-radius: 12px;
   padding: 1rem;
   margin-top: 0.5rem;
@@ -177,7 +200,10 @@
     0px 1px 0px 0px rgba(31, 35, 40, 0.06);
   position: relative;
   z-index: 3;
-  background-color: var(--bgColor-default, var(--color-canvas-default, #ffffff));
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default, #ffffff)
+  );
 }
 
 /* Desktop: show Timeline component */
@@ -185,7 +211,7 @@
   .mobileLayout {
     display: none;
   }
-  
+
   .timelineContainer {
     display: block;
   }
@@ -208,6 +234,6 @@
   }
 
   .trackHeader h3 {
-    margin-bottom: .50rem;
+    margin-bottom: 0.5rem;
   }
 }

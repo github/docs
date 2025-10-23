@@ -38,7 +38,7 @@ import type { Page } from '@/types'
 import warmServer from '@/frame/lib/warm-server'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 const EXCEPTIONS = new Set([

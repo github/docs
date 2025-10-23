@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from 'express'
 
 import patterns from '@/frame/lib/patterns'
-import { pathLanguagePrefixed } from '@/languages/lib/languages'
+import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
 import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'

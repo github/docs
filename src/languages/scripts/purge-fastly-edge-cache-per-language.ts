@@ -1,4 +1,4 @@
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 
 import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import purgeEdgeCache from '@/workflows/purge-edge-cache'

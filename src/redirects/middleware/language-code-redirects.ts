@@ -1,6 +1,6 @@
 import type { NextFunction, Response } from 'express'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
