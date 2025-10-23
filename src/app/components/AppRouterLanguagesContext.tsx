@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useContext } from 'react'
-import { clientLanguages, type ClientLanguageCode } from '@/languages/lib/client-languages'
+import { languages, type LanguageCode } from '@/languages/lib/languages'
 
 export type AppRouterLanguageItem = {
   name: string
@@ -12,7 +12,7 @@ export type AppRouterLanguageItem = {
 
 export type AppRouterLanguagesContextT = {
   languages: Record<string, AppRouterLanguageItem>
-  currentLanguage?: ClientLanguageCode
+  currentLanguage?: LanguageCode
 }
 
 export const AppRouterLanguagesContext = createContext<AppRouterLanguagesContextT | null>(null)
@@ -34,7 +34,7 @@ export const useAppRouterLanguages = (): AppRouterLanguagesContextT => {
  */
 interface AppRouterLanguagesProviderProps {
   children: React.ReactNode
-  currentLanguage?: ClientLanguageCode
+  currentLanguage?: LanguageCode
 }
 
 export function AppRouterLanguagesProvider({
@@ -42,7 +42,7 @@ export function AppRouterLanguagesProvider({
   currentLanguage,
 }: AppRouterLanguagesProviderProps) {
   const value: AppRouterLanguagesContextT = {
-    languages: clientLanguages,
+    languages,
     currentLanguage,
   }
 

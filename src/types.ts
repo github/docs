@@ -3,6 +3,7 @@ import type { Failbot } from '@github/failbot'
 
 import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
+import type { Language, Languages } from '@/languages/lib/languages-server'
 import type { MiniTocItem } from '@/frame/lib/get-mini-toc-items'
 
 // Shared type for resolved article information used across landing pages and carousels
@@ -325,16 +326,8 @@ export type SecretScanningData = {
   isduplicate: boolean
 }
 
-type Language = {
-  name: string
-  code: string
-  hreflang: string
-  dir: string
-}
-
-export type Languages = {
-  [key: string]: Language
-}
+// Language and Languages types are imported at the top from languages-server
+export type { Language, Languages }
 
 export type Permalink = {
   languageCode: string

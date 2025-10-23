@@ -19,7 +19,7 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, UnversionedTree, SiteTree } from '@/types'
-import languages, { languageKeys } from '@/languages/lib/languages'
+import languages, { languageKeys } from '@/languages/lib/languages-server'
 import createTree from '@/frame/lib/create-tree'
 import warmServer from '@/frame/lib/warm-server'
 import { loadSiteTree, loadPages, loadPageMap } from '@/frame/lib/page-data'

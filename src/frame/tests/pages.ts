@@ -6,7 +6,7 @@ import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
 
 import { loadPages } from '@/frame/lib/page-data'
-import libLanguages from '@/languages/lib/languages'
+import libLanguages from '@/languages/lib/languages-server'
 import { liquid } from '@/content-render/index'
 import patterns from '@/frame/lib/patterns'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'

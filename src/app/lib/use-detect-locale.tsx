@@ -2,24 +2,24 @@
 
 import { usePathname } from 'next/navigation'
 import { useMemo, useEffect, useState } from 'react'
-import { clientLanguageKeys, type ClientLanguageCode } from '@/languages/lib/client-languages'
+import { languageKeys, type LanguageCode } from '@/languages/lib/languages'
 import Cookies from '@/frame/components/lib/cookies'
 import { USER_LANGUAGE_COOKIE_NAME } from '@/frame/lib/constants'
 
 /**
  * Validates if a string is a supported locale using client languages
  */
-function isValidLocale(locale: string): locale is ClientLanguageCode {
-  return clientLanguageKeys.includes(locale)
+function isValidLocale(locale: string): locale is LanguageCode {
+  return languageKeys.includes(locale)
 }
 
 /**
  * Hook to detect locale from various sources with fallback logic
  */
-export function useDetectLocale(): ClientLanguageCode {
+export function useDetectLocale(): LanguageCode {
   const pathname = usePathname()
-  const [cookieLanguage, setCookieLanguage] = useState<ClientLanguageCode | null>(null)
-  const [browserLanguage, setBrowserLanguage] = useState<ClientLanguageCode | null>(null)
+  const [cookieLanguage, setCookieLanguage] = useState<LanguageCode | null>(null)
+  const [browserLanguage, setBrowserLanguage] = useState<LanguageCode | null>(null)
 
   // Read cookie and browser language on client-side mount
   useEffect(() => {
@@ -71,7 +71,7 @@ export function useDetectLocale(): ClientLanguageCode {
 /**
  * Utility function to detect locale from pathname (for server-side use)
  */
-export function detectLocaleFromPath(pathname: string): ClientLanguageCode {
+export function detectLocaleFromPath(pathname: string): LanguageCode {
   const pathSegments = pathname.split('/')
   const firstSegment = pathSegments[1]
 
@@ -82,8 +82,8 @@ export function detectLocaleFromPath(pathname: string): ClientLanguageCode {
   return 'en'
 }
 
-export function getSupportedLocales(): readonly ClientLanguageCode[] {
-  return clientLanguageKeys as ClientLanguageCode[]
+export function getSupportedLocales(): readonly LanguageCode[] {
+  return languageKeys as LanguageCode[]
 }
 
 export { isValidLocale }

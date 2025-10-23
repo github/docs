@@ -5,7 +5,7 @@ import yaml from 'js-yaml'
 import matter from '@gr2m/gray-matter'
 import { merge, get } from 'lodash-es'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 interface YAMLException extends Error {

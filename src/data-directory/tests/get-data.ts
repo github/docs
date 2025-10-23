@@ -3,7 +3,7 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import {
   getDataByLanguage,
   getDeepDataByLanguage,

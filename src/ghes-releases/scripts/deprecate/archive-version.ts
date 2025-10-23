@@ -17,7 +17,7 @@ import createApp from '@/frame/lib/app'
 import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import loadRedirects from '@/redirects/lib/precompile'
 import { loadPageMap, loadPages } from '@/frame/lib/page-data'
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/deprecate/rewrite-asset-paths'
 import Page from '@/frame/lib/page'
 
