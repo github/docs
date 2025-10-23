@@ -1,7 +1,7 @@
 ---
 title: Security Policies
 versions:
-  fpt: '*'
+  foto: '*'
 topics:
   - Policy
   - Legal
