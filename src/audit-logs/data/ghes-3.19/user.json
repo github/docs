@@ -222,7 +222,9 @@
       "old_target_amount",
       "old_budget_limit_type",
       "old_alert_enabled",
-      "old_target_id"
+      "old_target_id",
+      "old_pricing_target_type",
+      "old_pricing_target_id"
     ]
   },
   {
@@ -3630,6 +3632,29 @@
       "actor_is_bot",
       "request_access_security_header"
     ]
+  },
+  {
+    "action": "org.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
   },
   {
     "action": "org.set_actions_cache_storage_policy",
