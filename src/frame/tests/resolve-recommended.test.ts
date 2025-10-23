@@ -29,6 +29,8 @@ describe('resolveRecommended middleware', () => {
           },
         },
         redirects: {},
+        currentVersion: 'free-pro-team@latest',
+        currentLanguage: 'en',
         ...contextData,
       },
     }) as ExtendedRequest
@@ -314,6 +316,54 @@ describe('resolveRecommended middleware', () => {
         category: ['copilot', 'tutorials', 'tutorial-page'],
       },
     ])
+    expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('should filter out articles not available in current version', async () => {
+    // Create a test page that is only available in fpt, not ghec
+    const fptOnlyPage: Partial<import('@/types').Page> = {
+      mtime: Date.now(),
+      title: 'FPT Only Article',
+      rawTitle: 'FPT Only Article',
+      intro: 'This article is only for FPT',
+      rawIntro: 'This article is only for FPT',
+      relativePath: 'test/fpt-only.md',
+      fullPath: '/full/path/test/fpt-only.md',
+      languageCode: 'en',
+      documentType: 'article',
+      markdown: 'FPT only content',
+      versions: { fpt: '*' }, // Only available in free-pro-team
+      applicableVersions: ['free-pro-team@latest'], // Not available in ghec
+      permalinks: [
+        {
+          languageCode: 'en',
+          pageVersion: 'free-pro-team@latest',
+          title: 'FPT Only Article',
+          href: '/en/test/fpt-only',
+          hrefWithoutLanguage: '/test/fpt-only',
+        },
+      ],
+      renderProp: vi.fn().mockResolvedValue('rendered'),
+      renderTitle: vi.fn().mockResolvedValue('FPT Only Article'),
+      render: vi.fn().mockResolvedValue('rendered content'),
+      buildRedirects: vi.fn().mockReturnValue({}),
+    }
+
+    mockFindPage.mockReturnValue(fptOnlyPage as any)
+
+    // Create a request context where we're viewing the GHEC version
+    const req = createMockRequest(
+      { rawRecommended: ['/test/fpt-only'] },
+      {
+        currentVersion: 'enterprise-cloud@latest', // Current context is GHEC, not FPT
+        currentLanguage: 'en',
+      },
+    )
+
+    await resolveRecommended(req, mockRes, mockNext)
+
+    // The recommended array should be empty since the article isn't available in enterprise-cloud
+    expect((req.context!.page as any).recommended).toEqual([])
     expect(mockNext).toHaveBeenCalled()
   })
 })
