@@ -1,6 +1,6 @@
 ---
 title: Configure MCP server access for your organization or enterprise
-intro: You can configure an MCP Registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs with {% data variables.product.prodname_copilot %}.
+intro: You can configure an MCP registry URL and access control policy to determine which MCP servers developers can discover and use in supported IDEs with {% data variables.product.prodname_copilot %}.
 permissions: Enterprise owners and organization owners
 product: '{% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}'
 versions:
@@ -14,51 +14,79 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> * The display of available MCP servers based on a configured MCP registry is supported in {% data variables.product.prodname_vscode_shortname %} Stable and Insiders.
-> * Policy enforcement for the "Registry only" setting is currently available only in {% data variables.product.prodname_vscode_shortname %} Insiders, with support for {% data variables.product.prodname_vscode_shortname %} Stable coming in October 2025. MCP registry and allowlisting support is coming to all other Copilot IDEs in the coming months.
+> The MCP registry URL and allowlist are in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## Overview
 
-An MCP registry is a directory of Model Context Protocol (MCP) servers that acts like a catalog for IDEs and {% data variables.product.prodname_copilot_short %} (as well as other host applications). Each registry entry points to a server's manifest, which describes the tools, resources, and prompts that the server exposes.
+An MCP registry is a directory of Model Context Protocol (MCP) servers that acts like a catalog for IDEs and {% data variables.product.prodname_copilot_short %} (as well as other host applications). Each registry entry points to a server's manifest, which describes the tools, resources, and prompts that server exposes.
 
-As an enterprise or organization owner, you can configure an **MCP Registry URL** along with an access control policy to determine which MCP servers your developers can see and run in supported IDEs with {% data variables.product.prodname_copilot %}.
-
-By configuring an MCP Registry, you can:
+As an enterprise or organization owner, you can configure an **MCP registry URL**, allowing you to:
 * **Provide a curated catalog** of MCP servers your developers can discover and use
-* **Restrict access** to unapproved servers for more granular access control
+* **Restrict access** to unapproved servers for increased security and compliance
 * **Give clarity to developers** when a server is blocked by policy
 
-If you don't have an MCP registry set up yet, see [Setting up an MCP Registry](#setting-up-an-mcp-registry) later in this article.
+If you haven't created an MCP registry yet, see [Setting up an MCP registry](#setting-up-an-mcp-registry) later in this article.
 
 ## About MCP policy settings
 
 The following settings let you control how MCP servers are discovered and accessed in your organization or enterprise.
 
-### MCP servers policy
+### MCP servers in {% data variables.product.prodname_copilot_short %}
 
-First, you must set the overall **MCP servers in Copilot** policy:
-* Enabled: MCP servers are allowed (default behavior depends on registry configuration)
-* Disabled: No MCP servers can be used by any users with Copilot seats from this enterprise or organization
-* No policy (Enterprise only): Child organizations can set their own MCP policies
+First, you must set the overall **MCP servers in {% data variables.product.prodname_copilot_short %}** policy:
+* Enabled for all: MCP servers are allowed (default behavior depends on registry configuration)
+* Disabled for all: No MCP servers can be used by any users with {% data variables.product.prodname_copilot_short %} seats from this enterprise or organization
+* Let organizations decide (Enterprise only): Child organizations can set their own MCP policies
 
 ### MCP Registry URL
 
-The **MCP Registry URL** is an optional field where you specify the endpoint of your discoverable or restricted internal MCP registry.
+The **MCP Registry URL** is an optional field where you specify the URL of your discoverable or restricted internal MCP registry. When you configure a registry URL:
 
-When configured:
-* The servers listed in the registry are displayed in IDEs that support MCP
-* Enables the "Restrict MCP access to registry servers" option
+* The servers listed in the registry are displayed in supported IDEs
+* The "Restrict MCP access to registry servers" setting becomes configurable
 
-### "Restrict MCP access to registry servers" setting
+### Restrict MCP access to registry servers
 
 Under the **Restrict MCP access to registry servers** setting, you choose how strictly to enforce registry-based access:
 
 * **Allow all** (default): Developers can run any local and remote MCP servers. Registry servers are still shown in the IDE catalog as a curated list for easier discoverability.
-* **Registry only**: Developers can only run MCP servers that are explicitly listed in the uploaded MCP registry. All other servers—whether remote (hosted) or local (running client-side on the user's machine)—will be blocked at runtime. In IDE UIs, blocked servers appear greyed out with a warning message. In the `mcp.json` configuration file, they may also show `"run": "blocked"`.
+* **Registry only**: Developers can only run MCP servers that are explicitly listed in the uploaded MCP registry. In IDE UIs, blocked servers appear greyed out with a warning message. In the `mcp.json` configuration file, they may also show `"run": "blocked"`.
 
-> [!WARNING]
-> * You cannot configure the "Registry only" option without providing an MCP registry URL with a valid format and clicking "Save".
-> * "Registry only" enforcement is currently active **only** in {% data variables.product.prodname_vscode_shortname %} Insiders. Support for other Copilot environments is being added in the coming months.
+> [!NOTE]
+> If you choose the "Registry only" option with the MCP registry URL cleared, all MCP servers will be blocked.
+
+#### Current enforcement limitations
+
+The "Registry only" setting currently has the following limitations:
+
+* Enforcement is based only on server name/ID matching, which can be bypassed by editing configuration files
+* Strict enforcement that prevents installation of non-registry servers is not yet available
+
+For the highest level of security, you can **disable MCP servers in {% data variables.product.prodname_copilot_short %}** until strict enforcement is available.
+
+## How MCP policies apply to your users
+
+MCP policies apply to **all users who receive {% data variables.product.prodname_copilot_short %} seats** from the organization or enterprise where the policy is configured.
+
+When a policy is enabled or disabled at the enterprise level, it is automatically applied to all child organizations and their members, and cannot be overridden by those organizations.
+
+When an enterprise lets child organizations configure their own MCP policies, each organization must choose its own registry URL and enforcement settings. This allows teams with different security or compliance needs to choose the configuration that works best for them.
+
+## Support for MCP policies
+
+| Surface | Registry display | Allowlist enforcement |
+|---|:---:|:---:|
+| {% data variables.copilot.copilot_cli_short %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.copilot.copilot_coding_agent %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| Eclipse | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| JetBrains | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| {% data variables.product.prodname_vs %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.product.prodname_vscode_shortname %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.product.prodname_vscode_shortname %} Insiders | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Xcode | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+> [!NOTE]
+> For Eclipse, JetBrains, and Xcode, these features are supported in the pre-release versions of {% data variables.product.prodname_copilot_short %}.
 
 ## Configuring the MCP allowlist policy for an enterprise
 
@@ -73,10 +101,7 @@ Under the **Restrict MCP access to registry servers** setting, you choose how st
    * **Allow all**: No restrictions. All MCP servers can be used.
    * **Registry only**: Only servers from the registry may run.
 
-   > [!NOTE]
-   > If no registry URL is set, the "Registry only" option blocks all MCP servers.
-
-Your chosen policy will immediately apply to developers in your enterprise.
+    Your chosen policy will immediately apply to developers in your enterprise.
 
 ## Configuring the MCP allowlist policy for an organization
 
@@ -90,10 +115,7 @@ Your chosen policy will immediately apply to developers in your enterprise.
    * **Allow all**: No restrictions. All MCP servers can be used.
    * **Registry only**: Only servers from the registry may run.
 
-   > [!NOTE]
-   > If no registry URL is set, the "Registry only" option blocks all MCP servers.
-
-Your chosen policy will immediately apply to developers in your organization.
+    Your chosen policy will immediately apply to developers in your organization.
 
 ## How are MCP allowlists enforced?
 
@@ -117,84 +139,145 @@ The resolution logic is:
 
 1. **Scope**: Policies set by a parent enterprise override those set by an organization. Enterprise policies trickle down to all organizations and members within that enterprise.
 1. **Enforcement strictness**: `Registry only` outranks `Allow all`.
-1. **Recency of registry upload**: If two policies have the same scope and strictness, the registry most recently uploaded (saved) wins.
-1. **Tie-breaker**: If all else is equal, the lowest internal ID wins (rare edge case).
+1. **Recency of registry upload**: If two policies have the same scope and strictness, the most recently uploaded registry wins.
+1. **Tie-breaker**: If all else is equal, the lowest internal ID wins.
 
 > [!IMPORTANT]
-> At this time, only one registry URL can be applied to a user. Even if multiple organizations or enterprises provide different registries, only the winning registry (determined by the above rules) is used.
+> At this time, only one registry URL can be applied to a user. Even if multiple organizations or enterprises provide different registries, only the winning registry is used.
 >
-> **Recommendation**: To ensure consistency and avoid conflicts across multiple organizations, set and maintain your MCP registry URL and allowlist policy at the **enterprise** level whenever possible.
+> **For uniform access**, you can set and maintain your MCP registry URL and allowlist policy at the enterprise level.
+>
+> **For varied team needs**, configure separate policies for each organization, ensuring users only belong to one organization to avoid policy conflicts.
 
-## Setting up an MCP Registry
+## Setting up an MCP registry
 
-If you don't already have an MCP Registry configured, there are a few different ways you can create one depending on your needs.
+If you don't already have an MCP registry configured, there are a few different ways you can create one depending on your needs.
 
-### Simple/static registry
+### Self-hosting a registry
 
-At its core, a registry is just an HTTPS endpoint that serves a list of MCP server manifests. You can publish this as a static JSON file on {% data variables.product.prodname_pages %}, an S3 bucket, or any web server. This is the fastest and most lightweight option.
+At its core, a registry is a set of HTTPS endpoints that serve details about the included MCP servers. To make your registry reachable, you can take any of the following paths:
+* Fork and self-host the open-source MCP Registry
+* Run the open-source registry locally using Docker
+* Publish your own custom implementation
 
-### Example registry format
+To get started with the open-source registry, see the [MCP Registry Quickstart](https://github.com/modelcontextprotocol/registry/tree/main?tab=readme-ov-file#quick-start) in the `github/modelcontextprotocol` repository.
 
-Your registry must return a JSON response with the following structure:
+A valid registry must:
+* Be reachable over HTTPS
+* Support URL routing
 
-``` json
+To successfully configure your registry, you need to implement the following endpoints:
+
+* `GET /v0.1/servers`: Returns a list of all included MCP servers
+* `GET /v0.1/servers/{serverName}/versions/latest`: Returns the latest version of a specific server
+* `GET /v0.1/servers/{serverName}/versions/{version}`: Returns the details for a specific version of a server
+
+#### Example registry format
+
+Your registry must return a JSON response following [the v0.1 MCP registry specification](https://registry.modelcontextprotocol.io/docs#/operations/list-servers-v0.1):
+
+```json
 {
   "servers": [
     {
-      "id": "github",
-      "name": "GitHub MCP Server",
-      "description": "Tools and resources for GitHub repos, issues, PRs, and Actions.",
-      "manifest_url": "https://registry.yourcompany.com/servers/github/manifest.json",
-      "categories": ["code", "devops", "github"],
-      "version": "1.0.0",
-      "release_date": "2025-09-01T00:00:00Z",
-      "latest": true
+      "_meta": {
+        "io.modelcontextprotocol.registry/official": {
+          "status": "active",
+          "publishedAt": "2025-09-01T00:00:00Z",
+          "isLatest": true
+        }
+      },
+      "server": {
+        "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+        "name": "io.github.modelcontextprotocol/server-github",
+        "description": "Official GitHub MCP server for repository management, issues, and pull requests.",
+        "version": "1.0.0",
+        "packages": [
+          {
+            "registryType": "npm",
+            "identifier": "@modelcontextprotocol/server-github",
+            "version": "1.0.0",
+            "transport": { "type": "stdio" }
+          }
+        ],
+        "remotes": [
+          {
+            "type": "http",
+            "url": "https://api.githubcopilot.com/mcp/"
+          }
+        ]
+      }
     },
     {
-      "id": "local-linter",
-      "name": "Local Linter",
-      "description": "Runs lint checks against local files",
-      "manifest_url": "file:///path/to/local/manifest.json",
-      "categories": ["linting", "local", "devtools"],
-      "version": "1.0.0",
-      "release_date": "2025-09-01T00:00:00Z",
-      "latest": true
+      "_meta": {
+        "io.modelcontextprotocol.registry/official": {
+          "status": "active",
+          "publishedAt": "2025-09-01T00:00:00Z",
+          "isLatest": true
+        }
+      },
+      "server": {
+        "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+        "name": "io.github.modelcontextprotocol/server-filesystem",
+        "description": "MCP server for secure file system operations with configurable access controls.",
+        "version": "1.0.0",
+        "packages": [
+          {
+            "registryType": "npm",
+            "identifier": "@modelcontextprotocol/server-filesystem",
+            "version": "1.0.0",
+            "transport": { "type": "stdio" }
+          }
+        ]
+      }
     }
   ],
-  "total_count": 2,
-  "updated_at": "2025-09-09T12:00:00Z"
+  "metadata": {
+    "count": 2,
+    "nextCursor": null
+  }
 }
 ```
 
 Required fields:
 
-* `id`: Unique identifier for the server
-* `name`: Display name for the server
-* `description`: Brief description of the server's functionality
-* `manifest_url`: URL pointing to the server's MCP manifest
+* `server.name`: Reverse DNS identifier for the MCP server
+* `server.description`: Brief summary of server functionality
+* `server.version`: Version string
+* `server.packages`: Required if the server provides a local installation (`registryType`, `identifier`, `version`, `transport`)
+* `server.remotes`: Required if the server provides hosted endpoints (`type`, `url`)
 
 Optional fields that provide additional metadata:
 
-* `categories`: Array of category tags
-* `version`: Version identifier
-* `release_date`: ISO format release date
-* `latest`: Boolean indicating if this is the latest version
-* Additional fields like `total_count` and `updated_at` at the root level
+* `_meta`: Registry-managed metadata (`status`, `publishedAt`, `isLatest`)
+* `metadata`: Pagination details (`count`, `nextCursor`)
+* Additional publisher-provided fields may appear under `server._meta`
 
-### Azure API Center
+#### Support for v0.1
 
-For enterprises that want a dynamic and fully managed option, Azure API Center (part of Azure API Management) can be used as an MCP Registry. It provides governance features, discovery UI, and integration with existing API catalogs.
+To avoid breaking changes to your registry in the future, you should implement v0.1 of the MCP registry specification. Be aware that v0.1 is currently only supported in {% data variables.product.prodname_vscode_shortname %} Insiders, with other surfaces adding support soon. See the following table for more details.
 
-**Steps to set up with Azure API Center:**
+| Surface           | v0.1 support date |
+| ---------------------- | ----------------- |
+| {% data variables.product.prodname_vscode_shortname %} Insiders | Oct 23, 2025      |
+| {% data variables.product.prodname_vs %}      | Nov 5, 2025       |
+| {% data variables.product.prodname_vscode_shortname %}   | Nov 14, 2025      |
+| Eclipse | Dec 2025    |
+| JetBrains IDEs     | Dec 2025    |
+| Xcode    | Dec 2025    |
+
+### Using Azure API Center as a registry
+
+> [!NOTE]
+> Azure API Center requires an Azure API Management subscription to function as an MCP registry. For pricing details, see [MCP management availability](https://learn.microsoft.com/en-us/azure/api-management/mcp-server-overview#availability) and [API Management pricing](https://azure.microsoft.com/en-us/pricing/details/api-management/) in the Azure API Center documentation.
+
+For enterprises that want a dynamic and fully managed option, Azure API Center can be used as an MCP registry. It provides governance features, discovery UI, and integration with existing API catalogs.
 
 1. Go to the Azure API Center portal.
 1. Create a new API Center instance (or reuse an existing one).
 1. Add your MCP servers as APIs, including their manifests and metadata.
 1. Publish your API Center instance.
-1. Copy the API Center endpoint URL—this becomes your MCP Registry URL.
+1. Copy the API Center endpoint URL—this becomes your MCP registry URL.
 1. Paste this URL into the **MCP Registry URL (optional)** field in your {% data variables.product.prodname_enterprise %} or organization settings.
 
-> [!NOTE]
-> Azure API Center includes a free tier for basic API cataloging and discovery. Larger organizations may choose to use paid Azure API Management plans for higher scale and advanced governance.
-
-For more information, see [Azure API Center Documentation](https://learn.microsoft.com/en-us/azure/api-center/) and [Azure API Center Quickstart](https://learn.microsoft.com/en-us/azure/api-center/set-up-api-center).
+For more information, see [Register and discover remote MCP servers in your API inventory](https://learn.microsoft.com/en-us/azure/api-center/register-discover-mcp-server) in the Azure API Center Documentation.
