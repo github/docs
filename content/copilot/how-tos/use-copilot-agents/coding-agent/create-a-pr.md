@@ -111,6 +111,14 @@ You can assign issues to {% data variables.product.prodname_copilot_short %} usi
 #### Creating and assigning a new issue
 
 1. Make sure you're authenticating with the API using a user token, for example a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user-to-server token.
+
+   > [!NOTE]
+   > If using a {% data variables.product.pat_v2 %}, it needs the following permissions to assign {% data variables.product.prodname_copilot_short %} to an issue:
+   > * Read access to metadata
+   > * Read and write access to actions, contents, issues and pull requests
+   >
+   > If using a {% data variables.product.pat_v1 %}, it needs the `repo` scope to assign {% data variables.product.prodname_copilot_short %} to an issue.
+
 1. Verify that {% data variables.copilot.copilot_coding_agent %} is enabled in the repository by checking if the repository's `suggestedActors` in the GraphQL API includes {% data variables.product.prodname_copilot_short %}. Replace `octo-org` with the repository owner, and `octo-repo` with the repository name.
 
     ```graphql copy
