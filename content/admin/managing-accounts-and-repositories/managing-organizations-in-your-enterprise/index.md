@@ -20,7 +20,6 @@ versions:
 topics:
   - Enterprise
 children:
-  - /best-practices-for-structuring-organizations-in-your-enterprise
   - /adding-organizations-to-your-enterprise
   - /configuring-visibility-for-organization-membership
   - /preventing-users-from-creating-organizations

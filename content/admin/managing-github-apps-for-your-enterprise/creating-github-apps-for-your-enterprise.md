@@ -56,4 +56,10 @@ For apps that require installation to function, you can provide organization own
 
 If your {% data variables.product.prodname_github_app %} requires installation (not just authorization), organization owners can use the install link to install the app on their organization. See [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party).
 
-{% ifversion enterprise-installed-apps %}If your app uses enterprise permissions, you can install it on your enterprise. To find the installation link, go to the app's settings page in your enterprise account. See [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-on-your-enterprise).{% endif %}
+{% ifversion enterprise-installed-apps %}
+
+If you need to install the same app in many organizations, you can automate this with an API. See [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/automate-installations).
+
+If your app uses enterprise permissions, you can install it on your enterprise. To find the installation link, go to the app's settings page in your enterprise account. See [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-on-your-enterprise).
+
+{% endif %}

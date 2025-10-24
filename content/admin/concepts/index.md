@@ -1,7 +1,7 @@
 ---
 title: Concepts for enterprises
 shortTitle: Concepts
-intro: 'Learn the core concepts that you''ll need to understand {% data variables.location.product_location %}.'
+intro: Learn the core concepts that you'll need to understand {% data variables.location.product_location %}.
 versions:
   ghes: '*'
   ghec: '*'
@@ -11,6 +11,7 @@ children:
   - /enterprise-fundamentals
   - /identity-and-access-management
   - /security-and-compliance
-  - /best-practices-for-enterprises
+  - /best-practices
 contentType: concepts
 ---
+

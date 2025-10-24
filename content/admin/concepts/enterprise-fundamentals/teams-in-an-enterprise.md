@@ -1,6 +1,6 @@
 ---
 title: Teams in an enterprise
-intro: 'Learn how teams simplify administration of user access, licensing, and communication.'
+intro: 'Simplify administration of user access, licensing, and communication with teams.'
 versions:
   feature: enterprise-teams
 shortTitle: Teams
