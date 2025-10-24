@@ -246,19 +246,6 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 
 {% data reusables.copilot.coding-agent.new-agent-task-form-instructions %}
 
-## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the "New repository" page
-
-When creating a new repository, you can ask {% data variables.product.prodname_copilot_short %} to seed the new repository by entering a prompt.
-
-{% data reusables.repositories.create_new %}
-{% data reusables.repositories.owner-drop-down %}
-1. In the **Prompt** field, enter a prompt describing what you want {% data variables.product.prodname_copilot_short %} to build.
-
-    For example, `Create a Rust CLI for converting CSV spreadsheets to Markdown`
-{% data reusables.repositories.create-repo %}
-
-    {% data variables.product.prodname_copilot_short %} will immediately open a draft pull request. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
-
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 
 1. Install the [{% data variables.product.github %} Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for {% data variables.product.prodname_vscode %}.
@@ -388,6 +375,19 @@ To see all of the available options, run `gh agent-task create --help`.
 > [!NOTE]
 >
 > If you are unable to select a specific repository when starting a task, the organization that owns the repository may have enabled {% data variables.product.prodname_oauth_app %} access restrictions. To learn how to request approval for the "{% data variables.product.prodname_copilot %} for Raycast" {% data variables.product.prodname_oauth_app %}, see [AUTOTITLE](/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps).
+
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from the "New repository" page
+
+When creating a new repository, you can ask {% data variables.product.prodname_copilot_short %} to seed the new repository by entering a prompt.
+
+{% data reusables.repositories.create_new %}
+{% data reusables.repositories.owner-drop-down %}
+1. In the **Prompt** field, enter a prompt describing what you want {% data variables.product.prodname_copilot_short %} to build.
+
+    For example, `Create a Rust CLI for converting CSV spreadsheets to Markdown`
+{% data reusables.repositories.create-repo %}
+
+    {% data variables.product.prodname_copilot_short %} will immediately open a draft pull request. {% data variables.product.prodname_copilot_short %} will work on the task and push changes to its pull request, then add you as a reviewer when it has finished, triggering a notification.
 
 ## Monitoring progress
 
