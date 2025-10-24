@@ -12,7 +12,7 @@ redirect_from:
 
 ## Available features
 
-{% data variables.product.prodname_ghe_cloud %} is a developer platform that supports the entire software development lifecycle, including planning work, automating tests and deployments, and keeping code secure. To learn about available features, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/feature-overview-for-github-enterprise-cloud).
+{% data variables.product.prodname_ghe_cloud %} is a developer platform that supports the entire software development lifecycle, including planning work, automating tests and deployments, and keeping code secure. To learn about available features, see [{% data variables.product.company_short %}'s plans page](https://github.com/pricing).
 
 ## Currently unavailable features
 

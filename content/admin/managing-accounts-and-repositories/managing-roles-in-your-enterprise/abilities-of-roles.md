@@ -1,6 +1,6 @@
 ---
 title: Abilities of roles in an enterprise
-intro: Learn which roles you can assign to control access to your enterprise's settings and data.
+intro: Find the right role to grant access to your enterprise's settings and data.
 shortTitle: Predefined roles
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise

@@ -1,6 +1,6 @@
 ---
 title: Assigning roles to people in an enterprise
-intro: Assign roles to users and teams to govern what people can do in your enterprise.
+intro: Govern what people can do in your enterprise by assigning roles to users and teams.
 versions:
   feature: enterprise-custom-roles
 type: how_to

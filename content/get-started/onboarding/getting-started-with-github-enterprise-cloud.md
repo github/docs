@@ -177,7 +177,3 @@ For more information, see [AUTOTITLE](/get-started/start-your-journey/git-and-gi
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support).
-
-## Further reading
-
-* [AUTOTITLE](/enterprise-cloud@latest/admin/overview/feature-overview-for-github-enterprise-cloud)
