@@ -1,4 +1,18 @@
----
+name: Open new issue
+on: workflow_dispatch
+
+jobs:
+  open-issue:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - run: |
+          gh issue --repo ${{ github.repository }} \
+            create --title "Issue title" --body "Issue body"
+        env:
+          GH_TOKEN: ${{ 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 ---
 title: Using GitHub Codespaces in Visual Studio Code
 shortTitle: Visual Studio Code
 intro: 'You can develop in your codespace directly in {% data variables.product.prodname_vscode %} by connecting the {% data variables.product.prodname_github_codespaces %} extension with your {% data variables.product.github %} account.'
