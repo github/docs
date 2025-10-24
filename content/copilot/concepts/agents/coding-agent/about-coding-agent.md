@@ -148,7 +148,7 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 
 ## Hands-on practice
 
-Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.
+Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/?ref_product=copilot&ref_type=engagement&ref_style=text) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.
 
 ## Further reading
 

@@ -23,7 +23,7 @@ To start building with {% data variables.product.prodname_spark_short %}, go to 
 
 By providing {% data variables.product.prodname_copilot_short %} with some context and instruction, {% data variables.product.prodname_copilot_short %} can help you refine your initial prompt to {% data variables.product.prodname_spark_short %} so that it best communicates your requirements.
 
-1. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot).
+1. Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. Send the following prompt to {% data variables.product.prodname_copilot_short %}, editing the wording to align with your own app idea.
 
    ```copilot copy

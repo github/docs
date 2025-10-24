@@ -242,7 +242,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 1. Open the agents panel or page:
 
    * **Open the agents panel**: Click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar at the top right of {% data variables.product.github %}.
-   * **Navigate to the agents page**: Go to [github.com/copilot/agents](https://github.com/copilot/agents). You can also get here by opening the agents panel, then clicking **View all**.
+   * **Navigate to the agents page**: Go to [github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text). You can also get here by opening the agents panel, then clicking **View all**.
 
 {% data reusables.copilot.coding-agent.new-agent-task-form-instructions %}
 
@@ -391,7 +391,7 @@ To see all of the available options, run `gh agent-task create --help`.
 
 ## Monitoring progress
 
-You can view your current and past {% data variables.product.prodname_copilot_short %} sessions from the agents panel, [agents page](https://github.com/copilot/agents) and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
+You can view your current and past {% data variables.product.prodname_copilot_short %} sessions from the agents panel, [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text) and {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/tracking-copilots-sessions).
 
 ## Further reading
 

@@ -30,7 +30,7 @@ For information on currently available MCP servers, see [the MCP servers reposit
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
-* **{% data variables.product.prodname_vscode %} version 1.99 or later**. For information on installing {% data variables.product.prodname_vscode %}, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
+* **{% data variables.product.prodname_vscode %} version 1.99 or later**. For information on installing {% data variables.product.prodname_vscode %}, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download?ref_product=copilot&ref_type=engagement&ref_style=text).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
 ## Configuring MCP servers in {% data variables.product.prodname_vscode %}

@@ -20,7 +20,7 @@ For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](
 
 ## Creating a space
 
-1. To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces), and click **Create space**.
+1. To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text), and click **Create space**.
 1. Give your space a name.
 1. Choose whether the space is owned by you or by an organization you belong to. Organization-owned {% data variables.copilot.copilot_spaces_short %} can be shared using {% data variables.product.github %}’s built-in permission model.
 1. Click **Create Space**.

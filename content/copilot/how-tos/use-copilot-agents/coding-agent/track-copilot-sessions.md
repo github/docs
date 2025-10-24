@@ -21,7 +21,7 @@ contentType: how-tos
 
 After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-The agents panel, [agents page](https://github.com/copilot/agents), the {% data variables.product.prodname_cli %}, and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
+The agents panel, [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text), the {% data variables.product.prodname_cli %}, and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 
 You can also track {% data variables.product.prodname_copilot_short %}'s sessions in a specific repository from {% data variables.product.prodname_vscode %}.
 
