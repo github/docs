@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-spaces/speeding-up-development-work-with-copilot-spaces
   - /copilot/tutorials/speeding-up-development-work-with-copilot-spaces
 contentType: tutorials
+category:
+  - Accelerate PR velocity
 ---
 
 If you're starting a new feature, trying to understand a system, or picking up a task in a codebase you’re still learning, {% data variables.copilot.copilot_spaces %} can help you:

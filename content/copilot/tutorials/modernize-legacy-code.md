@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/modernizing-legacy-code-with-github-copilot
   - /copilot/tutorials/modernizing-legacy-code-with-github-copilot
 contentType: tutorials
+category:
+  - Modernize applications
 ---
 
 > [!NOTE] The responses shown in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.

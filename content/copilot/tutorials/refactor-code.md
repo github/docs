@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/tutorials/refactoring-code-with-github-copilot
 shortTitle: Refactor code
 contentType: tutorials
+category:
+  - Modernize applications
 ---
 
 ## Introduction

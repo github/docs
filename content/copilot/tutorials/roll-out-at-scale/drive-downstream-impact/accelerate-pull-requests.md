@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/accelerate-pull-requests
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/accelerate-pull-requests
 contentType: tutorials
+category:
+  - Accelerate PR velocity
 ---
 
 {% data reusables.copilot.essp-intro %}
