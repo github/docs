@@ -1,4 +1,4 @@
-# Images
+# Images 
 The `/assets/images` directory holds all the site's images. 
 
 
