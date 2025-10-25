@@ -15,9 +15,9 @@ children:
   - /scripting-with-the-rest-api-and-ruby
   - /discovering-resources-for-a-user
   - /delivering-deployments
-  - /rendering-data-as-graphs
-  - /working-with-comments
-  - /building-a-ci-server
+  - /rendering dataasgraphs
+  - /working with comments
+  - /building a ci server
   - /using-the-rest-api-to-interact-with-your-git-database
   - /using-the-rest-api-to-interact-with-checks
   - /encrypting-secrets-for-the-rest-api
