@@ -13,4 +13,4 @@
   > [!NOTE]
   > Currently, path-specific custom instructions files are only used by {% data variables.copilot.copilot_code-review_short %}, {% data variables.copilot.copilot_coding_agent %}, and {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}.
 
-For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).

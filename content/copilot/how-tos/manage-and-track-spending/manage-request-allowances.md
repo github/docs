@@ -30,7 +30,7 @@ You can increase the allowance for users by ensuring the policy is enabled, edit
 
 ## Prerequisites
 
-* Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [Downloading a monthly usage report](/copilot/how-tos/monitoring-your-copilot-usage-and-entitlements#downloading-a-monthly-usage-report).
+* Before making changes, download a usage report to see which developers are frequently hitting the limit or using a significant number of requests over the allowance. You may want to contact these users to understand their use cases and requirements. See [AUTOTITLE](/billing/how-tos/products/view-productlicense-use).
 * If a user receives licenses from multiple enterprises or standalone organizations, the user must select a billing entity to use premium requests. See [Managing premium request billing with multiple {% data variables.product.prodname_copilot_short %} licenses](/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements#managing-premium-request-billing-with-multiple-copilot-licenses).
 
 ## Setting a policy for paid usage
@@ -74,6 +74,7 @@ You can set a higher budget for premium requests over the allowance for specific
 At a high level, the required steps are:
 
 1. Ensure the "Premium request paid usage" policy is enabled. See [Setting a policy for paid usage](#setting-a-policy-for-paid-usage).
-1. Delete the default $0 budget if it applies to your organization or enterprise.
+1. If there is a $0 budget for premium requests set at your enterprise or organization account level, delete it.
+
 1. Create a new budget for the users who need a higher allowance. For example, create an organization or cost center containing just these users, then create a Premium Request SKU budget for the organization or cost center.
 1. Create a separate, more restrictive budget that covers every other {% data variables.product.prodname_copilot_short %} user in your enterprise. You will likely need to integrate with the API to ensure that this budget covers new users as they are added to your enterprise.

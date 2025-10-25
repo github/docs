@@ -180,6 +180,19 @@ jobs:
 
           ls -lh /tmp/records
 
+      - name: Check for scraping failures
+        id: check-failures
+        run: |
+          if [ -f /tmp/records/failures-summary.json ]; then
+            FAILED_PAGES=$(jq -r '.totalFailedPages' /tmp/records/failures-summary.json)
+            echo "failed_pages=$FAILED_PAGES" >> $GITHUB_OUTPUT
+            echo "has_failures=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Warning: $FAILED_PAGES page(s) failed to scrape"
+          else
+            echo "has_failures=false" >> $GITHUB_OUTPUT
+            echo "✅ All pages scraped successfully"
+          fi
+
       - name: Check that Elasticsearch is accessible
         run: |
           curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
@@ -210,6 +223,19 @@ jobs:
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
           FASTLY_SURROGATE_KEY: api-search:${{ matrix.language }}
         run: npm run purge-fastly-edge-cache
+
+      - name: Alert on scraping failures
+        if: ${{ steps.check-failures.outputs.has_failures == 'true' && github.event_name != 'workflow_dispatch' }}
+        uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          message: |
+            :warning: ${{ steps.check-failures.outputs.failed_pages }} page(s) failed to scrape for general search indexing (language: ${{ matrix.language }})
+
+            The indexing completed but some pages could not be scraped. This may affect search results for those pages.
+
+            Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

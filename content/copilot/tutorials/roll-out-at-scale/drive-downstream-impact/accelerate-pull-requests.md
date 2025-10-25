@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/accelerate-pull-requests
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/accelerate-pull-requests
 contentType: tutorials
+category:
+  - Accelerate PR velocity
 ---
 
 {% data reusables.copilot.essp-intro %}
@@ -33,7 +35,7 @@ This leads to bottlenecks in the development process and slows down the overall 
 
 {% data reusables.copilot.evaluate-options-intro %}
 
-<a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=accelerate-pull-requests" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### How {% data variables.product.prodname_copilot_short %} can help
 
@@ -163,5 +165,7 @@ Developers **should not**:
 {% data reusables.copilot.measure-changes-intro %}
 
 * **Developer satisfaction**: Use developer surveys to measure satisfaction with engineering tooling.
-* **Pull requests merged per developer**: You can use GitHub's `pull request` webhook, ensuring `action` is `closed` and the `merged` property inside `pull request` object is `true`.
+* **Pull requests merged per developer**: You can use the `pull request` webhook, ensuring `action` is `closed` and the `merged` property inside `pull request` object is `true`.
 * **Pull requests lead time**: Measure the average length of time between PR creation and merge.
+* **Pull request defect escape rate**: Measure the rate of deployment problems caused by poorly reviewed PRs.
+* **Pull request review comment type**: Download PR review comments, categorize using AI-based topic classification, and track the comments made by human reviewers on design, scalability, and strategy.

@@ -11,7 +11,6 @@ children:
   - /individual-plans
   - /billing-for-individuals
   - /organizations-and-enterprises
-  - /billing-for-spark
 redirect_from:
   - /managing-copilot/managing-copilot-as-an-individual-subscriber/billing-and-payments
   - /copilot/managing-copilot/understanding-and-managing-copilot-usage

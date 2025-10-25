@@ -63,17 +63,11 @@ If you cannot connect to the server, you can create a discussion in our [discuss
 
 This is a known issue and our team is working towards a fix. For more information, see this comment on a [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/40522#discussioncomment-4701470).
 
-## Error: "No valid OAuth token detected" in {% data variables.copilot.copilot_cli %}
-
-This error suggests that a classic or fine-grained {% data variables.product.pat_generic %} might be in use, either via the `GITHUB_TOKEN` or `GH_TOKEN` environment variables, or during a `gh auth login` attempt. {% data variables.copilot.copilot_cli %} currently only supports using the {% data variables.product.prodname_cli %} OAuth app.
-
-For more information, see the [{% data variables.copilot.copilot_cli_short %} extension repository](https://github.com/github/gh-copilot).
-
 ## Error: "Sorry, your request was rate-limited."
 
 This error suggests that you have exceeded the rate limit for {% data variables.product.prodname_copilot_short %} requests. {% data variables.product.github %} uses rate limits to ensure everyone has fair access to the {% data variables.product.prodname_copilot_short %}  service and to protect against abuse.
 
-Most people see rate limiting for preview models, like OpenAI’s {% data variables.copilot.copilot_o3 %} and {% data variables.copilot.copilot_o4_mini %}, which are rate-limited due to limited capacity.
+Most people see rate limiting for preview models, due to limited capacity.
 
 Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
 
@@ -109,7 +103,7 @@ If you are signed in to {% data variables.product.github %} but {% data variable
 If you experience authentication issues when you try to use {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}, you can try the following steps to resolve the issue.
 
 1. Check that the {% data variables.product.prodname_dotcom %} ID you are signed into {% data variables.product.prodname_vs %} with is the same as the one you have been granted access to {% data variables.copilot.copilot_chat_short %} with.
-1. Check whether your {% data variables.product.prodname_dotcom %} ID/credentials need refreshing in {% data variables.product.prodname_vs %}. For more information, see [Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022) in the {% data variables.product.prodname_vs %} documentation.
+1. Check whether your {% data variables.product.prodname_dotcom %} ID/credentials need refreshing in {% data variables.product.prodname_vs %}. For more information, see [Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022&ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vs %} documentation.
 1. Try removing and re-adding your {% data variables.product.prodname_dotcom %} ID to {% data variables.product.prodname_vs %} and restarting {% data variables.product.prodname_vs %}.
 1. If the above steps don't work, click the **Share feedback** button and select **Report a problem** to report the issue to the {% data variables.product.prodname_vs %} team.
 
@@ -119,7 +113,7 @@ If you experience authentication issues when you try to use {% data variables.co
 
 If a chat response terminates unexpectedly, before the response is complete, try resubmitting the question.
 
-In {% data variables.copilot.copilot_chat_short %}'s immersive view (the [github.com/copilot](https://github.com/copilot) page), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
+In {% data variables.copilot.copilot_chat_short %}'s immersive view (the [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
 
 ## Further reading
 

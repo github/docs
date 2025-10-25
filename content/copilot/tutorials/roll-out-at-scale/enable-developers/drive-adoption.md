@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enabling-developers/drive-adoption
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enable-developers/drive-adoption
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
 ---
 
 An effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. This process should be tailored to your organization's needs and goals, and should be designed to help your teams understand how to use {% data variables.product.prodname_copilot_short %} effectively.

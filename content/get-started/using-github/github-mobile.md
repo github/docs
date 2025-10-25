@@ -34,11 +34,12 @@ With {% data variables.product.prodname_mobile %} you can:
 
 The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
-* For more information about notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile).{% ifversion mobile-code-search %}
-* For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}{% ifversion fpt or ghec %}
-* For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}{% ifversion copilot-chat-for-mobile %}
-* For more information about using {% data variables.copilot.copilot_mobile %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).{% endif %}{% ifversion copilot-chat-for-mobile %}
-* For more information about using {% data variables.copilot.copilot_extensions %} in {% data variables.product.prodname_mobile %}, see [Extending {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_mobile %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile#extending-copilot-chat-in-github-mobile).{% endif %}
+* Notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile).{% ifversion mobile-code-search %}
+* Using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}{% ifversion fpt or ghec %}
+* Two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}{% ifversion copilot-chat-for-mobile %}
+* Using {% data variables.copilot.copilot_mobile %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).{% endif %}{% ifversion copilot-chat-for-mobile %}
+* Assigning issues to {% data variables.product.prodname_copilot_short %} from {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue).{% endif %}{% ifversion copilot-chat-for-mobile %}
+* Using {% data variables.copilot.copilot_extensions %} in {% data variables.product.prodname_mobile %}, see [Extending {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_mobile %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile#extending-copilot-chat-in-github-mobile).{% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
 
@@ -57,12 +58,7 @@ You can be simultaneously signed into mobile with multiple accounts on {% data v
 > [!NOTE]
 > Social login is only available for {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_ghe_cloud %} users
 
-You can sign in to {% data variables.product.prodname_mobile %} using a supported social login provider. Currently, only Google is supported for social login on the {% data variables.product.prodname_mobile %} for Android. To use this option, make sure you originally created your {% data variables.product.github %} account using Google.
-
-For iOS users, social login with Google is not supported in {% data variables.product.prodname_mobile %}. Follow the steps below to sign in to {% data variables.product.prodname_mobile %} on iOS using an account that was created with Google:
-1. Open the native web browser Safari and sign in to your {% data variables.product.github %} account.
-1. Authorize {% data variables.product.prodname_mobile %} in your browser when prompted.
-1. If you are unable to sign in through your browser, you can set a password or passkey for your {% data variables.product.github %} account on {% data variables.product.github %}. After setting a password or passkey, use your username and password with two-factor authentication, or a passkey, to sign in to {% data variables.product.prodname_mobile %}.
+You can sign in to {% data variables.product.prodname_mobile %} using a supported social login provider. Currently, both Google and Apple are supported for social login on the {% data variables.product.prodname_mobile %} for Android and iOS users. To use this option, make sure you originally created your {% data variables.product.github %} account using the respective social login provider - Google or Apple.
 
 ### Prerequisites for {% data variables.enterprise.data_residency_site %} accounts
 

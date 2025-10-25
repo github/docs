@@ -27,7 +27,7 @@ This article contains reference information for how spending is assigned to cost
 | {% data variables.product.prodname_copilot %} | The user who receives the license (priority), or the organization that is billed for the {% data variables.product.prodname_copilot_short %} license. |
 | Git Large File Storage | The repository or organization where Git LFS is used. |
 | {% data variables.product.prodname_GH_cs_and_sp %} | The user who receives the license. |
-| {% data variables.product.prodname_enterprise %} | The user who receives the license. |
+| {% data variables.product.prodname_enterprise %} | The user who receives the license (priority), or the organization that is billed for the license. |
 | {% data variables.product.prodname_registry %} | The repository or organization that owns the package. |
 
 ## Details for license-based products

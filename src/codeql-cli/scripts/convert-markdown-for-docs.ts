@@ -7,7 +7,7 @@ import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options'
 
 interface Config {

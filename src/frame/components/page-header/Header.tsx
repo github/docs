@@ -149,18 +149,17 @@ export const Header = () => {
       {error !== '404' && <HeaderNotifications />}
       <header
         className={cx(
-          'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
+          'color-bg-default p-2 position-sticky top-0 z-2 border-bottom',
           scroll && 'color-shadow-small',
         )}
         role="banner"
         aria-label="Main"
       >
         <div
-          className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
-          style={{
-            // In the rare case of header overflow, create a pleasant gap between the rows
-            rowGap: '1rem',
-          }}
+          className={cx(
+            'd-flex flex-justify-between p-2 flex-items-center flex-wrap',
+            styles.headerContainer,
+          )}
           data-testid="desktop-header"
         >
           <div

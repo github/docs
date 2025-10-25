@@ -43,12 +43,16 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 | [{% data variables.copilot.copilot_extensions_short %}](/copilot/concepts/copilot-extensions/about-copilot-extensions) | {% data variables.copilot.copilot_extensions_short %} uses **one premium request** per user prompt, multiplied by the model's rate. |
 | [{% data variables.copilot.copilot_spaces %}](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. |
 | [{% data variables.product.prodname_spark_short %}](/copilot/tutorials/building-ai-app-prototypes) | Each prompt to {% data variables.product.prodname_spark_short %} uses a fixed rate of **four premium requests**. |
+| [{% data variables.copilot.copilot_cli_short %}](/copilot/concepts/agents/about-copilot-cli) | Each prompt to {% data variables.copilot.copilot_cli_short %} uses **one premium request** with the default model. For other models, this is multiplied by the model's rate. |
+
+> [!TIP]
+> For instructions on viewing how many premium requests you have used and advice on how to optimize usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).
 
 ## How do request allowances work per plan?
 
 If you use **{% data variables.copilot.copilot_free_short %}**, your plan comes with up to 2,000 code completion requests and up to 50 premium requests per month. All chat interactions count as premium requests.
 
-If you're on a **paid plan**, you get unlimited code completions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
+If you're on a **paid plan**, you get unlimited code completions and unlimited chat interactions using the included models ({% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %}). Rate limiting is in place to accommodate for high demand. See [AUTOTITLE](/copilot/concepts/rate-limits).
 
 Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
@@ -73,7 +77,7 @@ If you need more premium requests beyond your monthly allowance:
 * For an individual subscription, set a budget for additional premium requests or upgrade to a higher plan. See [AUTOTITLE](/billing/managing-your-billing/using-budgets-control-spending).
 * If you're an enterprise or organization owner, ensure that the "Premium request paid usage" policy is enabled and that extra spending is not prevented by a budget. See [AUTOTITLE](/copilot/how-tos/premium-requests/manage-for-enterprise).
 
-{% data reusables.copilot.zero-budget-changes %}
+{% data reusables.copilot.zero-budget-changes-link %}
 
 ## Model multipliers
 
@@ -87,9 +91,9 @@ The available models vary depending on your {% data variables.product.prodname_c
 
 Each model has a premium request multiplier, based on its complexity and resource usage. If you are on a paid {% data variables.product.prodname_copilot_short %} plan, your premium request allowance is deducted according to this multiplier.
 
-{% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %} are the included models, and do not consume any premium requests if you are on a **paid plan**.
+{% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_41 %} and {% data variables.copilot.copilot_gpt_4o %} are the included models, and do not consume any premium requests if you are on a **paid plan**.
 
-If you use **{% data variables.copilot.copilot_free_short %}**, you have access to a limited number of models, and each model will consume one premium request when used. For example, if you make a request using the {% data variables.copilot.copilot_gemini_flash %} model, your interaction will consume **one premium request**, not 0.25 premium requests.
+If you use **{% data variables.copilot.copilot_free_short %}**, you have access to a limited number of models, and each model will consume one premium request when used.
 
 {% data reusables.copilot.model-multipliers %}
 
@@ -97,6 +101,6 @@ If you use **{% data variables.copilot.copilot_free_short %}**, you have access 
 
 Premium request usage is based on the model’s multiplier and the feature you’re using. For example:
 
-* **Using {% data variables.copilot.copilot_claude_opus %} in {% data variables.copilot.copilot_chat_short %}**: With a 10× multiplier, one interaction counts as 10 premium requests.
-* **Using {% data variables.copilot.copilot_gpt_41 %} on {% data variables.copilot.copilot_free_short %}**: Each interaction counts as 1 premium request.
-* **Using {% data variables.copilot.copilot_gpt_41 %} on a paid plan**: No premium requests are consumed.
+* **Using {% data variables.copilot.copilot_claude_opus_41 %} in {% data variables.copilot.copilot_chat_short %}**: With a 10× multiplier, one interaction counts as 10 premium requests.
+* **Using {% data variables.copilot.copilot_gpt_5_mini %} on {% data variables.copilot.copilot_free_short %}**: Each interaction counts as 1 premium request.
+* **Using {% data variables.copilot.copilot_gpt_5_mini %} on a paid plan**: No premium requests are consumed.

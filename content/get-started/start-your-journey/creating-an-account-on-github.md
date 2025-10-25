@@ -22,7 +22,8 @@ topics:
 
 To get started with {% data variables.product.prodname_dotcom %}, you'll need to create a free personal account and verify your email address.
 
-You can also authenticate with the supported social login providers (currently only Google is supported) when you create your account on {% data variables.product.prodname_dotcom %}.
+You can also authenticate with Google or Apple - which are the supported social login providers when you create your account on {% data variables.product.prodname_dotcom %}.
+For iOS users, even if you have enabled the setting "Hide My Email addresses" for your Apple account, using social login will result in creating a new {% data variables.product.github %} account.
 
 {% data reusables.accounts.your-personal-account %}
 

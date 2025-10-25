@@ -8,10 +8,10 @@ topics:
   - Copilot
 children:
   - /create-a-pr
-  - /assign-copilot-to-an-issue
   - /track-copilot-sessions
   - /review-copilot-prs
   - /extend-coding-agent-with-mcp
+  - /integrate-coding-agent-with-teams
   - /customize-the-agent-environment
   - /customize-the-agent-firewall
   - /troubleshoot-coding-agent

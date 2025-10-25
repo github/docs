@@ -35,7 +35,7 @@ Some examples of instructions you could add are:
 
 > [!NOTE]
 > * {% data reusables.copilot.custom-instructions-chat-precedence %}
-> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
+> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/**/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
 > * {% data reusables.copilot.custom-instructions-conflict %}
 
 ## Adding organization custom instructions
@@ -51,7 +51,7 @@ You can add organization custom instructions via your organization settings.
    You can write your instructions in any format you prefer. For example, you can write them as a single block of text, each on a new line, or separated by blank lines.
 1. Click **Save changes**. Your instructions are now active, and will stay active until you change or remove them.
 
-To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot) and start a conversation.
+To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text) and start a conversation.
 
 {% note %}
 

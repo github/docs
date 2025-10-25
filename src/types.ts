@@ -3,6 +3,16 @@ import type { Failbot } from '@github/failbot'
 
 import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
+import type { Language, Languages } from '@/languages/lib/languages-server'
+import type { MiniTocItem } from '@/frame/lib/get-mini-toc-items'
+
+// Shared type for resolved article information used across landing pages and carousels
+export interface ResolvedArticle {
+  title: string
+  intro: string
+  href: string
+  category: string[]
+}
 
 // Throughout our codebase we "extend" the Request object by attaching
 // things to it. For example `req.context = { currentCategory: 'foo' }`.
@@ -17,7 +27,7 @@ export type ExtendedRequest = Request & {
 }
 
 // TODO: Make this type from inference using AJV based on the schema.
-// For now, it's based on `schema` in frame/lib/frontmatter.js
+// For now, it's based on `schema` in frame/lib/frontmatter.ts
 export type PageFrontmatter = {
   title: string
   versions: FrontmatterVersions
@@ -172,7 +182,7 @@ export type Context = {
   featuredLinks?: FeaturedLinksExpanded
   currentLearningTrack?: LearningTrack | null
   renderedPage?: string
-  miniTocItems?: string | undefined
+  miniTocItems?: MiniTocItem[]
   markdownRequested?: boolean
 }
 export type LearningTracks = {
@@ -216,7 +226,7 @@ export type FeaturedLinkExpanded = {
   intro?: string
 }
 
-type FeaturedLinksExpanded = {
+export type FeaturedLinksExpanded = {
   [key: string]: FeaturedLinkExpanded[]
 }
 
@@ -316,16 +326,8 @@ export type SecretScanningData = {
   isduplicate: boolean
 }
 
-type Language = {
-  name: string
-  code: string
-  hreflang: string
-  dir: string
-}
-
-export type Languages = {
-  [key: string]: Language
-}
+// Language and Languages types are imported at the top from languages-server
+export type { Language, Languages }
 
 export type Permalink = {
   languageCode: string
@@ -358,6 +360,7 @@ export type Page = {
   languageCode: string
   documentType: string
   renderProp: (prop: string, context: any, opts?: any) => Promise<string>
+  renderTitle: (context: Context, opts?: any) => Promise<string>
   markdown: string
   versions: FrontmatterVersions
   applicableVersions: string[]

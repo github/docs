@@ -35,6 +35,7 @@ import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
 import categoriesForSupport from './categories-for-support'
 import triggerError from '@/observability/middleware/trigger-error'
+import dataTables from '@/data-directory/middleware/data-tables'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
 import whatsNewChangelog from './context/whats-new-changelog'
@@ -43,12 +44,14 @@ import currentProductTree from './context/current-product-tree'
 import genericToc from './context/generic-toc'
 import breadcrumbs from './context/breadcrumbs'
 import glossaries from './context/glossaries'
+import resolveRecommended from './resolve-recommended'
 import renderProductName from './context/render-product-name'
 import features from '@/versions/middleware/features'
 import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
 import learningTrack from '@/learning-track/middleware/learning-track'
+import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
 import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
@@ -254,6 +257,7 @@ export default function (app: Express) {
   app.head('/*path', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(dataTables))
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
   app.use(asyncMiddleware(whatsNewChangelog))
@@ -267,7 +271,9 @@ export default function (app: Express) {
   app.use(asyncMiddleware(glossaries))
   app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
+  app.use(asyncMiddleware(resolveRecommended))
   app.use(asyncMiddleware(learningTrack))
+  app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

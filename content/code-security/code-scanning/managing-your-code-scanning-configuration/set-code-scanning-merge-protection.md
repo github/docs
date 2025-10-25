@@ -19,6 +19,7 @@ topics:
 > [!NOTE]
 > * Merge protection with rulesets is not related to status checks. For more information about status checks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 > * Merge protection with rulesets will not apply to merge queue groups or {% data variables.product.prodname_dependabot %} pull requests analyzed by default setup.
+> * All the lines of code identified by an alert must exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files).
 
 You can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
 

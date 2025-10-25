@@ -15,8 +15,6 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
->
 > Firewall configuration has moved to the {% data variables.copilot.copilot_coding_agent %} settings page. Previous configurations saved as Actions variables will be maintained on that page.
 
 ## Overview
@@ -30,6 +28,16 @@ The firewall always allows access to a number of hosts that {% data variables.pr
 If {% data variables.product.prodname_copilot_short %} tries to make a request which is blocked by the firewall, a warning is added to the pull request body (if {% data variables.product.prodname_copilot_short %} is creating a pull request for the first time) or to a comment (if {% data variables.product.prodname_copilot_short %} is responding to a pull request comment). The warning shows the blocked address and the command that tried to make the request.
 
 ![Screenshot of a warning from {% data variables.product.prodname_copilot_short %} about being blocked by the firewall.](/assets/images/help/copilot/coding-agent/firewall-warning.png)
+
+## Limitations
+
+The agent firewall has important limitations that affect its security coverage.
+
+* **Only applies to processes started by the agent**: The firewall only applies to processes started by the agent via its Bash tool. It does not apply to Model Context Protocol (MCP) servers or processes started in configured {% data variables.product.prodname_copilot_short %} setup steps.
+* **Only applies within the {% data variables.product.prodname_actions %} appliance**: The firewall only operates within the {% data variables.product.prodname_actions %} appliance environment. It does not apply to processes running outside of this environment.
+* **Bypass potential**: Sophisticated attacks may bypass the firewall, potentially allowing unauthorized network access and data exfiltration.
+
+These limitations mean that the firewall provides a layer of protection for common scenarios, but should not be considered a comprehensive security solution.
 
 ## Managing the recommended firewall allowlist
 

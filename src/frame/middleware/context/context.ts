@@ -2,7 +2,7 @@ import type { NextFunction, Response } from 'express'
 
 import type { ExtendedRequest, Context } from '@/types'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { allVersions } from '@/versions/lib/all-versions'
 import { productMap } from '@/products/lib/all-products'
@@ -25,7 +25,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
 )
 
 // Supply all route handlers with a baseline `req.context` object
-// Note that additional middleware in middleware/index.js adds to this context object
+// Note that additional middleware in middleware/index.ts adds to this context object
 export default async function contextualize(
   req: ExtendedRequest,
   res: Response,
@@ -70,10 +70,10 @@ export default async function contextualize(
   req.context.redirects = redirects
   req.context.site = {
     data: {
-      ui: getUIDataMerged(req.language),
+      ui: getUIDataMerged(req.language!),
     },
   }
-  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language)
+  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language!)
   req.context.siteTree = siteTree
   req.context.pages = pageMap
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion

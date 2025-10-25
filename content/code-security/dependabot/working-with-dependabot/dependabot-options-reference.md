@@ -167,6 +167,8 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 * Supports only the value `scope`
 * When defined any prefix is followed by the type of dependencies updated in the commit: `deps` or `deps-dev`.
 
+{% ifversion dependabot-option-cooldown %}
+
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
@@ -233,6 +235,8 @@ The table below shows the package managers for which SemVer is supported.
 >
 > * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
 > * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
+
+{% endif %}
 
 ## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -574,8 +578,10 @@ Supported values: `REGISTRY_NAME` or `"*"`
 
 ## `reviewers` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
-> [!NOTE]
-> The `reviewers` property is closing down and will be removed in a future release of GitHub Enterprise Server.
+> [!IMPORTANT]
+> The `reviewers` property is closing down and will be removed in a future release of {% data variables.product.prodname_ghe_server %}.
+>
+> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
 Specify individual reviewers, or teams of reviewers, for all pull requests raised for a package manager.  For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs).
 
@@ -589,9 +595,6 @@ When `reviewers` is defined:
 * {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
-
-> [!NOTE]
-> You can also automatically add reviewers and assignees using a CODEOWNERS file. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
 {% endif %}
 
@@ -607,6 +610,8 @@ Reviewers must have at least read access to the repository.
 | `cronjob` | Defines the cron expression if the interval type is `cron`. |
 | `timezone` | Specify the timezone of the `time` value.  |
 
+{% ifversion fpt or ghec %}
+
 ### `interval`
 
 Supported values: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`
@@ -620,6 +625,21 @@ Each package manager **must** define a schedule interval.
 * Use `semiannually` to run every six months, on the first day of January and July.
 * Use `yearly` to run on the first day of January.
 * Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
+
+{% elsif ghes %}
+
+### `interval`
+
+Supported values: `daily`, `weekly`, `monthly`, or `cron`
+
+Each package manager **must** define a schedule interval.
+
+* Use `daily` to run on every weekday, Monday to Friday.
+* Use `weekly` to run once a week, by default on Monday.
+* Use `monthly` to run on the first day of each month.
+* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
+
+{% endif %}
 
 By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
@@ -783,7 +803,7 @@ When `versioning-strategy` is defined, {% data variables.product.prodname_depend
 |--------|--------|
 | `auto` | Default behavior.|
 | `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
-| `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
+| `increase-if-necessary` | Leave the version requirement unchanged if it already allows the new release (Dependabot still updates the resolved version). Otherwise widen the requirement. |
 | `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
 | `widen`| Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement. |
 

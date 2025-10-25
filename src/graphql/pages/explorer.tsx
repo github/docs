@@ -9,6 +9,8 @@ import {
 } from '@/automated-pipelines/components/AutomatedPageContext'
 import { useEffect, useRef } from 'react'
 
+import styles from './explorer.module.scss'
+
 type Props = {
   mainContext: MainContextT
   graphqlExplorerUrl: string
@@ -34,8 +36,7 @@ export default function GQLExplorer({
           <div>
             <iframe
               ref={graphiqlRef}
-              style={{ height: 715 }}
-              className="border width-full"
+              className={`border width-full ${styles.explorerIframe}`}
               scrolling="no"
               src={graphqlExplorerUrl}
               title="GitHub GraphQL API"

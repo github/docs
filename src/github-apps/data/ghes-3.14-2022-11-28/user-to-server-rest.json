@@ -2883,6 +2883,18 @@
       "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}"
     },
     {
+      "slug": "list-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/values"
+    },
+    {
       "slug": "list-public-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -4167,7 +4179,7 @@
       "requestPath": "/orgs/{org}/external-group/{group_id}"
     },
     {
-      "slug": "list-external-groups-in-an-organization",
+      "slug": "list-external-groups-available-to-an-organization",
       "subcategory": "external-groups",
       "verb": "get",
       "requestPath": "/orgs/{org}/external-groups"

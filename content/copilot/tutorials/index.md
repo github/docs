@@ -10,17 +10,17 @@ children:
   - /copilot-chat-cookbook
   - /customization-library
   - /coding-agent
+  - /spark
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
-  - /easy-apps-with-spark
-  - /build-apps-with-spark
   - /roll-out-at-scale
   - /explore-a-codebase
   - /explore-issues-and-discussions
   - /explore-pull-requests
   - /write-tests
   - /refactor-code
+  - /review-ai-generated-code
   - /learn-a-new-language
   - /modernize-legacy-code
   - /migrate-a-project
@@ -30,5 +30,13 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
+heroImage: /assets/images/banner-images/hero-3.png
+layout: bespoke-landing
+sidebarLink:
+  text: All tutorials
+  href: /copilot/tutorials
+recommended:
+  - /copilot/tutorials/copilot-chat-cookbook
+  - /copilot/tutorials/customization-library
+  - /copilot/tutorials/roll-out-at-scale
 ---
-

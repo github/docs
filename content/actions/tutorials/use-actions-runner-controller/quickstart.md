@@ -24,9 +24,6 @@ In order to use ARC, ensure you have the following.
   * For a managed cloud environment, you can use AKS. For more information, see [Azure Kubernetes Service](https://azure.microsoft.com/en-us/products/kubernetes-service) in the Azure documentation.
   * For a local setup, you can use minikube or kind. For more information, see [minikube start](https://minikube.sigs.k8s.io/docs/start/) in the minikube documentation and [kind](https://kind.sigs.k8s.io/) in the kind documentation.
 
-    > [!NOTE]
-    > OpenShift clusters are currently unsupported.
-
 * Helm 3
   * For more information, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
 * While it is not required for ARC to be deployed, we recommend ensuring you have implemented a way to collect and retain logs from the controller, listeners, and ephemeral runners before deploying ARC in production workflows.

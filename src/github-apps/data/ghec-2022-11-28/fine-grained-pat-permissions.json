@@ -311,6 +311,15 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/premium_request/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
         "slug": "get-billing-usage-report-for-an-organization",
         "subcategory": "enhanced-billing",
         "verb": "get",
@@ -1102,6 +1111,60 @@
         "access": "read"
       },
       {
+        "category": "orgs",
+        "slug": "get-immutable-releases-settings-for-an-organization",
+        "subcategory": "orgs",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/immutable-releases",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "set-immutable-releases-settings-for-an-organization",
+        "subcategory": "orgs",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/settings/immutable-releases",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-selected-repositories-for-immutable-releases-enforcement",
+        "subcategory": "orgs",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/immutable-releases/repositories",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "set-selected-repositories-for-immutable-releases-enforcement",
+        "subcategory": "orgs",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/settings/immutable-releases/repositories",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "enable-a-selected-repository-for-immutable-releases-in-an-organization",
+        "subcategory": "orgs",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "disable-a-selected-repository-for-immutable-releases-in-an-organization",
+        "subcategory": "orgs",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
         "category": "copilot",
         "slug": "get-copilot-metrics-for-a-team",
         "subcategory": "copilot-metrics",
@@ -1322,6 +1385,24 @@
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": false,
         "access": "admin"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/values",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/values",
+        "additional-permissions": false,
+        "access": "write"
       }
     ]
   },
@@ -1598,7 +1679,7 @@
       },
       {
         "category": "teams",
-        "slug": "list-external-groups-in-an-organization",
+        "slug": "list-external-groups-available-to-an-organization",
         "subcategory": "external-groups",
         "verb": "get",
         "requestPath": "/orgs/{org}/external-groups",
@@ -5026,6 +5107,33 @@
         "access": "write"
       },
       {
+        "category": "repos",
+        "slug": "check-if-immutable-releases-are-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/immutable-releases",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "enable-immutable-releases",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/immutable-releases",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "disable-immutable-releases",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/immutable-releases",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
         "category": "interactions",
         "slug": "get-interaction-restrictions-for-a-repository",
         "subcategory": "repos",
@@ -5058,7 +5166,7 @@
         "subcategory": "invitations",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/invitations",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -9542,6 +9650,15 @@
       },
       {
         "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/premium_request/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
         "slug": "get-shared-storage-billing-for-a-user",
         "subcategory": "billing",
         "verb": "get",
@@ -9556,6 +9673,21 @@
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/usage",
         "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
+  "private_repository_invitations": {
+    "title": "Private repository invitations",
+    "displayTitle": "User permissions for \"Private repository invitations\"",
+    "permissions": [
+      {
+        "category": "collaborators",
+        "slug": "list-repository-invitations",
+        "subcategory": "invitations",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/invitations",
+        "additional-permissions": true,
         "access": "read"
       }
     ]

@@ -32,6 +32,7 @@ describe('POST /events', () => {
       path: '/github/docs/issues',
       hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
+      title: 'Issues · github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       path_language: 'en',
@@ -44,10 +45,16 @@ describe('POST /events', () => {
       is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
+      screen_width: 1920,
+      screen_height: 1080,
+      pixel_ratio: 2,
 
       // Location information
       timezone: -7,
       user_language: 'en-US',
+      ip: '192.0.2.1',
+      user_agent:
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
   }
 
@@ -64,6 +71,7 @@ describe('POST /events', () => {
       path: '/github/docs/issues',
       hostname: 'github.com',
       referrer: 'https://github.com/github/docs',
+      title: 'Issues · github/docs',
       search: '?q=is%3Aissue+is%3Aopen+example+',
       href: 'https://github.com/github/docs/issues?q=is%3Aissue+is%3Aopen+example+',
       path_language: 'en',
@@ -76,10 +84,16 @@ describe('POST /events', () => {
       is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
+      screen_width: 1920,
+      screen_height: 1080,
+      pixel_ratio: 2,
 
       // Location information
       timezone: -7,
       user_language: 'en-US',
+      ip: '192.0.2.1',
+      user_agent:
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
   }
 

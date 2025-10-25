@@ -76,7 +76,7 @@ The options available to you vary according to your role and {% data variables.p
 
 ## Exploring usage data in more detail
 
-You can also explore usage data in more detail in the **{% octicon "graph" aria-label="chart" aria-hidden="true" %} Usage** view.
+You can also explore usage data for all metered products in more detail in the **Usage** or **Metered usage** view.
 
 * **Filter data on the page**: click in the text box to see a list of available filters.
 * **Group data**: options in the "Group" option vary based on the filters you define.
@@ -91,22 +91,42 @@ The metered usage chart and usage break down table both show your current choice
 > For GitHub Actions, you can also view the billable job execution minutes for an individual workflow run. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-job-execution-time).
 {% endif %}
 
+## Analyzing use of premium requests
+
+{% data reusables.billing.premium-request-analytics-start %}
+
+If you use premium requests, an additional **Premium request analytics** view is listed under **Usage**. You can use this view to dig deeper into how you are using included requests and where you are being billed for additional requests. For example:
+
+* What's our total usage of premiums requests across all products?
+* Are users making good use of the premium requests included in their license for {% data variables.product.prodname_copilot_short %}?
+* Which users have consumed more than their monthly quota?
+* How widespread is adoption in the organizations where we rolled out {% data variables.product.prodname_copilot_short %}?
+
+As you change the filter, "Timeframe", and "Group by", and options, all areas of the page are updated to reflect your choices. The chart shows the top 5 consumers and combines any other consumers into "All other".
+
+![Screenshot of the premium request analytics chart, "Usage grouped by organization", and table. A "Show Usage Breakdown" arrow is outlined.](/assets/images/help/billing/premium-request-analytics-chart.png)
+
+To show more detailed information for the top 100 users or organizations consuming premium requests, use the {% octicon "chevron-right" aria-label="Show Usage Breakdown" aria-hidden="true" %} shown at the start of each row to expand and collapse data.
+
+![Screenshot of the premium request analytics table, "Usage breakdown" with the first row expanded to show a full breakdown of requests.](/assets/images/help/billing/premium-request-analytics-org-table.png)
+
 ## Downloading usage reports
 
-You can download two different types of usage report from the "Usage" page.
+Visit the "Metered Usage" page to access a metered billing report for all products, or navigate to the "Premium request analytics" page for a specialized report tailored for Premium request activity tracking.
 
-### General usage reports
+1. At the top of the page, click **Get usage report**.
+1. Specify the report details.
+1. Click **Email me the report**.
 
-1. At the top of the "Usage" page, click **Get usage report**.
-1. Choose the report that you want to download.
+When the report is ready for you to download, you'll receive a message to your primary email account with a link to download the report. The link will expire after 24 hours.
 
-For details of the fields included in the report, see [AUTOTITLE](/billing/reference/usage-reports).
+For details of the fields included in the reports, see [AUTOTITLE](/billing/reference/billing-reports).
 
-### Downloading the data plotted in the usage chart
+### Downloading the data plotted in the chart
 
-When the chart on the "Usage" page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} "Chart options" button and select your preferred format.
+When the chart on the "Usage" or "Premium request analytics" page shows the data you want to download, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} "Chart options" button and select your preferred format.
 
-![Screenshot of the metered usage chart on the "Usage" page with the "Chart options" outlined in dark orange.](/assets/images/help/billing/overview-chart-download-button.png)
+![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
 
 ## Next steps
 

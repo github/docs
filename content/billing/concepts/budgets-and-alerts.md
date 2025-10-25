@@ -15,7 +15,7 @@ Budgets and alerts allow you to track spending on metered products for your ente
 
 By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
 
-Many accounts already have default budgets for certain products. {% data reusables.billing.migrated-budgets %}
+{% data reusables.billing.migrated-budgets %}
 
 ## Stopping usage
 
@@ -29,6 +29,10 @@ Each budget has a type and a scope that define which paid use contributes to spe
 
 * **Type**: Defines which metered product or SKU is measured.
 * **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, or cost centers (enterprise only).
+
+## Budget alerts
+
+You can enable alerts for budgets to receive emails when usage reaches 75%, 90%, and 100% of the budget amount. Emails are sent to account owners and billing managers by default. Additional recipients can be added as needed.
 
 ## Your first billing cycle after creating a budget
 

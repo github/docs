@@ -1,8 +1,8 @@
 ---
 title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
-intro: 'You can use the Agents panel or page, {% data variables.product.prodname_vscode %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+intro: 'You can use the agents panel or page, {% data variables.product.prodname_vscode %}, the {% data variables.product.prodname_cli %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -17,26 +17,23 @@ redirect_from:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## Introduction
 
 After you give {% data variables.product.prodname_copilot_short %} a task, it works autonomously in the background to complete it. See [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
-The Agents panel, [Agents page](https://github.com/copilot/agents), and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
+The agents panel, [agents page](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text), the {% data variables.product.prodname_cli %}, and {% data variables.product.prodname_copilot %} extension for Raycast provide an overview of your agent sessions across repositories. You can use them to kick off new tasks and track {% data variables.product.prodname_copilot_short %}'s progress.
 
 You can also track {% data variables.product.prodname_copilot_short %}'s sessions in a specific repository from {% data variables.product.prodname_vscode %}.
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 
-## Tracking agent sessions from the Agents panel or page
+## Tracking agent sessions from the agents panel or page
 
-You can see a list of your running and past agent sessions in the Agents panel, available from every page on {% data variables.product.github %}, or on the dedicated Agents page.
+You can see a list of your running and past agent sessions in the agents panel, available from every page on {% data variables.product.github %}, or on the dedicated agents page.
 
-To open the Agents panel, click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar on any page.
+To open the agents panel, click {% octicon "agent" aria-label="The Agents icon" %} in the navigation bar on any page.
 
-To open the Agents page, open the Agents panel, then click **View all**.
+To open the agents page, open the agents panel, then click **View all**.
 
 For each session listed below, you can see its status at a glance, or click on it to navigate to the linked pull request.
 
@@ -45,6 +42,19 @@ To view the session logs, click through to the pull request in the list, then fi
 ![Screenshot of a section of a pull request with the 'View session' button highlighted.](/assets/images/help/copilot/coding-agent/log-view-session.png)
 
 You can also start new agent sessions from the page and panel. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request).
+
+## Tracking agent sessions from the {% data variables.product.prodname_cli %}
+
+> [!NOTE]
+> The `agent-task` command set is only available in v2.80.0 or later of the {% data variables.product.prodname_cli %}. This command set is a {% data variables.release-phases.public_preview %} and is subject to change.
+
+You can see a list of your running and past agent sessions from the {% data variables.product.prodname_cli %} with the `gh agent-task list` command. The output will show a list of your recent sessions.
+
+To see more information on a specific session, use the `gh agent-task view` command. For example, to view information about the session associated with pull request #123 in the `monalisa/bookstore` repository, run `gh agent-task view --repo monalisa/bookstore 123`.
+
+To view the session logs, add the `--log` option. Optionally, use the `--follow` option to stream live logs as the agent works.
+
+To see all of the available options, run `gh agent-task list --help` or `gh agent-task view --help`.
 
 ## Tracking agent sessions from Raycast
 
@@ -71,6 +81,20 @@ For each session listed, you can see its status at a glance, or click on it to n
 To view the session logs, click on the pull request in the list, then click **View Session**.
 
 You can also start new agent sessions from {% data variables.product.prodname_vscode %}. See [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/asking-copilot-to-create-a-pull-request#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code).
+
+## Tracking sessions from {% data variables.product.prodname_mobile %}
+
+You can see a list of your running and past pull requests generated by agents in {% data variables.product.prodname_mobile %}.
+
+1. In the "Agents" section on the {% data variables.product.prodname_mobile %} Home page, tap **Agent Tasks**.
+
+   A list of the currently open pull requests, that you asked {% data variables.product.prodname_copilot_short %} to generate, is displayed.
+
+1. Use the buttons at the top of the list to filter the list of pull requests.
+
+   For example, to show only merged tasks, tap **Open** and then, in the dropdown, tap **Merged**.
+
+   <img width=350rem src="/assets/images/help/copilot/coding-agent/mobile-status-dropdown.png" alt="Screenshot of the status dropdown list with a check mark against 'Open'." />
 
 ## Using the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach
 

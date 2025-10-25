@@ -49,8 +49,8 @@ You can use dependency caching with {% data variables.product.prodname_codeql %}
 The {% data variables.product.prodname_codeql %} action supports three different build modes for compiled languages:
 
 * `none` - the {% data variables.product.prodname_codeql %} database is created directly from the codebase without building the codebase (supported for all interpreted languages, and additionally supported for {% data variables.code-scanning.no_build_support %}).
-* `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for all compiled languages).
-* `manual` - you define the build steps to use for the codebase in the workflow (supported for all compiled languages{% ifversion codeql-rust-public-preview %}, except Rust{% endif %}).
+* `autobuild` - {% data variables.product.prodname_codeql %} detects the most likely build method and uses this to attempt to build the codebase and create a database for analysis (supported for {% data variables.code-scanning.autobuild_support %}).
+* `manual` - you define the build steps to use for the codebase in the workflow (supported for {% data variables.code-scanning.manual_build_support %}).
 
 ### Comparison of the build modes
 
@@ -251,6 +251,9 @@ If you added manual build steps for compiled languages and {% data variables.pro
 * [Building C#](#building-c)
 * [Building Go](#building-go)
 * [Building Java and Kotlin](#building-java-and-kotlin)
+{% ifversion codeql-rust-available %}
+* [Building Rust](#building-rust)
+{% endif %}
 * [Building Swift](#building-swift)
 
 > [!NOTE]
@@ -264,7 +267,22 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 When you enable default setup for a repository that contains C/C++ code, the build mode is set to `none` automatically.
 
->[!NOTE] Support of build mode `none` for C/C++ codebases is currently in {% data variables.release-phases.public_preview %} and subject to change.
+### No build for C/C++
+
+{% data variables.product.prodname_codeql %} will infer C/C++ compilation units through source file extensions. For each source file found, compilation flags and include paths are inferred by inspecting the codebase without the need for a working build command.
+
+#### Accuracy of no build analysis for C/C++
+
+Creating a {% data variables.product.prodname_codeql %} C/C++ database without a build may produce less accurate results than using `autobuild` or manual build steps in some cases; for example, if:
+
+* The code depends heavily on custom macros/defines not available in existing headers
+* The codebase has many external dependencies
+
+You can ensure a more accurate analysis by taking the following steps:
+
+* Place custom macros and defines in header files that are included in relevant source files
+* Ensure external dependencies (headers) are available in system include directories or in the workspace
+* Run the extraction on the target platform. For example, choose a Windows runner to analyze Windows projects to give access to platform specific headers and compilers
 
 {% endif %}
 
@@ -493,6 +511,22 @@ The following executables will likely be required for a range of Java projects, 
 You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 
 Windows runners require `powershell.exe` to be on the `PATH`.
+
+{% ifversion codeql-rust-available %}
+
+## Building Rust
+
+{% data variables.product.prodname_codeql %} supports build mode `none` for Rust code.
+
+### No build for Rust
+
+{% data variables.product.prodname_codeql %} uses `rust-analyzer` to compile and run build scripts (`build.rs` files) and compile macro code, but does not invoke a full build. A database is created from all Rust files present. A `Cargo.toml` or `rust-project.json` file must be present.
+
+### Runner requirements for Rust
+
+Rust analysis requires `rustup` and `cargo` to be installed.
+
+{% endif %}
 
 ## Building Swift
 

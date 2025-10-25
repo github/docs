@@ -152,7 +152,7 @@ For more detailed instructions, see [{% data variables.copilot.copilot_edits_sho
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
-You can also directly [open agent mode in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?mode=agent). <!-- markdownlint-disable-line GHD003 -->
+You can also directly [open agent mode in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?mode=agent&ref_product=copilot&ref_type=engagement&ref_style=text). <!-- markdownlint-disable-line GHD003 -->
 
 For more information, see [{% data variables.copilot.copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -165,12 +165,6 @@ For more information, see [{% data variables.copilot.copilot_edits_short %}](htt
 ### Attaching images to your chat prompt
 
 1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
-
-   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_claude_sonnet_35 %}
-   * {% data variables.copilot.copilot_claude_sonnet_37 %}
-   * {% data variables.copilot.copilot_gemini_flash %}
-   * {% data variables.copilot.copilot_gemini_25_pro %}
 
    ![Screenshot of {% data variables.copilot.copilot_chat_short %} with the model picker highlighted with a dark orange outline.](/assets/images/help/copilot/vsc-chat-model-picker.png)
 
@@ -207,8 +201,8 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 * **Access to {% data variables.product.prodname_copilot %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
   * _For {% data variables.product.prodname_vs %} 17.8 and 17.9:_
-    * **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-    * **{% data variables.copilot.copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+    * **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vs %} documentation.
+    * **{% data variables.copilot.copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vs %} documentation.
 
    _{% data variables.product.prodname_vs %} 17.10 and later have the {% data variables.product.prodname_copilot %} and {% data variables.copilot.copilot_chat %} extensions built in. You don't need to install them separately._
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
@@ -312,12 +306,6 @@ When you use {% data variables.copilot.copilot_agent_short %} mode, each prompt 
 ### Attaching images to your chat prompt
 
 1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
-
-   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_claude_sonnet_35 %}
-   * {% data variables.copilot.copilot_claude_sonnet_37 %}
-   * {% data variables.copilot.copilot_gemini_flash %}
-   * {% data variables.copilot.copilot_gemini_25_pro %}
 
 1. Do one of the following:
 
@@ -556,7 +544,7 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 ## Prerequisites
 
 {% data reusables.copilot.eclipse-prerequisites %}
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
 
 {% data reusables.copilot.chat-access-denied %}

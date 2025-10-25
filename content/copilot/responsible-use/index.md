@@ -11,7 +11,7 @@ children:
   - /chat-in-your-ide
   - /chat-in-github
   - /chat-in-github-mobile
-  - /copilot-in-the-cli
+  - /copilot-cli
   - /copilot-in-windows-terminal
   - /copilot-in-github-desktop
   - /pull-request-summaries
@@ -20,8 +20,8 @@ children:
   - /code-review
   - /copilot-coding-agent
   - /spark
+  - /copilot-spaces
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features
 contentType: rai
 ---
-

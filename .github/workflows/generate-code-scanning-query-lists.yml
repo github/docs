@@ -153,8 +153,10 @@ jobs:
             --title "Update CodeQL query tables" \
             --repo github/docs-internal \
            --label "codeql-query-tables,skip FR board,ready-for-doc-review,workflow-generated" \
-            --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
+            --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})
 
-            No action is required from the first responder for the Docs content team. This PR will be reviewed and merged by the Code scanning and GHAS focus team as part of the next release of CodeQL CLI. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})
 
-            If CI does not pass or other problems arise, contact #docs-engineering on slack.'
+            No action is required from the first responder for the Docs content team. This PR is automatically added to the Docs content review board. Any writer can review this by checking that the PR looks sensible. If CI does not pass or other problems arise, contact #docs-engineering on slack.
+            
+            
+            When the DRI for the CodeQL CLI release is ready to publish, they will ask us to merge this PR in #docs-content.'

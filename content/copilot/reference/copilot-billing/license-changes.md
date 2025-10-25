@@ -10,10 +10,18 @@ allowTitleToDifferFromFilename: true
 contentType: reference
 ---
 
-This article provides details about what happens when you add or remove {% data variables.product.prodname_copilot_short %} licenses, for organizations, enterprises, and personal accounts. Use it to check:
-* **What** happens to billing and access
-* **When** those changes take effect
-* **How** proration or refunds are handled
+{% data variables.product.prodname_copilot_short %} follows the same billing rules as other license-based products on {% data variables.product.company_short %}.
+For the general concepts, see:
+
+* [AUTOTITLE](/billing/concepts/impact-of-plan-changes) – explains how upgrades, downgrades, and seat changes are billed.
+* [AUTOTITLE](/billing/concepts/enterprise-billing/usage-based-licenses) – explains how usage-based billing works compared to volume licensing.
+
+This article focuses on how those rules apply specifically to {% data variables.product.prodname_copilot_short %}, including:
+
+* **What** happens to billing and access when you add, remove, or change seats
+* **When** billing changes take effect
+* **How** partial billing cycles are handled
+* **{% data variables.product.prodname_copilot_short %}-only scenarios** such as revoking seats, disabling {% data variables.product.prodname_copilot_short %} at the organization or enterprise level, or removing organizations from an enterprise
 
 ## Personal accounts
 

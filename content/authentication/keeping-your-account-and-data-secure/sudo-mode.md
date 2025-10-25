@@ -93,4 +93,4 @@ When prompted to authenticate for sudo mode, type your password, then click **Co
 
 Before you can access sudo mode, you must first configure social login. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
 
-When prompted to authenticate for sudo mode, type the authentication code sent to your social login email account, then click **Verify**.
+When prompted to authenticate for sudo mode, type the authentication code sent to your social login email account, then click **Verify**. If you dont receive the email within few minutes, check your spam folder.

@@ -623,6 +623,24 @@
         "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}",
         "additional-permissions": false,
         "access": "admin"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/properties/values",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-organization-repositories",
+        "subcategory": "custom-properties",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/properties/values",
+        "additional-permissions": false,
+        "access": "write"
       }
     ]
   },
@@ -725,7 +743,7 @@
       },
       {
         "category": "teams",
-        "slug": "list-external-groups-in-an-organization",
+        "slug": "list-external-groups-available-to-an-organization",
         "subcategory": "external-groups",
         "verb": "get",
         "requestPath": "/orgs/{org}/external-groups",
@@ -3468,7 +3486,7 @@
         "subcategory": "invitations",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/invitations",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -6748,6 +6766,21 @@
         "verb": "get",
         "requestPath": "/users/{username}/keys",
         "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
+  "private_repository_invitations": {
+    "title": "Private repository invitations",
+    "displayTitle": "User permissions for \"Private repository invitations\"",
+    "permissions": [
+      {
+        "category": "collaborators",
+        "slug": "list-repository-invitations",
+        "subcategory": "invitations",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/invitations",
+        "additional-permissions": true,
         "access": "read"
       }
     ]

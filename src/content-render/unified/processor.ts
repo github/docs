@@ -40,7 +40,9 @@ export function createProcessor(context: Context): UnifiedProcessor {
       .use(gfm)
       // Markdown AST below vvv
       .use(parseInfoString)
-      .use(rewriteLocalLinks, context)
+      // Using 'as any' because rewriteLocalLinks is a factory function that takes context
+      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(rewriteLocalLinks as any, context)
       .use(emoji)
       // Markdown AST above ^^^
       .use(remark2rehype, { allowDangerousHtml: true })
@@ -87,20 +89,28 @@ export function createProcessor(context: Context): UnifiedProcessor {
 }
 
 export function createMarkdownOnlyProcessor(context: Context): UnifiedProcessor {
-  return unified()
-    .use(remarkParse)
-    .use(gfm)
-    .use(rewriteLocalLinks, context)
-    .use(remarkStringify) as UnifiedProcessor
+  return (
+    unified()
+      .use(remarkParse)
+      .use(gfm)
+      // Using 'as any' because rewriteLocalLinks is a factory function that takes context
+      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(rewriteLocalLinks as any, context)
+      .use(remarkStringify) as UnifiedProcessor
+  )
 }
 
 export function createMinimalProcessor(context: Context): UnifiedProcessor {
-  return unified()
-    .use(remarkParse)
-    .use(gfm)
-    .use(rewriteLocalLinks, context)
-    .use(remark2rehype, { allowDangerousHtml: true })
-    .use(slug)
-    .use(raw)
-    .use(html) as UnifiedProcessor
+  return (
+    unified()
+      .use(remarkParse)
+      .use(gfm)
+      // Using 'as any' because rewriteLocalLinks is a factory function that takes context
+      // and returns a transformer, but TypeScript's unified plugin types don't handle this pattern
+      .use(rewriteLocalLinks as any, context)
+      .use(remark2rehype, { allowDangerousHtml: true })
+      .use(slug)
+      .use(raw)
+      .use(html) as UnifiedProcessor
+  )
 }

@@ -7,7 +7,9 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /account
   - /profile
   - /personal-dashboard-quickstart
+contentType: get-started
 ---
 

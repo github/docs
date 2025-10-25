@@ -43,7 +43,7 @@ export default async function processLearningTracks(
     // fall back to English if they don't exist on disk in the translation.
     const track = getDataByLanguage(
       `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
-      context.currentLanguage,
+      context.currentLanguage!,
     )
     if (!track) {
       throw new Error(`No learning track called '${renderedTrackName}'.`)
@@ -82,7 +82,7 @@ export default async function processLearningTracks(
       const trackVersions = getApplicableVersions(track.versions)
 
       // If the current version is not included, do not display the track.
-      if (!trackVersions.includes(context.currentVersion)) {
+      if (!context.currentVersion || !trackVersions.includes(context.currentVersion)) {
         continue
       }
     }

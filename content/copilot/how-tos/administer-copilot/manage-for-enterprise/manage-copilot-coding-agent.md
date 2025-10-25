@@ -3,7 +3,7 @@ title: Managing GitHub Copilot coding agent in your enterprise
 intro: 'Enable members of your enterprise to use {% data variables.copilot.copilot_coding_agent %} and control the repositories where it is available.'
 allowTitleToDifferFromFilename: true
 permissions: Enterprise owners
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=making-cca-available-ent" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -20,8 +20,6 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
->
 > For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Prerequisites
@@ -60,7 +58,7 @@ You can choose to stop anyone using the agent in some or all of your repositorie
 
 Alternatively, you can disable the agent for all repositories owned by your enterprise.
 
-<!-- expires 2025-10-20 -->
+<!-- expires 2025-10-28 -->
 <!-- Part of the Copilot direct licensing rollout -->
 <!-- Expired content will be addressed by the Drivers team -->
 
@@ -70,4 +68,4 @@ Alternatively, you can disable the agent for all repositories owned by your ente
 {% data reusables.enterprise-accounts.copilot-policies-tab %}
 1. Select **Block {% data variables.copilot.copilot_coding_agent %} in all enterprise repositories**.
 
-<!-- end expires 2025-10-20 -->
+<!-- end expires 2025-10-28 -->

@@ -1113,6 +1113,12 @@
   ],
   "billing": [
     {
+      "slug": "get-billing-premium-request-usage-report-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/premium_request/usage"
+    },
+    {
       "slug": "get-billing-usage-report-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
@@ -1153,6 +1159,12 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/packages"
+    },
+    {
+      "slug": "get-billing-premium-request-usage-report-for-a-user",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/premium_request/usage"
     },
     {
       "slug": "get-shared-storage-billing-for-a-user",
@@ -3737,6 +3749,18 @@
       "requestPath": "/orgs/{org}/properties/schema/{custom_property_name}"
     },
     {
+      "slug": "list-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-organization-repositories",
+      "subcategory": "custom-properties",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/properties/values"
+    },
+    {
       "slug": "list-public-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -3837,6 +3861,42 @@
       "subcategory": "security-managers",
       "verb": "delete",
       "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
+    },
+    {
+      "slug": "get-immutable-releases-settings-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/immutable-releases"
+    },
+    {
+      "slug": "set-immutable-releases-settings-for-an-organization",
+      "subcategory": "orgs",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/settings/immutable-releases"
+    },
+    {
+      "slug": "list-selected-repositories-for-immutable-releases-enforcement",
+      "subcategory": "orgs",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories"
+    },
+    {
+      "slug": "set-selected-repositories-for-immutable-releases-enforcement",
+      "subcategory": "orgs",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories"
+    },
+    {
+      "slug": "enable-a-selected-repository-for-immutable-releases-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}"
+    },
+    {
+      "slug": "disable-a-selected-repository-for-immutable-releases-in-an-organization",
+      "subcategory": "orgs",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/settings/immutable-releases/repositories/{repository_id}"
     },
     {
       "slug": "list-hosted-compute-network-configurations-for-an-organization",
@@ -4749,6 +4809,24 @@
       "requestPath": "/repos/{owner}/{repo}/hooks/{hook_id}/tests"
     },
     {
+      "slug": "check-if-immutable-releases-are-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
+      "slug": "enable-immutable-releases",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
+      "slug": "disable-immutable-releases",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/immutable-releases"
+    },
+    {
       "slug": "list-repository-languages",
       "subcategory": "repos",
       "verb": "get",
@@ -5179,7 +5257,7 @@
       "requestPath": "/orgs/{org}/external-group/{group_id}"
     },
     {
-      "slug": "list-external-groups-in-an-organization",
+      "slug": "list-external-groups-available-to-an-organization",
       "subcategory": "external-groups",
       "verb": "get",
       "requestPath": "/orgs/{org}/external-groups"

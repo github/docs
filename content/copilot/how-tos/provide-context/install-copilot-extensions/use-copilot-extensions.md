@@ -17,6 +17,14 @@ redirect_from:
 contentType: how-tos
 ---
 
+<!-- expires 2025-11-19 -->
+
+<!-- When this expires, check with the stakeholder for release #6165 if the knowledge bases content can be deleted -->
+
+{% data reusables.copilot.copilot-extensions.extensions-retirement %}
+
+<!-- end expires 2025-11-19 -->
+
 ## About {% data variables.copilot.copilot_extensions %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}

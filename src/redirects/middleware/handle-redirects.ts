@@ -1,7 +1,7 @@
 import type { NextFunction, Response } from 'express'
 
 import patterns from '@/frame/lib/patterns'
-import { pathLanguagePrefixed } from '@/languages/lib/languages'
+import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
 import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
 import getRedirect from '../lib/get-redirect'
 import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
@@ -142,7 +142,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
 function getLanguage(req: ExtendedRequest, default_ = 'en') {
   // req.context.userLanguage, if it truthy, is always a valid supported
-  // language. It's whatever was in the user's request in lib/languages.js
+  // language. It's whatever was in the user's request in lib/languages.ts
   return req.context!.userLanguage || default_
 }
 

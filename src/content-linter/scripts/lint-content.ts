@@ -15,7 +15,8 @@ import { defaultConfig } from '../lib/default-markdownlint-options'
 import { prettyPrintResults } from './pretty-print-results'
 import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
 import { printAnnotationResults } from '../lib/helpers/print-annotations'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
+import { shouldIncludeResult } from '../lib/helpers/should-include-result'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -426,11 +427,17 @@ function getFormattedResults(allResults, isPrecommit) {
       if (verbose) {
         output[key] = [...results]
       } else {
-        const formattedResults = results.map((flaw) => formatResult(flaw, isPrecommit))
-        const errors = formattedResults.filter((result) => result.severity === 'error')
-        const warnings = formattedResults.filter((result) => result.severity === 'warning')
-        const sortedResult = [...errors, ...warnings]
-        output[key] = [...sortedResult]
+        const formattedResults = results
+          .map((flaw) => formatResult(flaw, isPrecommit))
+          .filter((flaw) => shouldIncludeResult(flaw, key))
+
+        // Only add the file to output if there are results after filtering
+        if (formattedResults.length > 0) {
+          const errors = formattedResults.filter((result) => result.severity === 'error')
+          const warnings = formattedResults.filter((result) => result.severity === 'warning')
+          const sortedResult = [...errors, ...warnings]
+          output[key] = [...sortedResult]
+        }
       }
     })
   return output
@@ -575,17 +582,21 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
         if (errorsOnly && searchRuleSeverity !== 'error') continue
-        searchReplaceRules.push(searchRule)
+        // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
+        // This ensures rules like TODOCS detection work in frontmatter
+        // Rules with applyToFrontmatter should ONLY run in the frontmatter pass (which lints the entire file)
+        // to avoid duplicate detections
+        if (searchRule.applyToFrontmatter) {
+          frontmatterSearchReplaceRules.push(searchRule)
+        } else {
+          // Only add to content rules if not a frontmatter-specific rule
+          searchReplaceRules.push(searchRule)
+        }
         if (searchRule['partial-markdown-files']) {
           dataSearchReplaceRules.push(searchRule)
         }
         if (searchRule['yml-files']) {
           ymlSearchReplaceRules.push(searchRule)
-        }
-        // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
-        // This ensures rules like TODOCS detection work in frontmatter
-        if (searchRule.applyToFrontmatter) {
-          frontmatterSearchReplaceRules.push(searchRule)
         }
       }
 

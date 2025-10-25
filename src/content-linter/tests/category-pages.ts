@@ -223,7 +223,7 @@ describe.skip('category pages', () => {
           }`
           const expectedSlug = expectedSlugs.at(-1) as string
           const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlug)
-          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
+          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.ts ${categoryDirPath} ${newCategoryDirPath}\n`
           // Check if the directory name matches the expected slug
           expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })

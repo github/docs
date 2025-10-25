@@ -27,13 +27,13 @@ To get started with {% data variables.product.prodname_ghe_cloud %}, decide whic
 
 ### 2. About enterprise accounts
 
-An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.github %} organizations, including member access, billing and usage and security. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts).
+An enterprise account allows you to centrally manage policy and settings for multiple {% data variables.product.github %} organizations, including member access, billing and usage and security. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
 ### 3. Creating an enterprise account
 
 To create your enterprise account, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
-<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=getting+started+with+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %} for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### 4. Adding organizations to your enterprise account
 
@@ -177,7 +177,3 @@ For more information, see [AUTOTITLE](/get-started/start-your-journey/git-and-gi
 {% data reusables.getting-started.contact-support %}
 
 {% data variables.product.prodname_ghe_cloud %} allows you to submit priority support requests with a target eight-hour response time. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support).
-
-## Further reading
-
-* [AUTOTITLE](/enterprise-cloud@latest/admin/overview/feature-overview-for-github-enterprise-cloud)

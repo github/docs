@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { blockIndex } from '@/frame/middleware/block-robots'
 import { get, getDOMCached as getDOM } from '@/tests/helpers/e2etest'
 import Page from '@/frame/lib/page'

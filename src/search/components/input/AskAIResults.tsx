@@ -417,7 +417,7 @@ export function AskAIResults({
             className={'btn-octicon'}
             aria-label={t('ai.thumbs_up')}
             sx={{
-              border: 'none',
+              border: feedbackSelected === 'up' ? '1px solid var(--color-btn-text)' : 'none',
               backgroundColor: feedbackSelected === 'up' ? '' : 'unset',
               boxShadow: 'unset',
               color: feedbackSelected === 'up' ? 'var(--fgColor-accent) !important;' : '',
@@ -439,7 +439,7 @@ export function AskAIResults({
             className={'btn-octicon'}
             aria-label={t('ai.thumbs_down')}
             sx={{
-              border: 'none',
+              border: feedbackSelected === 'down' ? '1px solid var(--color-btn-text)' : 'none',
               backgroundColor: feedbackSelected === 'down' ? '' : 'unset',
               boxShadow: 'unset',
               color: feedbackSelected === 'down' ? 'var(--fgColor-accent) !important;' : '',

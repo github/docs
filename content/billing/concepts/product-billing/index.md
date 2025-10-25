@@ -12,10 +12,11 @@ children:
   - /github-actions
   - /github-advanced-security
   - /github-codespaces
-  - /github-copilot
+  - /github-copilot-licenses
+  - /github-copilot-premium-requests
   - /github-models
   - /github-packages
   - /git-lfs
+  - /github-spark
 contentType: concepts
 ---
-

@@ -1,4 +1,4 @@
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
@@ -43,6 +43,10 @@ const context = {
       type: 'string',
       description: 'The browser value of `document.referrer`.',
       format: 'uri-reference',
+    },
+    title: {
+      type: 'string',
+      description: 'The browser value of `document.title`.',
     },
     href: {
       type: 'string',
@@ -89,12 +93,12 @@ const context = {
     page_document_type: {
       type: 'string',
       description: 'The generic page document type based on URL path.',
-      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.js
+      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.ts
     },
     page_type: {
       type: 'string',
       description: 'Optional page type from the content frontmatter.',
-      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.js
+      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.ts
     },
     status: {
       type: 'number',
@@ -142,12 +146,35 @@ const context = {
     viewport_width: {
       type: 'number',
       description: 'The viewport width, not the overall device size.',
-      minimum: 1,
+      minimum: 0,
     },
     viewport_height: {
       type: 'number',
       description: 'The viewport height, not the overall device height.',
-      minimum: 1,
+      minimum: 0,
+    },
+    screen_width: {
+      type: 'number',
+      description: 'The screen width of the device.',
+      minimum: 0,
+    },
+    screen_height: {
+      type: 'number',
+      description: 'The screen height of the device.',
+      minimum: 0,
+    },
+    pixel_ratio: {
+      type: 'number',
+      description: 'The device pixel ratio.',
+      minimum: 0,
+    },
+    ip: {
+      type: 'string',
+      description: 'The IP address of the user.',
+    },
+    user_agent: {
+      type: 'string',
+      description: 'The raw user agent string from the browser.',
     },
 
     // Location information

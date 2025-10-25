@@ -199,7 +199,7 @@ In addition, for {% data variables.code-scanning.no_build_support %}, there is a
 
 ### Automatically detecting the build system
 
-The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild).
+The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.autobuild_support %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild).
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled language if you don’t include a
 `--command` option or set `--build-mode none`. For example, for a Swift codebase, you could simply run:
@@ -268,6 +268,16 @@ The following examples are designed to give you an idea of some of the build com
   codeql database create java-database --language=java-kotlin --command='ant -f build.xml'
   ```
 
+{% ifversion codeql-rust-available %}
+
+* Rust project built using Cargo:
+
+  ```shell
+  codeql database create rust-database --language=rust
+  ```
+
+{% endif %}
+
 * Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
 
   It's a good idea to ensure that the project is in a clean state and that there are no build artifacts available.
@@ -319,6 +329,9 @@ The following examples are designed to give you an idea of some of the build com
   # without {% data variables.product.prodname_codeql %} attached.
   bazel shutdown
   ```
+
+ > [!NOTE]
+ > Bazel build for Go is currently not supported.
 
 * Project built using a custom build script:
 

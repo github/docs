@@ -31,7 +31,7 @@ export default async function secretScanning(
   const { currentVersion } = req.context
 
   req.context.secretScanningData = secretScanningData.filter((entry) =>
-    getApplicableVersions(entry.versions).includes(currentVersion),
+    currentVersion ? getApplicableVersions(entry.versions).includes(currentVersion) : false,
   )
 
   // Some entries might use Liquid syntax, so we need

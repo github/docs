@@ -27,15 +27,15 @@ If you use {% data variables.product.prodname_vscode_shortname %}, you can also 
 
 A chat interface that lets you ask coding-related questions. {% data variables.copilot.copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Eclipse IDE, and Xcode)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
-### {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_coding_agent %}
 
 An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
 
-### {% data variables.copilot.copilot_cli_short %}
+### {% data variables.copilot.copilot_cli_short %} ({% data variables.release-phases.public_preview %})
 
-A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
+A command line interface that lets you use {% data variables.product.prodname_copilot_short %} from within the terminal. You can get answers to questions, or you can ask {% data variables.product.prodname_copilot_short %} to make changes to your local files. You can also use {% data variables.copilot.copilot_cli_short %} to interact with {% data variables.product.prodname_dotcom_the_website %}—for example, listing your open pull requests, or asking {% data variables.product.prodname_copilot_short %} to create an issue. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
 
-### {% data variables.product.prodname_copilot %} code review
+### {% data variables.copilot.copilot_code-review_short %}
 
 AI-generated code review suggestions to help you write better code. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
@@ -47,7 +47,7 @@ AI-generated summaries of the changes that were made in a pull request, which fi
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
 
-### {% data variables.copilot.copilot_extensions %}
+### {% data variables.copilot.copilot_extensions_short %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
@@ -63,7 +63,7 @@ Enhance {% data variables.copilot.copilot_chat_short %} responses by providing c
 
 Automatically generate commit messages and descriptions with {% data variables.copilot.copilot_desktop_short %} based on the changes you make to your project.
 
-### {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %})
+### {% data variables.copilot.copilot_spaces %}
 
 Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
 
@@ -73,7 +73,7 @@ Create and manage collections of documentation to use as context for chatting wi
 
 ### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
 
-Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/building-ai-app-prototypes).
+Build and deploy full-stack applications using natural-language prompts that seamlessly integrate with the {% data variables.product.github %} platform for advanced development. See [AUTOTITLE](/copilot/tutorials/spark/build-apps-with-spark).
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 

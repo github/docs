@@ -1,6 +1,6 @@
 ---
 title: Customization library
-intro: 'Discover a curated collection of customizations, including custom instructions and prompt files (VS Code only), to enhance your {% data variables.product.prodname_copilot %} experience.'
+intro: 'Discover a curated collection of customizations, including custom instructions and prompt files ({% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs only), to enhance your {% data variables.product.prodname_copilot %} experience.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
@@ -20,4 +20,3 @@ children:
   - /prompt-files
 contentType: tutorials
 ---
-

@@ -87,6 +87,8 @@ You can view the usage of your personal account and download the usage data for 
 
    >[!TIP] The premium request usage report includes all premium requests, both within and beyond the allowance.
 
+{% data reusables.billing.usage-reports-api-limitation %}
+
 ## Viewing license usage
 
 You can view the license usage of your {% data variables.enterprise.enterprise_or_org %} members and download the usage data for further analysis.

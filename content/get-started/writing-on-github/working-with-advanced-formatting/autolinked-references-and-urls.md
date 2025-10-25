@@ -77,6 +77,8 @@ When referencing a commit from a private repository inside of a commit message, 
 
 By default, references generate a backlink. For example, manually linking to an issue in a pull request will automatically generate another link from the issue _back_ to the pull request.
 To avoid this behavior, you can use `redirect.github.com` instead of `github.com` when constructing the URL in your reference. If you do use a `redirect.github.com` URL in your reference link, no pop-up window will appear when hovering over it.
+> [!NOTE]
+> This method is not supported in {% data variables.product.prodname_ghe_cloud %} with Data Residency (`ghe.com`).
 
 ## Further reading
 

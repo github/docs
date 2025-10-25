@@ -2,7 +2,7 @@
 title: Planning a project with GitHub Copilot
 shortTitle: Plan a project
 intro: 'Plan your next project by using {% data variables.product.prodname_copilot %} to turn your ideas into issues.'
-permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_short %} to create issues. <br> <a href="https://github.com/copilot?ref_cta=Copilot+free&ref_loc=plan+a+project&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_copilot_short %} for free</span> {% octicon "link-external" height:16 %}</a>'
+permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_short %} to create issues. <br> <a href="https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_copilot_short %} for free</span> {% octicon "link-external" height:16 %}</a>'
 topics:
   - Copilot
   - Issues
@@ -11,6 +11,8 @@ versions:
   feature: copilot
 
 contentType: tutorials
+category:
+  - Unblock complex work
 ---
 
 > [!NOTE]
@@ -88,12 +90,12 @@ After you finish generating the issue tree you may notice that {% data variables
 1. Start with the newly generated issue such as "Task: Create placeholder pages for main routes".  
 
    Prompt {% data variables.product.prodname_copilot_short %} with:  
-  ```Can you improve the description for “Task: Create placeholder pages for main routes”? Please provide a detailed technical summary, list the main routes to be included, outline the steps for implementation, and specify what should be delivered for this task.```
+  ```Can you improve the description for “Task: Create placeholder pages for main routes”? Please provide a detailed technical summary, list the main routes to be included, outline the steps for implementation, and specify what should be delivered for this task. Please add any relevant code snippets.```
 
 1. {% data variables.product.prodname_copilot_short %} will generate a new version of the draft issue "Task: Create placeholder pages for main routes."  
 
     At the top-left of the issue, click the versioning drop-down and select **Version 2** to review the new changes.
-1. Review and decide whether to keep {% data variables.product.prodname_copilot_short %}’s revised version, edit further, or prompt again for more detail.
+1. Review and decide whether to keep {% data variables.product.prodname_copilot_short %}’s revised version, edit further, or prompt again for more detail. {% data variables.product.prodname_copilot_short %} can add code snippets into the draft to improve clarity and provide immediate context for these issues.
 1. Repeat this process for other issues in the epic, refining descriptions and breaking down tasks as needed.
 1. Once you’re satisfied with the issue descriptions, click **Create all** to create the issues in your repository.
 

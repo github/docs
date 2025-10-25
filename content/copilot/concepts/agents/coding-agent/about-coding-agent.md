@@ -2,7 +2,7 @@
 title: About GitHub Copilot coding agent
 shortTitle: About coding agent
 intro: You can assign {% data variables.product.github %} issues to {% data variables.product.prodname_copilot_short %}, or ask {% data variables.product.prodname_copilot_short %} to create a pull request.
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=about+assigning+issues+to+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -19,9 +19,6 @@ redirect_from:
 contentType: concepts
 ---
 
-> [!NOTE]
-> * {% data reusables.copilot.coding-agent.preview-note-text %}
-
 ## Overview of {% data variables.copilot.copilot_coding_agent %}
 
 With {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot %} can work independently in the background to complete tasks, just like a human developer.
@@ -37,7 +34,7 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 To delegate tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
 * Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
-* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the Agents panel or page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %}, your favorite IDE or agentic coding tool with MCP support, or Raycast on macOS. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
+* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the agents panel or page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %}, your favorite IDE or agentic coding tool with MCP support, or Raycast on macOS. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
@@ -53,7 +50,7 @@ When used effectively, {% data variables.copilot.copilot_coding_agent %} offers 
 
 ### {% data variables.copilot.copilot_coding_agent %} versus agent mode
 
-{% data variables.copilot.copilot_coding_agent %} is distinct from the "agent mode" feature available in {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode %}. {% data variables.copilot.copilot_coding_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts, and creates pull requests with the results. In contrast, agent mode in {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode %} is part of the {% data variables.copilot.copilot_edits %} feature that allows {% data variables.product.prodname_copilot_short %} to make autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide?tool=visualstudio#copilot-edits-1).
+{% data variables.copilot.copilot_coding_agent %} is distinct from the "agent mode" feature available in your IDE. {% data variables.copilot.copilot_coding_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts, and creates pull requests with the results. In contrast, agent mode in your IDE makes autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide?tool=visualstudio#copilot-edits-1).
 
 ### Streamlining software development with {% data variables.copilot.copilot_coding_agent %}
 
@@ -67,7 +64,15 @@ Having {% data variables.product.prodname_copilot_short %} as an additional codi
 
 ### Making {% data variables.copilot.copilot_coding_agent %} available
 
-Before you can assign tasks to {% data variables.product.prodname_copilot_short %}, it must be enabled. See [AUTOTITLE](/copilot/concepts/coding-agent/about-enabling-coding-agent).
+Before you can assign tasks to {% data variables.copilot.copilot_coding_agent %}, it must be enabled.
+
+{% data variables.copilot.copilot_coding_agent %} is available with the {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} and {% data variables.copilot.copilot_enterprise %} plans.
+
+If you are a {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} subscriber, an administrator must enable the relevant policy before you can use the agent.
+
+Repository owners can choose to opt out some or all repositories from {% data variables.copilot.copilot_coding_agent %}.
+
+For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/managing-access).
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 
@@ -135,14 +140,15 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} does not sign its commits**. If you have the "Require signed commits" rule or branch protection enabled, you must rewrite the commit history in order to merge {% data variables.product.prodname_copilot_short %}'s pull requests. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#require-signed-commits).
 * **{% data variables.product.prodname_copilot_short %} does not work with self-hosted {% data variables.product.prodname_actions %} runners**. {% data variables.product.prodname_copilot_short %} has access to its own development environment, running in {% data variables.product.prodname_actions %}, and must use {% data variables.product.prodname_dotcom %}-hosted runners. See [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent#upgrading-to-larger-github-hosted-github-actions-runners).
 * **{% data variables.copilot.copilot_coding_agent %} does not work in personal repositories owned by {% data variables.enterprise.prodname_managed_users %}**. This is because {% data variables.copilot.copilot_coding_agent %} requires {% data variables.product.company_short %}-hosted runners, which are not available to repositories owned by {% data variables.enterprise.prodname_managed_users %}. See [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners).
-* **{% data variables.product.prodname_copilot_short %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
-* **{% data variables.copilot.copilot_coding_agent %} does not apply the "Suggestions matching public code" policy**. {% data variables.product.prodname_copilot_short %} may still produce suggestions matching public code, even if the "Suggestions matching public code" policy is set to "Block." If this happens, {% data variables.product.prodname_copilot_short %} will not provide code references pointing to the original source of the code. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code).
+* **{% data variables.copilot.copilot_coding_agent %} doesn't account for content exclusions**. Content exclusions allow administrators to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When using {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} will not ignore these files, and will be able to see and update them. See [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/excluding-content-from-github-copilot).
 * **{% data variables.copilot.copilot_coding_agent %} only works with repositories hosted on {% data variables.product.github %}**. If your repository is stored using a different code hosting platform, {% data variables.product.prodname_copilot_short %} won't be able to work on it.
-* **You cannot change the AI model used by {% data variables.copilot.copilot_coding_agent %}**. The model is determined by {% data variables.product.company_short %} and does not inherit the model selected for {% data variables.copilot.copilot_chat %}.
+* **You cannot select the AI model used by {% data variables.copilot.copilot_coding_agent %}**. A model picker is not available to switch between models, and {% data variables.product.company_short %} reserves the right to change models at any time.
+
+  Currently, {% data variables.copilot.copilot_coding_agent %} uses {% data variables.copilot.copilot_claude_sonnet_45 %}.
 
 ## Hands-on practice
 
-Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.
+Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}](https://github.com/skills/expand-your-team-with-copilot/?ref_product=copilot&ref_type=engagement&ref_style=text) Skills exercise for practical experience with {% data variables.copilot.copilot_coding_agent %}.
 
 ## Further reading
 

@@ -19,7 +19,7 @@ export default async function whatsNewChangelog(
     const changelogVersions = getApplicableVersions(req.context.page.changelog.versions)
 
     // If the current version is not included, do not display a changelog.
-    if (!changelogVersions.includes(req.context.currentVersion)) {
+    if (!req.context.currentVersion || !changelogVersions.includes(req.context.currentVersion)) {
       return next()
     }
   }

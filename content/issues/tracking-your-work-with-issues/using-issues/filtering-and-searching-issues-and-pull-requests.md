@@ -209,11 +209,11 @@ gh pr list --search "team:octo-org/octo-team"
 
 With issue and pull request search terms, you can:
 
-* Filter issues and pull requests by author: `state:open type:issue author:octocat`
-* Filter issues and pull requests that involve, but don't necessarily [**@mention**](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), certain people: `state:open type:issue involves:octocat`
-* Filter issues and pull requests by assignee: `state:open type:issue assignee:octocat`
-* Filter issues and pull requests by label: `state:open type:issue label:"bug"`
-* Filter out search terms by using `-` before the term: `state:open type:issue -author:octocat`
+* Filter issues and pull requests by author: `state:open is:issue author:octocat`
+* Filter issues and pull requests that involve, but don't necessarily [**@mention**](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams), certain people: `state:open is:issue involves:octocat`
+* Filter issues and pull requests by assignee: `state:open is:issue assignee:octocat`
+* Filter issues and pull requests by label: `state:open is:issue label:"bug"`
+* Filter out search terms by using `-` before the term: `state:open is:issue -author:octocat`
 
 > [!TIP]
 > You can filter issues by label using logical OR or using logical AND.
@@ -227,19 +227,19 @@ For issues, you can also use search to:
 {% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issues-advanced-search %}
 * Filter for issues that have metadata: `has:label`
 * Filter for issues that are missing metadata: `no:project`
-* Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open type:issue org:github OR user:octocat`{% endif %}
+* Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open is:issue org:github OR user:octocat`{% endif %}
 
 For pull requests, you can also use search to:
 
 * Filter [draft](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests) pull requests: `is:draft`
-* Filter pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet: `state:open type:pr review:none`
-* Filter pull requests that [require a review](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open type:pr review:required`
-* Filter pull requests that a reviewer has approved: `state:open type:pr review:approved`
-* Filter pull requests in which a reviewer has asked for changes: `state:open type:pr review:changes_requested`
-* Filter pull requests by [reviewer](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews): `state:open type:pr reviewed-by:octocat`
-* Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
-* Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`
-* Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/docs`
+* Filter pull requests that haven't been [reviewed](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews) yet: `state:open is:pr review:none`
+* Filter pull requests that [require a review](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging) before they can be merged: `state:open is:pr review:required`
+* Filter pull requests that a reviewer has approved: `state:open is:pr review:approved`
+* Filter pull requests in which a reviewer has asked for changes: `state:open is:pr review:changes_requested`
+* Filter pull requests by [reviewer](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews): `state:open is:pr reviewed-by:octocat`
+* Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open is:pr review-requested:octocat`
+* Filter pull requests that someone has asked you directly to review: `state:open is:pr user-review-requested:@me`
+* Filter pull requests by the team requested for review: `state:open is:pr team-review-requested:github/docs`
 * Filter for pull requests that are linked to an issue that the pull request may close: `linked:issue`
 * Filter pull requests by state of [merging](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges): `is:merged` or `is:unmerged`
 
@@ -274,7 +274,7 @@ You can send the URL that issues generates to any user, and they'll be able to s
 For example, if you filter on issues assigned to Hubot, and sort on the oldest open issues, your URL would update to something like the following:
 
 ```text
-/issues?q=state:open+type:issue+assignee:hubot+sort:created-asc
+/issues?q=state:open+is:issue+assignee:hubot+sort:created-asc
 ```
 
 ## Further reading

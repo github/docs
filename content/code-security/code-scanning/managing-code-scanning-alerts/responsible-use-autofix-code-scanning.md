@@ -18,7 +18,7 @@ redirect_from:
 
 ## About {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.copilot.copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis, and supports the third-party tool ESLint (third-party support is in {% data variables.release-phases.public_preview %} and subject to change).
+{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.copilot.copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis.
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
@@ -55,6 +55,19 @@ When {% data variables.copilot.copilot_autofix_short %} is enabled for a reposit
 Any {% data variables.copilot.copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
 The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_AS %}. Moreover, data handled by {% data variables.copilot.copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_AS %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
+
+## Limitations and non-determinism of {% data variables.copilot.copilot_autofix_short %}
+
+{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} alerts won't be able to generate a fix for every alert in every situation. The feature operates on a best-effort basis and is not guaranteed to succeed 100% of the time.
+
+### When a {% data variables.copilot.copilot_autofix_short %} suggestion may not be generated
+
+Several factors can prevent {% data variables.copilot.copilot_autofix_short %} from successfully generating a suggested fix.
+
+* _Non-determinism:_ The underlying large language model is a generative model and is therefore non-deterministic. This means that even with the same alert and code, it might fail to produce a viable suggestion, or the suggestion might vary across attempts.
+* _Problem complexity and context:_ Some security alerts, such as those that require tracing data flow across a complex, multi-file codebase or those that represent subtle logic flaws, could be difficult for the model to resolve.
+* _File size:_ If the affected code is within a very large file or repository, the context provided to the LLM may be truncated. The model needs sufficient context to understand the surrounding code logic and safely apply a fix; when this context is limited, the feature will not attempt a fix.
+* _Language and framework coverage:_ While {% data variables.copilot.copilot_autofix_short %} supports a growing list of languages and CodeQL alerts, it doesn't cover every possible alert type or language.
 
 ## Quality of suggestions
 
