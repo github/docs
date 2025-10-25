@@ -14,4 +14,3 @@ children:
   - /using-your-github-profile-to-enhance-your-resume
 contentType: tutorials
 ---
-
