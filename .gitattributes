@@ -4,3 +4,4 @@
 # to native line endings on checkout.
 *.md text diff=markdown
 *.json.br filter=lfs diff=lfs merge=lfs -text
+ 
