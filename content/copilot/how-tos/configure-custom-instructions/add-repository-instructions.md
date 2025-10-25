@@ -321,7 +321,7 @@ You can create your own custom instructions file from scratch. See [Writing your
 
 ### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
 
-1. Navigate to the agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+1. Navigate to the agents page at [github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
@@ -557,7 +557,7 @@ You can click the reference to open the file.
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, do one of the following:
    * Go to a repository with a custom instructions file and open the assistive chat panel.
-   * Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot)) and attach a repository that contains a custom instructions file.
+   * Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)) and attach a repository that contains a custom instructions file.
 1. Click the {% octicon "kebab-horizontal" aria-label="Conversation options" %} button at the top of the Chat panel, or the top right of the immersive page.
 1. Click **Disable custom instructions** or **Enable custom instructions**.
 

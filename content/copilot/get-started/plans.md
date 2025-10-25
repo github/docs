@@ -39,7 +39,7 @@ For more information, see [AUTOTITLE](/copilot/about-github-copilot/github-copil
 
 Start using {% data variables.product.prodname_copilot_short %} by signing up for the plan that best fits your needs.
 
-* **{% data variables.copilot.copilot_free_short %}** — Try {% data variables.product.prodname_copilot_short %} with limited features and requests. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot).
+* **{% data variables.copilot.copilot_free_short %}** — Try {% data variables.product.prodname_copilot_short %} with limited features and requests. [Start using {% data variables.copilot.copilot_free_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free).
 
 * **{% data variables.copilot.copilot_pro_short %}** — Get unlimited completions and access to premium models. Includes a free 30-day trial for eligible users. [Try {% data variables.copilot.copilot_pro_short %} for free](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text&ref_plan=pro).
 

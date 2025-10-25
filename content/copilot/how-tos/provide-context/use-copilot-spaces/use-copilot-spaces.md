@@ -18,7 +18,7 @@ Once you've added context to your space, you can ask {% data variables.product.p
 
 You can also change the large language model (LLM) used for your space by selecting the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then clicking the AI model of your choice. For more information, see [AUTOTITLE](/copilot/reference/ai-models/model-comparison).
 
-To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces).
+To star your favorite spaces so that you can easily find them later, you can click **{% octicon "star" aria-hidden="true" aria-label="star" %}** in the top right corner of the space. To view all spaces available to you, including starred spaces, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 ## Using {% data variables.copilot.copilot_spaces %} in your IDE
 

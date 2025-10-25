@@ -21,7 +21,7 @@ If you're starting a new feature, trying to understand a system, or picking up a
 * Get better help from {% data variables.product.prodname_copilot_short %} by grounding it in relevant code and documentation.
 * Move faster without switching between tools or asking others for background information.
 
-To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces), and click **Create space**.
+To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text), and click **Create space**.
 
 Below are some examples of how to use {% data variables.copilot.copilot_spaces_short %} to help you with development work.
 

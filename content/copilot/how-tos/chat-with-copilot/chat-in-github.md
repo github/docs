@@ -59,7 +59,7 @@ Depending on the question you ask, and your enterprise and organization settings
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.copilot.copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
+When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.copilot.copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
 
 For example, asking {% prompt %}Generate a simple calculator using HTML, CSS, and JavaScript{% endprompt %} may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
 
@@ -142,7 +142,7 @@ You can attach an image to {% data variables.product.prodname_copilot_short %} a
 
 ### Attaching an image to your chat prompt
 
-1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
+1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. If you see the AI model picker at the top of the page, select one of the models that supports adding images to prompts:
 
    ![Screenshot of the model picker with the list of models expanded.](/assets/images/help/copilot/model-picker-copilot-immersive.png)
@@ -195,7 +195,7 @@ You can access {% data variables.product.prodname_copilot_short %}'s immersive v
 
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, this feature is only available to users without enterprise or team memberships.
 
-You can share {% data variables.copilot.copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
+You can share {% data variables.copilot.copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
 
 Once you share a conversation, the conversation and future messages will be visible to anyone with the link.
 

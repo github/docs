@@ -50,7 +50,7 @@ For this tutorial, we'll create a simple marketing tool app, where:
    ```
 
    > [!TIP]
-   > * Be specific, and provide as many details as possible for the best results. You can ask [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to refine or suggest improvements to your initial prompt.
+   > * Be specific, and provide as many details as possible for the best results. You can ask [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text) to refine or suggest improvements to your initial prompt.
    > * Alternatively, drop a markdown document into the input field to provide {% data variables.product.prodname_spark_short %} with more context on what you're hoping to build.
 
 1. Optionally, upload an image to provide {% data variables.product.prodname_spark_short %} with a visual reference for your app. Mocks, sketches, or screenshots all work to provide {% data variables.product.prodname_spark_short %} with an idea of what you want to build.
@@ -83,7 +83,7 @@ Next, let's change the styling of your app using {% data variables.product.prodn
 
      > [!TIP]
      > You can import custom fonts (like Google Fonts) or add advanced styles directly in the Spark code editor.
-     > Ask [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) for step-by-step guidance if you're not familiar with styling syntax.
+     > Ask [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text) for step-by-step guidance if you're not familiar with styling syntax.
 
 1. Click the **Assets** tab to upload assets you want to surface in your app.
    * Add images, logos, videos, documents or other assets to personalize your app.

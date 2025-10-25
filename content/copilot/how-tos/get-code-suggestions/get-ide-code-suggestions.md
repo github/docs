@@ -27,7 +27,7 @@ contentType: how-tos
         <span>Get started for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% vscode %}
-    <a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
+    <a href="vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
         <span>Open in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% endvscode %}
@@ -259,11 +259,11 @@ For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggest
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you need either limited access through {% data variables.copilot.copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. {% data reusables.copilot.subscription-prerequisite %}
 
-* **Sign in to {% data variables.product.github %} in {% data variables.product.prodname_vscode %}**. See [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode_shortname %} documentation..
+* **Sign in to {% data variables.product.github %} in {% data variables.product.prodname_vscode %}**. See [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vscode_shortname %} documentation..
 
-* **{% data variables.product.prodname_vscode %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
+* **{% data variables.product.prodname_vscode %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download?ref_product=copilot&ref_type=engagement&ref_style=text).
 
-* **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}**. When you set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} for the first time, the required extensions are installed automatically. You don't need to download or install them manually. For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode %} documentation.
+* **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}**. When you set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} for the first time, the required extensions are installed automatically. You don't need to download or install them manually. For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Getting code suggestions
 
