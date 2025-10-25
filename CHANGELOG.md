@@ -8,7 +8,7 @@ To support accomplishing tasks without context switching or sifting through unre
 
 <hr>
 
-**14 October 2025**
+**14 October 2025** 
 
 We've added a new tutorial about how to [Review AI-generated code](https://docs.github.com/en/copilot/tutorials/review-ai-generated-code). The article gives techniques to verify and validate AI-generated code, and also suggests how Copilot can help with reviews.
 
