@@ -5,7 +5,7 @@ description: Clone all remote translations so they're available
 inputs:
   token:
     description: PAT
-    required: true
+    required: true o
 
 runs:
   using: 'composite'
