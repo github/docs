@@ -15,7 +15,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghec: '*'
+  ghec: '*' 
 topics:
   - Profiles
 shortTitle: Personalize your profile
