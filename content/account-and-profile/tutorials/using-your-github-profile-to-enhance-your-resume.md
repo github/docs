@@ -110,3 +110,4 @@ Share your updated profile and get inspiration from others in our [Community dis
 ## Further reading
 
 * [AUTOTITLE](/copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability)
+ 
