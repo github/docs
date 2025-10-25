@@ -3,7 +3,7 @@ title: Tutorials for your GitHub account and profile
 shortTitle: Tutorials
 intro: Build skills and knowledge about your {% data variables.product.github %} account and profile through hands-on activities.
 versions:
-  fpt: '*'
+  fpt: '*' 
   ghes: '*'
   ghec: '*'
 topics:
