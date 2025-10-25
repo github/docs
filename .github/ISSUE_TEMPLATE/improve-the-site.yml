@@ -1,6 +1,6 @@
 name: Improve the docs.github.com site
 description: Make a suggestion or report a problem about the technical implementation of docs.github.com.
-labels:
+labels: 
   - content
 body:
   - type: markdown
