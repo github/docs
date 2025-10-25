@@ -3001,3 +3001,4 @@ vmem,{{ HOSTNAME }}.vmem.vmpage_number-zone_inactive_file
 vmem,{{ HOSTNAME }}.vmem.vmpage_number-zone_unevictable
 vmem,{{ HOSTNAME }}.vmem.vmpage_number-zone_write_pending
 vmem,{{ HOSTNAME }}.vmem.vmpage_number-zspages
+
