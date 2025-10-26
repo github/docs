@@ -1,11 +1,11 @@
 import { ExtendedRequestWithPageInfo } from '../types'
 import type { NextFunction, Response } from 'express'
 
-import { ExtendedRequest, Page } from '#src/types.js'
+import { ExtendedRequest, Page } from '@/types'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
-import getRedirect from '@/redirects/lib/get-redirect.js'
-import { getVersionStringFromPath, getLangFromPath } from '#src/frame/lib/path-utils.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+import getRedirect from '@/redirects/lib/get-redirect'
+import { getVersionStringFromPath, getLangFromPath } from '@/frame/lib/path-utils'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 
 // validates the path for pagelist endpoint
 // specifically, defaults to `/en/free-pro-team@latest` when those values are missing
@@ -83,7 +83,7 @@ export const pageValidationMiddleware = (
 
   const redirectsContext = { pages: req.context.pages, redirects: req.context.redirects }
 
-  // Similar to how the `handle-redirects.js` middleware works, let's first
+  // Similar to how the `handle-redirects.ts` middleware works, let's first
   // check if the URL is just having a trailing slash.
   while (pathname.endsWith('/') && pathname.length > 1) {
     pathname = pathname.slice(0, -1)

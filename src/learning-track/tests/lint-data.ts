@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest'
 
 import type { LearningTracks } from '@/types'
-import { loadPages, loadPageMap } from '@/frame/lib/page-data.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { checkURL } from '@/tests/helpers/check-url.js'
+import { loadPages, loadPageMap } from '@/frame/lib/page-data'
+import loadRedirects from '@/redirects/lib/precompile'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
+import { checkURL } from '@/tests/helpers/check-url'
 
 const pageList = await loadPages(undefined, ['en'])
 const pages = await loadPageMap(pageList)
@@ -68,7 +68,7 @@ describe('learning tracks', () => {
     }
     if (fixables) {
       errorMessage += `\nNOTE! To automatically fix the redirects run this command:\n`
-      errorMessage += `\n\t./src/links/scripts/update-internal-links.js data/learning-tracks/${topLevel}.yml\n`
+      errorMessage += `\n\t./src/links/scripts/update-internal-links.ts data/learning-tracks/${topLevel}.yml\n`
     }
     expect(troubles.length, errorMessage).toEqual(0)
   })

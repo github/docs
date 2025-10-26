@@ -50,7 +50,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 
 You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
 
-{% ifversion codeql-no-build %}Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% else %}Default setup runs the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all the necessary commands for {% data variables.code-scanning.compiled_languages %} analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% endif %}
+Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.
 
 ### Customizing default setup
 
@@ -78,11 +78,12 @@ Compiled languages are not automatically included in default setup configuration
 
    {% ifversion ghas-products %}
 
-   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
+   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup-ghas.png)
+   
 
    {% else %}
 
-   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup-ghas.png)
+   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
 
    {% endif %}
 

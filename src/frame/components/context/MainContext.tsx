@@ -1,8 +1,9 @@
 import { createContext, useContext } from 'react'
 import pick from 'lodash/pick'
 
-import type { BreadcrumbT } from 'src/frame/components/page-header/Breadcrumbs'
-import type { FeatureFlags } from 'src/frame/components/hooks/useFeatureFlags'
+import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
+import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
+import type { SidebarLink } from '@/types'
 
 export type ProductT = {
   external: boolean
@@ -21,7 +22,7 @@ export type VersionItem = {
   latestApiVersion: string
 }
 
-// This reflects what gets exported from `all-versions.js` in the
+// This reflects what gets exported from `all-versions.ts` in the
 // `allVersions` object.
 // It's necessary for TypeScript, but we don't need to write down
 // every possible key that might be present because we don't need it
@@ -54,6 +55,8 @@ export type ProductTreeNode = {
   title: string
   href: string
   childPages: Array<ProductTreeNode>
+  sidebarLink?: SidebarLink
+  layout?: string
 }
 
 type UIString = Record<string, string>
@@ -90,7 +93,7 @@ export type MainContextT = {
   breadcrumbs: {
     product: BreadcrumbT
     category?: BreadcrumbT
-    maptopic?: BreadcrumbT
+    subcategory?: BreadcrumbT
     article?: BreadcrumbT
   }
   communityRedirect: {
@@ -147,7 +150,6 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
-  'domain_edit',
   'cookbook_landing',
 ]
 

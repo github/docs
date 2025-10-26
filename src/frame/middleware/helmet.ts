@@ -1,8 +1,9 @@
+import { shouldUseAppRouter, isVersionedPath } from '@/app/lib/routing-patterns'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version'
+import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
+import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'
-import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import versionSatisfiesRange from '@/versions/lib/version-satisfies-range.js'
-import { languagePrefixPathRegex } from '@/languages/lib/languages.js'
 
 const isDev = process.env.NODE_ENV === 'development'
 const GITHUB_DOMAINS = [
@@ -80,15 +81,39 @@ devDirs.scriptSrcAttr.push("'unsafe-inline'")
 const STATIC_DEPRECATED_OPTIONS = structuredClone(DEFAULT_OPTIONS)
 STATIC_DEPRECATED_OPTIONS.contentSecurityPolicy.directives.scriptSrc.push("'unsafe-inline'")
 
+// App Router specific CSP that allows inline scripts for NextJS hydration
+const APP_ROUTER_OPTIONS = structuredClone(DEFAULT_OPTIONS)
+const appRouterDirs = APP_ROUTER_OPTIONS.contentSecurityPolicy.directives
+appRouterDirs.scriptSrc.push("'unsafe-inline'") // Required for NextJS App Router hydration
+
 const defaultHelmet = helmet(DEFAULT_OPTIONS)
 const nodeDeprecatedHelmet = helmet(NODE_DEPRECATED_OPTIONS)
 const staticDeprecatedHelmet = helmet(STATIC_DEPRECATED_OPTIONS)
 const developerDeprecatedHelmet = helmet(DEVELOPER_DEPRECATED_OPTIONS)
+const appRouterHelmet = helmet(APP_ROUTER_OPTIONS)
 
 export default function helmetMiddleware(req: Request, res: Response, next: NextFunction) {
   // Enable CORS
   if (['GET', 'OPTIONS'].includes(req.method)) {
     res.set('access-control-allow-origin', '*')
+  }
+
+  // Check if this is an explicit App Router route
+  if (shouldUseAppRouter(req.path, true)) {
+    return appRouterHelmet(req, res, next)
+  }
+
+  // For potential 404s that might be handled by App Router, use App Router CSP
+  // This is a safe fallback since App Router CSP includes all necessary permissions
+  // Apply to any path that could potentially be a 404, regardless of locale prefix
+  if (
+    !req.path.startsWith('/_next/') &&
+    !req.path.startsWith('/assets/') &&
+    !req.path.startsWith('/api/') &&
+    !isVersionedPath(req.path)
+  ) {
+    // This might be a 404 that gets routed to App Router, so use App Router CSP
+    return appRouterHelmet(req, res, next)
   }
 
   // Determine version for exceptions

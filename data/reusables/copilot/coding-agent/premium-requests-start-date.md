@@ -1,1 +1,0 @@
->[!NOTE] Starting June 4th, 2025, {% data variables.copilot.copilot_coding_agent %} will use one premium request per model request the agent makes. This is a preview feature and may be changed in the future.

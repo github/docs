@@ -1,0 +1,7 @@
+# Reference: #18409
+# Documentation for the immutable releases public preview
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.18'

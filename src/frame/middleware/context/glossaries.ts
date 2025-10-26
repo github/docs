@@ -1,10 +1,10 @@
 import type { Response, NextFunction } from 'express'
 
 import type { Context, ExtendedRequest, Glossary } from '@/types'
-import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { liquid } from '@/content-render/index.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
-import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content.js'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { liquid } from '@/content-render/index'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
+import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'
 
 export default async function glossaries(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.pagePath) throw new Error('request is not contextualized')
@@ -39,7 +39,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   // injected there it needs to have its own possible Liquid rendered out.
   const glossariesRaw: Glossary[] = getDataByLanguage(
     'glossaries.external',
-    req.context.currentLanguage,
+    req.context.currentLanguage!,
   )
   const glossaries = (
     await Promise.all(
@@ -60,7 +60,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
           )
         }
         description = await executeWithFallback(
-          req.context,
+          req.context!,
           () => liquid.parseAndRender(description, req.context),
           (enContext: Context) => {
             const { term } = glossary

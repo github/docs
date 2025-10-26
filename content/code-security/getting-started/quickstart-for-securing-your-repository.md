@@ -60,7 +60,7 @@ For more information, see [AUTOTITLE](/code-security/supply-chain-security/under
 {% data reusables.dependabot.quickstart-link %}
 
 {% ifversion fpt or ghec %}
-1. Click your profile photo, then click **Settings**.
+1. Click your profile picture, then click **Settings**.
 1. Click **{% data variables.product.UI_advanced_security %}**.
 1. Click **Enable** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}
@@ -77,7 +77,7 @@ Dependency review lets you visualize dependency changes in pull requests before 
 
 Dependency review is a {% data variables.product.prodname_GH_code_security %} feature. {% ifversion fpt or ghec %}Dependency review is enabled for all repositories with the dependency graph enabled. Organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} can additionally enable dependency review for private and internal repositories.{% endif %}
 
-To enable dependency review for a repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_code_security %}.
+To enable dependency review for a repository, ensure that the dependency graph is enabled.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 1. Click **{% data variables.product.UI_advanced_security %}**.{% ifversion fpt or ghec %}
@@ -112,11 +112,13 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 ## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_code_security %}{% else %}{% data variables.product.prodname_code_scanning %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 > [!NOTE]
 > {% data variables.product.prodname_code_security %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %}.
+
 {% endif %}
 
-{% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.product.prodname_copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
+{% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.copilot.copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.github %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
@@ -126,15 +128,17 @@ You can configure {% data variables.product.prodname_code_scanning %} to automat
 1. To the right of "CodeQL analysis", select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.{% else %}
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click **Default**.{% endif %}
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.{% ifversion code-scanning-autofix %}
-1. Choose whether you want to enable addition features, such as {% data variables.product.prodname_copilot_autofix_short %}.{% endif %}
+1. Choose whether you want to enable addition features, such as {% data variables.copilot.copilot_autofix_short %}.{% endif %}
 
 As an alternative to default setup, you can use advanced setup, which generates a workflow file you can edit to customize your {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
 ## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_secret_protection %}{% else %}{% data variables.product.prodname_secret_scanning %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 > [!NOTE]
 > {% data variables.product.prodname_secret_protection %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_secret_protection %} or {% data variables.product.prodname_GHAS %}.
+
 {% endif %}
 
 {% ifversion ghas-products %}{% data variables.product.prodname_GH_secret_protection %} includes {% data variables.product.prodname_secret_scanning %} and push protection, as well as other features that help you detect and prevent secret leaks in your repository.{% endif %}

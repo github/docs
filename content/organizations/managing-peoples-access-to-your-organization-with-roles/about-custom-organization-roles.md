@@ -6,7 +6,6 @@ versions:
 topics:
   - Organizations
 shortTitle: Custom organization roles
-permissions: 'Organization owners and users with the "Manage custom organization roles" permission'
 product: 'Organizations on {% data variables.product.prodname_ghe_cloud %}{% ifversion ghes %} and {% data variables.product.prodname_ghe_server %}{% endif %}'
 ---
 
@@ -64,6 +63,9 @@ Manage organization OAuth app policies | Access to the "OAuth app policy" settin
 |  {% endif %} |
 |  {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection) |
+|  {% endif %} |
+| {% ifversion secret-scanning-alert-dismiss-custom-role %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests | Review and manage {% data variables.product.prodname_secret_scanning %} alert dismissal requests for your organization. | [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/enabling-delegated-alert-dismissal-for-secret-scanning) |
 |  {% endif %} |
 
 {% endrowheaders %}

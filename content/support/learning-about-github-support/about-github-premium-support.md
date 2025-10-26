@@ -111,7 +111,16 @@ During the initial response time for Urgent priority tickets, you can expect us 
 * The paged Support Engineer or CRE assigns and carefully reviews your ticket. The goal is to understand the issue, start troubleshooting, and identify next steps.
 * In the initial response, the assigned Support Engineer or CRE will acknowledge ticket receipt and assignment as well as provide next steps to clarify and troubleshoot the situation. To assist with resolving your issue, the Support Engineer or CRE may ask for additional information such as screenshots, error messages, log files, diagnostics files, support bundles, or the output of specific console commands.
 * Depending on the issue, the assigned Support Engineer or CRE may collaborate with others in Support, Engineering, or the regional incident commander.
-* If a callback was requested upon opening the Urgent ticket, the assigned Support Engineer or CRE will determine if, at the current time, screen sharing is the most efficient way of driving the ticket towards resolution. If so, they will extend an offer to you to join a screen sharing session.
+
+## About Callback Requests
+
+Callback requests should only be used when a live discussion is essential to resolving the issue.
+
+When requested, the assigned Support Engineer or CRE will determine whether a phone call or Zoom/Teams meeting with screen sharing is the most efficient way to move the ticket forward.
+
+Callback requests are not tied to SLAs; a Support Engineer or representative will respond as soon as possible based on ticket priority and availability.
+
+To ensure the fastest and most effective resolution, our live support calls focus on gathering essential information and aligning expectations. Once these goals are met, our Support Engineers step away to concentrate on resolving your issue as quickly as possible—keeping time and the outcomes our highest priority within the support process.
 
 {% data reusables.enterprise_enterprise_support.installing-releases %}
 

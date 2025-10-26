@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs'
-import type { Rule, Config } from '../types.ts'
-import { allRules, allConfig } from '../lib/helpers/get-rules.js'
+import type { Rule, Config } from '../types'
+import { allRules, allConfig } from '../lib/helpers/get-rules'
 
 main()
 
@@ -14,11 +14,17 @@ function main() {
   markdown.push('| Rule ID | Rule Name(s) | Description | Severity | Tags |')
   markdown.push('| ------- | ------------ | ----------- | -------- | ---- |')
 
+  // Collect all rules and their generated rows
+  const mdRules: Array<{ ruleId: string; row: string }> = []
+  const ghRules: Array<{ ruleId: string; row: string }> = []
+  const ghdRules: Array<{ ruleId: string; row: string }> = []
+  const searchReplaceRows: string[] = []
+
   for (const rule of allRules as Rule[]) {
     const ruleName = rule.names.find((name) => name in allConfig)
     if (!ruleName) continue
     if (rule.names.includes('search-replace')) {
-      markdown.push(...getSearchReplaceRules(rule, allConfig[ruleName]))
+      searchReplaceRows.push(...getSearchReplaceRules(rule, allConfig[ruleName]))
       continue
     }
     const row = []
@@ -28,8 +34,35 @@ function main() {
     row.push(rule.description)
     row.push(allConfig[ruleName].severity)
     row.push(rule.tags.join(', '))
-    markdown.push(`| ${row.join(' | ')} |`)
+
+    // Categorize rules by their ID prefix
+    const ruleData = { ruleId: rule.names[0], row: `| ${row.join(' | ')} |` }
+    if (rule.names[0].startsWith('GHD')) {
+      ghdRules.push(ruleData)
+    } else if (rule.names[0].startsWith('GH')) {
+      ghRules.push(ruleData)
+    } else {
+      mdRules.push(ruleData)
+    }
   }
+
+  // Sort each category alphabetically by rule ID
+  mdRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
+  ghRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
+  ghdRules.sort((a, b) => a.ruleId.localeCompare(b.ruleId))
+
+  // Add rules in order: MD rules, then GH rules, then GHD rules, then search-replace rules
+  for (const { row } of mdRules) {
+    markdown.push(row)
+  }
+  for (const { row } of ghRules) {
+    markdown.push(row)
+  }
+  for (const { row } of ghdRules) {
+    markdown.push(row)
+  }
+  markdown.push(...searchReplaceRows)
+
   writeFileSync('data/reusables/contributing/content-linter-rules.md', markdown.join('\n'))
 }
 
@@ -38,7 +71,11 @@ function main() {
 function getSearchReplaceRules(srRule: Rule, ruleConfig: Config) {
   const name = srRule.information ? `[search-replace](${srRule.information})` : 'search-replace'
   const markdown = []
-  for (const rule of ruleConfig.rules || []) {
+
+  // Sort rules alphabetically by name
+  const sortedRules = [...(ruleConfig.rules || [])].sort((a, b) => a.name.localeCompare(b.name))
+
+  for (const rule of sortedRules) {
     const row = []
     row.push(name)
     row.push(rule.name)

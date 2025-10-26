@@ -21,13 +21,13 @@ permissions:
 
 jobs:
   test-changed-content:
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -51,4 +51,4 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
           DELETED_FILES: ${{ steps.changed_files.outputs.filtered_deleted_files }}
-        run: npm test -- src/content-render/tests/render-changed-and-deleted-files.js
+        run: npm test -- src/content-render/tests/render-changed-and-deleted-files.ts

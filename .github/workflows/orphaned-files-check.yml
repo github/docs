@@ -14,10 +14,10 @@ on:
       - .github/workflows/orphaned-files-check.yml
       # In case any of the dependencies affect the script
       - 'package*.json'
-      - src/assets/scripts/find-orphaned-assets.js
+      - src/assets/scripts/find-orphaned-assets.ts
       - src/content-render/scripts/reusables-cli/find/unused.ts
       - src/workflows/walk-files.ts
-      - src/languages/lib/languages.js
+      - src/languages/lib/languages.ts
       - .github/actions/clone-translations/action.yml
       - .github/actions/node-npm-setup/action.yml
 
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout English repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
@@ -105,7 +105,7 @@ jobs:
             --title "Delete orphaned files ($date)" \
             --body "$body" \
             --repo github/docs-internal \
-            --label docs-content-fr
+            --label docs-content-fr,workflow-generated
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}

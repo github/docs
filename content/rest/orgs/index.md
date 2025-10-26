@@ -16,6 +16,8 @@ topics:
   - API
 children:
   - /api-insights
+  - /artifact-metadata
+  - /attestations
   - /blocking
   - /bypass-requests
   - /custom-properties

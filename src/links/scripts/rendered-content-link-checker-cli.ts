@@ -9,9 +9,9 @@ import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
 import renderedContentLinkChecker from './rendered-content-link-checker'
-import { getCoreInject, getUploadArtifactInject } from '@/links/scripts/action-injections.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
-import github from '@/workflows/github.js'
+import { getCoreInject, getUploadArtifactInject } from '@/links/scripts/action-injections'
+import { allVersions } from '@/versions/lib/all-versions'
+import github from '@/workflows/github'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),

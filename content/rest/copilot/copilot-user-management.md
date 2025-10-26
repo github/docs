@@ -1,7 +1,7 @@
 ---
 title: REST API endpoints for Copilot user management
 shortTitle: Copilot user management
-intro: 'Use the REST API to manage the {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription for your organization.'
+intro: 'Use the REST API to manage the {% data variables.copilot.copilot_for_business %}{% ifversion ghec %} or {% data variables.copilot.copilot_enterprise %}{% endif %} subscription for your organization.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

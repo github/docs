@@ -3,10 +3,10 @@ import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
-import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
+import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
 import { RestAuth } from './RestAuth'
@@ -102,8 +102,10 @@ export function RestOperation({ operation }: Props) {
           )}
         </div>
         <div
-          className="col-md-12 col-lg-6 position-sticky flex-self-start"
-          style={{ top: '6.5em' }}
+          className={cx(
+            'col-md-12 col-lg-6 position-sticky flex-self-start',
+            styles.stickyCodeColumn,
+          )}
         >
           {hasCodeSamples && (
             <RestCodeSamples

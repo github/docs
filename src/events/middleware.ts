@@ -6,13 +6,13 @@ import { ErrorObject } from 'ajv'
 import type { ExtendedRequest } from '@/types'
 import type { Response } from 'express'
 
-import { schemas, hydroNames } from './lib/schema.js'
-import catchMiddlewareError from 'src/observability/middleware/catch-middleware-error'
-import { noCacheControl } from 'src/frame/middleware/cache-control'
-import { getJsonValidator } from 'src/tests/lib/validate-json-schema'
-import { formatErrors } from './lib/middleware-errors.js'
-import { publish as _publish } from './lib/hydro.js'
-import { analyzeComment, getGuessedLanguage } from './lib/analyze-comment.js'
+import { schemas, hydroNames } from './lib/schema'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
+import { noCacheControl } from '@/frame/middleware/cache-control'
+import { getJsonValidator } from '@/tests/lib/validate-json-schema'
+import { formatErrors } from './lib/middleware-errors'
+import { publish as _publish } from './lib/hydro'
+import { analyzeComment, getGuessedLanguage } from './lib/analyze-comment'
 import { EventType, EventProps, EventPropsByType } from './types'
 
 const router = express.Router()
@@ -78,6 +78,10 @@ router.post(
           // JSON.stringify removes `undefined` values but not `null`, and we don't want to send `null` to Hydro
           body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
           body.context.is_staff = Boolean(req.cookies?.staffonly)
+          // Add IP address and user agent from request
+          // Moda forwards the client's IP using the `fastly-client-ip` header
+          body.context.ip = req.headers['fastly-client-ip'] as string | undefined
+          body.context.user_agent ??= req.headers['user-agent']
         }
         const validate = validators[type]
         if (!validate(body)) {

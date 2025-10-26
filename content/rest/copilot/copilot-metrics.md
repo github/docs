@@ -1,7 +1,7 @@
 ---
 title: REST API endpoints for Copilot metrics
 shortTitle: Copilot metrics
-intro: Use the REST API to view Copilot metrics.
+intro: Use the REST API to view {% data variables.product.prodname_copilot_short %} metrics.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
@@ -15,7 +15,7 @@ redirect_from:
 
 You can use these endpoints to get a breakdown of aggregated metrics for various {% data variables.product.prodname_copilot %} features. The API includes:
 
-* Data for the last 28 days
+* Data for the last 100 days
 * Numbers of active users and engaged users
 * Breakdowns by language and IDE
 * The option to view metrics for an enterprise, organization, or team

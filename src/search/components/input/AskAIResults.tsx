@@ -7,8 +7,8 @@ import { ActionList, IconButton, Spinner } from '@primer/react'
 import {
   CheckIcon,
   CopilotIcon,
-  CopyIcon,
   FileIcon,
+  ShareIcon,
   ThumbsdownIcon,
   ThumbsupIcon,
 } from '@primer/octicons-react'
@@ -85,7 +85,14 @@ export function AskAIResults({
   }>('ai-query-cache', 1000, 7)
   const { isOpen: isCTAOpen, permanentDismiss: permanentlyDismissCTA } = useCTAPopoverContext()
 
-  const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
+  let copyUrl = ``
+  if (window?.location?.href) {
+    // Get base path from current URL
+    const url = new URL(window.location.href)
+    copyUrl = `${url.origin}/?search-overlay-open=true&search-overlay-ask-ai=true&search-overlay-input=${encodeURIComponent(query)}`
+  }
+
+  const [isCopied, setCopied] = useClipboard(copyUrl, { successDuration: 1399 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
 
   const [conversationId, setConversationId] = useState<string>('')
@@ -373,56 +380,7 @@ export function AskAIResults({
   }, [query])
 
   return (
-    <div className={styles.container}>
-      {!aiCouldNotAnswer && references && references.length > 0 ? (
-        <>
-          <ActionList className={styles.referencesList} showDividers>
-            <ActionList.Group>
-              <ActionList.GroupHeading
-                as="h3"
-                aria-label={t('search.ai.references')}
-                className={styles.referencesTitle}
-              >
-                {t('search.ai.references')}
-              </ActionList.GroupHeading>
-              {references
-                .map((source, index) => {
-                  if (index >= MAX_REFERENCES_TO_SHOW) {
-                    return null
-                  }
-                  const refIndex = index + referencesIndexOffset
-                  return (
-                    <ActionList.Item
-                      sx={{
-                        marginLeft: '0px',
-                      }}
-                      key={`reference-${index}`}
-                      id={`search-option-reference-${index + referencesIndexOffset}`}
-                      role="option"
-                      tabIndex={-1}
-                      onSelect={() => {
-                        referenceOnSelect(source.url)
-                      }}
-                      active={refIndex === selectedIndex}
-                      ref={(element) => {
-                        if (listElementsRef.current) {
-                          listElementsRef.current[refIndex] = element
-                        }
-                      }}
-                    >
-                      <ActionList.LeadingVisual aria-hidden="true">
-                        <FileIcon />
-                      </ActionList.LeadingVisual>
-                      {source.title}
-                    </ActionList.Item>
-                  )
-                })
-                .filter(Boolean)}
-            </ActionList.Group>
-            <ActionList.Divider aria-hidden="true" />
-          </ActionList>
-        </>
-      ) : null}
+    <div id="ask-ai-result-container" role="region" className={styles.container}>
       <ActionList.GroupHeading
         key="ai-heading"
         as="h3"
@@ -459,7 +417,7 @@ export function AskAIResults({
             className={'btn-octicon'}
             aria-label={t('ai.thumbs_up')}
             sx={{
-              border: 'none',
+              border: feedbackSelected === 'up' ? '1px solid var(--color-btn-text)' : 'none',
               backgroundColor: feedbackSelected === 'up' ? '' : 'unset',
               boxShadow: 'unset',
               color: feedbackSelected === 'up' ? 'var(--fgColor-accent) !important;' : '',
@@ -481,7 +439,7 @@ export function AskAIResults({
             className={'btn-octicon'}
             aria-label={t('ai.thumbs_down')}
             sx={{
-              border: 'none',
+              border: feedbackSelected === 'down' ? '1px solid var(--color-btn-text)' : 'none',
               backgroundColor: feedbackSelected === 'down' ? '' : 'unset',
               boxShadow: 'unset',
               color: feedbackSelected === 'down' ? 'var(--fgColor-accent) !important;' : '',
@@ -505,21 +463,67 @@ export function AskAIResults({
               boxShadow: 'unset',
               color: isCopied ? 'var(--fgColor-accent) !important;' : '',
             }}
-            icon={isCopied ? CheckIcon : CopyIcon}
+            icon={isCopied ? CheckIcon : ShareIcon}
             className="btn-octicon"
-            aria-label={t('ai.copy_answer')}
+            aria-label={
+              isCopied ? t('search.ai.share_copied_announcement') : t('search.ai.share_answer')
+            }
             onClick={() => {
               setCopied()
-              announce(t('ai.copied_announcement'))
+              announce(t('search.ai.share_copied_announcement'))
               sendEvent({
                 type: EventType.clipboard,
-                clipboard_operation: 'copy',
+                clipboard_operation: 'share',
                 eventGroupKey: ASK_AI_EVENT_GROUP,
                 eventGroupId: askAIEventGroupId.current,
               })
             }}
           ></IconButton>
         </div>
+      ) : null}
+      {!aiCouldNotAnswer && !responseLoading && references && references.length > 0 ? (
+        <>
+          <ActionList className={styles.referencesList} showDividers>
+            <ActionList.Group data-testid="ai-references">
+              <ActionList.GroupHeading
+                as="h3"
+                aria-label={t('search.ai.references')}
+                className={styles.referencesTitle}
+              >
+                {t('search.ai.references')}
+              </ActionList.GroupHeading>
+              {references
+                .map((source, index) => {
+                  if (index >= MAX_REFERENCES_TO_SHOW) {
+                    return null
+                  }
+                  const refIndex = index + referencesIndexOffset
+                  return (
+                    <ActionList.Item
+                      key={`reference-${index}`}
+                      id={`search-option-reference-${index + referencesIndexOffset}`}
+                      tabIndex={-1}
+                      onSelect={() => {
+                        referenceOnSelect(source.url)
+                      }}
+                      active={refIndex === selectedIndex}
+                      ref={(element) => {
+                        if (listElementsRef.current) {
+                          listElementsRef.current[refIndex] = element
+                        }
+                      }}
+                    >
+                      <ActionList.LeadingVisual aria-hidden="true">
+                        <FileIcon />
+                      </ActionList.LeadingVisual>
+                      {source.title}
+                    </ActionList.Item>
+                  )
+                })
+                .filter(Boolean)}
+            </ActionList.Group>
+          </ActionList>
+        </>
       ) : null}
       <div
         aria-live="assertive"

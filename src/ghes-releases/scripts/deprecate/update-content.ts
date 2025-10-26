@@ -3,10 +3,10 @@ import path from 'path'
 import yaml from 'js-yaml'
 import walkFiles from 'walk-sync'
 
-import frontmatter from '#src/frame/lib/read-frontmatter.js'
-import { supported, deprecated } from '#src/versions/lib/enterprise-server-releases.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import { supported, deprecated } from '@/versions/lib/enterprise-server-releases'
 import { isInAllGhes } from '../version-utils'
-import { Versions } from '#src/types.js'
+import { Versions } from '@/types'
 
 type featureDataType = Versions | undefined
 
@@ -58,7 +58,7 @@ export function updateContentFiles() {
       // To preserve newlines when stringifying,
       // you can set the lineWidth option to -1
       // This prevents updates to the file that aren't actual changes.
-      fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+      fs.writeFileSync(file, frontmatter.stringify(content!, data, { lineWidth: -1 } as any))
       continue
     }
     if (featureAppliesToAllVersions) {
@@ -71,7 +71,7 @@ export function updateContentFiles() {
       // To preserve newlines when stringifying,
       // you can set the lineWidth option to -1
       // This prevents updates to the file that aren't actual changes.
-      fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+      fs.writeFileSync(file, frontmatter.stringify(content!, data, { lineWidth: -1 } as any))
       continue
     }
 
@@ -94,7 +94,7 @@ export function updateContentFiles() {
         // Remove the ghes property from versions Fm and return
         delete data.versions.ghes
         console.log('Removing GHES version from: ', file)
-        fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+        fs.writeFileSync(file, frontmatter.stringify(content!, data, { lineWidth: -1 } as any))
       }
     }
   }

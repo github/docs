@@ -33,20 +33,14 @@ For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-acco
 
 ## Prerequisites
 
-{% ifversion scim-for-ghes-public-beta %}
 The general prerequisites for using SCIM on {% data variables.product.prodname_ghe_server %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
 
 In addition:
 
 * To configure SCIM, you must have completed **steps 1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from Entra ID.
-{% else %}
-* {% data reusables.saml.ghes-you-must-configure-saml-sso %}
-* {% data reusables.saml.create-a-machine-user %}
-{% endif %}
-* To configure authentication and user provisioning using Entra ID, you must have an Entra ID account and tenant. For more information, see the [Entra ID website](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) and [Quickstart: Set up a tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant) in the Microsoft Docs.
 
-{% ifversion scim-for-ghes-public-beta %}
+* To configure authentication and user provisioning using Entra ID, you must have an Entra ID account and tenant. For more information, see the [Entra ID website](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id) and [Quickstart: Set up a tenant](https://learn.microsoft.com/entra/identity-platform/quickstart-create-new-tenant) in the Microsoft Docs.
 
 ## 1. Configure SAML
 
@@ -90,20 +84,3 @@ Before starting this section, ensure you have followed steps **1 to 4** in [AUTO
 1. To provision your EntraID users to your {% data variables.product.prodname_ghe_server %} appliance, Click **Start provisioning**.
 
 When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
-
-{% else %}
-
-## Configuring authentication and user provisioning with Entra ID
-
-1. Configure SAML SSO for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
-1. Configure user provisioning with SCIM for your instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
-
-## Managing enterprise owners
-
-The steps to make a person an enterprise owner depend on whether you only use SAML or also use SCIM. For more information about enterprise owners, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
-
-If you configured provisioning, to grant the user enterprise ownership in {% data variables.product.github %}, assign the enterprise owner role to the user in Entra ID.
-
-If you did not configure provisioning, to grant the user enterprise ownership in {% data variables.product.github %}, include the `administrator` attribute in the SAML assertion for the user account on the IdP, with the value of `true`. For more information about including the `administrator` attribute in the SAML claim from Entra ID, see [How to: customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization) in the Microsoft Docs.
-
-{% endif %}

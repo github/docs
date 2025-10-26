@@ -62,6 +62,7 @@ If you select **Must match a given regex pattern restriction**, you can use regu
 You can grant certain roles, teams, or apps bypass permissions as well as the ability to approve bypass requests for your ruleset.
 
 The following are eligible for bypass access:
+* Enterprise teams, enterprise apps, and enterprise roles ({% data variables.release-phases.public_preview %})
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys.
 
@@ -118,6 +119,7 @@ You can create a push ruleset for private or internal repositories in your enter
 
 You can grant certain roles, teams, or apps bypass permissions as well as the ability to approve bypass requests for your ruleset. The following are eligible for bypass access:
 
+* Enterprise teams, enterprise apps, and enterprise roles ({% data variables.release-phases.public_preview %})
 * Repository admins, organization owners, and enterprise owners
 * The maintain or write role, or deploy keys
 

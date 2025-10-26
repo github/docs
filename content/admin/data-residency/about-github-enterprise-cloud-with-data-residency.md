@@ -16,7 +16,7 @@ By default, {% data variables.product.company_short %} stores data for {% data v
 
 You can **get started with data residency** by setting up a trial of {% data variables.product.prodname_ghe_cloud %}.
 
-<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=about+ghec+with+data+residency&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ## What is {% data variables.product.prodname_ghe_cloud %}?
 
@@ -92,7 +92,7 @@ Rate limits apply for requests to the REST API. See [AUTOTITLE](/rest/overview/r
 
 ### {% data variables.product.prodname_copilot %}
 
-Your developers can access {% data variables.product.prodname_copilot %} if you grant them access to a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription. {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.product.prodname_copilot_individuals_short %}.
+Your developers can access {% data variables.product.prodname_copilot %} if you grant them access to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription. {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.copilot.copilot_individuals_short %}.
 
 * Users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 * Certain {% data variables.product.prodname_copilot %} features are currently unavailable on {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).

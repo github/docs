@@ -1,12 +1,13 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Arbitrary file access during archive extraction ("Zip Slip")](https://codeql.github.com/codeql-query-help/go/go-zipslip/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Arbitrary file write extracting an archive containing symbolic links](https://codeql.github.com/codeql-query-help/go/go-unsafe-unzip-symlink/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Bad redirect check](https://codeql.github.com/codeql-query-help/go/go-bad-redirect-check/) | 601 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Clear-text logging of sensitive information](https://codeql.github.com/codeql-query-help/go/go-clear-text-logging/) | 312, 315, 359 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Command built from user-controlled sources](https://codeql.github.com/codeql-query-help/go/go-command-injection/) | 078 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
+| [Cross-site scripting via HTML template escaping bypass](https://codeql.github.com/codeql-query-help/go/go-html-template-escaping-bypass-xss/) | 079, 116 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Database query built from user-controlled sources](https://codeql.github.com/codeql-query-help/go/go-sql-injection/) | 089 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Disabled TLS certificate check](https://codeql.github.com/codeql-query-help/go/go-disabled-certificate-check/) | 295 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Email content injection](https://codeql.github.com/codeql-query-help/go/go-email-injection/) | 640 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -30,7 +31,6 @@
 | [Use of insecure HostKeyCallback implementation](https://codeql.github.com/codeql-query-help/go/go-insecure-hostkeycallback/) | 322 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of insufficient randomness as the key of a cryptographic algorithm](https://codeql.github.com/codeql-query-help/go/go-insecure-randomness/) | 338 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XPath injection](https://codeql.github.com/codeql-query-help/go/go-xml-xpath-injection/) | 643 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/go/go-hardcoded-credentials/) | 259, 321, 798 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Log entries created from user input](https://codeql.github.com/codeql-query-help/go/go-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}

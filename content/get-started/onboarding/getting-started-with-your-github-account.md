@@ -52,7 +52,7 @@ The administrator of your {% data variables.product.prodname_ghe_server %} insta
 
 Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. We strongly urge you to configure 2FA for the safety of your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication).
 
-{% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).{% endif %}
+Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).
 
 ### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% endif %} Viewing your {% data variables.product.github %} profile and contribution graph
 

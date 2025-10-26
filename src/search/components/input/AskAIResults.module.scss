@@ -30,6 +30,7 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   ul,
   ol {
     list-style-type: decimal !important;
+    padding-inline-start: 2em !important;
   }
 }
 
@@ -39,7 +40,7 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 }
 
 .referencesList {
-  padding-left: 16px !important;
+  margin-top: 12px !important;
 }
 
 .loadingContainer {

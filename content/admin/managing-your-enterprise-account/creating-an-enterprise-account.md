@@ -15,14 +15,14 @@ redirect_from:
   - /admin/overview/creating-an-enterprise-account
 ---
 
-<!-- expires 2025-06-30 -->
+<!-- expires 2026-01-30 -->
 
 <!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed -->
 <!-- If the content is no longer needed, delete this entire article and all links to it. -->
 
 {% data reusables.enterprise.single-organizations-enterprise-migration %}
 
-<!-- end expires 2025-06-30 -->
+<!-- end expires 2026-01-30 -->
 
 ## When should I create an enterprise account?
 
@@ -38,7 +38,7 @@ You'll **need help** creating an enterprise account if you require:
 * {% data variables.product.prodname_ghe_server %}
 * {% data variables.enterprise.data_residency %}
 * Invoicing
-* A dedicated enterprise for managing {% data variables.product.prodname_copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
+* A dedicated enterprise for managing {% data variables.copilot.copilot_for_business %} licenses without adopting {% data variables.product.prodname_enterprise %}
 
 In these cases, contact {% data variables.contact.contact_enterprise_sales %}.
 

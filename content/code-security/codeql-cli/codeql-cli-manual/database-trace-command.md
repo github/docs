@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/database-trace-command
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -99,7 +102,7 @@ configuration files that should work in most situations.
 In addition to the specified command, run the main script for extractors
 that don't depend on tracing a build process. If you're constructing
 databases for several languages with `--db-cluster`, this option should
-be given to exactly one invocation of [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command).
+be given to exactly one invocation of codeql database trace-command.
 
 #### `--[no-]use-build-mode`
 
@@ -144,7 +147,7 @@ given via `--extractor-options-file`.
 When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
-[codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command) then the options also need to be passed there if desired.
+codeql database trace-command then the options also need to be passed there if desired.
 
 See <https://codeql.github.com/docs/codeql-cli/extractor-options> for
 more information on CodeQL extractor options, including how to list the
@@ -170,7 +173,7 @@ given via `--extractor-option`.
 When passed to [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init) or `codeql database begin-tracing`, the options will only be
 applied to the indirect tracing environment. If your workflow also makes
 calls to
-[codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command) then the options also need to be passed there if desired.
+codeql database trace-command then the options also need to be passed there if desired.
 
 See <https://codeql.github.com/docs/codeql-cli/extractor-options> for
 more information on CodeQL extractor options, including how to list the

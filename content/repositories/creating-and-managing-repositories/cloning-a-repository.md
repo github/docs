@@ -103,7 +103,7 @@ When cloning a repository it's possible that you might encounter some errors.
 If you're unable to clone a repository, check that:
 
 * You can connect using HTTPS. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors).
-* You have permission to access the repository you want to clone. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors).
+* You have permission to access the repository you want to clone. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#check-your-permissions).
 * The default branch you want to clone still exists. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout).
 
 {% ifversion fpt or ghec %}

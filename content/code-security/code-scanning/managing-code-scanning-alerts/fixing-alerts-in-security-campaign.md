@@ -20,8 +20,8 @@ topics:
 When a campaign targets security alerts in a repository that you have write access to, you can navigate to the list of repository alerts in the campaign.
 
 * Display the **Security** tab for the repository and click one of the campaigns under "Campaigns" in the sidebar.
-* If you have enabled email notifications for "All activity" or "Security alerts" in the repository, click **View security campaign** in the campaign email.
 * If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under "Campaigns" in the sidebar.
+* Alternatively, click **View security campaign** in the campaign's email notification.
 
 This view shows the alerts in the current repository for a campaign called "SQL injection (CWE-89)" (highlighted gray) that is managed by "octocat" (outlined in dark orange).
 
@@ -47,9 +47,9 @@ If you want to see the code that triggered the security alert and the suggested 
 
 {% ifversion copilot %}
 
-## Using {% data variables.product.prodname_copilot_chat %} for secure coding
+## Using {% data variables.copilot.copilot_chat %} for secure coding
 
-If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
+If you have access to {% data variables.copilot.copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}

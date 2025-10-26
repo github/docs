@@ -1,4 +1,4 @@
-name: Sync CodeQl CLI
+name: Sync CodeQL CLI
 
 # **What it does**: This workflow is run manually approximately every two weeks.
 #   When run, this workflow syncs the CodeQL CLI automated pipeline with the semmle-code
@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout semmle-code repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -108,7 +108,7 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review"
+            --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review,workflow-generated"
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

@@ -1,7 +1,7 @@
 ---
-title: Best practices for participating in a security campaign
+title: Best practices for participating in a code security campaign
 shortTitle: Best practices for campaigns
-intro: 'Learn how you can successfully take part in a security campaign and how it can benefit your career as well as your code.'
+intro: 'Learn how you can successfully take part in a security campaign for {% data variables.product.prodname_code_scanning %} alerts and how it can benefit your career as well as your code.'
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
@@ -15,9 +15,9 @@ topics:
   - Repositories
 ---
 
-## What is a security campaign
+## What is a code security campaign
 
-A security campaign is a group of security alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation.
+A security campaign is a group of {% data variables.product.prodname_code_scanning %} alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation.
 
 You can take part in a security campaign by fixing one or more of the alerts included in the campaign.
 
@@ -28,8 +28,8 @@ In addition to the benefit of removing an important security problem from your o
 * You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
 * Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
-* You don't need to request a {% data variables.product.prodname_copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
-* If you have access to {% data variables.product.prodname_copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
+* You don't need to request a {% data variables.copilot.copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
+* If you have access to {% data variables.copilot.copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
 * You are improving and demonstrating your knowledge of secure coding.
 
 Adopting a few key best practices can help you participate successfully in a campaign.
@@ -38,10 +38,9 @@ Adopting a few key best practices can help you participate successfully in a cam
 
 ### Notification settings
 
-To receive email updates about security campaigns in repositories you have write access to, make sure that you:
+You'll automatically receive email updates about security campaigns for any repositories you have **write** access to, so you can stay informed about relevant updates.
 
-* **Watch** all repositories that you have write access to.
-* **Subscribe** to notifications for "All activity" or "Security alerts".
+{% data reusables.security.alert-assignee-mention %}
 
 ### View campaign details
 
@@ -82,17 +81,17 @@ When fixing security alerts as part of a campaign, it may be helpful to group an
 
 {% ifversion code-scanning-autofix %}
 
-### {% data variables.product.prodname_copilot_autofix_short %}
+### {% data variables.copilot.copilot_autofix_short %}
 
-{% data variables.product.prodname_copilot_autofix_short %} is automatically triggered for alerts that are included in a campaign, meaning that where possible, fixes are automatically generated for you. You can commit the suggested fix to resolve the alert and then verify that continuous integration testing (CI) for the codebase is still passing. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
+{% data variables.copilot.copilot_autofix_short %} is automatically triggered for alerts that are included in a campaign, meaning that where possible, fixes are automatically generated for you. You can commit the suggested fix to resolve the alert and then verify that continuous integration testing (CI) for the codebase is still passing. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign).
 
-### {% data variables.product.prodname_copilot_chat_short %}
+### {% data variables.copilot.copilot_chat_short %}
 
 {% endif %}
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.product.prodname_copilot_chat_short %}, navigate to https://github.com/copilot.
+You can ask {% data variables.copilot.copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.copilot.copilot_chat_short %}, navigate to https://github.com/copilot.
 
-Alternatively, when viewing a specific alert, in the top right corner of the page, click the {% data variables.product.prodname_copilot_chat_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to open a chat window, and ask {% data variables.product.prodname_copilot_short %} questions about the alert.
+Alternatively, when viewing a specific alert, in the top right corner of the page, click the {% data variables.copilot.copilot_chat_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to open a chat window, and ask {% data variables.product.prodname_copilot_short %} questions about the alert.
 
 For example:
 
@@ -102,7 +101,7 @@ For example:
 
    ```
 
-If you don't already have access to {% data variables.product.prodname_copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.product.prodname_copilot_free %}. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
+If you don't already have access to {% data variables.copilot.copilot_chat_short %} through your organization{% ifversion ghec %} or enterprise{% endif %}, you can sign up to {% data variables.copilot.copilot_free %}. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/accessing-github-copilot-free).
 
 {% endif %}
 

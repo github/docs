@@ -30,7 +30,7 @@ While {% data variables.product.prodname_github_models %} for organizations and 
 
 * {% data variables.product.prodname_emus %} organizations
 * {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_cli %}
-* {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_copilot_chat %}
+* {% data variables.product.prodname_github_models %} extension for {% data variables.copilot.copilot_chat %}
 * {% data variables.product.prodname_github_models %} VS Code extension
 * Playground for {% data variables.product.prodname_github_models %} in the {% data variables.product.prodname_marketplace %} at https://github.com/marketplace/models.
 
@@ -41,10 +41,14 @@ While {% data variables.product.prodname_github_models %} for organizations and 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.models-policies %}
-1. Under "Models", in the "Models in your enterprise" section, click {% octicon "chevron-down" aria-label="the down arrow" %} beside **Disabled** and select **Enabled** from the dropdown.
+1. Under "Models", in the "Models in your enterprise" section, click {% octicon "chevron-down" aria-label="the down arrow" %} beside **Disabled** and select one of the following options:
+    * **Enabled**: Enable {% data variables.product.prodname_github_models %} for all organizations in your enterprise.
+    * **No policy**: Allow each organization in your enterprise to manage the enablement of {% data variables.product.prodname_github_models %} independently.
 
 ## Controlling model usage in your organization
 
 {% data reusables.models.enterprise-change-models-settings %}
+
+{% data reusables.models.enable-select-models-intro %}
 
 {% data reusables.models.enable-select-models-in-org %}

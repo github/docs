@@ -22,7 +22,7 @@ You can also query our search endpoint directly at:
 
 ## Types of search
 
-Our backend currently supports 3 "types" of searching.
+Our backend currently supports 2 "types" of searching.
 
 All searches accept a `query` param, e.g. `?query=how` and return results based on their type:
 
@@ -30,11 +30,7 @@ All searches accept a `query` param, e.g. `?query=how` and return results based 
   - Results: The pages of our sites that match the query, sorted by popularity
   - Example: Query = "clone" -> Results <URLs to Docs Page about cloning>
   - Endpoint: `/api/search/v1`
-2. **general autocomplete**
-  - Results: Potential terms that can be autocompleted from the query based on previous user searches
-  - Example: Query = "cl" -> A Result = "clone"
-  - Endpoint: `/api/search/autocomplete/v1`
-3. **AI search autocomplete**
+2. **AI search autocomplete**
   - Results: Human-readable full-sentence questions that best match the query. Questions are based on previous searches and popular pages
   - Example: Query = "How do I clone" -> A Result = "How do I clone a repository?"
   - Endpoint: `/api/search/ai-search-autocomplete/v1`
@@ -66,7 +62,7 @@ The preferred way to build and sync the search indices is to do so via the [GitH
 ### Actions workflow files
 
 - [`.github/workflows/index-general-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **general search** using the `main` branch every four hours. Search indices are stored in an internal-only Elasticsearch instance. To run it manually, click "Run workflow" button in the Actions tab.
-- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for both **general autocomplete** and **AI search autocomplete** using data from an internal repo. Runs daily. 
+- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **AI search autocomplete** using data from an internal repo. Runs daily.
 
 ### Notable code files and directories
 
@@ -82,5 +78,5 @@ The preferred way to build and sync the search indices is to do so via the [GitH
 - It's not strictly necessary to set an `objectID` as the search index will create one automatically, but by creating our own we have a guarantee that subsequent invocations of this upload script will overwrite existing records instead of creating numerous duplicate records with differing IDs.
 - Our search querying has typo tolerance. Try spelling something wrong and see what you get!
 - Our search querying has lots of controls for customizing each index, so we can add weights to certain attributes and create rules like "title is more important than body", etc. But it works pretty well as-is without any configuration.
-- Our search querying has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default, but it is enabled in our browser client. The settings in the web interface can be overridden by the search endpoint. See [middleware/search.js](middleware/search.js).
+- Our search querying has support for "advanced query syntax" for exact matching of quoted expressions and exclusion of words preceded by a `-` sign. This is off by default, but it is enabled in our browser client. The settings in the web interface can be overridden by the search endpoint. See [middleware/search.ts](middleware/search.ts).
 - When needed, the Docs Engineering team can commit updates to the search index, as long as the label `skip-index-check` is applied to the PR.

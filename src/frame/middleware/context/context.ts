@@ -2,21 +2,22 @@ import type { NextFunction, Response } from 'express'
 
 import type { ExtendedRequest, Context } from '@/types'
 
-import languages from '@/languages/lib/languages.js'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
-import { productMap } from '@/products/lib/all-products.js'
+import languages from '@/languages/lib/languages-server'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { allVersions } from '@/versions/lib/all-versions'
+import { productMap } from '@/products/lib/all-products'
 import {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
   getPathWithoutVersion,
-} from '@/frame/lib/path-utils.js'
-import productNames from '@/products/lib/product-names.js'
+} from '@/frame/lib/path-utils'
+import productNames from '@/products/lib/product-names'
 import warmServer from '@/frame/lib/warm-server'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data.js'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { getDataByLanguage, getUIDataMerged } from '@/data-directory/lib/get-data'
+import { updateLoggerContext } from '@/observability/logger/lib/logger-context'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
@@ -24,7 +25,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
 )
 
 // Supply all route handlers with a baseline `req.context` object
-// Note that additional middleware in middleware/index.js adds to this context object
+// Note that additional middleware in middleware/index.ts adds to this context object
 export default async function contextualize(
   req: ExtendedRequest,
   res: Response,
@@ -69,10 +70,10 @@ export default async function contextualize(
   req.context.redirects = redirects
   req.context.site = {
     data: {
-      ui: getUIDataMerged(req.language),
+      ui: getUIDataMerged(req.language!),
     },
   }
-  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language)
+  req.context.getDottedData = (dottedPath) => getDataByLanguage(dottedPath, req.language!)
   req.context.siteTree = siteTree
   req.context.pages = pageMap
   req.context.nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersion
@@ -106,6 +107,11 @@ export default async function contextualize(
       return context.enPage
     }
   }
+
+  updateLoggerContext({
+    version: req.context.currentVersion,
+    pagePath: req.pagePath,
+  })
 
   return next()
 }

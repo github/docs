@@ -1,4 +1,4 @@
-import { getDataByLanguage, getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { getDataByLanguage, getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 import type { ReleaseNotes } from '@/types'
 
 // If we one day support release-notes for other products, add it here.

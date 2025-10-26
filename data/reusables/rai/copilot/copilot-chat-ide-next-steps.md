@@ -1,6 +1,6 @@
 ## Next steps
 
-For details of how to use {% data variables.product.prodname_copilot_chat %}, see:
+For details of how to use {% data variables.copilot.copilot_chat %}, see:
 
 * [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide)
 * [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)

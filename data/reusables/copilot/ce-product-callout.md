@@ -1,1 +1,1 @@
-Organizations with a {% data variables.product.prodname_copilot_enterprise_short %} plan
+Organizations with a {% data variables.copilot.copilot_enterprise_short %} plan

@@ -12,11 +12,8 @@ type UseQueryParamReturn<T extends string | boolean> = {
 }
 
 // Overloads so we can use this for a boolean or string query param
-// eslint-disable-next-line no-redeclare
 export function useQueryParam(queryParamKey: string, isBoolean: true): UseQueryParamReturn<boolean>
-// eslint-disable-next-line no-redeclare
 export function useQueryParam(queryParamKey: string, isBoolean?: false): UseQueryParamReturn<string>
-// eslint-disable-next-line no-redeclare
 export function useQueryParam(
   queryParamKey: string,
   isBoolean?: boolean,

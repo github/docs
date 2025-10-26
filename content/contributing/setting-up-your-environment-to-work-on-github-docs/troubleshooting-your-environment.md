@@ -9,7 +9,7 @@ versions:
 
 ## Troubleshooting tests that fail locally but pass in CI
 
-If you run tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
+If you run tests locally and get failures in `tests/rendering/server.ts` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
 
 For more information, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment).
 

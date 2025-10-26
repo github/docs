@@ -39,7 +39,7 @@ Prerequisites for repository transfers:
 * To transfer a repository that you own to an organization, you must have permission to create a repository in the target organization.
 * The target account must not have a repository with the same name, or a fork in the same network.
 * The original owner of the repository is added as a collaborator on the transferred repository. Other collaborators to the transferred repository remain intact.
-* Single repositories forked from a private upstream network cannot be transferred.
+* Single repositories forked from a private {%- ifversion ghec %} or internal {%- endif %} upstream network cannot be transferred.
 {%- ifversion ghec %}
 * Internal repositories can only be transferred to an organization in the enterprise. You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
 {%- endif %}
@@ -54,7 +54,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
 * If the transferred repository is a fork, then it remains associated with the upstream repository.
 * If the transferred repository has any forks, then those forks will remain associated with the repository after the transfer is complete.
-* If the transferred repository uses {% data variables.large_files.product_name_long %}, all {% data variables.large_files.product_name_short %} objects are automatically moved. This transfer occurs in the background, so if you have a large number of {% data variables.large_files.product_name_short %} objects or if the {% data variables.large_files.product_name_short %} objects themselves are large, it may take some time for the transfer to occur.{% ifversion fpt or ghec %} Before you transfer a repository that uses {% data variables.large_files.product_name_short %}, make sure the receiving account has enough data packs to store the {% data variables.large_files.product_name_short %} objects you'll be moving over. For more information on adding storage for personal accounts, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-git-large-file-storage/upgrading-git-large-file-storage).{% endif %}
+* If the transferred repository uses {% data variables.large_files.product_name_long %}, all {% data variables.large_files.product_name_short %} objects are automatically moved. This transfer occurs in the background, so if you have a large number of {% data variables.large_files.product_name_short %} objects or if the {% data variables.large_files.product_name_short %} objects themselves are large, it may take some time for the transfer to occur.
 * When a repository is transferred between two personal accounts, issue assignments are left intact. When you transfer a repository from a personal account to an organization, issues assigned to members in the organization remain intact, and all other issue assignees are cleared. Only owners in the organization are allowed to create new issue assignments. When you transfer a repository from an organization to a personal account, only issues assigned to the repository's owner are kept, and all other issue assignees are removed.{% ifversion issue-types %}
 * When you transfer a repository from an organization to another organization, issue types on issues are left intact if the new organization has a matching issue type, and all other issue types are removed from issues.
 * When you transfer a repository from an organization to a personal account, all issue types are removed from issues.{% endif %}
