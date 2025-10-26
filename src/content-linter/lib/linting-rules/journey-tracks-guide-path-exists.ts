@@ -13,18 +13,36 @@ function isValidGuidePath(guidePath: string, currentFilePath: string): boolean {
   // Strategy 1: Always try as an absolute path from content root first
   const contentDir = path.join(ROOT, 'content')
   const normalizedPath = guidePath.startsWith('/') ? guidePath.substring(1) : guidePath
-  const absolutePath = path.join(contentDir, `${normalizedPath}.md`)
 
+  // Check for direct .md file
+  const absolutePath = path.join(contentDir, `${normalizedPath}.md`)
   if (fs.existsSync(absolutePath) && fs.statSync(absolutePath).isFile()) {
+    return true
+  }
+
+  // Check for index.md file in directory (for landing pages)
+  const indexPath = path.join(contentDir, normalizedPath, 'index.md')
+  if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
     return true
   }
 
   // Strategy 2: Fall back to relative path from current file's directory
   const currentDir = path.dirname(currentFilePath)
-  const relativePath = path.join(currentDir, `${normalizedPath}.md`)
 
+  // Check for relative .md file
+  const relativePath = path.join(currentDir, `${normalizedPath}.md`)
   try {
-    return fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()
+    if (fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()) {
+      return true
+    }
+  } catch {
+    // Continue to next strategy
+  }
+
+  // Check for relative index.md file
+  const relativeIndexPath = path.join(currentDir, normalizedPath, 'index.md')
+  try {
+    return fs.existsSync(relativeIndexPath) && fs.statSync(relativeIndexPath).isFile()
   } catch {
     return false
   }

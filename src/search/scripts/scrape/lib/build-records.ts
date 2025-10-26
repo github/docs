@@ -3,7 +3,7 @@ import chalk from 'chalk'
 import dotenv from 'dotenv'
 import boxen from 'boxen'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import parsePageSectionsIntoRecords from '@/search/scripts/scrape/lib/parse-page-sections-into-records'
 import getPopularPages from '@/search/scripts/scrape/lib/popular-pages'
 import domwaiter from '@/search/scripts/scrape/lib/domwaiter'

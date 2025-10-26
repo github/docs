@@ -35,7 +35,10 @@ export const CategoryLanding = () => {
           if (typeof value === 'string') {
             return value.toLowerCase().includes(searchQuery.toLowerCase())
           } else if (Array.isArray(value)) {
-            return value.some((item) => item.toLowerCase().includes(searchQuery.toLowerCase()))
+            return value.some(
+              (item) =>
+                typeof item === 'string' && item.toLowerCase().includes(searchQuery.toLowerCase()),
+            )
           }
           return false
         })

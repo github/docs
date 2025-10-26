@@ -53,6 +53,6 @@ To share a space with others:
 
 ## Accessing shared {% data variables.copilot.copilot_spaces_short %}
 
-If you’re part of an organization that has shared spaces, you can access them in the **Organizations** tab on [https://github.com/copilot/spaces](https://github.com/copilot/spaces).
+If you’re part of an organization that has shared spaces, you can access them in the **Organizations** tab on [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 You can also use organization spaces directly in your IDE by specifying the organization as the owner when accessing the space. For more information, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces#using-copilot-spaces-in-your-ide).

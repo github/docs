@@ -1,6 +1,6 @@
 import { shouldUseAppRouter, isVersionedPath } from '@/app/lib/routing-patterns'
 import { isArchivedVersion } from '@/archives/lib/is-archived-version'
-import { languagePrefixPathRegex } from '@/languages/lib/languages'
+import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import versionSatisfiesRange from '@/versions/lib/version-satisfies-range'
 import type { NextFunction, Request, Response } from 'express'
 import helmet from 'helmet'

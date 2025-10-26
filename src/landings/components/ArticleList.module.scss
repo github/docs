@@ -5,7 +5,8 @@
     border-radius: 0;
   }
 
-  h3, span {
+  h3,
+  span {
     user-select: text;
     color: var(--fgColor-accent, var(--color-accent-fg));
   }

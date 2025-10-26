@@ -1,6 +1,6 @@
 import { Client } from '@elastic/elasticsearch'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { getElasticSearchIndex } from '@/search/lib/elasticsearch-indexes'
 import { getElasticsearchClient } from '@/search/lib/helpers/get-client'
 import {

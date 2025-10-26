@@ -145,7 +145,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 {% data reusables.copilot.eclipse-prerequisites %}
 * The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} from Eclipse**.
 
 ## Using the {% data variables.product.github %} MCP server in Eclipse

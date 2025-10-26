@@ -2,7 +2,7 @@ import type { NextFunction, Response } from 'express'
 
 import type { ExtendedRequest, Context } from '@/types'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import { allVersions } from '@/versions/lib/all-versions'
 import { productMap } from '@/products/lib/all-products'

@@ -3,7 +3,7 @@ title: Managing custom properties for repositories in your enterprise
 intro: 'Create custom properties to give organizations a consistent way to categorize repositories.'
 permissions: Enterprise owners
 versions:
-  ghec: '*'
+  feature: custom-properties-enterprise
 topics:
   - Repositories
 shortTitle: Custom properties

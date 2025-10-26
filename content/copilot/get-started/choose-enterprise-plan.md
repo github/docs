@@ -35,7 +35,7 @@ This article explains the available plans and provides examples for how {% data 
 * **{% data variables.copilot.copilot_business_short %}** ({% data variables.copilot.cfb_price_per_month %} per user per month): includes most {% data variables.product.prodname_copilot_short %} features in IDEs and on the {% data variables.product.github %} website.
 * **{% data variables.copilot.copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): includes a higher allowance for premium requests, and often allows earlier access to new features and models.
 
-For a full comparison, see our [plans page](https://github.com/features/copilot/plans).
+For a full comparison, see our [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
 
 Premium requests are used by more advanced {% data variables.product.prodname_copilot_short %} features and models, including AI agents. By giving members access to more premium requests, you can scale your company with AI agents and drive real business outcomes, such as reducing your backlog, accelerating pull requests, or increasing code quality with suggestions from more specialized models.
 

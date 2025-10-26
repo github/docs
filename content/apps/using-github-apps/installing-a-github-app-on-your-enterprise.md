@@ -67,6 +67,8 @@ Enterprise installations do not currently support webhooks. Apps installed at th
 
 Enterprise installations are not granted access to organizations or repositories within your enterprise, with the exception of the organization installations API. To access organization or repository resources, you must install the app separately on each organization where access is needed.
 
+If you need to install the same app in many organizations, you can automate this with an API. See [AUTOTITLE](/admin/managing-github-apps-for-your-enterprise/automate-installations).
+
 ## Next steps
 
 * To grant the app access to specific organizations, install it on those organizations. For more information, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party).

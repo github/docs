@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org
   - /copilot/tutorials/pilot-copilot-coding-agent
 contentType: tutorials
+category:
+  - Automate simple user stories
 ---
 <!--JTBD: When rolling out {% data variables.copilot.copilot_coding_agent %}, I want to understand use cases and follow best practices, so I can ensure I'm using it as intended and get value from a pilot program.-->
 

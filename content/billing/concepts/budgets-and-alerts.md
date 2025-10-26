@@ -30,6 +30,10 @@ Each budget has a type and a scope that define which paid use contributes to spe
 * **Type**: Defines which metered product or SKU is measured.
 * **Scope**: Defines whether the budget applies to the whole account, or to a subset of repositories, organizations, or cost centers (enterprise only).
 
+## Budget alerts
+
+You can enable alerts for budgets to receive emails when usage reaches 75%, 90%, and 100% of the budget amount. Emails are sent to account owners and billing managers by default. Additional recipients can be added as needed.
+
 ## Your first billing cycle after creating a budget
 
 When you first create a budget, be aware that the budget applies only to metered usage from the date of its creation onwards. Any use made before you created the budget is not included in the calculations. This means that you may exceed your budget in the first billing cycle after you create your budget, even if you select the option stop usage when the limit is reached.

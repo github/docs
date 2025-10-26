@@ -7,7 +7,7 @@ import { ProductTreeNode, useMainContext } from '@/frame/components/context/Main
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
 
-import styles from './SidebarProduct.module.css'
+import styles from './SidebarProduct.module.scss'
 
 export const SidebarProduct = () => {
   const router = useRouter()

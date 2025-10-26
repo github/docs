@@ -95,7 +95,7 @@ For general information on using the {% data variables.product.prodname_cli %} a
 
 ## Authenticating from Visual Studio
 
-To authenticate from Visual Studio, follow the steps in [Add your GitHub accounts to your Visual Studio keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022#enabling-github-enterprise-accounts) on Microsoft Learn.
+To authenticate from Visual Studio, follow the steps in [Add your GitHub accounts to your Visual Studio keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022&ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=enterprise#enabling-github-enterprise-accounts) on Microsoft Learn.
 
 For the "{% data variables.product.prodname_enterprise %} URL" field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
 

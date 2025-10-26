@@ -4,6 +4,7 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import path from 'path'
 import ora from 'ora'
+import { execSync } from 'child_process'
 import { callModelsApi } from '@/ai-tools/lib/call-models-api'
 import dotenv from 'dotenv'
 dotenv.config({ quiet: true })
@@ -13,7 +14,18 @@ const promptDir = path.join(__dirname, '../prompts')
 const promptTemplatePath = path.join(promptDir, 'prompt-template.yml')
 
 if (!process.env.GITHUB_TOKEN) {
-  throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
+  // Try to find a token via the CLI before throwing an error
+  const token = execSync('gh auth token').toString()
+  if (token.startsWith('gh')) {
+    process.env.GITHUB_TOKEN = token
+  } else {
+    console.warn(`🔑 A token is needed to run this script. Please do one of the following and try again:
+
+1. Add a GITHUB_TOKEN to a local .env file.
+2. Install https://cli.github.com and authenticate via 'gh auth login'.
+    `)
+    process.exit(1)
+  }
 }
 
 interface EditorType {
