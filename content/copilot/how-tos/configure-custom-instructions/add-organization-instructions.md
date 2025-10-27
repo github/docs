@@ -15,28 +15,9 @@ redirect_from:
 contentType: how-tos
 ---
 
-> [!NOTE]
-> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
->
-> **Support:** Organization custom instructions are currently only supported for {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.copilot.copilot_code-review_short %} on {% data variables.product.prodname_dotcom_the_website %}.
+{% data reusables.copilot.custom-instructions-org-support %}
 
-For an overview of the methods you can use to customize {% data variables.copilot.copilot_chat %} responses, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
-
-## About organization custom instructions for {% data variables.product.prodname_copilot_short %}
-
-Organization owners can add instructions for {% data variables.product.prodname_copilot_short %}, to tailor responses to the needs and preferences of your organization. For example, you can choose to always have {% data variables.copilot.copilot_chat_short %} respond in your company's language of choice or with a particular style.
-
-Custom instructions defined in an organization's {% data variables.product.prodname_copilot_short %} settings are used for all members of the organization, irrespective of whether they receive their {% data variables.product.prodname_copilot_short %} subscription from that organization.
-
-Some examples of instructions you could add are:
-* `Always respond in Spanish.`
-* `Do not generate code blocks in responses.`
-* `For questions related to security, use the Security Docs Knowledge Base.`
-
-> [!NOTE]
-> * {% data reusables.copilot.custom-instructions-chat-precedence %}
-> * For {% data variables.copilot.copilot_code-review_short %}, the order of precedence is: instructions in any applicable `.github/instructions/**/NAME.instructions.md` file, then the instructions in the `.github/copilot-instructions.md` file, then the organization-level custom instructions.
-> * {% data reusables.copilot.custom-instructions-conflict %}
+Organization owners can add instructions for {% data variables.product.prodname_copilot_short %}, to tailor responses to specific needs and preferences across the organization. For an overview of this, and other types of custom instructions for {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/concepts/about-customizing-github-copilot-chat-responses?tool=webui).
 
 ## Adding organization custom instructions
 
