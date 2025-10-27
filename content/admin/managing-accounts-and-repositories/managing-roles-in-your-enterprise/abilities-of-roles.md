@@ -11,6 +11,7 @@ redirect_from:
   - /admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles
+  - /early-access/enterprise/enterprise-roles/enterprise-security-manager
 versions:
   ghec: '*'
   ghes: '*'
@@ -93,7 +94,7 @@ App managers can also be assigned to individual apps. See [AUTOTITLE](/admin/man
 ## Security managers
 
 > [!NOTE]
-> The enterprise security manager role is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this role.
+> The enterprise security manager role is in {% data variables.release-phases.public_preview %} and subject to change.
 
 Security managers have the permissions required to effectively manage use of security features and alerts for the enterprise. They can view, manage, and assign:
 
