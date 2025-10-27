@@ -31,8 +31,8 @@ The steps below describe remote configuration through the MCP marketplace in {% 
 For information on manually configuring the remote or local {% data variables.product.github %} MCP server, see the [{% data variables.product.github %} MCP server documentation](https://github.com/mcp/github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 1. In {% data variables.product.prodname_vscode %}, open the extensions panel by clicking the extensions icon in the sidebar or pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Mac).
-1. In the extensions search bar, click the filter icon and select **MCP Registry** from the dropdown.
-1. If it is your first time using the MCP Registry, follow the prompts on screen to enable the registry.
+1. In the extensions search bar, click the filter icon and select **MCP Server** from the dropdown.
+1. If it is your first time using the MCP Servers Marketplace, follow the prompts on screen to enable the Marketplace.
 1. In the search bar, type `github` and select the {% data variables.product.github %} MCP server from the search results.
 1. On the {% data variables.product.github %} MCP server configuration page, click **Install**.
 1. To check that the {% data variables.product.github %} MCP server is configured correctly, open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
