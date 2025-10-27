@@ -1,4 +1,4 @@
-import type { NextFunction, Response, ErrorRequestHandler } from 'express'
+import type { NextFunction, Response } from 'express'
 
 import FailBot from '../lib/failbot'
 import { nextApp } from '@/frame/middleware/next'
@@ -50,7 +50,7 @@ function timedOut(req: ExtendedRequest) {
   statsd.increment('middleware.timeout', 1, incrementTags)
 }
 
-const handleError: ErrorRequestHandler = async function handleError(
+async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,

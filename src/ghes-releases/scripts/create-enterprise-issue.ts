@@ -356,7 +356,7 @@ async function isExistingIssue(
 ): Promise<boolean> {
   const { labels, searchQuery, titleMatch } = opts
   const labelQuery = labels && labels.map((label) => `label:"${encodeURI(label)}"`).join('+')
-  let query = encodeURIComponent('is:issue ' + `repo:${repo} `)
+  let query = encodeURIComponent(`is:issue repo:${repo} `)
 
   if (searchQuery) {
     query += '+' + searchQuery

@@ -200,7 +200,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       req.context,
     )) as MinitocItemsT
 
-    restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)
+    if (restOperationsMiniTocItems) {
+      miniTocItems.push(...restOperationsMiniTocItems)
+    }
   }
 
   // Replace the toc items in the context with the REST toc items we just

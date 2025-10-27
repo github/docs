@@ -235,7 +235,7 @@ export default async function archivedEnterpriseVersions(
       // `x-host` is a custom header set by Fastly.
       // GLB automatically deletes the `x-forwarded-host` header.
       const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
-      let modifiedBody = body
+      const modifiedBody = body
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
           `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets/cb-`,

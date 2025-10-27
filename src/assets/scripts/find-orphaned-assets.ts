@@ -145,7 +145,9 @@ async function main(opts: MainOptions) {
   // Add exceptions
   sourceFiles.push('.github/CONTRIBUTING.md')
   sourceFiles.push('README.md')
-  verbose && console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
+  if (verbose) {
+    console.log(`${sourceFiles.length.toLocaleString()} source files found in total.`)
+  }
 
   const allImages = new Set(
     walk(
@@ -159,7 +161,9 @@ async function main(opts: MainOptions) {
     ).filter((filePath) => !filePath.endsWith('.md')),
   )
 
-  verbose && console.log(`${allImages.size.toLocaleString()} images found in total.`)
+  if (verbose) {
+    console.log(`${allImages.size.toLocaleString()} images found in total.`)
+  }
 
   for (const sourceFile of sourceFiles) {
     const content = fs.readFileSync(sourceFile, 'utf-8')

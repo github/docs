@@ -72,7 +72,7 @@ export const noteWarningFormatting = {
 
       // Collect content inside legacy notes
       if (inLegacyNote) {
-        noteContent.push({ text: line, lineNumber: lineNumber })
+        noteContent.push({ text: line, lineNumber })
         continue
       }
 

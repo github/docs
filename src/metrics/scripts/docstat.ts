@@ -145,7 +145,7 @@ let cleanPath = getCleanPath(providedPath)
 
 // Get the version
 let version: string | null = getVersion(cleanPath)
-let usingFptOnly = !!options.fptOnly
+const usingFptOnly = !!options.fptOnly
 
 // If the URL does not specify a version, default to all versions unless --fptOnly is passed
 if (version === FREE_PRO_TEAM) {

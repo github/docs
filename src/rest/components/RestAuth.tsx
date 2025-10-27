@@ -75,7 +75,7 @@ function FineGrainedAccess({ progAccess }: FineGrainedProps) {
   // Each object represents a set of permissions containing one
   // or more key-value pairs. All permissions in a set are required.
   // If there is more than one set of permissions, any set can be used.
-  const formattedPermissions = progAccess.permissions.map((permissionSet: Object, index) => {
+  const formattedPermissions = progAccess.permissions.map((permissionSet: object, index) => {
     // Given the example above, the first object is now an array of tuples
     // [['"Actions" repository permissions', 'read'], ['"Administration" organization permissions', 'read']]
     // that can be formatted as a string like `"Administration" organization permissions (write)'

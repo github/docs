@@ -67,63 +67,33 @@ export default [
       // JSX A11y recommended rules
       ...jsxA11y.configs.recommended.rules,
 
-      // TypeScript-specific overrides
+      // Overrides
       'import/no-extraneous-dependencies': [
         'error',
         {
           packageDir: '.',
         },
       ],
-      'import/extensions': 'off',
-      'no-console': 'off',
-      camelcase: 'off',
-      'no-shadow': 'off',
-      'prefer-template': 'off',
-      'no-constant-condition': 'off',
-      'no-unused-vars': 'off',
-      'no-undef': 'off',
-      'no-use-before-define': 'off',
-      'no-redeclare': 'off', // Allow function overloads in TypeScript
-      'import/no-named-as-default-member': 'off',
-      'one-var': 'off',
-      'import/no-namespace': 'off',
-      'import/no-anonymous-default-export': 'off',
-      'object-shorthand': 'off',
-      'no-empty': 'off',
-      'prefer-const': 'off',
-      'import/no-named-as-default': 'off',
-      'no-useless-concat': 'off',
-      'func-style': 'off',
-
-      // TypeScript ESLint specific rules
+      'import/extensions': ['error', { json: 'always' }],
+      'no-empty': ['error', { allowEmptyCatch: true }],
       '@typescript-eslint/no-unused-vars': 'error',
+      'prefer-const': ['error', { destructuring: 'all' }],
 
-      // Disable GitHub plugin rules that were disabled in original config
-      'github/array-foreach': 'off',
-      'github/no-then': 'off',
+      // Rules that must be disabled
+      'no-redeclare': 'off', // Allow function overloads in TypeScript
+      'i18n-text/no-en': 'off', // This rule causes eslint to not run at all
+      'filenames/match-regex': 'off', // This rule causes eslint to not run at all
 
-      // Disable rules that might not exist or cause issues initially
-      'i18n-text/no-en': 'off',
-      'filenames/match-regex': 'off',
-      'eslint-comments/no-use': 'off',
-      'eslint-comments/no-unused-disable': 'off',
-      'eslint-comments/no-unlimited-disable': 'off',
-
-      // Disable new ESLint 9 rules that are causing issues
-      'no-constant-binary-expression': 'off',
-
-      // Disable stricter TypeScript rules initially
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-unused-expressions': 'off',
-      '@typescript-eslint/ban-ts-comment': 'off',
-      '@typescript-eslint/no-wrapper-object-types': 'off',
-      '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-      '@typescript-eslint/no-unsafe-function-type': 'off',
-      '@typescript-eslint/no-empty-object-type': 'off',
-      '@typescript-eslint/prefer-as-const': 'off',
-
-      // React/JSX specific rules
-      'jsx-a11y/no-onchange': 'off',
+      // Disabled rules to review
+      'github/no-then': 'off', // 30+
+      '@typescript-eslint/ban-ts-comment': 'off', // 50+
+      'no-undef': 'off', // 50+
+      'no-shadow': 'off', // 150+
+      'prefer-template': 'off', // 150+
+      'github/array-foreach': 'off', // 250+
+      camelcase: 'off', // 600+
+      'no-console': 'off', // 800+
+      '@typescript-eslint/no-explicit-any': 'off', // 1000+
     },
   },
 

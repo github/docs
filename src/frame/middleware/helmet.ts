@@ -18,9 +18,7 @@ const DEFAULT_OPTIONS = {
   crossOriginResourcePolicy: true,
   crossOriginEmbedderPolicy: false, // doesn't work with youtube
   referrerPolicy: {
-    // See docs-engineering #2426
-    // The `... as 'no-referrer-when-downgrade'` is a workaround for TypeScript
-    policy: 'no-referrer-when-downgrade' as 'no-referrer-when-downgrade',
+    policy: 'no-referrer-when-downgrade' as const,
   },
   // This module defines a Content Security Policy (CSP) to disallow
   // inline scripts and content from untrusted sources.

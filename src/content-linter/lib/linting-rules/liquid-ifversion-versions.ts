@@ -30,7 +30,7 @@ export const liquidIfversionVersions = {
     // The versions frontmatter object or all versions if the file
     // being processed is a data file.
     const fm = getFrontmatter(params.lines)
-    let content = fm ? getFrontmatterLines(params.lines).join('\n') : params.lines.join('\n')
+    const content = fm ? getFrontmatterLines(params.lines).join('\n') : params.lines.join('\n')
 
     const fileVersionsFm = params.name.startsWith('data')
       ? { ghec: '*', ghes: '*', fpt: '*' }

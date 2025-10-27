@@ -180,7 +180,10 @@ async function main(opts: MainOptions, args: string[]) {
       'utf-8',
     )
   }
-  const brokenLinks: {}[] = []
+  const brokenLinks: {
+    linkPath: string
+    file: string
+  }[] = []
 
   // Break up the long list of URLs to test into batches
   for (const batch of [...Array(Math.floor(docsLinksFiles.length / BATCH_SIZE)).keys()]) {

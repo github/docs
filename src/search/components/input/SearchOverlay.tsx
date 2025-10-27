@@ -358,7 +358,7 @@ export function SearchOverlay({
     if (searchParams.has('query')) {
       searchParams.delete('query')
     }
-    router.push(`${selectedOption.url}?${searchParams.toString()}` || '')
+    router.push(`${selectedOption.url}?${searchParams.toString()}`)
     onClose()
   }
 
@@ -412,12 +412,12 @@ export function SearchOverlay({
     if (searchParams.has('query')) {
       searchParams.delete('query')
     }
-    window.open(`${url}?${searchParams.toString()}` || '', '_blank')
+    window.open(`${url}?${searchParams.toString()}`, '_blank')
   }
 
   // Handle keyboard navigation of suggestions
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-    let optionsLength = listElementsRef.current?.length ?? 0
+    const optionsLength = listElementsRef.current?.length ?? 0
     if (event.key === 'ArrowDown') {
       event.preventDefault()
       if (optionsLength > 0) {
@@ -855,8 +855,8 @@ function renderSearchGroups(
 ) {
   const groups = []
 
-  let isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
-  let isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
+  const isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
+  const isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
 
   // This spinner is for both the AI search and the general search results.
   // We already show a spinner when streaming AI response, so don't want to show 2 here

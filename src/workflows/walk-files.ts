@@ -25,11 +25,17 @@ export function readFiles(dir = 'content', ext = 'md', opts = {}) {
   return paths.map((path) => [path, fs.readFileSync(path, 'utf8')])
 }
 
-export function filterFiles(files: [path: string, file: string][], fn: Function) {
+export function filterFiles(
+  files: [path: string, file: string][],
+  fn: (path: string, file: string) => boolean,
+) {
   return files.filter(([path, file]) => fn(path, file))
 }
 
-export function withFiles(files: [path: string, file: string][], fn: Function) {
+export function withFiles(
+  files: [path: string, file: string][],
+  fn: (path: string, file: string) => string,
+) {
   return files.map(([path, file]) => [path, fn(path, file)])
 }
 

@@ -139,7 +139,7 @@ export type Context = {
   enPage?: Page
   productNames?: ProductNames
   currentVersion?: string
-  process?: { env: {} }
+  process?: { env: Record<string, string> }
   site?: {
     data: {
       ui: any
