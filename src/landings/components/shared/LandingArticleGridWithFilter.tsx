@@ -1,19 +1,43 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
-import { ArticleCardItems, ChildTocItem } from '@/landings/types'
+import { ArticleCardItems, ChildTocItem, TocItem } from '@/landings/types'
 
 import styles from './LandingArticleGridWithFilter.module.scss'
 
 type ArticleGridProps = {
-  flatArticles: ArticleCardItems
+  tocItems: TocItem[]
 }
 
 const ALL_CATEGORIES = 'all_categories'
+
+// Helper function to recursively flatten nested articles
+// Excludes index pages (pages with childTocItems)
+const flattenArticlesRecursive = (articles: ArticleCardItems): ArticleCardItems => {
+  const flattened: ArticleCardItems = []
+
+  for (const article of articles) {
+    // If the article has children, recursively process them but don't include the parent (index page)
+    if (article.childTocItems && article.childTocItems.length > 0) {
+      flattened.push(...flattenArticlesRecursive(article.childTocItems))
+    } else {
+      // Only add articles that don't have children (actual article pages, not index pages)
+      flattened.push(article)
+    }
+  }
+
+  return flattened
+}
+
+// Wrapper function that flattens and sorts alphabetically by title (only once)
+const flattenArticles = (articles: ArticleCardItems): ArticleCardItems => {
+  const flattened = flattenArticlesRecursive(articles)
+  return flattened.sort((a, b) => a.title.localeCompare(b.title))
+}
 
 // Hook to get current articles per page based on screen size
 const useResponsiveArticlesPerPage = () => {
@@ -42,7 +66,7 @@ const useResponsiveArticlesPerPage = () => {
   return articlesPerPage
 }
 
-export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
+export const ArticleGrid = ({ tocItems }: ArticleGridProps) => {
   const { t } = useTranslation('product_landing')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
@@ -51,6 +75,13 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
   const articlesPerPage = useResponsiveArticlesPerPage()
 
   const inputRef = useRef<HTMLInputElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+
+  // Extract child items from tocItems and recursively flatten nested articles to ensure we get all articles with categories
+  const allArticles = useMemo(
+    () => flattenArticles(tocItems.flatMap((item) => item.childTocItems || [])),
+    [tocItems],
+  )
 
   // Reset to first page when articlesPerPage changes (screen size changes)
   useEffect(() => {
@@ -60,11 +91,13 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
   // Extract unique categories from the articles
   const categories: string[] = [
     ALL_CATEGORIES,
-    ...new Set(flatArticles.flatMap((item) => item.category || [])),
+    ...Array.from(new Set(allArticles.flatMap((item) => item.category || []))).sort((a, b) =>
+      a.localeCompare(b),
+    ),
   ]
 
   const applyFilters = () => {
-    let results = flatArticles
+    let results = allArticles
 
     if (searchQuery) {
       results = results.filter((token) => {
@@ -112,17 +145,25 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
     e.preventDefault()
     if (pageNumber >= 1 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber)
+      if (headingRef.current) {
+        const elementPosition = headingRef.current.getBoundingClientRect().top + window.scrollY
+        const offsetPosition = elementPosition - 140 // 140px offset from top
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }
     }
   }
 
   return (
-    <div>
+    <div data-testid="article-grid-container">
       {/* Filter and Search Controls */}
-      <div className={styles.filterHeader}>
+      <div className={styles.filterHeader} data-testid="filter-header">
         {/* Title and Dropdown Row */}
         <div className={styles.titleAndDropdownRow}>
           {/* Title */}
-          <h2 className={cx(styles.headerTitle, styles.headerTitleText)}>
+          <h2 ref={headingRef} className={cx(styles.headerTitle, styles.headerTitleText)}>
             {t('article_grid.heading')}
           </h2>
 
@@ -156,7 +197,6 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
           <form onSubmit={(e) => e.preventDefault()}>
             <TextInput
               leadingVisual={SearchIcon}
-              sx={{ width: '100%' }}
               placeholder={t('article_grid.search_articles')}
               ref={inputRef}
               autoComplete="false"
@@ -170,12 +210,12 @@ export const ArticleGrid = ({ flatArticles }: ArticleGridProps) => {
       </div>
 
       {/* Results Grid */}
-      <div className={styles.articleGrid}>
+      <div className={styles.articleGrid} data-testid="article-grid">
         {paginatedResults.map((article, index) => (
           <ArticleCard key={startIndex + index} article={article} />
         ))}
         {filteredResults.length === 0 && (
-          <div className={styles.noArticlesContainer}>
+          <div className={styles.noArticlesContainer} data-testid="no-articles-message">
             <p className={styles.noArticlesText}>{t('article_grid.no_articles_found')}</p>
           </div>
         )}
@@ -210,7 +250,8 @@ type ArticleCardProps = {
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   return (
-    <div
+    <Link
+      href={article.fullPath}
       className={cx(
         styles.articleCard,
         styles.articleCardBox,
@@ -218,6 +259,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         'border-default',
         'rounded-2',
       )}
+      data-testid="article-card"
     >
       <div className={styles.tagsContainer}>
         {article.category &&
@@ -225,12 +267,10 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       </div>
 
       <h3 className={styles.cardTitle}>
-        <Link href={article.fullPath} className={styles.cardTitleLink}>
-          {article.title}
-        </Link>
+        <span className={styles.cardTitleLink}>{article.title}</span>
       </h3>
 
       {article.intro && <div className={styles.cardIntro}>{article.intro}</div>}
-    </div>
+    </Link>
   )
 }

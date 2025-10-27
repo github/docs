@@ -1,5 +1,5 @@
 ---
-title: Artifact metadata
+title: REST API endpoints for artifact metadata
 shortTitle: Artifact metadata
 intro: "Use these endpoints to retrieve and manage metadata for artifacts in your organization. Artifact metadata provides information about build artifacts, their provenance, and related details."
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖

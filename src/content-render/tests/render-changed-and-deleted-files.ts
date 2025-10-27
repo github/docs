@@ -26,7 +26,7 @@
  *
  *    export DELETED_FILES=`git diff --name-only --diff-filter=D main...`
  *    export CHANGED_FILES=`git diff --name-only --diff-filter=M main...`
- *    npm run test -- src/content-render/tests/render-changed-and-deleted-files.js
+ *    npm run test -- src/content-render/tests/render-changed-and-deleted-files.ts
  */
 
 import path from 'path'

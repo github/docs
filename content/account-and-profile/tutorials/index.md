@@ -12,5 +12,6 @@ topics:
 children:
   - /personalize-your-profile
   - /using-your-github-profile-to-enhance-your-resume
+contentType: tutorials
 ---
 

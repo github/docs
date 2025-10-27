@@ -1,12 +1,13 @@
 ---
 title: Personal dashboard
-intro: 'Find information on the display criteria for items on your personal dashboard.'
+intro: Find information on the display criteria for items on your personal dashboard.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 topics:
   - Accounts
+contentType: reference
 ---
 
 ## Recent activity

@@ -1,9 +1,6 @@
 ---
 title: Enterprise onboarding
 intro: 'Learn how to successfully onboard your company to {% data variables.product.prodname_ghe_cloud %}.'
-introLinks:
-  overview: '/enterprise-onboarding/getting-started-with-your-enterprise'
-  try_ghec_for_free: 'https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise'
 featuredLinks:
   startHere:
   - '/enterprise-onboarding/getting-started-with-your-enterprise'
@@ -12,7 +9,7 @@ featuredLinks:
   popular:
   - '/enterprise-onboarding/github-actions-for-your-enterprise'
   - '/enterprise-onboarding/feature-enhancements'
-layout: product-landing
+layout: journey-landing
 journeyTracks:
   - id: 'getting_started'
     title: 'Getting started with your enterprise'
@@ -40,6 +37,26 @@ journeyTracks:
       - '/enterprise-onboarding/support-for-your-enterprise/understanding-support'
       - '/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal'
       - '/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements'
+  - id: 'github_actions'
+    title: 'Getting started with GitHub Actions'
+    description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} for your enterprise.'
+    guides:
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/about-github-actions-for-enterprises'
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions'
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise'
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions'
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud'
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions'
+      - '/enterprise-onboarding/github-actions-for-your-enterprise/about-billing-for-github-actions'
+  - id: 'feature_enhancements'
+    title: 'Enhancing your experience'
+    description: 'Take advantage of features available with {% data variables.product.prodname_ghe_cloud %}.'
+    guides:
+      - '/enterprise-onboarding/feature-enhancements/about-the-audit-log-for-your-enterprise'
+      - '/enterprise-onboarding/feature-enhancements/about-access-permissions-on-github'
+      - '/enterprise-onboarding/feature-enhancements/about-rulesets'
+      - '/enterprise-onboarding/feature-enhancements/create-a-readme-for-your-enterprise'
+      - '/enterprise-onboarding/feature-enhancements/about-enterprise-security'
 versions:
   ghec: '*'
 topics:

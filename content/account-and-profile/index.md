@@ -7,14 +7,14 @@ introLinks:
     - /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
   startHere:
-    - /account-and-profile/concepts/username-changes
-    - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
+    - /account-and-profile/get-started/account
+    - /account-and-profile/get-started/profile
   popular:
-    - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
-    - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+    - /account-and-profile/how-tos/email-preferences/setting-your-commit-email-address
+    - /account-and-profile/concepts/account-management
   guideCards:
-    - /account-and-profile/how-tos/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-missing-contributions
-    - /account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
+    - /account-and-profile/how-tos/contribution-settings/troubleshooting-missing-contributions
+    - /account-and-profile/how-tos/email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
 changelog:
   label: profiles, github-themes
   versions:
@@ -34,5 +34,6 @@ children:
   - /how-tos
   - /tutorials
   - /reference
+contentType: landing
 ---
 

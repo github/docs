@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enabling-developers/integrate-ai-agents
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enable-developers/integrate-ai-agents
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
 ---
 
 ## About AI agents on {% data variables.product.github %}

@@ -1,12 +1,13 @@
 ---
 title: Profile contributions reference
-intro: 'Find information on what is visible on your contributions graph.'
+intro: Find information on what is visible on your contributions graph.
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
 topics:
   - Profile
+contentType: reference
 ---
 
 ## What counts as a contribution

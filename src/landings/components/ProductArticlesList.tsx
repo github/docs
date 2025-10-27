@@ -3,7 +3,7 @@ import { ActionList } from '@primer/react'
 import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
 import { Link } from '@/frame/components/Link'
 import clsx from 'clsx'
-import styles from './ProductArticlesList.module.css'
+import styles from './ProductArticlesList.module.scss'
 
 export const ProductArticlesList = () => {
   const { currentProductTree } = useMainContext()

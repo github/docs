@@ -1,8 +1,8 @@
 ---
 title: Teams in an enterprise
-intro: 'Learn how teams simplify administration of user access, licensing, and communication.'
+intro: 'Simplify administration of user access, licensing, and communication with teams.'
 versions:
-  ghec: '*'
+  feature: enterprise-teams
 shortTitle: Teams
 topics:
   - Enterprise
@@ -16,10 +16,11 @@ contentType: concepts
 
 Teams are **groups of users** in an enterprise or organization. By creating teams, you can manage users at scale and simplify access, licensing, and communication. For example, you could create an auditor team for users who need access to audit logs, or a {% data variables.product.prodname_copilot_short %} team for users who receive {% data variables.product.prodname_copilot_short %} licenses.
 
-Administrators can create teams in an enterprise account or in organizations within an enterprise.
+**Enterprise teams** are managed at the enterprise level and can include users from across the enterprise and its organizations. With enterprise teams, you can centralize administration and manage organization access, roles, and licensing at scale.
 
-* **Enterprise teams** are managed by enterprise owners and can include users from across the enterprise and its organizations. Currently, enterprise teams are used to manage {% data variables.product.prodname_copilot %} licenses for directly assigned users. {% data variables.product.company_short %} plans to expand the capabilities in the near future to include organization and role assignment.
-* **Organization teams** are managed by organization administrators and can only include members of a single organization. Organization administrators can grant teams access to organization repositories, and organization members can mention teams in issues and discussions or add them as reviewers on pull requests.
+**Organization teams** are managed at the organization level and can only include members of a single organization. There are certain features of organization teams that are not currently supported for enterprise teams, such as CODEOWNER status.
+
+>[!NOTE] Enterprise teams are in public preview and subject to change.
 
 ## Can I manage teams from an identity provider?
 
@@ -41,22 +42,29 @@ Team sync with personal accounts is only available with organization teams, and 
 
 ## What kind of team should I use?
 
-To simplify administration at scale, {% data variables.product.company_short %} recommends using enterprise teams wherever possible. However, you may need to create organization teams if the functionality you need is not covered by enterprise teams. {% data variables.product.company_short %} plans to address some of these limitations in the near future.
+To simplify administration at scale, {% data variables.product.company_short %} recommends using enterprise teams for any use cases that apply to the enterprise account or to multiple organizations. Organization teams are useful when the need for the team is scoped to a single organization and the team can be managed by an organization administrator.
 
-Unlike organization teams, enterprise teams currently do **not** support:
+You may need to create organization teams if the functionality you need is not covered by enterprise teams. {% data variables.product.company_short %} plans to address some limitations in the near future.
 
-* Repository or organization access
+{% data reusables.enterprise.enterprise-teams-can %}
+
+However, unlike organization teams, enterprise teams currently do **not** support:
+
 * `@-mentions` of the team name in organizations
+* Review requests of the team in pull requests
+* Adding the team to a project board
 * Team sync if you use {% data variables.product.prodname_ghe_cloud %} with personal accounts
 * CODEOWNER status
 * Secret teams
 * Nested teams
 * Team maintainers
 
-In addition, enterprise teams are currently limited to 50 teams for a single enterprise and 500 users to each team.
+{% data reusables.enterprise.enterprise-teams-limits %}
 
 For more information about the capabilities of organization teams, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
-## Further reading
+## Next steps
 
-* [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)
+If your needs are covered by enterprise teams, create a team. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams).
+
+If you need to create an organization team, an organization owner must do this from the organization settings. See [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team).

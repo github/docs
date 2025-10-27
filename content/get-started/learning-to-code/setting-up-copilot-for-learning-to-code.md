@@ -62,7 +62,7 @@ You're ready to start building real coding skills with {% data variables.product
 
 Throughout your work on the project, engage in a long-running conversation with **{% data variables.copilot.copilot_chat_short %}**. Treat it as your **personal tutor**, asking questions as they arise and using it to navigate challenges or clarify concepts.
 
-<a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
+<a href="vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
 <span>Open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
 </a><br></br>
 

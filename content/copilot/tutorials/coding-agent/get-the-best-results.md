@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks
   - /copilot/tutorials/coding-agent/best-practices
 contentType: tutorials
+category:
+  - Automate simple user stories
 ---
 
 > [!NOTE]

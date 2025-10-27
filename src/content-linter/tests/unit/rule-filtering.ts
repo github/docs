@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from 'vitest'
-import { shouldIncludeRule } from '../../scripts/lint-content.js'
+import { shouldIncludeRule } from '../../scripts/lint-content'
 
 // Mock the get-rules module to provide test data for rule definitions
 vi.mock('../../lib/helpers/get-rules', () => ({

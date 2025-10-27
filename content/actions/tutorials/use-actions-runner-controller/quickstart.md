@@ -57,6 +57,11 @@ In order to use ARC, ensure you have the following.
     * Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of `runs-on` in your workflows. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on).
     * Update the `NAMESPACE` value to the location you want the runner pods to be created.
     * Set `GITHUB_CONFIG_URL` to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
+    {% ifversion fpt %}
+    * Set `GITHUB_PAT` to a {% data variables.product.company_short %} {% data variables.product.pat_generic %} with the `repo` and `admin:org` scopes for repository and organization runners.
+    {% else %}
+    * Set `GITHUB_PAT` to a {% data variables.product.company_short %} {% data variables.product.pat_generic %} with the `repo` and `manage_runners:org` scopes for repository and organization runners, and the `manage_runners:enterprise` scope for enterprise runners.
+    {% endif %}
     * This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you wish to install. You can find the list of releases in the [GitHub Container Registry](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set).
 
         > [!NOTE]
@@ -134,7 +139,7 @@ Now you will create and run a simple test workflow that uses the runner scale se
 1. To view the runner pods being created while the workflow is running, run the following command from your terminal.
 
     ```bash copy
-    kubectl get pods -n arc-runners
+    kubectl get pods -n arc-runners -w
     ```
 
     A successful output will look similar to the following.

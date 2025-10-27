@@ -1,7 +1,3 @@
-## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
-
-Repository custom instructions let you provide {% data variables.product.prodname_copilot_short %} with repository-specific guidance and preferences.
-
 ### Support for repository custom instructions
 
 The following table shows which {% data variables.product.prodname_copilot_short %} features support custom instructions in various environments.
@@ -20,7 +16,7 @@ The following table shows which {% data variables.product.prodname_copilot_short
 
 **1:** Repository-wide instructions (using the `.github/copilot-instructions.md` file).<br>
 **2:** Repository-wide instructions and path-specific instructions (using `.github/instructions/**/NAME.instructions.md` files).<br>
-**3:** Repository-wide instructions, path-specific instructions, and a single `AGENTS.md` file in the root of the workspace.<br>
+**3:** Repository-wide instructions, path-specific instructions, and agent instructions (using `AGENTS.md` files).<br>
 **4:** Repository-wide instructions, path-specific instructions, and agent instructions (using `AGENTS.md`, `CLAUDE.md` or `GEMINI.md` files).<br>
 **X:** Custom instructions are not supported.<br>
 **N/A:** Feature not available on this platform.

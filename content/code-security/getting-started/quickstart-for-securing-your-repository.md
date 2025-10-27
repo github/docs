@@ -112,8 +112,10 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 ## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_code_security %}{% else %}{% data variables.product.prodname_code_scanning %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 > [!NOTE]
 > {% data variables.product.prodname_code_security %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %}.
+
 {% endif %}
 
 {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.copilot.copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
@@ -133,8 +135,10 @@ As an alternative to default setup, you can use advanced setup, which generates 
 ## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_secret_protection %}{% else %}{% data variables.product.prodname_secret_scanning %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 > [!NOTE]
 > {% data variables.product.prodname_secret_protection %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_secret_protection %} or {% data variables.product.prodname_GHAS %}.
+
 {% endif %}
 
 {% ifversion ghas-products %}{% data variables.product.prodname_GH_secret_protection %} includes {% data variables.product.prodname_secret_scanning %} and push protection, as well as other features that help you detect and prevent secret leaks in your repository.{% endif %}

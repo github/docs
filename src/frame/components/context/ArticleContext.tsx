@@ -103,7 +103,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     currentJourneyTrack: req.context.currentJourneyTrack,
     detectedPlatforms: page.detectedPlatforms || [],
     detectedTools: page.detectedTools || [],
-    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.js
+    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.ts
     supportPortalVaIframeProps,
     currentLayout: req.context.currentLayoutName,
   }

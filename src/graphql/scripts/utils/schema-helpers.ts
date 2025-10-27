@@ -9,6 +9,7 @@ import {
   isInputObjectType,
   GraphQLSchema,
 } from 'graphql'
+import type { ConstDirectiveNode } from 'graphql/language'
 import path from 'path'
 
 interface GraphQLTypeInfo {
@@ -40,11 +41,6 @@ interface ArgumentNode {
   defaultValue?: { value: any } // GraphQL default values can be of various types
   description: { value: string }
   type: any // GraphQL AST type nodes have complex nested structure
-}
-
-interface DirectiveNode {
-  name: { value: string }
-  arguments: Array<{ value: { value: string; kind?: string } }>
 }
 
 interface SchemaMember {
@@ -96,7 +92,7 @@ async function getArguments(
 }
 
 async function getDeprecationReason(
-  directives: DirectiveNode[],
+  directives: readonly ConstDirectiveNode[],
   schemaMember: SchemaMember,
 ): Promise<string | undefined> {
   if (!schemaMember.isDeprecated) return
@@ -108,10 +104,15 @@ async function getDeprecationReason(
   if (deprecationDirective.length > 1)
     console.log(`more than one deprecation found for ${schemaMember.name}`)
 
-  return renderContent(deprecationDirective[0].arguments[0].value.value)
+  const arg = deprecationDirective[0]?.arguments?.[0]
+  if (!arg) return
+  // ConstDirectiveNode arguments have deeply nested union types not fully exposed in GraphQL's type definitions
+  const value = (arg as any).value?.value
+  if (!value) return
+  return renderContent(value)
 }
 
-function getDeprecationStatus(directives: DirectiveNode[]): boolean | undefined {
+function getDeprecationStatus(directives: readonly ConstDirectiveNode[]): boolean | undefined {
   if (!directives.length) return
 
   return directives[0].name.value === 'deprecated'
@@ -137,7 +138,7 @@ function getKind(type: string): string {
 }
 
 async function getPreview(
-  directives: DirectiveNode[],
+  directives: readonly ConstDirectiveNode[],
   schemaMember: SchemaMember,
   previewsPerVersion: PreviewInfo[],
 ): Promise<PreviewInfo | undefined> {
@@ -152,9 +153,13 @@ async function getPreview(
     console.log(`more than one preview found for ${schemaMember.name}`)
 
   // an input object's input field may have a ListValue directive that is not relevant to previews
-  if (previewDirective[0].arguments[0].value.kind !== 'StringValue') return
+  const firstArg = previewDirective[0]?.arguments?.[0]
+  if (!firstArg) return
+  // ConstDirectiveNode arguments have deeply nested union types not fully exposed in GraphQL's type definitions
+  const argValue = (firstArg as any).value
+  if (!argValue || argValue.kind !== 'StringValue') return
 
-  const previewName = previewDirective[0].arguments[0].value.value
+  const previewName = argValue.value
 
   const preview = previewsPerVersion.find((p) => p.toggled_by.includes(previewName))
   if (!preview) console.error(`cannot find "${previewName}" in graphql_previews.yml`)

@@ -16,6 +16,10 @@ children:
   - github-misinformation-and-disinformation
   - github-sexually-obscene-content
   - github-threats-of-violence-and-gratuitously-violent-content
+  - github-terrorism-and-violent-extremism
+  - github-child-sexual-exploitation-or-abuse
+  - github-non-consensual-intimate-imagery
+  - github-synthetic-media-and-ai-tools
   - github-appeal-and-reinstatement
 ---
 

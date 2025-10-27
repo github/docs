@@ -11,6 +11,8 @@ versions:
   feature: copilot
 
 contentType: tutorials
+category:
+  - Unblock complex work
 ---
 
 > [!NOTE]

@@ -9,4 +9,5 @@
 * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/javascript-typescript-built-in-queries)
 * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/python-built-in-queries)
 * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/ruby-built-in-queries)
+* [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/rust-built-in-queries)
 * [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/swift-built-in-queries)

@@ -68,7 +68,7 @@ describe('learning tracks', () => {
     }
     if (fixables) {
       errorMessage += `\nNOTE! To automatically fix the redirects run this command:\n`
-      errorMessage += `\n\t./src/links/scripts/update-internal-links.js data/learning-tracks/${topLevel}.yml\n`
+      errorMessage += `\n\t./src/links/scripts/update-internal-links.ts data/learning-tracks/${topLevel}.yml\n`
     }
     expect(troubles.length, errorMessage).toEqual(0)
   })

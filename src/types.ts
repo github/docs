@@ -3,6 +3,7 @@ import type { Failbot } from '@github/failbot'
 
 import type enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.d'
 import type { ValidOcticon } from '@/landings/types'
+import type { Language, Languages } from '@/languages/lib/languages-server'
 import type { MiniTocItem } from '@/frame/lib/get-mini-toc-items'
 
 // Shared type for resolved article information used across landing pages and carousels
@@ -26,7 +27,7 @@ export type ExtendedRequest = Request & {
 }
 
 // TODO: Make this type from inference using AJV based on the schema.
-// For now, it's based on `schema` in frame/lib/frontmatter.js
+// For now, it's based on `schema` in frame/lib/frontmatter.ts
 export type PageFrontmatter = {
   title: string
   versions: FrontmatterVersions
@@ -225,7 +226,7 @@ export type FeaturedLinkExpanded = {
   intro?: string
 }
 
-type FeaturedLinksExpanded = {
+export type FeaturedLinksExpanded = {
   [key: string]: FeaturedLinkExpanded[]
 }
 
@@ -325,16 +326,8 @@ export type SecretScanningData = {
   isduplicate: boolean
 }
 
-type Language = {
-  name: string
-  code: string
-  hreflang: string
-  dir: string
-}
-
-export type Languages = {
-  [key: string]: Language
-}
+// Language and Languages types are imported at the top from languages-server
+export type { Language, Languages }
 
 export type Permalink = {
   languageCode: string

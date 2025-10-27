@@ -38,8 +38,8 @@ All listings should meet the following requirements, regardless of whether they 
 * Listings must have a relevant description of the application.
 * Listings must specify a pricing plan.
 * Listings must have a valid link to a privacy policy.
-* Listings must have a valid link to a Terms of Service page.
 * Listings must provide a method to receive support through a valid support link and/or a support email address.
+* All additional links in a listing, such as Terms of Service or a Status Page, must work and resolve to a relevant page.
 * Apps must provide value to customers and integrate with the platform in some way beyond authentication.
 * Apps must be publicly available in {% data variables.product.prodname_marketplace %} and cannot be in {% data variables.release-phases.public_preview %} or available by invite only, with the exception of {% data variables.copilot.copilot_extensions_short %}.
 * Apps must have webhook events set up to notify the publisher of any plan changes or cancellations using the {% data variables.product.prodname_marketplace %} API. For more information, see [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
