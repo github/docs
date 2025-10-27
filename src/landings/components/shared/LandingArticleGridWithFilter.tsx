@@ -6,11 +6,14 @@ import cx from 'classnames'
 import { Link } from '@/frame/components/Link'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ArticleCardItems, ChildTocItem, TocItem } from '@/landings/types'
+import { LandingType } from '@/landings/context/LandingContext'
 
 import styles from './LandingArticleGridWithFilter.module.scss'
 
 type ArticleGridProps = {
   tocItems: TocItem[]
+  includedCategories?: string[]
+  landingType: LandingType
 }
 
 const ALL_CATEGORIES = 'all_categories'
@@ -66,7 +69,7 @@ const useResponsiveArticlesPerPage = () => {
   return articlesPerPage
 }
 
-export const ArticleGrid = ({ tocItems }: ArticleGridProps) => {
+export const ArticleGrid = ({ tocItems, includedCategories, landingType }: ArticleGridProps) => {
   const { t } = useTranslation('product_landing')
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState(ALL_CATEGORIES)
@@ -83,21 +86,42 @@ export const ArticleGrid = ({ tocItems }: ArticleGridProps) => {
     [tocItems],
   )
 
+  // Filter articles based on includedCategories for discovery landing pages
+  // For bespoke landing pages, show all articles regardless of includedCategories
+  const filteredArticlesByLandingType = useMemo(() => {
+    if (landingType === 'discovery' && includedCategories && includedCategories.length > 0) {
+      // For discovery pages, only include articles that have at least one matching category
+      return allArticles.filter((article) => {
+        if (!article.category || article.category.length === 0) return false
+        return article.category.some((cat) =>
+          includedCategories.some((included) => included.toLowerCase() === cat.toLowerCase()),
+        )
+      })
+    }
+    // For bespoke pages or when includedCategories is empty/undefined, return all articles
+    return allArticles
+  }, [allArticles, includedCategories, landingType])
+
   // Reset to first page when articlesPerPage changes (screen size changes)
   useEffect(() => {
     setCurrentPage(1)
   }, [articlesPerPage])
 
-  // Extract unique categories from the articles
+  // Extract unique categories from the filtered articles, filtering dropdown by includedCategories if provided
   const categories: string[] = [
     ALL_CATEGORIES,
-    ...Array.from(new Set(allArticles.flatMap((item) => item.category || []))).sort((a, b) =>
-      a.localeCompare(b),
-    ),
+    ...Array.from(new Set(filteredArticlesByLandingType.flatMap((item) => item.category || [])))
+      .filter((category) => {
+        if (!includedCategories || includedCategories.length === 0) return true
+        // Case-insensitive comparison for dropdown filtering
+        const lowerCategory = category.toLowerCase()
+        return includedCategories.some((included) => included.toLowerCase() === lowerCategory)
+      })
+      .sort((a, b) => a.localeCompare(b)),
   ]
 
   const applyFilters = () => {
-    let results = allArticles
+    let results = filteredArticlesByLandingType
 
     if (searchQuery) {
       results = results.filter((token) => {

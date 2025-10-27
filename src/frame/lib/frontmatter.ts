@@ -405,6 +405,14 @@ export const schema: Schema = {
       maxItems: 9,
       description: 'Array of articles to feature in the carousel section',
     },
+    // Included categories for article grid filtering
+    includedCategories: {
+      type: 'array',
+      items: {
+        type: 'string',
+      },
+      description: 'Array of category names to include in the article grid dropdown filter',
+    },
   },
 }
 
