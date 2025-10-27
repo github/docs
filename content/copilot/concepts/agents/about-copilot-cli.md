@@ -39,7 +39,7 @@ For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-c
 * **Programmatic mode**: You can also pass the CLI a single prompt directly on the command line. You do this by using the `-p` or `--prompt` command-line option. To allow {% data variables.product.prodname_copilot_short %} to modify and execute files you should also use one of the approval options (see [Allowing tools to be used without manual approval](#allowing-tools-to-be-used-without-manual-approval) later in this article). For example:
 
   ```bash copy
-  copilot -p "List my open PRs" --allow-all-tools
+  copilot -p "Show me this week's commits and summarize them" --allow-tool 'shell(git)'
   ```
 
   Alternatively, you can use a script to output command-line options and pipe this to `copilot`. For example:
