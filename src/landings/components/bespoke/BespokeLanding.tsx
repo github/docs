@@ -6,7 +6,16 @@ import { UtmPreserver } from '@/frame/components/UtmPreserver'
 import { LandingCarousel } from '@/landings/components/shared/LandingCarousel'
 
 export const BespokeLanding = () => {
-  const { title, intro, heroImage, introLinks, tocItems, recommended } = useLandingContext()
+  const {
+    title,
+    intro,
+    heroImage,
+    introLinks,
+    tocItems,
+    recommended,
+    includedCategories,
+    landingType,
+  } = useLandingContext()
 
   return (
     <DefaultLayout>
@@ -16,7 +25,11 @@ export const BespokeLanding = () => {
 
         <div className="container-xl px-3 px-md-6 mt-6 mb-4">
           <LandingCarousel recommended={recommended} />
-          <ArticleGrid tocItems={tocItems} />
+          <ArticleGrid
+            tocItems={tocItems}
+            includedCategories={includedCategories}
+            landingType={landingType}
+          />
         </div>
       </div>
     </DefaultLayout>
