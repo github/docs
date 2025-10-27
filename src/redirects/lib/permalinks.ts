@@ -33,9 +33,12 @@ export default function permalinkRedirects(
     }
 
     // Exceptions where the `redirect_from` entries are too old
+    // Only replace /enterprise/ when it's at the start of the path followed by /admin/
+    // This handles legacy patterns like /enterprise/admin/... → /admin/...
+    // but preserves paths like /early-access/enterprise/... where enterprise is a directory name
     frontmatterOldPath = frontmatterOldPath
       .replace('/admin/guides/', '/admin/')
-      .replace('/enterprise/', '/')
+      .replace(/^\/enterprise\/admin\//, '/admin/')
 
     permalinks.forEach((permalink, index) => {
       // For the first supported permalink (the order is determined by lib/all-versions),
