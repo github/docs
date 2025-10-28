@@ -1,7 +1,7 @@
 ---
 title: About GitHub Copilot coding agent
 shortTitle: About coding agent
-intro: You can assign {% data variables.product.github %} issues to {% data variables.product.prodname_copilot_short %}, or ask {% data variables.product.prodname_copilot_short %} to create a pull request.
+intro: You can ask {% data variables.product.prodname_copilot_short %} to open a new pull request or make changes to an existing pull request. {% data variables.product.prodname_copilot_short %} works in the background, then requests a review from you.
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
@@ -33,12 +33,15 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 
 To delegate tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
-* Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
-* Ask {% data variables.product.prodname_copilot_short %} to create a pull request from the agents panel or page on {% data variables.product.github %}, {% data variables.copilot.copilot_chat %}, your favorite IDE or agentic coding tool with MCP support, or Raycast on macOS. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
+* Ask Copilot to open a new pull request from many places, including {% data variables.product.prodname_github_issues %}, {% data variables.product.prodname_vscode %} and the agents panel available on every page on {% data variables.product.github %}. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr).
+* Mention `@copilot` in a comment on an existing pull request to ask it to make changes. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/make-changes-to-an-existing-pr).
+{% ifversion security-campaigns-assign-to-cca %}* Assign security alerts to {% data variables.product.prodname_copilot_short %} from security campaigns. See [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign#assigning-alerts-to-copilot-coding-agent).{% endif %}
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
 While working on a coding task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
+
+You can also create {% data variables.copilot.custom_agents_short %} to tailor {% data variables.product.prodname_copilot_short %}'s behavior for specific workflows, coding conventions, or specialized tasks. {% data variables.copilot.custom_agents_caps_short %} allow you to define multiple specialized versions of the coding agent—such as a frontend reviewer, test generator, or security auditor—each with their own prompts, tools, and capabilities. For more information, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents).
 
 ### Benefits over traditional AI workflows
 
@@ -46,7 +49,7 @@ When used effectively, {% data variables.copilot.copilot_coding_agent %} offers 
 
 * With **AI assistants in IDEs**, coding happens **locally**. Individual developers pair in **synchronous** sessions with the AI assistant. Decisions made during the session are **untracked** and lost to time unless committed. Although the assistant helps write code, the developer still has a lot of **manual steps** to do: create the branch, write commit messages, push the changes, open the PR, write the PR description, get a review, iterate in the IDE, and repeat. These steps take time and effort that may be hard to justify for simple or routine issues.
 
-* With **{% data variables.copilot.copilot_coding_agent %}**, all coding and iterating happens **on {% data variables.product.github %}** as part of the pull request workflow. {% data variables.product.prodname_copilot_short %} **automates** branch creation, commit message writing and pushing, PR opening, and PR description writing. Developers let the agent **work in the background** and then steer {% data variables.product.prodname_copilot_short %} to a final solution using PR reviews. Working on {% data variables.product.github %} adds **transparency**, where every step happens in a commit and is viewable in logs. Working on {% data variables.product.github %} also opens up **collaboration** opportunities for the entire team.
+* With **{% data variables.copilot.copilot_coding_agent %}**, all coding and iterating happens **on {% data variables.product.github %}** as part of the pull request workflow. You can create multiple {% data variables.copilot.custom_agents_short %} that specialize in different types of tasks. {% data variables.product.prodname_copilot_short %} **automates** branch creation, commit message writing and pushing, PR opening, and PR description writing. Developers let the agents **work in the background** and then steer {% data variables.product.prodname_copilot_short %} to a final solution using PR reviews. Working on {% data variables.product.github %} adds **transparency**, with every step happening in a commit and being viewable in logs, and opens up **collaboration** opportunities for the entire team.
 
 ### {% data variables.copilot.copilot_coding_agent %} versus agent mode
 
@@ -61,6 +64,12 @@ For example, you can assign {% data variables.product.prodname_copilot_short %} 
 Having {% data variables.product.prodname_copilot_short %} as an additional coding resource also allows you to start tasks that you might not have otherwise due to lack of resources. For example, you might delegate {% data variables.product.prodname_copilot_short %} tasks to refactor code or add more logging, then immediately assign these to {% data variables.product.prodname_copilot_short %}.
 
 {% data variables.product.prodname_copilot_short %} can start a task, which you then pick up and continue working on yourself. By assigning the initial work to {% data variables.product.prodname_copilot_short %}, you free up time that you would otherwise have spent doing repetitive tasks, such as setting up the scaffolding for a new project.
+
+You can create specialized {% data variables.copilot.custom_agents_short %} for different tasks. For example, you might create a {% data variables.copilot.copilot_custom_agent_short %} specialized for frontend development that focuses on React components and styling, a documentation agent that excels at writing and updating technical documentation, or a testing agent that specializes in generating comprehensive unit tests. Each {% data variables.copilot.copilot_custom_agent_short %} can be tailored with specific prompts and tools suited to its particular task.
+
+### Integrating {% data variables.copilot.copilot_coding_agent %} with third-party tools
+
+You can also invoke {% data variables.copilot.copilot_coding_agent %} from external tools, allowing you to assign tasks to {% data variables.product.prodname_copilot_short %}, provide context, and open pull requests without leaving your workflow. See [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations)
 
 ### Making {% data variables.copilot.copilot_coding_agent %} available
 
@@ -86,6 +95,11 @@ For more information, see [AUTOTITLE](/billing/managing-billing-for-your-product
 
 Security is a fundamental consideration when you enable {% data variables.copilot.copilot_coding_agent %}, as with any other AI agent. {% data variables.product.prodname_copilot_short %} has a strong base of built-in security protections that you can supplement by following best practice guidance.
 
+* **Validated for security issues**: {% data variables.product.prodname_copilot_short %} analyzes the code created by {% data variables.copilot.copilot_coding_agent %} for security issues and attempts to resolve them prior to completing the pull request. This reduces the likelihood of the code generated by {% data variables.copilot.copilot_coding_agent %} introducing problems such as hardcoded secrets, insecure dependencies, and other vulnerabilities. Details about the analysis performed and the actions taken by {% data variables.copilot.copilot_coding_agent %} can be reviewed in the session log. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions).
+  * **{% data variables.product.prodname_codeql %}** is used to identify code security issues.
+  * Newly introduced dependencies are checked against the **{% data variables.product.prodname_advisory_database %}** for malware advisories, and for any CVSS-rated High or Critical vulnerabilities.
+  * **{% data variables.product.prodname_secret_scanning_caps %}** is used to detect sensitive information such as API keys, tokens, and other secrets.
+  * {% data variables.copilot.copilot_coding_agent %}'s security validation **does not require** a {% data variables.product.prodname_GHAS_cs_or_sp %} license.
 * **Subject to existing governance**: Organization settings and enterprise policies control availability. Any security policies and practices set up for the organization also apply to {% data variables.copilot.copilot_coding_agent %}.
 * **Restricted development environment**: {% data variables.product.prodname_copilot_short %} works in a sandbox development environment with internet access controlled by a firewall. It has read-only access to the repository it's assigned to work in.
 * **Limited access to branches**: {% data variables.product.prodname_copilot_short %} can only create and push to branches beginning with `copilot/`. It is subject to any branch protections and required checks for the working repository.
@@ -133,7 +147,6 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 * **{% data variables.product.prodname_copilot_short %} can only make changes in the same repository where it is creating its pull request**. When {% data variables.product.prodname_copilot_short %} is assigned an issue, it can only make changes in the repository where that issue is located. In addition, {% data variables.product.prodname_copilot_short %} cannot make changes across multiple repositories in one run.
 * **{% data variables.product.prodname_copilot_short %} can only access context in the same repository as the assigned issue**. By default, an integration with the {% data variables.product.prodname_copilot_short %} MCP server provides {% data variables.product.prodname_copilot_short %} access to one repository at a time. You can, however, configure broader access. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
 * **{% data variables.product.prodname_copilot_short %} can only open one pull request at a time**. {% data variables.product.prodname_copilot_short %} will open exactly one pull request to address each task it is assigned.
-* **{% data variables.product.prodname_copilot_short %} cannot work on an existing pull request that it didn't create**. If you would like {% data variables.product.prodname_copilot_short %} to provide feedback on an existing pull request, you can add it as a reviewer. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
 ### Limitations in Copilot's compatibility with other features
 
@@ -153,4 +166,5 @@ Try the [Expand your team with {% data variables.copilot.copilot_coding_agent %}
 ## Further reading
 
 * [AUTOTITLE](/copilot/using-github-copilot/coding-agent) how-to articles
+* [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents)
 * [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)

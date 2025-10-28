@@ -92,8 +92,7 @@ To use this workflow:
 
 ### Example workflow
 
->[!NOTE] This example assumes you assign licenses through an organization. If you use a dedicated enterprise account for {% data variables.copilot.copilot_business_short %}, you will need to use different API endpoints. See [AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-personal-accounts#automate-license-management).
-
+>[!NOTE] This example assumes you assign licenses through an organization. Similar API endpoints exist for enterprise accounts and enterprise teams. See [AUTOTITLE](/rest/copilot/copilot-user-management).
 <!-- markdownlint-disable GHD021 -->
 
 ``` yaml annotate

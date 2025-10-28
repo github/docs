@@ -1,1 +1,1 @@
-1. In the "Policies" section, click **{% data variables.product.prodname_copilot_short %}**.
+1. In the "Policies" sidebar, click **{% data variables.product.prodname_copilot_short %}**.

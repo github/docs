@@ -197,13 +197,16 @@ prodname_GHAS_or_secret_protection: '{% ifversion ghas-products %}GitHub Secret 
 prodname_GHAS_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, or {% endif %}GitHub Advanced Security'
 prodname_GH_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection or GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
 
+## GitHub Code Quality preview only
+prodname_GH_sp_cs_and_cq_or_as: '{% data variables.product.prodname_GH_secret_protection %}, {% data variables.product.prodname_GH_code_security %}{% ifversion code-quality %} and {% data variables.product.prodname_code_quality %} ({% data variables.release-phases.public_preview %}){% endif %}, or {% data variables.product.prodname_GHAS %}'
+
 ## GHAS and GHAS products
 prodname_GHAS_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, and {% endif %}GitHub Advanced Security'
 prodname_GH_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection and GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
 
 ## Short or UI names
 prodname_AS: 'Advanced Security'
-prodname_code_security: '{% ifversion ghas-products %}Code Scanning{% else %}Advanced Security{% endif %}'
+prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Advanced Security{% endif %}'
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
 prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
 prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
@@ -309,6 +312,10 @@ prodname_copilot_short: 'Copilot'
 prodname_spark: 'GitHub Spark'
 prodname_spark_short: 'Spark'
 
+# GitHub Code Quality
+prodname_code_quality: 'GitHub Code Quality'
+prodname_code_quality_short: 'Code Quality'
+
 # Windows
 prodname_windows_terminal: 'Windows Terminal'
 
@@ -358,3 +365,6 @@ device_authorization_url: >-
   {%- endif %}
 graphql_url: >-
   {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://HOSTNAME/api/graphql{% endif %}
+
+# OpenAI Codex
+prodname_openai_codex: 'OpenAI Codex'

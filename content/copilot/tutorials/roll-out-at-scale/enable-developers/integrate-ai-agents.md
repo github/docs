@@ -103,9 +103,10 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
    > * With the **{% data variables.product.github %} MCP server** enabled, {% data variables.product.prodname_copilot_short %} can run the command to open a pull request directly from {% data variables.product.prodname_vscode_shortname %}, with the title and description already filled in.
    > * Interactions with the {% data variables.product.github %} MCP server are secured by **push protection**, which blocks secrets from being included in AI-generated responses and prevents you from exposing secrets through any actions you perform using the server (public repositories only). See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
-## 5. Review with {% data variables.copilot.copilot_code-review_short %}
+## 5. Review with {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_custom_agents %}
 
 1. A repository owner has configured automatic **code reviews** by {% data variables.product.prodname_copilot_short %} on the repository. {% data variables.product.prodname_copilot_short %} provides an initial review on the pull request, identifying bugs and potential performance issues that the developer can fix before a human reviewer gets to the pull request.
+1. As an additional compliance check, an enterprise owner has created a **{% data variables.copilot.copilot_custom_agent %}** with key context on industry regulations and internal policies. The developer selects the {% data variables.copilot.copilot_custom_agent_short %} at `https://github.com/copilot/agents`, prompting {% data variables.product.prodname_copilot_short %} to carefully review the pull request for compliance and applying any necessary changes before requesting a human review.
 1. The developer's colleague reviews and approves the pull request. The work is ready to merge.
 
 ## 6. Optimize with {% data variables.copilot.copilot_coding_agent %}
@@ -155,6 +156,7 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 | {% data variables.product.prodname_github_models %} playground ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/github-models/prototyping-with-ai-models#experimenting-with-ai-models-in-the-playground) |
 | Custom instructions | [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode) |
 | {% data variables.copilot.copilot_code-review_short %} | [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/automatic-code-review) |
+| {% data variables.copilot.copilot_custom_agents %} | [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-custom-agents) |
 | {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org) |
 | {% data variables.copilot.copilot_autofix_short %} | [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) |
 

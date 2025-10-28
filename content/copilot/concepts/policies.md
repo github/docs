@@ -52,7 +52,7 @@ If an enterprise owner selects **No policy**, the impact depends on whether a us
 
 For members who receive a {% data variables.product.prodname_copilot_short %} license from the organization, organization owners can choose their policy. If a member receives access to {% data variables.product.prodname_copilot_short %} through multiple organizations with conflicting policies, either the least or most permissive policy may apply, depending on the policy. For more information, see [AUTOTITLE](/copilot/reference/feature-availability-enterprise).
 
-For users who receive access to {% data variables.product.prodname_copilot_short %} directly from the enterprise rather than from an organization, the **Policies for enterprise-assigned users** setting determines whether "No policy" defaults to enabled or disabled. {% data reusables.copilot.direct-assignment-rollout %}
+For users who receive access to {% data variables.product.prodname_copilot_short %} directly from the enterprise rather than from an organization, the **Policies for enterprise-assigned users** setting determines whether "No policy" defaults to enabled or disabled.
 
 ## Next steps
 

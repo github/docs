@@ -10,11 +10,15 @@ children:
   - /cheat-sheet
   - /ai-models
   - /keyboard-shortcuts
+  - /custom-agents-configuration
   - /policy-conflicts
   - /allowlist-reference
   - /metrics-data
   - /copilot-billing
+  - /agentic-audit-log-events
   - /extensions-glossary
+  - /copilot-usage-metrics
+  - /interpret-copilot-metrics
+  - /reconciling-usage-metrics
 contentType: reference
 ---
-

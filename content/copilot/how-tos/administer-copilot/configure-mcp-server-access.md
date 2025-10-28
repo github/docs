@@ -91,13 +91,11 @@ When an enterprise lets child organizations configure their own MCP policies, ea
 ## Configuring the MCP allowlist policy for an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-{% data reusables.enterprise-accounts.copilot-policies-tab %}
-1. Under "Features", ensure **MCP servers in {% data variables.product.prodname_copilot_short %}** is set to **Enabled**.
-1. In the **MCP Registry URL (optional)** field, enter the URL of your specification-compliant MCP registry.
-1. Click **Save**.
-1. Next to **Restrict MCP access to registry servers**, select one of the following from the dropdown:
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.view-mcp-policies %}
+1. Ensure **MCP servers in {% data variables.product.prodname_copilot_short %}** is set to **Enabled everywhere**.
+1. In the **MCP Registry URL** section, enter the URL of your specification-compliant MCP registry, then click **Save**.
+1. In the **Restrict MCP access to registry servers** section, select one of the following from the dropdown menu:
    * **Allow all**: No restrictions. All MCP servers can be used.
    * **Registry only**: Only servers from the registry may run.
 

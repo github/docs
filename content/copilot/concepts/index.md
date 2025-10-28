@@ -7,19 +7,20 @@ versions:
 topics:
   - Copilot
 children:
-  - /ai-tools
   - /completions
   - /chat
   - /agents
   - /spark
   - /prompting
   - /context
+  - /tools
   - /auto-model-selection
   - /rate-limits
   - /billing
+  - /about-enterprise-accounts-for-copilot-business
   - /policies
   - /network-settings
   - /extensions
+  - /copilot-metrics
 contentType: concepts
 ---
-

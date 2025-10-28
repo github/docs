@@ -24,11 +24,12 @@ children:
   - /configuring-visibility-for-organization-membership
   - /preventing-users-from-creating-organizations
   - /requiring-two-factor-authentication-for-an-organization
+  - /custom-properties
+  - /managing-custom-properties-for-organizations
   - /managing-your-role-in-an-organization-owned-by-your-enterprise
-  - /managing-requests-for-copilot-business-from-organizations-in-your-enterprise
+  - /managing-requests-for-copilot-business
   - /removing-organizations-from-your-enterprise
   - /restoring-a-deleted-organization
   - /managing-projects-using-jira
 shortTitle: Manage organizations
 ---
-

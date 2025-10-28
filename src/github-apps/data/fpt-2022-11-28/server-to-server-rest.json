@@ -25,6 +25,42 @@
       "requestPath": "/orgs/{org}/actions/hosted-runners"
     },
     {
+      "slug": "list-custom-images-for-an-organization",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom"
+    },
+    {
+      "slug": "get-a-custom-image-definition-for-github-actions-hosted-runners",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}"
+    },
+    {
+      "slug": "delete-a-custom-image-from-the-organization",
+      "subcategory": "hosted-runners",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}"
+    },
+    {
+      "slug": "list-image-versions-of-a-custom-image-for-an-organization",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions"
+    },
+    {
+      "slug": "get-an-image-version-of-a-custom-image-for-github-actions-hosted-runners",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}"
+    },
+    {
+      "slug": "delete-an-image-version-of-custom-image-from-the-organization",
+      "subcategory": "hosted-runners",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}"
+    },
+    {
       "slug": "get-github-owned-images-for-github-hosted-runners-in-an-organization",
       "subcategory": "hosted-runners",
       "verb": "get",
@@ -2883,6 +2919,18 @@
       "requestPath": "/organizations"
     },
     {
+      "slug": "get-all-custom-property-values-for-an-organization",
+      "subcategory": "custom-properties-for-orgs",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/org-properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-an-organization",
+      "subcategory": "custom-properties-for-orgs",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/org-properties/values"
+    },
+    {
       "slug": "get-an-organization",
       "subcategory": "orgs",
       "verb": "get",
@@ -2929,6 +2977,12 @@
       "subcategory": "attestations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "list-attestation-repositories",
+      "subcategory": "attestations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/attestations/repositories"
     },
     {
       "slug": "delete-attestations-by-id",
@@ -3923,18 +3977,6 @@
       "subcategory": "collaborators",
       "verb": "get",
       "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
-    },
-    {
-      "slug": "list-project-columns",
-      "subcategory": "columns",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/columns"
-    },
-    {
-      "slug": "create-a-project-column",
-      "subcategory": "columns",
-      "verb": "post",
-      "requestPath": "/projects/{project_id}/columns"
     },
     {
       "slug": "list-repository-projects",

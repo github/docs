@@ -29,16 +29,8 @@ You can download a CSV report for {% data variables.product.prodname_copilot_sho
 
 ## Downloading the report for an enterprise
 
-<!-- expires 2025-10-28 -->
-<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
-<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
-
-{% data reusables.enterprise-accounts.copilot-access-management-tmp %}
-1. To download the usage report:
-   * If you're on the `/enterprise_licensing/copilot` page, select **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**, then click **Activity report (new)**.
-   * If you're on the `/settings/copilot` page, click **{% octicon "file" aria-label="The file icon" %} Get Usage report**, then click **Activity report (new)**.
-
-<!-- end expires 2025-10-28 -->
+{% data reusables.enterprise-accounts.copilot-licensing %}
+1. To download the usage report, select **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**, then click **Activity report (new)**.
 
 ## Downloading the report for an organization
 
@@ -47,17 +39,6 @@ You can download a CSV report for {% data variables.product.prodname_copilot_sho
 1. Click **Get activity report**.
 
    ![Screenshot of the "Access" page. The "Get activity report" button is highlighted with an orange outline.](/assets/images/help/copilot/activity-report-org.png)
-
-## Downloading the report for a non-GHE enterprise
-
-These instructions apply if GitHub has provisioned you with a dedicated enterprise account for managing Copilot Business licenses. See [AUTOTITLE](/enterprise-cloud@latest/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
-
-1. Navigate to your enterprise account.
-1. At the top of the page, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
-1. Click **Manage seats**.
-1. Click **Get activity report**.
-
-   ![Screenshot of the licensing page for Copilot Business. The "Get activity report" button is highlighted with an orange outline.](/assets/images/help/copilot/activity-report-non-ghe.png)
 
 ## Report fields
 

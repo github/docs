@@ -1,8 +1,8 @@
 ---
-title: Extending GitHub Copilot Chat with the Model Context Protocol (MCP)
+title: Extending GitHub Copilot Chat with Model Context Protocol (MCP) servers
 allowTitleToDifferFromFilename: true
 shortTitle: Extend Copilot Chat with MCP
-intro: 'Learn how to use the Model Context Protocol (MCP) to extend {% data variables.copilot.copilot_chat_short %}.'
+intro: 'Connect MCP servers to {% data variables.copilot.copilot_chat_short %} to share context from other applications.'
 versions:
   feature: copilot
 defaultTool: vscode
@@ -219,7 +219,16 @@ For more information on configuring MCP servers in {% data variables.product.pro
   {% data reusables.copilot.jetbrains-compatible-ides %}
 * {% data reusables.copilot.mcp-policy-requirement %}
 
-## Configuring MCP servers in JetBrains IDEs
+## Configuring MCP servers from your MCP registry
+
+1. In your JetBrains IDE, open {% data variables.copilot.copilot_chat_short %}.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the {% octicon "mcp" aria-hidden="true" aria-label="mcp" %} MCP icon.
+1. In the MCP Registry window, find the MCP server(s) you want to add from the list of available servers.
+1. Next to each MCP server you want to add, click **Install**.
+1. When you are finished adding MCP servers, click **OK**.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon. You should now see additional tools from the MCP server(s) that you installed.
+
+## Configuring MCP servers manually
 
 {% data reusables.copilot.jetbrains-mcp-setup-steps %}
 1. In the `mcp.json` file, define your MCP servers. JetBrains IDEs support both remote and local servers. Remote servers are hosted externally for easier setup and sharing, while local servers run on your local machine and can access local resources.
@@ -244,7 +253,18 @@ You can use the following configurations as examples:
 * **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
 * {% data reusables.copilot.mcp-policy-requirement %}
 
-## Configuring MCP servers in Xcode
+## Configuring MCP servers from your MCP registry
+
+1. In Xcode, open {% data variables.copilot.copilot_chat_short %}.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the {% octicon "gear" aria-label="The Settings gear" %} icon to open settings.
+1. In the settings window, select the **Tools** tab.
+1. Next to **MCP Registry URL (Optional)**, click **Browse MCP Servers**.
+1. In the MCP Registry window, find the MCP server(s) you want to add from the list of available servers.
+1. Next to each MCP server you want to add, click **Install**.
+1. When you are finished adding MCP servers, close the **MCP Servers Marketplace** window.
+1. In the settings window, under **Available MCP Tools**, click the **>** icon to expand the list of available MCP tools. You should now see additional tools from the MCP server(s) that you installed.
+
+## Configuring MCP servers manually
 
 {% data reusables.copilot.xcode-mcp-setup-steps %}
 1. Define your MCP servers, editing `mcp.json`. Xcode supports both remote and local servers. Remote servers are hosted externally for easier setup and sharing, while local servers run on your local machine and can access local resources.
@@ -267,7 +287,16 @@ You can use the following configurations as examples:
 
 {% data reusables.copilot.eclipse-prerequisites %}
 
-## Configuring MCP servers in Eclipse
+## Configuring MCP servers from your MCP registry
+
+1. In Eclipse, open {% data variables.copilot.copilot_chat_short %}.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the {% octicon "mcp" aria-hidden="true" aria-label="mcp" %} MCP icon.
+1. In the MCP Registry window, find the MCP server(s) you want to add from the list of available servers.
+1. Next to each MCP server you want to add, click **Install**.
+1. When you are finished adding MCP servers, click **Close**.
+1. In the {% data variables.copilot.copilot_chat_short %} window, click the tools icon. You should now see additional tools from the MCP server(s) that you installed.
+
+## Configuring MCP servers manually
 
 {% data reusables.copilot.eclipse-mcp-setup-steps %}
 1. Under "Server Configurations", define your MCP servers. Eclipse supports both remote and local servers. Remote servers are hosted externally for easier setup and sharing, while local servers run on your local machine and can access local resources.

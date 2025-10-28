@@ -1,6 +1,6 @@
 ---
 title: Setting up an organization
-intro: 'Learn how to set up an organization in your enterprise.'
+intro: 'Set up an organization in your enterprise.'
 versions:
   ghec: '*'
 type: how_to
@@ -8,6 +8,8 @@ topics:
   - Organizations
   - Enterprise
 shortTitle: Set up an organization
+redirect_from:
+  - /enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations
 ---
 
 During a trial, there are two ways to add organizations to your enterprise.
@@ -15,13 +17,13 @@ During a trial, there are two ways to add organizations to your enterprise.
 * **Create** a new organization in your enterprise, or
 * **Invite** an existing organization to join your enterprise.
 
-If you chose an enterprise with {% data variables.product.prodname_emus %}, it is not possible to invite an existing organization. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise)
+If you chose an enterprise with {% data variables.product.prodname_emus %}, it is not possible to invite an existing organization.
 
 ## Creating a new organization
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription.
 
-Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
+Enterprise owners who create an organization owned by the enterprise account automatically become organization owners.
 
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
 
@@ -52,4 +54,4 @@ After you invite the organization, and before an owner approves the invitation, 
 
 ## Next steps
 
-After you create or add an organization to your enterprise, learn how to manage organization members. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/managing-organization-members).
+After you have created the organizations you need, learn how to manage people's access to your enterprise and organizations' settings and resources. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/about-roles-in-an-enterprise).
