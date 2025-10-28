@@ -22,16 +22,10 @@ contentType: how-tos
 >[!NOTE]
 > You must already have a paid {% data variables.copilot.copilot_business_short %} plan to upgrade to {% data variables.copilot.copilot_enterprise_short %}. Trial plans are not eligible for upgrade.
 
-<!-- expires 2025-10-28 -->
-<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
-<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
-
-{% data reusables.enterprise-accounts.copilot-access-management-tmp %}
-1. If you don't already see a list of organizations, under "{% data variables.product.prodname_copilot_short %} access", click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
+{% data reusables.enterprise-accounts.copilot-licensing %}
+1. Click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
 1. Locate the organization for which you want to upgrade {% data variables.product.prodname_copilot_short %}.
 1. To the right of the organization name, select the **{% data variables.product.prodname_copilot_short %}** dropdown menu, and click **{% data variables.copilot.copilot_enterprise_short %}**.
-
-<!-- end expires 2025-10-28 -->
 
 ## Next steps
 

@@ -116,7 +116,6 @@ children:
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
   - /managing-code-security
-  - /copilot-business-only
   - /guides
   - /release-notes
   - /all-releases

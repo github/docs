@@ -56,15 +56,11 @@ Organization and repository settings include the ability to exclude content from
 
 ## Reviewing changes in your enterprise
 
-<!-- expires 2025-10-28 -->
-<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
-<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
-
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.copilot-tab %}
-1. If you see tabs at the top of the page, click the **Content exclusion** tab. Otherwise, click the {% octicon "chevron-right" aria-label="Go to content exclusion settings" %} icon next to "Content exclusion".
-1. At the bottom of the page you'll see the name of the person who last changed the content exclusion settings, and information about when they made this change. Click the time of the last change.
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.view-copilot-policies %}
+1. Click {% octicon "circle-slash" aria-hidden="true" aria-label="circle-slash" %} **Content exclusion**.
+1. At the bottom of the page, you'll see the name of the person who last changed the content exclusion settings, and information about when they made this change. Click the time of the last change.
 
    ![Screenshot of the last edited information. The time of change link is highlighted with a dark orange outline.](/assets/images/help/copilot/content-exclusions-last-edited-by.png)
 
@@ -73,8 +69,6 @@ Organization and repository settings include the ability to exclude content from
    Changes made at the repository, organization, and enterprise level are listed.
 
 {% data reusables.copilot.more-details-content-exclusion-logs %}
-
-<!-- end expires 2025-10-28 -->
 
 {% endif %}
 

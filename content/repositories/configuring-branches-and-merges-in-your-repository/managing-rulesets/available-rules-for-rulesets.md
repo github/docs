@@ -162,14 +162,6 @@ You can think of required status checks as being either "loose" or "strict." The
 
 For status check troubleshooting information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/troubleshooting-required-status-checks).
 
-## Set {% data variables.product.prodname_code_scanning %} merge protection
-
-If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
-
-{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
-
-For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
-
 ## Block force pushes
 
 You can prevent users from force pushing to the targeted branches or tags. This rule is enabled by default.
@@ -181,6 +173,28 @@ Enabling force pushes will not override any other rules. For example, if a branc
 {% ifversion ghes %}You cannot enable force pushes for a branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other branch or tag.{% endif %}
+
+## Require {% data variables.product.prodname_code_scanning %} results
+
+If your repositories are configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+{% data reusables.code-scanning.merge-protection-rulesets-conditions %}
+
+For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection). For more general information about {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
+
+{% ifversion code-quality %}
+
+## Require code quality results
+
+If your repositories are configured with {% data variables.product.prodname_code_quality %}, you can use rulesets to prevent pull requests from being merged when one of the following conditions is met:
+
+* Analysis is still in progress.
+* Analysis fails for any reason, for example: you have exhausted your budget for actions minutes.
+* {% data variables.product.prodname_code_quality_short %} found a result of a severity of the level defined in the ruleset, or a higher severity.
+
+For more information, see [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality) and [AUTOTITLE](/code-security/code-quality/how-tos/set-pr-thresholds).
+
+{% endif %}
 
 {% ifversion repo-rules-required-workflows %}
 

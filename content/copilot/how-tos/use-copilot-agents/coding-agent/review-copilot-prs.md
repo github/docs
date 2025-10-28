@@ -41,6 +41,9 @@ When {% data variables.product.prodname_copilot_short %} starts a new agent sess
 
 When {% data variables.product.prodname_copilot_short %} starts a new session on the same pull request, it remembers context from the previous session, allowing it to work faster and more reliably.
 
+> [!NOTE]
+> If the pull request was created by a {% data variables.copilot.copilot_custom_agent_short %}, when you mention `@copilot` in pull request comments, the same {% data variables.copilot.copilot_custom_agent_short %} will be used to make further changes. This ensures consistency in the agent's specialized configuration throughout the pull request lifecycle. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+
 For more information, see the section "Use comments to iterate on a pull request" in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#using-comments-to-iterate-on-a-pull-request).
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs

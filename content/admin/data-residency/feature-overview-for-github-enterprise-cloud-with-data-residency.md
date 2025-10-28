@@ -28,7 +28,6 @@ The following features are currently unavailable on {% data variables.enterprise
 | {% data variables.product.prodname_github_models %} |  Currently unavailable | [AUTOTITLE](/github-models/about-github-models) |
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
-| {% data variables.product.prodname_secret_scanning_caps %} validity checks for partner patterns | Currently unavailable | [About validity checks](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository#about-validity-checks) |
 | {% data variables.product.prodname_spark_short %} | Unavailable due to dependency on {% data variables.product.prodname_github_codespaces %} | [AUTOTITLE](/copilot/concepts/spark) |
 | Some features currently in {% data variables.release-phases.public_preview %} or {% data variables.release-phases.private_preview %} | Certain features that are in a preview phase on {% data variables.product.prodname_dotcom_the_website %} may not be available on {% data variables.enterprise.data_residency_site %} | |
 

@@ -11,6 +11,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
   - /billing/managing-billing-for-github-actions
   - /billing/managing-billing-for-your-products/about-billing-for-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/about-billing-for-github-actions
 versions:
   fpt: '*'
   ghec: '*'

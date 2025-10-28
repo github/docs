@@ -58,6 +58,26 @@ You can also use the Autofix API for historical alerts endpoints to generate, ge
 
 {% endif %}
 
+{% ifversion security-campaigns-assign-to-cca %}
+
+## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+
+You can assign {% data variables.product.prodname_copilot_short %} to apply an autofix. {% data variables.product.prodname_copilot_short %} analyzes the code scanning alert, creates a remediation plan, and implements the necessary code changes in a pull request.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}
+1. Click the name of an alert.
+1. If an autofix has not been generated and {% data variables.copilot.copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} Generate fix**.
+1. In the right-side menu, click **Assignees**.
+1. Select "Copilot".
+
+Within 30 seconds, {% data variables.product.prodname_copilot_short %} will open a pull request to address the alert and will include a summary of the fixes and details of the changes made. Once created, the pull request is shown in the "Development" section.
+
+{% endif %}
+
 ## Fixing an alert {% ifversion code-scanning-autofix %}manually{% endif %}
 
 Anyone with write permission for a repository can fix an alert by committing a correction to the code. If the repository has {% data variables.product.prodname_code_scanning %} scheduled to run on pull requests, it's best to raise a pull request with your correction. This will trigger {% data variables.product.prodname_code_scanning %} analysis of the changes and test that your fix doesn't introduce any new problems. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).

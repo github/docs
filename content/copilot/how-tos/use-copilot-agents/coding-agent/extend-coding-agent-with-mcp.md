@@ -26,6 +26,8 @@ Before setting up an MCP server for {% data variables.copilot.copilot_coding_age
 
 As a repository administrator, you can configure MCP servers for use within your repository. You do this using a JSON-formatted configuration that specifies the details of the MCP servers you want to use. You enter the JSON configuration directly into the settings for the repository on {% data variables.product.prodname_dotcom_the_website %}.
 
+Organization and enterprise administrators can also configure MCP servers as part of {% data variables.copilot.custom_agents_short %} using the YAML frontmatter. For more information, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#mcp-server-configuration-details).
+
 > [!WARNING]
 > Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
 
@@ -352,5 +354,6 @@ For information on using the {% data variables.product.github %} MCP server in o
 
 ## Next steps
 
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)

@@ -1,173 +1,68 @@
 {
-  "enterprise_custom_properties": {
-    "title": "Custom properties",
-    "displayTitle": "Enterprise permissions for \"Custom properties\"",
+  "enterprise_custom_properties_for_organizations": {
+    "title": "Enterprise custom properties for organizations",
+    "displayTitle": "Enterprise permissions for \"Enterprise custom properties for organizations\"",
     "permissions": [
       {
         "category": "enterprise-admin",
-        "slug": "get-custom-properties-for-an-enterprise",
-        "subcategory": "custom-properties",
+        "slug": "get-organization-custom-properties-schema-for-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/properties/schema",
+        "requestPath": "/enterprises/{enterprise}/org-properties/schema",
         "additional-permissions": false,
         "access": "read"
       },
       {
         "category": "enterprise-admin",
-        "slug": "create-or-update-custom-properties-for-an-enterprise",
-        "subcategory": "custom-properties",
+        "slug": "create-or-update-organization-custom-property-definitions-on-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "patch",
-        "requestPath": "/enterprises/{enterprise}/properties/schema",
+        "requestPath": "/enterprises/{enterprise}/org-properties/schema",
         "additional-permissions": false,
-        "access": "write"
+        "access": "admin"
       },
       {
         "category": "enterprise-admin",
-        "slug": "promote-a-custom-property-to-an-enterprise",
-        "subcategory": "custom-properties",
-        "verb": "put",
-        "requestPath": "/enterprises/{enterprise}/properties/schema/organizations/{org}/{custom_property_name}/promote",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-a-custom-property-for-an-enterprise",
-        "subcategory": "custom-properties",
+        "slug": "get-an-organization-custom-property-definition-from-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}",
+        "requestPath": "/enterprises/{enterprise}/org-properties/schema/{custom_property_name}",
         "additional-permissions": false,
         "access": "read"
       },
       {
         "category": "enterprise-admin",
-        "slug": "create-or-update-a-custom-property-for-an-enterprise",
-        "subcategory": "custom-properties",
+        "slug": "create-or-update-an-organization-custom-property-definition-on-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "put",
-        "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}",
+        "requestPath": "/enterprises/{enterprise}/org-properties/schema/{custom_property_name}",
         "additional-permissions": false,
-        "access": "write"
+        "access": "admin"
       },
       {
         "category": "enterprise-admin",
-        "slug": "remove-a-custom-property-for-an-enterprise",
-        "subcategory": "custom-properties",
+        "slug": "remove-an-organization-custom-property-definition-from-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "delete",
-        "requestPath": "/enterprises/{enterprise}/properties/schema/{custom_property_name}",
+        "requestPath": "/enterprises/{enterprise}/org-properties/schema/{custom_property_name}",
         "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
-  "enterprise_scim": {
-    "title": "Enterprise SCIM",
-    "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
-    "permissions": [
+        "access": "admin"
+      },
       {
         "category": "enterprise-admin",
-        "slug": "list-provisioned-scim-groups-for-an-enterprise",
-        "subcategory": "scim",
+        "slug": "list-custom-property-values-for-organizations-in-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
+        "requestPath": "/enterprises/{enterprise}/org-properties/values",
         "additional-permissions": false,
         "access": "read"
       },
       {
         "category": "enterprise-admin",
-        "slug": "provision-a-scim-enterprise-group",
-        "subcategory": "scim",
-        "verb": "post",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
-        "subcategory": "scim",
-        "verb": "put",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-an-attribute-for-a-scim-enterprise-group",
-        "subcategory": "scim",
+        "slug": "create-or-update-custom-property-values-for-organizations-in-an-enterprise",
+        "subcategory": "custom-properties-for-orgs",
         "verb": "patch",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "delete-a-scim-group-from-an-enterprise",
-        "subcategory": "scim",
-        "verb": "delete",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "list-scim-provisioned-identities-for-an-enterprise",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "provision-a-scim-enterprise-user",
-        "subcategory": "scim",
-        "verb": "post",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
-        "subcategory": "scim",
-        "verb": "put",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-an-attribute-for-a-scim-enterprise-user",
-        "subcategory": "scim",
-        "verb": "patch",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "delete-a-scim-user-from-an-enterprise",
-        "subcategory": "scim",
-        "verb": "delete",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "requestPath": "/enterprises/{enterprise}/org-properties/values",
         "additional-permissions": false,
         "access": "write"
       }
@@ -264,15 +159,6 @@
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
     "permissions": [
-      {
-        "category": "enterprise-admin",
-        "slug": "get-github-enterprise-server-statistics",
-        "subcategory": "admin-stats",
-        "verb": "get",
-        "requestPath": "/enterprise-installation/{enterprise_or_org}/server-statistics",
-        "additional-permissions": true,
-        "access": "read"
-      },
       {
         "category": "orgs",
         "slug": "closing-down---list-custom-repository-roles-in-an-organization",
@@ -1337,6 +1223,30 @@
       }
     ]
   },
+  "custom_properties_for_organizations": {
+    "title": "Custom properties for organizations",
+    "displayTitle": "Organization permissions for \"Custom properties for organizations\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-all-custom-property-values-for-an-organization",
+        "subcategory": "custom-properties-for-orgs",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/org-properties/values",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-an-organization",
+        "subcategory": "custom-properties-for-orgs",
+        "verb": "patch",
+        "requestPath": "/organizations/{org}/org-properties/values",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -1619,6 +1529,66 @@
         "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
         "additional-permissions": true,
         "access": "read"
+      }
+    ]
+  },
+  "organization_runner_custom_images": {
+    "title": "Hosted runner custom images",
+    "displayTitle": "Organization permissions for \"Hosted runner custom images\"",
+    "permissions": [
+      {
+        "category": "actions",
+        "slug": "list-custom-images-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-custom-image-definition-for-github-actions-hosted-runners",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "delete-a-custom-image-from-the-organization",
+        "subcategory": "hosted-runners",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "actions",
+        "slug": "list-image-versions-of-a-custom-image-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "get-an-image-version-of-a-custom-image-for-github-actions-hosted-runners",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "actions",
+        "slug": "delete-an-image-version-of-custom-image-from-the-organization",
+        "subcategory": "hosted-runners",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}",
+        "additional-permissions": false,
+        "access": "write"
       }
     ]
   },
@@ -3086,24 +3056,6 @@
         "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
         "additional-permissions": true,
         "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-columns",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "write"
       }
     ]
   },
@@ -5432,15 +5384,6 @@
       },
       {
         "category": "repos",
-        "slug": "transfer-a-repository",
-        "subcategory": "repos",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/transfer",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "repos",
         "slug": "check-if-vulnerability-alerts-are-enabled-for-a-repository",
         "subcategory": "repos",
         "verb": "get",
@@ -5513,15 +5456,6 @@
       },
       {
         "category": "collaborators",
-        "slug": "accept-a-repository-invitation",
-        "subcategory": "invitations",
-        "verb": "patch",
-        "requestPath": "/user/repository_invitations/{invitation_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "collaborators",
         "slug": "decline-a-repository-invitation",
         "subcategory": "invitations",
         "verb": "delete",
@@ -5552,6 +5486,15 @@
         "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-attestation-repositories",
+        "subcategory": "attestations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/attestations/repositories",
+        "additional-permissions": false,
+        "access": "read"
       },
       {
         "category": "orgs",
@@ -7875,15 +7818,6 @@
         "subcategory": "search",
         "verb": "get",
         "requestPath": "/search/labels",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "apps",
-        "slug": "list-repositories-accessible-to-the-user-access-token",
-        "subcategory": "installations",
-        "verb": "get",
-        "requestPath": "/user/installations/{installation_id}/repositories",
         "additional-permissions": false,
         "access": "read"
       },

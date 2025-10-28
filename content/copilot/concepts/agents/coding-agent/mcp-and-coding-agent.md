@@ -42,6 +42,14 @@ Once MCP servers are configured for use within a repository, the tools specified
 
 For details of how to set up MCP servers for {% data variables.copilot.copilot_coding_agent %} in a repository, see [AUTOTITLE](/copilot/how-tos/agents/copilot-coding-agent/extending-copilot-coding-agent-with-mcp).
 
+## MCP servers for {% data variables.copilot.custom_agents_short %}
+
+Organization and enterprise administrators can also configure MCP servers as part of {% data variables.copilot.custom_agents_short %}.
+
+MCP servers configured in {% data variables.copilot.custom_agents_short %} are available only to that specific agent and follow the same processing order as other MCP configurations, with {% data variables.copilot.copilot_custom_agent_short %} MCP settings processed after default servers but before repository-level configurations.
+
+For more information on configuring MCP servers for {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#mcp-server-configuration-details).
+
 ## Best practices
 
 * Enabling third-party MCP servers for use may impact the performance of the agent and the quality of the outputs. Review the third-party MCP server thoroughly and ensure that it meets your organization’s requirements.

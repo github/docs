@@ -23,7 +23,7 @@ contentType: get-started
 
 * **{% data variables.copilot.copilot_for_business %}** is for organizations on {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or enterprises on {% data variables.product.prodname_ghe_cloud %}. This plan includes {% data variables.copilot.copilot_coding_agent %} and enables centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
-* **{% data variables.copilot.copilot_enterprise %}** is for enterprises using {% data variables.product.prodname_ghe_cloud %}. It includes all the features of {% data variables.copilot.copilot_business_short %}, plus additional enterprise-grade capabilities. Enterprise owners can assign either {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} to individual organizations.
+* **{% data variables.copilot.copilot_enterprise %}** is for enterprises using {% data variables.product.prodname_ghe_cloud %}. It includes all the features of {% data variables.copilot.copilot_business_short %}, plus additional enterprise-grade capabilities. Enterprise owners can assign {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} to individual organizations, or assign {% data variables.copilot.copilot_business_short %} directly to users and teams.
 
 {% data variables.product.prodname_copilot_short %} is not currently available for {% data variables.product.prodname_ghe_server %}.
 

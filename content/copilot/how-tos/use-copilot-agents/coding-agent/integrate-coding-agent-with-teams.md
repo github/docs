@@ -14,6 +14,8 @@ contentType: how-tos
 
 The {% data variables.product.github %} integration in Microsoft Teams allows you to interact with {% data variables.copilot.copilot_coding_agent %} all from within your Teams channels. From within a Teams thread you can initiate {% data variables.copilot.copilot_coding_agent_short %} sessions and open pull requests, using the context of your conversation.
 
+For information about additional {% data variables.product.prodname_copilot_short %} integrations, see [AUTOTITLE](/copilot/concepts/tools/about-copilot-integrations).
+
 > [!NOTE]
 > When you mention @{% data variables.product.github %} in a Teams thread, the agent will capture the entire thread as context for your request, understanding and implementing solutions based on the discussion. This context is stored in the pull request.
 

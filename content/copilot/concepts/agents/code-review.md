@@ -20,7 +20,33 @@ contentType: concepts
 
 {% data variables.product.prodname_copilot_short %} can review code written in any programming language.
 
+{% data variables.copilot.copilot_code-review_short %} acts as an intelligent agent, reviewing your code from various angles—such as planning, customizing, and deduplicating—to systematically uncover insights, identify issues, and suggest fixes.
+
 This article provides an overview of {% data variables.copilot.copilot_code-review_short %}. For instructions on how to request a code review from {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/using-copilot-code-review).
+
+### {% data variables.copilot.copilot_code-review-tools-preview_cap %}
+
+> [!NOTE]
+>
+> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+> * These tools are enabled automatically for {% data variables.copilot.copilot_pro %} or {% data variables.copilot.copilot_pro_plus %} plans.
+> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization or enterprise has enabled **Copilot in GitHub.com > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization or enterprise settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies).
+
+{% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
+
+* **Full project context gathering** to provide more specific, accurate, and contextually aware code reviews.
+* **Support for deterministic detections like {% data variables.product.prodname_codeql %} and security findings**, to deliver more high-signal, consistent findings for security and quality.
+* **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**, for automated creation of a new pull request against your branch with the suggested fixes applied.
+
+You are not required to have {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the {% data variables.copilot.copilot_code-review-tools_short %}.
+
+In the event that {% data variables.product.prodname_actions %} is unavailable or if Actions workflows used by {% data variables.copilot.copilot_code-review_short %} fail, reviews will still be generated but without the additional features provided by the {% data variables.copilot.copilot_code-review-tools_short %}.
+
+> [!NOTE]
+>
+> The {% data variables.release-phases.public_preview %} includes free actions minutes for the {% data variables.copilot.copilot_code-review-tools_short %}.
+>
+> Usage charges will apply when the feature becomes generally available.
 
 ## Availability
 
@@ -33,7 +59,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 * Xcode
 * JetBrains IDEs
 
-{% data variables.copilot.copilot_code-review_short %} is—with one exception—a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans.
+{% data variables.copilot.copilot_code-review_short %} is—with one exception—a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&utm_source=docs-signup-copilot&utm_medium=docs&utm_campaign=universe25).
 
 The exception is the review of a selection of code within a file in {% data variables.product.prodname_vscode %}. This is a standard feature available to all {% data variables.product.prodname_copilot_short %} users in {% data variables.product.prodname_vscode_shortname %}.
 
@@ -60,11 +86,9 @@ When you reach your monthly quota you will not be able to get a code review from
 * **Review selection:**
   * Highlight code and ask for an initial review.
   * Standard {% data variables.product.prodname_copilot_short %} feature. No premium requests used.
-  * Does not support custom instructions.
 * **Review changes:**
   * Request a deeper review of all of your uncommitted changes.
   * Premium feature. Uses one premium request from your monthly quota per review.
-  * Supports custom instructions.
 
 ## Providing instructions for {% data variables.product.prodname_copilot_short %} code reviews
 
@@ -101,11 +125,15 @@ The triggers for automatic code review depend on the configuration settings:
 
 ### Limits on automatic pull request reviews
 
-{% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota. When {% data variables.product.prodname_copilot_short %} carries out an automatic review, it uses one premium request from the quota of the user who created the pull request. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review#code-review-monthly-quota).
+{% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota. When {% data variables.product.prodname_copilot_short %} carries out an automatic review, it uses one premium request from the quota of the user who created the pull request. For more information, see [AUTOTITLE](/copilot/concepts/agents/code-review#code-review-monthly-quota).
 
 ## Configuring automatic pull request reviews
 
 For details of how to configure {% data variables.product.prodname_copilot_short %} to automatically review new pull requests, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot).
+
+## Getting detailed code quality feedback for your whole repository
+
+{% data variables.copilot.copilot_code-review %} reviews your code in pull requests and provides feedback. If you want to surface actionable feedback on the reliability and maintainability of your whole repository, enable {% data variables.product.prodname_code_quality %}. See [AUTOTITLE](/code-security/code-quality/concepts/about-code-quality).
 
 ## Further reading
 

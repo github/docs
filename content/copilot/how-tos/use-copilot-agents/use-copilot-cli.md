@@ -110,9 +110,23 @@ You can prepend your input with `!` to directly run shell commands, without maki
 !git clone https://github.com/github/copilot-cli
 ```
 
+### Delegate tasks to {% data variables.copilot.copilot_coding_agent %}
+
+The delegate command lets you push your current session to {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.github %}. This lets you hand off work while preserving all the context {% data variables.product.prodname_copilot_short %} needs to complete your task.
+
+You can delegate a task using the slash command, followed by a prompt:
+
+```shell
+/delegate complete the API integration tests and fix any failing edge cases
+```
+
+{% data variables.product.prodname_copilot_short %} will ask to commit any of your unstaged changes as a checkpoint in a new branch it creates. {% data variables.copilot.copilot_coding_agent %} will open a draft pull request, make changes in the background, and request a review from you.
+
+{% data variables.product.prodname_copilot_short %} will provide a link to the pull request and agent session on {% data variables.product.github %} once the session begins.
+
 ### Resume an interactive session
 
-You can return to a previous interactive session, and continue your conversation with {% data variables.product.prodname_copilot_short %}, by using the `--resume` command line option, then choosing the session you want to resume from the list that's displayed.
+You can return to a previous interactive session, and continue your conversation with {% data variables.product.prodname_copilot_short %}, by using the `--resume` command line option, then choosing the session you want to resume from the list that's displayed. You can quickly resume the most recently closed session by using the `--continue` command line option.
 
 ### Use custom instructions
 
@@ -125,6 +139,44 @@ You can enhance {% data variables.product.prodname_copilot_short %}’s performa
 * Agent files such as `AGENTS.md`.
 
 For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
+
+### Use custom agents
+
+{% data variables.copilot.custom_agents_caps_short %} are specialized versions of {% data variables.copilot.copilot_coding_agent %} that you can tailor to your unique workflows, coding conventions, and use cases. {% data variables.copilot.custom_agents_caps_short %} are defined using Markdown files, called {% data variables.copilot.agent_profiles %}, that specify prompts, tools, and MCP servers.
+
+{% data variables.copilot.copilot_cli_short %} supports loading {% data variables.copilot.custom_agents_short %} from the following locations:
+
+| Type | Location | Scope |
+| --- | --- | --- |
+| User-level {% data variables.copilot.copilot_custom_agent_short %} | local `~/.copilot/agents` directory | All projects |
+| Repository-level {% data variables.copilot.copilot_custom_agent_short %} | `.github/agents` directory in your local and remote repositories | Current project |
+| Organization and Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `.github/agents` directory in the `.github-private` repository in an organization or enterprise | All projects under your organization and enterprise account |
+
+In the case of naming conflicts, a system-level agent overrides a repository-level agent, and the repository-level agent would override an organization-level agent.
+
+{% data variables.copilot.custom_agents_caps_short %} can be used in three ways:
+
+* Using the slash command in interactive mode to select from the list of available {% data variables.copilot.custom_agents_short %}:
+
+  ```shell
+  /agent
+  ```
+
+* Calling out to {% data variables.copilot.copilot_custom_agent_short %} directly in a prompt:
+
+  ```shell
+  Use the refactoring agent to refactor this code block 
+  ```
+
+  {% data variables.product.prodname_copilot_short %} will automatically infer the agent you want to use.
+  
+* Specifying the {% data variables.copilot.copilot_custom_agent_short %} you want to use with the command-line option. For example:
+
+  ```shell
+  copilot --agent=refactor-agent --prompt "Refactor this code block"
+  ```
+
+For more information, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
 
 ### Add an MCP server
 

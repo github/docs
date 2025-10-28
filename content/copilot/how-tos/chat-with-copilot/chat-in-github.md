@@ -184,7 +184,7 @@ You can access {% data variables.product.prodname_copilot_short %}'s immersive v
 1. Go to the dashboard at [https://github.com](https://github.com).
 1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
-   ![Screenshot of the dashboard with the "Ask Copilot" box highlighted with an orange outline.](/assets/images/help/copilot/copilot-chat-dashboard.png)
+   ![Screenshot of the dashboard with the Copilot Chat prompt box.](/assets/images/help/copilot/copilot-chat-dashboard.png)
 
    You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} responds to your request.
 

@@ -125,6 +125,14 @@ By default, {% data variables.copilot.copilot_coding_agent %} has a firewall ena
 
 For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent).
 
+### Preventing security vulnerabilities in generated code
+
+During the code generation process, {% data variables.copilot.copilot_coding_agent %} automatically analyzes the newly generated code for security vulnerabilities and attempts to resolve them, to prevent any discovered issues from being introduced. Analysis is performed using the following tools and processes:
+
+* **{% data variables.product.prodname_codeql %}**: will run to identify potential vulnerabilities and errors.
+* **{% data variables.product.prodname_secret_scanning_caps %}**: will scan for known types of secrets, to ensure secrets aren't introduced in the response.
+* **Dependency analysis**: dependencies referenced by new code will be checked for known vulnerabilities in the {% data variables.product.prodname_advisory_database %}.
+
 ## Limitations of {% data variables.copilot.copilot_coding_agent %}
 
 Depending on factors such as your codebase and input data, you may experience different levels of performance when using {% data variables.copilot.copilot_coding_agent %}. The following information is designed to help you understand system limitations and key concepts about performance as they apply to {% data variables.copilot.copilot_coding_agent %}.

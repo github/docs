@@ -1,0 +1,1 @@
+Users with **read** access can see {% data variables.product.prodname_code_quality_short %} comments on pull requests. Users with **write** access can apply autofixes to pull request comments and dismiss findings.

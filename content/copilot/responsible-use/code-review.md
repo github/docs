@@ -23,8 +23,6 @@ When a user requests a code review from {% data variables.product.prodname_copil
 
 {% data variables.product.prodname_copilot_short %}'s review can be customized with custom instructions, which are natural language descriptions of coding style and best practices. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
 
-The only supported language for {% data variables.copilot.copilot_code-review %} is English.
-
 {% data variables.copilot.copilot_code-review %} inspects your code and provides feedback using a combination of natural language processing and machine learning. This process can be broken down into a number of steps.
 
 ### Input processing

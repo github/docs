@@ -3453,18 +3453,6 @@
       "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
     },
     {
-      "slug": "list-project-columns",
-      "subcategory": "columns",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/columns"
-    },
-    {
-      "slug": "create-a-project-column",
-      "subcategory": "columns",
-      "verb": "post",
-      "requestPath": "/projects/{project_id}/columns"
-    },
-    {
       "slug": "list-repository-projects",
       "subcategory": "projects",
       "verb": "get",
