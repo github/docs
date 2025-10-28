@@ -37,7 +37,7 @@ const notRegex = /(?:^|\s)not\s/
 // native Liquid `if` block tag. It has special handling for statements like {% ifversion ghes < 3.0 %},
 // using semver to evaluate release numbers instead of doing standard number comparisons, which
 // don't work the way we want because they evaluate 3.2 > 3.10 = true.
-export default class extends Tag {
+export default class Ifversion extends Tag {
   tagToken: TagToken
   branches: Branch[]
   elseTemplates: Template[]

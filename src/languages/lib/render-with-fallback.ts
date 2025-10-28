@@ -78,7 +78,7 @@ export function createTranslationFallbackComment(error: Error, property: string)
   } else if (isAutotitleError(error)) {
     // For AUTOTITLE errors, include the error message
     if (error.message) {
-      let cleanMessage = error.message
+      const cleanMessage = error.message
         .replace(/\n/g, ' ')
         .replace(/\s+/g, ' ')
         .trim()

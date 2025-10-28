@@ -43,7 +43,7 @@ describe('getAutomaticRequestLogger', () => {
     }
 
     // Override res.end to simulate response completion
-    const endOverride = function (this: any, chunk?: any, encoding?: any) {
+    function endOverride(this: any, chunk?: any, encoding?: any) {
       if (!responseEnded) {
         responseEnded = true
         // Simulate a small delay for response time
@@ -143,7 +143,7 @@ describe('getAutomaticRequestLogger', () => {
         }
 
         // Override res.end to simulate response completion
-        const endOverride = function (this: any, chunk?: any, encoding?: any) {
+        function endOverride(this: any, chunk?: any, encoding?: any) {
           if (!responseEnded) {
             responseEnded = true
             // Simulate a small delay for response time

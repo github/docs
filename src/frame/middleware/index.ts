@@ -78,11 +78,15 @@ const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'f
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = (fn: Function) => (req: Request, res: Response, next: NextFunction) => {
-  Promise.resolve(fn(req, res, next)).catch(next)
-}
+const asyncMiddleware =
+  <TReq extends Request = Request, T = void>(
+    fn: (req: TReq, res: Response, next: NextFunction) => T | Promise<T>,
+  ) =>
+  (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req as TReq, res, next)).catch(next)
+  }
 
-export default function (app: Express) {
+export default function index(app: Express) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)

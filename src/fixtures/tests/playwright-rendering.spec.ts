@@ -748,7 +748,7 @@ test.describe('survey', () => {
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
-        get: function () {
+        get() {
           return 'hidden'
         },
       })
@@ -803,7 +803,7 @@ test.describe('survey', () => {
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
-        get: function () {
+        get() {
           return 'hidden'
         },
       })

@@ -77,13 +77,13 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
           tags: operationObject.tags || ['models'], // Only use 'models' if no tags present
           verb: operation,
           requestPath: path,
-          category: category,
+          category,
           subcategory: operationObject['x-github']?.subcategory || '',
           summary: name,
-          description: description,
+          description,
           'x-github': {
             ...operationObject['x-github'], // Preserve all x-github metadata
-            category: category,
+            category,
             enabledForGitHubApps: operationObject['x-github']?.enabledForGitHubApps,
             githubCloudOnly: operationObject['x-github']?.githubCloudOnly,
             permissions: operationObject['x-github']?.permissions || {},

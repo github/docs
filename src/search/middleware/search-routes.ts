@@ -70,7 +70,7 @@ router.get(
     // If no query is provided, we want to return the top 5 most popular terms
     // This is a special case for AI search autocomplete
     // So we use `force` to allow the query to be empty without the usual validation error
-    let force = {} as any
+    const force = {} as any
     if (!req.query.query) {
       force.query = ''
     }

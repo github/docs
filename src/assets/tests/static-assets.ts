@@ -43,7 +43,7 @@ type MockResponse = {
   _json?: string
   _send?: string
   headers: Record<string, string>
-  set?: (key: string | Object, value: string) => void
+  set?: (key: string | object, value: string) => void
   removeHeader?: (key: string) => void
   hasHeader?: (key: string) => boolean
 }

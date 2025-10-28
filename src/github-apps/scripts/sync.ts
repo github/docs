@@ -452,7 +452,7 @@ function getDisplayTitle(
       : `"${sentenceCase(title)}" ` + resourceGroup + ' permissions'
     : !resourceGroup
       ? sentenceCase(title) + ' permissions'
-      : sentenceCase(resourceGroup) + ' permissions for ' + `"${title}"`
+      : sentenceCase(resourceGroup) + ` permissions for "${title}"`
 
   return { title, displayTitle }
 }

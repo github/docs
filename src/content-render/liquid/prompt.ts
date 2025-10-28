@@ -29,7 +29,7 @@ export const Prompt: LiquidTag = {
   },
 
   // Render the inner Markdown, wrap in <code>, then append the SVG
-  render: function* (scope: any): Generator<any, string, unknown> {
+  *render(scope: any): Generator<any, string, unknown> {
     const content = yield this.liquid.renderer.renderTemplates(this.templates, scope)
 
     // build a URL with the prompt text encoded as query parameter

@@ -42,7 +42,7 @@ const sentValidationErrors = new QuickLRU({
 // to prevent sending multiple validation errors that can spam requests to Hydro
 const getValidationErrorHash = (validateErrors: ErrorObject[]) => {
   // limit to 10 second windows
-  const window: Number = Math.floor(new Date().getTime() / 10000)
+  const window: number = Math.floor(new Date().getTime() / 10000)
   return `${window}:${(validateErrors || [])
     .map((error: ErrorObject) => error.message + error.instancePath + JSON.stringify(error.params))
     .join(':')}`
