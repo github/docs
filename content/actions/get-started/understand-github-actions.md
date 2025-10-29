@@ -79,7 +79,7 @@ For more information, see [AUTOTITLE](/actions/using-jobs).
 
 ### Actions
 
-An **action** is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Actions can perform tasks such as:
+An **action** is a custom application for the GitHub Actions platform that performs a specific, repeated task in your workflow. Actions can perform tasks such as:
 
 * Pulling your Git repository from {% data variables.product.prodname_dotcom %}
 * Setting up the correct toolchain for your build environment
