@@ -39,7 +39,7 @@ For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-c
 * **Programmatic mode**: You can also pass the CLI a single prompt directly on the command line. You do this by using the `-p` or `--prompt` command-line option. To allow {% data variables.product.prodname_copilot_short %} to modify and execute files you should also use one of the approval options (see [Allowing tools to be used without manual approval](#allowing-tools-to-be-used-without-manual-approval) later in this article). For example:
 
   ```bash copy
-  copilot -p "List my open PRs" --allow-all-tools
+  copilot -p "Show me this week's commits and summarize them" --allow-tool 'shell(git)'
   ```
 
   Alternatively, you can use a script to output command-line options and pipe this to `copilot`. For example:
@@ -93,7 +93,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
   * `List my open PRs`
 
-    This lists your open pull requests from any repository on GitHub. For more specific results, include the repository name in your prompt:
+    This lists your open pull requests from any repository on {% data variables.product.github %}. For more specific results, include the repository name in your prompt:
 
   * `List all open issues assigned to me in OWNER/REPO`
 
@@ -103,11 +103,11 @@ The following sections provide examples of tasks you can complete with {% data v
 
 * Ask {% data variables.product.prodname_copilot_short %} to make file changes and raise a pull request on {% data variables.product.prodname_dotcom_the_website %}.
 
-  * `In the root of this repo, add a Node script called user-info.js that outputs information about the user who ran the script. Create a pull request to add this file to the repo on GitHub.`
+  * `In the root of this repo, add a Node script called user-info.js that outputs information about the user who ran the script. Create a pull request to add this file to the repo on {% data variables.product.github %}.`
 
   * `Create a PR that updates the README at https://github.com/octo-org/octo-repo, changing the subheading "How to run" to "Example usage"`
 
-  Copilot creates a pull request on github.com, on your behalf. You are marked as the pull request author.
+  Copilot creates a pull request on {% data variables.product.prodname_dotcom_the_website %}, on your behalf. You are marked as the pull request author.
 
 * Ask {% data variables.product.prodname_copilot_short %} to create an issue for you on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -127,7 +127,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
 * Find specific types of issues.
 
-  `Use the Github MCP server to find good first issues for a new team member to work on from octo-org/octo-repo`
+  `Use the {% data variables.product.github %} MCP server to find good first issues for a new team member to work on from octo-org/octo-repo`
 
   > [!NOTE]
   > If you know that a specific MCP server can achieve a particular task, then specifying it in your prompt can help {% data variables.product.prodname_copilot_short %} to deliver the results you want.
@@ -138,7 +138,7 @@ The following sections provide examples of tasks you can complete with {% data v
 
 * Create a {% data variables.product.prodname_actions %} workflow.
 
-  `Branch off from main and create a github actions workflow that will run on pull requests, or can be run manually. The workflow should run eslint to check for problems in the changes made in the PR. If warnings or errors are found these should be shown as messages in the diff view of the PR. I want to prevent code with errors from being merged into main so, if any errors are found, the workflow should cause the PR check to fail. Push the new branch and create a pull request.`
+  `Branch off from main and create a {% data variables.product.prodname_actions %} workflow that will run on pull requests, or can be run manually. The workflow should run eslint to check for problems in the changes made in the PR. If warnings or errors are found these should be shown as messages in the diff view of the PR. I want to prevent code with errors from being merged into main so, if any errors are found, the workflow should cause the PR check to fail. Push the new branch and create a pull request.`
 
 ## Security considerations
 
@@ -161,7 +161,7 @@ You can choose to trust the current directory for:
 
 If you choose to trust the directory for future sessions, the trusted directory prompt will not be displayed again. You should only choose this second option if you are sure that this location will always be a safe place for {% data variables.product.prodname_copilot_short %} to operate.
 
-You can edit the list of permanently trusted directories by amending the contents of the `trusted_folders` array in the CLI's `config.json` file. This is located, by default, in the `~/.config` directory. You can change this location by setting the `XDG_CONFIG_HOME` environment variable.
+You can edit the list of permanently trusted directories by amending the contents of the `trusted_folders` array in the CLI's `config.json` file. This is located, by default, in the `~/.copilot` directory. You can change this location by setting the `XDG_CONFIG_HOME` environment variable.
 
 ### Allowed tools
 
@@ -266,17 +266,7 @@ You can mitigate the risks associated with using the automatic approval options 
 
 The default model used by {% data variables.copilot.copilot_cli %} is {% data variables.copilot.cca_current_model %}. {% data variables.product.github %} reserves the right to change this model.
 
-You can change the model by setting the `COPILOT_MODEL` environment variable to one of the supported values. For example, change the model to {% data variables.copilot.copilot_gpt_5 %} by setting `COPILOT_MODEL` to `gpt-5`.
-
-{% rowheaders %}
-
-| Model name                                                       | `COPILOT_MODEL` value |
-|------------------------------------------------------------------|-----------------------|
-| {% data variables.copilot.cca_current_model %}                   | `claude-sonnet-4`     |
-| {% data variables.copilot.copilot_claude_sonnet_45 %}            | `claude-sonnet-4.5`   |
-| {% data variables.copilot.copilot_gpt_5 %}                       | `gpt-5`               |
-
-{% endrowheaders %}
+You can change the model used by {% data variables.copilot.copilot_cli %} by using the `/model` slash command. Enter this command and select a model from the list.
 
 Each time you submit a prompt to {% data variables.product.prodname_copilot_short %} in {% data variables.copilot.copilot_cli_short %}'s interactive mode, and each time you use {% data variables.copilot.copilot_cli_short %} in programmatic mode, your monthly quota of {% data variables.product.prodname_copilot_short %} premium requests is reduced by one. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 

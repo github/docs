@@ -28,7 +28,7 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Run src/ghes-releases/scripts/update-enterprise-dates.js
+      - name: Run src/ghes-releases/scripts/update-enterprise-dates.ts
         run: npm run update-enterprise-dates
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
@@ -42,7 +42,7 @@ jobs:
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.DOCS_BOT_PAT_BASE }}
-          commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.js'
+          commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.ts'
           title: 🤖 src/ghes-releases/lib/enterprise-dates.json update
           body:
             "Hello! The GitHub Enterprise Server release dates have changed.\n\n

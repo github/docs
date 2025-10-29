@@ -24,6 +24,7 @@ export type EventProps = {
     created: string
     page_event_id: string
     referrer: string
+    title?: string
     href: string
     hostname: string
     path: string
@@ -31,9 +32,10 @@ export type EventProps = {
     hash: string
     path_language: string
     path_version: string
+    path_product?: string
     path_article: string
-    path_document_type: string
-    path_type: string
+    page_document_type: string
+    page_type: string
     status: number
     is_logged_in: boolean
     dotcom_user: string
@@ -42,15 +44,23 @@ export type EventProps = {
     os_version: string
     browser: string
     browser_version: string
+    is_headless: boolean
+    viewport_width?: number
+    viewport_height?: number
+    screen_width?: number
+    screen_height?: number
+    pixel_ratio?: number
+    ip?: string
+    user_agent?: string
     timezone: number
     user_language: string
+    os_preference: string
     application_preference: string
     color_mode_preference: string
-    os_preference: string
     code_display_preference: string
+    experiment_variation?: string
     event_group_key?: string
     event_group_id?: string
-    is_headless: boolean
   }
 }
 
@@ -95,12 +105,12 @@ export type EventPropsByType = {
     link_samepage?: boolean
     link_container?: string
   }
-  [EventType.page]: {}
+  [EventType.page]: { type: string } // no unique properties
   [EventType.preference]: {
     preference_name: string
     preference_value: string
   }
-  [EventType.print]: {}
+  [EventType.print]: { type: string } // no unique properties
   [EventType.search]: {
     search_query: string
     search_context?: string

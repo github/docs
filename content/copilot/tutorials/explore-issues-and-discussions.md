@@ -9,6 +9,8 @@ versions:
 redirect_from:
   - /copilot/tutorials/using-copilot-to-explore-issues-and-discussions
 contentType: tutorials
+category:
+  - Scale institutional knowledge
 ---
 
 ## Introduction

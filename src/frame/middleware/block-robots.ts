@@ -23,7 +23,7 @@ export function blockIndex(path: string) {
   return pathRegExps.some((pathRe) => pathRe.test(path))
 }
 
-const middleware = function blockRobots(req: Request, res: Response, next: NextFunction) {
+function middleware(req: Request, res: Response, next: NextFunction) {
   if (blockIndex(req.path)) res.set('x-robots-tag', 'noindex')
   return next()
 }

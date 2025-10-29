@@ -112,14 +112,11 @@ To show more detailed information for the top 100 users or organizations consumi
 
 ## Downloading usage reports
 
-Visit the "Metered Usage" page to access a metered billing report for all products, or navigate to the "Premium request analytics" page for a specialized report tailored for  Premium request activity tracking.
-
-### General usage reports
+Visit the "Metered Usage" page to access a metered billing report for all products, or navigate to the "Premium request analytics" page for a specialized report tailored for Premium request activity tracking.
 
 1. At the top of the page, click **Get usage report**.
-1. If prompted, specify the report details:
-   * Metered usage page: in the dialog displayed, define details of the report that you want to download and click **Email me the report**.
-   * Premium request analytics page: the report will contain usage for the last 45 days.
+1. Specify the report details.
+1. Click **Email me the report**.
 
 When the report is ready for you to download, you'll receive a message to your primary email account with a link to download the report. The link will expire after 24 hours.
 

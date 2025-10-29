@@ -45,7 +45,7 @@ main(program.opts(), program.args)
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = {
@@ -180,7 +180,10 @@ async function main(opts: MainOptions, args: string[]) {
       'utf-8',
     )
   }
-  const brokenLinks: {}[] = []
+  const brokenLinks: {
+    linkPath: string
+    file: string
+  }[] = []
 
   // Break up the long list of URLs to test into batches
   for (const batch of [...Array(Math.floor(docsLinksFiles.length / BATCH_SIZE)).keys()]) {

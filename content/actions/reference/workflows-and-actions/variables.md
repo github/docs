@@ -91,6 +91,9 @@ When you set an environment variable, you cannot use any of the default environm
 
 If a variable with the same name exists at multiple levels, the variable at the lowest level takes precedence. For example, if an organization-level variable has the same name as a repository-level variable, then the repository-level variable takes precedence. Similarly, if an organization, repository, and environment all have a variable with the same name, the environment-level variable takes precedence.
 
+> [!NOTE]
+> Environment-level variables are only available on the runner after the job starts executing. This means that environment-level variables won't overwrite variables in the `env` and `vars` contexts.
+
 For reusable workflows, the variables from the caller workflow's repository are used. Variables from the repository that contains the called workflow are not made available to the caller workflow.
 
 ## Limits for configuration variables

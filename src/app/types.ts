@@ -2,14 +2,14 @@
  * Enhanced type definitions for the app router with strict validation
  */
 
-import type { ClientLanguageCode } from '@/languages/lib/client-languages'
+import type { LanguageCode } from '@/languages/lib/languages'
 
 // Core theme types with strict validation
 export type Theme = 'light' | 'dark' | 'auto'
 export type ColorMode = 'light' | 'dark'
 
-// Re-export locale type from client-languages for consistency
-export type Locale = ClientLanguageCode
+// Re-export locale type from languages.ts for consistency
+export type Locale = LanguageCode
 
 // Version and product identifiers with validation
 export type VersionId = string

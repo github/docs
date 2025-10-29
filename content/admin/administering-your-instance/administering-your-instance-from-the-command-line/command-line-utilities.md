@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - SSH
 ---
+
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 ## General
@@ -139,6 +140,94 @@ This utility applies {% data variables.enterprise.management_console %} settings
 ```shell
 ghe-config-apply
 ```
+
+{% ifversion ghes > 3.18 %}
+
+### ghe-crypto
+
+This utility is used to verify and list {% data variables.enterprise.management_console %} `github-ssl` crypto settings for TLS and SSH connections.
+
+The list of configurable `github-ssl` fields can be viewed via `ghe-crypto --help`.
+
+#### Listing default cipher suites and algorithms
+
+The `list` command returns default crypto settings for a given field. Use the `-o json` flag to output the results in JSON format.
+
+To list TLS 1.2 cipher suites:
+
+```shell
+ghe-crypto list tlsv12-ciphersuites
+```
+
+To list TLS 1.3 cipher suites:
+
+```shell
+ghe-crypto list tlsv13-ciphersuites
+```
+
+To list SSH ciphers:
+
+```shell
+ghe-crypto list ssh-ciphers
+```
+
+To list SSH MAC algorithms:
+
+```shell
+ghe-crypto list ssh-mac-algorithms
+```
+
+To list SSH key exchange algorithms:
+
+```shell
+ghe-crypto list ssh-kex-algorithms
+```
+
+To list SSH signature types:
+
+```shell
+ghe-crypto list ssh-signature-types
+```
+
+Example output in JSON format:
+
+```shell
+$ ghe-crypto list tlsv12-ciphersuites -o json
+> [
+>  "ECDHE-ECDSA-AES128-GCM-SHA256",
+>  "ECDHE-ECDSA-CHACHA20-POLY1305",
+>  "ECDHE-ECDSA-AES256-GCM-SHA384",
+>  "ECDHE-RSA-AES128-GCM-SHA256",
+>  "ECDHE-RSA-CHACHA20-POLY1305",
+>  "ECDHE-RSA-AES256-GCM-SHA384"
+> ]
+```
+
+#### Checking cipher suites and algorithms
+
+The `check` command validates a single line of crypto settings delimited by `,`. This is useful before applying configuration changes.
+
+To check TLS 1.2 cipher suites:
+
+```shell
+ghe-crypto check tlsv12-ciphersuites CIPHER1,CIPHER2,CIPHER3
+```
+
+To check TLS 1.3 cipher suites:
+
+```shell
+ghe-crypto check tlsv13-ciphersuites TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256
+```
+
+To check SSH ciphers:
+
+```shell
+ghe-crypto check ssh-ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+```
+
+For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms).
+
+{% endif %}
 
 ### ghe-console
 

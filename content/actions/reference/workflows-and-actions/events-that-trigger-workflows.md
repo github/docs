@@ -234,6 +234,27 @@ on:
   gollum
 ```
 
+## image_version_ready
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+|----------------------| -------------- | ------------ | -------------|
+| Not applicable       | Not applicable | Last commit on default branch |  Default branch |
+
+Runs your workflow when a new version of a specified image becomes available for use. This event is typically triggered after a successful image version creation, allowing you to automate actions such as deployment or notifications in response to new image versions.
+
+This event supports glob patterns for both image names and versions. The example below triggers when a new image version matches any of the specified name and version combinations. For example, `["MyNewImage", 1.0.0]`, `["MyNewImage", 2.53.0]`, `["MyOtherImage", 1.0.0]`, and `["MyOtherImage", 2.0.0]`.
+
+```yaml
+on:
+  image_version:
+    names:
+    - "MyNewImage"
+    - "MyOtherImage"
+    versions:
+    - 1.*
+    - 2.*
+```
+
 ## `issue_comment`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |

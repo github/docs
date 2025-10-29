@@ -10,6 +10,8 @@ topics:
 redirect_from:
   - /copilot/tutorials/enhancing-copilot-agent-mode-with-mcp
 contentType: tutorials
+category:
+  - Automate simple user stories
 ---
 
 {% data reusables.copilot.mcp-availability-and-preview-note %}

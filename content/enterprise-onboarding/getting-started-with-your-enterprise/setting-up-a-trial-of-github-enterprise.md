@@ -1,32 +1,29 @@
 ---
 title: Setting up a trial of GitHub Enterprise
-intro: 'Learn what is included in the {% data variables.product.prodname_ghe_cloud %} trial, and how to get started.'
+intro: 'Understand what is included in the {% data variables.product.prodname_ghe_cloud %} trial, and how to get started.'
 versions:
   ghec: '*'
 type: how_to
 topics:
   - Accounts
   - Enterprise
-shortTitle: Setting up a trial
+shortTitle: Start a trial
+redirect_from:
+  - /enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise
 ---
 
-{% data reusables.enterprise.about-ghec %} See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud).
+To set up a trial, you must be signed in to a personal account.
 
-You can set up a trial to evaluate features that require {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO). For a full list of available features, see our [Pricing](https://github.com/pricing) page.
-
-Your trial **won't** include access to {% data variables.product.prodname_ghe_server %}. To test this, contact {% data variables.contact.contact_enterprise_sales %}.
-
-To set up a trial, you must be signed in to a personal account. If you don't have a personal account, see [AUTOTITLE](/free-pro-team@latest/get-started/start-your-journey/creating-an-account-on-github).
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ## What is included in the trial?
 
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.copilot.copilot_for_business %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
-* {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
-* Access to the **new billing platform**. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).
-* An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
+* {% data variables.copilot.copilot_for_business %}
+* {% data variables.product.prodname_GH_cs_and_sp %}
+* An **enterprise account**, which allows you to manage multiple organizations.
 * Up to **50 licenses** to grant access to users.
 
 ## Features not included in the trial
@@ -45,39 +42,6 @@ If you invite an existing organization into your trial enterprise, **all of thes
 
 You do not need to provide a payment method to start a trial. If you want to use {% data variables.copilot.copilot_business_short %} during the trial, you need to provide a credit card. You **won't** be charged for using {% data variables.copilot.copilot_business_short %} during the trial.
 
-## Setting up a trial
-
-Go to the trial page and follow the instructions to sign up for the trial.
-
-<a href="https://github.com//account/enterprises/new?ref_cta=GHEC+trial&ref_loc=Getting+started+with+the+github+enterprise+cloud+trial&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
-
-When setting up your trial of GitHub Enterprise Cloud, you'll choose an enterprise type.
-
-* Enterprise with personal accounts
-* Enterprise with managed users
-
-To help you decide which choice is best for your enterprise, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
-
-{% data reusables.enterprise.emus-trial-content %}
-
-### Setting up {% data variables.product.prodname_ghe_cloud %}
-
-You can find full instructions on setting up {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud) guide.
-
-### Setting up {% data variables.product.prodname_GH_cs_and_sp %}
-
-You can find information about planning a trial of {% data variables.product.prodname_cs_and_sp %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
-
-### Setting up {% data variables.copilot.copilot_for_business %}
-
-Setting up your {% data variables.copilot.copilot_for_business %} trial involves three phases, and each phase must be completed by different people.
-
-* As an **enterprise owner**, you must first configure {% data variables.copilot.copilot_for_business %} for your enterprise. This phase involves setting policies for the use of {% data variables.copilot.copilot_for_business %} in your enterprise, and deciding which organizations in your enterprise can use {% data variables.copilot.copilot_for_business %}. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
-
-* Next, **organization owners** can enable {% data variables.copilot.copilot_for_business %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
-
-* If your **personal account** has been granted a seat in an organization that has enabled {% data variables.copilot.copilot_for_business %}, you can now enable {% data variables.copilot.copilot_for_business %} for your personal account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).
-
 ## During the trial
 
 After you set up your trial, you can explore {% data variables.product.prodname_ghe_cloud %} by following the suggested tasks on the "Getting started" tab of your enterprise account.
@@ -88,9 +52,6 @@ You can create up to **three new organizations** in the trial enterprise, or tra
 * Billing for transferred organizations is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}.
 * Organizations created during the trial cannot be removed from the enterprise account until you purchase {% data variables.product.prodname_enterprise %}.
 
-For help setting up the included features, once you've started your trial, see [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-the-github-enterprise-cloud-trial).
-
 ## Next steps
 
-1. Once you have completed your trial, you can purchase {% data variables.product.prodname_enterprise %} or cancel the trial. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise).
-1. To learn about billing for {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing).
+Add users to your enterprise and control their access to resources. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise).

@@ -4,6 +4,9 @@
 public_preview: >-
   {% ifversion ghes < 3.16 %}beta{% else %}public preview{% endif %}
 
+public_preview_dpa: >-
+  public preview with [data protection](https://gh.io/dpa)
+
 public_preview_caps: >-
   {% ifversion ghes < 3.16 %}Beta{% else %}Public preview{% endif %}
 

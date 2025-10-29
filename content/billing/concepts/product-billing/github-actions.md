@@ -11,6 +11,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions
   - /billing/managing-billing-for-github-actions
   - /billing/managing-billing-for-your-products/about-billing-for-github-actions
+  - /enterprise-onboarding/github-actions-for-your-enterprise/about-billing-for-github-actions
 versions:
   fpt: '*'
   ghec: '*'
@@ -51,6 +52,13 @@ The following amounts of time for standard runners and artifact storage are incl
 
 > [!NOTE]
 > Included minutes cannot be used for larger runners. These runners will always be charged for, even when used by public repositories.
+
+The use of standard {% data variables.product.github %}-hosted runners is free:
+
+* In public repositories
+* For {% data variables.product.prodname_pages %}
+* For {% data variables.product.prodname_dependabot %}
+* For the agentic features ({% data variables.release-phases.public_preview %}) in {% data variables.copilot.copilot_code-review %}
 
 ## Using more than your included quota
 

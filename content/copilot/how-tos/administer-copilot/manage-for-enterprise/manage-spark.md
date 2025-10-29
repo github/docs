@@ -29,16 +29,9 @@ To use {% data variables.product.prodname_spark_short %}, your enterprise must b
 
 By default, {% data variables.product.prodname_spark_short %} is **disabled** for users who receive a {% data variables.copilot.copilot_enterprise_short %} license from an enterprise-owned organization.
 
-You can enable {% data variables.product.prodname_spark_short %} for your members on the {% data variables.product.prodname_copilot_short %} policies page for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#defining-policies-for-your-enterprise).
+You can allow members to use {% data variables.product.prodname_spark_short %} from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#defining-policies-for-your-enterprise).
 
-* **Enabled**: All users granted a {% data variables.product.prodname_copilot_short %} license by any of your organizations can use {% data variables.product.prodname_spark_short %}. Enable this if your enterprise wants consistent access across all organizations and is ready to roll out {% data variables.product.prodname_spark_short %} broadly.
-* **Disabled**: No users granted a {% data variables.product.prodname_copilot_short %} license by your organizations can use {% data variables.product.prodname_spark_short %}. Choose this if {% data variables.product.prodname_spark_short %} isn’t yet approved for use, for example, if your enterprise is still completing policy or security reviews.
-* **No policy**: Organization owners in each of your organizations decide whether {% data variables.product.prodname_copilot_short %} licensees can use {% data variables.product.prodname_spark_short %}. Select this if you prefer a phased or opt-in adoption, where individual organizations can trial {% data variables.product.prodname_spark_short %} before a broader rollout.
-
-### Next steps
-
-* If you selected **Enabled**, tell organization owners that these features are enabled for all members.
-* If you selected **No policy**, discuss member enablement with organization owners.
+{% data reusables.enterprise-accounts.policy-enablement-next-steps %}
 
 {% note %}
 

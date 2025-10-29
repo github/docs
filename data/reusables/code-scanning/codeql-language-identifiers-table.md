@@ -11,4 +11,9 @@
 | JavaScript/TypeScript | `javascript-typescript` | `javascript` or `typescript` |
 | Python | `python` |
 | Ruby | `ruby` |
+| {% ifversion codeql-rust-available %} |
+Rust | `rust`
+| {% else ifversion codeql-rust-public-preview %}
+| Rust (public preview) | `rust` |
+| {% endif %}
 | Swift | `swift` |

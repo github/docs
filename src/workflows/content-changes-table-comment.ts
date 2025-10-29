@@ -10,7 +10,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import * as github from '@actions/github'
+import github from '@actions/github'
 import core from '@actions/core'
 
 import walk from 'walk-sync'

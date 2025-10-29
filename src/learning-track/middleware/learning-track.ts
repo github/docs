@@ -29,7 +29,10 @@ export default async function learningTrack(
   let trackProduct = req.context.currentProduct as string
   // TODO: Once getDeepDataByLanguage is ported to TS
   // a more appropriate API would be to use `getDeepDataByLanguage<LearningTracks)(...)`
-  const allLearningTracks = getDeepDataByLanguage('learning-tracks', req.language) as LearningTracks
+  const allLearningTracks = getDeepDataByLanguage(
+    'learning-tracks',
+    req.language!,
+  ) as LearningTracks
 
   if (req.language !== 'en') {
     // Don't trust the `.guides` from the translation. It too often has
@@ -172,7 +175,7 @@ async function indexOfLearningTrackGuide(
   const renderOpts = { textOnly: true }
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    let renderedGuidePath = await executeWithFallback(
+    const renderedGuidePath = await executeWithFallback(
       context,
       () => renderContent(trackGuidePaths[i], context, renderOpts),
       () => '', // todo use english trackGuidePaths[i]

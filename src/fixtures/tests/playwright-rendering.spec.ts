@@ -115,7 +115,8 @@ test('open search, and select a general search article', async ({ page }) => {
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
-  await page.waitForTimeout(1000)
+  const searchOverlay = page.getByTestId('general-autocomplete-suggestions')
+  await expect(searchOverlay.getByText('For Playwright')).toBeVisible()
   // Navigate to general search item, "For Playwright"
   await page.keyboard.press('ArrowDown')
   // Select the general search item, "For Playwright"
@@ -747,7 +748,7 @@ test.describe('survey', () => {
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
-        get: function () {
+        get() {
           return 'hidden'
         },
       })
@@ -802,7 +803,7 @@ test.describe('survey', () => {
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
-        get: function () {
+        get() {
           return 'hidden'
         },
       })
@@ -1008,14 +1009,14 @@ test('open search, Ask AI returns 400 error and shows general search results', a
 
 test.describe('LandingCarousel component', () => {
   test('displays carousel on test page', async ({ page }) => {
-    await page.goto('/get-started/carousel?feature=discovery-landing')
+    await page.goto('/get-started/carousel')
 
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
 
     // Check that article cards are present
     const items = page.locator('[data-testid="carousel-items"]')
-    const cards = items.locator('div')
+    const cards = items.locator('a')
     await expect(cards.first()).toBeVisible()
 
     // Verify cards have real titles (not "Unknown Article" when article not found)
@@ -1026,7 +1027,7 @@ test.describe('LandingCarousel component', () => {
 
   test('navigation works on desktop', async ({ page }) => {
     await page.setViewportSize({ width: 1200, height: 800 })
-    await page.goto('/get-started/carousel?feature=discovery-landing')
+    await page.goto('/get-started/carousel')
 
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
@@ -1046,7 +1047,7 @@ test.describe('LandingCarousel component', () => {
 
   test('responsive behavior on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 })
-    await page.goto('/get-started/carousel?feature=discovery-landing')
+    await page.goto('/get-started/carousel')
 
     const carousel = page.locator('[data-testid="landing-carousel"]')
     await expect(carousel).toBeVisible()
@@ -1054,5 +1055,241 @@ test.describe('LandingCarousel component', () => {
     // Should show 1 card on mobile
     const cards = carousel.locator('a')
     await expect(cards).toHaveCount(1)
+  })
+})
+
+test.describe('Journey Tracks', () => {
+  test('displays journey tracks on landing pages', async ({ page }) => {
+    await page.goto('/get-started/test-journey')
+
+    const journeyTracks = page.locator('[data-testid="journey-tracks"]')
+    await expect(journeyTracks).toBeVisible()
+
+    // Check that at least one track is displayed
+    const tracks = page.locator('[data-testid="journey-track"]')
+    await expect(tracks.first()).toBeVisible()
+
+    // Verify track has proper structure
+    const firstTrack = tracks.first()
+    await expect(firstTrack.locator('h3')).toBeVisible() // Track title
+    await expect(firstTrack.locator('p')).toBeVisible() // Track description
+  })
+
+  test('track expansion and collapse functionality', async ({ page }) => {
+    await page.goto('/get-started/test-journey')
+
+    const firstTrack = page.locator('[data-testid="journey-track"]').first()
+    const expandButton = firstTrack.locator('summary')
+
+    // Initially collapsed
+    const articlesList = firstTrack.locator('[data-testid="journey-articles"]')
+    await expect(articlesList).not.toBeVisible()
+
+    await expandButton.click()
+    await expect(articlesList).toBeVisible()
+
+    const articles = articlesList.locator('li')
+    await expect(articles.first()).toBeVisible()
+
+    await expandButton.click()
+    await expect(articlesList).not.toBeVisible()
+  })
+
+  test('article navigation within tracks', async ({ page }) => {
+    await page.goto('/get-started/test-journey')
+
+    const firstTrack = page.locator('[data-testid="journey-track"]').first()
+    const expandButton = firstTrack.locator('summary')
+
+    await expandButton.click()
+
+    // Click on first article
+    const firstArticle = firstTrack.locator('[data-testid="journey-articles"] li a').first()
+    await expect(firstArticle).toBeVisible()
+
+    const articleTitle = await firstArticle.textContent()
+    expect(articleTitle).toBeTruthy()
+    expect(articleTitle!.length).toBeGreaterThan(0)
+  })
+
+  test('preserves version in journey track links', async ({ page }) => {
+    await page.goto('/enterprise-cloud@latest/get-started/test-journey')
+
+    const firstTrack = page.locator('[data-testid="journey-track"]').first()
+    const expandButton = firstTrack.locator('summary')
+    await expandButton.click()
+
+    // article links should preserve the language and version
+    const firstArticle = firstTrack.locator('[data-testid="journey-articles"] li a').first()
+    const href = await firstArticle.getAttribute('href')
+
+    expect(href).toContain('/en/')
+    expect(href).toContain('enterprise-cloud@latest')
+  })
+
+  test('handles liquid template rendering in track content', async ({ page }) => {
+    await page.goto('/get-started/test-journey')
+
+    const tracks = page.locator('[data-testid="journey-track"]')
+
+    // Check that liquid templates are rendered (no raw template syntax visible)
+    const trackContent = await tracks.first().textContent()
+    expect(trackContent).not.toContain('{{')
+    expect(trackContent).not.toContain('}}')
+    expect(trackContent).not.toContain('{%')
+    expect(trackContent).not.toContain('%}')
+  })
+})
+
+test.describe('LandingArticleGridWithFilter component', () => {
+  test('displays article grid with filter controls', async ({ page }) => {
+    await page.goto('/get-started/article-grid-discovery')
+
+    // Check that the main components are visible, title, categories drop
+    // down, search input.
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    const filterHeader = page.getByTestId('filter-header')
+    await expect(filterHeader).toBeVisible()
+
+    const title = page.locator('h2').filter({ hasText: 'Articles' })
+    await expect(title).toBeVisible()
+
+    const categoryDropdown = page.getByRole('button').filter({ hasText: 'All categories' })
+    await expect(categoryDropdown).toBeVisible()
+
+    const searchInput = page.getByPlaceholder('Search articles')
+    await expect(searchInput).toBeVisible()
+  })
+
+  test('displays article cards with correct content', async ({ page }) => {
+    await page.goto('/get-started/article-grid-discovery')
+
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    // Check that article cards are present and they have expected structure
+    // by checking the first card.
+    const articleCards = articleGrid.getByTestId('article-card')
+    await expect(articleCards.first()).toBeVisible()
+
+    const firstCard = articleCards.first()
+    const titleLink = firstCard.locator('h3 span')
+    await expect(titleLink).toBeVisible()
+
+    const intro = firstCard.locator('div').last() // cardIntro is the last div
+    await expect(intro).toBeVisible()
+    const introText = await intro.textContent()
+    expect(introText).toBeTruthy()
+
+    // Card should have categories, title, and intro, just check the card has
+    // some text
+    const cardText = await firstCard.textContent()
+    expect(cardText).toBeTruthy()
+    expect(cardText!.length).toBeGreaterThan(0)
+  })
+
+  test('category filtering works correctly', async ({ page }) => {
+    await page.goto('/get-started/article-grid-discovery')
+
+    // Check that category dropdown button exists and is clickable
+    const categoryDropdown = page.getByRole('button').filter({ hasText: 'All categories' })
+    await expect(categoryDropdown).toBeVisible()
+
+    // Initially should show all articles (4 total in our fixtures)
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+    const allArticleCards = articleGrid.getByTestId('article-card')
+    await expect(allArticleCards).toHaveCount(4)
+
+    // Click the dropdown and the 'Testing' category
+    await categoryDropdown.click()
+    const testingOption = page.getByText('Testing', { exact: true }).last()
+    await expect(testingOption).toBeVisible()
+    await testingOption.click()
+
+    // After filtering by Testing category, should show only 1 article based
+    // on our fixtures.
+    await expect(allArticleCards).toHaveCount(1)
+
+    // Verify the filtered article contains "Testing" somewhere in its markup
+    const remainingCard = allArticleCards.first()
+    await expect(remainingCard).toContainText('Testing')
+  })
+
+  test('search functionality works', async ({ page }) => {
+    await page.goto('/get-started/article-grid-discovery')
+
+    const searchInput = page.getByPlaceholder('Search articles')
+    await expect(searchInput).toBeVisible()
+
+    // Initially should show all articles (4 total in our fixtures)
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    const articleCards = articleGrid.getByTestId('article-card')
+    await expect(articleCards).toHaveCount(4)
+
+    // Search for "Grid" - based on our fixtures, multiple articles should have "Grid" in their names
+    await searchInput.fill('Grid')
+    await expect(articleCards.first()).toBeVisible()
+
+    // Verify that the remaining articles contain "Grid" in their content
+    const remainingCount = await articleCards.count()
+    expect(remainingCount).toBeGreaterThan(0)
+    for (let i = 0; i < remainingCount; i++) {
+      const card = articleCards.nth(i)
+      await expect(card).toContainText('Grid')
+    }
+  })
+
+  test('search with no results shows appropriate message', async ({ page }) => {
+    await page.goto('/get-started/article-grid-discovery')
+
+    const searchInput = page.getByPlaceholder('Search articles')
+    await expect(searchInput).toBeVisible()
+
+    // Search for a term that definitely won't match any articles, should show
+    // no article cards
+    await searchInput.fill('noSuchArticles')
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+    const articleCards = articleGrid.getByTestId('article-card')
+    await expect(articleCards).toHaveCount(0)
+
+    // Should show "no articles found" message as well
+    const noResultsMessage = page.getByTestId('no-articles-message')
+    await expect(noResultsMessage).toBeVisible()
+  })
+
+  test('responsive behavior on different screen sizes', async ({ page }) => {
+    // Super basic test, just make sure the article grid is visible on
+    // different viewports sizes
+
+    // Test desktop view (3 columns)
+    await page.setViewportSize({ width: 1200, height: 800 })
+    await page.goto('/get-started/article-grid-discovery')
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
+
+    // Test tablet view (2 columns)
+    await page.setViewportSize({ width: 768, height: 1024 })
+    await page.waitForTimeout(100) // Brief wait for responsive changes
+    await expect(articleGrid).toBeVisible()
+
+    // Test mobile view (1 column)
+    await page.setViewportSize({ width: 375, height: 667 })
+    await page.waitForTimeout(100) // Brief wait for responsive changes
+    await expect(articleGrid).toBeVisible()
+  })
+
+  test('works with bespoke landing page', async ({ page }) => {
+    // Other grid tests use the discovery landing page, bespoke pages are
+    // similar so just do a quick check.
+    await page.goto('/get-started/article-grid-bespoke')
+
+    const articleGrid = page.getByTestId('article-grid')
+    await expect(articleGrid).toBeVisible()
   })
 })

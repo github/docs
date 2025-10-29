@@ -18,6 +18,7 @@ contentType: reference
 
 | Operating system                      | Per-minute rate (USD) |
 |---------------------------------------| ----------------------|
+|  Linux 1-core                         |   $0.002              |
 |  Linux 2-core                         |   $0.008              |
 |  Windows 2-core                       |   $0.016              |
 |  macOS 3-core or 4-core (M1 or Intel) |   $0.08               |
@@ -74,3 +75,4 @@ contentType: reference
 * For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
+* Custom images can only be used with larger runners and are billed at the same per-minute rates as those runners.

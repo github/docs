@@ -39,7 +39,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   // injected there it needs to have its own possible Liquid rendered out.
   const glossariesRaw: Glossary[] = getDataByLanguage(
     'glossaries.external',
-    req.context.currentLanguage,
+    req.context.currentLanguage!,
   )
   const glossaries = (
     await Promise.all(

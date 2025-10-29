@@ -25,6 +25,7 @@ If your company employs security measures like a firewall or proxy server, you s
 | `https://api.github.com/user`                               | User Management |
 | `https://api.github.com/copilot_internal/*`                 | User Management |
 | `https://copilot-telemetry.githubusercontent.com/telemetry` | Telemetry |
+| `https://collector.github.com/*`                            | Analytics telemetry |
 | `https://default.exp-tas.com`                               | Telemetry |
 | `https://copilot-proxy.githubusercontent.com`               | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://origin-tracker.githubusercontent.com`              | API service for {% data variables.product.prodname_copilot_short %} suggestions |

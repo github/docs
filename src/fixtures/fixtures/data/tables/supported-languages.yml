@@ -1,0 +1,13 @@
+features:
+  foo:
+    name: 'Foo Feature'
+    fptAndGhec: true
+    ghes: false
+  bar:
+    name: 'Bar Feature'
+    fptAndGhec: true
+    ghes: true
+supported:
+  BeepBoop:
+    foo: 'supported'
+    bar: 'not-supported'

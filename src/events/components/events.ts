@@ -98,6 +98,7 @@ export function sendEvent<T extends EventType>({
 
       // Content information
       referrer: getReferrer(document.referrer),
+      title: document.title,
       href: location.href, // full URL
       hostname: location.hostname, // origin without protocol or port
       path: location.pathname, // path without search or host
@@ -118,6 +119,10 @@ export function sendEvent<T extends EventType>({
       is_headless: isHeadless(),
       viewport_width: document.documentElement.clientWidth,
       viewport_height: document.documentElement.clientHeight,
+      screen_width: window.screen.width,
+      screen_height: window.screen.height,
+      pixel_ratio: window.devicePixelRatio || 1,
+      user_agent: navigator.userAgent,
 
       // Location information
       timezone: new Date().getTimezoneOffset() / -60,

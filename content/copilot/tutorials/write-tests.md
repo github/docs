@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/tutorials/writing-tests-with-github-copilot
 shortTitle: Write tests
 contentType: tutorials
+category:
+  - Improve quality and maintainability
 ---
 
 ## Introduction

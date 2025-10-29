@@ -26,7 +26,7 @@ To understand your secrets' footprint and exposure to secrets leaks, review the 
 
 Next, identify the areas in your organization where leaked secrets pose the highest threat to security.
 
-* **Leaked secrets that are still active** usually present the greatest risk to security. Prioritize any active secrets for remediation ahead of inactive secrets. For more information about checking the validity of a detected credential, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository).
+* **Leaked secrets that are still active** usually present the greatest risk to security. Prioritize any active secrets for remediation ahead of inactive secrets. For more information about checking the validity of a detected credential, see [AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 * Similarly, **secrets leaked in public repositories** are usually considered a higher risk and priority, than those secrets leaked in private {% ifversion ghec or ghes %}or internal {% endif %}repositories.
 * The **Repositories with leaks** metric can indicate how frequent, or the extent of, secret leaks across your organization. A large proportion of repositories with secret leaks may suggest that developer education and increased security awareness around secrets is important for your organization.
 

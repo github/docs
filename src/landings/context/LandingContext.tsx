@@ -3,6 +3,7 @@ import { getFeaturedLinksFromReq } from '@/landings/components/ProductLandingCon
 import { mapRawTocItemToTocItem } from '@/landings/types'
 import type { TocItem } from '@/landings/types'
 import type { LearningTrack } from '@/types'
+import type { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
 import type { FeaturedLink } from '@/landings/components/ProductLandingContext'
 
 export type LandingType = 'bespoke' | 'discovery' | 'journey'
@@ -20,9 +21,13 @@ export type LandingContextT = {
   currentLearningTrack?: LearningTrack
   currentLayout: string
   heroImage?: string
-  // For discovery landing pages
+  // For landing pages with carousels
   recommended?: Array<{ title: string; intro: string; href: string; category: string[] }> // Resolved article data
   introLinks?: Record<string, string>
+  // For journey landing pages
+  journeyTracks?: JourneyTrack[]
+  // For article grid category filtering
+  includedCategories?: string[]
 }
 
 export const LandingContext = createContext<LandingContextT | null>(null)
@@ -48,11 +53,18 @@ export const getLandingContextFromRequest = async (
 
   let recommended: Array<{ title: string; intro: string; href: string; category: string[] }> = []
 
-  if (landingType === 'discovery') {
+  if (landingType === 'discovery' || landingType === 'bespoke') {
     // Use resolved recommended articles from the page after middleware processing
     if (page.recommended && Array.isArray(page.recommended) && page.recommended.length > 0) {
       recommended = page.recommended
     }
+  }
+
+  let journeyTracks: JourneyTrack[] = []
+  if (landingType === 'journey' && page.journeyTracks) {
+    // Need a dynamic import because journey-path-resolver uses Node fs apis
+    const { resolveJourneyTracks } = await import('@/journeys/lib/journey-path-resolver')
+    journeyTracks = await resolveJourneyTracks(page.journeyTracks, req.context)
   }
 
   return {
@@ -72,5 +84,7 @@ export const getLandingContextFromRequest = async (
     heroImage: page.heroImage || '/assets/images/banner-images/hero-1.png',
     introLinks: page.introLinks || null,
     recommended,
+    journeyTracks,
+    includedCategories: page.includedCategories || [],
   }
 }

@@ -12,7 +12,7 @@
   "exports": "./src/frame/server.ts",
   "scripts": {
     "add-content-type": "tsx src/content-render/scripts/add-content-type.ts",
-    "ai-edit": "tsx src/ai-editors/scripts/ai-edit.ts",
+    "ai-tools": "tsx src/ai-tools/scripts/ai-tools.ts",
     "all-documents": "tsx src/content-render/scripts/all-documents/cli.ts",
     "analyze-text": "tsx src/search/scripts/analyze-text.ts",
     "analyze-comment": "tsx src/events/scripts/analyze-comment-cli.ts",
@@ -25,6 +25,7 @@
     "copy-fixture-data": "tsx src/tests/scripts/copy-fixture-data.ts",
     "count-translation-corruptions": "cross-env NODE_OPTIONS=--max-old-space-size=8192 tsx src/languages/scripts/count-translation-corruptions.ts",
     "create-enterprise-issue": "tsx src/ghes-releases/scripts/create-enterprise-issue.ts",
+    "cta-builder": "tsx src/content-render/scripts/cta-builder.ts",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "docsaudit": "tsx src/metrics/scripts/docsaudit.ts",
@@ -52,7 +53,7 @@
     "index-general-search": "tsx src/search/scripts/index/index-cli general-search",
     "index-test-fixtures": "./src/search/scripts/index-test-fixtures.sh",
     "labeler": "tsx .github/actions/labeler/labeler.ts",
-    "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
+    "lint": "eslint '**/*.{ts,tsx}'",
     "lint-content": "tsx src/content-linter/scripts/lint-content.ts",
     "lint-translation": "vitest src/content-linter/tests/lint-files.ts",
     "liquid-markdown-tables": "tsx src/tools/scripts/liquid-markdown-tables/index.ts",
@@ -66,8 +67,8 @@
     "postinstall": "cp package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
     "precompute-pageinfo": "tsx src/article-api/scripts/precompute-pageinfo.ts",
     "prepare": "husky src/workflows/husky",
-    "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
-    "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
+    "prettier": "prettier -w \"**/*.{ts,tsx,scss,yml,yaml}\"",
+    "prettier-check": "prettier -c \"**/*.{ts,tsx,scss,yml,yaml}\"",
     "prevent-pushes-to-main": "tsx src/workflows/prevent-pushes-to-main.ts",
     "purge-fastly-edge-cache": "tsx src/workflows/purge-fastly-edge-cache.ts",
     "purge-fastly-edge-cache-per-language": "tsx src/languages/scripts/purge-fastly-edge-cache-per-language.ts",
@@ -104,12 +105,12 @@
     "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts"
   },
   "lint-staged": {
-    "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
-    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write",
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{scss,ts,tsx,yml,yaml}": "prettier --write",
     "{content,data}/**/*.md": "npm run lint-content -- --precommit --paths"
   },
   "nodemonConfig": {
-    "ext": "ts,js,json,yml,md,html,scss",
+    "ext": "ts,json,yml,md,html,scss",
     "exec": "tsx",
     "ignore": [
       "assets",
@@ -138,7 +139,7 @@
       },
       {
         "files": [
-          "**/*.{ts,tsx,js,mjs}"
+          "**/*.{ts,tsx}"
         ],
         "options": {
           "printWidth": 100,
@@ -158,7 +159,7 @@
     "@primer/behaviors": "^1.7.2",
     "@primer/css": "^21.3.1",
     "@primer/live-region-element": "^0.7.2",
-    "@primer/octicons": "^19.15.5",
+    "@primer/octicons": "^19.19.0",
     "@primer/octicons-react": "^19.14.0",
     "@primer/react": "^37.31.0",
     "accept-language-parser": "^1.5.0",
@@ -251,12 +252,13 @@
     "@graphql-inspector/core": "^6.1.0",
     "@graphql-tools/load": "^8.0.19",
     "@octokit/rest": "22.0.0",
-    "@playwright/test": "^1.50",
+    "@playwright/test": "^1.56",
     "@types/accept-language-parser": "1.5.7",
     "@types/cheerio": "^0.22.35",
     "@types/connect-timeout": "1.9.0",
     "@types/cookie": "0.6.0",
     "@types/cookie-parser": "1.4.8",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/event-to-promise": "^0.7.5",
     "@types/express": "^5.0.3",
     "@types/imurmurhash": "^0.1.4",
@@ -297,6 +299,7 @@
     "graphql": "^16.9.0",
     "http-status-code": "^2.1.0",
     "husky": "^9.1.7",
+    "jiti": "^2.6.1",
     "json-schema-merge-allof": "^0.8.1",
     "lint-staged": "^16.0.0",
     "markdownlint": "^0.34.0",
@@ -323,7 +326,7 @@
     "esm": "^3.2.25"
   },
   "engines": {
-    "node": "^20 || ^22 || ^24"
+    "node": "^22 || ^24"
   },
   "cacheDirectories": [
     "node_modules",

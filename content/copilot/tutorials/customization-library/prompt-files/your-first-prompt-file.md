@@ -21,7 +21,7 @@ contentType: tutorials
 You can customize {% data variables.product.prodname_copilot %}'s responses using two types of files:
 
 * **Custom instructions** provide ongoing guidance for how {% data variables.product.prodname_copilot %} should behave across all your interactions. For an introductory example, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions/your-first-custom-instructions).
-* **Prompt files (public preview)** define reusable prompts for specific tasks that you can invoke when needed. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
+* **Prompt files (public preview)** define reusable prompts for specific tasks that you can invoke when needed. {% data reusables.copilot.prompt-files-available-in-editors %}
 
 ## Your first prompt file
 
