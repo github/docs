@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/concepts/content-exclusion-for-github-copilot
   - /copilot/concepts/content-exclusion
 contentType: concepts
+category: 
+  - Manage Copilot for a team
 ---
 
 ## About content exclusion for {% data variables.product.prodname_copilot_short %}

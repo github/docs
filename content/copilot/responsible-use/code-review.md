@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review
   - /copilot/responsible-use-of-github-copilot-features/code-review
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_code-review %}

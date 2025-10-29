@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/adding-personal-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/add-personal-instructions
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% data reusables.copilot.personal-instructions-note %}

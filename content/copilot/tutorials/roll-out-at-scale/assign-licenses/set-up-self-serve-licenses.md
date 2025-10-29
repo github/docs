@@ -15,6 +15,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 When you've enabled {% data variables.product.prodname_copilot %} in an organization or enterprise, you can set up a self-serve workflow to allow users to request licenses. This allows you to allocate licenses to people who want them, and means people can get started with {% data variables.product.prodname_copilot_short %} quickly.

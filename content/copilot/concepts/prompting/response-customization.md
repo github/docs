@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/code-review/coding-guidelines
   - /copilot/concepts/response-customization
 contentType: concepts
+category: 
+  - Configure Copilot
 ---
 
 <!-- START WEB BROWSER TAB -->

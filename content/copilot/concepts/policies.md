@@ -12,6 +12,8 @@ topics:
   - Organizations
   - Enterprise
 contentType: concepts
+category: 
+  - Manage Copilot for a team
 ---
 
 ## About policies for {% data variables.product.prodname_copilot_short %}

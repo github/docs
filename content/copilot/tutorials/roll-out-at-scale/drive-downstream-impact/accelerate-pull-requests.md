@@ -12,6 +12,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Accelerate PR velocity
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.essp-intro %}

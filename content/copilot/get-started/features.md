@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/about-github-copilot/github-copilot-features
   - /copilot/get-started/github-copilot-features
 contentType: get-started
+category: 
+  - Learn about Copilot
 ---
 
 ## {% data variables.product.prodname_copilot %} features

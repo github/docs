@@ -19,6 +19,8 @@ versions:
   feature: copilot
 shortTitle: Chat in IDE
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

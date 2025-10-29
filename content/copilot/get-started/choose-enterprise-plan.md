@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout/choosing-your-enterprises-plan-for-github-copilot
   - /copilot/get-started/choosing-your-enterprises-plan-for-github-copilot
 contentType: get-started
+category: 
+  - Manage Copilot for a team
 ---
 
 ## Introduction

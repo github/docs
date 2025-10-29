@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-plan/upgrade-plan
   - /copilot/how-tos/administer/manage-for-enterprise/manage-plan/upgrade-plan
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 >[!NOTE]

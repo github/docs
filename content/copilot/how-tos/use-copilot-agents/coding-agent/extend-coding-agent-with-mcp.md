@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/extend-coding-agent-with-mcp
   - /copilot/how-tos/agents/coding-agent/extend-coding-agent-with-mcp
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Prerequisite

@@ -18,6 +18,8 @@ redirect_from:
   - /copilot/how-tos/configure-personal-settings/customize-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 # Replacing the deprecated {% data variables.product.prodname_copilot_short %} extension

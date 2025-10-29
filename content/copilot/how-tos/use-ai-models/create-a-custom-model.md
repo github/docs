@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/ai-models/creating-a-custom-model-for-github-copilot
   - /copilot/how-tos/ai-models/create-a-custom-model
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 > [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.copilot.copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).

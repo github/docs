@@ -9,6 +9,8 @@ versions:
 topics:
   - Copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 ## Introduction

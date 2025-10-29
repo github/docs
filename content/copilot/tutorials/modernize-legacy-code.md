@@ -12,6 +12,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Modernize applications
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE] The responses shown in this article are examples. {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get different responses from the ones shown here.

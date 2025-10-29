@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/debugging-your-github-copilot-extension
   - /copilot/how-tos/build-copilot-extensions/debug-copilot-extension
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 With the debug tool for {% data variables.copilot.copilot_extensions_short %}, you can chat with your {% data variables.copilot.copilot_agent_short %} from the command line, then view detailed logs as your agent generates a response. You can pass several flags to the tool, with the most important flags being:

@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/communicate-with-copilot-platform
   - /copilot/how-tos/build-copilot-extensions/build-a-copilot-agent/communicate-with-copilot-platform
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 {% data variables.copilot.copilot_agents_short %} communicate with the {% data variables.product.prodname_copilot_short %} platform in the form of server-sent events (SSEs). Rather than waiting for the {% data variables.product.prodname_copilot_short %} platform to request an update from your agent, or vice versa, you can use SSEs to send and receive updates to and from the platform in real time.

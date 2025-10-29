@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/creating-a-copilot-extension/configure-app-for-extension
   - /copilot/how-tos/build-copilot-extensions/create-a-copilot-extension/configure-app-for-extension
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 Once you have configured your server and created your {% data variables.product.prodname_github_app %}, you need to configure your {% data variables.product.prodname_github_app %} for use with your {% data variables.product.prodname_copilot_short %} extension.

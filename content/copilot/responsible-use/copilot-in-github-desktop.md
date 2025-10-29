@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-in-github-desktop
   - /copilot/responsible-use-of-github-copilot-features/copilot-in-github-desktop
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_desktop_short %}

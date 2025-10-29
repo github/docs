@@ -19,6 +19,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 When you're rolling out {% data variables.product.prodname_copilot %} in a business, it's important to keep track of which users are using their {% data variables.product.prodname_copilot_short %} license, so you can respond effectively by reassigning unused licenses or helping people to get started with {% data variables.product.prodname_copilot_short %}.

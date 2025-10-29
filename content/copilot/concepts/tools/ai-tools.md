@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/choosing-the-right-ai-tool-for-your-task
   - /copilot/concepts/ai-tools
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 ## Overview

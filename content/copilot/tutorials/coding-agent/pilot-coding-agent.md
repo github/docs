@@ -15,6 +15,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Automate simple user stories
+  - Manage Copilot for a team
 ---
 <!--JTBD: When rolling out {% data variables.copilot.copilot_coding_agent %}, I want to understand use cases and follow best practices, so I can ensure I'm using it as intended and get value from a pilot program.-->
 

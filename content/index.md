@@ -112,9 +112,10 @@ childGroups:
       - copilot
       - copilot/get-started/plans
       - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
-      - copilot/tutorials/copilot-chat-cookbook
       - copilot/how-tos/use-copilot-agents/coding-agent
-      - copilot/how-tos/configure-custom-instructions
+      - copilot/tutorials
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/customization-library
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:

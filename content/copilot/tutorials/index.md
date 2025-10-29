@@ -39,4 +39,14 @@ recommended:
   - /copilot/tutorials/copilot-chat-cookbook
   - /copilot/tutorials/customization-library
   - /copilot/tutorials/roll-out-at-scale
+includedCategories:
+  - Accelerate PR velocity
+  - Automate simple user stories
+  - Improve quality and maintainability
+  - Scale institutional knowledge
+  - Burn down tech debt
+  - Rapid prototyping
+  - Unblock complex work
+  - Modernize applications
+  - Roll Copilot out at scale
 ---

@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-access/disable-for-organizations
   - /copilot/how-tos/administer/manage-for-enterprise/manage-access/disable-for-organizations
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data reusables.enterprise-accounts.copilot-licensing %}

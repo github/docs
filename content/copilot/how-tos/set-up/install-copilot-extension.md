@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/personal-settings/installing-the-github-copilot-extension-in-your-environment
   - /copilot/how-tos/set-up/installing-the-github-copilot-extension-in-your-environment
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## Prerequisite

@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/use-context-passing
   - /copilot/how-tos/build-copilot-extensions/build-a-copilot-agent/use-context-passing
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## About context passing

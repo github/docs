@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/concepts/coding-agent/about-copilot-coding-agent
   - /copilot/concepts/coding-agent/coding-agent
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 ## Overview of {% data variables.copilot.copilot_coding_agent %}

@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/add-repository-instructions
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-coding-guidelines
+category: 
+  - Configure Copilot
 ---
 
 {% webui %}

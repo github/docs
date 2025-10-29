@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/use-the-github-mcp-server
   - /copilot/how-tos/context/use-mcp/use-the-github-mcp-server
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.

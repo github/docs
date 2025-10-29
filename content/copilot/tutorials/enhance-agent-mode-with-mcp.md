@@ -12,6 +12,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Automate simple user stories
+  - Integrate Copilot with your tools
 ---
 
 {% data reusables.copilot.mcp-availability-and-preview-note %}

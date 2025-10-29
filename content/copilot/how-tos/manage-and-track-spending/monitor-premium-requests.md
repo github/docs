@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/spending/monitoring-your-copilot-usage-and-entitlements
   - /copilot/how-tos/spending/monitor-premium-requests
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.

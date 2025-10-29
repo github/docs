@@ -20,6 +20,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan
   - /copilot/how-tos/manage-your-account/getting-started-with-a-copilot-plan
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can get started with your {% data variables.product.prodname_copilot_short %} plan by:

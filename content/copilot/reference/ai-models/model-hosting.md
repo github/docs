@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 redirect_from:
   - /copilot/reference/ai-models/how-copilot-serves-ai-models
 contentType: reference

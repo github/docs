@@ -12,6 +12,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.essp-intro %}

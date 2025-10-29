@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how delegating {% data variables.product.prodname_copilot_short %} policy decisions to organizations affects users granted a license by organizations with different policies.'
 versions:
   feature: copilot
+category:
+  - Learn about Copilot
 topics:
   - Copilot
   - Policy

@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/completions/using-copilot-text-completion
   - /copilot/how-tos/completions/write-pr-descriptions
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 {% data reusables.copilot.text-completion-preview %}

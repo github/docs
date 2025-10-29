@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 redirect_from:
   - /copilot/using-github-copilot/using-claude-sonnet-in-github-copilot
   - /copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot

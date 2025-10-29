@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 redirect_from:
   - /copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task
   - /copilot/reference/ai-models/choosing-the-right-ai-model-for-your-task

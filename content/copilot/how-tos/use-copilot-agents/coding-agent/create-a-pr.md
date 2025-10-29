@@ -23,6 +23,8 @@ redirect_from:
   - /copilot/how-tos/agents/coding-agent/assign-copilot-to-an-issue
   - /copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

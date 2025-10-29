@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/using-oidc-with-github-copilot-extensions
   - /copilot/how-tos/build-copilot-extensions/set-up-oidc
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Introduction

@@ -19,6 +19,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Automate simple user stories
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

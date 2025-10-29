@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/context/copilot-spaces/collaborate-with-your-team
   - /copilot/how-tos/context/use-copilot-spaces/collaborate-with-your-team
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 {% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. Sharing {% data variables.copilot.copilot_spaces %} helps your team:
