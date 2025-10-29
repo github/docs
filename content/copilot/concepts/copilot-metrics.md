@@ -10,6 +10,9 @@ contentType: concepts
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics
+  - /early-access/copilot-metrics/apis
+  - /early-access/copilot-metrics/dashboards
+  - /early-access/copilot-metrics/LoC
   - /early-access/copilot-metrics/apis/about-the-copilot-metrics-apis
   - /early-access/copilot-metrics/LoC/about-the-copilot-metrics-LoC
   - /early-access/copilot-metrics/dashboards/about-the-copilot-metrics-dashboard
