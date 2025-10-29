@@ -35,7 +35,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 {% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
 
 * **Full project context gathering** to provide more specific, accurate, and contextually aware code reviews.
-* **Support for deterministic detections like {% data variables.product.prodname_codeql %} and security findings**, to deliver more high-signal, consistent findings for security and quality.
+* **Support for deterministic detections with {% data variables.product.prodname_codeql %}**, to deliver more high-signal, consistent findings for quality.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**, for automated creation of a new pull request against your branch with the suggested fixes applied.
 
 You are not required to have {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the {% data variables.copilot.copilot_code-review-tools_short %}.

@@ -8,8 +8,7 @@ contentType: how-tos
 ---
 
 > [!NOTE]
-> * Coming this week.
-> * This feature will be launching in {% data variables.release-phases.public_preview %} and subject to change.
+> * This feature is in {% data variables.release-phases.public_preview %} and subject to change.
 > * {% data variables.product.prodname_copilot %} uses AI. Check for mistakes. See [AUTOTITLE](/copilot/responsible-use/copilot-coding-agent)
 
 ## Introduction
