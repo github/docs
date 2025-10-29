@@ -35,3 +35,5 @@ When you connect your {% data variables.product.github %} account to the {% data
 |Read access to code| To render code snippets in Slack|
 |Read access to actions, commit statuses, checks, discussions, issues, metadata, pull requests, and repository projects | To render previews of links shared in Slack|
 |Write access to actions, issues, deployments, and pull requests | To take action from Slack with the `/github` command and directly from messages|
+|Write access to content| To open pull requests authored by {% data variables.copilot.copilot_coding_agent %}|
+|Read/write access to workflows|To initiate {% data variables.copilot.copilot_coding_agent %} sessions|
