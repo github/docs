@@ -107,4 +107,4 @@ If you haven't already, set up quality thresholds for pull requests, to block an
 ## Next steps
 
 * Reduce technical debt further by fixing findings in recently changed files. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-recent-merges).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25post).

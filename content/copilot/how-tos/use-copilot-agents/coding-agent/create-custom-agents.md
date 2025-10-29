@@ -2,7 +2,7 @@
 title: Creating custom agents
 shortTitle: Create custom agents
 intro: 'You can create specialized agents with tailored expertise for specific development tasks.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -14,7 +14,7 @@ topics:
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile for a repository
 
-1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25).
+1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post).
 
 1. Using the dropdown menu in the prompt box, select the repository you want to create the {% data variables.copilot.copilot_custom_agent_short %} profile in.
 
@@ -58,7 +58,7 @@ For more information on using {% data variables.copilot.copilot_coding_agent %},
 
 ### Using {% data variables.copilot.custom_agents_short %} as {% data variables.product.prodname_vscode_shortname %} chat modes
 
-You can also use your custom {% data variables.copilot.agent_profiles %} directly in {% data variables.product.prodname_vscode %} as chat modes. In {% data variables.product.prodname_vscode_shortname %}, you switch between chat modes using the mode dropdown in the Chat view, allowing you to access specialized configurations for different tasks like planning, code editing, or research. For more information, see [Use chat modes in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes&utm_source=docs-vscode-custom-agents&utm_medium=docs&utm_campaign=universe25).
+You can also use your custom {% data variables.copilot.agent_profiles %} directly in {% data variables.product.prodname_vscode %} as chat modes. In {% data variables.product.prodname_vscode_shortname %}, you switch between chat modes using the mode dropdown in the Chat view, allowing you to access specialized configurations for different tasks like planning, code editing, or research. For more information, see [Use chat modes in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes&utm_source=docs-vscode-custom-agents&utm_medium=docs&utm_campaign=universe25post).
 
 Note that some properties may function differently between the {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_vscode_shortname %} environments. For more information, see [AUTOTITLE](/copilot/reference/custom-agents-configuration).
 
