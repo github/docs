@@ -21,7 +21,7 @@ For more information about {% data variables.copilot.copilot_coding_agent %}, se
 Currently, {% data variables.copilot.copilot_coding_agent %} supports integrations with the following tools:
 
 * **Microsoft Teams**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-teams) - Learn how to set up the Microsoft Teams integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Teams channels.
-* **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack) - Learn how to set up the Slack integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Slack workspace. (Coming this week.)
+* **Slack**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack) - Learn how to set up the Slack integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Slack workspace.
 * **Linear**: [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear) - Learn how to set up the Linear integration to trigger {% data variables.copilot.copilot_coding_agent %} directly from your Linear issues.
 * **Azure Boards**: (currently in {% data variables.release-phases.private_preview %}).
 
