@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-code-review/use-code-review
   - /copilot/how-tos/agents/request-a-code-review/use-code-review
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

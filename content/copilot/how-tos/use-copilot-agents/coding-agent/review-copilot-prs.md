@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/review-copilot-prs
   - /copilot/how-tos/agents/coding-agent/review-copilot-prs
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

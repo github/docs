@@ -20,6 +20,8 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-github
   - /copilot/how-tos/chat-with-copilot/use-chat-in-github
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

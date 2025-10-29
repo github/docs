@@ -15,6 +15,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 ## About AI agents on {% data variables.product.github %}

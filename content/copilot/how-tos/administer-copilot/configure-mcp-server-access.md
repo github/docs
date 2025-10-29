@@ -11,6 +11,8 @@ topics:
   - Enterprise
 shortTitle: Configure MCP server access
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 > [!NOTE]

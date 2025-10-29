@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/how-tos/context/copilot-spaces/create-and-use-copilot-spaces
   - /copilot/how-tos/context/use-copilot-spaces/create-and-use-copilot-spaces
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 For an overview of {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces).

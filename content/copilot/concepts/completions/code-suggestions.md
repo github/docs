@@ -9,6 +9,8 @@ defaultTool: vscode
 topics:
   - Copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% vscode %}

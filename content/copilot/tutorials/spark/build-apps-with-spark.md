@@ -14,6 +14,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Rapid prototyping
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

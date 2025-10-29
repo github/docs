@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/how-tos/github-flow/using-github-copilot-to-create-issues
   - /copilot/how-tos/github-flow/use-copilot-to-create-issues
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

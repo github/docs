@@ -13,6 +13,8 @@ shortTitle: Download activity report
 redirect_from:
   - /copilot/how-tos/administer/download-activity-report
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 You can download a CSV report for {% data variables.product.prodname_copilot_short %} user activity in your organization. The data in the report allows you to:

@@ -15,6 +15,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 An effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. This process should be tailored to your organization's needs and goals, and should be designed to help your teams understand how to use {% data variables.product.prodname_copilot_short %} effectively.

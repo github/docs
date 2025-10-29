@@ -7,6 +7,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Configure Copilot
 redirect_from:
   - /copilot/reference/proxy-server-and-firewall-settings-for-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot

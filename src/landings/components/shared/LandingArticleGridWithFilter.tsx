@@ -20,7 +20,7 @@ const ALL_CATEGORIES = 'all_categories'
 
 // Helper function to recursively flatten nested articles
 // Excludes index pages (pages with childTocItems)
-const flattenArticlesRecursive = (articles: ArticleCardItems): ArticleCardItems => {
+const flattenArticlesRecursive = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
   const flattened: ArticleCardItems = []
 
   for (const article of articles) {
@@ -29,7 +29,7 @@ const flattenArticlesRecursive = (articles: ArticleCardItems): ArticleCardItems 
       flattened.push(...flattenArticlesRecursive(article.childTocItems))
     } else {
       // Only add articles that don't have children (actual article pages, not index pages)
-      flattened.push(article)
+      flattened.push(article as ChildTocItem)
     }
   }
 
@@ -37,7 +37,7 @@ const flattenArticlesRecursive = (articles: ArticleCardItems): ArticleCardItems 
 }
 
 // Wrapper function that flattens and sorts alphabetically by title (only once)
-const flattenArticles = (articles: ArticleCardItems): ArticleCardItems => {
+const flattenArticles = (articles: (TocItem | ChildTocItem)[]): ArticleCardItems => {
   const flattened = flattenArticlesRecursive(articles)
   return flattened.sort((a, b) => a.title.localeCompare(b.title))
 }
@@ -80,11 +80,8 @@ export const ArticleGrid = ({ tocItems, includedCategories, landingType }: Artic
   const inputRef = useRef<HTMLInputElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
 
-  // Extract child items from tocItems and recursively flatten nested articles to ensure we get all articles with categories
-  const allArticles = useMemo(
-    () => flattenArticles(tocItems.flatMap((item) => item.childTocItems || [])),
-    [tocItems],
-  )
+  // Recursively flatten all articles from tocItems, including both direct children and nested articles
+  const allArticles = useMemo(() => flattenArticles(tocItems), [tocItems])
 
   // Filter articles based on includedCategories for discovery landing pages
   // For bespoke landing pages, show all articles regardless of includedCategories
@@ -107,11 +104,13 @@ export const ArticleGrid = ({ tocItems, includedCategories, landingType }: Artic
     setCurrentPage(1)
   }, [articlesPerPage])
 
-  // Extract unique categories from the filtered articles, filtering dropdown by includedCategories if provided
+  // Extract unique categories for dropdown from filtered articles (so all dropdown options have matching articles)
   const categories: string[] = [
     ALL_CATEGORIES,
-    ...Array.from(new Set(filteredArticlesByLandingType.flatMap((item) => item.category || [])))
-      .filter((category) => {
+    ...Array.from(
+      new Set(filteredArticlesByLandingType.flatMap((item) => (item.category || []) as string[])),
+    )
+      .filter((category: string) => {
         if (!includedCategories || includedCategories.length === 0) return true
         // Case-insensitive comparison for dropdown filtering
         const lowerCategory = category.toLowerCase()

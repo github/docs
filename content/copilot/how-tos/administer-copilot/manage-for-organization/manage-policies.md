@@ -27,6 +27,8 @@ topics:
   - Organizations
 shortTitle: Manage policies
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data reusables.organizations.copilot-policy-ent-overrides-org %}

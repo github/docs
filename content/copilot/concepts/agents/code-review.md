@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/code-review/code-review
   - /copilot/concepts/code-review
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 ## Introduction

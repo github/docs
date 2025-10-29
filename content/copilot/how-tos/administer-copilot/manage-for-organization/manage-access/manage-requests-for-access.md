@@ -17,6 +17,8 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 As an organization owner, you can manage requests for {% data variables.copilot.copilot_for_business %} from your organization's settings. Additionally, {% data variables.product.prodname_dotcom %} sends you a weekly email with a summary of all pending requests.

@@ -11,6 +11,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Scale institutional knowledge
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

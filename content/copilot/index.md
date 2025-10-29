@@ -28,7 +28,8 @@ featuredLinks:
     - '{% ifversion ghec %}/copilot/how-tos/manage-and-track-spending/manage-request-allowances{% endif %}'
     - '{% ifversion ghec %}/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption{% endif %}'
     - '{% ifversion ghec %}/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents{% endif %}'
-layout: product-landing
+layout: discovery-landing
+heroImage: /assets/images/banner-images/hero-6.png
 versions:
   feature: copilot
 children:
@@ -41,4 +42,12 @@ children:
 topics:
   - Copilot
 contentType: landing
+includedCategories:
+  - Learn about Copilot
+  - Configure Copilot
+  - Author and optimize with Copilot
+  - Integrate Copilot with your tools
+  - Manage Copilot for a team
+  - Troubleshooting Copilot
+  - Responsible use
 ---

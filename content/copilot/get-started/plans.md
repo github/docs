@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/about-github-copilot/plans-for-github-copilot
   - /copilot/get-started/plans-for-github-copilot
 contentType: get-started
+category: 
+  - Learn about Copilot
 ---
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.

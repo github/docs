@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/concepts/copilot-billing/requests-in-github-copilot
   - /copilot/concepts/copilot-billing/copilot-requests
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 > [!IMPORTANT]

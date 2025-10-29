@@ -11,6 +11,8 @@ shortTitle: 'Manage {% data variables.copilot.copilot_code-review_short %}'
 redirect_from:
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-copilot-code-review
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 This policy controls the use of {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_for_prs %} in your enterprise.

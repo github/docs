@@ -11,6 +11,7 @@ redirect_from:
 contentType: tutorials
 category:
   - Accelerate PR velocity
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

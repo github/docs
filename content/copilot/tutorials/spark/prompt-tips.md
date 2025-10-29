@@ -9,6 +9,8 @@ product: 'Anyone with a {% data variables.copilot.copilot_pro_plus_short %} or {
 contentType: tutorials
 category:
   - Rapid prototyping
+  - Learn about Copilot
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

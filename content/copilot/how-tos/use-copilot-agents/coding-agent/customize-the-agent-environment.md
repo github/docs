@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/customize-the-agent-environment
   - /copilot/how-tos/agents/coding-agent/customize-the-agent-environment
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## About customizing {% data variables.copilot.copilot_coding_agent %}'s development environment

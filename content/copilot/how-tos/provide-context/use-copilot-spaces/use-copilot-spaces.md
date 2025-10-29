@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 For information on creating {% data variables.copilot.copilot_spaces %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces).

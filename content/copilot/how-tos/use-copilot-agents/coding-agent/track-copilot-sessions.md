@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/track-copilot-sessions
   - /copilot/how-tos/agents/coding-agent/track-copilot-sessions
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

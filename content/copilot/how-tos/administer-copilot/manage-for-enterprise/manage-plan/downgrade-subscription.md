@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/how-tos/administer/enterprises/manage-plan/downgrade-subscription
   - /copilot/how-tos/administer/manage-for-enterprise/manage-plan/downgrade-subscription
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data reusables.enterprise-accounts.copilot-licensing %}

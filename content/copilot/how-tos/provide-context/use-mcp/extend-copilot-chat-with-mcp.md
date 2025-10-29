@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/extend-copilot-chat-with-mcp
   - /copilot/how-tos/context/use-mcp/extend-copilot-chat-with-mcp
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Introduction

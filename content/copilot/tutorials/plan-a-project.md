@@ -9,10 +9,10 @@ topics:
   - Project management
 versions:
   feature: copilot
-
 contentType: tutorials
 category:
   - Unblock complex work
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

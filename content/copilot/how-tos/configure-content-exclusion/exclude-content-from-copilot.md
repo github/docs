@@ -24,6 +24,8 @@ redirect_from:
 topics:
   - Copilot
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## Configuring content exclusion for your repository

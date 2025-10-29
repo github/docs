@@ -11,6 +11,7 @@ versions:
   feature: copilot
 category:
   - Functionality analysis
+  - Author and optimize with Copilot
 complexity:
   - Intermediate
 octicon: lightbulb
