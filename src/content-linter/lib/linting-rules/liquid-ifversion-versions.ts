@@ -104,7 +104,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
   for (let i = 0; i < condTagItems.length; i++) {
     const item = condTagItems[i]
     const tagNameNoCond = item.name === 'endif' || item.name === 'else'
-    const itemErrorName = tagNameNoCond ? item.name : item.name + ' ' + item.cond
+    const itemErrorName = tagNameNoCond ? item.name : `${item.name} ${item.cond}`
 
     if (item.action.type === 'delete') {
       // There is no next stack item, the endif tag is alway the
@@ -438,7 +438,7 @@ function updateConditionals(condTagItems: any[]) {
         const newVersions = Object.entries(item.versionsObj).map(([key, value]) => {
           if (key === 'ghes') {
             if (value === '*') return key
-            return key + ' ' + value
+            return `${key} ${value}`
           } else return key
         })
         item.action.cond = newVersions.join(' or ')

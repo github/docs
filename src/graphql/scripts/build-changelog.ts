@@ -175,12 +175,9 @@ export async function createChangelogEntry(
         }),
       )
       const cleanTitle = cleanPreviewTitle(previewTitle)
-      const entryTitle =
-        'The [' +
-        cleanTitle +
-        '](/graphql/overview/schema-previews#' +
-        previewAnchor(cleanTitle) +
-        ') includes these changes:'
+      const entryTitle = `The [${cleanTitle}](/graphql/overview/schema-previews#${previewAnchor(
+        cleanTitle,
+      )}) includes these changes:`
       changelogEntry.previewChanges.push({
         title: entryTitle,
         changes: renderedPreviewChanges,
@@ -220,7 +217,7 @@ export function cleanPreviewTitle(title: string): string {
   } else if (title === 'MergeInfoPreview') {
     title = 'Merge info preview'
   } else if (!title.endsWith('preview')) {
-    title = title + ' preview'
+    title = `${title} preview`
   }
   return title
 }

@@ -34,7 +34,7 @@ export function hasLanguagePrefix(path: string): boolean {
 export function stripLanguagePrefix(path: string): string {
   if (hasLanguagePrefix(path)) {
     const pathSegments = path.split('/')
-    return '/' + pathSegments.slice(2).join('/')
+    return `/${pathSegments.slice(2).join('/')}`
   }
   return path
 }

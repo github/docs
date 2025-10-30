@@ -46,14 +46,13 @@ export const liquidTagWhitespace: Rule = {
       const openTag = tag.slice(0, token.contentRange[0] - token.begin)
       const closeTag = tag.slice(-(token.end - token.contentRange[1]))
 
-      const isOpenTagOneSpace = openTag !== openTag.trim() + ' '
-      const isCloseTagOneSpace = closeTag !== ' ' + closeTag.trim()
+      const isOpenTagOneSpace = openTag !== `${openTag.trim()} `
+      const isCloseTagOneSpace = closeTag !== ` ${closeTag.trim()}`
 
       const moreThanOneSpace = /\s{2,}/
       const isArgOneSpace = moreThanOneSpace.test(tag)
 
-      const fixedContent =
-        openTag.trim() + ' ' + token.content.replace(moreThanOneSpace, ' ') + ' ' + closeTag.trim()
+      const fixedContent = `${openTag.trim()} ${token.content.replace(moreThanOneSpace, ' ')} ${closeTag.trim()}`
 
       if (isOpenTagOneSpace || isCloseTagOneSpace || isArgOneSpace) {
         addFixErrorDetail(

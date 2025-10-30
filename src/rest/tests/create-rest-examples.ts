@@ -55,7 +55,7 @@ describe('rest example requests and responses', () => {
     // example is any because getCodeSamples returns objects from untyped JavaScript module
     mergedExamples.forEach((example: any, index: number) => {
       expect(example.request.description).toBe(
-        'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode,
+        `Example ${index + 1}: Status Code ${example.response.statusCode}`,
       )
     })
   })

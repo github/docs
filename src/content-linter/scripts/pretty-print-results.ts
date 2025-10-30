@@ -170,14 +170,14 @@ function indentWrappedString(str: string, startingIndent: number): string {
 
     if ((currentLine + word).length > effectiveWidth) {
       if (isFirstLine) {
-        indentedString += currentLine.trim() + '\n'
+        indentedString += `${currentLine.trim()}\n`
         isFirstLine = false
       } else {
-        indentedString += NEW_LINE_PADDING + currentLine.trim() + '\n'
+        indentedString += `${NEW_LINE_PADDING + currentLine.trim()}\n`
       }
-      currentLine = word + ' '
+      currentLine = `${word} `
     } else {
-      currentLine += word + ' '
+      currentLine += `${word} `
     }
   }
   if (isFirstLine) {

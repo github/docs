@@ -359,10 +359,10 @@ async function isExistingIssue(
   let query = encodeURIComponent(`is:issue repo:${repo} `)
 
   if (searchQuery) {
-    query += '+' + searchQuery
+    query += `+${searchQuery}`
   }
   if (labelQuery) {
-    query += '+' + labelQuery
+    query += `+${labelQuery}`
   }
 
   const issues = await octokit.request(`GET /search/issues?q=${query}`)

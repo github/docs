@@ -18,7 +18,7 @@ interface OcticonsMatch {
 }
 
 const OptionsSyntax = /([a-zA-Z-]+)="([\w\s-]+)"*/g
-const Syntax = new RegExp('"(?<icon>[a-zA-Z-]+)"(?<options>(?:\\s' + OptionsSyntax.source + ')*)')
+const Syntax = new RegExp(`"(?<icon>[a-zA-Z-]+)"(?<options>(?:\\s${OptionsSyntax.source})*)`)
 const SyntaxHelp = 'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<name>" <key="value">'
 
 /**

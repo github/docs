@@ -47,7 +47,7 @@ export function getAutomaticRequestLogger() {
           toLogfmt({
             ...loggerContext,
             status,
-            responseTime: responseTime + ' ms',
+            responseTime: `${responseTime} ms`,
             contentLength: String(contentLength),
             method,
             url,
@@ -71,7 +71,7 @@ export function getAutomaticRequestLogger() {
           chalk.reset(method),
           chalk.reset(url),
           chalk[color](status),
-          chalk.reset(responseTime + ' ms'),
+          chalk.reset(`${responseTime} ms`),
           chalk.reset('-'),
           chalk.reset(String(contentLength)),
         ].join(' ')

@@ -43,7 +43,7 @@ export default function alerts({ alertTitles = {} }: { alertTitles?: Record<stri
       }
       const alertType = alertTypes[getAlertKey(node).toUpperCase()]
       node.tagName = 'div'
-      node.properties.className = 'ghd-alert ghd-alert-' + alertType.color
+      node.properties.className = `ghd-alert ghd-alert-${alertType.color}`
       node.properties.dataContainer = 'alert'
       node.children = [
         h(

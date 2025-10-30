@@ -55,7 +55,7 @@ export const frontmatterLiquidSyntax = {
         addError(
           onError,
           lineNumber,
-          'Liquid syntax error: ' + errorDescription,
+          `Liquid syntax error: ${errorDescription}`,
           value,
           range,
           null, // No fix possible
@@ -92,7 +92,7 @@ export const liquidSyntax = {
       addError(
         onError,
         lineNumber,
-        'Liquid syntax error: ' + errorDescription,
+        `Liquid syntax error: ${errorDescription}`,
         line,
         range,
         null, // No fix possible

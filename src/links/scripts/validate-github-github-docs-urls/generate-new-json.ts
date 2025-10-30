@@ -38,7 +38,7 @@ export function generateNewJSON(
     const writeTo = options.output || destinationFilePath
     // It's important that this serializes exactly like the Ruby code
     // that is the CLI script `script/add-docs-url` in github/github.
-    const serialized = JSON.stringify(destination, null, 2) + '\n'
+    const serialized = `${JSON.stringify(destination, null, 2)}\n`
     fs.writeFileSync(writeTo, serialized, 'utf-8')
     console.log(`Wrote ${countChanges} change${countChanges === 1 ? '' : 's'} to ${writeTo}`)
     if (writeTo !== destinationFilePath) {

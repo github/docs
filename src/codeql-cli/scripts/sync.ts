@@ -41,7 +41,7 @@ async function main() {
     const matchHeading = '## Options\n'
     const primaryHeadingSourceContent = sourceContent.replace(
       matchHeading,
-      matchHeading + '\n### Primary Options\n',
+      `${matchHeading}\n### Primary Options\n`,
     )
     const currentFileName = path.basename(file)
     const { data, content } = await convertContentToDocs(

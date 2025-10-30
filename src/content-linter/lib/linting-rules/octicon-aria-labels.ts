@@ -37,7 +37,7 @@ export const octiconAriaLabels: Rule = {
         const octiconNameMatch = token.args.match(/["']([^"']+)["']/)
         const octiconName = octiconNameMatch ? octiconNameMatch[1] : 'icon'
         const originalContent = token.content
-        const fixedContent = originalContent + ` aria-label="${octiconName}"`
+        const fixedContent = `${originalContent} aria-label="${octiconName}"`
 
         addFixErrorDetail(
           onError,

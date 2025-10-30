@@ -31,7 +31,7 @@ async function main(nameTuple: [string, string]) {
       const parentIndexMd = path.join(path.dirname(after), 'index.md')
       const fileContent = fs.readFileSync(parentIndexMd, 'utf-8')
       const { data } = readFrontmatter(fileContent)
-      const afterShortname = '/' + after.split('/').slice(-1)[0].replace(/\.md$/, '')
+      const afterShortname = `/${after.split('/').slice(-1)[0].replace(/\.md$/, '')}`
       if (data) assert(data.children.includes(afterShortname), `Child ${afterShortname} not found`)
     }
   } else {
@@ -43,7 +43,7 @@ async function main(nameTuple: [string, string]) {
       const parentIndexMd = path.join(path.dirname(after), 'index.md')
       const fileContent = fs.readFileSync(parentIndexMd, 'utf-8')
       const { data } = readFrontmatter(fileContent)
-      const afterShortname = '/' + after.split('/').slice(-1)
+      const afterShortname = `/${after.split('/').slice(-1)}`
       if (data) assert(data.children.includes(afterShortname), `Child ${afterShortname} not found`)
     }
   }
@@ -57,5 +57,5 @@ function makeHref(root: string, filePath: string) {
     const last = nameSplit.pop()
     if (last) nameSplit.push(last.replace(/\.md$/, ''))
   }
-  return '/' + nameSplit.join('/')
+  return `/${nameSplit.join('/')}`
 }
