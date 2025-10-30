@@ -23,7 +23,7 @@ For an existing enterprise, {% data variables.product.prodname_code_quality %} i
 
 ## Allowing repository owners to enable {% data variables.product.prodname_code_quality_short %}
 
-1. Navigate to your enterprise. For example, from [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text&utm_source=docs-web-settings-code-quality&utm_medium=docs&utm_campaign=universe25).
+1. Navigate to your enterprise. For example, from [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text&utm_source=docs-web-settings-code-quality&utm_medium=docs&utm_campaign=universe25post).
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. Under "General", select **Allow for all organizations**, or **Allow for selected organizations**.

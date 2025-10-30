@@ -2,7 +2,7 @@
 title: About custom agents
 shortTitle: Custom agents
 intro: '{% data variables.copilot.custom_agents_caps_short %} enhance {% data variables.copilot.copilot_coding_agent %} with specialized assistance tailored to your needs.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -55,7 +55,7 @@ You can define {% data variables.copilot.agent_profiles %} at the repository lev
 
 Once created, your {% data variables.copilot.custom_agents_short %} are available wherever you can use {% data variables.copilot.copilot_coding_agent %}, including {% data variables.product.prodname_dotcom_the_website %} (the agents tab and panel, issue assignment, pull requests), the {% data variables.copilot.copilot_cli %}, and {% data variables.product.prodname_vscode %} (as chat modes). Each interaction maintains consistency based on the agent's defined profile, ensuring targeted support tailored to your specific needs.
 
-{% data variables.copilot.agent_profiles_caps %} can be used directly in {% data variables.product.prodname_vscode %} as chat modes, though some properties may differ between the two environments. For more information on chat modes, see [Use chat modes in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes?utm_source=docs-vscode-custom-agents&utm_medium=docs&utm_campaign=universe25).
+{% data variables.copilot.agent_profiles_caps %} can be used directly in {% data variables.product.prodname_vscode %} as chat modes, though some properties may differ between the two environments. For more information on chat modes, see [Use chat modes in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes?utm_source=docs-vscode-custom-agents&utm_medium=docs&utm_campaign=universe25post).
 
 ## Next steps
 

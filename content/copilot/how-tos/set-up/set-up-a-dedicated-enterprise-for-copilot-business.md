@@ -26,7 +26,7 @@ You can create an enterprise account specifically for managing {% data variables
 
 You need to create an enterprise account, and the way to do that is to start a trial of {% data variables.product.prodname_ghe_cloud %}.
 
-<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise&utm_source=docs-signup-enterprise&utm_medium=docs&utm_campaign=universe25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise&utm_source=docs-signup-enterprise&utm_medium=docs&utm_campaign=universe25post" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 Don’t create any organizations during setup. Adding users to organizations assigns them {% data variables.product.prodname_enterprise %} licenses, while adding users directly to the enterprise keeps your setup limited to {% data variables.copilot.copilot_business_short %}.
 
