@@ -448,11 +448,11 @@ function getDisplayTitle(
 
   const displayTitle = isRest
     ? !resourceGroup
-      ? sentenceCase(title) + ' permissions'
-      : `"${sentenceCase(title)}" ` + resourceGroup + ' permissions'
+      ? `${sentenceCase(title)} permissions`
+      : `"${sentenceCase(title)}" ${resourceGroup} permissions`
     : !resourceGroup
-      ? sentenceCase(title) + ' permissions'
-      : sentenceCase(resourceGroup) + ` permissions for "${title}"`
+      ? `${sentenceCase(title)} permissions`
+      : `${sentenceCase(resourceGroup)} permissions for "${title}"`
 
   return { title, displayTitle }
 }

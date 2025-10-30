@@ -26,7 +26,7 @@ export const imageAltTextEndPunctuation: Rule = {
 
       const range = getRange(token.line, imageAltText)
 
-      addFixErrorDetail(onError, token.lineNumber, imageAltText + '.', imageAltText, range, {
+      addFixErrorDetail(onError, token.lineNumber, `${imageAltText}.`, imageAltText, range, {
         lineNumber: token.lineNumber,
         editColumn: isStringQuoted(imageAltText)
           ? token.line.indexOf(']')

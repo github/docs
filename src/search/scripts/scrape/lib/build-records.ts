@@ -178,36 +178,35 @@ export default async function buildRecords(
 
     // Report failed pages if any
     if (failedPages.length > 0) {
-      console.log(
-        '\n' +
-          boxen(
-            chalk.bold.red(`${failedPages.length} page(s) failed to scrape\n\n`) +
-              failedPages
-                .slice(0, 10) // Show first 10 failures
-                .map((failure, idx) => {
-                  return (
-                    chalk.gray(`${idx + 1}. `) +
-                    chalk.yellow(failure.errorType) +
-                    '\n' +
-                    (failure.relativePath
-                      ? chalk.cyan(`   Path: `) + failure.relativePath + '\n'
-                      : '') +
-                    (failure.url ? chalk.cyan(`   URL: `) + failure.url + '\n' : '') +
-                    chalk.gray(`   Error: ${failure.error}`)
-                  )
-                })
-                .join('\n\n') +
-              (failedPages.length > 10
-                ? `\n\n${chalk.gray(`... and ${failedPages.length - 10} more`)}`
-                : ''),
-            {
-              title: chalk.red('⚠ Failed Pages'),
-              padding: 1,
-              borderColor: 'yellow',
-            },
-          ) +
-          '\n',
-      )
+      const failureCount = failedPages.length
+      const header = chalk.bold.red(`${failureCount} page(s) failed to scrape\n\n`)
+
+      const failureList = failedPages
+        .slice(0, 10) // Show first 10 failures
+        .map((failure, idx) => {
+          const number = chalk.gray(`${idx + 1}. `)
+          const errorType = chalk.yellow(failure.errorType)
+          const pathLine = failure.relativePath
+            ? `\n${chalk.cyan('   Path: ')}${failure.relativePath}`
+            : ''
+          const urlLine = failure.url ? `\n${chalk.cyan('   URL: ')}${failure.url}` : ''
+          const errorLine = `\n${chalk.gray(`   Error: ${failure.error}`)}`
+
+          return `${number}${errorType}${pathLine}${urlLine}${errorLine}`
+        })
+        .join('\n\n')
+
+      const remaining =
+        failureCount > 10 ? `\n\n${chalk.gray(`... and ${failureCount - 10} more`)}` : ''
+
+      const boxContent = header + failureList + remaining
+      const box = boxen(boxContent, {
+        title: chalk.red('⚠ Failed Pages'),
+        padding: 1,
+        borderColor: 'yellow',
+      })
+
+      console.log(`\n${box}\n`)
 
       // Log suggestion
       console.log(

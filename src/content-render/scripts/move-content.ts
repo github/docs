@@ -268,7 +268,7 @@ function makeHref(root, filePath) {
   } else {
     nameSplit.push(nameSplit.pop().replace(/\.md$/, ''))
   }
-  return '/' + nameSplit.join('/')
+  return `/${nameSplit.join('/')}`
 }
 
 function moveFolder(oldPath, newPath, files, opts) {

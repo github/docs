@@ -1,7 +1,7 @@
 import { Box, Pagination, Text } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 
 import { useTranslation } from '@/languages/components/useTranslation'

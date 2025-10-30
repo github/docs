@@ -113,7 +113,7 @@ describe('static assets', () => {
     // This picks the first one found. We just need it to be anything
     // that actually resolves.
     const filePath = getNextStaticAsset('css')
-    const asURL = '/' + filePath.replace('.next', '_next').split(path.sep).join('/')
+    const asURL = `/${filePath.replace('.next', '_next').split(path.sep).join('/')}`
     const res = await get(asURL)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res)

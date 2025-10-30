@@ -104,11 +104,10 @@ async function main(options: Options) {
 function getVariables(): Map<string, string> {
   const variables = new Map<string, string>()
   for (const filePath of walkFiles('data/variables', '.yml')) {
-    const dottedPathBase =
-      'variables.' + filePath.replace('data/variables/', '').replace('.yml', '').replace(/\//g, '.')
+    const dottedPathBase = `variables.${filePath.replace('data/variables/', '').replace('.yml', '').replace(/\//g, '.')}`
     const data = yaml.load(fs.readFileSync(filePath, 'utf-8')) as Record<string, unknown>
     for (const key of Object.keys(data)) {
-      const dottedPath = dottedPathBase + '.' + key
+      const dottedPath = `${dottedPathBase}.${key}`
       variables.set(dottedPath, filePath)
     }
   }

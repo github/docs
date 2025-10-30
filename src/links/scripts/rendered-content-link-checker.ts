@@ -611,7 +611,7 @@ function flawIssueDisplay(flaws: LinkFlaw[], opts: Options, mentionExternalExclu
 
   // limit is 65536
   if (output.length > 60000) {
-    output = output.slice(0, 60000) + '\n\n---\n\nOUTPUT TRUNCATED'
+    output = `${output.slice(0, 60000)}\n\n---\n\nOUTPUT TRUNCATED`
   }
 
   return output
@@ -950,7 +950,7 @@ async function checkHrefLink(
   // 6. 'https://example.com' (external link)
 
   const [pathFragment, hashFragment] = href.split('#')
-  const hash = '#' + hashFragment // the hash is the part that starts with `#`
+  const hash = `#${hashFragment}` // the hash is the part that starts with `#`
 
   // this conditional handles cases in which the link is to the current article (cases 1-3 above)
   if (checkAnchors && (!pathFragment || pathFragment === permalink.href)) {

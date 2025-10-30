@@ -118,7 +118,7 @@ Note: Requires a local server running on localhost:4000 (npm start)
   const report = generateReport(results)
 
   // Always output to console for local development
-  console.log('\n' + report)
+  console.log(`\n${report}`)
 
   // If running in CI, also save report for commenting on PR
   if (process.env.GITHUB_ACTIONS) {
@@ -198,12 +198,10 @@ async function waitForServer(): Promise<void> {
 async function analyzeFile(filePath: string): Promise<PageReadability | null> {
   // Convert file path to URL path
   // content/get-started/foo.md -> /get-started/foo
-  const urlPath =
-    '/' +
-    filePath
-      .replace(/^content\//, '')
-      .replace(/\.md$/, '')
-      .replace(/\/index$/, '')
+  const urlPath = `/${filePath
+    .replace(/^content\//, '')
+    .replace(/\.md$/, '')
+    .replace(/\/index$/, '')}`
 
   try {
     // Fetch the rendered page

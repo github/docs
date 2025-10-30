@@ -174,7 +174,7 @@ export async function getAutomatedPageMiniTocItems(
         for (let i = 0; i < depth; i++) {
           title += '#'
         }
-        return title + ` ${item}\n`
+        return `${title} ${item}\n`
       })
       .join('')
 

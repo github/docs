@@ -3,14 +3,14 @@ title: Reference for billing
 shortTitle: Reference
 intro: Find information to support your use of billing.
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
+  fpt: "*"
+  ghec: "*"
+  ghes: "*"
 topics:
   - Billing
 children:
   - /product-usage-included
-  - /actions-minute-multipliers
+  - /actions-runner-pricing
   - /billing-reports
   - /supported-payment-methods
   - /azure-billing

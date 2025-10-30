@@ -299,7 +299,7 @@ export function SearchOverlay({
   // When loading, capture the last height of the suggestions list so we can use it for the loading div
   const previousSuggestionsListHeight = useMemo(() => {
     if (generalSearchResults.length || aiAutocompleteOptions.length) {
-      return 7 * (generalSearchResults.length + aiAutocompleteOptions.length) + ''
+      return `${7 * (generalSearchResults.length + aiAutocompleteOptions.length)}`
     } else {
       return '150' // Default height for just 2 suggestions
     }

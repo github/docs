@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-import { execSync } from 'child_process'
 
 import { renderLiquid } from '@/content-render/liquid/index'
 import shortVersionsMiddleware from '@/versions/middleware/short-versions'
@@ -83,7 +82,4 @@ for (const page of pages) {
     console.log(err)
   }
 }
-console.log('---\nWriting files done. Now linting content...\n')
-// Content linter to remove any blank lines
-execSync('npm run lint-content -- --paths content-copilot --rules no-multiple-blanks --fix')
 console.log(`Finished - content is available in: ${contentCopilotDir}`)

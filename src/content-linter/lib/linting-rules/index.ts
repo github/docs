@@ -3,14 +3,12 @@ import searchReplace from 'markdownlint-rule-search-replace'
 // @ts-ignore - @github/markdownlint-github doesn't provide TypeScript declarations
 import markdownlintGitHub from '@github/markdownlint-github'
 
-import { codeFenceLineLength } from '@/content-linter/lib/linting-rules/code-fence-line-length'
 import { imageAltTextEndPunctuation } from '@/content-linter/lib/linting-rules/image-alt-text-end-punctuation'
 import { imageFileKebabCase } from '@/content-linter/lib/linting-rules/image-file-kebab-case'
 import { incorrectAltTextLength } from '@/content-linter/lib/linting-rules/image-alt-text-length'
 import { internalLinksNoLang } from '@/content-linter/lib/linting-rules/internal-links-no-lang'
 import { internalLinksSlash } from '@/content-linter/lib/linting-rules/internal-links-slash'
 import { imageAltTextExcludeStartWords } from '@/content-linter/lib/linting-rules/image-alt-text-exclude-start-words'
-import { listFirstWordCapitalization } from '@/content-linter/lib/linting-rules/list-first-word-capitalization'
 import { linkPunctuation } from '@/content-linter/lib/linting-rules/link-punctuation'
 import {
   earlyAccessReferences,
@@ -49,11 +47,7 @@ import { linkQuotation } from '@/content-linter/lib/linting-rules/link-quotation
 import { octiconAriaLabels } from '@/content-linter/lib/linting-rules/octicon-aria-labels'
 import { liquidIfversionVersions } from '@/content-linter/lib/linting-rules/liquid-ifversion-versions'
 import { outdatedReleasePhaseTerminology } from '@/content-linter/lib/linting-rules/outdated-release-phase-terminology'
-import { britishEnglishQuotes } from '@/content-linter/lib/linting-rules/british-english-quotes'
-import { multipleEmphasisPatterns } from '@/content-linter/lib/linting-rules/multiple-emphasis-patterns'
-import { noteWarningFormatting } from '@/content-linter/lib/linting-rules/note-warning-formatting'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
-import { frontmatterValidation } from '@/content-linter/lib/linting-rules/frontmatter-validation'
 import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
@@ -103,11 +97,9 @@ export const gitHubDocsMarkdownlint = {
     liquidIfVersionTags, // GHD020
     yamlScheduledJobs, // GHD021
     liquidIfversionVersions, // GHD022
-    codeFenceLineLength, // GHD030
     imageAltTextExcludeStartWords, // GHD031
     imageAltTextEndPunctuation, // GHD032
     incorrectAltTextLength, // GHD033
-    listFirstWordCapitalization, // GHD034
     raiReusableUsage, // GHD035
     imageNoGif, // GHD036
     expiredContent, // GHD038
@@ -120,13 +112,9 @@ export const gitHubDocsMarkdownlint = {
     codeAnnotationCommentSpacing, // GHD045
     outdatedReleasePhaseTerminology, // GHD046
     tableColumnIntegrity, // GHD047
-    britishEnglishQuotes, // GHD048
-    noteWarningFormatting, // GHD049
-    multipleEmphasisPatterns, // GHD050
     frontmatterVersionsWhitespace, // GHD051
     headerContentRequirement, // GHD053
     thirdPartyActionsReusable, // GHD054
-    frontmatterValidation, // GHD055
     frontmatterLandingRecommended, // GHD056
     ctasSchema, // GHD057
     journeyTracksLiquid, // GHD058
