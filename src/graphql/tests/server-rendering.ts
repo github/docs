@@ -34,7 +34,7 @@ describe('server rendering certain GraphQL pages', () => {
     )
     .filter(Boolean)
   const nonFPTPermalinksHrefs = nonFPTPermalinks.map((permalink) => {
-    return permalink.href
+    return permalink!.href
   })
 
   test.each(nonFPTPermalinksHrefs)(

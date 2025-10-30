@@ -57,7 +57,17 @@ On this more detailed dashboard you can get further insights into all aspects of
 
 ## Creating new dashboards
 
-Building your own dashboard and alerts requires the data to be forwarded to an external instance. {% ifversion ghes-opentelemetry %}You can use OpenTelemetry and collectd metrics concurrently for external monitoring. During the {% data variables.release-phases.public_preview %}, collectd remains enabled and cannot be disabled.{% else %}You can use collectd metrics for external monitoring.{% endif %}
+{% ifversion ghes-opentelemetry %}
+
+Starting with {% data variables.product.prodname_ghe_server %} 3.18, you can create custom Grafana dashboards and alerts directly inside the {% data variables.enterprise.management_console %}. These custom dashboards and alerts will persist over upgrades, making it easier to maintain your monitoring configuration.
+
+You can use OpenTelemetry and collectd metrics concurrently for external monitoring. During the {% data variables.release-phases.public_preview %}, collectd remains enabled and cannot be disabled.
+
+{% else %}
+
+Building your own dashboard and alerts requires the data to be forwarded to an external instance. You can use collectd metrics for external monitoring.
+
+{% endif %}
 
 {% ifversion ghes-opentelemetry %}
 For more information about OpenTelemetry metrics, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).

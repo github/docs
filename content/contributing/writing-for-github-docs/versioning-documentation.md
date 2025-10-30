@@ -68,7 +68,7 @@ For {% data variables.product.prodname_ghe_cloud %}, use `enterprise-cloud@lates
 
 ### {% data variables.product.prodname_ghe_server %}
 
-Documentation for {% data variables.product.prodname_ghe_server %} has multiple versions and can be divided into two types: documentation for _supported releases_ (we support four at any one time), and documentation for _{% data variables.release-phases.closing_down %} releases_ (we do not link to these on the Docs site but we support a "frozen" snapshot of these docs in perpetuity, so they can still be accessed if you know the URLs). See [`lib/enterprise-server-releases.js`](https://github.com/github/docs/blob/main/src/versions/lib/enterprise-server-releases.js) for a list.
+Documentation for {% data variables.product.prodname_ghe_server %} has multiple versions and can be divided into two types: documentation for _supported releases_ (we support four at any one time), and documentation for _{% data variables.release-phases.closing_down %} releases_ (we do not link to these on the Docs site but we support a "frozen" snapshot of these docs in perpetuity, so they can still be accessed if you know the URLs). See [`lib/enterprise-server-releases.ts`](https://github.com/github/docs/blob/main/src/versions/lib/enterprise-server-releases.ts) for a list.
 
 The versions are named `enterprise-server@<release>`. The short name is `ghes`. In Liquid conditionals, we can specify ranges, like `ghes > 3.0`. For more information, see [Versioning with Liquid conditional operators](#versioning-with-liquid-conditional-operators).
 

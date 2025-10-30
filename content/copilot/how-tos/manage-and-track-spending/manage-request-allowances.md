@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/spending/manage-for-your-enterprise
   - /copilot/how-tos/manage-and-track-spending/manage-for-your-enterprise
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 Each {% data variables.product.prodname_copilot_short %} plan includes a per-user allowance for premium requests. If enabled, requests over the allowance are billed to your organization or enterprise. To learn more about premium requests, see [AUTOTITLE](/copilot/concepts/copilot-billing/requests-in-github-copilot). For allowances per plan, see [AUTOTITLE](/copilot/get-started/plans-for-github-copilot#comparing-copilot-plans).

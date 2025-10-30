@@ -78,8 +78,8 @@ function findOutdatedTerminologyMatches(line: string): MatchInfo[] {
           start: match.index,
           end: match.index + match[0].length,
           text: match[0],
-          replacement: replacement,
-          outdatedTerm: outdatedTerm,
+          replacement,
+          outdatedTerm,
         })
       }
     }

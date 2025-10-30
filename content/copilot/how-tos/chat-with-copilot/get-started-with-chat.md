@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/use-chat/get-started-with-chat
 shortTitle: Get started with Chat
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 You can ask {% data variables.copilot.copilot_chat_short %} specific questions about your project or general software questions. You can also ask {% data variables.copilot.copilot_chat_short %} to write code, fix errors, write tests, and document code.

@@ -20,6 +20,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan
   - /copilot/how-tos/manage-your-account/getting-started-with-a-copilot-plan
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can get started with your {% data variables.product.prodname_copilot_short %} plan by:
@@ -49,7 +51,7 @@ In {% data variables.product.prodname_vs %} and {% data variables.product.prodna
 
 ### {% data variables.product.prodname_dotcom_the_website %}
 
-With {% data variables.copilot.copilot_free_short %}, you can ask {% data variables.product.prodname_copilot_short %} questions within a chat interface on {% data variables.product.github %}. Go to [https://github.com/copilot](https://github.com/copilot) to start chatting with {% data variables.product.prodname_copilot_short %}.
+With {% data variables.copilot.copilot_free_short %}, you can ask {% data variables.product.prodname_copilot_short %} questions within a chat interface on {% data variables.product.github %}. Go to [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=free) to start chatting with {% data variables.product.prodname_copilot_short %}.
 
 ### {% data variables.product.prodname_mobile %}
 
@@ -85,7 +87,7 @@ You can subscribe to {% data variables.copilot.copilot_pro_short %} or {% data v
 
 > [!TIP] Not sure which plan to choose? For a side-by-side comparison, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/about-individual-copilot-plans-and-benefits).
 
-1. Go to the [plans page](https://github.com/features/copilot/plans).
+1. Go to the [plans page](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 1. Click **Get started** under the plan you want to subscribe to.
 1. Choose whether you want to pay monthly or yearly, and click **Subscribe to {% data variables.copilot.copilot_pro_short %}/{% data variables.copilot.copilot_pro_plus_short %}**.
 

@@ -4,14 +4,9 @@ import type { NextConfig } from 'next'
 
 import frontmatter from '@gr2m/gray-matter'
 import { getLogLevelNumber } from '@/observability/logger/lib/log-levels'
+import { languageKeys } from '@/languages/lib/languages'
 
 const ROOT = process.env.ROOT || '.'
-
-// Language keys are defined here because Next.js config compilation doesn't resolve the @/ path alias
-// Importing from src/languages/lib/languages.ts would fail when it tries to import @/frame/lib/constants
-// This must match the languages defined in src/languages/lib/languages.ts
-const languageKeys = ['en', 'es', 'ja', 'pt', 'zh', 'ru', 'fr', 'ko', 'de']
-
 const homepage = path.posix.join(ROOT, 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children as string[]

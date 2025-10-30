@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/communicate-with-github
   - /copilot/how-tos/build-copilot-extensions/build-a-copilot-agent/communicate-with-github
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Prerequisites

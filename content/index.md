@@ -66,6 +66,7 @@ children:
   - actions
   - copilot
   - codespaces
+  - integrations
   - migrations
   - packages
   - search-github
@@ -104,30 +105,31 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - integrations
   - name: GitHub Copilot
     octicon: CopilotIcon
     children:
       - copilot
       - copilot/get-started/plans
       - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
-      - copilot/tutorials/copilot-chat-cookbook
       - copilot/how-tos/use-copilot-agents/coding-agent
-      - copilot/how-tos/configure-custom-instructions
+      - copilot/tutorials
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/customization-library
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
       - actions
       - packages
       - pages
-  - name: Security
+  - name: Security and quality
     octicon: ShieldLockIcon
     children:
-      - code-security
       - code-security/secret-scanning
       - code-security/supply-chain-security
       - code-security/dependabot
       - code-security/code-scanning
-      - code-security/security-advisories
+      - code-security/code-quality
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -140,7 +142,7 @@ childGroups:
       - issues
       - issues/planning-and-tracking-with-projects
       - search-github
-  - name: Enterprise and Teams
+  - name: Enterprise and teams
     octicon: OrganizationIcon
     children:
       - organizations

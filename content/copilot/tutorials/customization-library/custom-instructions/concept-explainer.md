@@ -6,6 +6,7 @@ versions:
 category:
   - Custom instructions
   - Getting started
+  - Configure Copilot
 complexity:
   - Simple
 octicon: book

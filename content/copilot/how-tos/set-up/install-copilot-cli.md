@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/personal-settings/installing-github-copilot-in-the-cli
   - /copilot/how-tos/set-up/installing-github-copilot-in-the-cli
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% data reusables.cli.preview-note-cli %}

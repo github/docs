@@ -21,9 +21,9 @@
 
 import { sleep } from '@/search/lib/helpers/time'
 
-export async function retryOnErrorTest(
-  errorTest: (error: any) => boolean,
-  callback: Function,
+export async function retryOnErrorTest<T>(
+  errorTest: (error: unknown) => boolean,
+  callback: () => Promise<T>,
   {
     attempts = 4,
     sleepTime = 1000,
@@ -37,7 +37,7 @@ export async function retryOnErrorTest(
     jitterPercent?: number
     onError?: (error: Error, attempts: number, sleepTime: number) => void
   } = {},
-) {
+): Promise<T> {
   while (true) {
     try {
       return await callback()

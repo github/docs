@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-code-completion
   - /copilot/how-tos/ai-models/change-the-completion-model
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% vscode %}

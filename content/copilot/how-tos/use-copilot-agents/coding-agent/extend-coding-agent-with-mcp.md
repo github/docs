@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/extend-coding-agent-with-mcp
   - /copilot/how-tos/agents/coding-agent/extend-coding-agent-with-mcp
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Prerequisite
@@ -26,8 +28,12 @@ Before setting up an MCP server for {% data variables.copilot.copilot_coding_age
 
 As a repository administrator, you can configure MCP servers for use within your repository. You do this using a JSON-formatted configuration that specifies the details of the MCP servers you want to use. You enter the JSON configuration directly into the settings for the repository on {% data variables.product.prodname_dotcom_the_website %}.
 
+Organization and enterprise administrators can also configure MCP servers as part of {% data variables.copilot.custom_agents_short %} using the YAML frontmatter. For more information, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#mcp-server-configuration-details).
+
 > [!WARNING]
 > Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
+
+{% data reusables.copilot.mcp.coding-agent-limitations %}
 
 ## Adding an MCP configuration to your repository
 
@@ -323,7 +329,23 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short_cap_c %}**.
-1. Add your configuration in the **MCP configuration** section.
+1. Add your configuration in the **MCP configuration** section. For example, you can add the following:
+
+  ```javascript copy
+    // If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
+    {
+      "mcpServers": {
+        "github-mcp-server": {
+          "type": "http",
+          // Remove "/readonly" to enable wider access to all tools.
+          // Then, use the "tools" key to specify the subset of tools you'd like to include.
+          "url": "https://api.githubcopilot.com/mcp/readonly",
+          "tools": ["*"]
+        }
+      }
+    }
+   ```
+
 1. Click **Save**.
 {% data reusables.actions.sidebar-environment %}
 1. Click the `copilot` environment.
@@ -334,5 +356,6 @@ For information on using the {% data variables.product.github %} MCP server in o
 
 ## Next steps
 
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)

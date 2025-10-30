@@ -33,7 +33,7 @@ shortTitle: Security & analysis
 
 You can enforce policies to manage the use of security features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
 
-Additionally, you can enforce policies for the use of {% data variables.product.prodname_GHAS_cs_or_sp %} in your enterprise's organizations and repositories.
+Additionally, you can enforce policies for the use of {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} in your enterprise's organizations and repositories.
 
 ## Enforcing a policy for the availability of {% data variables.product.prodname_AS %} in your enterprise's organizations
 
@@ -41,7 +41,7 @@ You are billed for {% data variables.product.prodname_GHAS_cs_and_sp %} products
 
 You can enforce a policy that controls whether repository administrators are allowed to enable features for {% data variables.product.prodname_AS %} in an organization's repositories. You can configure a policy for all organizations owned by your enterprise account, or for individual organizations that you choose.
 
-Disallowing {% data variables.product.prodname_GHAS_cs_or_sp %} for an organization prevents repository administrators from enabling {% data variables.product.prodname_GHAS_cs_or_sp %} features for additional repositories, but does not disable the features for repositories where the features are already enabled.
+Disallowing {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %} for an organization prevents repository administrators from enabling these features for additional repositories, but does not disable the features for repositories where the features are already enabled.
 
 {% data reusables.enterprise.role-permission-hierarchy %}
 
@@ -91,7 +91,7 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 {% ifversion ghas-products %}
-1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GHAS_cs_or_sp %}.
+1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GH_sp_cs_and_cq_or_as %}.
 {% else %}
 1. In the "{% data variables.product.prodname_GHAS %} policies" section, under "Enable or disable {% data variables.product.prodname_GHAS %} by repository admins", select the dropdown menu and click a policy.
 {% endif %}
@@ -130,11 +130,14 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 ## Enforcing a policy to manage the use of {% data variables.copilot.copilot_autofix_short %} in your enterprise's repositories
 
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage where {% data variables.copilot.copilot_autofix_short %} is enabled. {% data variables.product.prodname_GH_code_security %} must be enabled for the organization for this policy to take effect.
+Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage where {% data variables.copilot.copilot_autofix_short %} is enabled for {% data variables.product.prodname_code_security %} results. {% data variables.product.prodname_GH_code_security %} must be enabled for the organization for this policy to take effect.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 1. In the "Policies" section, under "{% data variables.copilot.copilot_autofix_short %}", select the dropdown menu and click a policy.
+
+> [!NOTE]
+> This policy controls the use of {% data variables.copilot.copilot_autofix_short %} on results found by {% data variables.product.prodname_code_scanning %} security queries only. {% data variables.copilot.copilot_autofix_short %} is an integral part of {% data variables.product.prodname_code_quality %} and cannot be disabled for that feature.
 
 {% endif %}

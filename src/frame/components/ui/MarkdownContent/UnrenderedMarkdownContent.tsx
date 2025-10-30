@@ -86,8 +86,8 @@ export const UnrenderedMarkdownContent = ({
               sendEvent({
                 type: EventType.clipboard,
                 clipboard_operation: 'copy',
-                eventGroupKey: eventGroupKey,
-                eventGroupId: eventGroupId,
+                eventGroupKey,
+                eventGroupId,
               })
             }}
           ></IconButton>

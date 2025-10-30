@@ -1,11 +1,11 @@
 import { extractLanguageFromPath } from '@/app/lib/language-utils'
 import { extractVersionFromPath } from '@/app/lib/version-utils'
 import { getUIDataMerged } from '@/data-directory/lib/get-data'
-import { type ClientLanguageCode } from '@/languages/lib/client-languages'
+import { type LanguageCode } from '@/languages/lib/languages'
 import { createTranslationFunctions, translate } from '@/languages/lib/translation-utils'
 
 export interface ServerAppRouterContext {
-  currentLanguage: ClientLanguageCode
+  currentLanguage: LanguageCode
   currentVersion: string
   sitename: string
   site: { data: { ui: any } }
@@ -33,7 +33,7 @@ export function createServerAppRouterContext(pathname: string): ServerAppRouterC
 /**
  * Create server-side footer with translations
  */
-export function createServerFooterContent(language: ClientLanguageCode) {
+export function createServerFooterContent(language: LanguageCode) {
   const uiData = getUIDataMerged(language)
   const { t } = createTranslationFunctions(uiData, 'footer')
 

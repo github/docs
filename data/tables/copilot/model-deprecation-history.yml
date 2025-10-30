@@ -1,0 +1,44 @@
+# Please keep this list sorted in the following order:
+# 1. By retirement_date, from newest to oldest
+# 2. Within the same date, alphabetically by name
+#
+# This file lists AI models that have been retired
+# It is used to generate the "Model retirement history" table at
+# /content/copilot/reference/ai-models/supported-models#model-retirement-history.
+#
+# Column keys
+# - name: The model name being deprecated.
+# - retirement_date: The official retirement date for the model (YYYY-MM-DD).
+# - suggested_alternative: The model recommended for migration.
+
+- name: 'Claude Opus 4'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'Claude Opus 4.1'
+
+- name: 'Claude Sonnet 3.7'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'Claude Sonnet 4'
+
+- name: 'Claude Sonnet 3.7 Thinking'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'Claude Sonnet 4'
+
+- name: 'Gemini 2.0 Flash'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'Gemini 2.5 Pro'
+
+- name: 'o1-mini'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'GPT-5 mini'
+
+- name: 'o3'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'GPT-5'
+
+- name: 'o3-mini'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'GPT-5 mini'
+
+- name: 'o4-mini'
+  retirement_date: '2025-10-23'
+  suggested_alternative: 'GPT-5 mini'

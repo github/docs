@@ -10,6 +10,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/increase-test-coverage
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/increase-test-coverage
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.essp-intro %}

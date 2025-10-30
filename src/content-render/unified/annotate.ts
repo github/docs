@@ -24,7 +24,7 @@ Contributing rules:
 - You must start the code section with a single line comment, otherwise the two will be flipped.
 - For HTML style, you can include a line after your annotations such as `<!-- -->` to maintain syntax highlighting; this will not impact what renders.
 
-`parse-info-string.js` plugin is required for this to work, and must come before `remark-rehype`.
+`parse-info-string.ts` plugin is required for this to work, and must come before `remark-rehype`.
 `annotate` must come before the `highlight` plugin.
 */
 

@@ -170,7 +170,7 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
         }
       }
 
-      let childTocItems = []
+      const childTocItems = []
       if (child.childPages) {
         childTocItems.push(...(await getTocItems(child, context, opts)))
       }

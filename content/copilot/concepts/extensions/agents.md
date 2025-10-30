@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/concepts/copilot-extensions/agents-for-copilot-extensions
   - /copilot/concepts/copilot-extensions/agents
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% data variables.copilot.copilot_agents_short %} are custom tools embedded in {% data variables.copilot.copilot_extensions_short %}. They integrate with {% data variables.copilot.copilot_chat_short %} to provide additional functionalities tailored to specific needs. {% data variables.copilot.copilot_agents_short %} can perform various tasks such as querying documentation, retrieving data, executing specific actions, or providing AI-assisted coding suggestions. They enhance the capabilities of {% data variables.product.prodname_copilot %} by allowing developers to build and integrate custom features directly into the {% data variables.copilot.copilot_chat_short %} interface.

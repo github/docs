@@ -21,7 +21,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Adobe
@@ -182,7 +182,7 @@
   isduplicate: false
 - provider: Alibaba
   supportedSecret: Alibaba Cloud AccessKey ID
-  secretType: alibaba_cloud_access_key_id </br>alibaba_cloud_access_key_secret
+  secretType: alibaba_cloud_access_key_id, </br>alibaba_cloud_access_key_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -195,7 +195,7 @@
   isduplicate: false
 - provider: Amazon AWS
   supportedSecret: Amazon AWS Access Key ID
-  secretType: aws_access_key_id </br>aws_secret_access_key
+  secretType: aws_access_key_id, </br>aws_secret_access_key
   versions:
     fpt: '*'
     ghec: '*'
@@ -203,9 +203,9 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: true
+  isduplicate: true
 - provider: Amazon AWS
   supportedSecret: Amazon AWS API Key ID
   secretType: aws_api_key
@@ -222,7 +222,7 @@
 - provider: Amazon AWS
   supportedSecret: Amazon AWS Session Token
   secretType: >-
-    aws_secret_access_key </br>aws_session_token
+    aws_secret_access_key, </br>aws_session_token,
     </br>aws_temporary_access_key_id
   versions:
     fpt: '*'
@@ -231,7 +231,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Anthropic
@@ -244,7 +244,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Anthropic
@@ -257,9 +257,9 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: true
+  isduplicate: true
 - provider: Anthropic
   supportedSecret: Anthropic Session ID
   secretType: anthropic_session_id
@@ -309,7 +309,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Apify
@@ -374,7 +374,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Asana
@@ -543,7 +543,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -569,7 +569,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -609,8 +609,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Cognitive Services Key
   secretType: azure_cognitive_services_key
@@ -634,7 +634,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -713,8 +713,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Custom Vision Prediction Key
   secretType: azure_custom_vision_prediction_key
@@ -751,7 +751,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Azure
@@ -830,8 +830,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Health Decision Support Key
   secretType: azure_health_decision_support_key
@@ -894,7 +894,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -933,7 +933,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -959,7 +959,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -1024,7 +1024,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -1102,8 +1102,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Azure
   supportedSecret: Azure Personalizer Key
   secretType: azure_personalizer_key
@@ -1412,7 +1412,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Azure
@@ -1477,7 +1477,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Bitrise
@@ -1490,7 +1490,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Block Protocol
@@ -1503,7 +1503,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Brevo
@@ -1516,9 +1516,9 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: true
+  isduplicate: true
 - provider: Brevo
   supportedSecret: Sendinblue SMTP Key
   secretType: sendinblue_smtp_key
@@ -1672,7 +1672,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Canva
@@ -1750,7 +1750,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Checkout.com
@@ -1763,7 +1763,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Chief Tools
@@ -1802,7 +1802,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: CircleCI
@@ -1867,7 +1867,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Cohere
@@ -1893,7 +1893,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Contentful
@@ -1970,7 +1970,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Databricks
@@ -1984,8 +1984,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Datadog
   supportedSecret: Datadog API Key
   secretType: datadog_api_key
@@ -2059,7 +2059,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DevCycle
@@ -2111,7 +2111,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -2124,7 +2124,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: DigitalOcean
@@ -2163,7 +2163,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Docker
@@ -2228,7 +2228,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -2241,7 +2241,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -2254,7 +2254,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -2267,7 +2267,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -2280,7 +2280,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Doppler
@@ -2293,7 +2293,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Dropbox
@@ -2306,7 +2306,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Dropbox
@@ -2319,7 +2319,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Duffel
@@ -2332,7 +2332,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Duffel
@@ -2345,7 +2345,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Dynatrace
@@ -2402,7 +2402,7 @@
   isduplicate: false
 - provider: eBay
   supportedSecret: eBay Production Client ID (App ID)
-  secretType: ebay_production_client_id </br>ebay_production_client_secret
+  secretType: ebay_production_client_id, </br>ebay_production_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2415,7 +2415,7 @@
   isduplicate: false
 - provider: eBay
   supportedSecret: eBay Sandbox Client ID (App ID)
-  secretType: ebay_sandbox_client_id </br>ebay_sandbox_client_secret
+  secretType: ebay_sandbox_client_id, </br>ebay_sandbox_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2449,7 +2449,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Fastly
@@ -2462,7 +2462,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Figma
@@ -2475,7 +2475,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Finicity
@@ -2514,7 +2514,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Flutterwave
@@ -2527,7 +2527,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Frame.io
@@ -2540,7 +2540,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Frame.io
@@ -2553,7 +2553,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: FullStory
@@ -2566,7 +2566,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: GitHub
@@ -2670,9 +2670,9 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: true
+  isduplicate: true
 - provider: GoCardless
   supportedSecret: GoCardless Live Access Token
   secretType: gocardless_live_access_token
@@ -2683,7 +2683,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: GoCardless
@@ -2696,7 +2696,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2709,7 +2709,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
@@ -2722,13 +2722,13 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google Cloud Storage Service Account Access Key ID
   secretType: >-
-    google_cloud_storage_access_key_secret
+    google_cloud_storage_access_key_secret,
     </br>google_cloud_storage_service_account_access_key_id
   versions:
     fpt: '*'
@@ -2743,7 +2743,7 @@
 - provider: Google
   supportedSecret: Google Cloud Storage User Access Key ID
   secretType: >-
-    google_cloud_storage_access_key_secret
+    google_cloud_storage_access_key_secret,
     </br>google_cloud_storage_user_access_key_id
   versions:
     fpt: '*'
@@ -2791,12 +2791,12 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Google
   supportedSecret: Google OAuth Client ID
-  secretType: google_oauth_client_id </br>google_oauth_client_secret
+  secretType: google_oauth_client_id, </br>google_oauth_client_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -2806,7 +2806,7 @@
   hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
-  isduplicate: false
+  isduplicate: true
 - provider: Google
   supportedSecret: Google OAuth Refresh Token
   secretType: google_oauth_refresh_token
@@ -2818,8 +2818,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Grafana
   supportedSecret: Grafana Cloud API Key
   secretType: grafana_cloud_api_key
@@ -2830,7 +2830,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Grafana
@@ -2843,7 +2843,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Grafana
@@ -2882,9 +2882,9 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  base64Supported: false
-  isduplicate: false
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: true
+  isduplicate: true
 - provider: GuardSquare
   supportedSecret: GuardSquare AppSweep API Key
   secretType: guardsquare_appsweep_api_key
@@ -2973,7 +2973,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: hCaptcha
@@ -2999,7 +2999,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Heroku
@@ -3051,7 +3051,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Highnote
@@ -3064,7 +3064,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: HOP
@@ -3181,9 +3181,22 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: true
   isduplicate: true
+- provider: IBM
+  supportedSecret: IBM Cloud IAM Key
+  secretType: ibm_cloud_iam_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.14'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Intercom
   supportedSecret: Intercom Access Token
   secretType: intercom_access_token
@@ -3194,7 +3207,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Ionic
@@ -3272,8 +3285,8 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
+  base64Supported: true
+  isduplicate: true
 - provider: Langchain
   supportedSecret: Langchain API Personal Key
   secretType: langchain_api_personal_key
@@ -3323,7 +3336,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Lichess
@@ -3336,7 +3349,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Lightspeed
@@ -3401,7 +3414,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Lob
@@ -3414,7 +3427,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Localstack
@@ -3458,13 +3471,11 @@
   isduplicate: false
 - provider: Login with Amazon
   supportedSecret: Login with Amazon OAuth Client ID
-  secretType: >-
-    amazon_oauth_client_id </br>amazon_oauth_client_secret
-    </br>amazon_oauth_client_secret
+  secretType: amazon_oauth_client_id, </br>amazon_oauth_client_secret
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.14'
+    ghes: '>=3.5'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3481,7 +3492,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Mailchimp
@@ -3542,7 +3553,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Mailgun
@@ -3567,7 +3578,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MaxMind
@@ -3580,7 +3591,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Mercury
@@ -3593,7 +3604,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Mercury
@@ -3606,7 +3617,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Mergify
@@ -3645,7 +3656,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Midtrans
@@ -3658,7 +3669,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Mistral AI
@@ -3684,7 +3695,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: MongoDB
@@ -3903,7 +3914,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -3916,7 +3927,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Notion
@@ -3955,7 +3966,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Octopus Deploy
@@ -4059,7 +4070,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Onfido
@@ -4072,7 +4083,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: OpenAI
@@ -4085,7 +4096,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: OpenRouter
@@ -4098,7 +4109,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: OpenVSX
@@ -4226,7 +4237,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Persona  Identities
@@ -4239,12 +4250,12 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Pinecone
   supportedSecret: Pinecone API Key
-  secretType: pinecone_api_key </br>pinecone_environment
+  secretType: pinecone_api_key, </br>pinecone_environment
   versions:
     fpt: '*'
     ghec: '*'
@@ -4329,7 +4340,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Planning Center
@@ -4360,7 +4371,7 @@
   isduplicate: false
 - provider: Plivo
   supportedSecret: Plivo Auth ID
-  secretType: plivo_auth_id </br>plivo_auth_token
+  secretType: plivo_auth_id, </br>plivo_auth_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -4381,7 +4392,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Polar
@@ -4485,7 +4496,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Postman
@@ -4498,7 +4509,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Prefect
@@ -4589,7 +4600,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: PyPI
@@ -4654,7 +4665,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: redirect.pizza
@@ -4667,7 +4678,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Replicate
@@ -4680,7 +4691,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Rootly
@@ -4693,7 +4704,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: RubyGems
@@ -4706,7 +4717,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: RunPod
@@ -4719,7 +4730,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Salesforce
@@ -4737,7 +4748,7 @@
   isduplicate: false
 - provider: Salesforce
   supportedSecret: Salesforce OAuth2 Consumer Key
-  secretType: salesforce_oauth2_consumer_key </br>salesforce_oauth2_consumer_secret
+  secretType: salesforce_oauth2_consumer_key, </br>salesforce_oauth2_consumer_secret
   versions:
     fpt: '*'
     ghec: '*'
@@ -4797,7 +4808,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Segment
@@ -4810,7 +4821,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: SendGrid
@@ -4823,7 +4834,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Sentry
@@ -5044,7 +5055,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Siemens
@@ -5069,7 +5080,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Slack
@@ -5082,7 +5093,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Slack
@@ -5095,7 +5106,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Slack
@@ -5134,7 +5145,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -5160,7 +5171,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Sourcegraph
@@ -5199,7 +5210,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: Square
@@ -5238,7 +5249,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: SSLMate
@@ -5264,7 +5275,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -5275,7 +5286,7 @@
     ghec: '*'
     ghes: '>=3.5'
   isPublic: true
-  isPrivateWithGhas: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -5316,7 +5327,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Stripe
@@ -5368,7 +5379,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Telegram
@@ -5381,7 +5392,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Telnyx
@@ -5394,7 +5405,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Temporal
@@ -5524,7 +5535,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Uniwise
@@ -5537,7 +5548,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Unkey
@@ -5550,7 +5561,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Val Town
@@ -5563,7 +5574,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: VolcEngine
@@ -5589,7 +5600,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Wakatime
@@ -5615,7 +5626,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Wakatime
@@ -5654,7 +5665,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: true
 - provider: WorkOS
@@ -5693,7 +5704,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -5706,7 +5717,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -5745,7 +5756,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -5783,7 +5794,7 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: Yandex
@@ -5809,7 +5820,7 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false
 - provider: ZenHub
@@ -5835,6 +5846,6 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
-  hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
+  hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
   base64Supported: false
   isduplicate: false

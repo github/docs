@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/setting-up-copilot-extensions
   - /copilot/how-tos/build-copilot-extensions/set-up-copilot-extensions
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 <!-- expires 2025-11-19 -->

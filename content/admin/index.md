@@ -73,8 +73,7 @@ featuredLinks:
   startHere:
     - '/admin/concepts/identity-and-access-management\identity-and-access-management-fundamentals'
     - '{% ifversion ghec %}/admin/concepts/identity-and-access-management/enterprise-types-for-github-enterprise-cloud{% endif %}'
-    - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/abilities-of-roles{% endif %}'
-    - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
+    - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles{% endif %}'
     - '{% ifversion ghes %}/admin/getting-started-with-enterprise/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/set-up-payment/manage-enterprise-invoice{% endif %}'
   guideCards:
@@ -117,7 +116,6 @@ children:
   - /managing-github-actions-for-your-enterprise
   - /configuring-packages
   - /managing-code-security
-  - /copilot-business-only
   - /guides
   - /release-notes
   - /all-releases

@@ -23,7 +23,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
   // `pages/404.tsx` which takes care of 404 messages.
   if (err && res && req) {
     // This is a (necessary) hack!
-    // You can't import `../lib/failbot.js` here in this
+    // You can't import `../lib/failbot.ts` here in this
     // file because it gets imported by webpack to be used in the
     // client-side JS bundle. It *could* be solved by overriding
     // the webpack configuration in our `next.config.ts` but this is prone

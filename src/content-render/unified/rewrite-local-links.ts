@@ -274,7 +274,7 @@ Look for an internal link that starts with '${url}'.
   newHref = newHref.replace('/enterprise-server@latest/', `/enterprise-server@${latest}/`)
 
   if (newHref === url) {
-    // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.js)
+    // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.ts)
     const hrefWithoutLang = getPathWithoutLanguage(url)
 
     // normalize any legacy links so they conform to new link structure

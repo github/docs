@@ -41,6 +41,7 @@ children:
   - /versioning
   - /learning-about-github
   - /empty-categories
+  - /test-journey
   - /carousel
   - /article-grid-discovery
   - /article-grid-bespoke

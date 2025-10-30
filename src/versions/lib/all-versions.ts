@@ -35,11 +35,11 @@ interface RestApiConfig {
 // in all versions, we should not redirect it (because /foo is the correct FPT versioned URL).
 // But if /foo refers to a page that is only available in GHEC and GHES, we should redirect it
 // to /enterprise-cloud@latest/foo (since GHEC comes first in the hierarchy of version fallbacks).
-// The implementation lives in lib/redirects/permalinks.js.
+// The implementation lives in lib/redirects/permalinks.ts.
 const plans: PlanConfig[] = [
   {
     // free-pro-team is **not** a user-facing version and is stripped from URLs.
-    // See lib/remove-fpt-from-path.js for details.
+    // See lib/remove-fpt-from-path.ts for details.
     plan: 'free-pro-team',
     planTitle: 'Free, Pro, & Team',
     shortName: 'fpt',

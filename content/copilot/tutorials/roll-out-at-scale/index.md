@@ -9,12 +9,11 @@ topics:
 children:
   - /assign-licenses
   - /enable-developers
-  - /measure-adoption
   - /drive-downstream-impact
+  - /measure-success
 redirect_from:
   - /copilot/rolling-out-github-copilot-at-scale
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/planning-your-rollout
   - /copilot/tutorials/rolling-out-github-copilot-at-scale
 contentType: tutorials
 ---
-

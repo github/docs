@@ -152,6 +152,4 @@ ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
 
 # Entrypoint to start the server
-# Note: Currently we have to use tsx because
-# we have a mix of `.ts` and `.js` files with multiple import patterns
 CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

@@ -15,7 +15,7 @@ import { defaultConfig } from '../lib/default-markdownlint-options'
 import { prettyPrintResults } from './pretty-print-results'
 import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
 import { printAnnotationResults } from '../lib/helpers/print-annotations'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { shouldIncludeResult } from '../lib/helpers/should-include-result'
 
 program

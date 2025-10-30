@@ -1,11 +1,11 @@
 ---
-title: Carousel Test Category
+title: Landing Page Carousel
 intro: 'A test category page for testing the LandingCarousel component.'
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-layout: category-landing
+layout: discovery-landing
 recommended:
   - /category-one/article-one
   - /category-one/article-two

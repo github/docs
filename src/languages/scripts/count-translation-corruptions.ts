@@ -7,7 +7,7 @@ import { TokenizationError } from 'liquidjs'
 import walk from 'walk-sync'
 
 import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import warmServer from '@/frame/lib/warm-server'
 import type { Site } from '@/types'
 import { correctTranslatedContentStrings } from '@/languages/lib/correct-translation-content'

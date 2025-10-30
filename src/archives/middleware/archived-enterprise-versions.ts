@@ -14,7 +14,7 @@ import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { readCompressedJsonFileFallbackLazily } from '@/frame/lib/read-json-file'
 import { archivedCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
-import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
 import getRemoteJSON from '@/frame/lib/get-remote-json'
 import { ExtendedRequest } from '@/types'
@@ -72,7 +72,7 @@ const cacheAggressively = (res: Response) => {
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in @/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = { limit: 3 }
@@ -235,7 +235,7 @@ export default async function archivedEnterpriseVersions(
       // `x-host` is a custom header set by Fastly.
       // GLB automatically deletes the `x-forwarded-host` header.
       const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
-      let modifiedBody = body
+      const modifiedBody = body
         .replaceAll(
           `${OLD_AZURE_BLOB_ENTERPRISE_DIR}/${requestedVersion}/assets/cb-`,
           `${ENTERPRISE_GH_PAGES_URL_PREFIX}${requestedVersion}/assets/cb-`,

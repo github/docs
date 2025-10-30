@@ -42,6 +42,9 @@ chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
 ## Copilot code review -> {% data variables.copilot.copilot_code-review %}
 copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
+copilot_code-review-tools-preview_cap: 'New tools (public preview) in GitHub Copilot code review'
+copilot_code-review-tools_short: 'new tools in Copilot code review'
+copilot_code-review-tools_cap_short: 'New tools in Copilot code review'
 
 ## Copilot coding agent (previously Padawan) -> {% data variables.copilot.copilot_coding_agent %}
 copilot_coding_agent: 'Copilot coding agent'
@@ -69,6 +72,20 @@ copilot_cli_short: 'Copilot CLI'
 copilot_cli: 'GitHub Copilot CLI'
 copilot_old-cli_short: 'Copilot in the CLI'
 copilot_old-cli: 'GitHub Copilot in the CLI'
+
+## Copilot custom agents
+copilot_custom_agent: 'Copilot custom agent'
+copilot_custom_agents: 'Copilot custom agents'
+copilot_custom_agent_short: 'custom agent'
+copilot_custom_agent_caps_short: 'Custom agent'
+custom_agents_short: 'custom agents'
+custom_agents_caps_short: 'Custom agents'
+
+## Agent profiles (configuration files that define custom agents)
+agent_profile: 'agent profile'
+agent_profile_caps: 'Agent profile'
+agent_profiles: 'agent profiles'
+agent_profiles_caps: 'Agent profiles'
 
 ## Copilot Extensions
 copilot_extension_short: 'Copilot Extension'

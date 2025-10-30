@@ -9,6 +9,9 @@ versions:
 redirect_from:
   - /copilot/tutorials/using-copilot-to-explore-pull-requests
 contentType: tutorials
+category:
+  - Accelerate PR velocity
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

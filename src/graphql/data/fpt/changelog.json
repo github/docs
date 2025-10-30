@@ -4,6 +4,38 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>OrganizationPropertyConditionTarget</code> was added</p>",
+          "<p>Type <code>OrganizationPropertyConditionTargetInput</code> was added</p>",
+          "<p>Type <code>OrganizationPropertyTargetDefinition</code> was added</p>",
+          "<p>Type <code>OrganizationPropertyTargetDefinitionInput</code> was added</p>",
+          "<p>Field <code>organizationProperty</code> was added to object type <code>RepositoryRuleConditions</code></p>",
+          "<p>Input field <code>organizationProperty</code> of type <code>OrganizationPropertyConditionTargetInput</code> was added to input object type <code>RepositoryRuleConditionsInput</code></p>",
+          "<p>Enum value <code>INCONCLUSIVE</code> was added to enum <code>RepositoryVulnerabilityAlertDependencyRelationship</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-10-24"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Argument <code>query: String</code> (with default value) added to field 'ProjectV2.items'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-10-22"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'AddedToProjectV2Event' was added</p>",
           "<p>Type <code>ConvertedFromDraftEvent</code> was added</p>",
           "<p>Type 'ProjectV2Event' was added</p>",
