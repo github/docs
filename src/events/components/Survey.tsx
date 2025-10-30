@@ -59,10 +59,10 @@ export const Survey = () => {
     }
   }, [state])
 
-  function vote(vote: VoteState) {
+  function vote(userVote: VoteState) {
     return () => {
-      trackEvent(getEventData(vote === VoteState.YES))
-      setVoteState(vote)
+      trackEvent(getEventData(userVote === VoteState.YES))
+      setVoteState(userVote)
     }
   }
 
@@ -93,9 +93,9 @@ export const Survey = () => {
     setComment('')
   }
 
-  function getEventData(vote: boolean): EventData {
+  function getEventData(voteValue: boolean): EventData {
     return {
-      vote,
+      vote: voteValue,
       comment,
       email,
       token,

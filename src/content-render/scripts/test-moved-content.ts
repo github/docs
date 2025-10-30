@@ -29,10 +29,11 @@ async function main(nameTuple: [string, string]) {
     if (data) assert(data.redirect_from.includes(oldHref), `Redirect from ${oldHref} not found`)
     {
       const parentIndexMd = path.join(path.dirname(after), 'index.md')
-      const fileContent = fs.readFileSync(parentIndexMd, 'utf-8')
-      const { data } = readFrontmatter(fileContent)
+      const parentFileContent = fs.readFileSync(parentIndexMd, 'utf-8')
+      const { data: parentData } = readFrontmatter(parentFileContent)
       const afterShortname = `/${after.split('/').slice(-1)[0].replace(/\.md$/, '')}`
-      if (data) assert(data.children.includes(afterShortname), `Child ${afterShortname} not found`)
+      if (parentData)
+        assert(parentData.children.includes(afterShortname), `Child ${afterShortname} not found`)
     }
   } else {
     const fileContent = fs.readFileSync(path.join(after, 'index.md'), 'utf-8')
@@ -41,10 +42,11 @@ async function main(nameTuple: [string, string]) {
     if (data) assert(data.redirect_from.includes(oldHref), `Redirect from ${oldHref} not found`)
     {
       const parentIndexMd = path.join(path.dirname(after), 'index.md')
-      const fileContent = fs.readFileSync(parentIndexMd, 'utf-8')
-      const { data } = readFrontmatter(fileContent)
+      const parentFileContent = fs.readFileSync(parentIndexMd, 'utf-8')
+      const { data: parentData } = readFrontmatter(parentFileContent)
       const afterShortname = `/${after.split('/').slice(-1)}`
-      if (data) assert(data.children.includes(afterShortname), `Child ${afterShortname} not found`)
+      if (parentData)
+        assert(parentData.children.includes(afterShortname), `Child ${afterShortname} not found`)
     }
   }
 }

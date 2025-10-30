@@ -412,8 +412,8 @@ try {
 
 // Given input: https://docs.github.com/en/copilot/managing-copilot/
 // Use: copilot/managing-copilot
-function getCleanPath(providedPath: string): string {
-  let clean = providedPath
+function getCleanPath(inputPath: string): string {
+  let clean = inputPath
   const cleanArr = clean.split('?') // remove query params
   if (cleanArr.length > 1) cleanArr.pop()
   clean = cleanArr.join('/')
@@ -431,29 +431,29 @@ function getCleanPath(providedPath: string): string {
   return clean
 }
 
-function getVersion(cleanPath: string): string {
-  const pathParts = cleanPath.split('/')
-  const version = ENTERPRISE_REGEX.test(pathParts[0]) ? pathParts[0] : FREE_PRO_TEAM
-  return version
+function getVersion(pathToCheck: string): string {
+  const pathParts = pathToCheck.split('/')
+  const versionString = ENTERPRISE_REGEX.test(pathParts[0]) ? pathParts[0] : FREE_PRO_TEAM
+  return versionString
 }
 
-function removeVersionSegment(cleanPath: string, version: string): string {
-  if (version === FREE_PRO_TEAM) return cleanPath
-  const pathParts = cleanPath.split('/')
+function removeVersionSegment(pathToProcess: string, versionString: string): string {
+  if (versionString === FREE_PRO_TEAM) return pathToProcess
+  const pathParts = pathToProcess.split('/')
   pathParts.shift()
   if (!pathParts.length) return 'index'
   return pathParts.join('/')
 }
 
 // Try to find the path in the list of valid pages at https://docs.github.com/api/pagelist/en
-async function validatePath(cleanPath: string, version: string): Promise<void> {
+async function validatePath(pathToValidate: string, versionToValidate: string): Promise<void> {
   // Only Kusto uses 'index' for the homepage; the Docs API uses '/en'
-  const basePath = cleanPath === 'index' ? '' : cleanPath
+  const basePath = pathToValidate === 'index' ? '' : pathToValidate
 
   const pathToCheck =
-    version === FREE_PRO_TEAM
+    versionToValidate === FREE_PRO_TEAM
       ? path.join('/', 'en', basePath)
-      : path.join('/', 'en', version, basePath)
+      : path.join('/', 'en', versionToValidate, basePath)
 
   let data: string
   try {

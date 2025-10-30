@@ -88,7 +88,7 @@ async function main() {
   console.log(`\nUpdated ${updatedCount} files out of ${processedCount}`)
 }
 
-function processFile(filePath: string, options: ScriptOptions) {
+function processFile(filePath: string, scriptOptions: ScriptOptions) {
   const fileContent = fs.readFileSync(filePath, 'utf8')
   const relativePath = path.relative(contentDir, filePath)
 
@@ -100,11 +100,11 @@ function processFile(filePath: string, options: ScriptOptions) {
   if (!data) return { processed: false, updated: false }
 
   // Remove the legacy type property if option is passed
-  const removeLegacyType = Boolean(options.removeType && data.type)
+  const removeLegacyType = Boolean(scriptOptions.removeType && data.type)
 
   const newContentType = determineContentType(relativePath, data.type || '')
 
-  if (options.dryRun) {
+  if (scriptOptions.dryRun) {
     console.log(`\n${relativePath}`)
     if (!data.contentType) {
       console.log(`   ✅  Would set contentType: "${newContentType}"`)
@@ -144,7 +144,7 @@ function processFile(filePath: string, options: ScriptOptions) {
   // Write the file back
   fs.writeFileSync(filePath, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
 
-  if (options.verbose) {
+  if (scriptOptions.verbose) {
     console.log(`\n${relativePath}`)
     console.log(`   ✅  Set contentType: "${newContentType}"`)
     if (removeLegacyType) {

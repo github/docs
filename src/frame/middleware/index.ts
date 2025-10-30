@@ -82,11 +82,11 @@ const asyncMiddleware =
   <TReq extends Request = Request, T = void>(
     fn: (req: TReq, res: Response, next: NextFunction) => T | Promise<T>,
   ) =>
-  async (req: Request, res: Response, next: NextFunction) => {
+  async (req: Request, res: Response, nextFn: NextFunction) => {
     try {
-      await fn(req as TReq, res, next)
+      await fn(req as TReq, res, nextFn)
     } catch (error) {
-      next(error)
+      nextFn(error)
     }
   }
 

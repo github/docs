@@ -79,8 +79,8 @@ try {
   process.exit(1)
 }
 
-async function main(opts: Options, args: string[]): Promise<void> {
-  const texts = [args.join(' ')]
+async function main(opts: Options, textArgs: string[]): Promise<void> {
+  const texts = [textArgs.join(' ')]
   if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must pass the elasticsearch URL option or ' +

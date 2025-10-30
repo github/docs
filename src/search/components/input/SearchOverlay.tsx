@@ -187,47 +187,45 @@ export function SearchOverlay({
   // Combine options for key navigation
   const [combinedOptions, generalOptionsWithViewStatus, aiOptionsWithUserInput] = useMemo(() => {
     setAnnouncement('')
-    let generalOptionsWithViewStatus = [...generalSearchResults]
-    const aiOptionsWithUserInput = [...userInputOptions, ...filteredAIOptions]
-    const combinedOptions = [] as Array<{
+    let generalWithView = [...generalSearchResults]
+    const aiWithUser = [...userInputOptions, ...filteredAIOptions]
+    const combined = [] as Array<{
       group: 'general' | 'ai' | string
       url?: string
       option: AutocompleteSearchHitWithUserQuery | GeneralSearchHitWithOptions
     }>
 
     if (generalSearchResults.length > 0) {
-      generalOptionsWithViewStatus.push({
+      generalWithView.push({
         title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
       } as any)
     } else if (autoCompleteSearchError) {
       if (urlSearchInputQuery.trim() !== '') {
-        generalOptionsWithViewStatus.push({
+        generalWithView.push({
           ...(userInputOptions[0] || {}),
           isSearchDocsOption: true,
         } as unknown as GeneralSearchHit)
       }
     } else if (urlSearchInputQuery.trim() !== '' && !searchLoading) {
       setAnnouncement(t('search.overlay.no_results_found_announcement'))
-      generalOptionsWithViewStatus.push({
+      generalWithView.push({
         title: t('search.overlay.no_results_found'),
         isNoResultsFound: true,
       } as any)
     } else {
-      generalOptionsWithViewStatus = []
+      generalWithView = []
     }
     // NOTE: Order of combinedOptions is important, since 'selectedIndex' is used to navigate the combinedOptions array
     // Add general options _before_ AI options
-    combinedOptions.push(
-      ...generalOptionsWithViewStatus.map((option) => ({ group: 'general', option })),
-    )
+    combined.push(...generalWithView.map((option) => ({ group: 'general', option })))
     // On AI Error, don't include AI suggestions, only user input
     if (!aiSearchError && !isAskAIState) {
-      combinedOptions.push(...aiOptionsWithUserInput.map((option) => ({ group: 'ai', option })))
+      combined.push(...aiWithUser.map((option) => ({ group: 'ai', option })))
     } else if (isAskAIState && !aiCouldNotAnswer) {
       // When "ask ai" state is reached, we have references that are ActionList items.
       // We want to navigate these items via the keyboard, so include them in the combinedOptions array
-      combinedOptions.push(
+      combined.push(
         ...aiReferences.map((option) => ({
           group: 'reference', // The references are actually article URLs that we want to navigate to
           url: option.url,
@@ -240,7 +238,7 @@ export function SearchOverlay({
       )
     }
 
-    return [combinedOptions, generalOptionsWithViewStatus, aiOptionsWithUserInput]
+    return [combined, generalWithView, aiWithUser]
   }, [
     generalSearchResults,
     totalGeneralSearchResults,

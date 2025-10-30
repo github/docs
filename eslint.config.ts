@@ -97,7 +97,6 @@ export default [
 
       // Disabled rules to review
       '@typescript-eslint/ban-ts-comment': 'off', // 50+
-      'no-shadow': 'off', // 150+
       'github/array-foreach': 'off', // 250+
       'no-console': 'off', // 800+
       '@typescript-eslint/no-explicit-any': 'off', // 1000+

@@ -48,17 +48,20 @@ export const SIGNAL_RATINGS = [
   {
     reduction: 0.2,
     name: 'not-language',
-    validator: (comment: string, language: string) => isNotLanguage(comment, language),
+    validator: (comment: string, commentLanguage: string) =>
+      isNotLanguage(comment, commentLanguage),
   },
   {
     reduction: 0.3,
     name: 'cuss-words-likely',
-    validator: (comment: string, language: string) => isLikelyCussWords(comment, language),
+    validator: (comment: string, commentLanguage: string) =>
+      isLikelyCussWords(comment, commentLanguage),
   },
   {
     reduction: 0.1,
     name: 'cuss-words-maybe',
-    validator: (comment: string, language: string) => isMaybeCussWords(comment, language),
+    validator: (comment: string, commentLanguage: string) =>
+      isMaybeCussWords(comment, commentLanguage),
   },
   {
     reduction: 0.2,
@@ -91,11 +94,11 @@ export async function getGuessedLanguage(comment: string) {
   return bestGuess.alpha2 || undefined
 }
 
-export async function analyzeComment(text: string, language = 'en') {
+export async function analyzeComment(text: string, commentLanguage = 'en') {
   const signals = []
   let rating = 1.0
   for (const { reduction, name, validator } of SIGNAL_RATINGS) {
-    if (validator(text, language)) {
+    if (validator(text, commentLanguage)) {
       signals.push(name)
       rating -= reduction
     }

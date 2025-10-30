@@ -162,8 +162,8 @@ function getChangedContentFiles(): string[] {
   })
 }
 
-function makeURL(path: string): string {
-  return `http://localhost:4000${path}`
+function makeURL(urlPath: string): string {
+  return `http://localhost:4000${urlPath}`
 }
 
 async function waitForServer(): Promise<void> {

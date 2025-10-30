@@ -483,8 +483,8 @@ async function commentOnPR(core: CoreInject, octokit: Octokit, flaws: LinkFlaw[]
     issue_number: pullNumber,
   })
   let previousCommentId
-  for (const { body, id } of data) {
-    if (body && body.includes(findAgainSymbol)) {
+  for (const { body: commentBody, id } of data) {
+    if (commentBody && commentBody.includes(findAgainSymbol)) {
       previousCommentId = id
     }
   }

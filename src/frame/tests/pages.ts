@@ -75,7 +75,7 @@ describe('pages module', () => {
       // Only consider as duplicate if more than one unique file defines the same redirect
       const duplicates = Array.from(redirectToFiles.entries())
         .filter(([, files]) => files.size > 1)
-        .map(([path]) => path)
+        .map(([redirectPath]) => redirectPath)
 
       // Build a detailed message with sources for each duplicate
       const message = `Found ${duplicates.length} duplicate redirect_from path${duplicates.length === 1 ? '' : 's'}.

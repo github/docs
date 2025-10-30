@@ -391,11 +391,11 @@ export const loadPages = loadPageList
 // Create an object from the list of all pages with permalinks as keys for fast lookup.
 export function createMapFromArray(pageList: Page[]): Record<string, Page> {
   const pageMap = pageList.reduce(
-    (pageMap: Record<string, Page>, page: Page) => {
+    (accumulatedMap: Record<string, Page>, page: Page) => {
       for (const permalink of page.permalinks) {
-        pageMap[permalink.href] = page
+        accumulatedMap[permalink.href] = page
       }
-      return pageMap
+      return accumulatedMap
     },
     {} as Record<string, Page>,
   )

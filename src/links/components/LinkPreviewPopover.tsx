@@ -284,8 +284,8 @@ function fillPopover(
         const regex = /^\/(?<lang>\w{2}\/)?(?<version>[\w-]+@[\w-.]+\/)?(?<product>[\w-]+\/)?/
         const match = regex.exec(linkURL.pathname)
         if (match?.groups) {
-          const { lang, version, product } = match.groups
-          const productURL = [lang, version, product].map((n) => n || '').join('')
+          const { lang, version, product: productPath } = match.groups
+          const productURL = [lang, version, productPath].map((n) => n || '').join('')
           productHeadLink.href = `${linkURL.origin}/${productURL}`
         }
         productHead.style.display = 'block'

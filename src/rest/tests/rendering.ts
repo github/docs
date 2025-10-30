@@ -23,7 +23,7 @@ describe('REST references docs', () => {
         .map((i, h2) => $(h2).attr('id'))
         .get()
       const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
-      expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
+      expect(schemaSlugs.every((operationSlug) => domH2Ids.includes(operationSlug))).toBe(true)
     }
   })
 

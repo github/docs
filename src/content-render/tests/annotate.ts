@@ -66,7 +66,7 @@ describe('annotate', () => {
   })
 
   test('renders bash with hash bang annotations', async () => {
-    const example = `
+    const bashExample = `
 \`\`\`bash annotate
 # The next line is the hash bang
 #!/usr/bin/env bash
@@ -75,11 +75,11 @@ describe('annotate', () => {
 echo "Hello, world!"
 \`\`\`
 `.trim()
-    const res = await renderContent(example)
+    const res = await renderContent(bashExample)
     const $ = cheerio.load(res)
 
     const headerCode = $('header pre').text()
-    expect(headerCode).toMatch(example.split('\n').slice(1, -1).join('\n'))
+    expect(headerCode).toMatch(bashExample.split('\n').slice(1, -1).join('\n'))
     const rows = $('.annotate-row')
     const notes = $('.annotate-note p', rows)
     const noteTexts = notes.map((i, el) => $(el).text()).get()
@@ -90,7 +90,7 @@ echo "Hello, world!"
   })
 
   test("doesn't complain if the first comment is empty", async () => {
-    const example = `
+    const emptyCommentExample = `
 \`\`\`yaml annotate copy
 #
 name: Create and publish a Docker image
@@ -103,11 +103,11 @@ on:
 \`\`\`
 `.trim()
 
-    const res = await renderContent(example)
+    const res = await renderContent(emptyCommentExample)
     const $ = cheerio.load(res)
 
     const headerCode = $('header pre').text()
-    expect(headerCode).toMatch(example.split('\n').slice(1, -1).join('\n'))
+    expect(headerCode).toMatch(emptyCommentExample.split('\n').slice(1, -1).join('\n'))
     const rows = $('.annotate-row')
     const notes = $('.annotate-note p', rows)
     const noteTexts = notes.map((i, el) => $(el).text()).get()
@@ -121,7 +121,7 @@ on:
   })
 
   test('supports AUTOTITLE links in annotations', async () => {
-    const example = `
+    const autotitleExample = `
 \`\`\`yaml annotate copy
 # For more information about workflow syntax, see [AUTOTITLE](/get-started/start-your-journey/hello-world).
 name: Test workflow
@@ -151,7 +151,7 @@ on: [push]
       // Mock test object doesn't need all Context properties, using 'as unknown as' to bypass strict type checking
     } as unknown as Context
 
-    const res = await renderContent(example, mockContext)
+    const res = await renderContent(autotitleExample, mockContext)
     const $ = cheerio.load(res)
 
     const rows = $('.annotate-row')
