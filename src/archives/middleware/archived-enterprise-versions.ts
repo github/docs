@@ -353,14 +353,14 @@ function getProxyPath(reqPath: string, requestedVersion: string) {
 
   // Releases 2.18 and higher
   if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
-    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : reqPath + '/index.html'
+    const newReqPath = reqPath.includes('redirects.json') ? `/${reqPath}` : `${reqPath}/index.html`
     return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + newReqPath
   }
 
   // Releases 2.13 - 2.17
   // redirect.json files don't exist for these versions
   if (versionSatisfiesRange(requestedVersion, `>=2.13`)) {
-    return ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + reqPath + '/index.html'
+    return `${ENTERPRISE_GH_PAGES_URL_PREFIX + requestedVersion + reqPath}/index.html`
   }
 
   // Releases 2.12 and lower

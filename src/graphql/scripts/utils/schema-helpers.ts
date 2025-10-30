@@ -59,7 +59,7 @@ const graphqlTypes: GraphQLTypeInfo[] = JSON.parse(
 const singleQuotesInsteadOfBackticks = / '(\S+?)' /
 
 function addPeriod(string: string): string {
-  return string.endsWith('.') ? string : string + '.'
+  return string.endsWith('.') ? string : `${string}.`
 }
 
 async function getArguments(

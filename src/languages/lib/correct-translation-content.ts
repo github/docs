@@ -253,7 +253,7 @@ export function correctTranslatedContentStrings(
       return match
     }
 
-    const withLinebreak = match.slice(0, -1) + '\n'
+    const withLinebreak = `${match.slice(0, -1)}\n`
     if (englishContent.includes(withLinebreak) && !englishContent.includes(match)) {
       return withLinebreak
     }
@@ -332,7 +332,7 @@ export function correctTranslatedContentStrings(
     const keyString = '5DE3 E050 9C47 EA3C F04A 42D3 4AEE 18F8 3AFD EB23'
     const translatedSentences = [
       // ru
-      'Полный отпечаток ключа\u00A0\u2014 `' + keyString + '`.',
+      `Полный отпечаток ключа\u00A0\u2014 \`${keyString}\`.`,
       // ko
       `키의 전체 지문은 \`${keyString}\`입니다.`,
       // es

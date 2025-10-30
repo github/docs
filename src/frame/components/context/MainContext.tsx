@@ -266,7 +266,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     error: req.context.error ? req.context.error.toString() : '',
     featureFlags: {},
-    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
+    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
     isHomepageVersion: req.context.page?.documentType === 'homepage',
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     page: pageInfo,

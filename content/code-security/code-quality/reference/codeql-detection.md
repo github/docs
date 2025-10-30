@@ -32,7 +32,7 @@ For more information, see:
 
 ## Pull request status checks
 
-When code quality analysis runs on a pull request, the check result is reported in the "Checks" section at the bottom of the pull request.
+When code quality analysis runs on a pull request, the "{% data variables.code-quality.check_status_name %} / Analyze" check is shown in the "Checks" section at the bottom of the pull request.
 
 Any code problems identified by the scan are reported in comments on the pull request. The comment is made by the `{% data variables.code-quality.pr_commenter %}` and includes a {% data variables.copilot.copilot_autofix_short %} suggestion.
 

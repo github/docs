@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { JSX } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { Dialog, IconButton } from '@primer/react'

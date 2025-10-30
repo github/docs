@@ -135,10 +135,10 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.target.id) {
-              const anchor = '#' + entry.target.id.split('--')[0]
+              const anchor = `#${entry.target.id.split('--')[0]}`
               if (entry.isIntersecting === true) setVisibleAnchor(anchor)
             } else if (asPath.includes('#')) {
-              setVisibleAnchor('#' + asPath.split('#')[1])
+              setVisibleAnchor(`#${asPath.split('#')[1]}`)
             } else {
               setVisibleAnchor('')
             }

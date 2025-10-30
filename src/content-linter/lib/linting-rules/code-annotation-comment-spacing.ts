@@ -81,7 +81,7 @@ export const codeAnnotationCommentSpacing = {
             // No space after comment character - this is an error
             const lineNumber: number = token.lineNumber + index + 1
             const leadingWhitespace: string = line.match(/^\s*/)![0]
-            const fixedLine: string = leadingWhitespace + commentChar + ' ' + restOfLine
+            const fixedLine: string = `${leadingWhitespace + commentChar} ${restOfLine}`
 
             addError(
               onError,

@@ -57,7 +57,7 @@ export function readCompressedJsonFileFallbackLazily(xpath: string): () => any {
     // err is any because fs errors can have various shapes with code property
     if (err.code === 'ENOENT') {
       try {
-        fs.accessSync(xpath + '.br')
+        fs.accessSync(`${xpath}.br`)
       } catch (err: any) {
         // err is any because fs errors can have various shapes with code property
         if (err.code === 'ENOENT') {

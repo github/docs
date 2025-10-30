@@ -1,5 +1,6 @@
 import { SupportPortalVaIframeProps } from '@/frame/components/article/SupportPortalVaIframe'
 import { createContext, useContext } from 'react'
+import type { JSX } from 'react'
 import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 
 export type LearningTrack = {
