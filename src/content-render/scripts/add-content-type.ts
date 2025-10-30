@@ -192,4 +192,8 @@ function determineContentType(relativePath: string, legacyType: string): string 
   return OTHER_TYPE
 }
 
-main().catch(console.error)
+try {
+  await main()
+} catch (error) {
+  console.error(error)
+}

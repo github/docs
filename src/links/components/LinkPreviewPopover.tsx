@@ -248,16 +248,19 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
 
   const { pathname } = new URL(element.href)
 
-  fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
-    headers: {
-      'X-Request-Source': 'hovercards',
-    },
-  }).then(async (response) => {
+  async function fetchAndFillPopover() {
+    const response = await fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
+      headers: {
+        'X-Request-Source': 'hovercards',
+      },
+    })
     if (response.ok) {
       const meta = (await response.json()) as PageMetadata
       fillPopover(element, meta, filledCallback)
     }
-  })
+  }
+
+  fetchAndFillPopover()
 }
 
 function fillPopover(

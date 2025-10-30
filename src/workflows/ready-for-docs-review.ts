@@ -261,7 +261,9 @@ async function run() {
 
 export { run }
 
-run().catch((error) => {
+try {
+  await run()
+} catch (error) {
   console.log(`#ERROR# ${error}`)
   process.exit(1)
-})
+}

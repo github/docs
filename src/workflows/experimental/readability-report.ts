@@ -635,7 +635,9 @@ function generateReport(results: PageReadability[]): string {
   return report
 }
 
-main().catch((error) => {
+try {
+  await main()
+} catch (error) {
   console.error('Readability analysis failed:', error)
   process.exit(1)
-})
+}

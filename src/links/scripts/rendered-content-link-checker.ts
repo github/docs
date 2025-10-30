@@ -128,10 +128,12 @@ async function limitConcurrency<T, R>(
   const executing = new Set<Promise<R>>()
 
   for (const item of items) {
-    const promise = asyncFn(item).then((result) => {
+    const createPromise = async () => {
+      const result = await asyncFn(item)
       executing.delete(promise)
       return result
-    })
+    }
+    const promise = createPromise()
 
     results.push(promise)
     executing.add(promise)
