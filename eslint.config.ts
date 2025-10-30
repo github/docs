@@ -25,6 +25,16 @@ export default [
         ...globals.node,
         ...globals.commonjs,
         ...globals.es2020,
+        // Fetch API types for TypeScript
+        RequestInit: 'readonly',
+        RequestInfo: 'readonly',
+        HeadersInit: 'readonly',
+        JSX: 'readonly',
+        // Node.js types for TypeScript
+        BufferEncoding: 'readonly',
+        NodeJS: 'readonly',
+        // cheerio namespace for TypeScript
+        cheerio: 'readonly',
       },
       parserOptions: {
         requireConfigFile: false,
@@ -87,7 +97,6 @@ export default [
       // Disabled rules to review
       'github/no-then': 'off', // 30+
       '@typescript-eslint/ban-ts-comment': 'off', // 50+
-      'no-undef': 'off', // 50+
       'no-shadow': 'off', // 150+
       'prefer-template': 'off', // 150+
       'github/array-foreach': 'off', // 250+

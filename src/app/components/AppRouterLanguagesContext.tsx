@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext } from 'react'
+import React, { createContext, useContext } from 'react'
 import { languages, type LanguageCode } from '@/languages/lib/languages'
 
 export type AppRouterLanguageItem = {

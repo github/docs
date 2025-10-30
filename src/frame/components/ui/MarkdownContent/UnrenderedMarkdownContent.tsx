@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import type { Components } from 'react-markdown'
+import type { JSX } from 'react'
 import remarkGfm from 'remark-gfm'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'

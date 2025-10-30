@@ -2,6 +2,7 @@
  * Enhanced type definitions for the app router with strict validation
  */
 
+import React from 'react'
 import type { LanguageCode } from '@/languages/lib/languages'
 
 // Core theme types with strict validation
