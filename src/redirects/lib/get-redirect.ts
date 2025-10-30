@@ -312,14 +312,14 @@ function tryReplacements(prefix: string, suffix: string, context: Context): stri
     return undefined
   }
 
-  const test = (suffix: string): boolean => {
+  const test = (testSuffix: string): boolean => {
     // This is a generally broad search and replace and this particular
     // replacement has never been present in api documentation only enterprise
     // admin documentation, so we're excluding the REST api pages
-    if (suffix.includes('/rest')) {
+    if (testSuffix.includes('/rest')) {
       return false
     }
-    const candidateAsRedirect = prefix + suffix
+    const candidateAsRedirect = prefix + testSuffix
     const candidateAsURL = `/en${candidateAsRedirect}`
     return candidateAsRedirect in redirects || candidateAsURL in pages
   }

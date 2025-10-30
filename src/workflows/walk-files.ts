@@ -16,7 +16,10 @@ export default function walkFiles(
   const walkSyncOpts = { includeBasePath: true, directories: false }
 
   return walk(dir, walkSyncOpts)
-    .filter((file) => extensions.some((ext) => file.endsWith(ext)) && !file.endsWith('README.md'))
+    .filter(
+      (file) =>
+        extensions.some((extension) => file.endsWith(extension)) && !file.endsWith('README.md'),
+    )
     .filter((file) => (opts.includeEarlyAccess ? file : !file.includes('/early-access/')))
 }
 

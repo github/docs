@@ -45,7 +45,7 @@ export const frontmatterHeroImage: Rule = {
 
     // Check if heroImage is an absolute path
     if (!heroImage.startsWith('/')) {
-      const line = params.lines.find((line: string) => line.trim().startsWith('heroImage:'))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
       addError(
         onError,
@@ -59,7 +59,7 @@ export const frontmatterHeroImage: Rule = {
 
     // Check if heroImage points to banner-images directory
     if (!heroImage.startsWith('/assets/images/banner-images/')) {
-      const line = params.lines.find((line: string) => line.trim().startsWith('heroImage:'))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
       addError(
         onError,
@@ -74,7 +74,7 @@ export const frontmatterHeroImage: Rule = {
     // Check if the file actually exists
     const validHeroImages = getValidHeroImages()
     if (validHeroImages.length > 0 && !validHeroImages.includes(heroImage)) {
-      const line = params.lines.find((line: string) => line.trim().startsWith('heroImage:'))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith('heroImage:'))
       const lineNumber = line ? params.lines.indexOf(line) + 1 : 1
       const availableImages = validHeroImages.join(', ')
       addError(

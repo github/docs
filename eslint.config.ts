@@ -96,9 +96,7 @@ export default [
       camelcase: 'off', // Many gh apis use underscores, 600+ uses
 
       // Disabled rules to review
-      'github/no-then': 'off', // 30+
       '@typescript-eslint/ban-ts-comment': 'off', // 50+
-      'no-shadow': 'off', // 150+
       'github/array-foreach': 'off', // 250+
       'no-console': 'off', // 800+
       '@typescript-eslint/no-explicit-any': 'off', // 1000+

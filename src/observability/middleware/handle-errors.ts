@@ -141,9 +141,9 @@ async function handleError(
       // Report to Failbot AFTER responding to the user
       await logException(error, req)
     }
-  } catch (error) {
-    console.error('An error occurred in the error handling middleware!', error)
-    next(error)
+  } catch (handlingError) {
+    console.error('An error occurred in the error handling middleware!', handlingError)
+    next(handlingError)
     return
   }
 }

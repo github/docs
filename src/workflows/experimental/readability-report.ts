@@ -162,8 +162,8 @@ function getChangedContentFiles(): string[] {
   })
 }
 
-function makeURL(path: string): string {
-  return `http://localhost:4000${path}`
+function makeURL(urlPath: string): string {
+  return `http://localhost:4000${urlPath}`
 }
 
 async function waitForServer(): Promise<void> {
@@ -635,7 +635,9 @@ function generateReport(results: PageReadability[]): string {
   return report
 }
 
-main().catch((error) => {
+try {
+  await main()
+} catch (error) {
   console.error('Readability analysis failed:', error)
   process.exit(1)
-})
+}

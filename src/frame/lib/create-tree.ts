@@ -34,9 +34,9 @@ export default async function createTree(
     // wrong.
     try {
       mtime = await getMtime(filepath)
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
-        throw error
+    } catch (innerError) {
+      if ((innerError as NodeJS.ErrnoException).code !== 'ENOENT') {
+        throw innerError
       }
       // Throw an error if we can't find a content file associated with the children: entry.
       // But don't throw an error if the user is running the site locally and hasn't cloned the Early Access repo.

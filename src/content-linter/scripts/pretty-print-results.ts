@@ -53,10 +53,10 @@ export function prettyPrintResults(
     let ruleDescription = ''
 
     const errorDetailsByDescription = new Map()
-    for (const { errorDetail, ruleDescription } of sorted) {
-      const details = errorDetailsByDescription.get(ruleDescription) || new Set()
+    for (const { errorDetail, ruleDescription: ruleDesc } of sorted) {
+      const details = errorDetailsByDescription.get(ruleDesc) || new Set()
       details.add(errorDetail)
-      errorDetailsByDescription.set(ruleDescription, details)
+      errorDetailsByDescription.set(ruleDesc, details)
     }
 
     for (const result of sorted) {

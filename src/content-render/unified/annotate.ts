@@ -122,8 +122,8 @@ function createAnnotatedNode(node: ElementNode, context: any): any {
   const rows = chunk(groups, 2)
 
   // Check the rows are formatted correctly
-  for (const [note, code] of rows) {
-    if (note === undefined || code === undefined) {
+  for (const [note, codeBlock] of rows) {
+    if (note === undefined || codeBlock === undefined) {
       throw new Error(
         "Each annotation must have a note and a code block. If you're trying to create a blank annotation, you can use a single line comment with a space after it.",
       )
@@ -231,13 +231,13 @@ function template({
     h(
       'div',
       { className: 'annotate-beside' },
-      rows.map(([note, code]) =>
+      rows.map(([note, codeBlock]) =>
         h('div', { className: 'annotate-row' }, [
           h(
             'div',
             { className: 'annotate-code' },
             // pre > code matches the mdast -> hast tree of a regular fenced code block.
-            h('pre', h('code', { className: `language-${lang}` }, code.join('\n'))),
+            h('pre', h('code', { className: `language-${lang}` }, codeBlock.join('\n'))),
           ),
           h(
             'div',

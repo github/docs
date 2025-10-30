@@ -20,7 +20,7 @@ export function generateNewJSON(
 
   let countChanges = 0
   for (const [identifier, url] of Object.entries(destination)) {
-    const check = checks.find((check) => check.identifier === identifier)
+    const check = checks.find((foundCheck) => foundCheck.identifier === identifier)
     if (check) {
       // At the moment, the only possible correction is if the URL is
       // found but required a redirect.

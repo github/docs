@@ -35,11 +35,12 @@ for (const page of pages) {
   fs.mkdirSync(`${contentCopilotDir}/${dirnames}`, { recursive: true })
   // Context needed to render the content liquid
   const req = { language: 'en' } as ExtendedRequest
-  const contextualize = (req: ExtendedRequest): void => {
-    if (!req.context) return
-    if (!req.context.currentVersion) return
-    req.context.currentVersionObj = req.context.allVersions?.[req.context.currentVersion]
-    shortVersionsMiddleware(req, null, () => {})
+  const contextualize = (request: ExtendedRequest): void => {
+    if (!request.context) return
+    if (!request.context.currentVersion) return
+    request.context.currentVersionObj =
+      request.context.allVersions?.[request.context.currentVersion]
+    shortVersionsMiddleware(request, null, () => {})
   }
 
   req.context = {

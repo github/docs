@@ -83,8 +83,8 @@ async function setupEnvironment() {
 
 // copy the raw rst files to the temp directory and convert them
 // to Markdownusing pandoc
-async function rstToMarkdown(sourceDirectory: string) {
-  const sourceFiles = walk(sourceDirectory, {
+async function rstToMarkdown(rstSourceDirectory: string) {
+  const sourceFiles = walk(rstSourceDirectory, {
     includeBasePath: true,
     globs: ['**/*.rst'],
   })

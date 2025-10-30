@@ -163,5 +163,5 @@ function difference(obj1: Record<string, string[]>, obj2: Record<string, string[
 export function getAutomatedMarkdownFiles(rootDir: string): string[] {
   return walkFiles(rootDir, '.md')
     .filter((file) => !file.includes('index.md'))
-    .filter((file) => !nonAutomatedRestPaths.some((path) => file.includes(path)))
+    .filter((file) => !nonAutomatedRestPaths.some((excludePath) => file.includes(excludePath)))
 }

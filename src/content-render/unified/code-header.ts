@@ -108,8 +108,8 @@ function btnIcon(): Element {
   const btnIconHtml: string = octicons.copy.toSVG()
   const btnIconAst = parse(String(btnIconHtml), { sourceCodeLocationInfo: true })
   // @ts-ignore - fromParse5 file option typing issue
-  const btnIcon = fromParse5(btnIconAst, { file: btnIconHtml })
-  return btnIcon as Element
+  const btnIconElement = fromParse5(btnIconAst, { file: btnIconHtml })
+  return btnIconElement as Element
 }
 
 // Using any due to conflicting unist/hast type definitions between dependencies

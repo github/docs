@@ -177,23 +177,23 @@ function moveVariable(dataRef: string): void {
   const nonAltPath: string = newVariablePath.replace('-alt.yml', '.yml')
   const oldAltPath: string = oldVariablePath.replace('.yml', '-alt.yml')
 
-  let oldPath: string = oldVariablePath
+  let oldVariableFinalPath: string = oldVariablePath
 
   // If the old variable path doesn't exist, assume no migration needed.
-  if (!fs.existsSync(oldVariablePath)) {
+  if (!fs.existsSync(oldVariableFinalPath)) {
     if (!fs.existsSync(newVariablePath)) {
       console.log(`Problem migrating files for ${dataRef}`)
       return
     }
     if (fs.existsSync(oldAltPath)) {
-      oldPath = oldAltPath
+      oldVariableFinalPath = oldAltPath
     } else {
       return
     }
   }
 
   const variableFileContent: Record<string, any> = yaml.load(
-    fs.readFileSync(oldPath, 'utf8'),
+    fs.readFileSync(oldVariableFinalPath, 'utf8'),
   ) as Record<string, any>
   const value: any = variableFileContent[variableKey]
 

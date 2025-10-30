@@ -389,10 +389,10 @@ export default async function processSchemas(
             }
 
             await Promise.all(
-              mutationReturnFields.fields!.map(async (field: FieldDefinitionNode) => {
+              mutationReturnFields.fields!.map(async (returnFieldDef: FieldDefinitionNode) => {
                 const returnField: Partial<ReturnFieldInfo> = {}
-                returnField.name = field.name.value
-                const fieldType = helpers.getType(field)
+                returnField.name = returnFieldDef.name.value
+                const fieldType = helpers.getType(returnFieldDef)
                 if (!fieldType) return
                 returnField.type = fieldType
                 returnField.id = helpers.getId(returnField.type)
