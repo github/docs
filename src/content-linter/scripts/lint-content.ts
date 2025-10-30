@@ -16,7 +16,14 @@ import { prettyPrintResults } from './pretty-print-results'
 import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
 import { printAnnotationResults } from '../lib/helpers/print-annotations'
 import languages from '@/languages/lib/languages-server'
-import { shouldIncludeResult } from '../lib/helpers/should-include-result'
+
+/**
+ * Config that applies to all rules in all environments (CI, reports, precommit).
+ */
+export const globalConfig = {
+  // Do not ever lint these filepaths
+  excludePaths: ['content/contributing/'],
+}
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -197,12 +204,7 @@ async function main() {
 
   if (printAnnotations) {
     printAnnotationResults(formattedResults, {
-      skippableRules: [
-        // As of Feb 2024, this rule is quite noisy. It's present in
-        // many files and is not always a problem. And besides, when it
-        // does warn, it's usually a very long one.
-        'code-fence-line-length', // a.k.a. GHD030
-      ],
+      skippableRules: [],
       skippableFlawProperties: [
         // As of Feb 2024, we don't support reporting flaws for lines
         // and columns numbers of YAML files. YAML files consist of one
@@ -349,7 +351,14 @@ function getFilesToLint(paths) {
         (!filePath.endsWith('.md') && !filePath.endsWith('.yml'))
       )
         continue
+
       const relPath = path.relative(root, filePath)
+
+      // Skip files that match any of the excluded paths
+      if (globalConfig.excludePaths.some((excludePath) => relPath.startsWith(excludePath))) {
+        continue
+      }
+
       if (seen.has(relPath)) continue
       seen.add(relPath)
       clean.push(relPath)
@@ -427,9 +436,7 @@ function getFormattedResults(allResults, isPrecommit) {
       if (verbose) {
         output[key] = [...results]
       } else {
-        const formattedResults = results
-          .map((flaw) => formatResult(flaw, isPrecommit))
-          .filter((flaw) => shouldIncludeResult(flaw, key))
+        const formattedResults = results.map((flaw) => formatResult(flaw, isPrecommit))
 
         // Only add the file to output if there are results after filtering
         if (formattedResults.length > 0) {
@@ -561,9 +568,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     // Check if the rule should be included based on user-specified rules
     if (runRules && !shouldIncludeRule(ruleName, runRules)) continue
-
-    // Skip british-english-quotes rule in CI/PRs (only run in pre-commit)
-    if (ruleName === 'british-english-quotes' && !isPrecommit) continue
 
     // There are a subset of rules run on just the frontmatter in files
     if (githubDocsFrontmatterConfig[ruleName]) {
