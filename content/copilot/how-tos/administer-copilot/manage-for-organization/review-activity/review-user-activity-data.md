@@ -21,6 +21,8 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/review-activity/review-user-activity-data
   - /copilot/how-tos/administer/manage-for-organization/review-activity/review-user-activity-data
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data reusables.profile.access_org %}

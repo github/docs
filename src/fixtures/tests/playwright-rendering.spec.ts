@@ -115,7 +115,8 @@ test('open search, and select a general search article', async ({ page }) => {
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
-  await page.waitForTimeout(1000)
+  const searchOverlay = page.getByTestId('general-autocomplete-suggestions')
+  await expect(searchOverlay.getByText('For Playwright')).toBeVisible()
   // Navigate to general search item, "For Playwright"
   await page.keyboard.press('ArrowDown')
   // Select the general search item, "For Playwright"
@@ -747,7 +748,7 @@ test.describe('survey', () => {
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
-        get: function () {
+        get() {
           return 'hidden'
         },
       })
@@ -802,7 +803,7 @@ test.describe('survey', () => {
     await page.evaluate(() => {
       Object.defineProperty(document, 'visibilityState', {
         configurable: true,
-        get: function () {
+        get() {
           return 'hidden'
         },
       })

@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 
 import { liquid } from '@/content-render/index'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { DataDirectory } from '@/tests/helpers/data-directory'
 
 describe('liquid helper tags', () => {

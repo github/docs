@@ -12,18 +12,36 @@ function isValidArticlePath(articlePath: string, currentFilePath: string): boole
   // Strategy 1: Always try as an absolute path from content root first
   const contentDir = path.join(ROOT, 'content')
   const normalizedPath = articlePath.startsWith('/') ? articlePath.substring(1) : articlePath
-  const absolutePath: string = path.join(contentDir, `${normalizedPath}.md`)
 
+  // Check for direct .md file
+  const absolutePath: string = path.join(contentDir, `${normalizedPath}.md`)
   if (fs.existsSync(absolutePath) && fs.statSync(absolutePath).isFile()) {
+    return true
+  }
+
+  // Check for index.md file in directory (for landing pages)
+  const indexPath: string = path.join(contentDir, normalizedPath, 'index.md')
+  if (fs.existsSync(indexPath) && fs.statSync(indexPath).isFile()) {
     return true
   }
 
   // Strategy 2: Fall back to relative path from current file's directory
   const currentDir: string = path.dirname(currentFilePath)
-  const relativePath: string = path.join(currentDir, `${normalizedPath}.md`)
 
+  // Check for relative .md file
+  const relativePath: string = path.join(currentDir, `${normalizedPath}.md`)
   try {
-    return fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()
+    if (fs.existsSync(relativePath) && fs.statSync(relativePath).isFile()) {
+      return true
+    }
+  } catch {
+    // Continue to next strategy
+  }
+
+  // Check for relative index.md file
+  const relativeIndexPath: string = path.join(currentDir, normalizedPath, 'index.md')
+  try {
+    return fs.existsSync(relativeIndexPath) && fs.statSync(relativeIndexPath).isFile()
   } catch {
     return false
   }

@@ -8,19 +8,16 @@ versions:
   ghes: '*'
 topics:
   - Repositories
-shortTitle: Custom properties
+shortTitle: Repository custom properties
 ---
 
 ## About custom properties
 
-Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties visibility follows the visibility of the repository. Custom properties on public repositories can be viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with read permissions to the repository.
-An organization can have up to 100 property definitions. An allowed value list can have up to 200 items.
+{% data reusables.enterprise.custom-properties-intro %}. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
 
-You can use repository properties to determine which repositories to target with a ruleset. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#targeting-repositories-by-properties-in-your-organization).
+This article relates to **repository custom properties.**
 
-{% ifversion ghec %}
-You can define custom properties at the enterprise level to create a consistent experience across organizations. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/managing-custom-properties-for-repositories-in-your-enterprise).
-{% endif %}
+The **visibility** of custom properties matches the visibility of the repository. Custom properties on public repositories can be viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with `read` permissions to the repository.
 
 ## Allowed characters
 

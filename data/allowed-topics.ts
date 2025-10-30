@@ -44,6 +44,7 @@ const allowedTopics = [
   'CircleCI',
   'CLI',
   'Clustering',
+  'Code Quality',
   'Code scanning',
   'Code Security',
   'CodeQL',

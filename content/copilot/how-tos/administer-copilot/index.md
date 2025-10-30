@@ -15,4 +15,3 @@ redirect_from:
   - /copilot/how-tos/administer
 contentType: how-tos
 ---
-

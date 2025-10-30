@@ -1,0 +1,100 @@
+# Please keep this list sorted in the following order:
+# 1. By provider, in this order:
+#    - OpenAI
+#    - Anthropic
+#    - Google
+#    - xAI
+# 2. Within each provider group, alphabetically by model name.
+#
+# This file defines the list of AI models available in GitHub Copilot and
+# their current release status.
+#
+# Column keys:
+# - name: Model name
+# - provider: Provider
+# - release_status: Release status
+# - agent_mode: true = ✓, false = ✗
+# - ask_mode: true = ✓, false = ✗
+# - edit_mode: true = ✓, false = ✗
+
+# OpenAI models
+- name: 'GPT-4.1'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5 mini'
+  provider: 'OpenAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5-Codex'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# Anthropic models
+- name: 'Claude Haiku 4.5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Opus 4.1'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: false
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Sonnet 3.5'
+  provider: 'Anthropic'
+  release_status: 'Closing down: 2025-11-06'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Sonnet 4'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'Claude Sonnet 4.5'
+  provider: 'Anthropic'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# Google models
+
+- name: 'Gemini 2.5 Pro'
+  provider: 'Google'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# xAI models
+- name: 'Grok Code Fast 1'
+  provider: 'xAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true

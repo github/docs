@@ -20,6 +20,8 @@ shortTitle: Quickstart
 topics:
   - Copilot
 contentType: get-started
+category: 
+  - Configure Copilot
 ---
 
 ## Introduction

@@ -24,6 +24,8 @@ redirect_from:
   - /copilot/how-tos/context/creating-and-managing-copilot-knowledge-bases
   - /copilot/how-tos/context/create-knowledge-bases
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 <!-- expires 2025-10-31 -->
 

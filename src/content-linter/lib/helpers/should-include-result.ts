@@ -1,4 +1,4 @@
-import * as nodePath from 'path'
+import nodePath from 'path'
 import { reportingConfig } from '@/content-linter/style/github-docs'
 
 interface LintFlaw {

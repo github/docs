@@ -242,7 +242,7 @@ async function validateInputParameters(): Promise<void> {
   }
 
   // Check that the source repo exists.
-  for (let sourceRepoDirectory of sourceRepoDirectories) {
+  for (const sourceRepoDirectory of sourceRepoDirectories) {
     if (!existsSync(sourceRepoDirectory)) {
       const errorMsg =
         sourceRepoDirectory === 'github' || sourceRepoDirectory === GITHUB_REP_DIR

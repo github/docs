@@ -1,7 +1,7 @@
 ---
 title: Migrating your enterprise to GitHub Actions
 shortTitle: Migrate to Actions
-intro: 'Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
+intro: 'Plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
 versions:
   ghec: '*'
 type: how_to
@@ -16,7 +16,7 @@ allowTitleToDifferFromFilename: true
 
 To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
 
-This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
+This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see [AUTOTITLE](/enterprise-cloud@latest/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).
 
 ## Planning your migration
 

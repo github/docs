@@ -9,6 +9,8 @@ topics:
 redirect_from:
   - /copilot/concepts/about-github-copilot-chat
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 # Overview

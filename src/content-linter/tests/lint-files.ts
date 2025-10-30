@@ -9,7 +9,7 @@ import walk from 'walk-sync'
 import { zip } from 'lodash-es'
 import { beforeAll, describe, expect, test } from 'vitest'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { getDiffFiles } from '../lib/diff-files'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -240,7 +240,9 @@ if (ymlToLint.length === 0) {
   describe('lint yaml content', () => {
     if (ymlToLint.length < 1) return
     describe.each(ymlToLint)('%s', (yamlRelPath, yamlAbsPath) => {
-      let dictionary, isEarlyAccess, fileContents
+      let dictionary
+      let isEarlyAccess
+      let fileContents
       // This variable is used to determine if the file was parsed successfully.
       // When `yaml.load()` fails to parse the file, it is overwritten with the error message.
       // `false` is intentionally chosen since `null` and `undefined` are valid return values.

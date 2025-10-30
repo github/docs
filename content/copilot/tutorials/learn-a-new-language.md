@@ -9,6 +9,9 @@ versions:
 redirect_from:
   - /copilot/tutorials/learning-a-new-programming-language-with-github-copilot
 contentType: tutorials
+category:
+  - Scale institutional knowledge
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

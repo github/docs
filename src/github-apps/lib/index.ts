@@ -70,7 +70,9 @@ export async function getAppsServerSideProps(
     ? Object.values(appsItems).map((item: any) => item.displayTitle!)
     : Object.keys(appsItems)
   const appMiniToc = await getAutomatedPageMiniTocItems(titles, context)
-  appMiniToc && miniTocItems.push(...appMiniToc)
+  if (appMiniToc) {
+    miniTocItems.push(...appMiniToc)
+  }
 
   return { currentVersion, appsItems, categoriesWithoutSubcategories }
 }

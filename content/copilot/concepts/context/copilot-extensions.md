@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/concepts/copilot-extensions/about-copilot-extensions
   - /copilot/concepts/copilot-extensions/about-extensions
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 <!-- expires 2025-11-19 -->

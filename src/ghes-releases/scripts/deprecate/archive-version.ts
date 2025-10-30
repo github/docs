@@ -17,7 +17,7 @@ import createApp from '@/frame/lib/app'
 import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 import loadRedirects from '@/redirects/lib/precompile'
 import { loadPageMap, loadPages } from '@/frame/lib/page-data'
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/deprecate/rewrite-asset-paths'
 import Page from '@/frame/lib/page'
 
@@ -63,10 +63,11 @@ main()
 async function main() {
   console.log(`Archiving Enterprise version: ${version}`)
 
-  let pageList: PageList, urls: Array<string>
+  let pageList: PageList
+  let urls: Array<string>
   if (singlePage) {
     const pageName = singlePage.trim().startsWith('/') ? singlePage.slice(1) : singlePage
-    const urls = languageKeys
+    urls = languageKeys
       .map((key) => `/${key}/enterprise-server@${version}/${pageName}`)
       .map((href) => `${host}${href}`)
     console.log(`\nScraping HTML for a single page only:\n${urls.join('\n')}\n`)

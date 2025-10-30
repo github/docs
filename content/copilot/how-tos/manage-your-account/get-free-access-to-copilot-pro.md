@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer
   - /copilot/how-tos/manage-your-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## About free {% data variables.copilot.copilot_pro %} access

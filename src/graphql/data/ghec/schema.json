@@ -46508,6 +46508,56 @@
       ]
     },
     {
+      "name": "OrganizationPropertyConditionTarget",
+      "kind": "objects",
+      "id": "organizationpropertyconditiontarget",
+      "href": "/graphql/reference/objects#organizationpropertyconditiontarget",
+      "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of organization properties that must not match.</p>",
+          "type": "[OrganizationPropertyTargetDefinition!]!",
+          "id": "organizationpropertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationpropertytargetdefinition"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of organization properties that must match.</p>",
+          "type": "[OrganizationPropertyTargetDefinition!]!",
+          "id": "organizationpropertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationpropertytargetdefinition"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationPropertyTargetDefinition",
+      "kind": "objects",
+      "id": "organizationpropertytargetdefinition",
+      "href": "/graphql/reference/objects#organizationpropertytargetdefinition",
+      "description": "<p>A property that must match.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "OrganizationTeamsHovercardContext",
       "kind": "objects",
       "id": "organizationteamshovercardcontext",
@@ -69346,6 +69396,14 @@
       "href": "/graphql/reference/objects#repositoryruleconditions",
       "description": "<p>Set of conditions that determine if a ruleset will evaluate.</p>",
       "fields": [
+        {
+          "name": "organizationProperty",
+          "description": "<p>Configuration for the organization_property condition.</p>",
+          "type": "OrganizationPropertyConditionTarget",
+          "id": "organizationpropertyconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationpropertyconditiontarget"
+        },
         {
           "name": "refName",
           "description": "<p>Configuration for the ref_name condition.</p>",
@@ -93448,6 +93506,10 @@
           "description": "<p>A direct dependency of your project.</p>"
         },
         {
+          "name": "INCONCLUSIVE",
+          "description": "<p>The relationship could not be determined.</p>"
+        },
+        {
           "name": "TRANSITIVE",
           "description": "<p>A transitive dependency of your project.</p>"
         },
@@ -105248,6 +105310,56 @@
       ]
     },
     {
+      "name": "OrganizationPropertyConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "organizationpropertyconditiontargetinput",
+      "href": "/graphql/reference/input-objects#organizationpropertyconditiontargetinput",
+      "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of organization properties that must not match.</p>",
+          "type": "[OrganizationPropertyTargetDefinitionInput!]!",
+          "id": "organizationpropertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of organization properties that must match.</p>",
+          "type": "[OrganizationPropertyTargetDefinitionInput!]!",
+          "id": "organizationpropertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationPropertyTargetDefinitionInput",
+      "kind": "inputObjects",
+      "id": "organizationpropertytargetdefinitioninput",
+      "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput",
+      "description": "<p>A property that must match.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "PackageFileOrder",
       "kind": "inputObjects",
       "id": "packagefileorder",
@@ -106978,6 +107090,14 @@
       "href": "/graphql/reference/input-objects#repositoryruleconditionsinput",
       "description": "<p>Specifies the conditions required for a ruleset to evaluate.</p>",
       "inputFields": [
+        {
+          "name": "organizationProperty",
+          "description": "<p>Configuration for the organization_property condition.</p>",
+          "type": "OrganizationPropertyConditionTargetInput",
+          "id": "organizationpropertyconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationpropertyconditiontargetinput"
+        },
         {
           "name": "refName",
           "description": "<p>Configuration for the ref_name condition.</p>",
@@ -111132,7 +111252,7 @@
         },
         {
           "name": "iterationConfiguration",
-          "description": "<p>Configuration for an iteration field.</p>",
+          "description": "<p>Configuration for a field of type ITERATION. Empty input is ignored, provided\nvalues overwrite the existing configuration, and existing configuration should\nbe fetched for partial updates.</p>",
           "type": "ProjectV2IterationFieldConfigurationInput",
           "id": "projectv2iterationfieldconfigurationinput",
           "kind": "input-objects",
@@ -111148,7 +111268,7 @@
         },
         {
           "name": "singleSelectOptions",
-          "description": "<p>Options for a field of type SINGLE_SELECT. If empty, no changes will be made\nto the options. If values are present, they will overwrite the existing\noptions for the field.</p>",
+          "description": "<p>Options for a field of type SINGLE_SELECT. Empty input is ignored, provided\nvalues overwrite existing options, and existing options should be fetched for\npartial updates.</p>",
           "type": "[ProjectV2SingleSelectFieldOptionInput!]",
           "id": "projectv2singleselectfieldoptioninput",
           "kind": "input-objects",

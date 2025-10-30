@@ -16,10 +16,7 @@ topics:
 
 ## Introduction
 
-You can create rulesets to control how users can interact with code in repositories across your enterprise. You can:
-
-* Create a **branch or tag ruleset** to control things like who can push commits to a certain branch, how commits must be formatted, or who can delete or rename a tag.
-* Create a **push ruleset** to block pushes to a private or internal repository and the repository's entire fork network. Push rulesets allow you to block pushes based on file extensions, file path lengths, file and folder paths, and file sizes.
+{% data reusables.enterprise-onboarding.rulesets-intro %}
 
 To learn more, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
@@ -33,7 +30,8 @@ To import a prebuilt ruleset created by {% data variables.product.company_short 
 
 Rulesets allow you to flexibly target the organizations, repositories, and branches where you want rules to apply.
 
-* To target **organizations**, you can select all, choose from a list, or define a dynamic pattern for organization names using `fnmatch` syntax. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
+* To target **organizations**, you can select all, choose from a list, define a dynamic pattern for organization names using `fnmatch` syntax, or use organization custom properties to dynamically target organizations based on metadata. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax). For information on custom properties, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
+
 * Within those organizations, you can target all **repositories**, or target a dynamic list by custom property. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 * Within the repositories, you can target certain **branches or tags**: all branches, the default branch, or a dynamic list using `fnmatch` syntax.
 

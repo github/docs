@@ -6,6 +6,7 @@ versions:
 category:
   - Prompt files
   - Getting started
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot

@@ -175,7 +175,7 @@ async function indexOfLearningTrackGuide(
   const renderOpts = { textOnly: true }
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    let renderedGuidePath = await executeWithFallback(
+    const renderedGuidePath = await executeWithFallback(
       context,
       () => renderContent(trackGuidePaths[i], context, renderOpts),
       () => '', // todo use english trackGuidePaths[i]

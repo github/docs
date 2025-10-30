@@ -155,7 +155,7 @@ For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/sett
 
 * `ref_product`:
   * **Purpose**: The GitHub product the CTA leads users to.
-  * **Allowed values**: `copilot`, `ghec`, `desktop`
+  * **Allowed values**: `copilot`, `ghec`, `desktop`, `code-quality`
   * **Example**: `ref_product=copilot`
 * `ref_type`:
   * **Purpose**: The type of action the CTA encourages users to take.

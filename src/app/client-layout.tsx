@@ -10,7 +10,7 @@ import { initializeEvents } from '@/events/components/events'
 import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
 import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
 import { LanguagesContext, LanguagesContextT } from '@/languages/components/LanguagesContext'
-import { clientLanguages, type ClientLanguageCode } from '@/languages/lib/client-languages'
+import { languages, type LanguageCode } from '@/languages/lib/languages'
 import { MainContextProvider } from '@/app/components/MainContextProvider'
 import { createMinimalMainContext } from '@/app/lib/main-context-adapter'
 import type { AppRouterContext } from '@/app/lib/app-router-context'
@@ -31,16 +31,11 @@ interface ClientLayoutProps {
 
 export function ClientLayout({ children, appContext, pageData }: ClientLayoutProps): JSX.Element {
   const { theme } = useTheme()
-  const locale: ClientLanguageCode = useDetectLocale()
+  const locale: LanguageCode = useDetectLocale()
   const [isInitialized, setIsInitialized] = useState(false)
   const [initializationError, setInitializationError] = useState<Error | null>(null)
 
-  const languagesContext: LanguagesContextT = useMemo(
-    () => ({
-      languages: clientLanguages,
-    }),
-    [],
-  )
+  const languagesContext: LanguagesContextT = useMemo(() => ({ languages }), [])
 
   // Create MainContext-compatible data for App Router
   const mainContext = useMemo(

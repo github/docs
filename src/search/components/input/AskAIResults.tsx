@@ -566,6 +566,6 @@ function sendAISearchResultEvent({
     ai_search_result_response_status: status,
     ai_search_result_connected_event_id: connectedEventId,
     eventGroupKey: ASK_AI_EVENT_GROUP,
-    eventGroupId: eventGroupId,
+    eventGroupId,
   })
 }

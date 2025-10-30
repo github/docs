@@ -18,7 +18,7 @@ import {
 type Props = {
   mainContext: MainContextT
   automatedPageContext: AutomatedPageContextT
-  schema: Object
+  schema: object
   language: string
   graphqlPageName: string
   objects?: ObjectT[]

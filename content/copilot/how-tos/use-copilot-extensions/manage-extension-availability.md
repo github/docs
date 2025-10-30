@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/managing-the-availability-of-your-copilot-extension
   - /copilot/how-tos/build-copilot-extensions/manage-extension-availability
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 When you build a {% data variables.copilot.copilot_extension_short %}, you have two options for the visibility of your {% data variables.product.prodname_github_app %}:

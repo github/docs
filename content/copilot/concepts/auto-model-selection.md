@@ -9,6 +9,8 @@ topics:
 versions:
   feature: copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 > [!NOTE] {% data variables.copilot.copilot_auto_model_selection %} rolls out to {% data variables.product.prodname_vscode_shortname %} starting in September 2025.

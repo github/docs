@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/use-copilot-extensions/build-a-copilot-skillset
   - /copilot/how-tos/build-copilot-extensions/build-copilot-skillsets
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Introduction

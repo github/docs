@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-yourself
   - /copilot/how-tos/set-up/setting-up-github-copilot-for-yourself
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}

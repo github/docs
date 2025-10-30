@@ -383,6 +383,14 @@ env:
 
 {% data reusables.actions.jobs.choosing-runner-group %}
 
+{% ifversion not ghes %}
+
+## `jobs.<job_id>.snapshot`
+
+{% data reusables.actions.jobs.choosing-runner-custom-images %}
+
+{% endif %}
+
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}

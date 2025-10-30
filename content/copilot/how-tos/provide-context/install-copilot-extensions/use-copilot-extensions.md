@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/context/install-copilot-extensions/using-extensions-to-integrate-external-tools-with-copilot-chat
   - /copilot/how-tos/context/install-copilot-extensions/use-copilot-extensions
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 <!-- expires 2025-11-19 -->

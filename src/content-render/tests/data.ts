@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import Page from '@/frame/lib/page'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
 import { DataDirectory } from '@/tests/helpers/data-directory'
 

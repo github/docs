@@ -5284,6 +5284,132 @@
     "docs_reference_titles": "Removing self-hosted runners"
   },
   {
+    "action": "enterprise_role.assign",
+    "description": "An enterprise role was assigned to a user or enterprise team.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "enterprise_role_id",
+      "enterprise_role_name",
+      "business",
+      "business_id",
+      "user",
+      "user_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Abilities of roles in an enterprise"
+  },
+  {
+    "action": "enterprise_role.create",
+    "description": "A custom enterprise role was created in an enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "owner",
+      "role_permissions",
+      "base_role",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Abilities of roles in an enterprise"
+  },
+  {
+    "action": "enterprise_role.destroy",
+    "description": "A custom enterprise role was deleted in an enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "owner",
+      "role_permissions",
+      "base_role",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Abilities of roles in an enterprise"
+  },
+  {
+    "action": "enterprise_role.revoke",
+    "description": "A user or enterprise team was unassigned an enterprise role.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "enterprise_role_id",
+      "enterprise_role_name",
+      "business",
+      "business_id",
+      "user",
+      "user_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Abilities of roles in an enterprise"
+  },
+  {
+    "action": "enterprise_role.update",
+    "description": "A custom enterprise role was edited in an enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "name",
+      "owner",
+      "role_permissions",
+      "base_role",
+      "old_role_permissions",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "Abilities of roles in an enterprise"
+  },
+  {
     "action": "enterprise.runner_group_created",
     "description": "A GitHub Actions self-hosted runner group was created.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository",
@@ -7916,7 +8042,7 @@
   },
   {
     "action": "merge_queue.pull_request_dequeued",
-    "description": "N/A",
+    "description": "A pull request was removed from a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -7936,7 +8062,7 @@
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
-    "description": "N/A",
+    "description": "A pull request was moved ahead in a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -7960,7 +8086,7 @@
   },
   {
     "action": "merge_queue.queue_cleared",
-    "description": "N/A",
+    "description": "A merge queue was cleared.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -7979,7 +8105,7 @@
   },
   {
     "action": "merge_queue.update_settings",
-    "description": "N/A",
+    "description": "The settings for a merge queue were updated.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -14444,7 +14570,7 @@
   },
   {
     "action": "pull_request.rebase",
-    "description": "N/A",
+    "description": "A pull request was rebased.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",

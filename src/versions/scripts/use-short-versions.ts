@@ -131,7 +131,8 @@ main().then(
 // Using any for token objects as liquidjs doesn't provide TypeScript types
 function removeInputProps(arrayOfObjects: any[]): any[] {
   return arrayOfObjects.map((obj: any) => {
-    delete obj.input || delete obj.token.input
+    delete obj.input
+    delete obj.token.input
     return obj
   })
 }
