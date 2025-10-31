@@ -82,8 +82,12 @@ const asyncMiddleware =
   <TReq extends Request = Request, T = void>(
     fn: (req: TReq, res: Response, next: NextFunction) => T | Promise<T>,
   ) =>
-  (req: Request, res: Response, next: NextFunction) => {
-    Promise.resolve(fn(req as TReq, res, next)).catch(next)
+  async (req: Request, res: Response, nextFn: NextFunction) => {
+    try {
+      await fn(req as TReq, res, nextFn)
+    } catch (error) {
+      nextFn(error)
+    }
   }
 
 export default function index(app: Express) {

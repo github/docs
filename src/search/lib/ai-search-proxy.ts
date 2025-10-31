@@ -132,8 +132,7 @@ export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
         res.status(500).json({ errors: [{ message: 'Internal server error' }] })
       } else {
         // Send error message via the stream
-        const errorMessage =
-          JSON.stringify({ errors: [{ message: 'Internal server error' }] }) + '\n'
+        const errorMessage = `${JSON.stringify({ errors: [{ message: 'Internal server error' }] })}\n`
         res.write(errorMessage)
         res.end()
       }

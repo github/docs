@@ -36,11 +36,11 @@ export const UtmPreserver = () => {
     }
 
     // Add UTM parameters to a URL
-    const addUtmParamsToUrl = (url: string, utmParams: URLSearchParams): string => {
+    const addUtmParamsToUrl = (url: string, params: URLSearchParams): string => {
       try {
         const urlObj = new URL(url)
 
-        for (const [key, value] of utmParams) {
+        for (const [key, value] of params) {
           urlObj.searchParams.set(key, value)
         }
 

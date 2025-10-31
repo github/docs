@@ -96,21 +96,23 @@ async function main() {
     .listen(port, async () => {
       console.log(`started server on ${host}`)
 
-      await scrape({
-        urls,
-        urlFilter: (url: string) => {
-          // Do not download assets from other hosts like S3 or octodex.github.com
-          // (this will keep them as remote references in the downloaded pages)
-          return url.startsWith(`http://localhost:${port}/`)
-        },
-        directory: tmpArchivalDirectory,
-        filenameGenerator: 'bySiteStructure',
-        requestConcurrency: 6,
-        plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
-      }).catch((err: Error) => {
+      try {
+        await scrape({
+          urls,
+          urlFilter: (url: string) => {
+            // Do not download assets from other hosts like S3 or octodex.github.com
+            // (this will keep them as remote references in the downloaded pages)
+            return url.startsWith(`http://localhost:${port}/`)
+          },
+          directory: tmpArchivalDirectory,
+          filenameGenerator: 'bySiteStructure',
+          requestConcurrency: 6,
+          plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
+        })
+      } catch (err) {
         console.error('scraping error')
         console.error(err)
-      })
+      }
 
       fs.renameSync(
         path.join(tmpArchivalDirectory, `/localhost_${port}`),

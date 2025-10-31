@@ -33,7 +33,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     // see src/search/tests/fixtures/search-indexes/github-docs-dotcom-en-records.json
     // which clearly has a record with the title "Foo"
     sp.set('query', 'foo')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
 
@@ -75,7 +75,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('debug', '1') // Note!
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     // safe because we know exactly the fixtures
@@ -90,7 +90,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     {
       const sp = new URLSearchParams()
       sp.set('query', 'sill')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(200)
       const results: GeneralSearchResponse = JSON.parse(res.body)
       // Fixtures contains no word called 'sill'. It does contain the term
@@ -105,7 +105,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'sill')
       sp.set('autocomplete', 'true')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(200)
       const results: GeneralSearchResponse = JSON.parse(res.body)
       expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
@@ -119,7 +119,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   test('find nothing', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'xojixjoiwejhfoiuwehjfioweufhj')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     expect(results.hits.length).toBe(0)
@@ -130,7 +130,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     const sp = new URLSearchParams()
     sp.set('query', 'introduction heading')
     sp.append('highlights', 'content')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
@@ -145,7 +145,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     // This will match because it's in the 'content' but not in 'headings'
     sp.set('query', 'Fact of life')
     sp.set('highlights', 'title')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)
@@ -159,12 +159,12 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('version', 'dotcom')
-    const res1 = await get('/api/search/v1?' + sp.toString())
+    const res1 = await get(`/api/search/v1?${sp.toString()}`)
     expect(res1.statusCode).toBe(200)
     const results1: GeneralSearchResponse = JSON.parse(res1.body)
 
     sp.set('version', 'free-pro-team@latest')
-    const res2 = await get('/api/search/v1?' + sp.toString())
+    const res2 = await get(`/api/search/v1?${sp.toString()}`)
     expect(res2.statusCode).toBe(200)
     const results2: GeneralSearchResponse = JSON.parse(res2.body)
     expect(results1.hits[0].id).toBe(results2.hits[0].id)
@@ -185,7 +185,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
     {
       const sp = new URLSearchParams()
       sp.set('query', '  ')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -198,7 +198,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'test')
       sp.set('language', 'xxx')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -211,7 +211,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'test')
       sp.set('page', '9999')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -224,7 +224,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'test')
       sp.set('version', 'xxxxx')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -238,7 +238,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'test')
       sp.set('size', 'not a number')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -251,7 +251,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'test')
       sp.set('sort', 'neverheardof')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -264,7 +264,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.set('query', 'test')
       sp.set('highlights', 'neverheardof')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -277,7 +277,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
       const sp = new URLSearchParams()
       sp.append('query', 'test1')
       sp.append('query', 'test2')
-      const res = await get('/api/search/v1?' + sp.toString())
+      const res = await get(`/api/search/v1?${sp.toString()}`)
       expect(res.statusCode).toBe(400)
       const errorResponse = JSON.parse(res.body) as {
         error: string
@@ -290,7 +290,7 @@ describeIfElasticsearchURL('search v1 middleware', () => {
   test('breadcrumbless records should always return a string', async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'breadcrumbs')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     // safe because we know exactly the fixtures
@@ -305,7 +305,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
   test("'intro' and 'headings' are omitted by default", async () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     const firstKeys = Object.keys(results.hits[0])
@@ -317,7 +317,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('include', 'intro')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     const firstKeys = Object.keys(results.hits[0])
@@ -330,7 +330,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     sp.set('query', 'foo')
     sp.append('include', 'intro')
     sp.append('include', 'headings')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     const firstKeys = Object.keys(results.hits[0])
@@ -342,7 +342,7 @@ describeIfElasticsearchURL("additional fields with 'include'", () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('include', 'xxxxx')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(400)
     const results = JSON.parse(res.body) as {
       error: string
@@ -359,7 +359,7 @@ describeIfElasticsearchURL('filter by toplevel', () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('include', 'toplevel')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     // In the fixtures, there are two distinct `toplevel` that
@@ -373,7 +373,7 @@ describeIfElasticsearchURL('filter by toplevel', () => {
     sp.set('query', 'foo')
     sp.set('include', 'toplevel')
     sp.set('toplevel', 'Baring')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
@@ -386,7 +386,7 @@ describeIfElasticsearchURL('filter by toplevel', () => {
     sp.set('include', 'toplevel')
     sp.append('toplevel', 'Baring')
     sp.append('toplevel', 'Fooing')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     const toplevels = new Set(results.hits.map((hit) => hit.toplevel))
@@ -398,7 +398,7 @@ describeIfElasticsearchURL('filter by toplevel', () => {
     sp.set('query', 'foo')
     sp.set('include', 'toplevel')
     sp.set('toplevel', 'Never heard of')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse = JSON.parse(res.body)
     expect(results.meta.found.value).toBe(0)
@@ -412,7 +412,7 @@ describeIfElasticsearchURL('aggregate', () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('aggregate', 'toplevel')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(200)
     const results: GeneralSearchResponse & { aggregations?: SearchResultAggregations } = JSON.parse(
       res.body,
@@ -428,7 +428,7 @@ describeIfElasticsearchURL('aggregate', () => {
     const sp = new URLSearchParams()
     sp.set('query', 'foo')
     sp.set('aggregate', 'unrecognizedxxx')
-    const res = await get('/api/search/v1?' + sp.toString())
+    const res = await get(`/api/search/v1?${sp.toString()}`)
     expect(res.statusCode).toBe(400)
     const results = JSON.parse(res.body) as {
       error: string

@@ -8,6 +8,7 @@ topics:
   - Copilot
 children:
   - /assign-licenses
+  - /establish-ai-managers
   - /enable-developers
   - /drive-downstream-impact
   - /measure-success

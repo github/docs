@@ -76,7 +76,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   // have to do this now because searchPath replacement changes the path as well as the query params
   if (queryParams) {
-    queryParams = '?' + queryParams
+    queryParams = `?${queryParams}`
   }
 
   // remove query params temporarily so we can find the path in the redirects object

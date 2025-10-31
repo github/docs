@@ -115,10 +115,10 @@ async function main(options: Options) {
 
   const toJson: AllDocument[] = []
   for (const doc of documents) {
-    const { documents, ...rest } = doc
+    const { documents: docDocuments, ...rest } = doc
     toJson.push({
       ...rest,
-      documents,
+      documents: docDocuments,
     })
   }
 

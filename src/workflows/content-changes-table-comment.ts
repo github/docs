@@ -167,13 +167,13 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     `| ${headings.map((heading) => `**${heading}**`).join(' | ')} |`,
     `| ${headings.map(() => ':---').join(' | ')} |`,
   ]
-  let markdownTable = markdownTableHead.join('\n') + '\n'
+  let markdownTable = `${markdownTableHead.join('\n')}\n`
   for (const filteredLine of filteredLines) {
     if ((markdownTable + filteredLine).length > MAX_COMMENT_SIZE) {
       markdownTable += '\n**Note** There are more changes in this PR than we can show.'
       break
     }
-    markdownTable += filteredLine + '\n'
+    markdownTable += `${filteredLine}\n`
   }
 
   return markdownTable

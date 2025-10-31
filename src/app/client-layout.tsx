@@ -1,7 +1,8 @@
 'use client'
 
+import React, { useEffect, useMemo, useState } from 'react'
+import type { JSX } from 'react'
 import { ThemeProvider } from '@primer/react'
-import { useEffect, useMemo, useState } from 'react'
 
 import { LocaleProvider } from '@/app/lib/locale-context'
 import { useDetectLocale } from '@/app/lib/use-detect-locale'

@@ -1,0 +1,48 @@
+name: Validate OpenAPI Check Docker
+
+# **What it does**: Tests building and running the OpenAPI check Docker container
+# **Why we have it**: To ensure the Dockerfile and openapi-check script work correctly
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'Dockerfile.openapi_decorator'
+      - 'src/rest/scripts/openapi-check.ts'
+      - 'src/rest/scripts/utils/get-operations.ts'
+      - 'src/rest/scripts/utils/operation.ts'
+      # In case dependencies change
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      # Self-test
+      - '.github/workflows/validate-openapi-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-openapi-check:
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@c47758b77c9736f4b2ef4073d4d51994fabfe349 # v3.7.1
+
+      - name: Build Docker image
+        run: |
+          docker build -f Dockerfile.openapi_decorator -t openapi-decorator:test .
+
+      - name: Test Docker image with sample OpenAPI file
+        run: |
+          docker run --rm openapi-decorator:test -f "src/rest/data/fpt-2022-11-28/schema.json"
+
+      - name: Test Docker image with multiple OpenAPI files
+        run: |
+          docker run --rm openapi-decorator:test \
+            -f "src/rest/data/fpt-2022-11-28/schema.json" \
+            "src/rest/data/ghec-2022-11-28/schema.json"

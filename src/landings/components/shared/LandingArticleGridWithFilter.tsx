@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import { TextInput, ActionMenu, ActionList, Token, Pagination } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import cx from 'classnames'

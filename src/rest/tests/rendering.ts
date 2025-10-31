@@ -23,7 +23,7 @@ describe('REST references docs', () => {
         .map((i, h2) => $(h2).attr('id'))
         .get()
       const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
-      expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
+      expect(schemaSlugs.every((operationSlug) => domH2Ids.includes(operationSlug))).toBe(true)
     }
   })
 
@@ -109,7 +109,7 @@ describe('REST references docs', () => {
             .text()
             .trim()
           if (apiVersion === allVersions[version].latestApiVersion) {
-            expect(versionName).toBe(apiVersion + ' (latest)')
+            expect(versionName).toBe(`${apiVersion} (latest)`)
           } else {
             expect(versionName).toBe(apiVersion)
           }
@@ -148,12 +148,11 @@ describe('REST references docs', () => {
 function formatErrors(differences: Record<string, any>): string {
   let errorMessage = 'There are differences in Categories/Subcategories in:\n'
   for (const schema in differences) {
-    errorMessage += 'Version: ' + schema + '\n'
+    errorMessage += `Version: ${schema}\n`
     for (const category in differences[schema]) {
-      errorMessage += 'Category: ' + category + '\nSubcategories: \n'
-      errorMessage +=
-        '  - content/rest directory: ' + differences[schema][category].contentDir + '\n'
-      errorMessage += '  - OpenAPI Schema: ' + differences[schema][category].openAPI + '\n'
+      errorMessage += `Category: ${category}\nSubcategories: \n`
+      errorMessage += `  - content/rest directory: ${differences[schema][category].contentDir}\n`
+      errorMessage += `  - OpenAPI Schema: ${differences[schema][category].openAPI}\n`
       errorMessage += '---\n'
     }
   }

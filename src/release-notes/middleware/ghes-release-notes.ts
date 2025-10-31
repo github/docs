@@ -71,12 +71,10 @@ export default async function ghesReleaseNotesContext(
         // notes instead.
         enContext.ghesReleases = formatReleases(ghesReleaseNotes)
 
-        const matchedReleaseNotes = enContext.ghesReleases!.find(
-          (r) => r.version === requestedRelease,
-        )
-        if (!matchedReleaseNotes) throw new Error('Release notes not found')
-        const currentReleaseNotes = matchedReleaseNotes.patches
-        return renderPatchNotes(currentReleaseNotes, enContext)
+        const enMatchedNotes = enContext.ghesReleases!.find((r) => r.version === requestedRelease)
+        if (!enMatchedNotes) throw new Error('Release notes not found')
+        const enCurrentNotes = enMatchedNotes.patches
+        return renderPatchNotes(enCurrentNotes, enContext)
       },
     )
   } finally {

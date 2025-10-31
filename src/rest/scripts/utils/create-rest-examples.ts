@@ -72,11 +72,7 @@ export default async function getCodeSamples(operation: Operation): Promise<Merg
         ...example.request,
         description:
           count[example.request.description] > 1
-            ? example.request.description +
-              ' ' +
-              (i + 1) +
-              ': Status Code ' +
-              example.response!.statusCode
+            ? `${example.request.description} ${i + 1}: Status Code ${example.response!.statusCode}`
             : example.request.description,
       },
     }))
