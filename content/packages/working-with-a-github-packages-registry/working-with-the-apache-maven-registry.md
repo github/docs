@@ -65,7 +65,7 @@ If your instance has subdomain isolation enabled:
       <repositories>
         <repository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
+          <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
           <id>github</id>
@@ -107,7 +107,7 @@ If your instance has subdomain isolation disabled:
       <repositories>
         <repository>
           <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
+          <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
           <id>github</id>

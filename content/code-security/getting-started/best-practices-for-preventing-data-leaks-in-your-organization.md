@@ -116,6 +116,16 @@ If you're unable to coordinate directly with the repository owner to remove data
 > If one of your repositories has been taken down due to a false claim, you should fill out a DMCA
 counter notice form and alert GitHub Support. For more information, see [DMCA counter notice](https://support.github.com/contact/dmca-counter-notice).
 
+{% ifversion ghec or fpt %}
+
+### Revoke exposed tokens
+
+If a {% data variables.product.pat_generic_plural %} has been exposed in a {% data variables.product.github %} repository, {% data variables.product.github %} {% data variables.product.prodname_secret_scanning %} can be used to report and revoke the token. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts#reporting-a-leaked-secret).
+
+You can also revoke {% data variables.product.pat_generic_plural %} that you do not own and have been exposed outside of {% data variables.product.github %} repositories. By doing this, you are contributing to the overall security of the {% data variables.product.github %} community and can quickly limit the impact of these tokens. If you find exposed {% data variables.product.pat_generic_plural %} either on {% data variables.product.github %} or elsewhere, you can submit a revocation request using the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
+
+{% endif %}
+
 ## Next steps
 
 * [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)

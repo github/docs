@@ -4,11 +4,8 @@ import type { Response, NextFunction } from 'express'
 import sharp from 'sharp'
 
 import type { ExtendedRequest } from '@/types'
-import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import { assetCacheControl, defaultCacheControl } from '@/frame/middleware/cache-control'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 
 /**
  * This is the indicator that is a virtual part of the URL.
@@ -146,9 +143,9 @@ export default async function dynamicAssets(
       const buffer = await image.webp({ effort }).toBuffer()
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
-    } catch (error) {
-      if (error instanceof Error && (error as any).code !== 'ENOENT') {
-        throw error
+    } catch (catchError) {
+      if (catchError instanceof Error && (catchError as any).code !== 'ENOENT') {
+        throw catchError
       }
     }
   }

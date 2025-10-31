@@ -1,1 +1,0 @@
-> [!NOTE] Personal custom instructions take priority over repository custom instructions, but both are incorporated into the final prompt provided to {% data variables.product.prodname_copilot_chat_short %}. Whenever possible, you should avoid providing conflicting personal and repository instructions.

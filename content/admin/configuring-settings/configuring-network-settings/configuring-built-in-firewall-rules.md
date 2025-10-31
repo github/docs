@@ -19,7 +19,7 @@ shortTitle: Configure firewall rules
 ---
 ## About {% data variables.location.product_location %}'s firewall
 
-{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see [UFW](https://help.ubuntu.com/community/UFW) in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} uses Ubuntu's Uncomplicated Firewall (UFW) on the virtual appliance. For more information see [Firewall](https://documentation.ubuntu.com/server/how-to/security/firewalls/#ufw-uncomplicated-firewall) in the Ubuntu documentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
 After you install {% data variables.product.prodname_ghe_server %}, all required network ports are automatically opened to accept connections. Every non-required port is automatically configured as `deny`, and the default outgoing policy is configured as `allow`. Stateful tracking is enabled for any new connections; these are typically network packets with the `SYN` bit set. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports).
 
@@ -78,6 +78,9 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
    sudo cp -r /etc/ufw ~/ufw.backup
    ```
 
+> [!WARNING]
+> If you're upgrading your server with an upgrade package you will need to back up your firewall rules to a remote location before installing the upgrade. When using an upgrade package, the root partition is replaced and any custom files that were created will be lost. This doesn’t happen when you upgrade your server using a hotpatch.
+
 After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
 
 ## Restoring the default firewall rules
@@ -86,6 +89,8 @@ If something goes wrong after you change the firewall rules, you can reset the r
 
 > [!WARNING]
 > If you didn't back up the original rules before making changes to the firewall, visit {% data variables.contact.contact_ent_support %} and contact us for further assistance.
+>
+> If you backed up your original rules to a remote location prior to an upgrade, they will need to be transferred back to your server before they can be restored.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 

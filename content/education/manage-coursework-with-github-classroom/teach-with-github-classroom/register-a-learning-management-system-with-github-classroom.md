@@ -17,6 +17,78 @@ Before you can connect your LMS to a classroom, an administrator for your LMS in
 
 {% data reusables.classroom.supported-lmses %}
 
+## Configuring Blackboard for {% data variables.product.prodname_classroom %}
+
+You can register your Blackboard installation with {% data variables.product.prodname_classroom %} to enable teachers to import roster data into their classrooms. For more information about Blackboard, see the [Blackboard website](https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard).
+
+### Step 1. Register {% data variables.product.prodname_classroom %} Developer Keys in the Anthology Developer Portal
+
+1. Sign into the [Anthology Developer Portal](https://developer.anthology.com/).
+1. Click on the **plus sign** in the [My Application](https://developer.anthology.com/portal/applications) page.
+1. Click **Manual Registration** in the dropdown menu.
+1. On the "Register a new application" configuration screen, set the fields to the following values.
+
+    | Field in the new app configuration | Value or setting |
+    | :- | :- |
+    | **Application Name** | `GitHub Classroom` <br/><br/>You can use any name, it will be showed only to administrators.  |
+    | **Description** | `Sync Blackboard course roster to GitHub Classroom` (or something similar) |
+    | **Domain(s)** | `classroom.github.com` |
+    | **Group** | Leave the default value or change it according to your institution needs. |
+    | **My Integration supports LTI 1.3** | Enable the flag.|
+    | **Login Initiation URL** | `https://classroom.github.com/lti1p3/openid-connect/auth` |
+    | **Tool Redirect URL(s)** | `https://classroom.github.com/lti1p3/openid-connect/redirect,https://classroom.github.com/context-link` |
+    | **Tool JWKS URL** | `https://classroom.github.com/.well-known/jwks.json` |
+    | **Signing Algorithm** dropdown | `RS256` |
+    | **Custom parameters** | Leave empty. |
+1. Click **Register Application**.
+1. The Developer Portal will show a screen that contains important information you'll need to input in the next steps of registering your instance in your Blackboard instance and in {% data variables.product.prodname_classroom %} below. Please note them in a safe place and click **Done**.
+1. In the table on the "My Applications" page, in the row for the GitHub Classroom application, click on the three dots and then **Manage Placements** in the dropdown menu.
+1. Click on the **plus sign**.
+1. On the "Register a new placement" configuration screen, set the fields to the following values.
+
+    | Field in the new placement configuration | Value or setting |
+    | :- | :- |
+    | **Placement Name** | `GitHub Classroom` <br/><br/>You can use any name, but if you set this to something else, be sure this is communicated to teachers.  |
+    | **Description** | `Sync Blackboard course roster to GitHub Classroom` (or something similar) |
+    | **Type** dropdown | Course Tool |
+    | **Allow students access** | Don't enable the flag. |
+    | **Launch in new window** | Don't enable the flag, unless you want to offer that user experience. |
+    | **Target link URI** | `https://classroom.github.com/context-link` |
+    | **Icon URL** | Leave it empty or provide a static URL for the icon. If needed, later in Blackboard can be manually uploaded. |
+    | **Custom parameters** | Leave empty. |
+1. Click **Register Placement**.
+
+### Step 2. Register {% data variables.product.prodname_classroom %} Developer Keys in Blackboard
+
+1. Sign into your **Blackboard** instance.
+1. In the left sidebar on the home page, click **Admin**, then click **LTI Tool Providers**.
+1. On the "LTI Tool Providers" page, click **Register LTI 1.3/Advantage Tool**.
+1. Insert the **Client ID** / **Application ID** obtained from the Developer Portal and click **Submit**.
+1. Blackboard will show all application data. In this page:
+    1. Verify that **Tool Status** is `Approved`.
+    1. Verify that **User Fields to be Sent** flags are enabled for "Role in Course", "Name", "Email Address".
+    1. Verify that **Allow mark service access** radio button is set to "No". To enable this option, navigate to the LTI Tool Providers in the Admin Panel:
+       * Select Manage Global Properties
+       * Under Creation of Tool Provider Links, select radio button “Allow links to any tool provider, but require approval for each new provider”
+    1. Verify that **Allow Membership Service Access** radio button is set to "Yes".
+1. Click **Submit**.
+
+### Step 3. Register your developer keys with {% data variables.product.prodname_classroom %}
+
+1. Go to https://classroom.github.com/register-lms.
+1. Fill in the following information:
+
+   * Under "LMS Type", choose "Other" from the dropdown menu.
+   * "Issuer Identifier": `https://blackboard.com`
+   * "Domain": The base URL to your Blackboard instance
+   * "Client ID": The "Client ID" / "Application ID" obtained from the registration of the app in the Anthology Developer Portal.
+   * "OIDC Initiation URL": The "OIDC auth request endpoint" obtained from the registration of the app in the Anthology Developer Portal.
+   * "OAuth 2.0 Token Retrieval URL": The "Auth token endpoint" obtained from the registration of the app in the Anthology Developer Portal.
+   * "Key Set URL": The "Public keyset URL" obtained from the registration of the app in the Anthology Developer Portal.
+
+1. Click **Register**.
+1. You should see the "Successfully registered LMS" banner at the top of the screen, which means that you've registered your LMS instance and teachers can now link their classrooms.
+
 ## Configuring Canvas for {% data variables.product.prodname_classroom %}
 
 You can register your Canvas installation with {% data variables.product.prodname_classroom %} to enable teachers to import roster data into their classrooms. For more information about Canvas, see the [Canvas website](https://www.instructure.com/canvas/).

@@ -1,4 +1,4 @@
-For next steps that apply to any enterprise using {% data variables.product.prodname_copilot_business_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise). The step for granting access to organizations does not apply.
+For next steps that apply to any enterprise using {% data variables.copilot.copilot_business_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise). The step for granting access to organizations does not apply.
 
 The following sections contain specific information for your enterprise.
 
@@ -12,12 +12,13 @@ To do this in your enterprise, you can use the [List all {% data variables.produ
 
 Your enterprise has access to the new billing platform, which allows you to estimate upcoming spending, control overspending with budgets, and track spending changes over time.
 
-See [AUTOTITLE](/billing/using-the-new-billing-platform).
+See [AUTOTITLE](/billing/managing-your-billing).
 
 ### Configure content exclusions
 
 You can prevent specified files or repositories from being used to inform code completion suggestions made by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} will not be available in excluded files.
 
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Click the **Content exclusion** tab.
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.view-copilot-policies %}
+1. Click {% octicon "circle-slash" aria-hidden="true" aria-label="circle-slash" %} **Content exclusion**.
 1. Use paths to specify which content to exclude. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot).

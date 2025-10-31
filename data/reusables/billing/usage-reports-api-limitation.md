@@ -1,0 +1,1 @@
+> [!NOTE] Data for the detailed usage report is available only through the {% data variables.product.github %} web interface and cannot be obtained via the REST API `/usage` endpoint. The REST API only provides access to summarized billing information.

@@ -54,7 +54,7 @@ You can also add templates to teams and repositories, to make them accessible an
 If you have write or admin permissions for a project in your organization, you can choose to copy the project as a template. This will make a duplicate of the current project—copying the {% data reusables.projects.what-gets-copied %} —and set that copied project as a template for your organization.
 
 {% data reusables.projects.project-settings %}
-1. In the "Templates" section, click **{% octicon "duplicate" aria-hidden="true" %} Copy as template**.
+1. In the "Templates" section, click **{% octicon "duplicate" aria-hidden="true" aria-label="duplicate" %} Copy as template**.
 
 ## Configuring recommended templates
 
@@ -66,7 +66,7 @@ You can add up to six templates to your organization's recommended templates.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 1. Under "Recommended templates", click **Customize recommended templates**.
 1. In the list of templates owned by your organization, select up to six templates that you want to recommend to your members.
 
@@ -80,7 +80,7 @@ You can change the display order of your recommended templates in the "Create pr
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 1. Under "Recommended templates", find the template you want to reposition, click on {% octicon "grabber" aria-label="Drag to reorder" %}, and drag the template to the new position.
 
    ![Screenshot of an organization's recommended templates settings. The 'Drag to reorder' handle is highlighted with an orange outline.](/assets/images/help/projects-v2/rec-template-handle.png)

@@ -1,18 +1,18 @@
 import { Box, Pagination, Text } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
-import { sendEvent, uuidv4 } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { sendEvent, uuidv4 } from '@/events/components/events'
+import { EventType } from '@/events/types'
 
 import styles from './SearchResults.module.scss'
 
-import type { SearchQueryContentT } from 'src/search/components/types'
-import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from 'src/search/types'
+import type { SearchQueryContentT } from '@/search/components/types'
+import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
 import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 
@@ -159,12 +159,12 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
     }
   }, [asPath])
 
-  function hrefBuilder(page: number) {
+  function hrefBuilder(pageNumber: number) {
     const params = new URLSearchParams(asPathQuery)
-    if (page === 1) {
+    if (pageNumber === 1) {
       params.delete('page')
     } else {
-      params.set('page', `${page}`)
+      params.set('page', `${pageNumber}`)
     }
     return `/${router.locale}${asPathRoot}?${params}`
   }
@@ -176,22 +176,22 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
           pageCount={Math.min(totalPages, 10)}
           currentPage={page}
           hrefBuilder={hrefBuilder}
-          onPageChange={(event, page) => {
+          onPageChange={(event, pageNum) => {
             event.preventDefault()
 
-            const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-            const params = new URLSearchParams(asPathQuery)
-            if (page !== 1) {
-              params.set('page', `${page}`)
+            const [pathRoot, pathQuery = ''] = router.asPath.split('#')[0].split('?')
+            const params = new URLSearchParams(pathQuery)
+            if (pageNum !== 1) {
+              params.set('page', `${pageNum}`)
             } else {
               params.delete('page')
             }
-            let asPath = `/${router.locale}${asPathRoot}`
+            let newPath = `/${router.locale}${pathRoot}`
             if (params.toString()) {
-              asPath += `?${params}`
+              newPath += `?${params}`
             }
-            setAsPath(asPath)
-            router.push(asPath)
+            setAsPath(newPath)
+            router.push(newPath)
           }}
         />
       </Box>

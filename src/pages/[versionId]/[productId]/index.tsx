@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/landings/pages/product'
+export { default, getServerSideProps } from '@/landings/pages/product'

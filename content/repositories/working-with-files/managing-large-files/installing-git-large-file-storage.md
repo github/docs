@@ -25,7 +25,7 @@ shortTitle: Install Git LFS
 1. Change the current working directory into the folder you downloaded and unzipped.
 
    ```shell
-   cd ~/Downloads/git-lfs-1.X.X
+   cd ~/Downloads/git-lfs-X.X.X
    ```
 
    > [!NOTE]

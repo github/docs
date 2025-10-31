@@ -1,2 +1,3 @@
-* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **Compatible version of Eclipse**. To use the {% data variables.product.prodname_copilot %} extension, you must have Eclipse version 2024-09 or above. See the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
+* If you are a member of an organization or enterprise with a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the "MCP servers in Copilot" policy must be enabled in order to use MCP with {% data variables.product.prodname_copilot_short %}.

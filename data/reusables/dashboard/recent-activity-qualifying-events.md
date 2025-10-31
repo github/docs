@@ -1,5 +1,5 @@
 Open issues and pull requests appear in the recent activity section when:
-* You have opened an issue or pull request.
+* You have opened the issue or pull request.
 * Someone has commented on an issue or pull request you opened.
 * Your issue or pull request was reopened.
 * Your review was requested on a pull request.

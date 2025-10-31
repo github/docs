@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Update list of allowed IPs
         run: |
@@ -49,6 +49,7 @@ jobs:
           gh pr create \
             --title "Update list of allowed IPs" \
             --body 'This PR updates the list of allowed IPs in Moda. It is automatically generated.' \
+            --label "workflow-generated" \
             --head=$branchname
           echo "Pull request created"
 

@@ -2,7 +2,7 @@ import type { NextFunction, Request, Response } from 'express'
 import fs from 'fs'
 import path from 'path'
 
-import { defaultCacheControl } from './cache-control.js'
+import { defaultCacheControl } from './cache-control'
 
 const ICONS = [
   './assets/images/site/apple-touch-icon-57x57.png',

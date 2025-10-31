@@ -25,7 +25,7 @@ The directories are named by GHES release number (with a hyphen instead of a per
 
 The YAML files in each directory are named by patch number. Some patch filenames may end with `-rc<num>.yml`, which means it's a release candidate. A release candidate file also requires `release_candidate: true` in the YAML data.
 
-Release notes of deprecated GHES versions (see `lib/enterprise-server-releases.js`) are **not** removed from the site and will always be displayed alongside currently supported versions.
+Release notes of deprecated GHES versions (see `lib/enterprise-server-releases.ts`) are **not** removed from the site and will always be displayed alongside currently supported versions.
 
 Note that patch files can be deprecated individually (i.e., hidden on the docs site) by an optional `deprecated: true` property.
 
@@ -41,6 +41,6 @@ The release notes page has a custom design with CSS in `stylesheets/release-note
 
 ### Schema
 
-The schema that validates the YAML data lives in `src/content-linter/lib/release-notes-schema.js`. See the schema file to find out the required and optional properties.
+The schema that validates the YAML data lives in `src/content-linter/lib/release-notes-schema.ts`. See the schema file to find out the required and optional properties.
 
-The schema is exercised by a test in `src/content-linter/tests/lint-files.js`. The test will fail if the data does not pass validation.
+The schema is exercised by a test in `src/content-linter/tests/lint-files.ts`. The test will fail if the data does not pass validation.

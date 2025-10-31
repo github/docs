@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 
 import { blockIndex } from '@/frame/middleware/block-robots'
-import { productMap } from '@/products/lib/all-products.js'
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
+import { productMap } from '@/products/lib/all-products'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
 
 function allowIndex(path: string) {
   return !blockIndex(path)

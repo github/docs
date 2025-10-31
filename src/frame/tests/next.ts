@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { get } from '@/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest'
 
 describe('bad requests', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

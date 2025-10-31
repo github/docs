@@ -12,7 +12,7 @@ If you cannot find your organization in the GitHub for Nonprofits portal, ensure
 
 Revoke the OAuth apps authorization from GitHub.
 
-1. In the upper-right corner of any page on GitHub, click your profile photo, then click **Settings**.
+1. In the upper-right corner of any page on GitHub, click your profile picture, then click **Settings**.
 1. In the "Integrations" section of the sidebar, click **Applications**.
 1. Click the "Authorized OAuth Apps" tab.
 1. Review the tokens that have access to your account. Select the tokens that you don't recognize or that are out-of-date. Then click **Revoke**. To revoke all tokens, click **Revoke all**.
@@ -24,7 +24,7 @@ Revoke the OAuth apps authorization from GitHub.
 
 If this does not resolve the problem, please try disabling OAuth app access restrictions for your organization.
 
-1. In the upper-right corner of GitHub, select your profile photo, then click **Your organizations**.
+1. In the upper-right corner of GitHub, click your profile picture, then click **Your organizations**.
 1. Next to the organization, click **Settings**.
 1. In the "Third-party Access" section of the sidebar, click **OAuth app policy**.
 1. Click **Remove restrictions**.

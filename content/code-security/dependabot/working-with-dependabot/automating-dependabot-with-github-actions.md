@@ -27,13 +27,16 @@ redirect_from:
 
 You can use {% data variables.product.prodname_actions %} to perform automated tasks when {% data variables.product.prodname_dependabot %} creates pull requests to update dependencies. You may find this useful if you want to:
 
-* Ensure that {% data variables.product.prodname_dependabot %} pull requests (version updates and security updates) are created with the right data for your work processes, including labels, names, and reviewers.
+* Ensure that {% data variables.product.prodname_dependabot %} pull requests (version updates and security updates) are created with the right data for your work processes, including labels and names.
 
 * Trigger workflows to send  {% data variables.product.prodname_dependabot %} pull requests (version updates and security updates) into your review process or to merge automatically.
 
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
+
+> [!IMPORTANT]
+> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run on {% data variables.product.prodname_actions %}, **bypassing both Actions policy checks and disablement at the repository or organization level**. This ensures that security and version update workflows always run when Dependabot is enabled.
 
 {% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date. You can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modify the pull request.
 
@@ -56,7 +59,6 @@ on: pull_request
 permissions:
   pull-requests: write
   issues: write
-  repository-projects: write
 
 jobs:
   dependabot:
@@ -93,7 +95,6 @@ on: pull_request
 permissions:
   pull-requests: write
   issues: write
-  repository-projects: write
 
 jobs:
   dependabot:
@@ -188,6 +189,19 @@ jobs:
 
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
+
+## {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %} policies
+
+Normally, whether a workflow can run in a repository depends on {% data variables.product.prodname_actions %} **policy checks** and whether {% data variables.product.prodname_actions %} is **enabled** at the organization or repository level. These controls can restrict workflows from running—especially when external actions are blocked or {% data variables.product.prodname_actions %} is disabled entirely.
+
+However, when {% data variables.product.prodname_dependabot %} is enabled for a repository, its workflows will always run on {% data variables.product.prodname_actions %}, **bypassing both Actions policy checks and disablement**.
+
+* {% data variables.product.prodname_dependabot %} workflows are not blocked by Actions disablement or enterprise policy restrictions.
+* The actions referenced within these workflows are also allowed to run, even if external actions are disallowed.
+
+{% ifversion dependabot-on-actions-opt-in %}
+For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+{% endif %}
 
 ## Investigating failed workflow runs
 

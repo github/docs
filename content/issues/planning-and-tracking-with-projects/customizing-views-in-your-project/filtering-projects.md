@@ -233,8 +233,6 @@ You can also use a <code>&ast;</code> as a wildcard.
 
 If your organization uses issue types, you can filter for particular types.
 
-{% data reusables.issues.release-stage %}
-
 | Qualifier  | Example
 | ---------- | -------------
 | <code>type:&quot;<em>ISSUE TYPE</em>&quot;    | **type:&quot;bug&quot;** will show issues with the "bug" type.
@@ -246,8 +244,6 @@ If your organization uses issue types, you can filter for particular types.
 ## Filtering by parent issue
 
 You can filter your sub-issues by their parent issue.
-
-{% data reusables.issues.release-stage %}
 
 | Qualifier  | Example
 | ---------- | -------------

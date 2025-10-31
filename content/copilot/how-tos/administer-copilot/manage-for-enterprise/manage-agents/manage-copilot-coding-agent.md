@@ -1,0 +1,61 @@
+---
+title: Managing GitHub Copilot coding agent in your enterprise
+intro: 'Enable members of your enterprise to use {% data variables.copilot.copilot_coding_agent %} and control the repositories where it is available.'
+allowTitleToDifferFromFilename: true
+permissions: Enterprise owners
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+versions:
+  feature: copilot
+topics:
+  - Copilot
+shortTitle: 'Manage {% data variables.copilot.copilot_coding_agent %}'
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/adding-copilot-coding-agent-to-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/making-copilot-coding-agent-available-to-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-copilot-coding-agent-in-your-enterprise
+  - /copilot/how-tos/administer/enterprises/managing-copilot-coding-agent-in-your-enterprise
+  - /copilot/how-tos/administer/enterprises/manage-copilot-coding-agent
+  - /copilot/how-tos/administer/manage-for-enterprise/manage-copilot-coding-agent
+  - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-copilot-coding-agent
+contentType: how-tos
+category: 
+  - Manage Copilot for a team
+---
+
+> [!NOTE]
+> For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
+
+## Prerequisites
+
+* For general information, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org).
+* For information on premium requests and Actions minutes, see [Allowance usage for {% data variables.copilot.copilot_coding_agent %}](/billing/managing-billing-for-your-products/managing-billing-for-github-copilot/about-billing-for-github-copilot#allowance-usage-for-copilot-coding-agent).
+* For information on MCP servers, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).
+
+## Enabling {% data variables.copilot.copilot_coding_agent %} for your {% data variables.product.prodname_copilot_short %} subscribers
+
+{% data variables.copilot.copilot_coding_agent %} and use of third-party MCP servers are blocked by default for users to whom you have assigned a {% data variables.product.prodname_copilot_short %} license. You can allow members to use these features from the AI Controls tab for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot).
+
+* On the "Agents" page, click **{% data variables.copilot.copilot_coding_agent %}**, then select **Enabled everywhere** or **Let organizations decide**.
+* On the "MCP" page, for the "MCP servers in {% data variables.product.prodname_copilot_short %}" policy, select **Enabled everywhere** or **Let organizations decide**.
+
+### Next steps
+
+* If you selected **Enabled everywhere**, tell organization owners that {% data variables.copilot.copilot_coding_agent %} is enabled for all members. By default, the agent will be available in all repositories, but it is possible to opt out some or all repositories.
+* If you selected **Let organizations decide**, discuss member enablement with organization owners.
+
+For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
+
+## Disabling {% data variables.copilot.copilot_coding_agent %} in your repositories
+
+{% data variables.product.prodname_copilot_short %} policies, like the "{% data variables.copilot.copilot_coding_agent %}" and "MCP servers on {% data variables.product.prodname_dotcom_the_website %}" policies described above, affect only the users you assign a {% data variables.product.prodname_copilot_short %} license to.
+
+If there are {% data variables.copilot.copilot_pro_plus %} users with access to your enterprise's repositories, they will be able to use {% data variables.copilot.copilot_coding_agent %} and will not be restricted by your policies.
+
+You can choose to stop anyone using the agent in some or all of your repositories using organization-level settings. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
+
+Alternatively, you can disable the agent for all repositories owned by your enterprise.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+1. In the "Installed Agents" section, click **{% data variables.copilot.copilot_coding_agent %}**.
+1. In the "{% data variables.copilot.copilot_coding_agent %}" section, next to "Block {% data variables.copilot.copilot_coding_agent %} in all repositories owned by ENTERPRISE-NAME", click the toggle.

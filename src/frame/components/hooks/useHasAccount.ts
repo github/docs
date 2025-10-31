@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 
 // Measure if the user has a github.com account and signed in during this session.
 // The github.com sends the color_mode cookie every request when you sign in,

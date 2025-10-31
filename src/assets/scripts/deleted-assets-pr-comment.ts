@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-import * as github from '@actions/github'
+import github from '@actions/github'
 import core from '@actions/core'
 
 const { GITHUB_TOKEN } = process.env

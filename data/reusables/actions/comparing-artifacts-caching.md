@@ -1,4 +1,4 @@
-## Comparing artifacts and dependency caching
+## Artifacts versus dependency caching
 
 Artifacts and caching are similar because they provide the ability to store files on {% data variables.product.prodname_dotcom %}, but each feature offers different use cases and cannot be used interchangeably.
 

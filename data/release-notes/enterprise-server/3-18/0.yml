@@ -1,0 +1,251 @@
+date: '2025-10-14'
+release_candidate: false
+deprecated: false
+intro: |
+
+sections:
+  # Remove section heading if the section contains no notes.
+
+  features:
+    # Remove a sub-section heading if the heading contains no notes. If sections
+    # that regularly recur are missing, add placeholders to this template.
+
+    - heading: Instance services
+      notes:
+        # https://github.com/github/releases/issues/6173
+        - |
+          Operators use OpenTelemetry metrics to monitor the appliance. This feature is currently in public preview and should only be used in preproduction environments. You can also export Prometheus metrics to third-party observability systems. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/opentelemetry-metrics/about-opentelemetry-metrics).
+        # https://github.com/github/releases/issues/6019
+        - |
+          Admins can enable a larger item limit on projects, which supports up to 50,000 items. After the upgrade, the `memex-project-items` index will be migrated and an index repair started Once the `memex-project-items` index repair is completed, the new index is automatically promoted to primary and `ENABLE_PROJECTS_INCREASED_LIMITS` can be enabled. If `ENABLE_PROJECTS_INCREASED_LIMITS` is enabled before the index repair is completed, project data will appear to be missing from any partially repaired projects. This problem will resolve itself once the repair completes.
+
+    - heading: APIs
+      notes:
+        # https://github.com/github/releases/issues/5754
+        - |
+          For push webhook events, the `html_url` and `url` fields return different values. The `html_url` field returns the repository URL (e.g., https://github.com/), while the `url` field provides the API URL (e.g., https://api.github.com/repos/). Previously, both fields returned the same link, unlike other webhook events like `pull_request`.
+
+    - heading: Policies
+      notes:
+        # https://github.com/github/releases/issues/4559
+        - |
+          Enterprise administrators can create enterprise-level rulesets, and set pull request merge methods using rules. These features provide greater control and consistency across repositories within the enterprise.
+        # https://github.com/github/releases/issues/5268
+        - |
+          Developers can request exceptions to push rules through a delegated bypass process, ensuring each request is reviewed, audited, and approved for transparency. Email notifications keep developers updated on approval status.
+
+    - heading: Secret Protection (part of Advanced Security)
+      notes:
+        # https://github.com/github/releases/issues/5331
+        - |
+          Secret scanning supports additional default patterns for secret protection, expanding coverage for more token formats and credential types. This enhancement helps administrators and users better prevent accidental exposure of sensitive information.
+        # https://github.com/github/releases/issues/5394
+        - |
+          Organization and security admins can run a free secret risk assessment to scan their organization for aggregate insights on public leaks, private exposures, and token types. The assessment provides a dashboard with actionable data to help organizations understand and address secret leak risks. See [Find secrets exposed in your organization with the secret risk assessment](https://github.blog/changelog/2025-04-01-find-secrets-exposed-in-your-organization-with-the-secret-risk-assessment/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/6032
+        - |
+          Administrators and developers can use the Secret Scanning Alerts API to hide the values of detected secret literals within secret scanning alerts. This helps prevent accidental exposure of sensitive information when viewing or processing alert data. See [Secret scanning alerts API now supports hiding secret literals](https://github.blog/changelog/2025-05-20-secret-scanning-alerts-api-now-supports-hiding-secret-literals) on the GitHub Blog.
+
+    - heading: Code Security (part of Advanced Security)
+      notes:
+        # https://github.com/github/releases/issues/5967
+        - |
+          Administrators and security teams can view improved metrics for CodeQL pull request alerts on the security overview dashboard. These updates provide more precise insight into alert identification and resolution to help organizations strengthen their security posture. Dashboard data is scoped to pull requests against the default branch; future updates will expand coverage to other branches. Historical dashboard data is not retroactively updated. See [AUTOTITLE](/enterprise-server@latest/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
+        # https://github.com/github/releases/issues/5746
+        - |
+          Organization administrators with Code Security can grant Dependabot access to repositories at scale from the organization level. Options allow you to enable Dependabot access permanently for all current and future internal repositories. New API endpoints support programmatic management of repository access permissions. See [It's now easier to grant Dependabot access to repositories from the organization level](https://github.blog/changelog/2025-06-03-its-now-easier-to-grant-dependabot-access-to-repositories-from-the-organization-level/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/4614
+        - |
+          Users can track the progress of code scanning alert resolution with the new "Development" section. This section highlights when an alert is introduced, addressed, or reintroduced, helping users understand the lifecycle of each alert and supporting better code security management. See [Track progress on code scanning alerts with the new development section](https://github.blog/changelog/2025-05-02-track-progress-on-code-scanning-alerts-with-the-new-development-section/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/5717
+        # https://github.com/github/releases/issues/5718
+        # https://github.com/github/releases/issues/5887
+        # https://github.com/github/releases/issues/5897
+        # https://github.com/github/releases/issues/5898
+        # https://github.com/github/releases/issues/5899
+        - |
+          This release comes installed with version 2.21.4 of the CodeQL CLI, used in the CodeQL action for code scanning. Significant updates since the default version installed on GitHub Enterprise Server 3.17 include:
+            * General availability of support for analyzing GitHub Actions workflows. See [GitHub Actions workflow security analysis with CodeQL is now generally available](https://github.blog/changelog/2025-04-22-github-actions-workflow-security-analysis-with-codeql-is-now-generally-available) on the GitHub Blog.
+            * The GitHub Actions `actions/missing-workflow-permissions` query provides better alert messages and fix suggestions.
+            * Improved Java analysis. The `java/spring-boot-exposed-actuators` query is included in the default code scanning query stack to help identify publicly exposed Spring Boot actuators.
+            * Support for Swift 6.1.1, ensuring you can analyze projects built with this version.
+            * The Python extractor [analyzes files in hidden directories](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.21.4/#id8) by default.
+            * C/C++ improvements, including added support for more Windows APIs including file read functions, command-line and environment variable APIs, and flow models for SQLite and OpenSSL libraries.
+            * Javascript and TypeScript enhancements, including:
+              * Support for TypeScript 5.8, enabling analysis of the latest Typescript language features.
+              * Expanded JavaScript analysis to cover Apollo Server, React Relay, SAP packages, and TanStack libraries for broader security scanning.
+              * Enhanced path injection detection for several additional methods.
+              * A fix for an issue where `tsconfig.json` files containing array literals and trailing commas were not correctly extracted.
+              * Improved modeling of the `fastify` framework and the `shelljs` and `async-shelljs` libraries, which could result in improved analysis results for apps using them.
+              * New detections of sources and sinks in Next.js and DOM element references, improving the detection of XSS issues.
+            * Ruby enhancements, including:
+              * Improved the `rb/useless-assignment-to-local` query, so you'll see fewer false positives and will get helpful documentation for alerts.
+              * The `rb/uninitialized-local-variable` query now only generates an alert when a variable is used as a method call receiver. This should reduce noise. In addition, new help content is available for this query.
+              * Calls to `super` without explicit arguments now have their implicit arguments generated, resulting in more accurate analysis.
+            * Support for analyzing Kotlin applications up to version 2.2.0x, and dropped support for the 1.5.x series of Kotlin. The minimum supported Kotlin version is now 1.6.0.
+            * C# enhancements, including:
+              * Enhancements to the `cs/missed-readonly-modifier` query, reducing false positives.
+              * The `cs/gethashcode-is-not-defined` and `cs/uncontrolled-format-string` queries detect more potential issues, helping administrators identify risks more effectively.
+              * The false positive rate for the query `cs/web/missing-function-level-access-control` has been reduced by improving the detection of authorization checks.
+              * The true positive rate for the `cs/invalid-string-formatting` query has been increased by accounting for methods and additional overloads of existing format-like methods.
+            * Removed hardcoded credential queries from all query suites across multiple languages (C#, Go, Java/Kotlin, JavaScript/TypeScript, Python, Ruby, and Swift) to reduce noise and duplication of alerts from GitHub Secret Protection. See [CodeQL no longer detects hardcoded secrets](https://github.blog/changelog/2025-05-28-codeql-no-longer-detects-hardcoded-secrets/) on the GitHub blog.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/5387
+        - |
+          Users can schedule custom update frequencies for Dependabot version updates by using cron expressions in `schedule.interval` in the Dependabot configuration file. This enhances the predefined intervals of daily, weekly, and monthly to provide more flexible scheduling options that meet specific needs.
+        # https://github.com/github/releases/issues/5744
+        - |
+          Users can use Dependabot version updates to automatically keep Helm dependencies up to date. For projects that use Helm as a package manager, Dependabot can ensure dependencies stay current with the latest releases. See [Dependabot version updates now support Helm](https://github.blog/changelog/2025-04-09-dependabot-version-updates-now-support-helm/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/5746
+        - |
+          Users can use an improved checkbox UI to grant point-in-time access across their repository portfolio. New API endpoints support programmatic management of repository access permissions. See [It's now easier to grant Dependabot access to repositories from the organization level](https://github.blog/changelog/2025-06-03-its-now-easier-to-grant-dependabot-access-to-repositories-from-the-organization-level/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/5913
+        - |
+          Users can use the `has:patch` filter with the Dependabot REST API to quickly identify dependencies that have available patches. This streamlines the process of addressing vulnerabilities and staying up-to-date with dependency maintenance. See [Dependabot API now contains has:patch in general availability](https://github.blog/changelog/2025-04-29-dependabot-api-now-contains-haspatch-in-general-availability) on the GitHub Blog.
+        # https://github.com/github/releases/issues/6006
+        - |
+          Dependabot is generally available for execution on self-hosted GitHub Actions runners managed within Kubernetes clusters using Actions Runner Controller (ARC), providing auto-scaling, workload isolation, and improved resource management. Additionally, Dependabot support for running within a virtual network (vNet) in self-hosted runner environments is now generally available, enabling secure, isolated dependency updates with network-level governance. See [Dependabot support for virtual network (vNet) and Actions Runner Controller (ARC) is generally available](https://github.blog/changelog/2025-05-27-dependabot-support-for-virtual-network-vnet-and-actions-runner-controller-arc-is-generally-available/).
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+        # https://github.com/github/releases/issues/3578
+        - |
+          Repository users can pin specific workflows to the top of the workflows list on the Actions workflow page, making frequently used workflows easier to access and manage across the repository.
+        # https://github.com/github/releases/issues/5250
+        - |
+          Users can use CodeQL code scanning to detect security vulnerabilities in GitHub Actions workflows. CodeQL automatically analyzes workflows to detect common vulnerabilities such as missing required permissions or inputs without proper validation. See [GitHub Actions workflow security analysis with CodeQL is now generally available](https://github.blog/changelog/2025-04-22-github-actions-workflow-security-analysis-with-codeql-is-now-generally-available) on the GitHub Blog.
+        # https://github.com/github/releases/issues/5499
+        - |
+          Administrators using the Actions runner controller can configure metrics collection to address performance issues caused by high cardinality. This change allows customers to tailor metric granularity to better meet their reporting and observability needs.
+        # https://github.com/github/releases/issues/5539
+        - |
+          Administrators can configure custom annotations and resource settings for the Actions Runner Controller (ARC), enabling integration with deployment tools like ArgoCD and Helm. This flexibility allows alignment with preferred DevOps workflows and supports advanced deployment strategies.
+
+    - heading: Community experience
+      notes:
+        # https://github.com/github/releases/issues/5798
+        - |
+          Users who view an organization's activity feed experience improved performance as the feed runs on a newer infrastructure. Push events are grouped into a single card, showing recent activity in chronological order, instead of individual lines for each event.
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/5274
+        - |
+          Users can use regex to ensure custom properties match data structures like email addresses or patterns relevant to your organization.
+        # https://github.com/github/releases/issues/5798
+        - |
+          Organization members experience faster load times and improved responsiveness in the organizational feed. These performance improvements help users more efficiently review updates and activities within their organizations.
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/release/issues/5271
+        - |
+          Enterprise owners can enrich repositories with consistent metadata across the entire enterprise using enterprise custom properties. Existing organization-level custom properties can also be promoted to the enterprise level.
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/5762
+        - |
+          Repository administrators can control whether merged pull requests automatically close linked issues with a new repository setting. This change addresses feedback from teams who prefer to keep issues open for additional QA or process steps after merging a pull request.
+        # https://github.com/github/releases/issues/5543
+        - |
+          Users can perform advanced issue searches using the AND and OR keywords and nested searches using both the REST and GraphQL APIs. This enhancement enables more precise queries to find exactly the set of issues needed for tracking and reporting.
+        # https://github.com/github/releases/issues/5662
+        - |
+          Users can manage issue types in GitHub Issues and Projects via the REST API, enabling automation of issue type creation, updates, deletions, and assignments to issues.
+        # https://github.com/github/releases/issues/4086
+        - |
+          Users can close issues as duplicates of others, improving issue management clarity. In addition, the REST API supports viewing, adding, removing, and reprioritizing sub-issues, enabling automation of issue hierarchies. See [Close issue as a duplicate, REST API for sub-issues, and more](https://github.blog/changelog/2024-12-12-github-issues-projects-close-issue-as-a-duplicate-rest-api-for-sub-issues-and-more/) on the GitHub blog.
+        # https://github.com/github/releases/issues/5186
+        - |
+          Organization administrators can standardize issue management by creating issue types across repositories. See [AUTOTITLE](/issues/tracking-your-work-with-issues/configuring-issues/managing-issue-types-in-an-organization).
+        # https://github.com/github/releases/issues/5719
+        # https://github.com/github/releases/issues/5814
+        - |
+          Users can access an improved Issues dashboard page at HOSTNAME.com/issues featuring saved views to create and save custom queries across repositories and organizations, and a new "Recent activity" view to find relevant work.
+        # https://github.com/github/releases/issues/5186
+        - |
+          The GitHub Issues interface is faster and easier to use, with a filter bar featuring autocomplete and syntax highlighting, a "create more" option for quick issue creation, alphabetical sorting of issue forms and templates, a copy link button for sharing issues, and improved loading for long issues.
+        # https://github.com/github/releases/issues/5186
+        - |
+          Users can find issues more efficiently using advanced search with AND, OR, and parentheses for nested searches. See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests#building-advanced-filters-for-issues).
+        # https://github.com/github/releases/issues/5186
+        - |
+          Users can organize large tasks by breaking issues into sub-issues. Sub-issues create a nested structure, making it easier to track progress and manage work within a project.
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/4587
+        - |
+          Repository and organization administrators can use the new merge method rule for rulesets to control which merge methods—merge commit, squash, or rebase—are allowed on targeted branches when merging pull requests via the UI or APIs. This ensures consistency and simplifies workflows across branches.
+
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - | 
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      When restoring data originally backed up from an appliance with version 3.13 or greater, the Elasticsearch indices must be reindexed before the data will display. This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running ghe-cluster-repl-status if a new organization and repositories are created before using the ghe-cluster-repl-bootstrap command. To avoid this issue, complete the cluster HA setup with ghe-cluster-repl-bootstrap before creating new organizations and repositories.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running ghe-repl-promote, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      The entry for Private Registries in the organization settings menu is not visible unless Dependabot is enabled.  
+  
+  closing_down:
+    # https://github.com/github/releases/issues/5177
+    - |
+      In GitHub Enterprise Server 3.20, GitHub will retire the security manager API in favor of the organization roles API. See [Notice of breaking changes: Security manager REST API will be retired and replaced with the organization roles REST API](https://github.blog/changelog/2024-12-10-notice-of-breaking-changes-security-manager-rest-api-will-be-retired-and-replaced-with-the-organization-roles-rest-api/) on the GitHub blog
+    - |
+      Microsoft Exchange Online is retiring SMTP basic authentication in September 2025. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy's [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config).
+
+  retired:
+    # https://github.com/github/releases/issues/4964
+    - |
+      The /explore functionality, including the Activity and Trending pages, is no longer available. Users can no longer access these pages to discover trending repositories or recent activity.
+    # https://github.com/github/releases/issues/6045
+    - |
+      The ability to bulk convert issues to discussions using labels is deprecated. Users can continue to convert individual issues to discussions manually using the "Convert to discussion" option. See [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).
+    # https://github.com/github/releases/issues/4977
+    - |
+      GitHub Actions users should update workflows that modify check run statuses via the REST API. GitHub will restrict the ability to change check run status for runs created by Actions to prevent inconsistent state changes. Review your workflows to ensure compatibility with this update.
+    # https://github.com/github/releases/issues/5609
+    - |
+      Deployment permissions in GitHub Actions workflows have changed. Workflows using the deployment protection rule or required reviewers must now explicitly grant write or admin permissions to the GITHUB_TOKEN for successful deployment. Update workflows to avoid disruptions.
+    # https://github.com/github/releases/issues/5143
+    - |
+      The announcement banner GraphQL fields have been replaced. Users can now manage instance-wide announcements through updated GraphQL fields, improving consistency and control for administrators. The existing individual fields following the `announcementX` pattern have been removed, and the new fields are within the `announcementBanner` object.
+    # https://github.com/github/releases/issues/5811
+    - |
+      Automatic watching of repositories and teams has been deprecated. Users will no longer be auto-subscribed when joining organizations or teams, reducing notification noise and confusion. Existing auto-watching subscriptions remain unchanged; users stay subscribed to previously watched repositories or teams. See [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#automatic-watching).

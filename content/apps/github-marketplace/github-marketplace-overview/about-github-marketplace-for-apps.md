@@ -44,11 +44,11 @@ If you're interested in creating an app for {% data variables.product.prodname_m
 
 {% data reusables.marketplace.github_apps_preferred %}, although you can list both OAuth and {% data variables.product.prodname_github_apps %} in {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/migrating-oauth-apps-to-github-apps).
 
-### {% data variables.product.prodname_copilot_extensions %}
+### {% data variables.copilot.copilot_extensions %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 
-To learn more about {% data variables.product.prodname_copilot_extensions_short %}, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions).
+To learn more about {% data variables.copilot.copilot_extensions_short %}, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions).
 
 ## Publishing an app to {% data variables.product.prodname_marketplace %} overview
 

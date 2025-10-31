@@ -5,7 +5,9 @@ intro: 'You can enable {% data variables.product.prodname_secret_scanning %} to 
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.secret-scanning-non-provider-patterns %}'
 versions:
-  feature: secret-scanning-non-provider-patterns
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Secret scanning

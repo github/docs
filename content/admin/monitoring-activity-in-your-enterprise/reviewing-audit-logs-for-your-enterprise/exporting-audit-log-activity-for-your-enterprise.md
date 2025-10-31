@@ -32,7 +32,7 @@ As an alternative to exporting log events, you can use the API to retrieve audit
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Optionally, to only export filtered results, search by one or more supported qualifiers or log filters.
-1. Select the **{% octicon "download" aria-hidden="true" %} Export** dropdown menu, and click a file format.
+1. Select the **{% octicon "download" aria-hidden="true" aria-label="download" %} Export** dropdown menu, and click a file format.
 
 ## Exporting Git events data
 
@@ -41,8 +41,8 @@ You can also export Git events data by date range. The data is exported as a com
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Select the **{% octicon "download" aria-hidden="true" %} Export Git Events** dropdown menu and choose a date range to export log events for.
-1. Click **{% octicon "file-zip" aria-hidden="true" %} Download Results**.
+1. Select the **{% octicon "download" aria-hidden="true" aria-label="download" %} Export Git Events** dropdown menu and choose a date range to export log events for.
+1. Click **{% octicon "file-zip" aria-hidden="true" aria-label="file-zip" %} Download Results**.
 1. To extract the JSON data, uncompress the file using an archive utility client or command. For example:
 
     ```shell

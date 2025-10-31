@@ -31,7 +31,7 @@ This procedure demonstrates how to configure autolinks to reference external res
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-hidden="true" %} Autolink references**.
+1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-hidden="true" aria-label="cross-reference" %} Autolink references**.
 1. At the top right of the page, click **Add autolink reference**.
 
    ![Screenshot of the "autolink references" page. The "Add autolink reference" button is highlighted by a dark orange outline.](/assets/images/help/repository/add-autolink-reference-details.png)

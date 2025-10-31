@@ -8,7 +8,7 @@ The audit log event pipeline generates the event data for 3 audit log pages; the
 flowchart TD
     Start([Start])-->
     RunScript["Run:
-        src/auditlog/scripts/sync.js"]-->
+        src/auditlog/scripts/sync.ts"]-->
     GetContents["getContents() schema.json
       from github/audit-log-allowlists repo"]-->
     SchemaFiles["audit log schema file\n

@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/generate-log-summary
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 

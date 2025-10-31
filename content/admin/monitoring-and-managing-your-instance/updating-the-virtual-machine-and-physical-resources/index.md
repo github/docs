@@ -16,5 +16,6 @@ children:
   - /increasing-storage-capacity
   - /increasing-cpu-or-memory-resources
   - /using-generation-2-virtual-machines
+  - /changing-your-platform
 shortTitle: Update VM & resources
 ---

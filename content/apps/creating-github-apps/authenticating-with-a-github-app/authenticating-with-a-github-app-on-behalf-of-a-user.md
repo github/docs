@@ -23,11 +23,17 @@ Your app can make API requests on behalf of a user. API requests made by an app 
 
 Similarly, if the request triggers a corresponding entry in the audit logs and security logs, the logs will list the user as the actor but will state that the "programmatic_access_type" is "GitHub App user-to-server token".
 
-To make an API request on behalf of a user, the user must authorize your app. If an app is installed on an organization that includes multiple members, each member will need to authorize the app before the app can act on their behalf. An app does not need to be installed in order for a user to authorize the app.
+To make an API request on behalf of a user, the user must authorize your app. If an app is installed on an organization{% ifversion enterprise-installed-apps %} or enterprise{% endif %} that includes multiple members, each member will need to authorize the app before the app can act on their behalf. An app does not need to be installed in order for a user to authorize the app.
 
-When a user installs an app on their account or organization, they grant the app permission to access the organization and repository resources that it requested. During the installation process, they will also see a list of account permissions that the app can request for individual users. When a user authorizes an app, they grant the app permission to act on their behalf, and they grant the account permissions that the app requested.
+When a user installs an app on an account, they grant the app permission to access the resources that it requested. During the installation process, they will also see a list of account permissions that the app can request for individual users. When a user authorizes an app, they grant the app permission to act on their behalf, and they grant the account permissions that the app requested.
 
 Once a user has authorized your app, you can generate a user access token, which is a type of OAuth token. You should send the user access token in the `Authorization` header of your subsequent API requests. For more information about prompting a user to authorize your app and generating a user access token, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app).
+
+When operating on behalf of a user, your app's access is limited to ensure secure and appropriate access:
+
+* The app can only access resources that the user has access to. If a user does not have access to a repository, your app cannot access that repository on their behalf even if the app is installed on that repository.
+* The app can only access resources that it has permission to access. If your app does not have the `Issues` permission, it cannot create or read issues for the user, even if the user has access to the repository.
+* The app can only access resources in an account where it is installed. If your app is only installed on a user's personal account, it cannot access resources in an organization that the user is a member of unless the app is also installed on that organization.
 
 Requests made with a user access token are sometimes called "user-to-server" requests.
 

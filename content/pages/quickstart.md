@@ -15,9 +15,7 @@ product: '{% data reusables.gated-features.pages %}'
 
 ## Introduction
 
-{% data variables.product.prodname_pages %} are public webpages hosted and published through {% data variables.product.github %}. The quickest way to get up and running is by using the Jekyll Theme Chooser to load a pre-made theme. You can then modify your {% data variables.product.prodname_pages %}' content and style.
-
-This guide will lead you through creating a user site at `username.github.io`.
+In this guide, you'll create a user site at `<username>.github.io`.
 
 ## Creating your website
 
@@ -50,10 +48,11 @@ By default, the title of your site is `username.github.io`. You can change the t
    description: Bookmark this to keep an eye on my project updates!
    ```
 
-1. When you are done editing the file, click **Commit changes**.
+1. When you are finished editing the file, click **Commit changes**.
 
 ## Next Steps
 
-For more information about how to add additional pages to your site, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites).
+You've successfully created, personalized, and published your first {% data variables.product.prodname_pages %} website but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_pages %}:
 
-For more information about setting up a {% data variables.product.prodname_pages %} site with Jekyll, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll).
+* [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites): This guide explains how to add additional pages to your site.
+{% ifversion fpt or ghec %}* [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site): You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain.{% endif %}

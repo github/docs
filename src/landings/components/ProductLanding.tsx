@@ -1,18 +1,19 @@
 import { useRouter } from 'next/router'
-import { DefaultLayout } from 'src/frame/components/DefaultLayout'
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
+import { DefaultLayout } from '@/frame/components/DefaultLayout'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
 
-import { LandingHero } from 'src/landings/components/LandingHero'
-import { FeaturedArticles } from 'src/landings/components/FeaturedArticles'
-import { GuideCards } from 'src/landings/components/GuideCards'
-import { SponsorsExamples } from 'src/landings/components/SponsorsExamples'
-import { CommunityExamples } from 'src/landings/components/CommunityExamples'
-import { LandingSection } from 'src/landings/components/LandingSection'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { ProductArticlesList } from 'src/landings/components/ProductArticlesList'
-import { ProductReleases } from 'src/landings/components/ProductReleases'
-import { useVersion } from 'src/versions/components/useVersion'
-import { RestRedirect } from 'src/rest/components/RestRedirect'
+import { LandingHero } from '@/landings/components/LandingHero'
+import { FeaturedArticles } from '@/landings/components/FeaturedArticles'
+import { GuideCards } from '@/landings/components/GuideCards'
+import { SponsorsExamples } from '@/landings/components/SponsorsExamples'
+import { CommunityExamples } from '@/landings/components/CommunityExamples'
+import { LandingSection } from '@/landings/components/LandingSection'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { ProductArticlesList } from '@/landings/components/ProductArticlesList'
+import { ProductReleases } from '@/landings/components/ProductReleases'
+import { useVersion } from '@/versions/components/useVersion'
+import { RestRedirect } from '@/rest/components/RestRedirect'
+import { UtmPreserver } from '@/frame/components/UtmPreserver'
 
 export const ProductLanding = () => {
   const router = useRouter()
@@ -23,6 +24,7 @@ export const ProductLanding = () => {
 
   return (
     <DefaultLayout>
+      <UtmPreserver />
       <div data-search="article-body">
         {router.query.productId === 'rest' && <RestRedirect />}
         <LandingSection className="pt-3">

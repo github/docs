@@ -27,7 +27,7 @@ You can also hide individual fields using the field headers.
 
 1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="Status column options" %}.
    ![Screenshot showing a field header. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/modify-field-menu.png)
-1. Click **{% octicon "eye-closed" aria-hidden="true" %} Hide field**.
+1. Click **{% octicon "eye-closed" aria-hidden="true" aria-label="eye-closed" %} Hide field**.
 
 ## Grouping by field values
 

@@ -1,0 +1,82 @@
+date: '2025-08-25'
+intro: |
+  {% warning %}
+
+  **Warning**: We are lifting the pause on upgrade to 3.16. You can now upgrade to version 3.16.8, but not to earlier releases of 3.16. This release includes optimizations that address performance issues reported in recent versions of GitHub Enterprise Server. As an additional step, it is recommended to check system capacity before upgrading. See [check system capacity before upgrading](/admin/upgrading-your-instance/preparing-to-upgrade/check-system-capacity-before-upgrading).
+  
+  {% endwarning %}
+sections:
+  security_fixes:
+    - |
+      **HIGH:** An improper access control vulnerability was identified in GitHub Enterprise Server that allowed users with access to any repository to retrieve limited code content from another repository by creating a diff between the repositories. To exploit this vulnerability, an attacker needed to know the name of a private repository along with its branches, tags, or commit SHAs that they could use to trigger compare/diff functionality and retrieve limited code without proper authorization. This vulnerability has been assigned [CVE-2025-8447](https://www.cve.org/cverecord?id=CVE-2025-8447) and was reported through the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+    - |
+      Elasticsearch packages have been updated to the 8.18.0 security version.
+  bugs:
+    - |
+      For enterprises with a large number of organizations, some authorization queries were non-performant. This patch includes a set of fixes improving the performance of authorization checks that enforce PAT access policies for both fine-grained and classic {% data variables.product.pat_generic_title_case_plural %} (PATs).
+    - |
+      After enabling GitHub Actions or performing an upgrade with GitHub Actions enabled, administrators experienced a delay of approximately 10 minutes longer than they should have due to a faulty connection check.
+    - |
+      Secret scanning backfills for pull requests and discussions did not run as expected during backfills of new secret types. Site administrators and security teams may have noticed incomplete secret scanning coverage or unworked queues after upgrading.
+    - |
+      Site administrators observed that uploading a license failed to restart GitHub services after upgrading GitHub Enterprise Server due to file permission issues in `/var/log/license-upgrade`.
+    - |
+      Audit log entries for some Dependabot-related events were missing for administrators and security teams due to an outdated allowlist configuration.
+    - |
+      Administrators debugging Elasticsearch index repairs previously did not see a "starting" log entry before a repair began, making it harder to track repair initiation in logs.
+    - |
+      After upgrading to GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+    - |
+      Site administrators experienced crashes in MySQL when running data backfills, such as during database maintenance or upgrades.
+  changes:
+    - |
+      When administrators run the `ghe-support-bundle` command on an unconfigured node, the output clearly states that metadata collection was skipped, instead of producing misleading `curl` errors. This improves the clarity of support bundle diagnostics.
+    - |
+      Configuration runs do not output transient Elasticsearch health check failures. This update reduces log verbosity to address confusion reported by users.
+    - |
+      For administrators monitoring search index repairs, logs for repair jobs now include batch-level details, such as the ranges of updated IDs. This improvement makes it easier to track and debug the status of index repairs.
+    - |
+      Administrators monitoring Elasticsearch index repair jobs benefit from improved log clarity. Log messages provide more detailed and actionable information, making it easier to troubleshoot and track the progress of index repair operations.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) may fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running `ghe-cluster-config-apply` as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a nightly scheduled job. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      On an instance hosted on Azure, commenting on an issue via email meant the comment was not added to the issue.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to {% ifversion ghes = 3.16 %}3.16{% endif %}{% ifversion ghes = 3.17 %}3.17{% endif %}{% ifversion ghes = 3.18 %}3.18{% endif %} with caution.

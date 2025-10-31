@@ -31,13 +31,10 @@ For more information on using validity checks, see [AUTOTITLE](/code-security/se
 
 ## Enabling validity checks
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
-1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Validity checks", click **Enable**.{% else %}
-{% data reusables.secret-scanning.validity-check-auto-enable %}{% endif %}
+>[!NOTE] You can also use the REST API to enable validity checks for partner patterns for your repository. For more information, see [AUTOTITLE](/rest/repos/repos#update-a-repository).
 
-You can also use the REST API to enable validity checks for partner patterns for your repository. For more information, see [AUTOTITLE](/rest/repos/repos#update-a-repository).
+{% data reusables.secret-scanning.validity-check-enablement %}
+1. Scroll to the bottom of the page and click **Save changes**.
 
 Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise. For more information on enabling at the organization-level, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
 For more information on enabling at the enterprise-level, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).

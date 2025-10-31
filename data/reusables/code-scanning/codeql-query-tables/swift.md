@@ -1,16 +1,14 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/swift/swift-bad-tag-filter/) | 116, 020, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Cleartext logging of sensitive information](https://codeql.github.com/codeql-query-help/swift/swift-cleartext-logging/) | 312, 359, 532 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Cleartext storage of sensitive information in a local database](https://codeql.github.com/codeql-query-help/swift/swift-cleartext-storage-database/) | 312 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Cleartext storage of sensitive information in an application preference store](https://codeql.github.com/codeql-query-help/swift/swift-cleartext-storage-preferences/) | 312 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Cleartext transmission of sensitive information](https://codeql.github.com/codeql-query-help/swift/swift-cleartext-transmission/) | 319 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
-| [Constant password](https://codeql.github.com/codeql-query-help/swift/swift-constant-password/) | 259 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Database query built from user-controlled sources](https://codeql.github.com/codeql-query-help/swift/swift-sql-injection/) | 089 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Encryption using ECB](https://codeql.github.com/codeql-query-help/swift/swift-ecb-encryption/) | 327 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded encryption key](https://codeql.github.com/codeql-query-help/swift/swift-hardcoded-key/) | 321 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Incomplete regular expression for hostnames](https://codeql.github.com/codeql-query-help/swift/swift-incomplete-hostname-regexp/) | 020 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Inefficient regular expression](https://codeql.github.com/codeql-query-help/swift/swift-redos/) | 1333, 730, 400 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Insecure TLS configuration](https://codeql.github.com/codeql-query-help/swift/swift-insecure-tls/) | 757 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

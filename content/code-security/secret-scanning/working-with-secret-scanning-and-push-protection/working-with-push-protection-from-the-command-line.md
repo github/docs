@@ -24,7 +24,7 @@ When you attempt to push a supported secret from the command line to a repositor
 You should either:
 
 * **Remove** the secret from your branch. For more information, see [Resolving a blocked push](#resolving-a-blocked-push).
-* **Follow a provided URL** {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %} and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
+* **Follow a provided URL** to see what options are available to you to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection) and [Requesting bypass privileges](#requesting-bypass-privileges).
 
 Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
@@ -119,21 +119,19 @@ You can also remove the secret if the secret appears in an earlier commit in the
 
 ## Bypassing push protection
 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you {% ifversion push-protection-delegated-bypass %}may be able to {% else %}can {% endif %}bypass the block by specifying a reason for allowing the secret to be pushed.
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you may be able to bypass the block by specifying a reason for allowing the secret to be pushed.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit{% ifversion push-protection-delegated-bypass %}, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges){% endif %}.
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges).
 
 {% data reusables.secret-scanning.push-protection-visit-URL %}
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 {% data reusables.secret-scanning.push-protection-public-repos-bypass %}
 1. Click **Allow me to push this secret**.
 1. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
-
-{% ifversion push-protection-delegated-bypass %}
 
 ## Requesting bypass privileges
 
@@ -153,8 +151,6 @@ Requests expire after 7 days.
 If your request is approved, you can push the commit (or commits) containing the secret to the repository, as well as any future commits that contain the same secret.
 
 If your request is denied, you will need to remove the secret from all commits containing the secret before pushing again. For information on how to remove a blocked secret, see [Resolving a blocked push](#resolving-a-blocked-push).
-
-{% endif %}
 
 ## Further reading
 

@@ -28,7 +28,7 @@ Periodically, translators read the `content/**` and `data/**` directories from `
 
 During the build step of our deployment, we checkout every translation repo into the `translations/` directory.
 
-The enabled languages and their source directories are interpreted in [`src/languages/lib/languages.js`](https://github.com/github/docs-internal/blob/a8e52aad1a6b67f41da92d314bd7fd8cd84193a4/src/languages/lib/languages.js), which ensures English and translated content are in the same Docker image we deploy.
+The enabled languages and their source directories are interpreted in [`src/languages/lib/languages.ts`](https://github.com/github/docs-internal/blob/a8e52aad1a6b67f41da92d314bd7fd8cd84193a4/src/languages/lib/languages.js), which ensures English and translated content are in the same Docker image we deploy.
 
 When the app starts up, we:
 1. Create a [tree of possible pages in English](https://github.com/github/docs-internal/blob/c535fe30bc271f35090054b21e1aaf69cb125e71/src/frame/lib/page-data.js#L45-L47) by following the `children:` property in each `index.md` file.
@@ -46,7 +46,7 @@ When a user requests a translated page, it's possible that the content contains 
 
 In these situations, we fall back to English content for the part that generated an error, not the whole page. For example, a Japanese translation might have a perfectly good `title`, `shortTitle`, and Markdown body, but the Liquid within the `intro` frontmatter property could be broken. In that case, you'll get a Japanese title, English intro, and Japanese body.
 
-Details of how the error handling and logic for fallback works, see `src/languages/lib/render-with-fallback.js`.
+Details of how the error handling and logic for fallback works, see `src/languages/lib/render-with-fallback.ts`.
 
 ### Handling of moved or deleted content
 
@@ -81,7 +81,7 @@ If the translated `data/variables/support.yml` is corrupted, and we can't fall b
 
 The translation repos can only be read by us. We **do not** and cannot modify their contents. When errors in translations are found, we communicate them to the translators and wait for the fixes to appear in the translated repos.
 
-So if a translation urgently needs to be updated  and we can't wait for the usual translation process, the best solution is to implement string replacement operations directly in the code. For example, with the `translateTree` function in `src/frame/lib/page-data.js`.
+So if a translation urgently needs to be updated  and we can't wait for the usual translation process, the best solution is to implement string replacement operations directly in the code. For example, with the `translateTree` function in `src/frame/lib/page-data.ts`.
 
 When a file is renamed in `github/docs-internal`, say from `foo.md` to `bar.md`, the translation repos keep *both* `foo.md` and `bar.md`. Files are not deleted from translation repos. This limitation prevents us from scanning the directories for files like we do with the English content and it is the motivation for the creation of language-specific trees.
 
@@ -115,7 +115,7 @@ This section assumes you want your local environment to replicate the structure 
     git clone <ko-kr-repo-url> ko-kr
     git clone <de-de-repo-url> de-de
     ```
-1. Start the development server with `npm run start-all-languages`. If you need to enable specific languages, you can set `ENABLED_LANGUAGES`. For example, to start the server with English, Japanese, and Spanish only, use: `ENABLED_LANGUAGES=en,ja,es NODE_ENV=development nodemon server.js`
+1. Start the development server with `npm run start-all-languages`. If you need to enable specific languages, you can set `ENABLED_LANGUAGES`. For example, to start the server with English, Japanese, and Spanish only, use: `ENABLED_LANGUAGES=en,ja,es NODE_ENV=development nodemon server.ts`
 
 Note: If you ever need to place translations in a different location, use the `TRANSLATIONS_ROOT` environment variable. We do this for tests.
 

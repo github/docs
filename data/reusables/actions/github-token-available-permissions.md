@@ -8,12 +8,13 @@ permissions:
   contents: read|write|none
   deployments: read|write|none{% ifversion fpt or ghec %}
   id-token: write|none{% endif %}
-  issues: read|write|none
+  issues: read|write|none{% ifversion not ghes %}
+  models: read|none{% endif %}
   discussions: read|write|none
   packages: read|write|none
   pages: read|write|none
-  pull-requests: read|write|none
-  repository-projects: read|write|none
+  pull-requests: read|write|none{% ifversion projects-v1 %}
+  repository-projects: read|write|none{% endif %}
   security-events: read|write|none
   statuses: read|write|none
 ```

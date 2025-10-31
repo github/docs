@@ -8,5 +8,5 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /map-topic
+  - /subcategory
 ---

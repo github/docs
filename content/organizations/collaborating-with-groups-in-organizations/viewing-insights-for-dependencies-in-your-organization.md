@@ -22,7 +22,7 @@ permissions: '{% data reusables.permissions.dependency-graph-view-org-insights %
 Dependency insights can help you track, report, and act on your organization's open source usage.
 
 > [!NOTE]
-> Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
+> Please make sure you have enabled the [dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
@@ -36,7 +36,7 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 
    ![Screenshot of the "Dependency insights" page. A button, labeled "My organizations," is outlined in dark orange.](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)
 1. To filter by a vulnerability status, a license, or a combination of the two, click the results in the **Open security advisories** and **Licenses** graphs.
-1. To see which dependents in your organization are using each library, next to a vulnerability, click **{% octicon "package" aria-hidden-"true" %} X dependents**.
+1. To see which dependents in your organization are using each library, next to a vulnerability, click **{% octicon "package" aria-hidden-"true" aria-label="package" %} X dependents**.
 
 ## Further reading
 

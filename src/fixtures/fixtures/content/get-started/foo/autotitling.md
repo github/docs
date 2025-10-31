@@ -29,12 +29,12 @@ Or, a combination of query string and hash:
 // This is a code sample
 console.log("Hello, World!");
 
-// for more info on this, visit [AUTOTITLE](/get-started/markdown).
+// for more info on this, visit the documentation.
 function greet(name: string): void {
   console.log(`Hello, ${name}!`);
 }
 
-// another example is [AUTOTITLE](/get-started/markdown/alerts)
+// another example is using TypeScript types
 const userName: string = "TypeScript User";
 greet(userName);
 ```
@@ -47,7 +47,7 @@ const { Octokit } = require("octokit");
 
 //
 async function checkAndRedeliverWebhooks() {
-   // See [AUTOTITLE](/get-started/markdown/permissions)
+   // See the API documentation for permissions
   const TOKEN = process.env.TOKEN;
   const ORGANIZATION_NAME = process.env.ORGANIZATION_NAME;
   const HOOK_ID = process.env.HOOK_ID;

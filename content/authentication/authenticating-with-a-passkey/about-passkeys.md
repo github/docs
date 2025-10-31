@@ -3,7 +3,9 @@ title: About passkeys
 intro: 'Passkeys allow you to sign in safely and easily, without requiring a password and two-factor authentication.'
 permissions: '{% ifversion fpt or ghec %}Personal account owners who manage their own credentials{% endif %}'
 versions:
-  feature: passkeys
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: About passkeys
 ---
 

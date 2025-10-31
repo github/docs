@@ -33,7 +33,6 @@ export interface ComputedSearchQueryParamsMap {
     toplevel: string[]
     aggregate: string[]
   }
-  generalAutocomplete: ComputedSearchQueryParams
   aiSearchAutocomplete: ComputedSearchQueryParams
 }
 

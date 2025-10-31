@@ -2,7 +2,7 @@ You must add the payment method that you agreed with {% data variables.product.g
 
 ### Adding a credit card
 
-To add a credit card, go to your enterprise's "Payment information" page. See [AUTOTITLE](/billing/using-the-new-billing-platform/managing-your-payment-and-billing-information#viewing-payment-information).
+To add a credit card, go to your enterprise's "Payment information" page. See [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information#viewing-payment-information).
 
 ### Adding an Azure subscription
 

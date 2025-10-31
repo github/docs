@@ -1,0 +1,90 @@
+# Please keep this list sorted in alphabetical order.
+#
+# This file defines which AI models are available in each Copilot plan.
+# It is used to generate the "Supported AI models per Copilot plan" table at
+# /content/copilot/reference/ai-models/supported-models##supported-ai-models-per-copilot-plan.
+#
+# Column keys:
+# - name: The model name.
+# - free: Availability on Copilot Free.
+# - pro: Availability on Copilot Pro.
+# - pro_plus: Availability on Copilot Pro+.
+# - business: Availability on Copilot Business.
+# - enterprise: Availability on Copilot Enterprise.
+
+- name: Claude Haiku 4.5
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Opus 4.1
+  free: false
+  pro: false
+  pro_plus: true
+  business: false
+  enterprise: true
+
+- name: Claude Sonnet 3.5
+  free: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 4
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Claude Sonnet 4.5
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Gemini 2.5 Pro
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-4.1
+  free: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5 mini
+  free: true
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5-Codex
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: Grok Code Fast 1
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true

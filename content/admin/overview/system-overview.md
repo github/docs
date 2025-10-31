@@ -27,7 +27,7 @@ The root filesystem is included in the distributed machine image. It contains th
 
 The root storage volume is split into two equally-sized partitions. One of the partitions will be mounted as the root filesystem (`/`). The other partition is only mounted during upgrades and rollbacks of upgrades as `/mnt/upgrade`, to facilitate easier rollbacks if necessary. For example, if a {% ifversion ghes > 3.14 %}400GB root volume is allocated, there will be 200GB allocated to the root filesystem and 200GB{% else %}200GB root volume is allocated, there will be 100GB allocated to the root filesystem and 100GB{% endif %} reserved for the upgrades and rollbacks.
 
-{% ifversion ghes > 3.13 %}In new installations of 3.14 and later, the root storage volume is split into four partitions. Two small partitions are for the supported boot modes (BIOS and UEFI), and the other two equally large partitions are for the {% data variables.product.prodname_ghe_server %} primary, and upgrades and rollbacks.{% endif %}
+In new installations of 3.14 and later, the root storage volume is split into four partitions. Two small partitions are for the supported boot modes (BIOS and UEFI), and the other two equally large partitions are for the {% data variables.product.prodname_ghe_server %} primary, and upgrades and rollbacks.
 
 The root filesystem contains files that store the following information. This list is not exhaustive.
 

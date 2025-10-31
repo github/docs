@@ -9,15 +9,15 @@ This README shows you how to contribute to the content linter code by adding new
 At a high-level, there are four steps to create a new rule:
 
 1. Adding a new rule file to [`src/content-linter/lib/linting-rules`](/src/content-linter/lib/linting-rules)
-1. Importing the new rule and adding it to the custom rules array in [`src/content-linter/lib/linting-rules/index.js`](/src/content-linter/lib/linting-rules/index.js)
-1. Adding the config for the new rule to [`src/content-linter/style/github-docs.js`](/src/content-linter/style/github-docs.js)
+1. Importing the new rule and adding it to the custom rules array in [`src/content-linter/lib/linting-rules/index.ts`](/src/content-linter/lib/linting-rules/index.ts)
+1. Adding the config for the new rule to [`src/content-linter/style/github-docs.ts`](/src/content-linter/style/github-docs.ts)
 1. Adding a unit test for the new rule in [`src/content-linter/tests/unit`](/src/content-linter/tests/unit)
 
 Rules are located in the `src/content-linter/lib/linting-rules` directory. Each rule is a separate file that exports an object with metadata and a function. The function is the core logic that implements the rule. In some cases a single file contains more than one rule when colocating them makes more sense. Rules that are very specific can return more than one error type.
 
 ## Creating a new rule
 
-Create a new file in the `src/content-linter/lib/linting-rules` directory. The file name should be the same as the rule name. For example, if the rule name is `no-whitespace`, the file name should be `no-whitespace.js`. Avoid using the rule ID name for the file name. There is more information about the ID in [names](#names).
+Create a new file in the `src/content-linter/lib/linting-rules` directory. The file name should be the same as the rule name. For example, if the rule name is `no-whitespace`, the file name should be `no-whitespace.ts`. Avoid using the rule ID name for the file name. There is more information about the ID in [names](#names).
 
 Before creating a new rule, check that the rule does not already exist in [Markdownlint](https://github.com/DavidAnson/markdownlint/#rules--aliases). There are also many [open-source plugins](https://www.npmjs.com/search?q=keywords:markdownlint-rule) that may be used.
 
@@ -51,12 +51,12 @@ See the [custom rules](https://github.com/DavidAnson/markdownlint/blob/main/doc/
 
 ### Helper utilities
 
-Markdownlint provides several helper functions. Take a look at the many exports in [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.js). Note, this is unsupported and may stop being published to in the future.
+Markdownlint provides several helper functions. Take a look at the many exports in [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.ts). Note, this is unsupported and may stop being published to in the future.
 
 We've also written a few of our own:
 
-- [`utils`](/src/content-linter/lib/helpers/utils.js)
-- [`liquid-utils`](/src/content-linter/lib/helpers/liquid-utils.js)
+- [`utils`](/src/content-linter/lib/helpers/utils.ts)
+- [`liquid-utils`](/src/content-linter/lib/helpers/liquid-utils.ts)
 
 ### Setting errors
 
@@ -66,7 +66,7 @@ When setting errors for a rule, there are a few different functions to choose fr
 - `addErrorContext` - when error detail is not needed but a specific range of context (Markdown snippet being checked) is needed
 - `addErrorDetailIf` - when the error detail just needs to be the expected and actual results
 
-See [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.js) for more details.
+See [markdownlint-rule-helpers](https://github.com/DavidAnson/markdownlint/blob/main/helpers/helpers.ts) for more details.
 
 ### Async rules
 
@@ -96,7 +96,7 @@ See the [Markdownlint async documentation](https://github.com/DavidAnson/markdow
 
 ### Reading the data directory
 
-When you need to read files in the data directory, you can use the `getDataByLanguage` or `getDeepDataByLanguage` export in [`lib/get-data.js`](/lib/get-data.js). This allows you to write unit tests that read data fixtures rather than real content. For an example of using `getDataByLanguage` or `getDeepDataByLanguage`, see the [`liquid-data-tags.js`](/src/content-linter/lib/linting-rules/liquid-data-tags.js) or [`liquid-versioning.js`](/src/content-linter/lib/linting-rules/liquid-versioning.js) rules.
+When you need to read files in the data directory, you can use the `getDataByLanguage` or `getDeepDataByLanguage` export in [`lib/get-data.ts`](/lib/get-data.ts). This allows you to write unit tests that read data fixtures rather than real content. For an example of using `getDataByLanguage` or `getDeepDataByLanguage`, see the [`liquid-data-tags.ts`](/src/content-linter/lib/linting-rules/liquid-data-tags.ts) or [`liquid-versioning.ts`](/src/content-linter/lib/linting-rules/liquid-versioning.ts) rules.
 
 ### `names`
 
@@ -137,13 +137,13 @@ Tags are used to categorize rules. Choose one or more tags from the list below. 
 
 ## Adding the rule to the custom rules array
 
-To add the new rule to the list of custom rules that are run against GitHub Docs content, import the rule and add it to the `rules` array in [`src/content-linter/lib/linting-rules/index.js`](/src/content-linter/lib/linting-rules/index.js). The `rules` array defines all the custom rules that we add to the Markdownlint configuration [`options.customRules`](https://github.com/DavidAnson/markdownlint#optionscustomrules). Custom rules include the rules we write in this project and any open-source rules we use.
+To add the new rule to the list of custom rules that are run against GitHub Docs content, import the rule and add it to the `rules` array in [`src/content-linter/lib/linting-rules/index.ts`](/src/content-linter/lib/linting-rules/index.ts). The `rules` array defines all the custom rules that we add to the Markdownlint configuration [`options.customRules`](https://github.com/DavidAnson/markdownlint#optionscustomrules). Custom rules include the rules we write in this project and any open-source rules we use.
 
 ## Configuring a new rule
 
-Each rule that we configure for GitHub Docs has a corresponding entry in either `src/content-linter/style/base.js` or `src/content-linter/style/github-docs.js`. The `base.js` file contains rules that are available in the [Markdownlint](https://github.com/DavidAnson/markdownlint) project. The `github-docs.js` file contains open-source plugins (including [markdownlint-github](https://github.com/github/markdownlint-github/tree/main)) and the custom rules that we develop that are specific to GitHub Docs.
+Each rule that we configure for GitHub Docs has a corresponding entry in either `src/content-linter/style/base.ts` or `src/content-linter/style/github-docs.ts`. The `base.ts` file contains rules that are available in the [Markdownlint](https://github.com/DavidAnson/markdownlint) project. The `github-docs.ts` file contains open-source plugins (including [markdownlint-github](https://github.com/github/markdownlint-github/tree/main)) and the custom rules that we develop that are specific to GitHub Docs.
 
-Inside [`src/content-linter/style/github-docs.js`](/src/content-linter/style/github-docs.js), there are a few different sections:
+Inside [`src/content-linter/style/github-docs.ts`](/src/content-linter/style/github-docs.ts), there are a few different sections:
 
 - `githubDocsConfig` - Primary area that new rules are added to. The rules in this section configure Markdownlint to separate frontmatter from Markdown automatically. Both the frontmatter and Markdown are available to read from the rule logic, but you cannot leave an error on a line that contains frontmatter. Frontmatter is not sent through the Markdown parser by Markdownlint.
 - `githubDocsFrontmatterConfig` - Contains rules that check frontmatter properties _and_ need to leave errors on frontmatter line numbers.
@@ -182,23 +182,23 @@ Once a rule is written, added to the custom rules array, and configured, you can
 npm run lint-content -- --paths <path to file relative to docs-internal root> --rules <name of your new rule>
 ```
 
-Each custom rule must add a unit test in the `src/content-linter/tests/unit` directory. The unit test should be named the same as the rule file name. For example, if the rule file name is `no-whitespace.js`, the unit test file name should be `no-whitespace.js`.
+Each custom rule must add a unit test in the `src/content-linter/tests/unit` directory. The unit test should be named the same as the rule file name. For example, if the rule file name is `no-whitespace.ts`, the unit test file name should be `no-whitespace.ts`.
 
 Unit tests must test auto-fixes if the rule allows them. The unit test should also test the line number and range. Include positive and negative tests.
 
-If the test requires checking the file path, you can provide a fixture. For an example, see [`early-access-references.js`](/src/content-linter/tests/unit/early-access-references.js). Most tests pass Markdown strings to the rule directly.
+If the test requires checking the file path, you can provide a fixture. For an example, see [`early-access-references.ts`](/src/content-linter/tests/unit/early-access-references.ts). Most tests pass Markdown strings to the rule directly.
 
 ## Content linter scripts
 
-- [`lint-content.js`](/src/content-linter/scripts/lint-content.js) - The primary script used to run rules against content. We have a fairly customized implementation of Markdownlint, which prevented us from using [Markdownlint CLI2](https://github.com/DavidAnson/markdownlint-cli2). For example, we run Markdownlint more than once to allow different configurations for the `content` directory and `data` directory. We also run Markdownlint again to allow checking frontmatter properties. To view the options of the script, run `npm run lint-content -- --help`.
-- [`disable-rules.js`](/src/content-linter/scripts/disable-rules.js) - This script is used to automatically add disable comments to the end of a line that violates a rule. This allows us to have violations in the content while also setting the rule's severity to `error`.
-- [`pretty-print-results.js`](/src/content-linter/scripts/pretty-print-results.js) - This script simplifies and makes the results printed to the console easier to read.
+- [`lint-content.ts`](/src/content-linter/scripts/lint-content.ts) - The primary script used to run rules against content. We have a fairly customized implementation of Markdownlint, which prevented us from using [Markdownlint CLI2](https://github.com/DavidAnson/markdownlint-cli2). For example, we run Markdownlint more than once to allow different configurations for the `content` directory and `data` directory. We also run Markdownlint again to allow checking frontmatter properties. To view the options of the script, run `npm run lint-content -- --help`.
+- [`disable-rules.ts`](/src/content-linter/scripts/disable-rules.ts) - This script is used to automatically add disable comments to the end of a line that violates a rule. This allows us to have violations in the content while also setting the rule's severity to `error`.
+- [`pretty-print-results.ts`](/src/content-linter/scripts/pretty-print-results.ts) - This script simplifies and makes the results printed to the console easier to read.
 
 ## Updating content to adhere to a new rule
 
 Introducing a new rule with a severity of `error` can be difficult when many violations of that rule exist in content. If the rule implements an autofix by setting the `fixInfo` property in the error object, you can use the rule to autofix content before shipping the rule.
 
-If the new rule doesn't have a possible autofix, you can use `disable-rules.js` to automatically add disable comments to the end of each Markdown line that contains a violation. This is not always possible since some lines are within code blocks and cannot be disabled.
+If the new rule doesn't have a possible autofix, you can use `disable-rules.ts` to automatically add disable comments to the end of each Markdown line that contains a violation. This is not always possible since some lines are within code blocks and cannot be disabled.
 
 The last option is to manually fix the violations. This is the most time-consuming option, but it's the only option when the rule cannot be autofixed and the line cannot be disabled.
 
@@ -206,7 +206,7 @@ A rule with too many violations to fix can be set to a severity of `warning`.
 
 ## Using the search-replace plugin
 
-Because the search-replace rule consists of many search terms, it essentially performs one or more rule checks. Each rule is defined in the [`src/content-linter/style/github-docs.js`](/src/content-linter/style/github-docs.js) config under `searchReplaceConfig`.
+Because the search-replace rule consists of many search terms, it essentially performs one or more rule checks. Each rule is defined in the [`src/content-linter/style/github-docs.ts`](/src/content-linter/style/github-docs.ts) config under `searchReplaceConfig`.
 
 You can add a new `search-replace` rule using any search term or regex by adding it to the `rules` array. This is an easy way to perform checks if the check is just looking for a string or simple regex.
 
@@ -222,7 +222,7 @@ docs.github.com <!-- markdownlint-disable-line search-replace -->
 
 ## Adding context to a base rule's error message
 
-If you want to add context to a base rule's error message, go to[`base.js`](/src/content-linter/style/base.js), and add the `context` property to the base rule's object. For e.g. if you wanted to add `context` to `MD040` (the `fenced-code-language` base rule), the object would look like this:
+If you want to add context to a base rule's error message, go to[`base.ts`](/src/content-linter/style/base.ts), and add the `context` property to the base rule's object. For e.g. if you wanted to add `context` to `MD040` (the `fenced-code-language` base rule), the object would look like this:
 
 ```javascript
 'fenced-code-language': {

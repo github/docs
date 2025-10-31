@@ -1,0 +1,239 @@
+.learningTracks {
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  border-radius: 12px;
+  padding: 1.5rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  box-shadow:
+    0px 1px 3px 0px rgba(31, 35, 40, 0.08),
+    0px 1px 0px 0px rgba(31, 35, 40, 0.06);
+  position: relative;
+  z-index: 1;
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default, #ffffff)
+  );
+}
+
+.trackHeader {
+  margin: 0 0 0.5rem 0;
+  padding-right: 3rem;
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.anchorLink {
+  color: var(--fgColor-default, var(--color-fg-default, #1f2328));
+  text-decoration: none;
+}
+
+.trackDescription {
+  margin: 0 0 1rem 0;
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+}
+
+.expandButton {
+  top: 0;
+  right: 0;
+}
+
+.trackGuides {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+  list-style: none;
+  counter-reset: guide-counter;
+}
+
+.trackGuides li {
+  margin-bottom: 0.75rem;
+  padding-left: 2.5rem;
+  position: relative;
+  counter-increment: guide-counter;
+}
+
+.trackGuides li::before {
+  content: counter(guide-counter);
+  position: absolute;
+  left: 0;
+  top: -0.125rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d0d7de));
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.guideLink {
+  color: var(--fgColor-accent, var(--color-accent-fg, #0969da));
+  text-decoration: none;
+}
+
+/* Hide only the timeline line that extends below the last badge, preserve everything else */
+.timelineContainer :global(.Timeline-Item:last-child::before) {
+  background: linear-gradient(
+    to bottom,
+    var(--borderColor-muted, var(--color-border-muted)) 0%,
+    var(--borderColor-muted, var(--color-border-muted)) 30%,
+    transparent 30%,
+    transparent 100%
+  ) !important;
+}
+
+.timelineBadge {
+  background-color: var(--color-canvas-subtle, #f6f8fa) !important;
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0)) !important;
+}
+
+/* Fix entire timeline component overlapping header */
+.timelineContainer {
+  z-index: 0 !important;
+  position: relative;
+}
+
+.timelineContainer :global(.Timeline) {
+  z-index: 0 !important;
+}
+
+.timelineThinLine :global(.Timeline-Item::before) {
+  width: 1px !important;
+}
+
+/* Mobile-first: custom stacked layout */
+.mobileLayout {
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.mobileItem {
+  margin-bottom: 2rem;
+  text-align: center; /* Only for centering the badge */
+  position: relative;
+}
+
+.mobileBadge {
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-canvas-subtle, #f6f8fa);
+  color: var(--fgColor-muted, var(--color-fg-muted));
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Add connecting line from badge downward */
+.mobileBadge::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: 2.5rem;
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d1d9e0)
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Add connecting line above badge (except first item) */
+.mobileItem:not(:first-child) .mobileBadge::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 2.5rem;
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d1d9e0)
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.mobileConnector {
+  width: 1px;
+  height: 1rem;
+  background-color: var(
+    --borderColor-default,
+    var(--color-border-default, #d1d9e0)
+  );
+  margin: 0 auto;
+}
+
+.mobileConnector:last-child {
+  display: none; /* Hide connector after last item */
+}
+
+.mobileItem .mobileTile {
+  border: 1px solid
+    var(--borderColor-default, var(--color-border-default, #d1d9e0));
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  text-align: left;
+  box-shadow:
+    0px 1px 3px 0px rgba(31, 35, 40, 0.08),
+    0px 1px 0px 0px rgba(31, 35, 40, 0.06);
+  position: relative;
+  z-index: 3;
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default, #ffffff)
+  );
+}
+
+/* Desktop: show Timeline component */
+@media (min-width: 768px) {
+  .mobileLayout {
+    display: none;
+  }
+
+  .timelineContainer {
+    display: block;
+  }
+}
+
+/* Mobile: hide Timeline component */
+@media (max-width: 767px) {
+  .timelineContainer {
+    display: none;
+  }
+}
+
+/* Mobile: stack h3 and Token vertically when mobile layout is active */
+@media (max-width: 767px) {
+  .trackHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .trackHeader h3 {
+    margin-bottom: 0.5rem;
+  }
+}

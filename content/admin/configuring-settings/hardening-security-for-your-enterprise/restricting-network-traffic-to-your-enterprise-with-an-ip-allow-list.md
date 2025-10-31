@@ -23,6 +23,9 @@ redirect_from:
 
 By default, authorized users can access your enterprise's resources from any IP address. You can restrict access to your enterprise's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
+> [!NOTE]
+> If your enterprise uses {% data variables.product.prodname_emus %}, enabling the IP allow list does not restrict user provisioning actions performed through SAML/SCIM, OpenID Connect (OIDC) with Entra ID, or via REST API endpoints. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim).
+
 If your enterprise uses {% data variables.product.prodname_emus %} with Microsoft Entra ID (previously known as Azure AD) and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
 
 {% data reusables.identity-and-permissions.ip-allow-lists-which-resources-are-protected %}
@@ -56,8 +59,8 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. If you're using {% data variables.product.prodname_emus %} with OIDC, under "IP allow list", select the **IP allow list configuration** dropdown menu and click **GitHub**.
-1. Under "IP allow list", select **Enable IP allow list**.
+1. If you're using {% data variables.product.prodname_emus %} with OIDC, under "IP allow list," select the **IP allow list configuration** dropdown menu and click **GitHub**.
+1. Under "IP allow list," select **Enable IP allow list**.
 1. Click **Save**.
 
 ### Adding an allowed IP address
@@ -119,7 +122,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "IP allow list", select the **IP allow list configuration** dropdown menu and click **Identity Provider**.
+1. Under "IP allow list," select the **IP allow list configuration** dropdown menu and click **Identity Provider**.
 1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
 1. Click **Save**.
 
@@ -130,3 +133,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 ## Using {% data variables.product.prodname_pages %} with an IP allow list
 
 {% data reusables.pages.ip-allow-list-pages %}
+
+## Using {% data variables.product.prodname_dependabot %} with an IP allow list
+
+{% data reusables.dependabot.ip-allow-list-dependabot %}

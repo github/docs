@@ -1,6 +1,6 @@
 import type { Response, NextFunction } from 'express'
 
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest } from '@/types'
 
 // We'll check if the current request path is one of these, or ends with
@@ -80,7 +80,8 @@ export default function handleInvalidPaths(
     // they're not going to suddenly work in the next deployment.
     defaultCacheControl(res)
     res.setHeader('content-type', 'text/plain')
-    return res.status(404).send('Not found')
+    res.status(404).send('Not found')
+    return
   }
 
   if (req.path.endsWith('/index.md')) {
@@ -98,7 +99,8 @@ export default function handleInvalidPaths(
       .replace(/%2F/g, '/')
       .replace(/%40/g, '@')
     const newUrl = `/api/article/body?pathname=${encodedPath}`
-    return res.redirect(newUrl)
+    res.redirect(newUrl)
+    return
   }
   return next()
 }

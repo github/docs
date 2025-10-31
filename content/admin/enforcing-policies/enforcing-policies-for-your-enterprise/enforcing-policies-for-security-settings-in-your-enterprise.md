@@ -42,7 +42,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 
 > [!WARNING]
 > * When you require two-factor authentication for your enterprise, {% ifversion ghes < 3.17 %}members and {% endif %}outside collaborators (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their account within three months of their removal from your organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
-> * Any {% ifversion ghes < 3.17 %}member or {% endif %}outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members {% ifversion fpt or ghes %}and billing managers{% endif %} who disable 2FA will not be able to access organization resources until they re-enable it.
+> * Any {% ifversion ghes < 3.17 %}member or {% endif %}outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members {% ifversion ghes %}and billing managers{% endif %} who disable 2FA will not be able to access organization resources until they re-enable it.
 > * If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required 2FA for the enterprise.
 
 {% ifversion mandatory-2fa-dotcom-contributors %}
@@ -60,11 +60,11 @@ Before you require use of two-factor authentication, we recommend notifying orga
 1. If prompted, read the information about how user access to organization resources will be affected by a 2FA requirement. To confirm the change, click **Confirm**.
 1. Optionally, if any {% ifversion ghes < 3.17 %}members or {% endif %}outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable 2FA before they can accept your invitation.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 ### Requiring secure methods of two-factor authentication for organizations in your enterprise
 
-Alongside requiring two-factor authentication, enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use secure methods of 2FA. Secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app. Users who do not have a secure method of 2FA configured, or who have any insecure method configured, will be prevented from accessing resources within any organizations owned by an enterprise. {% ifversion ghec %} This policy is not available for enterprises with managed users.{% endif %}
+Alongside requiring two-factor authentication, enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use secure methods of 2FA. Secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app. Users who do not have a secure method of 2FA configured, or who have any insecure method configured, will be prevented from accessing resources within any organizations owned by an enterprise.  This policy is not available for enterprises with managed users.
 
 Before you require secure methods of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up secure 2FA for their accounts. Organization owners can see if members and outside collaborators already use secure methods of 2FA on each organization's "People" page. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
@@ -138,7 +138,11 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can choo
 
 By default, to hide the existence of private resources, when an unauthenticated user attempts to access your enterprise, {% data variables.product.company_short %} displays a 404 error.
 
-To prevent confusion from your developers, you can change this behavior so that users are automatically redirected to single sign-on (SSO) through your identity provider (IdP). When you enable automatic redirects, anyone who visits the URL for any of your enterprise's resources will be able to see that the resource exists. However, they'll only be able to see the resource if they have appropriate access after authenticating with your IdP.
+To prevent confusion from your developers, you can change this behavior by enabling the "Automatically redirect users to sign in" setting so that users are automatically redirected to single sign-on (SSO) through your identity provider (IdP). When you enable this setting, anyone who visits the URL for any of your enterprise's resources will be able to see that the resource exists. However, they'll only be able to see the resource if they have appropriate access after authenticating with your IdP.
+
+The configuration of this setting also affects {% data variables.product.prodname_emus %} who use Git Credential Manager (GCM). For more details, see the [`git-credential-manager` repository](https://github.com/git-ecosystem/git-credential-manager)
+
+If "Automatically redirect users to sign in" is enabled, {% data variables.product.github %} sends the server hints that let GCM automatically filter accounts for your enterprise members. If the setting is disabled, users who use GCM must turn off account filtering locally in GCM to avoid being prompted for authentication each time they perform a Git operation. For more details, see [AUTOTITLE](/get-started/git-basics/caching-your-github-credentials-in-git).
 
 > [!NOTE]
 > If a user is signed in to their personal account when they attempt to access any of your enterprise's resources, they'll be automatically signed out and redirected to SSO to sign in to their {% data variables.enterprise.prodname_managed_user %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).

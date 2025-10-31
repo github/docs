@@ -9,7 +9,7 @@ const pages: { [key: string]: string } = {
   homepage: '/',
   learningPath:
     '/code-security/getting-started/quickstart?learn=foo_bar&learnProduct=code-security',
-  mapAndTopic: '/actions/category/map-topic',
+  mapAndTopic: '/actions/category/subcategory',
   procedural: '/get-started/images/images-in-lists',
   productLanding: '/code-security',
   restCategory: '/rest/actions/artifacts',

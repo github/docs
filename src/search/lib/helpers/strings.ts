@@ -4,7 +4,7 @@ export function safeUrlDisplay(url: string): string {
     parsed.password = '***'
   }
   if (parsed.username) {
-    parsed.username = parsed.username.slice(0, 4) + '***'
+    parsed.username = `${parsed.username.slice(0, 4)}***`
   }
   return parsed.toString()
 }

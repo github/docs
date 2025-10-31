@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, test } from 'vitest'
 
 import nock from 'nock'
-import { publish } from '../lib/hydro.js'
+import { publish } from '../lib/hydro'
 
 describe('Hydro', () => {
   const secret = '3BD22A91'

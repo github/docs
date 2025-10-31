@@ -23,7 +23,6 @@ redirect_from:
 | Automatically test and build your application | [AUTOTITLE](/actions/automating-builds-and-tests/about-continuous-integration) |
 | Deploy your application | [AUTOTITLE](/actions/deployment/about-deployments/about-continuous-deployment) |
 | Automatically and securely package code into artifacts and containers | [AUTOTITLE](/actions/publishing-packages/about-packaging-with-github-actions) |
-| Automate your project management tasks | [AUTOTITLE](/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management) |
 
 {% data variables.product.prodname_actions %} helps your team work faster at scale. When large repositories start using {% data variables.product.prodname_actions %}, pull requests are typically merged faster, allowing teams to merge more pull requests per day.
 
@@ -47,7 +46,7 @@ You can create your own unique automations, or you can use and adapt workflows f
 {% data reusables.actions.ghes-actions-not-enabled-by-default %} After you finish planning, you can follow the instructions for enabling {% data variables.product.prodname_actions %}. For example, you may need to upgrade the CPU and memory resources for {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
 
 {% else %}
-After you finish planning, you can follow the instructions for getting started with {% data variables.product.prodname_actions %}. For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud).{% endif %}
+After you finish planning, you can follow the instructions for getting started with {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud).
 {% endif %}
 
 ## Further reading

@@ -26,11 +26,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout English repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       # It's important because translations are often a bit behind.
       # So if a translation is a bit behind, it might still be referencing
@@ -38,14 +38,14 @@ jobs:
       - name: Clone all translations
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Check for orphaned features
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
           set -e
@@ -60,10 +60,7 @@ jobs:
             exit 0
           fi
 
-          # Why only 5?
-          # Because, we're not in a hurry and anything larger than that would
-          # make the PR too intimidatingly big to review.
-          npm run find-orphaned-features -- delete --max 5 --verbose /tmp/orphaned-features.json
+          npm run find-orphaned-features -- delete --verbose /tmp/orphaned-features.json
 
           git status
 
@@ -100,7 +97,7 @@ jobs:
             --title "Delete orphaned features ($date)" \
             --body "$body" \
             --repo github/docs-internal \
-            --label docs-content-fr
+            --label docs-content-fr,workflow-generated
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}

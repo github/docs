@@ -53,9 +53,9 @@ For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-o
 
 {% elsif ghes %}
 
-SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.location.product_location %} in a browser, {% data variables.product.github %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user.
+SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP.
 
-After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.location.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
+If an unauthenticated user attempts to sign in to {% data variables.location.product_location %} and you have disabled [built-in authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider), {% data variables.product.github %} redirects the user to your SAML IdP for authentication. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user. The user's SAML session is active in the browser for 24 hours. After that, the user must authenticate again with your IdP.
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 
@@ -92,15 +92,20 @@ For more detailed information about how to enable SAML using Okta, see [AUTOTITL
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
+
 1. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "SAML single sign-on", select **Require SAML authentication**.
 1. In the **Sign on URL** field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
 1. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste a certificate to verify SAML responses. This is the public key corresponding to the private key used to sign SAML responses.
 
+   > [!NOTE]
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+
    To find the certificate, refer to the documentation for your IdP. Some IdPs call this an X.509 certificate.
 
 {% data reusables.saml.edit-signature-and-digest-methods %}
+
 1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration** . {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
 {% data reusables.enterprise-accounts.download-recovery-codes %}
@@ -117,6 +122,7 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
+
 1. Under "Authentication", select **SAML**.
 1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
 1. Optionally, to enable unsolicited response SSO, select **IdP initiated SSO**. By default, {% data variables.product.prodname_ghe_server %} will reply to an unsolicited Identity Provider (IdP) initiated request with an `AuthnRequest` back to the IdP.
@@ -125,16 +131,19 @@ You can enable or disable SAML authentication for {% data variables.location.pro
    > We recommend keeping this value **unselected**. You should enable this feature **only** in the rare instance that your SAML implementation does not support service provider initiated SSO, and when advised by {% data variables.contact.enterprise_support %}.
 
 1. Optionally, if you do not want your SAML provider to determine administrator rights for users on {% data variables.location.product_location %}, select **Disable administrator demotion/promotion**
-{%- ifversion ghes %}
 1. Optionally, to allow {% data variables.location.product_location %} to receive encrypted assertions from your SAML IdP, select **Require encrypted assertions**.
 
    You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.location.product_location %}'s public certificate to your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/enabling-encrypted-assertions).
-{%- endif %}
-1. Under "Single sign-on URL," type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.location.product_location %} to use internal nameservers](/admin/configuration/configuring-network-settings/configuring-dns-nameservers).
+
+1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. This value is provided by your IdP configuration. If the host is only available from your internal network, you may need to [configure {% data variables.location.product_location %} to use internal nameservers](/admin/configuration/configuring-network-settings/configuring-dns-nameservers).
 1. Optionally, in the **Issuer** field, type your SAML issuer's name. This verifies the authenticity of messages sent to {% data variables.location.product_location %}.
 1. Select the **Signature Method** and **Digest Method** dropdown menus, then click the hashing algorithm used by your SAML issuer to verify the integrity of the requests from {% data variables.location.product_location %}.
 1. Select the **Name Identifier Format** dropdown menu, then click a format.
-1. Under "Verification certificate," click **Choose File**, then choose a certificate to validate SAML responses from the IdP.
+1. Under "Verification certificate", click **Choose File**, then choose a certificate to validate SAML responses from the IdP.
+
+   > [!NOTE]
+   > {% data variables.product.github %} does not enforce the expiration of this SAML IdP certificate. This means that even if this certificate expires, your SAML authentication will continue to work. However, if your IdP administrator regenerates the SAML certificate, and you don't update it on the {% data variables.product.github %} side, users will encounter a `digest mismatch` error during SAML authentication attempts due to the certificate mismatch. See [Error: Digest mismatch](/admin/managing-iam/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#error-digest-mismatch).
+
 1. Under "User attributes", modify the SAML attribute names to match your IdP if needed, or accept the default names.
 
 {% endif %}
@@ -142,8 +151,10 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 ## Further reading
 
 {%- ifversion ghec %}
+
 * [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization)
 {%- endif %}
 {%- ifversion ghes %}
 * [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)
+{% ifversion scim-for-ghes-public-beta %}* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users){% endif %}
 {%- endif %}

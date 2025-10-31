@@ -1,7 +1,7 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest } from '@/types'
-import { renderContent } from '@/content-render/index.js'
+import { renderContent } from '@/content-render/index'
 
 export default async function renderProductName(
   req: ExtendedRequest,

@@ -2,12 +2,12 @@ import type { Response } from 'express'
 import type { ExtendedRequestWithPageInfo } from '../types'
 
 import type { ExtendedRequest, Page, Context, Permalink } from '@/types'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import shortVersions from '@/versions/middleware/short-versions'
 import contextualize from '@/frame/middleware/context/context'
-import features from '@/versions/middleware/features.js'
-import breadcrumbs from '@/frame/middleware/context/breadcrumbs.js'
-import currentProductTree from '@/frame/middleware/context/current-product-tree.js'
-import { readCompressedJsonFile } from '@/frame/lib/read-json-file.js'
+import features from '@/versions/middleware/features'
+import breadcrumbs from '@/frame/middleware/context/breadcrumbs'
+import currentProductTree from '@/frame/middleware/context/current-product-tree'
+import { readCompressedJsonFile } from '@/frame/lib/read-json-file'
 
 // If you have pre-computed page info into a JSON file on disk, this is
 // where it would be expected to be found.

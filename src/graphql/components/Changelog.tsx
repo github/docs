@@ -1,9 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
 import { ChangelogItemT } from './types'
-import styles from 'src/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
+import styles from '@/frame/components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {
   changelogItems: ChangelogItemT[]
@@ -20,8 +20,8 @@ export function Changelog({ changelogItems }: Props) {
           <React.Fragment key={index}>
             <p>{change.title}</p>
             <ul>
-              {change.changes.map((change) => (
-                <li key={change} dangerouslySetInnerHTML={{ __html: change }} />
+              {change.changes.map((changeItem) => (
+                <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
               ))}
             </ul>
           </React.Fragment>
@@ -30,8 +30,8 @@ export function Changelog({ changelogItems }: Props) {
           <React.Fragment key={index}>
             <p>{change.title}</p>
             <ul>
-              {change.changes.map((change) => (
-                <li key={change} dangerouslySetInnerHTML={{ __html: change }} />
+              {change.changes.map((changeItem) => (
+                <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
               ))}
             </ul>
           </React.Fragment>
@@ -39,8 +39,8 @@ export function Changelog({ changelogItems }: Props) {
         {(item.upcomingChanges || []).map((change, index) => (
           <React.Fragment key={index}>
             <p>{change.title}</p>
-            {change.changes.map((change) => (
-              <li key={change} dangerouslySetInnerHTML={{ __html: change }} />
+            {change.changes.map((changeItem) => (
+              <li key={changeItem} dangerouslySetInnerHTML={{ __html: changeItem }} />
             ))}
           </React.Fragment>
         ))}

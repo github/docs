@@ -14,9 +14,18 @@ redirect_from:
   - /admin/overview/deleting-an-enterprise-account
 ---
 
-## Can I delete my enterprise account?
+## Prerequisites
 
-Only self-serve {% data variables.product.prodname_enterprise %} customers can delete their enterprise account. If your company pays via invoice, and you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, contact {% data variables.contact.contact_enterprise_sales %}.
+Before you can delete an enterprise account, you must remove, transfer, or delete all organizations in the enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+
+After removing organizations, check the "People" tab in your enterprise settings and remove any unaffiliated members who remain in the enterprise. Unaffiliated members are users who are not part of any organization within the enterprise.
+
+You cannot delete an enterprise account if any of the following apply:
+
+* The enterprise account is paid via invoice.
+* The enterprise account is currently in a trial period.
+
+If either of these apply to your enterprise account, you can contact {% data variables.contact.contact_enterprise_sales %} to discuss deleting the account.
 
 ## What happens when I delete the account?
 
@@ -28,16 +37,12 @@ When you delete your enterprise account, you lose the policies, billing settings
 
 If you upgraded to an enterprise account from a single organization and then delete that enterprise account, the associated billing history will also be deleted. We recommend that you save any important billing information before deleting your enterprise account.
 
-## Prerequisites
-
-You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
-
 ## Deleting an enterprise account on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. If you are not trialing {% data variables.product.prodname_ghe_cloud %}, delete your enterprise account:
-   1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Profile**.
+   1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Profile**.
    1. In the "Danger Zone" section, click **Delete this enterprise**.
    1. In the text box, type the enterprise slug to confirm the deletion, then click **Delete this enterprise**.
 1. If you are trialing {% data variables.product.prodname_ghe_cloud %}, cancel your trial, or delete the expired trial:

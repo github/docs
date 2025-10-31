@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/graphql/pages/changelog'
+export { default, getServerSideProps } from '@/graphql/pages/changelog'

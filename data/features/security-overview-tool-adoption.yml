@@ -1,7 +1,0 @@
-# Reference: #13509
-# Documentation for the Enablement trends report (for security products) [Public Beta]
-# Ref 17108 Advanced Security available to Team plans
-versions:
-  fpt: '*'
-  ghes: '>3.12'
-  ghec: '*'

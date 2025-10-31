@@ -19,6 +19,7 @@ children:
   - /comments
   - /events
   - /issues
+  - /issue-dependencies
   - /labels
   - /milestones
   - /sub-issues

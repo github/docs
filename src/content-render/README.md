@@ -85,9 +85,9 @@ Each custom tag has the following:
 - a JavaScript class in `lib/liquid-tags/`
 - an HTML template in `includes/liquid-tags/`
 
-The class and the template should have corresponding names, like `lib/liquid-tags/my-tag.js` and `includes/liquid-tags/my-tag.html`
+The class and the template should have corresponding names, like `lib/liquid-tags/my-tag.ts` and `includes/liquid-tags/my-tag.html`
 
-You must also register the new tag in `src/content-render/liquid/engine.js` with a line like this:
+You must also register the new tag in `src/content-render/liquid/engine.ts` with a line like this:
 
 ```
 engine.registerTag('my_tag', require('./liquid-tags/my-tag'))

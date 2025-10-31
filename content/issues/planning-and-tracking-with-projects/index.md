@@ -16,6 +16,8 @@ children:
   - /automating-your-project
   - /viewing-insights-from-your-project
   - /managing-your-project
+  - /finding-your-projects
+  - /sharing-project-updates
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /issues/trying-out-the-new-projects-experience

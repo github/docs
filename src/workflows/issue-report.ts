@@ -101,13 +101,13 @@ export async function linkReports({
   }
 
   // Comment on all previous reports that are still open
-  for (const previousReport of previousReports) {
-    if (previousReport.state === 'closed' || previousReport.html_url === newReport.html_url) {
+  for (const oldReport of previousReports) {
+    if (oldReport.state === 'closed' || oldReport.html_url === newReport.html_url) {
       continue
     }
 
     //  If an old report is not assigned to someone we close it
-    const shouldClose = !previousReport.assignees?.length
+    const shouldClose = !oldReport.assignees?.length
     let body = `➡️ [Newer report](${newReport.html_url})`
     if (shouldClose) {
       body += '\n\nClosing in favor of newer report since there are no assignees on this issue'
@@ -116,14 +116,12 @@ export async function linkReports({
       await octokit.rest.issues.createComment({
         owner,
         repo,
-        issue_number: previousReport.number,
+        issue_number: oldReport.number,
         body,
       })
-      core.info(
-        `Linked old report to new report via comment on old report: #${previousReport.number}.`,
-      )
+      core.info(`Linked old report to new report via comment on old report: #${oldReport.number}.`)
     } catch (error) {
-      core.setFailed(`Error commenting on previousReport, #${previousReport.number}`)
+      core.setFailed(`Error commenting on previousReport, #${oldReport.number}`)
       throw error
     }
     if (shouldClose) {
@@ -131,12 +129,12 @@ export async function linkReports({
         await octokit.rest.issues.update({
           owner,
           repo,
-          issue_number: previousReport.number,
+          issue_number: oldReport.number,
           state: 'closed',
         })
-        core.info(`Closing old report: #${previousReport.number} because it doesn't have assignees`)
+        core.info(`Closing old report: #${oldReport.number} because it doesn't have assignees`)
       } catch (error) {
-        core.setFailed(`Error closing previousReport, #${previousReport.number}`)
+        core.setFailed(`Error closing previousReport, #${oldReport.number}`)
         throw error
       }
     }

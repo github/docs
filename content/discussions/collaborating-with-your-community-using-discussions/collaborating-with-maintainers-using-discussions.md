@@ -18,7 +18,7 @@ versions:
 
 Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion).
 
-{% data reusables.discussions.github-recognizes-members %} {%- ifversion fpt %} These members appear in a list of the most helpful contributors to the project's discussions, if their privacy settings allow. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private).{%- endif %}{%- ifversion ghes or ghec %} These members appear in a list of the most helpful contributors to the project's discussions.{%- endif %}
+{% data variables.product.prodname_dotcom %} will automatically recognize community members who contribute the most comments marked as answers to discussions with a question/answer format. {%- ifversion fpt %} These members appear in a list of the most helpful contributors to the project's discussions, if their privacy settings allow. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/setting-your-profile-to-private).{%- endif %}{%- ifversion ghes or ghec %} These members appear in a list of the most helpful contributors to the project's discussions.{%- endif %}
 
 As your project grows, you can grant higher access permissions to active members of your community. For more information, see [AUTOTITLE](/discussions/guides/granting-higher-permissions-to-top-contributors).
 
@@ -30,7 +30,7 @@ For more information about participation in discussions, see [AUTOTITLE](/discus
 
 {% ifversion copilot %}
 
-> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+> [!TIP] You can also use {% data variables.copilot.copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
 
 {% endif %}
 
@@ -91,7 +91,7 @@ You can choose how to sort top-level comments in discussions. Comment threads do
 
 ## Converting an issue to a discussion
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
+If an issue turns out to be a question or open-ended conversation instead of a work item to track and prioritize, you can convert the issue to a discussion. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
 
 ## Further reading
 

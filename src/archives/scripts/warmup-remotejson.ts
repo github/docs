@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // This calls a function directly that is used by our archived enterprise
@@ -21,11 +19,11 @@
 import { program } from 'commander'
 import semver, { SemVer } from 'semver'
 
-import getRemoteJSON from '@/frame/lib/get-remote-json.js'
+import getRemoteJSON from '@/frame/lib/get-remote-json'
 import {
   deprecated,
   lastVersionWithoutArchivedRedirectsFile,
-} from '#src/versions/lib/enterprise-server-releases.js'
+} from '@/versions/lib/enterprise-server-releases'
 
 program
   .description(

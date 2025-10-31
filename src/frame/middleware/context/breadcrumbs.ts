@@ -44,13 +44,13 @@ function getBreadcrumbs(req: ExtendedRequest, isEarlyAccess: boolean) {
     }
   }
 
-  const breadcrumbs = traverseTreeTitles(
+  const breadcrumbsResult = traverseTreeTitles(
     req.context.currentPath,
     req.context.currentProductTreeTitles,
   )
-  ;[...Array(cutoff)].forEach(() => breadcrumbs.shift())
+  ;[...Array(cutoff)].forEach(() => breadcrumbsResult.shift())
 
-  return breadcrumbs
+  return breadcrumbsResult
 }
 
 // Return an array as if you'd traverse down a tree. Imagine a tree like

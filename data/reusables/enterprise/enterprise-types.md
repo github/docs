@@ -1,5 +1,3 @@
-## About enterprise types
-
 While setting up your trial of {% data variables.product.prodname_ghe_cloud %}, you'll choose an enterprise type.
 
 * Enterprise with personal accounts

@@ -1,6 +1,6 @@
 {%- ifversion ghec %}
 * SOC 1, Type 2
-* SOC 2, Type 1 ({% data variables.product.prodname_copilot_for_business %} only)
+* SOC 2, Type 1 ({% data variables.copilot.copilot_for_business %} only)
 * SOC 2, Type 2
 {%- elsif fpt %}
 * SOC 3

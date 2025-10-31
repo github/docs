@@ -38,6 +38,7 @@ For the purposes outlined in our [Data Protection Agreement](https://github.com/
 | Information that GitHub needs to administer a paid plan | <ul><li>Contact information</li><li>Billing, purchase, payment, or license information</li></ul> |
 | Support and feedback data | <ul><li>Support requests or case notes</li><li>Phone conversations</li><li>Online chat sessions</li><li>Remote assistance sessions</li></ul> |
 | {% data variables.product.prodname_copilot %} data | Data and logs for {% data variables.product.prodname_copilot %} |
+| {% data variables.product.prodname_secret_scanning_caps %} data | Data for {% data variables.product.prodname_secret_scanning %} validity checks and extended metadata checks if you have chosen to enable these features |
 
 ## Data transfers
 

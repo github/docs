@@ -94,6 +94,15 @@ You will first generate an archive of the data you want to migrate and push the 
 
 Before you can run a migration, you need to set up a storage container with your chosen cloud provider to store your data.
 
+### Using {% data variables.product.prodname_ghos %}
+
+> [!NOTE]
+> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+If you do not want to set up and provide {% data variables.product.prodname_importer_proper_name %} with access to a blob storage account behind your firewall, you can migrate repositories with {% data variables.product.prodname_ghos %} using the `--use-github-storage` flag. To do so, you must be running v1.9.0 (or higher) of {% data variables.product.prodname_bbs2gh_cli %}.
+
+For security purposes, {% data variables.product.prodname_ghos %} is explicitly write-only, and downloads from {% data variables.product.prodname_ghos %} are not possible. After a migration is complete, the repository archives are immediately deleted. If an archive is uploaded and not used in a migration, the archive is deleted after 7 days.
+
 ### Setting up an AWS S3 storage bucket
 
 {% data reusables.enterprise-migration-tool.set-up-aws-bucket %}
@@ -143,10 +152,12 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
   # If your Bitbucket Server instance runs on Windows:
   --smb-user SMB-USER
-  # If you're using AWS S3 as your blob storage provider:
+  # If you are using AWS S3 as your blob storage provider:
   --aws-bucket-name AWS-BUCKET-NAME
   # If you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer:
   --archive-download-host ARCHIVE-DOWNLOAD-HOST
+  # If you are using GitHub owned blob storage:
+  --use-github-storage
 ```
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
@@ -208,7 +219,7 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
   --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT \
   --bbs-repo CURRENT-NAME \
-  # If you're using AWS S3 as your blob storage provider:
+  # If you are using AWS S3 as your blob storage provider:
   --aws-bucket-name AWS-BUCKET-NAME
   # If you are migrating to {% data variables.enterprise.data_residency_site %}:
   --target-api-url TARGET-API-URL
@@ -258,6 +269,8 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
   --smb-user SMB-USER
   # If you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer:
   --archive-download-host ARCHIVE-DOWNLOAD-HOST
+  # If you are using GitHub owned blob storage:
+  --use-github-storage
 ```
 
 {% data reusables.enterprise-migration-tool.download-migration-logs-flag %}

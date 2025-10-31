@@ -1,27 +1,25 @@
 import fs from 'fs'
 import path from 'path'
 
-// eslint-disable-next-line import/named
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import yaml from 'js-yaml'
-// eslint-disable-next-line import/no-unresolved
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
-import frontmatter from 'src/frame/lib/read-frontmatter.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
 import {
   getPathWithLanguage,
   getPathWithoutLanguage,
   getPathWithoutVersion,
   getVersionStringFromPath,
-} from 'src/frame/lib/path-utils.js'
-import loadRedirects from 'src/redirects/lib/precompile.js'
-import patterns from 'src/frame/lib/patterns.js'
-import { loadUnversionedTree, loadPages, loadPageMap } from 'src/frame/lib/page-data.js'
-import getRedirect, { splitPathByLanguage } from 'src/redirects/lib/get-redirect.js'
-import nonEnterpriseDefaultVersion from 'src/versions/lib/non-enterprise-default-version.js'
-import { deprecated } from 'src/versions/lib/enterprise-server-releases.js'
+} from '@/frame/lib/path-utils'
+import loadRedirects from '@/redirects/lib/precompile'
+import patterns from '@/frame/lib/patterns'
+import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-data'
+import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 // That magical string that can be turned into the actual title when
 // we, at runtime, render out the links

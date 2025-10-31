@@ -1,6 +1,6 @@
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under your organization name, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Under your organization name, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 
    ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 1. Click **New project**.

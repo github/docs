@@ -14,7 +14,7 @@ children:
   - /forming-calls-with-graphql
   - /using-global-node-ids
   - /migrating-from-rest-to-graphql
-  - /using-the-explorer
+  - /using-graphql-clients
   - /using-pagination-in-the-graphql-api
   - /managing-enterprise-accounts
   - /using-the-graphql-api-for-discussions

@@ -162,13 +162,9 @@ Push protection proactively scans your code, and any repository contributors' co
 
 {% data reusables.advanced-security.available-for-public-repos %}
 
-{% ifversion push-protection-delegated-bypass %}
-
 ### Delegated bypass for push protection
 
 Delegated bypass for push protection lets you control which individuals, roles and teams can bypass push protection, and implements a review and approval cycle for pushes containing secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection).
-
-{% endif %}
 
 ### Custom patterns
 
@@ -210,7 +206,7 @@ Run {% data variables.product.prodname_codeql %} processes locally on software p
 
 {% ifversion code-scanning-autofix %}
 
-### {% data variables.product.prodname_copilot_autofix_short %}
+### {% data variables.copilot.copilot_autofix_short %}
 
 Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
@@ -242,9 +238,9 @@ Security overview allows you to review the overall security landscape of your or
 
 {% ifversion copilot-chat-ghas-alerts %}
 
-## Leveraging {% data variables.product.prodname_copilot_chat %} to understand security alerts
+## Leveraging {% data variables.copilot.copilot_chat %} to understand security alerts
 
-With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
+With a {% data variables.copilot.copilot_enterprise %} license, you can also ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 

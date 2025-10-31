@@ -123,18 +123,31 @@ The SCIM integration on the IdP performs actions on behalf of an enterprise owne
 To authenticate API requests, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with the {% ifversion scim-enterprise-scope %}`scim:enterprise`{% else %}`admin:enterprise`{% endif %} scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 > [!NOTE]
-> Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to endpoints in this category. {% ifversion ghes %}{% data variables.product.pat_v2_caps %} and {% endif %}GitHub app callers are not supported at this time.
+> Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to endpoints in this category. {% data variables.product.pat_v2_caps %} and GitHub app callers are not supported at this time.
 
 ### Mapping of SAML and SCIM data
 
-The {% data variables.product.prodname_ghe_server %} instance links each user who authenticates successfully with SAML SSO to a SCIM identity. To link the identities successfully, the SAML IdP and the SCIM integration must use matching SAML `NameID` and SCIM `userName` values for each user.
+After a {% data variables.product.prodname_ghe_server %} user successfully authenticates using SAML SSO, {% data variables.product.github %} links the user to a SCIM provisioned identity. To link the identities successfully, the SAML identity provider and the SCIM integration must use matching unique identifiers.
 
-{% ifversion ghes %}
+When a mismatch between a user's SAML and SCIM data occurs, {% data variables.product.company_short %} will return an error stating which attributes from SAML and SCIM did not match. For more information on this error, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/troubleshooting-identity-and-access-management-for-your-enterprise#saml-and-scim-data-mismatch-errors).
 
-> [!NOTE]
-> If the {% data variables.product.prodname_ghe_server %} instance uses Entra ID as a SAML IdP, {% data variables.product.github %} will also check the SCIM `externalId` claim and SAML `http://schemas.microsoft.com/identity/claims/objectidentifier` claim to match users first, instead of using `NameID` and `userName`.
+{% data variables.product.company_short %} requires the following SAML claim and SCIM attribute to successfully match the user with the identity provisioned by SCIM. Identity providers may differ in the field used to uniquely identify a user.
 
-{% endif %}
+#### Microsoft Entra ID for SAML
+
+To use Entra ID (previously known as Azure AD) for SAML, the following SAML claims and SCIM attribute must match.
+
+| SAML claim | Matching SCIM attribute |
+| :- | :- |
+| `http://schemas.microsoft.com/identity/claims/objectidentifier` | `externalId` |
+
+#### Other IdPs for SAML
+
+To use other IdPs for SAML, {% data variables.product.company_short %} will use the "Username" attribute configured in your SAML "User attributes" to match against the SCIM attribute listed below. If left blank, the "Username" attribute in your SAML "User attributes" will default to the SAML `NameID`. For more information about SAML configurations, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
+
+| SAML claim | Matching SCIM attribute |
+| :- | :- |
+| "Username" attribute configured in your SAML "User attributes", or `NameID` if left blank | `userName` |
 
 ### Supported SCIM user attributes
 

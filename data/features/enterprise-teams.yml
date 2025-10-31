@@ -1,0 +1,5 @@
+# Reference: #18526
+# Enterprise teams, first shipped as part of Copilot direct licensing
+
+versions:
+  ghec: '*'

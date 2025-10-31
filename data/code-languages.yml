@@ -7,6 +7,9 @@ bash:
 bicep:
   name: Bicep
   comment: slash
+copilot:
+  name: Copilot Chat prompt
+  comment: none
 csharp:
   name: C#
   comment: slash
@@ -54,6 +57,9 @@ python:
   comment: number
 ruby:
   name: Ruby
+  comment: number
+rust:
+  name: Rust
   comment: number
 scss:
   name: SCSS

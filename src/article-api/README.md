@@ -5,6 +5,8 @@ This subject folder contains the code for the Article API endpoints:
 - `/api/article/body`
 - `/api/article/meta`
 
+Related: The `/llms.txt` endpoint (middleware in `src/frame/middleware/llms-txt.ts`) provides AI-friendly content discovery using these APIs.
+
 ## What it does
 
 Article API endpoints allow consumers to query GitHub Docs for listings of current articles, and for specific article information.

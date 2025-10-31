@@ -18,13 +18,6 @@ Some migration paths require tools that are only available with expert-led migra
 
 In our recommendations, we'll assume that you want the highest level of fidelity if possible, which includes source, history, and metadata.
 
-<!-- expires 2025-06-30 -->
-
-> [!NOTE]
-> Enterprise Cloud Importer (ECI) and the GraphQL endpoints for importing migration data to {% data variables.product.prodname_ghe_cloud %} from an archive are closing down on March 31, 2025. After this date, these tools can not be used to import repository data into GitHub's cloud-based products. We recommend using {% data variables.product.prodname_importer_proper_name %} (GEI). See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
-
-<!-- end expires 2025-06-30 -->
-
 ## Migrations to {% data variables.product.prodname_dotcom_the_website %}
 
 You can review the scope and tooling for your migration to {% data variables.product.prodname_dotcom_the_website %}, which includes migrations to {% data variables.product.prodname_ghe_cloud %}. You can also review any additional information or caveats.

@@ -1,6 +1,6 @@
 import type { Response } from 'express'
 
-import { defaultCacheControl } from './cache-control.js'
+import { defaultCacheControl } from './cache-control'
 import type { Context, ExtendedRequest, Tree } from '@/types'
 
 const renderOpts = { textOnly: true }

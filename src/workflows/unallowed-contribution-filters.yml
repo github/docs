@@ -5,7 +5,7 @@ notAllowed:
   - 'Dockerfile*'
   - 'src/**'
   - 'package*.json'
-  - 'content/actions/deployment/security-hardening-your-deployments/**'
+  - 'content/actions/how-tos/security-for-github-actions/security-hardening-your-deployments/**'
 contentTypes:
   - 'content/**'
 # allows getting a list of just added files from the dorny/paths-filter action

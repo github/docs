@@ -9,11 +9,11 @@ versions:
 topics:
   - Issues
 children:
-  - /about-issues
-  - /configuring-issues
+  - /learning-about-issues
   - /using-issues
   - /administering-issues
 redirect_from:
   - /issues/tracking-your-work-with-issues/creating-issues
   - /issues/tracking-your-work-with-issues/managing-issues
+  - /issues/tracking-your-work-with-issues/configuring-issues
 ---

@@ -143,7 +143,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 
 If you are familiar with the process of configuring your domain for a {% data variables.product.prodname_pages %} site, you can use the table below to find the DNS values for your specific scenario and the DNS record types that your DNS provider supports. For more information, including how to configure your {% data variables.product.prodname_pages %} site on {% data variables.product.github %} and how to verify the configuration using the `dig` command, refer to the sections above.
 
-To configure an apex domain, you only need to pick a single DNS record type from the table below. To configure an apex domain and `www` subdomain (for example, `example.com` and `www.example.com`), configure the apex domain and then the subdomain. For more information, see [Configuring an apex domain and the `www` subdomain variant](#configuring-an-apex-domain-and-the-www-subdomain-variant).
+To configure an apex domain, add all of the `A` and `AAAA` records from the table below, or alternatively add only the `ALIAS`/`ANAME` record from the table. To configure an apex domain and `www` subdomain (for example, `example.com` and `www.example.com`), configure the apex domain and then the subdomain. For more information, see [Configuring an apex domain and the `www` subdomain variant](#configuring-an-apex-domain-and-the-www-subdomain-variant).
 
 {% data reusables.pages.wildcard-dns-warning %}
 

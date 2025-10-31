@@ -2,9 +2,10 @@ import { CheckboxGroup, Checkbox, FormControl } from '@primer/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 
-import type { SearchResultAggregations } from 'src/search/types'
+import type { SearchResultAggregations } from '@/search/types'
+import styles from './Aggregations.module.scss'
 
 type Props = {
   aggregations: SearchResultAggregations
@@ -30,6 +31,8 @@ export function SearchResultsAggregations({ aggregations }: Props) {
     } else {
       params.append('toplevel', toplevel)
     }
+    // Reset pagination when filters change to prevent showing 0 results
+    params.delete('page')
     return `/${locale}${asPathRoot}?${params}`
   }
 
@@ -37,12 +40,14 @@ export function SearchResultsAggregations({ aggregations }: Props) {
     const [asPathRoot, asPathQuery = ''] = asPath.split('#')[0].split('?')
     const params = new URLSearchParams(asPathQuery)
     params.delete('toplevel')
+    // Reset pagination when clearing filters
+    params.delete('page')
     return `/${locale}${asPathRoot}?${params}`
   }
 
   if (aggregations.toplevel && aggregations.toplevel.length > 0) {
     return (
-      <div>
+      <div className={styles.aggregations}>
         <CheckboxGroup>
           <CheckboxGroup.Label>
             {t('filter')}{' '}

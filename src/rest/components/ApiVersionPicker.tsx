@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router'
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 import { InfoIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { Picker } from 'src/tools/components/Picker'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { API_VERSION_COOKIE_NAME } from 'src/rest/components/RestRedirect'
-import { apiVersionPath } from 'src/rest/lib/config.js'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { DEFAULT_VERSION, useVersion } from '@/versions/components/useVersion'
+import { Picker } from '@/tools/components/Picker'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { API_VERSION_COOKIE_NAME } from '@/rest/components/RestRedirect'
+import { apiVersionPath } from '@/rest/lib/config'
 
 const API_VERSION_SUFFIX = ' (latest)'
 
@@ -79,31 +79,29 @@ export const ApiVersionPicker = () => {
 
   // This only shows the REST Version picker if it's calendar date versioned
   return allVersions[currentVersion].apiVersions.length > 0 ? (
-    <div className="mb-3">
-      <div data-testid="api-version-picker">
-        <Picker
-          defaultText={currentDateDisplayText}
-          items={apiVersionLinks}
-          pickerLabel="API Version: "
-          alignment="start"
-          buttonBorder={true}
-          dataTestId="version"
-          ariaLabel="Select API Version"
-          onSelect={(item) => {
-            if (item.extra?.currentDate) rememberApiVersion(item.extra.currentDate)
-          }}
-          renderItem={(item) => {
-            return item.extra?.info ? (
-              <div className="f6">
-                {item.text}
-                <InfoIcon verticalAlign="middle" size={15} className="ml-1" />
-              </div>
-            ) : (
-              item.text
-            )
-          }}
-        />
-      </div>
+    <div data-testid="api-version-picker">
+      <Picker
+        defaultText={currentDateDisplayText}
+        items={apiVersionLinks}
+        pickerLabel="API Version: "
+        alignment="start"
+        buttonBorder={true}
+        dataTestId="version"
+        ariaLabel="Select API Version"
+        onSelect={(item) => {
+          if (item.extra?.currentDate) rememberApiVersion(item.extra.currentDate)
+        }}
+        renderItem={(item) => {
+          return item.extra?.info ? (
+            <div className="f6">
+              {item.text}
+              <InfoIcon verticalAlign="middle" size={15} className="ml-1" />
+            </div>
+          ) : (
+            item.text
+          )
+        }}
+      />
     </div>
   ) : null
 }

@@ -2,8 +2,8 @@ import { Heading, NavList } from '@primer/react'
 import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
-import type { MiniTocItem } from 'src/frame/components/context/ArticleContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
+import { useTranslation } from '@/languages/components/useTranslation'
 
 import styles from './Minitocs.module.scss'
 
@@ -59,13 +59,7 @@ export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
       <Heading
         as="h2"
         id="in-this-article"
-        className="mb-1 ml-3"
-        sx={{
-          '@media (min-width: 1012px) and (max-width: 1400px)': {
-            marginTop: '2rem',
-          },
-          fontSize: 1,
-        }}
+        className={cx('mb-1 ml-3', styles.heading)}
         aria-label={t('miniToc')}
       >
         {t('miniToc')}

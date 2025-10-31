@@ -1,0 +1,5 @@
+# Public preview of OpenTelemetry metrics for monitoring in GHES
+# Reference: #6173
+
+versions:
+  ghes: '>=3.18'

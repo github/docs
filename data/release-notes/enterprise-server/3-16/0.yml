@@ -4,11 +4,14 @@ deprecated: false
 intro: |
   {% warning %}
 
+  **Warning**: We received a few reports of performance issues with GitHub Enterprise Server versions 3.15, 3.16, and 3.17 and have shipped performance fixes to the affected versions. You can now upgrade to 3.15.12, 3.16.8, 3.17.5, or later. We do not recommend upgrading to earlier releases of 3.15, 3.16, or 3.17. [Updated: 2025-08-25]
+
+  {% endwarning %}
+  {% warning %}
+
   **Warning**: Customers who have security products enabled by default at the organization level will experience issues when upgrading from 3.14 to 3.16.0. We recommend waiting for the next 3.16 patch to upgrade.
 
   {% endwarning %}
-
-  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
   features:
@@ -32,9 +35,6 @@ sections:
 
     - heading: Dependabot
       notes:
-        # https://github.com/github/releases/issues/5434
-        - |
-          Developers using `pnpm` workspaces can ensure more reliable dependency updates with full Dependabot support for `pnpm` workspace catalogs. Dependabot prevents lockfile inconsistencies, avoids broken dependency trees, and improves update reliability in monorepos. See [the GitHub blog post](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/).
         # https://github.com/github/releases/issues/4982
         - |
           Users can configure Dependabot to create pull requests to keep their repositories up to date with the .NET SDK latest version. When a new version is detected, Dependabot creates a pull request to update the `global.json` file to the new version. See [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-).
@@ -180,8 +180,12 @@ sections:
     # https://github.com/github/releases/issues/5415
     - |
       The CodeQL Action has been updated to v3.28.6 to enable uploading artifacts in debug mode without logging the complete environment when running CodeQL CLI v2.20.3+.
+    - |
+      Customers who have code scanning enabled may experience slower transitions when upgrading to version 3.16.0, due to changes in the data model that require data migration. We recommend testing this upgrade in a non-production environment first, as it could result in longer downtime than expected. [Updated: 2025-06-12]
 
   known_issues:
+    - |
+      Customers operating at high scale or near capacity may experience unexpected performance degradation, such as slow response times, background job queue spikes, elevated CPU usage, and increased MySQL load. Consider upgrading to 3.16 with caution. [Updated: 2025-07-28]
     - |
       {% data reusables.release-notes.2025-03-security-product-transition-bug %} [Updated: 2025-03-17]
     - |
@@ -197,7 +201,7 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the instructions for [Replacing the primary database node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
@@ -222,6 +226,8 @@ sections:
       {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
 
       [Updated: 2025-03-19]
+    - |
+      The security risk page returns a 500 error when secret scanning is disabled. [Updated: 2025-04-25]
 
   closing_down:
     # https://github.com/github/releases/issues/4683
@@ -264,3 +270,7 @@ sections:
       The release notes previously mentioned GitHub App private key limits, which did not ship in 3.16 and will ship in 3.17. Similarly, PAT rotation policies were mentioned but will ship instead in 3.17. [Updated: 2025-03-21]
     - |
       The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]
+    - |
+      The release notes previously mentioned Dependabot support for `pnpm` workspace catalogs, which did not ship in 3.16 and will ship in 3.17. [Updated: 2025-05-08]
+    - |
+      Customers who have code scanning enabled may experience slower transitions when upgrading to version 3.16.0, due to changes in the data model that require data migration. We recommend testing this upgrade in a non-production environment first, as it could result in longer downtime than expected. [Updated: 2025-06-12]

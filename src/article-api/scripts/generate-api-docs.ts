@@ -156,10 +156,10 @@ function updateReadme(readmePath: string, markdown: string): void {
 
     // Replace API documentation section, or append to end
     if (readme.includes(placeholderComment)) {
-      const pattern = new RegExp(placeholderComment + '[\\s\\S]*', 'g')
-      readme = readme.replace(pattern, placeholderComment + '\n' + markdown)
+      const pattern = new RegExp(`${placeholderComment}[\\s\\S]*`, 'g')
+      readme = readme.replace(pattern, `${placeholderComment}\n${markdown}`)
     } else {
-      readme += '\n' + markdown
+      readme += `\n${markdown}`
     }
 
     writeFileSync(readmePath, readme)

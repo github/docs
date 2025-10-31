@@ -14,7 +14,7 @@ shortTitle: About rulesets
 
 ## About rulesets
 
-A ruleset is a named list of rules that applies to a repository{% ifversion repo-rules-enterprise %}, or to multiple repositories in an organization{% endif %}. You can have up to 75 rulesets per repository{% ifversion repo-rules-enterprise %}, and 75 organization-wide rulesets{% endif %}.
+A ruleset is a named list of rules that applies to a repository or to multiple repositories in an organization for customers on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans. You can have up to 75 rulesets per repository, and 75 organization-wide rulesets.
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-ruleset).
 

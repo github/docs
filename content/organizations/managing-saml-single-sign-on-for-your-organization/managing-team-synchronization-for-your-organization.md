@@ -51,7 +51,7 @@ The steps to enable team synchronization depend on the IdP you want to use. Ther
 
 You must enable SAML single sign-on for your organization and your supported IdP. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization).
 
-You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on).
+You must have a linked SAML identity. To create a linked identity, you must authenticate to your organization using SAML SSO and the supported IdP at least once. For more information, see [AUTOTITLE](/authentication/authenticating-with-single-sign-on).
 
 > [!NOTE]
 > For team synchronization to work, your SAML settings must contain a valid IdP URL for the "Issuer" field. For more information, see [Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization).
@@ -66,7 +66,7 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-1. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
+1. Review the identity provider tenant information you want to connect to your organization, then click **Approve**. {% data reusables.identity-and-permissions.sync-app-registration %}
 
 ### Enabling team synchronization for Okta
 
@@ -111,3 +111,7 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 1. Under "Team synchronization", click **Disable team synchronization**.
+
+## Offboarding users with team synchronization
+
+If you plan to use team synchronization to offboard users from your enterprise completely, you should disable the policy for unaffiliated users. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding).

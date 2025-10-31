@@ -18,7 +18,7 @@ export interface ProgAccessT {
   userToServerRest?: boolean
   serverToServer?: boolean
   fineGrainedPat?: boolean
-  permissions: Array<Object>
+  permissions: Array<object>
   allowPermissionlessAccess?: boolean
   allowsPublicRead?: boolean
   basicAuth?: boolean
@@ -90,8 +90,8 @@ export type ExampleT = {
     statusCode: string
     contentType?: string
     description: string
-    example?: Object
-    schema?: Object
+    example?: object
+    schema?: object
   }
 }
 

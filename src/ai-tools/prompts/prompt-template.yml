@@ -1,0 +1,9 @@
+messages:
+  - role: system
+    content: >-
+      {{markdownPrompt}}
+  - role: user
+    content: >-
+      Review this content file according to the provided system prompt.
+      {{input}}
+model: openai/gpt-5

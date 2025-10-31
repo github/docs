@@ -1,7 +1,7 @@
 ---
 title: Getting started with GitHub Actions for GitHub Enterprise Cloud
 shortTitle: Get started
-intro: 'Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.'
+intro: 'Configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghec: '*'
 type: how_to
@@ -11,17 +11,11 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}
-
 {% data variables.product.prodname_actions %} is enabled for your enterprise by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you can manage the policies that control how enterprise members use {% data variables.product.prodname_actions %} and optionally add self-hosted runners to run workflows.
-
-{% data reusables.actions.introducing-enterprise %}
-
-{% data reusables.actions.migrating-enterprise %}
 
 ## Managing policies for {% data variables.product.prodname_actions %}
 
-You can use policies to control how enterprise members use {% data variables.product.prodname_actions %}. For example, you can restrict which actions are allowed and configure artifact and log retention. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
+You can use policies to control how enterprise members use {% data variables.product.prodname_actions %}. For example, you can restrict which actions are allowed and configure artifact and log retention. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
 
 ## Adding runners
 
@@ -38,7 +32,3 @@ Organization owners and users with the "Manage custom organization roles" permis
 {% data reusables.actions.org-roles-for-gh-actions %}
 
 For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles).
-
-## Next steps
-
-Next, learn about security practices for using {% data variables.product.prodname_actions %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions).

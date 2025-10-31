@@ -314,7 +314,7 @@ function getMatchQueries(
       ],
     )
     // If the content is short, it is given a disproportionate advantage
-    // in search ranking. For example, our category and map-topic pages
+    // in search ranking. For example, our category and subcategory pages
     // often includes a list of other document titles but because it's so
     // short it thinks that content is really relevant. This only applies
     // when you use `match_phrase_prefix` which first makes a search

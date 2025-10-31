@@ -46,8 +46,8 @@ action.
 
 Feel free to create sub-directories or new files. For example, if it's
 about end-to-end testing a new custom Liquid tag called
-`lib/liquid-tags/snacks.js` you create a new test called
-`src/fixtures/tests/snack.js`. (And equally, you might want to create
+`lib/liquid-tags/snacks.ts` you create a new test called
+`src/fixtures/tests/snack.ts`. (And equally, you might want to create
 `src/fixtures/fixtures/content/get-started/foo/snacking.md`)
 
 To run the tests use:
@@ -73,7 +73,7 @@ There's a script you can always run that makes sure all and any of these
 files are up to do:
 
 ```shell
-./src/tests/scripts/copy-fixture-data.js
+./src/tests/scripts/copy-fixture-data.ts
 ```
 
 It's safe to run any time. And it might be necessary to run so that

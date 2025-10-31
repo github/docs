@@ -40,7 +40,7 @@ If you use {% data variables.product.prodname_emus %}, the following limitations
 After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
 
 * **Two-factor authentication (2FA):** If required by the enterprise, members without 2FA, or with insecure 2FA, will be unable to access organization resources until they configure 2FA that meets the enterprise's 2FA security requirements.
-* **Enterprise licenses:** Members become part of the enterprise, and usage is billed to the enterprise account. You must ensure that the enterprise account has enough licenses to accommodate any new members. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
+* **Enterprise licenses:** Members become part of the enterprise, and usage is billed to the enterprise account. You must ensure that the enterprise account has enough licenses to accommodate any new members. See [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise).
 * **Enterprise role management:** Enterprise owners can manage their roles within the organization. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 * **Enterprise policies:** Any policies applied to the enterprise will apply to the organization. {% data reusables.actions.org-to-enterprise-actions-permissions %}
 
@@ -63,6 +63,15 @@ After you add an existing organization to your enterprise, the organization's re
 * **Sponsorships:** Any sponsorships by the organization will be canceled.
 * **Coupons:** Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
 
+## Handling {% data variables.product.prodname_sponsors %} with Azure billing
+
+If your organization is added to an enterprise account with Azure metered billing, any active {% data variables.product.prodname_sponsors %} sponsorships will be canceled. While your organization remains under enterprise billing through Azure, you will not be able to reactivate these sponsorships, as sponsoring is not currently supported for organizations billed through Azure.
+
+To continue using {% data variables.product.prodname_sponsors %}, create a new, separate "shell" organization that is not linked to your enterprise account or Azure billing. You can use this shell organization to manage sponsorships independently.
+
+> [!NOTE]
+> After you create a shell organization, update any public references or documentation to point sponsors to the new organization.
+
 ## Creating a new organization
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription.
@@ -72,13 +81,11 @@ Enterprise owners who create an organization owned by the enterprise account aut
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
-1. In the left sidebar, click **Organizations**.
-{%- endif %}
+{% data reusables.enterprise-accounts.click-organizations-tab %}
 1. Above the list of organizations, click **New organization**.
-1. Under "Organization name", type a name for your organization.
+1. Under "Organization name," type a name for your organization.
 1. Click **Create organization**.
-1. Optionally, under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
+1. Optionally, under "Invite owners," type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
 1. Click **Finish**.
 
 ## Inviting an existing organization
@@ -90,14 +97,12 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invit
 After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
 {% data reusables.enterprise-accounts.click-organizations-tab %}
-{%- endif %}
 1. Above the list of organizations, click **Invite organization**.
-1. Under "Organization name", start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
+1. Under "Organization name," start typing the name of the organization you want to invite and select it when it appears in the dropdown list.
 1. Click **Invite organization**. The organization owners will receive an email inviting them to join the enterprise.
 1. After an organization owner has approved the invitation, navigate back to the **Organizations** tab of the enterprise settings.
-1. Under "Organizations", click **X pending**.
+1. Under "Organizations," click **X pending**.
 1. To complete the transfer, next to the organization name, click **Approve**.
 
 ## Transferring an existing organization
@@ -109,9 +114,7 @@ You cannot transfer an existing organization to or from an {% data variables.ent
 If the existing organization uses billed apps, make sure to remove the billed apps before transferring. After the transfer is complete, re-add the apps.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion enterprise-readme %}
 {% data reusables.enterprise-accounts.click-organizations-tab %}
-{%- endif %}
 1. Next to the organization you want to transfer, select the {% octicon "kebab-horizontal" width="16" aria-label="Organization settings" %} dropdown menu, then click **Transfer organization**.
 
    ![Screenshot of the expanded dropdown menu labeled with the kebab icon, for an organization. The "Transfer organization" option is outlined.](/assets/images/help/business-accounts/transfer-organization.png)

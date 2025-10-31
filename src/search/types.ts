@@ -5,7 +5,7 @@ import type {
   ComputedSearchQueryParamsMap,
 } from '@/search/lib/search-request-params/types'
 
-export type SearchTypes = 'generalSearch' | 'generalAutocomplete' | 'aiSearchAutocomplete'
+export type SearchTypes = 'generalSearch' | 'aiSearchAutocomplete'
 
 // Responses to API routes
 export interface GeneralSearchResponse {

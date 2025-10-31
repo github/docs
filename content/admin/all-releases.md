@@ -20,28 +20,34 @@ We provide documentation for both supported and unsupported versions of {% data 
 
 For information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
 
-| Version | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Documentation |
-| :- | :- | :- | :-: | :- | :- |
+| Version | Candidate | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Docs |
+| :- | :- | :- | :- | :-: | :- | :- |
 {%- for version in enterpriseServerReleases.supported %}
 {%- assign currentDate = 'now' | date: '%s' %}
 {%- assign deprecationDate = enterpriseServerReleases.dates[version].deprecationDate | date: '%s' %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% if currentDate < deprecationDate %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+| {{version}} | {{enterpriseServerReleases.dates[version].displayCandidateDate}} | {{enterpriseServerReleases.dates[version].displayReleaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% if currentDate < deprecationDate %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} docs](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+{%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+{%- assign releaseDisplay = enterpriseServerReleases.dates[version].displayReleaseDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+| {{version}} | {{candidateDisplay}} | {{releaseDisplay}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} docs](/enterprise-server@{{version}}) |
 {%- endfor %}
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} documentation](/enterprise/{{version}}) |
+{%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+{%- assign releaseDisplay = enterpriseServerReleases.dates[version].displayReleaseDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+| {{version}} | {{candidateDisplay}} | {{releaseDisplay}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} docs](/enterprise/{{version}}) |
 {%- endfor %}
 
 ### Developer documentation that is {% data variables.release-phases.closing_down %}
 
 We hosted developer documentation for {% data variables.product.prodname_ghe_server %} on a separate site until the 2.17 release. We provide developer documentation for version 2.16 and earlier, but do not maintain or update the documentation.
 
-| Version | Release | {% data variables.release-phases.closing_down_caps %} date | Developer documentation |
-| :- | :- | :- | :- |
+| Version | Candidate | Release | {% data variables.release-phases.closing_down_caps %} date | Developer docs |
+| :- | :- | :- | :- | :- |
 {%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer documentation](https://developer.github.com/enterprise/{{version}}) |
+{%- assign candidateDisplay = enterpriseServerReleases.dates[version].displayCandidateDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+{%- assign releaseDisplay = enterpriseServerReleases.dates[version].displayReleaseDate | default: enterpriseServerReleases.dates[version].releaseDate %}
+| {{version}} | {{candidateDisplay}} | {{releaseDisplay}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer docs](https://developer.github.com/enterprise/{{version}}) |
 {%- endfor %}
 
 ## Recommended {% data variables.product.prodname_codeql_cli %} versions for code scanning
@@ -52,6 +58,9 @@ If you run analysis in an external CI system, we recommend using the same versio
 
 | {% data variables.product.prodname_ghe_server %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
+| 3.18 | 2.21.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.21.4/)) |
+| 3.17 | 2.20.7 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.20.7/)) |
+| 3.16 | 2.20.3 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.20.3/)) |
 | 3.15 | 2.18.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.18.4/)) |
 | 3.14 | 2.17.6 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.17.6/)) |
 | 3.13 | 2.16.5 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.5/)) |
@@ -69,6 +78,8 @@ For instances with {% data variables.product.prodname_actions %} enabled, self-h
 
 | {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
+| 3.18 | 2.324.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.324.0)) |
+| 3.17 | 2.322.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.322.0)) |
 | 3.16 | 2.321.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.321.0)) |
 | 3.15 | 2.319.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.319.1)) |
 | 3.14 | 2.317.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.317.0)) |

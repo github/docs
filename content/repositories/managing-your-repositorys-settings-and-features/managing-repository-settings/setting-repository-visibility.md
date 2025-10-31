@@ -80,7 +80,7 @@ For information about improving repository security, see [AUTOTITLE](/code-secur
 
 ### Changing from public to private
 
-* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Stars and watchers for this repository will be erased, which will affect repository rankings.
 * Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_GH_code_security %} is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
 > * {% data variables.product.prodname_code_scanning_caps %} will become unavailable unless {% data variables.product.prodname_code_security %} is enabled for this repository.
 * Current forks will remain public and will be detached from this repository.
@@ -92,17 +92,17 @@ For information about improving repository security, see [AUTOTITLE](/code-secur
 * All push rulesets will be disabled.
 * Your changes will be published as activity.
 * Actions history and logs will be visible to everyone.
-* Stars and watchers for this repository will be permanently erased.
+* Stars and watchers for this repository will be erased.
 
 ### Changing from private to internal
 
 * All members of the enterprise will be given read access.
 * Outside collaborators can no longer be added to forks unless they're added to the root.
-* Stars and watchers for this repository will be permanently erased.
+* Stars and watchers for this repository will be erased.
 
 ### Changing from internal to private
 
-* Stars and watchers for this repository will be permanently erased, which will affect repository rankings.
+* Stars and watchers for this repository will be erased, which will affect repository rankings.
 * Custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_GH_code_security %} is enabled for this repository. Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository.
 > * {% data variables.product.prodname_code_scanning_caps %} will become unavailable unless {% data variables.product.prodname_code_security %} is enabled for this repository.
 * Current forks will remain public and will be detached from this repository.
@@ -114,13 +114,13 @@ For information about improving repository security, see [AUTOTITLE](/code-secur
 * All push rulesets will be disabled.
 * Your changes will be published as activity.
 * Actions history and logs will be visible to everyone.
-* Stars and watchers for this repository will be permanently erased.
+* Stars and watchers for this repository will be erased.
 
 ### Changing from public to internal
 
 * All members of the enterprise will be given read access.
 * Outside collaborators can no longer be added to forks unless they're added to the root.
-* Stars and watchers for this repository will be permanently erased.
+* Stars and watchers for this repository will be erased.
 
 ## Changing a repository's visibility
 
@@ -128,8 +128,9 @@ For information about improving repository security, see [AUTOTITLE](/code-secur
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Danger Zone" section, to the right of to "Change repository visibility", click **Change visibility**.
 1. Select a visibility.
-1. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
-1. Click **I understand, change repository visibility**.
+1. Click to confirm that you are changing the visibility of the correct repository.
+1. Click **I have read and understand these effects**.
+1. Click **Make this repository public** or **Make this repository private**.
 
 ## Further reading
 

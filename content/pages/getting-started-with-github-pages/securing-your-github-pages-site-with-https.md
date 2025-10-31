@@ -19,6 +19,8 @@ People with admin permissions for a repository can enforce HTTPS for a {% data v
 
 All {% data variables.product.prodname_pages %} sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages) and [AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#https-errors).
 
+{% data variables.product.prodname_pages %} sites created after June 15, 2016, and using `github.io` domains are served over HTTPS automatically.
+
 {% data reusables.pages.no_sensitive_data_pages %}
 
 {% data reusables.pages.private_pages_are_public_warning %}
@@ -52,7 +54,7 @@ Assets are commonly found in the following locations:
 * Images are often found in the `<body>` section.
 
 > [!TIP]
-> If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.github %}.
+> If you can't find your assets in your site's source files, try searching your site's source files for `http://` in your text editor or on {% data variables.product.github %}.
 
 ### Examples of assets referenced in an HTML file
 

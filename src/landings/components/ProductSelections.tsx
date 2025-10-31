@@ -1,6 +1,6 @@
 import React from 'react'
 
-import type { ProductT } from 'src/frame/components/context/MainContext'
+import type { ProductT } from '@/frame/components/context/MainContext'
 import { ProductSelectionCard } from './ProductSelectionCard'
 
 export type ProductGroupT = {
