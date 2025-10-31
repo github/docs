@@ -50,7 +50,7 @@ Content exclusions also apply to {% data variables.copilot.copilot_code-review_s
 
 > [!NOTE]
 > * Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
-> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}.
+> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} and other editors.
 
 ### Limitations of content exclusion
 
