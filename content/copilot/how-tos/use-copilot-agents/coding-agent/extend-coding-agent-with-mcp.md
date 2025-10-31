@@ -156,40 +156,11 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
 
 ### Example: Azure
 
-The [Azure MCP server](https://github.com/Azure/azure-mcp) creates a seamless connection between {% data variables.product.prodname_copilot_short %} and key Azure services such as Azure Cosmos DB and the Azure Storage platform.
+The [Azure MCP Server](https://github.com/Azure/azure-mcp) allows {% data variables.product.prodname_copilot_short %} to understand your Azure-specific files and Azure resources within your subscription when making code changes.
 
-To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you must update the repository's `copilot-setup-steps.yml` file to include an Azure login workflow step.
+To automatically configure your repository with a `copilot-setup-steps.yml` file to authenticate with Azure, plus secrets for authentication, clone the repository locally then run the [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/?ref_product=copilot&ref_type=engagement&ref_style=button)'s `azd coding-agent config` command in the root of the repository.
 
-1. Configure OIDC in a Microsoft Entra application, trusting {% data variables.product.github %}. See [Use the Azure Login action with OpenID Connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect).
-1. Add a `.github/workflows/copilot-setup-steps.yml` Actions workflow file in your repository if you do not already have one.
-1. Add an Azure login step to the `copilot-setup-steps` workflow job.
-
-   ```yaml copy
-   on:
-     workflow_dispatch:
-   permissions:
-     id-token: write
-     contents: read
-   jobs:
-     copilot-setup-steps:
-       runs-on: ubuntu-latest
-       permissions:
-         id-token: write
-         contents: read
-       environment: copilot
-       steps:
-         - name: Azure login
-           uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5
-           with:
-             client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
-             tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
-             subscription-id: {% raw %}${{ secrets.AZURE_SUBSCRIPTION_ID }}{% endraw %}
-   ```
-
-   This configuration ensures the `azure/login` action is executed when {% data variables.copilot.copilot_coding_agent %} runs.
-
-1. In your repository’s {% data variables.product.prodname_copilot_short %} environment, add secrets for your `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` and `AZURE_SUBSCRIPTION_ID`.
-1. Configure the Azure MCP server by adding an `azure` object to your MCP configuration.
+Once you've run the command and merged the created pull request, you can add the MCP configuration to your repository.
 
   ```json copy
    {
