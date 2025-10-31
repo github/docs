@@ -262,6 +262,7 @@
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "@types/event-to-promise": "^0.7.5",
     "@types/express": "^5.0.3",
+    "@types/express": "5.0.1",
     "@types/imurmurhash": "^0.1.4",
     "@types/js-cookie": "^3.0.6",
     "@types/js-yaml": "^4.0.9",
