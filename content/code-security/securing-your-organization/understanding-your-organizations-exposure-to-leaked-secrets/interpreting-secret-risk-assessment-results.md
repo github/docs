@@ -23,7 +23,7 @@ In this tutorial, you'll interpret your secret risk assessment results, and lear
 
 ## Prerequisites
 
-You must generate a {% data variables.product.prodname_secret_risk_assessment %} report and wait for the scan to complete. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization#generating-an-initial-secret-risk-assessment).
+You must generate a {% data variables.product.prodname_secret_risk_assessment %} report and wait for the scan to complete. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/assess-your-secret-risk).
 
 ## Step 1: Understand your dashboard metrics
 
@@ -71,7 +71,7 @@ If you see **many secrets of the same type** (for example, multiple AWS keys), t
 * Developers may not be using environment variables
 * Missing documentation on secret management
 
-## Step 5: Prioritizing remediation and related actions
+## Step 5: Prioritize remediation and related actions
 
 Now that you understand the metrics, prioritize remediation based on risk.
 
