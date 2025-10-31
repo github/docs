@@ -106,7 +106,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       req.context.currentVersion === 'free-pro-team@latest' ||
       !allVersions[req.context.currentVersion!]
     ) {
-      page.fullTitle += ' - ' + context.site!.data.ui.header.github_docs
+      page.fullTitle += ` - ${context.site!.data.ui.header.github_docs}`
     } else {
       const { versionTitle } = allVersions[req.context.currentVersion!]
       page.fullTitle += ' - '
@@ -116,7 +116,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       if (!versionTitle.includes('GitHub')) {
         page.fullTitle += 'GitHub '
       }
-      page.fullTitle += versionTitle + ' Docs'
+      page.fullTitle += `${versionTitle} Docs`
     }
   }
 

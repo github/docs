@@ -49,11 +49,11 @@ const config: NextConfig = {
       }
     })
   },
-  webpack: (config) => {
-    config.experiments = config.experiments || {}
-    config.experiments.topLevelAwait = true
-    config.resolve.fallback = { fs: false, async_hooks: false }
-    return config
+  webpack: (webpackConfig) => {
+    webpackConfig.experiments = webpackConfig.experiments || {}
+    webpackConfig.experiments.topLevelAwait = true
+    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    return webpackConfig
   },
 
   // https://nextjs.org/docs/api-reference/next.config.js/compression

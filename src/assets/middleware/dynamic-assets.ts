@@ -143,9 +143,9 @@ export default async function dynamicAssets(
       const buffer = await image.webp({ effort }).toBuffer()
       assetCacheControl(res)
       return res.type('image/webp').send(buffer)
-    } catch (error) {
-      if (error instanceof Error && (error as any).code !== 'ENOENT') {
-        throw error
+    } catch (catchError) {
+      if (catchError instanceof Error && (catchError as any).code !== 'ENOENT') {
+        throw catchError
       }
     }
   }

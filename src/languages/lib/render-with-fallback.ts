@@ -70,7 +70,7 @@ export function createTranslationFallbackComment(error: Error, property: string)
 
       // Limit message length to keep comment manageable
       if (cleanMessage.length > 200) {
-        cleanMessage = cleanMessage.substring(0, 200) + '...'
+        cleanMessage = `${cleanMessage.substring(0, 200)}...`
       }
 
       errorDetails.push(`msg="${cleanMessage.replace(/"/g, "'")}"`)
@@ -141,7 +141,7 @@ export async function renderContentWithFallback(
       // Skip for textOnly rendering to avoid breaking plain text output
       if (context.currentLanguage !== 'en' && !options?.textOnly) {
         const errorComment = createTranslationFallbackComment(error as Error, property)
-        return errorComment + '\n' + fallbackContent
+        return `${errorComment}\n${fallbackContent}`
       }
 
       return fallbackContent
@@ -181,7 +181,7 @@ export async function executeWithFallback<T>(
       // Only for HTML content (detected by presence of HTML tags)
       if (typeof fallbackContent === 'string' && /<[^>]+>/.test(fallbackContent)) {
         const errorComment = createTranslationFallbackComment(error as Error, 'content')
-        return (errorComment + '\n' + fallbackContent) as T
+        return `${errorComment}\n${fallbackContent}` as T
       }
 
       return fallbackContent

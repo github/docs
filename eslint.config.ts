@@ -25,6 +25,16 @@ export default [
         ...globals.node,
         ...globals.commonjs,
         ...globals.es2020,
+        // Fetch API types for TypeScript
+        RequestInit: 'readonly',
+        RequestInfo: 'readonly',
+        HeadersInit: 'readonly',
+        JSX: 'readonly',
+        // Node.js types for TypeScript
+        BufferEncoding: 'readonly',
+        NodeJS: 'readonly',
+        // cheerio namespace for TypeScript
+        cheerio: 'readonly',
       },
       parserOptions: {
         requireConfigFile: false,
@@ -83,15 +93,11 @@ export default [
       'no-redeclare': 'off', // Allow function overloads in TypeScript
       'i18n-text/no-en': 'off', // This rule causes eslint to not run at all
       'filenames/match-regex': 'off', // This rule causes eslint to not run at all
+      camelcase: 'off', // Many gh apis use underscores, 600+ uses
 
       // Disabled rules to review
-      'github/no-then': 'off', // 30+
       '@typescript-eslint/ban-ts-comment': 'off', // 50+
-      'no-undef': 'off', // 50+
-      'no-shadow': 'off', // 150+
-      'prefer-template': 'off', // 150+
       'github/array-foreach': 'off', // 250+
-      camelcase: 'off', // 600+
       'no-console': 'off', // 800+
       '@typescript-eslint/no-explicit-any': 'off', // 1000+
     },

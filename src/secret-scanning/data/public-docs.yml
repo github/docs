@@ -1974,7 +1974,7 @@
   base64Supported: false
   isduplicate: false
 - provider: Databricks
-  supportedSecret: Databricks Access Token
+  supportedSecret: Databricks API Token
   secretType: databricks_access_token
   versions:
     fpt: '*'
@@ -4060,6 +4060,18 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: OneSignal
+  supportedSecret: OneSignal Rich API Key
+  secretType: onesignal_rich_authentication_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Onfido
   supportedSecret: Onfido Live API Token
   secretType: onfido_live_api_token
@@ -4251,6 +4263,18 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Pineapple Technologies Limited
+  supportedSecret: Pineapple Technologies Incident API Key
+  secretType: pineapple_technologies_incident_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: false
 - provider: Pinecone
@@ -4616,6 +4640,30 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Rainforest Pay
+  supportedSecret: Rainforest API Key
+  secretType: rainforest_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Rainforest Pay
+  supportedSecret: Rainforest Sandbox API Key
+  secretType: rainforest_sandbox_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Ramp
   supportedSecret: Ramp OAuth Client ID
   secretType: ramp_client_id
@@ -4651,6 +4699,18 @@
     ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Raycast
+  supportedSecret: Raycast Access Token
+  secretType: raycast_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false

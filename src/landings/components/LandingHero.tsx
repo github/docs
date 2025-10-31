@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'

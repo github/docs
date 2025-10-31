@@ -2,7 +2,7 @@
 title: Audit log events for agents
 shortTitle: Agentic audit log events
 intro: 'Understand the structure of audit log events for agents in your enterprise.'
-permissions: Enterprise owners and people with read permissions for enterprise audit logs
+permissions: Enterprise owners
 versions:
   feature: copilot
 topics:

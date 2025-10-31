@@ -6,7 +6,7 @@ import { graphql } from '@octokit/graphql'
 // Pull out the node ID of a project field
 export function findFieldID(fieldName: string, data: Record<string, any>) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (field: Record<string, any>) => field.name === fieldName,
+    (fieldNode: Record<string, any>) => fieldNode.name === fieldName,
   )
 
   if (field && field.id) {
@@ -23,14 +23,14 @@ export function findSingleSelectID(
   data: Record<string, any>,
 ) {
   const field = data.organization.projectV2.fields.nodes.find(
-    (field: Record<string, any>) => field.name === fieldName,
+    (fieldData: Record<string, any>) => fieldData.name === fieldName,
   )
   if (!field) {
     throw new Error(`A field called "${fieldName}" was not found. Check if the field was renamed.`)
   }
 
   const singleSelect = field.options.find(
-    (field: Record<string, any>) => field.name === singleSelectName,
+    (option: Record<string, any>) => option.name === singleSelectName,
   )
 
   if (singleSelect && singleSelect.id) {
@@ -203,7 +203,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
   // Build the mutation to update a single project field
   // Specify literal=true to indicate that the value should be used as a string, not a variable
   function generateMutationToUpdateField({
-    item,
+    item: itemId,
     fieldID,
     value,
     fieldType,
@@ -220,12 +220,12 @@ export function generateUpdateProjectV2ItemFieldMutation({
     // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
     // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.slice(1)}_item_${item.replaceAll(
+      set_${fieldID.slice(1)}_item_${itemId.replaceAll(
         /[^a-z0-9]/g,
         '',
       )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
-        itemId: "${item}"
+        itemId: "${itemId}"
         fieldId: ${fieldID}
         value: { ${parsedValue} }
       }) {

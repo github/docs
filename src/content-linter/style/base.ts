@@ -33,28 +33,8 @@ export const baseConfig: BaseConfig = {
     'partial-markdown-files': false,
     'yml-files': false,
   },
-  'ul-style': {
-    // MD004
-    severity: 'error',
-    style: 'asterisk',
-    'partial-markdown-files': true,
-    'yml-files': false,
-    context: `We use asterisks to format bulleted lists because this gives clearer, more accessible source code.`,
-  },
-  'no-trailing-spaces': {
-    // MD009
-    severity: 'error',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
   'no-reversed-links': {
     // MD011
-    severity: 'error',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'no-multiple-blanks': {
-    // MD012
     severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
@@ -76,12 +56,6 @@ export const baseConfig: BaseConfig = {
     severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
-  },
-  'blanks-around-headings': {
-    // MD022
-    severity: 'error',
-    'partial-markdown-files': false,
-    'yml-files': false,
   },
   'heading-start-left': {
     // MD023
@@ -137,19 +111,6 @@ export const baseConfig: BaseConfig = {
   'no-empty-links': {
     // MD042
     severity: 'error',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'single-trailing-newline': {
-    // MD047
-    severity: 'error',
-    'partial-markdown-files': true,
-    'yml-files': false,
-  },
-  'emphasis-style': {
-    // MD049
-    severity: 'error',
-    style: 'underscore',
     'partial-markdown-files': true,
     'yml-files': true,
   },

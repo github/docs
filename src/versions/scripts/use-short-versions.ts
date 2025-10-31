@@ -117,15 +117,13 @@ async function main() {
   }
 }
 
-main().then(
-  () => {
-    console.log('Done!')
-  },
-  (err) => {
-    console.error(err)
-    process.exit(1)
-  },
-)
+try {
+  await main()
+  console.log('Done!')
+} catch (err) {
+  console.error(err)
+  process.exit(1)
+}
 
 // Convenience function to help with readability by removing this large but unneded property.
 // Using any for token objects as liquidjs doesn't provide TypeScript types

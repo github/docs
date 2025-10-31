@@ -886,8 +886,8 @@ test.describe('translations', () => {
     // Playwright will cache this redirect, so we need to add something
     // to "cache bust" the URL
     const cb = `?cb=${Math.random()}`
-    await page.goto('/get-started/start-your-journey/hello-world' + cb)
-    await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world' + cb)
+    await page.goto(`/get-started/start-your-journey/hello-world${cb}`)
+    await expect(page).toHaveURL(`/ja/get-started/start-your-journey/hello-world${cb}`)
 
     // If you go, with the Japanese cookie, to the English page directly,
     // it will offer a link to the Japanese URL in a banner.

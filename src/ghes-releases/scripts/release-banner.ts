@@ -68,7 +68,9 @@ async function main(): Promise<void> {
 `)
 }
 
-main().catch((error) => {
+try {
+  await main()
+} catch (error) {
   console.error('Error:', error)
   process.exit(1)
-})
+}

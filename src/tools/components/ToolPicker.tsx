@@ -14,7 +14,7 @@ import { InArticlePicker } from './InArticlePicker'
 function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
   markdowns
-    .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
+    .filter((el) => supportedTools.some((toolName) => el.classList.contains(toolName)))
     .forEach((el) => {
       el.style.display = el.classList.contains(tool) ? '' : 'none'
 
@@ -31,7 +31,7 @@ function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
   // example: <span class="tool-webui">inline content</span>
   const toolEls = Array.from(
     document.querySelectorAll<HTMLElement>(
-      supportedTools.map((tool) => `.tool-${tool}`).join(', '),
+      supportedTools.map((toolOption) => `.tool-${toolOption}`).join(', '),
     ),
   )
   toolEls.forEach((el) => {

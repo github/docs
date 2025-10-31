@@ -268,7 +268,7 @@ function makeHref(root, filePath) {
   } else {
     nameSplit.push(nameSplit.pop().replace(/\.md$/, ''))
   }
-  return '/' + nameSplit.join('/')
+  return `/${nameSplit.join('/')}`
 }
 
 function moveFolder(oldPath, newPath, files, opts) {
@@ -400,11 +400,11 @@ function addToChildren(newPath, positions, opts) {
   }
 
   if (CHILDGROUPS_KEY in data) {
-    for (const [groupIndex, childrenPosition] of childGroupPositions) {
+    for (const [groupIndex, groupChildPosition] of childGroupPositions) {
       if (groupIndex < data[CHILDGROUPS_KEY].length) {
         const group = data[CHILDGROUPS_KEY][groupIndex]
-        if (childrenPosition < group.children.length) {
-          group.children.splice(childrenPosition, 0, newName)
+        if (groupChildPosition < group.children.length) {
+          group.children.splice(groupChildPosition, 0, newName)
         } else {
           group.children.push(newName)
         }

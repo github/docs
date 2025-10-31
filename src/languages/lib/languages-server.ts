@@ -90,8 +90,8 @@ export const languagePrefixPathRegex: RegExp = new RegExp(`^/(${languageKeys.joi
  * if it's something like /foo or /foo/bar or /fr (because French (fr)
  * is currently not an active language)
  */
-export function pathLanguagePrefixed(path: string): boolean {
-  return languagePrefixPathRegex.test(path)
+export function pathLanguagePrefixed(urlPath: string): boolean {
+  return languagePrefixPathRegex.test(urlPath)
 }
 
 export default languages
