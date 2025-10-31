@@ -761,6 +761,17 @@
         "additional-permissions": false
       },
       {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/usage/summary",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "orgs",
         "slug": "update-an-organization",
         "subcategory": "orgs",
@@ -12586,6 +12597,17 @@
         "subcategory": "enhanced-billing",
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage/summary",
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,
