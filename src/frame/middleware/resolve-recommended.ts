@@ -105,17 +105,17 @@ async function resolveRecommended(
     const page = req.context?.page
     const rawRecommended = (page as any)?.rawRecommended
     const spotlight = (page as any)?.spotlight
-
-    // Collect article paths from both rawRecommended and spotlight
-    const articlePaths: string[] = []
+    // Collect article paths from rawRecommended or spotlight if there are no
+    // recommended articles
+    let articlePaths: string[] = []
 
     // Add paths from rawRecommended
     if (rawRecommended && Array.isArray(rawRecommended)) {
       articlePaths.push(...rawRecommended)
     }
 
-    // Add paths from spotlight (legacy field)
-    if (spotlight && Array.isArray(spotlight)) {
+    // Add paths from spotlight (legacy field) if no recommended articles
+    if (articlePaths.length === 0 && spotlight && Array.isArray(spotlight)) {
       const spotlightPaths = spotlight
         .filter((item: any) => item && typeof item.article === 'string')
         .map((item: any) => item.article)
@@ -126,6 +126,8 @@ async function resolveRecommended(
       return next()
     }
 
+    // remove duplicate articles
+    articlePaths = [...new Set(articlePaths)]
     const resolved: ResolvedArticle[] = []
 
     for (const rawPath of articlePaths) {

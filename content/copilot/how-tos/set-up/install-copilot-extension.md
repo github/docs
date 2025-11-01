@@ -156,13 +156,15 @@ To see instructions for other popular coding environments, use the tool switcher
 
 Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.copilot.copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
 
+The following instructions are for versions 2022 17.8 and 2022 17.9 of {% data variables.product.prodname_vs %} for Windows.
+
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
 1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 
 1. Make sure you have a compatible version of {% data variables.product.prodname_vs %} installed. {% data reusables.copilot.visual-studio-version %}
 
-1. Install the {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %} See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
+1. Install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
 
 1. After installing the {% data variables.product.prodname_copilot %} extension, to enable {% data variables.product.prodname_copilot %}, ensure you have added your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}. For more information, see [Add your {% data variables.product.prodname_dotcom %} accounts to your {% data variables.product.prodname_vs %} keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
 

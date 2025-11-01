@@ -10,8 +10,9 @@ const TABLE_ROW_REGEX = /^\s*\|.*\|\s*$/
 // Regex to detect table separator rows (contains only |, :, -, and whitespace)
 const TABLE_SEPARATOR_REGEX = /^\s*\|[\s\-:|\s]*\|\s*$/
 // Regex to detect Liquid-only cells (whitespace, liquid tag, whitespace)
-const LIQUID_ONLY_CELL_REGEX = /^\s*{%\s*(ifversion|else|endif|elsif).*%}\s*$/
-
+const LIQUID_ONLY_CELL_REGEX = /^\s*{%\s*(ifversion|else|endif|elsif|for|endfor).*%}\s*$/
+// Regex to use for splitting on non-escaped pipes only
+const NON_ESCAPED_PIPE_REGEX = /(?<!\\)\|/
 /**
  * Counts the number of columns in a table row by splitting on | and handling edge cases
  */
@@ -24,8 +25,9 @@ function countColumns(row: string): number {
     return 0
   }
 
-  // Split by | and filter out empty cells at start/end (from leading/trailing |)
-  const cells = trimmed.split('|')
+  // Split by '|' (but ignore escaped '\|' as these are not true separators)
+  // Filter out empty cells at start/end (from leading/trailing |)
+  const cells = trimmed.split(NON_ESCAPED_PIPE_REGEX)
 
   // Remove first and last elements if they're empty (from leading/trailing |)
   if (cells.length > 0 && cells[0].trim() === '') {
@@ -45,7 +47,7 @@ function isLiquidOnlyRow(row: string): boolean {
   const trimmed = row.trim()
   if (!trimmed.includes('|')) return false
 
-  const cells = trimmed.split('|')
+  const cells = trimmed.split(NON_ESCAPED_PIPE_REGEX)
   // Remove empty cells from leading/trailing |
   const filteredCells = cells.filter((cell, index) => {
     if (index === 0 && cell.trim() === '') return false
@@ -72,10 +74,22 @@ export const tableColumnIntegrity = {
 
     const lines = params.lines
     let inTable = false
+    let inCodeFence = false
     let expectedColumnCount: number | null = null
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i]
+
+      // Toggle code fence state
+      if (line.trim().startsWith('```')) {
+        inCodeFence = !inCodeFence
+        continue
+      }
+
+      if (inCodeFence) {
+        continue
+      }
+
       const isTableRow = TABLE_ROW_REGEX.test(line)
       const isSeparatorRow = TABLE_SEPARATOR_REGEX.test(line)
 

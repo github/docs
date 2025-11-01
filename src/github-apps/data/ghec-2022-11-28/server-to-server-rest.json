@@ -1191,6 +1191,12 @@
       "requestPath": "/organizations/{org}/settings/billing/usage"
     },
     {
+      "slug": "get-billing-usage-summary-report-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/usage/summary"
+    },
+    {
       "slug": "get-github-actions-billing-for-an-organization",
       "subcategory": "billing",
       "verb": "get",
