@@ -145,7 +145,7 @@ describe(outdatedReleasePhaseTerminology.names.join(' - '), () => {
     const markdown = ['This feature is in beta.'].join('\n')
     const result = await runRule(outdatedReleasePhaseTerminology, {
       strings: {
-        markdown: frontmatter + '\n' + markdown,
+        markdown: `${frontmatter}\n${markdown}`,
       },
     })
     const errors = result.markdown

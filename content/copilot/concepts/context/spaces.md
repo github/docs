@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot/concepts/spaces
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. {% data variables.copilot.copilot_spaces_short %} can include repositories, code, pull requests, issues, free-text content like transcripts or notes, images, and file uploads. You can ask {% data variables.product.prodname_copilot_short %} questions grounded in that context, or share the space with your team to support collaboration and knowledge sharing.

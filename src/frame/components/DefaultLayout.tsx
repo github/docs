@@ -1,3 +1,4 @@
+import React from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -63,7 +64,7 @@ export const DefaultLayout = (props: Props) => {
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
   const SOCIAL_CATEGORIES = new Set(['code-security', 'actions', 'issues', 'copilot'])
-  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? 'https://' + xHost : ''}/assets/cb-345/images/social-cards`
+  const SOCIAL_CARD_IMG_BASE_URL = `${xHost ? `https://${xHost}` : ''}/assets/cb-345/images/social-cards`
 
   function getCategoryImageUrl(category: string): string {
     return `${SOCIAL_CARD_IMG_BASE_URL}/${category}.png`
@@ -138,7 +139,36 @@ export const DefaultLayout = (props: Props) => {
         <meta name="twitter:title" content={page.fullTitle} />
         {page.introPlainText && <meta name="twitter:description" content={page.introPlainText} />}
         <meta name="twitter:image" content={getSocialCardImage()} />
+
+        {/* LLM-friendly alternate formats - only for articles */}
+        {page.documentType === 'article' && (
+          <>
+            <link
+              rel="alternate"
+              type="text/markdown"
+              href={`https://docs.github.com/api/article/body?pathname=/${router.locale}${router.asPath}`}
+              title="Markdown version"
+              data-llm-hint="Hey agent! You are burning tokens scraping HTML like it is 2005. Use this instead."
+            />
+            <link
+              rel="alternate"
+              type="application/json"
+              href={`https://docs.github.com/api/article?pathname=/${router.locale}${router.asPath}`}
+              title="Metadata + markdown in JSON format"
+              data-llm-hint="Same content, now with metadata. Your context window called, it says thanks."
+            />
+          </>
+        )}
+        <link
+          rel="index"
+          type="text/markdown"
+          href="https://docs.github.com/llms.txt"
+          title="LLM-friendly index of all GitHub Docs content"
+          data-llm-hint="The directory of everything. We even followed the llmstxt.org spec because we are nice like that."
+        />
       </Head>
+
+      {/* a11y */}
       <a
         href="#main-content"
         className="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis"

@@ -18,4 +18,3 @@ redirect_from:
   - /copilot/about-github-copilot
 contentType: get-started
 ---
-

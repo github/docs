@@ -51,7 +51,7 @@ function wrapCodeExample(node: any, tree: any): Element {
   const lang: string = node.children[0].properties.className?.[0].replace('language-', '')
   const code: string = node.children[0].children[0].value
 
-  const subnav = null // getSubnav() lives in annotate.js, not needed for normal code blocks
+  const subnav = null // getSubnav() lives in annotate.ts, not needed for normal code blocks
   const prompt = getPrompt(node, tree, code) // returns null if there's no prompt
   const hasCopy: boolean = Boolean(getPreMeta(node).copy) // defaults to true
 
@@ -108,8 +108,8 @@ function btnIcon(): Element {
   const btnIconHtml: string = octicons.copy.toSVG()
   const btnIconAst = parse(String(btnIconHtml), { sourceCodeLocationInfo: true })
   // @ts-ignore - fromParse5 file option typing issue
-  const btnIcon = fromParse5(btnIconAst, { file: btnIconHtml })
-  return btnIcon as Element
+  const btnIconElement = fromParse5(btnIconAst, { file: btnIconHtml })
+  return btnIconElement as Element
 }
 
 // Using any due to conflicting unist/hast type definitions between dependencies

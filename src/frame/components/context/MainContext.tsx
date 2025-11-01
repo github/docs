@@ -22,7 +22,7 @@ export type VersionItem = {
   latestApiVersion: string
 }
 
-// This reflects what gets exported from `all-versions.js` in the
+// This reflects what gets exported from `all-versions.ts` in the
 // `allVersions` object.
 // It's necessary for TypeScript, but we don't need to write down
 // every possible key that might be present because we don't need it
@@ -266,7 +266,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     error: req.context.error ? req.context.error.toString() : '',
     featureFlags: {},
-    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
+    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
     isHomepageVersion: req.context.page?.documentType === 'homepage',
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     page: pageInfo,

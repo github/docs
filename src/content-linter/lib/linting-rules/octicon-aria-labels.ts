@@ -21,7 +21,7 @@ export const octiconAriaLabels: Rule = {
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     const content = params.lines.join('\n')
-    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.js which lacks type definitions
+    // Using 'any' type for tokens as getLiquidTokens returns tokens from liquid-utils.ts which lacks type definitions
     const tokens = getLiquidTokens(content)
       .filter((token: any) => token.kind === TokenKind.Tag)
       .filter((token: any) => token.name === 'octicon')
@@ -37,7 +37,7 @@ export const octiconAriaLabels: Rule = {
         const octiconNameMatch = token.args.match(/["']([^"']+)["']/)
         const octiconName = octiconNameMatch ? octiconNameMatch[1] : 'icon'
         const originalContent = token.content
-        const fixedContent = originalContent + ` aria-label="${octiconName}"`
+        const fixedContent = `${originalContent} aria-label="${octiconName}"`
 
         addFixErrorDetail(
           onError,

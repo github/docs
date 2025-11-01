@@ -3,7 +3,7 @@
 //
 // Use this script to help you move or rename a single file or a folder. The script will move or rename the file or folder for you, update relevant `children` in the index.md file(s), and add a `redirect_from` to frontmatter in the renamed file(s). Note: You will still need to manually update the `title` if necessary.
 //
-// By default, the `move-content.js` script will commit the changes it makes. If you don't want the script to run any git commands for you, run it with the `--no-git` flag. Note: In most cases it will be easier and safer to let the script run the git commands for you, since git can get confused when a file is both renamed and edited.
+// By default, the `move-content.ts` script will commit the changes it makes. If you don't want the script to run any git commands for you, run it with the `--no-git` flag. Note: In most cases it will be easier and safer to let the script run the git commands for you, since git can get confused when a file is both renamed and edited.
 //
 // To learn more about the script, you can run `npm run move-content --help`.
 //
@@ -268,7 +268,7 @@ function makeHref(root, filePath) {
   } else {
     nameSplit.push(nameSplit.pop().replace(/\.md$/, ''))
   }
-  return '/' + nameSplit.join('/')
+  return `/${nameSplit.join('/')}`
 }
 
 function moveFolder(oldPath, newPath, files, opts) {
@@ -400,11 +400,11 @@ function addToChildren(newPath, positions, opts) {
   }
 
   if (CHILDGROUPS_KEY in data) {
-    for (const [groupIndex, childrenPosition] of childGroupPositions) {
+    for (const [groupIndex, groupChildPosition] of childGroupPositions) {
       if (groupIndex < data[CHILDGROUPS_KEY].length) {
         const group = data[CHILDGROUPS_KEY][groupIndex]
-        if (childrenPosition < group.children.length) {
-          group.children.splice(childrenPosition, 0, newName)
+        if (groupChildPosition < group.children.length) {
+          group.children.splice(groupChildPosition, 0, newName)
         } else {
           group.children.push(newName)
         }

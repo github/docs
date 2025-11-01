@@ -2,11 +2,37 @@ import type { ProductGroupT } from '@/landings/components/ProductSelections'
 
 import React from 'react'
 import { Link } from '@/frame/components/Link'
-import * as Octicons from '@primer/octicons-react'
-import { LinkExternalIcon } from '@primer/octicons-react'
+import {
+  LinkExternalIcon,
+  RocketIcon,
+  CommentDiscussionIcon,
+  CopilotIcon,
+  GearIcon,
+  ShieldLockIcon,
+  DeviceMobileIcon,
+  ProjectIcon,
+  OrganizationIcon,
+  CodeSquareIcon,
+  GlobeIcon,
+  PencilIcon,
+} from '@primer/octicons-react'
 
 type ProductSelectionCardProps = {
   group: ProductGroupT
+}
+const octiconMap: { [name: string]: React.FunctionComponent } = {
+  LinkExternalIcon,
+  RocketIcon,
+  CommentDiscussionIcon,
+  CopilotIcon,
+  GearIcon,
+  ShieldLockIcon,
+  DeviceMobileIcon,
+  ProjectIcon,
+  OrganizationIcon,
+  CodeSquareIcon,
+  GlobeIcon,
+  PencilIcon,
 }
 
 export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
@@ -19,17 +45,19 @@ export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
     height: '22px',
   }
 
-  function icon(group: ProductGroupT) {
-    if (group.icon) {
+  function icon(productGroup: ProductGroupT) {
+    if (productGroup.icon) {
       return (
         <div className="pr-3">
-          <img src={group.icon} alt={group.name} style={groupIcon}></img>
+          <img src={productGroup.icon} alt={productGroup.name} style={groupIcon}></img>
         </div>
       )
-    } else if (group.octicon) {
-      const octicon: React.FunctionComponent = (
-        Octicons as { [name: string]: React.FunctionComponent }
-      )[group.octicon] as React.FunctionComponent
+    } else if (productGroup.octicon) {
+      const octicon: React.FunctionComponent = octiconMap[productGroup.octicon]
+
+      if (!octicon) {
+        throw new Error(`Octicon ${productGroup.octicon} not found`)
+      }
 
       return (
         <div className="mr-2">

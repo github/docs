@@ -3,7 +3,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@primer/octicons-react'
 import { Button, Details, Timeline, Token, useDetails } from '@primer/react'
 import { Link } from '@/frame/components/Link'
 import { JourneyTrack } from '@/journeys/lib/journey-path-resolver'
-import styles from './JourneyLearningTracks.module.css'
+import styles from './JourneyLearningTracks.module.scss'
 
 type JourneyLearningTracksProps = {
   tracks: JourneyTrack[]

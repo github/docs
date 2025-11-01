@@ -66,7 +66,7 @@ export const Tool = {
   },
 
   // scope is a Liquid scope object, Generator yields/returns Liquid template values - no TypeScript definitions available
-  render: function* (scope: any): Generator<any, any, any> {
+  *render(scope: any): Generator<any, any, any> {
     const output = yield this.liquid.renderer.renderTemplates(this.templates, scope)
     return yield this.liquid.parseAndRender(template, {
       tagName: this.tagName,

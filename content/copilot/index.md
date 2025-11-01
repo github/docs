@@ -13,16 +13,23 @@ introLinks:
 featuredLinks:
   startHere:
     - /copilot/get-started/what-is-github-copilot
-    - /copilot/get-started/quickstart
-    - /copilot/tutorials/try-extensions
-    - /copilot/concepts/agents/coding-agent
+    - '{% ifversion fpt %}/copilot/get-started/quickstart{% endif %}'
+    - '{% ifversion fpt %}/copilot/tutorials/try-extensions{% endif %}'
+    - '{% ifversion fpt %}/copilot/concepts/agents/coding-agent{% endif %}'
+    - '{% ifversion ghec %}/copilot/get-started/choose-enterprise-plan{% endif %}'
+    - '{% ifversion ghec %}/copilot/how-tos/set-up/set-up-for-enterprise{% endif %}'
+    - '{% ifversion ghec %}/copilot/tutorials/coding-agent/pilot-coding-agent{% endif %}'
   popular:
     - /copilot/get-started/features
-    - /copilot/tutorials/copilot-chat-cookbook
-    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
-    - /copilot/how-tos/chat-with-copilot/chat-in-ide
-    - /copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli
-layout: product-landing
+    - '{% ifversion fpt %}/copilot/tutorials/copilot-chat-cookbook{% endif %}'
+    - '{% ifversion fpt %}/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions{% endif %}'
+    - '{% ifversion fpt %}/copilot/how-tos/chat-with-copilot/chat-in-ide{% endif %}'
+    - '{% ifversion fpt %}/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-in-the-cli{% endif %}'
+    - '{% ifversion ghec %}/copilot/how-tos/manage-and-track-spending/manage-request-allowances{% endif %}'
+    - '{% ifversion ghec %}/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption{% endif %}'
+    - '{% ifversion ghec %}/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents{% endif %}'
+layout: discovery-landing
+heroImage: /assets/images/banner-images/hero-6.png
 versions:
   feature: copilot
 children:
@@ -35,5 +42,12 @@ children:
 topics:
   - Copilot
 contentType: landing
+includedCategories:
+  - Learn about Copilot
+  - Configure Copilot
+  - Author and optimize with Copilot
+  - Integrate Copilot with your tools
+  - Manage Copilot for a team
+  - Troubleshooting Copilot
+  - Responsible use
 ---
-

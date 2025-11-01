@@ -17,9 +17,9 @@
   }
 }
 
-// Large is 4 columns
+// Large is 3 columns
 @media (min-width: 1280px) {
   .supportGrid {
-    grid-template-columns: minmax(18rem, 1fr) repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }

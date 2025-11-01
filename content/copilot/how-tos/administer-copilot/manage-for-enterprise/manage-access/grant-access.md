@@ -17,13 +17,13 @@ redirect_from:
   - /copilot/how-tos/administer/manage-for-enterprise/manage-access/enable-for-organizations
   - /copilot/how-tos/administer-copilot/manage-for-enterprise/manage-access/enable-for-organizations
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.enterprise-licensing %}
 
 ## Assigning licenses to users or teams
-
->[!NOTE] {% data reusables.copilot.direct-assignment-rollout %}
 
 You can assign {% data variables.copilot.copilot_business_short %} licenses directly to users or enterprise teams.
 
@@ -51,24 +51,17 @@ When you assign licenses to an enterprise team, users receive or lose access to 
 ## Enabling {% data variables.product.prodname_copilot_short %} for organizations
 
 If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, you can assign licenses for either {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %}.
-
-<!-- expires 2025-10-28 -->
-<!-- Temporarily documents the old and new UI for direct Copilot licensing -->
-<!-- Will be addressed by Driver team once the rollout is complete, docs issue 18525 -->
-
-{% data reusables.enterprise-accounts.copilot-access-management-tmp %}
-1. Find the organization access dropdown menu and choose whether to enable {% data variables.product.prodname_copilot_short %} for all organizations or allow for specific organizations.
+{% data reusables.enterprise-accounts.copilot-licensing %}
+1. Next to "Organization access", choose whether to enable {% data variables.product.prodname_copilot_short %} for all organizations or allow for specific organizations.
 
    ![Screenshot of the the "Organization access" section, with the dropdown menu highlighted.](/assets/images/help/copilot/organization-access-menu.png)
 
 1. If you selected **Allow for specific organizations**:
-    1. If you don't already see a list of organizations, click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
+    1. Click the **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations** tab.
     1. Locate the organization for which you want to enable {% data variables.product.prodname_copilot_short %}.
     1. To the right of the organization name, select the **{% data variables.product.prodname_copilot_short %}** dropdown menu.
        * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Enabled**.
        * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click either **Copilot: Enterprise** or **Copilot: Business** to assign a specific Copilot plan to the organization.
-
-<!-- end expires 2025-10-28 -->
 
 ### Next steps
 

@@ -57,10 +57,10 @@ describe('learning tracks', () => {
     let fixables = 0
     for (const [key, guides] of troubles) {
       errorMessage += `Under "${key}"...\n`
-      for (const { uri, index, redirects } of guides) {
-        if (redirects) {
+      for (const { uri, index, redirects: redirectTo } of guides) {
+        if (redirectTo) {
           fixables += 1
-          errorMessage += `  guide: #${index + 1} ${uri} redirects to ${redirects}\n`
+          errorMessage += `  guide: #${index + 1} ${uri} redirects to ${redirectTo}\n`
         } else {
           errorMessage += `  guide: #${index + 1} ${uri} is broken.\n`
         }
@@ -68,7 +68,7 @@ describe('learning tracks', () => {
     }
     if (fixables) {
       errorMessage += `\nNOTE! To automatically fix the redirects run this command:\n`
-      errorMessage += `\n\t./src/links/scripts/update-internal-links.js data/learning-tracks/${topLevel}.yml\n`
+      errorMessage += `\n\t./src/links/scripts/update-internal-links.ts data/learning-tracks/${topLevel}.yml\n`
     }
     expect(troubles.length, errorMessage).toEqual(0)
   })

@@ -11,8 +11,9 @@ recommended:
   - /article-one
   - /article-two
   - /subdir/article-three
+  - /get-started
 ---
 
 # Valid Landing Page
 
-This is a valid landing page with recommended articles.
+This is a valid landing page with recommended articles and landing page paths.

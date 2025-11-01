@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -79,7 +77,7 @@ async function main(): Promise<void> {
     console.log(csvEntry)
     results.push(csvEntry)
   }
-  csvString += results.join('\n') + '\n'
+  csvString += `${results.join('\n')}\n`
 
   fs.writeFileSync(outputFile, csvString.trim(), 'utf8')
   console.log(`Done! Wrote ${outputFile}`)

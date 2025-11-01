@@ -85,6 +85,6 @@ function findMatchingCode(ref: string, tree: any): any {
 function copilotIcon(): any {
   const copilotIconHtml = octicons.copilot.toSVG()
   const copilotIconAst = parse(String(copilotIconHtml), { sourceCodeLocationInfo: true })
-  const copilotIcon = fromParse5(copilotIconAst, { file: copilotIconHtml })
-  return copilotIcon
+  const copilotIconElement = fromParse5(copilotIconAst, { file: copilotIconHtml })
+  return copilotIconElement
 }

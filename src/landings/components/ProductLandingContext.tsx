@@ -146,7 +146,7 @@ export const getProductLandingContextFromRequest = async (
           key,
           label:
             key === 'popular' || key === 'videos'
-              ? req.context.page.featuredLinks[key + 'Heading'] || req.context.site.data.ui.toc[key]
+              ? req.context.page.featuredLinks[`${key}Heading`] || req.context.site.data.ui.toc[key]
               : req.context.site.data.ui.toc[key],
           viewAllHref:
             key === 'startHere' && !req.context.currentCategory && hasGuidesPage

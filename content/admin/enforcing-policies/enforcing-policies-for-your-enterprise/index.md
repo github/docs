@@ -16,6 +16,7 @@ topics:
 children:
   - /enforcing-repository-management-policies-in-your-enterprise
   - /enforcing-policies-for-projects-in-your-enterprise
+  - /control-offboarding
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-github-sponsors-in-your-enterprise
   - /enforcing-policies-for-security-settings-in-your-enterprise

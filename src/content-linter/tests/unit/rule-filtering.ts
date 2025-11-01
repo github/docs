@@ -1,5 +1,5 @@
 import { describe, test, expect, vi } from 'vitest'
-import { shouldIncludeRule } from '../../scripts/lint-content.js'
+import { shouldIncludeRule } from '../../scripts/lint-content'
 
 // Mock the get-rules module to provide test data for rule definitions
 vi.mock('../../lib/helpers/get-rules', () => ({
@@ -19,8 +19,8 @@ vi.mock('../../lib/helpers/get-rules', () => ({
       description: 'Headers must have content below them',
     },
     {
-      names: ['GHD030', 'code-fence-line-length'],
-      description: 'Code fence content should not exceed line length limit',
+      names: ['GHD001', 'link-punctuation'],
+      description: 'Internal link titles must not contain punctuation',
     },
   ],
   allConfig: {},
@@ -41,12 +41,12 @@ describe('shouldIncludeRule', () => {
 
   test('includes custom rule by short code', () => {
     expect(shouldIncludeRule('header-content-requirement', ['GHD053'])).toBe(true)
-    expect(shouldIncludeRule('code-fence-line-length', ['GHD030'])).toBe(true)
+    expect(shouldIncludeRule('link-punctuation', ['GHD001'])).toBe(true)
   })
 
   test('excludes rule not in list', () => {
     expect(shouldIncludeRule('heading-increment', ['MD002'])).toBe(false)
-    expect(shouldIncludeRule('header-content-requirement', ['GHD030'])).toBe(false)
+    expect(shouldIncludeRule('header-content-requirement', ['GHD001'])).toBe(false)
   })
 
   test('handles multiple rules', () => {

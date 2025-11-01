@@ -13,13 +13,15 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/add-repository-instructions
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-coding-guidelines
+category: 
+  - Configure Copilot
 ---
 
 {% webui %}
 
 This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+{% data reusables.copilot.repository-custom-instructions-about %}
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -29,7 +31,7 @@ This version of this article is for using repository custom instructions on the 
 
 This version of this article is for using repository custom instructions and prompt files in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+{% data reusables.copilot.repository-custom-instructions-about %}
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -39,7 +41,7 @@ This version of this article is for using repository custom instructions and pro
 
 This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+{% data reusables.copilot.repository-custom-instructions-about %}
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -49,7 +51,7 @@ This version of this article is for using repository custom instructions in {% d
 
 This version of this article is for using repository custom instructions in JetBrains IDEs. Click the tabs above for instructions on using custom instructions in other environments.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+{% data reusables.copilot.repository-custom-instructions-about %}
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -59,7 +61,7 @@ This version of this article is for using repository custom instructions in JetB
 
 This version of this article is for using repository custom instructions in Xcode. Click the tabs above for instructions on using custom instructions in other environments.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+{% data reusables.copilot.repository-custom-instructions-about %}
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -79,7 +81,7 @@ This version of this article is for using repository custom instructions with th
 
 This version of this article is for using repository custom instructions in Eclipse. Click the tabs above for instructions on using custom instructions in other environments.
 
-{% data reusables.copilot.repository-custom-instructions-support %}
+{% data reusables.copilot.repository-custom-instructions-about %}
 
 {% data reusables.copilot.repository-custom-instructions-prerequisites %}
 
@@ -207,7 +209,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% copilotcli %}
 
-{% data variables.product.prodname_copilot %} supports three types of repository custom instructions. See the table above for details of which {% data variables.product.prodname_copilot %} features support these types of instructions.
+{% data variables.product.prodname_copilot %} supports three types of repository custom instructions.
 
 * **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 
@@ -243,7 +245,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% vscode %}
 
-{% data variables.product.prodname_vscode_shortname %} supports three types of repository custom instructions. See the table above for details of which {% data variables.product.prodname_copilot %} features support these types of instructions.
+{% data variables.product.prodname_vscode_shortname %} supports three types of repository custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=vscode#support-for-repository-custom-instructions-1).
 
 * **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 
@@ -297,7 +299,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 {% webui %}
 
-{% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} supports three types of repository custom instructions. See the table above for details of which {% data variables.product.prodname_copilot %} features support these types of instructions.
+{% data variables.product.prodname_copilot_short %} on {% data variables.product.github %} supports three types of repository custom instructions. For details of which {% data variables.product.prodname_copilot %} features support these types of instructions, see [AUTOTITLE](/copilot/concepts/prompting/response-customization?tool=webui#support-for-repository-custom-instructions).
 
 * **Repository-wide custom instructions** apply to all requests made in the context of a repository.
 
@@ -311,7 +313,7 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Agent instructions** are used by AI agents.
 
-  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
+  You can create one or more `AGENTS.md` files, stored anywhere within the repository. When {% data variables.product.prodname_copilot_short %} is working, the nearest `AGENTS.md` file in the directory tree will take precedence over other agent instructions files. For more information, see the [openai/agents.md repository](https://github.com/openai/agents.md).
 
   Alternatively, you can use a single `CLAUDE.md` or `GEMINI.md` file stored in the root of the repository.
 
@@ -321,7 +323,7 @@ You can create your own custom instructions file from scratch. See [Writing your
 
 ### Asking {% data variables.copilot.copilot_coding_agent %} to generate a `copilot-instructions.md` file
 
-1. Navigate to the agents page at [github.com/copilot/agents](https://github.com/copilot/agents).
+1. Navigate to the agents tab at [github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 
     You can also reach this page by clicking the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar on any page on {% data variables.product.github %}, then selecting **Agents** from the sidebar.
 
@@ -438,67 +440,6 @@ Did you successfully add a custom instructions file to your repository?
 
 {% endnote %}
 
-## Writing effective repository custom instructions
-
-The instructions you add to your custom instruction file(s) should be short, self-contained statements that provide {% data variables.product.prodname_copilot_short %} with relevant information to help it work in this repository. Because the instructions are sent with every chat message, they should be broadly applicable to most requests you will make in the context of the repository.
-
-The exact structure you utilize for your instructions file(s) will vary by project and need, but the following guidelines provide a good starting point:
-
-* Provide an overview of the project you're working on, including its purpose, goals, and any relevant background information.
-* Include the folder structure of the repository, including any important directories or files that are relevant to the project.
-* Specify the coding standards and conventions that should be followed, such as naming conventions, formatting rules, and best practices.
-* Include any specific tools, libraries, or frameworks that are used in the project, along with any relevant version numbers or configurations.
-
-The following instructions file(s) is an example of these practices in action:
-
-```markdown
-# Project Overview
-
-This project is a web application that allows users to manage their tasks and to-do lists. It is built using React and Node.js, and uses MongoDB for data storage.
-
-## Folder Structure
-
-- `/src`: Contains the source code for the frontend.
-- `/server`: Contains the source code for the Node.js backend.
-- `/docs`: Contains documentation for the project, including API specifications and user guides.
-
-## Libraries and Frameworks
-
-- React and Tailwind CSS for the frontend.
-- Node.js and Express for the backend.
-- MongoDB for data storage.
-
-## Coding Standards
-
-- Use semicolons at the end of each statement.
-- Use single quotes for strings.
-- Use function based components in React.
-- Use arrow functions for callbacks.
-
-## UI guidelines
-
-- A toggle is provided to switch between light and dark mode.
-- Application should have a modern and clean design.
-```
-
-You should also consider the size and complexity of your repository. The following types of instructions may work for a small repository with only a few contributors, but for a large and diverse repository, **these may cause problems**:
-
-* Requests to refer to external resources when formulating a response
-* Instructions to answer in a particular style
-* Requests to always respond with a certain level of detail
-
-For example, the following instructions **may not have the intended results**:
-
-```markdown
-Always conform to the coding styles defined in styleguide.md in repo my-org/my-repo when generating code.
-
-Use @terminal when answering questions about Git.
-
-Answer all questions in the style of a friendly colleague, using informal language.
-
-Answer all questions in less than 1000 characters, and words of no more than 12 characters.
-```
-
 ## Repository custom instructions in use
 
 The instructions in the file(s) are available for use by {% data variables.product.prodname_copilot_short %} as soon as you save the file(s). The complete set of instructions will be automatically added to requests that you submit to {% data variables.product.prodname_copilot_short %} in the context of that repository. For example, they are added to the prompt you submit to {% data variables.copilot.copilot_chat_short %}.
@@ -545,6 +486,10 @@ You can click the reference to open the file.
 
 {% data reusables.copilot.custom-instructions-reference %}
 
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+
 {% endxcode %}
 
 {% webui %}
@@ -553,7 +498,7 @@ You can click the reference to open the file.
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, do one of the following:
    * Go to a repository with a custom instructions file and open the assistive chat panel.
-   * Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot)) and attach a repository that contains a custom instructions file.
+   * Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)) and attach a repository that contains a custom instructions file.
 1. Click the {% octicon "kebab-horizontal" aria-label="Conversation options" %} button at the top of the Chat panel, or the top right of the immersive page.
 1. Click **Disable custom instructions** or **Enable custom instructions**.
 
@@ -563,6 +508,10 @@ You can click the reference to open the file.
 Your choice persists, for all repositories containing a custom instructions file, until you change it.
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
 
 {% endwebui %}
 
@@ -592,6 +541,10 @@ Your choice persists, for all repositories containing a custom instructions file
    ![Screenshot of the {% data variables.product.prodname_vs %} Options dialog showing the "Enable custom instructions" option checkbox selected.](/assets/images/help/copilot/vs-custom-instructions-option.png)
 
 {% data reusables.copilot.custom-instructions-enabling-for-ccr %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
 
 {% endvisualstudio %}
 
@@ -633,6 +586,10 @@ To enable prompt files, configure the workspace settings.
 
 For more information about prompt files, see [Custom instructions for {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
 
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library)
+
 {% endvscode %}
 
 {% jetbrains %}
@@ -673,4 +630,24 @@ Once prompt files are saved, their instructions will apply to the current worksp
 
 1. Submit the chat prompt.
 
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library)
+
 {% endjetbrains %}
+
+{% eclipse %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+
+{% endeclipse %}
+
+{% copilotcli %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
+
+{% endcopilotcli %}

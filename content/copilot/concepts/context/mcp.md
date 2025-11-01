@@ -10,6 +10,8 @@ topics:
 contentType: concepts
 redirect_from:
   - /copilot/concepts/about-mcp
+category: 
+  - Learn about Copilot
 ---
 
 ## Overview of Model Context Protocol (MCP)

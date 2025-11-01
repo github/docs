@@ -1,6 +1,7 @@
 import '@/frame/stylesheets/index.scss'
 import type { Metadata, Viewport } from 'next'
 import { ReactNode } from 'react'
+import type { JSX } from 'react'
 
 export const metadata: Metadata = {
   title: {

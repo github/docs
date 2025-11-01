@@ -6,6 +6,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Author and optimize with Copilot
 redirect_from:
   - /copilot/using-github-copilot/github-copilot-chat-cheat-sheet
   - /copilot/using-github-copilot/copilot-chat/github-copilot-chat-cheat-sheet

@@ -96,7 +96,7 @@ async function main(): Promise<void> {
 async function processFile(
   file: string,
   slugger: GithubSlugger,
-  options: ScriptOptions,
+  scriptOptions: ScriptOptions,
 ): Promise<string[] | null> {
   const { data } = frontmatter(fs.readFileSync(file, 'utf8')) as unknown as {
     data: PageFrontmatter
@@ -105,7 +105,7 @@ async function processFile(
   const isDirectory = isDirectoryCheck(file)
 
   // Assess the frontmatter and other conditions to determine if we want to process the path.
-  const processPage: boolean = determineProcessStatus(data, isDirectory, options)
+  const processPage: boolean = determineProcessStatus(data, isDirectory, scriptOptions)
   if (!processPage) return null
 
   let stringToSlugify: string = data.shortTitle || data.title
@@ -153,10 +153,10 @@ async function processFile(
   return [contentPath, newContentPath]
 }
 
-function moveFile(result: string[], options: ScriptOptions): void {
+function moveFile(result: string[], scriptOptions: ScriptOptions): void {
   const [contentPath, newContentPath] = result
 
-  if (options.dryRun) {
+  if (scriptOptions.dryRun) {
     console.log('Move:\n', contentPath, '\nto:\n', newContentPath, '\n')
     return
   }
@@ -165,7 +165,7 @@ function moveFile(result: string[], options: ScriptOptions): void {
   const stdout = execFileSync(
     'tsx',
     [
-      'src/content-render/scripts/move-content.js',
+      'src/content-render/scripts/move-content.ts',
       '--no-git',
       '--verbose',
       contentPath,
@@ -214,7 +214,7 @@ function sortFiles(filesArray: string[]): string[] {
   })
 }
 
-function filterFiles(contentDir: string, options: ScriptOptions) {
+function filterFiles(contentDir: string, scriptOptions: ScriptOptions) {
   return walkFiles(contentDir, ['.md']).filter((file: string) => {
     // Never move readmes
     if (file.endsWith('README.md')) return false
@@ -226,9 +226,9 @@ function filterFiles(contentDir: string, options: ScriptOptions) {
     if (path.relative(contentDir, file).split(path.sep)[1] === 'index.md') return false
 
     // If no specific paths are passed, we are done filtering.
-    if (!options.paths) return true
+    if (!scriptOptions.paths) return true
 
-    return options.paths.some((p: string) => {
+    return scriptOptions.paths.some((p: string) => {
       // Allow either a full content path like "content/foo/bar.md"
       // or a top-level directory name like "copilot"
       if (!p.startsWith('content')) {
@@ -247,15 +247,15 @@ function filterFiles(contentDir: string, options: ScriptOptions) {
 function determineProcessStatus(
   data: PageFrontmatter,
   isDirectory: boolean,
-  options: ScriptOptions,
+  scriptOptions: ScriptOptions,
 ): boolean {
   // Assess the conditions in this order:
   // If it's a directory AND we're excluding dirs, do not process it no matter what.
-  if (isDirectory && options.excludeDirs) {
+  if (isDirectory && scriptOptions.excludeDirs) {
     return false
   }
   // If the force option is passed, process it no matter what.
-  if (options.force) {
+  if (scriptOptions.force) {
     return true
   }
   // If the page has the override set, do not process it.

@@ -1,0 +1,102 @@
+# Please keep this list sorted in alphabetical order.
+#
+# This file defines which AI models are available in each GitHub Copilot client.
+# It is used to generate the "Supported AI models per client" table at
+# /content/copilot/reference/ai-models/supported-models#supported-ai-models-per-client.
+#
+# Column keys:
+# - name: The model name.
+# - dotcom: Availability on GitHub.com (Copilot Chat in the browser).
+# - vscode: Availability in Visual Studio Code.
+# - vs: Availability in Visual Studio.
+# - eclipse: Availability in Eclipse.
+# - xcode: Availability in Xcode.
+# - jetbrains: Availability in JetBrains IDEs.
+
+- name: Claude Haiku 4.5
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Opus 4.1
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Sonnet 3.5
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Sonnet 4
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Claude Sonnet 4.5
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: Gemini 2.5 Pro
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-4.1
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-5
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-5 mini
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true
+
+- name: GPT-5-Codex
+  dotcom: false
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
+- name: Grok Code Fast 1
+  dotcom: true
+  vscode: true
+  vs: true
+  eclipse: true
+  xcode: true
+  jetbrains: true

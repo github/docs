@@ -26,6 +26,8 @@ export type LandingContextT = {
   introLinks?: Record<string, string>
   // For journey landing pages
   journeyTracks?: JourneyTrack[]
+  // For article grid category filtering
+  includedCategories?: string[]
 }
 
 export const LandingContext = createContext<LandingContextT | null>(null)
@@ -83,5 +85,6 @@ export const getLandingContextFromRequest = async (
     introLinks: page.introLinks || null,
     recommended,
     journeyTracks,
+    includedCategories: page.includedCategories || [],
   }
 }

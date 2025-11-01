@@ -28,7 +28,7 @@ const versionsToBuild = Object.keys(allVersions)
 
 main()
 
-let allIgnoredChanges = []
+const allIgnoredChanges = []
 
 async function main() {
   for (const version of versionsToBuild) {

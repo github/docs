@@ -15,6 +15,8 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/set-extension-permissions
   - /copilot/how-tos/administer/manage-for-organization/set-extension-permissions
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% data variables.copilot.copilot_extensions %} integrate external tools with {% data variables.copilot.copilot_chat %}. See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).

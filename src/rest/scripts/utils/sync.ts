@@ -151,23 +151,21 @@ export async function getOpenApiSchemaFiles(
   // bundling the OpenAPI in github/github
   const schemaNames = schemas.map((schema) => path.basename(schema, '.json'))
 
-  const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
-    (elem) => allVersions[elem].openApiVersionName,
-  )
+  const versionNames = Object.keys(allVersions).map((elem) => allVersions[elem].openApiVersionName)
 
   for (const schema of schemaNames) {
     const schemaBasename = `${schema}.json`
     // If the version doesn't have calendar date versioning
     // it should have an exact match with one of the versions defined
     // in the allVersions object.
-    if (OPENAPI_VERSION_NAMES.includes(schema)) {
+    if (versionNames.includes(schema)) {
       webhookSchemas.push(schemaBasename)
     }
 
     // If the schema version has calendar date versioning, then one of
     // the versions defined in allVersions should be a substring of the
     // schema version. This means the schema version is a supported version
-    if (OPENAPI_VERSION_NAMES.some((elem) => schema.startsWith(elem))) {
+    if (versionNames.some((elem) => schema.startsWith(elem))) {
       // If the schema being evaluated is a calendar-date version, then
       // there would only be one exact match in the list of schema names.
       // If the schema being evaluated is a non-calendar-date version, then

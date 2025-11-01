@@ -18,6 +18,7 @@ See [AUTOTITLE](/billing/managing-your-billing).
 
 You can prevent specified files or repositories from being used to inform code completion suggestions made by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot %} will not be available in excluded files.
 
-{% data reusables.enterprise-accounts.policies-tab %}
-1. Click the **Content exclusion** tab.
+{% data reusables.enterprise-accounts.ai-controls-tab %}
+{% data reusables.enterprise-accounts.view-copilot-policies %}
+1. Click {% octicon "circle-slash" aria-hidden="true" aria-label="circle-slash" %} **Content exclusion**.
 1. Use paths to specify which content to exclude. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-content-exclusions-for-github-copilot).

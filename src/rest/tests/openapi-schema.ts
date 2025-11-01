@@ -190,10 +190,12 @@ describe('OpenAPI schema validation', () => {
   })
 })
 
-async function findOperation(version: string, method: string, path: string) {
+async function findOperation(version: string, method: string, requestPath: string) {
   const allOperations = await getFlatListOfOperations(version)
   return allOperations.find((operation) => {
-    return operation.requestPath === path && operation.verb.toLowerCase() === method.toLowerCase()
+    return (
+      operation.requestPath === requestPath && operation.verb.toLowerCase() === method.toLowerCase()
+    )
   })
 }
 

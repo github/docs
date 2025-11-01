@@ -30,4 +30,23 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
+heroImage: /assets/images/banner-images/hero-3.png
+layout: bespoke-landing
+sidebarLink:
+  text: All tutorials
+  href: /copilot/tutorials
+recommended:
+  - /copilot/tutorials/copilot-chat-cookbook
+  - /copilot/tutorials/customization-library
+  - /copilot/tutorials/roll-out-at-scale
+includedCategories:
+  - Accelerate PR velocity
+  - Automate simple user stories
+  - Improve quality and maintainability
+  - Scale institutional knowledge
+  - Burn down tech debt
+  - Rapid prototyping
+  - Unblock complex work
+  - Modernize applications
+  - Roll Copilot out at scale
 ---

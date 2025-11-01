@@ -1,5 +1,6 @@
 import { SupportPortalVaIframeProps } from '@/frame/components/article/SupportPortalVaIframe'
 import { createContext, useContext } from 'react'
+import type { JSX } from 'react'
 import type { JourneyContext } from '@/journeys/lib/journey-path-resolver'
 
 export type LearningTrack = {
@@ -103,7 +104,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     currentJourneyTrack: req.context.currentJourneyTrack,
     detectedPlatforms: page.detectedPlatforms || [],
     detectedTools: page.detectedTools || [],
-    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.js
+    allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.ts
     supportPortalVaIframeProps,
     currentLayout: req.context.currentLayoutName,
   }

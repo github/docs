@@ -4,7 +4,7 @@ import path from 'path'
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
 import { allVersions, getOpenApiVersion } from '@/versions/lib/all-versions'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import type { Context } from '@/types'
 import type { Operation } from '@/rest/components/types'
 
@@ -120,7 +120,7 @@ export async function getRestMiniTocItems(
   category: string,
   subCategory: string,
   apiVersion: string | undefined,
-  restOperations: Operation[],
+  operations: Operation[],
   language: string,
   version: string,
   context: Context,
@@ -148,7 +148,7 @@ export async function getRestMiniTocItems(
 
   const categoryData = apiData.get(category)!
   if (!categoryData.get(subCategory)) {
-    const titles = restOperations.map((operation: Operation) => operation.title)
+    const titles = operations.map((operation: Operation) => operation.title)
     const restOperationsMiniTocItems = await getAutomatedPageMiniTocItems(titles, context, 3)
     categoryData.set(subCategory, {
       restOperationsMiniTocItems,

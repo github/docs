@@ -164,6 +164,17 @@
         "additional-permissions": false
       },
       {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/usage/summary",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "orgs",
         "slug": "update-an-organization",
         "subcategory": "orgs",
@@ -1239,6 +1250,34 @@
       }
     ]
   },
+  "custom_properties_for_organizations": {
+    "title": "Custom properties for organizations",
+    "displayTitle": "Organization permissions for \"Custom properties for organizations\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "get-all-custom-property-values-for-an-organization",
+        "subcategory": "custom-properties-for-orgs",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/org-properties/values",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "create-or-update-custom-property-values-for-an-organization",
+        "subcategory": "custom-properties-for-orgs",
+        "verb": "patch",
+        "requestPath": "/organizations/{org}/org-properties/values",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
   "organization_custom_properties": {
     "title": "Custom properties",
     "displayTitle": "Organization permissions for \"Custom properties\"",
@@ -1441,6 +1480,78 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
+      }
+    ]
+  },
+  "organization_runner_custom_images": {
+    "title": "Hosted runner custom images",
+    "displayTitle": "Organization permissions for \"Hosted runner custom images\"",
+    "permissions": [
+      {
+        "category": "actions",
+        "slug": "list-custom-images-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-a-custom-image-definition-for-github-actions-hosted-runners",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "delete-a-custom-image-from-the-organization",
+        "subcategory": "hosted-runners",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "list-image-versions-of-a-custom-image-for-an-organization",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "get-an-image-version-of-a-custom-image-for-github-actions-hosted-runners",
+        "subcategory": "hosted-runners",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "actions",
+        "slug": "delete-an-image-version-of-custom-image-from-the-organization",
+        "subcategory": "hosted-runners",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -3000,28 +3111,6 @@
         "verb": "get",
         "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
         "access": "admin",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-columns",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/columns",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/{project_id}/columns",
-        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
@@ -5963,6 +6052,17 @@
         "verb": "delete",
         "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}",
         "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "list-attestation-repositories",
+        "subcategory": "attestations",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/attestations/repositories",
+        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -9129,28 +9229,6 @@
       },
       {
         "category": "projects-classic",
-        "slug": "list-project-columns",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/columns",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/{project_id}/columns",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
         "slug": "list-repository-projects",
         "subcategory": "projects",
         "verb": "get",
@@ -10967,6 +11045,17 @@
         "subcategory": "enhanced-billing",
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage/summary",
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,

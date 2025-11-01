@@ -15,8 +15,15 @@ import { defaultConfig } from '../lib/default-markdownlint-options'
 import { prettyPrintResults } from './pretty-print-results'
 import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
 import { printAnnotationResults } from '../lib/helpers/print-annotations'
-import languages from '@/languages/lib/languages'
-import { shouldIncludeResult } from '../lib/helpers/should-include-result'
+import languages from '@/languages/lib/languages-server'
+
+/**
+ * Config that applies to all rules in all environments (CI, reports, precommit).
+ */
+export const globalConfig = {
+  // Do not ever lint these filepaths
+  excludePaths: ['content/contributing/'],
+}
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
@@ -197,12 +204,7 @@ async function main() {
 
   if (printAnnotations) {
     printAnnotationResults(formattedResults, {
-      skippableRules: [
-        // As of Feb 2024, this rule is quite noisy. It's present in
-        // many files and is not always a problem. And besides, when it
-        // does warn, it's usually a very long one.
-        'code-fence-line-length', // a.k.a. GHD030
-      ],
+      skippableRules: [],
       skippableFlawProperties: [
         // As of Feb 2024, we don't support reporting flaws for lines
         // and columns numbers of YAML files. YAML files consist of one
@@ -260,7 +262,7 @@ async function main() {
     }
 
     const fixableFiles = Object.entries(formattedResults)
-      .filter(([, results]) => results.some((result) => result.fixable))
+      .filter(([, fileResults]) => fileResults.some((flaw) => flaw.fixable))
       .map(([file]) => file)
     if (fixableFiles.length) {
       console.log('') // Just for some whitespace before the next message
@@ -300,7 +302,7 @@ function pluralize(things, word, pluralForm = null) {
 // (e.g., heading linters) so we need to separate the
 // list of data files from all other files to run
 // through markdownlint individually
-function getFilesToLint(paths) {
+function getFilesToLint(inputPaths) {
   const fileList = {
     length: 0,
     content: [],
@@ -314,7 +316,7 @@ function getFilesToLint(paths) {
   // The path passed to Markdownlint is what is displayed
   // in the error report, so we want to normalize it and
   // and make it relative if it's absolute.
-  for (const rawPath of paths) {
+  for (const rawPath of inputPaths) {
     const absPath = path.resolve(rawPath)
     if (fs.statSync(rawPath).isDirectory()) {
       if (isInDir(absPath, contentDir)) {
@@ -349,7 +351,14 @@ function getFilesToLint(paths) {
         (!filePath.endsWith('.md') && !filePath.endsWith('.yml'))
       )
         continue
+
       const relPath = path.relative(root, filePath)
+
+      // Skip files that match any of the excluded paths
+      if (globalConfig.excludePaths.some((excludePath) => relPath.startsWith(excludePath))) {
+        continue
+      }
+
       if (seen.has(relPath)) continue
       seen.add(relPath)
       clean.push(relPath)
@@ -418,18 +427,16 @@ function reportSummaryByRule(results, config) {
   result. Results are sorted by severity per file, with errors
   listed first then warnings.
 */
-function getFormattedResults(allResults, isPrecommit) {
+function getFormattedResults(allResults, isInPrecommitMode) {
   const output = {}
   Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
-    .forEach(([key, results]) => {
+    .forEach(([key, fileResults]) => {
       if (verbose) {
-        output[key] = [...results]
+        output[key] = [...fileResults]
       } else {
-        const formattedResults = results
-          .map((flaw) => formatResult(flaw, isPrecommit))
-          .filter((flaw) => shouldIncludeResult(flaw, key))
+        const formattedResults = fileResults.map((flaw) => formatResult(flaw, isInPrecommitMode))
 
         // Only add the file to output if there are results after filtering
         if (formattedResults.length > 0) {
@@ -458,8 +465,8 @@ function getErrorCountByFile(results, fixed = false) {
   return getCountBySeverity(results, 'error', fixed)
 }
 function getCountBySeverity(results, severityLookup, fixed) {
-  return Object.values(results).filter((results) =>
-    results.some((result) => {
+  return Object.values(results).filter((fileResults) =>
+    fileResults.some((result) => {
       // If --fix was applied, we don't want to know about files that
       // no longer have errors or warnings.
       return result.severity === severityLookup && (!fixed || !result.fixable)
@@ -470,7 +477,7 @@ function getCountBySeverity(results, severityLookup, fixed) {
 // Removes null values and properties that are not relevant to content
 // writers, adds the severity to each result object, and transforms
 // some error and fix data into a more readable format.
-function formatResult(object, isPrecommit) {
+function formatResult(object, isInPrecommitMode) {
   const formattedResult = {}
 
   // Add severity to each result object
@@ -479,7 +486,8 @@ function formatResult(object, isPrecommit) {
     throw new Error(`Rule not found in allConfig: '${ruleName}'`)
   }
   formattedResult.severity =
-    allConfig[ruleName].severity || getSearchReplaceRuleSeverity(ruleName, object, isPrecommit)
+    allConfig[ruleName].severity ||
+    getSearchReplaceRuleSeverity(ruleName, object, isInPrecommitMode)
 
   formattedResult.context = allConfig[ruleName].context || ''
 
@@ -533,7 +541,7 @@ function listRules() {
   Rules that can't be run on partials have the property
   `partial-markdown-files` set to false.
 */
-function getMarkdownLintConfig(errorsOnly, runRules) {
+function getMarkdownLintConfig(filterErrorsOnly, runRules) {
   const config = {
     content: structuredClone(defaultConfig),
     data: structuredClone(defaultConfig),
@@ -552,7 +560,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
     if (
-      errorsOnly &&
+      filterErrorsOnly &&
       getRuleSeverity(ruleConfig, isPrecommit) !== 'error' &&
       ruleName !== 'search-replace'
     ) {
@@ -561,9 +569,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
     // Check if the rule should be included based on user-specified rules
     if (runRules && !shouldIncludeRule(ruleName, runRules)) continue
-
-    // Skip british-english-quotes rule in CI/PRs (only run in pre-commit)
-    if (ruleName === 'british-english-quotes' && !isPrecommit) continue
 
     // There are a subset of rules run on just the frontmatter in files
     if (githubDocsFrontmatterConfig[ruleName]) {
@@ -581,7 +586,7 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
-        if (errorsOnly && searchRuleSeverity !== 'error') continue
+        if (filterErrorsOnly && searchRuleSeverity !== 'error') continue
         // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
         // This ensures rules like TODOCS detection work in frontmatter
         // Rules with applyToFrontmatter should ONLY run in the frontmatter pass (which lints the entire file)
@@ -636,14 +641,16 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
 // Return the severity value of a rule but keep in mind it could be
 // running as a precommit hook, which means the severity could be
 // deliberately different.
-function getRuleSeverity(rule, isPrecommit) {
-  return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
+function getRuleSeverity(ruleConfig, isInPrecommitMode) {
+  return isInPrecommitMode
+    ? ruleConfig.precommitSeverity || ruleConfig.severity
+    : ruleConfig.severity
 }
 
 // Gets a custom rule function from the name of the rule
 // in the configuration file
 function getCustomRule(ruleName) {
-  const rule = customRules.find((rule) => rule.names.includes(ruleName))
+  const rule = customRules.find((r) => r.names.includes(ruleName))
   if (!rule)
     throw new Error(
       `A content-lint rule ('${ruleName}') is configured in the markdownlint config file but does not have a corresponding rule function.`,
@@ -692,24 +699,24 @@ export function shouldIncludeRule(ruleName, runRules) {
     fixInfo: null
   }
 */
-function getSearchReplaceRuleSeverity(ruleName, object, isPrecommit) {
+function getSearchReplaceRuleSeverity(ruleName, object, isInPrecommitMode) {
   const pluginRuleName = object.errorDetail.split(':')[0].trim()
-  const rule = allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName)
-  return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
+  const rule = allConfig[ruleName].rules.find((r) => r.name === pluginRuleName)
+  return isInPrecommitMode ? rule.precommitSeverity || rule.severity : rule.severity
 }
 
 function isOptionsValid() {
   // paths should only contain existing files and directories
-  const paths = program.opts().paths || []
-  for (const path of paths) {
+  const optionPaths = program.opts().paths || []
+  for (const filePath of optionPaths) {
     try {
-      fs.statSync(path)
+      fs.statSync(filePath)
     } catch {
-      if ('paths'.includes(path)) {
+      if ('paths'.includes(filePath)) {
         console.log('error: did you mean --paths')
       } else {
         console.log(
-          `error: invalid --paths (-p) option. The value '${path}' is not a valid file or directory`,
+          `error: invalid --paths (-p) option. The value '${filePath}' is not a valid file or directory`,
         )
       }
       return false
@@ -718,14 +725,14 @@ function isOptionsValid() {
 
   // rules should only contain existing, correctly spelled rules
   const allRulesList = [...allRules.map((rule) => rule.names).flat(), ...Object.keys(allConfig)]
-  const rules = program.opts().rules || []
-  for (const rule of rules) {
-    if (!allRulesList.includes(rule)) {
-      if ('rules'.includes(rule)) {
+  const optionRules = program.opts().rules || []
+  for (const ruleName of optionRules) {
+    if (!allRulesList.includes(ruleName)) {
+      if ('rules'.includes(ruleName)) {
         console.log('error: did you mean --rules')
       } else {
         console.log(
-          `error: invalid --rules (-r) option. The value '${rule}' is not a valid rule name.`,
+          `error: invalid --rules (-r) option. The value '${ruleName}' is not a valid rule name.`,
         )
       }
       return false

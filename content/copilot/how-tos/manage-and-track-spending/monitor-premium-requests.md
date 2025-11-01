@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/spending/monitoring-your-copilot-usage-and-entitlements
   - /copilot/how-tos/spending/monitor-premium-requests
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
@@ -62,6 +64,7 @@ You can view an overview of your premium request usage at any time in your "Bill
 1. In the side bar, click **Premium request analytics** to show detailed analytics.
 1. Use the filter, "Group by", and "Timeframe" options to change the data displayed in the chart and table.
    {% data reusables.billing.premium-request-analytics-start %}
+
 1. Optionally, to download the data shown in the chart, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
    ![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)
