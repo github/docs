@@ -1,6 +1,7 @@
 ---
 title: Creating a permanent link to a code snippet
-intro: You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request.
+intro: You can create a permanent link to a specific line, range of lines, or even a range of columns in a file in a specific version of a file or pull request. When you select part of the code, GitHub automatically generates a link that includes line or column references (for example, `#L2C4-L2C16`).
+
 product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/creating-a-permanent-link-to-a-code-snippet
@@ -19,6 +20,8 @@ shortTitle: Permanent links to code
 ## Linking to code
 
 This type of permanent link will render as a code snippet only in the repository it originated in. In other repositories, the permalink code snippet will render as a URL. This does not work in Markdown files, only in comments.
+
+> **Note:** Column-level links (like `#L2C4-L2C16`) may not be supported in all browsers or views yet.
 
 ![Screenshot of an issue comment. A code snippet has a header that lists the file name and line numbers, and a body that lists the code on those lines.](/assets/images/help/repository/rendered-code-snippet.png)
 
