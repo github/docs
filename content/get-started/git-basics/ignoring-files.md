@@ -8,7 +8,7 @@ redirect_from:
   - /github/getting-started-with-github/ignoring-files
   - /github/getting-started-with-github/getting-started-with-git/ignoring-files
   - /get-started/getting-started-with-git/ignoring-files
-intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.github %}.'
+intro: 'You can configure Git to ignore files you don't want to check in to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +17,7 @@ versions:
 ## Configuring ignored files for a single repository
 
 You can create a `.gitignore` file in your repository's root directory to tell Git which files and directories to ignore when you make a commit.
-To share the ignore rules with other users who clone the repository, commit the `.gitignore` file in to your repository.
+To share the ignore rules with other users who clone the repository, commit the `.gitignore` file into your repository.
 
 GitHub maintains an official list of recommended `.gitignore` files for many popular operating systems, environments, and languages in the "github/gitignore" public repository. You can also use gitignore.io to create a `.gitignore` file for your operating system, programming language, or IDE. For more information, see [github/gitignore](https://github.com/github/gitignore) and the [gitignore.io](https://www.gitignore.io/) site.
 
