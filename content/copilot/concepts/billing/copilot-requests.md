@@ -15,7 +15,7 @@ redirect_from:
   - /copilot/concepts/copilot-billing/requests-in-github-copilot
   - /copilot/concepts/copilot-billing/copilot-requests
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -39,15 +39,15 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 | Feature | Premium request consumption | SKU Attribution |
 | ------- | ----------- | ----------- |
-| [Agent mode in {% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits) | Agent mode uses **one premium request** per user prompt, multiplied by the model's rate. | Copilot premium requests |
-| [{% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat) | {% data variables.copilot.copilot_chat_short %} uses **one premium request** per user prompt, multiplied by the model's rate. | Copilot premium requests |
-| [{% data variables.copilot.copilot_cli_short %}](/copilot/concepts/agents/about-copilot-cli) | Each prompt to {% data variables.copilot.copilot_cli_short %} uses **one premium request** with the default model. For other models, this is multiplied by the model's rate. | Copilot premium requests |
-| [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review) | When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, **one premium request** is used each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. | Copilot premium requests |
-| [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent) | {% data variables.copilot.copilot_coding_agent %} uses **one premium request** per session. A session begins when you ask {% data variables.product.prodname_copilot_short %} to create a pull request or make one or more changes to an existing pull request. | {% data variables.copilot.copilot_coding_agent %} premium requests |
-| [{% data variables.copilot.copilot_extensions_short %}](/copilot/concepts/copilot-extensions/about-copilot-extensions) | {% data variables.copilot.copilot_extensions_short %} uses **one premium request** per user prompt, multiplied by the model's rate. | Copilot premium requests |
-| [{% data variables.copilot.copilot_spaces %}](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. | Copilot premium requests |
+| [Agent mode in {% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits) | Agent mode uses **one premium request** per user prompt, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
+| [{% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat) | {% data variables.copilot.copilot_chat_short %} uses **one premium request** per user prompt, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
+| [{% data variables.copilot.copilot_cli_short %}](/copilot/concepts/agents/about-copilot-cli) | Each prompt to {% data variables.copilot.copilot_cli_short %} uses **one premium request** with the default model. For other models, this is multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
+| [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review) | When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, **one premium request** is used each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. | {% data variables.product.prodname_copilot_short %} premium requests |
+| [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent) | {% data variables.copilot.copilot_coding_agent %} uses **one premium request** per session, plus **one premium request** for each real-time steering comment made during an active session. A session begins when you ask {% data variables.product.prodname_copilot_short %} to create a pull request or make one or more changes to an existing pull request. | {% data variables.copilot.copilot_coding_agent %} premium requests |
+| [{% data variables.copilot.copilot_extensions_short %}](/copilot/concepts/copilot-extensions/about-copilot-extensions) | {% data variables.copilot.copilot_extensions_short %} uses **one premium request** per user prompt, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
+| [{% data variables.copilot.copilot_spaces %}](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) | {% data variables.copilot.copilot_spaces %} uses **one premium request** per user prompt, multiplied by the model's rate. | {% data variables.product.prodname_copilot_short %} premium requests |
 | [{% data variables.product.prodname_spark_short %}](/copilot/tutorials/building-ai-app-prototypes) | Each prompt to {% data variables.product.prodname_spark_short %} uses a fixed rate of **four premium requests**. | {% data variables.product.prodname_spark_short %} premium requests |
-| [{% data variables.product.prodname_openai_codex %} integration](/copilot/concepts/agents/openai-codex) | While in preview, each prompt to {% data variables.product.prodname_openai_codex %} uses **one premium request** multiplied by the model multiplier rates. | Copilot premium requests |
+| [{% data variables.product.prodname_openai_codex %} integration](/copilot/concepts/agents/openai-codex) | While in preview, each prompt to {% data variables.product.prodname_openai_codex %} uses **one premium request** multiplied by the model multiplier rates. | {% data variables.product.prodname_copilot_short %} premium requests |
 
 > [!TIP]
 > For instructions on viewing how many premium requests you have used and advice on how to optimize usage, see [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/monitor-premium-requests).

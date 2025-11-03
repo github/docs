@@ -11889,7 +11889,9 @@
       "created_at",
       "operation_type",
       "actor_is_bot",
-      "old_allowed_values"
+      "old_allowed_values",
+      "old_default_value",
+      "old_required"
     ],
     "docs_reference_titles": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organization-in-your-enterprise"
   },
@@ -16054,8 +16056,8 @@
   },
   {
     "action": "repo.rename_branch",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A branch was renamed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch",
     "fields": [
       "user_agent",
       "request_id",
@@ -16077,7 +16079,8 @@
       "token_scopes",
       "programmatic_access_type",
       "actor_is_bot"
-    ]
+    ],
+    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch"
   },
   {
     "action": "repo.restore",

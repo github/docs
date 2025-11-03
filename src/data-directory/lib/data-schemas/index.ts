@@ -22,7 +22,8 @@ function loadTableSchemas(): DataSchemas {
       const schemaPath = path.join(schemasDir, `${name}.ts`)
 
       if (fs.existsSync(schemaPath)) {
-        tableSchemas[`data/tables/${yamlFile}`] = `@/data-directory/lib/data-schemas/tables/${name}`
+        // Use relative path from test file for vitest 4.x compatibility with dynamic imports
+        tableSchemas[`data/tables/${yamlFile}`] = `../lib/data-schemas/tables/${name}.ts`
       }
     }
   }
@@ -31,14 +32,15 @@ function loadTableSchemas(): DataSchemas {
 }
 
 // Manual schema registrations for non-table data
+// Use relative paths from the test file for vitest 4.x compatibility with dynamic imports
 const manualSchemas: DataSchemas = {
-  'data/features': '@/data-directory/lib/data-schemas/features',
-  'data/variables': '@/data-directory/lib/data-schemas/variables',
-  'data/learning-tracks': '@/data-directory/lib/data-schemas/learning-tracks',
-  'data/release-notes': '@/data-directory/lib/data-schemas/release-notes',
-  'data/code-languages.yml': '@/data-directory/lib/data-schemas/code-languages',
-  'data/glossaries/candidates.yml': '@/data-directory/lib/data-schemas/glossaries-candidates',
-  'data/glossaries/external.yml': '@/data-directory/lib/data-schemas/glossaries-external',
+  'data/features': '../lib/data-schemas/features.ts',
+  'data/variables': '../lib/data-schemas/variables.ts',
+  'data/learning-tracks': '../lib/data-schemas/learning-tracks.ts',
+  'data/release-notes': '../lib/data-schemas/release-notes.ts',
+  'data/code-languages.yml': '../lib/data-schemas/code-languages.ts',
+  'data/glossaries/candidates.yml': '../lib/data-schemas/glossaries-candidates.ts',
+  'data/glossaries/external.yml': '../lib/data-schemas/glossaries-external.ts',
 }
 
 // Combine manual registrations with auto-discovered table schemas

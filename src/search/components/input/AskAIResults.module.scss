@@ -69,3 +69,35 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   flex-direction: row;
   padding-left: 12px !important;
 }
+
+.thumbsUpButton {
+  border: none;
+  background-color: unset;
+  box-shadow: unset;
+
+  &.selected {
+    border: 1px solid var(--color-btn-text);
+    color: var(--fgColor-accent) !important;
+  }
+}
+
+.thumbsDownButton {
+  border: none;
+  background-color: unset;
+  box-shadow: unset;
+
+  &.selected {
+    border: 1px solid var(--color-btn-text);
+    color: var(--fgColor-accent) !important;
+  }
+}
+
+.shareButton {
+  border: none;
+  background-color: unset;
+  box-shadow: unset;
+
+  &.copied {
+    color: var(--fgColor-accent) !important;
+  }
+}
