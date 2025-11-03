@@ -19,11 +19,13 @@
     "build": "next build --webpack",
     "check-content-type": "tsx src/workflows/check-content-type.ts",
     "check-github-github-links": "tsx src/links/scripts/check-github-github-links.ts",
+    "clone-early-access": "./src/early-access/scripts/clone-locally",
     "clone-translations": "./src/languages/scripts/clone-translations.sh",
     "cmp-files": "tsx src/workflows/cmp-files.ts",
     "content-changes-table-comment": "tsx src/workflows/content-changes-table-comment.ts",
     "copy-fixture-data": "tsx src/tests/scripts/copy-fixture-data.ts",
     "count-translation-corruptions": "cross-env NODE_OPTIONS=--max-old-space-size=8192 tsx src/languages/scripts/count-translation-corruptions.ts",
+    "create-early-access-branch": "./src/early-access/scripts/create-branch",
     "create-enterprise-issue": "tsx src/ghes-releases/scripts/create-enterprise-issue.ts",
     "cta-builder": "tsx src/content-render/scripts/cta-builder.ts",
     "debug": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon --inspect src/frame/server.ts",
@@ -102,7 +104,8 @@
     "validate-asset-images": "tsx src/assets/scripts/validate-asset-images.ts",
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
     "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts",
-    "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts"
+    "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts",
+    "writers": "tsx src/workflows/writers-help-metadata.ts"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",

@@ -1,9 +1,7 @@
-// [start-readme]
-//
-// This script is run on a writer's machine while developing Early Access content locally. It
-// updates the data and image paths to either include `early-access` or remove it.
-//
-// [end-readme]
+/**
+ * @purpose Writer tool
+ * @description Add or remove "early-access" from data and image paths
+ */
 
 import fs from 'fs'
 import path from 'path'

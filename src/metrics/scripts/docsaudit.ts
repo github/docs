@@ -1,3 +1,8 @@
+/**
+ * @purpose Writer tool
+ * @description Get data about a top-level docs product and output a CSV
+ */
+
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'

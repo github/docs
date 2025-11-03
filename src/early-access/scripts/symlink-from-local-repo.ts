@@ -1,10 +1,7 @@
-// [start-readme]
-//
-// This script is run on a writer's machine while developing Early Access content locally.
-// You must pass the script the location of your local copy of
-// the `github/docs-early-access` git repo as the first argument.
-//
-// [end-readme]
+/**
+ * @purpose Writer tool
+ * @description Create or destroy symlinks to your local docs-early-access checkout
+ */
 
 import { rimraf } from 'rimraf'
 import fs from 'fs'

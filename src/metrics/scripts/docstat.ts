@@ -1,3 +1,8 @@
+/**
+ * @purpose Writer tool
+ * @description Get a data snapshot of a given Docs URL for the last 30 days or specified period
+ */
+
 import fs from 'fs'
 import path from 'path'
 import { Command } from 'commander'

@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Move or rename a file or a folder and automatically add redirects
+ */
 // @ts-nocheck
 // [start-readme]
 //
