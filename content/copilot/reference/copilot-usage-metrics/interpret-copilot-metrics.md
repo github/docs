@@ -11,6 +11,7 @@ contentType: reference
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /early-access/copilot-metrics/dashboards/interpreting-the-metrics
+  - /copilot/reference/interpret-copilot-metrics
 ---
 
 >[!NOTE] The {% data variables.product.prodname_copilot %} usage metrics dashboard is currently in {% data variables.release-phases.public_preview %} and subject to change.
@@ -72,4 +73,5 @@ Use trends in usage, feature adoption, and language activity to guide enablement
 
 ## Further reading
 
-To learn how to access and navigate the {% data variables.product.prodname_copilot_short %} usage metrics dashboard, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption).
+* [AUTOTITLE](/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics)
+* [AUTOTITLE](/copilot/reference/copilot-usage-metrics/lines-of-code-metrics)
