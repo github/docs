@@ -4,9 +4,15 @@ import { cuss } from 'cuss'
 import { cuss as cussPt } from 'cuss/pt'
 import { cuss as cussFr } from 'cuss/fr'
 import { cuss as cussEs } from 'cuss/es'
-import { Language } from '@horizon-rs/language-guesser'
+let language: any = null
 
-const language = new Language()
+async function getLanguageInstance() {
+  if (!language) {
+    const { Language } = await import('@horizon-rs/language-guesser')
+    language = new Language()
+  }
+  return language
+}
 
 // Exported for the debugging CLI script
 export const SIGNAL_RATINGS = [
@@ -48,8 +54,8 @@ export const SIGNAL_RATINGS = [
   {
     reduction: 0.2,
     name: 'not-language',
-    validator: (comment: string, commentLanguage: string) =>
-      isNotLanguage(comment, commentLanguage),
+    validator: async (comment: string, commentLanguage: string) =>
+      await isNotLanguage(comment, commentLanguage),
   },
   {
     reduction: 0.3,
@@ -80,7 +86,8 @@ export async function getGuessedLanguage(comment: string) {
     return
   }
 
-  const bestGuess = language.guessBest(comment.trim(), [])
+  const lang = await getLanguageInstance()
+  const bestGuess = lang.guessBest(comment.trim(), [])
   if (!bestGuess) return // Can happen if the text is just whitespace
   // // @horizon-rs/language-guesser is based on tri-grams and can lead
   // // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is
@@ -98,7 +105,7 @@ export async function analyzeComment(text: string, commentLanguage = 'en') {
   const signals = []
   let rating = 1.0
   for (const { reduction, name, validator } of SIGNAL_RATINGS) {
-    if (validator(text, commentLanguage)) {
+    if (await validator(text, commentLanguage)) {
       signals.push(name)
       rating -= reduction
     }
@@ -153,8 +160,9 @@ function isSingleWord(text: string) {
   return whitespaceSplit.length === 1
 }
 
-function isNotLanguage(text: string, language_: string) {
-  const bestGuess = language.guessBest(text.trim(), [])
+async function isNotLanguage(text: string, language_: string) {
+  const lang = await getLanguageInstance()
+  const bestGuess = lang.guessBest(text.trim(), [])
   if (!bestGuess) return true // Can happen if the text is just whitespace
   // @horizon-rs/language-guesser is based on tri-grams and can lead
   // to false positives. For example, it thinks that 'Thamk you ❤️🙏' is

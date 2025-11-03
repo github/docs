@@ -48,6 +48,7 @@ They provide granular daily records for each user in the enterprise.
 
 | Field | Description |
 |:--|:--|
+| `agent_edit` | A dedicated bucket in the API and reports. Captures lines added and deleted directly by {% data variables.product.prodname_copilot_short %} Agent and Edit mode.<br>These are not included in suggested metrics, since agent edits don’t follow a simple suggestion to acceptance flow. |
 | `report_start_day` / `report_end_day` | Start and end dates for the 28-day reporting period. |
 | `day` | Calendar day this record represents. |
 | `enterprise_id` | Unique ID of the enterprise or organization. |

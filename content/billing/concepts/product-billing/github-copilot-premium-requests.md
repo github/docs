@@ -28,7 +28,7 @@ Examples include:
 
 Each product's premium request usage is attributed to a premium request SKU:
 
-* **Copilot premium requests** - Chat, CLI, Code Review, Extensions, and Spaces
+* **{% data variables.product.prodname_copilot_short %} premium requests** - Chat, CLI, Code Review, Extensions, and Spaces
 * **{% data variables.product.prodname_spark_short %} premium requests** - {% data variables.product.prodname_spark_short %} app creation
 * **{% data variables.copilot.copilot_coding_agent %} premium requests** - {% data variables.copilot.copilot_coding_agent %} sessions
 
@@ -84,7 +84,7 @@ If you exceed your allowance, set a budget for additional premium requests or up
 ### Organizations and enterprises
 
 * Admins can control whether members are allowed to exceed their premium request allowance across AI features using the **Premium request paid usage** policy.
-* Separate policy options are available for Copilot, {% data variables.product.prodname_spark_short %}, and {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
+* Separate policy options are available for {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_spark_short %}, and {% data variables.copilot.copilot_coding_agent %}. See [AUTOTITLE](/copilot/how-tos/manage-and-track-spending/manage-request-allowances).
 * Premium request budgets can be set to either monitor or block overages, with options for bundled or individual SKU management.
 * Enterprises can also upgrade frequent users to {% data variables.copilot.copilot_enterprise_short %} for higher included allowances.
 
