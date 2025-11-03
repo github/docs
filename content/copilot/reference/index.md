@@ -18,7 +18,5 @@ children:
   - /agentic-audit-log-events
   - /extensions-glossary
   - /copilot-usage-metrics
-  - /interpret-copilot-metrics
-  - /reconciling-usage-metrics
 contentType: reference
 ---
