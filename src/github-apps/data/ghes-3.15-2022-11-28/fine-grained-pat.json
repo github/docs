@@ -2679,18 +2679,6 @@
   ],
   "projects-classic": [
     {
-      "slug": "list-organization-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "create-an-organization-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -2713,24 +2701,6 @@
       "subcategory": "columns",
       "verb": "post",
       "requestPath": "/projects/columns/{column_id}/moves"
-    },
-    {
-      "slug": "get-a-project",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "update-a-project",
-      "subcategory": "projects",
-      "verb": "patch",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "delete-a-project",
-      "subcategory": "projects",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}"
     },
     {
       "slug": "list-project-collaborators",
