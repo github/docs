@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Run the Docs content linter, specifying paths and optional rules
+ */
 // @ts-nocheck
 import fs from 'fs'
 import path from 'path'

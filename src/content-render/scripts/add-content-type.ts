@@ -1,7 +1,7 @@
-// This script auto-populates the `contentType` frontmatter property based on
-// the directory location of the content file.
-// Run with:
-// npm run-script -- add-content-type --help
+/**
+ * @purpose Writer tool
+ * @description Auto-populate the `contentType` frontmatter property based on the directory location of the content file
+ */
 
 import fs from 'fs'
 import path from 'path'

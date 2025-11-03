@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-# [start-readme]
-#
-# This script is run on a writer's machine to create an Early Access branch that matches the current docs-internal branch.
-#
-# [end-readme]
+# @purpose Writer tool
+# @description Create matching branches in docs-early-access and docs-internal
 
 set -e
 

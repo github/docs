@@ -49,7 +49,7 @@ Note that disabling {% data variables.copilot.copilot_autofix_short %} at the or
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.security-configurations.display-global-settings %}
-1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.copilot.copilot_autofix_short %}** or **{% data variables.copilot.copilot_autofix_short %} for third-party tools**.
+1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.copilot.copilot_autofix_short %}**.
 
 For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings).
 
@@ -60,4 +60,4 @@ If {% data variables.copilot.copilot_autofix_short %} is allowed at the enterpri
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. In the "{% data variables.product.UI_code_security_scanning %}" section, deselect **{% data variables.copilot.copilot_autofix_short %}** or **{% data variables.copilot.copilot_autofix_short %} for third-party tools**.
+1. In the "{% data variables.product.UI_code_security_scanning %}" section, deselect **{% data variables.copilot.copilot_autofix_short %}**.

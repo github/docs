@@ -308,6 +308,11 @@ prodname_arctic_vault: 'Arctic Code Vault'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 
+# Premium requests (used to bill products like Copilot, Spark)
+prodname_pru: 'premium request'
+prodname_prus: 'premium requests'
+prodname_prus_caps: 'Premium requests'
+
 # GitHub Spark
 prodname_spark: 'GitHub Spark'
 prodname_spark_short: 'Spark'
