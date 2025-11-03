@@ -10,6 +10,22 @@ category:
   - Track your contributions
 ---
 
+## Profile Contributions Matrix
+
+| **Action** | **Standalone <br>Repository** | **Fork → Upstream <br>Repository** | **Repository <br>Fork** |
+|:---|:---:|:---:|:---:|
+| Create <br><br> | 🟩 <br>[ⓘ](## "Creating a new repository counts as a contribution.") | – <br><br> | 🟩 <br>[ⓘ](## "Forking an existing repository counts as a contribution.") |
+| **Collaboration Channels** | | | |
+| Open Issue | 🟩 | – | ⬜ |
+| Answer Issue | ⬜ | – | ⬜ |
+| Open Discussion | 🟩 | – | ⬜ |
+| Answer Discussion | 🟩 | – | ⬜ |
+| **Contribution Channels** [ⓘ](## "Commits will only appear on your contributions graph if the email address used to make the commits is associated with your account on GitHub.") | | | |
+| Open PR (Pull Request) | 🟩 | 🟩 | ⬜ |
+| Review PR | 🟩 | 🟩 | ⬜ |
+| Commit to <br>Main branches [ⓘ](## "The commits were made on the repository's default branch (e.g. main or master) or on the gh-pages branch (for repositories with project sites).") | 🟩 <br>[(RW)](## "Only counts as a contribution, if you are a collaborator on the repository or are a member of the organization that owns the repository.") | 🟩 <br>[ⓘ](## "Only counts as a contribution, if you have opened a pull request / issue in the repository or forked the repository.") | ⬜ <br><br> |
+| Commit to <br>Other branches [ⓘ](## "Commits on other branches except the default branch and gh-pages branch.") | ⬜ | ⬜ | ⬜ |
+
 ## What counts as a contribution
 
 Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
