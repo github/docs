@@ -20,9 +20,7 @@ const config: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
   i18n: {
     locales: languageKeys,
     defaultLocale: 'en',
@@ -49,6 +47,10 @@ const config: NextConfig = {
       }
     })
   },
+  // Turbopack is the default bundler in Next.js 16
+  // Keep webpack config for now to support both bundlers
+  turbopack: {},
+
   webpack: (webpackConfig) => {
     webpackConfig.experiments = webpackConfig.experiments || {}
     webpackConfig.experiments.topLevelAwait = true
