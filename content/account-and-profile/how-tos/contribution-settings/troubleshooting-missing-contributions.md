@@ -62,6 +62,8 @@ If your commits are in a non-default or non-`gh-pages` branch and you'd like the
 > [!WARNING]
 > Changing the default branch of the repository will change it for all repository collaborators. Only do this if you want the new branch to become the base against which all future pull requests and commits will be made.
 
+Refer to the [Profile Contributions Matrix](/account-and-profile/reference/profile-contributions-reference) for further details.
+
 ## Commit was made in a fork
 
 Commits made in a fork will not count toward your contributions. To make them count, you must open a pull request to have your changes merged into the parent repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
