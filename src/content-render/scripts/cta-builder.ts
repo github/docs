@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create a properly formatted Call-to-Action URL with tracking parameters
+ */
 import { Command } from 'commander'
 import readline from 'readline'
 import chalk from 'chalk'
