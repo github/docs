@@ -8,6 +8,21 @@ interface DataSchemas {
   [key: string]: string
 }
 
+// Helper function to resolve schema paths based on runtime context
+function resolveSchemaPath(filename: string): string {
+  // Check if we're in a test context
+  const isTest = process.env.NODE_ENV === 'test'
+
+  if (isTest) {
+    // Use relative paths that work for vitest and 4.x compatibility with
+    // dynamic imports in particular
+    return `../lib/data-schemas/${filename}`
+  } else {
+    // Use absolute paths that work for content linter and other contexts
+    return `@/data-directory/lib/data-schemas/${filename}`
+  }
+}
+
 // Auto-discover table schemas from data/tables/ directory
 function loadTableSchemas(): DataSchemas {
   const tablesDir = path.join(process.cwd(), 'data/tables')
@@ -22,8 +37,8 @@ function loadTableSchemas(): DataSchemas {
       const schemaPath = path.join(schemasDir, `${name}.ts`)
 
       if (fs.existsSync(schemaPath)) {
-        // Use relative path from test file for vitest 4.x compatibility with dynamic imports
-        tableSchemas[`data/tables/${yamlFile}`] = `../lib/data-schemas/tables/${name}.ts`
+        // Use the resolver for consistent path handling
+        tableSchemas[`data/tables/${yamlFile}`] = resolveSchemaPath(`tables/${name}.ts`)
       }
     }
   }
@@ -32,15 +47,14 @@ function loadTableSchemas(): DataSchemas {
 }
 
 // Manual schema registrations for non-table data
-// Use relative paths from the test file for vitest 4.x compatibility with dynamic imports
 const manualSchemas: DataSchemas = {
-  'data/features': '../lib/data-schemas/features.ts',
-  'data/variables': '../lib/data-schemas/variables.ts',
-  'data/learning-tracks': '../lib/data-schemas/learning-tracks.ts',
-  'data/release-notes': '../lib/data-schemas/release-notes.ts',
-  'data/code-languages.yml': '../lib/data-schemas/code-languages.ts',
-  'data/glossaries/candidates.yml': '../lib/data-schemas/glossaries-candidates.ts',
-  'data/glossaries/external.yml': '../lib/data-schemas/glossaries-external.ts',
+  'data/features': resolveSchemaPath('features.ts'),
+  'data/variables': resolveSchemaPath('variables.ts'),
+  'data/learning-tracks': resolveSchemaPath('learning-tracks.ts'),
+  'data/release-notes': resolveSchemaPath('release-notes.ts'),
+  'data/code-languages.yml': resolveSchemaPath('code-languages.ts'),
+  'data/glossaries/candidates.yml': resolveSchemaPath('glossaries-candidates.ts'),
+  'data/glossaries/external.yml': resolveSchemaPath('glossaries-external.ts'),
 }
 
 // Combine manual registrations with auto-discovered table schemas
