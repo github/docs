@@ -320,7 +320,7 @@
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
     "vitest": "^4.0.4",
-    "website-scraper": "^5.3.1"
+    "website-scraper": "^6.0.0"
   },
   "overrides": {
     "esbuild": "^0.25"
