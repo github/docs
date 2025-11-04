@@ -2,7 +2,7 @@
 title: Interpreting the code quality results for your repository
 shortTitle: Interpret results
 allowTitleToDifferFromFilename: true
-intro: 'View {% data variables.product.prodname_code_quality %} findings for your default branch and fix them to improve your quality rating.'
+intro: 'View {% data variables.product.prodname_code_quality %} findings for your default branch.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'
