@@ -1,7 +1,7 @@
 ---
 title: About GitHub Code Quality
 shortTitle: About Code Quality
-intro: 'Learn how {% data variables.product.prodname_code_quality %} helps you catch and fix code health risks, maintain high standards, and track code quality within your {% data variables.product.github %} workflow.'
+intro: 'Use {% data variables.product.prodname_code_quality %} to flag code quality issues in pull requests and repository scans, apply {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforce standards with rulesets.'
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
