@@ -17,7 +17,7 @@ copilot_free_short: 'Copilot Free'
 
 ## Copilot billing
 # Price per additional premium request
-additional_premium_requests: '$0.04 USD'
+additional_premium_requests: '$0.04 USD' # Note that these are also used to bill other products
 # Price per month for Copilot Pro
 cfi_price_per_month: '$10 USD'
 # Price per year for Copilot Pro

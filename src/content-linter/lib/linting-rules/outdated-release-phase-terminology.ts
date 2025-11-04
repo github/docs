@@ -39,6 +39,7 @@ const EXCLUDED_PATHS: string[] = [
   'data/reusables/code-scanning/codeql-query-tables/cpp.md',
   'data/reusables/dependabot/dependabot-updates-supported-versioning-tags.md',
   'data/variables/release-phases.yml',
+  'data/release-notes/enterprise-server/3-17/0-rc1.yml',
   // Directories
   'content/site-policy/',
   'data/features/',

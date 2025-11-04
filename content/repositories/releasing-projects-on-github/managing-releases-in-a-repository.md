@@ -64,9 +64,13 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
 
 1. Follow the interactive prompts. Alternatively, you can specify arguments to skip these prompts. For more information about possible arguments, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_release_create). For example, this command creates a prerelease with the specified title and notes.
 
+<!-- markdownlint-disable outdated-release-phase-terminology --> <!-- disable the outdated-release-phase-terminology rule since "beta" is part of the CLI command --> 
+
    ```shell
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a {% data variables.release-phases.public_preview %} release" --prerelease
    ```
+
+<!-- markdownlint-enable outdated-release-phase-terminology -->
 
 If you @mention any {% data variables.product.github %} users in the notes, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
 

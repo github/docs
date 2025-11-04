@@ -221,9 +221,9 @@ const localWebhookUrl = `http://${host}:${port}${path}`;
 //
 // Octokit's `createNodeMiddleware` function takes care of generating this middleware function for you. The resulting middleware function will:
 //
-//    - Check the signature of the incoming webhook event to make sure that it matches your webhook secret. This verifies that the incoming webhook event is a valid {% data variables.product.company_short %} event.
-//    - Parse the webhook event payload and identify the type of event.
-//    - Trigger the corresponding webhook event handler.
+// - Check the signature of the incoming webhook event to make sure that it matches your webhook secret. This verifies that the incoming webhook event is a valid {% data variables.product.company_short %} event.
+// - Parse the webhook event payload and identify the type of event.
+// - Trigger the corresponding webhook event handler.
 const middleware = createNodeMiddleware(app.webhooks, {path});
 
 // This creates a Node.js server that listens for incoming HTTP requests (including webhook payloads from {% data variables.product.company_short %}) on the specified port. When the server receives a request, it executes the `middleware` function that you defined earlier. Once the server is running, it logs messages to the console to indicate that it is listening.

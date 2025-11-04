@@ -2,6 +2,8 @@ import type { ProductGroupT } from '@/landings/components/ProductSelections'
 
 import React from 'react'
 import { Link } from '@/frame/components/Link'
+
+import styles from './ProductSelectionCard.module.scss'
 import {
   LinkExternalIcon,
   RocketIcon,
@@ -41,15 +43,11 @@ export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
     return null
   }
 
-  const groupIcon = {
-    height: '22px',
-  }
-
   function icon(productGroup: ProductGroupT) {
     if (productGroup.icon) {
       return (
         <div className="pr-3">
-          <img src={productGroup.icon} alt={productGroup.name} style={groupIcon}></img>
+          <img src={productGroup.icon} alt={productGroup.name} className={styles.groupIcon}></img>
         </div>
       )
     } else if (productGroup.octicon) {
@@ -61,7 +59,7 @@ export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
 
       return (
         <div className="mr-2">
-          {React.createElement(octicon, groupIcon as React.Attributes, null)}
+          {React.createElement(octicon, { height: '22px' } as React.Attributes, null)}
         </div>
       )
     }

@@ -1,10 +1,7 @@
-// [start-readme]
-//
-// Run this script to update filepaths to match short titles (or titles as a fallback).
-// Use
-// npm run-script -- update-filepaths --help
-//
-// [end-readme]
+/**
+ * @purpose Writer tool
+ * @description Update content filenames to match short titles
+ */
 
 import fs from 'fs'
 import path from 'path'
