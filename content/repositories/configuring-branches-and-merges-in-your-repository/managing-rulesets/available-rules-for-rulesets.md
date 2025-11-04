@@ -134,6 +134,10 @@ Optionally, you can require all comments on the pull request to be resolved befo
 Optionally, you can require a merge type of merge, squash, or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
 {% endif %}
 
+{% ifversion repo-rules-required-reviewer %}
+Optionally, you can require review from specific teams. This means you can add a select number of reviewers who must submit a specific number of reviews for specific files and folders.
+{% endif %}
+
 ## Require status checks to pass before merging
 
 Required status checks ensure that all required CI tests are passing before collaborators can make changes to a branch or tag targeted by your ruleset. Required status checks can be checks or statuses. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
