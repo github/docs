@@ -35,3 +35,13 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+
+### About the MIT License
+
+The **MIT License** is a permissive open-source license that allows you to freely use, modify, and distribute the code with minimal restrictions.  
+In simple terms:
+- ✅ You can use the code in personal and commercial projects.
+- 🛠️ You can modify or merge it with your own work.
+- ⚖️ You must include the original copyright and license notice.
+
+This flexibility encourages collaboration and learning within the open-source community, which aligns with GitHub’s mission to make software development more open and accessible.
