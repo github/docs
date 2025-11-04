@@ -5,6 +5,8 @@ import { sendEvent } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { useRouter } from 'next/router'
 
+import styles from './InArticlePicker.module.scss'
+
 type Option = {
   value: string
   label: string
@@ -141,7 +143,7 @@ export const InArticlePicker = ({
   const params = new URLSearchParams(asPathQuery)
 
   return (
-    <div data-testid={`${queryStringKey}-picker`}>
+    <div data-testid={`${queryStringKey}-picker`} className={styles.container}>
       {/* The key attribute is required for a bug in UnderlineNav that doesn't render the component when there are changes to the items. */}
       <UnderlineNav key={router.asPath} {...sharedContainerProps}>
         {options.map((option) => {
