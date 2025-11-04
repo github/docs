@@ -51,6 +51,7 @@ export type PageFrontmatter = {
   featuredLinks?: FeaturedLinks
   changelog?: ChangeLog
   type?: string
+  contentType?: string
   topics?: string[]
   includeGuides?: string[]
   learningTracks?: string[]
@@ -380,6 +381,8 @@ export type Page = {
   complexity?: string[]
   industry?: string[]
   sidebarLink?: SidebarLink
+  type?: string
+  contentType?: string
 }
 
 export type SidebarLink = {

@@ -119,6 +119,7 @@ export const DefaultLayout = (props: Props) => {
           />
         )}
         {page.type && <meta name="page-type" content={page.type} />}
+        {page.contentType && <meta name="page-content-type" content={page.contentType} />}
         {page.documentType && <meta name="page-document-type" content={page.documentType} />}
         {status && <meta name="status" content={status.toString()} />}
 
