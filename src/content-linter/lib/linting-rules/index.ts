@@ -1,6 +1,4 @@
-// @ts-ignore - markdownlint-rule-search-replace doesn't provide TypeScript declarations
 import searchReplace from 'markdownlint-rule-search-replace'
-// @ts-ignore - @github/markdownlint-github doesn't provide TypeScript declarations
 import markdownlintGitHub from '@github/markdownlint-github'
 
 import { imageAltTextEndPunctuation } from '@/content-linter/lib/linting-rules/image-alt-text-end-punctuation'

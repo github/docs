@@ -223,7 +223,7 @@ export const ArticleGrid = ({ tocItems, includedCategories, landingType }: Artic
               placeholder={t('article_grid.search_articles')}
               ref={inputRef}
               autoComplete="false"
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const query = e.target.value || ''
                 handleSearch(query)
               }}

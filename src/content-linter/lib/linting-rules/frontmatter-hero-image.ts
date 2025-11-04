@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'

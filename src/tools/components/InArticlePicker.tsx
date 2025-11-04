@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Cookies from '@/frame/components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
 import { sendEvent } from '@/events/components/events'
@@ -156,7 +156,7 @@ export const InArticlePicker = ({
               href={`?${params}`}
               key={option.value}
               aria-current={option.value === currentValue ? 'page' : undefined}
-              onSelect={(event) => {
+              onSelect={(event: React.MouseEvent | React.KeyboardEvent) => {
                 event.preventDefault()
                 onClickChoice(option.value)
               }}
