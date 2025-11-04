@@ -6,10 +6,12 @@ To support the enterprise roles and teams public preview, we:
 
 * Created a new concepts category in the [enterprise admin](https://docs.github.com/en/enterprise-cloud@latest/admin) docs aimed at onboarding administrators, including new articles on roles and teams in an enterprise.
 * Built a user journey for setting up roles, teams, and apps to simplify administration, starting with [Identifying the roles required by your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).
-* Published how-to content on [creating custom roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles), [creating enterprise teams](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams), and [assigning roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
-* Communicated new conceptual frameworks and best practices for enterprise accounts, including [Best practices for organizing work in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/best-practices) and [Enterprise accounts](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
 
-<hr>
+hahha
+gahh
+
+<hhdd
+shddr>
 
 **17 October 2025**
 
@@ -40,7 +42,7 @@ The tutorial shows how to manage installations and run automations using enterpr
 We’ve updated the Spark documentation to support the launch for Copilot Enterprise users, making it easier to understand and enable Spark:
 
 * Conceptual article: [About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark#enterprise-considerations) now includes enterprise considerations (governance, billing, infrastructure, and benefits).
-* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies.
+* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies. 
 
 <hr>
 
