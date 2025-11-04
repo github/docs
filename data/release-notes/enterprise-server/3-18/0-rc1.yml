@@ -247,7 +247,7 @@ sections:
       The /explore functionality, including the Activity and Trending pages, is no longer available. Users can no longer access these pages to discover trending repositories or recent activity.
     # https://github.com/github/releases/issues/6045
     - |
-      The ability to bulk convert issues to discussions using labels is deprecated. Users can continue to convert individual issues to discussions manually using the "Convert to discussion" option. See [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).
+      The ability to bulk convert issues to discussions using labels is closing down. Users can continue to convert individual issues to discussions manually using the "Convert to discussion" option. See [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).
     # https://github.com/github/releases/issues/4977
     - |
       GitHub Actions users should update workflows that modify check run statuses via the REST API. GitHub will restrict the ability to change check run status for runs created by Actions to prevent inconsistent state changes. Review your workflows to ensure compatibility with this update.
@@ -259,4 +259,4 @@ sections:
       The announcement banner GraphQL fields have been replaced. Users can now manage instance-wide announcements through updated GraphQL fields, improving consistency and control for administrators. The existing individual fields following the `announcementX` pattern have been removed, and the new fields are within the `announcementBanner` object.
     # https://github.com/github/releases/issues/5811
     - |
-      Automatic watching of repositories and teams has been deprecated. Users will no longer be auto-subscribed when joining organizations or teams, reducing notification noise and confusion. Existing auto-watching subscriptions remain unchanged; users stay subscribed to previously watched repositories or teams. See [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#automatic-watching).
+      Automatic watching of repositories and teams has been retired. Users will no longer be auto-subscribed when joining organizations or teams, reducing notification noise and confusion. Existing auto-watching subscriptions remain unchanged; users stay subscribed to previously watched repositories or teams. See [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#automatic-watching).

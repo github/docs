@@ -53,7 +53,7 @@ With the repository set up, you can use {% data variables.product.prodname_copil
 
 ### Create an epic issue
 
-1. Enter a detailed project description as your prompt. For example:  
+1. Enter a detailed project description as your prompt. For example:
    ```I’m planning to create a shopping website in React and Node.js. The site should allow users to browse products by category, search for items, add products to a cart, and complete checkout. Please help me plan the project by creating issues and breaking it down into epics, features, and tasks.```
 1. Submit your prompt. {% data variables.product.prodname_copilot_short %} will generate an issue tree, typically with an epic at the top and sub-issues for each main feature or task
 
@@ -62,14 +62,14 @@ With the repository set up, you can use {% data variables.product.prodname_copil
 ## Navigate the issue tree
 
 1. Click the epic to view its details in the workbench. Navigate through the workbench to explore the issue tree.
-1. Each issue typically includes a title and description. Additional metadata such as labels or assignees, can be edited directly in the workbench.  
+1. Each issue typically includes a title and description. Additional metadata such as labels or assignees, can be edited directly in the workbench.
 1. You can expand or collapse sub-issues to focus on specific parts of the project.
 
    The issue tree provides a clear overview of your project structure, making it easy to navigate between epics, features, and tasks.
 
 1. In this first iteration of the draft, {% data variables.product.prodname_copilot_short %} may generate only high-level issues. You can refine these issues further by breaking them down into smaller tasks or features. Let's refine the issue "Feature: UI Skeleton and Navigation".
 
-    Prompt {% data variables.product.prodname_copilot_short %} with:  
+    Prompt {% data variables.product.prodname_copilot_short %} with:
    ```Can you break down the issue "Feature: UI Skeleton and Navigation" into smaller tasks?```
 
    {% data variables.product.prodname_copilot_short %} will generate multiple new sub-issues such as:
@@ -79,7 +79,7 @@ With the repository set up, you can use {% data variables.product.prodname_copil
     * Task: Integrate navigation with routing
     * Task: Add basic responsive layout
 
-1. Repeat this process for the remaining feature issues in the epic.  
+1. Repeat this process for the remaining feature issues in the epic.
 
 ![Screenshot of the Copilot Chat workbench. The workbench displays an issue tree with an epic at the top and several sub-issues beneath it.](/assets/images/help/copilot/copilot-creates-sub-issues-workbench.png)
 
@@ -87,12 +87,12 @@ With the repository set up, you can use {% data variables.product.prodname_copil
 
 After you finish generating the issue tree you may notice that {% data variables.product.prodname_copilot_short %}’s issue descriptions may be brief or unclear. To make them actionable, refine each issue as needed.
 
-1. Start with the newly generated issue such as "Task: Create placeholder pages for main routes".  
+1. Start with the newly generated issue such as "Task: Create placeholder pages for main routes".
 
-   Prompt {% data variables.product.prodname_copilot_short %} with:  
+   Prompt {% data variables.product.prodname_copilot_short %} with:
   ```Can you improve the description for “Task: Create placeholder pages for main routes”? Please provide a detailed technical summary, list the main routes to be included, outline the steps for implementation, and specify what should be delivered for this task. Please add any relevant code snippets.```
 
-1. {% data variables.product.prodname_copilot_short %} will generate a new version of the draft issue "Task: Create placeholder pages for main routes."  
+1. {% data variables.product.prodname_copilot_short %} will generate a new version of the draft issue "Task: Create placeholder pages for main routes."
 
     At the top-left of the issue, click the versioning drop-down and select **Version 2** to review the new changes.
 1. Review and decide whether to keep {% data variables.product.prodname_copilot_short %}’s revised version, edit further, or prompt again for more detail. {% data variables.product.prodname_copilot_short %} can add code snippets into the draft to improve clarity and provide immediate context for these issues.
@@ -112,7 +112,7 @@ Now that you’ve generated and refined your project issues, you can assign them
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-issues)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-for-common-tasks/use-copilot-to-create-or-update-issues)
 * [AUTOTITLE](/copilot/tutorials/coding-agent/pilot-coding-agent)
 * [AUTOTITLE](/copilot/tutorials/coding-agent/get-the-best-results)
 * [AUTOTITLE](/copilot/tutorials/speed-up-development-work)

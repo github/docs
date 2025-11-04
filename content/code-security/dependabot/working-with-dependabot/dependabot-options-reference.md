@@ -828,6 +828,8 @@ New version `2.0.0`
 
 ### Versioning tags
 
+<!-- markdownlint-disable outdated-release-phase-terminology -->
+
 * Represent stages in the software release lifecycle, such as alpha, beta, and stable versions.
 * Allow publishers to distribute their packages more effectively.
 * Indicate the stability of a version and communicate what users should expect in terms of features and stability.
@@ -848,6 +850,8 @@ New version `2.0.0`
 * **`rc`:** Release candidate, close to stable release.
 * **`release`:** The official release version.
 * **`stable`:** The most reliable, production-ready version.
+
+<!-- markdownlint-enable outdated-release-phase-terminology -->
 
 {% endif %}
 
