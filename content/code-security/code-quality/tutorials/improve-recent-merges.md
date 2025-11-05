@@ -8,7 +8,7 @@ product: '{% data reusables.gated-features.code-quality-availability %}'
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'
 topics:
   - Code Quality
-contentType: other
+contentType: tutorials
 redirect_from:
   - /code-security/code-quality/tutorials/improve-active-code
 ---
