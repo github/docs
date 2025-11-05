@@ -24,7 +24,10 @@ const SyntaxHelp = 'Syntax Error in tag \'octicon\' - Valid syntax: octicon "<na
  * Uses the octicons library to render the chosen icon. Also
  * supports passing attributes like `width="64"`.
  *
- * {% octicon "check" %}
+ * If no aria-label is provided, a default one will be auto-generated
+ * based on the icon name (e.g., "check icon", "git-branch icon").
+ *
+ * {% octicon "check" %} <!-- auto-generates aria-label="check icon" -->
  * {% octicon "check" width="64" aria-label="Example label" %}
  */
 const Octicon: LiquidTag = {
@@ -68,6 +71,13 @@ const Octicon: LiquidTag = {
     // Throw an error if the requested octicon does not exist.
     if (!Object.prototype.hasOwnProperty.call(octicons, this.icon)) {
       throw new Error(`Octicon ${this.icon} does not exist`)
+    }
+
+    // Auto-generate aria-label if not provided
+    // Replace non-alphanumeric characters with spaces and append " icon"
+    if (!this.options['aria-label']) {
+      const defaultLabel = `${this.icon.toLowerCase().replace(/[^a-z0-9]+/gi, ' ')} icon`
+      this.options['aria-label'] = defaultLabel
     }
 
     const result: string = octicons[this.icon].toSVG(this.options)

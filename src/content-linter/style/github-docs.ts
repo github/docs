@@ -162,12 +162,7 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'octicon-aria-labels': {
-    // GHD044
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
+  // GHD044 removed - octicon aria-labels are now auto-generated
   'code-annotation-comment-spacing': {
     // GHD045
     severity: 'warning',

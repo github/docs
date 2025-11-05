@@ -30,11 +30,11 @@ category:
 
 There are three main types of custom instructions that you can use to customize {% data variables.product.prodname_copilot_short %} responses on the {% data variables.product.github %} website:
 
-* **[Personal custom instructions](#about-personal-custom-instructions)** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
+* **[Personal instructions](#about-personal-instructions)** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
 * **[Repository custom instructions](#about-repository-custom-instructions)** apply to conversations within the context of a specific repository. They are useful for defining project-specific coding standards, frameworks, or tools. For example, you can specify that a repository uses TypeScript and a particular library, ensuring consistent responses for all contributors.
 * **[Organization custom instructions](#about-organization-custom-instructions)** (public preview) apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_enterprise_short %} subscription.
 
-## About personal custom instructions
+## About personal instructions
 
 {% data reusables.copilot.personal-instructions-note %}
 
@@ -67,12 +67,12 @@ Some examples of instructions you could add are:
 
 The following list shows the complete order of precedence, with instructions higher in this list taking precedence over those lower in the list:
 
-* Personal custom instructions
-* Repository custom instructions:
-  * Path-specific instructions in any applicable `.github/instructions/**/NAME.instructions.md` file
-  * Repository-wide instructions in the `.github/copilot-instructions.md` file
-  * Agent instructions (for example, in an `AGENTS.md` file)
-* Organization custom instructions
+* **Personal** instructions
+* **Repository** custom instructions:
+  * **Path-specific** instructions in any applicable `.github/instructions/**/NAME.instructions.md` file
+  * **Repository-wide** instructions in the `.github/copilot-instructions.md` file
+  * **Agent** instructions (for example, in an `AGENTS.md` file)
+* **Organization** custom instructions
 
 {% data reusables.copilot.custom-instructions-conflict %}
 
@@ -81,7 +81,7 @@ The following list shows the complete order of precedence, with instructions hig
 Custom instructions consist of natural language instructions and are most effective when they are short, self-contained statements. Consider the scope over which you want the instruction to apply when choosing whether to add an instruction on the personal, repository, or organization level.
 
 Here are some common use cases and examples for each type of custom instructions:
-* **Personal custom instructions:**
+* **Personal instructions:**
   * Preferred individual language: `Always respond in Portuguese.`
   * Individual response preferences: `Explain a single concept per line. Be clear and concise.`
 * **Repository custom instructions:**
