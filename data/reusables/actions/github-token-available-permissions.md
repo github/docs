@@ -17,6 +17,7 @@ permissions:
   repository-projects: read|write|none{% endif %}
   security-events: read|write|none
   statuses: read|write|none
+  workflows: write|none
 ```
 
 If you specify the access for any of these permissions, all of those that are not specified are set to `none`.
