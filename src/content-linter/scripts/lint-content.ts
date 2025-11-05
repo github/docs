@@ -738,7 +738,7 @@ function getCustomRule(ruleName: string): Rule | MarkdownlintRule {
 }
 
 // Check if a rule should be included based on user-specified rules
-// Handles both short names (e.g., GHD053, MD001) and long names (e.g., header-content-requirement, heading-increment)
+// Handles both short names (e.g., GHD047, MD001) and long names (e.g., table-column-integrity, heading-increment)
 export function shouldIncludeRule(ruleName: string, runRules: string[]) {
   // First check if the rule name itself is in the list
   if (runRules.includes(ruleName)) {
