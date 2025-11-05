@@ -1,4 +1,46 @@
 {
+  "enterprise_copilot_metrics": {
+    "title": "Enterprise Copilot metrics",
+    "displayTitle": "Enterprise permissions for \"Enterprise Copilot metrics\"",
+    "permissions": [
+      {
+        "category": "copilot",
+        "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-enterprise-usage-metrics",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "copilot",
+        "slug": "get-copilot-users-usage-metrics",
+        "subcategory": "copilot-metrics",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest",
+        "additional-permissions": false,
+        "access": "read"
+      }
+    ]
+  },
   "enterprise_custom_properties_for_organizations": {
     "title": "Enterprise custom properties for organizations",
     "displayTitle": "Enterprise permissions for \"Enterprise custom properties for organizations\"",
