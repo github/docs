@@ -1,7 +1,6 @@
 // src/content-render/liquid/prompt.ts
 // Defines {% prompt %}…{% endprompt %} to wrap its content in <code> and append the Copilot icon.
 
-// @ts-ignore - @primer/octicons doesn't provide TypeScript declarations
 import octicons from '@primer/octicons'
 
 interface LiquidTag {

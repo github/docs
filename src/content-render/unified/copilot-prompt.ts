@@ -4,14 +4,14 @@
 
 import { find } from 'unist-util-find'
 import { h } from 'hastscript'
-// @ts-ignore - @primer/octicons doesn't have TypeScript declarations
 import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import { getPreMeta } from './code-header'
 
-// node and tree are hast/unist AST nodes without proper TypeScript definitions
-// Returns a hast element node for the prompt button
+// Using any because node and tree are hast/unist AST nodes without proper TypeScript definitions
+// node is a pre element from the AST, tree is the full document AST
+// Returns a hast element node for the prompt button, or null if no prompt meta exists
 export function getPrompt(node: any, tree: any, code: string): any {
   const hasPrompt = Boolean(getPreMeta(node).prompt)
   if (!hasPrompt) return null
@@ -31,7 +31,8 @@ export function getPrompt(node: any, tree: any, code: string): any {
   )
 }
 
-// node and tree are hast/unist AST nodes without proper TypeScript definitions
+// Using any because node and tree are hast/unist AST nodes without proper TypeScript definitions
+// node is the current code block element, tree is used to find referenced code blocks
 function buildPromptData(
   node: any,
   tree: any,
@@ -51,7 +52,8 @@ function buildPromptData(
     console.warn(`Can't find referenced code block with id=${ref}`)
     return promptOnly(code)
   }
-  // Cast needed to access children property on untyped AST node
+  // Using any to access children property on untyped hast element node
+  // AST structure: element -> code -> text node with value property
   const matchingCode = (matchingCodeEl as any)?.children[0].children[0].value || null
   return promptAndContext(code, matchingCode)
 }
@@ -73,18 +75,21 @@ function promptAndContext(
   }
 }
 
-// tree and node are hast/unist AST nodes without proper TypeScript definitions
+// Using any because tree and node are hast/unist AST nodes without proper TypeScript definitions
+// Searches the AST tree for a code block with matching id in meta
 function findMatchingCode(ref: string, tree: any): any {
   return find(tree, (node: any) => {
-    // Cast needed to access tagName property on untyped element node
+    // Using any to access tagName property on untyped hast element node
     return node.type === 'element' && (node as any).tagName === 'pre' && getPreMeta(node).id === ref
   })
 }
 
 // Returns a hast element node for the Copilot icon
+// Using any return type because fromParse5 returns untyped hast nodes
 function copilotIcon(): any {
   const copilotIconHtml = octicons.copilot.toSVG()
   const copilotIconAst = parse(String(copilotIconHtml), { sourceCodeLocationInfo: true })
-  const copilotIconElement = fromParse5(copilotIconAst, { file: copilotIconHtml })
+  // Using any because fromParse5 expects VFile but we only have a string
+  const copilotIconElement = fromParse5(copilotIconAst, { file: copilotIconHtml as any })
   return copilotIconElement
 }

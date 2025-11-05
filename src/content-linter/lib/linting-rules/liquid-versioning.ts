@@ -1,6 +1,5 @@
 import semver from 'semver'
 import { TokenKind } from 'liquidjs'
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getRange, addFixErrorDetail } from '../helpers/utils'

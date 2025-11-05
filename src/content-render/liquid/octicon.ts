@@ -1,5 +1,4 @@
 import { TokenizationError } from 'liquidjs'
-// @ts-ignore - @primer/octicons doesn't provide TypeScript declarations
 import octicons from '@primer/octicons'
 
 // Note: Using 'any' for liquidjs-related types because liquidjs doesn't provide comprehensive TypeScript definitions

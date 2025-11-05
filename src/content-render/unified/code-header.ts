@@ -7,7 +7,6 @@ import yaml from 'js-yaml'
 import fs from 'fs'
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
-// @ts-ignore - no types available for @primer/octicons
 import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
@@ -17,6 +16,7 @@ import type { Element } from 'hast'
 
 interface LanguageConfig {
   name: string
+  // Using any for language properties that can vary (aliases, extensions, etc.)
   [key: string]: any
 }
 
@@ -107,12 +107,14 @@ export function header(
 function btnIcon(): Element {
   const btnIconHtml: string = octicons.copy.toSVG()
   const btnIconAst = parse(String(btnIconHtml), { sourceCodeLocationInfo: true })
-  // @ts-ignore - fromParse5 file option typing issue
-  const btnIconElement = fromParse5(btnIconAst, { file: btnIconHtml })
+  // Using any because fromParse5 expects VFile but we only have a string
+  // This is safe because parse5 only needs the string content
+  const btnIconElement = fromParse5(btnIconAst, { file: btnIconHtml as any })
   return btnIconElement as Element
 }
 
 // Using any due to conflicting unist/hast type definitions between dependencies
+// node can be various mdast/hast node types, return value contains meta properties from code blocks
 export function getPreMeta(node: any): Record<string, any> {
   // Here's why this monstrosity works:
   // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42

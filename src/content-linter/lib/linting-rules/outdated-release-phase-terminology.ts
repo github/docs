@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, ellipsify } from 'markdownlint-rule-helpers'
 
 import { getRange } from '@/content-linter/lib/helpers/utils'
