@@ -46,7 +46,6 @@ import { octiconAriaLabels } from '@/content-linter/lib/linting-rules/octicon-ar
 import { liquidIfversionVersions } from '@/content-linter/lib/linting-rules/liquid-ifversion-versions'
 import { outdatedReleasePhaseTerminology } from '@/content-linter/lib/linting-rules/outdated-release-phase-terminology'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
-import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
 import { ctasSchema } from '@/content-linter/lib/linting-rules/ctas-schema'
@@ -111,7 +110,6 @@ export const gitHubDocsMarkdownlint = {
     outdatedReleasePhaseTerminology, // GHD046
     tableColumnIntegrity, // GHD047
     frontmatterVersionsWhitespace, // GHD051
-    headerContentRequirement, // GHD053
     thirdPartyActionsReusable, // GHD054
     frontmatterLandingRecommended, // GHD056
     ctasSchema, // GHD057

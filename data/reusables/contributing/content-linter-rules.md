@@ -57,7 +57,6 @@
 | GHD046 | outdated-release-phase-terminology | Outdated release phase terminology should be replaced with current GitHub terminology | warning | terminology, consistency, release-phases |
 | GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | warning | tables, accessibility, formatting |
 | GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | warning | frontmatter, versions |
-| GHD053 | header-content-requirement | Headers must have content between them, such as an introduction | warning | headers, structure, content |
 | GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | warning | actions, reusable, third-party |
 | GHD056 | frontmatter-landing-recommended | Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist | error | frontmatter, landing, recommended |
 | GHD057 | ctas-schema | CTA URLs must conform to the schema | error | ctas, schema, urls |
