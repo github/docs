@@ -976,6 +976,18 @@
   base64Supported: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure Logic Apps URL
+  secretType: azure_logic_apps_url
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: true
+- provider: Azure
   supportedSecret: Azure Luis Authoring Key
   secretType: azure_luis_authoring_key
   versions:
@@ -3643,6 +3655,18 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Microsoft
+  supportedSecret: Power Automate Webhook SAS
+  secretType: power_automate_webhook_sas
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
