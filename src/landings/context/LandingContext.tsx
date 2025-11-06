@@ -78,7 +78,7 @@ export const getLandingContextFromRequest = async (
     renderedPage: req.context.renderedPage,
     currentLearningTrack: req.context.currentLearningTrack,
     currentLayout: req.context.currentLayoutName,
-    heroImage: page.heroImage || '/assets/images/banner-images/hero-1.png',
+    heroImage: page.heroImage || '/assets/images/banner-images/hero-1',
     introLinks: page.introLinks || null,
     recommended,
     journeyTracks,

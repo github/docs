@@ -30,7 +30,7 @@ children:
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
-heroImage: /assets/images/banner-images/hero-3.png
+heroImage: /assets/images/banner-images/hero-3
 layout: bespoke-landing
 sidebarLink:
   text: All tutorials
