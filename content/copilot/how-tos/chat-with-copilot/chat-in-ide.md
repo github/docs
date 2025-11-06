@@ -19,7 +19,7 @@ versions:
   feature: copilot
 shortTitle: Chat in IDE
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -374,12 +374,6 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 ## Using keywords in your prompt
 
 You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
-
-### Chat participants
-
-Chat participants are like domain experts who have a specialty that they can help you with. You can use a chat participant to scope your prompt to a specific domain. To do this, type `@` in the chat prompt box, followed by a chat participant name.
-
-For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=jetbrains#chat-participants-1).
 
 ### Extending {% data variables.copilot.copilot_chat_short %}
 
