@@ -75,9 +75,12 @@ Will **not** be:
 * Logged for any purpose, including human review
 * Saved to disk or retained in any form, including as metadata
 * Accessible by xAI personnel
+* Used for model training
 
 Will **only**:
 * Exist temporarily in RAM for the minimum time required to process and respond to each request
 * Be immediately deleted from memory once the response is delivered
 
 When using xAI, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
+
+For more information, see [xAI's enterprise terms of service](https://x.ai/legal/terms-of-service-enterprise) on the xAI website.
