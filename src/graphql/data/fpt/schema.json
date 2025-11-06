@@ -101352,6 +101352,15 @@
           "isDeprecated": false
         },
         {
+          "name": "projectV2Ids",
+          "description": "<p>An array of Node IDs for Projects V2 associated with this issue.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "repositoryId",
           "description": "<p>The Node ID of the repository.</p>",
           "type": "ID!",

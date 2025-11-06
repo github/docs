@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field 'projectV2Ids<code>of type</code>[ID!]<code>was added to input object type</code>CreateIssueInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>OrganizationPropertyConditionTarget</code> was added</p>",
           "<p>Type <code>OrganizationPropertyConditionTargetInput</code> was added</p>",
           "<p>Type <code>OrganizationPropertyTargetDefinition</code> was added</p>",
