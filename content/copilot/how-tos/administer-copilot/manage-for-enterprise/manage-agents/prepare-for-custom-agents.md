@@ -17,7 +17,9 @@ Enterprise-level {% data variables.copilot.custom_agents_short %} are defined in
 ## Creating a repository for your {% data variables.copilot.custom_agents_short %}
 
 1. Choose an organization in your enterprise to own the repository containing your enterprise-level {% data variables.copilot.custom_agents_short %}.
-1. Using the [{% data variables.copilot.custom_agents_short %} template repository](https://github.com/docs/custom-agents-template?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=enterprise&utm_source=docs-web-custom-agents&utm_medium=docs&utm_campaign=universe25post), create a new **private** repository in your chosen organization named `.github-private`.
+1. Using the [{% data variables.copilot.custom_agents_short %} template repository](https://github.com/docs/custom-agents-template?ref_product=copilot&ref_type=engagement&ref_style=text&ref_plan=enterprise&utm_source=docs-web-custom-agents&utm_medium=docs&utm_campaign=universe25post), create a new repository in your chosen organization named `.github-private`. Set the visibility of the repository as follows:
+     * To grant **read access to all members** of your enterprise, choose {% octicon "organization" aria-hidden="true" aria-label="organization" %} **Internal**.
+     * To **manually grant access after creation**, choose {% octicon "lock" aria-hidden="true" aria-label="lock" %} **Private**.
 1. Update the template README as needed. Consider including creation guidelines for {% data variables.copilot.custom_agents_short %} or compliance considerations specific to your enterprise.
 
 ## Enabling and protecting {% data variables.copilot.custom_agents_short %} in your enterprise
@@ -35,4 +37,4 @@ Enterprise-level {% data variables.copilot.custom_agents_short %} are defined in
 
 To reduce your administrative burden and empower your SMEs, you can delegate the creation and management of {% data variables.copilot.custom_agents_short %} in your enterprise by creating a team of AI managers. See [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/establish-ai-managers).
 
-If you prefer to maintain full control over your enterprise's tooling to ensure security and compliance, you can create and manage {% data variables.copilot.custom_agents_short %} yourself. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+If you prefer to maintain full control over your enterprise's tooling to ensure security and compliance, you can create and manage {% data variables.copilot.custom_agents_short %} yourself. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/test-custom-agents).

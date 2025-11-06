@@ -12,6 +12,7 @@ children:
   - /track-copilot-sessions
   - /review-copilot-prs
   - /create-custom-agents
+  - /test-custom-agents
   - /extend-coding-agent-with-mcp
   - /integrate-coding-agent-with-slack
   - /integrate-coding-agent-with-teams
