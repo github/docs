@@ -249,11 +249,11 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Repository-wide custom instructions**, which apply to all requests made in the context of a repository.
 
-  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions).
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-1).
 
 * **Path-specific custom instructions**, which apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions).
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 
@@ -303,11 +303,11 @@ Once saved, these instructions will apply to the current project in Eclipse that
 
 * **Repository-wide custom instructions** apply to all requests made in the context of a repository.
 
-  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-1).
+  These are specified in a `copilot-instructions.md` file in the `.github` directory of the repository. See [Creating repository-wide custom instructions](#creating-repository-wide-custom-instructions-2).
 
 * **Path-specific custom instructions** apply to requests made in the context of files that match a specified path.
 
-  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-1).
+  These are specified in one or more `NAME.instructions.md` files within the `.github/instructions` directory in the repository. See [Creating path-specific custom instructions](#creating-path-specific-custom-instructions-2).
 
   If the path you specify matches a file that {% data variables.product.prodname_copilot_short %} is working on, and a repository-wide custom instructions file also exists, then the instructions from both files are used.
 

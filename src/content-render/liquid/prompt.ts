@@ -2,6 +2,7 @@
 // Defines {% prompt %}…{% endprompt %} to wrap its content in <code> and append the Copilot icon.
 
 import octicons from '@primer/octicons'
+import { generatePromptId } from '../lib/prompt-id'
 
 interface LiquidTag {
   type: 'block'
@@ -30,10 +31,13 @@ export const Prompt: LiquidTag = {
   // Render the inner Markdown, wrap in <code>, then append the SVG
   *render(scope: any): Generator<any, string, unknown> {
     const content = yield this.liquid.renderer.renderTemplates(this.templates, scope)
+    const contentString = String(content)
 
     // build a URL with the prompt text encoded as query parameter
-    const promptParam: string = encodeURIComponent(content as string)
+    const promptParam: string = encodeURIComponent(contentString)
     const href: string = `https://github.com/copilot?prompt=${promptParam}`
-    return `<code>${content}</code><a href="${href}" target="_blank" class="tooltipped tooltipped-nw ml-1" aria-label="Run this prompt in Copilot Chat" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`
+    // Use murmur hash for deterministic ID (avoids hydration mismatch)
+    const promptId: string = generatePromptId(contentString)
+    return `<pre hidden id="${promptId}">${content}</pre><code>${content}</code><a href="${href}" target="_blank" class="tooltipped tooltipped-nw ml-1" aria-label="Run this prompt in Copilot Chat" aria-describedby="${promptId}" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`
   },
 }

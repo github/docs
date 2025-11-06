@@ -162,12 +162,7 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  'octicon-aria-labels': {
-    // GHD044
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
+  // GHD044 removed - octicon aria-labels are now auto-generated
   'code-annotation-comment-spacing': {
     // GHD045
     severity: 'warning',
@@ -182,12 +177,6 @@ const githubDocsConfig = {
   },
   'table-column-integrity': {
     // GHD047
-    severity: 'warning',
-    'partial-markdown-files': true,
-    'yml-files': true,
-  },
-  'header-content-requirement': {
-    // GHD053
     severity: 'warning',
     'partial-markdown-files': true,
     'yml-files': true,

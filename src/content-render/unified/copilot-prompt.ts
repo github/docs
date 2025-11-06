@@ -8,27 +8,36 @@ import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import { getPreMeta } from './code-header'
+import { generatePromptId } from '../lib/prompt-id'
 
-// Using any because node and tree are hast/unist AST nodes without proper TypeScript definitions
-// node is a pre element from the AST, tree is the full document AST
-// Returns a hast element node for the prompt button, or null if no prompt meta exists
-export function getPrompt(node: any, tree: any, code: string): any {
+// node and tree are hast/unist AST nodes without proper TypeScript definitions
+// Returns an object with the prompt button element and the full prompt content
+export function getPrompt(
+  node: any,
+  tree: any,
+  code: string,
+): { element: any; promptContent: string } | null {
   const hasPrompt = Boolean(getPreMeta(node).prompt)
   if (!hasPrompt) return null
 
   const { promptContent, ariaLabel } = buildPromptData(node, tree, code)
   const promptLink = `https://github.com/copilot?prompt=${encodeURIComponent(promptContent.trim())}`
+  // Use murmur hash for deterministic ID (avoids hydration mismatch)
+  const promptId: string = generatePromptId(promptContent)
 
-  return h(
+  const element = h(
     'a',
     {
       href: promptLink,
       target: '_blank',
       class: ['btn', 'btn-sm', 'mr-1', 'tooltipped', 'tooltipped-nw', 'no-underline'],
       'aria-label': ariaLabel,
+      'aria-describedby': promptId,
     },
     copilotIcon(),
   )
+
+  return { element, promptContent }
 }
 
 // Using any because node and tree are hast/unist AST nodes without proper TypeScript definitions

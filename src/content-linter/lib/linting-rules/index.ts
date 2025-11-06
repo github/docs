@@ -42,11 +42,9 @@ import { tableColumnIntegrity } from '@/content-linter/lib/linting-rules/table-c
 import { thirdPartyActionPinning } from '@/content-linter/lib/linting-rules/third-party-action-pinning'
 import { liquidTagWhitespace } from '@/content-linter/lib/linting-rules/liquid-tag-whitespace'
 import { linkQuotation } from '@/content-linter/lib/linting-rules/link-quotation'
-import { octiconAriaLabels } from '@/content-linter/lib/linting-rules/octicon-aria-labels'
 import { liquidIfversionVersions } from '@/content-linter/lib/linting-rules/liquid-ifversion-versions'
 import { outdatedReleasePhaseTerminology } from '@/content-linter/lib/linting-rules/outdated-release-phase-terminology'
 import { frontmatterVersionsWhitespace } from '@/content-linter/lib/linting-rules/frontmatter-versions-whitespace'
-import { headerContentRequirement } from '@/content-linter/lib/linting-rules/header-content-requirement'
 import { thirdPartyActionsReusable } from '@/content-linter/lib/linting-rules/third-party-actions-reusable'
 import { frontmatterLandingRecommended } from '@/content-linter/lib/linting-rules/frontmatter-landing-recommended'
 import { ctasSchema } from '@/content-linter/lib/linting-rules/ctas-schema'
@@ -106,12 +104,11 @@ export const gitHubDocsMarkdownlint = {
     thirdPartyActionPinning, // GHD041
     liquidTagWhitespace, // GHD042
     linkQuotation, // GHD043
-    octiconAriaLabels, // GHD044
+    // GHD044 removed - octicon aria-labels are now auto-generated
     codeAnnotationCommentSpacing, // GHD045
     outdatedReleasePhaseTerminology, // GHD046
     tableColumnIntegrity, // GHD047
     frontmatterVersionsWhitespace, // GHD051
-    headerContentRequirement, // GHD053
     thirdPartyActionsReusable, // GHD054
     frontmatterLandingRecommended, // GHD056
     ctasSchema, // GHD057
