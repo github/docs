@@ -152,7 +152,7 @@ For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instruct
 | --- | --- | --- |
 | User-level {% data variables.copilot.copilot_custom_agent_short %} | local `~/.copilot/agents` directory | All projects |
 | Repository-level {% data variables.copilot.copilot_custom_agent_short %} | `.github/agents` directory in your local and remote repositories | Current project |
-| Organization and Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `.github/agents` directory in the `.github-private` repository in an organization or enterprise | All projects under your organization and enterprise account |
+| Organization and Enterprise-level {% data variables.copilot.copilot_custom_agent_short %} | `/agents` directory in the `.github-private` repository in an organization or enterprise | All projects under your organization and enterprise account |
 
 In the case of naming conflicts, a system-level agent overrides a repository-level agent, and the repository-level agent would override an organization-level agent.
 

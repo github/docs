@@ -8163,6 +8163,11 @@ input CreateIssueInput {
   projectIds: [ID!] @possibleTypes(concreteTypes: ["Project"])
 
   """
+  An array of Node IDs for Projects V2 associated with this issue.
+  """
+  projectV2Ids: [ID!] @possibleTypes(concreteTypes: ["ProjectV2"])
+
+  """
   The Node ID of the repository.
   """
   repositoryId: ID! @possibleTypes(concreteTypes: ["Repository"])
