@@ -178,17 +178,6 @@ Available slash commands may vary, depending on your environment and the context
 | `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
 | `/tests` | Generate unit tests for the selected code. |
 
-## Chat participants
-
-Chat participants are like domain experts who have a specialty that they can help you with. You can specify a chat participant by typing `@` in the chat prompt box, followed by a chat participant name. To see all available chat participants, type `@` in the chat prompt box.
-
-Commonly used chat participants include:
-
-| Variable    | Description |
-|--------------|----------------------------------------------------------------------------------------------|
-| `@github`    | Allows you to use {% data variables.product.github %}-specific {% data variables.product.prodname_copilot_short %} skills. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#using-github-skills-for-copilot-1). |
-| `@project` | Has context about the code in your project. Use `@project` when you want {% data variables.product.prodname_copilot_short %} to consider all of the files in your project when it answers your question. |
-
 {% endjetbrains %}
 
 {% xcode %}
