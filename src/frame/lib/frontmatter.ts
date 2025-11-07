@@ -353,6 +353,9 @@ export const schema: Schema = {
     // START category-landing tags
     category: {
       type: 'array',
+      errorMessage: `must be an array, which is written in frontmatter like:
+category:
+  - Category Name`,
     },
     complexity: {
       type: 'array',
