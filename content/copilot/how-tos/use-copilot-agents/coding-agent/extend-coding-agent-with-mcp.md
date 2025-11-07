@@ -208,6 +208,7 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
 1. Add an Azure login step to the `copilot-setup-steps` workflow job.
 
    ```yaml copy
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    on:
      workflow_dispatch:
    permissions:
