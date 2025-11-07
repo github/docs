@@ -15,7 +15,7 @@ const MAX_ISSUE_BODY_SIZE = 60000
  */
 export const reportingConfig = {
   // Include only rules with these severities in reports
-  includeSeverities: ['error'],
+  includeSeverities: ['error', 'warning'],
   // Include these rules regardless of severity in reports
   includeRules: ['expired-content'],
 }
