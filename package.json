@@ -311,6 +311,7 @@
     "mockdate": "^3.0.5",
     "nock": "^14.0.4",
     "nodemon": "3.1.10",
+    "patch-package": "^8.0.1",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "robots-parser": "^3.0.1",
