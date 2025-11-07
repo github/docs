@@ -38,6 +38,13 @@ export const Prompt: LiquidTag = {
     const href: string = `https://github.com/copilot?prompt=${promptParam}`
     // Use murmur hash for deterministic ID (avoids hydration mismatch)
     const promptId: string = generatePromptId(contentString)
-    return `<pre hidden id="${promptId}">${content}</pre><code>${content}</code><a href="${href}" target="_blank" class="tooltipped tooltipped-nw ml-1" aria-label="Run this prompt in Copilot Chat" aria-describedby="${promptId}" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`
+    // Show long text on larger screens and short text on smaller screens (set via accessibility.scss)
+    const promptLabelLong: string = 'Run this prompt in Copilot Chat'
+    const promptLabelShort: string = 'Run prompt'
+    return [
+      `<code id="${promptId}">${content}</code>`,
+      `<a href="${href}" target="_blank" class="tooltipped tooltipped-n ml-1 copilot-prompt-long" aria-label="${promptLabelLong}" aria-describedby="${promptId}" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`,
+      `<a href="${href}" target="_blank" class="tooltipped tooltipped-n ml-1 copilot-prompt-short" aria-label="${promptLabelShort}" aria-describedby="${promptId}" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`,
+    ].join('')
   },
 }
