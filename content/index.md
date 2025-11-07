@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /get-started/git-basics/set-up-git
@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
     - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
@@ -53,6 +53,7 @@ children:
   - get-started
   - enterprise-onboarding
   - account-and-profile
+  - subscriptions-and-notifications
   - authentication
   - repositories
   - admin
@@ -65,6 +66,7 @@ children:
   - actions
   - copilot
   - codespaces
+  - integrations
   - migrations
   - packages
   - search-github
@@ -84,7 +86,7 @@ children:
   - video-transcripts
   - contributing
   - github-models
-
+  - nonprofit
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -92,6 +94,7 @@ childGroups:
       - get-started
       - migrations
       - account-and-profile
+      - subscriptions-and-notifications
       - authentication
       - billing
       - site-policy
@@ -102,30 +105,31 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+      - integrations
   - name: GitHub Copilot
     octicon: CopilotIcon
     children:
       - copilot
-      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
-      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
-      - copilot/copilot-chat-cookbook
-      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+      - copilot/get-started/plans
+      - copilot/how-tos/get-code-suggestions/get-ide-code-suggestions
+      - copilot/how-tos/use-copilot-agents/coding-agent
+      - copilot/tutorials
+      - copilot/tutorials/copilot-chat-cookbook
+      - copilot/tutorials/customization-library
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
       - actions
       - packages
       - pages
-  - name: Security
+  - name: Security and quality
     octicon: ShieldLockIcon
     children:
-      - code-security
+      - code-security/secret-scanning
       - code-security/supply-chain-security
-      - code-security/security-advisories
       - code-security/dependabot
       - code-security/code-scanning
-      - code-security/secret-scanning
+      - code-security/code-quality
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -138,7 +142,7 @@ childGroups:
       - issues
       - issues/planning-and-tracking-with-projects
       - search-github
-  - name: Enterprise and Teams
+  - name: Enterprise and teams
     octicon: OrganizationIcon
     children:
       - organizations
@@ -153,7 +157,7 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/building-copilot-extensions
+      - copilot/how-tos/use-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -161,6 +165,7 @@ childGroups:
       - communities
       - sponsors
       - education
+      - nonprofit
       - support
       - contributing
   - name: More docs
@@ -169,6 +174,7 @@ childGroups:
       - codeql
       - electron
       - npm
+      - gh-wa
 externalProducts:
   electron:
     id: electron
@@ -191,3 +197,4 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
+

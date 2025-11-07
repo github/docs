@@ -1,14 +1,16 @@
-/* eslint-disable camelcase */
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
-import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
+import { isLoggedIn } from '@/frame/components/hooks/useHasAccount'
 import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
+import { isHeadless } from './is-headless'
 
 const COOKIE_NAME = '_docs-events'
 
 const startVisitTime = Date.now()
+
+const BATCH_INTERVAL = 5000 // 5 seconds
 
 let initialized = false
 let cookieValue: string | undefined
@@ -22,6 +24,16 @@ let scrollFlipCount = 0
 let maxScrollY = 0
 let previousPath: string | undefined
 let hoveredUrls = new Set()
+let eventQueue: any[] = []
+
+function scheduleNextFlush() {
+  setTimeout(() => {
+    flushQueue()
+    scheduleNextFlush()
+  }, BATCH_INTERVAL)
+}
+
+scheduleNextFlush()
 
 function resetPageParams() {
   sentExit = false
@@ -86,6 +98,7 @@ export function sendEvent<T extends EventType>({
 
       // Content information
       referrer: getReferrer(document.referrer),
+      title: document.title,
       href: location.href, // full URL
       hostname: location.hostname, // origin without protocol or port
       path: location.pathname, // path without search or host
@@ -97,14 +110,20 @@ export function sendEvent<T extends EventType>({
       path_article: getMetaContent('path-article'),
       page_document_type: getMetaContent('page-document-type'),
       page_type: getMetaContent('page-type'),
+      content_type: getMetaContent('page-content-type'),
       status: Number(getMetaContent('status') || 0),
       is_logged_in: isLoggedIn(),
 
       // Device information
       // os, os_version, browser, browser_version:
       ...parseUserAgent(),
+      is_headless: isHeadless(),
       viewport_width: document.documentElement.clientWidth,
       viewport_height: document.documentElement.clientHeight,
+      screen_width: window.screen.width,
+      screen_height: window.screen.height,
+      pixel_ratio: window.devicePixelRatio || 1,
+      user_agent: navigator.userAgent,
 
       // Location information
       timezone: new Date().getTimezoneOffset() / -60,
@@ -130,17 +149,31 @@ export function sendEvent<T extends EventType>({
     ...props,
   }
 
-  const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
-  const endpoint = '/api/events'
-  try {
-    // Only send the beacon if the feature is not disabled in the user's browser
-    // Even if the function exists, it can still throw an error from the call being blocked
-    navigator?.sendBeacon(endpoint, blob)
-  } catch {
-    console.warn(`sendBeacon to '${endpoint}' failed.`)
+  queueEvent(body)
+
+  if (type === EventType.exit) {
+    flushQueue()
   }
 
   return body
+}
+
+function flushQueue() {
+  if (!eventQueue.length) return
+
+  const endpoint = '/api/events'
+  const eventsBody = JSON.stringify(eventQueue)
+  eventQueue = []
+
+  try {
+    navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
+  } catch (err) {
+    console.warn(`sendBeacon to '${endpoint}' failed.`, err)
+  }
+}
+
+function queueEvent(eventBody: unknown) {
+  eventQueue.push(eventBody)
 }
 
 // Sometimes using the back button means the internal referrer path is not there,
@@ -245,6 +278,8 @@ function initPageAndExitEvent() {
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       sendExit()
+    } else {
+      flushQueue()
     }
   })
 

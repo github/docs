@@ -26,6 +26,9 @@ As more users join {% data variables.location.product_location %}, you may need 
 > [!NOTE]
 > Before resizing any storage volume, put your instance in maintenance mode. You can validate changes by configuring an IP exception list to allow access from specified IP addresses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
+> [!WARNING]
+> Changing the disk cache setting of an Azure disk detaches and reattaches the target disk. If the disk is in use, this can disrupt running services and may lead to data corruption. If you intend to change disk caching settings while increasing storage capacity, make sure to shutdown your appliance.
+
 ### Minimum recommended requirements
 
 {% ifversion ghes > 3.14 %}{% data reusables.enterprise_installation.hardware-rec-table %}{% else %}{% data reusables.enterprise_installation.hardware-rec-table-legacy %}{% endif %}
@@ -51,6 +54,50 @@ Root storage refers to the total size of your instance's root disk. The availabl
 
 1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
+> [!WARNING]
+> If the `ghe-storage-extend` command (or a prior automatic check) reports: `ghe_user_data contains a file system with errors`, you must repair the filesystem before retrying the resize. Do not rerun `ghe-storage-extend` until the check completes cleanly. For recovery instructions, see [Repairing filesystem errors](#repairing-filesystem-errors).
+
+### Repairing filesystem errors
+
+If the filesystem check fails during `ghe-storage-extend`, follow these steps to repair it.
+
+Ensure the appliance is in maintenance mode and no background jobs are running:
+
+   ```shell copy
+   ghe-maintenance -s
+   ghe-resque-info
+   ```
+
+1. Stop and activate the user volume, then run a forced filesystem check (auto‑answer yes):
+
+   ```shell copy
+   sudo systemctl stop ghe-user-disk
+   VGNAME=$(sudo lvs --noheadings -o vg_name | grep ghe_storage_ | awk '{ print $1 }')
+   sudo vgchange -ay "$VGNAME"
+   sudo vgscan --mknodes
+   sudo fsck -fy /dev/mapper/${VGNAME}-ghe_user_data
+   ```
+
+1. Retry the resize:
+
+   ```shell copy
+   ghe-storage-extend
+   ```
+
+1. Remount and verify new size:
+
+   ```shell copy
+   sudo systemctl start ghe-user-disk
+   df -h /data/user
+   ```
+
+1. Reboot and verify:
+
+   ```shell copy
+   sudo reboot
+   df -h /data/user
+   ```
+
 ## Increasing the root partition size using a new appliance
 
 1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
@@ -68,7 +115,6 @@ Root storage refers to the total size of your instance's root disk. The availabl
 > [!WARNING]
 > Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode).
 
-{% ifversion ghes > 3.13 %}
 Before resizing the root partition, determine whether the appliance has a GUID partition table.
 
 On instances created from GHES releases 3.14 and later, follow the instructions for [Increasing the root partition size on a GUID partition table](#increasing-the-root-partition-size-on-a-guid-partition-table).
@@ -81,12 +127,8 @@ To verify the partition table type, run the following command. The result should
    sudo lsblk -no pttype $(findmnt -no source /)
    ```
 
-{% endif %}
-
 1. Attach a new disk to your {% data variables.product.prodname_ghe_server %} appliance.
 1. Run the `lsblk` command to identify the new disk's device name.
-
-{% ifversion ghes > 3.13 %}
 
 ### Increasing the root partition size on a GUID partition table
 
@@ -142,8 +184,6 @@ To verify the partition table type, run the following command. The result should
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
 
 ### Increasing the root partition size on a legacy partition table
-
-{% endif %}
 
 1. Run the `parted` command to format the disk, substituting your device name for `/dev/xvdg`:
 

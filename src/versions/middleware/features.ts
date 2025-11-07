@@ -2,9 +2,9 @@ import path from 'path'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, FrontmatterVersions } from '@/types'
-import { ROOT } from '@/frame/lib/constants.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { ROOT } from '@/frame/lib/constants'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 export default function features(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('request is not contextualized')
@@ -37,7 +37,7 @@ function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
       allFeatures = getDeepDataByLanguage('features', 'en') as Record<string, FeatureVersions>
     }
 
-    const features: {
+    const featureFlags: {
       [feature: string]: boolean
     } = {}
     // Determine whether the currentVersion belongs to the list of versions the feature is available in.
@@ -51,9 +51,9 @@ function getFeaturesByVersion(currentVersion: string): Record<string, boolean> {
       // Adding the resulting boolean to the context object gives us the ability to use
       // `{% if featureName ... %}` conditionals in content files.
       const isFeatureAvailableInCurrentVersion = applicableVersions.includes(currentVersion)
-      features[featureName] = isFeatureAvailableInCurrentVersion
+      featureFlags[featureName] = isFeatureAvailableInCurrentVersion
     }
-    cache.set(currentVersion, features)
+    cache.set(currentVersion, featureFlags)
   }
 
   return cache.get(currentVersion)

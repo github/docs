@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Run this script to get all broken docs.github.com links in github/github
@@ -14,10 +12,10 @@
 
 import fs from 'fs/promises'
 
-import got, { RequestError } from 'got'
+import { fetchWithRetry } from '@/frame/lib/fetch-utils'
 import { program } from 'commander'
 
-import { getContents, getPathsWithMatchingStrings } from 'src/workflows/git-utils'
+import { getContents, getPathsWithMatchingStrings } from '@/workflows/git-utils'
 
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
@@ -47,7 +45,7 @@ main(program.opts(), program.args)
 //   3. ~4000ms
 //
 // ...if the limit we set is 3.
-// Our own timeout, in #src/frame/middleware/timeout.js defaults to 10 seconds.
+// Our own timeout, in @/frame/middleware/timeout.ts defaults to 10 seconds.
 // So there's no point in trying more attempts than 3 because it would
 // just timeout on the 10s. (i.e. 1000 + 2000 + 4000 + 8000 > 10,000)
 const retryConfiguration = {
@@ -182,7 +180,10 @@ async function main(opts: MainOptions, args: string[]) {
       'utf-8',
     )
   }
-  const brokenLinks: {}[] = []
+  const brokenLinks: {
+    linkPath: string
+    file: string
+  }[] = []
 
   // Break up the long list of URLs to test into batches
   for (const batch of [...Array(Math.floor(docsLinksFiles.length / BATCH_SIZE)).keys()]) {
@@ -190,18 +191,22 @@ async function main(opts: MainOptions, args: string[]) {
     await Promise.all(
       slice.map(async ({ linkPath, file }) => {
         // This isn't necessary but if it can't be constructed, it'll
-        // fail in quite a nice way and not "blame got".
+        // fail in quite a nice way and not "blame fetch".
         const url = new URL(BASE_URL + linkPath)
         try {
-          await got.head(url.href, {
-            retry: retryConfiguration,
-            timeout: timeoutConfiguration,
-          })
+          await fetchWithRetry(
+            url.href,
+            { method: 'HEAD' },
+            {
+              retries: retryConfiguration.limit,
+              timeout: timeoutConfiguration.request,
+              throwHttpErrors: true,
+            },
+          )
         } catch (error) {
-          if (error instanceof RequestError) {
+          if (error instanceof Error) {
             brokenLinks.push({ linkPath, file })
           } else {
-            console.warn(`URL when it threw: ${url}`)
             throw error
           }
         }

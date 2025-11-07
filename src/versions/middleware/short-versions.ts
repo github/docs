@@ -5,15 +5,15 @@
 // {% if ghec %}
 // {% if ghes %}
 //
-// For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.js`.
-import type { ExtendedRequest } from '@/types.js'
+// For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.ts`.
+import type { ExtendedRequest } from '@/types'
 import type { Response, NextFunction } from 'express'
 
-export default function shortVersions(
+export default async function shortVersions(
   req: ExtendedRequest,
   res: Response | null,
   next: NextFunction,
-): void {
+): Promise<void> {
   if (!req.context) throw new Error('No context on request')
   const { currentVersion, currentVersionObj } = req.context
   if (!currentVersionObj) {

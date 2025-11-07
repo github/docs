@@ -4,6 +4,7 @@ intro: 'When you create or edit security advisories, the information you provide
 versions:
   fpt: '*'
   ghec: '*'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 type: how_to
 topics:
   - Security advisories
@@ -13,8 +14,6 @@ redirect_from:
   - /code-security/repository-security-advisories/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
 ---
-
-Anyone with admin permissions to a public repository can create and edit a security advisory.
 
 {% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 

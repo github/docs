@@ -1,11 +1,11 @@
 import { describe, expect, test } from 'vitest'
 
-import { get } from '@/tests/helpers/e2etest.js'
+import { get } from '@/tests/helpers/e2etest'
 
 import {
   MAX_UNFAMILIAR_KEYS_BAD_REQUEST,
   MAX_UNFAMILIAR_KEYS_REDIRECT,
-} from '@/shielding/middleware/handle-invalid-query-strings.js'
+} from '@/shielding/middleware/handle-invalid-query-strings'
 
 const alpha = Array.from(Array(26)).map((e, i) => i + 65)
 const alphabet = alpha.map((x) => String.fromCharCode(x))
@@ -53,9 +53,9 @@ describe('invalid query strings', () => {
     expect(res.headers.location).toBe('/en')
     // But note that it only applies to the home page!
     {
-      const url = `/en/get-started?${randomCharacters(8)}`
-      const res = await get(url)
-      expect(res.statusCode).toBe(200)
+      const nestedUrl = `/en/get-started?${randomCharacters(8)}`
+      const nestedRes = await get(nestedUrl)
+      expect(nestedRes.statusCode).toBe(200)
     }
   })
 

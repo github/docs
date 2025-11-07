@@ -21,7 +21,7 @@ After you enable {% data variables.product.prodname_github_connect %}, you can c
 
 ## About the connection
 
-To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and an enterprise account on **{% data variables.product.prodname_dotcom_the_website %}**{% ifversion ghecom-github-connect %} or **{% data variables.enterprise.data_residency_site %}**{% endif %}. {% data reusables.github-connect.connection-port-protocol %}
+To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and an enterprise account on **{% data variables.product.prodname_dotcom_the_website %}** or **{% data variables.enterprise.data_residency_site %}**. {% data reusables.github-connect.connection-port-protocol %}
 
 * {% data variables.product.prodname_github_connect %} does not open {% data variables.location.product_location %} to the public internet.
 * None of your enterprise's private data is exposed to {% data variables.product.prodname_ghe_cloud %} users.
@@ -84,15 +84,7 @@ Additional data is transmitted if you enable individual features of {% data vari
 
 ## Enabling {% data variables.product.prodname_github_connect %}
 
-{% ifversion ghecom-github-connect %}
-
 To enable {% data variables.product.prodname_github_connect %}, see the article for your {% data variables.product.prodname_ghe_cloud %} environment.
 
 * [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom)
 * [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom)
-
-{% else %}
-
-To enable {% data variables.product.prodname_github_connect %}, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
-
-{% endif %}

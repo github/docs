@@ -32,7 +32,7 @@ Many of the events in the timeline also create an event in the audit log, which 
 
 Security overview consolidates information about security alerts and provides high-level summaries of the security status of your enterprise or organization.
 
-In security overview you can see repositories with open security alerts{% ifversion ghec or ghes %}, as well as which repositories have enabled specific security features{% endif %}. You can also use security overview to filter and sort security alerts using interactive views.
+In security overview you can see repositories with open security alerts, as well as which repositories have enabled specific security features. You can also use security overview to filter and sort security alerts using interactive views.
 
 For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
 

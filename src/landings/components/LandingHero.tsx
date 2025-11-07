@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'
 
-import { Link } from 'src/frame/components/Link'
-import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useVersion } from 'src/versions/components/useVersion'
-import { Lead } from 'src/frame/components/ui/Lead'
+import { Link } from '@/frame/components/Link'
+import { useProductLandingContext } from '@/landings/components/ProductLandingContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
+import { Lead } from '@/frame/components/ui/Lead'
+
+import styles from './LandingHero.module.scss'
 
 export const LandingHero = () => {
   const {
@@ -63,7 +65,7 @@ export const LandingHero = () => {
 
       {productVideo && (
         <div className="col-12 col-lg-6" data-search="hide">
-          <div className="position-relative" style={{ paddingBottom: '56.25%' }}>
+          <div className={`position-relative ${styles.videoWrapper}`}>
             <iframe
               title={`${shortTitle || title} Video`}
               className="top-0 left-0 position-absolute color-shadow-large rounded-1 width-full height-full"

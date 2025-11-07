@@ -16,11 +16,22 @@ children:
   - /installing-a-github-app-from-github-marketplace-for-your-organizations
   - /installing-a-github-app-from-a-third-party
   - /installing-your-own-github-app
+  - /installing-a-github-app-on-your-enterprise
   - /requesting-a-github-app-from-your-organization-owner
   - /authorizing-github-apps
   - /approving-updated-permissions-for-a-github-app
   - /reviewing-and-revoking-authorization-of-github-apps
   - /reviewing-and-modifying-installed-github-apps
   - /saml-and-github-apps
-  - /internal-github-apps
+  - /privileged-github-apps
 ---
+
+| Role | Grant to teams | Grant to existing users | Grant to new users (on invite / SCIM provision) |
+| ---- | ----- | --------------------------- | ----------------------------------- |
+| App manager | | | |
+| ESM | | | |
+| Enterprise owner | | | |
+| Billing manager | | | |
+| Guest collaborator | | | |
+| Custom role | | | |
+| User (inc. member, unaffiliated) | | | |

@@ -16,6 +16,9 @@ redirect_from:
   - /code-security/codeql-cli/manual/resolve-languages
 ---
 
+<!-- markdownlint-disable GHD053 -->
+
+<!-- markdownlint-disable GHD030 -->
 
 <!-- Content after this section is automatically generated -->
 
@@ -57,6 +60,12 @@ to give this option (or, better yet, set up `--search-path` in a
 per-user configuration file).
 
 (Note: On Windows the path separator is `;`).
+
+#### `--[no-]filter-to-languages-with-queries`
+
+List only languages that have default queries.
+
+Available since `v2.23.1`.
 
 #### `--format=<fmt>`
 

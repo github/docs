@@ -3,9 +3,11 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { NavList } from '@primer/react'
 
-import { ProductTreeNode, useMainContext } from 'src/frame/components/context/MainContext'
-import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
-import { nonAutomatedRestPaths } from '../../rest/lib/config.js'
+import { ProductTreeNode, useMainContext } from '@/frame/components/context/MainContext'
+import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
+import { nonAutomatedRestPaths } from '@/rest/lib/config'
+
+import styles from './SidebarProduct.module.scss'
 
 export const SidebarProduct = () => {
   const router = useRouter()
@@ -32,8 +34,8 @@ export const SidebarProduct = () => {
   }
 
   const productSection = () => (
-    <div className="ml-3" data-testid="product-sidebar">
-      <NavList aria-label="Product sidebar">
+    <div data-testid="product-sidebar">
+      <NavList aria-label="Product sidebar" role="navigation">
         {sidebarTree &&
           sidebarTree.childPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
@@ -50,8 +52,8 @@ export const SidebarProduct = () => {
       nonAutomatedRestPaths.every((item: string) => !page.href.includes(item)),
     )
     return (
-      <div className="ml-3">
-        <NavList aria-label="REST sidebar overview articles">
+      <div>
+        <NavList aria-label="REST sidebar overview articles" role="navigation">
           {conceptualPages.map((childPage) => (
             <NavListItem key={childPage.href} childPage={childPage} />
           ))}
@@ -59,7 +61,7 @@ export const SidebarProduct = () => {
 
         <hr data-testid="rest-sidebar-reference" className="m-2" />
 
-        <NavList aria-label="REST sidebar reference pages">
+        <NavList aria-label="REST sidebar reference pages" role="navigation">
           {restPages.map((category) => (
             <RestNavListItem key={category.href} category={category} />
           ))}
@@ -69,7 +71,7 @@ export const SidebarProduct = () => {
   }
 
   return (
-    <div data-testid="sidebar" style={{ overflowY: 'auto' }} className="pt-3">
+    <div data-testid="sidebar" className={styles.sidebar}>
       {isRestPage ? restSection() : productSection()}
     </div>
   )
@@ -79,7 +81,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
   const { asPath, locale } = useRouter()
   const routePath = `/${locale}${asPath.split('?')[0].split('#')[0]}`
   const isActive = routePath === childPage.href
-  const specialCategory = childPage.href.endsWith('/copilot/copilot-chat-cookbook')
+  const specialCategory = childPage.layout === 'category-landing'
 
   return (
     <NavList.Item
@@ -90,14 +92,25 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
     >
       {childPage.title}
       {childPage.childPages.length > 0 && (
-        <NavList.SubNav aria-label={childPage.title} sx={{ '*': { fontSize: 1 } }}>
-          {specialCategory && (
-            <NavList.Item href={childPage.href} as={Link} aria-current={isActive ? 'page' : false}>
-              All prompts
+        <NavList.SubNav aria-label={`${childPage.title} submenu`}>
+          {childPage.sidebarLink && (
+            <NavList.Item
+              href={childPage.sidebarLink.href}
+              as={Link}
+              aria-current={
+                routePath === `/${locale}${childPage.sidebarLink.href}` ? 'page' : false
+              }
+            >
+              {childPage.sidebarLink.text}
             </NavList.Item>
           )}
-          {childPage.childPages.map((childPage) => (
-            <NavListItem key={childPage.href} childPage={childPage} />
+          {specialCategory && !childPage.sidebarLink && (
+            <NavList.Item href={childPage.href} as={Link} aria-current={isActive ? 'page' : false}>
+              {childPage.title}
+            </NavList.Item>
+          )}
+          {childPage.childPages.map((subPage) => (
+            <NavListItem key={subPage.href} childPage={subPage} />
           ))}
         </NavList.SubNav>
       )}
@@ -122,10 +135,10 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.target.id) {
-              const anchor = '#' + entry.target.id.split('--')[0]
+              const anchor = `#${entry.target.id.split('--')[0]}`
               if (entry.isIntersecting === true) setVisibleAnchor(anchor)
             } else if (asPath.includes('#')) {
-              setVisibleAnchor('#' + asPath.split('#')[1])
+              setVisibleAnchor(`#${asPath.split('#')[1]}`)
             } else {
               setVisibleAnchor('')
             }
@@ -155,13 +168,14 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     >
       {category.title}
       {category.childPages.length > 0 && (
-        <NavList.SubNav aria-label={category.title} sx={{ '*': { fontSize: 1 } }}>
+        <NavList.SubNav aria-label={`${category.title} submenu`}>
           {category.childPages.map((childPage) => {
             return (
               <NavList.Item
                 defaultOpen={routePath.includes(childPage.href)}
                 key={childPage.href}
-                onClick={(event) => {
+                // Using any because Primer React's NavList doesn't export proper event types
+                onClick={(event: any) => {
                   event.preventDefault()
                   push(childPage.href)
                 }}
@@ -169,7 +183,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
                 {childPage.title}
 
                 {routePath === childPage.href && miniTocItems.length > 0 && (
-                  <NavList.SubNav aria-label={childPage.title}>
+                  <NavList.SubNav aria-label={`${childPage.title} table of contents`}>
                     {miniTocItems.map((item) => {
                       const isAnchorCurrent = visibleAnchor === item.contents.href
                       return (

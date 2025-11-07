@@ -8,10 +8,9 @@ versions:
 children:
   - /about-the-graphql-api
   - /public-schema
-  - /schema-previews
   - /breaking-changes
   - /changelog
   - /explorer
-  - /rate-limits-and-node-limits-for-the-graphql-api
+  - /rate-limits-and-query-limits-for-the-graphql-api
 ---
 

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Makes sure that all the image assets in `assets/` are safe.
@@ -19,7 +17,6 @@ import path from 'path'
 import { program } from 'commander'
 import chalk from 'chalk'
 import cheerio from 'cheerio'
-// @ts-ignore see https://github.com/sindresorhus/file-type/issues/652
 import { fileTypeFromFile } from 'file-type'
 import walk from 'walk-sync'
 import isSVG from 'is-svg'

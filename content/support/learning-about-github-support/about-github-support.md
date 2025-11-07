@@ -28,7 +28,7 @@ The support options available to {% data variables.product.github %} users depen
 
 {% rowheaders %}
 
-|  | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
+| {% data variables.product.github %} plan | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
 |---|---|---|---|---|
 | {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
 | {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
@@ -43,7 +43,7 @@ The support options available to {% data variables.product.github %} users depen
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
 * Installing and using {% data variables.product.prodname_ghe_server %}
 * Identifying and verifying the causes of suspected errors
-* Installing and using {% data variables.product.prodname_advanced_security %}
+* Installing and using {% data variables.product.prodname_GHAS %} features
 
 {% endif %}
 
@@ -91,7 +91,7 @@ Email communication from GitHub Support will always be sent from either a `githu
 
 ## About GitHub status
 
-You can check for any incidents currently affecting {% data variables.product.github %} services and view information about past incidents on {% data variables.product.github %}'s [Status page]({% ifversion fpt or ghec %}https://githubstatus.com{% endif %}).
+You can check for any incidents currently affecting {% data variables.product.github %} services and view information about past incidents on {% data variables.product.github %}'s [Status page](https://githubstatus.com).
 
 You can also subscribe and get alerted via email, text message, and webhook whenever there's an incident affecting {% data variables.product.github %}.
 
@@ -109,9 +109,9 @@ Enterprise owners can also add support entitlements to members of organizations 
 
 {% endif %}
 
-## About {% data variables.product.prodname_copilot_in_support %}
+## About {% data variables.copilot.copilot_in_support %}
 
-You can receive answers to questions relating to {% data variables.product.github %}'s products and features before submitting a support ticket by using {% data variables.product.prodname_copilot_in_support %}. {% data variables.product.prodname_copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.product.prodname_copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
+You can receive answers to questions relating to {% data variables.product.github %}'s products and features before submitting a support ticket by using {% data variables.copilot.copilot_in_support %}. {% data variables.copilot.copilot_in_support %} is an AI-powered tool that uses a large language model to find answers to a wide variety of support queries. If {% data variables.copilot.copilot_in_support %} cannot answer your question, You can proceed with submitting your ticket to {% data variables.contact.github_support %}. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-copilot-in-github-support).
 
 {% ifversion fpt or ghec %}
 

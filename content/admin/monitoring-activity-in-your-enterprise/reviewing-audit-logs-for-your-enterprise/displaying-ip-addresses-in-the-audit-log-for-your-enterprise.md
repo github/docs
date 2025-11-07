@@ -36,12 +36,13 @@ If members of your enterprise access {% data variables.location.product_location
 * Interactions with a resource owned by the personal account, including a repository, gist, or project
 * Interactions with a public repository owned by an organization in your enterprise
 
+{% data variables.product.github %} does not display IP addresses in the audit log for `api.request` events that do not have repository context, such as requests triggered by GraphQL or requests to endpoints that reference only a user or organization.
+
 ## Enabling display of IP addresses in the audit log
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Under "Audit log", click **Settings**.
 {% data reusables.audit_log.enable-ip-disclosure %}
 1. Click **Save**.
 

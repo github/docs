@@ -1,7 +1,9 @@
 import { Label } from '@primer/react'
 
-import { ArticleGuide } from 'src/landings/components/ProductGuidesContext'
-import { Link } from 'src/frame/components/Link'
+import { ArticleGuide } from '@/landings/components/ProductGuidesContext'
+import { Link } from '@/frame/components/Link'
+
+import styles from './ArticleCard.module.scss'
 
 type Props = {
   card: ArticleGuide
@@ -23,7 +25,7 @@ export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
         </div>
         <p className="color-fg-muted my-3">{card.intro}</p>
         {card.topics.length > 0 && (
-          <ul style={{ listStyleType: 'none' }}>
+          <ul className={styles.topicsList}>
             {card.topics.map((topic) => {
               return (
                 <li className="d-inline-block" key={topic}>
@@ -31,7 +33,7 @@ export const ArticleCard = ({ tabIndex, card, typeLabel }: Props) => {
                     data-testid="article-card-topic"
                     size="small"
                     variant="accent"
-                    sx={{ mr: 1 }}
+                    className={styles.label}
                   >
                     {topic}
                   </Label>

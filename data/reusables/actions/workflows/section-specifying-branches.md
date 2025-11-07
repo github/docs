@@ -32,7 +32,7 @@ The order that you define patterns matters.
 * A matching negative pattern (prefixed with `!`) after a positive match will exclude the branch.
 * A matching positive pattern after a negative match will include the branch again.
 
-For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`.
+For example, a workflow with the following trigger will run when the workflow named `Build` runs on a branch that is named `releases/10` or `releases/beta/mona` but will not `releases/10-alpha`, `releases/beta/3-alpha`, or `main`. <!-- markdownlint-disable-line outdated-release-phase-terminology -->
 
 ```yaml
 on:

@@ -40,12 +40,6 @@ export async function populateIndex(
   options: Options,
 ) {
   console.log(chalk.yellow(`\nIndexing ${chalk.bold(indexName)}`))
-  const bulkOperations = records.flatMap((doc) => [{ index: { _index: indexAlias } }, doc])
-
-  const bulkOptions = {
-    refresh: false,
-    timeout: '5m',
-  }
 
   const attempts = options.retries || 0
   const sleepTime = options.sleepTime || DEFAULT_SLEEPTIME_SECONDS * 1000
@@ -57,15 +51,24 @@ export async function populateIndex(
   const t0 = new Date()
   const bulkResponse = await retryOnErrorTest(
     (error) => error instanceof errors.ResponseError && error.meta.statusCode === 429,
-    () => client.bulk({ operations: bulkOperations, ...bulkOptions }),
+    () =>
+      client.helpers.bulk({
+        datasource: records,
+        onDocument: () => ({ index: { _index: indexAlias } }),
+        flushBytes: 4 * 1024 * 1024, // 4MB - Prevents too large of a bulk request which results in a 429 from ES
+        concurrency: 2,
+        refreshOnCompletion: true,
+        timeout: '5m',
+        // We could use `retries` and `wait` here, but then we don't have as granular control over logging and when to retry
+      }),
     {
       attempts,
       sleepTime,
-      onError: (_, attempts, sleepTime) => {
+      onError: (_, remainingAttempts, sleepMs) => {
         console.warn(
           chalk.yellow(
-            `Failed to bulk index ${indexName}. Will attempt ${attempts} more times (after ${
-              sleepTime / 1000
+            `Failed to bulk index ${indexName}. Will attempt ${remainingAttempts} more times (after ${
+              sleepMs / 1000
             }s sleep).`,
           ),
         )
@@ -73,8 +76,8 @@ export async function populateIndex(
     },
   )
 
-  if (bulkResponse.errors) {
-    console.error(`Bulk response errors: ${bulkResponse.errors}`)
+  if (bulkResponse.failed > 0) {
+    console.error(`Bulk response failed: ${bulkResponse.failed} documents failed`)
     throw new Error('Bulk errors happened.')
   }
   const t1 = new Date()
@@ -137,7 +140,7 @@ export async function updateAlias(
   )
 
   for (const index of indices) {
-    if (index.index !== indexAlias && index.index.startsWith(indexName)) {
+    if (index.index && index.index !== indexAlias && index.index.startsWith(indexName)) {
       aliasUpdates.push({ remove_index: { index: index.index } })
       console.log('Deleting old index', index.index)
     }

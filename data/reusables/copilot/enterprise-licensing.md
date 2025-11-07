@@ -1,0 +1,4 @@
+There are two main ways to grant access to {% data variables.product.prodname_copilot_short %} in an enterprise:
+
+* **Assign licenses directly to users or teams** in the enterprise. This approach simplifies license management at scale and provides the option of granting {% data variables.product.prodname_copilot_short %} licenses to users who don't consume a {% data variables.product.prodname_enterprise %} license. This approach is currently only available for **{% data variables.copilot.copilot_business_short %}** licenses.
+* **Enable {% data variables.product.prodname_copilot_short %} for organizations**. This approach allows you to choose {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} for individual organizations and give organization owners control to grant licenses to the users who need them most.

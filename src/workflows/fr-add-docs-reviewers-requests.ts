@@ -7,7 +7,7 @@ import {
   findFieldID,
   findSingleSelectID,
   generateUpdateProjectV2ItemFieldMutation,
-} from './projects.js'
+} from './projects'
 
 async function getAllOpenPRs() {
   let prsRemaining = true
@@ -225,7 +225,9 @@ async function run() {
   return newItemIDs
 }
 
-run().catch((error) => {
+try {
+  await run()
+} catch (error) {
   console.log(`#ERROR# ${error}`)
   process.exit(1)
-})
+}

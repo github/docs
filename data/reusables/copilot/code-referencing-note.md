@@ -1,3 +1,5 @@
+When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, information about the matching code is logged. The log entry includes the URLs of files containing matching code, and the name of the license that applies to that code, if any was found. This allows you to review these references and decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
+
 > [!NOTE]
 > * Code referencing for code completion only occurs for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Code you have written, and {% data variables.product.prodname_copilot_short %} suggestions you have altered, are not checked for matches to public code.
 > * Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many suggestions.

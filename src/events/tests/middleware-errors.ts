@@ -1,8 +1,8 @@
 import { describe, test } from 'vitest'
 
-import { validateJson } from 'src/tests/lib/validate-json-schema.js'
-import { formatErrors } from '../lib/middleware-errors.js'
-import { schemas } from '../lib/schema.js'
+import { validateJson } from '@/tests/lib/validate-json-schema'
+import { formatErrors } from '../lib/middleware-errors'
+import { schemas } from '../lib/schema'
 
 describe('formatErrors', () => {
   test('should produce objects that match the validation spec', () => {
@@ -10,9 +10,9 @@ describe('formatErrors', () => {
     const { errors } = validateJson({ type: 'string' }, 0)
     const formattedErrors = formatErrors(errors || [], '')
     for (const formatted of formattedErrors) {
-      const { isValid, errors } = validateJson(schemas.validation, formatted)
+      const { isValid, errors: validationErrors } = validateJson(schemas.validation, formatted)
       if (!isValid) {
-        throw new Error(errors?.map((e) => e.message).join(' -- '))
+        throw new Error(validationErrors?.map((e) => e.message).join(' -- '))
       }
     }
   })

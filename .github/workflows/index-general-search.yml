@@ -13,7 +13,7 @@ on:
         required: false
         default: ''
       languages:
-        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to all)"
         required: false
         default: ''
   schedule:
@@ -45,13 +45,13 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.result }}
     steps:
-      - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0 # v7.0.0
+      - uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
         id: set-matrix
         with:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["zh", "es", "pt", "ru", "ja", "fr", "de", "ko"]
+            const allNonEnglish = 'es,ja,pt,zh,ru,fr,ko,de'.split(',')
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -87,7 +87,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
@@ -98,7 +98,7 @@ jobs:
     needs: figureOutMatrix
     name: Update indexes
     if: ${{ github.repository == 'github/docs-internal' && needs.figureOutMatrix.outputs.matrix != '[]' }}
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       # When it's only English (i.e. a simple array of ['en']), this value
@@ -108,26 +108,28 @@ jobs:
       # the whole job fast.
       # As of June 2023, it takes about 10+ minutes to index one whole
       # language and we have 8 non-English languages.
-      max-parallel: 3
+      # As of May 2025, we index so many pages that we are being rate-limited by
+      # Elasticsearch. So we are shrinking this value to 2, down from 3
+      max-parallel: 2
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Clone docs-internal-data
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -178,6 +180,19 @@ jobs:
 
           ls -lh /tmp/records
 
+      - name: Check for scraping failures
+        id: check-failures
+        run: |
+          if [ -f /tmp/records/failures-summary.json ]; then
+            FAILED_PAGES=$(jq -r '.totalFailedPages' /tmp/records/failures-summary.json)
+            echo "failed_pages=$FAILED_PAGES" >> $GITHUB_OUTPUT
+            echo "has_failures=true" >> $GITHUB_OUTPUT
+            echo "⚠️ Warning: $FAILED_PAGES page(s) failed to scrape"
+          else
+            echo "has_failures=false" >> $GITHUB_OUTPUT
+            echo "✅ All pages scraped successfully"
+          fi
+
       - name: Check that Elasticsearch is accessible
         run: |
           curl --fail --retry-connrefused --retry 5 -I ${{ env.ELASTICSEARCH_URL }}
@@ -208,6 +223,19 @@ jobs:
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
           FASTLY_SURROGATE_KEY: api-search:${{ matrix.language }}
         run: npm run purge-fastly-edge-cache
+
+      - name: Alert on scraping failures
+        if: ${{ steps.check-failures.outputs.has_failures == 'true' && github.event_name != 'workflow_dispatch' }}
+        uses: ./.github/actions/slack-alert
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          message: |
+            :warning: ${{ steps.check-failures.outputs.failed_pages }} page(s) failed to scrape for general search indexing (language: ${{ matrix.language }})
+
+            The indexing completed but some pages could not be scraped. This may affect search results for those pages.
+
+            Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

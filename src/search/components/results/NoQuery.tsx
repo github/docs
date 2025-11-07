@@ -1,7 +1,9 @@
 import { Heading, Flash } from '@primer/react'
 
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+
+import styles from './NoQuery.module.scss'
 
 export function NoQuery() {
   const { t } = useTranslation('old_search')
@@ -15,7 +17,7 @@ export function NoQuery() {
     <>
       <Heading as="h1">{page.title}</Heading>
 
-      <Flash variant="danger" sx={{ margin: '2rem' }}>
+      <Flash variant="danger" className={styles.flash}>
         {t('description')}
       </Flash>
     </>

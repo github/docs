@@ -9,7 +9,7 @@ versions:
 
 ## Troubleshooting tests that fail locally but pass in CI
 
-If you run tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
+If you run tests locally and get failures in `tests/rendering/server.ts` around static assets, stylesheets, or the client-side JavaScript bundle, but the same tests pass in CI on a PR, run the command `npm run build`. This is a one-time command that creates static assets locally.
 
 For more information, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment).
 
@@ -95,12 +95,12 @@ During development, you can visit any page on `http://localhost:4000` and add `?
 
 ## Working with liquid processing
 
-If your text or code example includes content between curly brackets (`{` and `}`), you need to wrap it between <code>&#123% raw %&#125;</code> and <code>&#123% raw %&#125;</code> tags to disable Liquid processing for that section. For example:
+If your text or code example includes content between curly brackets (`{` and `}`), you need to wrap it between <code>&#123;% raw %&#125;</code> and <code>&#123;% raw %&#125;</code> tags to disable Liquid processing for that section. For example:
 
 * **Use:**
 
   <pre>
-  GITHUB_TOKEN: &#123% raw %&#125;${% raw %}{{ secrets.GITHUB_TOKEN }}{% endraw %}&#123% endraw %&#125;
+  GITHUB_TOKEN: &#123;% raw %&#125;${% raw %}{{ secrets.GITHUB_TOKEN }}{% endraw %}&#123;% endraw %&#125;
   </pre>
 
 * **Avoid:**

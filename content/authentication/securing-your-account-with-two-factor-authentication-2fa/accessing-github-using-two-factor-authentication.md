@@ -19,13 +19,13 @@ shortTitle: Access GitHub with 2FA
 
 {% ifversion 2fa-check-up-period %}
 
-With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.github %}through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.github %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.github %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.github %} through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.github %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.github %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 If you access {% data variables.product.github %} using other methods, such as the API or the command line, you'll authenticate using a token, application, or SSH key. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
 
 {% else %}
 
-With two-factor authentication enabled, you'll need to provide an authentication code{% ifversion fpt or ghec %}, tap a notification in GitHub Mobile,{% endif %} or use a security key when accessing {% data variables.product.github %} through your browser. If you access {% data variables.product.github %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
+With two-factor authentication enabled, you'll need to provide an authentication code{% ifversion fpt or ghec %}, tap a notification in GitHub Mobile,{% endif %} or use a passkey or security key when accessing {% data variables.product.github %} through your browser. If you access {% data variables.product.github %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
 
 {% endif %}
 
@@ -50,13 +50,9 @@ If you've set up a security key on your account, and your browser supports secur
 1. To trigger the security key prompt from your operating system, select "Use security key."
 1. Select the appropriate option in the prompt. Depending on your security key configuration, you may type a PIN, complete a biometric prompt, or use a physical security key.
 
-{% ifversion passkeys %}
-
 ### Using a passkey
 
 If you have enabled 2FA, and you have added a passkey to your account, you can use the passkey to sign in. Since passkeys satisfy both password and 2FA requirements, you can complete your sign in with a single step. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -103,31 +99,14 @@ For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-d
 
 Enabling 2FA doesn't change how you authenticate to {% data variables.product.github %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
-{% ifversion ghes < 3.13 %}
-
-## Using two-factor authentication to access a repository using Subversion
-
-{% data reusables.subversion.sunset %}
-
-When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-{% endif %}
-
 ## Troubleshooting
 
-If you lose access to your two-factor authentication credentials, you can use your recovery codes or another recovery method (if you've set one up) to regain access to your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
-
-{% ifversion fpt or ghec %}
-
-> [!NOTE]
-> {% data reusables.two_fa.unlink-email-address %}
-
-{% endif %}
-
-If your authentication fails several times, you may wish to synchronize your phone's clock with your mobile provider. Often, this involves checking the "Set automatically" option on your phone's clock, rather than providing your own time zone.
+If you are receiving a "Two-factor authentication failed" error when authenticating with 2FA, the authentication code you are entering is incorrect. You can try troubleshooting your configured authentication methods before attempting account recovery. See [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues).
 
 ## Further reading
 
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/troubleshooting-two-factor-authentication-issues)
 * [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)

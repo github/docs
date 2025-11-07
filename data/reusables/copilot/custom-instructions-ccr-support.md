@@ -1,0 +1,1 @@
+Currently, {% data variables.copilot.copilot_code-review_short %} in {% data variables.product.prodname_vscode_shortname %} only supports repository-wide custom instructions, and these are only supported when you are reviewing a selection of code in a file, not when reviewing all uncommitted changes.

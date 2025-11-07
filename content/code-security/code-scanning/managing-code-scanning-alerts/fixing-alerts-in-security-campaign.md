@@ -1,7 +1,7 @@
 ---
 title: Fixing alerts in a security campaign
 shortTitle: Fix alerts in campaign
-intro: 'Learn how you can take part in a security campaign and how it can benefit your career as well as your code.'
+intro: 'Learn how to find and fix alerts in a security campaign.'
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
@@ -14,32 +14,14 @@ topics:
   - Alerts
   - Repositories
 ---
-{% data reusables.security-campaigns.preview-note %}
-
-## What is a security campaign
-
-A security campaign is a group of security alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation. When a security campaign is created with alerts in repositories that you have write access to, you are notified if you subscribe to email notifications for "All activity" or "Security alerts". In addition, when you open the **Security** tab for a repository with one or more campaign alerts, you can see the campaign name in the sidebar of the view.
-
-You can take part in a security campaign by fixing one or more of the alerts chosen for the campaign.
-
-## What are the benefits of fixing alerts in a campaign
-
-In addition to the benefit of removing an important security problem from your code, alerts in a security campaign have several other benefits compared with fixing another alert in your repository.
-
-* You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
-* You know that you are fixing a security alert that is important to the company.
-* Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
-* You don't need to request a {% data variables.product.prodname_copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
-* If you have access to {% data variables.product.prodname_copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
-* You are improving and demonstrating your knowledge of secure coding.
 
 ## Viewing alerts in a security campaign
 
 When a campaign targets security alerts in a repository that you have write access to, you can navigate to the list of repository alerts in the campaign.
 
-* Display the **Security** tab for the repository and click one of the campaigns under the "Campaigns" title in the sidebar.
-* If you have enabled email notifications for "All activity" or "Security alerts" in the repository, click **View security campaign** in the campaign email.
-* If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under the "Campaigns" title in the sidebar.
+* Display the **Security** tab for the repository and click one of the campaigns under "Campaigns" in the sidebar.
+* If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under "Campaigns" in the sidebar.
+* Alternatively, click **View security campaign** in the campaign's email notification.
 
 This view shows the alerts in the current repository for a campaign called "SQL injection (CWE-89)" (highlighted gray) that is managed by "octocat" (outlined in dark orange).
 
@@ -50,7 +32,7 @@ This view shows the alerts in the current repository for a campaign called "SQL 
 If you want to see the code that triggered the security alert and the suggested fix, click on the alert name to show the alert view.
 
 1. When you are ready to work on one or more security alerts, check that no one else is working on those alerts already. In the campaign view, git icons are displayed on alerts where a fix may already be in progress. Click an icon to display the linked work:
-   * {% octicon "git-pull-request-draft" aria-hidden="Draft pull request" %} an open draft pull request may fix this alert.
+   * {% octicon "git-pull-request-draft" aria-hidden="Draft pull request" aria-label="git-pull-request-draft" %} an open draft pull request may fix this alert.
    * {% octicon "git-pull-request" aria-label="Pull request" %} an open pull request may fix this alert.
    * {% octicon "git-branch" aria-label="Branch" %} a branch may contain changes to fix this alert.
 
@@ -63,15 +45,28 @@ If you want to see the code that triggered the security alert and the suggested 
 
 > [!TIP] If you have write permission for more than one repository in the campaign, click the link in the "Campaign progress" box in your repository to show the organization-level view of the campaign. When you open a repository from this view, the campaign alerts view is displayed.
 
+{% ifversion security-campaigns-assign-to-cca %}
+
+## Assigning alerts to {% data variables.copilot.copilot_coding_agent %}
+
+>[!NOTE] This option is currently in public preview and is subject to change. {% data variables.copilot.copilot_coding_agent %} must be available in the repository.
+
+If an autofix has been generated, you can assign one or more alerts to {% data variables.product.prodname_copilot_short %}. {% data variables.product.prodname_copilot_short %} will create pull requests, apply the autofixes, and add you as a requested reviewer.
+
+By assigning multiple alerts, {% data variables.copilot.copilot_coding_agent %} will apply the fixes and iterate on the code to validate the changes, check for any new security issues, and ensure there are no merge conflicts.
+
+1. In the campaign view for the repository, select the alerts that you want to assign.
+1. Above the list of alerts, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Assign to Copilot**.
+
+Within 30 seconds, {% data variables.product.prodname_copilot_short %} will open a pull request to address the security vulnerabilities assigned to {% data variables.product.prodname_copilot_short %} and yourself. The pull request will include a summary of the fixes and details of the changes made. Once created, the pull request is shown next to the alert.
+
+{% endif %}
+
 {% ifversion copilot %}
 
-## Using {% data variables.product.prodname_copilot_chat %} for secure coding
+## Using {% data variables.copilot.copilot_chat %} for secure coding
 
-If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
-
-To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
-
-For example: "Use the {% data variables.product.prodname_GH_advanced_security %} skill to explain how this alert introduces a vulnerability into the code."
+If you have access to {% data variables.copilot.copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}

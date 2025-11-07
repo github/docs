@@ -1,18 +1,18 @@
-import { Box, Pagination, Text } from '@primer/react'
+import { Pagination } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
-import { sendEvent, uuidv4 } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { sendEvent, uuidv4 } from '@/events/components/events'
+import { EventType } from '@/events/types'
 
 import styles from './SearchResults.module.scss'
 
-import type { SearchQueryContentT } from 'src/search/components/types'
-import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from 'src/search/types'
+import type { SearchQueryContentT } from '@/search/components/types'
+import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from '@/search/types'
 import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
 import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 
@@ -106,7 +106,7 @@ function SearchResultHit({
 
   return (
     <div className={cx('my-6', styles.search_result)} data-testid="search-result">
-      <p className="text-normal f5 color-fg-muted" style={{ wordSpacing: 2 }}>
+      <p className={`text-normal f5 color-fg-muted ${styles.breadcrumb}`}>
         {hit.breadcrumbs.length > 1 && (
           <>
             <strong>{hit.breadcrumbs.split('/')[0]}</strong>
@@ -136,10 +136,10 @@ function SearchResultHit({
       </h2>
       {content && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
       {debug && (
-        <Text as="p" fontWeight="bold">
-          score: <code style={{ marginRight: 10 }}>{hit.score}</code> popularity:{' '}
+        <p className={styles.debugText}>
+          score: <code className={styles.debugCode}>{hit.score}</code> popularity:{' '}
           <code>{hit.popularity}</code>
-        </Text>
+        </p>
       )}
     </div>
   )
@@ -159,42 +159,42 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
     }
   }, [asPath])
 
-  function hrefBuilder(page: number) {
+  function hrefBuilder(pageNumber: number) {
     const params = new URLSearchParams(asPathQuery)
-    if (page === 1) {
+    if (pageNumber === 1) {
       params.delete('page')
     } else {
-      params.set('page', `${page}`)
+      params.set('page', `${pageNumber}`)
     }
     return `/${router.locale}${asPathRoot}?${params}`
   }
 
   return (
     <div className={styles.paginationFocus}>
-      <Box borderRadius={2} p={2}>
+      <div className={styles.paginationWrapper}>
         <Pagination
           pageCount={Math.min(totalPages, 10)}
           currentPage={page}
           hrefBuilder={hrefBuilder}
-          onPageChange={(event, page) => {
+          onPageChange={(event: React.MouseEvent, pageNum: number) => {
             event.preventDefault()
 
-            const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
-            const params = new URLSearchParams(asPathQuery)
-            if (page !== 1) {
-              params.set('page', `${page}`)
+            const [pathRoot, pathQuery = ''] = router.asPath.split('#')[0].split('?')
+            const params = new URLSearchParams(pathQuery)
+            if (pageNum !== 1) {
+              params.set('page', `${pageNum}`)
             } else {
               params.delete('page')
             }
-            let asPath = `/${router.locale}${asPathRoot}`
+            let newPath = `/${router.locale}${pathRoot}`
             if (params.toString()) {
-              asPath += `?${params}`
+              newPath += `?${params}`
             }
-            setAsPath(asPath)
-            router.push(asPath)
+            setAsPath(newPath)
+            router.push(newPath)
           }}
         />
-      </Box>
+      </div>
     </div>
   )
 }

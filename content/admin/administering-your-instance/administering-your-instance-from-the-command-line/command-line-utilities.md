@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - SSH
 ---
+
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 ## General
@@ -134,11 +135,99 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to {% ifversion management-console-manage-ghes-parity %}[the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run){% else %}[the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console){% endif %}. {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run). {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
 
 ```shell
 ghe-config-apply
 ```
+
+{% ifversion ghes > 3.18 %}
+
+### ghe-crypto
+
+This utility is used to verify and list {% data variables.enterprise.management_console %} `github-ssl` crypto settings for TLS and SSH connections.
+
+The list of configurable `github-ssl` fields can be viewed via `ghe-crypto --help`.
+
+#### Listing default cipher suites and algorithms
+
+The `list` command returns default crypto settings for a given field. Use the `-o json` flag to output the results in JSON format.
+
+To list TLS 1.2 cipher suites:
+
+```shell
+ghe-crypto list tlsv12-ciphersuites
+```
+
+To list TLS 1.3 cipher suites:
+
+```shell
+ghe-crypto list tlsv13-ciphersuites
+```
+
+To list SSH ciphers:
+
+```shell
+ghe-crypto list ssh-ciphers
+```
+
+To list SSH MAC algorithms:
+
+```shell
+ghe-crypto list ssh-mac-algorithms
+```
+
+To list SSH key exchange algorithms:
+
+```shell
+ghe-crypto list ssh-kex-algorithms
+```
+
+To list SSH signature types:
+
+```shell
+ghe-crypto list ssh-signature-types
+```
+
+Example output in JSON format:
+
+```shell
+$ ghe-crypto list tlsv12-ciphersuites -o json
+> [
+>  "ECDHE-ECDSA-AES128-GCM-SHA256",
+>  "ECDHE-ECDSA-CHACHA20-POLY1305",
+>  "ECDHE-ECDSA-AES256-GCM-SHA384",
+>  "ECDHE-RSA-AES128-GCM-SHA256",
+>  "ECDHE-RSA-CHACHA20-POLY1305",
+>  "ECDHE-RSA-AES256-GCM-SHA384"
+> ]
+```
+
+#### Checking cipher suites and algorithms
+
+The `check` command validates a single line of crypto settings delimited by `,`. This is useful before applying configuration changes.
+
+To check TLS 1.2 cipher suites:
+
+```shell
+ghe-crypto check tlsv12-ciphersuites CIPHER1,CIPHER2,CIPHER3
+```
+
+To check TLS 1.3 cipher suites:
+
+```shell
+ghe-crypto check tlsv13-ciphersuites TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256
+```
+
+To check SSH ciphers:
+
+```shell
+ghe-crypto check ssh-ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+```
+
+For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms).
+
+{% endif %}
 
 ### ghe-console
 
@@ -287,6 +376,13 @@ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
+{% ifversion scim-for-ghes-ga %}
+
+> [!NOTE]
+> This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+
+{% endif %}
+
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
 To output a CSV file containing a list of all user SAML `NameID` mappings on the instance, run the following command.
@@ -310,6 +406,31 @@ To update SAML mappings on the instance with new values from the file, run the f
 ```shell
 ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
+
+{% ifversion scim-for-ghes-ga %}
+
+### ghe-scim-identities-csv
+
+> [!NOTE]
+> This utility only works with configurations that use SAML with SCIM provisioning. For the SAML only version of this tool, please refer to the [`ghe-saml-mapping-csv` utility](#ghe-saml-mapping-csv).
+
+This utility allows administrators to output the SCIM identities for users on an instance. The utility can output a CSV file that lists all existing identities and the groups they are members of.
+
+To output CSV data containing a list of all user SCIM identities on the instance, run the following command. This will create a file located at `/data/user/tmp/scim-identities-DATE.csv` containing your SCIM identities.
+
+```shell
+ghe-scim-identities-csv
+```
+
+Or, if you'd like to specify the file, run the following command.
+
+```shell
+ghe-scim-identities-csv -f /PATH/TO/FILE
+```
+
+We recommend writing to a file in `/data/user/tmp`.
+
+{% endif %}
 
 ### ghe-service-list
 
@@ -632,8 +753,6 @@ $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
 
-{% ifversion cluster-ha-tooling-improvements %}
-
 ### ghe-cluster-repl-bootstrap
 
 This utility configures high availability replication to a secondary set of cluster nodes. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster).
@@ -649,8 +768,6 @@ This utility disables replication to replica nodes for a cluster in a high avail
 ```shell
 ghe-cluster-repl-teardown
 ```
-
-{% endif %}
 
 ### ghe-cluster-status
 
@@ -698,55 +815,11 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 
 ### ghe-cluster-failover
 
-{% ifversion ghes < 3.13 %}
-
-{% data reusables.enterprise_clustering.cluster-ip-note %}
-
-{% endif %}
-
 With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster).
 
 ```shell
 ghe-cluster-failover
 ```
-
-{% ifversion ghes < 3.13 %}
-
-### ghe-cluster-block-ips
-
-This utility allows you to block all the IPs in the `/data/user/common/cluster-ip-blocklist` file. The command reads the list of IPs and blocks each IP by calling `ghe-cluster-block-ip` on each node in the current cluster.
-
-The `/data/user/common/cluster-ip-blocklist` file only supports IPv4 addresses.
-
-```shell
-ghe-cluster-block-ips
-```
-
-### ghe-cluster-block-ip
-
-This utility allows you to block a specific IP address on a specific node. You can't block the IP of the current host, or any of the IPs for the hosts in the current `cluster.conf`.
-
-```shell
-ghe-cluster-block-ip IPV4 ADDRESS
-```
-
-### ghe-cluster-unblock-ips
-
-This utility allows you to unblock all the IPs currently blocked on each node in the cluster.
-
-```shell
-ghe-cluster-unblock-ips
-```
-
-### ghe-cluster-unblock-ip
-
-This utility allows you to unblock a specific IP address on a specific node.
-
-```shell
-ghe-cluster-unblock-ip IPV4 ADDRESS
-```
-
-{% endif %}
 
 ### ghe-dpages
 
@@ -767,8 +840,6 @@ To evacuate a {% data variables.product.prodname_pages %} storage service before
 ```shell
 ghe-dpages evacuate pages-server-UUID
 ```
-
-{% ifversion cluster-node-removal %}
 
 ### ghe-remove-node
 
@@ -795,8 +866,6 @@ Flag | Description
 > [!NOTE]
 > * This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
 > * This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
-
-{% endif %}
 
 ### ghe-spokesctl
 
@@ -871,7 +940,7 @@ nes set-node-adminaction approved HOSTNAME
 To revoke {% data variables.product.prodname_nes %}'s ability to take the node with hostname HOSTNAME offline:
 
 ```shell
-nes set-node-adminaction approved HOSTNAME
+nes set-node-adminaction none HOSTNAME
 ```
 
 To manually update a node's eligibility for re-addition to the cluster:
@@ -1025,6 +1094,18 @@ All Storage tests passed
 
 ## High availability
 
+{% ifversion ghes > 3.17 %}
+
+### ghe-repl-decommission
+
+This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+
+```shell
+ghe-repl-decommission <UUID>
+```
+
+{% endif %}
+
 ### ghe-repl-promote
 
 This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
@@ -1094,8 +1175,6 @@ This utility completely disables replication on an existing replica node, removi
 ghe-repl-teardown
 ```
 
-{% ifversion ghes > 3.13 %}
-
 ### ghe-repl-stop-all
 
 This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
@@ -1103,7 +1182,6 @@ This utility disables replication of all datastores on all replica nodes. Run th
 ### ghe-repl-start-all
 
 This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
-{% endif %}
 
 ## Import and export
 
@@ -1152,8 +1230,6 @@ This utility rewrites the imported repository. This gives you a chance to rename
 ```shell
 git-import-rewrite
 ```
-
-{% ifversion ghes > 3.12 %}
 
 ## License
 
@@ -1211,8 +1287,6 @@ GHE_LICENSE_FILE=/path/license ghe-license import
 # License imported at /data/user/common/enterprise.ghl.
 # License synchronized.
 ```
-
-{% endif %}
 
 ## Security
 
@@ -1380,14 +1454,14 @@ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 
 ## User management
 
-### {% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
+### ghe-license usage
 
 This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
 
-By default, the list of users in the resulting JSON file is encrypted. {% ifversion ghes > 3.12 %}Review optional flags via `ghe-license --help`{% else %}Use the `-h` flag for more options{% endif %}.
+By default, the list of users in the resulting JSON file is encrypted. Review optional flags via `ghe-license --help`.
 
 ```shell
-{% ifversion ghes > 3.12 %}ghe-license usage{% else %}ghe-license-usage{% endif %}
+ghe-license usage
 ```
 
 ### ghe-org-membership-update

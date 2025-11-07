@@ -29,15 +29,15 @@ permissions:
 jobs:
   generate-query-lists:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Checkout codeql repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           repository: github/codeql
           path: codeql
@@ -69,7 +69,7 @@ jobs:
 
       - uses: ./.github/actions/install-cocofix
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Lint the code (eslint)
         if: ${{ github.event_name == 'pull_request' }}
@@ -87,7 +87,7 @@ jobs:
 
       - name: Build code scanning query list
         run: |
-          for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
+          for lang in "actions" "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "rust" "swift"; do
             echo "Generating code scanning query list for $lang"
             npm run generate-code-scanning-query-list -- \
               --verbose \
@@ -103,7 +103,7 @@ jobs:
 
       - name: Create pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
 
@@ -152,9 +152,11 @@ jobs:
           gh pr create \
             --title "Update CodeQL query tables" \
             --repo github/docs-internal \
-           --label "codeql-query-tables,skip FR board,ready-for-doc-review" \
-            --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release.
+           --label "codeql-query-tables,skip FR board,ready-for-doc-review,workflow-generated" \
+            --body '👋 humans. This PR updates the **CodeQL query table reusables** with the latest changes in preparation for the next **CodeQL CLI** release. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})
 
-            No action is required from the first responder for the Docs content team. This PR will be reviewed and merged by the Code scanning and GHAS focus team as part of the next release of CodeQL CLI. (Synced from codeql@${{ steps.codeql.outputs.OPENAPI_COMMIT_SHA }})
 
-            If CI does not pass or other problems arise, contact #docs-engineering on slack.'
+            No action is required from the first responder for the Docs content team. This PR is automatically added to the Docs content review board. Any writer can review this by checking that the PR looks sensible. If CI does not pass or other problems arise, contact #docs-engineering on slack.
+            
+            
+            When the DRI for the CodeQL CLI release is ready to publish, they will ask us to merge this PR in #docs-content.'

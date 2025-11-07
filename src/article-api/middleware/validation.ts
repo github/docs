@@ -1,8 +1,41 @@
 import { ExtendedRequestWithPageInfo } from '../types'
 import type { NextFunction, Response } from 'express'
+
+import { ExtendedRequest, Page } from '@/types'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
-import getRedirect from '@/redirects/lib/get-redirect.js'
-import { Page } from '#src/types.js'
+import getRedirect from '@/redirects/lib/get-redirect'
+import { getVersionStringFromPath, getLangFromPath } from '@/frame/lib/path-utils'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+
+// validates the path for pagelist endpoint
+// specifically, defaults to `/en/free-pro-team@latest` when those values are missing
+// when they're provided, checks and cleans them up so we don't just lookup bad lang codes or versions
+export const pagelistValidationMiddleware = (
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  // get version from path, fallback to default version if it can't be resolved
+  const versionFromPath = getVersionStringFromPath(req.path) || nonEnterpriseDefaultVersion
+
+  // in the rare case that this failed, probably won't be reached
+  if (!versionFromPath)
+    return res.status(400).json({ error: `Couldn't get version from the given path.` })
+
+  // get the language from path, fallback to english if it can't be resolved
+  const langFromPath = getLangFromPath(req.path) || 'en'
+
+  // in the rare case that the language fallback failed
+  if (!langFromPath)
+    return res.status(400).json({
+      error: `Couldn't get language from the from the given path.`,
+    })
+
+  // set the version and language in the context, we'll use it later
+  req.context!.currentVersion = versionFromPath
+  req.context!.currentLanguage = langFromPath
+  return next()
+}
 
 export const pathValidationMiddleware = (
   req: ExtendedRequestWithPageInfo,
@@ -50,7 +83,7 @@ export const pageValidationMiddleware = (
 
   const redirectsContext = { pages: req.context.pages, redirects: req.context.redirects }
 
-  // Similar to how the `handle-redirects.js` middleware works, let's first
+  // Similar to how the `handle-redirects.ts` middleware works, let's first
   // check if the URL is just having a trailing slash.
   while (pathname.endsWith('/') && pathname.length > 1) {
     pathname = pathname.slice(0, -1)

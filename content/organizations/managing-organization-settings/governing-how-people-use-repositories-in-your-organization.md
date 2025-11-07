@@ -34,7 +34,7 @@ As an alternative to custom properties, you can choose from a list of repositori
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. On the left side of the page, in the sidebar, click **{% octicon "law" aria-hidden="true" %} Policies**.
+1. On the left side of the page, in the sidebar, click **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies**.
 1. Under "Policies", click **Repository**.
 1. Click **New policy**.
 1. Configure your new policy, then click **Create**. For help, consult the following subsections.
@@ -62,3 +62,11 @@ If you set a dynamic list by name, you'll add one or more naming patterns using 
 ### Policies
 
 {% data reusables.enterprise.repo-policy-rules-policies-section %}
+
+### Delegating bypass of policies
+
+{% data reusables.enterprise.repo-policy-rules-delegated-bypass %}
+
+#### Managing bypass requests
+
+{% data reusables.enterprise.repo-policy-rules-manage-bypass-request %}

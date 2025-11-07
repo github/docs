@@ -1,5 +1,0 @@
-# Replication management API for GHES.
-# Reference: #9931
-
-versions:
-  ghes: '> 3.8'

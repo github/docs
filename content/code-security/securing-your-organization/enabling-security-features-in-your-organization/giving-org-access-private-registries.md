@@ -13,18 +13,16 @@ topics:
 
 ## About the importance of providing access to private registries
 
-When a repository uses code stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, {% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
+When a repository uses code stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, {% ifversion code-quality %}{% data variables.product.prodname_code_quality_short %} ({% data variables.release-phases.public_preview %}), {% endif %}{% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
 
-{% data reusables.code-scanning.preview-org-private-registry %}
-
-{% data variables.product.prodname_code_scanning_caps %} default setup analyzes {% data variables.code-scanning.no_build_support %} code without building it. If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results, that is, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
+If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results, that is, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
 
 When you configure access to the private registries used in your organization, {% data variables.product.prodname_code_scanning %} has access to all the information it needs and is much less likely to miss a vulnerability.
 
 > [!TIP]
-> You can define one private Maven registry and one private NuGet feed for each organization. If the codebases in your organization use more than one registry or feed, you should define access to the most important registry for the codebases in that organization.
+> You can define one of each type of registry for each organization. If the codebases in your organization use more than one registry of a given type, you should define access to the most important registry for the codebases in that organization.
 
 ### Defining registry access for {% data variables.product.prodname_code_scanning %} default setup
 
@@ -61,8 +59,22 @@ Any private registries used by the build must also be accessible to the workflow
 
 ## {% data variables.product.prodname_dependabot %} updates access to private registries
 
-{% data variables.product.prodname_dependabot %} uses any private registries defined in the `dependabot.yml` file. It does not have access to the organization-level private registries used by {% data variables.product.prodname_code_scanning %} default setup.
+{% data variables.product.prodname_dependabot %} can use any of the org-level private registries, as well as uses any private registries defined in the `dependabot.yml` file in the repo.
 
 {% data variables.product.prodname_dependabot %} cannot check for security or version updates for code stored in a private registry unless it can access the registry. If you do not configure access to the private registry, then {% data variables.product.prodname_dependabot %} cannot raise pull requests to update any of the dependencies stored in the registry.
 
 When you configure access to one or more private registries, {% data variables.product.prodname_dependabot %} can propose pull requests to upgrade a vulnerable dependency or to maintain a dependency, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot).
+
+{% ifversion code-quality %}
+
+## {% data variables.product.prodname_code_quality_short %} access to private registries
+
+{% data reusables.code-quality.code-quality-preview-note %}
+
+{% data variables.product.prodname_code_quality %} can use any of the organization-level private registries that are available when it is enabled for a repository.
+
+If you add new registries to the organization, then you need to disable and re-enable {% data variables.product.prodname_code_quality_short %} to ensure that the analysis detects and uses the new registries.
+
+To set up private registry access for your organization, see [Defining registry access for code scanning default setup](#defining-registry-access-for-code-scanning-default-setup).
+
+{% endif %}
