@@ -1998,6 +1998,138 @@
   hasValidityCheck: false
   base64Supported: true
   isduplicate: true
+- provider: Databricks
+  supportedSecret: Databricks Account Session Token
+  secretType: databricks_account_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Federated Account Session Token
+  secretType: databricks_federated_account_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Code
+  secretType: databricks_oauth_code
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Refresh Token
+  secretType: databricks_oauth_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Secret Token
+  secretType: databricks_oauth_secret_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Single Use Refresh Token Child
+  secretType: databricks_oauth_single_use_refresh_token_child
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Single Use Refresh Token Parent
+  secretType: databricks_oauth_single_use_refresh_token_parent
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Scoped API Token
+  secretType: databricks_scoped_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Scoped Internal Token
+  secretType: databricks_scoped_internal_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Token
+  secretType: databricks_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Workspace Session Token
+  secretType: databricks_workspace_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog API Key
   secretType: datadog_api_key

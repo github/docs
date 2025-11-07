@@ -49,3 +49,7 @@ Did you successfully add personal custom instructions?
 <a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
 
 {% endnote %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples

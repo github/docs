@@ -115,7 +115,7 @@ const githubDocsConfig = {
   },
   'incorrect-alt-text-length': {
     // GHD033
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -165,25 +165,25 @@ const githubDocsConfig = {
   // GHD044 removed - octicon aria-labels are now auto-generated
   'code-annotation-comment-spacing': {
     // GHD045
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'outdated-release-phase-terminology': {
     // GHD046
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'table-column-integrity': {
     // GHD047
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
   'third-party-actions-reusable': {
     // GHD054
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
     'yml-files': true,
   },
@@ -238,7 +238,7 @@ export const githubDocsFrontmatterConfig = {
   },
   'frontmatter-versions-whitespace': {
     // GHD051
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': false,
     'yml-files': false,
   },

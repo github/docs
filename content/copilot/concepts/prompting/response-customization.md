@@ -315,6 +315,8 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/prompt-files).
+
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
@@ -352,6 +354,8 @@ Common use cases for repository custom instructions include:
 ### Example
 
 {% data reusables.copilot.repository-custom-instructions-example %}
+
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
 
 {% data reusables.copilot.custom-instructions-effective %}
 

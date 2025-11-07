@@ -584,11 +584,11 @@ To enable prompt files, configure the workspace settings.
 
 1. Submit the chat prompt.
 
-For more information about prompt files, see [Custom instructions for {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
+For more information about prompt files, see [Use prompt files in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/customization/prompt-files) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/tutorials/customization-library)
+* [AUTOTITLE](/copilot/tutorials/customization-library)—a curated collection of examples
 
 {% endvscode %}
 
