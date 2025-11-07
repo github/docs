@@ -78,7 +78,7 @@ Storage is billed based on hourly usage of artifacts throughout the month. Minut
 
 ### Minute multipliers
 
-Each type of runner has a minute multipler that is determined by the operating system and processing power. For example, jobs that run on Windows and macOS runners hosted by {% data variables.product.github %} consume minutes at 2 and 10 times the rate that jobs on Linux runners consume.
+Each type of runner has a minute multiplier that is determined by the operating system and processing power. For example, jobs that run on Windows and macOS runners hosted by {% data variables.product.github %} consume minutes at 2 and 10 times the rate that jobs on Linux runners consume.
 
 | Operating system | Minute multiplier |
 |----------------- | :----------------:|
@@ -86,7 +86,7 @@ Each type of runner has a minute multipler that is determined by the operating s
 | Windows          | 2                 |
 | macOS            | 10                |
 
-For full details of minute multiplers for {% data variables.product.github %}-hosted runners, see [AUTOTITLE](/billing/reference/actions-minute-multipliers).
+For full details of minute multipliers for {% data variables.product.github %}-hosted runners, see [AUTOTITLE](/billing/reference/actions-minute-multipliers).
 
 ### Example minutes cost calculation
 
