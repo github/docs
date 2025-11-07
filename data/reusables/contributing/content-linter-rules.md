@@ -43,7 +43,7 @@
 | GHD022 | liquid-ifversion-versions | Liquid `ifversion`, `elsif`, and `else` tags should be valid and not contain unsupported versions. | error | liquid, versioning |
 | GHD031 | image-alt-text-exclude-words | Alternate text for images should not begin with words like "image" or "graphic" | error | accessibility, images |
 | GHD032 | image-alt-text-end-punctuation | Alternate text for images should end with punctuation | error | accessibility, images |
-| GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | warning | accessibility, images |
+| GHD033 | incorrect-alt-text-length | Images alternate text should be between 40-150 characters | error | accessibility, images |
 | GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | warning | expired |
@@ -52,11 +52,11 @@
 | GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
 | GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
 | GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |
-| GHD045 | code-annotation-comment-spacing | Code comments in annotation blocks must have exactly one space after the comment character(s) | warning | code, comments, annotate, spacing |
-| GHD046 | outdated-release-phase-terminology | Outdated release phase terminology should be replaced with current GitHub terminology | warning | terminology, consistency, release-phases |
-| GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | warning | tables, accessibility, formatting |
-| GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | warning | frontmatter, versions |
-| GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | warning | actions, reusable, third-party |
+| GHD045 | code-annotation-comment-spacing | Code comments in annotation blocks must have exactly one space after the comment character(s) | error | code, comments, annotate, spacing |
+| GHD046 | outdated-release-phase-terminology | Outdated release phase terminology should be replaced with current GitHub terminology | error | terminology, consistency, release-phases |
+| GHD047 | table-column-integrity | Tables must have consistent column counts across all rows | error | tables, accessibility, formatting |
+| GHD051 | frontmatter-versions-whitespace | Versions frontmatter should not contain unnecessary whitespace | error | frontmatter, versions |
+| GHD054 | third-party-actions-reusable | Code examples with third-party actions must include disclaimer reusable | error | actions, reusable, third-party |
 | GHD056 | frontmatter-landing-recommended | Only landing pages can have recommended articles, there should be no duplicate recommended articles, and all recommended articles must exist | error | frontmatter, landing, recommended |
 | GHD057 | ctas-schema | CTA URLs must conform to the schema | error | ctas, schema, urls |
 | GHD058 | journey-tracks-liquid | Journey track properties must use valid Liquid syntax | error | frontmatter, journey-tracks, liquid |
