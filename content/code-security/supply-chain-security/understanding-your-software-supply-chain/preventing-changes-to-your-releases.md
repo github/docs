@@ -3,15 +3,14 @@ title: Preventing changes to your releases
 shortTitle: Prevent release changes
 intro: 'You can enforce immutable releases for a repository or organization to prevent potential vulnerabilities.'
 versions:
-  feature: immutable-releases-preview
+  fpt: '*'
+  ghec: '*'
 type: overview
 topics:
   - Code Security
   - Vulnerabilities
   - Dependencies
 ---
-
-{% data reusables.releases.immutable-releases-preview-note %}
 
 ## Enforcing immutable releases for your repository
 

@@ -77,7 +77,7 @@ Dependency review lets you visualize dependency changes in pull requests before 
 
 Dependency review is a {% data variables.product.prodname_GH_code_security %} feature. {% ifversion fpt or ghec %}Dependency review is enabled for all repositories with the dependency graph enabled. Organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} can additionally enable dependency review for private and internal repositories.{% endif %}
 
-To enable dependency review for a repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_code_security %}.
+To enable dependency review for a repository, ensure that the dependency graph is enabled.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
 1. Click **{% data variables.product.UI_advanced_security %}**.{% ifversion fpt or ghec %}
@@ -112,8 +112,10 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 ## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_code_security %}{% else %}{% data variables.product.prodname_code_scanning %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 > [!NOTE]
 > {% data variables.product.prodname_code_security %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GHAS %}.
+
 {% endif %}
 
 {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} includes {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_codeql_cli %} and {% data variables.copilot.copilot_autofix_short %}, as well as other features that find and fix vulnerabilities in your codebase.{% endif %}
@@ -133,8 +135,10 @@ As an alternative to default setup, you can use advanced setup, which generates 
 ## Configuring {% ifversion ghas-products %}{% data variables.product.prodname_secret_protection %}{% else %}{% data variables.product.prodname_secret_scanning %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 > [!NOTE]
 > {% data variables.product.prodname_secret_protection %} features are available for all public repositories, and for private repositories owned by organizations that are part of a team or an enterprise that uses {% data variables.product.prodname_GH_secret_protection %} or {% data variables.product.prodname_GHAS %}.
+
 {% endif %}
 
 {% ifversion ghas-products %}{% data variables.product.prodname_GH_secret_protection %} includes {% data variables.product.prodname_secret_scanning %} and push protection, as well as other features that help you detect and prevent secret leaks in your repository.{% endif %}

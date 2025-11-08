@@ -29,6 +29,8 @@ describe('resolveRecommended middleware', () => {
           },
         },
         redirects: {},
+        currentVersion: 'free-pro-team@latest',
+        currentLanguage: 'en',
         ...contextData,
       },
     }) as ExtendedRequest
@@ -78,31 +80,10 @@ describe('resolveRecommended middleware', () => {
 
   test('should resolve recommended articles when they exist', async () => {
     const testPage: Partial<import('@/types').Page> = {
-      mtime: Date.now(),
       title: 'Test Article',
-      rawTitle: 'Test Article',
       intro: 'Test intro',
-      rawIntro: 'Test intro',
       relativePath: 'copilot/tutorials/article.md',
-      fullPath: '/full/path/copilot/tutorials/article.md',
-      languageCode: 'en',
-      documentType: 'article',
-      markdown: 'Test content',
-      versions: {},
       applicableVersions: ['free-pro-team@latest'],
-      permalinks: [
-        {
-          languageCode: 'en',
-          pageVersion: 'free-pro-team@latest',
-          title: 'Test Article',
-          href: '/en/copilot/tutorials/article',
-          hrefWithoutLanguage: '/copilot/tutorials/article',
-        },
-      ],
-      renderProp: vi.fn().mockResolvedValue('rendered'),
-      renderTitle: vi.fn().mockResolvedValue('Test Article'),
-      render: vi.fn().mockResolvedValue('rendered content'),
-      buildRedirects: vi.fn().mockReturnValue({}),
     }
 
     mockFindPage.mockReturnValue(testPage as any)
@@ -120,7 +101,41 @@ describe('resolveRecommended middleware', () => {
       {
         title: 'Test Article',
         intro: '<p>Test intro</p>',
-        href: '/en/copilot/tutorials/article',
+        href: '/copilot/tutorials/article',
+        category: ['copilot', 'tutorials'],
+      },
+    ])
+    expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('should not resolve spotlight articles when there are recommended articles', async () => {
+    const testPage: Partial<import('@/types').Page> = {
+      title: 'Test Article',
+      intro: 'Test intro',
+      relativePath: 'copilot/tutorials/article.md',
+      applicableVersions: ['free-pro-team@latest'],
+    }
+
+    mockFindPage.mockReturnValueOnce(testPage as any)
+
+    const req = createMockRequest({
+      rawRecommended: ['/copilot/tutorials/article'],
+      spotlight: [{ article: '/copilot/tutorials/spotlight-article' }],
+    })
+
+    await resolveRecommended(req, mockRes, mockNext)
+
+    expect(mockFindPage).toHaveBeenCalledTimes(1)
+    expect(mockFindPage).toHaveBeenCalledWith(
+      '/en/copilot/tutorials/article',
+      req.context!.pages,
+      req.context!.redirects,
+    )
+    expect((req.context!.page as any).recommended).toEqual([
+      {
+        title: 'Test Article',
+        intro: '<p>Test intro</p>',
+        href: '/copilot/tutorials/article',
         category: ['copilot', 'tutorials'],
       },
     ])
@@ -158,31 +173,10 @@ describe('resolveRecommended middleware', () => {
 
   test('should handle mixed valid and invalid articles', async () => {
     const testPage: Partial<import('@/types').Page> = {
-      mtime: Date.now(),
       title: 'Valid Article',
-      rawTitle: 'Valid Article',
       intro: 'Valid intro',
-      rawIntro: 'Valid intro',
       relativePath: 'test/valid.md',
-      fullPath: '/full/path/test/valid.md',
-      languageCode: 'en',
-      documentType: 'article',
-      markdown: 'Valid content',
-      versions: {},
       applicableVersions: ['free-pro-team@latest'],
-      permalinks: [
-        {
-          languageCode: 'en',
-          pageVersion: 'free-pro-team@latest',
-          title: 'Valid Article',
-          href: '/en/test/valid',
-          hrefWithoutLanguage: '/test/valid',
-        },
-      ],
-      renderProp: vi.fn().mockResolvedValue('rendered'),
-      renderTitle: vi.fn().mockResolvedValue('Valid Article'),
-      render: vi.fn().mockResolvedValue('rendered content'),
-      buildRedirects: vi.fn().mockReturnValue({}),
     }
 
     mockFindPage.mockReturnValueOnce(testPage as any).mockReturnValueOnce(undefined)
@@ -195,7 +189,7 @@ describe('resolveRecommended middleware', () => {
       {
         title: 'Valid Article',
         intro: '<p>Valid intro</p>',
-        href: '/en/test/valid',
+        href: '/test/valid',
         category: ['test'],
       },
     ])
@@ -204,31 +198,10 @@ describe('resolveRecommended middleware', () => {
 
   test('should try page-relative path when content-relative fails', async () => {
     const testPage: Partial<import('@/types').Page> = {
-      mtime: Date.now(),
       title: 'Relative Article',
-      rawTitle: 'Relative Article',
       intro: 'Relative intro',
-      rawIntro: 'Relative intro',
       relativePath: 'copilot/relative-article.md',
-      fullPath: '/full/path/copilot/relative-article.md',
-      languageCode: 'en',
-      documentType: 'article',
-      markdown: 'Relative content',
-      versions: {},
       applicableVersions: ['free-pro-team@latest'],
-      permalinks: [
-        {
-          languageCode: 'en',
-          pageVersion: 'free-pro-team@latest',
-          title: 'Relative Article',
-          href: '/en/copilot/relative-article',
-          hrefWithoutLanguage: '/copilot/relative-article',
-        },
-      ],
-      renderProp: vi.fn().mockResolvedValue('rendered'),
-      renderTitle: vi.fn().mockResolvedValue('Relative Article'),
-      render: vi.fn().mockResolvedValue('rendered content'),
-      buildRedirects: vi.fn().mockReturnValue({}),
     }
 
     // Mock findPage to fail on first call (content-relative) and succeed on second (page-relative)
@@ -256,10 +229,70 @@ describe('resolveRecommended middleware', () => {
       {
         title: 'Relative Article',
         intro: '<p>Relative intro</p>',
-        href: '/en/copilot/relative-article',
+        href: '/copilot/relative-article', // Updated to clean path
         category: ['copilot'],
       },
     ])
+    expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('returns paths without language or version prefixes', async () => {
+    const testPage: Partial<import('@/types').Page> = {
+      title: 'Tutorial Page',
+      intro: 'Tutorial intro',
+      relativePath: 'copilot/tutorials/tutorial-page/index.md',
+      applicableVersions: ['free-pro-team@latest'],
+    }
+
+    mockFindPage.mockReturnValue(testPage as any)
+
+    const req = createMockRequest({ rawRecommended: ['/copilot/tutorials/tutorial-page'] })
+
+    await resolveRecommended(req, mockRes, mockNext)
+
+    expect(mockFindPage).toHaveBeenCalledWith(
+      '/en/copilot/tutorials/tutorial-page',
+      req.context!.pages,
+      req.context!.redirects,
+    )
+
+    // Verify that the href is a clean path without language/version, that gets
+    // added on the React side.
+    expect((req.context!.page as any).recommended).toEqual([
+      {
+        title: 'Tutorial Page',
+        intro: '<p>Tutorial intro</p>',
+        href: '/copilot/tutorials/tutorial-page',
+        category: ['copilot', 'tutorials', 'tutorial-page'],
+      },
+    ])
+    expect(mockNext).toHaveBeenCalled()
+  })
+
+  test('should filter out articles not available in current version', async () => {
+    // Create a test page that is only available in fpt, not ghec
+    const fptOnlyPage: Partial<import('@/types').Page> = {
+      title: 'FPT Only Article',
+      intro: 'This article is only for FPT',
+      relativePath: 'test/fpt-only.md',
+      applicableVersions: ['free-pro-team@latest'], // Not available in ghec
+    }
+
+    mockFindPage.mockReturnValue(fptOnlyPage as any)
+
+    // Create a request context where we're viewing the GHEC version
+    const req = createMockRequest(
+      { rawRecommended: ['/test/fpt-only'] },
+      {
+        currentVersion: 'enterprise-cloud@latest', // Current context is GHEC, not FPT
+        currentLanguage: 'en',
+      },
+    )
+
+    await resolveRecommended(req, mockRes, mockNext)
+
+    // The recommended array should be empty since the article isn't available in enterprise-cloud
+    expect((req.context!.page as any).recommended).toEqual([])
     expect(mockNext).toHaveBeenCalled()
   })
 })

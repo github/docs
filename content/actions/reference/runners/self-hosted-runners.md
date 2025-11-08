@@ -121,7 +121,7 @@ If you disable automatic updates, you will be required to update your runner ver
 
 For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
 
->[!WARNING] Any updates released for the software, including major, minor or patch releases, are considered as an available update. If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner. In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
+{% data reusables.actions.self-hosted-runner-update-warning %}
 
 ### Webhooks for autoscaling
 
@@ -193,7 +193,6 @@ If you have enabled automatic access to {% data variables.product.prodname_dotco
 github.com
 api.github.com
 codeload.github.com
-pkg.actions.githubusercontent.com
 ```
 
 You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses and domain details for {% data variables.product.company_short %} services. The `actions_inbound` section of the API supports both fully qualified and wildcard domains. Fully qualified domains specify a complete domain name (e.g., `example.github.com`), while wildcard domains use a `*` to represent multiple possible subdomains (e.g., `*.github.com`). An example of the self-hosted runner requirements using wildcard domains has been listed below. For more information, see [AUTOTITLE](/rest/meta/meta).

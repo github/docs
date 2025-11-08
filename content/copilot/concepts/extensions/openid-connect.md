@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/concepts/build-copilot-extensions/openid-connect
   - /copilot/concepts/copilot-extensions/openid-connect
 contentType: concepts
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## About OpenID Connect (OIDC) for {% data variables.copilot.copilot_extensions_short %}

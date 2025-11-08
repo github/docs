@@ -5,6 +5,8 @@ import { useRouter } from 'next/router'
 import { MarkGithubIcon, CommentDiscussionIcon } from '@primer/octicons-react'
 import { Lead } from '@/frame/components/ui/Lead'
 
+import styles from './GenericError.module.scss'
+
 export function GenericError() {
   return (
     <div className="min-h-screen d-flex flex-column">
@@ -44,7 +46,7 @@ export const SimpleHeader = () => {
         role="banner"
         aria-label="Main"
       >
-        <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
+        <div className={`d-flex flex-items-center ${styles.logoContainer}`} id="github-logo-mobile">
           <Link href={`/${router.locale}`} aria-hidden="true" tabIndex={-1}>
             <MarkGithubIcon size={32} className="color-fg-default" />
           </Link>

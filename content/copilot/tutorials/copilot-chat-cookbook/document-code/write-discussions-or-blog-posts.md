@@ -6,6 +6,7 @@ versions:
   feature: copilot
 category:
   - Documenting code
+  - Author and optimize with Copilot
 complexity:
   - Simple
 octicon: book

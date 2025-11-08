@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/concepts/copilot-extensions/about-building-copilot-extensions
   - /copilot/concepts/extensions/about-extensions
 contentType: concepts
+category: 
+  - Integrate Copilot with your tools
 ---
 
 <!-- expires 2025-11-19 -->

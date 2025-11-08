@@ -18,7 +18,7 @@ redirect_from:
 
 ## About {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.copilot.copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis, and supports the third-party tool ESLint (third-party support is in {% data variables.release-phases.public_preview %} and subject to change).
+{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.copilot.copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis.
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 

@@ -176,7 +176,7 @@ get_started_with_your_enterprise_account:
     ghes: '*'
     ghec: '*'
   guides:
-    - /admin/managing-your-enterprise-account/about-enterprise-accounts
+    - /admin/concepts/enterprise-fundamentals/enterprise-accounts
     - /billing/concepts/enterprise-billing/billing-for-enterprises
     - >-
       /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
@@ -185,4 +185,4 @@ get_started_with_your_enterprise_account:
     - >-
       /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise
     - >-
-      /admin/enforcing-policies/enforcing-policies-for-your-enterprise/about-enterprise-policies
+      /admin/concepts/security-and-compliance/enterprise-policies

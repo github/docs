@@ -41,7 +41,7 @@ To get started with {% data variables.enterprise.data_residency_short %}, you wi
 * Includes access to most {% data variables.product.prodname_enterprise %} features, though not the features listed in [Features not included in the trial](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)
 * Allows you to create up to **three new organizations**
 
-<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=get+started+with+data+residency&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 1. Visit the trial page by clicking the link above.
 1. Select **Get started with managed users**.

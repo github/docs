@@ -70,7 +70,7 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-configure-provisioning %}
 
-## Manage organization membership
+## Sync teams with IdP groups
 
 {% data reusables.enterprise-accounts.emu-manage-org-membership %}
 

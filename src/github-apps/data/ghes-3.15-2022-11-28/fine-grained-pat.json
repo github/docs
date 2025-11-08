@@ -1,24 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-github-actions-cache-usage-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
-    },
-    {
-      "slug": "get-github-actions-cache-usage-policy-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
-    },
-    {
-      "slug": "set-github-actions-cache-usage-policy-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -929,14 +911,6 @@
       "requestPath": "/orgs/{org}/announcement"
     }
   ],
-  "apps": [
-    {
-      "slug": "list-repositories-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations/{installation_id}/repositories"
-    }
-  ],
   "billing": [
     {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
@@ -1371,12 +1345,6 @@
       "subcategory": "invitations",
       "verb": "get",
       "requestPath": "/user/repository_invitations"
-    },
-    {
-      "slug": "accept-a-repository-invitation",
-      "subcategory": "invitations",
-      "verb": "patch",
-      "requestPath": "/user/repository_invitations/{invitation_id}"
     },
     {
       "slug": "decline-a-repository-invitation",
@@ -1815,78 +1783,6 @@
       "subcategory": "repo-pre-receive-hooks",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
-    },
-    {
-      "slug": "list-provisioned-scim-groups-for-an-enterprise",
-      "subcategory": "scim",
-      "verb": "get",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
-    },
-    {
-      "slug": "provision-a-scim-enterprise-group",
-      "subcategory": "scim",
-      "verb": "post",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
-    },
-    {
-      "slug": "get-scim-provisioning-information-for-an-enterprise-group",
-      "subcategory": "scim",
-      "verb": "get",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
-    },
-    {
-      "slug": "set-scim-information-for-a-provisioned-enterprise-group",
-      "subcategory": "scim",
-      "verb": "put",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
-    },
-    {
-      "slug": "update-an-attribute-for-a-scim-enterprise-group",
-      "subcategory": "scim",
-      "verb": "patch",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
-    },
-    {
-      "slug": "delete-a-scim-group-from-an-enterprise",
-      "subcategory": "scim",
-      "verb": "delete",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
-    },
-    {
-      "slug": "list-scim-provisioned-identities-for-an-enterprise",
-      "subcategory": "scim",
-      "verb": "get",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
-    },
-    {
-      "slug": "provision-a-scim-enterprise-user",
-      "subcategory": "scim",
-      "verb": "post",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
-    },
-    {
-      "slug": "get-scim-provisioning-information-for-an-enterprise-user",
-      "subcategory": "scim",
-      "verb": "get",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
-    },
-    {
-      "slug": "set-scim-information-for-a-provisioned-enterprise-user",
-      "subcategory": "scim",
-      "verb": "put",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
-    },
-    {
-      "slug": "update-an-attribute-for-a-scim-enterprise-user",
-      "subcategory": "scim",
-      "verb": "patch",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
-    },
-    {
-      "slug": "delete-a-scim-user-from-an-enterprise",
-      "subcategory": "scim",
-      "verb": "delete",
-      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     }
   ],
   "gists": [
@@ -2783,18 +2679,6 @@
   ],
   "projects-classic": [
     {
-      "slug": "list-organization-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "create-an-organization-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -2819,24 +2703,6 @@
       "requestPath": "/projects/columns/{column_id}/moves"
     },
     {
-      "slug": "get-a-project",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "update-a-project",
-      "subcategory": "projects",
-      "verb": "patch",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "delete-a-project",
-      "subcategory": "projects",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
       "slug": "list-project-collaborators",
       "subcategory": "collaborators",
       "verb": "get",
@@ -2859,18 +2725,6 @@
       "subcategory": "collaborators",
       "verb": "get",
       "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
-    },
-    {
-      "slug": "list-project-columns",
-      "subcategory": "columns",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/columns"
-    },
-    {
-      "slug": "create-a-project-column",
-      "subcategory": "columns",
-      "verb": "post",
-      "requestPath": "/projects/{project_id}/columns"
     }
   ],
   "pulls": [
@@ -3563,12 +3417,6 @@
       "subcategory": "repos",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/topics"
-    },
-    {
-      "slug": "transfer-a-repository",
-      "subcategory": "repos",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/transfer"
     },
     {
       "slug": "check-if-vulnerability-alerts-are-enabled-for-a-repository",

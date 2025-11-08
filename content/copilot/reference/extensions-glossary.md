@@ -7,6 +7,8 @@ versions:
   feature: copilot-extensions
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 redirect_from:
   - /copilot/building-copilot-extensions/copilot-extensions-glossary
   - /copilot/reference/copilot-extensions/copilot-extensions-glossary

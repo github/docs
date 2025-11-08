@@ -14,6 +14,8 @@ topics:
   - Copilot
 shortTitle: Host your extension
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 Your {% data variables.copilot.copilot_extension_short %} must be hosted on a server that is accessible to the internet. In this guide, we will use [ngrok](https://ngrok.com/) to create a tunnel to your local server, but you could also use a service like [localtunnel](https://localtunnel.github.io/www/).

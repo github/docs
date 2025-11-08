@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { JSX } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { Dialog, IconButton } from '@primer/react'
@@ -156,11 +157,10 @@ export const Header = () => {
         aria-label="Main"
       >
         <div
-          className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
-          style={{
-            // In the rare case of header overflow, create a pleasant gap between the rows
-            rowGap: '1rem',
-          }}
+          className={cx(
+            'd-flex flex-justify-between p-2 flex-items-center flex-wrap',
+            styles.headerContainer,
+          )}
           data-testid="desktop-header"
         >
           <div

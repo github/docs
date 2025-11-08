@@ -6,7 +6,7 @@ import { productMap, data } from '@/products/lib/all-products'
 import { renderContentWithFallback } from '@/languages/lib/render-with-fallback'
 import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
 import frontmatter from '@/frame/lib/read-frontmatter'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 
 type PageMap = Record<string, Page>
 

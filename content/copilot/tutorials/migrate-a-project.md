@@ -11,6 +11,9 @@ redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-migrate-a-project
   - /copilot/tutorials/using-copilot-to-migrate-a-project
 contentType: tutorials
+category:
+  - Burn down tech debt
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

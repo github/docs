@@ -69,16 +69,17 @@ To update private dependencies of repositories in your organization, {% data var
 {% data reusables.code-scanning.about-code-scanning %}
 
 {% ifversion ghes > 3.16 %}
-<!-- There is only one bullet point in this section, so we don't display a list for GHES 3.17. -->
+<!-- There is only one bullet point in this section, so we don't display a list for GHES 3.17+. -->
+
+You can recommend that repositories in your organization use the "Extended" query suite instead of the "Default" query suite for broader {% data variables.product.prodname_code_scanning %} coverage across your organization. See [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup).
+
 {% else %}
 
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_code_scanning %}:
 
-{% ifversion code-scanning-autofix %}
-* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql)
-* [Enabling {% data variables.copilot.copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools](#enabling-copilot-autofix-for-third-party-code-scanning-tools) {% endif %}
+{% ifversion code-scanning-autofix %}* [Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}](#enabling-copilot-autofix-for-codeql){% endif %}
 * [Recommending the extended query suite for default setup](#recommending-the-extended-query-suite-for-default-setup){% ifversion ghes < 3.17 %}
-* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests)
+* [Setting a failure threshold for {% data variables.product.prodname_code_scanning %} checks in pull requests](#setting-a-failure-threshold-for-code-scanning-checks-in-pull-requests).{% endif %}
 
 {% endif %}
 
@@ -91,13 +92,6 @@ You can customize several {% data variables.product.prodname_global_settings %} 
 ### Enabling {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_codeql %}
 
 You can select **{% data variables.copilot.copilot_autofix_short %}** to enable {% data variables.copilot.copilot_autofix_short %} for all the repositories in your organization that use {% data variables.product.prodname_codeql %} default setup or {% data variables.product.prodname_codeql %} advanced setup. {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
-
-### Enabling {% data variables.copilot.copilot_autofix_short %} for third-party {% data variables.product.prodname_code_scanning %} tools
-
->[!NOTE]
-> Third-party {% data variables.product.prodname_code_scanning %} tool support is in {% data variables.release-phases.public_preview %}, and subject to change. Currently, the third-party tool ESLint is supported. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
-
-You can select **{% data variables.copilot.copilot_autofix_short %} for third-party tools** to enable {% data variables.copilot.copilot_autofix_short %} for all the repositories in your organization that use third-party tools. {% data variables.copilot.copilot_autofix_short %} is an expansion of {% data variables.product.prodname_code_scanning %} that suggests fixes for {% data variables.product.prodname_code_scanning %} alerts.
 
 {% endif %}
 
@@ -116,7 +110,7 @@ You can choose the severity levels at which {% data variables.product.prodname_c
 You can customize several {% data variables.product.prodname_global_settings %} for {% data variables.product.prodname_secret_scanning %}:
 
 * [Adding a resource link for blocked commits](#adding-a-resource-link-for-blocked-commits)
-* [Defining custom patterns](#defining-custom-patterns){% endif %}{% ifversion push-protected-pattern-configuration %}
+* [Defining custom patterns](#defining-custom-patterns){% ifversion push-protected-pattern-configuration %}
 * [Specifying patterns to include in push protection](#specifying-patterns-to-include-in-push-protection){% endif %}
 
 ### Adding a resource link for blocked commits

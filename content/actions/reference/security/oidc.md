@@ -143,6 +143,19 @@ You can create a subject that filters for specific tag. In this example, the wor
 * Syntax: `repo:ORG-NAME/REPO-NAME:ref:refs/tags/TAG-NAME`
 * Example: `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`
 
+{% ifversion fpt or ghec or ghes > 3.18 %}
+
+### Filtering for metadata containing `:`
+
+Any `:` within the metadata values will be replaced with `%3A` in the subject claim.
+
+You can configure a subject that includes metadata containing colons. In this example, the workflow run must have originated from a job that has an environment named `Production:V1`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
+
+* Syntax: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`
+* Example: `repo:octo-org/octo-repo:environment:Production%3AV1`
+
+{% endif %}
+
 ## Configuring the subject in your cloud provider
 
 To configure the subject in your cloud provider's trust relationship, you must add the subject string to its trust configuration. The following examples demonstrate how various cloud providers can accept the same `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` subject in different ways:

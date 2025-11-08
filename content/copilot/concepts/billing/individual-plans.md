@@ -14,6 +14,8 @@ redirect_from:
   - /copilot/concepts/copilot-billing/about-individual-copilot-plans-and-benefits
   - /copilot/concepts/copilot-billing/individual-plans
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% data variables.product.company_short %} offers three {% data variables.product.prodname_copilot_short %} plans for individual developers, each designed to meet different needs based on your coding habits, interest in AI models, and desired level of flexibility.

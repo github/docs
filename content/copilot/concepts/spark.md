@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 ## Overview
@@ -87,7 +89,7 @@ Benefits include:
 ### Billing
 
 Each natural-language prompt in {% data variables.product.prodname_spark_short %} consumes four premium requests.
-See [AUTOTITLE](/copilot/concepts/billing/billing-for-spark).
+See [AUTOTITLE](/billing/concepts/product-billing/github-spark).
 
 ### Infrastructure
 

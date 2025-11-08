@@ -45,9 +45,17 @@ export function useMultiQueryParams() {
     const searchParams = new URLSearchParams(asPathQuery)
     initialKeys.forEach((key) => {
       if (key === 'search-overlay-ask-ai') {
-        newParams[key] === 'true' ? searchParams.set(key, 'true') : searchParams.delete(key)
+        if (newParams[key] === 'true') {
+          searchParams.set(key, 'true')
+        } else {
+          searchParams.delete(key)
+        }
       } else {
-        newParams[key] ? searchParams.set(key, newParams[key]) : searchParams.delete(key)
+        if (newParams[key]) {
+          searchParams.set(key, newParams[key])
+        } else {
+          searchParams.delete(key)
+        }
       }
     })
     const paramsString = searchParams.toString() ? `?${searchParams.toString()}` : ''

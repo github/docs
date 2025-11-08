@@ -65,6 +65,14 @@ For credit card and PayPal payments, the billing date is the day you started a p
 
 Most users pay for {% data variables.product.github %} using metered billing. The billing cycle for all metered products is a fixed period from the first day to the last day of the month.
 
+### Authorization holds
+
+You may see an authorization hold on your provided payment method upon initiating a subscription or trial. Depending on your bank or card issuer, this may result in the appearance of a transaction or charge.
+
+Authorization holds are temporary and released as quickly as possible. If the authorization hold persists for longer than 10 business days, we suggest reaching out to your bank or card issuer.
+
+If the authorization is unsuccessful, the chosen service will not be activated and the account may be locked. For more more information, see [AUTOTITLE](/billing/how-tos/troubleshooting/locked-account#unlocking-an-accounts-features-due-to-a-failed-authorization-hold).
+
 ## How do I see what I'm billed for?
 
 You can see the billing and usage information for your account at anytime in the "Billing and licensing" pages of your account or using the REST API. For more information, see [AUTOTITLE](/billing/how-tos/products/view-product-use).

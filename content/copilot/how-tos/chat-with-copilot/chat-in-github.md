@@ -20,6 +20,8 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-github
   - /copilot/how-tos/chat-with-copilot/use-chat-in-github
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -52,14 +54,14 @@ Depending on the question you ask, and your enterprise and organization settings
 1. To start a new conversation, click {% data reusables.copilot.pencil-paper-icon %} at the top left of the page.
 1. To see a list of your previous conversations, click {% octicon "sidebar-collapse" aria-label="Open sidebar" %} at the top left of the page.
 
-{% data variables.copilot.copilot_chat_short %} retains each conversation for up to 28 days from the last activity. After 28 days, the conversation is permanently deleted. You can view up to 100 previous conversations.
+{% data variables.copilot.copilot_chat_short %} stores up to 100 of your most recent conversations. Messages within each conversation are kept for 28 days before being permanently deleted. Once a conversation has no messages left, it's automatically removed from your history.
 
 ### Viewing and editing generated files within {% data variables.copilot.copilot_chat_short %}
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.copilot.copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
+When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.copilot.copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
 
 For example, asking {% prompt %}Generate a simple calculator using HTML, CSS, and JavaScript{% endprompt %} may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
 
@@ -142,16 +144,8 @@ You can attach an image to {% data variables.product.prodname_copilot_short %} a
 
 ### Attaching an image to your chat prompt
 
-1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
+1. Go to the immersive view of {% data variables.copilot.copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. If you see the AI model picker at the top of the page, select one of the models that supports adding images to prompts:
-
-   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
-   * {% data variables.copilot.copilot_gpt_5_mini %}
-   * {% data variables.copilot.copilot_gpt_5 %}
-   * {% data variables.copilot.copilot_claude_sonnet_35 %}
-   * {% data variables.copilot.copilot_claude_sonnet_37 %}
-   * {% data variables.copilot.copilot_gemini_flash %}
-   * {% data variables.copilot.copilot_gemini_25_pro %}
 
    ![Screenshot of the model picker with the list of models expanded.](/assets/images/help/copilot/model-picker-copilot-immersive.png)
 
@@ -192,7 +186,7 @@ You can access {% data variables.product.prodname_copilot_short %}'s immersive v
 1. Go to the dashboard at [https://github.com](https://github.com).
 1. In the prompt box, type a question and press <kbd>Enter</kbd>.
 
-   ![Screenshot of the dashboard with the "Ask Copilot" box highlighted with an orange outline.](/assets/images/help/copilot/copilot-chat-dashboard.png)
+   ![Screenshot of the dashboard with the Copilot Chat prompt box.](/assets/images/help/copilot/copilot-chat-dashboard.png)
 
    You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} responds to your request.
 
@@ -203,7 +197,7 @@ You can access {% data variables.product.prodname_copilot_short %}'s immersive v
 
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, this feature is only available to users without enterprise or team memberships.
 
-You can share {% data variables.copilot.copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
+You can share {% data variables.copilot.copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=text)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
 
 Once you share a conversation, the conversation and future messages will be visible to anyone with the link.
 

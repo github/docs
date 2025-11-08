@@ -69,11 +69,6 @@ search:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
-  cta:
-    heading: Get quick answers!
-    description: Ask Copilot your question.
-    dismiss: Dismiss
-    ask_copilot: Ask Copilot
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
@@ -261,18 +256,17 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
-bespoke_landing:
-  articles: Articles
-  all_categories: All categories
-  search_articles: Search articles
-discovery_landing:
-  recommended: Recommended
-  articles: Articles
-  all_categories: All categories
-  search_articles: Search articles
 journey_landing:
   articles: '{{ number }} Articles'
 product_landing:
+  article_grid:
+    heading: Articles
+    all_categories: All categories
+    search_articles: Search articles
+    no_articles_found: No articles found matching your criteria.
+    showing_results: Showing {start}-{end} of {total}
+  carousel:
+    recommended: Recommended
   quickstart: Quickstart
   reference: Reference
   overview: Overview
@@ -326,6 +320,11 @@ learning_track_nav:
   next_guide: Next
   more_guides: More guides →
   current_progress: '{i} of {n} in learning path'
+journey_track_nav:
+  prev_article: Previous
+  next_article: Next
+  more_articles: More articles →
+  current_progress: 'Article {i} of {n}'
 scroll_button:
   scroll_to_top: Scroll to top
 popovers:

@@ -40,13 +40,13 @@ function stringify(data: Record<string, any>): string {
       stringValue = stringValue.replace(/["\\]/g, '\\$&')
     }
     if (needs_quoting || needs_escaping) {
-      stringValue = '"' + stringValue + '"'
+      stringValue = `"${stringValue}"`
     }
     if (stringValue === '' && !is_null) {
       stringValue = '""'
     }
 
-    line += key + '=' + stringValue + ' '
+    line += `${key}=${stringValue} `
   }
 
   // trim trailing space

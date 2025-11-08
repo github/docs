@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-completion
   - /copilot/responsible-use-of-github-copilot-features/copilot-code-completion
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.product.prodname_copilot %} code completion

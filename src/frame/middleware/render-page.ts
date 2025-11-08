@@ -28,7 +28,7 @@ async function buildRenderedPage(req: ExtendedRequest): Promise<string> {
   return (await pageRenderTimed(context)) as string
 }
 
-async function buildMiniTocItems(req: ExtendedRequest): Promise<string | undefined> {
+function buildMiniTocItems(req: ExtendedRequest) {
   const { context } = req
   if (!context) throw new Error('request not contextualized')
   const { page } = context
@@ -38,7 +38,7 @@ async function buildMiniTocItems(req: ExtendedRequest): Promise<string | undefin
     return
   }
 
-  return getMiniTocItems(context.renderedPage, 0)
+  return getMiniTocItems(context.renderedPage || '', 0)
 }
 
 export default async function renderPage(req: ExtendedRequest, res: Response) {
@@ -92,7 +92,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
 
   if (!req.context) throw new Error('request not contextualized')
   req.context.renderedPage = await buildRenderedPage(req)
-  req.context.miniTocItems = await buildMiniTocItems(req)
+  req.context.miniTocItems = buildMiniTocItems(req)
 
   // Stop processing if the connection was already dropped
   if (isConnectionDropped(req, res)) return
@@ -106,7 +106,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       req.context.currentVersion === 'free-pro-team@latest' ||
       !allVersions[req.context.currentVersion!]
     ) {
-      page.fullTitle += ' - ' + context.site!.data.ui.header.github_docs
+      page.fullTitle += ` - ${context.site!.data.ui.header.github_docs}`
     } else {
       const { versionTitle } = allVersions[req.context.currentVersion!]
       page.fullTitle += ' - '
@@ -116,7 +116,7 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
       if (!versionTitle.includes('GitHub')) {
         page.fullTitle += 'GitHub '
       }
-      page.fullTitle += versionTitle + ' Docs'
+      page.fullTitle += `${versionTitle} Docs`
     }
   }
 

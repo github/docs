@@ -126,7 +126,7 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 1. In your `docs-internal` checkout, create a new branch: `git checkout -b deprecate-<version>`.
 
-1. In your `docs-internal` checkout, edit `src/versions/lib/enterprise-server-releases.js` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
+1. In your `docs-internal` checkout, edit `src/versions/lib/enterprise-server-releases.ts` by removing the version number to be deprecated from the `supported` array and move it to the `deprecatedWithFunctionalRedirects` array.
 
 1. Deprecate the automated pipelines data files:
 

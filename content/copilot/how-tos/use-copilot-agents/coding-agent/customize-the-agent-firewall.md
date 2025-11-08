@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/customize-the-agent-firewall
   - /copilot/how-tos/agents/coding-agent/customize-the-agent-firewall
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 > [!NOTE]

@@ -96,7 +96,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     webhooks.map((webhook) => webhook.data.category),
     context,
   )
-  webhooksMiniTocs && miniTocItems.push(...webhooksMiniTocs)
+  if (webhooksMiniTocs) {
+    miniTocItems.push(...webhooksMiniTocs)
+  }
 
   return {
     props: {

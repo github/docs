@@ -83,7 +83,7 @@ export const pageValidationMiddleware = (
 
   const redirectsContext = { pages: req.context.pages, redirects: req.context.redirects }
 
-  // Similar to how the `handle-redirects.js` middleware works, let's first
+  // Similar to how the `handle-redirects.ts` middleware works, let's first
   // check if the URL is just having a trailing slash.
   while (pathname.endsWith('/') && pathname.length > 1) {
     pathname = pathname.slice(0, -1)

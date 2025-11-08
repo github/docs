@@ -53,6 +53,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 | Provider | Token |
 |----------|:--------------------|
+|  Generic | ec_private_key |
 |  Generic | http_basic_authentication_header |
 |  Generic | http_bearer_authentication_header |
 |  Generic | mongodb_connection_string |
@@ -65,7 +66,9 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 >[!NOTE] Validity checks are not supported for non-provider patterns.
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
+
 ### {% data variables.secret-scanning.copilot-secret-scanning %}
+
 {% data variables.product.prodname_secret_scanning_caps %} uses {% data variables.product.prodname_copilot_short %} to detect generic passwords. See [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
 
 | Provider | Token |

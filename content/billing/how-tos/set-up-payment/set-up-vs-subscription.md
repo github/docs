@@ -3,6 +3,7 @@ title: Setting up Visual Studio subscriptions with GitHub Enterprise
 intro: 'Your team''s subscription to {% data variables.product.prodname_vs %} can also provide access to {% data variables.product.prodname_enterprise %}.'
 versions:
   ghec: '*'
+  ghes: '*'
 redirect_from:
   - /billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise
   - /billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise
@@ -36,7 +37,7 @@ To set up {% data variables.visual_studio.prodname_vss_ghe %}, members of your t
 
 One person may be able to complete the tasks because the person has all of the roles, but you may need to coordinate the tasks with multiple people. For more information, see [AUTOTITLE](/billing/reference/roles-for-visual-studio).
 
-1. A {% data variables.product.github %} enterprise owner must create at least one organization in your enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise).
+1. A {% data variables.product.github %} enterprise owner must create at least one organization in your enterprise. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 1. The {% data variables.product.prodname_vs %} subscription admin must assign a license for {% data variables.product.prodname_vs %} to a subscriber in {% data variables.visual_studio.prodname_vss_admin_portal_with_url %}. For more information, see [Overview of the {% data variables.product.prodname_vs %} Subscriptions Administrator Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/using-admin-portal) and [Assign {% data variables.product.prodname_vs %} Licenses in the {% data variables.product.prodname_vs %} Subscriptions Administration Portal](https://docs.microsoft.com/en-us/visualstudio/subscriptions/assign-license) in Microsoft Docs.
 
@@ -44,7 +45,7 @@ One person may be able to complete the tasks because the person has all of the r
 
 1. If the {% data variables.product.prodname_vs %} subscription admin has not disabled email notifications, the subscriber will receive two confirmation emails. For more information, see [{% data variables.product.prodname_vs %} subscriptions with {% data variables.product.prodname_enterprise %}](https://docs.microsoft.com/en-us/visualstudio/subscriptions/access-github#what-is-the-visual-studio-subscription-with-github-enterprise-setup-process) in Microsoft Docs.
 
-1. A {% data variables.product.github %} organization owner must invite the subscriber to the organization created in step 1. The subscriber can accept the invitation with an existing personal account or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization).
+1. A {% data variables.product.github %} organization owner must invite the subscriber to the organization created in step 1. The subscriber can accept the invitation with an existing personal account or create a new account. After the subscriber joins the organization, the subscriber becomes an enterprise member. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
    > [!TIP]
    > * While not required, we recommend that the organization owner sends an invitation to the same email address used for the subscriber's User Primary Name (UPN). When the email address on {% data variables.product.github %} matches the subscriber's UPN, you can ensure that another enterprise does not claim the subscriber's license.
@@ -88,4 +89,4 @@ You can also see pending {% data variables.product.prodname_enterprise %} invita
 
 ## Further reading
 
-* [AUTOTITLE](/get-started/onboarding/getting-started-with-github-enterprise-cloud)
+* [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}{% endif %}

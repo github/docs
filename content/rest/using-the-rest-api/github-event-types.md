@@ -63,22 +63,26 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ```json
 [
   {
+    "id": "12345",
     "type": "WatchEvent",
-    "public": false,
-    "payload": {
+    "actor": {
+      "id": 1,
+      "login": "octocat",
+      "display_login": "octocat",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/octocat",
+      "avatar_url": "https://github.com/images/error/octocat_happy.gif"
     },
     "repo": {
       "id": 3,
       "name": "octocat/Hello-World",
       "url": "https://api.github.com/repos/octocat/Hello-World"
     },
-    "actor": {
-      "id": 1,
-      "login": "octocat",
-      "gravatar_id": "",
-      "avatar_url": "https://github.com/images/error/octocat_happy.gif",
-      "url": "https://api.github.com/users/octocat"
+    "payload": {
+      "action": "started"
     },
+    "public": false,
+    "created_at": "2011-09-06T17:26:27Z",
     "org": {
       "id": 1,
       "login": "github",
@@ -86,8 +90,6 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
       "url": "https://api.github.com/orgs/github",
       "avatar_url": "https://github.com/images/error/octocat_happy.gif"
     },
-    "created_at": "2011-09-06T17:26:27Z",
-    "id": "12345"
   }
 ]
 ```
@@ -121,6 +123,20 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ### Event `payload` object for DeleteEvent
 
 {% data reusables.webhooks.delete_properties %}
+
+{% ifversion fpt or ghec %}
+
+## DiscussionEvent
+
+{% data reusables.webhooks.discussion_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### Event `payload` object for DiscussionEvent
+
+{% data reusables.webhooks.discussion_properties %}
+
+{% endif %}
 
 ## ForkEvent
 
@@ -202,11 +218,7 @@ This event returns an empty `payload` object.
 
 ### Event `payload` object for PullRequestReviewEvent
 
-Key | Type | Description
-----|------|-------------
-`action` | `string` | The action that was performed. Can be `created`.
-`pull_request` | `object` | The pull request the review pertains to.
-`review` | `object` |	The review that was affected.
+{% data reusables.webhooks.pull_request_review_properties %}
 
 ## PullRequestReviewCommentEvent
 
@@ -219,16 +231,6 @@ Key | Type | Description
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
 
-## PullRequestReviewThreadEvent
-
-{% data reusables.webhooks.pull_request_review_thread_short_desc %}
-
-{% data reusables.webhooks.events_api_payload %}
-
-### Event `payload` object for PullRequestReviewThreadEvent
-
-{% data reusables.webhooks.pull_request_thread_properties %}
-
 ## PushEvent
 
 {% data reusables.webhooks.push_short_desc %}
@@ -237,22 +239,7 @@ Key | Type | Description
 
 ### Event `payload` object for PushEvent
 
-Key | Type | Description
-----|------|-------------
-`push_id` | `integer` | Unique identifier for the push.
-`size`|`integer` | The number of commits in the push.
-`distinct_size`|`integer` | The number of distinct commits in the push.
-`ref`|`string` | The full [`git ref`](/rest/git/refs) that was pushed. Example: `refs/heads/main`.
-`head`|`string` | The SHA of the most recent commit on `ref` after the push.
-`before`|`string` | The SHA of the most recent commit on `ref` before the push.
-`commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
-`commits[][sha]`|`string` | The SHA of the commit.
-`commits[][message]`|`string` | The commit message.
-`commits[][author]`|`object` | The git author of the commit.
-`commits[][author][name]`|`string` | The git author's name.
-`commits[][author][email]`|`string` | The git author's email address.
-`commits[][url]`|`url` | URL that points to the commit API resource.
-`commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
+{% data reusables.webhooks.push_properties %}
 
 ## ReleaseEvent
 
@@ -264,18 +251,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
-
-{% ifversion fpt or ghec %}
-
-## SponsorshipEvent
-
-{% data reusables.webhooks.sponsorship_short_desc %}
-
-### Event `payload` object for SponsorshipEvent
-
-{% data reusables.webhooks.sponsorship_event_api_properties %}
-{% data reusables.webhooks.sponsorship_properties %}
-{% endif %}
 
 ## WatchEvent
 
