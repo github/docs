@@ -39,9 +39,9 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
   // injected there it needs to have its own possible Liquid rendered out.
   const glossariesRaw: Glossary[] = getDataByLanguage(
     'glossaries.external',
-    req.context.currentLanguage,
+    req.context.currentLanguage!,
   )
-  const glossaries = (
+  const glossariesList = (
     await Promise.all(
       glossariesRaw.map(async (glossary) => {
         let { description } = glossary
@@ -80,7 +80,7 @@ export default async function glossaries(req: ExtendedRequest, res: Response, ne
     )
   ).filter(Boolean)
 
-  req.context.glossaries = glossaries.sort((a, b) =>
+  req.context.glossaries = glossariesList.sort((a, b) =>
     a.term.localeCompare(b.term, req.context!.currentLanguage),
   )
 

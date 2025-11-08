@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/how-tos/build-copilot-extensions/creating-a-copilot-extension/create-github-app
   - /copilot/how-tos/build-copilot-extensions/create-a-copilot-extension/create-github-app
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 A {% data variables.copilot.copilot_extension_short %} is a {% data variables.product.prodname_github_app %} that is associated with a {% data variables.copilot.copilot_agent_short %}. The {% data variables.product.prodname_github_app %} you associate your {% data variables.copilot.copilot_agent_short %} with is used to authenticate the {% data variables.copilot.copilot_agent_short %} with {% data variables.product.prodname_dotcom %} and to authorize the {% data variables.copilot.copilot_agent_short %} to access the {% data variables.copilot.copilot_chat_short %} API. Each {% data variables.copilot.copilot_agent_short %} must be associated with a unique {% data variables.product.prodname_github_app %}.

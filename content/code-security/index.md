@@ -1,7 +1,7 @@
 ---
-title: Secure coding documentation
-shortTitle: Secure coding
-intro: 'Build security into your {% data variables.product.github %} workflow to secure your software supply chain, automatically find and fix vulnerabilities in your codebase, and prevent data leaks.'
+title: Security and code quality documentation
+shortTitle: Security and code quality
+intro: 'Build security and code quality into your {% data variables.product.github %} workflow to secure your software supply chain, prevent data leaks, and automatically find and fix vulnerabilities and code health issues in your codebase.'
 redirect_from:
   - /code-security/guides
 introLinks:
@@ -44,6 +44,7 @@ topics:
 children:
   - /getting-started
   - /trialing-github-advanced-security
+  - /code-quality
   - /adopting-github-advanced-security-at-scale
   - /securing-your-organization
   - /secret-scanning

@@ -1,4 +1,4 @@
-name: Sync CodeQl CLI
+name: Sync CodeQL CLI
 
 # **What it does**: This workflow is run manually approximately every two weeks.
 #   When run, this workflow syncs the CodeQL CLI automated pipeline with the semmle-code
@@ -92,7 +92,7 @@ jobs:
 
           branchCheckout=$(git checkout -b $branchname)
           if [[ ! $? -eq 0 ]]; then
-            echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
+            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
             exit 0
           fi
           git add .

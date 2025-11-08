@@ -20,7 +20,7 @@ featuredLinks:
     - '{% ifversion ghec %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/how-tos/products/view-productlicense-use{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-actions{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-copilot{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-copilot-licenses{% endif %}'
     - '{% ifversion fpt or ghec %}/billing/concepts/product-billing/github-codespaces{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/manage-server-licenses/download-your-license{% endif %}'
     - '{% ifversion ghes %}/billing/how-tos/manage-plan-and-licenses/view-enterprise-usage{% endif %}'

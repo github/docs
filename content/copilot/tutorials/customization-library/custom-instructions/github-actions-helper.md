@@ -8,6 +8,7 @@ category:
   - GitHub flows
   - Path-specific
   - Repository
+  - Configure Copilot
 complexity:
   - Simple
 octicon: book

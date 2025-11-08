@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/extend-coding-agent-with-mcp
   - /copilot/how-tos/agents/coding-agent/extend-coding-agent-with-mcp
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## Prerequisite
@@ -26,8 +28,12 @@ Before setting up an MCP server for {% data variables.copilot.copilot_coding_age
 
 As a repository administrator, you can configure MCP servers for use within your repository. You do this using a JSON-formatted configuration that specifies the details of the MCP servers you want to use. You enter the JSON configuration directly into the settings for the repository on {% data variables.product.prodname_dotcom_the_website %}.
 
+Organization and enterprise administrators can also configure MCP servers as part of {% data variables.copilot.custom_agents_short %} using the YAML frontmatter. For more information, see [AUTOTITLE](/copilot/reference/custom-agents-configuration#mcp-server-configuration-details).
+
 > [!WARNING]
 > Once you've configured an MCP server, {% data variables.product.prodname_copilot_short %} will be able to use the tools provided by the server autonomously, and will not ask for your approval before using them.
+
+{% data reusables.copilot.mcp.coding-agent-limitations %}
 
 ## Adding an MCP configuration to your repository
 
@@ -150,40 +156,11 @@ The [Notion MCP server](https://github.com/makenotion/notion-mcp-server) gives {
 
 ### Example: Azure
 
-The [Azure MCP server](https://github.com/Azure/azure-mcp) creates a seamless connection between {% data variables.product.prodname_copilot_short %} and key Azure services such as Azure Cosmos DB and the Azure Storage platform.
+The [Azure MCP Server](https://github.com/Azure/azure-mcp) allows {% data variables.product.prodname_copilot_short %} to understand your Azure-specific files and Azure resources within your subscription when making code changes.
 
-To use the Azure MCP with {% data variables.copilot.copilot_coding_agent %}, you must update the repository's `copilot-setup-steps.yml` file to include an Azure login workflow step.
+To automatically configure your repository with a `copilot-setup-steps.yml` file to authenticate with Azure, plus secrets for authentication, clone the repository locally then run the [Azure Developer CLI](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/?ref_product=copilot&ref_type=engagement&ref_style=button)'s `azd coding-agent config` command in the root of the repository.
 
-1. Configure OIDC in a Microsoft Entra application, trusting {% data variables.product.github %}. See [Use the Azure Login action with OpenID Connect](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect).
-1. Add a `.github/workflows/copilot-setup-steps.yml` Actions workflow file in your repository if you do not already have one.
-1. Add an Azure login step to the `copilot-setup-steps` workflow job.
-
-   ```yaml copy
-   on:
-     workflow_dispatch:
-   permissions:
-     id-token: write
-     contents: read
-   jobs:
-     copilot-setup-steps:
-       runs-on: ubuntu-latest
-       permissions:
-         id-token: write
-         contents: read
-       environment: copilot
-       steps:
-         - name: Azure login
-           uses: azure/login@a457da9ea143d694b1b9c7c869ebb04ebe844ef5
-           with:
-             client-id: {% raw %}${{ secrets.AZURE_CLIENT_ID }}{% endraw %}
-             tenant-id: {% raw %}${{ secrets.AZURE_TENANT_ID }}{% endraw %}
-             subscription-id: {% raw %}${{ secrets.AZURE_SUBSCRIPTION_ID }}{% endraw %}
-   ```
-
-   This configuration ensures the `azure/login` action is executed when {% data variables.copilot.copilot_coding_agent %} runs.
-
-1. In your repository’s {% data variables.product.prodname_copilot_short %} environment, add secrets for your `AZURE_CLIENT_ID`, `AZURE_TENANT_ID` and `AZURE_SUBSCRIPTION_ID`.
-1. Configure the Azure MCP server by adding an `azure` object to your MCP configuration.
+Once you've run the command and merged the created pull request, you can add the MCP configuration to your repository.
 
   ```json copy
    {
@@ -231,6 +208,7 @@ To use the Azure DevOps MCP server with {% data variables.copilot.copilot_coding
 1. Add an Azure login step to the `copilot-setup-steps` workflow job.
 
    ```yaml copy
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    on:
      workflow_dispatch:
    permissions:
@@ -323,7 +301,23 @@ If you want to allow {% data variables.product.prodname_copilot_short %} to acce
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code & automation" section of the sidebar, click **{% data variables.product.prodname_copilot_short %}** then **{% data variables.copilot.copilot_coding_agent_short_cap_c %}**.
-1. Add your configuration in the **MCP configuration** section.
+1. Add your configuration in the **MCP configuration** section. For example, you can add the following:
+
+  ```javascript copy
+    // If you copy and paste this example, you will need to remove the comments prefixed with `//`, which are not valid JSON.
+    {
+      "mcpServers": {
+        "github-mcp-server": {
+          "type": "http",
+          // Remove "/readonly" to enable wider access to all tools.
+          // Then, use the "tools" key to specify the subset of tools you'd like to include.
+          "url": "https://api.githubcopilot.com/mcp/readonly",
+          "tools": ["*"]
+        }
+      }
+    }
+   ```
+
 1. Click **Save**.
 {% data reusables.actions.sidebar-environment %}
 1. Click the `copilot` environment.
@@ -334,5 +328,6 @@ For information on using the {% data variables.product.github %} MCP server in o
 
 ## Next steps
 
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)

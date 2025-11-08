@@ -25,6 +25,8 @@ redirect_from:
   - /copilot/copilot-business
   - /copilot/about-github-copilot/what-is-github-copilot
 contentType: get-started
+category: 
+  - Learn about Copilot
 ---
 
 {% data variables.product.prodname_copilot %} is an AI coding assistant that helps you write code faster and with less effort, allowing you to focus more energy on problem solving and collaboration.
@@ -60,7 +62,7 @@ There are a few ways you can start using {% data variables.product.prodname_copi
 ### For individuals
 
 * **Try {% data variables.product.prodname_copilot_short %} for free**: Use {% data variables.copilot.copilot_free_short %} to explore core {% data variables.product.prodname_copilot_short %} features with no paid plan required.
-* **Subscribe to a paid plan**: Upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} for full access to premium features and more generous usage limits. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.copilot.copilot_pro_short %} for free</span></a> with a one-time 30-day trial.
+* **Subscribe to a paid plan**: Upgrade to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} for full access to premium features and more generous usage limits. You can <a href="https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text&ref_plan=pro" target="_blank"><span>try {% data variables.copilot.copilot_pro_short %} for free</span></a> with a one-time 30-day trial.
 * **Eligible for free {% data variables.copilot.copilot_pro_short %} access?** Students, teachers, and open source maintainers may qualify for {% data variables.copilot.copilot_pro_short %} at no cost. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 * **Organization members**: If your organization or enterprise has a {% data variables.product.prodname_copilot %} plan, you can request access to {% data variables.product.prodname_copilot_short %} by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
@@ -71,7 +73,7 @@ See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subs
 * **Organization owners**: Purchase {% data variables.copilot.copilot_business_short %} for your team. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization). If your organization is owned by an enterprise that has a {% data variables.product.prodname_copilot_short %} subscription, you can ask your enterprise owner to enable {% data variables.product.prodname_copilot_short %} for your organization by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 * **Enterprise owners**: Purchase {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise).
 
-If you **don't need other {% data variables.product.github %} features**, you can request an enterprise account specifically for managing {% data variables.copilot.copilot_business_short %} licenses. These accounts don't include repository or organization creation and don’t incur {% data variables.product.prodname_enterprise %} seat charges. See [AUTOTITLE](/enterprise-cloud@latest/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
+If you **don't need other {% data variables.product.github %} features**, you can create an enterprise account specifically for managing {% data variables.copilot.copilot_business_short %} licenses. This gives you enterprise-grade authentication options without charges for {% data variables.product.prodname_enterprise %} licenses. See [AUTOTITLE](/copilot/concepts/about-enterprise-accounts-for-copilot-business).
 
 ## Next steps
 

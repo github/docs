@@ -62,6 +62,18 @@ The easiest way to enforce restrictions is to create a **repository policy**. Th
 
 Other policies are available as blanket restrictions. These give you more control over the repository lifecycle, but aren't as flexible as the repository policy features. See{% else %}To learn how to set policies, see{% endif %} [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise).
 
+## Targeting policies with metadata
+
+You can enable better governance through automated policy enforcement. This is possible with custom properties, allowing you to add structured metadata to your resources. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties).
+
+With **repository custom properties**, you can classify repositories by attributes like risk level, team ownership, or compliance requirements. This metadata enables you to automatically apply different governance rules based on repository characteristics.
+
+With **organization custom properties**, you can categorize organizations within your enterprise by data sensitivity, regulatory frameworks, or business units. You can then use these properties to selectively target organizations with enterprise rulesets.
+
+Both types of custom properties integrate with rulesets, allowing you to create powerful governance frameworks that automatically enforce the right policies based on metadata rather than manual repository selection.
+
+See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations).
+
 ## Monitoring activity
 
 If something goes wrong, it's important to be able to search activity in your enterprise to investigate the cause or scope of the problem.

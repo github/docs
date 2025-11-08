@@ -15,7 +15,7 @@ sections:
     - |
       Applying a new GitHub Enterprise Server license using the Management Console would sometimes fail with a HTTP 500 error.
     - |
-      Users saw outdated references to delegated bypass for push protection being in beta in the documentation for webhooks. Users may also have noticed unexpected behavior related to filtering newly approved push protection bypass requests on repository and organization request list pages.
+      Users saw outdated references to delegated bypass for push protection being in public preview in the documentation for webhooks. Users may also have noticed unexpected behavior related to filtering newly approved push protection bypass requests on repository and organization request list pages.
   changes:
     - |
       Site administrators can now set `innodb_buffer_pool_size` in megabytes for MySQL using `ghe-config mysql.innodb-buffer-pool-size VALUE`.

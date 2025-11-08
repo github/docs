@@ -1,6 +1,6 @@
 import chalk from 'chalk'
 
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import buildRecords from '@/search/scripts/scrape/lib/build-records'
 import findIndexablePages from '@/search/scripts/scrape/lib/find-indexable-pages'
 import { writeIndexRecords } from '@/search/scripts/scrape/lib/search-index-records'
@@ -45,13 +45,21 @@ export default async function scrapeIntoIndexJson({
   })
 
   let countRecordsTotal = 0
+  let totalFailedPages = 0
+  const allFailures: Array<{
+    indexName: string
+    languageCode: string
+    indexVersion: string
+    failures: Array<{ url?: string; relativePath?: string; error: string; errorType: string }>
+  }> = []
+
   // Build and validate all indices
   for (const languageCode of languagesToBuild) {
     for (const indexVersion of versionsToBuild) {
       const { indexName } = getElasticSearchIndex('generalSearch', indexVersion, languageCode)
 
       // The page version will be the new version, e.g., free-pro-team@latest, enterprise-server@3.7
-      const records = await buildRecords(
+      const { records, failedPages } = await buildRecords(
         indexName,
         indexablePages,
         indexVersion,
@@ -60,6 +68,17 @@ export default async function scrapeIntoIndexJson({
         config,
       )
       countRecordsTotal += records.length
+
+      if (failedPages.length > 0) {
+        totalFailedPages += failedPages.length
+        allFailures.push({
+          indexName,
+          languageCode,
+          indexVersion,
+          failures: failedPages,
+        })
+      }
+
       const fileWritten = await writeIndexRecords(indexName, records, outDirectory)
       console.log(`wrote records to ${fileWritten}`)
     }
@@ -71,6 +90,25 @@ export default async function scrapeIntoIndexJson({
   console.log(`Took ${chalk.bold(formatSeconds(tookSec))}`)
   const rate = (countRecordsTotal / tookSec).toFixed(1)
   console.log(`Rate ~${chalk.bold(rate)} pages per second.`)
+
+  // Write failures summary to a file for GitHub Actions to read
+  if (totalFailedPages > 0) {
+    const fs = await import('fs')
+    const path = await import('path')
+    const failuresSummaryPath = path.join(outDirectory, 'failures-summary.json')
+    await fs.promises.writeFile(
+      failuresSummaryPath,
+      JSON.stringify(
+        {
+          totalFailedPages,
+          failures: allFailures,
+        },
+        null,
+        2,
+      ),
+    )
+    console.log(`\n${chalk.yellow('⚠')} Wrote failures summary to ${failuresSummaryPath}`)
+  }
 }
 
 function formatSeconds(seconds: number): string {

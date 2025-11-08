@@ -7,7 +7,7 @@ import { ProductTreeNode, useMainContext } from '@/frame/components/context/Main
 import { useAutomatedPageContext } from '@/automated-pipelines/components/AutomatedPageContext'
 import { nonAutomatedRestPaths } from '@/rest/lib/config'
 
-import styles from './SidebarProduct.module.css'
+import styles from './SidebarProduct.module.scss'
 
 export const SidebarProduct = () => {
   const router = useRouter()
@@ -135,10 +135,10 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
         (entries) => {
           entries.forEach((entry) => {
             if (entry.target.id) {
-              const anchor = '#' + entry.target.id.split('--')[0]
+              const anchor = `#${entry.target.id.split('--')[0]}`
               if (entry.isIntersecting === true) setVisibleAnchor(anchor)
             } else if (asPath.includes('#')) {
-              setVisibleAnchor('#' + asPath.split('#')[1])
+              setVisibleAnchor(`#${asPath.split('#')[1]}`)
             } else {
               setVisibleAnchor('')
             }
@@ -174,7 +174,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
               <NavList.Item
                 defaultOpen={routePath.includes(childPage.href)}
                 key={childPage.href}
-                onClick={(event) => {
+                // Using any because Primer React's NavList doesn't export proper event types
+                onClick={(event: any) => {
                   event.preventDefault()
                   push(childPage.href)
                 }}

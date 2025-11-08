@@ -19,7 +19,7 @@ const platforms = [
 function showPlatformSpecificContent(platform: string) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
   markdowns
-    .filter((el) => platforms.some((platform) => el.classList.contains(platform.value)))
+    .filter((el) => platforms.some((platformValue) => el.classList.contains(platformValue.value)))
     .forEach((el) => {
       el.style.display = el.classList.contains(platform) ? '' : 'none'
 
@@ -36,7 +36,7 @@ function showPlatformSpecificContent(platform: string) {
   // example: <span class="platform-mac">inline content</span>
   const platformEls = Array.from(
     document.querySelectorAll<HTMLElement>(
-      platforms.map((platform) => `.platform-${platform.value}`).join(', '),
+      platforms.map((platformOption) => `.platform-${platformOption.value}`).join(', '),
     ),
   )
   platformEls.forEach((el) => {

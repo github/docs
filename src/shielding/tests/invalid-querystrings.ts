@@ -53,9 +53,9 @@ describe('invalid query strings', () => {
     expect(res.headers.location).toBe('/en')
     // But note that it only applies to the home page!
     {
-      const url = `/en/get-started?${randomCharacters(8)}`
-      const res = await get(url)
-      expect(res.statusCode).toBe(200)
+      const nestedUrl = `/en/get-started?${randomCharacters(8)}`
+      const nestedRes = await get(nestedUrl)
+      expect(nestedRes.statusCode).toBe(200)
     }
   })
 

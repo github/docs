@@ -63,7 +63,7 @@ async function run() {
   const releaseType = process.argv[2]
   if (releaseType !== 'release' && releaseType !== 'deprecation') {
     throw new Error(
-      "Please specify either 'release' or 'deprecation'\nExample: src/versions/scripts/create-enterprise-issue.js release",
+      "Please specify either 'release' or 'deprecation'\nExample: src/versions/scripts/create-enterprise-issue.ts release",
     )
   }
 
@@ -356,13 +356,13 @@ async function isExistingIssue(
 ): Promise<boolean> {
   const { labels, searchQuery, titleMatch } = opts
   const labelQuery = labels && labels.map((label) => `label:"${encodeURI(label)}"`).join('+')
-  let query = encodeURIComponent('is:issue ' + `repo:${repo} `)
+  let query = encodeURIComponent(`is:issue repo:${repo} `)
 
   if (searchQuery) {
-    query += '+' + searchQuery
+    query += `+${searchQuery}`
   }
   if (labelQuery) {
-    query += '+' + labelQuery
+    query += `+${labelQuery}`
   }
 
   const issues = await octokit.request(`GET /search/issues?q=${query}`)

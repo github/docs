@@ -33,8 +33,8 @@ export default function GraphqlPreviews({ mainContext, schema, automatedPageCont
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getPreviews } = await import('@/graphql/lib/index.js')
-  const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items.js')
+  const { getPreviews } = await import('@/graphql/lib/index')
+  const { getAutomatedPageMiniTocItems } = await import('@/frame/lib/get-mini-toc-items')
 
   const req = context.req as any
   const res = context.res as any

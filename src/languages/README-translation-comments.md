@@ -105,7 +105,7 @@ Error messages are cleaned up for security and readability:
 
 ## Code Implementation
 
-The feature is implemented in `src/languages/lib/render-with-fallback.js`:
+The feature is implemented in `src/languages/lib/render-with-fallback.ts`:
 
 - `createTranslationFallbackComment()` - Generates the HTML comment
 - Enhanced `renderContentWithFallback()` - Adds comments for page properties

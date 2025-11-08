@@ -1,0 +1,58 @@
+# Please keep this list sorted in alphabetical order.
+#
+# This file defines the model multipliers for paid and free plans.
+# It is used to generate the "Model multipliers" table at
+# /content/copilot/reference/ai-models/supported-models#moodel-multiplier.
+#
+# Column keys:
+# - name: The model name.
+# - multiplier_paid: The multiplier for paid plans.
+# - multiplier_free: The multiplier for free plans.
+
+- name: Claude Haiku 4.5
+  multiplier_paid: 0.33
+  multiplier_free: Not applicable
+
+- name: Claude Opus 4.1
+  multiplier_paid: 10
+  multiplier_free: Not applicable
+
+- name: Claude Sonnet 3.5
+  multiplier_paid: 1
+  multiplier_free: 1
+
+- name: Claude Sonnet 4
+  multiplier_paid: 1
+  multiplier_free: Not applicable
+
+- name: Claude Sonnet 4.5
+  multiplier_paid: 1
+  multiplier_free: Not applicable
+
+- name: Gemini 2.5 Pro
+  multiplier_paid: 1
+  multiplier_free: Not applicable
+
+- name: GPT-4.1
+  multiplier_paid: 0
+  multiplier_free: 1
+
+- name: GPT-4o
+  multiplier_paid: 0
+  multiplier_free: 1
+
+- name: GPT-5
+  multiplier_paid: 1
+  multiplier_free: Not applicable
+
+- name: GPT-5 mini
+  multiplier_paid: 0
+  multiplier_free: 1
+
+- name: GPT-5-Codex
+  multiplier_paid: 1
+  multiplier_free: Not applicable
+
+- name: Grok Code Fast 1
+  multiplier_paid: 0.25
+  multiplier_free: Not applicable

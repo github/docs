@@ -9,17 +9,20 @@ versions:
 topics:
   - Billing
 children:
-  - /product-usage-included
-  - /actions-minute-multipliers
-  - /billing-reports
-  - /supported-payment-methods
+  - /actions-runner-pricing
+  - /azure-billing
   - /azure-subscription
+  - /billing-reports
   - /billing-roles
   - /cost-center-allocation
-  - /roles-for-visual-studio
-  - /github-license-users
-  - /license-reports
   - /costs-for-github-models
   - /enterprise-license-troubleshooting
+  - /github-license-users
+  - /license-reports
+  - /product-and-sku-names
+  - /product-usage-included
+  - /roles-for-visual-studio
+  - /supported-payment-methods
 contentType: reference
 ---
+

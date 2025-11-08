@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/how-tos/context/install-copilot-extensions/extending-the-capabilities-of-github-copilot-in-your-organization
   - /copilot/how-tos/context/install-copilot-extensions/install-extensions
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 ## About {% data variables.copilot.copilot_extensions %} for your organization

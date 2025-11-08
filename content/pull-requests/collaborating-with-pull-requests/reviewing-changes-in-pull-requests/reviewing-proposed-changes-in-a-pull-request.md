@@ -16,7 +16,13 @@ shortTitle: Review proposed changes
 ---
 ## About reviewing pull requests
 
-You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+It's best to review changes in a pull request one file at a time:
+
+* **Examine** each individual file changed in the pull request.
+* **Leave comments** on specific changes.
+* After reviewing a file, mark it as **Viewed** to collapse it and track your progress.
+* The **progress bar** in the pull request header shows how many files you've viewed.
+* When you've finished, you can **approve** the pull request or **request changes** by submitting your review with a summary comment.
 
 {% ifversion copilot %}
 
@@ -24,9 +30,43 @@ If the pull request was raised by {% data variables.product.prodname_copilot %} 
 
 {% endif %}
 
-{% data reusables.search.requested_reviews_search_tip %}
-
 {% webui %}
+
+## Understanding the purpose of the pull request
+
+Gaining a clear understanding of the motivation behind a pull request helps inform your review, so you can keep it targeted and meaningful, and provide feedback that is aligned with the pull request author’s intent and the project's goals.
+
+There are several options available to you to better understand the context and rationale for proposed changes.
+
+### Using the pull request sidebar for context
+
+In the pull request sidebar, you can find valuable context including:
+
+* Linked **issues** or **discussions**: Review these to understand the problems or goals that the pull request aims to address, or to gather information on, for example, any background, design decisions, or current debates.
+* Linked **projects** or **milestones**: Review how this pull request fits within larger projects or upcoming releases.
+
+Use this information to frame your review and check if the goals of the pull request align with the original intent.
+
+{% ifversion copilot %}
+
+### Using {% data variables.copilot.copilot_chat_short %} to understand the rationale
+
+You can ask {% data variables.copilot.copilot_chat_short %} for help understanding the pull request’s intent or for clarification on any part of the change.
+
+1. At the top right of the pull request page, click the **{% octicon "copilot" aria-label="Copilot icon" %}** button next to the search bar.
+
+   The full-page, immersive, mode of {% data variables.copilot.copilot_chat_short %} is displayed, with the pull request attached as context to the prompt window.
+
+1. In the prompt box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+
+   * `What problem does this pull request solve?`
+   * `Why were these changes needed?`
+   * `Summarize the goals of this PR based on the linked issue.`
+   * `How does this PR relate to issue ISSUE-URL?`
+
+{% data variables.copilot.copilot_chat_short %} can help you clarify the bigger picture before diving into line-level review.
+
+{% endif %}
 
 ## Starting a review
 

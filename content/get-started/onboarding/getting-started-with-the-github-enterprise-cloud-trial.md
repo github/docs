@@ -18,7 +18,7 @@ For full details of what is included in the trial, and what happens during, and 
 
 Go to the trial sign up page and follow the instructions on screen to sign up for the trial.
 
-<a href="https://github.com//account/enterprises/new?ref_cta=GHEC+trial&ref_loc=Getting+started+with+the+github+enterprise+cloud+trial&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ## Part 2: Setting up {% data variables.product.prodname_ghe_cloud %}
 
@@ -30,16 +30,20 @@ You can find information about planning a trial of {% data variables.product.pro
 
 ## Part 4: Setting up {% data variables.copilot.copilot_for_business %}
 
-Setting up your {% data variables.copilot.copilot_for_business %} trial involves three phases, and each phase must be completed by different people.
+Setting up your {% data variables.copilot.copilot_business_short %} trial involves three phases, and each phase must be completed by different people.
 
-### 1. Configuring {% data variables.copilot.copilot_for_business %} for your enterprise
+### 1. Configure {% data variables.copilot.copilot_business_short %} for your enterprise
 
-As an **enterprise owner**, you must first configure {% data variables.copilot.copilot_for_business %} for your enterprise. This phase involves setting policies for the use of {% data variables.copilot.copilot_for_business %} in your enterprise, and deciding which organizations in your enterprise can use {% data variables.copilot.copilot_for_business %}. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
+Configure {% data variables.copilot.copilot_business_short %} for your enterprise and decide how {% data variables.product.prodname_copilot_short %} will be used across your organization.
 
-### 2. Enabling {% data variables.copilot.copilot_for_business %} for your organization
+You can choose to assign licenses directly from the enterprise or enable {% data variables.product.prodname_copilot_short %} for specific organizations.
 
-Next, **organization owners** can enable {% data variables.copilot.copilot_for_business %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
+For detailed setup steps, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
 
-### 3. Enabling {% data variables.copilot.copilot_for_business %} for individual users
+### 2. Enable {% data variables.copilot.copilot_business_short %} for your organization (optional)
 
-If your **personal account** has been granted a seat in an organization that has enabled {% data variables.copilot.copilot_for_business %}, you can now enable {% data variables.copilot.copilot_for_business %} for your personal account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).
+Let **organization owners** know that they can enable {% data variables.copilot.copilot_business_short %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
+
+### 3. Enable {% data variables.copilot.copilot_business_short %} for individual users
+
+Let users know that once their **personal account** has been granted a seat in an organization with {% data variables.copilot.copilot_business_short %} enabled, they can turn on {% data variables.copilot.copilot_business_short %} for their own account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).

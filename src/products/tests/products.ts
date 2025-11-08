@@ -3,7 +3,6 @@ import { describe, expect, test } from 'vitest'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
 import { productMap } from '@/products/lib/all-products'
 import { formatAjvErrors } from '@/tests/helpers/schemas'
-// @ts-ignore - Products schema doesn't have TypeScript types yet
 import schema from '@/tests/helpers/schemas/products-schema'
 
 const validate = getJsonValidator(schema)

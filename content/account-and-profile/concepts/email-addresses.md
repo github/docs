@@ -1,6 +1,6 @@
 ---
 title: Email addresses
-intro: 'Learn about the different types of email addresses you can associate with your {% data variables.product.github %} account—primary, backup, commit, and noreply—and how each type is used for account management, security, and commit attribution.'
+intro: Learn about the different types of email addresses you can associate with your {% data variables.product.github %} account—primary, backup, commit, and noreply—and how each type is used for account management, security, and commit attribution.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,7 @@ topics:
   - Fundamentals
   - Profile
 shortTitle: Email addresses
+contentType: concepts
 ---
 
 ## Adding an email address to your {% data variables.product.github %} account

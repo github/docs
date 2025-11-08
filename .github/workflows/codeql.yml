@@ -9,9 +9,7 @@ on:
     branches:
       - main
     paths:
-      - '**/*.js'
       - '**/*.ts'
-      - '**/*.jsx'
       - '**/*.tsx'
       - '.github/workflows/codeql.yml'
   # This is so that when CodeQL runs on a pull request, it can compare
@@ -36,10 +34,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: github/codeql-action/init@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
+      - uses: github/codeql-action/init@e296a935590eb16afc0c0108289f68c87e2a89a5 # v4.30.7
         with:
           languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
-      - uses: github/codeql-action/analyze@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
+      - uses: github/codeql-action/analyze@e296a935590eb16afc0c0108289f68c87e2a89a5 # v4.30.7
         continue-on-error: true
 
       - uses: ./.github/actions/slack-alert

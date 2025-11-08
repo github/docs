@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/personal-settings/installing-github-copilot-in-the-cli
   - /copilot/how-tos/set-up/installing-github-copilot-in-the-cli
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% data reusables.cli.preview-note-cli %}
@@ -24,7 +26,7 @@ To find out about {% data variables.copilot.copilot_cli_short %} before you inst
 
 ## Prerequisites
 
-* **A {% data variables.product.prodname_copilot %} subscription**. See [Copilot plans](https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=install-copilot-cli&ref_page=docs).
+* **A {% data variables.product.prodname_copilot %} subscription**. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=text).
 * **Node.js** version 22 or later
 * **npm** version 10 or later
 

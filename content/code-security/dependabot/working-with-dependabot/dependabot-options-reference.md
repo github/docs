@@ -167,6 +167,8 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 * Supports only the value `scope`
 * When defined any prefix is followed by the type of dependencies updated in the commit: `deps` or `deps-dev`.
 
+{% ifversion dependabot-option-cooldown %}
+
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
 Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
@@ -233,6 +235,8 @@ The table below shows the package managers for which SemVer is supported.
 >
 > * If `semver-major-days`, `semver-minor-days`, or `semver-patch-days` are not defined, the `default-days` settings will take precedence for cooldown-based updates.
 > * The `exclude` list always take precedence over the `include` list. If a dependency is specified in both lists, it is **excluded from cooldown** and will be updated immediately.
+
+{% endif %}
 
 ## `directories` or `directory` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -603,8 +607,12 @@ Reviewers must have at least read access to the repository.
 | `interval` | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | `day` | Specify the day to run for a **weekly** interval. |
 | `time` | Specify the time to run. |
+| {% ifversion dependabot-schedule-updates %} |
 | `cronjob` | Defines the cron expression if the interval type is `cron`. |
+| {% endif %} |
 | `timezone` | Specify the timezone of the `time` value.  |
+
+{% ifversion fpt or ghec %}
 
 ### `interval`
 
@@ -620,7 +628,22 @@ Each package manager **must** define a schedule interval.
 * Use `yearly` to run on the first day of January.
 * Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
 
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  If you use a `cron` interval, you can define the update time with a `cronjob` expression.
+{% elsif ghes %}
+
+### `interval`
+
+Supported values: `daily`, `weekly`, `monthly`{% ifversion dependabot-schedule-updates %}, or `cron`{% endif %}
+
+Each package manager **must** define a schedule interval.
+
+* Use `daily` to run on every weekday, Monday to Friday.
+* Use `weekly` to run once a week, by default on Monday.
+* Use `monthly` to run on the first day of each month.{% ifversion dependabot-schedule-updates %}
+* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).{% endif %}
+
+{% endif %}
+
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  {% ifversion dependabot-schedule-updates %}If you use a `cron` interval, you can define the update time with a `cronjob` expression.{% endif %}
 
 ### `day`
 
@@ -633,6 +656,8 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
+
+{% ifversion dependabot-schedule-updates %}
 
 ### `cronjob`
 
@@ -662,6 +687,8 @@ updates:
       interval: "cron"
       cronjob: "0 9 * * *"
 ```
+
+{% endif %}
 
 ### `timezone`
 
@@ -807,6 +834,8 @@ New version `2.0.0`
 
 ### Versioning tags
 
+<!-- markdownlint-disable outdated-release-phase-terminology -->
+
 * Represent stages in the software release lifecycle, such as alpha, beta, and stable versions.
 * Allow publishers to distribute their packages more effectively.
 * Indicate the stability of a version and communicate what users should expect in terms of features and stability.
@@ -827,6 +856,8 @@ New version `2.0.0`
 * **`rc`:** Release candidate, close to stable release.
 * **`release`:** The official release version.
 * **`stable`:** The most reliable, production-ready version.
+
+<!-- markdownlint-enable outdated-release-phase-terminology -->
 
 {% endif %}
 

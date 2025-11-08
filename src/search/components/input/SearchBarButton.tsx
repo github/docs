@@ -1,3 +1,4 @@
+import React from 'react'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'
 import { CopilotIcon, SearchIcon } from '@primer/octicons-react'

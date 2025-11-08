@@ -1,5 +1,94 @@
 # Docs changelog
 
+**24 October 2025**
+
+To support the enterprise roles and teams public preview, we:
+
+* Created a new concepts category in the [enterprise admin](https://docs.github.com/en/enterprise-cloud@latest/admin) docs aimed at onboarding administrators, including new articles on roles and teams in an enterprise.
+* Built a user journey for setting up roles, teams, and apps to simplify administration, starting with [Identifying the roles required by your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).
+* Published how-to content on [creating custom roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles), [creating enterprise teams](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams), and [assigning roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
+* Communicated new conceptual frameworks and best practices for enterprise accounts, including [Best practices for organizing work in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/best-practices) and [Enterprise accounts](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
+
+<hr>
+
+**17 October 2025**
+
+We have updated the [Account and profile](https://docs.github.com/en/account-and-profile) and [Subscriptions and notifications](https://docs.github.com/en/subscriptions-and-notifications) docs for improved usability, scannability, and information architecture.
+
+To support accomplishing tasks without context switching or sifting through unrelated content, articles are now organized by content type and focused on jobs-to-be-done. Additionally, related information is now linked from content type to content type.
+
+<hr>
+
+**14 October 2025**
+
+We've added a new tutorial about how to [Review AI-generated code](https://docs.github.com/en/copilot/tutorials/review-ai-generated-code). The article gives techniques to verify and validate AI-generated code, and also suggests how Copilot can help with reviews.
+
+<hr>
+
+**13 October 2025**
+
+To help large enterprises keep their automations secure and consistent across many organizations, we published [Automating app installations in your enterprise's organizations](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-github-apps-for-your-enterprise/automate-installations). This is one of the most requested features from customer feedback.
+
+The tutorial shows how to manage installations and run automations using enterprise-owned apps and the new apps installation API. Security-conscious enterprises will see that Apps maximize security by providing short-lived, minimally scoped tokens at every stage.
+
+
+
+<hr>
+
+**1 October 2025**
+
+We’ve updated the Spark documentation to support the launch for Copilot Enterprise users, making it easier to understand and enable Spark:
+
+* Conceptual article: [About GitHub Spark](https://docs.github.com/en/copilot/concepts/spark#enterprise-considerations) now includes enterprise considerations (governance, billing, infrastructure, and benefits).
+* How-to: [Managing GitHub Spark in your enterprise](https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) is streamlined to prerequisites and enablement steps, with links to related policies.
+
+<hr>
+
+**29 September 2025**
+
+Claude Sonnet 4.5 has been released as a Public Preview. At the time of launch, it will be available on the following platforms: 
+
+- **Copilot Chat** 
+  - Released for GitHub.com, VS Code, GitHub Mobile
+  - With: Copilot Pro, Pro+, Business, and Enterprise
+- **Copilot Coding Agent**
+  - With: Copilot Pro, and Copilot Pro+ 
+- **Copilot CLI**
+  - With: Copilot Pro, Pro+, Business, and Enterprise
+
+The following articles have been updated: 
+
+- [About GitHub Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
+- [Supported AI models in GitHub Copilot](https://docs.github.com/en/copilot/reference/ai-models/supported-models)
+- [Hosting of models for GitHub Copilot Chat](https://docs.github.com/en/copilot/reference/ai-models/model-hosting)
+- [AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
+- [About GitHub Copilot CLI](https://docs.github.com/en/copilot/concepts/agents/about-copilot-cli)
+
+<hr>
+
+**26 September 2025**
+
+To coincide with additional functionality for Copilot coding agent being added to the GitHub Mobile app, we've updated the following articles:
+
+* [Using GitHub Copilot to work on an issue](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/assign-copilot-to-an-issue#assigning-an-issue-to-copilot-on-github-mobile)
+* [Tracking GitHub Copilot's sessions](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/track-copilot-sessions#tracking-sessions-from-github-mobile)
+* [Asking GitHub Copilot to create a pull request](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-a-pr#asking-copilot-to-create-a-pull-request-from-github-mobile)
+
+<hr>
+
+**25 September 2025**
+
+GitHub Copilot CLI has been released as a public preview. It allows you to use Copilot directly from your terminal. You can use it to answer questions, write and debug code, and interact with GitHub.com. For example, you can ask Copilot to make some changes to a project and create a pull request.
+
+GitHub Copilot CLI gives you quick access to a powerful AI agent, without having to leave your terminal. It can help you complete tasks more quickly by working on your behalf, and you can work iteratively with GitHub Copilot CLI to build the code you need.
+
+See:
+
+* [About GitHub Copilot CLI](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+* [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli)
+
+<hr>
+
 **25 September 2025**
 
 We've updated the documentation for the GA release of [Copilot Spaces](https://github.com/copilot/spaces). Spaces allow you to organize and centralize content and resources in order to ground Copilot Chat's responses in that context and share knowledge across teams. You can now also access Copilot Spaces in your IDE via the GitHub MCP server. 

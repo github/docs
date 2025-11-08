@@ -1,15 +1,15 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
-import type { RuleParams, RuleErrorCallback } from '../../types'
+import type { RuleParams, RuleErrorCallback, Rule } from '../../types'
 
 import { doesStringEndWithPeriod, getRange, isStringQuoted } from '../helpers/utils'
 
-export const linkPunctuation = {
+export const linkPunctuation: Rule = {
   names: ['GHD001', 'link-punctuation'],
   description: 'Internal link titles must not contain punctuation',
   tags: ['links', 'url'],
   parser: 'markdownit',
   function: (params: RuleParams, onError: RuleErrorCallback) => {
+    // Using 'any' type for token as markdownlint-rule-helpers doesn't provide TypeScript types
     filterTokens(params, 'inline', (token: any) => {
       const { children, line } = token
       let inLink = false

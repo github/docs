@@ -1,6 +1,7 @@
 ---
-title: GitHub Actions for your enterprise
-intro: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} for your enterprise.'
+title: Setting up CI/CD with GitHub Actions
+intro: Plan and implement a rollout of {% data variables.product.prodname_actions %} for your enterprise.
+shortTitle: Set up CI/CD with Actions
 versions:
   ghec: '*'
 topics:
@@ -10,10 +11,9 @@ topics:
   - Actions
 children:
   - /about-github-actions-for-enterprises
-  - /understanding-github-actions
-  - /introducing-github-actions-to-your-enterprise
+  - /actions-components
+  - /planning-a-rollout-of-github-actions
   - /migrating-your-enterprise-to-github-actions
   - /getting-started-with-github-actions-for-github-enterprise-cloud
-  - /security-hardening-for-github-actions
-  - /about-billing-for-github-actions
 ---
+

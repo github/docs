@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/how-tos/administer/organizations/manage-plan/cancel
   - /copilot/how-tos/administer/manage-for-organization/manage-plan/cancel
 contentType: how-tos
+category: 
+  - Manage Copilot for a team
 ---
 
 {% ifversion ghec %}

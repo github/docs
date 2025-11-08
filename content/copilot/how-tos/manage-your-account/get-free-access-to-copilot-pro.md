@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer
   - /copilot/how-tos/manage-your-account/getting-free-access-to-copilot-pro-as-a-student-teacher-or-maintainer
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## About free {% data variables.copilot.copilot_pro %} access
@@ -29,7 +31,7 @@ There are three ways to qualify for free access to {% data variables.copilot.cop
 
 If you do not meet the previous criteria, you can either:
 
-* <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>Try {% data variables.copilot.copilot_pro_short %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid plan for continued use.
+* <a href="https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text" target="_blank"><span>Try {% data variables.copilot.copilot_pro_short %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid plan for continued use.
 * Set up {% data variables.copilot.copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a paid plan. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Accessing {% data variables.copilot.copilot_pro_short %} for free

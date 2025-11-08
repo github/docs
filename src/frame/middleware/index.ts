@@ -35,6 +35,7 @@ import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
 import categoriesForSupport from './categories-for-support'
 import triggerError from '@/observability/middleware/trigger-error'
+import dataTables from '@/data-directory/middleware/data-tables'
 import secretScanning from '@/secret-scanning/middleware/secret-scanning'
 import ghesReleaseNotes from '@/release-notes/middleware/ghes-release-notes'
 import whatsNewChangelog from './context/whats-new-changelog'
@@ -50,6 +51,7 @@ import productExamples from './context/product-examples'
 import productGroups from './context/product-groups'
 import featuredLinks from '@/landings/middleware/featured-links'
 import learningTrack from '@/learning-track/middleware/learning-track'
+import journeyTrack from '@/journeys/middleware/journey-track'
 import next from './next'
 import renderPage from './render-page'
 import assetPreprocessing from '@/assets/middleware/asset-preprocessing'
@@ -76,11 +78,19 @@ const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'f
 
 // Catch unhandled promise rejections and passing them to Express's error handler
 // https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016
-const asyncMiddleware = (fn: Function) => (req: Request, res: Response, next: NextFunction) => {
-  Promise.resolve(fn(req, res, next)).catch(next)
-}
+const asyncMiddleware =
+  <TReq extends Request = Request, T = void>(
+    fn: (req: TReq, res: Response, next: NextFunction) => T | Promise<T>,
+  ) =>
+  async (req: Request, res: Response, nextFn: NextFunction) => {
+    try {
+      await fn(req as TReq, res, nextFn)
+    } catch (error) {
+      nextFn(error)
+    }
+  }
 
-export default function (app: Express) {
+export default function index(app: Express) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout(MAX_REQUEST_TIMEOUT))
   app.use(abort)
@@ -255,6 +265,7 @@ export default function (app: Express) {
   app.head('/*path', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
+  app.use(asyncMiddleware(dataTables))
   app.use(asyncMiddleware(secretScanning))
   app.use(asyncMiddleware(ghesReleaseNotes))
   app.use(asyncMiddleware(whatsNewChangelog))
@@ -270,6 +281,7 @@ export default function (app: Express) {
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(resolveRecommended))
   app.use(asyncMiddleware(learningTrack))
+  app.use(asyncMiddleware(journeyTrack))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

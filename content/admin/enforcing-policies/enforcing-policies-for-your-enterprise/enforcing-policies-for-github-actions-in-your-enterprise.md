@@ -105,6 +105,28 @@ In the "Runners" section, you can mediate these risks by disabling the use of re
 
 {% data reusables.actions.disable-selfhosted-runners-note %}
 
+## Custom images
+
+In the "Custom images" section, you can control which organizations in your enterprise are allowed to create and manage custom images with the following access policy:
+
+* **Enable for all organizations**: All organizations, including any created in the future, may use or create custom images.
+* **Enable for specific organizations**: Only selected organizations may use or create custom images.
+* **Disable for all organizations**: No organization may use or create custom images.
+
+### Custom images retention policies
+
+You can define how long custom image versions are retained and when they become inactive.
+
+* **Maximum versions per image**: Limits how many versions of each image are retained. When this limit is exceeded, the oldest unused image versions are automatically deleted.
+  * **Default**: 20 versions
+  * **Configurable range**: 1–100 versions
+* **Unused version retention**: Deletes image versions that have not been used for a specified number of days. Image versions that are assigned to a runner pool but not actively used are also considered unused.
+  * **Default**: 30 days
+  * **Configurable range**: 1–90 days
+* **Maximum version age**: Disables image versions that were created earlier than the specified number of days. Disabled image versions cannot be used by runners until the policy limit is increased.
+  * **Default**: 60 days
+  * **Configurable range**: 7–90 days
+
 ## {% ifversion ghes %}Artifact, log, and cache settings{% else %}Artifact and log retention{% endif %}
 
 {% ifversion ghes %}

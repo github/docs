@@ -6,22 +6,21 @@ versions:
   feature: copilot
 topics:
   - Copilot
+category:
+  - Learn about Copilot
 allowTitleToDifferFromFilename: true
 contentType: reference
 ---
 
-This article provides information about how {% data variables.product.prodname_copilot_short %} metered billing works when you connect an Azure subscription to your organization or enterprise account.
+You can connect an Azure subscription to your organization or enterprise account and pay for {% data variables.product.prodname_copilot_short %} through Azure.
 
-## Metered billing activation
+{% data variables.product.prodname_copilot_short %} billing follows the same rules as other {% data variables.product.github %} products billed through Azure, including billing periods, invoicing, and usage reporting. For details, see [AUTOTITLE](/billing/reference/azure-billing).
 
-* When you connect your Azure subscription and enable metered billing, usage data begins flowing from {% data variables.product.github %} to Azure.
-* Any {% data variables.product.prodname_copilot_short %} usage from the start of your current {% data variables.product.github %} billing cycle up to the point when you enable metered billing via Azure will be billed through {% data variables.product.prodname_dotcom %} on your next billing date.
-* Usage from the date Azure metered billing is enabled through to the end of that calendar month will be charged via Azure, and appears on your Azure invoice at the start of the next month.
+## {% data variables.product.prodname_copilot_short %}-specific usage
 
-For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
+* {% data variables.product.prodname_copilot_short %} license usage is measured as the **number of active seats**.
+* If people use more than their included allowance of premium requests, the cost of any additional usage is included.
+* Usage data is sent daily to Azure.
+* Charges for the calendar month appear on your Azure invoice at the start of the next month.
 
-## Usage tracking and invoicing
-
-* Usage data is transmitted from {% data variables.product.github %} to Azure **daily**.
-* You can **track daily usage (number of seats) in Azure**.
-* Actual billing and payments are processed **monthly**, based on the number of seats used during that calendar month.
+To connect your Azure subscription, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).

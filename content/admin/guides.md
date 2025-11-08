@@ -27,7 +27,7 @@ includeGuides:
   - /admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise-using-okta
   - /admin/managing-iam/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise
   - /admin/managing-iam/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
-  - /admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users
+  - /admin/concepts/identity-and-access-management/enterprise-managed-users
   - /admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users
   - /admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users
   - /admin/identity-and-access-management/provisioning-user-accounts-with-scim/configuring-scim-provisioning-using-okta
@@ -70,7 +70,7 @@ includeGuides:
   - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
   - /admin/monitoring-and-managing-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
   - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds
-  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/setting-up-external-monitoring
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics/setting-up-external-monitoring-with-collectd
   - /admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process
   - /admin/upgrading-your-instance/preparing-to-upgrade/upgrade-requirements
   - /admin/upgrading-your-instance/preparing-to-upgrade/taking-a-snapshot
@@ -85,7 +85,7 @@ includeGuides:
   - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/high-availability-for-github-actions
   - /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment
   - /admin/overview/about-data-residency
-  - /admin/managing-your-enterprise-account/about-enterprise-accounts
+  - /admin/concepts/enterprise-fundamentals/enterprise-accounts
   - /admin/getting-started-with-enterprise/about-upgrades-to-new-releases
   - /admin/configuring-packages/configuring-package-ecosystem-support-for-your-enterprise
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/about-pre-receive-hooks
@@ -103,7 +103,7 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership
   - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/disabling-git-ssh-access-on-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users
-  - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
+  - /admin/concepts/security-and-compliance/audit-log-for-an-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/configuring-the-audit-log-for-your-enterprise
@@ -119,7 +119,7 @@ includeGuides:
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-projects-using-jira
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
-  - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
+  - /admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/abilities-of-roles
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
   - /admin/user-management/managing-repositories-in-your-enterprise/migrating-to-internal-repositories

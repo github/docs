@@ -36,8 +36,9 @@ After you enable the feature, you can access the audit log to view events that i
 
 {% data variables.product.github %} displays an IP address for each event in the organization audit log that meets these criteria.
 
-* The actor is an organization member or owner
+* The actor is an organization member or owner.
 * The target is either an organization-owned repository that is private or internal, or an organization resource that is not a repository, such as a project.
+* For `api.request` events, the request must have repository context; requests triggered by GraphQL or to endpoints that reference only a user or organization do not meet this condition.
 
 ## Enabling display of IP addresses in the audit log
 

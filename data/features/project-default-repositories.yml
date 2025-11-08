@@ -1,0 +1,5 @@
+# Issue #19931
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.20'

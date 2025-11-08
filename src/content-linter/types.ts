@@ -58,6 +58,7 @@ export type Config = {
   style?: string
   rules?: RuleDetail[]
   context?: string
+  precommitSeverity?: string
 }
 
 export type RuleConfig = {
