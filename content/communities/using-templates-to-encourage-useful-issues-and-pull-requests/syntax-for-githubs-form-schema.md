@@ -245,14 +245,6 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 {% data reusables.form-schema.options-syntax %}
 {% data reusables.form-schema.required-key %}
 
-#### Validations for `checkboxes`
-
-{% data reusables.form-schema.validations-intro %}
-
-| Key | Description | Required | Type | Default | Valid values |
-| --- | ----------- | -------- | ---- | ------- | ------- |
-{% data reusables.form-schema.required-key %}
-
 #### Example of `checkboxes`
 
 ```yaml copy
