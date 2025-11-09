@@ -1,4 +1,4 @@
----
+---queries.md
 title: Queries
 intro: The query type defines GraphQL operations that retrieve data from the server.
 redirect_from:
