@@ -91,3 +91,11 @@
   agent_mode: true
   ask_mode: true
   edit_mode: true
+
+# Fine-tuned OAI models
+- name: 'Raptor mini'
+  provider: 'Fine-tuned GPT-5 mini'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true

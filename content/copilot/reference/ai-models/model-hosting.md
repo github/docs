@@ -31,6 +31,14 @@ Used for:
 
 When using OpenAI's models, input requests and output responses continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
+## OpenAI models fine-tuned by Microsoft
+
+Used for:
+
+* {% data variables.copilot.copilot_raptor_mini %}
+
+{% data variables.copilot.copilot_raptor_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
+
 ## Anthropic models
 
 Used for:

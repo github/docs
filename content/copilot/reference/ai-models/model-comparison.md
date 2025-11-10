@@ -42,16 +42,18 @@ Use this table to find a suitable model quickly, see more detail in the sections
 | {% data variables.copilot.copilot_gemini_25_pro %}    | Deep reasoning and debugging                     | Complex code generation, debugging, and research workflows              | Reasoning, vision             | [{% data variables.copilot.copilot_gemini_25_pro %} model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf)                                    |
 | {% data variables.copilot.copilot_grok_code %}        | General-purpose coding and writing               | Fast, accurate code completions and explanations                        | Agent mode                    | [{% data variables.copilot.copilot_grok_code %} model card](https://data.x.ai/2025-08-20-grok-4-model-card.pdf)                                                             |
 | {% data variables.copilot.copilot_qwen_25 %}          | General-purpose coding and writing               | Code generation, reasoning, and code repair / debugging                 | Reasoning                     | [{% data variables.copilot.copilot_qwen_25 %} model card](https://arxiv.org/pdf/2409.12186)                                                                                 |
+| {% data variables.copilot.copilot_raptor_mini %}      | General-purpose coding and writing               | Fast, accurate code completions and explanations                 | Agent mode                     | Coming soon                                                                                |
 
 ## Task: General-purpose coding and writing
 
 Use these models for common development tasks that require a balance of quality, speed, and cost efficiency. These models are a good default when you don't have specific requirements.
 
-| Model                                                 | Why it's a good fit                                                                                                                             |
-|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| {% data variables.copilot.copilot_gpt_5_codex %}      | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
-| {% data variables.copilot.copilot_gpt_5_mini %}       | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
-| {% data variables.copilot.copilot_grok_code %}        | Specialized for coding tasks. Performs well on code generation, and debugging across multiple languages.                                        |
+| Model                                            | Why it's a good fit                                                                                                                             |
+|--------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| {% data variables.copilot.copilot_gpt_5_codex %} | Delivers higher-quality code on complex engineering tasks like features, tests, debugging, refactors, and reviews without lengthy instructions. |
+| {% data variables.copilot.copilot_gpt_5_mini %}  | Reliable default for most coding and writing tasks. Fast, accurate, and works well across languages and frameworks.                             |
+| {% data variables.copilot.copilot_grok_code %}   | Specialized for coding tasks. Performs well on code generation, and debugging across multiple languages.                                        |
+| {% data variables.copilot.copilot_raptor_mini %} | Specialized for fast, accurate code completions and explanations.                                        |
 
 ### When to use these models
 
