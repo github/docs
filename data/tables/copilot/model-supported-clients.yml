@@ -93,7 +93,7 @@
   xcode: true
   jetbrains: true
 
-- name: Copilot-SWE mini
+- name: Raptor mini
   dotcom: false
   vscode: true
   vs: false

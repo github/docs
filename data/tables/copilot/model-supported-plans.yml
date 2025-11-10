@@ -82,7 +82,7 @@
   business: true
   enterprise: true
 
-- name: Copilot-SWE mini
+- name: Raptor mini
   free: true
   pro: false
   pro_plus: false

@@ -53,6 +53,6 @@
   multiplier_paid: 0.25
   multiplier_free: Not applicable
 
-- name: Copilot-SWE mini
+- name: Raptor mini
   multiplier_paid: Not applicable
   multiplier_free: 1

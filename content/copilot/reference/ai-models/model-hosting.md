@@ -35,9 +35,9 @@ When using OpenAI's models, input requests and output responses continue to run 
 
 Used for:
 
-* {% data variables.copilot.copilot_swe_mini %}
+* {% data variables.copilot.copilot_raptor_mini %}
 
-{% data variables.copilot.copilot_swe_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
+{% data variables.copilot.copilot_raptor_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
 
 ## Anthropic models
 
