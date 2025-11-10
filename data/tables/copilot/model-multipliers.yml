@@ -54,5 +54,5 @@
   multiplier_free: Not applicable
 
 - name: Raptor mini
-  multiplier_paid: Not applicable
+  multiplier_paid: 0
   multiplier_free: 1
