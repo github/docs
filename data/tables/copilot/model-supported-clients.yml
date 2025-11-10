@@ -92,3 +92,11 @@
   eclipse: true
   xcode: true
   jetbrains: true
+
+- name: Copilot-SWE mini
+  dotcom: false
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false

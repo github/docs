@@ -81,3 +81,10 @@
   pro_plus: true
   business: true
   enterprise: true
+
+- name: Copilot-SWE mini
+  free: true
+  pro: false
+  pro_plus: false
+  business: false
+  enterprise: false
