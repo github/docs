@@ -40,8 +40,6 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
-> [!NOTE] If you use {% data variables.copilot.copilot_extensions_short %}, they may override the model you select.
-
 1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon.
 
    ![Screenshot of the 'Copilot' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)

@@ -7,6 +7,14 @@ versions:
 defaultTool: vscode
 topics:
   - Copilot
+redirect_from:
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/communicate-with-copilot-platform
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/communicate-with-github
+  - /copilot/how-tos/use-copilot-extensions/create-a-copilot-extension/configure-app-for-extension
+  - /copilot/how-tos/use-copilot-extensions/create-a-copilot-extension/host-your-extension
+  - /copilot/how-tos/use-copilot-extensions/set-up-copilot-extensions
+  - /copilot/how-tos/provide-context/install-copilot-extensions/install-extensions
+  - /copilot/how-tos/provide-context/install-copilot-extensions/install-personal-extensions
 contentType: how-tos
 category: 
   - Integrate Copilot with your tools

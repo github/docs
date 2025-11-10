@@ -20,7 +20,6 @@ children:
   - /about-enterprise-accounts-for-copilot-business
   - /policies
   - /network-settings
-  - /extensions
   - /copilot-metrics
 contentType: concepts
 ---

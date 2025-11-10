@@ -12,6 +12,7 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server
   - /copilot/how-tos/context/model-context-protocol/use-the-github-mcp-server
   - /copilot/how-tos/context/use-mcp/use-the-github-mcp-server
+  - /copilot/how-tos/provide-context/install-copilot-extensions/use-copilot-extensions
 contentType: how-tos
 category: 
   - Integrate Copilot with your tools

@@ -9,6 +9,8 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/tutorials/enhancing-copilot-agent-mode-with-mcp
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/use-context-passing
+  - /copilot/tutorials/try-extensions
 contentType: tutorials
 category:
   - Automate simple user stories
