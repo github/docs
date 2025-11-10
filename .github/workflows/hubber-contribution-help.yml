@@ -60,7 +60,7 @@ jobs:
 
           ### Need help?
 
-          Reach out in [#docs-content](https://github-grid.enterprise.slack.com/archives/C0E9DK082) on Slack.
+          Reach out in [#docs-content](https://github-grid.enterprise.slack.com/archives/C0E9DK082) on Slack."
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
