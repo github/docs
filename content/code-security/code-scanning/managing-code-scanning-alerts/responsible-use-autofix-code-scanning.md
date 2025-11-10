@@ -46,11 +46,11 @@ When {% data variables.copilot.copilot_autofix_short %} is enabled for a reposit
 
 {% data variables.product.prodname_dotcom %} sends the LLM a variety of data from the {% data variables.product.prodname_code_scanning %} analysis. For example:
 
-* {% data variables.product.prodname_codeql %} alert data in SARIF format. For more information, see “[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).”
+* {% data variables.product.prodname_codeql %} alert data in SARIF format. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).
 * Code from the current version of the branch.
     * Short snippets of code around each source location, sink location, and any location referenced in the alert message or included on the flow path.
     * First ~10 lines from each file involved in any of those locations.
-* Help text for the {% data variables.product.prodname_codeql %} query that identified the problem. For examples, see “[{% data variables.product.prodname_codeql %} query help](https://codeql.github.com/codeql-query-help/).”
+* Help text for the {% data variables.product.prodname_codeql %} query that identified the problem. For examples, see [{% data variables.product.prodname_codeql %} query help](https://codeql.github.com/codeql-query-help/).
 
 Any {% data variables.copilot.copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
@@ -124,7 +124,7 @@ Sometimes a suggested fix includes a change in the dependencies of the codebase.
 
 ## Mitigating the limitations of suggestions
 
-The best way to mitigate the limitations of suggestions from {% data variables.copilot.copilot_autofix_short %} is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see “[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).”
+The best way to mitigate the limitations of suggestions from {% data variables.copilot.copilot_autofix_short %} is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
 It is important to remember that the author of a pull request retains responsibility for how they respond to review comments and suggested code changes, whether proposed by colleagues or automated tools. Developers should always look at suggestions for code changes critically. If needed, they should edit the suggested changes to ensure that the resulting code and application are correct, secure, meet performance criteria, and satisfy all other functional and non-functional requirements for the application.
 
