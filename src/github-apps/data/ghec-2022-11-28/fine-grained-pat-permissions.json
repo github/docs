@@ -2948,6 +2948,15 @@
       },
       {
         "category": "projects",
+        "slug": "create-draft-item-for-organization-owned-project",
+        "subcategory": "drafts",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/drafts",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "projects",
         "slug": "list-project-fields-for-organization",
         "subcategory": "fields",
         "verb": "get",

@@ -3791,6 +3791,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}"
     },
     {
+      "slug": "create-draft-item-for-organization-owned-project",
+      "subcategory": "drafts",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/drafts"
+    },
+    {
       "slug": "list-project-fields-for-organization",
       "subcategory": "fields",
       "verb": "get",
