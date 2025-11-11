@@ -106,7 +106,7 @@ For most package managers, you should define a value that will match the depende
 | Dependency types | Supported by package managers | Allow updates |
 |------------------|-------------------------------|--------|
 | `direct` | All | All explicitly defined dependencies. |
-| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod` | Dependencies of direct dependencies (also known as sub-dependencies, or transient dependencies).|
+| `indirect` | `bundler`, `pip`, `composer`, `cargo`, `gomod` | Dependencies of direct dependencies (also known as sub-dependencies, or transitive dependencies).|
 | `all` | All | All explicitly defined dependencies. For `bundler`, `pip`, `composer`, `cargo`, `gomod`, also the dependencies of direct dependencies.|
 | `production` | `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only to dependencies defined by the package manager as production dependencies. |
 | `development`| `bundler`, `composer`, `mix`, `maven`, `npm`, `pip` (not all managers) | Only to dependencies defined by the package manager as development dependencies. |
