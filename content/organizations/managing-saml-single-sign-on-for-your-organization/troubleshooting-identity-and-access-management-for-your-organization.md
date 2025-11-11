@@ -86,7 +86,6 @@ curl -X POST -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application
 
 For more information on using the GraphQL API, see:
 * [AUTOTITLE](/graphql/guides)
-* [AUTOTITLE](/graphql/overview/explorer)
 
 ### Re-provisioning SCIM for users through your identity provider
 

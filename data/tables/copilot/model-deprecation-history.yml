@@ -13,7 +13,7 @@
 
 - name: 'Claude Sonnet 3.5'
   retirement_date: '2025-11-06'
-  suggested_alternative: 'Claude Sonnet 3.5'
+  suggested_alternative: 'Claude Haiku 4.5'
 
 - name: 'Claude Opus 4'
   retirement_date: '2025-10-23'
