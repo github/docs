@@ -7,16 +7,17 @@ import yaml from 'js-yaml'
 import fs from 'fs'
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
-// @ts-ignore - no types available for @primer/octicons
 import octicons from '@primer/octicons'
 import { parse } from 'parse5'
 import { fromParse5 } from 'hast-util-from-parse5'
 import murmur from 'imurmurhash'
 import { getPrompt } from './copilot-prompt'
+import { generatePromptId } from '../lib/prompt-id'
 import type { Element } from 'hast'
 
 interface LanguageConfig {
   name: string
+  // Using any for language properties that can vary (aliases, extensions, etc.)
   [key: string]: any
 }
 
@@ -52,10 +53,18 @@ function wrapCodeExample(node: any, tree: any): Element {
   const code: string = node.children[0].children[0].value
 
   const subnav = null // getSubnav() lives in annotate.ts, not needed for normal code blocks
-  const prompt = getPrompt(node, tree, code) // returns null if there's no prompt
+  const hasPrompt: boolean = Boolean(getPreMeta(node).prompt)
+  const promptResult = hasPrompt ? getPrompt(node, tree, code) : null
   const hasCopy: boolean = Boolean(getPreMeta(node).copy) // defaults to true
 
-  const headerHast = header(lang, code, subnav, prompt, hasCopy)
+  const headerHast = header(
+    lang,
+    code,
+    subnav,
+    promptResult?.element ?? null,
+    hasCopy,
+    promptResult?.promptContent,
+  )
 
   return h('div', { className: 'code-example' }, [headerHast, node])
 }
@@ -66,6 +75,7 @@ export function header(
   subnav: Element | null = null,
   prompt: Element | null = null,
   hasCopy: boolean = true,
+  promptContent?: string,
 ): Element {
   const codeId: string = murmur('js-btn-copy').hash(code).result().toString()
 
@@ -100,6 +110,9 @@ export function header(
           )
         : null,
       h('pre', { hidden: true, 'data-clipboard': codeId }, code),
+      promptContent
+        ? h('pre', { hidden: true, id: generatePromptId(promptContent) }, promptContent)
+        : null,
     ],
   )
 }
@@ -107,12 +120,14 @@ export function header(
 function btnIcon(): Element {
   const btnIconHtml: string = octicons.copy.toSVG()
   const btnIconAst = parse(String(btnIconHtml), { sourceCodeLocationInfo: true })
-  // @ts-ignore - fromParse5 file option typing issue
-  const btnIconElement = fromParse5(btnIconAst, { file: btnIconHtml })
+  // Using any because fromParse5 expects VFile but we only have a string
+  // This is safe because parse5 only needs the string content
+  const btnIconElement = fromParse5(btnIconAst, { file: btnIconHtml as any })
   return btnIconElement as Element
 }
 
 // Using any due to conflicting unist/hast type definitions between dependencies
+// node can be various mdast/hast node types, return value contains meta properties from code blocks
 export function getPreMeta(node: any): Record<string, any> {
   // Here's why this monstrosity works:
   // https://github.com/syntax-tree/mdast-util-to-hast/blob/c87cd606731c88a27dbce4bfeaab913a9589bf83/lib/handlers/code.js#L40-L42

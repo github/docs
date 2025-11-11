@@ -1,4 +1,4 @@
-import { Box, Pagination, Text } from '@primer/react'
+import { Pagination } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
@@ -106,7 +106,7 @@ function SearchResultHit({
 
   return (
     <div className={cx('my-6', styles.search_result)} data-testid="search-result">
-      <p className="text-normal f5 color-fg-muted" style={{ wordSpacing: 2 }}>
+      <p className={`text-normal f5 color-fg-muted ${styles.breadcrumb}`}>
         {hit.breadcrumbs.length > 1 && (
           <>
             <strong>{hit.breadcrumbs.split('/')[0]}</strong>
@@ -136,10 +136,10 @@ function SearchResultHit({
       </h2>
       {content && <div dangerouslySetInnerHTML={{ __html: content }}></div>}
       {debug && (
-        <Text as="p" fontWeight="bold">
-          score: <code style={{ marginRight: 10 }}>{hit.score}</code> popularity:{' '}
+        <p className={styles.debugText}>
+          score: <code className={styles.debugCode}>{hit.score}</code> popularity:{' '}
           <code>{hit.popularity}</code>
-        </Text>
+        </p>
       )}
     </div>
   )
@@ -171,12 +171,12 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
 
   return (
     <div className={styles.paginationFocus}>
-      <Box borderRadius={2} p={2}>
+      <div className={styles.paginationWrapper}>
         <Pagination
           pageCount={Math.min(totalPages, 10)}
           currentPage={page}
           hrefBuilder={hrefBuilder}
-          onPageChange={(event, pageNum) => {
+          onPageChange={(event: React.MouseEvent, pageNum: number) => {
             event.preventDefault()
 
             const [pathRoot, pathQuery = ''] = router.asPath.split('#')[0].split('?')
@@ -194,7 +194,7 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
             router.push(newPath)
           }}
         />
-      </Box>
+      </div>
     </div>
   )
 }

@@ -61,13 +61,6 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'Claude Sonnet 3.5'
-  provider: 'Anthropic'
-  release_status: 'Closing down: 2025-11-06'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
 - name: 'Claude Sonnet 4'
   provider: 'Anthropic'
   release_status: 'GA'
@@ -94,6 +87,14 @@
 # xAI models
 - name: 'Grok Code Fast 1'
   provider: 'xAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# Fine-tuned OAI models
+- name: 'Raptor mini'
+  provider: 'Fine-tuned GPT-5 mini'
   release_status: 'Public preview'
   agent_mode: true
   ask_mode: true

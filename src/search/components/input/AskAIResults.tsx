@@ -414,14 +414,8 @@ export function AskAIResults({
         <div className={styles.postAnswerWidgets}>
           <IconButton
             icon={ThumbsupIcon}
-            className={'btn-octicon'}
+            className={`btn-octicon ${styles.thumbsUpButton} ${feedbackSelected === 'up' ? styles.selected : ''}`}
             aria-label={t('ai.thumbs_up')}
-            sx={{
-              border: feedbackSelected === 'up' ? '1px solid var(--color-btn-text)' : 'none',
-              backgroundColor: feedbackSelected === 'up' ? '' : 'unset',
-              boxShadow: 'unset',
-              color: feedbackSelected === 'up' ? 'var(--fgColor-accent) !important;' : '',
-            }}
             onClick={() => {
               setFeedbackSelected('up')
               announce(t('ai.thumbs_announcement'))
@@ -436,14 +430,8 @@ export function AskAIResults({
           ></IconButton>
           <IconButton
             icon={ThumbsdownIcon}
-            className={'btn-octicon'}
+            className={`btn-octicon ${styles.thumbsDownButton} ${feedbackSelected === 'down' ? styles.selected : ''}`}
             aria-label={t('ai.thumbs_down')}
-            sx={{
-              border: feedbackSelected === 'down' ? '1px solid var(--color-btn-text)' : 'none',
-              backgroundColor: feedbackSelected === 'down' ? '' : 'unset',
-              boxShadow: 'unset',
-              color: feedbackSelected === 'down' ? 'var(--fgColor-accent) !important;' : '',
-            }}
             onClick={() => {
               setFeedbackSelected('down')
               announce(t('ai.thumbs_announcement'))
@@ -457,14 +445,8 @@ export function AskAIResults({
             }}
           ></IconButton>
           <IconButton
-            sx={{
-              border: 'none',
-              backgroundColor: 'unset',
-              boxShadow: 'unset',
-              color: isCopied ? 'var(--fgColor-accent) !important;' : '',
-            }}
             icon={isCopied ? CheckIcon : ShareIcon}
-            className="btn-octicon"
+            className={`btn-octicon ${styles.shareButton} ${isCopied ? styles.copied : ''}`}
             aria-label={
               isCopied ? t('search.ai.share_copied_announcement') : t('search.ai.share_answer')
             }
@@ -483,7 +465,7 @@ export function AskAIResults({
       ) : null}
       {!aiCouldNotAnswer && !responseLoading && references && references.length > 0 ? (
         <>
-          <ActionList className={styles.referencesList} showDividers>
+          <ActionList className={styles.referencesList}>
             <ActionList.Group data-testid="ai-references">
               <ActionList.GroupHeading
                 as="h3"
@@ -507,7 +489,7 @@ export function AskAIResults({
                         referenceOnSelect(source.url)
                       }}
                       active={refIndex === selectedIndex}
-                      ref={(element) => {
+                      ref={(element: HTMLLIElement | null) => {
                         if (listElementsRef.current) {
                           listElementsRef.current[refIndex] = element
                         }
@@ -525,20 +507,7 @@ export function AskAIResults({
           </ActionList>
         </>
       ) : null}
-      <div
-        aria-live="assertive"
-        style={{
-          position: 'absolute',
-          width: '1px',
-          height: '1px',
-          padding: '0',
-          margin: '-1px',
-          overflow: 'hidden',
-          clip: 'rect(0, 0, 0, 0)',
-          whiteSpace: 'nowrap',
-          border: '0',
-        }}
-      >
+      <div aria-live="assertive" className={styles.displayForScreenReader}>
         {announcement}
       </div>
     </div>

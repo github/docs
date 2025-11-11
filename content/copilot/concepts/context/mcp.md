@@ -10,6 +10,23 @@ topics:
 contentType: concepts
 redirect_from:
   - /copilot/concepts/about-mcp
+  - /copilot/concepts/extensions/agents
+  - /copilot/concepts/extensions/build-extensions
+  - /copilot/concepts/extensions/skillsets
+  - /copilot/concepts/extensions/openid-connect
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/use-copilots-llm
+  - /copilot/how-tos/use-copilot-extensions/create-a-copilot-extension/create-github-app
+  - /copilot/how-tos/use-copilot-extensions/build-copilot-skillsets
+  - /copilot/how-tos/use-copilot-extensions/debug-copilot-extension
+  - /copilot/how-tos/use-copilot-extensions/manage-extension-availability
+  - /copilot/how-tos/use-copilot-extensions/set-up-oidc
+  - /copilot/how-tos/provide-context/install-copilot-extensions
+  - /copilot/concepts/extensions
+  - /copilot/how-tos/use-copilot-extensions/create-a-copilot-extension
+  - /copilot/how-tos/use-copilot-extensions
+  - /copilot/concepts/context/copilot-extensions
+  - /copilot/reference/extensions-glossary
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent
 category: 
   - Learn about Copilot
 ---

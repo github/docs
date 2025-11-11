@@ -1,6 +1,8 @@
 /**
- * This script iterates over all pages and all reusables and looks for
- * mentions of variables in Liquid syntax. For example,
+ * @purpose Writer tool
+ * @description Look for mentions of variables in Liquid syntax across all pages
+ *
+ * For example,
  *
  *    ---
  *    title: '{% data variables.product.prodname_mobile %} is cool'

@@ -21,3 +21,26 @@
     }
   }
 }
+
+/* Responsive tooltip text for Copilot prompt links */
+/* Show long tooltip text on small screens and up (544px+) */
+.copilot-prompt-long {
+  display: none;
+  visibility: hidden;
+
+  @media (min-width: 544px) {
+    display: inline-block;
+    visibility: visible;
+  }
+}
+
+/* Show short tooltip text only on extra small screens (below 544px) */
+.copilot-prompt-short {
+  display: inline-block;
+  visibility: visible;
+
+  @media (min-width: 544px) {
+    display: none;
+    visibility: hidden;
+  }
+}

@@ -59,7 +59,7 @@ Branch filters allow you to filter commit notifications based on branch names. B
 |`/github subscribe owner/repo commits:feature/*`|Receive commit notifications for all branches that start with `feature/`.|
 |`/github subscribe owner/repo commits:*`|Receive commit notifications for all branches.|
 
->[!NOTE] You may have previously used the `commits:all` filter to receive commit notifications for all branches. This filter is now deprecated. To receive commit notifications for all branches, use the `commits:*` filter instead. If you have previously set up the `commits:all` filter, it will continue to work until you update your configuration to use the `commits:*` filter.
+>[!NOTE] You may have previously used the `commits:all` filter to receive commit notifications for all branches. This filter is {% data variables.release-phases.closing_down %}. To receive commit notifications for all branches, use the `commits:*` filter instead. If you have previously set up the `commits:all` filter, it will continue to work until you update your configuration to use the `commits:*` filter.
 
 ### Label filters for issue and pull request notifications
 

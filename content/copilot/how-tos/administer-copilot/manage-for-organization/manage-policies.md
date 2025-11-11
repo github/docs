@@ -54,5 +54,4 @@ If your organization has a {% data variables.copilot.copilot_business_short %} o
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions)
-* [AUTOTITLE](/copilot/how-tos/administer/organizations/set-extension-permissions)
 * [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)

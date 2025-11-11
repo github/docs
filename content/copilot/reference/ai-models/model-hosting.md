@@ -31,6 +31,14 @@ Used for:
 
 When using OpenAI's models, input requests and output responses continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
 
+## OpenAI models fine-tuned by Microsoft
+
+Used for:
+
+* {% data variables.copilot.copilot_raptor_mini %}
+
+{% data variables.copilot.copilot_raptor_mini %} is deployed on {% data variables.product.github %} managed Azure OpenAI tenant.
+
 ## Anthropic models
 
 Used for:
@@ -38,10 +46,9 @@ Used for:
 * {% data variables.copilot.copilot_claude_haiku_45 %}
 * {% data variables.copilot.copilot_claude_sonnet_45 %}
 * {% data variables.copilot.copilot_claude_opus_41 %}
-* {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_40 %}
 
-{% data variables.copilot.copilot_claude_haiku_45 %} and {% data variables.copilot.copilot_claude_opus_41 %} are hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_sonnet_40 %} is hosted by Anthropic PBC and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_45 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
+{% data variables.copilot.copilot_claude_haiku_45 %} and {% data variables.copilot.copilot_claude_opus_41 %} are hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_sonnet_40 %} is hosted by Anthropic PBC and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_45 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
 * Amazon Bedrock: Amazon makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 * Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic.
@@ -75,9 +82,12 @@ Will **not** be:
 * Logged for any purpose, including human review
 * Saved to disk or retained in any form, including as metadata
 * Accessible by xAI personnel
+* Used for model training
 
 Will **only**:
 * Exist temporarily in RAM for the minimum time required to process and respond to each request
 * Be immediately deleted from memory once the response is delivered
 
 When using xAI, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful or offensive content.
+
+For more information, see [xAI's enterprise terms of service](https://x.ai/legal/terms-of-service-enterprise) on the xAI website.

@@ -1179,6 +1179,30 @@
   ],
   "billing": [
     {
+      "slug": "get-all-budgets-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets"
+    },
+    {
+      "slug": "get-a-budget-by-id-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "update-a-budget-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "delete-a-budget-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "delete",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
       "slug": "get-billing-premium-request-usage-report-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
@@ -1191,7 +1215,7 @@
       "requestPath": "/organizations/{org}/settings/billing/usage"
     },
     {
-      "slug": "get-billing-usage-summary-report-for-an-organization",
+      "slug": "get-billing-usage-summary-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/usage/summary"
@@ -2068,6 +2092,30 @@
     }
   ],
   "copilot": [
+    {
+      "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day"
+    },
+    {
+      "slug": "get-copilot-enterprise-usage-metrics",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest"
+    },
+    {
+      "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day"
+    },
+    {
+      "slug": "get-copilot-users-usage-metrics",
+      "subcategory": "copilot-metrics",
+      "verb": "get",
+      "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest"
+    },
     {
       "slug": "get-copilot-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-user-management",
@@ -4381,6 +4429,12 @@
       "subcategory": "projects",
       "verb": "get",
       "requestPath": "/orgs/{org}/projectsV2/{project_number}"
+    },
+    {
+      "slug": "create-draft-item-for-organization-owned-project",
+      "subcategory": "drafts",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/drafts"
     },
     {
       "slug": "list-project-fields-for-organization",

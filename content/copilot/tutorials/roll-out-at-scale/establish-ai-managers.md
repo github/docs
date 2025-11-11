@@ -71,4 +71,4 @@ If you have created a ruleset targeting {% data variables.copilot.agent_profiles
 
 Now that you have established AI managers for your enterprise, help them customize and manage your enterprise's AI experience by sharing the following resources:
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/test-custom-agents)

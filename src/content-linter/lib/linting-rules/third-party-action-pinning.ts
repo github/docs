@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import yaml from 'js-yaml'
 

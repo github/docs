@@ -55,7 +55,7 @@ All users can configure {% data variables.product.prodname_copilot_short %} sett
 
 If you have your own {% data variables.product.prodname_copilot_short %} plan (instead of using your organization or enterprise's plan), you can:
 
-* **Install {% data variables.copilot.copilot_extensions_short %}** to integrate other tools with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account).
+* **Install Model Context Protocol (MCP) servers to integrate with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp).
 * **Manage policies**. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber).
 
 ## 7. Start using {% data variables.product.prodname_copilot_short %}

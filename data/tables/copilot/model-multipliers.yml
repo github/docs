@@ -11,15 +11,11 @@
 
 - name: Claude Haiku 4.5
   multiplier_paid: 0.33
-  multiplier_free: Not applicable
+  multiplier_free: 1
 
 - name: Claude Opus 4.1
   multiplier_paid: 10
   multiplier_free: Not applicable
-
-- name: Claude Sonnet 3.5
-  multiplier_paid: 1
-  multiplier_free: 1
 
 - name: Claude Sonnet 4
   multiplier_paid: 1
@@ -56,3 +52,7 @@
 - name: Grok Code Fast 1
   multiplier_paid: 0.25
   multiplier_free: Not applicable
+
+- name: Raptor mini
+  multiplier_paid: 0
+  multiplier_free: 1

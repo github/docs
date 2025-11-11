@@ -178,6 +178,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     additionalUINamespaces.push('product_landing')
   } else if (currentLayoutName === 'journey-landing' || req.query?.feature === 'journey-landing') {
     props.journeyContext = await getLandingContextFromRequest(req, 'journey')
+
+    // journey tracks are resolved in middleware and added to the request
+    // so we need to add them to the journey context here
+    if ((req.context.page as any).resolvedJourneyTracks) {
+      props.journeyContext.journeyTracks = (req.context.page as any).resolvedJourneyTracks
+    }
+
     additionalUINamespaces.push('journey_landing', 'product_landing')
   } else if (
     currentLayoutName === 'discovery-landing' ||

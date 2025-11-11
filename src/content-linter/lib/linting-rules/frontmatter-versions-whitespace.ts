@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
 import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'

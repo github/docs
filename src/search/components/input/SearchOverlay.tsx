@@ -1,16 +1,7 @@
 import React, { useState, useRef, RefObject, useEffect, SetStateAction, useMemo } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import {
-  ActionList,
-  Box,
-  IconButton,
-  Overlay,
-  Spinner,
-  Stack,
-  Text,
-  TextInput,
-} from '@primer/react'
+import { ActionList, IconButton, Overlay, Spinner, Stack, TextInput, Banner } from '@primer/react'
 import {
   SearchIcon,
   XCircleFillIcon,
@@ -29,7 +20,6 @@ import {
   executeGeneralSearch,
   GENERAL_SEARCH_CONTEXT,
 } from '../helpers/execute-search-actions'
-import { Banner } from '@primer/react/experimental'
 import { useCombinedSearchResults } from '@/search/components/hooks/useAISearchAutocomplete'
 import { AskAIResults } from './AskAIResults'
 import { sendEvent, uuidv4 } from '@/events/components/events'
@@ -582,8 +572,7 @@ export function SearchOverlay({
           showDividers
           className={styles.suggestionsList}
           ref={suggestionsListHeightRef}
-          sx={{
-            // When there is an error and nothing is typed in by the user, show an empty list with no height
+          style={{
             minHeight:
               autoCompleteSearchError && !generalOptionsWithViewStatus.length
                 ? '0'
@@ -605,11 +594,7 @@ export function SearchOverlay({
                 </ActionList.GroupHeading>
               </li>
               <li>
-                <Box
-                  sx={{
-                    padding: '0 16px 0 16px',
-                  }}
-                >
+                <div className={styles.overlayPadding}>
                   <Banner
                     tabIndex={0}
                     className={styles.errorBanner}
@@ -619,7 +604,7 @@ export function SearchOverlay({
                     aria-live="assertive"
                     role="alert"
                   />
-                </Box>
+                </div>
               </li>
               {/* If there are general results, show bottom divider */}
               {generalOptionsWithViewStatus.length > 0 && (
@@ -652,7 +637,7 @@ export function SearchOverlay({
         showDividers
         className={styles.suggestionsList}
         ref={suggestionsListHeightRef}
-        sx={{
+        style={{
           minHeight: `${previousSuggestionsListHeight}px`,
         }}
       >
@@ -687,7 +672,7 @@ export function SearchOverlay({
         anchorSide="inside-center"
         className={cx(styles.overlayContainer, 'position-fixed')}
         // We need to override the top value of the overlay when there are header notifications
-        sx={
+        style={
           hasOpenHeaderNotifications
             ? {
                 top: overlayTopValue,
@@ -700,20 +685,14 @@ export function SearchOverlay({
         ref={overlayRef}
       >
         <div className={styles.header}>
-          <Box
-            sx={{
-              display: isAskAIState ? 'flex' : 'none',
-              marginRight: '8px',
-              fontWeight: 'bolder',
-            }}
-          >
+          <div className={isAskAIState ? styles.askAILabel : styles.askAILabelHidden}>
             <IconButton
               aria-label={t('search.ai.back_to_search')}
               icon={ArrowLeftIcon}
               onClick={onBackButton}
               variant="invisible"
             ></IconButton>
-          </Box>
+          </div>
           <TextInput
             className="width-full"
             data-testid="overlay-search-input"
@@ -734,12 +713,7 @@ export function SearchOverlay({
             onKeyDown={handleKeyDown}
             placeholder={t('search.input.placeholder_no_icon')}
             trailingAction={
-              <Stack
-                justify="center"
-                sx={{
-                  minWidth: '34px',
-                }}
-              >
+              <Stack justify="center" className={styles.stackMinWidth}>
                 <TextInput.Action
                   onClick={() => {
                     setSelectedIndex(-1)
@@ -765,46 +739,18 @@ export function SearchOverlay({
           />
         </div>
         <ActionList.Divider
-          sx={{
-            display: inErrorState ? 'none' : 'block',
-            marginTop: '16px',
-            width: '100%',
-          }}
+          className={inErrorState ? styles.dividerTopMarginHidden : styles.dividerTopMargin}
           aria-hidden="true"
         />
         {OverlayContents}
-        <ActionList.Divider
-          sx={{
-            width: '100%',
-          }}
-        />
+        <ActionList.Divider className={styles.dividerFullWidth} />
         <div key="description" className={styles.footer}>
-          <Text
-            as="p"
-            sx={{
-              // eslint-disable-next-line primer-react/new-color-css-vars
-              color: 'var(--color-fg-muted)',
-              marginTop: 2,
-              marginBottom: 0,
-              fontSize: 'small',
-            }}
+          <p
+            className={styles.privacyDisclaimer}
             dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
           />
         </div>
-        <div
-          aria-live="assertive"
-          style={{
-            position: 'absolute',
-            width: '1px',
-            height: '1px',
-            padding: '0',
-            margin: '-1px',
-            overflow: 'hidden',
-            clip: 'rect(0, 0, 0, 0)',
-            whiteSpace: 'nowrap',
-            border: '0',
-          }}
-        >
+        <div aria-live="assertive" className={styles.screenReaderOnly}>
           {announcement}
         </div>
       </Overlay>
@@ -860,16 +806,16 @@ function renderSearchGroups(
   // We already show a spinner when streaming AI response, so don't want to show 2 here
   if (showSpinner && !isInAskAIState) {
     groups.push(
-      <Box
+      <div
         key="loading"
         role="status"
         className={styles.loadingContainer}
-        sx={{
+        style={{
           height: `${previousSuggestionsListHeight}px`,
         }}
       >
         <Spinner />
-      </Box>,
+      </div>,
     )
     return groups
   }
@@ -905,7 +851,7 @@ function renderSearchGroups(
             active={isActive}
             onSelect={() => performGeneralSearch()}
             aria-label={t('search.overlay.search_docs_with_query').replace('{query}', option.title)}
-            ref={(element) => {
+            ref={(element: HTMLLIElement | null) => {
               if (listElementsRef.current) {
                 listElementsRef.current[index] = element
               }
@@ -917,11 +863,7 @@ function renderSearchGroups(
             {option.title}
             <ActionList.TrailingVisual
               aria-hidden
-              sx={{
-                // Hold the space even when not visible to prevent layout shift
-                visibility: isActive ? 'visible' : 'hidden',
-                width: '1rem',
-              }}
+              className={isActive ? styles.trailingVisualActive : styles.trailingVisualHidden}
             >
               <ArrowRightIcon />
             </ActionList.TrailingVisual>
@@ -940,7 +882,7 @@ function renderSearchGroups(
             className={option.isViewAllResults ? styles.viewAllSearchResults : ''}
             active={isActive}
             tabIndex={-1}
-            ref={(element) => {
+            ref={(element: HTMLLIElement | null) => {
               if (listElementsRef.current) {
                 listElementsRef.current[index] = element
               }
@@ -949,7 +891,9 @@ function renderSearchGroups(
             {!option.isNoResultsFound && (
               <ActionList.LeadingVisual
                 aria-hidden
-                sx={{ visibility: option.isViewAllResults ? 'hidden' : 'visible' }}
+                className={
+                  option.isViewAllResults ? styles.leadingVisualHidden : styles.leadingVisualVisible
+                }
               >
                 <FileIcon />
               </ActionList.LeadingVisual>
@@ -957,11 +901,7 @@ function renderSearchGroups(
             {option.title}
             <ActionList.TrailingVisual
               aria-hidden
-              sx={{
-                // Hold the space even when not visible to prevent layout shift
-                visibility: isActive ? 'visible' : 'hidden',
-                width: '1rem',
-              }}
+              className={isActive ? styles.trailingVisualActive : styles.trailingVisualHidden}
             >
               <ArrowRightIcon />
             </ActionList.TrailingVisual>
@@ -976,15 +916,15 @@ function renderSearchGroups(
           {t('search.overlay.general_suggestions_list_heading')}
         </ActionList.GroupHeading>
         {searchLoading && isInAskAIState ? (
-          <Box
+          <div
             role="status"
             className={styles.loadingContainer}
-            sx={{
+            style={{
               height: `${previousSuggestionsListHeight}px`,
             }}
           >
             <Spinner />
-          </Box>
+          </div>
         ) : (
           items
         )}
@@ -1053,9 +993,9 @@ function renderSearchGroups(
               onSelect={() => aiAutocompleteOnSelect(option)}
               active={isActive}
               tabIndex={-1}
-              ref={(element) => {
+              ref={(element: HTMLLIElement | null) => {
                 if (listElementsRef.current) {
-                  listElementsRef.current[indexWithOffset] = element
+                  listElementsRef.current[index] = element
                 }
               }}
             >
@@ -1065,11 +1005,7 @@ function renderSearchGroups(
               {option.term}
               <ActionList.TrailingVisual
                 aria-hidden
-                sx={{
-                  // Hold the space even when not visible to prevent layout shift
-                  visibility: isActive ? 'visible' : 'hidden',
-                  width: '1rem',
-                }}
+                className={isActive ? styles.trailingVisualActive : styles.trailingVisualHidden}
               >
                 <ArrowRightIcon />
               </ActionList.TrailingVisual>

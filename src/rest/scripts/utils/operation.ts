@@ -1,8 +1,6 @@
-// @ts-ignore - no types available
 import httpStatusCodes from 'http-status-code'
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
-// @ts-ignore - no types available
 import mergeAllOf from 'json-schema-merge-allof'
 
 import { renderContent } from './render-content'
@@ -178,7 +176,7 @@ export default class Operation {
     const mergedAllofSchema = mergeAllOf(schema)
     try {
       this.bodyParameters = isPlainObject(schema)
-        ? await getBodyParams(mergedAllofSchema, true)
+        ? await getBodyParams(mergedAllofSchema as any, true)
         : []
     } catch (error) {
       console.error(error)

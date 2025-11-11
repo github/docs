@@ -1,5 +1,4 @@
 import yaml from 'js-yaml'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 import { liquid } from '@/content-render/index'

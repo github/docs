@@ -41,7 +41,7 @@ The following IdPs are partner IdPs. They offer an application that you can use 
 
 * Microsoft Entra ID
 * Okta
-* PingFederate (beta)
+* PingFederate ({% data variables.release-phases.public_preview %})
 
 When you use a single partner IdP for both authentication and provisioning, {% data variables.product.company_short %} provides support for the application on the partner IdP and the IdP's integration with {% data variables.product.prodname_dotcom %}. Support for PingFederate is in {% data variables.release-phases.public_preview %}.
 

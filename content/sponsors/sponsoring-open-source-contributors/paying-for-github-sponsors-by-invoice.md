@@ -40,7 +40,7 @@ If your organization currently pays for {% data variables.product.prodname_spons
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
 1. Scroll to the "{% data variables.product.prodname_sponsors %}" section and click **Switch to invoiced billing**.
 1. Compare credit card and invoice billing on the next page. To proceed with changing to invoiced billing, click **Switch to invoiced billing**.
 1. Fill out the form and click **Submit**.

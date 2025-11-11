@@ -11,7 +11,6 @@ children:
   - /use-mcp
   - /create-knowledge-bases
   - /use-knowledge-bases
-  - /install-copilot-extensions
 redirect_from:
   - /copilot/customizing-copilot
   - /copilot/how-tos/context

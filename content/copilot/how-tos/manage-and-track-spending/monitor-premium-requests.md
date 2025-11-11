@@ -41,8 +41,6 @@ For information about viewing premium request usage for an organization or enter
 
 If you're using {% data variables.product.prodname_copilot_short %} in an editor, you can view your usage directly in the editor. For example, in {% data variables.product.prodname_vscode %}, you can view information about features included in your plan, your progress towards any limits on your plan, and the date your allowance resets.
 
-![Screenshot of the {% data variables.product.prodname_copilot_short %} current usage window in {% data variables.product.prodname_vscode %}. The "Code completions" and "Chat messages" bars indicate they are included with the user's {% data variables.product.prodname_copilot_short %} plan. The "Premium requests" bar indicates the user has used 99.5% of their allowance, and that it will reset on June 30, 2025.](/assets/images/help/copilot/vscode-current-usage.png)
-
 You can access usage information in the following IDEs.
 
 * **In {% data variables.product.prodname_vscode %}**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar.

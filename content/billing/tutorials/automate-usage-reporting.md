@@ -6,6 +6,7 @@ redirect_from:
   - /billing/using-the-new-billing-platform/automating-usage-reporting
   - /billing/managing-your-billing/automating-usage-reporting
 versions:
+  fpt: '*'
   ghec: '*'
 topics:
   - Enterprise

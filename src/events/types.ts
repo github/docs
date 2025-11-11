@@ -36,6 +36,7 @@ export type EventProps = {
     path_article: string
     page_document_type: string
     page_type: string
+    content_type: string
     status: number
     is_logged_in: boolean
     dotcom_user: string

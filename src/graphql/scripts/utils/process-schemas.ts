@@ -401,17 +401,17 @@ export default async function processSchemas(
                 returnField.kind = fieldKind
                 returnField.href = helpers.getFullLink(returnField.kind, returnField.id)
                 returnField.description = await helpers.getDescription(
-                  field.description?.value || '',
+                  returnFieldDef.description?.value || '',
                 )
                 returnField.isDeprecated = helpers.getDeprecationStatus(
-                  (field.directives || []) as readonly ConstDirectiveNode[],
+                  (returnFieldDef.directives || []) as readonly ConstDirectiveNode[],
                 )
                 returnField.deprecationReason = await helpers.getDeprecationReason(
-                  (field.directives || []) as readonly ConstDirectiveNode[],
+                  (returnFieldDef.directives || []) as readonly ConstDirectiveNode[],
                   returnField as ReturnFieldInfo,
                 )
                 returnField.preview = await helpers.getPreview(
-                  (field.directives || []) as readonly ConstDirectiveNode[],
+                  (returnFieldDef.directives || []) as readonly ConstDirectiveNode[],
                   returnField as ReturnFieldInfo,
                   previewsPerVersion,
                 )

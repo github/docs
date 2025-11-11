@@ -4,7 +4,6 @@ Custom "Alerts", based on similar filter/styling in the monolith code.
 
 import { visit } from 'unist-util-visit'
 import { h } from 'hastscript'
-// @ts-ignore - no types available for @primer/octicons
 import octicons from '@primer/octicons'
 import type { Element } from 'hast'
 
