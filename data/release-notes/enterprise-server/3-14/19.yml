@@ -4,8 +4,6 @@ sections:
     - |
       **CRITICAL:** Redis has been upgraded to version 6.2.20 to address CVE-2025-49844 (also known as RediShell). Administrators should apply this update promptly to mitigate potential security risks.
     - |
-      **HIGH:** A privilege escalation vulnerability in GitHub Enterprise Server allowed an authenticated enterprise admin to gain root SSH access. The exploit used a symlink escape in pre-receive hook environments. An attacker could craft a malicious repository and environment to replace system binaries during hook cleanup. This allowed them to execute a payload that added their SSH key to the root user's authorized keys, granting root SSH access. The attacker needed enterprise admin privileges to exploit this vulnerability. This has been assigned CVE-2025-11578 and was reported through the GitHub Bug Bounty program.
-    - |
       **HIGH:** An attacker could execute arbitrary code in the context of other users' browsers by supplying a malicious `label:` value that was injected into the DOM without proper sanitization. This could be triggered when a user visits a crafted Issues search URL, enabling session hijacking, account takeover, and recovery code exfiltration. GitHub has requested CVE ID [CVE-2025-11892](https://www.cve.org/cverecord?id=CVE-2025-11892) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       Packages have been updated to the latest security versions.
