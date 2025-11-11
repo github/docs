@@ -35,7 +35,7 @@ sections:
     - |
       Audit log entries for some Dependabot-related events were missing for administrators and security teams due to an outdated allowlist configuration.
     - |
-      After upgrading to GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+      After upgrading to GHES 3.17.4, administrators found that draft pull requests and autolink references for private repositories were no longer available. [Updated: 2025-11-11]
     - |
       Site administrators experienced crashes in MySQL when running data backfills, such as during database maintenance or upgrades.
   changes:
