@@ -23,6 +23,8 @@ To view the available models per client, see [AUTOTITLE](/copilot/using-github-c
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
+{% data reusables.copilot.model-picker-enable-alternative-models %}
+
 Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 
 {% webui %}
@@ -37,6 +39,8 @@ Experimental pre-release versions of the models may not interact with all filter
 ## Changing the AI model
 
 These instructions are for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For instructions on different clients, click the appropriate tab at the top of this page.
+
+> [!NOTE] If you use {% data variables.copilot.copilot_extensions_short %}, they may override the model you select.
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -56,12 +60,12 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 These instructions are for {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 {% data reusables.copilot.open-chat-vs-code %}
 1. At the bottom of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 ## Adding more models
 
@@ -115,12 +119,12 @@ These instructions are for {% data variables.product.prodname_vs %}. For instruc
 
 To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 2022 version 17.12 or later. See the [{% data variables.product.prodname_vs %} downloads page](https://visualstudio.microsoft.com/downloads/).
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endvisualstudio %}
 
@@ -129,8 +133,6 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use
 ## Changing the AI model
 
 These instructions are for the JetBrains IDEs. For instructions on different clients, click the appropriate tab at the top of this page.
-
-{% data reusables.copilot.model-picker-enable-alternative-models %}
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
@@ -145,8 +147,6 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 ## Changing the AI model
 
 These instructions are for the Eclipse IDE. For instructions on different clients, click the appropriate tab at the top of this page.
-
-{% data reusables.copilot.model-picker-enable-alternative-models %}
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
@@ -163,8 +163,6 @@ These instructions are for the Eclipse IDE. For instructions on different client
 These instructions are for Xcode. For instructions on different clients, click the appropriate tab at the top of this page.
 
 To use multi-model {% data variables.copilot.copilot_chat_short %}, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
-
-{% data reusables.copilot.model-picker-enable-alternative-models %}
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
