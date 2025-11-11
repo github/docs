@@ -65,8 +65,7 @@ export default function parsePageSectionsIntoRecords(page: any): Record {
 
   let body = ''
   // Typical example pages with no `$root` are:
-  // https://docs.github.com/en/code-security/guides or
-  // https://docs.github.com/en/graphql/overview/explorer
+  // https://docs.github.com/en/code-security/guides
   //
   // We need to avoid these because if you use `getAllText()` on these
   // pages, it will extract *everything* from the page, which will
