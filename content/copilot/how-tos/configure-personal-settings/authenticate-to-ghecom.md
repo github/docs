@@ -56,7 +56,7 @@ To authenticate to {% data variables.enterprise.data_residency_site %} in a JetB
 
 1. To open the editor preferences or settings dialog, press <kbd>Command</kbd>+<kbd>,</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>S</kbd> (Windows).
 1. In the left sidebar, expand the "Tools" section, then click **{% data variables.product.prodname_copilot %}**.
-1. In the "General" section, look for "Authentication Provider" field and enter the hostname where you access {% data variables.product.github %}. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
+1. In the "General" section, look for the "Authentication Provider" field and enter the hostname where you access {% data variables.product.github %}. For example: `{% data variables.enterprise.data_residency_example_domain %}`.
 1. To save your changes, click **OK**.
 1. To sign in, open the **Tools** menu, then select **{% data variables.product.prodname_copilot %}** > **Login to {% data variables.product.github %}**. Follow the prompts to sign in.
 
