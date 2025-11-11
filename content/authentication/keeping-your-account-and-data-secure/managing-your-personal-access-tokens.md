@@ -1,42 +1,10 @@
----
-title: Managing your personal access tokens
-shortTitle: 'Manage {% data variables.product.pat_generic %}s'
-intro: 'You can use a {% data variables.product.pat_generic %} in place of a password when authenticating to {% data variables.product.prodname_dotcom %} in the command line or with the API.'
-redirect_from:
-  - /articles/creating-an-oauth-token-for-command-line-use
-  - /articles/creating-an-access-token-for-command-line-use
-  - /articles/creating-a-personal-access-token-for-the-command-line
-  - /github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
-  - /github/authenticating-to-github/creating-a-personal-access-token
-  - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
-  - /github/extending-github/git-automation-with-oauth-tokens
-  - /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - Identity
-  - Access management
----
 
-> [!WARNING]
-> Treat your access tokens like passwords. For more information, see [Keeping your {% data variables.product.pat_generic %}s secure](#keeping-your-personal-access-tokens-secure).
-
-## About {% data variables.product.pat_generic %}s
-
-{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.github %} when using the [{% data variables.product.github %} API](/rest/overview/authenticating-to-the-rest-api) or the [command line](#using-a-personal-access-token-on-the-command-line).
-
-{% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
-
-{% data reusables.user-settings.token_access_capabilities %} For example, a {% data variables.product.pat_generic %} can be configured with an `admin:org` scope, but if the owner of the token is not an organization owner, the token will not give administrative access to the organization.
-
-### Types of {% data variables.product.pat_generic %}s
-
-{% data variables.product.company_short %} currently supports two types of {% data variables.product.pat_generic %}s: {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %} whenever possible.
-
-> [!NOTE]
-> {% data variables.product.pat_v2_caps %}s, while more secure and controllable, cannot accomplish every task that a {% data variables.product.pat_v1 %} can. See the section on [{% data variables.product.pat_v2_caps_plural %} limitations](#fine-grained-personal-access-tokens-limitations) below to learn more.
+https://github.com/settings/personal-access-tokens/new
+  ?name=Repo-reading+token
+  &description=Just+contents:read
+  &target_name=octodemo
+  &expires_in=45
+  &contents=read
 
 Both {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %} are tied to the user who generated them and will become inactive if the user loses access to the resource.
 
