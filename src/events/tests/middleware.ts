@@ -1,6 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
 import { post } from '@/tests/helpers/e2etest'
+import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 describe('POST /events', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
@@ -52,6 +53,9 @@ describe('POST /events', () => {
       // Location information
       timezone: -7,
       user_language: 'en-US',
+      ip: '192.0.2.1',
+      user_agent:
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
   }
 
@@ -88,6 +92,9 @@ describe('POST /events', () => {
       // Location information
       timezone: -7,
       user_language: 'en-US',
+      ip: '192.0.2.1',
+      user_agent:
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36',
     },
   }
 
@@ -156,5 +163,29 @@ describe('POST /events', () => {
       },
     })
     expect(statusCode).toBe(400)
+  })
+
+  test('should accept content_type field', async () => {
+    const { statusCode } = await checkEvent({
+      ...pageExample,
+      context: {
+        ...pageExample.context,
+        content_type: 'how-tos',
+      },
+    })
+    expect(statusCode).toBe(200)
+  })
+
+  test('should accept valid content_type values from EDI content models', async () => {
+    for (const contentType of contentTypesEnum) {
+      const { statusCode } = await checkEvent({
+        ...pageExample,
+        context: {
+          ...pageExample.context,
+          content_type: contentType,
+        },
+      })
+      expect(statusCode).toBe(200)
+    }
   })
 })

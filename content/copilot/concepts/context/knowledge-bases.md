@@ -12,6 +12,8 @@ redirect_from:
   - /copilot/concepts/copilot-knowledge-bases
   - /copilot/concepts/knowledge-bases
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 <!-- expires 2025-10-31 -->

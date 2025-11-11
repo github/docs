@@ -299,7 +299,9 @@
       "old_target_amount",
       "old_budget_limit_type",
       "old_alert_enabled",
-      "old_target_id"
+      "old_target_id",
+      "old_pricing_target_type",
+      "old_pricing_target_id"
     ]
   },
   {
@@ -4235,7 +4237,7 @@
   },
   {
     "action": "merge_queue.pull_request_dequeued",
-    "description": "N/A",
+    "description": "A pull request was removed from a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -4255,7 +4257,7 @@
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
-    "description": "N/A",
+    "description": "A pull request was moved ahead in a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -4279,7 +4281,7 @@
   },
   {
     "action": "merge_queue.queue_cleared",
-    "description": "N/A",
+    "description": "A merge queue was cleared.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -4298,7 +4300,7 @@
   },
   {
     "action": "merge_queue.update_settings",
-    "description": "N/A",
+    "description": "The settings for a merge queue were updated.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -7863,6 +7865,29 @@
     "docs_reference_titles": "Self-hosted runners"
   },
   {
+    "action": "org.set_actions_cache_retention_policy",
+    "description": "The cache retention policy for GitHub Actions was set for an organization.",
+    "docs_reference_links": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "request_access_security_header",
+      "org",
+      "org_id",
+      "business",
+      "business_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot"
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization"
+  },
+  {
     "action": "org.set_actions_cache_storage_policy",
     "description": "The cache storage policy for GitHub Actions was set for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/managing-github-actions-settings-for-your-organization",
@@ -11091,7 +11116,7 @@
   },
   {
     "action": "pull_request.rebase",
-    "description": "N/A",
+    "description": "A pull request was rebased.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -12575,8 +12600,8 @@
   },
   {
     "action": "repo.rename_branch",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A branch was renamed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch",
     "fields": [
       "user_agent",
       "request_id",
@@ -12598,7 +12623,8 @@
       "token_scopes",
       "programmatic_access_type",
       "actor_is_bot"
-    ]
+    ],
+    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch"
   },
   {
     "action": "repo.restore",

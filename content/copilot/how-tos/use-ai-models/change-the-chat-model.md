@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-chat
   - /copilot/how-tos/ai-models/change-the-chat-model
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 Choose from a selection of models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
@@ -37,8 +39,6 @@ Experimental pre-release versions of the models may not interact with all filter
 These instructions are for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For instructions on different clients, click the appropriate tab at the top of this page.
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
-
-> [!NOTE] If you use {% data variables.copilot.copilot_extensions_short %}, they may override the model you select.
 
 1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon.
 
@@ -75,7 +75,7 @@ You can expand the model options that are available to power {% data variables.c
 ### Prerequisites
 
 * Depending on the provider or model you choose, you may need to supply an API key, or model ID, from the provider, or a {% data variables.product.github %} {% data variables.product.pat_generic %} (PAT).
-* To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">install the AI Toolkit extension</a>.
+* To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio?ref_product=copilot&ref_type=engagement&ref_style=text">install the AI Toolkit extension</a>.
 
 ### Adding models
 

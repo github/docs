@@ -16,13 +16,13 @@ function getNextStaticAsset(directory: string) {
   return path.join(root, files[0])
 }
 
-function mockRequest(path: string, { headers }: { headers?: Record<string, string> } = {}) {
+function mockRequest(requestPath: string, { headers }: { headers?: Record<string, string> } = {}) {
   const _headers = Object.fromEntries(
     Object.entries(headers || {}).map(([key, value]) => [key.toLowerCase(), value]),
   )
   return {
-    path,
-    url: path,
+    path: requestPath,
+    url: requestPath,
     get: (header: string) => {
       return _headers[header.toLowerCase()]
     },
@@ -43,7 +43,7 @@ type MockResponse = {
   _json?: string
   _send?: string
   headers: Record<string, string>
-  set?: (key: string | Object, value: string) => void
+  set?: (key: string | object, value: string) => void
   removeHeader?: (key: string) => void
   hasHeader?: (key: string) => boolean
 }
@@ -74,8 +74,8 @@ const mockResponse = () => {
     if (typeof key === 'string') {
       res.headers[key.toLowerCase()] = value
     } else {
-      for (const [k, value] of Object.entries(key)) {
-        res.headers[k.toLowerCase()] = value
+      for (const [k, v] of Object.entries(key)) {
+        res.headers[k.toLowerCase()] = v
       }
     }
   }
@@ -113,7 +113,7 @@ describe('static assets', () => {
     // This picks the first one found. We just need it to be anything
     // that actually resolves.
     const filePath = getNextStaticAsset('css')
-    const asURL = '/' + filePath.replace('.next', '_next').split(path.sep).join('/')
+    const asURL = `/${filePath.replace('.next', '_next').split(path.sep).join('/')}`
     const res = await get(asURL)
     expect(res.statusCode).toBe(200)
     checkCachingHeaders(res)
@@ -319,9 +319,9 @@ describe('archived enterprise static assets', () => {
     },
   ])(
     'should return $expectStatus for $name',
-    ({ name, path, referrer, expectStatus, shouldCallNext }) => {
+    ({ name, path: testPath, referrer, expectStatus, shouldCallNext }) => {
       test(name, async () => {
-        const req = mockRequest(path, {
+        const req = mockRequest(testPath, {
           headers: {
             Referrer: referrer,
           },
@@ -359,22 +359,25 @@ describe('archived enterprise static assets', () => {
       expectStatus: undefined,
       shouldCallNext: true,
     },
-  ])('should not suppress $name', ({ name, path, referrer, expectStatus, shouldCallNext }) => {
-    test(name, async () => {
-      const req = mockRequest(path, {
-        headers: {
-          Referrer: referrer,
-        },
+  ])(
+    'should not suppress $name',
+    ({ name, path: testPath, referrer, expectStatus, shouldCallNext }) => {
+      test(name, async () => {
+        const req = mockRequest(testPath, {
+          headers: {
+            Referrer: referrer,
+          },
+        })
+        const res = mockResponse()
+        let nexted = false
+        const next = () => {
+          nexted = true
+        }
+        setDefaultFastlySurrogateKey(req, res, () => {})
+        await archivedEnterpriseVersionsAssets(req as any, res as any, next)
+        expect(nexted).toBe(shouldCallNext)
+        expect(res.statusCode).toBe(expectStatus)
       })
-      const res = mockResponse()
-      let nexted = false
-      const next = () => {
-        nexted = true
-      }
-      setDefaultFastlySurrogateKey(req, res, () => {})
-      await archivedEnterpriseVersionsAssets(req as any, res as any, next)
-      expect(nexted).toBe(shouldCallNext)
-      expect(res.statusCode).toBe(expectStatus)
-    })
-  })
+    },
+  )
 })

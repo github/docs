@@ -15,7 +15,8 @@ For code reviews, follow guidelines, tests, and validate instructions. For creat
 - Be careful fetching full HTML pages off the internet. Prefer to use gh cli whenever possible for github.com. Limit the number of tokens when grabbing HTML.
 - Avoid pull requests with over 300 lines of code changed. When significantly larger, offer to split up into smaller pull requests if possible.
 - All new code should be written in TypeScript and not JavaScript.
-- We use absolute imports, relative to the `src` directory, using the `@` symbol. For example, `getRedirect` which lives in `src/redirects/lib/get-redirect.js` can be imported with `import getRedirect from '@/redirects/lib/get-redirect'`. The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { GeneralSearchHit } from '@/search/types'`
+- We use absolute imports, relative to the `src` directory, using the `@` symbol. For example, `getRedirect` which lives in `src/redirects/lib/get-redirect.ts` can be imported with `import getRedirect from '@/redirects/lib/get-redirect'`. The same rule applies for TypeScript (`.ts`) imports, e.g. `import type { GeneralSearchHit } from '@/search/types'`
+- For updates to the content linter, read important information in `src/content-linter/README.md`.
 
 ## Tests
 

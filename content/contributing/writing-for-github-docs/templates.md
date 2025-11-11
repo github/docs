@@ -73,7 +73,7 @@ intro: 'Article intro. See tips for a great intro below.'
 product: "{{ optional product callout }}"
 type: reference
 topics:
-  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.ts
 versions:
   - <version>
 ---
@@ -125,7 +125,7 @@ intro: 'Article intro. See tips for a great intro below.'
 product: "{{ optional product callout }}"
 type: how_to
 topics:
-  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.ts
 versions:
   - <version>
 ---
@@ -176,7 +176,7 @@ shortTitle: <subject> # Max 31 characters
 intro: 'Article intro. Highlight that the guide is quick and to the point.'
 type: quick_start
 topics:
-  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.ts
 versions:
   - <version>
 ---
@@ -245,7 +245,7 @@ intro: 'Article intro. See tips for a great intro below'
 product: "{{ optional product callout }}"
 type: tutorial
 topics:
-  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.ts
 versions:
   - <version>
 ---
@@ -320,7 +320,7 @@ intro: 'Article intro. See tips for a great intro below'
 product: "{{ optional product callout }}"
 type: tutorial
 topics:
-  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.js
+  - <topic> # One or more from list of allowed topics: https://github.com/github/docs/blob/main/data/allowed-topics.ts
 versions:
   - <version>
 ---

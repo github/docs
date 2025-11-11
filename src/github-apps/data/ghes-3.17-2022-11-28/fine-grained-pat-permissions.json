@@ -1,118 +1,4 @@
 {
-  "enterprise_scim": {
-    "title": "Enterprise SCIM",
-    "displayTitle": "Enterprise permissions for \"Enterprise SCIM\"",
-    "permissions": [
-      {
-        "category": "enterprise-admin",
-        "slug": "list-provisioned-scim-groups-for-an-enterprise",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "provision-a-scim-enterprise-group",
-        "subcategory": "scim",
-        "verb": "post",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
-        "subcategory": "scim",
-        "verb": "put",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-an-attribute-for-a-scim-enterprise-group",
-        "subcategory": "scim",
-        "verb": "patch",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "delete-a-scim-group-from-an-enterprise",
-        "subcategory": "scim",
-        "verb": "delete",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "list-scim-provisioned-identities-for-an-enterprise",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "provision-a-scim-enterprise-user",
-        "subcategory": "scim",
-        "verb": "post",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
-        "subcategory": "scim",
-        "verb": "get",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
-        "subcategory": "scim",
-        "verb": "put",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "update-an-attribute-for-a-scim-enterprise-user",
-        "subcategory": "scim",
-        "verb": "patch",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "delete-a-scim-user-from-an-enterprise",
-        "subcategory": "scim",
-        "verb": "delete",
-        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
-        "additional-permissions": false,
-        "access": "write"
-      }
-    ]
-  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
@@ -1552,24 +1438,6 @@
     "displayTitle": "Organization permissions for \"Projects\"",
     "permissions": [
       {
-        "category": "projects-classic",
-        "slug": "list-organization-projects",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projects",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-an-organization-project",
-        "subcategory": "projects",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/projects",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
         "category": "teams",
         "slug": "add-or-update-team-project-permissions",
         "subcategory": "teams",
@@ -1625,33 +1493,6 @@
       },
       {
         "category": "projects-classic",
-        "slug": "get-a-project",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-a-project",
-        "subcategory": "projects",
-        "verb": "patch",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project",
-        "subcategory": "projects",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
         "slug": "list-project-collaborators",
         "subcategory": "collaborators",
         "verb": "get",
@@ -1685,24 +1526,6 @@
         "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
         "additional-permissions": true,
         "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-columns",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/{project_id}/columns",
-        "additional-permissions": true,
-        "access": "write"
       }
     ]
   },
@@ -3773,15 +3596,6 @@
       },
       {
         "category": "repos",
-        "slug": "transfer-a-repository",
-        "subcategory": "repos",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/transfer",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "repos",
         "slug": "check-if-vulnerability-alerts-are-enabled-for-a-repository",
         "subcategory": "repos",
         "verb": "get",
@@ -3851,15 +3665,6 @@
         "requestPath": "/user/repository_invitations",
         "additional-permissions": false,
         "access": "read"
-      },
-      {
-        "category": "collaborators",
-        "slug": "accept-a-repository-invitation",
-        "subcategory": "invitations",
-        "verb": "patch",
-        "requestPath": "/user/repository_invitations/{invitation_id}",
-        "additional-permissions": false,
-        "access": "write"
       },
       {
         "category": "collaborators",
@@ -5529,15 +5334,6 @@
         "subcategory": "search",
         "verb": "get",
         "requestPath": "/search/labels",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "apps",
-        "slug": "list-repositories-accessible-to-the-user-access-token",
-        "subcategory": "installations",
-        "verb": "get",
-        "requestPath": "/user/installations/{installation_id}/repositories",
         "additional-permissions": false,
         "access": "read"
       },

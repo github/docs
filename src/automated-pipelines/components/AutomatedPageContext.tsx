@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+import type { JSX } from 'react'
 import type { MiniTocItem } from '@/frame/components/context/ArticleContext'
 
 export type AutomatedPageContextT = {

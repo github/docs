@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/using-github-copilot/best-practices-for-using-github-copilot
   - /copilot/get-started/best-practices-for-using-github-copilot
 contentType: get-started
+category: 
+  - Learn about Copilot
 ---
 
 ## Understand {% data variables.product.prodname_copilot_short %}'s strengths and weaknesses

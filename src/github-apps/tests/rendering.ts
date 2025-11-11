@@ -76,7 +76,7 @@ describe('REST references docs', () => {
           ...value.map(
             (item: EnabledItem) =>
               `/en/rest/${key}${
-                categoriesWithoutSubcategories.includes(key) ? '' : '/' + item.subcategory
+                categoriesWithoutSubcategories.includes(key) ? '' : `/${item.subcategory}`
               }#${item.slug}`,
           ),
         )
@@ -110,7 +110,7 @@ describe('REST references docs', () => {
           ...value.permissions.map(
             (item: PermissionItem) =>
               `/en/rest/${item.category}${
-                categoriesWithoutSubcategories.includes(item.category) ? '' : '/' + item.subcategory
+                categoriesWithoutSubcategories.includes(item.category) ? '' : `/${item.subcategory}`
               }#${item.slug}`,
           ),
         )

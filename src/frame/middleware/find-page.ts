@@ -4,7 +4,7 @@ import type { Response, NextFunction } from 'express'
 
 import { ROOT } from '@/frame/lib/constants'
 import Page from '@/frame/lib/page'
-import { languagePrefixPathRegex } from '@/languages/lib/languages'
+import { languagePrefixPathRegex } from '@/languages/lib/languages-server'
 import type { ExtendedRequest } from '@/types'
 
 interface FindPageOptions {
@@ -110,7 +110,7 @@ async function rereadByPath(
   // but perhaps one day we can always and only do these kinds of lookups
   // at runtime.
   const possible = path.join(contentRoot, withoutVersion)
-  const filePath = existsSync(possible) ? path.join(possible, 'index.md') : possible + '.md'
+  const filePath = existsSync(possible) ? path.join(possible, 'index.md') : `${possible}.md`
   const relativePath = path.relative(contentRoot, filePath)
   const basePath = contentRoot
 

@@ -12,7 +12,10 @@ redirect_from:
   - /copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server
   - /copilot/how-tos/context/model-context-protocol/use-the-github-mcp-server
   - /copilot/how-tos/context/use-mcp/use-the-github-mcp-server
+  - /copilot/how-tos/provide-context/install-copilot-extensions/use-copilot-extensions
 contentType: how-tos
+category: 
+  - Integrate Copilot with your tools
 ---
 
 The {% data variables.product.github %} MCP server is available to all {% data variables.product.github %} users regardless of plan type. However, specific tools within the MCP server inherit the same access requirements as their corresponding {% data variables.product.github %} features. If a feature requires a paid {% data variables.product.github %} or {% data variables.product.prodname_copilot_short %} license, the equivalent MCP tool will require the same subscription. For example, tools that interact with {% data variables.product.prodname_copilot_short %} Coding Agent require a paid {% data variables.product.prodname_copilot_short %} license.
@@ -145,7 +148,7 @@ The {% data variables.product.github %} MCP server enables you to perform a wide
 
 {% data reusables.copilot.eclipse-prerequisites %}
 * The {% data variables.product.github %} MCP server, configured in your editor. See [AUTOTITLE](/copilot/how-tos/provide-context/use-mcp/set-up-the-github-mcp-server).
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} from Eclipse**.
 
 ## Using the {% data variables.product.github %} MCP server in Eclipse

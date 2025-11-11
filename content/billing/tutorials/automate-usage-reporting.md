@@ -6,6 +6,7 @@ redirect_from:
   - /billing/using-the-new-billing-platform/automating-usage-reporting
   - /billing/managing-your-billing/automating-usage-reporting
 versions:
+  fpt: '*'
   ghec: '*'
 topics:
   - Enterprise
@@ -37,17 +38,15 @@ You need to use different endpoints to gather data depending on your account typ
 ## Getting premium request consumption
 
 1. Authenticate with {% data variables.product.github %} with one of the following methods:
-   * **GitHub CLI:** use the `gh auth login` command to authenticate, see [AUTOTITLE](/github-cli/github-cli/quickstart).
+   * **{% data variables.product.prodname_cli %}:** use the `gh auth login` command to authenticate, see [AUTOTITLE](/github-cli/github-cli/quickstart).
    * **Create a {% data variables.product.pat_v1 %}:** and pass the token to in your API call, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
 1. Call the required `premium_request/usage` endpoint, specifying the enterprise, organization, or user that you want data for.
 
-To download other metrics for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/tutorials/roll-out-at-scale/measure-adoption/analyze-usage-over-time).
-
 ## Getting usage data for all paid products
 
 1. Authenticate with {% data variables.product.github %} with one of the following methods:
-   * **GitHub CLI:** use the `gh auth login` command to authenticate, see [AUTOTITLE](/github-cli/github-cli/quickstart).
+   * **{% data variables.product.prodname_cli %}:** use the `gh auth login` command to authenticate, see [AUTOTITLE](/github-cli/github-cli/quickstart).
    * **Create a {% data variables.product.pat_v1 %}:** and pass the token to in your API call, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
 1. Call the required `usage` endpoint, specifying the enterprise, organization, or user that you want data for.

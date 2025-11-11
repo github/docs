@@ -5,11 +5,23 @@ import coreLib from '@actions/core'
 import github from '@/workflows/github'
 import { getEnvInputs } from '@/workflows/get-env-inputs'
 import { createReportIssue, linkReports } from '@/workflows/issue-report'
-import { shouldIncludeResult } from '@/content-linter/lib/helpers/should-include-result'
-import { reportingConfig } from '@/content-linter/style/github-docs'
+import { getAllRuleNames } from '@/content-linter/lib/helpers/rule-utils'
 
 // GitHub issue body size limit is ~65k characters, so we'll use 60k as a safe limit
 const MAX_ISSUE_BODY_SIZE = 60000
+
+// If the number of warnings exceeds this number, print a warning so we can give them attention
+const MAX_WARNINGS_BEFORE_ALERT = 20
+
+/**
+ * Config that only applies to automated weekly reports.
+ */
+export const reportingConfig = {
+  // Include only rules with these severities in reports
+  includeSeverities: ['error', 'warning'],
+  // Include these rules regardless of severity in reports
+  includeRules: ['expired-content'],
+}
 
 interface LintFlaw {
   severity: string
@@ -19,34 +31,16 @@ interface LintFlaw {
 
 /**
  * Determines if a lint result should be included in the automated report
- * Uses shared exclusion logic with additional reporting-specific filtering
  */
-function shouldIncludeInReport(flaw: LintFlaw, filePath: string): boolean {
-  if (!flaw.ruleNames || !Array.isArray(flaw.ruleNames)) {
-    return false
-  }
+function shouldIncludeInReport(flaw: LintFlaw): boolean {
+  const allRuleNames = getAllRuleNames(flaw)
 
-  // First check if it should be excluded (file-specific or rule-specific exclusions)
-  if (!shouldIncludeResult(flaw, filePath)) {
-    return false
-  }
-
-  // Extract all possible rule names including sub-rules from search-replace
-  const allRuleNames = [...flaw.ruleNames]
-  if (flaw.ruleNames.includes('search-replace') && flaw.errorDetail) {
-    const match = flaw.errorDetail.match(/^([^:]+):/)
-    if (match) {
-      allRuleNames.push(match[1])
-    }
-  }
-
-  // Apply reporting-specific filtering
   // Check if severity should be included
   if (reportingConfig.includeSeverities.includes(flaw.severity)) {
     return true
   }
 
-  // Check if any rule name is in the include list
+  // Check if any rule name is in the include list that overrides severity
   const hasIncludedRule = allRuleNames.some((ruleName: string) =>
     reportingConfig.includeRules.includes(ruleName),
   )
@@ -98,18 +92,27 @@ async function main() {
 
   const parsedResults = JSON.parse(lintResults)
 
+  // Keep track of warnings so we can print an alert when they exceed a manageable number
+  let totalWarnings = 0
+
   // Filter results based on reporting configuration
   const filteredResults: Record<string, LintFlaw[]> = {}
   for (const [file, flaws] of Object.entries(parsedResults)) {
-    const filteredFlaws = (flaws as LintFlaw[]).filter((flaw) => shouldIncludeInReport(flaw, file))
+    const filteredFlaws = (flaws as LintFlaw[]).filter((flaw) => shouldIncludeInReport(flaw))
 
     // Only include files that have remaining flaws after filtering
     if (filteredFlaws.length > 0) {
+      totalWarnings += filteredFlaws.filter((flaw) => flaw.severity === 'warning').length
       filteredResults[file] = filteredFlaws
     }
   }
   const totalFiles = Object.keys(filteredResults).length
-  let reportBody = 'The following files have markdown lint issues that require attention:\n\n'
+
+  const showTooManyWarningsAlert = totalWarnings > MAX_WARNINGS_BEFORE_ALERT
+  const tooManyWarningsAlertText = showTooManyWarningsAlert
+    ? `**Alert**: ${totalWarnings} warning-level issues have been found. These must be addressed ASAP so they do not continue to accumulate.\n\n`
+    : ''
+  let reportBody = `${tooManyWarningsAlertText}The following files have markdown lint issues that require attention:\n\n`
   let filesIncluded = 0
   let truncated = false
 

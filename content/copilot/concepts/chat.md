@@ -9,6 +9,8 @@ topics:
 redirect_from:
   - /copilot/concepts/about-github-copilot-chat
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 # Overview
@@ -55,10 +57,6 @@ For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-person
 MCP is an open standard that defines how applications share context with large language models (LLMs). MCP provides a standardized way to connect AI models to different data sources and tools, enabling them to work together more effectively.
 
 You can configure MCP servers to provide context to {% data variables.copilot.copilot_chat_short %} in various IDEs, such as {% data variables.product.prodname_vscode %} and JetBrains IDEs. For {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data variables.product.github %} MCP server is automatically configured, enabling {% data variables.copilot.copilot_chat_short %} to perform a limited set of tasks, at your request, such as creating branches or merging pull requests. For more information, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp) and [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
-
-### Extending {% data variables.copilot.copilot_chat_short %} with external tools
-
-{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
 
 ### Further reading
 

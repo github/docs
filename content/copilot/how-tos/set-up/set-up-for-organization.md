@@ -17,6 +17,8 @@ redirect_from:
   - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-your-organization
   - /copilot/how-tos/set-up/setting-up-github-copilot-for-your-organization
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## 1. Subscribe your organization to {% data variables.product.prodname_copilot %}

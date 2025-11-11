@@ -238,7 +238,7 @@ sections:
       In GitHub Enterprise Server 3.17, GitHub will migrate tag protection rules to a ruleset and the tag protection rule feature will no longer be available. Prior to upgrading to 3.17, you can use the [migration feature](https://github.blog/changelog/2023-10-18-migrate-tag-protections-to-repository-rules/) to move your tag protection rules.
     # https://github.com/github/releases/issues/5381
     - |
-      In GitHub Enterprise Server 3.17, GitHub will deprecate the Docker registry for GitHub Packages in favor of the GitHub Container Registry, which supports Docker packages. All packages in the Docker registry will be deleted and cannot be fetched past the deprecation date.
+      In GitHub Enterprise Server 3.17, GitHub will be closing down the Docker registry for GitHub Packages in favor of the GitHub Container Registry, which supports Docker packages. All packages in the Docker registry will be deleted and cannot be fetched past the closing down date.
     # https://github.com/github/releases/issues/5292
     - |
       In GitHub Enterprise Server 3.17, Dependabot will no longer support Python 3.8, which has reached its end-of-life. If you continue to use Python 3.8, Dependabot will not be able to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of Python. As of February 2025, Python 3.13 is the newest supported release.
@@ -247,14 +247,14 @@ sections:
       In GitHub Enterprise Server 3.17, Dependabot will no longer support NPM version 6, which has reached its end-of-life. If you continue to use NPM version 6, Dependabot will be unable to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of NPM. As of December 2024, NPM 9 is the newest supported release.
    # https://github.com/github/releases/issues/4710
     - |
-      In GitHub Enterprise Server 3.17 and later, the field `cvss` for GitHub security advisories in the REST & GraphQL APIs will be deprecated in favour of the new `cvss_severities` field.
+      In GitHub Enterprise Server 3.17 and later, the field `cvss` for GitHub security advisories in the REST & GraphQL APIs will be closing down in favour of the new `cvss_severities` field.
    # https://github.com/github/releases/issues/4964
     - |
       In GitHub Enterprise Server 3.17 and later, the Trending functionality under /explore will be removed. It was supposed be removed in version 3.16.
 
   retired:
     - |
-      Team discussions have been removed from GitHub Enterprise Server. The sunset of this feature was announced in 2023. See the [GitHub Blog post](https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/).
+      Team discussions have been removed from GitHub Enterprise Server. This feature was retired in 2023. See the [GitHub Blog post](https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/).
     # https://github.com/github/releases/issues/4964
     - |
       In GitHub Enterprise Server 3.16, the Activity functionality under /explore is removed.
@@ -263,7 +263,7 @@ sections:
       GitHub no longer supports .NET 6 in GitHub Enterprise Server 3.16 and later.
     # https://github.com/github/releases/issues/4535
     - |
-      As of October 15th, 2024, you will no longer be able to enable or disable GitHub security features for repositories from the organization-level security coverage view. This feature has been deprecated and replaced with code security configurations for managing these settings. See the [GitHub blog post](https://github.blog/changelog/2024-10-17-new-code-security-configurations-let-you-set-security-features-at-the-organization-level/).
+      As of October 15th, 2024, you will no longer be able to enable or disable GitHub security features for repositories from the organization-level security coverage view. This feature has been retired and replaced with code security configurations for managing these settings. See the [GitHub blog post](https://github.blog/changelog/2024-10-17-new-code-security-configurations-let-you-set-security-features-at-the-organization-level/).
 
   errata:
     - |

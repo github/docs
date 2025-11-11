@@ -11,6 +11,7 @@ import {
   prependDatedEntry,
   getLastIgnoredChanges,
   getIgnoredChangesSummary,
+  type ChangelogEntry,
 } from '../scripts/build-changelog'
 import readJsonFile from '@/frame/lib/read-json-file'
 
@@ -28,10 +29,6 @@ interface UpcomingChange {
   location: string
   description: string
   date: string
-}
-
-interface ChangelogEntry {
-  [key: string]: any
 }
 
 interface IgnoredChange {
@@ -245,7 +242,11 @@ describe('updating the changelog file', () => {
     const testTargetPath = 'src/graphql/tests/fixtures/example-changelog.json'
     const previousContents = await fs.readFile(testTargetPath)
 
-    const exampleEntry: ChangelogEntry = { someStuff: true }
+    const exampleEntry: ChangelogEntry = {
+      schemaChanges: [],
+      previewChanges: [],
+      upcomingChanges: [],
+    }
     const expectedDate = '2020-11-20'
     MockDate.set(expectedDate)
 
@@ -254,7 +255,12 @@ describe('updating the changelog file', () => {
     // reset the file:
     await fs.writeFile(testTargetPath, previousContents.toString())
 
-    expect(exampleEntry).toEqual({ someStuff: true, date: expectedDate })
+    expect(exampleEntry).toEqual({
+      schemaChanges: [],
+      previewChanges: [],
+      upcomingChanges: [],
+      date: expectedDate,
+    })
     expect(JSON.parse(newContents)).toEqual(expectedUpdatedChangelogFile)
   })
 })

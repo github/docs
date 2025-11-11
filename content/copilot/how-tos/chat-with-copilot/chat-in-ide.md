@@ -19,6 +19,8 @@ versions:
   feature: copilot
 shortTitle: Chat in IDE
 contentType: how-tos
+category:
+  - Author and optimize with Copilot
 ---
 
 ## Introduction
@@ -66,10 +68,6 @@ Alternatively, you can manually specify a chat participant to scope your prompt 
 
 For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#chat-participants) or [Chat participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) in the {% data variables.product.prodname_vscode %} documentation.
 
-### {% data variables.copilot.copilot_extensions_short %} chat participants
-
-You can also install {% data variables.copilot.copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions).
-
 ### Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
@@ -102,6 +100,10 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
 
 {% endif %}
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -152,7 +154,7 @@ For more detailed instructions, see [{% data variables.copilot.copilot_edits_sho
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
-You can also directly [open agent mode in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?mode=agent). <!-- markdownlint-disable-line GHD003 -->
+You can also directly [open agent mode in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?mode=agent&ref_product=copilot&ref_type=engagement&ref_style=text). <!-- markdownlint-disable-line GHD003 -->
 
 For more information, see [{% data variables.copilot.copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
@@ -201,8 +203,8 @@ To leave feedback about the {% data variables.copilot.copilot_chat %} extension,
 * **Access to {% data variables.product.prodname_copilot %}**. {% data reusables.copilot.subscription-prerequisite %}
 * **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
   * _For {% data variables.product.prodname_vs %} 17.8 and 17.9:_
-    * **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-    * **{% data variables.copilot.copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+    * **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vs %} documentation.
+    * **{% data variables.copilot.copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the {% data variables.product.prodname_vs %} documentation.
 
    _{% data variables.product.prodname_vs %} 17.10 and later have the {% data variables.product.prodname_copilot %} and {% data variables.copilot.copilot_chat %} extensions built in. You don't need to install them separately._
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
@@ -224,10 +226,6 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 ## Using keywords in your prompt
 
 You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
-
-### Extending {% data variables.copilot.copilot_chat_short %}
-
-{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
 
 ### Slash commands
 
@@ -269,6 +267,10 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
 
 {% endif %}
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -397,6 +399,10 @@ By default, {% data variables.copilot.copilot_chat_short %} will reference the f
 
 {% data reusables.copilot.using-skills %}
 
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
+
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.change-the-ai-model %}
@@ -487,6 +493,10 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
    To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
+
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.change-the-ai-model %}
@@ -544,7 +554,7 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 ## Prerequisites
 
 {% data reusables.copilot.eclipse-prerequisites %}
-* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
 * **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
 
 {% data reusables.copilot.chat-access-denied %}
@@ -570,6 +580,10 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. For example, use `/explain` to ask {% data variables.product.prodname_copilot_short %} to explain the code in the file currently displayed in the editor.
 
 To see all available slash commands, type `/` in the chat prompt box.
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 

@@ -36,6 +36,7 @@ export type EventProps = {
     path_article: string
     page_document_type: string
     page_type: string
+    content_type: string
     status: number
     is_logged_in: boolean
     dotcom_user: string
@@ -50,6 +51,8 @@ export type EventProps = {
     screen_width?: number
     screen_height?: number
     pixel_ratio?: number
+    ip?: string
+    user_agent?: string
     timezone: number
     user_language: string
     os_preference: string
@@ -103,12 +106,12 @@ export type EventPropsByType = {
     link_samepage?: boolean
     link_container?: string
   }
-  [EventType.page]: {}
+  [EventType.page]: { type: string } // no unique properties
   [EventType.preference]: {
     preference_name: string
     preference_value: string
   }
-  [EventType.print]: {}
+  [EventType.print]: { type: string } // no unique properties
   [EventType.search]: {
     search_query: string
     search_context?: string

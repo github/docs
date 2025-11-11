@@ -98,9 +98,11 @@ async function createCheckContentDirectory(contentFiles: string[]): Promise<Chec
     })
 
     allCompleteVersions.forEach((version) => {
-      !checkContent[version][category]
-        ? (checkContent[version][category] = [subCategory])
-        : checkContent[version][category].push(subCategory)
+      if (!checkContent[version][category]) {
+        checkContent[version][category] = [subCategory]
+      } else {
+        checkContent[version][category].push(subCategory)
+      }
       checkContent[version][category].sort()
     })
   }
@@ -121,9 +123,11 @@ function getOnlyApiVersions(version: string): string[] {
 function createCheckObj(): CheckObject {
   const versions: CheckObject = {}
   Object.keys(allVersions).forEach((version) => {
-    isApiVersioned(version)
-      ? getOnlyApiVersions(version).forEach((apiVersion) => (versions[apiVersion] = {}))
-      : (versions[`${allVersions[version].version}`] = {})
+    if (isApiVersioned(version)) {
+      getOnlyApiVersions(version).forEach((apiVersion) => (versions[apiVersion] = {}))
+    } else {
+      versions[`${allVersions[version].version}`] = {}
+    }
   })
 
   return versions
@@ -159,5 +163,5 @@ function difference(obj1: Record<string, string[]>, obj2: Record<string, string[
 export function getAutomatedMarkdownFiles(rootDir: string): string[] {
   return walkFiles(rootDir, '.md')
     .filter((file) => !file.includes('index.md'))
-    .filter((file) => !nonAutomatedRestPaths.some((path) => file.includes(path)))
+    .filter((file) => !nonAutomatedRestPaths.some((excludePath) => file.includes(excludePath)))
 }

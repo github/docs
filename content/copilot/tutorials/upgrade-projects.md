@@ -11,6 +11,9 @@ redirect_from:
   - /copilot/tutorials/upgrading-java-projects-with-github-copilot
   - /copilot/tutorials/upgrading-projects-with-github-copilot
 contentType: tutorials
+category:
+  - Burn down tech debt
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]

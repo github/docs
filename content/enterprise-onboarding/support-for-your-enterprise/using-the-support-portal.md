@@ -1,7 +1,7 @@
 ---
 title: 'Using the support portal'
 shortTitle: Support portal
-intro: 'Learn how to access the support portal for your enterprise.'
+intro: 'Access the support portal for your enterprise.'
 allowTitleToDifferFromFilename: true
 versions:
   ghec: '*'
@@ -23,7 +23,7 @@ The {% data variables.contact.enterprise_portal %} offers single sign-on (SSO) c
 Before you start creating tickets associated with your enterprise account on {% data variables.product.prodname_dotcom_the_website %}, we recommend completing the following steps.
 
 1. Identify the user on {% data variables.product.prodname_dotcom_the_website %} who is an owner of your enterprise account.
-1. Configure a verified domain. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
+1. Configure a verified domain. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise).
 1. Add owners, billing managers, or support-entitled members to your enterprise account. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise).
 
 ## Next steps

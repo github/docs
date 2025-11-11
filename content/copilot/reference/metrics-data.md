@@ -4,6 +4,8 @@ shortTitle: Metrics data
 intro: See how GitHub calculates properties from APIs and reports.
 versions:
   feature: copilot
+category:
+  - Learn about Copilot
 topics:
   - Copilot
 allowTitleToDifferFromFilename: true

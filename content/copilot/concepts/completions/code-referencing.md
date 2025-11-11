@@ -9,6 +9,8 @@ topics:
 versions:
   feature: copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 {% jetbrains %}

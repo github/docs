@@ -1,7 +1,8 @@
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
+import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'
 
@@ -93,12 +94,17 @@ const context = {
     page_document_type: {
       type: 'string',
       description: 'The generic page document type based on URL path.',
-      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.js
+      enum: ['homepage', 'early-access', 'product', 'category', 'subcategory', 'article'], // get-document-type.ts
     },
     page_type: {
       type: 'string',
       description: 'Optional page type from the content frontmatter.',
-      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.js
+      enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.ts
+    },
+    content_type: {
+      type: 'string',
+      description: 'Optional content type from the content frontmatter (EDI content models).',
+      enum: contentTypesEnum,
     },
     status: {
       type: 'number',
@@ -167,6 +173,14 @@ const context = {
       type: 'number',
       description: 'The device pixel ratio.',
       minimum: 0,
+    },
+    ip: {
+      type: 'string',
+      description: 'The IP address of the user.',
+    },
+    user_agent: {
+      type: 'string',
+      description: 'The raw user agent string from the browser.',
     },
 
     // Location information

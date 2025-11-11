@@ -1,5 +1,24 @@
 # Docs changelog
 
+**24 October 2025**
+
+To support the enterprise roles and teams public preview, we:
+
+* Created a new concepts category in the [enterprise admin](https://docs.github.com/en/enterprise-cloud@latest/admin) docs aimed at onboarding administrators, including new articles on roles and teams in an enterprise.
+* Built a user journey for setting up roles, teams, and apps to simplify administration, starting with [Identifying the roles required by your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/identify-role-requirements).
+* Published how-to content on [creating custom roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/create-custom-roles), [creating enterprise teams](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/create-enterprise-teams), and [assigning roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-roles-in-your-enterprise/assign-roles).
+* Communicated new conceptual frameworks and best practices for enterprise accounts, including [Best practices for organizing work in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/best-practices) and [Enterprise accounts](https://docs.github.com/en/enterprise-cloud@latest/admin/concepts/enterprise-fundamentals/enterprise-accounts).
+
+<hr>
+
+**17 October 2025**
+
+We have updated the [Account and profile](https://docs.github.com/en/account-and-profile) and [Subscriptions and notifications](https://docs.github.com/en/subscriptions-and-notifications) docs for improved usability, scannability, and information architecture.
+
+To support accomplishing tasks without context switching or sifting through unrelated content, articles are now organized by content type and focused on jobs-to-be-done. Additionally, related information is now linked from content type to content type.
+
+<hr>
+
 **14 October 2025**
 
 We've added a new tutorial about how to [Review AI-generated code](https://docs.github.com/en/copilot/tutorials/review-ai-generated-code). The article gives techniques to verify and validate AI-generated code, and also suggests how Copilot can help with reviews.

@@ -185,14 +185,14 @@ function processLinkNode(node: Link, language: string, version: string, nodes: N
         language === 'en'
       ) {
         // Throw if the link text *almost*  is AUTOTITLE
-        const textChild = child as Text
+        const childText = child as Text
         if (
-          textChild.value.toUpperCase() === 'AUTOTITLE' ||
-          distance(textChild.value.toUpperCase(), 'AUTOTITLE') <= 2
+          childText.value.toUpperCase() === 'AUTOTITLE' ||
+          distance(childText.value.toUpperCase(), 'AUTOTITLE') <= 2
         ) {
           throw new Error(
-            `Found link text '${textChild.value}', expected 'AUTOTITLE'. ` +
-              `Find the mention of the link text '${textChild.value}' and change it to 'AUTOTITLE'. Case matters.`,
+            `Found link text '${childText.value}', expected 'AUTOTITLE'. ` +
+              `Find the mention of the link text '${childText.value}' and change it to 'AUTOTITLE'. Case matters.`,
           )
         }
       }
@@ -274,7 +274,7 @@ Look for an internal link that starts with '${url}'.
   newHref = newHref.replace('/enterprise-server@latest/', `/enterprise-server@${latest}/`)
 
   if (newHref === url) {
-    // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.js)
+    // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.ts)
     const hrefWithoutLang = getPathWithoutLanguage(url)
 
     // normalize any legacy links so they conform to new link structure

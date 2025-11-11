@@ -27,7 +27,7 @@ sections:
     - |
       Site administrators observed that uploading a license failed to restart GitHub services after upgrading GitHub Enterprise Server due to file permission issues in `/var/log/license-upgrade`.
     - |
-      After upgrading to GHES 3.15.11, GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+      After upgrading to GHES 3.15.11, GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests and autolink references for private repositories were no longer available. [Updated: 2025-11-11]
   changes:
     - |
       When administrators run the `ghe-support-bundle` command on an unconfigured node, the output clearly states that metadata collection was skipped, instead of producing misleading `curl` errors. This improves the clarity of support bundle diagnostics.

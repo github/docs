@@ -5,6 +5,8 @@ allowTitleToDifferFromFilename: true
 intro: 'Learn how delegating {% data variables.product.prodname_copilot_short %} policy decisions to organizations affects users granted a license by organizations with different policies.'
 versions:
   feature: copilot
+category:
+  - Learn about Copilot
 topics:
   - Copilot
   - Policy
@@ -46,13 +48,13 @@ Feature, model, and privacy settings for users are set according to the **least 
 | {% data variables.copilot.copilot_code-review_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/code-review) |
 | {% data variables.copilot.copilot_coding_agent %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom) |
 | {% data variables.product.prodname_spark_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/spark) |
-| {% data variables.copilot.copilot_extensions_short %} | Least restrictive organization | [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions) |
 | {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/chat-in-github) |
 | {% data variables.copilot.copilot_desktop_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-in-github-desktop) |
 | {% data variables.copilot.copilot_cli_short %} | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-cli) |
 | Editor preview features | Least restrictive organization | [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) |
 | {% data variables.product.prodname_github_models %}, one policy per model | Least restrictive organization | [AUTOTITLE](/github-models/github-models-at-scale/manage-models-at-scale) |
 | MCP servers in {% data variables.product.prodname_copilot_short %} | Least restrictive organization | [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp) |
+| {% data variables.product.prodname_copilot_short %}-generated commit messages | Least restrictive organization | [AUTOTITLE](/copilot/responsible-use/copilot-commit-message-generation) |
 
 ## Next steps
 

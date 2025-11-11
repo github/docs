@@ -29,7 +29,7 @@ First, make a copy of the repository on your computer by cloning it.
 
 ## Installing project requirements
 
-1. [Open {% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat), then ask it to identify what you need to install with the following prompt. <!-- markdownlint-disable-line GHD003 -->
+1. [Open {% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=text), then ask it to identify what you need to install with the following prompt. <!-- markdownlint-disable-line GHD003 -->
 
     ```text copy
     What do I need to install to develop this project locally? 
@@ -82,7 +82,7 @@ Now that your development environment is set up, you can start the development s
 
    For this project, refresh your browser window to see your changes.
 
-If the README doesn't contain the information you need, check the configuration files for available commands. You can also ask [{% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat) with the following prompt. <!-- markdownlint-disable-line GHD003 -->
+If the README doesn't contain the information you need, check the configuration files for available commands. You can also ask [{% data variables.copilot.copilot_chat_short %}](vscode://GitHub.Copilot-Chat?ref_product=copilot&ref_type=engagement&ref_style=text) with the following prompt. <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 How do I start this project locally?

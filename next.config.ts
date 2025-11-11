@@ -4,14 +4,9 @@ import type { NextConfig } from 'next'
 
 import frontmatter from '@gr2m/gray-matter'
 import { getLogLevelNumber } from '@/observability/logger/lib/log-levels'
+import { languageKeys } from '@/languages/lib/languages'
 
 const ROOT = process.env.ROOT || '.'
-
-// Language keys are defined here because Next.js config compilation doesn't resolve the @/ path alias
-// Importing from src/languages/lib/languages.ts would fail when it tries to import @/frame/lib/constants
-// This must match the languages defined in src/languages/lib/languages.ts
-const languageKeys = ['en', 'es', 'ja', 'pt', 'zh', 'ru', 'fr', 'ko', 'de']
-
 const homepage = path.posix.join(ROOT, 'content/index.md')
 const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 const productIds = data.children as string[]
@@ -25,9 +20,7 @@ const config: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
   i18n: {
     locales: languageKeys,
     defaultLocale: 'en',
@@ -54,11 +47,27 @@ const config: NextConfig = {
       }
     })
   },
-  webpack: (config) => {
-    config.experiments = config.experiments || {}
-    config.experiments.topLevelAwait = true
-    config.resolve.fallback = { fs: false, async_hooks: false }
-    return config
+
+  // Turbopack is the default bundler in Next.js 16
+  // Keep webpack config for now to support both bundlers
+
+  // Turbopack configuration for Next.js 16 (replaces webpack fallbacks)
+  turbopack: {
+    resolveAlias: {
+      fs: {
+        browser: './empty.ts', // Point to empty module when fs is requested for browser
+      },
+      async_hooks: {
+        browser: './empty.ts', // Point to empty module when async_hooks is requested for browser
+      },
+    },
+  },
+
+  webpack: (webpackConfig) => {
+    webpackConfig.experiments = webpackConfig.experiments || {}
+    webpackConfig.experiments.topLevelAwait = true
+    webpackConfig.resolve.fallback = { fs: false, async_hooks: false }
+    return webpackConfig
   },
 
   // https://nextjs.org/docs/api-reference/next.config.js/compression

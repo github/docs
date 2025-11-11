@@ -3,7 +3,7 @@ import {
   readCompressedJsonFileFallback,
 } from '@/frame/lib/read-json-file'
 import { getAutomatedPageMiniTocItems } from '@/frame/lib/get-mini-toc-items'
-import languages from '@/languages/lib/languages'
+import languages from '@/languages/lib/languages-server'
 import { allVersions } from '@/versions/lib/all-versions'
 interface GraphqlContext {
   currentLanguage: string

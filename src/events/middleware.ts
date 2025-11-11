@@ -42,7 +42,7 @@ const sentValidationErrors = new QuickLRU({
 // to prevent sending multiple validation errors that can spam requests to Hydro
 const getValidationErrorHash = (validateErrors: ErrorObject[]) => {
   // limit to 10 second windows
-  const window: Number = Math.floor(new Date().getTime() / 10000)
+  const window: number = Math.floor(new Date().getTime() / 10000)
   return `${window}:${(validateErrors || [])
     .map((error: ErrorObject) => error.message + error.instancePath + JSON.stringify(error.params))
     .join(':')}`
@@ -78,6 +78,10 @@ router.post(
           // JSON.stringify removes `undefined` values but not `null`, and we don't want to send `null` to Hydro
           body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
           body.context.is_staff = Boolean(req.cookies?.staffonly)
+          // Add IP address and user agent from request
+          // Moda forwards the client's IP using the `fastly-client-ip` header
+          body.context.ip = req.headers['fastly-client-ip'] as string | undefined
+          body.context.user_agent ??= req.headers['user-agent']
         }
         const validate = validators[type]
         if (!validate(body)) {

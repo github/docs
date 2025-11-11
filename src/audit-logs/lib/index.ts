@@ -96,7 +96,7 @@ async function resolveReferenceLinksToTitles(
 //     docs_reference_links: 'event reference links'
 //   },
 // ]
-export function getAuditLogEvents(page: string, version: string) {
+export function getAuditLogEvents(page: string, version: string): AuditLogEventT[] {
   const openApiVersion = getOpenApiVersion(version)
   const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
@@ -115,14 +115,14 @@ export function getAuditLogEvents(page: string, version: string) {
       ?.set(page, readCompressedJsonFileFallback(auditLogFileName))
   }
 
-  const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)!
+  const auditLogEvents = auditLogEventsCache.get(openApiVersion)?.get(page)
   // If an event doesn't yet have a description (value will be empty string or
   // "N/A"), then we don't show the event.
-  const filteredAuditLogEvents = auditLogEvents.filter(
+  const filteredAuditLogEvents = auditLogEvents?.filter(
     (event) => event.description !== 'N/A' && event.description !== '',
   )
 
-  return filteredAuditLogEvents
+  return filteredAuditLogEvents || []
 }
 
 // get categorized audit log event data for the requested page and version
@@ -137,7 +137,7 @@ export function getAuditLogEvents(page: string, version: string) {
 //   repo: [ [Object] ],
 //   user: [ [Object], [Object] ]
 // }
-export function getCategorizedAuditLogEvents(page: string, version: string) {
+export function getCategorizedAuditLogEvents(page: string, version: string): CategorizedEvents {
   const events = getAuditLogEvents(page, version)
   const openApiVersion = getOpenApiVersion(version)
 
@@ -148,7 +148,7 @@ export function getCategorizedAuditLogEvents(page: string, version: string) {
     categorizedAuditLogEventsCache.get(openApiVersion)?.set(page, categorizeEvents(events))
   }
 
-  return categorizedAuditLogEventsCache.get(openApiVersion)?.get(page)!
+  return categorizedAuditLogEventsCache.get(openApiVersion)?.get(page) || {}
 }
 
 // Filters audit log events based on allowlist values.

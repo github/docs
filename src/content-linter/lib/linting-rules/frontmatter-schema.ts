@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import { intersection } from 'lodash-es'
 
@@ -24,7 +23,7 @@ export const frontmatterSchema: Rule = {
     for (const key of deprecatedKeys) {
       // Early access articles are allowed to have deprecated properties
       if (params.name.includes('early-access')) continue
-      const line = params.lines.find((line: string) => line.trim().startsWith(key))
+      const line = params.lines.find((ln: string) => ln.trim().startsWith(key))
       const lineNumber = params.lines.indexOf(line!) + 1
       addError(
         onError,

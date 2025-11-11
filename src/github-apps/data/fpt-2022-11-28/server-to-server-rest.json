@@ -25,6 +25,42 @@
       "requestPath": "/orgs/{org}/actions/hosted-runners"
     },
     {
+      "slug": "list-custom-images-for-an-organization",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom"
+    },
+    {
+      "slug": "get-a-custom-image-definition-for-github-actions-hosted-runners",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}"
+    },
+    {
+      "slug": "delete-a-custom-image-from-the-organization",
+      "subcategory": "hosted-runners",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}"
+    },
+    {
+      "slug": "list-image-versions-of-a-custom-image-for-an-organization",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions"
+    },
+    {
+      "slug": "get-an-image-version-of-a-custom-image-for-github-actions-hosted-runners",
+      "subcategory": "hosted-runners",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}"
+    },
+    {
+      "slug": "delete-an-image-version-of-custom-image-from-the-organization",
+      "subcategory": "hosted-runners",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/actions/hosted-runners/images/custom/{image_definition_id}/versions/{version}"
+    },
+    {
       "slug": "get-github-owned-images-for-github-hosted-runners-in-an-organization",
       "subcategory": "hosted-runners",
       "verb": "get",
@@ -1111,6 +1147,30 @@
   ],
   "billing": [
     {
+      "slug": "get-all-budgets-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets"
+    },
+    {
+      "slug": "get-a-budget-by-id-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "update-a-budget-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "delete-a-budget-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "delete",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
       "slug": "get-billing-premium-request-usage-report-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
@@ -1121,6 +1181,12 @@
       "subcategory": "enhanced-billing",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/usage"
+    },
+    {
+      "slug": "get-billing-usage-summary-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/usage/summary"
     },
     {
       "slug": "get-github-actions-billing-for-an-organization",
@@ -2883,6 +2949,18 @@
       "requestPath": "/organizations"
     },
     {
+      "slug": "get-all-custom-property-values-for-an-organization",
+      "subcategory": "custom-properties-for-orgs",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/org-properties/values"
+    },
+    {
+      "slug": "create-or-update-custom-property-values-for-an-organization",
+      "subcategory": "custom-properties-for-orgs",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/org-properties/values"
+    },
+    {
       "slug": "get-an-organization",
       "subcategory": "orgs",
       "verb": "get",
@@ -2929,6 +3007,12 @@
       "subcategory": "attestations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/attestations/digest/{subject_digest}"
+    },
+    {
+      "slug": "list-attestation-repositories",
+      "subcategory": "attestations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/attestations/repositories"
     },
     {
       "slug": "delete-attestations-by-id",
@@ -3803,6 +3887,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}"
     },
     {
+      "slug": "create-draft-item-for-organization-owned-project",
+      "subcategory": "drafts",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/drafts"
+    },
+    {
       "slug": "list-project-fields-for-organization",
       "subcategory": "fields",
       "verb": "get",
@@ -3847,18 +3937,6 @@
   ],
   "projects-classic": [
     {
-      "slug": "list-organization-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "create-an-organization-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -3883,24 +3961,6 @@
       "requestPath": "/projects/columns/{column_id}/moves"
     },
     {
-      "slug": "get-a-project",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "update-a-project",
-      "subcategory": "projects",
-      "verb": "patch",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "delete-a-project",
-      "subcategory": "projects",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
       "slug": "list-project-collaborators",
       "subcategory": "collaborators",
       "verb": "get",
@@ -3923,30 +3983,6 @@
       "subcategory": "collaborators",
       "verb": "get",
       "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
-    },
-    {
-      "slug": "list-project-columns",
-      "subcategory": "columns",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}/columns"
-    },
-    {
-      "slug": "create-a-project-column",
-      "subcategory": "columns",
-      "verb": "post",
-      "requestPath": "/projects/{project_id}/columns"
-    },
-    {
-      "slug": "list-repository-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/projects"
-    },
-    {
-      "slug": "create-a-repository-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/projects"
     }
   ],
   "pulls": [

@@ -1,0 +1,64 @@
+name: Feedback prompt for non-Docs team contributors when a PR is closed
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  comment-on-pr:
+    # This workflow should only run on the 'github/docs-internal' repository because it posts a feedback request
+    # to non-Docs team contributors when their PR is merged into the main branch.
+    # The feedback request asks contributors to leave feedback on their contributing experience in Slack.
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if PR author is in docs-content team
+        id: check_team
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            try {
+              const pr = context.payload.pull_request;
+              await github.rest.teams.getMembershipForUserInOrg({
+                org: 'github',
+                team_slug: 'docs-content',
+                username: pr.user.login,
+              });
+              // Author is in the team. Do nothing!
+            } catch(err) {
+              // Author not in team
+              core.exportVariable('NON_DOCS_HUBBER', 'true');
+            }
+
+      - name: Post changelog instructions comment
+
+        if: env.NON_DOCS_HUBBER == 'true'
+
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8.0.0
+        with:
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          script: |
+            // Get PR author username
+            const pr = context.payload.pull_request;
+            const prAuthor = pr.user.login;
+
+            // Compose the comment body as a plain text message to post on the PR
+            const commentBody =
+              "👋 @" + prAuthor +
+              " - Please leave us feedback on your contributing experience! " +
+              "To do this, please go to `#docs-contributor-feedback` on Slack.";
+
+            // Post the comment
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr.number,
+              body: commentBody
+            });

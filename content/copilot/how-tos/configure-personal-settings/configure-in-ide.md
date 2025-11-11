@@ -17,6 +17,8 @@ topics:
 versions:
   feature: copilot
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 {% jetbrains %}

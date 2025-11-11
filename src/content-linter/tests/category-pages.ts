@@ -98,10 +98,10 @@ describe.skip('category pages', () => {
           const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const parsed = matter(indexContents)
           if (!parsed.data) throw new Error('No frontmatter')
-          const data = parsed.data as MarkdownFrontmatter
-          categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
-          allowTitleToDifferFromFilename = data.allowTitleToDifferFromFilename
-          const articleLinks = data.children.filter((child) => {
+          const categoryData = parsed.data as MarkdownFrontmatter
+          categoryVersions = getApplicableVersions(categoryData.versions, indexAbsPath)
+          allowTitleToDifferFromFilename = categoryData.allowTitleToDifferFromFilename
+          const articleLinks = categoryData.children.filter((child) => {
             const mdPath = getPath(productDir, indexLink, child)
             const fileExists = fs.existsSync(mdPath)
             return fileExists && fs.statSync(mdPath).isFile()
@@ -137,10 +137,10 @@ describe.skip('category pages', () => {
               articleLinks.map(async (articleLink) => {
                 const articlePath = getPath(productDir, indexLink, articleLink)
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-                const data = getFrontmatterData(articleContents)
+                const articleData = getFrontmatterData(articleContents)
 
                 // Do not include subcategories in list of published articles
-                if (data.subcategory || data.hidden) return null
+                if (articleData.subcategory || articleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -159,10 +159,10 @@ describe.skip('category pages', () => {
             await Promise.all(
               childFilePaths.map(async (articlePath) => {
                 const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-                const data = getFrontmatterData(articleContents)
+                const availableArticleData = getFrontmatterData(articleContents)
 
                 // Do not include subcategories nor hidden pages in list of available articles
-                if (data.subcategory || data.hidden) return null
+                if (availableArticleData.subcategory || availableArticleData.hidden) return null
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
@@ -173,10 +173,10 @@ describe.skip('category pages', () => {
           await Promise.all(
             childFilePaths.map(async (articlePath) => {
               const articleContents = await fs.promises.readFile(articlePath, 'utf8')
-              const data = getFrontmatterData(articleContents)
+              const versionData = getFrontmatterData(articleContents)
 
               articleVersions[articlePath] = getApplicableVersions(
-                data.versions,
+                versionData.versions,
                 articlePath,
               ) as string[]
             }),
@@ -196,8 +196,8 @@ describe.skip('category pages', () => {
         })
 
         test('contains only articles and subcategories with versions that are also available in the parent category', () => {
-          Object.entries(articleVersions).forEach(([articleName, articleVersions]) => {
-            const unexpectedVersions = difference(articleVersions, categoryVersions)
+          Object.entries(articleVersions).forEach(([articleName, versions]) => {
+            const unexpectedVersions = difference(versions, categoryVersions)
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
           })
@@ -223,7 +223,7 @@ describe.skip('category pages', () => {
           }`
           const expectedSlug = expectedSlugs.at(-1) as string
           const newCategoryDirPath = path.join(path.dirname(categoryDirPath), expectedSlug)
-          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.js ${categoryDirPath} ${newCategoryDirPath}\n`
+          customMessage += `\nTo resolve this consider running:\n  ./src/content-render/scripts/move-content.ts ${categoryDirPath} ${newCategoryDirPath}\n`
           // Check if the directory name matches the expected slug
           expect(expectedSlugs.includes(categoryDirName), customMessage).toBeTruthy()
         })

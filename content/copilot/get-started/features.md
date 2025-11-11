@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/about-github-copilot/github-copilot-features
   - /copilot/get-started/github-copilot-features
 contentType: get-started
+category: 
+  - Learn about Copilot
 ---
 
 ## {% data variables.product.prodname_copilot %} features
@@ -39,6 +41,8 @@ A command line interface that lets you use {% data variables.product.prodname_co
 
 AI-generated code review suggestions to help you write better code. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
+{% data variables.copilot.copilot_code-review-tools_cap_short %} is in {% data variables.release-phases.public_preview %} and subject to change. See [AUTOTITLE](/copilot/concepts/agents/code-review).
+
 ### {% data variables.copilot.copilot_for_prs %}
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. See [AUTOTITLE](/copilot/using-github-copilot/creating-a-pull-request-summary-with-github-copilot).
@@ -46,10 +50,6 @@ AI-generated summaries of the changes that were made in a pull request, which fi
 ### {% data variables.copilot.copilot_autocomplete_pr %} ({% data variables.release-phases.public_preview %})
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
-
-### {% data variables.copilot.copilot_extensions_short %}
-
-{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
 
 ### {% data variables.copilot.copilot_edits_short %}
 

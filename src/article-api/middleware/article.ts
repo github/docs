@@ -167,7 +167,7 @@ function incrementArticleLookup(
   const source =
     req.get('X-Request-Source') ||
     (req.get('Referer')
-      ? 'external-' + (new URL(req.get('Referer') || '').hostname || 'unknown')
+      ? `external-${new URL(req.get('Referer') || '').hostname || 'unknown'}`
       : 'external')
 
   const tags = [

@@ -5,9 +5,18 @@ import { createLogger } from '@/observability/logger'
 
 const logger = createLogger(import.meta.url)
 
+type WarmServerResult = {
+  pages: Awaited<ReturnType<typeof loadPageMap>>
+  redirects: Awaited<ReturnType<typeof loadRedirects>>
+  unversionedTree: Awaited<ReturnType<typeof loadUnversionedTree>>
+  siteTree: Awaited<ReturnType<typeof loadSiteTree>>
+  pageList: Awaited<ReturnType<typeof loadPages>>
+  pageMap: Awaited<ReturnType<typeof loadPageMap>>
+}
+
 // Instrument these functions so that
 // it's wrapped in a timer that reports to Datadog
-const dog: Record<string, Function> = {
+const dog = {
   loadUnversionedTree: statsd.asyncTimer(loadUnversionedTree, 'load_unversioned_tree'),
   loadSiteTree: statsd.asyncTimer(loadSiteTree, 'load_site_tree'),
   loadPages: statsd.asyncTimer(loadPages, 'load_pages'),
@@ -17,9 +26,9 @@ const dog: Record<string, Function> = {
 }
 
 // For multiple-triggered Promise sharing
-let promisedWarmServer: any
+let promisedWarmServer: Promise<WarmServerResult> | undefined
 
-async function warmServer(languagesOnly = []) {
+async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResult> {
   const startTime = Date.now()
 
   logger.debug(
@@ -42,6 +51,7 @@ async function warmServer(languagesOnly = []) {
     unversionedTree,
     siteTree,
     pageList,
+    pageMap,
   }
 }
 

@@ -47,7 +47,7 @@ describe('annotations', () => {
       const noteTexts = notes.map((i: number, el: any) => $(el).text()).get()
       expect(noteTexts).toEqual([
         'Configures this workflow to run every time a change is pushed to the branch called release.',
-        'This job checks out the repository contents ...\n' + "And here's the second comment line.",
+        "This job checks out the repository contents ...\nAnd here's the second comment line.",
       ])
     }
   })

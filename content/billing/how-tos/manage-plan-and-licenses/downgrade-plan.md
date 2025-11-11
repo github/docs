@@ -81,6 +81,7 @@ If you want to stop paying for {% data variables.product.prodname_enterprise %} 
 If you have a self-serve enterprise account, an enterprise account owner can:
 
 1. Remove or delete all organizations from the enterprise. Removing an organization from an enterprise automatically downgrades the organization to {% data variables.product.prodname_free_team %}. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
+1. Review and remove any remaining unaffiliated members from the enterprise. Depending on your policy settings, members who don't belong to any organizations may remain in your enterprise as unaffiliated members. To fully close the account, remove these unaffiliated members.
 1. Delete the enterprise account to cancel the {% data variables.product.prodname_enterprise %} subscription. See [AUTOTITLE](/admin/managing-your-enterprise-account/deleting-an-enterprise-account).
 
 ## Further reading

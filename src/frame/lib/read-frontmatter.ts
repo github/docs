@@ -11,7 +11,8 @@ function readFrontmatter(markdown: string, opts: ReadFrontmatterOptions = {}) {
   const schema = opts.schema || { type: 'object', properties: {} }
   const filepath = opts.filepath || null
 
-  let content, data
+  let content
+  let data
 
   try {
     ;({ content, data } = matter(markdown))

@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import {
@@ -30,7 +29,7 @@ export const liquidIfversionVersions = {
     // The versions frontmatter object or all versions if the file
     // being processed is a data file.
     const fm = getFrontmatter(params.lines)
-    let content = fm ? getFrontmatterLines(params.lines).join('\n') : params.lines.join('\n')
+    const content = fm ? getFrontmatterLines(params.lines).join('\n') : params.lines.join('\n')
 
     const fileVersionsFm = params.name.startsWith('data')
       ? { ghec: '*', ghes: '*', fpt: '*' }
@@ -104,7 +103,7 @@ function setLiquidErrors(condTagItems: any[], onError: RuleErrorCallback, lines:
   for (let i = 0; i < condTagItems.length; i++) {
     const item = condTagItems[i]
     const tagNameNoCond = item.name === 'endif' || item.name === 'else'
-    const itemErrorName = tagNameNoCond ? item.name : item.name + ' ' + item.cond
+    const itemErrorName = tagNameNoCond ? item.name : `${item.name} ${item.cond}`
 
     if (item.action.type === 'delete') {
       // There is no next stack item, the endif tag is alway the
@@ -438,7 +437,7 @@ function updateConditionals(condTagItems: any[]) {
         const newVersions = Object.entries(item.versionsObj).map(([key, value]) => {
           if (key === 'ghes') {
             if (value === '*') return key
-            return key + ' ' + value
+            return `${key} ${value}`
           } else return key
         })
         item.action.cond = newVersions.join(' or ')

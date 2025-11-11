@@ -53,10 +53,10 @@ export function prettyPrintResults(
     let ruleDescription = ''
 
     const errorDetailsByDescription = new Map()
-    for (const { errorDetail, ruleDescription } of sorted) {
-      const details = errorDetailsByDescription.get(ruleDescription) || new Set()
+    for (const { errorDetail, ruleDescription: ruleDesc } of sorted) {
+      const details = errorDetailsByDescription.get(ruleDesc) || new Set()
       details.add(errorDetail)
-      errorDetailsByDescription.set(ruleDescription, details)
+      errorDetailsByDescription.set(ruleDesc, details)
     }
 
     for (const result of sorted) {
@@ -170,14 +170,14 @@ function indentWrappedString(str: string, startingIndent: number): string {
 
     if ((currentLine + word).length > effectiveWidth) {
       if (isFirstLine) {
-        indentedString += currentLine.trim() + '\n'
+        indentedString += `${currentLine.trim()}\n`
         isFirstLine = false
       } else {
-        indentedString += NEW_LINE_PADDING + currentLine.trim() + '\n'
+        indentedString += `${NEW_LINE_PADDING + currentLine.trim()}\n`
       }
-      currentLine = word + ' '
+      currentLine = `${word} `
     } else {
-      currentLine += word + ' '
+      currentLine += `${word} `
     }
   }
   if (isFirstLine) {

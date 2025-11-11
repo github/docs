@@ -28,7 +28,7 @@ export function findUnused({ absolute }: { absolute: boolean }) {
         (name === 'data' || name === 'indented_data_reference') &&
         args.startsWith('reusables.')
       ) {
-        const reusableName = path.join('data', ...args.split(' ')[0].split('.')) + '.md'
+        const reusableName = `${path.join('data', ...args.split(' ')[0].split('.'))}.md`
         // Special cases where we don't want them to count as reusables. It's an example in a how-to doc
         if (
           reusableName.includes('foo/bar.md') ||

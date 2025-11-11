@@ -1,3 +1,7 @@
+/**
+ * @purpose Writer tool
+ * @description Create a properly formatted Call-to-Action URL with tracking parameters
+ */
 import { Command } from 'commander'
 import readline from 'readline'
 import chalk from 'chalk'
@@ -62,6 +66,19 @@ program
   .option('-u, --url <url>', 'URL to validate')
   .action((options) => {
     validateUrl(options)
+  })
+
+// Add programmatic build command
+program
+  .command('build')
+  .description('Build a CTA URL programmatically with flags (outputs URL only)')
+  .requiredOption('--url <url>', 'Base URL for the CTA')
+  .requiredOption('--product <product>', 'Product reference (copilot, ghec, desktop)')
+  .requiredOption('--type <type>', 'CTA type (trial, purchase, engagement)')
+  .requiredOption('--style <style>', 'CTA style (button, text)')
+  .option('--plan <plan>', 'Plan reference (free, pro, business, enterprise)')
+  .action((options) => {
+    buildProgrammaticCTA(options)
   })
 
 // Default to interactive mode
@@ -540,5 +557,56 @@ async function validateUrl(options: { url?: string }): Promise<void> {
     }
   } catch (error) {
     console.error(chalk.red('❌ An error occurred:'), error)
+  }
+}
+
+// Programmatic build command handler
+async function buildProgrammaticCTA(options: {
+  url: string
+  product: string
+  type: string
+  style: string
+  plan?: string
+}): Promise<void> {
+  try {
+    // Validate base URL
+    let baseUrl: string
+    try {
+      baseUrl = new URL(options.url).toString()
+    } catch (error) {
+      console.error(
+        `Invalid base URL: ${options.url} - ${error instanceof Error ? error.message : error}`,
+      )
+      process.exit(1)
+    }
+
+    // Build CTA parameters object
+    const params: CTAParams = {
+      ref_product: options.product,
+      ref_type: options.type,
+      ref_style: options.style,
+    }
+
+    // Add optional parameters
+    if (options.plan) {
+      params.ref_plan = options.plan
+    }
+
+    // Validate parameters against schema
+    const validation = validateCTAParams(params)
+    if (!validation.isValid) {
+      // Output validation errors to stderr and exit with error code
+      validation.errors.forEach((error) => {
+        console.error(`Validation error: ${error}`)
+      })
+      process.exit(1)
+    }
+
+    // Build and output the URL (stdout only)
+    const ctaUrl = buildCTAUrl(baseUrl, params)
+    console.log(ctaUrl)
+  } catch (error) {
+    console.error(`Build failed: ${error}`)
+    process.exit(1)
   }
 }

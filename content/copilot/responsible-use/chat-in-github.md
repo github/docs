@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-github
   - /copilot/responsible-use-of-github-copilot-features/chat-in-github
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_chat_dotcom %}

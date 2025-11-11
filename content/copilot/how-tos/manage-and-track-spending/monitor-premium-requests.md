@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/how-tos/spending/monitoring-your-copilot-usage-and-entitlements
   - /copilot/how-tos/spending/monitor-premium-requests
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
@@ -39,13 +41,11 @@ For information about viewing premium request usage for an organization or enter
 
 If you're using {% data variables.product.prodname_copilot_short %} in an editor, you can view your usage directly in the editor. For example, in {% data variables.product.prodname_vscode %}, you can view information about features included in your plan, your progress towards any limits on your plan, and the date your allowance resets.
 
-![Screenshot of the {% data variables.product.prodname_copilot_short %} current usage window in {% data variables.product.prodname_vscode %}. The "Code completions" and "Chat messages" bars indicate they are included with the user's {% data variables.product.prodname_copilot_short %} plan. The "Premium requests" bar indicates the user has used 99.5% of their allowance, and that it will reset on June 30, 2025.](/assets/images/help/copilot/vscode-current-usage.png)
-
 You can access usage information in the following IDEs.
 
 * **In {% data variables.product.prodname_vscode %}**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar.
 * **In {% data variables.product.prodname_vs %}**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the top right corner, then click **{% data variables.product.prodname_copilot_short %} Consumptions**.
-* **In JetBrains IDEs**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then select **View quote usage**.
+* **In JetBrains IDEs**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar, then select **View quota usage**.
 * **In Xcode**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the menu bar.
 * **In Eclipse**, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
 
@@ -62,6 +62,7 @@ You can view an overview of your premium request usage at any time in your "Bill
 1. In the side bar, click **Premium request analytics** to show detailed analytics.
 1. Use the filter, "Group by", and "Timeframe" options to change the data displayed in the chart and table.
    {% data reusables.billing.premium-request-analytics-start %}
+
 1. Optionally, to download the data shown in the chart, click the {% octicon "kebab-horizontal" aria-label="Chart options" aria-hidden="true" %} button and select your preferred format.
 
    ![Screenshot of the usage chart on the "Premium request analytics" page with "Chart options" open and outlined in dark orange.](/assets/images/help/billing/premium-request-analytics-chart-download.png)

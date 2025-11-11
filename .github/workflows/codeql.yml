@@ -9,9 +9,7 @@ on:
     branches:
       - main
     paths:
-      - '**/*.js'
       - '**/*.ts'
-      - '**/*.jsx'
       - '**/*.tsx'
       - '.github/workflows/codeql.yml'
   # This is so that when CodeQL runs on a pull request, it can compare

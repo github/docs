@@ -28,3 +28,10 @@ Here are some resources to help you get started with open source contributions:
 * [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
 * [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
 * [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+
+## License
+
+This project is dual-licensed under:
+
+* **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
+* **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))

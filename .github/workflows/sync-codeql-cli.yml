@@ -92,7 +92,7 @@ jobs:
 
           branchCheckout=$(git checkout -b $branchname)
           if [[ ! $? -eq 0 ]]; then
-            echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
+            echo "Branch $branchname already exists in 'github/docs-internal'. Exiting..."
             exit 0
           fi
           git add .

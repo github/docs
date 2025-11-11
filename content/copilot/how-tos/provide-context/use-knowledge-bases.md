@@ -10,6 +10,8 @@ redirect_from:
   - /copilot/how-tos/context/using-knowledge-bases
   - /copilot/how-tos/context/use-knowledge-bases
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 <!-- expires 2025-10-31 -->

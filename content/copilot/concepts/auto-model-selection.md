@@ -9,6 +9,8 @@ topics:
 versions:
   feature: copilot
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
 
 > [!NOTE] {% data variables.copilot.copilot_auto_model_selection %} rolls out to {% data variables.product.prodname_vscode_shortname %} starting in September 2025.
@@ -17,7 +19,7 @@ contentType: concepts
 
 Experience less rate limiting and reduce the mental load of choosing a model by letting {% data variables.copilot.copilot_auto_model_selection %} automatically choose the best available model.  
 
-In {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_auto_model_selection %} chooses from {% data variables.copilot.copilot_gpt_41 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_5 %}, {% data variables.copilot.copilot_claude_sonnet_35 %}, and {% data variables.copilot.copilot_claude_sonnet_45 %}, based on availability and to help reduce rate limiting. Included models may change over time.
+In {% data variables.product.prodname_vscode_shortname %}, {% data variables.copilot.copilot_auto_model_selection %} chooses from {% data variables.copilot.copilot_gpt_41 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_5 %}, {% data variables.copilot.copilot_claude_haiku_45 %}, and {% data variables.copilot.copilot_claude_sonnet_45 %}, based on availability and to help reduce rate limiting. Included models may change over time.
 
 Automatically selected models **won't** include these models:
 * Models with premium request multipliers greater than one. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#model-multipliers).

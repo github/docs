@@ -12,6 +12,7 @@ versions:
   feature: copilot
 category:
   - Debugging code
+  - Author and optimize with Copilot
 complexity:
   - Intermediate
 octicon: bug
