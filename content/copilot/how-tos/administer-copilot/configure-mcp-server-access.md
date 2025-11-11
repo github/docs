@@ -197,8 +197,8 @@ For enterprises that want a dynamic and fully managed option, Azure API Center (
 > [!NOTE]
 > Azure API Center includes a free tier for basic API cataloging and discovery. Larger organizations may choose to use paid Azure API Management plans for higher scale and advanced governance.
 >
-> The Azure API Center URL serving the MCP Registry is the **Runtime URL** suffixed with `/workspaces/default/v0/servers`.
+> The Azure API Center URL serving the MCP Registry is the **Runtime URL** suffixed with `/workspaces/default`.
 > 
-> **Example**: https://{api-center-name}.data.{location}.azure-apicenter.ms/workspaces/default/v0/servers
+> **Example**: https://{api-center-name}.data.{location}.azure-apicenter.ms/workspaces/default
 
 For more information, see [Azure API Center Documentation](https://learn.microsoft.com/en-us/azure/api-center/) and [Azure API Center Quickstart](https://learn.microsoft.com/en-us/azure/api-center/set-up-api-center).
