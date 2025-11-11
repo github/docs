@@ -10,10 +10,13 @@ topics:
   - Copilot
   - Enterprise
 shortTitle: Configure MCP server access
+redirect_from:
+  - /copilot/how-tos/administer-copilot/manage-for-organization/set-extension-permissions
 contentType: how-tos
 category: 
   - Manage Copilot for a team
 ---
+
 
 > [!NOTE]
 > The MCP registry URL and allowlist are in {% data variables.release-phases.public_preview %} and subject to change.

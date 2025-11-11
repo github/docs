@@ -68,10 +68,6 @@ Alternatively, you can manually specify a chat participant to scope your prompt 
 
 For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#chat-participants) or [Chat participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) in the {% data variables.product.prodname_vscode %} documentation.
 
-### {% data variables.copilot.copilot_extensions_short %} chat participants
-
-You can also install {% data variables.copilot.copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions).
-
 ### Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
@@ -104,6 +100,10 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
 
 {% endif %}
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -227,10 +227,6 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
 You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
 
-### Extending {% data variables.copilot.copilot_chat_short %}
-
-{% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
-
 ### Slash commands
 
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
@@ -271,6 +267,10 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
 
 {% endif %}
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -375,6 +375,12 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
 You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt.
 
+### Chat participants
+
+Chat participants are like domain experts who have a specialty that they can help you with. You can use a chat participant to scope your prompt to a specific domain. To do this, type `@` in the chat prompt box, followed by a chat participant name.
+
+For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=jetbrains#chat-participants-1).
+
 ### Extending {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
@@ -392,6 +398,10 @@ By default, {% data variables.copilot.copilot_chat_short %} will reference the f
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
 
 {% data reusables.copilot.using-skills %}
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -483,6 +493,10 @@ You can ask {% data variables.copilot.copilot_chat_short %} to give you code sug
 
    To see the files that {% data variables.copilot.copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot).
 
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
+
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
 {% data reusables.copilot.change-the-ai-model %}
@@ -566,6 +580,10 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. For example, use `/explain` to ask {% data variables.product.prodname_copilot_short %} to explain the code in the file currently displayed in the editor.
 
 To see all available slash commands, type `/` in the chat prompt box.
+
+## Using Model Context Protocol (MCP) servers
+
+{% data reusables.copilot.mcp.mcp-chat-in-ide %}
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 

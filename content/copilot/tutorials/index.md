@@ -26,7 +26,6 @@ children:
   - /migrate-a-project
   - /plan-a-project
   - /upgrade-projects
-  - /try-extensions
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
