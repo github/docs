@@ -1,5 +1,112 @@
 # Docs changelog
 
+**31 October 2025**
+
+A large amount of new information was added to the GitHub documentation website to coincide with the GitHub Universe 2025 conference. Here are links to some of the new and updated articles.
+
+**_New articles_**
+
+GitHub Copilot documentation:
+* [Setting up a dedicated enterprise for GitHub Copilot Business](https://docs.github.com/copilot/how-tos/set-up/set-up-a-dedicated-enterprise-for-copilot-business)
+* [About Copilot integrations](https://docs.github.com/copilot/concepts/tools/about-copilot-integrations)
+* [Integrating Copilot coding agent with Linear](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-linear)
+* [Integrating Copilot coding agent with Slack](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/integrate-coding-agent-with-slack)
+* [Changing your MCP registry in your IDE](https://docs.github.com/copilot/how-tos/provide-context/use-mcp/change-mcp-registry)
+* [GitHub Copilot usage metrics](https://docs.github.com/copilot/concepts/copilot-metrics)
+* [Viewing the Copilot usage metrics dashboard](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/view-usage-and-adoption)
+* [Data available in Copilot usage metrics](https://docs.github.com/copilot/reference/copilot-usage-metrics/copilot-usage-metrics)
+* [Interpreting usage and adoption metrics for GitHub Copilot](https://docs.github.com/copilot/reference/copilot-usage-metrics/interpret-copilot-metrics)
+* [Reconciling Copilot usage metrics across dashboards, APIs, and reports](https://docs.github.com/copilot/reference/copilot-usage-metrics/reconciling-usage-metrics)
+* [Tracking license activation and initial usage with Copilot usage metrics](https://docs.github.com/copilot/tutorials/roll-out-at-scale/assign-licenses/track-usage-and-adoption)
+* [Lines of Code metrics](https://docs.github.com/copilot/reference/copilot-usage-metrics/lines-of-code-metrics)
+* [Measuring the success of a GitHub Copilot trial](https://docs.github.com/copilot/tutorials/roll-out-at-scale/measure-success)
+* [About custom agents](https://docs.github.com/copilot/concepts/agents/coding-agent/about-custom-agents)
+* [Creating custom agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+* [Custom agents configuration](https://docs.github.com/copilot/reference/custom-agents-configuration)
+* [Custom agents: Bug fix teammate](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/bug-fix-teammate)
+* [Custom agents: Cleanup specialist](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/cleanup-specialist)
+* [Custom agents: Implementation planner](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/implementation-planner)
+* [Your first custom agent](https://docs.github.com/copilot/tutorials/customization-library/custom-agents/your-first-custom-agent)
+* [Agent management for enterprises](https://docs.github.com/copilot/concepts/agents/enterprise-management)
+* [Monitoring agentic activity in your enterprise](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/monitor-agentic-activity)
+* [Preparing to use custom agents in your enterprise](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents)
+* [Preparing to use custom agents in your organization](https://docs.github.com/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents)
+* [Audit log events for agents](https://docs.github.com/copilot/reference/agentic-audit-log-events)
+* [About agent management](https://docs.github.com/copilot/concepts/agents/coding-agent/agent-management)
+* [Managing Copilot coding agents](https://docs.github.com/copilot/how-tos/use-copilot-agents/manage-agents)
+* [OpenAI Codex](https://docs.github.com/copilot/concepts/agents/openai-codex)
+
+Security and code quality documentation:
+* [Enabling extended metadata checks for your repository](https://docs.github.com/code-security/secret-scanning/enabling-secret-scanning-features/enabling-extended-metadata-checks-for-your-repository)
+* [About GitHub Code Quality](https://docs.github.com/code-security/code-quality/concepts/about-code-quality)
+* [Quickstart for GitHub Code Quality](https://docs.github.com/code-security/code-quality/get-started/quickstart)
+* [Allowing use of GitHub Code Quality in your enterprise](https://docs.github.com/code-security/code-quality/how-tos/allow-in-enterprise)
+* [Enabling GitHub Code Quality](https://docs.github.com/code-security/code-quality/how-tos/enable-code-quality)
+* [Interpreting the code quality results for your repository](https://docs.github.com/code-security/code-quality/how-tos/interpret-results)
+* [Setting code quality thresholds for pull requests](https://docs.github.com/code-security/code-quality/how-tos/set-pr-thresholds)
+* [Resolving a block on your pull request](https://docs.github.com/code-security/code-quality/how-tos/unblock-your-pr)
+* [CodeQL detection of code quality problems](https://docs.github.com/code-security/code-quality/reference/codeql-detection)
+* [Metrics and ratings reference](https://docs.github.com/code-security/code-quality/reference/metrics-and-ratings)
+* [Responsible use of GitHub Code Quality](https://docs.github.com/code-security/code-quality/responsible-use/code-quality)
+* [Fixing code quality findings before merging your pull request](https://docs.github.com/code-security/code-quality/tutorials/fix-findings-in-prs)
+* [Improving the quality of recently merged code with AI](https://docs.github.com/code-security/code-quality/tutorials/improve-recent-merges)
+* [Improving the quality of your repository's code](https://docs.github.com/code-security/code-quality/tutorials/improve-your-codebase)
+
+GitHub integrations:
+* [Customizing notifications for GitHub in Slack](https://docs.github.com/integrations/how-tos/slack/customize-notifications)
+* [Integrating GitHub with Slack](https://docs.github.com/integrations/how-tos/slack/integrate-github-with-slack)
+* [Using GitHub in Slack](https://docs.github.com/integrations/how-tos/slack/use-github-in-slack)
+* [Permissions for GitHub in Slack](https://docs.github.com/integrations/reference/slack-permissions)
+* [Creating issues with the GitHub integration in Slack](https://docs.github.com/integrations/tutorials/slack/create-issues)
+* [Managing issues with the GitHub integration in Slack](https://docs.github.com/integrations/tutorials/slack/manage-issues)
+
+GitHub Actions:
+* [Using custom images](https://docs.github.com/actions/how-tos/manage-runners/larger-runners/use-custom-images)
+* [Using proxy servers with a runner](https://docs.github.com/actions/how-tos/manage-runners/use-proxy-servers)
+
+Enterprise administrator documentation:
+* [Custom properties](https://docs.github.com/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/custom-properties)
+* [Managing custom properties for organizations](https://docs.github.com/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-custom-properties-for-organizations)
+* [Controlling user offboarding with the unaffiliated users policy](https://docs.github.com/admin/enforcing-policies/enforcing-policies-for-your-enterprise/control-offboarding)
+
+Enterprise onboarding:
+* [Adding users to your enterprise](https://docs.github.com/enterprise-onboarding/getting-started-with-your-enterprise/adding-users-to-your-enterprise)
+* [Creating enterprise apps](https://docs.github.com/enterprise-onboarding/github-apps/create-enterprise-apps)
+* [Installing enterprise apps](https://docs.github.com/enterprise-onboarding/github-apps/install-enterprise-apps)
+* [About enterprise policies](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/about-enterprise-policies)
+* [Creating custom properties for repositories in your enterprise](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/create-custom-properties)
+* [Defining policies for repositories in your enterprise](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/create-repository-policies)
+* [Protecting branches in your enterprise with rulesets](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/protect-branches)
+* [Using the audit log for your enterprise](https://docs.github.com/enterprise-onboarding/govern-people-and-repositories/using-the-audit-log-for-your-enterprise)
+* [About roles in an enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/about-roles-in-an-enterprise)
+* [About teams in an enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/about-teams-in-an-enterprise)
+* [Assigning roles to teams and users](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/assigning-roles-to-teams-and-users)
+* [Best practices for organizing work in your enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/best-practices)
+* [Creating custom roles](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/creating-custom-roles)
+* [Identifying the roles required by your enterprise](https://docs.github.com/enterprise-onboarding/setting-up-organizations-and-teams/identify-role-requirements)
+
+Billing documentation:
+* [GitHub Code Quality billing](https://docs.github.com/billing/concepts/product-billing/github-code-quality)
+
+**_Updated articles_**
+
+This is just a very small selection of the articles that were updated for Universe 2025.
+
+* [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review) - new conceptual information.
+* [Fixing alerts in a security campaign](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/fixing-alerts-in-security-campaign) - new information on assigning alerts to Copilot coding agent.
+* [Resolving code scanning alerts](https://docs.github.com/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts) - new information on assigning alerts to Copilot coding agent.
+* [Available rules for rulesets](https://docs.github.com/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) - new information on blocking force pushes.
+* [GitHub-hosted runners reference](https://docs.github.com/actions/reference/runners/github-hosted-runners) - new information about single-CPU Actions runners.
+* [Events that trigger workflows](https://docs.github.com/actions/reference/workflows-and-actions/events-that-trigger-workflows) - details of `image_version_ready` event added.
+* [Enforcing policies for GitHub Actions in your enterprise](https://docs.github.com/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise) - details about custom images added.
+* [Model Context Protocol (MCP) and GitHub Copilot coding agent](https://docs.github.com/copilot/concepts/agents/coding-agent/mcp-and-coding-agent) - new information about MCP servers for custom agents.
+* [Best practices for using GitHub Copilot to work on tasks](https://docs.github.com/copilot/tutorials/coding-agent/get-the-best-results) - new information about creating custom agents.
+* [Quickstart for your personal dashboard](https://docs.github.com/account-and-profile/get-started/personal-dashboard-quickstart) - added a section on working with Copilot from your personal dashboard.
+* [Personal dashboard](https://docs.github.com/account-and-profile/reference/personal-dashboard) - added a section on the home dashboard view.
+* [Using GitHub Copilot CLI](https://docs.github.com/copilot/how-tos/use-copilot-agents/use-copilot-cli) - new information on delegating tasks to Copilot coding agent.
+
+<hr>
+
 **24 October 2025**
 
 To support the enterprise roles and teams public preview, we:
