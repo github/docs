@@ -41,7 +41,8 @@ First, let's disable code completion. This will give you the opportunity to deep
 
 Now, let's provide {% data variables.copilot.copilot_chat_short %} with instructions to act like a tutor that supports your learning.
 
-1. In the root folder of your project, create a file called `copilot-instructions.md`.
+1. Create a folder in the root directory called `.github`.
+1. Inside `.github`, create a file called `copilot-instructions.md`.
 1. Add the following text, or customize it for your personal learning goals:
 
    ```markdown copy
