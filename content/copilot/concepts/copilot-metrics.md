@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.copilot.usage-metrics-preview %}
 
-{% data variables.product.prodname_copilot_short %} usage metrics help enterprise administrators and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and make data-driven decisions about enablement and rollout.
+{% data variables.product.prodname_copilot_short %} usage metrics help key stakeholders and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and make data-driven decisions about enablement and rollout.
 
 Metrics are available through:
 

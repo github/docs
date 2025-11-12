@@ -2,7 +2,7 @@
 title: Lines of Code metrics
 shortTitle: Copilot LoC metrics
 intro: Understand how Lines of Code metrics measure {% data variables.product.prodname_copilot_short %}’s output and what factors affect their coverage and accuracy.
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 redirect_from:
@@ -16,7 +16,7 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.copilot.usage-metrics-preview %}
 
-Lines of Code (LoC) metrics offer a directional way to measure {% data variables.product.prodname_copilot_short %}’s tangible output. These metrics quantify how many lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor—helping enterprise administrators understand {% data variables.product.prodname_copilot_short %}’s contribution to the codebase over time.
+Lines of Code (LoC) metrics offer a directional way to measure {% data variables.product.prodname_copilot_short %}’s tangible output. These metrics quantify how many lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor—helping key stakeholders and decision makers understand {% data variables.product.prodname_copilot_short %}’s contribution to the codebase over time.
 
 LoC metrics may vary across IDEs and versions. Keep the following considerations in mind:
 
