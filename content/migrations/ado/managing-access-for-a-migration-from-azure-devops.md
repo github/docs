@@ -1,11 +1,14 @@
 ---
 title: Managing access for a migration from Azure DevOps
 shortTitle: Manage access
-intro: 'Before you use {% data variables.product.prodname_importer_proper_name %}, make sure you have appropriate access to both the source and destination of your migration.'
+intro: Before you use {% data variables.product.prodname_importer_proper_name %}, make sure you have appropriate access to both the source and destination of your migration.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops
+contentType: other
 ---
 
 ## About required access for {% data variables.product.prodname_importer_proper_name %}
