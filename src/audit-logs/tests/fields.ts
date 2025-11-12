@@ -31,10 +31,10 @@ describe('Audit log fields functionality', () => {
 
       if (eventWithFields) {
         expect(Array.isArray(eventWithFields.fields)).toBe(true)
-        eventWithFields.fields!.forEach((field) => {
+        for (const field of eventWithFields.fields!) {
           expect(typeof field).toBe('string')
           expect(field.length).toBeGreaterThan(0)
-        })
+        }
       }
     })
 
@@ -42,14 +42,14 @@ describe('Audit log fields functionality', () => {
       // Some events might not have fields, this should not break anything
       const events = getAuditLogEvents('organization', 'enterprise-cloud@latest')
 
-      events.forEach((event) => {
+      for (const event of events) {
         expect(event).toHaveProperty('action')
         expect(event).toHaveProperty('description')
         // fields property is optional
         if (event.fields) {
           expect(Array.isArray(event.fields)).toBe(true)
         }
-      })
+      }
     })
 
     test('should include common audit log fields', () => {
@@ -82,19 +82,19 @@ describe('Audit log fields functionality', () => {
       expect(categories.length).toBeGreaterThan(0)
 
       // Check that events in categories have proper structure including fields
-      categories.forEach((category) => {
+      for (const category of categories) {
         const events = categorizedEvents[category]
         expect(Array.isArray(events)).toBe(true)
 
-        events.forEach((event: AuditLogEventT) => {
+        for (const event of events as AuditLogEventT[]) {
           expect(event).toHaveProperty('action')
           expect(event).toHaveProperty('description')
           // fields is optional but if present should be array
           if (event.fields) {
             expect(Array.isArray(event.fields)).toBe(true)
           }
-        })
-      })
+        }
+      }
     })
 
     test('should preserve fields data through categorization', () => {
@@ -127,12 +127,12 @@ describe('Audit log fields functionality', () => {
     test('should not have duplicate fields in same event', () => {
       const events = getAuditLogEvents('organization', 'enterprise-cloud@latest')
 
-      events.forEach((event) => {
+      for (const event of events) {
         if (event.fields) {
           const uniqueFields = new Set(event.fields)
           expect(uniqueFields.size).toBe(event.fields.length)
         }
-      })
+      }
     })
 
     test('should have reasonable field names', () => {
@@ -140,7 +140,7 @@ describe('Audit log fields functionality', () => {
       const eventWithFields = events.find((event) => event.fields && event.fields.length > 0)
 
       if (eventWithFields) {
-        eventWithFields.fields!.forEach((field) => {
+        for (const field of eventWithFields.fields!) {
           // Field names should be reasonable strings
           expect(field).toBeTruthy()
           expect(typeof field).toBe('string')
@@ -149,33 +149,33 @@ describe('Audit log fields functionality', () => {
 
           // Should not contain special characters that would break display
           expect(field).not.toMatch(/[<>'"&]/)
-        })
+        }
       }
     })
 
     test('should handle different page types consistently', () => {
       const pageTypes = ['organization', 'enterprise', 'user']
 
-      pageTypes.forEach((pageType) => {
+      for (const pageType of pageTypes) {
         try {
           const events = getAuditLogEvents(pageType, 'enterprise-cloud@latest')
 
-          events.forEach((event) => {
+          for (const event of events) {
             expect(event).toHaveProperty('action')
             expect(event).toHaveProperty('description')
 
             if (event.fields) {
               expect(Array.isArray(event.fields)).toBe(true)
-              event.fields.forEach((field) => {
+              for (const field of event.fields) {
                 expect(typeof field).toBe('string')
-              })
+              }
             }
-          })
+          }
         } catch (error) {
           // Some page types might not exist for certain versions, that's ok
           console.log(`Skipping ${pageType} page type due to: ${error}`)
         }
-      })
+      }
     })
   })
 
@@ -194,9 +194,9 @@ describe('Audit log fields functionality', () => {
 
       if (fields) {
         expect(Array.isArray(fields)).toBe(true)
-        fields.forEach((field) => {
+        for (const field of fields) {
           expect(typeof field).toBe('string')
-        })
+        }
       }
     })
   })

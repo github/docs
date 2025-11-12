@@ -19,9 +19,9 @@ const changelog = new Map<string, any>()
 const graphqlSchema = new Map<string, any>()
 const miniTocs = new Map<string, Map<string, Map<string, any[]>>>()
 
-Object.keys(languages).forEach((language) => {
+for (const language of Object.keys(languages)) {
   miniTocs.set(language, new Map())
-})
+}
 
 // Using any for return type as the GraphQL schema structure is complex and dynamically loaded from JSON
 export function getGraphqlSchema(version: string, type: string): any {

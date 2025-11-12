@@ -70,7 +70,7 @@ async function main() {
     const { data } = frontmatter(newContent) as { data: VersionData }
     if (data.versions && typeof data.versions !== 'string') {
       const versions = data.versions as Record<string, string>
-      Object.entries(versions).forEach(([plan, value]) => {
+      for (const [plan, value] of Object.entries(versions)) {
         // Update legacy versioning while we're here
         const valueToUse = value
           .replace('2.23', '3.0')
@@ -88,7 +88,7 @@ async function main() {
         }
         delete versions[plan]
         versions[versionObj.shortName] = valueToUse
-      })
+      }
     }
 
     if (dryRun) {
@@ -137,7 +137,7 @@ function removeInputProps(arrayOfObjects: any[]): any[] {
 
 function makeLiquidReplacements(replacementsObj: ReplacementsMap, text: string): string {
   let newText = text
-  Object.entries(replacementsObj).forEach(([oldCond, newCond]) => {
+  for (const [oldCond, newCond] of Object.entries(replacementsObj)) {
     const oldCondRegex = new RegExp(`({%-?)\\s*?${escapeRegExp(oldCond)}\\s*?(-?%})`, 'g')
     newText = newText
       .replace(oldCondRegex, `$1 ${newCond} $2`)
@@ -147,7 +147,7 @@ function makeLiquidReplacements(replacementsObj: ReplacementsMap, text: string):
       // But we don't need the hack for the new deprecation script, because it will change `if ghes > 2.21` to `if ghes`.
       // So we can update this to the simpler `{% if ghes > 2.21 %}`.
       .replace(/ghes and ghes/g, 'ghes')
-  })
+  }
 
   return newText
 }
@@ -170,115 +170,120 @@ function getLiquidReplacements(content: string, file: string): ReplacementsMap {
         (token.name === 'if' || token.name === 'elsif') && token.content.includes('currentVersion'),
     )
     .map((token) => token.content)
-    .forEach((token) => {
-      const newToken = token.startsWith('if') ? ['ifversion'] : ['elsif']
-      // Everything from here on pushes to the `newToken` array to construct the new conditional.
-      token
-        .replace(/(if|elsif) /, '')
-        .split(/ (or|and) /)
-        .forEach((op: any) => {
-          if (op === 'or' || op === 'and') {
-            newToken.push(op)
-            return
-          }
 
-          // This string will always resolve to `ifversion ghes`.
-          if (op.includes('enterpriseServerVersions contains currentVersion')) {
-            newToken.push('ghes')
-            return
-          }
+  const conditionalTokens = tokens
+    .filter(
+      (xtoken) =>
+        (xtoken.name === 'if' || xtoken.name === 'elsif') &&
+        xtoken.content.includes('currentVersion'),
+    )
+    .map((xtoken) => xtoken.content)
+  for (const token of conditionalTokens) {
+    const newToken = token.startsWith('if') ? ['ifversion'] : ['elsif']
+    // Everything from here on pushes to the `newToken` array to construct the new conditional.
+    for (const op of token.replace(/(if|elsif) /, '').split(/ (or|and) /)) {
+      if (op === 'or' || op === 'and') {
+        newToken.push(op)
+        continue
+      }
 
-          // For the rest, we need to check the release string.
+      // This string will always resolve to `ifversion ghes`.
+      if (op.includes('enterpriseServerVersions contains currentVersion')) {
+        newToken.push('ghes')
+        continue
+      }
 
-          // E.g., [ 'currentVersion', '==', '"enterprise-server@3.0"'].
-          const opParts = op.split(' ')
+      // For the rest, we need to check the release string.
 
-          if (!(opParts.length === 3 && opParts[0] === 'currentVersion')) {
-            console.error(`Something went wrong with ${token} in ${file}`)
-            process.exit(1)
-          }
+      // E.g., [ 'currentVersion', '==', '"enterprise-server@3.0"'].
+      const opParts = op.split(' ')
 
-          const operator = opParts[1]
-          // Remove quotes around the version and then split it on the at sign.
-          const [plan, release] = opParts[2].slice(1, -1).split('@')
+      if (!(opParts.length === 3 && opParts[0] === 'currentVersion')) {
+        console.error(`Something went wrong with ${token} in ${file}`)
+        process.exit(1)
+      }
 
-          // Find the relevant version from the master list so we can access the short name.
-          const versionObj = allVersionKeys.find((version) => version.plan === plan)
+      const operator = opParts[1]
+      // Remove quotes around the version and then split it on the at sign.
+      const [plan, release] = opParts[2].slice(1, -1).split('@')
 
-          if (!versionObj) {
-            console.error(`Couldn't find a version for ${plan} in "${token}" in ${file}`)
-            process.exit(1)
-          }
+      // Find the relevant version from the master list so we can access the short name.
+      const versionObj = allVersionKeys.find((version) => version.plan === plan)
 
-          // Handle numbered releases!
-          if (versionObj.hasNumberedReleases) {
-            const newOperator: string | undefined = operatorsMap[operator]
-            if (!newOperator) {
-              console.error(
-                `Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`,
-              )
-              process.exit(1)
-            }
+      if (!versionObj) {
+        console.error(`Couldn't find a version for ${plan} in "${token}" in ${file}`)
+        process.exit(1)
+      }
 
-            // Account for this one weird version included in a couple content files
-            deprecated.push('1.19')
+      // Handle numbered releases!
+      if (versionObj.hasNumberedReleases) {
+        const newOperator: string | undefined = operatorsMap[operator]
+        if (!newOperator) {
+          console.error(
+            `Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`,
+          )
+          process.exit(1)
+        }
 
-            // E.g., ghes > 2.20
-            const availableInAllGhes = deprecated.includes(release) && newOperator === '>'
+        // Account for this one weird version included in a couple content files
+        deprecated.push('1.19')
 
-            // We can change > deprecated releases, like ghes > 2.19, to just ghes.
-            // These are now available for all ghes releases.
-            if (availableInAllGhes) {
-              newToken.push(versionObj.shortName)
-              return
-            }
+        // E.g., ghes > 2.20
+        const availableInAllGhes = deprecated.includes(release) && newOperator === '>'
 
-            // E.g., ghes < 2.20
-            const lessThanDeprecated = deprecated.includes(release) && newOperator === '<'
-            // E.g., ghes < 2.21
-            const lessThanOldestSupported = release === oldestSupported && newOperator === '<'
-            // E.g., ghes = 2.20
-            const equalsDeprecated = deprecated.includes(release) && newOperator === '='
-            const hasDeprecatedContent =
-              lessThanDeprecated || lessThanOldestSupported || equalsDeprecated
+        // We can change > deprecated releases, like ghes > 2.19, to just ghes.
+        // These are now available for all ghes releases.
+        if (availableInAllGhes) {
+          newToken.push(versionObj.shortName)
+          continue
+        }
 
-            // Remove these by hand.
-            if (hasDeprecatedContent) {
-              console.error(`Found content that needs to be removed! See "${token} in "${file}`)
-              process.exit(1)
-            }
+        // E.g., ghes < 2.20
+        const lessThanDeprecated = deprecated.includes(release) && newOperator === '<'
+        // E.g., ghes < 2.21
+        const lessThanOldestSupported = release === oldestSupported && newOperator === '<'
+        // E.g., ghes = 2.20
+        const equalsDeprecated = deprecated.includes(release) && newOperator === '='
+        const hasDeprecatedContent =
+          lessThanDeprecated || lessThanOldestSupported || equalsDeprecated
 
-            // Override for legacy 2.23, which should be 3.0
-            const releaseToUse = release === '2.23' ? '3.0' : release
+        // Remove these by hand.
+        if (hasDeprecatedContent) {
+          console.error(`Found content that needs to be removed! See "${token} in "${file}`)
+          process.exit(1)
+        }
 
-            newToken.push(`${versionObj.shortName} ${newOperator} ${releaseToUse}`)
-            return
-          }
+        // Override for legacy 2.23, which should be 3.0
+        const releaseToUse = release === '2.23' ? '3.0' : release
 
-          // Turn != into nots, now that we can assume this is not a numbered release.
-          if (operator === '!=') {
-            newToken.push(`not ${versionObj.shortName}`)
-            return
-          }
+        newToken.push(`${versionObj.shortName} ${newOperator} ${releaseToUse}`)
+        continue
+      }
 
-          // We should only have equality conditionals left.
-          if (operator !== '==') {
-            console.error(`Expected == but found ${operator} in "${op}" in ${token}`)
-            process.exit(1)
-          }
+      // Turn != into nots, now that we can assume this is not a numbered release.
+      if (operator === '!=') {
+        newToken.push(`not ${versionObj.shortName}`)
+        continue
+      }
 
-          // Handle `latest`!
-          if (release === 'latest') {
-            newToken.push(versionObj.shortName)
-            return
-          }
+      // We should only have equality conditionals left.
+      if (operator !== '==') {
+        console.error(`Expected == but found ${operator} in "${op}" in ${token}`)
+        process.exit(1)
+      }
 
-          // Handle all other non-standard releases, like github-ae@next and github-ae@issue-12345
-          newToken.push(`${versionObj.shortName}-${release}`)
-        })
+      // Handle `latest`!
+      if (release === 'latest') {
+        newToken.push(versionObj.shortName)
+        continue
+      }
 
-      replacements[token] = newToken.join(' ')
-    })
+      // Handle all other non-standard releases, like github-ae@next and github-ae@issue-12345
+      newToken.push(`${versionObj.shortName}-${release}`)
+    }
+
+    replacements[token] = newToken.join(' ')
+  }
 
   return replacements
 }

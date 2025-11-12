@@ -170,14 +170,16 @@ class Page {
       // where as notations like `__GHES_DEPRECATED__[3]`
       // or `__GHES_SUPPORTED__[0]` are static.
       if (opts.basePath.split(path.sep).includes('fixtures')) {
-        supported.forEach((version: string, i: number, arr: string[]) => {
+        for (let i = 0; i < supported.length; i++) {
+          const version: string = supported[i]
           markdown = markdown.replaceAll(`__GHES_SUPPORTED__[${i}]`, version)
-          markdown = markdown.replaceAll(`__GHES_SUPPORTED__[-${arr.length - i}]`, version)
-        })
-        deprecated.forEach((version: string, i: number, arr: string[]) => {
+          markdown = markdown.replaceAll(`__GHES_SUPPORTED__[-${supported.length - i}]`, version)
+        }
+        for (let i = 0; i < deprecated.length; i++) {
+          const version: string = deprecated[i]
           markdown = markdown.replaceAll(`__GHES_DEPRECATED__[${i}]`, version)
-          markdown = markdown.replaceAll(`__GHES_DEPRECATED__[-${arr.length - i}]`, version)
-        })
+          markdown = markdown.replaceAll(`__GHES_DEPRECATED__[-${deprecated.length - i}]`, version)
+        }
       }
 
       return {

@@ -88,11 +88,11 @@ export default async function ghesReleaseNotesContext(
   req.context.latestRelease = latestStable
 
   // Add convenience props for "Supported releases" section on GHES Admin landing page (NOT release notes).
-  req.context.ghesReleases.forEach((release) => {
+  for (const release of req.context.ghesReleases) {
     release.firstPreviousRelease = all[all.findIndex((v) => v === release.version) + 1]
     release.secondPreviousRelease =
       all[all.findIndex((v) => v === release.firstPreviousRelease) + 1]
-  })
+  }
 
   return next()
 }

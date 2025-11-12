@@ -180,7 +180,7 @@ async function main() {
       await mkdirp(auditLogVersionDirPath)
     }
 
-    Object.values(AUDIT_LOG_PAGES).forEach(async (page) => {
+    for (const page of Object.values(AUDIT_LOG_PAGES)) {
       const auditLogSchemaFilePath = path.join(auditLogVersionDirPath, `${page}.json`)
 
       if (auditLogData[version][page]) {
@@ -188,9 +188,8 @@ async function main() {
           auditLogSchemaFilePath,
           JSON.stringify(auditLogData[version][page], null, 2),
         )
-        console.log(`✅ Wrote ${auditLogSchemaFilePath}`)
       }
-    })
+    }
   }
 }
 

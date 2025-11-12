@@ -1,7 +1,8 @@
 ---
-title: Responsible use of GitHub Copilot code completion
-shortTitle: Copilot code completion
-intro: 'Learn how to use {% data variables.product.prodname_copilot_short %} code completion responsibly by understanding its purposes, capabilities, and limitations.'
+title: Responsible use of GitHub Copilot inline suggestions
+shortTitle: Copilot inline suggestions
+allowTitleToDifferFromFilename: true
+intro: 'Learn how to use {% data variables.product.prodname_copilot_short %} inline suggestions responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: copilot
 topics:
@@ -14,25 +15,25 @@ category:
   - Responsible use
 ---
 
-## About {% data variables.product.prodname_copilot %} code completion
+## About {% data variables.product.prodname_copilot %} inline suggestions
 
-{% data variables.product.prodname_copilot_short %} code completions are autocomplete-style suggestions generated inline by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot_short %} code completion creates the experience of working with an AI-powered pair programmer, automatically offering suggestions to complete your code. In addition, it can suggest code comments, tests, and more. It provides these suggestions directly in supported editors while you write your code, and it can work with a broad range of programming languages and frameworks. For more information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
+{% data variables.product.prodname_copilot_short %} inline suggestions are autocomplete-style suggestions generated inline by {% data variables.product.prodname_copilot %}. {% data variables.product.prodname_copilot_short %} inline suggestions create the experience of working with an AI-powered pair programmer, automatically offering suggestions to complete your code. In addition, it can suggest code comments, tests, and more. It provides these suggestions directly in supported editors while you write your code, and it can work with a broad range of programming languages and frameworks. For more information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
 
 {% data variables.product.prodname_copilot_short %}'s suggestions may be the completion of the current line, but will sometimes be a whole new block of code. You can accept all or part of a suggestion, dismiss the suggestion, or keep typing and ignore the suggestions.
 
-{% data variables.product.prodname_copilot_short %} code completion works by using a combination of natural language processing and machine learning to understand your surrounding code (relative to your cursor position) and provide you with suggestions. This process can be broken down into a number of steps.
+{% data variables.product.prodname_copilot_short %} inline suggestions work by using a combination of natural language processing and machine learning to understand your surrounding code (relative to your cursor position) and provide you with suggestions. This process can be broken down into a number of steps.
 
 ### Input processing
 
-The surrounding code from the user’s cursor is pre-processed by the {% data variables.product.prodname_copilot_short %} code completion system, combined with contextual information (such as code snippets from open tabs in the editor) and sent to a large language model in the form of a prompt. For information about data retention, see the [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/faq?s=b9buqrq7o9ssfk3ta50x6).
+The surrounding code from the user's cursor is pre-processed by the {% data variables.product.prodname_copilot_short %} inline suggestion system, combined with contextual information (such as code snippets from open tabs in the editor) and sent to a large language model in the form of a prompt. For information about data retention, see the [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/faq?s=b9buqrq7o9ssfk3ta50x6).
 
 The large language model then takes the prompt and provides a response based on the prompt. The system is only intended to assist with coding.
 
 ### Language model analysis
 
-The large language model that processes the input prompt is a fine-tuned code completion language model, which is a neural network that has been trained on a large body of code data specialized for inline code completion.
+The large language model that processes the input prompt is a fine-tuned language model for inline suggestions, which is a neural network that has been trained on a large body of code data specialized for providing inline suggestions.
 
-You can change the model that is used for code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+You can change the model that is used for inline suggestions. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 
 ### Response generation
 
@@ -40,13 +41,13 @@ The language model generates a response based on its analysis of the input promp
 
 ### Output formatting
 
-The response generated by {% data variables.product.prodname_copilot_short %} is formatted as “ghost text” that is visually distinct from the surrounding code and presented to the user as a suggestion. It is only added to the file/codebase if the user explicitly accepts the suggestion. Users can accept all or part of a suggestion, dismiss the suggestion, or they can keep typing and ignore the suggestions in which case the suggestion is discarded.
+The response generated by {% data variables.product.prodname_copilot_short %} is formatted as "ghost text" that is visually distinct from the surrounding code and presented to the user as a suggestion. It is only added to the file/codebase if the user explicitly accepts the suggestion. Users can accept all or part of a suggestion, dismiss the suggestion, or they can keep typing and ignore the suggestions in which case the suggestion is discarded.
 
-{% data variables.product.prodname_copilot %} code completion is intended to provide you with the most relevant and useful code suggestions to augment your existing code. However, it may not always provide the answers that you are looking for. Users of {% data variables.product.prodname_copilot_short %} are responsible for reviewing and validating responses generated by the system before they accept them, to ensure they are accurate and appropriate. Additionally, as part of our product development process, we undertake red teaming to understand and improve the safety of {% data variables.product.prodname_copilot_short %} code completion. The generated code completions are also run through content filters. The content filtering system detects and blocks {% data variables.product.prodname_copilot_short %} from outputting any harmful or offensive content, or insecure code. Furthermore, depending on the user’s GitHub settings, the filter also blocks or annotates suggestions that contain matches to public code.
+{% data variables.product.prodname_copilot %} inline suggestions are intended to provide you with the most relevant and useful code suggestions to augment your existing code. However, it may not always provide the answers that you are looking for. Users of {% data variables.product.prodname_copilot_short %} are responsible for reviewing and validating responses generated by the system before they accept them, to ensure they are accurate and appropriate. Additionally, as part of our product development process, we undertake red teaming to understand and improve the safety of {% data variables.product.prodname_copilot_short %} inline suggestions. The generated suggestions are also run through content filters. The content filtering system detects and blocks {% data variables.product.prodname_copilot_short %} from outputting any harmful or offensive content, or insecure code. Furthermore, depending on the user's GitHub settings, the filter also blocks or annotates suggestions that contain matches to public code.
 
-## Use cases for {% data variables.product.prodname_copilot %} code completion
+## Use cases for {% data variables.product.prodname_copilot %} inline suggestions
 
-{% data variables.product.prodname_copilot %} code completion can provide coding assistance in a variety of scenarios.
+{% data variables.product.prodname_copilot %} inline suggestions can provide coding assistance in a variety of scenarios.
 
 ### Generate code based on your instructions
 
@@ -54,21 +55,21 @@ In addition to relying on {% data variables.product.prodname_copilot_short %} to
 
 ### Generating unit test cases
 
-{% data variables.product.prodname_copilot_short %} code completion can help you write unit test cases by generating code snippets based on the surrounding code typed in the editor. This may help you spend less time on repetitive tasks writing test cases. For example, if you are writing a test case for a specific function, you can use {% data variables.product.prodname_copilot_short %} to suggest possible input parameters and expected output values based on the function's signature and body. Code completion can also suggest assertions that ensure the function is working correctly, based on the code's context and semantics.
+{% data variables.product.prodname_copilot_short %} inline suggestions can help you write unit test cases by generating code snippets based on the surrounding code typed in the editor. This may help you spend less time on repetitive tasks writing test cases. For example, if you are writing a test case for a specific function, you can use {% data variables.product.prodname_copilot_short %} to suggest possible input parameters and expected output values based on the function's signature and body. Inline suggestions can also suggest assertions that ensure the function is working correctly, based on the code's context and semantics.
 
-{% data variables.product.prodname_copilot_short %} code completion can also help generate test cases for edge cases and boundary conditions that might be difficult to identify manually. For instance, {% data variables.product.prodname_copilot_short %} can suggest test cases for error handling, null values, or unexpected input types, helping you ensure your code is robust and resilient. However, it is important to note that generated test cases may not cover all possible scenarios, and manual testing and code review are still necessary to ensure the quality of the code.
+{% data variables.product.prodname_copilot_short %} inline suggestions can also help generate test cases for edge cases and boundary conditions that might be difficult to identify manually. For instance, {% data variables.product.prodname_copilot_short %} can suggest test cases for error handling, null values, or unexpected input types, helping you ensure your code is robust and resilient. However, it is important to note that generated test cases may not cover all possible scenarios, and manual testing and code review are still necessary to ensure the quality of the code.
 
 This can be a useful tool for programmers, as it can provide guidance and support for common coding tasks and challenges.
 
-## Improving performance for {% data variables.product.prodname_copilot %} code completion
+## Improving performance for {% data variables.product.prodname_copilot %} inline suggestions
 
-{% data variables.product.prodname_copilot_short %} code completion can generate code suggestions in a number of different contexts, with different performance and quality metrics. To enhance performance and address some of the limitations of {% data variables.product.prodname_copilot_short %} code completion, there are various measures that you can adopt. For more information on the limitations of {% data variables.product.prodname_copilot_short %} code completion, see [Limitations of {% data variables.product.prodname_copilot %} code completion](#limitations-of-github-copilot-code-completion).
+{% data variables.product.prodname_copilot_short %} inline suggestions can generate code suggestions in a number of different contexts, with different performance and quality metrics. To enhance performance and address some of the limitations of {% data variables.product.prodname_copilot_short %} inline suggestions, there are various measures that you can adopt. For more information on the limitations of {% data variables.product.prodname_copilot_short %} inline suggestions, see [Limitations of {% data variables.product.prodname_copilot %} inline suggestions](#limitations-of-github-copilot-inline-suggestions).
 
 ### Keep your prompts on topic
 
 {% data variables.product.prodname_copilot_short %} is exclusively intended to generate completions that are either code-related or code itself. Therefore, limiting the context of the content in the editor to code, or coding-related information, can enhance the model's output quality.
 
-### Use {% data variables.product.prodname_copilot_short %} code completion as a tool, not a replacement
+### Use {% data variables.product.prodname_copilot_short %} inline suggestions as a tool, not a replacement
 
 While {% data variables.product.prodname_copilot_short %} can be a powerful tool for generating code, it is important to use it as a tool rather than as a replacement for human programming. You should always review the code generated by {% data variables.product.prodname_copilot_short %} before accepting a suggestion, and further validate it after to ensure that it meets your requirements and is free of errors or security concerns.
 
@@ -77,25 +78,25 @@ While {% data variables.product.prodname_copilot_short %} can be a powerful tool
 
 ### Use secure coding and code review practices
 
-While {% data variables.product.prodname_copilot_short %} code completion can generate syntactically correct code, it may not always be secure. You should always follow best practices for secure coding, such as avoiding hard-coded passwords or SQL injection vulnerabilities, as well as following code review best practices, to address {% data variables.product.prodname_copilot_short %}’s limitations.
+While {% data variables.product.prodname_copilot_short %} inline suggestions can generate syntactically correct code, it may not always be secure. You should always follow best practices for secure coding, such as avoiding hard-coded passwords or SQL injection vulnerabilities, as well as following code review best practices, to address {% data variables.product.prodname_copilot_short %}'s limitations.
 
 ### Stay up to date
 
-{% data variables.product.prodname_copilot_short %} code completion is still a fairly new technology and is likely to evolve over time. You should stay up to date with any updates or changes to the tool, as well as any new security risks or best practices that may emerge. Automated extension updates are enabled by default in Visual Studio Code, Visual Studio, and the JetBrains suite of IDEs. If you have automatic updates enabled, {% data variables.product.prodname_copilot_short %} will automatically update to the latest version when you open your IDE. For more information on automatic updates in your IDE, see the documentation for your preferred IDE or code editor.
+{% data variables.product.prodname_copilot_short %} inline suggestions are still a fairly new technology and are likely to evolve over time. You should stay up to date with any updates or changes to the tool, as well as any new security risks or best practices that may emerge. Automated extension updates are enabled by default in Visual Studio Code, Visual Studio, and the JetBrains suite of IDEs. If you have automatic updates enabled, {% data variables.product.prodname_copilot_short %} will automatically update to the latest version when you open your IDE. For more information on automatic updates in your IDE, see the documentation for your preferred IDE or code editor.
 
-## Limitations of {% data variables.product.prodname_copilot %} code completion
+## Limitations of {% data variables.product.prodname_copilot %} inline suggestions
 
-Depending on factors such as your codebase and input data, you may experience different levels of performance when interacting with {% data variables.product.prodname_copilot_short %} code completion. The following information is designed to help you understand system limitations and key concepts about performance as they apply to {% data variables.product.prodname_copilot_short %} code completion.
+Depending on factors such as your codebase and input data, you may experience different levels of performance when interacting with {% data variables.product.prodname_copilot_short %} inline suggestions. The following information is designed to help you understand system limitations and key concepts about performance as they apply to {% data variables.product.prodname_copilot_short %} inline suggestions.
 
 ### Limited scope
 
-{% data variables.product.prodname_copilot_short %} code completion is trained on a large body of code but still has a limited scope and may not be able to handle more complex code structures or obscure programming languages. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. For example, JavaScript is well-represented in public repositories and is one of {% data variables.product.prodname_copilot %}'s best supported languages. Languages with less representation in public repositories may be more challenging for {% data variables.product.prodname_copilot_short %} to assist. Additionally, {% data variables.product.prodname_copilot_short %} code completion can only suggest code based on the context of the code being written, so it may not be able to identify larger design or architectural issues.
+{% data variables.product.prodname_copilot_short %} inline suggestions are trained on a large body of code but still have a limited scope and may not be able to handle more complex code structures or obscure programming languages. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. For example, JavaScript is well-represented in public repositories and is one of {% data variables.product.prodname_copilot %}'s best supported languages. Languages with less representation in public repositories may be more challenging for {% data variables.product.prodname_copilot_short %} to assist. Additionally, {% data variables.product.prodname_copilot_short %} inline suggestions can only suggest code based on the context of the code being written, so it may not be able to identify larger design or architectural issues.
 
-Lastly, {% data variables.product.prodname_copilot_short %} code completion is intended to generate code and code-related output. Using {% data variables.product.prodname_copilot_short %} code completion is not intended to generate natural language outputs.
+Lastly, {% data variables.product.prodname_copilot_short %} inline suggestions are intended to generate code and code-related output. Using {% data variables.product.prodname_copilot_short %} inline suggestions is not intended to generate natural language outputs.
 
 ### Potential biases
 
-{% data variables.product.prodname_copilot_short %}'s training data is drawn from existing code repositories, which may contain biases and errors that can be perpetuated by the tool. Additionally, {% data variables.product.prodname_copilot_short %} code completion may be biased towards certain programming languages or coding styles, which can lead to suboptimal or incomplete code suggestions.
+{% data variables.product.prodname_copilot_short %}'s training data is drawn from existing code repositories, which may contain biases and errors that can be perpetuated by the tool. Additionally, {% data variables.product.prodname_copilot_short %} inline suggestions may be biased towards certain programming languages or coding styles, which can lead to suboptimal or incomplete code suggestions.
 
 ### Security risks
 
@@ -103,7 +104,7 @@ Lastly, {% data variables.product.prodname_copilot_short %} code completion is i
 
 ### Matches with public code
 
-{% data variables.product.prodname_copilot_short %} code completion is capable of generating new code, which it does in a probabilistic way. While the probability is low, {% data variables.product.prodname_copilot_short %} may generate code suggestions that match code in the training set.
+{% data variables.product.prodname_copilot_short %} inline suggestions are capable of generating new code, which they do in a probabilistic way. While the probability is low, {% data variables.product.prodname_copilot_short %} may generate code suggestions that match code in the training set.
 
 ### Inaccurate code
 
@@ -115,7 +116,7 @@ Users need to evaluate potential specific legal and regulatory obligations when 
 
 ## Next steps
 
-For details of how to use {% data variables.product.prodname_copilot_short %} code completion, see:
+For details of how to use {% data variables.product.prodname_copilot_short %} inline suggestions, see:
 
 * [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
 

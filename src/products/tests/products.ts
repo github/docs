@@ -14,7 +14,7 @@ describe('products module', () => {
   })
 
   test('every product is valid', () => {
-    Object.values(productMap).forEach((product) => {
+    for (const product of Object.values(productMap)) {
       const isValid = validate(product)
       let errors: string | undefined
 
@@ -22,6 +22,6 @@ describe('products module', () => {
         errors = formatAjvErrors(validate.errors)
       }
       expect(isValid, errors).toBe(true)
-    })
+    }
   })
 })

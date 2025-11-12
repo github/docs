@@ -11,12 +11,11 @@ export default function features(req: ExtendedRequest, res: Response, next: Next
   if (!req.context.page) return next()
 
   if (!req.context.currentVersion) throw new Error('currentVersion is not contextualized')
-  Object.entries(getFeaturesByVersion(req.context.currentVersion)).forEach(
-    ([featureName, isFeatureAvailableInCurrentVersion]) => {
-      if (!req.context) throw new Error('request is not contextualized')
-      req.context[featureName] = isFeatureAvailableInCurrentVersion
-    },
-  )
+  const featureEntries = Object.entries(getFeaturesByVersion(req.context.currentVersion))
+  for (const [featureName, isFeatureAvailableInCurrentVersion] of featureEntries) {
+    if (!req.context) throw new Error('request is not contextualized')
+    req.context[featureName] = isFeatureAvailableInCurrentVersion
+  }
 
   return next()
 }

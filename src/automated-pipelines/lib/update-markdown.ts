@@ -399,7 +399,9 @@ async function getIndexFileVersions(
         throw new Error(`Frontmatter in ${filepath} does not contain versions.`)
       }
       const fmVersions = getApplicableVersions(data.versions)
-      fmVersions.forEach((version: string) => versions.add(version))
+      for (const version of fmVersions) {
+        versions.add(version)
+      }
     }),
   )
   const versionArray = [...versions]
@@ -431,7 +433,7 @@ export async function convertVersionsToFrontmatter(
 
   // Currently, only GHES is numbered. Number releases have to be
   // handled differently because they use semantic versioning.
-  versions.forEach((version) => {
+  for (const version of versions) {
     const docsVersion = allVersions[version]
     if (!docsVersion.hasNumberedReleases) {
       frontmatterVersions[docsVersion.shortName] = '*'
@@ -455,10 +457,10 @@ export async function convertVersionsToFrontmatter(
         numberedReleases[docsVersion.shortName].availableReleases[i] = docsVersion.currentRelease
       }
     }
-  })
+  }
 
   // Create semantic versions for numbered releases
-  Object.keys(numberedReleases).forEach((key) => {
+  for (const key of Object.keys(numberedReleases)) {
     const availableReleases = numberedReleases[key].availableReleases
     const versionContinuity = checkVersionContinuity(availableReleases)
     if (availableReleases.every(Boolean)) {
@@ -483,7 +485,7 @@ export async function convertVersionsToFrontmatter(
       }
       frontmatterVersions[key] = semVer.join(' ')
     }
-  })
+  }
   const sortedFrontmatterVersions = Object.keys(frontmatterVersions)
     .sort()
     .reduce((acc: { [key: string]: string }, key) => {

@@ -4,7 +4,7 @@ As an enterprise or organization owner, you can use your network firewall to exp
 
 Configuring {% data variables.copilot.copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot_short %} features:
 
-* Code completion in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
+* {% data variables.product.prodname_copilot_short %} inline suggestions in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
 * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs
 * {% data variables.copilot.copilot_chat_short %} on {% data variables.product.github %}
 * {% data variables.product.prodname_mobile %} Apps

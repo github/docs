@@ -2,7 +2,7 @@
 title: Tracking license activation and initial usage with Copilot usage metrics
 shortTitle: Track usage and adoption
 intro: Identify and act on {% data variables.product.prodname_copilot %} adoption signals and activation with usage metrics.
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 topics:

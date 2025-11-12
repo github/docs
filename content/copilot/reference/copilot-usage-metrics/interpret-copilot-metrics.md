@@ -2,7 +2,7 @@
 title: Interpreting usage and adoption metrics for GitHub Copilot
 shortTitle: Interpret usage metrics
 intro: 'Evaluate trends surfaced in {% data variables.product.prodname_copilot_short %} usage metrics to enable adoption in your enterprise.'
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 topics:

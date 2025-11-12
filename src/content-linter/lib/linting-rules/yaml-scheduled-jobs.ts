@@ -43,7 +43,7 @@ export const yamlScheduledJobs: Rule = {
       if (!yamlObj.on) return
       if (!yamlObj.on.schedule) return
 
-      yamlObj.on.schedule.forEach((schedule: YamlSchedule) => {
+      for (const schedule of yamlObj.on.schedule) {
         if (schedule.cron.split(' ')[0] === '0') {
           addError(
             onError,
@@ -57,13 +57,13 @@ export const yamlScheduledJobs: Rule = {
           addError(
             onError,
             getLineNumber(token.content!, schedule.cron) + token.lineNumber,
-            `YAML scheduled workflow must be unique`,
+            `YAML scheduled workflow must not use the same cron schedule as another workflow`,
             schedule.cron,
           )
-        } else {
-          scheduledYamlJobs.push(schedule.cron)
         }
-      })
+
+        scheduledYamlJobs.push(schedule.cron)
+      }
     })
   },
 }

@@ -59,18 +59,18 @@ describe('pages module', () => {
       const versionedRedirects: Array<{ path: string; file: string }> = []
 
       // Page objects have dynamic properties from chain/lodash that aren't fully typed
-      englishPages.forEach((page: any) => {
-        page.redirect_from.forEach((redirect: string) => {
-          page.applicableVersions.forEach((version: string) => {
+      for (const page of englishPages) {
+        for (const redirect of (page as any).redirect_from) {
+          for (const version of (page as any).applicableVersions) {
             const versioned = removeFPTFromPath(path.posix.join('/', version, redirect))
-            versionedRedirects.push({ path: versioned, file: page.fullPath })
+            versionedRedirects.push({ path: versioned, file: (page as any).fullPath })
             if (!redirectToFiles.has(versioned)) {
               redirectToFiles.set(versioned, new Set<string>())
             }
-            redirectToFiles.get(versioned)!.add(page.fullPath)
-          })
-        })
-      })
+            redirectToFiles.get(versioned)!.add((page as any).fullPath)
+          }
+        }
+      }
 
       // Only consider as duplicate if more than one unique file defines the same redirect
       const duplicates = Array.from(redirectToFiles.entries())

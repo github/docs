@@ -3,7 +3,7 @@ title: Data available in Copilot usage metrics
 allowTitleToDifferFromFilename: true
 shortTitle: Copilot usage metrics data
 intro: 'You can display and export {% data variables.product.prodname_copilot_short %} usage metrics data in the dashboard and via APIs.'
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   fpt: '*'
   ghec: '*'

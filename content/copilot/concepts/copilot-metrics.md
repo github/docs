@@ -19,7 +19,7 @@ redirect_from:
 
 {% data reusables.copilot.usage-metrics-preview %}
 
-{% data variables.product.prodname_copilot_short %} usage metrics help enterprise administrators and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and make data-driven decisions about enablement and rollout.
+{% data variables.product.prodname_copilot_short %} usage metrics help key stakeholders and decision-makers understand how their teams are adopting and using {% data variables.product.prodname_copilot_short %}. By tracking usage patterns across the enterprise, you can measure engagement, identify opportunities to increase value, and make data-driven decisions about enablement and rollout.
 
 Metrics are available through:
 
@@ -70,7 +70,7 @@ For example, all usage data for a Monday (which closes at midnight UTC) will be 
 
 **Engagement** measures describe how deeply developers use {% data variables.product.prodname_copilot_short %} once they’ve adopted it. Key engagement metrics show not only frequency of use but also breadth across features. For example, average chat requests per active user measures how often users open and interact with {% data variables.copilot.copilot_chat_short %}. You'd want to see regular and increasing chat use across languages and IDEs.
 
-**Acceptance rate** measures how often developers accept {% data variables.product.prodname_copilot_short %}’s suggestions. This helps you understand whether suggestions are relevant and trusted. For example, a high code completions acceptance rate indicates that suggestions are relevant and useful.
+**Acceptance rate** measures how often developers accept {% data variables.product.prodname_copilot_short %}’s suggestions. This helps you understand whether suggestions are relevant and trusted. For example, a high inline suggestions acceptance rate indicates that suggestions are relevant and useful.
 
 **Lines of Code (LoC) metrics** measure the number of lines {% data variables.product.prodname_copilot_short %} suggested, added, or deleted in the editor, providing a directional view of {% data variables.product.prodname_copilot_short %}’s tangible output. For example, "Lines added" shows how much code was actually accepted and inserted into the editor.
 
