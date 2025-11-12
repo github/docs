@@ -42,11 +42,11 @@
 
 {% data reusables.copilot.available-models-per-plan %}
 
-### Code completion
+### Inline suggestions
 
 {% rowheaders %}
 
-| Code completion | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
+| Inline suggestions | {% data variables.copilot.copilot_free_short %} | {% data variables.copilot.copilot_pro_short %} | {% data variables.copilot.copilot_pro_plus_short %} | {% data variables.copilot.copilot_business_short %} | {% data variables.copilot.copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
 | Real-time code suggestions with included models[^5] | 2000 completions per month | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.copilot.next_edit_suggestions_caps %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -88,4 +88,4 @@
 [^2]: Response times may vary during periods of high usage.
 [^3]: For details about the increased rate limits, see [AUTOTITLE](/github-models/prototyping-with-ai-models).
 [^4]: {% data variables.copilot.copilot_chat_short %} skills in IDEs is available in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}.
-[^5]: Code completion in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse.
+[^5]: Inline suggestions in IDEs is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse.

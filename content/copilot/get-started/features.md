@@ -13,13 +13,13 @@ redirect_from:
   - /copilot/about-github-copilot/github-copilot-features
   - /copilot/get-started/github-copilot-features
 contentType: get-started
-category: 
+category:
   - Learn about Copilot
 ---
 
 ## {% data variables.product.prodname_copilot %} features
 
-### Code completion
+### Inline suggestions
 
 Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
 

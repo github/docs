@@ -51,7 +51,7 @@ Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
-You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
+You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays inline suggestions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.jetbrains-settings %}
 {% data reusables.copilot.jetbrains-languages-and-frameworks %}

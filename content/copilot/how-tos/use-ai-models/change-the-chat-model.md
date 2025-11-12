@@ -25,7 +25,7 @@ To view the available models per client, see [AUTOTITLE](/copilot/using-github-c
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
-Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} inline suggestions. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 
 {% webui %}
 
@@ -173,7 +173,7 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must ins
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
+* [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model)
 * [AUTOTITLE](/copilot/reference/ai-models/model-comparison)
 
 {% vscode %}

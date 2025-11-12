@@ -18,9 +18,9 @@ In this guide, you’ll learn how to set up {% data variables.product.prodname_c
 
 This guide assumes that you'll use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. To get set up, see [Set up Copilot in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/setup-simplified) in the {% data variables.product.prodname_vscode %} documentation.
 
-## Step 1: Disable code completion
+## Step 1: Disable {% data variables.product.prodname_copilot_short %} inline suggestions
 
-First, let's disable code completion. This will give you the opportunity to deepen your understanding of programming concepts by writing more code yourself.
+First, let's disable inline suggestions. This will give you the opportunity to deepen your understanding of programming concepts by writing more code yourself.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, open your project.
 1. Create a folder in the root directory called `.vscode`.
@@ -35,7 +35,7 @@ First, let's disable code completion. This will give you the opportunity to deep
    }
    ```
 
-1. Save the file. {% data variables.product.prodname_copilot_short %} code completion is now disabled for this project in {% data variables.product.prodname_vscode_shortname %}.
+1. Save the file. {% data variables.product.prodname_copilot_short %} inline suggestions are now disabled for this project in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Step 2: Add learning instructions
 
