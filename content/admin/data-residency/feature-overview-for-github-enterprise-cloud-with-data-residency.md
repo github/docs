@@ -20,7 +20,6 @@ The following features are currently unavailable on {% data variables.enterprise
 
 | Feature | Details | More information |
 | :- | :- | :- |
-| Restricting {% data variables.product.prodname_actions %} policies to verified creators | Currently unavailable | [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#allow-enterprise-and-select-non-enterprise-actions-and-reusable-workflows) |
 | {% data variables.product.prodname_copilot_short %} Metrics API | Currently unavailable | [AUTOTITLE](/rest/copilot/copilot-metrics) |
 | {% data variables.product.prodname_github_codespaces %} | Currently unavailable. | [AUTOTITLE](/codespaces/quickstart) |
 | {% data variables.product.prodname_importer %} (the "Import repository" button on {% data variables.product.prodname_dotcom_the_website %}) | Instead, the **{% data variables.product.prodname_importer_proper_name %}** is available to migrate data. See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer). | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
