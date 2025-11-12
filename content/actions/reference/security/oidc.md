@@ -49,6 +49,9 @@ The OIDC token includes the following claims.
 | `actor`| The personal account that initiated the workflow run.                   |
 | `actor_id`| The ID of personal account that initiated the workflow run.             |
 | `base_ref`| The target branch of the pull request in a workflow run.                   |
+| {% ifversion actions-OIDC-check-run-id-claim %} |
+| `check_run_id`| The check run ID of the current job. |
+| {% endif %} |
 | {% ifversion actions-OIDC-custom-claim-enterprise %} |
 | `enterprise`| The name of the enterprise that contains the repository from where the workflow is running.                  |
 | {% endif %} |
