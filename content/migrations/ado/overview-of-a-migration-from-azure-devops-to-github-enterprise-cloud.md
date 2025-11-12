@@ -1,7 +1,7 @@
 ---
 title: Overview of a migration from Azure DevOps to GitHub Enterprise Cloud
 shortTitle: Overview of a migration
-intro: 'Learn how to complete the entire process of migrating from Azure DevOps to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.'
+intro: Learn how to complete the entire process of migrating from Azure DevOps to {% data variables.product.prodname_dotcom %} with {% data variables.product.prodname_importer_proper_name %}, from planning to implementation to completing follow-up tasks.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,8 @@ redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
   - /migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
+  - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/overview-of-a-migration-from-azure-devops-to-github-enterprise-cloud
+contentType: other
 ---
 
 ## Overview

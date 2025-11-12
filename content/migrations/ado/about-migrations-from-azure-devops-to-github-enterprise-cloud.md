@@ -1,11 +1,14 @@
 ---
 title: About migrations from Azure DevOps to GitHub Enterprise Cloud
 shortTitle: About migrations
-intro: 'Learn which data {% data variables.product.prodname_importer_proper_name %} can migrate.'
+intro: Learn which data {% data variables.product.prodname_importer_proper_name %} can migrate.
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
+redirect_from:
+  - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/about-migrations-from-azure-devops-to-github-enterprise-cloud
+contentType: other
 ---
 
 ## About migrations from Azure DevOps

@@ -1,7 +1,7 @@
 ---
 title: Migrating repositories from Azure DevOps to GitHub Enterprise Cloud
 shortTitle: Migrate repositories
-intro: 'You can migrate repositories from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or the GraphQL API.'
+intro: You can migrate repositories from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or the GraphQL API.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,8 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
   - /migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
+  - /migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
+contentType: other
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}

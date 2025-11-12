@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/how-tos/custom-instructions/adding-repository-custom-instructions-for-github-copilot
   - /copilot/how-tos/custom-instructions/add-repository-instructions
   - /copilot/how-tos/use-copilot-agents/request-a-code-review/configure-coding-guidelines
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -265,9 +265,6 @@ Once saved, these instructions will apply to the current project in Eclipse that
    > Support of `AGENTS.md` files outside of the workspace root is currently turned off by default. For details of how to enable this feature, see [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions#_use-an-agentsmd-file) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Creating repository-wide custom instructions
-
-> [!NOTE]
-> {% data reusables.copilot.custom-instructions-ccr-support %} See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review?tool=vscode).
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
