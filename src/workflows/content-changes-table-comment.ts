@@ -247,10 +247,10 @@ function makeRow({
         reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
 
-        versions.forEach((version) => {
+        for (const version of versions) {
           reviewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
-        })
+        }
         reviewCell += '<br>'
         prodCell += '<br>'
       }

@@ -133,7 +133,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     if (nonAutomatedRestPaths.every((item: string) => !asPath.includes(item))) {
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+          for (const entry of entries) {
             if (entry.target.id) {
               const anchor = `#${entry.target.id.split('--')[0]}`
               if (entry.isIntersecting === true) setVisibleAnchor(anchor)
@@ -142,7 +142,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
             } else {
               setVisibleAnchor('')
             }
-          })
+          }
         },
         { rootMargin: '0px 0px -85% 0px' },
       )
@@ -150,9 +150,9 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
       // we can remove the h2 here
       const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
-      headingsList.forEach((heading) => {
+      for (const heading of headingsList) {
         observer.observe(heading)
-      })
+      }
 
       return () => {
         observer.disconnect()

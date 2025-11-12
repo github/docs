@@ -35,7 +35,7 @@ async function getClientSideRedirects(): Promise<RedirectMap> {
   )
 
   const operationRedirects: RedirectMap = {}
-  Object.values(operationUrls).forEach((value: OperationUrl) => {
+  for (const value of Object.values(operationUrls)) {
     const oldUrl = value.originalUrl.replace('/rest/reference', '/rest')
     const anchor = oldUrl.split('#')[1]
     const subcategory = value.subcategory
@@ -43,7 +43,7 @@ async function getClientSideRedirects(): Promise<RedirectMap> {
       ? `/rest/${value.category}/${subcategory}#${anchor}`
       : `/rest/${value.category}#${anchor}`
     operationRedirects[oldUrl] = redirectTo
-  })
+  }
   const redirects: RedirectMap = {
     ...operationRedirects,
     ...sectionUrls,

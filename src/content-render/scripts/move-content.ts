@@ -370,7 +370,9 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
 
   const childGroupPositions: number[][] = []
 
-  ;((data && data[CHILDGROUPS_KEY]) || []).forEach((group: any, i: number) => {
+  const childGroups = (data && data[CHILDGROUPS_KEY]) || []
+  for (let i = 0; i < childGroups.length; i++) {
+    const group = childGroups[i]
     if (group.children) {
       group.children = group.children.filter((entry: any, j: number) => {
         if (entry === oldName || entry === `/${oldName}`) {
@@ -380,7 +382,7 @@ function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
         return true
       })
     }
-  })
+  }
 
   if (data) {
     fs.writeFileSync(
@@ -449,10 +451,11 @@ function moveFiles(files: FileTuple[], opts: MoveOptions) {
   for (const [oldPath] of files) {
     const fileContent = fs.readFileSync(oldPath, 'utf-8')
     const { errors } = fm(fileContent, { filepath: oldPath })
-    errors.forEach((error, i) => {
+    for (let i = 0; i < errors.length; i++) {
+      const error = errors[i]
       if (!i) console.warn(chalk.yellow(`Error parsing file (${oldPath}) frontmatter:`))
       console.error(`${chalk.red(error.message)}: ${chalk.yellow(error.reason)}`)
-    })
+    }
     if (errors.length > 0) throw new Error('There were more than 0 parse errors')
   }
 
@@ -668,12 +671,13 @@ function changeFeaturedLinks(oldHref: string, newHref: string): void {
       if (key === 'popularHeading') {
         continue
       }
-      entries.forEach((entry, i) => {
+      for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i]
         if (regex.test(entry)) {
           entries[i] = entry.replace(regex, `${newHref}$1`)
           changed = true
         }
-      })
+      }
     }
 
     if (changed) {

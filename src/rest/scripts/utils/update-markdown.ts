@@ -98,10 +98,10 @@ async function getDataFrontmatter(
   for (const file of fileList) {
     const data = JSON.parse(await readFile(file, 'utf-8'))
     const docsVersionName = getDocsVersion(path.basename(path.dirname(file)))
-    Object.keys(data).forEach((category) => {
+    for (const category of Object.keys(data)) {
       // Used to automatically update Markdown files
       const subcategories = Object.keys(data[category])
-      subcategories.forEach((subcategory) => {
+      for (const subcategory of subcategories) {
         if (!restVersions[category]) {
           restVersions[category] = {}
         }
@@ -112,8 +112,8 @@ async function getDataFrontmatter(
         } else if (!restVersions[category][subcategory].versions.includes(docsVersionName)) {
           restVersions[category][subcategory].versions.push(docsVersionName)
         }
-      })
-    })
+      }
+    }
   }
   return restVersions
 }

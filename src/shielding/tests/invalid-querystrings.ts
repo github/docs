@@ -15,7 +15,9 @@ describe('invalid query strings', () => {
     // This test depends on knowing exactly the number
     // of unrecognized query strings that will trigger a 400.
     const sp = new URLSearchParams()
-    alphabet.slice(0, MAX_UNFAMILIAR_KEYS_BAD_REQUEST).forEach((letter) => sp.set(letter, '1'))
+    for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_BAD_REQUEST)) {
+      sp.set(letter, '1')
+    }
     const url = `/?${sp}`
     const res = await get(url)
     expect(res.statusCode).toBe(400)
@@ -27,7 +29,9 @@ describe('invalid query strings', () => {
     // This test depends on knowing exactly the number
     // of unrecognized query strings that will trigger a 400.
     const sp = new URLSearchParams()
-    alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT).forEach((letter) => sp.set(letter, '1'))
+    for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT)) {
+      sp.set(letter, '1')
+    }
     const url = `/?${sp}`
     const res = await get(url)
     expect(res.statusCode).toBe(302)
@@ -38,7 +42,9 @@ describe('invalid query strings', () => {
 
   test('302 redirect but keeping recognized query strings', async () => {
     const sp = new URLSearchParams()
-    alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT).forEach((letter) => sp.set(letter, '1'))
+    for (const letter of alphabet.slice(0, MAX_UNFAMILIAR_KEYS_REDIRECT)) {
+      sp.set(letter, '1')
+    }
     sp.set('platform', 'concrete')
     const url = `/en/pages?${sp}`
     const res = await get(url)

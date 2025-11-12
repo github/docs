@@ -11,7 +11,7 @@ export default function wrapCodeTerms() {
   const codeTerms = document.querySelectorAll('#article-contents table code')
   if (!codeTerms) return
 
-  codeTerms.forEach((node) => {
+  for (const node of codeTerms) {
     // Do the wrapping on the inner text only.  With anchor element children
     // we'll only handle the case where the code term only has a single child
     // and that child is an anchor element.
@@ -37,5 +37,5 @@ export default function wrapCodeTerms() {
     } else {
       node.innerHTML = node.innerHTML.replace(oldText, newText)
     }
-  })
+  }
 }

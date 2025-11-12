@@ -332,11 +332,11 @@ async function waitForPageReady() {
 }
 
 function initClipboardEvent() {
-  ;['copy', 'cut', 'paste'].forEach((verb) => {
+  for (const verb of ['copy', 'cut', 'paste']) {
     document.documentElement.addEventListener(verb, () => {
       sendEvent({ type: EventType.clipboard, clipboard_operation: verb })
     })
-  })
+  }
 }
 
 function initCopyButtonEvent() {

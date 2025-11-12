@@ -48,9 +48,9 @@ const editorTypes: EditorTypes = {
 
 const refinementDescriptions = (): string => {
   let str = '\n\n'
-  Object.entries(editorTypes).forEach(([ed, edObj]) => {
+  for (const [ed, edObj] of Object.entries(editorTypes)) {
     str += `  ${ed.padEnd(12)} ${edObj.description}\n`
-  })
+  }
   return str
 }
 
@@ -155,10 +155,10 @@ async function callEditor(
 
   const prompt = yaml.load(fs.readFileSync(promptTemplatePath, 'utf8')) as PromptData
 
-  prompt.messages.forEach((msg) => {
+  for (const msg of prompt.messages) {
     msg.content = msg.content.replace('{{markdownPrompt}}', markdownPrompt)
     msg.content = msg.content.replace('{{input}}', content)
-  })
+  }
 
   return callModelsApi(prompt)
 }

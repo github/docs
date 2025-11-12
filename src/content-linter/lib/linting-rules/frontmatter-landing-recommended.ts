@@ -81,7 +81,7 @@ export const frontmatterLandingRecommended = {
       const duplicates: string[] = []
       const invalidPaths: string[] = []
 
-      fm.recommended.forEach((item: string) => {
+      for (const item of fm.recommended) {
         if (seen.has(item)) {
           duplicates.push(item)
         } else {
@@ -92,7 +92,7 @@ export const frontmatterLandingRecommended = {
         if (!isValidArticlePath(item, params.name)) {
           invalidPaths.push(item)
         }
-      })
+      }
 
       if (duplicates.length > 0) {
         addError(

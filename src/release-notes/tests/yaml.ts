@@ -42,7 +42,7 @@ describe('lint enterprise release notes', () => {
       for (const key in sections) {
         const section = sections[key]
         const label = `sections.${key}`
-        section.forEach((part) => {
+        for (const part of section) {
           if (Array.isArray(part)) {
             toLint = { ...toLint, ...{ [label]: section.join('\n') } }
           } else {
@@ -53,7 +53,7 @@ describe('lint enterprise release notes', () => {
               }
             }
           }
-        })
+        }
       }
 
       // Create context with site data for rendering liquid variables

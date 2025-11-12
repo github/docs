@@ -197,7 +197,7 @@ async function main() {
       customRules: configuredRules.yml,
     })) as LintResults
 
-    Object.entries(resultYmlFile).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(resultYmlFile)) {
       if ((value as LintError[]).length) {
         const errors = (value as LintError[]).map((error) => {
           // Autofixing would require us to write the changes back to the YML
@@ -209,7 +209,7 @@ async function main() {
         })
         resultYml[key] = errors
       }
-    })
+    }
   }
 
   // There are no collisions when assigning the results to the new object
@@ -219,10 +219,10 @@ async function main() {
 
   // Merge in the results for frontmatter tests, which could be
   // in a file that already exists as a key in the `results` object.
-  Object.entries(resultFrontmatter).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(resultFrontmatter)) {
     if (results[key]) results[key].push(...(value as LintError[]))
     else results[key] = value as LintError[]
-  })
+  }
 
   // Apply markdownlint fixes if available and rewrite the files
   let countFixedFiles = 0
@@ -476,7 +476,7 @@ function reportSummaryByRule(results: LintResults, config: LintConfig): void {
   // the default property is not actually a rule
   delete ruleCount.default
 
-  Object.keys(results).forEach((key) => {
+  for (const key of Object.keys(results)) {
     if (results[key].length > 0) {
       for (const flaw of results[key]) {
         const ruleName = flaw.ruleNames[1]
@@ -485,7 +485,7 @@ function reportSummaryByRule(results: LintResults, config: LintConfig): void {
         ruleCount[ruleName] = count + 1
       }
     }
-  })
+  }
 }
 
 /*
@@ -498,26 +498,26 @@ function getFormattedResults(
   isInPrecommitMode: boolean,
 ): FormattedResults {
   const output: FormattedResults = {}
-  Object.entries(allResults)
+  const filteredResults = Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
-    .forEach(([key, fileResults]) => {
-      if (verbose) {
-        output[key] = fileResults.map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
-      } else {
-        const formattedResults = fileResults.map((flaw: LintError) =>
-          formatResult(flaw, isInPrecommitMode),
-        )
+  for (const [key, fileResults] of filteredResults) {
+    if (verbose) {
+      output[key] = fileResults.map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
+    } else {
+      const formattedResults = fileResults.map((flaw: LintError) =>
+        formatResult(flaw, isInPrecommitMode),
+      )
 
-        // Only add the file to output if there are results after filtering
-        if (formattedResults.length > 0) {
-          const errors = formattedResults.filter((result) => result.severity === 'error')
-          const warnings = formattedResults.filter((result) => result.severity === 'warning')
-          const sortedResult = [...errors, ...warnings]
-          output[key] = [...sortedResult]
-        }
+      // Only add the file to output if there are results after filtering
+      if (formattedResults.length > 0) {
+        const errors = formattedResults.filter((result) => result.severity === 'error')
+        const warnings = formattedResults.filter((result) => result.severity === 'warning')
+        const sortedResult = [...errors, ...warnings]
+        output[key] = [...sortedResult]
       }
-    })
+    }
+  }
   return output
 }
 

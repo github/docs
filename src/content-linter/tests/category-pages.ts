@@ -46,9 +46,9 @@ describe.skip('category pages', () => {
   // Combine those to fit vitest's `.each` usage
   const productTuples = zip(productNames, productIndices) as [string, string][]
 
-  // Use a regular forEach loop to generate the `describe(...)` blocks
+  // Use a regular for...of loop to generate the `describe(...)` blocks
   // otherwise, if one of them has no categories, the tests will fail.
-  productTuples.forEach((tuple) => {
+  for (const tuple of productTuples) {
     const [, productIndex] = tuple
     // Get links included in product index page.
     // Each link corresponds to a product subdirectory (category).
@@ -196,11 +196,11 @@ describe.skip('category pages', () => {
         })
 
         test('contains only articles and subcategories with versions that are also available in the parent category', () => {
-          Object.entries(articleVersions).forEach(([articleName, versions]) => {
+          for (const [articleName, versions] of Object.entries(articleVersions)) {
             const unexpectedVersions = difference(versions, categoryVersions)
             const errorMessage = `${articleName} has versions that are not available in parent category`
             expect(unexpectedVersions.length, errorMessage).toBe(0)
-          })
+          }
         })
 
         test('slugified title matches parent directory name', () => {
@@ -229,7 +229,7 @@ describe.skip('category pages', () => {
         })
       },
     )
-  })
+  }
 })
 
 function getPath(productDir: string, link: string, filename: string) {

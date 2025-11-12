@@ -134,24 +134,28 @@ function run(languageCode: string, site: Site, englishReusables: Reusables) {
   const sumTotal = flat.reduce((acc, [, count]) => acc + count, 0)
 
   console.log('\nMost common errors')
-  flat.forEach(([error, count], i) => {
+  for (let i = 0; i < flat.length; i++) {
+    const [error, count] = flat[i]
     console.log(`${i + 1}.`.padEnd(3), error.padEnd(PADDING), count)
-  })
+  }
   console.log(`${'TOTAL:'.padEnd(3 + 1 + PADDING)}`, sumTotal)
 
   if (sumTotal) {
     const whereFlat = Array.from(wheres.entries()).sort((a, b) => b[1] - a[1])
     console.log('\nMost common places')
-    whereFlat.forEach(([error, count], i) => {
+    for (let i = 0; i < whereFlat.length; i++) {
+      const [error, count] = whereFlat[i]
       console.log(`${i + 1}.`.padEnd(3), error.padEnd(PADDING), count)
-    })
+    }
 
     const illegalTagsFlat = Array.from(illegalTags.entries()).sort((a, b) => b[1] - a[1])
     if (illegalTagsFlat.reduce((acc, [, count]) => acc + count, 0)) {
       console.log('\nMost common illegal tags', illegalTagsFlat.length > 10 ? ' (Top 10)' : '')
-      illegalTagsFlat.slice(0, 10).forEach(([error, count], i) => {
+      const topIllegalTags = illegalTagsFlat.slice(0, 10)
+      for (let i = 0; i < topIllegalTags.length; i++) {
+        const [error, count] = topIllegalTags[i]
         console.log(`${i + 1}.`.padEnd(3), error.padEnd(PADDING), count)
-      })
+      }
     }
   }
   console.log('\n')
