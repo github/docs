@@ -11,6 +11,7 @@ children:
   - /customization-library
   - /coding-agent
   - /spark
+  - /use-custom-instructions
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
