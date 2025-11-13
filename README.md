@@ -33,26 +33,7 @@ That's how you can easily become a member of the GitHub Docs community. :sparkle
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [src/README.md](src/README.md)
-https://creativecommons.org/?s=http%3A%2F%2Fopensource.org%2Flicenses%2FBSD-2-Clause
 ## License
-BEGIN:VCARD
-VERSION;TYPE=WORK:3.0
-PROFILE:VCARD
-URL;VALUE=URI:https://creativecommons.org
-N;CHARSET=UTF-8:Creative Commons;;;;
-FN;CHARSET=UTF-8:Creative Commons
-ORG;CHARSET=UTF-8:Creative Commons
-EMAIL:info@creativecommons.org
-ADR;CHARSET=UTF-8:;;211 Hope St # 1866,;Mountain View;CA;94042-8817;USA
-END:VCARD
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
@@ -62,8 +43,7 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 
 ## Thanks :purple_heart:
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
-Edgar Manuel Ruiz Arias edgarplasticos3@hotmail.com recaplasruiz@gmail.com acepto terminos y condiciones de plataforma GUITHUB 
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:! GUITHUB 
 Developer Certificate of Origin
 Version 1.1
 
