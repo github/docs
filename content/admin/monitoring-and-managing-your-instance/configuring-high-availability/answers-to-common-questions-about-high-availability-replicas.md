@@ -1,5 +1,5 @@
 ---
-title: Answers to common questions about high-availability replicas
+title: Answers to common questions about high availability replicas
 intro: 'Find information about high availability replica types, communication patterns, maintenance operations, and how to choose the right replica for your deployment.'
 versions:
   ghes: '*'
