@@ -1,5 +1,5 @@
 ---
-title:  REST API endpoints for enterprise teams
+title:  REST API endpoints for enterprise team members
 shortTitle: Enterprise teams
 intro: 'Use the REST API to create and manage enterprise teams in your {% data variables.product.github %} enterprise.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
