@@ -46,6 +46,27 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'GPT-5.1'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex-Mini'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Anthropic models
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
