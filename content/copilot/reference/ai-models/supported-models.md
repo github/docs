@@ -70,6 +70,11 @@ The following table shows which models are available in each client.
 > [!NOTE]
 > * {% data reusables.copilot.auto-model-selection %}
 > * {% data reusables.copilot.gpt-5-codex-vscode-support %}
+> * {% data variables.copilot.copilot_gpt_51_codex %} and {% data variables.copilot.copilot_gpt_51_codex_mini %} are supported in: 
+>   * Visual Studio Code versions 1.104.1 or higher
+>   * JetBrains, Copilot plugin versions 1.5.61 or higher
+>   * Xcode, Copilot plugin versions 0.45.0 or later
+>   * Eclipse, Copilot plugin versions 0.13.0 or later 
 
 {% rowheaders %}
 
