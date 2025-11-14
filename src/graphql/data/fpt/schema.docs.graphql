@@ -1417,6 +1417,26 @@ type AddedToProjectV2Event implements Node & ProjectV2Event {
 }
 
 """
+Copilot Agentic fields in context of the current viewer.
+"""
+interface Agentic {
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
+}
+
+"""
 An announcement banner for an enterprise or organization.
 """
 type AnnouncementBanner {
@@ -67344,7 +67364,7 @@ type UpdateUserListsForItemPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Agentic & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -68950,6 +68970,21 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   Whether or not the viewer is able to sponsor this user/organization.
   """
   viewerCanSponsor: Boolean!
+
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
 
   """
   Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.

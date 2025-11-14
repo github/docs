@@ -79824,6 +79824,11 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "Agentic",
+          "id": "agentic",
+          "href": "/graphql/reference/interfaces#agentic"
+        },
+        {
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
@@ -82953,6 +82958,30 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "viewerIsFollowing",
           "description": "<p>Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.</p>",
           "type": "Boolean!",
@@ -84843,6 +84872,39 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "Agentic",
+      "kind": "interfaces",
+      "id": "agentic",
+      "href": "/graphql/reference/interfaces#agentic",
+      "description": "<p>Copilot Agentic fields in context of the current viewer.</p>",
+      "fields": [
+        {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
