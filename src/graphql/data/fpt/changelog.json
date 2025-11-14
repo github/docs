@@ -4,6 +4,23 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>Agentic</code> was added</p>",
+          "<p><code>User</code> object implements <code>Agentic</code> interface</p>",
+          "<p>Field <code>viewerCopilotAgentCreatesChannel</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>viewerCopilotAgentLogUpdatesChannel</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>viewerCopilotAgentUpdatesChannel</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>RequiredReviewerConfiguration</code> was added</p>",
           "<p>Type <code>RequiredReviewerConfigurationInput</code> was added</p>",
           "<p>Field <code>requiredReviewers</code> was added to object type <code>PullRequestParameters</code></p>",

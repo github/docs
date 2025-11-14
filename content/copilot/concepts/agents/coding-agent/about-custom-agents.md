@@ -53,9 +53,9 @@ You can define {% data variables.copilot.agent_profiles %} at the repository lev
 
 ## Where you can use {% data variables.copilot.custom_agents_short %}
 
-Once created, your {% data variables.copilot.custom_agents_short %} are available wherever you can use {% data variables.copilot.copilot_coding_agent %}, including {% data variables.product.prodname_dotcom_the_website %} (the agents tab and panel, issue assignment, pull requests), the {% data variables.copilot.copilot_cli %}, and {% data variables.product.prodname_vscode %} (as chat modes). Each interaction maintains consistency based on the agent's defined profile, ensuring targeted support tailored to your specific needs.
+Once created, your {% data variables.copilot.custom_agents_short %} are available wherever you can use {% data variables.copilot.copilot_coding_agent %}, including {% data variables.product.prodname_dotcom_the_website %} (the agents tab and panel, issue assignment, pull requests), the {% data variables.copilot.copilot_cli %}, and {% data variables.product.prodname_vscode %}. Each interaction maintains consistency based on the agent's defined profile, ensuring targeted support tailored to your specific needs.
 
-{% data variables.copilot.agent_profiles_caps %} can be used directly in {% data variables.product.prodname_vscode %} as chat modes, though some properties may differ between the two environments. For more information on chat modes, see [Use chat modes in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes?utm_source=docs-vscode-custom-agents&utm_medium=docs&utm_campaign=universe25post).
+{% data variables.copilot.agent_profiles_caps %} can be used directly in {% data variables.product.prodname_vscode %}, though some properties may function differently or be ignored between the {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_vscode_shortname %} environments. See [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents?utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Next steps
 

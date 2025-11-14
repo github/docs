@@ -13,21 +13,23 @@ This reference article provides detailed configuration information for {% data v
 
 ## YAML frontmatter properties
 
-The following table outlines the properties that are supported in repository-level {% data variables.copilot.agent_profiles %}, organization or enterprise level {% data variables.copilot.agent_profiles %}, and in {% data variables.product.prodname_vscode_shortname %} chat modes.
+The following table outlines the properties that are supported in repository-level {% data variables.copilot.agent_profiles %}, organization or enterprise level {% data variables.copilot.agent_profiles %}, and in {% data variables.product.prodname_vscode_shortname %}.
 
 {% rowheaders %}
 
-| Property      | Type      | Purpose    | Repository | Organization / enterprise | {% data variables.product.prodname_vscode_shortname %} chat modes |
+| Property      | Type      | Purpose    | Repository | Organization / enterprise | {% data variables.product.prodname_vscode_shortname %} |
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------- | ------------------ |
-| `name`        | **Required** string     | Unique name for the {% data variables.copilot.copilot_custom_agent_short %}.<br/> Lowest level configuration takes precedence when there is a naming conflict.                                      | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
-| `description` | **Required** string     | Description of the {% data variables.copilot.copilot_custom_agent_short %}'s purpose purpose and capabilities                                                                                                   | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
+| `name`        | string     | Unique name for the {% data variables.copilot.copilot_custom_agent_short %}. Optional, if unset defaults to the filename (without `.md` or `.agent.md` suffix). <br/> Lowest level configuration takes precedence when there is a naming conflict.                                      | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
+| `description` | **Required** string     | Description of the {% data variables.copilot.copilot_custom_agent_short %}'s purpose and capabilities                                                                                                   | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
+| `target` | string     | Target environment or context for the {% data variables.copilot.copilot_custom_agent_short %} (`vscode` or `github-copilot`). If unset, defaults to both environments.                                                                                                   | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
 | `tools`       | list of strings, string | List of tool names the {% data variables.copilot.copilot_custom_agent_short %} can use. Supports both a comma separated string and yaml string array. If unset, defaults to all tools. See [Tools](#tools). | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
 | `mcp-servers` | object                  | Additional MCP servers and tools that should be used by the {% data variables.copilot.copilot_custom_agent_short %}.                                                                   | {% octicon "x" aria-label="Not supported" %}            | {% octicon "check" aria-label="Supported" %}                         | {% octicon "x" aria-label="Not supported" %}                    |
+| `metadata`   | object consisting of a name and value pair, both strings | Allows annotation of the agent with useful data | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% endrowheaders %}
 
 > [!NOTE]
-> The `model` property from {% data variables.product.prodname_vscode_shortname %} chat modes is not supported for {% data variables.copilot.copilot_coding_agent %}. It is ignored to ensure compatibility.
+> The `model`, `argument-hint`, and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility. For more information on {% data variables.copilot.copilot_custom_agent_short %} file structure in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Tools
 
