@@ -995,7 +995,7 @@ function renderSearchGroups(
               tabIndex={-1}
               ref={(element: HTMLLIElement | null) => {
                 if (listElementsRef.current) {
-                  listElementsRef.current[indexWithOffset] = element
+                  listElementsRef.current[index] = element
                 }
               }}
             >

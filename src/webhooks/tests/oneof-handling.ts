@@ -214,10 +214,12 @@ describe('oneOf handling in webhook parameters', () => {
     expect(detailsParam?.childParamsGroups?.length).toBe(2)
 
     // When titles are missing, the name should be undefined or handled gracefully
-    detailsParam?.childParamsGroups?.forEach((param) => {
-      expect(param.type).toBe('object')
-      expect(param.description).toBeDefined()
-    })
+    if (detailsParam?.childParamsGroups) {
+      for (const param of detailsParam.childParamsGroups) {
+        expect(param.type).toBe('object')
+        expect(param.description).toBeDefined()
+      }
+    }
   })
 
   test('should handle nested oneOf correctly', async () => {

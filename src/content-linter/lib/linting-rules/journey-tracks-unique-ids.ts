@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -49,11 +48,12 @@ export const journeyTracksUniqueIds = {
     // Track seen journey track IDs and line number for error reporting
     const seenIds = new Map<string, number>()
 
-    fm.journeyTracks.forEach((track: any, index: number) => {
-      if (!track || typeof track !== 'object') return
+    for (let index = 0; index < fm.journeyTracks.length; index++) {
+      const track: any = fm.journeyTracks[index]
+      if (!track || typeof track !== 'object') continue
 
       const trackId = track.id
-      if (!trackId || typeof trackId !== 'string') return
+      if (!trackId || typeof trackId !== 'string') continue
 
       const currentLineNumber = getTrackLineNumber(index)
 
@@ -67,6 +67,6 @@ export const journeyTracksUniqueIds = {
       } else {
         seenIds.set(trackId, currentLineNumber)
       }
-    })
+    }
   },
 }

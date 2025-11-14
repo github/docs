@@ -11,6 +11,7 @@ children:
   - /customization-library
   - /coding-agent
   - /spark
+  - /use-custom-instructions
   - /enhance-agent-mode-with-mcp
   - /compare-ai-models
   - /speed-up-development-work
@@ -26,11 +27,10 @@ children:
   - /migrate-a-project
   - /plan-a-project
   - /upgrade-projects
-  - /try-extensions
 redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot
 contentType: tutorials
-heroImage: /assets/images/banner-images/hero-3.png
+heroImage: /assets/images/banner-images/hero-3
 layout: bespoke-landing
 sidebarLink:
   text: All tutorials

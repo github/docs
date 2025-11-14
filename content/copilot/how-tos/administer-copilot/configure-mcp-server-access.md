@@ -10,10 +10,13 @@ topics:
   - Copilot
   - Enterprise
 shortTitle: Configure MCP server access
+redirect_from:
+  - /copilot/how-tos/administer-copilot/manage-for-organization/set-extension-permissions
 contentType: how-tos
 category: 
   - Manage Copilot for a team
 ---
+
 
 > [!NOTE]
 > The MCP registry URL and allowlist are in {% data variables.release-phases.public_preview %} and subject to change.
@@ -83,7 +86,7 @@ When an enterprise lets child organizations configure their own MCP policies, ea
 | Eclipse | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | JetBrains | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.product.prodname_vs %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
-| {% data variables.product.prodname_vscode_shortname %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| {% data variables.product.prodname_vscode_shortname %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | {% data variables.product.prodname_vscode_shortname %} Insiders | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Xcode | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 

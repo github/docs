@@ -157,7 +157,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/how-tos/use-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon

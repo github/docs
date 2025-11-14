@@ -1,7 +1,7 @@
 ---
 title: Fixing code quality findings before merging your pull request
 shortTitle: Fix findings in PRs
-intro: 'Learn how {% data variables.product.prodname_code_quality %} helps you catch and fix quality issues before they reach your default branch, and how {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_coding_agent %} can help you quickly address any findings.'
+intro: 'Catch quality issues before they reach your default branch and fix them with {% data variables.copilot.copilot_autofix_short %} and {% data variables.copilot.copilot_coding_agent %}.'
 versions:
   feature: code-quality
 product: '{% data reusables.gated-features.code-quality-availability %}'

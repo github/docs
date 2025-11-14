@@ -512,9 +512,11 @@ gh gei generate-script --github-source-org SOURCE \
 
 | Argument | Description |
 | -------- | ----------- |
-| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
-| `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
 | `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
+| `--lock-source-repo` | Lock the source repository when migrating. **Warning:** Locking a source repository prevents further changes and may disrupt workflows. It is recommended to only use this option if you are certain it is appropriate. For more information, see [AUTOTITLE](/migrations/overview/about-locked-repositories). |
+| `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
+| `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
 | `--use-github-storage`| Perform a repository migration using {% data variables.product.prodname_ghos %} as the intermediate blob storage solution. |
 
 ### Reviewing the migration script
@@ -588,9 +590,10 @@ gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --gith
 
 | Argument | Description |
 | -------- | ----------- |
-| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--lock-source-repo` | Lock the source repository when migrating. For more information, see [AUTOTITLE](/migrations/overview/about-locked-repositories). |
 | `--no-ssl-verify` | {% data reusables.enterprise-migration-tool.ssl-flag %} |
 | `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
 | `--target-repo-visibility TARGET-VISIBILITY` | {% data reusables.enterprise-migration-tool.set-repository-visibility %} |
 | `--use-github-storage`| Perform a repository migration using {% data variables.product.prodname_ghos %} as the intermediate blob storage solution. |
 

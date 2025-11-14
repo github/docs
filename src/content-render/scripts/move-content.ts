@@ -2,7 +2,6 @@
  * @purpose Writer tool
  * @description Move or rename a file or a folder and automatically add redirects
  */
-// @ts-nocheck
 // [start-readme]
 //
 // Use this script to help you move or rename a single file or a folder. The script will move or rename the file or folder for you, update relevant `children` in the index.md file(s), and add a `redirect_from` to frontmatter in the renamed file(s). Note: You will still need to manually update the `title` if necessary.
@@ -35,6 +34,20 @@ import escapeStringRegexp from 'escape-string-regexp'
 import fm from '@/frame/lib/frontmatter'
 import readFrontmatter from '@/frame/lib/read-frontmatter'
 
+// Type definitions
+interface MoveOptions {
+  verbose: boolean
+  undo: boolean
+  git: boolean
+}
+
+type FileTuple = [string, string, string, string] // [oldPath, newPath, oldHref, newHref]
+
+interface PositionInfo {
+  childrenPosition: number
+  childGroupPositions: number[][]
+}
+
 // This is so you can optionally run it again the test fixtures root.
 const ROOT = process.env.ROOT || '.'
 const CONTENT_ROOT = path.resolve(path.join(ROOT, 'content'))
@@ -52,13 +65,13 @@ program
     "DON'T use 'git mv' and 'git commit' to move the file. Just regular file moves.",
   )
   .option('--undo', 'Reverse of moving. I.e. moving it back. Only applies to the last run.')
-  .arguments('old', 'old file or folder name')
-  .arguments('new', 'new file or folder name')
+  .argument('old', 'old file or folder name')
+  .argument('new', 'new file or folder name')
   .parse(process.argv)
 
 main(program.opts(), program.args)
 
-async function main(opts, nameTuple) {
+async function main(opts: MoveOptions, nameTuple: string[]) {
   const { verbose, undo, git } = opts
   if (nameTuple.length !== 2) {
     console.error(
@@ -161,7 +174,7 @@ async function main(opts, nameTuple) {
     }
   } else {
     // When it's just an individual file, it's easier.
-    const files = [[oldPath, newPath, oldHref, newHref]]
+    const files: FileTuple[] = [[oldPath, newPath, oldHref, newHref]]
 
     // First take care of the `git mv` (or regular rename) part.
     moveFiles(files, opts)
@@ -191,7 +204,7 @@ async function main(opts, nameTuple) {
   }
 }
 
-function validateFileInputs(oldPath, newPath, isFolder) {
+function validateFileInputs(oldPath: string, newPath: string, isFolder: boolean) {
   if (isFolder) {
     // Make sure that only the last portion of the path is different
     // and that all preceding are equal.
@@ -241,17 +254,17 @@ function validateFileInputs(oldPath, newPath, isFolder) {
   }
 }
 
-function existsAndIsDirectory(directory) {
+function existsAndIsDirectory(directory: string) {
   return fs.existsSync(directory) && fs.lstatSync(directory).isDirectory()
 }
 
-function splitDirectory(directory) {
+function splitDirectory(directory: string) {
   return [path.dirname(directory), path.basename(directory)]
 }
 
-function findFilesInFolder(oldPath, newPath, opts) {
+function findFilesInFolder(oldPath: string, newPath: string, opts: MoveOptions): FileTuple[] {
   const { undo, verbose } = opts
-  const files = []
+  const files: FileTuple[] = []
   const allFiles = walk(oldPath, { includeBasePath: true, directories: false })
   for (const filePath of allFiles) {
     const newFilePath = filePath.replace(oldPath, newPath)
@@ -265,17 +278,17 @@ function findFilesInFolder(oldPath, newPath, opts) {
   return files
 }
 
-function makeHref(root, filePath) {
+function makeHref(root: string, filePath: string) {
   const nameSplit = path.relative(root, filePath).split(path.sep)
   if (nameSplit.slice(-1)[0] === 'index.md') {
     nameSplit.pop()
   } else {
-    nameSplit.push(nameSplit.pop().replace(/\.md$/, ''))
+    nameSplit.push(nameSplit.pop()!.replace(/\.md$/, ''))
   }
   return `/${nameSplit.join('/')}`
 }
 
-function moveFolder(oldPath, newPath, files, opts) {
+function moveFolder(oldPath: string, newPath: string, files: FileTuple[], opts: MoveOptions) {
   const { verbose, git: useGit } = opts
   if (useGit) {
     let cmd = ['mv', oldPath, newPath]
@@ -297,7 +310,7 @@ function moveFolder(oldPath, newPath, files, opts) {
   }
 }
 
-function undoFolder(oldPath, newPath, files, opts) {
+function undoFolder(oldPath: string, newPath: string, files: FileTuple[], opts: MoveOptions) {
   const { verbose, git: useGit } = opts
 
   if (useGit) {
@@ -320,12 +333,12 @@ function undoFolder(oldPath, newPath, files, opts) {
   }
 }
 
-function getBasename(fileOrDirectory) {
+function getBasename(fileOrDirectory: string) {
   // Note, can't use fs.lstatSync().isDirectory() because it's just a string
   // at this point. It might not exist.
 
   if (fileOrDirectory.endsWith('index.md')) {
-    return path.basename(path.directory(fileOrDirectory))
+    return path.basename(path.dirname(fileOrDirectory))
   }
   if (fileOrDirectory.endsWith('.md')) {
     return path.basename(fileOrDirectory).replace(/\.md$/, '')
@@ -333,7 +346,7 @@ function getBasename(fileOrDirectory) {
   return path.basename(fileOrDirectory)
 }
 
-function removeFromChildren(oldPath, opts) {
+function removeFromChildren(oldPath: string, opts: MoveOptions): PositionInfo {
   const { verbose } = opts
 
   const parentFilePath = path.join(path.dirname(oldPath), 'index.md')
@@ -342,8 +355,8 @@ function removeFromChildren(oldPath, opts) {
   const oldName = getBasename(oldPath)
 
   let childrenPosition = -1
-  if (CHILDREN_KEY in data) {
-    data[CHILDREN_KEY] = data[CHILDREN_KEY].filter((entry, i) => {
+  if (data && CHILDREN_KEY in data) {
+    data[CHILDREN_KEY] = data[CHILDREN_KEY].filter((entry: any, i: number) => {
       if (entry === oldName || entry === `/${oldName}`) {
         childrenPosition = i
         return false
@@ -355,11 +368,13 @@ function removeFromChildren(oldPath, opts) {
     }
   }
 
-  const childGroupPositions = []
+  const childGroupPositions: number[][] = []
 
-  ;(data[CHILDGROUPS_KEY] || []).forEach((group, i) => {
+  const childGroups = (data && data[CHILDGROUPS_KEY]) || []
+  for (let i = 0; i < childGroups.length; i++) {
+    const group = childGroups[i]
     if (group.children) {
-      group.children = group.children.filter((entry, j) => {
+      group.children = group.children.filter((entry: any, j: number) => {
         if (entry === oldName || entry === `/${oldName}`) {
           childGroupPositions.push([i, j])
           return false
@@ -367,13 +382,15 @@ function removeFromChildren(oldPath, opts) {
         return true
       })
     }
-  })
+  }
 
-  fs.writeFileSync(
-    parentFilePath,
-    readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-    'utf-8',
-  )
+  if (data) {
+    fs.writeFileSync(
+      parentFilePath,
+      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
+      'utf-8',
+    )
+  }
   if (verbose) {
     console.log(`Removed 'children' (${oldName}) key in ${parentFilePath}`)
   }
@@ -381,7 +398,7 @@ function removeFromChildren(oldPath, opts) {
   return { childrenPosition, childGroupPositions }
 }
 
-function addToChildren(newPath, positions, opts) {
+function addToChildren(newPath: string, positions: PositionInfo, opts: MoveOptions) {
   const { verbose } = opts
   const parentFilePath = path.join(path.dirname(newPath), 'index.md')
   const fileContent = fs.readFileSync(parentFilePath, 'utf-8')
@@ -389,10 +406,10 @@ function addToChildren(newPath, positions, opts) {
   const newName = getBasename(newPath)
 
   const { childrenPosition, childGroupPositions } = positions
-  if (childrenPosition > -1) {
+  if (childrenPosition > -1 && data) {
     const children = data[CHILDREN_KEY] || []
     let prefix = ''
-    if (children.every((entry) => entry.startsWith('/'))) {
+    if (children.every((entry: any) => entry.startsWith('/'))) {
       prefix += '/'
     }
     if (childrenPosition > -1 && childrenPosition < children.length) {
@@ -403,7 +420,7 @@ function addToChildren(newPath, positions, opts) {
     data[CHILDREN_KEY] = children
   }
 
-  if (CHILDGROUPS_KEY in data) {
+  if (data && CHILDGROUPS_KEY in data) {
     for (const [groupIndex, groupChildPosition] of childGroupPositions) {
       if (groupIndex < data[CHILDGROUPS_KEY].length) {
         const group = data[CHILDGROUPS_KEY][groupIndex]
@@ -416,26 +433,29 @@ function addToChildren(newPath, positions, opts) {
     }
   }
 
-  fs.writeFileSync(
-    parentFilePath,
-    readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-    'utf-8',
-  )
+  if (data) {
+    fs.writeFileSync(
+      parentFilePath,
+      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
+      'utf-8',
+    )
+  }
   if (verbose) {
     console.log(`Added 'children' (${newName}) key in ${parentFilePath}`)
   }
 }
 
-function moveFiles(files, opts) {
+function moveFiles(files: FileTuple[], opts: MoveOptions) {
   const { verbose, git: useGit } = opts
   // Before we do anything, assert that the files are valid
   for (const [oldPath] of files) {
     const fileContent = fs.readFileSync(oldPath, 'utf-8')
     const { errors } = fm(fileContent, { filepath: oldPath })
-    errors.forEach((error, i) => {
+    for (let i = 0; i < errors.length; i++) {
+      const error = errors[i]
       if (!i) console.warn(chalk.yellow(`Error parsing file (${oldPath}) frontmatter:`))
       console.error(`${chalk.red(error.message)}: ${chalk.yellow(error.reason)}`)
-    })
+    }
     if (errors.length > 0) throw new Error('There were more than 0 parse errors')
   }
 
@@ -474,7 +494,7 @@ function moveFiles(files, opts) {
   }
 }
 
-function editFiles(files, updateParent, opts) {
+function editFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions) {
   const { verbose, git: useGit } = opts
 
   // Second loop. This time our only job is to edit the `redirects_from`
@@ -484,13 +504,14 @@ function editFiles(files, updateParent, opts) {
   for (const [oldPath, newPath, oldHref, newHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
+    if (!data) continue
     if (!(REDIRECT_FROM_KEY in data)) {
       data[REDIRECT_FROM_KEY] = []
     }
     data[REDIRECT_FROM_KEY].push(oldHref)
     fs.writeFileSync(
       newPath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
+      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
       'utf-8',
     )
     if (verbose) {
@@ -515,11 +536,11 @@ function editFiles(files, updateParent, opts) {
     const filePaths = files.map(([, newPath]) => newPath)
     try {
       const cmd = ['run', 'add-content-type', '--', '--paths', ...filePaths]
-      const result = execFileSync('npm', cmd, { cwd: process.cwd(), encoding: 'utf8' })
+      const result = execFileSync('npm', cmd, { cwd: process.cwd(), encoding: 'utf8' }) as any
       if (result.trim()) {
         console.log(result.trim())
       }
-    } catch (error) {
+    } catch (error: any) {
       console.warn(`Warning: Failed to add contentType frontmatter: ${error.message}`)
     }
   }
@@ -538,22 +559,25 @@ function editFiles(files, updateParent, opts) {
   }
 }
 
-function undoFiles(files, updateParent, opts) {
+function undoFiles(files: FileTuple[], updateParent: boolean, opts: MoveOptions) {
   const { verbose, git: useGit } = opts
 
   // First undo any edits to the file
   for (const [oldPath, newPath, oldHref, newHref] of files) {
     const fileContent = fs.readFileSync(newPath, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
+    if (!data) continue
 
-    data[REDIRECT_FROM_KEY] = (data[REDIRECT_FROM_KEY] || []).filter((entry) => entry !== oldHref)
+    data[REDIRECT_FROM_KEY] = (data[REDIRECT_FROM_KEY] || []).filter(
+      (entry: any) => entry !== oldHref,
+    )
     if (data[REDIRECT_FROM_KEY].length === 0) {
       delete data[REDIRECT_FROM_KEY]
     }
 
     fs.writeFileSync(
       newPath,
-      readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
+      readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
       'utf-8',
     )
     if (updateParent) {
@@ -577,15 +601,18 @@ function undoFiles(files, updateParent, opts) {
   }
 }
 
-function findInLearningTracks(href) {
-  const allFiles = walk(path.join(DATA_ROOT, 'learning-tracks'), {
+function findInLearningTracks(href: string) {
+  const allFiles: string[] = walk(path.join(DATA_ROOT, 'learning-tracks'), {
     globs: ['*.yml'],
     includeBasePath: true,
     directories: false,
   })
-  const found = []
+  const found: string[] = []
   for (const filePath of allFiles) {
-    const tracks = yaml.load(fs.readFileSync(filePath, 'utf-8'))
+    const tracks = yaml.load(fs.readFileSync(filePath, 'utf-8')) as Record<
+      string,
+      { guides?: string[] }
+    >
 
     if (
       Object.values(tracks).find((track) => {
@@ -599,7 +626,7 @@ function findInLearningTracks(href) {
   return found
 }
 
-function changeLearningTracks(filePath, oldHref, newHref) {
+function changeLearningTracks(filePath: string, oldHref: string, newHref: string) {
   // Can't deserialize and serialize the Yaml because it would lose
   // formatting and comments. So regex replace it.
   const regex = new RegExp(`- ${oldHref}$`, 'gm')
@@ -608,7 +635,7 @@ function changeLearningTracks(filePath, oldHref, newHref) {
   fs.writeFileSync(filePath, newContent, 'utf-8')
 }
 
-function changeHomepageLinks(oldHref, newHref, verbose) {
+function changeHomepageLinks(oldHref: string, newHref: string, verbose: boolean) {
   // Can't deserialize and serialize the Yaml because it would lose
   // formatting and comments. So regex replace it.
   // Homepage childGroup links do not have a leading '/', so we need to remove that.
@@ -625,7 +652,7 @@ function changeHomepageLinks(oldHref, newHref, verbose) {
   }
 }
 
-function changeFeaturedLinks(oldHref, newHref) {
+function changeFeaturedLinks(oldHref: string, newHref: string): void {
   const allFiles = walk(CONTENT_ROOT, {
     globs: ['**/*.md'],
     includeBasePath: true,
@@ -638,23 +665,25 @@ function changeFeaturedLinks(oldHref, newHref) {
     let changed = false
     const fileContent = fs.readFileSync(file, 'utf-8')
     const { content, data } = readFrontmatter(fileContent)
+    if (!data) continue
     const featuredLinks = data.featuredLinks || {}
-    for (const [key, entries] of Object.entries(featuredLinks)) {
+    for (const [key, entries] of Object.entries(featuredLinks) as [string, string[]][]) {
       if (key === 'popularHeading') {
         continue
       }
-      entries.forEach((entry, i) => {
+      for (let i = 0; i < entries.length; i++) {
+        const entry = entries[i]
         if (regex.test(entry)) {
           entries[i] = entry.replace(regex, `${newHref}$1`)
           changed = true
         }
-      })
+      }
     }
 
     if (changed) {
       fs.writeFileSync(
         file,
-        readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
+        readFrontmatter.stringify(content, data, { lineWidth: 10000 } as any),
         'utf-8',
       )
     }

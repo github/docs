@@ -81,7 +81,7 @@ For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-
 ## Next steps
 
 * **Find out more about {% data variables.copilot.copilot_chat %}** - See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).{% endif %}
-* **Get {% data variables.product.prodname_copilot_short %} code completion suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
+* **Get {% data variables.product.prodname_copilot_short %} inline suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
 * **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
 * **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).
 * **Use {% data variables.product.prodname_copilot_short %} on the command line** - See [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli).
@@ -181,7 +181,7 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 
    ![Screenshot of the "Insert at Cursor" icon in the chat view.](/assets/images/help/copilot/insert-at-cursor-vscode.png)
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -234,7 +234,7 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -290,7 +290,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -348,7 +348,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses Swift, however other languages will work similarly.
 
@@ -407,7 +407,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses Java, however other languages will work similarly.
 

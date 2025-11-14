@@ -80,6 +80,7 @@ The following example exchanges an OIDC ID token with Azure to receive an access
 {% raw %}
 
 ```yaml copy
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 name: Run Azure Login with OIDC
 on: [push]
 

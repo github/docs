@@ -144,7 +144,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       req.context,
     )) as MinitocItemsT
 
-    miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
+    for (const operationMinitoc of miniTocItems.restOperationsMiniTocItems) {
       const { title, href: miniTocAnchor } = operationMinitoc.contents
       const fullPath = `/${context.locale}${versionPathSegment}rest/${context.params?.category}/${subCat}${miniTocAnchor}`
 
@@ -152,7 +152,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         fullPath,
         title,
       })
-    })
+    }
 
     // TocLanding expects a collection of objects that looks like this:
     //

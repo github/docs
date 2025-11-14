@@ -55,6 +55,7 @@ We recommend that you have a basic understanding of Java and the Maven framework
    If you don't find the "Java with Maven" workflow template, copy the following workflow code to a new file called `maven.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    name: Java CI with Maven
 
    on:

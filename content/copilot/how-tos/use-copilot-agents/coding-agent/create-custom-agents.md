@@ -19,12 +19,13 @@ topics:
 1. Using the dropdown menu in the prompt box, select the repository you want to create the {% data variables.copilot.copilot_custom_agent_short %} profile in.
 
    > [!NOTE]
-   > Organization and enterprise owners can create organization and enterprise-level {% data variables.copilot.custom_agents_short %} that are available across all repositories within their organization or enterprise. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents).
+   > Organization and enterprise owners can create organization and enterprise-level {% data variables.copilot.custom_agents_short %} in a `.github-private` repository that are available across all repositories within their organization or enterprise. For more information, see [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents).
 
 1. Optionally, select the branch you want to create the {% data variables.copilot.agent_profile %} in. The default is the main branch.
-1. Click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create an agent**.
-1. An {% data variables.copilot.agent_profile %} template called `my-agent.md` will open in the `.github/agents` directory of the repository you chose. Edit the filename and configure the {% data variables.copilot.agent_profile %}, including the name, description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see the section below.
-1. Commit the file to the repository. Go back to the agents tab and refresh the page if needed. Your custom agent will now appear in the dropdown when you click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} in the prompt box.
+1. Click {% octicon "copilot" aria-label="Select a custom agent" %}, then click **{% octicon "plus" aria-label="Plus button" %} Create an agent**. This will open a template agent profile called `my-agent.md` in the `.github/agents` directory of your target repository.
+1. If you are creating an organization or enterprise-level custom agent, delete the `.github/` portion of the file path to move your template to the root `agents` directory.
+1. Edit the filename and configure the {% data variables.copilot.agent_profile %}, including the name, description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see the section below.
+1. Commit the file to the repository and merge it into the default branch. Go back to the agents tab and refresh the page if needed. Your custom agent will now appear in the dropdown when you click {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} in the prompt box.
 
 ## Configuring an {% data variables.copilot.agent_profile %}
 

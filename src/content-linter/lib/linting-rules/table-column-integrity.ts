@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import { getRange } from '../helpers/utils'
 import frontmatter from '@/frame/lib/read-frontmatter'

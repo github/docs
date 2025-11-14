@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 import { getFrontmatter } from '@/content-linter/lib/helpers/utils'
 import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types'
@@ -24,8 +23,8 @@ export const frontmatterVersionsWhitespace: Rule = {
     if (fmStartIndex === -1) return
 
     // Check each version entry for whitespace issues
-    Object.entries(versionsObj).forEach(([key, value]) => {
-      if (typeof value !== 'string') return
+    for (const [key, value] of Object.entries(versionsObj)) {
+      if (typeof value !== 'string') continue
 
       const hasUnwantedWhitespace = checkForUnwantedWhitespace(value)
       if (hasUnwantedWhitespace) {
@@ -56,7 +55,7 @@ export const frontmatterVersionsWhitespace: Rule = {
           )
         }
       }
-    })
+    }
   },
 }
 

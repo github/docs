@@ -147,6 +147,9 @@ copilot_gpt_41: 'GPT-4.1'
 copilot_gpt_5: 'GPT-5'
 copilot_gpt_5_codex: 'GPT-5-Codex'
 copilot_gpt_5_mini: 'GPT-5 mini'
+copilot_gpt_51: 'GPT-5.1'
+copilot_gpt_51_codex: 'GPT-5.1-Codex'
+copilot_gpt_51_codex_mini: 'GPT-5.1-Codex-Mini'
 # OpenAI 'o' series:
 copilot_o3: 'o3'
 copilot_o4_mini: 'o4-mini'
@@ -154,6 +157,8 @@ copilot_o4_mini: 'o4-mini'
 copilot_grok_code: 'Grok Code Fast 1'
 # Qwen:
 copilot_qwen_25: 'Qwen2.5'
+# Microsoft fine-tuned:
+copilot_raptor_mini: 'Raptor mini'
 
 ## Current model used by Copilot coding agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'

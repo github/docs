@@ -9,6 +9,9 @@ You can grant certain roles, teams, or apps bypass permissions {% ifversion push
 {%- endif %}
 * {% data variables.product.prodname_github_apps %}
 * {% data variables.product.prodname_dependabot %}. For more information about {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
+{%- ifversion ghec %}
+* {% data variables.copilot.copilot_coding_agent %}. For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/agents/coding-agent/about-coding-agent#limitations-in-copilot-coding-agents-compatibility-with-other-features).
+{%- endif %}
 
 1. To grant bypass permissions for the ruleset, in the "Bypass list" section, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add bypass**.
 1. In the "Add bypass" modal dialog that appears, search for the role, team, or app you would like to grant bypass permissions, then select the role, team, or app from the "Suggestions" section and click **Add Selected**.

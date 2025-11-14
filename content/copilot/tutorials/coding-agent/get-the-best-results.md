@@ -157,6 +157,10 @@ When writing Playwright tests, please follow these guidelines to ensure consiste
 1. **Configure CI/CD integration** - Set up headless mode, screenshots on failure, and parallel execution
 ```
 
+## Organization-wide custom instructions
+
+{% data variables.copilot.copilot_coding_agent %} leverages your organization's custom instructions as part of its work. {% data variables.copilot.copilot_coding_agent %} first prioritizes repository-wide custom instructions. For more information on how to configure organization custom instructions, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-organization-instructions).
+
 ## Using the Model Context Protocol (MCP)
 
 You can extend the capabilities of {% data variables.copilot.copilot_coding_agent %} by using MCP. This allows {% data variables.copilot.copilot_coding_agent %} to use tools provided by local and remote MCP servers. The {% data variables.product.github %} MCP server and [Playwright MCP server](https://github.com/microsoft/playwright-mcp) are enabled by default. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/extending-copilot-coding-agent-with-mcp).

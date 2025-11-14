@@ -321,12 +321,12 @@ export function getFeature(data: Record<string, any>) {
     process.env.REPO === 'github/docs-early-access'
   ) {
     const features: Set<string> = new Set([])
-    paths.forEach((path: string) => {
+    for (const path of paths as string[]) {
       const pathComponents = path.split('/')
       if (pathComponents[0] === 'content') {
         features.add(pathComponents[1])
       }
-    })
+    }
     const feature = Array.from(features).join()
 
     return feature
@@ -337,7 +337,7 @@ export function getFeature(data: Record<string, any>) {
     const features: Set<string> = new Set([])
     if (paths.some((path: string) => path.startsWith('app/api/description'))) {
       features.add('OpenAPI')
-      paths.forEach((path: string) => {
+      for (const path of paths as string[]) {
         if (path.startsWith('app/api/description/operations')) {
           features.add(path.split('/')[4])
           features.add('rest')
@@ -349,7 +349,7 @@ export function getFeature(data: Record<string, any>) {
         if (path.startsWith('app/api/description/components/schemas/webhooks')) {
           features.add('webhooks')
         }
-      })
+      }
     }
 
     const feature = Array.from(features).join()
@@ -375,13 +375,13 @@ export function getSize(data: Record<string, any>) {
   if (process.env.REPO === 'github/github') {
     let numFiles = 0
     let numChanges = 0
-    data.item.files.nodes.forEach((node: Record<string, any>) => {
+    for (const node of data.item.files.nodes as Record<string, any>[]) {
       if (node.path.startsWith('app/api/description')) {
         numFiles += 1
         numChanges += node.additions
         numChanges += node.deletions
       }
-    })
+    }
     if (numFiles < 5 && numChanges < 10) {
       return 'XS'
     } else if (numFiles < 10 && numChanges < 50) {
@@ -395,11 +395,11 @@ export function getSize(data: Record<string, any>) {
     // Otherwise, estimated the size based on all files
     let numFiles = 0
     let numChanges = 0
-    data.item.files.nodes.forEach((node: Record<string, any>) => {
+    for (const node of data.item.files.nodes as Record<string, any>[]) {
       numFiles += 1
       numChanges += node.additions
       numChanges += node.deletions
-    })
+    }
     if (numFiles < 5 && numChanges < 10) {
       return 'XS'
     } else if (numFiles < 10 && numChanges < 50) {

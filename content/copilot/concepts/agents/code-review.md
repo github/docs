@@ -12,7 +12,7 @@ redirect_from:
   - /copilot/concepts/code-review/code-review
   - /copilot/concepts/code-review
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -69,7 +69,7 @@ If you receive {% data variables.product.prodname_copilot_short %} from an organ
 
 ## Code review monthly quota
 
-Each time {% data variables.product.prodname_copilot_short %} reviews a pull request, or reviews files in your IDE that contain changes, your monthly quota of Copilot premium requests is reduced by one. Code review for currently selected text in {% data variables.product.prodname_vscode_shortname %} does not consume a premium request. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+Each time {% data variables.product.prodname_copilot_short %} reviews a pull request, or reviews files in your IDE that contain uncommitted changes, your monthly quota of Copilot premium requests is reduced by one. Code review for currently selected text in {% data variables.product.prodname_vscode_shortname %} does not consume a premium request. For information about premium requests, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
 If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the quota of the pull request author. If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to the user who triggered the workflow (if identifiable), or to a designated billing owner.
 

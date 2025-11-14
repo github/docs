@@ -176,7 +176,7 @@ function ResultsPagination({ page, totalPages }: { page: number; totalPages: num
           pageCount={Math.min(totalPages, 10)}
           currentPage={page}
           hrefBuilder={hrefBuilder}
-          onPageChange={(event, pageNum) => {
+          onPageChange={(event: React.MouseEvent, pageNum: number) => {
             event.preventDefault()
 
             const [pathRoot, pathQuery = ''] = router.asPath.split('#')[0].split('?')

@@ -1,7 +1,7 @@
 ---
 title: About GitHub Code Quality
 shortTitle: About Code Quality
-intro: 'Learn how {% data variables.product.prodname_code_quality %} helps you catch and fix code health risks, maintain high standards, and track code quality within your {% data variables.product.github %} workflow.'
+intro: 'Use {% data variables.product.prodname_code_quality %} to flag code quality issues in pull requests and repository scans, apply {% data variables.product.prodname_copilot_short %}-powered autofixes, and enforce standards with rulesets.'
 product: '{% data reusables.gated-features.code-quality-availability %}'
 versions:
   feature: code-quality
@@ -28,7 +28,7 @@ With {% data variables.product.prodname_code_quality_short %}, you can:
 
 ## Availability and usage costs
 
-{% data variables.product.prodname_code_quality %} is available for organization-owned repositories on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans, as well as public repositories on {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_code_quality %} is available for organization-owned repositories on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} plans.
 
 {% data variables.product.prodname_code_quality %} won't be billed during public preview. However, {% data variables.product.prodname_code_quality_short %} scans will consume {% data variables.product.prodname_actions %} minutes. See [AUTOTITLE](/billing/concepts/product-billing/github-code-quality).
 

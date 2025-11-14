@@ -1,0 +1,1 @@
+{% data variables.copilot.copilot_raptor_mini %} is a good choice for common development tasks that benefit from general-purpose coding and writing. If you're working on tasks that require fast iteration, accurate inline suggestions and explanations, {% data variables.copilot.copilot_raptor_mini %} is likely the model to use.

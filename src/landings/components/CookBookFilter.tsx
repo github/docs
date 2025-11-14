@@ -67,7 +67,8 @@ export const CookBookFilter = ({
             placeholder={t('search_articles')}
             ref={inputRef}
             autoComplete="false"
-            onChange={(e) => {
+            // Using any because Primer React's TextInput doesn't export proper event types
+            onChange={(e: any) => {
               const query = e.target.value || ''
               onSearch(query)
             }}

@@ -55,11 +55,11 @@ export const UtmPreserver = () => {
     const applyUtmToLinks = (): void => {
       const links = document.querySelectorAll<HTMLAnchorElement>('a[href]')
 
-      links.forEach((link) => {
+      for (const link of links) {
         if (link.href && shouldPreserveUtm(link.href)) {
           link.href = addUtmParamsToUrl(link.href, utmParams)
         }
-      })
+      }
     }
 
     // Handle click events for dynamic link modification

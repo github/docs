@@ -60,26 +60,26 @@ const languages: Languages = { ...allLanguagesWithDirs }
 
 if (TRANSLATIONS_FIXTURE_ROOT) {
   // Keep all languages that have a directory in the fixture root.
-  Object.entries(languages).forEach(([code, { dir }]) => {
+  for (const [code, { dir }] of Object.entries(languages)) {
     if (code !== 'en' && !fs.existsSync(dir)) {
       delete languages[code]
     }
-  })
+  }
 } else if (process.env.ENABLED_LANGUAGES) {
   if (process.env.ENABLED_LANGUAGES.toLowerCase() !== 'all') {
-    Object.keys(languages).forEach((code) => {
+    for (const code of Object.keys(languages)) {
       if (!process.env.ENABLED_LANGUAGES!.includes(code)) {
         delete languages[code]
       }
-    })
+    }
     // This makes the translation health report not valid JSON
     // console.log(`ENABLED_LANGUAGES: ${process.env.ENABLED_LANGUAGES}`)
   }
 } else if (process.env.NODE_ENV === 'test') {
   // Unless explicitly set, when running tests default to just English
-  Object.keys(languages).forEach((code) => {
+  for (const code of Object.keys(languages)) {
     if (code !== 'en') delete languages[code]
-  })
+  }
 }
 
 export const languageKeys: string[] = Object.keys(languages)

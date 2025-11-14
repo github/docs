@@ -67,7 +67,7 @@ Once {% data variables.product.prodname_spark_short %} is done generating your a
 1. To make changes to your app using **natural language**, under the "Iterate" tab in the left sidebar, enter your instructions in the main input field, then submit.
 1. Optionally, click one of the "Suggestions" directly above the input field in the "Iterate" tab to develop your app.
 1. {% data variables.product.prodname_spark_short %} automatically alerts you to detected errors. To fix the errors, click **Fix All** above the input field in the "Iterate" tab.
-1. Optionally, click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** to view and edit the underlying code. The code editing panel has {% data variables.product.prodname_copilot_short %} code completion built in.
+1. Optionally, click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** to view and edit the underlying code. The code editing panel has {% data variables.product.prodname_copilot_short %} inline suggestions built in.
 1. To make targeted changes to a specific element of your app click the **target icon** in the top right corner then hover over and select an element in the live preview pane.
 
 ## Step 3: Customize the styling of your app
@@ -129,8 +129,8 @@ You can view or edit your app’s code directly in {% data variables.product.pro
 > * Directly editing the React code **lets you add model context**, as long as you follow valid syntax and {% data variables.product.prodname_spark_short %}'s framework.
 
 1. To edit code in {% data variables.product.prodname_spark_short %}:
-   * Click **{% octicon "code" aria-label=“Code” %} Code**.
-   * Navigate the file tree and make any edits, with access to Copilot code completions in the editor. Changes are reflected instantly in the live preview window.
+   * Click **{% octicon "code" aria-hidden="true" aria-label="Code" %} Code**.
+   * Navigate the file tree and make any edits, with access to Copilot inline suggestions in the editor. Changes are reflected instantly in the live preview window.
 1. To make more advanced edits:
    * In the top right corner, click **{% octicon "kebab-horizontal" aria-label="More actions" %}**, then click **{% octicon "codespaces" aria-label=“Open codespace” %} Open codespace** (a full-featured cloud IDE) to launch a codespace in a new browser tab.
    * Once inside the codespace, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** to open {% data variables.product.prodname_copilot_short %} to make more advanced changes.

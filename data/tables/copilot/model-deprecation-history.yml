@@ -11,6 +11,10 @@
 # - retirement_date: The official retirement date for the model (YYYY-MM-DD).
 # - suggested_alternative: The model recommended for migration.
 
+- name: 'Claude Sonnet 3.5'
+  retirement_date: '2025-11-06'
+  suggested_alternative: 'Claude Haiku 4.5'
+
 - name: 'Claude Opus 4'
   retirement_date: '2025-10-23'
   suggested_alternative: 'Claude Opus 4.1'

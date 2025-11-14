@@ -25,7 +25,7 @@ export default function permalinkRedirects(
 
   // For every "old" path in a content file's redirect_from frontmatter, also add that path to
   // the redirects object as a key, where the value is the content file's permalink.
-  redirectFrom.forEach((frontmatterOldPath) => {
+  for (let frontmatterOldPath of redirectFrom) {
     if (!frontmatterOldPath.startsWith('/')) {
       throw new Error(
         `'${frontmatterOldPath}' is not a valid redirect_from frontmatter value because it doesn't start with a /`,
@@ -40,7 +40,8 @@ export default function permalinkRedirects(
       .replace('/admin/guides/', '/admin/')
       .replace(/^\/enterprise\/admin\//, '/admin/')
 
-    permalinks.forEach((permalink, index) => {
+    for (let index = 0; index < permalinks.length; index++) {
+      const permalink = permalinks[index]
       // For the first supported permalink (the order is determined by lib/all-versions),
       // put an entry into `redirects` without any version prefix.
       if (index === 0) {
@@ -49,8 +50,8 @@ export default function permalinkRedirects(
 
       // For every permalink, put an entry into `redirects` with the version prefix.
       redirects[`/${permalink.pageVersion}${frontmatterOldPath}`] = permalink.hrefWithoutLanguage
-    })
-  })
+    }
+  }
 
   return redirects
 }

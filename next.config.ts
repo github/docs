@@ -47,9 +47,21 @@ const config: NextConfig = {
       }
     })
   },
+
   // Turbopack is the default bundler in Next.js 16
   // Keep webpack config for now to support both bundlers
-  turbopack: {},
+
+  // Turbopack configuration for Next.js 16 (replaces webpack fallbacks)
+  turbopack: {
+    resolveAlias: {
+      fs: {
+        browser: './empty.ts', // Point to empty module when fs is requested for browser
+      },
+      async_hooks: {
+        browser: './empty.ts', // Point to empty module when async_hooks is requested for browser
+      },
+    },
+  },
 
   webpack: (webpackConfig) => {
     webpackConfig.experiments = webpackConfig.experiments || {}

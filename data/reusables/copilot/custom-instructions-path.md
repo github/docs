@@ -20,6 +20,19 @@
    ---
    ```
 
-   To apply the instructions to all files, use `applyTo: "**"`.
+   To apply the instructions to all files, use `applyTo: "**"`, `applyTo: "*"`, or `applyTo: "**/*"`.
+
+1. Optionally, to prevent the file from being used by either {% data variables.copilot.copilot_coding_agent %} or {% data variables.copilot.copilot_code-review_short %}, add the `excludeAgent` keyword to the frontmatter block. Use either `"code-review"` or `"coding-agent"`.
+
+   For example, the following file will only be read by {% data variables.copilot.copilot_coding_agent %}.
+   
+   ```markdown
+   ---
+   applyTo: "**"
+   excludeAgent: "code-review"
+   ---
+   ```
+
+   If the `excludeAgent` keyword is not included in the front matterblock, both {% data variables.copilot.copilot_code-review_short %} and {% data variables.copilot.copilot_coding_agent %} will use your instructions.
 
 1. Add your custom instructions in natural language, using Markdown format. Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.

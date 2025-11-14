@@ -87,11 +87,11 @@ const STATIC_PREFIXES: Record<string, string> = {
   public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
-Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
+for (const [key, value] of Object.entries(STATIC_PREFIXES)) {
   if (!fs.existsSync(value)) {
     throw new Error(`Can't find static prefix (${key}): ${value}`)
   }
-})
+}
 
 // By default, we don't cache external link checks to disk.
 // By setting this env var to something >0, it enables the disk-based

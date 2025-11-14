@@ -29,7 +29,7 @@ featuredLinks:
     - '{% ifversion ghec %}/copilot/tutorials/roll-out-at-scale/enable-developers/drive-adoption{% endif %}'
     - '{% ifversion ghec %}/copilot/tutorials/roll-out-at-scale/enable-developers/integrate-ai-agents{% endif %}'
 layout: discovery-landing
-heroImage: /assets/images/banner-images/hero-6.png
+heroImage: /assets/images/banner-images/hero-6
 versions:
   feature: copilot
 children:

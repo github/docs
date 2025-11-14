@@ -2,7 +2,7 @@
 title: Measuring the success of a GitHub Copilot trial
 shortTitle: Measure trial success
 intro: Learn how to use {% data variables.product.prodname_copilot_short %} usage metrics to evaluate your trial, interpret adoption and engagement results, and decide how to monitor usage going forward.
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 type: tutorial

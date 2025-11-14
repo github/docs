@@ -2,7 +2,6 @@
  * @purpose Writer tool
  * @description Run the Docs content linter, specifying paths and optional rules
  */
-// @ts-nocheck
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -20,6 +19,70 @@ import { prettyPrintResults } from './pretty-print-results'
 import { getLintableYml } from '@/content-linter/lib/helpers/get-lintable-yml'
 import { printAnnotationResults } from '../lib/helpers/print-annotations'
 import languages from '@/languages/lib/languages-server'
+import type { Rule as MarkdownlintRule } from 'markdownlint'
+import type { Rule, Config } from '@/content-linter/types'
+
+// Type definitions for Markdownlint results
+interface LintError {
+  lineNumber: number
+  ruleNames: string[]
+  ruleDescription: string
+  ruleInformation: string
+  errorDetail: string | null
+  errorContext: string | null
+  errorRange: [number, number] | null
+  fixInfo?: {
+    editColumn?: number
+    deleteCount?: number
+    insertText?: string
+    lineNumber?: number
+  }
+  isYamlFile?: boolean
+}
+
+type LintResults = Record<string, LintError[]>
+
+interface FileList {
+  length: number
+  content: string[]
+  data: string[]
+  yml: string[]
+}
+
+interface ConfiguredRules {
+  content: MarkdownlintRule[]
+  data: MarkdownlintRule[]
+  frontMatter: MarkdownlintRule[]
+  yml: MarkdownlintRule[]
+}
+
+interface LintConfig {
+  content: Record<string, any> // Markdownlint config object
+  data: Record<string, any>
+  frontMatter: Record<string, any>
+  yml: Record<string, any>
+}
+
+interface MarkdownLintConfigResult {
+  config: LintConfig
+  configuredRules: ConfiguredRules
+}
+
+interface FormattedResult {
+  ruleDescription: string
+  ruleNames: string[]
+  lineNumber: number
+  columnNumber?: number
+  severity: string
+  errorDetail?: string
+  errorContext?: string
+  context?: string
+  fixable?: boolean
+  // Index signature allows additional properties from LintError that may vary by rule
+  [key: string]: any
+}
+
+type FormattedResults = Record<string, FormattedResult[]>
 
 /**
  * Config that applies to all rules in all environments (CI, reports, precommit).
@@ -99,20 +162,20 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules, customRules)
+  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules || [])
 
   // Run Markdownlint for content directory
-  const resultContent = await markdownlint.promises.markdownlint({
+  const resultContent = (await markdownlint.promises.markdownlint({
     files: files.content,
     config: config.content,
     customRules: configuredRules.content,
-  })
+  })) as LintResults
   // Run Markdownlint for data directory
-  const resultData = await markdownlint.promises.markdownlint({
+  const resultData = (await markdownlint.promises.markdownlint({
     files: files.data,
     config: config.data,
     customRules: configuredRules.data,
-  })
+  })) as LintResults
 
   // Run Markdownlint for content directory (frontmatter only)
   const resultFrontmatter = await markdownlint.promises.markdownlint({
@@ -123,20 +186,20 @@ async function main() {
   })
 
   // Run Markdownlint on "lintable" Markdown strings in a YML file
-  const resultYml = {}
+  const resultYml: LintResults = {}
   for (const ymlFile of files.yml) {
     const lintableYml = await getLintableYml(ymlFile)
     if (!lintableYml) continue
 
-    const resultYmlFile = await markdownlint.promises.markdownlint({
+    const resultYmlFile = (await markdownlint.promises.markdownlint({
       strings: lintableYml,
       config: config.yml,
       customRules: configuredRules.yml,
-    })
+    })) as LintResults
 
-    Object.entries(resultYmlFile).forEach(([key, value]) => {
-      if (value.length) {
-        const errors = value.map((error) => {
+    for (const [key, value] of Object.entries(resultYmlFile)) {
+      if ((value as LintError[]).length) {
+        const errors = (value as LintError[]).map((error) => {
           // Autofixing would require us to write the changes back to the YML
           // file which Markdownlint doesn't support. So we don't support
           // autofixing for YML files at this time.
@@ -146,20 +209,20 @@ async function main() {
         })
         resultYml[key] = errors
       }
-    })
+    }
   }
 
   // There are no collisions when assigning the results to the new object
   // because the keys are filepaths and the individual runs of Markdownlint
   // are in separate directories (content and data).
-  const results = Object.assign({}, resultContent, resultData, resultYml)
+  const results: LintResults = Object.assign({}, resultContent, resultData, resultYml)
 
   // Merge in the results for frontmatter tests, which could be
   // in a file that already exists as a key in the `results` object.
-  Object.entries(resultFrontmatter).forEach(([key, value]) => {
-    if (results[key]) results[key].push(...value)
-    else results[key] = value
-  })
+  for (const [key, value] of Object.entries(resultFrontmatter)) {
+    if (results[key]) results[key].push(...(value as LintError[]))
+    else results[key] = value as LintError[]
+  }
 
   // Apply markdownlint fixes if available and rewrite the files
   let countFixedFiles = 0
@@ -169,7 +232,7 @@ async function main() {
         continue
       }
       const content = fs.readFileSync(file, 'utf8')
-      const applied = applyFixes(content, results[file])
+      const applied = applyFixes(content, results[file] as any)
       if (content !== applied) {
         countFixedFiles++
         fs.writeFileSync(file, applied, 'utf-8')
@@ -191,13 +254,7 @@ async function main() {
     reportSummaryByRule(results, config)
   } else if (errorFileCount > 0 || warningFileCount > 0 || countFixedFiles > 0) {
     if (outputFile) {
-      fs.writeFileSync(
-        `${outputFile}`,
-        JSON.stringify(formattedResults, undefined, 2),
-        function (err) {
-          if (err) throw err
-        },
-      )
+      fs.writeFileSync(`${outputFile}`, JSON.stringify(formattedResults, undefined, 2), 'utf-8')
       console.log(`Output written to ${outputFile}`)
     } else {
       prettyPrintResults(formattedResults, {
@@ -214,8 +271,8 @@ async function main() {
         // and columns numbers of YAML files. YAML files consist of one
         // or more Markdown strings that can themselves constitute an
         // entire "file."
-        'isYamlFile',
-      ],
+        'isYamlFile' as string,
+      ] as string[],
     })
   }
 
@@ -290,7 +347,12 @@ async function main() {
   }
 }
 
-function pluralize(things, word, pluralForm = null) {
+// Using unknown[] to accept arrays of any type (errors, warnings, files, etc.)
+function pluralize(
+  things: unknown[] | number,
+  word: string,
+  pluralForm: string | null = null,
+): string {
   const isPlural = Array.isArray(things) ? things.length !== 1 : things !== 1
   if (isPlural) {
     return pluralForm || `${word}s`
@@ -306,8 +368,8 @@ function pluralize(things, word, pluralForm = null) {
 // (e.g., heading linters) so we need to separate the
 // list of data files from all other files to run
 // through markdownlint individually
-function getFilesToLint(inputPaths) {
-  const fileList = {
+function getFilesToLint(inputPaths: string[]): FileList {
+  const fileList: FileList = {
     length: 0,
     content: [],
     data: [],
@@ -347,7 +409,7 @@ function getFilesToLint(inputPaths) {
 
   const seen = new Set()
 
-  function cleanPaths(filePaths) {
+  function cleanPaths(filePaths: string[]): string[] {
     const clean = []
     for (const filePath of filePaths) {
       if (
@@ -390,21 +452,21 @@ function getFilesToLint(inputPaths) {
  *   isInDir('/foo', '/foo') => true
  *   isInDir('/foo/barring', '/foo/bar') => false
  */
-function isInDir(child, parent) {
+function isInDir(child: string, parent: string): boolean {
   // The simple reason why you can't use `parent.startsWith(child)`
   // is because the parent might be `/path/to/data` and the child
   // might be `/path/to/data-files`.
   const parentSplit = parent.split(path.sep)
   const childSplit = child.split(path.sep)
-  return parentSplit.every((dir, i) => dir === childSplit[i])
+  return parentSplit.every((dir: string, i: number) => dir === childSplit[i])
 }
 
 // This is a function used during development to
 // see how many errors we have per rule. This helps
 // to identify rules that can be upgraded from
 // warning severity to error.
-function reportSummaryByRule(results, config) {
-  const ruleCount = {}
+function reportSummaryByRule(results: LintResults, config: LintConfig): void {
+  const ruleCount: Record<string, number> = {}
 
   // populate the list of rules with 0 occurrences
   for (const rule of Object.keys(config.content)) {
@@ -414,7 +476,7 @@ function reportSummaryByRule(results, config) {
   // the default property is not actually a rule
   delete ruleCount.default
 
-  Object.keys(results).forEach((key) => {
+  for (const key of Object.keys(results)) {
     if (results[key].length > 0) {
       for (const flaw of results[key]) {
         const ruleName = flaw.ruleNames[1]
@@ -423,7 +485,7 @@ function reportSummaryByRule(results, config) {
         ruleCount[ruleName] = count + 1
       }
     }
-  })
+  }
 }
 
 /*
@@ -431,26 +493,31 @@ function reportSummaryByRule(results, config) {
   result. Results are sorted by severity per file, with errors
   listed first then warnings.
 */
-function getFormattedResults(allResults, isInPrecommitMode) {
-  const output = {}
-  Object.entries(allResults)
+function getFormattedResults(
+  allResults: LintResults,
+  isInPrecommitMode: boolean,
+): FormattedResults {
+  const output: FormattedResults = {}
+  const filteredResults = Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
-    .forEach(([key, fileResults]) => {
-      if (verbose) {
-        output[key] = [...fileResults]
-      } else {
-        const formattedResults = fileResults.map((flaw) => formatResult(flaw, isInPrecommitMode))
+  for (const [key, fileResults] of filteredResults) {
+    if (verbose) {
+      output[key] = fileResults.map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
+    } else {
+      const formattedResults = fileResults.map((flaw: LintError) =>
+        formatResult(flaw, isInPrecommitMode),
+      )
 
-        // Only add the file to output if there are results after filtering
-        if (formattedResults.length > 0) {
-          const errors = formattedResults.filter((result) => result.severity === 'error')
-          const warnings = formattedResults.filter((result) => result.severity === 'warning')
-          const sortedResult = [...errors, ...warnings]
-          output[key] = [...sortedResult]
-        }
+      // Only add the file to output if there are results after filtering
+      if (formattedResults.length > 0) {
+        const errors = formattedResults.filter((result) => result.severity === 'error')
+        const warnings = formattedResults.filter((result) => result.severity === 'warning')
+        const sortedResult = [...errors, ...warnings]
+        output[key] = [...sortedResult]
       }
-    })
+    }
+  }
   return output
 }
 
@@ -458,19 +525,24 @@ function getFormattedResults(allResults, isInPrecommitMode) {
 // and the value being an array of errors for that filepath.
 // Each result has a rule name, which when looked up in `allConfig`
 // will give us its severity and we filter those that are 'warning'.
-function getWarningCountByFile(results, fixed = false) {
+function getWarningCountByFile(results: FormattedResults, fixed = false): number {
   return getCountBySeverity(results, 'warning', fixed)
 }
 
 // Results are formatted with the key being the filepath
 // and the value being an array of results for that filepath.
 // Each result in the array has a severity of error or warning.
-function getErrorCountByFile(results, fixed = false) {
+function getErrorCountByFile(results: FormattedResults, fixed = false): number {
   return getCountBySeverity(results, 'error', fixed)
 }
-function getCountBySeverity(results, severityLookup, fixed) {
-  return Object.values(results).filter((fileResults) =>
-    fileResults.some((result) => {
+
+function getCountBySeverity(
+  results: FormattedResults,
+  severityLookup: string,
+  fixed: boolean,
+): number {
+  return Object.values(results).filter((fileResults: FormattedResult[]) =>
+    fileResults.some((result: FormattedResult) => {
       // If --fix was applied, we don't want to know about files that
       // no longer have errors or warnings.
       return result.severity === severityLookup && (!fixed || !result.fixable)
@@ -481,19 +553,19 @@ function getCountBySeverity(results, severityLookup, fixed) {
 // Removes null values and properties that are not relevant to content
 // writers, adds the severity to each result object, and transforms
 // some error and fix data into a more readable format.
-function formatResult(object, isInPrecommitMode) {
-  const formattedResult = {}
+function formatResult(object: LintError, isInPrecommitMode: boolean): FormattedResult {
+  const formattedResult: FormattedResult = {} as FormattedResult
 
   // Add severity to each result object
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
-  if (!allConfig[ruleName]) {
+  const ruleConfig = allConfig[ruleName] as Config | undefined
+  if (!ruleConfig) {
     throw new Error(`Rule not found in allConfig: '${ruleName}'`)
   }
   formattedResult.severity =
-    allConfig[ruleName].severity ||
-    getSearchReplaceRuleSeverity(ruleName, object, isInPrecommitMode)
+    ruleConfig.severity || getSearchReplaceRuleSeverity(ruleName, object, isInPrecommitMode)
 
-  formattedResult.context = allConfig[ruleName].context || ''
+  formattedResult.context = ruleConfig.context || ''
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -503,7 +575,7 @@ function formatResult(object, isInPrecommitMode) {
     }
     if (!value) return acc
     if (key === 'errorRange') {
-      acc.columnNumber = value[0]
+      acc.columnNumber = (value as [number, number])[0]
       delete acc.range
       return acc
     }
@@ -545,14 +617,17 @@ function listRules() {
   Rules that can't be run on partials have the property
   `partial-markdown-files` set to false.
 */
-function getMarkdownLintConfig(filterErrorsOnly, runRules) {
+function getMarkdownLintConfig(
+  filterErrorsOnly: boolean,
+  runRules: string[],
+): MarkdownLintConfigResult {
   const config = {
     content: structuredClone(defaultConfig),
     data: structuredClone(defaultConfig),
     frontMatter: structuredClone(defaultConfig),
     yml: structuredClone(defaultConfig),
   }
-  const configuredRules = {
+  const configuredRules: ConfiguredRules = {
     content: [],
     data: [],
     frontMatter: [],
@@ -560,12 +635,12 @@ function getMarkdownLintConfig(filterErrorsOnly, runRules) {
   }
 
   for (const [ruleName, ruleConfig] of Object.entries(allConfig)) {
-    const customRule = customConfig[ruleName] && getCustomRule(ruleName)
+    const customRule = (customConfig as any)[ruleName] && getCustomRule(ruleName)
     // search-replace is handled differently than other rules because
     // it has nested metadata and rules.
     if (
       filterErrorsOnly &&
-      getRuleSeverity(ruleConfig, isPrecommit) !== 'error' &&
+      getSeverity(ruleConfig as any, isPrecommit) !== 'error' &&
       ruleName !== 'search-replace'
     ) {
       continue
@@ -575,8 +650,8 @@ function getMarkdownLintConfig(filterErrorsOnly, runRules) {
     if (runRules && !shouldIncludeRule(ruleName, runRules)) continue
 
     // There are a subset of rules run on just the frontmatter in files
-    if (githubDocsFrontmatterConfig[ruleName]) {
-      config.frontMatter[ruleName] = ruleConfig
+    if ((githubDocsFrontmatterConfig as any)[ruleName]) {
+      ;(config.frontMatter as any)[ruleName] = ruleConfig
       if (customRule) configuredRules.frontMatter.push(customRule)
     }
     // Handle the special case of the search-replace rule
@@ -589,23 +664,23 @@ function getMarkdownLintConfig(filterErrorsOnly, runRules) {
       const frontmatterSearchReplaceRules = []
 
       for (const searchRule of ruleConfig.rules) {
-        const searchRuleSeverity = getRuleSeverity(searchRule, isPrecommit)
+        const searchRuleSeverity = getSeverity(searchRule, isPrecommit)
         if (filterErrorsOnly && searchRuleSeverity !== 'error') continue
         // Add search-replace rules to frontmatter configuration for rules that make sense in frontmatter
         // This ensures rules like TODOCS detection work in frontmatter
         // Rules with applyToFrontmatter should ONLY run in the frontmatter pass (which lints the entire file)
         // to avoid duplicate detections
         if (searchRule.applyToFrontmatter) {
-          frontmatterSearchReplaceRules.push(searchRule)
+          frontmatterSearchReplaceRules.push(searchRule as any)
         } else {
           // Only add to content rules if not a frontmatter-specific rule
-          searchReplaceRules.push(searchRule)
+          searchReplaceRules.push(searchRule as any)
         }
         if (searchRule['partial-markdown-files']) {
-          dataSearchReplaceRules.push(searchRule)
+          dataSearchReplaceRules.push(searchRule as any)
         }
         if (searchRule['yml-files']) {
-          ymlSearchReplaceRules.push(searchRule)
+          ymlSearchReplaceRules.push(searchRule as any)
         }
       }
 
@@ -645,7 +720,7 @@ function getMarkdownLintConfig(filterErrorsOnly, runRules) {
 // Return the severity value of a rule but keep in mind it could be
 // running as a precommit hook, which means the severity could be
 // deliberately different.
-function getRuleSeverity(ruleConfig, isInPrecommitMode) {
+function getSeverity(ruleConfig: Config, isInPrecommitMode: boolean): string {
   return isInPrecommitMode
     ? ruleConfig.precommitSeverity || ruleConfig.severity
     : ruleConfig.severity
@@ -653,7 +728,7 @@ function getRuleSeverity(ruleConfig, isInPrecommitMode) {
 
 // Gets a custom rule function from the name of the rule
 // in the configuration file
-function getCustomRule(ruleName) {
+function getCustomRule(ruleName: string): Rule | MarkdownlintRule {
   const rule = customRules.find((r) => r.names.includes(ruleName))
   if (!rule)
     throw new Error(
@@ -663,8 +738,8 @@ function getCustomRule(ruleName) {
 }
 
 // Check if a rule should be included based on user-specified rules
-// Handles both short names (e.g., GHD053, MD001) and long names (e.g., header-content-requirement, heading-increment)
-export function shouldIncludeRule(ruleName, runRules) {
+// Handles both short names (e.g., GHD047, MD001) and long names (e.g., table-column-integrity, heading-increment)
+export function shouldIncludeRule(ruleName: string, runRules: string[]) {
   // First check if the rule name itself is in the list
   if (runRules.includes(ruleName)) {
     return true
@@ -679,7 +754,7 @@ export function shouldIncludeRule(ruleName, runRules) {
   // For built-in markdownlint rules, check if any of the rule's names are in the runRules list
   const builtinRule = allRules.find((rule) => rule.names.includes(ruleName))
   if (builtinRule) {
-    return builtinRule.names.some((name) => runRules.includes(name))
+    return builtinRule.names.some((name: string) => runRules.includes(name))
   }
 
   return false
@@ -703,9 +778,15 @@ export function shouldIncludeRule(ruleName, runRules) {
     fixInfo: null
   }
 */
-function getSearchReplaceRuleSeverity(ruleName, object, isInPrecommitMode) {
-  const pluginRuleName = object.errorDetail.split(':')[0].trim()
-  const rule = allConfig[ruleName].rules.find((r) => r.name === pluginRuleName)
+function getSearchReplaceRuleSeverity(
+  ruleName: string,
+  object: LintError,
+  isInPrecommitMode: boolean,
+) {
+  const pluginRuleName = object.errorDetail?.split(':')[0].trim()
+  const ruleConfig = allConfig[ruleName] as Config
+  const rule = ruleConfig.rules?.find((r) => r.name === pluginRuleName)
+  if (!rule) return 'error' // Default to error if rule not found
   return isInPrecommitMode ? rule.precommitSeverity || rule.severity : rule.severity
 }
 
@@ -745,6 +826,6 @@ function isOptionsValid() {
   return true
 }
 
-function isAFixtureMdFile(filePath) {
+function isAFixtureMdFile(filePath: string): boolean {
   return filePath.includes('/src') && filePath.includes('/fixtures') && filePath.endsWith('.md')
 }

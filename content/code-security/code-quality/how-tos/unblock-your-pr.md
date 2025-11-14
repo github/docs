@@ -1,7 +1,7 @@
 ---
 title: Resolving a block on your pull request
 shortTitle: Unblock your PR
-intro: 'Learn how to identify and resolve a code quality block on your pull request so you can merge your changes.'
+intro: 'Identify and resolve a code quality block on your pull request so you can merge your changes.'
 versions:
   feature: code-quality
 permissions: '{% data reusables.permissions.code-quality-see-repo-findings %}'

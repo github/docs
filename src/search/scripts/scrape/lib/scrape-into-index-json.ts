@@ -33,7 +33,7 @@ export default async function scrapeIntoIndexJson({
   // Exclude WIP pages, hidden pages, index pages, etc
   const indexablePages: Page[] = await findIndexablePages(config.filter)
   const redirects: Redirects = {}
-  indexablePages.forEach((page) => {
+  for (const page of indexablePages) {
     const href = page.relativePath.replace('index.md', '').replace('.md', '')
     for (let redirectFrom of page.redirect_from || []) {
       // Remember that each redirect_from as a prefix / and often it ends
@@ -42,7 +42,7 @@ export default async function scrapeIntoIndexJson({
       if (redirectFrom.endsWith('/')) redirectFrom = redirectFrom.slice(0, -1)
       redirects[redirectFrom] = href
     }
-  })
+  }
 
   let countRecordsTotal = 0
   let totalFailedPages = 0

@@ -110,6 +110,7 @@ export function sendEvent<T extends EventType>({
       path_article: getMetaContent('path-article'),
       page_document_type: getMetaContent('page-document-type'),
       page_type: getMetaContent('page-type'),
+      content_type: getMetaContent('page-content-type'),
       status: Number(getMetaContent('status') || 0),
       is_logged_in: isLoggedIn(),
 
@@ -331,11 +332,11 @@ async function waitForPageReady() {
 }
 
 function initClipboardEvent() {
-  ;['copy', 'cut', 'paste'].forEach((verb) => {
+  for (const verb of ['copy', 'cut', 'paste']) {
     document.documentElement.addEventListener(verb, () => {
       sendEvent({ type: EventType.clipboard, clipboard_operation: verb })
     })
-  })
+  }
 }
 
 function initCopyButtonEvent() {

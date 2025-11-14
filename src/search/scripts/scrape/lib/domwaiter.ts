@@ -51,7 +51,7 @@ export default function domwaiter(pages: Permalink[], opts: DomWaiterOptions = {
 
   const limiter = new Bottleneck(opts)
 
-  pages.forEach((page) => {
+  for (const page of pages) {
     async function schedulePage() {
       try {
         await limiter.schedule(() => getPage(page, emitter, opts))
@@ -62,7 +62,7 @@ export default function domwaiter(pages: Permalink[], opts: DomWaiterOptions = {
     }
 
     schedulePage()
-  })
+  }
 
   limiter.on('idle', () => {
     emitter.emit('done')

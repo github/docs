@@ -56179,6 +56179,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredReviewers",
+          "description": "<p>This field is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "type": "[RequiredReviewerConfiguration!]",
+          "id": "requiredreviewerconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#requiredreviewerconfiguration"
         }
       ]
     },
@@ -70826,6 +70834,39 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredReviewerConfiguration",
+      "kind": "objects",
+      "id": "requiredreviewerconfiguration",
+      "href": "/graphql/reference/objects#requiredreviewerconfiguration",
+      "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "fields": [
+        {
+          "name": "filePatterns",
+          "description": "<p>Array of file patterns. Pull requests which change matching files must be\napproved by the specified team. File patterns use fnmatch syntax.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "minimumApprovals",
+          "description": "<p>Minimum number of approvals required from the specified team. If set to zero,\nthe team will be added to the pull request but approval is optional.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "reviewerId",
+          "description": "<p>Node ID of the team which must review changes to matching files.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -101352,6 +101393,15 @@
           "isDeprecated": false
         },
         {
+          "name": "projectV2Ids",
+          "description": "<p>An array of Node IDs for Projects V2 associated with this issue.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "repositoryId",
           "description": "<p>The Node ID of the repository.</p>",
           "type": "ID!",
@@ -106123,6 +106173,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredReviewers",
+          "description": "<p>This argument is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "type": "[RequiredReviewerConfigurationInput!]",
+          "id": "requiredreviewerconfigurationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput"
         }
       ]
     },
@@ -107376,6 +107434,39 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredReviewerConfigurationInput",
+      "kind": "inputObjects",
+      "id": "requiredreviewerconfigurationinput",
+      "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput",
+      "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "inputFields": [
+        {
+          "name": "filePatterns",
+          "description": "<p>Array of file patterns. Pull requests which change matching files must be\napproved by the specified team. File patterns use fnmatch syntax.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "minimumApprovals",
+          "description": "<p>Minimum number of approvals required from the specified team. If set to zero,\nthe team will be added to the pull request but approval is optional.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "reviewerId",
+          "description": "<p>Node ID of the team which must review changes to matching files.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },

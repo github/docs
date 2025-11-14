@@ -49,7 +49,7 @@ Focus on the following instructions:
 
 ## Where you can configure {% data variables.copilot.custom_agents_short %}
 
-You can define {% data variables.copilot.agent_profiles %} at the repository level (`.github/agents/CUSTOM-AGENT-NAME.md` in your repository) for project-specific agents, or at the organization or enterprise level for broader availability. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
+You can define {% data variables.copilot.agent_profiles %} at the repository level (`.github/agents/CUSTOM-AGENT-NAME.md` in your repository) for project-specific agents, or at the organization or enterprise level (`/agents/CUSTOM-AGENT-NAME.md` in a `.github-private` repository) for broader availability. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/prepare-for-custom-agents) and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-agents/prepare-for-custom-agents).
 
 ## Where you can use {% data variables.copilot.custom_agents_short %}
 

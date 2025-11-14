@@ -23,10 +23,13 @@ Before following this article, you should understand what {% data variables.copi
 
 1. Start creating your {% data variables.copilot.copilot_custom_agent_short %} repository using [{% data variables.product.github %}'s template repository](https://github.com/docs/custom-agents-template?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-custom-agents&utm_medium=docs&utm_campaign=universe25post). The template repository contains a starter README and the necessary file structure to speed up your configuration.
 1. Select the **Choose an owner** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click your organization.
-1. Name the repository `.github-private`, then write a brief description and set the visibility of the repository to private.
+1. Name the repository `.github-private`, then write a brief description.
+1. Select the visibility dropdown menu, then choose one of the following options:
+     * To grant **read access to all members** of your organization or enterprise, click {% octicon "organization" aria-hidden="true" aria-label="organization" %} **Internal**.
+     * To **manually grant access after creation**, or if internal visibility is not an option, click {% octicon "lock" aria-hidden="true" aria-label="lock" %} **Private**.
 {% data reusables.repositories.create-repo %}
 1. Update the template README as needed. Consider including creation guidelines for {% data variables.copilot.custom_agents_short %} or compliance considerations specific to your organization.
 
 ## Next steps
 
-To implement {% data variables.copilot.custom_agents_short %} in your organization, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
+To implement {% data variables.copilot.custom_agents_short %} in your organization, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/test-custom-agents).

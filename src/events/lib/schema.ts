@@ -2,6 +2,7 @@ import { languageKeys } from '@/languages/lib/languages-server'
 import { allVersionKeys } from '@/versions/lib/all-versions'
 import { productIds } from '@/products/lib/all-products'
 import { allTools } from '@/tools/lib/all-tools'
+import { contentTypesEnum } from '@/frame/lib/frontmatter'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$'
 
@@ -99,6 +100,11 @@ const context = {
       type: 'string',
       description: 'Optional page type from the content frontmatter.',
       enum: ['overview', 'quick_start', 'tutorial', 'how_to', 'reference', 'rai'], // frontmatter.ts
+    },
+    content_type: {
+      type: 'string',
+      description: 'Optional content type from the content frontmatter (EDI content models).',
+      enum: contentTypesEnum,
     },
     status: {
       type: 'number',

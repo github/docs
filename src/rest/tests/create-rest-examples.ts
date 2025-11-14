@@ -53,10 +53,11 @@ describe('rest example requests and responses', () => {
   test('check example number and status code appear', async () => {
     const mergedExamples = await getCodeSamples(operation)
     // example is any because getCodeSamples returns objects from untyped JavaScript module
-    mergedExamples.forEach((example: any, index: number) => {
+    for (let index = 0; index < mergedExamples.length; index++) {
+      const example: any = mergedExamples[index]
       expect(example.request.description).toBe(
         `Example ${index + 1}: Status Code ${example.response.statusCode}`,
       )
-    })
+    }
   })
 })
