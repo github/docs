@@ -10,5 +10,6 @@ children:
   - /your-first-spark
   - /prompt-tips
   - /build-apps-with-spark
+  - /deploy-from-cli
 contentType: tutorials
 ---
