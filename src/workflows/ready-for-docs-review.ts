@@ -10,7 +10,7 @@ import {
   generateUpdateProjectV2ItemFieldMutation,
   getFeature,
   getSize,
-} from './projects.js'
+} from './projects'
 
 /**
  * Determines if a PR is authored by Copilot and extracts the human assignee
@@ -261,7 +261,9 @@ async function run() {
 
 export { run }
 
-run().catch((error) => {
+try {
+  await run()
+} catch (error) {
   console.log(`#ERROR# ${error}`)
   process.exit(1)
-})
+}

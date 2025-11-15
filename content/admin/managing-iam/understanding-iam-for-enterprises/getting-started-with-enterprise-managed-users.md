@@ -70,7 +70,7 @@ Using an **incognito or private browsing window**:
 
 {% data reusables.enterprise-accounts.emu-configure-provisioning %}
 
-## Manage organization membership
+## Sync teams with IdP groups
 
 {% data reusables.enterprise-accounts.emu-manage-org-membership %}
 
@@ -79,4 +79,5 @@ Using an **incognito or private browsing window**:
 Developers may need to maintain separate, personal accounts for their work outside of your {% data variables.enterprise.prodname_emu_enterprise %}. You can help them manage multiple accounts by providing the following resources:
 
 * **On the command line**, developers can configure Git to simplify the process of using multiple accounts. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/managing-multiple-accounts).
+* **In Git Credential Manager (GCM)**: Turn off account filtering to prevent multiple sign-in prompts if the [SSO Redirect setting](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users) is not enabled for your enterprise. See [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users).
 * **In the web interface**, developers can switch between accounts without always needing to re-authenticate. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/switching-between-accounts).

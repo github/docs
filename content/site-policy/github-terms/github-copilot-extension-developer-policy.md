@@ -7,7 +7,9 @@ topics:
   - Legal
 ---
 
-> Last Updated: September 6, 2024
+> Last Updated: October 20, 2025
+
+> [!WARNING] We are deprecating GitHub Copilot Extensions on November 10, 2025, in favor of the Model Context Protocol (MCP). You can read more about this change in our [changelog post](https://github.blog/changelog/2025-09-24-deprecate-github-copilot-extensions-github-apps/).
 
 This Agreement is a legal agreement between you (“You”) and GitHub, Inc. (“GitHub”, “we”, or “us”). By clicking “I Agree”, you’re agreeing to be bound by all the terms of this Agreement. If you are entering into this Agreement on behalf of a company or other legal entity, you represent that you have the legal authority to bind the entity to this Agreement, in which case “You” will mean the entity you represent.
 

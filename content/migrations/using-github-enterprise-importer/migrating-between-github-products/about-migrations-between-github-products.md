@@ -57,12 +57,12 @@ User history for the above data | {% octicon "check" aria-label="Can be migrated
 Attachments (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files)) | {% octicon "check" aria-label="Can be migrated" %}  | {% octicon "check" aria-label="Can be migrated" %}  |
 Releases | {% octicon "x" aria-label="Cannot be migrated" %} | {% octicon "check" aria-label="Can be migrated" %}  |
 
-Different size limits per repository apply depending on your GHES version.
+Different size limits per repository apply to the compressed archive, depending on your GHES version.
 
-Limit | GHES <3.8.0 | GHES 3.8.0+ |
------ | ----------- | ----------- |
-Git source | 2GB | 10GB
-Metadata | 2GB | 10GB
+Limit | GHES <3.8.0 | GHES 3.8.x-3.11.x | GHES 3.12.x | GHES 3.13.0+
+----- | ----------- | ----------------- | ----------- | ------------
+Git source | 2GiB | 10GiB | 20GiB | 40GiB (public preview)
+Metadata | 2GiB | 10GiB | 20GiB | 40GiB (public preview)
 
 ### Data that is not migrated
 
@@ -122,7 +122,7 @@ When you migrate a repository, either directly or as part of an organization mig
     * Allow merge commits (commit message setting is reset to the default message)
     * Allow squash merging (commit message setting is reset to the default message)
     * Allow rebase merging
-* Releases (up to 10 GB per repository)
+* Releases (up to 10 GiB per repository)
 * User history for the above data
 * Attachments (see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/attaching-files))
 
@@ -147,7 +147,7 @@ When you migrate a repository directly, teams and team access to repositories ar
 ### Limitations of {% data variables.product.prodname_importer_proper_name %}
 
 * {% data reusables.enterprise-migration-tool.git-repo-size-limit %}
-* **40 GB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
+* **40 GiB limit for metadata ({% data variables.release-phases.public_preview %}):** The {% data variables.product.prodname_importer_secondary_name %} cannot migrate repositories with more than 40 GiB of metadata. Metadata includes issues, pull requests, releases, and attachments. In most cases, large metadata is caused by binary assets attached to releases. You can exclude releases from the migration with the `migrate-repo` command's `--skip-releases` flag, and then move your releases manually after the migration.
 {% data reusables.enterprise-migration-tool.limitations-of-migration-tooling %}
 
 ## Getting started

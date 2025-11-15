@@ -26,11 +26,13 @@ type MyAppProps = AppProps & {
 }
 
 const stagingNames = new Set([
+  'balsam',
   'boxwood',
   'cedar',
   'cypress',
   'fir',
   'hemlock',
+  'hinoki',
   'holly',
   'juniper',
   'laurel',
@@ -38,6 +40,7 @@ const stagingNames = new Set([
   'redwood',
   'sequoia',
   'spruce',
+  'yew',
 ])
 
 function getFaviconHref(stagingName?: string) {
@@ -169,9 +172,8 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // Note, `req` will be undefined if this is the client-side rendering
   // of a 500 page ("Ooops! It looks like something went wrong.")
   if (req?.context?.languages) {
-    for (const [langCode, langObj] of Object.entries(
-      req.context.languages as Record<string, LanguageItem>,
-    )) {
+    const languageEntries = Object.entries(req.context.languages as Record<string, LanguageItem>)
+    for (const [langCode, langObj] of languageEntries) {
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,

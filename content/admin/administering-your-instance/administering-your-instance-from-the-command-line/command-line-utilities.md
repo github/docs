@@ -16,6 +16,7 @@ topics:
   - Enterprise
   - SSH
 ---
+
 You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 ## General
@@ -139,6 +140,94 @@ This utility applies {% data variables.enterprise.management_console %} settings
 ```shell
 ghe-config-apply
 ```
+
+{% ifversion ghes > 3.18 %}
+
+### ghe-crypto
+
+This utility is used to verify and list {% data variables.enterprise.management_console %} `github-ssl` crypto settings for TLS and SSH connections.
+
+The list of configurable `github-ssl` fields can be viewed via `ghe-crypto --help`.
+
+#### Listing default cipher suites and algorithms
+
+The `list` command returns default crypto settings for a given field. Use the `-o json` flag to output the results in JSON format.
+
+To list TLS 1.2 cipher suites:
+
+```shell
+ghe-crypto list tlsv12-ciphersuites
+```
+
+To list TLS 1.3 cipher suites:
+
+```shell
+ghe-crypto list tlsv13-ciphersuites
+```
+
+To list SSH ciphers:
+
+```shell
+ghe-crypto list ssh-ciphers
+```
+
+To list SSH MAC algorithms:
+
+```shell
+ghe-crypto list ssh-mac-algorithms
+```
+
+To list SSH key exchange algorithms:
+
+```shell
+ghe-crypto list ssh-kex-algorithms
+```
+
+To list SSH signature types:
+
+```shell
+ghe-crypto list ssh-signature-types
+```
+
+Example output in JSON format:
+
+```shell
+$ ghe-crypto list tlsv12-ciphersuites -o json
+> [
+>  "ECDHE-ECDSA-AES128-GCM-SHA256",
+>  "ECDHE-ECDSA-CHACHA20-POLY1305",
+>  "ECDHE-ECDSA-AES256-GCM-SHA384",
+>  "ECDHE-RSA-AES128-GCM-SHA256",
+>  "ECDHE-RSA-CHACHA20-POLY1305",
+>  "ECDHE-RSA-AES256-GCM-SHA384"
+> ]
+```
+
+#### Checking cipher suites and algorithms
+
+The `check` command validates a single line of crypto settings delimited by `,`. This is useful before applying configuration changes.
+
+To check TLS 1.2 cipher suites:
+
+```shell
+ghe-crypto check tlsv12-ciphersuites CIPHER1,CIPHER2,CIPHER3
+```
+
+To check TLS 1.3 cipher suites:
+
+```shell
+ghe-crypto check tlsv13-ciphersuites TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256
+```
+
+To check SSH ciphers:
+
+```shell
+ghe-crypto check ssh-ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com
+```
+
+For more information about configuring cipher suites and cryptographic algorithms, see [AUTOTITLE](/admin/configuring-settings/hardening-security-for-your-enterprise/configuring-tls#configuring-cipher-suites-and-cryptographic-algorithms).
+
+{% endif %}
 
 ### ghe-console
 
@@ -288,8 +377,10 @@ ghe-reactivate-admin-login
 ### ghe-saml-mapping-csv
 
 {% ifversion scim-for-ghes-ga %}
+
 > [!NOTE]
 > This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+
 {% endif %}
 
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
@@ -1003,6 +1094,18 @@ All Storage tests passed
 
 ## High availability
 
+{% ifversion ghes > 3.17 %}
+
+### ghe-repl-decommission
+
+This command decommissions the database entries for the node with the specified UUID. You run this command on the new primary after performing a failover to a replica node, to remove the decommissioned node's database entries. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
+
+```shell
+ghe-repl-decommission <UUID>
+```
+
+{% endif %}
+
 ### ghe-repl-promote
 
 This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance).
@@ -1072,8 +1175,6 @@ This utility completely disables replication on an existing replica node, removi
 ghe-repl-teardown
 ```
 
-{% ifversion ghes > 3.13 %}
-
 ### ghe-repl-stop-all
 
 This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
@@ -1081,7 +1182,6 @@ This utility disables replication of all datastores on all replica nodes. Run th
 ### ghe-repl-start-all
 
 This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package).
-{% endif %}
 
 ## Import and export
 

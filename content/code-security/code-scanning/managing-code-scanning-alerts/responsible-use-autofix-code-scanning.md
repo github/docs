@@ -18,11 +18,11 @@ redirect_from:
 
 ## About {% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.copilot.copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis, and supports the third-party tool ESLint (third-party support is in {% data variables.release-phases.public_preview %} and subject to change).
+{% data variables.copilot.copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. The potential fixes are generated automatically by large language models (LLMs) using data from the codebase and from {% data variables.product.prodname_code_scanning %} analysis. {% data variables.copilot.copilot_autofix %} is available for {% data variables.product.prodname_codeql %} analysis.
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
-{% data variables.copilot.copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.copilot.copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model {% data variables.copilot.copilot_gpt_4o %} from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% data variables.copilot.copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.copilot.copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model {% data variables.copilot.copilot_gpt_41 %} from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
 {% data variables.copilot.copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.copilot.copilot_autofix_short %}. To learn how to disable {% data variables.copilot.copilot_autofix_short %} at the enterprise, organization and repository levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning).
 
@@ -46,15 +46,28 @@ When {% data variables.copilot.copilot_autofix_short %} is enabled for a reposit
 
 {% data variables.product.prodname_dotcom %} sends the LLM a variety of data from the {% data variables.product.prodname_code_scanning %} analysis. For example:
 
-* {% data variables.product.prodname_codeql %} alert data in SARIF format. For more information, see “[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).”
+* {% data variables.product.prodname_codeql %} alert data in SARIF format. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning).
 * Code from the current version of the branch.
     * Short snippets of code around each source location, sink location, and any location referenced in the alert message or included on the flow path.
     * First ~10 lines from each file involved in any of those locations.
-* Help text for the {% data variables.product.prodname_codeql %} query that identified the problem. For examples, see “[{% data variables.product.prodname_codeql %} query help](https://codeql.github.com/codeql-query-help/).”
+* Help text for the {% data variables.product.prodname_codeql %} query that identified the problem. For examples, see [{% data variables.product.prodname_codeql %} query help](https://codeql.github.com/codeql-query-help/).
 
 Any {% data variables.copilot.copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
 The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_AS %}. Moreover, data handled by {% data variables.copilot.copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_AS %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
+
+## Limitations and non-determinism of {% data variables.copilot.copilot_autofix_short %}
+
+{% data variables.copilot.copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %} alerts won't be able to generate a fix for every alert in every situation. The feature operates on a best-effort basis and is not guaranteed to succeed 100% of the time.
+
+### When a {% data variables.copilot.copilot_autofix_short %} suggestion may not be generated
+
+Several factors can prevent {% data variables.copilot.copilot_autofix_short %} from successfully generating a suggested fix.
+
+* _Non-determinism:_ The underlying large language model is a generative model and is therefore non-deterministic. This means that even with the same alert and code, it might fail to produce a viable suggestion, or the suggestion might vary across attempts.
+* _Problem complexity and context:_ Some security alerts, such as those that require tracing data flow across a complex, multi-file codebase or those that represent subtle logic flaws, could be difficult for the model to resolve.
+* _File size:_ If the affected code is within a very large file or repository, the context provided to the LLM may be truncated. The model needs sufficient context to understand the surrounding code logic and safely apply a fix; when this context is limited, the feature will not attempt a fix.
+* _Language and framework coverage:_ While {% data variables.copilot.copilot_autofix_short %} supports a growing list of languages and CodeQL alerts, it doesn't cover every possible alert type or language.
 
 ## Quality of suggestions
 
@@ -111,7 +124,7 @@ Sometimes a suggested fix includes a change in the dependencies of the codebase.
 
 ## Mitigating the limitations of suggestions
 
-The best way to mitigate the limitations of suggestions from {% data variables.copilot.copilot_autofix_short %} is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see “[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).”
+The best way to mitigate the limitations of suggestions from {% data variables.copilot.copilot_autofix_short %} is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
 It is important to remember that the author of a pull request retains responsibility for how they respond to review comments and suggested code changes, whether proposed by colleagues or automated tools. Developers should always look at suggestions for code changes critically. If needed, they should edit the suggested changes to ensure that the resulting code and application are correct, secure, meet performance criteria, and satisfy all other functional and non-functional requirements for the application.
 

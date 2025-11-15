@@ -8,8 +8,8 @@ import fs from 'fs'
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest } from '@/types'
-import { SURROGATE_ENUMS, setFastlySurrogateKey } from './set-fastly-surrogate-key.js'
-import { assetCacheControl } from './cache-control.js'
+import { SURROGATE_ENUMS, setFastlySurrogateKey } from './set-fastly-surrogate-key'
+import { assetCacheControl } from './cache-control'
 
 type IconConfig = {
   contentType: string

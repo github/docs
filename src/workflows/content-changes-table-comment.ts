@@ -10,18 +10,18 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import * as github from '@actions/github'
+import github from '@actions/github'
 import core from '@actions/core'
 
 import walk from 'walk-sync'
 import { Octokit } from '@octokit/rest'
 import { retry } from '@octokit/plugin-retry'
 
-import { getContents } from './git-utils.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { allVersionShortnames } from '@/versions/lib/all-versions.js'
-import readFrontmatter from '@/frame/lib/read-frontmatter.js'
+import { getContents } from './git-utils'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { allVersionShortnames } from '@/versions/lib/all-versions'
+import readFrontmatter from '@/frame/lib/read-frontmatter'
 import { inLiquid } from './lib/in-liquid'
 
 const { GITHUB_TOKEN, APP_URL, BASE_SHA, HEAD_SHA } = process.env
@@ -167,13 +167,13 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     `| ${headings.map((heading) => `**${heading}**`).join(' | ')} |`,
     `| ${headings.map(() => ':---').join(' | ')} |`,
   ]
-  let markdownTable = markdownTableHead.join('\n') + '\n'
+  let markdownTable = `${markdownTableHead.join('\n')}\n`
   for (const filteredLine of filteredLines) {
     if ((markdownTable + filteredLine).length > MAX_COMMENT_SIZE) {
       markdownTable += '\n**Note** There are more changes in this PR than we can show.'
       break
     }
-    markdownTable += filteredLine + '\n'
+    markdownTable += `${filteredLine}\n`
   }
 
   return markdownTable
@@ -247,10 +247,10 @@ function makeRow({
         reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
 
-        versions.forEach((version) => {
+        for (const version of versions) {
           reviewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
-        })
+        }
         reviewCell += '<br>'
         prodCell += '<br>'
       }

@@ -27,14 +27,14 @@ concurrency:
 jobs:
   generate-decorated-files:
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout rest-api-description repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -42,7 +42,7 @@ jobs:
           path: rest-api-description
           ref: ${{ inputs.SOURCE_BRANCH }}
 
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -57,6 +57,7 @@ jobs:
         env:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
           npm run sync-rest -- \
             --source-repos rest-api-description models-gateway \
@@ -84,7 +85,7 @@ jobs:
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           if [[ $changes -eq 0 ]]; then
-            echo "There are no changes to commit after running `npm run sync-rest` Exiting..."
+            echo "There are no changes to commit after running 'npm run sync-rest'. Exiting..."
             exit 0
           fi
 

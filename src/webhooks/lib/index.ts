@@ -1,7 +1,7 @@
 import path from 'path'
 
-import { getOpenApiVersion } from '@/versions/lib/all-versions.js'
-import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file.js'
+import { getOpenApiVersion } from '@/versions/lib/all-versions'
+import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 
 export const WEBHOOK_DATA_DIR = 'src/webhooks/data'
 export const WEBHOOK_SCHEMA_FILENAME = 'schema.json'
@@ -50,11 +50,11 @@ export async function getInitialPageWebhooks(version: string): Promise<InitialWe
     // remove all nested params for the initial webhooks page, we'll load
     // them by request
     if (initialWebhook.data.bodyParameters) {
-      initialWebhook.data.bodyParameters.forEach((bodyParam) => {
+      for (const bodyParam of initialWebhook.data.bodyParameters) {
         if (bodyParam.childParamsGroups) {
           bodyParam.childParamsGroups = []
         }
-      })
+      }
     }
 
     initialWebhooks.push({ ...initialWebhook })

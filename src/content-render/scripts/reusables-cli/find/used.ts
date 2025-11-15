@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils.js'
+import { getLiquidTokens } from '@/content-linter/lib/helpers/liquid-utils'
 import {
   FilesWithLineNumbers,
   getAllContentFilePaths,
@@ -65,7 +65,7 @@ export function findTopUsed(numberOfMostUsedToFind: number, { absolute }: { abso
   console.log(`\nTop ${numberOfMostUsedToFind} most used reusables:`)
   let i = 0
   for (const [reusable, count] of sortedCounts.slice(0, numberOfMostUsedToFind)) {
-    let printReusablePath = path.join('data', ...reusable.split('.')) + '.md'
+    let printReusablePath = `${path.join('data', ...reusable.split('.'))}.md`
     if (absolute) {
       printReusablePath = path.resolve(printReusablePath)
     }

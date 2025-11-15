@@ -1,9 +1,7 @@
-import got from 'got'
-
 import { setOutput } from '@actions/core'
 
-import github from './github.js'
-import { getActionContext } from './action-context.js'
+import github from './github'
+import { getActionContext } from './action-context'
 import { octoSecondaryRatelimitRetry } from './secondary-ratelimit-retry'
 
 async function main() {
@@ -24,7 +22,7 @@ async function main() {
     console.log('ID:', issue.id)
     console.log('Number:', issue.number)
     console.log('URL:', issue.html_url)
-    number = issue.number
+    number = String(issue.number)
     if (number) {
       // We've found the issue (pull request), but before we accept
       // this `number`, check that the issue isn't locked.
@@ -39,10 +37,14 @@ async function main() {
 }
 
 async function getBuiltSHA() {
-  const r = await got('https://docs.github.com/_build')
-  const sha = r.body.trim()
+  const r = await fetch('https://docs.github.com/_build')
+  if (!r.ok) {
+    throw new Error(`HTTP ${r.status}: ${r.statusText}`)
+  }
+  const body = await r.text()
+  const sha = body.trim()
   if (!/[a-f0-9]{40}/.test(sha)) {
-    throw new Error(`Response body does not look like a SHA ('${r.body.slice(0, 100)}'...)`)
+    throw new Error(`Response body does not look like a SHA ('${body.slice(0, 100)}'...)`)
   }
   return sha
 }

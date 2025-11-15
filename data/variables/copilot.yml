@@ -17,7 +17,7 @@ copilot_free_short: 'Copilot Free'
 
 ## Copilot billing
 # Price per additional premium request
-additional_premium_requests: '$0.04 USD'
+additional_premium_requests: '$0.04 USD' # Note that these are also used to bill other products
 # Price per month for Copilot Pro
 cfi_price_per_month: '$10 USD'
 # Price per year for Copilot Pro
@@ -42,50 +42,82 @@ chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
 ## Copilot code review -> {% data variables.copilot.copilot_code-review %}
 copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
+copilot_code-review-tools-preview_cap: 'New tools (public preview) in GitHub Copilot code review'
+copilot_code-review-tools_short: 'new tools in Copilot code review'
+copilot_code-review-tools_cap_short: 'New tools in Copilot code review'
 
 ## Copilot coding agent (previously Padawan) -> {% data variables.copilot.copilot_coding_agent %}
 copilot_coding_agent: 'Copilot coding agent'
-copilot_coding_agent_short: 'Coding agent'
+copilot_coding_agent_short: 'coding agent'
+copilot_coding_agent_short_cap_c: 'Coding agent'
 
 ## Short for "Copilot Extensions agent" -> {% data variables.copilot.copilot_agent_short %}
 ## Note: this is NOT a short form for the Copilot coding agent (previously Padawan):
 copilot_agent_short: 'Copilot agent'
+copilot_agents_short: 'Copilot agents'
+copilot_agents: 'GitHub Copilot agents'
 
-## Copilot feature variables (moved from product.yml)
-copilot_chat: 'GitHub Copilot Chat'
-copilot_chat_short: 'Copilot Chat'
-copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub'
+## Copilot Chat
 copilot_chat_dotcom_short: 'Copilot Chat in GitHub'
-copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
+copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub'
+copilot_chat_short: 'Copilot Chat'
+copilot_chat: 'GitHub Copilot Chat'
 copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
-copilot_extensions: 'GitHub Copilot Extensions'
+copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
+copilot_vsc_chat_participant: 'Copilot-enabled VS Code chat participant'
+copilot_vsc_chat_participants: 'Copilot-enabled VS Code chat participants'
+
+## Copilot CLI
+copilot_cli_short: 'Copilot CLI'
+copilot_cli: 'GitHub Copilot CLI'
+copilot_old-cli_short: 'Copilot in the CLI'
+copilot_old-cli: 'GitHub Copilot in the CLI'
+
+## Copilot custom agents
+copilot_custom_agent: 'Copilot custom agent'
+copilot_custom_agents: 'Copilot custom agents'
+copilot_custom_agent_short: 'custom agent'
+copilot_custom_agent_caps_short: 'Custom agent'
+custom_agents_short: 'custom agents'
+custom_agents_caps_short: 'Custom agents'
+
+## Agent profiles (configuration files that define custom agents)
+agent_profile: 'agent profile'
+agent_profile_caps: 'Agent profile'
+agent_profiles: 'agent profiles'
+agent_profiles_caps: 'Agent profiles'
+
+## Copilot Extensions
+copilot_extension_short: 'Copilot Extension'
 copilot_extension: 'GitHub Copilot Extension'
 copilot_extensions_short: 'Copilot Extensions'
-copilot_extension_short: 'Copilot Extension'
-copilot_extensions_vsc: 'Copilot-enabled Visual Studio Code extensions'
-copilot_extension_vsc: 'Copilot-enabled Visual Studio Code extension'
-copilot_extensibility_platform: 'GitHub Copilot Extensibility Platform'
-copilot_extensibility_platform_short: 'Copilot Extensibility Platform'
-copilot_agents: 'GitHub Copilot agents'
-copilot_agents_short: 'Copilot agents'
-copilot_skillset: 'Github Copilot skillset'
+copilot_extensions: 'GitHub Copilot Extensions'
+
+## Copilot skillsets
 copilot_skillset_short: 'Copilot skillset'
-copilot_skillsets: 'Github Copilot skillsets'
+copilot_skillset: 'GitHub Copilot skillset'
 copilot_skillsets_short: 'Copilot skillsets'
-copilot_cli: 'GitHub Copilot in the CLI'
-copilot_cli_short: 'Copilot in the CLI'
+copilot_skillsets: 'GitHub Copilot skillsets'
+
+## Various Copilot features
+copilot_autocomplete_pr: 'Copilot text completion'
+copilot_auto_model_selection: 'Copilot auto model selection'
+copilot_auto_model_selection_short: 'auto model selection'
+copilot_auto_model_selection_short_cap_a: 'Auto model selection'
+copilot_customization: 'Copilot Customization'
+copilot_desktop_short: 'Copilot in GitHub Desktop'
+copilot_desktop: 'GitHub Copilot in GitHub Desktop'
+copilot_edits_short: 'Copilot Edits'
+copilot_edits: 'GitHub Copilot Edits'
+copilot_extensibility_platform_short: 'Copilot Extensibility Platform'
+copilot_extensibility_platform: 'GitHub Copilot Extensibility Platform'
 copilot_for_prs: 'Copilot pull request summaries'
 copilot_prs_short: 'pull request summaries'
-copilot_customization: 'Copilot Customization'
 copilot_in_support: 'Copilot in GitHub Support'
+copilot_preview_features: 'Copilot preview features'
 copilot_sku_isolation: 'Copilot subscription-based network routing'
-copilot_autocomplete_pr: 'Copilot text completion'
-copilot_desktop: 'GitHub Copilot in GitHub Desktop'
-copilot_desktop_short: 'Copilot in GitHub Desktop'
-copilot_edits: 'GitHub Copilot Edits'
-copilot_edits_short: 'Copilot Edits'
-copilot_spaces: 'Copilot Spaces'
 copilot_spaces_short: 'Spaces'
+copilot_spaces: 'Copilot Spaces'
 
 # Note: Copilot Autofix is branded as a Copilot feature but is billed using a Code security or GHAS license
 copilot_autofix: 'GitHub Copilot Autofix'
@@ -97,11 +129,14 @@ max-chat-indexed-repos: '50'
 ## LLM models for Copilot
 # Claude:
 copilot_claude: 'Claude'
+copilot_claude_haiku_45: 'Claude Haiku 4.5'
+copilot_claude_opus: 'Claude Opus 4'
+copilot_claude_opus_41: 'Claude Opus 4.1'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
 copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
 copilot_claude_sonnet_40: 'Claude Sonnet 4'
-copilot_claude_opus: 'Claude Opus 4'
+copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 # Gemini:
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
@@ -109,12 +144,24 @@ copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_41: 'GPT-4.1'
-copilot_gpt_45: 'GPT-4.5'
+copilot_gpt_5: 'GPT-5'
+copilot_gpt_5_codex: 'GPT-5-Codex'
+copilot_gpt_5_mini: 'GPT-5 mini'
+copilot_gpt_51: 'GPT-5.1'
+copilot_gpt_51_codex: 'GPT-5.1-Codex'
+copilot_gpt_51_codex_mini: 'GPT-5.1-Codex-Mini'
 # OpenAI 'o' series:
-copilot_o1: 'o1'
 copilot_o3: 'o3'
-copilot_o3_mini: 'o3-mini'
 copilot_o4_mini: 'o4-mini'
+## xAI:
+copilot_grok_code: 'Grok Code Fast 1'
+# Qwen:
+copilot_qwen_25: 'Qwen2.5'
+# Microsoft fine-tuned:
+copilot_raptor_mini: 'Raptor mini'
+
+## Current model used by Copilot coding agent and Copilot CLI
+cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
 
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'

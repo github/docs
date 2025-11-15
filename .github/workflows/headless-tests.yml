@@ -25,7 +25,7 @@ env:
 jobs:
   playwright-tests:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
-    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ubuntu-latest
     strategy:
       # When we're comfortable a11y tests aren't generating false positives and helping,
       # let's remove the matrix and just run playwright in a single job.
@@ -37,7 +37,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Check out repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - uses: ./.github/actions/setup-elasticsearch
 
@@ -57,6 +57,9 @@ jobs:
       - name: Run Playwright tests
         env:
           PLAYWRIGHT_WORKERS: ${{ fromJSON('[1, 4]')[github.repository == 'github/docs-internal'] }}
+          # workaround for https://github.com/nodejs/node/issues/59364 as of 22.18.0
+          NODE_OPTIONS: '--no-experimental-strip-types'
+
         # Run playwright rendering tests and a11y tests (axe scans) as distinct checks
         # so that we can run them without blocking merges until we can be confident
         # results for a11y tests are meaningul and scenarios we're testing are correct.

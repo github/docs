@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 
 import { RequestError } from '@octokit/request-error'
 
-import { retryingGithub } from './github.js'
+import { retryingGithub } from './github'
 const github = retryingGithub()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
@@ -234,12 +234,12 @@ async function searchCode(
   }
 }
 
-async function secondaryRateLimitRetry(
-  callable: Function,
-  args: Record<string, any>,
+async function secondaryRateLimitRetry<T, TArgs = Record<string, unknown>>(
+  callable: (args: TArgs) => Promise<T>,
+  args: TArgs,
   maxAttempts = 10,
   sleepTime = 1000,
-) {
+): Promise<T> {
   try {
     const response = await callable(args)
     return response

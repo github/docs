@@ -1,10 +1,10 @@
 import type { NextFunction, Response } from 'express'
 
-import patterns from '@/frame/lib/patterns.js'
-import { pathLanguagePrefixed } from '@/languages/lib/languages.js'
-import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases.js'
-import getRedirect from '../lib/get-redirect.js'
-import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control.js'
+import patterns from '@/frame/lib/patterns'
+import { pathLanguagePrefixed } from '@/languages/lib/languages-server'
+import { deprecatedWithFunctionalRedirects } from '@/versions/lib/enterprise-server-releases'
+import getRedirect from '../lib/get-redirect'
+import { defaultCacheControl, languageCacheControl } from '@/frame/middleware/cache-control'
 import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
 
 export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
@@ -47,12 +47,9 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // The `q` param is deprecated, but we still need to support it in case
   // there are links out there that use it.
   const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
-  // We have legacy links that links to the GraphQL Explorer with
-  // a `?query=...` in the URL. These should not redirect to the search page.
-  const onGraphqlExplorer = req.path.includes('/graphql/overview/explorer')
   const hasQ = 'q' in req.query
   const hasQuery = 'query' in req.query
-  if ((hasQ && !hasQuery) || (hasQuery && !onSearch && !onGraphqlExplorer)) {
+  if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
     const language = getLanguage(req)
     const sp = new URLSearchParams(req.query as URLSearchParamsTypes)
     if (sp.has('q') && !sp.has('query')) {
@@ -67,7 +64,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
       // The `req.context.currentVersion` is just the portion of the URL
       // pathname. It could be that the currentVersion is something
       // like `enterprise` which needs to be redirected to its new name.
-      redirectTo = getRedirect(redirectTo, req.context)
+      redirectTo = getRedirect(redirectTo, req.context) || redirectTo
     }
 
     redirectTo += `/search?${sp.toString()}`
@@ -76,7 +73,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   // have to do this now because searchPath replacement changes the path as well as the query params
   if (queryParams) {
-    queryParams = '?' + queryParams
+    queryParams = `?${queryParams}`
   }
 
   // remove query params temporarily so we can find the path in the redirects object
@@ -142,7 +139,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
 function getLanguage(req: ExtendedRequest, default_ = 'en') {
   // req.context.userLanguage, if it truthy, is always a valid supported
-  // language. It's whatever was in the user's request in lib/languages.js
+  // language. It's whatever was in the user's request in lib/languages.ts
   return req.context!.userLanguage || default_
 }
 

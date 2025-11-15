@@ -18,30 +18,31 @@ const platforms = [
 // example: {% mac %} block content {% endmac %}
 function showPlatformSpecificContent(platform: string) {
   const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
-  markdowns
-    .filter((el) => platforms.some((platform) => el.classList.contains(platform.value)))
-    .forEach((el) => {
-      el.style.display = el.classList.contains(platform) ? '' : 'none'
+  const platformMarkdowns = markdowns.filter((xel) =>
+    platforms.some((platformValue) => xel.classList.contains(platformValue.value)),
+  )
+  for (const el of platformMarkdowns) {
+    el.style.display = el.classList.contains(platform) ? '' : 'none'
 
-      // hack: special handling for minitoc links -- we can't pass the tool classes
-      // directly to the Primer NavList.Item generated <li>, it gets passed down
-      // to the child <a>.  So if we find an <a> that has the tool class and its
-      // parent is an <li>, we hide/unhide that element as well.
-      if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
-        el.parentElement.style.display = el.classList.contains(platform) ? '' : 'none'
-      }
-    })
+    // hack: special handling for minitoc links -- we can't pass the tool classes
+    // directly to the Primer NavList.Item generated <li>, it gets passed down
+    // to the child <a>.  So if we find an <a> that has the tool class and its
+    // parent is an <li>, we hide/unhide that element as well.
+    if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
+      el.parentElement.style.display = el.classList.contains(platform) ? '' : 'none'
+    }
+  }
 
   // find all platform-specific *inline* elements and hide or show as appropriate
   // example: <span class="platform-mac">inline content</span>
   const platformEls = Array.from(
     document.querySelectorAll<HTMLElement>(
-      platforms.map((platform) => `.platform-${platform.value}`).join(', '),
+      platforms.map((platformOption) => `.platform-${platformOption.value}`).join(', '),
     ),
   )
-  platformEls.forEach((el) => {
+  for (const el of platformEls) {
     el.style.display = el.classList.contains(`platform-${platform}`) ? '' : 'none'
-  })
+  }
 }
 
 export const PlatformPicker = () => {

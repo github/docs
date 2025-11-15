@@ -1192,6 +1192,48 @@
       ]
     },
     {
+      "name": "addBlockedBy",
+      "kind": "mutations",
+      "id": "addblockedby",
+      "href": "/graphql/reference/mutations#addblockedby",
+      "description": "<p>Adds a 'blocked by' relationship to an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddBlockedByInput!",
+          "id": "addblockedbyinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addblockedbyinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "blockingIssue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue that is blocking the given issue.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The issue that is blocked.</p>"
+        }
+      ]
+    },
+    {
       "name": "addComment",
       "kind": "mutations",
       "id": "addcomment",
@@ -5844,6 +5886,48 @@
       ]
     },
     {
+      "name": "removeBlockedBy",
+      "kind": "mutations",
+      "id": "removeblockedby",
+      "href": "/graphql/reference/mutations#removeblockedby",
+      "description": "<p>Removes a 'blocked by' relationship from an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveBlockedByInput!",
+          "id": "removeblockedbyinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#removeblockedbyinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "blockingIssue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The previously blocking issue.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The previously blocked issue.</p>"
+        }
+      ]
+    },
+    {
       "name": "removeEnterpriseAdmin",
       "kind": "mutations",
       "id": "removeenterpriseadmin",
@@ -5940,7 +6024,7 @@
       "kind": "mutations",
       "id": "removeenterprisemember",
       "href": "/graphql/reference/mutations#removeenterprisemember",
-      "description": "<p>Removes a user from all organizations within the enterprise.</p>",
+      "description": "<p>Completely removes a user from the enterprise.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -10309,6 +10393,67 @@
       ]
     },
     {
+      "name": "AddedToProjectV2Event",
+      "kind": "objects",
+      "id": "addedtoprojectv2event",
+      "href": "/graphql/reference/objects#addedtoprojectv2event",
+      "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the AddedToProjectV2Event object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "AnnouncementBanner",
       "kind": "objects",
       "id": "announcementbanner",
@@ -11446,6 +11591,198 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "BlockedByAddedEvent",
+      "kind": "objects",
+      "id": "blockedbyaddedevent",
+      "href": "/graphql/reference/objects#blockedbyaddedevent",
+      "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockingIssue",
+          "description": "<p>The blocking issue that was added.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockedByAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "BlockedByRemovedEvent",
+      "kind": "objects",
+      "id": "blockedbyremovedevent",
+      "href": "/graphql/reference/objects#blockedbyremovedevent",
+      "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockingIssue",
+          "description": "<p>The blocking issue that was removed.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockedByRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "BlockingAddedEvent",
+      "kind": "objects",
+      "id": "blockingaddedevent",
+      "href": "/graphql/reference/objects#blockingaddedevent",
+      "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockedIssue",
+          "description": "<p>The blocked issue that was added.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockingAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "BlockingRemovedEvent",
+      "kind": "objects",
+      "id": "blockingremovedevent",
+      "href": "/graphql/reference/objects#blockingremovedevent",
+      "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "blockedIssue",
+          "description": "<p>The blocked issue that was removed.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the BlockingRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -13830,9 +14167,7 @@
           "type": "IssueStateReason",
           "id": "issuestatereason",
           "kind": "enums",
-          "href": "/graphql/reference/enums#issuestatereason",
-          "isDeprecated": true,
-          "deprecationReason": "<p>The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.</p>"
+          "href": "/graphql/reference/enums#issuestatereason"
         },
         {
           "name": "url",
@@ -15262,6 +15597,14 @@
         {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -17027,6 +17370,67 @@
       ]
     },
     {
+      "name": "ConvertedFromDraftEvent",
+      "kind": "objects",
+      "id": "convertedfromdraftevent",
+      "href": "/graphql/reference/objects#convertedfromdraftevent",
+      "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ConvertedFromDraftEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "ConvertedNoteToIssueEvent",
       "kind": "objects",
       "id": "convertednotetoissueevent",
@@ -17147,6 +17551,31 @@
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
+      "name": "CopilotCodeReviewParameters",
+      "kind": "objects",
+      "id": "copilotcodereviewparameters",
+      "href": "/graphql/reference/objects#copilotcodereviewparameters",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+      "fields": [
+        {
+          "name": "reviewDraftPullRequests",
+          "description": "<p>Copilot automatically reviews draft pull requests before they are marked as ready for review.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "reviewOnPush",
+          "description": "<p>Copilot automatically reviews each new push to the pull request.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -19859,7 +20288,7 @@
         },
         {
           "name": "author",
-          "description": "<p>The actor who authored the comment.</p>",
+          "description": "<p>The actor who authored the discussion.</p>",
           "type": "Actor",
           "id": "actor",
           "kind": "interfaces",
@@ -21020,6 +21449,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -22109,6 +22546,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "securityContactEmail",
+          "description": "<p>The enterprise's security contact email address.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "slug",
@@ -27883,6 +28328,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -28961,6 +29414,126 @@
           "href": "/graphql/reference/enums#commentauthorassociation"
         },
         {
+          "name": "blockedBy",
+          "description": "<p>A list of issues that are blocking this issue.</p>",
+          "type": "IssueConnection!",
+          "id": "issueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for dependencies.</p>",
+              "type": {
+                "name": "IssueDependencyOrder",
+                "id": "issuedependencyorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuedependencyorder"
+              }
+            }
+          ]
+        },
+        {
+          "name": "blocking",
+          "description": "<p>A list of issues that this issue is blocking.</p>",
+          "type": "IssueConnection!",
+          "id": "issueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for dependencies.</p>",
+              "type": {
+                "name": "IssueDependencyOrder",
+                "id": "issuedependencyorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuedependencyorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "body",
           "description": "<p>Identifies the body of the issue.</p>",
           "type": "String!",
@@ -29259,6 +29832,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "issueDependenciesSummary",
+          "description": "<p>Summary of the state of an issue's dependencies.</p>",
+          "type": "IssueDependenciesSummary!",
+          "id": "issuedependenciessummary",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuedependenciessummary"
         },
         {
           "name": "issueType",
@@ -29813,7 +30394,7 @@
             {
               "name": "enableDuplicate",
               "defaultValue": false,
-              "description": "<p>Whether or not to return state reason for duplicates.</p>",
+              "description": "<p>Whether or not to return state reason for duplicates</p>\n<p><strong>Upcoming Change on 2025-10-01 UTC</strong>\n<strong>Description:</strong> <code>enableDuplicate</code> will be removed.\n<strong>Reason:</strong> The state reason for duplicate issue is now returned by default.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -29821,9 +30402,7 @@
                 "href": "/graphql/reference/scalars#boolean"
               }
             }
-          ],
-          "isDeprecated": true,
-          "deprecationReason": "<p>The state reason for duplicate issue is now returned by default. Removal on 2025-10-01 UTC.</p>"
+          ]
         },
         {
           "name": "subIssues",
@@ -30328,6 +30907,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanSetFields",
+          "description": "<p>Check if the current viewer can set fields on the issue.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanSubscribe",
           "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
           "type": "Boolean!",
@@ -30763,6 +31350,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanUpdate",
           "description": "<p>Check if the current viewer can update this object.</p>",
           "type": "Boolean!",
@@ -30969,6 +31564,47 @@
           "id": "repository",
           "kind": "objects",
           "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
+      "name": "IssueDependenciesSummary",
+      "kind": "objects",
+      "id": "issuedependenciessummary",
+      "href": "/graphql/reference/objects#issuedependenciessummary",
+      "description": "<p>Summary of the state of an issue's dependencies.</p>",
+      "fields": [
+        {
+          "name": "blockedBy",
+          "description": "<p>Count of issues this issue is blocked by.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "blocking",
+          "description": "<p>Count of issues this issue is blocking.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "totalBlockedBy",
+          "description": "<p>Total count of issues this issue is blocked by (open and closed).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "totalBlocking",
+          "description": "<p>Total count of issues this issue is blocking (open and closed).</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -45872,6 +46508,56 @@
       ]
     },
     {
+      "name": "OrganizationPropertyConditionTarget",
+      "kind": "objects",
+      "id": "organizationpropertyconditiontarget",
+      "href": "/graphql/reference/objects#organizationpropertyconditiontarget",
+      "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of organization properties that must not match.</p>",
+          "type": "[OrganizationPropertyTargetDefinition!]!",
+          "id": "organizationpropertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationpropertytargetdefinition"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of organization properties that must match.</p>",
+          "type": "[OrganizationPropertyTargetDefinition!]!",
+          "id": "organizationpropertytargetdefinition",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationpropertytargetdefinition"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationPropertyTargetDefinition",
+      "kind": "objects",
+      "id": "organizationpropertytargetdefinition",
+      "href": "/graphql/reference/objects#organizationpropertytargetdefinition",
+      "description": "<p>A property that must match.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "OrganizationTeamsHovercardContext",
       "kind": "objects",
       "id": "organizationteamshovercardcontext",
@@ -49185,6 +49871,17 @@
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#projectv2itemorder"
               }
+            },
+            {
+              "name": "query",
+              "defaultValue": "",
+              "description": "<p>Search query for filtering items.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
             }
           ]
         },
@@ -51107,6 +51804,83 @@
           "id": "projectv2itemfieldvalue",
           "kind": "unions",
           "href": "/graphql/reference/unions#projectv2itemfieldvalue"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ItemStatusChangedEvent",
+      "kind": "objects",
+      "id": "projectv2itemstatuschangedevent",
+      "href": "/graphql/reference/objects#projectv2itemstatuschangedevent",
+      "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the ProjectV2ItemStatusChangedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "previousStatus",
+          "description": "<p>The previous status of the project item.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "status",
+          "description": "<p>The new status of the project item.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -55360,7 +56134,7 @@
         },
         {
           "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -55405,6 +56179,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredReviewers",
+          "description": "<p>This field is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "type": "[RequiredReviewerConfiguration!]",
+          "id": "requiredreviewerconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#requiredreviewerconfiguration"
         }
       ]
     },
@@ -55906,6 +56688,14 @@
         {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -56435,6 +57225,14 @@
         {
           "name": "viewerCanReact",
           "description": "<p>Can user react to this subject.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -58713,6 +59511,14 @@
           "href": "/graphql/reference/scalars#id"
         },
         {
+          "name": "immutable",
+          "description": "<p>Whether or not the release is immutable.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "isDraft",
           "description": "<p>Whether or not the release is a draft.</p>",
           "type": "Boolean!",
@@ -59418,6 +60224,67 @@
           "href": "/graphql/reference/scalars#string",
           "isDeprecated": true,
           "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RemovedFromProjectV2Event",
+      "kind": "objects",
+      "id": "removedfromprojectv2event",
+      "href": "/graphql/reference/objects#removedfromprojectv2event",
+      "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "ProjectV2Event",
+          "id": "projectv2event",
+          "href": "/graphql/reference/interfaces#projectv2event"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the RemovedFromProjectV2Event object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -67512,6 +68379,14 @@
           "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
+          "name": "viewerCanSeeIssueFields",
+          "description": "<p>Indicates whether the current user can see issue fields in this repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "viewerCanSubscribe",
           "description": "<p>Check if the viewer is able to change their subscription status for the repository.</p>",
           "type": "Boolean!",
@@ -68529,6 +69404,14 @@
       "href": "/graphql/reference/objects#repositoryruleconditions",
       "description": "<p>Set of conditions that determine if a ruleset will evaluate.</p>",
       "fields": [
+        {
+          "name": "organizationProperty",
+          "description": "<p>Configuration for the organization_property condition.</p>",
+          "type": "OrganizationPropertyConditionTarget",
+          "id": "organizationpropertyconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationpropertyconditiontarget"
+        },
         {
           "name": "refName",
           "description": "<p>Configuration for the ref_name condition.</p>",
@@ -69951,6 +70834,39 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredReviewerConfiguration",
+      "kind": "objects",
+      "id": "requiredreviewerconfiguration",
+      "href": "/graphql/reference/objects#requiredreviewerconfiguration",
+      "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "fields": [
+        {
+          "name": "filePatterns",
+          "description": "<p>Array of file patterns. Pull requests which change matching files must be\napproved by the specified team. File patterns use fnmatch syntax.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "minimumApprovals",
+          "description": "<p>Minimum number of approvals required from the specified team. If set to zero,\nthe team will be added to the pull request but approval is optional.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "reviewerId",
+          "description": "<p>Node ID of the team which must review changes to matching files.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -78908,6 +79824,11 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "Agentic",
+          "id": "agentic",
+          "href": "/graphql/reference/interfaces#agentic"
+        },
+        {
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
@@ -82037,6 +82958,30 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "viewerIsFollowing",
           "description": "<p>Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.</p>",
           "type": "Boolean!",
@@ -83931,6 +84876,39 @@
       ]
     },
     {
+      "name": "Agentic",
+      "kind": "interfaces",
+      "id": "agentic",
+      "href": "/graphql/reference/interfaces#agentic",
+      "description": "<p>Copilot Agentic fields in context of the current viewer.</p>",
+      "fields": [
+        {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "Assignable",
       "kind": "interfaces",
       "id": "assignable",
@@ -85002,6 +85980,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanUnminimize",
+          "description": "<p>Check if the current viewer can unminimize this object.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -85582,6 +86568,31 @@
           "href": "/graphql/reference/scalars#boolean",
           "isDeprecated": true,
           "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Event",
+      "kind": "interfaces",
+      "id": "projectv2event",
+      "href": "/graphql/reference/interfaces#projectv2event",
+      "description": "<p>Represents an event related to a project on the timeline of an issue or pull request.</p>",
+      "fields": [
+        {
+          "name": "project",
+          "description": "<p>Project referenced by event.</p>",
+          "type": "ProjectV2",
+          "id": "projectv2",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2"
+        },
+        {
+          "name": "wasAutomated",
+          "description": "<p>Did this event result from workflow automation?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -89288,6 +90299,23 @@
       ]
     },
     {
+      "name": "IssueDependencyOrderField",
+      "kind": "enums",
+      "id": "issuedependencyorderfield",
+      "href": "/graphql/reference/enums#issuedependencyorderfield",
+      "description": "<p>Properties by which issue dependencies can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order issue dependencies by the creation time of the dependent issue.</p>"
+        },
+        {
+          "name": "DEPENDENCY_ADDED_AT",
+          "description": "<p>Order issue dependencies by time of when the dependency relationship was added.</p>"
+        }
+      ]
+    },
+    {
       "name": "IssueOrderField",
       "kind": "enums",
       "id": "issueorderfield",
@@ -89362,8 +90390,28 @@
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "ASSIGNED_EVENT",
           "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
         },
         {
           "name": "CLOSED_EVENT",
@@ -89376,6 +90424,10 @@
         {
           "name": "CONNECTED_EVENT",
           "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
@@ -89450,12 +90502,20 @@
           "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "REFERENCED_EVENT",
           "description": "<p>Represents a<code>referenced</code>event on a given <code>ReferencedSubject</code>.</p>"
         },
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
           "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
@@ -91453,6 +92513,10 @@
           "description": "<p>Represents a<code>added_to_project</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "ADDED_TO_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>added_to_project_v2</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "ASSIGNED_EVENT",
           "description": "<p>Represents an<code>assigned</code>event on any assignable object.</p>"
         },
@@ -91493,6 +92557,22 @@
           "description": "<p>Represents a<code>base_ref_force_pushed</code>event on a given pull request.</p>"
         },
         {
+          "name": "BLOCKED_BY_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKED_BY_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocked_by_removed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_ADDED_EVENT",
+          "description": "<p>Represents a<code>blocking_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "BLOCKING_REMOVED_EVENT",
+          "description": "<p>Represents a<code>blocking_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "CLOSED_EVENT",
           "description": "<p>Represents a<code>closed</code>event on any <code>Closable</code>.</p>"
         },
@@ -91503,6 +92583,10 @@
         {
           "name": "CONNECTED_EVENT",
           "description": "<p>Represents a<code>connected</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "CONVERTED_FROM_DRAFT_EVENT",
+          "description": "<p>Represents a<code>converted_from_draft</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "CONVERTED_NOTE_TO_ISSUE_EVENT",
@@ -91605,6 +92689,10 @@
           "description": "<p>Represents a<code>pinned</code>event on a given issue or pull request.</p>"
         },
         {
+          "name": "PROJECT_V2_ITEM_STATUS_CHANGED_EVENT",
+          "description": "<p>Represents a<code>project_v2_item_status_changed</code>event on a given issue or pull request.</p>"
+        },
+        {
           "name": "PULL_REQUEST_COMMIT",
           "description": "<p>Represents a Git commit part of a pull request.</p>"
         },
@@ -91639,6 +92727,10 @@
         {
           "name": "REMOVED_FROM_PROJECT_EVENT",
           "description": "<p>Represents a<code>removed_from_project</code>event on a given issue or pull request.</p>"
+        },
+        {
+          "name": "REMOVED_FROM_PROJECT_V2_EVENT",
+          "description": "<p>Represents a<code>removed_from_project_v2</code>event on a given issue or pull request.</p>"
         },
         {
           "name": "RENAMED_TITLE_EVENT",
@@ -92320,6 +93412,10 @@
           "description": "<p>Commit message pattern.</p>"
         },
         {
+          "name": "COPILOT_CODE_REVIEW",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>"
+        },
+        {
           "name": "CREATION",
           "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
         },
@@ -92429,6 +93525,10 @@
           "description": "<p>The actor can always bypass rules.</p>"
         },
         {
+          "name": "EXEMPT",
+          "description": "<p>The actor is exempt from rules without generating a pass / fail result.</p>"
+        },
+        {
           "name": "PULL_REQUEST",
           "description": "<p>The actor can only bypass rules via a pull request.</p>"
         }
@@ -92507,6 +93607,10 @@
         {
           "name": "DIRECT",
           "description": "<p>A direct dependency of your project.</p>"
+        },
+        {
+          "name": "INCONCLUSIVE",
+          "description": "<p>The relationship could not be determined.</p>"
         },
         {
           "name": "TRANSITIVE",
@@ -93900,6 +95004,10 @@
           "description": "<p>Sint Maarten (Dutch part).</p>"
         },
         {
+          "name": "SY",
+          "description": "<p>Syria.</p>"
+        },
+        {
           "name": "SZ",
           "description": "<p>Swaziland.</p>"
         },
@@ -95099,9 +96207,34 @@
           "href": "/graphql/reference/objects#addedtoprojectevent"
         },
         {
+          "name": "AddedToProjectV2Event",
+          "id": "addedtoprojectv2event",
+          "href": "/graphql/reference/objects#addedtoprojectv2event"
+        },
+        {
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
+        },
+        {
+          "name": "BlockedByAddedEvent",
+          "id": "blockedbyaddedevent",
+          "href": "/graphql/reference/objects#blockedbyaddedevent"
+        },
+        {
+          "name": "BlockedByRemovedEvent",
+          "id": "blockedbyremovedevent",
+          "href": "/graphql/reference/objects#blockedbyremovedevent"
+        },
+        {
+          "name": "BlockingAddedEvent",
+          "id": "blockingaddedevent",
+          "href": "/graphql/reference/objects#blockingaddedevent"
+        },
+        {
+          "name": "BlockingRemovedEvent",
+          "id": "blockingremovedevent",
+          "href": "/graphql/reference/objects#blockingremovedevent"
         },
         {
           "name": "ClosedEvent",
@@ -95117,6 +96250,11 @@
           "name": "ConnectedEvent",
           "id": "connectedevent",
           "href": "/graphql/reference/objects#connectedevent"
+        },
+        {
+          "name": "ConvertedFromDraftEvent",
+          "id": "convertedfromdraftevent",
+          "href": "/graphql/reference/objects#convertedfromdraftevent"
         },
         {
           "name": "ConvertedNoteToIssueEvent",
@@ -95209,6 +96347,11 @@
           "href": "/graphql/reference/objects#pinnedevent"
         },
         {
+          "name": "ProjectV2ItemStatusChangedEvent",
+          "id": "projectv2itemstatuschangedevent",
+          "href": "/graphql/reference/objects#projectv2itemstatuschangedevent"
+        },
+        {
           "name": "ReferencedEvent",
           "id": "referencedevent",
           "href": "/graphql/reference/objects#referencedevent"
@@ -95217,6 +96360,11 @@
           "name": "RemovedFromProjectEvent",
           "id": "removedfromprojectevent",
           "href": "/graphql/reference/objects#removedfromprojectevent"
+        },
+        {
+          "name": "RemovedFromProjectV2Event",
+          "id": "removedfromprojectv2event",
+          "href": "/graphql/reference/objects#removedfromprojectv2event"
         },
         {
           "name": "RenamedTitleEvent",
@@ -96041,6 +97189,11 @@
           "href": "/graphql/reference/objects#addedtoprojectevent"
         },
         {
+          "name": "AddedToProjectV2Event",
+          "id": "addedtoprojectv2event",
+          "href": "/graphql/reference/objects#addedtoprojectv2event"
+        },
+        {
           "name": "AssignedEvent",
           "id": "assignedevent",
           "href": "/graphql/reference/objects#assignedevent"
@@ -96091,6 +97244,26 @@
           "href": "/graphql/reference/objects#baserefforcepushedevent"
         },
         {
+          "name": "BlockedByAddedEvent",
+          "id": "blockedbyaddedevent",
+          "href": "/graphql/reference/objects#blockedbyaddedevent"
+        },
+        {
+          "name": "BlockedByRemovedEvent",
+          "id": "blockedbyremovedevent",
+          "href": "/graphql/reference/objects#blockedbyremovedevent"
+        },
+        {
+          "name": "BlockingAddedEvent",
+          "id": "blockingaddedevent",
+          "href": "/graphql/reference/objects#blockingaddedevent"
+        },
+        {
+          "name": "BlockingRemovedEvent",
+          "id": "blockingremovedevent",
+          "href": "/graphql/reference/objects#blockingremovedevent"
+        },
+        {
           "name": "ClosedEvent",
           "id": "closedevent",
           "href": "/graphql/reference/objects#closedevent"
@@ -96109,6 +97282,11 @@
           "name": "ConvertToDraftEvent",
           "id": "converttodraftevent",
           "href": "/graphql/reference/objects#converttodraftevent"
+        },
+        {
+          "name": "ConvertedFromDraftEvent",
+          "id": "convertedfromdraftevent",
+          "href": "/graphql/reference/objects#convertedfromdraftevent"
         },
         {
           "name": "ConvertedNoteToIssueEvent",
@@ -96231,6 +97409,11 @@
           "href": "/graphql/reference/objects#pinnedevent"
         },
         {
+          "name": "ProjectV2ItemStatusChangedEvent",
+          "id": "projectv2itemstatuschangedevent",
+          "href": "/graphql/reference/objects#projectv2itemstatuschangedevent"
+        },
+        {
           "name": "PullRequestCommit",
           "id": "pullrequestcommit",
           "href": "/graphql/reference/objects#pullrequestcommit"
@@ -96274,6 +97457,11 @@
           "name": "RemovedFromProjectEvent",
           "id": "removedfromprojectevent",
           "href": "/graphql/reference/objects#removedfromprojectevent"
+        },
+        {
+          "name": "RemovedFromProjectV2Event",
+          "id": "removedfromprojectv2event",
+          "href": "/graphql/reference/objects#removedfromprojectv2event"
         },
         {
           "name": "RenamedTitleEvent",
@@ -96532,6 +97720,11 @@
           "name": "CommitterEmailPatternParameters",
           "id": "committeremailpatternparameters",
           "href": "/graphql/reference/objects#committeremailpatternparameters"
+        },
+        {
+          "name": "CopilotCodeReviewParameters",
+          "id": "copilotcodereviewparameters",
+          "href": "/graphql/reference/objects#copilotcodereviewparameters"
         },
         {
           "name": "FileExtensionRestrictionParameters",
@@ -96978,6 +98171,41 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "AddBlockedByInput",
+      "kind": "inputObjects",
+      "id": "addblockedbyinput",
+      "href": "/graphql/reference/input-objects#addblockedbyinput",
+      "description": "<p>Autogenerated input type of AddBlockedBy.</p>",
+      "inputFields": [
+        {
+          "name": "blockingIssueId",
+          "description": "<p>The ID of the issue that blocks the given issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue to be blocked.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -99242,6 +100470,31 @@
       ]
     },
     {
+      "name": "CopilotCodeReviewParametersInput",
+      "kind": "inputObjects",
+      "id": "copilotcodereviewparametersinput",
+      "href": "/graphql/reference/input-objects#copilotcodereviewparametersinput",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+      "inputFields": [
+        {
+          "name": "reviewDraftPullRequests",
+          "description": "<p>Copilot automatically reviews draft pull requests before they are marked as ready for review.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "reviewOnPush",
+          "description": "<p>Copilot automatically reviews each new push to the pull request.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "CopyProjectV2Input",
       "kind": "inputObjects",
       "id": "copyprojectv2input",
@@ -100195,6 +101448,15 @@
         {
           "name": "projectIds",
           "description": "<p>An array of Node IDs for projects associated with this issue.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "projectV2Ids",
+          "description": "<p>An array of Node IDs for Projects V2 associated with this issue.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",
@@ -103259,6 +104521,31 @@
       ]
     },
     {
+      "name": "IssueDependencyOrder",
+      "kind": "inputObjects",
+      "id": "issuedependencyorder",
+      "href": "/graphql/reference/input-objects#issuedependencyorder",
+      "description": "<p>Ordering options issue dependencies.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order issue dependencies by.</p>",
+          "type": "IssueDependencyOrderField!",
+          "id": "issuedependencyorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuedependencyorderfield"
+        }
+      ]
+    },
+    {
       "name": "IssueFilters",
       "kind": "inputObjects",
       "id": "issuefilters",
@@ -104135,6 +105422,56 @@
       ]
     },
     {
+      "name": "OrganizationPropertyConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "organizationpropertyconditiontargetinput",
+      "href": "/graphql/reference/input-objects#organizationpropertyconditiontargetinput",
+      "description": "<p>Parameters to be used for the organization_property condition.</p>",
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of organization properties that must not match.</p>",
+          "type": "[OrganizationPropertyTargetDefinitionInput!]!",
+          "id": "organizationpropertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of organization properties that must match.</p>",
+          "type": "[OrganizationPropertyTargetDefinitionInput!]!",
+          "id": "organizationpropertytargetdefinitioninput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput"
+        }
+      ]
+    },
+    {
+      "name": "OrganizationPropertyTargetDefinitionInput",
+      "kind": "inputObjects",
+      "id": "organizationpropertytargetdefinitioninput",
+      "href": "/graphql/reference/input-objects#organizationpropertytargetdefinitioninput",
+      "description": "<p>A property that must match.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>The name of the property.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "propertyValues",
+          "description": "<p>The values to match for.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "PackageFileOrder",
       "kind": "inputObjects",
       "id": "packagefileorder",
@@ -104853,7 +106190,7 @@
         },
         {
           "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Automatically request review from Copilot for new pull requests, if the author has access to Copilot code review.</p>",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -104898,6 +106235,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredReviewers",
+          "description": "<p>This argument is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "type": "[RequiredReviewerConfigurationInput!]",
+          "id": "requiredreviewerconfigurationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput"
         }
       ]
     },
@@ -105168,6 +106513,41 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RemoveBlockedByInput",
+      "kind": "inputObjects",
+      "id": "removeblockedbyinput",
+      "href": "/graphql/reference/input-objects#removeblockedbyinput",
+      "description": "<p>Autogenerated input type of RemoveBlockedBy.</p>",
+      "inputFields": [
+        {
+          "name": "blockingIssueId",
+          "description": "<p>The ID of the blocking issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the blocked issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -105831,6 +107211,14 @@
       "description": "<p>Specifies the conditions required for a ruleset to evaluate.</p>",
       "inputFields": [
         {
+          "name": "organizationProperty",
+          "description": "<p>Configuration for the organization_property condition.</p>",
+          "type": "OrganizationPropertyConditionTargetInput",
+          "id": "organizationpropertyconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#organizationpropertyconditiontargetinput"
+        },
+        {
           "name": "refName",
           "description": "<p>Configuration for the ref_name condition.</p>",
           "type": "RefNameConditionTargetInput",
@@ -106108,6 +107496,39 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredReviewerConfigurationInput",
+      "kind": "inputObjects",
+      "id": "requiredreviewerconfigurationinput",
+      "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput",
+      "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "inputFields": [
+        {
+          "name": "filePatterns",
+          "description": "<p>Array of file patterns. Pull requests which change matching files must be\napproved by the specified team. File patterns use fnmatch syntax.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "minimumApprovals",
+          "description": "<p>Minimum number of approvals required from the specified team. If set to zero,\nthe team will be added to the pull request but approval is optional.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "reviewerId",
+          "description": "<p>Node ID of the team which must review changes to matching files.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },
@@ -106428,6 +107849,14 @@
           "id": "committeremailpatternparametersinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#committeremailpatternparametersinput"
+        },
+        {
+          "name": "copilotCodeReview",
+          "description": "<p>Parameters used for the <code>copilot_code_review</code> rule type.</p>",
+          "type": "CopilotCodeReviewParametersInput",
+          "id": "copilotcodereviewparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#copilotcodereviewparametersinput"
         },
         {
           "name": "fileExtensionRestriction",
@@ -108989,6 +110418,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "securityContactEmail",
+          "description": "<p>The security contact email address of the enterprise.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "websiteUrl",
           "description": "<p>The URL of the enterprise's website.</p>",
           "type": "String",
@@ -109968,7 +111405,7 @@
         },
         {
           "name": "iterationConfiguration",
-          "description": "<p>Configuration for an iteration field.</p>",
+          "description": "<p>Configuration for a field of type ITERATION. Empty input is ignored, provided\nvalues overwrite the existing configuration, and existing configuration should\nbe fetched for partial updates.</p>",
           "type": "ProjectV2IterationFieldConfigurationInput",
           "id": "projectv2iterationfieldconfigurationinput",
           "kind": "input-objects",
@@ -109984,7 +111421,7 @@
         },
         {
           "name": "singleSelectOptions",
-          "description": "<p>Options for a field of type SINGLE_SELECT. If empty, no changes will be made\nto the options. If values are present, they will overwrite the existing\noptions for the field.</p>",
+          "description": "<p>Options for a field of type SINGLE_SELECT. Empty input is ignored, provided\nvalues overwrite existing options, and existing options should be fetched for\npartial updates.</p>",
           "type": "[ProjectV2SingleSelectFieldOptionInput!]",
           "id": "projectv2singleselectfieldoptioninput",
           "kind": "input-objects",

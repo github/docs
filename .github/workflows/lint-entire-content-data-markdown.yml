@@ -17,13 +17,13 @@ jobs:
   lint-entire-content-data:
     name: Lint entire content and data directories
     if: github.repository == 'github/docs-internal'
-    runs-on: ubuntu-20.04-xl
+    runs-on: ubuntu-latest
     steps:
       - name: Check that gh CLI is installed
         run: gh --version
 
       - name: Check out repo's default branch
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Set up Node and dependencies
         uses: ./.github/actions/node-npm-setup
@@ -41,7 +41,7 @@ jobs:
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken content markdown report
           REPORT_REPOSITORY: github/docs-content
-        run: npm run post-lints -- --path /tmp/lint-results.json
+        run: npm run lint-report -- --path /tmp/lint-results.json
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

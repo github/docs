@@ -21,7 +21,7 @@ When you’re new to a project, it can be challenging to understand the purpose 
 
 1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
 
-1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon at the top right of the page.
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon at the top right of the page.
 1. The heading at the top of the chat panel should read "Chatting about" followed by the name of the current repository.
 
    If the wrong repository name is displayed, because you were previously chatting about another repository, click **All repositories** then choose the repository you want to chat about.
@@ -40,7 +40,7 @@ When you’re exploring a project, you might want to understand the contents of 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase)
+* [AUTOTITLE](/copilot/tutorials/using-copilot-to-explore-a-codebase)
 
 ## Next steps
 

@@ -1,13 +1,9 @@
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
+@import "src/frame/stylesheets/breakpoint-xxl.scss";
 
 .header {
   display: unset;
-}
-
-// Need children of portal root to be higher z-index to show dropdown
-.portalRoot * {
-  z-index: 3 !important;
 }
 
 // Contains the logo and version picker and used when the smaller width search
@@ -50,4 +46,18 @@
     display: flex !important;
     visibility: visible !important;
   }
+}
+
+.dialog {
+  @include breakpoint-xxl {
+    display: none;
+  }
+
+  [class*="prc-Dialog-Body"] {
+    padding: 0 !important;
+  }
+}
+
+.headerContainer {
+  row-gap: 1rem;
 }

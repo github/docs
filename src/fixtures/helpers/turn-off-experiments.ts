@@ -27,11 +27,11 @@ async function alterExperimentsInPage(
   }
   for (const experiment of getActiveExperiments('all')) {
     await page.evaluate(
-      ({ experimentKey, variation }) => {
+      ({ experimentKey, variationType }) => {
         // @ts-expect-error overrideControlGroup is a custom function added to the window object
-        window.overrideControlGroup(experimentKey, variation)
+        window.overrideControlGroup(experimentKey, variationType)
       },
-      { experimentKey: experiment.key, variation },
+      { experimentKey: experiment.key, variationType: variation },
     )
   }
 }
@@ -43,4 +43,19 @@ export function turnOffExperimentsBeforeEach(test: typeof Test) {
     await page.goto('/')
     await turnOffExperimentsInPage(page)
   })
+}
+
+export async function dismissCTAPopover(page: Page) {
+  // Set the CTA popover to permanently dismissed in localStorage
+  await page.evaluate(() => {
+    localStorage.setItem(
+      'ctaPopoverState',
+      JSON.stringify({
+        dismissedCount: 0,
+        lastDismissedAt: null,
+        permanentlyDismissed: true,
+      }),
+    )
+  })
+  await page.reload()
 }

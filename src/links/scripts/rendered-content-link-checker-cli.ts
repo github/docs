@@ -9,20 +9,20 @@ import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
 import renderedContentLinkChecker from './rendered-content-link-checker'
-import { getCoreInject, getUploadArtifactInject } from '@/links/scripts/action-injections.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
-import github from '@/workflows/github.js'
+import { getCoreInject, getUploadArtifactInject } from '@/links/scripts/action-injections'
+import { allVersions } from '@/versions/lib/all-versions'
+import github from '@/workflows/github'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
   public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
-Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
+for (const [key, value] of Object.entries(STATIC_PREFIXES)) {
   if (!fs.existsSync(value)) {
     throw new Error(`Can't find static prefix (${key}): ${value}`)
   }
-})
+}
 
 program
   .description('Analyze all checked content files, render them, and check for flaws.')

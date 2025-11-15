@@ -20,6 +20,9 @@ children:
   - /bypass-requests
   - /code-security-and-analysis
   - /custom-properties
+  - /custom-properties-for-orgs
+  - /enterprise-roles
+  - /enterprises
   - /global-webhooks
   - /ldap
   - /license
@@ -27,6 +30,7 @@ children:
   - /management-console
   - /network-configurations
   - /org-pre-receive-hooks
+  - /organization-installations
   - /orgs
   - /pre-receive-environments
   - /pre-receive-hooks

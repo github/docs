@@ -43,13 +43,21 @@ export function useMultiQueryParams() {
     const [asPathWithoutHash] = router.asPath.split('#')
     const [asPathRoot, asPathQuery = ''] = asPathWithoutHash.split('?')
     const searchParams = new URLSearchParams(asPathQuery)
-    initialKeys.forEach((key) => {
+    for (const key of initialKeys) {
       if (key === 'search-overlay-ask-ai') {
-        newParams[key] === 'true' ? searchParams.set(key, 'true') : searchParams.delete(key)
+        if (newParams[key] === 'true') {
+          searchParams.set(key, 'true')
+        } else {
+          searchParams.delete(key)
+        }
       } else {
-        newParams[key] ? searchParams.set(key, newParams[key]) : searchParams.delete(key)
+        if (newParams[key]) {
+          searchParams.set(key, newParams[key])
+        } else {
+          searchParams.delete(key)
+        }
       }
-    })
+    }
     const paramsString = searchParams.toString() ? `?${searchParams.toString()}` : ''
     let newUrl = `${asPathRoot}${paramsString}`
     if (asPathRoot !== '/' && router.locale) {

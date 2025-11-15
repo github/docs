@@ -1,9 +1,9 @@
-import fs from 'fs/promises'
+import fs from 'fs'
 import path from 'path'
-import frontmatter from '@/frame/lib/read-frontmatter.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
-import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path.js'
-import { ROOT } from '@/frame/lib/constants.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import { ROOT } from '@/frame/lib/constants'
 
 /**
  * Represents a product in the documentation
@@ -40,7 +40,7 @@ export interface ProductMap {
 
 // Both internal and external products are specified in content/index.md
 const homepage = path.posix.join(ROOT, 'content/index.md')
-export const { data } = frontmatter(await fs.readFile(homepage, 'utf8'))
+export const { data } = frontmatter(fs.readFileSync(homepage, 'utf8'))
 
 export const productIds: string[] = data?.children || []
 
@@ -53,19 +53,19 @@ for (const productId of productIds) {
 
   // Early Access may not exist in the current checkout
   try {
-    await fs.readdir(dir)
+    fs.readdirSync(dir)
   } catch {
     continue
   }
 
   const toc = path.posix.join(dir, 'index.md')
-  const fileContent = await fs.readFile(toc, 'utf8')
+  const fileContent = fs.readFileSync(toc, 'utf8')
   const { data: tocData } = frontmatter(fileContent)
   if (tocData) {
     const applicableVersions = getApplicableVersions(tocData.versions, toc)
     const href = removeFPTFromPath(path.posix.join('/', applicableVersions[0], productId))
 
-    // Note that a special middleware called `render-product-map.js` later
+    // Note that a special middleware called `render-product-map.ts` later
     // mutates this object by adding a `nameRendered` property to each product.
     // It's the outcome of rendering out possible Liquid from the
     // `shortTitle` or `title` after all the other contextualizers have run.

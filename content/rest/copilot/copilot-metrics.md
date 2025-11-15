@@ -15,12 +15,10 @@ redirect_from:
 
 You can use these endpoints to get a breakdown of aggregated metrics for various {% data variables.product.prodname_copilot %} features. The API includes:
 
-* Data for the last 28 days
+* Data for the last 100 days
 * Numbers of active users and engaged users
 * Breakdowns by language and IDE
 * The option to view metrics for an enterprise, organization, or team
-
-For help getting started, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/analyzing-usage-over-time-with-the-copilot-metrics-api).
 
 {% data reusables.copilot.metrics-api-ghecom %}
 

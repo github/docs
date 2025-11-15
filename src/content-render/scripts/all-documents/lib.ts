@@ -3,7 +3,7 @@ import type { Response } from 'express'
 import type { ExtendedRequest, Page } from '@/types'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features'
-import shortVersions from '@/versions/middleware/short-versions.js'
+import shortVersions from '@/versions/middleware/short-versions'
 
 import warmServer from '@/frame/lib/warm-server'
 
@@ -34,7 +34,7 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
 
   const site = await warmServer(options.languages)
   const pages: Page[] = site.pageList
-  const allDocuments: AllDocument[] = []
+  const allDocumentsResult: AllDocument[] = []
 
   type ByVersion = Map<string, Document[]>
   const byLanguage = new Map<string, ByVersion>()
@@ -96,8 +96,8 @@ export async function allDocuments(options: Options): Promise<AllDocument[]> {
   }
   for (const [language, byVersion] of byLanguage) {
     for (const [version, documents] of byVersion) {
-      allDocuments.push({ version, language, documents })
+      allDocumentsResult.push({ version, language, documents })
     }
   }
-  return allDocuments
+  return allDocumentsResult
 }

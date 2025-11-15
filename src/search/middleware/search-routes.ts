@@ -6,17 +6,15 @@
 // TODO: Move the routes implementations in this files to lib/routes so you can at-a-glance see all of the routes without the implementation logic
 import express, { Request, Response } from 'express'
 
-import FailBot from '@/observability/lib/failbot.js'
-import { searchCacheControl } from '@/frame/middleware/cache-control.js'
-import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
+import FailBot from '@/observability/lib/failbot'
+import { searchCacheControl } from '@/frame/middleware/cache-control'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
 import { getAISearchAutocompleteResults } from '@/search/lib/get-elasticsearch-results/ai-search-autocomplete'
 import { getSearchFromRequestParams } from '@/search/lib/search-request-params/get-search-from-request-params'
 import { getGeneralSearchResults } from '@/search/lib/get-elasticsearch-results/general-search'
 import { combinedSearchRoute } from '@/search/lib/routes/combined-search-route'
+import { handleExternalSearchAnalytics } from '@/search/lib/helpers/external-search-analytics'
 
 const router = express.Router()
 
@@ -34,6 +32,14 @@ router.get(
     if (validationErrors.length) {
       // We only send the first validation error to the user
       return res.status(400).json(validationErrors[0])
+    }
+
+    // Handle search analytics and client_name validation
+    const analyticsError = await handleExternalSearchAnalytics(req, 'general-search')
+    if (analyticsError) {
+      return res.status(analyticsError.status).json({
+        error: analyticsError.error,
+      })
     }
 
     const getResultOptions = {
@@ -64,7 +70,7 @@ router.get(
     // If no query is provided, we want to return the top 5 most popular terms
     // This is a special case for AI search autocomplete
     // So we use `force` to allow the query to be empty without the usual validation error
-    let force = {} as any
+    const force = {} as any
     if (!req.query.query) {
       force.query = ''
     }

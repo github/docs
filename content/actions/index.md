@@ -3,24 +3,21 @@ title: '{% data variables.product.prodname_actions %} documentation'
 shortTitle: '{% data variables.product.prodname_actions %}'
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:
-  overview: /actions/about-github-actions/understanding-github-actions
-  quickstart: /actions/writing-workflows/quickstart
+  overview: /actions/get-started/understand-github-actions
+  quickstart: /actions/get-started/quickstart
 featuredLinks:
   startHere:
-    - /actions/writing-workflows
-    - /actions/use-cases-and-examples
-    - /actions/concepts/overview/about-continuous-integration-with-github-actions
-    - /actions/concepts/use-cases/deploying-with-github-actions
-    - /actions/concepts/use-cases/about-packaging-with-github-actions
-    - /actions/monitoring-and-troubleshooting-workflows
+    - /actions/how-tos/write-workflows
+    - /actions/tutorials
+    - /actions/get-started/continuous-integration
+    - /packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions
   guideCards:
-    - /actions/writing-workflows/using-workflow-templates
-    - /actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-    - /actions/use-cases-and-examples/building-and-testing/building-and-testing-powershell
+    - /actions/how-tos/write-workflows/use-workflow-templates
+    - /actions/tutorials/publish-packages/publish-nodejs-packages
+    - /actions/tutorials/build-and-test-code/powershell
   popular:
-    - /actions/reference/workflow-syntax-for-github-actions
-    - /actions/writing-workflows
-    - /actions/use-cases-and-examples
+    - /actions/reference/workflows-and-actions/workflow-syntax
+    - /actions/how-tos/write-workflows
 changelog:
   label: actions
 redirect_from:
@@ -36,20 +33,10 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /about-github-actions
+  - /get-started
   - /concepts
-  - /writing-workflows
-  - /managing-workflow-runs-and-deployments
-  - /sharing-automations
-  - /monitoring-and-troubleshooting-workflows
-  - /using-github-hosted-runners
-  - /hosting-your-own-runners
-  - /security-for-github-actions
-  - /use-cases-and-examples
-  - /migrating-to-github-actions
-  - /administering-github-actions
+  - /how-tos
   - /reference
   - /tutorials
-  - /guides
 ---
 

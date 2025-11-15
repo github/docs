@@ -2,11 +2,11 @@ import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, LearningTracks } from '@/types'
 import type { Context, CurrentLearningTrack, TrackGuide } from '../lib/types'
-import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils.js'
+import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils'
 import getLinkData from '../lib/get-link-data'
-import { renderContent } from '@/content-render/index.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
-import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
+import { renderContent } from '@/content-render/index'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
+import { getDeepDataByLanguage } from '@/data-directory/lib/get-data'
 
 export default async function learningTrack(
   req: ExtendedRequest & { context: Context },
@@ -29,7 +29,10 @@ export default async function learningTrack(
   let trackProduct = req.context.currentProduct as string
   // TODO: Once getDeepDataByLanguage is ported to TS
   // a more appropriate API would be to use `getDeepDataByLanguage<LearningTracks)(...)`
-  const allLearningTracks = getDeepDataByLanguage('learning-tracks', req.language) as LearningTracks
+  const allLearningTracks = getDeepDataByLanguage(
+    'learning-tracks',
+    req.language!,
+  ) as LearningTracks
 
   if (req.language !== 'en') {
     // Don't trust the `.guides` from the translation. It too often has
@@ -172,7 +175,7 @@ async function indexOfLearningTrackGuide(
   const renderOpts = { textOnly: true }
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    let renderedGuidePath = await executeWithFallback(
+    const renderedGuidePath = await executeWithFallback(
       context,
       () => renderContent(trackGuidePaths[i], context, renderOpts),
       () => '', // todo use english trackGuidePaths[i]
