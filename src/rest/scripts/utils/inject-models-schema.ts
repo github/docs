@@ -3,6 +3,17 @@ import dereferenceJsonSchema from 'dereference-json-schema'
 import { existsSync } from 'fs'
 import { readFile, readdir } from 'fs/promises'
 
+// OpenAPI 3.0 schema interface with the properties we need to access
+// The dereference-json-schema library returns a DereferencedJSONSchema type
+// but the actual object contains OpenAPI-specific properties that aren't in that type
+interface OpenAPISchema {
+  openapi?: string
+  info?: any
+  servers?: any[]
+  paths?: Record<string, Record<string, any>>
+  [key: string]: any
+}
+
 export const MODELS_GATEWAY_ROOT = 'models-gateway'
 const MODELS_GATEWAY_PATH = 'docs/api'
 
@@ -40,14 +51,16 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
     const deferencedYaml = dereferenceJsonSchema.dereferenceSync(loadedYaml)
 
     // Copy over top-level OpenAPI fields
-    schema.openapi = schema.openapi || deferencedYaml.openapi
-    schema.info = schema.info || deferencedYaml.info
-    schema.servers = schema.servers || deferencedYaml.servers
+    // Cast to OpenAPISchema because dereference-json-schema doesn't include OpenAPI-specific properties in its type
+    const openApiYaml = deferencedYaml as OpenAPISchema
+    schema.openapi = schema.openapi || openApiYaml.openapi
+    schema.info = schema.info || openApiYaml.info
+    schema.servers = schema.servers || openApiYaml.servers
 
     // Process each path and operation in the YAML
-    for (const path of Object.keys(deferencedYaml.paths)) {
-      for (const operation of Object.keys(deferencedYaml.paths[path])) {
-        const operationObject = deferencedYaml.paths[path][operation]
+    for (const path of Object.keys(openApiYaml.paths || {})) {
+      for (const operation of Object.keys(openApiYaml.paths![path])) {
+        const operationObject = openApiYaml.paths![path][operation]
 
         // Use values from the YAML where possible
         const name = operationObject.summary || ''
@@ -64,13 +77,13 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
           tags: operationObject.tags || ['models'], // Only use 'models' if no tags present
           verb: operation,
           requestPath: path,
-          category: category,
+          category,
           subcategory: operationObject['x-github']?.subcategory || '',
           summary: name,
-          description: description,
+          description,
           'x-github': {
             ...operationObject['x-github'], // Preserve all x-github metadata
-            category: category,
+            category,
             enabledForGitHubApps: operationObject['x-github']?.enabledForGitHubApps,
             githubCloudOnly: operationObject['x-github']?.githubCloudOnly,
             permissions: operationObject['x-github']?.permissions || {},
@@ -85,8 +98,8 @@ export async function injectModelsSchema(schema: any, schemaName: string): Promi
 
         // Preserve operation-level servers if present
         // !Needed! to use models.github.ai instead of api.github.com
-        if (deferencedYaml.servers) {
-          enhancedOperation.servers = deferencedYaml.servers
+        if (openApiYaml.servers) {
+          enhancedOperation.servers = openApiYaml.servers
         }
 
         // Add the enhanced operation to the schema

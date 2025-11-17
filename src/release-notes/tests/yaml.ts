@@ -5,9 +5,9 @@ import path from 'path'
 import { beforeAll, describe, expect, test } from 'vitest'
 import yaml from 'js-yaml'
 
-import { liquid } from '@/content-render/index.js'
-import { getDataByLanguage } from '@/data-directory/lib/get-data.js'
-import { allVersions } from '@/versions/lib/all-versions.js'
+import { liquid } from '@/content-render/index'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { allVersions } from '@/versions/lib/all-versions'
 
 interface ReleaseNoteContent {
   intro: string
@@ -42,7 +42,7 @@ describe('lint enterprise release notes', () => {
       for (const key in sections) {
         const section = sections[key]
         const label = `sections.${key}`
-        section.forEach((part) => {
+        for (const part of section) {
           if (Array.isArray(part)) {
             toLint = { ...toLint, ...{ [label]: section.join('\n') } }
           } else {
@@ -53,7 +53,7 @@ describe('lint enterprise release notes', () => {
               }
             }
           }
-        })
+        }
       }
 
       // Create context with site data for rendering liquid variables

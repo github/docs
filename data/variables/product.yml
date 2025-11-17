@@ -51,6 +51,7 @@ prodname_ado2gh_cli_short: ADO2GH extension
 prodname_bbs2gh: BBS2GH
 prodname_bbs2gh_cli: BBS2GH extension of the GitHub CLI
 prodname_bbs2gh_cli_short: BBS2GH extension
+prodname_ghos: GitHub-owned blob storage
 
 # GitHub Education
 prodname_education: 'GitHub Education'
@@ -95,7 +96,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% endif %}
+  {% ifversion ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% elsif ghes < 3.19 %}2.21.4{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -148,7 +149,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% endif %}
+  {% ifversion ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% elsif ghes < 3.19 %}2.324.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -186,12 +187,18 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 prodname_GHAS: 'GitHub Advanced Security'
 prodname_GH_code_security: '{% ifversion ghas-products %}GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
 prodname_GH_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection{% else %}GitHub Advanced Security{% endif %}'
+### Useful in unversioned docs
+prodname_GH_code_security_always: 'GitHub Code Security'
+prodname_GH_secret_protection_always: 'GitHub Secret Protection'
 
 ## GHAS or GHAS products
 prodname_GHAS_or_code_security: '{% ifversion ghas-products %}GitHub Code Security or {% endif %}GitHub Advanced Security'
 prodname_GHAS_or_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection or {% endif %}GitHub Advanced Security'
 prodname_GHAS_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, or {% endif %}GitHub Advanced Security'
 prodname_GH_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection or GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+
+## GitHub Code Quality preview only
+prodname_GH_sp_cs_and_cq_or_as: '{% data variables.product.prodname_GH_secret_protection %}, {% data variables.product.prodname_GH_code_security %}{% ifversion code-quality %} and {% data variables.product.prodname_code_quality %} ({% data variables.release-phases.public_preview %}){% endif %}, or {% data variables.product.prodname_GHAS %}'
 
 ## GHAS and GHAS products
 prodname_GHAS_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, and {% endif %}GitHub Advanced Security'
@@ -233,7 +240,7 @@ prodname_learning_link: 'https://skills.github.com/'
 prodname_roadmap: 'GitHub public roadmap'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 
-# GitHub support
+# GitHub Support plans
 standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
 premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
@@ -301,6 +308,19 @@ prodname_arctic_vault: 'Arctic Code Vault'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 
+# Premium requests (used to bill products like Copilot, Spark)
+prodname_pru: 'premium request'
+prodname_prus: 'premium requests'
+prodname_prus_caps: 'Premium requests'
+
+# GitHub Spark
+prodname_spark: 'GitHub Spark'
+prodname_spark_short: 'Spark'
+
+# GitHub Code Quality
+prodname_code_quality: 'GitHub Code Quality'
+prodname_code_quality_short: 'Code Quality'
+
 # Windows
 prodname_windows_terminal: 'Windows Terminal'
 
@@ -326,6 +346,12 @@ pricing_url: 'https://github.com/pricing'
 pricing_link: '[GitHub Pricing](https://github.com/pricing)'
 raw_github_com: >-
   {% ifversion fpt or ghec %}raw.githubusercontent.com{% else %}HOSTNAME/user/repo/raw{% endif %}
+login_url: >-
+  {%- ifversion fpt or ghec %}
+  [`https://github.com/login`](https://github.com/login)
+  {%- elsif ghes %}
+  `http(s)://HOSTNAME/login`
+  {%- endif %}
 # GitHub Enterprise Server past versions
 current-340-version: '11.10.354'
 
@@ -344,3 +370,6 @@ device_authorization_url: >-
   {%- endif %}
 graphql_url: >-
   {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://HOSTNAME/api/graphql{% endif %}
+
+# OpenAI Codex
+prodname_openai_codex: 'OpenAI Codex'

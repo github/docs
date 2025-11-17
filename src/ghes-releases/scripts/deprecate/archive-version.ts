@@ -14,20 +14,19 @@ import { rimraf } from 'rimraf'
 import http from 'http'
 
 import createApp from '@/frame/lib/app'
-import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
-import { loadPageMap, loadPages } from '@/frame/lib/page-data.js'
-import { languageKeys } from '@/languages/lib/languages.js'
+import EnterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import loadRedirects from '@/redirects/lib/precompile'
+import { loadPageMap, loadPages } from '@/frame/lib/page-data'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/deprecate/rewrite-asset-paths'
+import Page from '@/frame/lib/page'
 
 const port = '4001'
 const host = `http://localhost:${port}`
 const version = EnterpriseServerReleases.oldestSupported
 const GH_PAGES_URL = `https://github.github.com/docs-ghes-${version}`
 
-// Once page-data.js is converted to TS,
-// we can import the more comprehesive type
-type PageList = Array<Object>
+type PageList = Page[]
 type MapObj = { [key: string]: string }
 
 program
@@ -64,10 +63,11 @@ main()
 async function main() {
   console.log(`Archiving Enterprise version: ${version}`)
 
-  let pageList: PageList, urls: Array<string>
+  let pageList: PageList
+  let urls: Array<string>
   if (singlePage) {
     const pageName = singlePage.trim().startsWith('/') ? singlePage.slice(1) : singlePage
-    const urls = languageKeys
+    urls = languageKeys
       .map((key) => `/${key}/enterprise-server@${version}/${pageName}`)
       .map((href) => `${host}${href}`)
     console.log(`\nScraping HTML for a single page only:\n${urls.join('\n')}\n`)
@@ -96,21 +96,23 @@ async function main() {
     .listen(port, async () => {
       console.log(`started server on ${host}`)
 
-      await scrape({
-        urls,
-        urlFilter: (url: string) => {
-          // Do not download assets from other hosts like S3 or octodex.github.com
-          // (this will keep them as remote references in the downloaded pages)
-          return url.startsWith(`http://localhost:${port}/`)
-        },
-        directory: tmpArchivalDirectory,
-        filenameGenerator: 'bySiteStructure',
-        requestConcurrency: 6,
-        plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
-      }).catch((err: Error) => {
+      try {
+        await scrape({
+          urls,
+          urlFilter: (url: string) => {
+            // Do not download assets from other hosts like S3 or octodex.github.com
+            // (this will keep them as remote references in the downloaded pages)
+            return url.startsWith(`http://localhost:${port}/`)
+          },
+          directory: tmpArchivalDirectory,
+          filenameGenerator: 'bySiteStructure',
+          requestConcurrency: 6,
+          plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
+        })
+      } catch (err) {
         console.error('scraping error')
         console.error(err)
-      })
+      }
 
       fs.renameSync(
         path.join(tmpArchivalDirectory, `/localhost_${port}`),
@@ -121,7 +123,7 @@ async function main() {
       if (!singlePage) {
         // create redirect html files to preserve frontmatter redirects
         await createRedirectsFile(pageList, path.join(tmpArchivalDirectory, version))
-        console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.js`)
+        console.log(`next step: deprecate ${version} in lib/enterprise-server-releases.ts`)
       } else {
         console.log('🏁 Scraping a single page is complete')
       }
@@ -140,7 +142,7 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
 
   const redirectEntries: Array<[string, string]> = Object.entries(redirects)
 
-  redirectEntries.forEach(([oldPath, newPath]) => {
+  for (let [oldPath, newPath] of redirectEntries) {
     // remove any liquid variables that sneak in
     oldPath = oldPath.replace('/{{ page.version }}', '').replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
@@ -150,10 +152,10 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
         oldPath.includes(`/enterprise/${version}`)
       )
     )
-      return
+      continue
 
     redirectsPerVersion[oldPath] = newPath
-  })
+  }
 
   fs.writeFileSync(
     path.join(outputDirectory, 'redirects.json'),

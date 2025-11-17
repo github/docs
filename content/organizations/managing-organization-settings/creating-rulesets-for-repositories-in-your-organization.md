@@ -1,11 +1,11 @@
 ---
 title: Creating rulesets for repositories in your organization
-intro: 'You can create a ruleset to target multiple repositories in your organization.'
+intro: You can create a ruleset to target multiple repositories in your organization.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.13'
-permissions: 'Organization owners can create rulesets at the organization level.'
+  ghes: '*'
+permissions: Organization owners can create rulesets at the organization level.
 topics:
   - Organizations
 shortTitle: Create rulesets
@@ -34,7 +34,7 @@ Forks _do_ inherit push rulesets from their root repository. {% data reusables.r
 To import one of the prebuilt rulesets by {% data variables.product.prodname_dotcom %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
 {% ifversion repo-rules-management %}
-{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).{% endif %}
+{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#importing-a-ruleset).{% endif %}
 
 ## Using `fnmatch` syntax
 

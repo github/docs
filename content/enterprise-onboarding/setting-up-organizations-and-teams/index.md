@@ -1,6 +1,6 @@
 ---
 title: Setting up organizations and teams in your enterprise
-intro: 'Learn how to add and manage organizations and teams in your enterprise.'
+intro: Add and manage organizations and teams in your enterprise.
 versions:
   ghec: '*'
 topics:
@@ -9,9 +9,13 @@ topics:
   - Set up
 shortTitle: Set up organizations and teams
 children:
+  - /best-practices
   - /setting-up-an-organization
-  - /managing-organization-members
-  - /managing-your-organizations
+  - /about-roles-in-an-enterprise
+  - /identify-role-requirements
+  - /creating-custom-roles
+  - /about-teams-in-an-enterprise
   - /creating-teams
-  - /best-practices-for-organizations-in-your-enterprise
+  - /assigning-roles-to-teams-and-users
 ---
+

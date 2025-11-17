@@ -2,7 +2,7 @@
 title: REST API endpoints for billing
 shortTitle: Billing
 allowTitleToDifferFromFilename: true
-intro: Use the REST API to get billing information for an enterprise.
+intro: Use the REST API to get billing information.
 topics:
   - API
 versions:

@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 
 // Filters out files from a list of filePaths
 // that have a type property in their frontmatter
@@ -8,7 +8,7 @@ export function checkContentType(filePaths: string[], type: string) {
   const unallowedChangedFiles = []
   for (const filePath of filePaths) {
     const { data } = matter(readFileSync(filePath, 'utf8'))
-    if (data.type === type) {
+    if (data.type === type || data.contentType === type) {
       unallowedChangedFiles.push(filePath)
     }
   }

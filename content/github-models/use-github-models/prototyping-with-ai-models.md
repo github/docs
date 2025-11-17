@@ -8,7 +8,7 @@ redirect_from:
   - /github-models/prototyping-with-ai-models
 ---
 
-If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://aka.ms/azureai/github-models) documentation.
+If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, [opt in to paid usage](/billing/managing-billing-for-your-products/about-billing-for-github-models) for your enterprise.
 
 Organization owners can integrate their preferred custom models into {% data variables.product.prodname_github_models %}, by using an organization's own LLM API keys. See [AUTOTITLE](/github-models/github-models-at-scale/set-up-custom-model-integration-models-byok).
 
@@ -271,7 +271,7 @@ For custom models accessed with your own API keys, rate limits are set and enfor
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1, o3, and gpt-5</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>1</td>
@@ -300,7 +300,7 @@ For custom models accessed with your own API keys, rate limits are set and enfor
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-mini, o3-mini, and o4-mini</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-mini, o3-mini, o4-mini, gpt-5-mini, gpt-5-nano, and gpt-5-chat</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>2</td>

@@ -1,14 +1,11 @@
-import type { NextFunction, Response, ErrorRequestHandler } from 'express'
+import type { NextFunction, Response } from 'express'
 
-import FailBot from '../lib/failbot.js'
-import { nextApp } from '@/frame/middleware/next.js'
-import {
-  setFastlySurrogateKey,
-  SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import { errorCacheControl } from '@/frame/middleware/cache-control.js'
-import statsd from '@/observability/lib/statsd.js'
-import { ExtendedRequest } from '@/types.js'
+import FailBot from '../lib/failbot'
+import { nextApp } from '@/frame/middleware/next'
+import { setFastlySurrogateKey, SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key'
+import { errorCacheControl } from '@/frame/middleware/cache-control'
+import statsd from '@/observability/lib/statsd'
+import { ExtendedRequest } from '@/types'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 
@@ -53,7 +50,7 @@ function timedOut(req: ExtendedRequest) {
   statsd.increment('middleware.timeout', 1, incrementTags)
 }
 
-const handleError: ErrorRequestHandler = async function handleError(
+async function handleError(
   error: ErrorWithCode | number,
   req: ExtendedRequest,
   res: Response,
@@ -103,9 +100,13 @@ const handleError: ErrorRequestHandler = async function handleError(
 
     // Special handling for when a middleware calls `next(404)`
     if (error === 404) {
-      // Note that if this fails, it will swallow that error.
-      nextApp.render404(req, res)
-      return
+      // Route to App Router for proper 404 handling
+      req.url = '/404'
+      res.status(404)
+      res.setHeader('x-pathname', req.path)
+      res.locals = res.locals || {}
+      res.locals.handledByAppRouter = true
+      return nextApp.getRequestHandler()(req, res)
     }
     if (typeof error === 'number') {
       throw new Error("Don't use next(xxx) where xxx is any other number than 404")
@@ -140,9 +141,9 @@ const handleError: ErrorRequestHandler = async function handleError(
       // Report to Failbot AFTER responding to the user
       await logException(error, req)
     }
-  } catch (error) {
-    console.error('An error occurred in the error handling middleware!', error)
-    next(error)
+  } catch (handlingError) {
+    console.error('An error occurred in the error handling middleware!', handlingError)
+    next(handlingError)
     return
   }
 }

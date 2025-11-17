@@ -118,9 +118,6 @@ sections:
         # https://github.com/github/releases/issues/4042
         - |
           Push rulesets are generally available. Users can block pushes to private and internal repositories, and their forks, based on file type, path, or size. Unlike pre-receive hooks, push rules are built-in, configurable via the UI or API, and support audit logs, evaluate mode, and bypass lists. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
-        # https://github.com/github/releases/issues/5128
-        - |
-          Enterprise administrators can manage rules more efficiently with the general availability of ruleset history, import, and export. Ruleset history allows tracking and rolling back changes, while import and export simplify sharing and reusing rulesets, including GitHub's ruleset-recipes. See [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
         # https://github.com/github/releases/issues/5129
         - |
           Repository administrators can easily convert a fork into a standalone repository by leaving the fork network, which stops automatic syncing with the upstream repository. This is useful for taking a project in a new direction or maintaining separate versions.
@@ -185,7 +182,7 @@ sections:
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
-      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+      When following the instructions for [Replacing the primary database node](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-database-node-mysql-or-mysql-and-mssql), `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
     - |
       Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
     - |
@@ -212,7 +209,7 @@ sections:
     - |
       In GitHub Enterprise Server 3.20, GitHub will retire the security manager API in favor of the organization roles API. See the [GitHub Blog](https://github.blog/changelog/2024-12-10-notice-of-breaking-changes-security-manager-rest-api-will-be-retired-and-replaced-with-the-organization-roles-rest-api/).
     - |
-      Microsoft Exchange Online is retiring SMTP basic authentication in September 2025. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy’s [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config).
+      Microsoft Exchange Online is retiring SMTP basic authentication during March-April 2026. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy’s [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config). [Updated: 2025-09-03]
 
   retired:
     # https://github.com/github/releases/issues/5433

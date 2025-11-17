@@ -63,16 +63,12 @@ search:
       invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
     response:
       copy_code: Copy code to clipboard
+      copy_code_lang: Copy {language} code to clipboard
       copied_code: Copied!
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
-  cta:
-    heading: Get quick answers!
-    description: Ask Copilot your question.
-    dismiss: Dismiss
-    ask_copilot: Ask Copilot
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
@@ -144,6 +140,8 @@ parameter_table:
 audit_logs:
   action: Action
   description: Description
+  fields: Fields
+  reference: Reference
 graphql:
   reference:
     implements: <code>{{ GraphQLItemTitle }}</code> Implements
@@ -258,13 +256,23 @@ footer:
   expert_services: Expert services
   blog: Blog
   machine: Some of this content may be machine- or AI-translated.
+journey_landing:
+  articles: '{{ number }} Articles'
 product_landing:
+  article_grid:
+    heading: Articles
+    all_categories: All categories
+    search_articles: Search articles
+    no_articles_found: No articles found matching your criteria.
+    showing_results: Showing {start}-{end} of {total}
+  carousel:
+    recommended: Recommended
   quickstart: Quickstart
   reference: Reference
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
-  generate_secret_risk_assessment_report_for_free: Run a point-in-time scan to assess your organization's exposure to secret leaks
+  generate_secret_risk_assessment_report_for_free: Find out how to run a free secret risk assessment
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides
@@ -312,6 +320,11 @@ learning_track_nav:
   next_guide: Next
   more_guides: More guides →
   current_progress: '{i} of {n} in learning path'
+journey_track_nav:
+  prev_article: Previous
+  next_article: Next
+  more_articles: More articles →
+  current_progress: 'Article {i} of {n}'
 scroll_button:
   scroll_to_top: Scroll to top
 popovers:
@@ -325,8 +338,14 @@ alerts:
 
 cookbook_landing:
   spotlight: Spotlight
-  explore_articles: Explore {{ number }} prompt articles
+  explore_articles: Explore {{ number }} examples
   reset_filters: Reset filters
-  search_articles: Search articles
+  search_articles: Search examples
   category: Category
   complexity: Complexity
+
+not_found:
+  title: Ooops!
+  message: It looks like this page doesn't exist.
+  contact: We track these errors automatically, but if the problem persists please feel free to contact us.
+  contact_cta: Contact support

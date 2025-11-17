@@ -2,13 +2,13 @@ import walk from 'walk-sync'
 import { existsSync, lstatSync, unlinkSync } from 'fs'
 import path from 'path'
 import { readFile, writeFile, readdir } from 'fs/promises'
-import matter from 'gray-matter'
+import matter from '@gr2m/gray-matter'
 import { rimraf } from 'rimraf'
 import { mkdirp } from 'mkdirp'
 import { difference, isEqual } from 'lodash-es'
 
-import { allVersions } from '@/versions/lib/all-versions.js'
-import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
+import { allVersions } from '@/versions/lib/all-versions'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import type { MarkdownFrontmatter } from '@/types'
 
 // Type definitions - extending existing type to add missing fields and make most fields optional
@@ -399,7 +399,9 @@ async function getIndexFileVersions(
         throw new Error(`Frontmatter in ${filepath} does not contain versions.`)
       }
       const fmVersions = getApplicableVersions(data.versions)
-      fmVersions.forEach((version: string) => versions.add(version))
+      for (const version of fmVersions) {
+        versions.add(version)
+      }
     }),
   )
   const versionArray = [...versions]
@@ -431,7 +433,7 @@ export async function convertVersionsToFrontmatter(
 
   // Currently, only GHES is numbered. Number releases have to be
   // handled differently because they use semantic versioning.
-  versions.forEach((version) => {
+  for (const version of versions) {
     const docsVersion = allVersions[version]
     if (!docsVersion.hasNumberedReleases) {
       frontmatterVersions[docsVersion.shortName] = '*'
@@ -455,10 +457,10 @@ export async function convertVersionsToFrontmatter(
         numberedReleases[docsVersion.shortName].availableReleases[i] = docsVersion.currentRelease
       }
     }
-  })
+  }
 
   // Create semantic versions for numbered releases
-  Object.keys(numberedReleases).forEach((key) => {
+  for (const key of Object.keys(numberedReleases)) {
     const availableReleases = numberedReleases[key].availableReleases
     const versionContinuity = checkVersionContinuity(availableReleases)
     if (availableReleases.every(Boolean)) {
@@ -483,7 +485,7 @@ export async function convertVersionsToFrontmatter(
       }
       frontmatterVersions[key] = semVer.join(' ')
     }
-  })
+  }
   const sortedFrontmatterVersions = Object.keys(frontmatterVersions)
     .sort()
     .reduce((acc: { [key: string]: string }, key) => {

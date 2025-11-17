@@ -4,7 +4,7 @@ import walkFiles from 'walk-sync'
 import yaml from 'js-yaml'
 
 import { isInAllGhes, isFeatureDeprecated } from '../version-utils'
-import type { MarkdownFrontmatter } from '@/types.ts'
+import type { MarkdownFrontmatter } from '@/types'
 
 const contentFiles = walkFiles('content', {
   includeBasePath: true,
@@ -102,5 +102,7 @@ function updateFeatureData() {
   }
 
   console.log('Feature files with all versions: ')
-  allFeatureFiles.forEach((file) => console.log(file))
+  for (const file of allFeatureFiles) {
+    console.log(file)
+  }
 }

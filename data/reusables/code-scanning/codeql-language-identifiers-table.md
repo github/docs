@@ -3,15 +3,17 @@
 |------------------|------------------- | ---------------
 | C/C++ | `c-cpp` | `c` or `cpp` |
 | C# | `csharp` |
+| {% ifversion code-scanning-actions-language %} |
+{% data variables.product.prodname_actions %} workflows | `actions`
+| {% endif %}
 | Go | `go` |
 | Java/Kotlin | `java-kotlin` | `java` or `kotlin` |
 | JavaScript/TypeScript | `javascript-typescript` | `javascript` or `typescript` |
 | Python | `python` |
 | Ruby | `ruby` |
-| Swift | `swift` |
-| {% ifversion code-scanning-actions-language %} |
-{% data variables.product.prodname_actions %} workflows | `actions`
+| {% ifversion codeql-rust-available %} |
+Rust | `rust`
+| {% else ifversion codeql-rust-public-preview %}
+| Rust (public preview) | `rust` |
 | {% endif %}
-
-> [!NOTE]
-> If you specify one of the alternative identifiers, this is equivalent to using the standard language identifier. For example, specifying `javascript` instead of `javascript-typescript` will not exclude analysis of TypeScript code. You can do this in an advanced setup workflow with the `--paths-ignore` option. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-directories-to-scan).
+| Swift | `swift` |

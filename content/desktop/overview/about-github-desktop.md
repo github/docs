@@ -13,7 +13,7 @@ redirect_from:
   - /get-started/using-github/github-desktop
 ---
 
-<a href="https://desktop.github.com?ref_cta=download+desktop&ref_loc=about+github+desktop&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://desktop.github.com?ref_product=desktop&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ## About {% data variables.product.prodname_desktop %}
 

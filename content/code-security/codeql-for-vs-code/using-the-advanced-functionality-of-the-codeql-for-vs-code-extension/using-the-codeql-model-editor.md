@@ -44,7 +44,7 @@ The rest of this article covers the practical aspects of modelling dependencies 
 
 1. In the "Databases" view, select the {% data variables.product.prodname_codeql %} database that you want to model from.
 
-1. In the {% data variables.product.prodname_codeql %} "Method Modeling" view, click **Start modeling** to display the model editor. Alternatively, use the {% data variables.product.prodname_vscode_command_palette_shortname %} to run the **{% data variables.product.prodname_codeql %}: Open Model Editor (Beta)** command.
+1. In the {% data variables.product.prodname_codeql %} "Method Modeling" view, click **Start modeling** to display the model editor. Alternatively, use the {% data variables.product.prodname_vscode_command_palette_shortname %} to run the **{% data variables.product.prodname_codeql %}: Open Model Editor (Beta)** command. <!-- markdownlint-disable-line outdated-release-phase-terminology --> <!-- "Beta" is in the name of the command in the VS Code extension -->
 
 1. The {% data variables.product.prodname_codeql %} model editor runs a series of telemetry queries to identify APIs in the code, and the editor is displayed in a new tab.
 

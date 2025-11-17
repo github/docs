@@ -1,8 +1,8 @@
 import type { RequestHandler, Response } from 'express'
 import express from 'express'
 
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
-import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
+import { defaultCacheControl } from '@/frame/middleware/cache-control'
+import catchMiddlewareError from '@/observability/middleware/catch-middleware-error'
 import { ExtendedRequestWithPageInfo } from '../types'
 import { pageValidationMiddleware, pathValidationMiddleware } from './validation'
 import { getArticleBody } from './article-body'
@@ -11,8 +11,8 @@ import {
   makeLanguageSurrogateKey,
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
-import statsd from '@/observability/lib/statsd.js'
+} from '@/frame/middleware/set-fastly-surrogate-key'
+import statsd from '@/observability/lib/statsd'
 
 const router = express.Router()
 
@@ -167,7 +167,7 @@ function incrementArticleLookup(
   const source =
     req.get('X-Request-Source') ||
     (req.get('Referer')
-      ? 'external-' + (new URL(req.get('Referer') || '').hostname || 'unknown')
+      ? `external-${new URL(req.get('Referer') || '').hostname || 'unknown'}`
       : 'external')
 
   const tags = [

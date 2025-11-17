@@ -1,7 +1,7 @@
 ---
-title: TODOCS
-shortTitle: TODOCS
-intro: TODOCS
+title: REST API endpoints for artifact attestations
+shortTitle: Artifact attestations
+intro: Use the REST API to interact with artifact attestations.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

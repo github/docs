@@ -23,10 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - id: membership_check
-        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
@@ -44,11 +44,23 @@ jobs:
       - name: Comment on the PR
         if: steps.membership_check.outputs.result == 'false'
         run: |
-          gh pr comment $PR --body "### Next: add the review label
+          gh pr comment $PR --body "## Requesting a review from the Docs team
 
-          **🛎️ Is this PR ready for review?** A PR is ready for a docs review _after_ the self-review checklist is complete.
+          ### 🚧 Draft PRs
 
-           When this is ready for review, add the **\`ready-for-doc-review\`** label to this PR. The PR will then be automatically added to the [Docs Content review board](https://github.com/orgs/github/projects/2936). _Please allow at least 3 working days for a review, and longer if this is a substantial change._"
+          To add the PR to the Docs Content review board, click **Ready for review** in the merge box.
+
+          ### 🚀 Non-draft PRs
+
+          The PR is **ready** and has automatically been added to the Docs Content review board. The docs team will review it as soon as possible.
+
+          ### Lead time for review
+
+          Please allow at least 3 business days for a Docs Content review.
+
+          ### Need help?
+
+          Reach out in [#docs-content](https://github-grid.enterprise.slack.com/archives/C0E9DK082) on Slack."
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

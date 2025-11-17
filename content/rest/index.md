@@ -23,7 +23,7 @@ featuredLinks:
     - /rest/guides/using-the-rest-api-to-interact-with-checks
     - /rest/using-the-rest-api/using-pagination-in-the-rest-api
 changelog:
-  label: 'api, apis'
+  label: api, apis
 layout: product-landing
 redirect_from:
   - /v3
@@ -63,6 +63,7 @@ children:
   - /deployments
   - /emojis
   - /enterprise-admin
+  - /enterprise-teams
   - /gists
   - /git
   - /gitignore
@@ -80,6 +81,7 @@ children:
   - /pages
   - /private-registries
   - /projects
+  - /projects-classic
   - /pulls
   - /rate-limit
   - /reactions

@@ -9,12 +9,12 @@ topics:
 children:
   - /quickstart
   - /what-is-github-copilot
-  - /plans-for-github-copilot
-  - /github-copilot-features
-  - /setting-up-github-copilot
-  - /best-practices-for-using-github-copilot
-  - /getting-started-with-prompts-for-copilot-chat
+  - /plans
+  - /features
+  - /best-practices
+  - /choose-enterprise-plan
+  - /achieve-company-goals
 redirect_from:
   - /copilot/about-github-copilot
+contentType: get-started
 ---
-

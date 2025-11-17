@@ -1,6 +1,6 @@
 ---
 title: Overview
-intro: 'Learn about the {% data variables.product.prodname_dotcom %} GraphQL API, previews for upcoming changes, breaking changes, and limitations. You can also use the GraphQL Explorer to interact with the API on real {% data variables.product.prodname_dotcom %} data.'
+intro: 'Learn about the {% data variables.product.prodname_dotcom %} GraphQL API, previews for upcoming changes, breaking changes, and limitations.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +10,6 @@ children:
   - /public-schema
   - /breaking-changes
   - /changelog
-  - /explorer
-  - /rate-limits-and-node-limits-for-the-graphql-api
+  - /rate-limits-and-query-limits-for-the-graphql-api
 ---
 

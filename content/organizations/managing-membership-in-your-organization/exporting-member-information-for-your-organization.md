@@ -21,7 +21,6 @@ The membership information report includes the following information.
 * Whether the user has two-factor authentication enabled
 * Whether the membership is public or private
 * Whether the user is an organization owner or member
-* Datetime of the user's last activity (such as timeline events, session updates, or access to resources via a {% data variables.product.pat_generic %} or SSH key)
 {%- ifversion ghec %}
 * Optionally, additional information that depends on the organization's configuration:
   * The user's SAML `NameID`

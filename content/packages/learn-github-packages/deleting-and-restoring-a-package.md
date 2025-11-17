@@ -98,7 +98,7 @@ To delete a specific version of a user-scoped package on {% data variables.produ
 To review who can delete a package version, see [Required permissions](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-{% data reusables.package_registry.package-settings-option %}
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.package-settings-manage-versions-menu %}
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. In the confirmation box, type the name of the package to confirm you want to delete the chosen version of it.
@@ -112,7 +112,7 @@ To delete an entire package, see [Deleting an entire organization-scoped package
 To review who can delete a package version, see [Required permissions to delete or restore a package](#required-permissions-to-delete-or-restore-a-package).
 
 {% data reusables.package_registry.package-settings-from-org-level %}
-{% data reusables.package_registry.package-settings-option %}
+1. Search for and then click the name of the package that you want to manage.
 {% data reusables.package_registry.package-settings-manage-versions-menu %}
 {% data reusables.package_registry.package-settings-delete-versions %}
 1. In the confirmation box, type the name of the package to confirm you want to delete the chosen version of it.

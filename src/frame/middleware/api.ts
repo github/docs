@@ -1,14 +1,14 @@
 import express from 'express'
 import { createProxyMiddleware } from 'http-proxy-middleware'
 
-import events from '@/events/middleware.js'
-import anchorRedirect from '@/rest/api/anchor-redirect.js'
+import events from '@/events/middleware'
+import anchorRedirect from '@/rest/api/anchor-redirect'
 import aiSearch from '@/search/middleware/ai-search'
 import aiSearchLocalProxy from '@/search/middleware/ai-search-local-proxy'
-import search from '@/search/middleware/search-routes.js'
+import search from '@/search/middleware/search-routes'
 import pageList from '@/article-api/middleware/pagelist'
 import article from '@/article-api/middleware/article'
-import webhooks from '@/webhooks/middleware/webhooks.js'
+import webhooks from '@/webhooks/middleware/webhooks'
 import { ExtendedRequest } from '@/types'
 import { noCacheControl } from './cache-control'
 
@@ -42,7 +42,7 @@ if (process.env.ELASTICSEARCH_URL) {
     createProxyMiddleware({
       target: 'https://docs.github.com',
       changeOrigin: true,
-      pathRewrite: function (path, req: ExtendedRequest) {
+      pathRewrite(path, req: ExtendedRequest) {
         return req.originalUrl
       },
     }),

@@ -1,10 +1,12 @@
-import { useRouter } from 'next/router'
 import { GlobeIcon } from '@primer/octicons-react'
+import { useRouter } from 'next/router'
 
 import { useLanguages } from '@/languages/components/LanguagesContext'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { useUserLanguage } from '@/languages/components/useUserLanguage'
-import { ActionList, ActionMenu, IconButton, Link } from '@primer/react'
+import { ActionList, ActionMenu, IconButton } from '@primer/react'
+
+import styles from './LanguagePicker.module.scss'
 
 type Props = {
   xs?: boolean
@@ -38,16 +40,16 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
   // in a "denormalized" way.
   const routerPath = router.asPath.split('#')[0]
 
-  // languageList is specifically <ActionList.Item>'s which are reused
+  // languageList is specifically ActionList items which are reused
   // for menus that behave differently at the breakpoints.
   const languageList = langs.map((lang) => (
-    <ActionList.Item
+    <ActionList.LinkItem
       key={`/${lang.code}${routerPath}`}
-      selected={lang === selectedLang}
-      as={Link}
+      as="a"
+      active={lang === selectedLang}
       lang={lang.code}
       href={`/${lang.code}${routerPath}`}
-      onSelect={() => {
+      onClick={() => {
         if (lang.code) {
           try {
             setUserLanguageCookie(lang.code)
@@ -63,7 +65,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
       }}
     >
       {lang.nativeName || lang.name}
-    </ActionList.Item>
+    </ActionList.LinkItem>
   ))
 
   // At large breakpoints, we return the full <ActionMenu> with just the languages,
@@ -79,15 +81,10 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
             <ActionMenu.Anchor>
               <ActionMenu.Button
                 variant="invisible"
-                className="color-fg-default width-full"
+                className={`color-fg-default width-full ${styles.menuButton}`}
                 aria-label={`Select language: current language is ${selectedLang.name}`}
-                sx={{
-                  height: 'auto',
-                  textAlign: 'left',
-                  'span:first-child': { display: 'inline' },
-                }}
               >
-                <span style={{ whiteSpace: 'pre-wrap' }}>{t('language_picker_label') + '\n'}</span>
+                <span className={styles.languageLabel}>{`${t('language_picker_label')}\n`}</span>
                 <span className="color-fg-muted text-normal f6">{selectedLang.name}</span>
               </ActionMenu.Button>
             </ActionMenu.Anchor>

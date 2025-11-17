@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('rendering the home page(s)', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })

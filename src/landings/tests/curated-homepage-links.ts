@@ -1,14 +1,16 @@
 import { describe, expect, test, vi } from 'vitest'
 import cheerio from 'cheerio'
 
-import { getDOM } from '@/tests/helpers/e2etest.js'
+import { getDOM } from '@/tests/helpers/e2etest'
 
 describe('curated homepage links', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   test('English', async () => {
     const $ = await getDOM('/en')
-    const $links = $('[data-testid=bump-link]')
+
+    // Update selector to find actual link elements within article list
+    const $links = $('[data-testid=article-list] a')
     expect($links.length).toBeGreaterThanOrEqual(6)
 
     // Check that each link is localized and includes a title and intro

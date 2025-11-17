@@ -5,10 +5,10 @@ import path from 'path'
 
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 import { mkdirp } from 'mkdirp'
-import matter from 'gray-matter'
-import type { FrontmatterVersions } from '@/types.js'
+import matter from '@gr2m/gray-matter'
+import type { FrontmatterVersions } from '@/types'
 
-import { updateContentDirectory } from '../lib/update-markdown.js'
+import { updateContentDirectory } from '../lib/update-markdown'
 
 // Type definitions
 type ContentItem = {
@@ -88,9 +88,9 @@ describe('automated content directory updates', () => {
     // Because of that, we need to update the content paths to use the
     // full file path.
     const contentDataFullPath: { [key: string]: ContentItem } = {}
-    Object.keys(newContentData).forEach(
-      (key: string) => (contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]),
-    )
+    for (const key of Object.keys(newContentData)) {
+      contentDataFullPath[path.join(targetDirectory, key)] = newContentData[key]
+    }
 
     // Rewrites the content directory in the operating system's
     // temp directory.

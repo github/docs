@@ -58,8 +58,6 @@ If you enable _{% data variables.product.prodname_dependabot_security_updates %}
 
 {% data reusables.dependabot.dependabot-updates-prs-and-actions %}
 
-{% ifversion dependabot-on-actions-opt-in %}{% data reusables.dependabot.dependabot-updates-and-actions %} For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).{% endif %}
-
 {% data reusables.dependabot.dependabot-actions-support %}
 
 ## About pull requests for security updates
@@ -69,8 +67,6 @@ Each pull request contains everything you need to quickly and safely review and 
 When you merge a pull request that contains a security update, the corresponding {% data variables.product.prodname_dependabot %} alert is marked as resolved for your repository. For more information about {% data variables.product.prodname_dependabot %} pull requests, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates).
 
 {% data reusables.dependabot.automated-tests-note %}
-
-{% ifversion dependabot-grouped-security-updates-config %}
 
 ## About grouped security updates
 
@@ -82,8 +78,6 @@ For security updates, {% data variables.product.prodname_dependabot %} will only
 {% data reusables.dependabot.dependabot-grouped-security-updates-order %}
 
  For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request).
-
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

@@ -18,7 +18,9 @@ shortTitle: Enterprise Cloud trial
 
 To set up a trial, you must be signed in to a personal account. If you don't have a personal account, see [AUTOTITLE](/free-pro-team@latest/get-started/start-your-journey/creating-an-account-on-github).
 
-<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/account/enterprises/new?ref_product=ghec&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+
+## About enterprise types
 
 {% data reusables.enterprise.enterprise-types %}
 
@@ -29,7 +31,7 @@ To set up a trial, you must be signed in to a personal account. If you don't hav
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.copilot.copilot_for_business %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
+* {% data variables.copilot.copilot_for_business %}
 * {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).

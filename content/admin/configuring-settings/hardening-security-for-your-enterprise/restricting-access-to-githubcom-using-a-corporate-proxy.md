@@ -7,17 +7,20 @@ versions:
   ghec: '*'
 ---
 
->[!NOTE] The header for restricting access to {% data variables.product.prodname_dotcom_the_website %} is currently in {% data variables.release-phases.public_preview %} and subject to change. Although preview releases are not typically supported by {% data variables.product.company_short %} Support (see [AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview#githubs-release-cycle)), this feature is supported by {% data variables.product.company_short %} Support while in {% data variables.release-phases.public_preview %}.
-
 If you use {% data variables.product.prodname_emus %}, you can block users on your network from authenticating to {% data variables.product.prodname_dotcom_the_website %} with accounts that are not members of your enterprise. This helps reduce the risk of your company's data being exposed to the public.
 
 To enforce this restriction, you will configure your network proxy or firewall to inject a header into your users' web and API requests to {% data variables.product.prodname_dotcom_the_website %}.
 
 This feature requires an external firewall or proxy. {% data variables.contact.github_support %} cannot assist with setup or troubleshooting for external tools such as these. For more about scope of support, see [AUTOTITLE](/support/learning-about-github-support/about-github-support#scope-of-support).
 
-## Requesting access
+## Enabling access restrictions
 
-This feature is not enabled by default. To request access, contact your account manager in {% data variables.product.github %}'s Sales team or [sign up here](https://github.com/features/preview/enterprise-access-restrictions).
+This feature is not enabled by default. An enterprise owner can enable the feature for your enterprise.
+
+{% data reusables.enterprise-accounts.access-enterprise-emu %}
+{% data reusables.enterprise-accounts.settings-tab %}
+1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
+1. In the "Enterprise access restrictions" section, select **Enable enterprise access restrictions**.
 
 ## Prerequisites
 
@@ -27,7 +30,7 @@ This feature is not enabled by default. To request access, contact your account 
 * To enforce the restriction, all traffic must flow through a proxy or firewall. The proxy or firewall must:
   * Be capable of intercepting and editing traffic, commonly called a "break and inspect" proxy
   * Support arbitrary header injection
-* {% data variables.product.company_short %} must have granted you access to this feature.
+* Your enterprise owner has enabled this feature.
 
 ## Finding the header
 
@@ -42,7 +45,7 @@ An enterprise owner can identify the correct enterprise ID to use in the header 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
-1. In the "Enterprise access restrictions" section, find the header for your enterprise. This section is only visible for enterprises with the feature enabled.
+1. In the "Enterprise access restrictions" section, find the header for your enterprise.
 
 ## Using the header
 
@@ -58,6 +61,21 @@ This will prevent people on your network from accessing these endpoints with use
 
 >[!NOTE] Access to `github.com/login` is required to create support tickets. To ensure users with support entitlements can request help, you may want to exempt these users from the restriction.
 
+## Enabling access restrictions for multiple enterprises
+
+Enterprise owners can enforce the restriction across multiple enterprise accounts.
+
+1. Enable the feature for each enterprise account. See [Enabling access restrictions](#enabling-access-restrictions).
+1. Inject a header into all traffic going to certain supported endpoints. The header is in the following format.
+
+```text
+sec-GitHub-allowed-enterprise: ENTERPRISE1-ID, ENTERPRISE2-ID, ENTERPRISE3-ID ... ENTERPRISE20-ID.
+```
+
+Enterprise owners can find the correct enterprise ID to use in the header for each of the enterprises. See [Finding the header](#finding-the-header).
+
+> [!NOTE] We currently support up to 20 unique enterprise IDs to be included in the header.
+
 ### Lifting the restriction for certain users
 
 You may want to lift the restriction for certain users who need to contribute to open source resources using a personal account, or who may need to create support tickets in case of issues. To handle this, you must configure your network to  inject the header only for users that you intend to restrict.
@@ -69,14 +87,16 @@ Options include:
 
 ## Unsupported features
 
-Because this restriction only applies to requests that are sent via a proxy that adds an enterprise header, certain {% data variables.product.github %} features do not support the restriction to block users from accessing or using their personal accounts. To block users on your  network from accessing these features, you will need to make the changes described below.
+Because this restriction only applies to requests that are sent via a proxy that adds an enterprise header, certain {% data variables.product.github %} features do not support the restriction to block users from accessing or using their personal accounts. To block users on your network from accessing these features, you will need to make the changes described below.
 
 | Feature | Associated endpoint | Notes |
 | ------- | ------------------- | ----- |
 | {% data variables.product.prodname_pages %} | `github.io` | This is generally user-generated content that cannot accept data. You may not want to restrict access. |
 | {% data variables.product.prodname_github_codespaces %} | `github.dev` | To restrict access, block the endpoint entirely. |
 | SSH access | Port 22 on {% data variables.product.prodname_dotcom_the_website %} | To restrict access, block the endpoint entirely. |
+| SSH over HTTPS        | `ssh.github.com`          | To restrict access, block the endpoint entirely. |
 | {% data variables.product.github %}-hosted runners | Various | To enforce specific routing, use Azure private networking. See [AUTOTITLE](/admin/configuring-settings/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise). |
+| Self-hosted runners | Various | To enforce specific routing, utilize a proxy server. See [AUTOTITLE](/actions/how-tos/manage-runners/self-hosted-runners/use-proxy-servers). |
 
 ### Endpoints that don't require restriction
 

@@ -1,9 +1,9 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from 'vitest'
 import nock from 'nock'
 
-import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases.js'
-import { get, getDOM } from '@/tests/helpers/e2etest.js'
-import Page from '@/frame/lib/page.js'
+import enterpriseServerReleases from '@/versions/lib/enterprise-server-releases'
+import { get, getDOM } from '@/tests/helpers/e2etest'
+import Page from '@/frame/lib/page'
 
 // The English content page's `versions:` frontmatter is the source
 // of (convenient) truth about which versions of this page is available.

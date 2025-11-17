@@ -6,7 +6,7 @@
 * Discussions at the repository level
 * Edit history of issue comments and pull request comments
 * Fork relationships between repositories (see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks))
-* {% data variables.product.prodname_actions %} secrets, variables, environments, self-hosted runners, {% data variables.actions.hosted_runner %}s, or workflow run history
+* {% data variables.product.prodname_actions %} secrets, variables, environments, self-hosted runners, {% data variables.actions.hosted_runner %}s, workflow artifacts, or workflow run history
 * GitHub Apps and GitHub App installations
 * {% data variables.large_files.product_name_short %} objects and large binaries (repositories using {% data variables.large_files.product_name_short %} are still supported, see [Limitations of {% data variables.product.prodname_importer_proper_name %}](#limitations-of-github-enterprise-importer))
 * Links from commits to pull requests that were rebase merged

@@ -1,41 +1,33 @@
+import { ValidOcticon, isValidOcticon } from './lib/octicons'
+
+// Re-export ValidOcticon and isValidOcticon for compatibility with existing imports
+export type { ValidOcticon }
+export { isValidOcticon }
+
 // Base type for all TOC items with core properties
 export type BaseTocItem = {
   fullPath: string
   title: string
-  intro?: string
+  intro?: string | null
 }
 
-// Valid octicon types that match the CookBookArticleCard component
-export type ValidOcticon =
-  | 'code'
-  | 'log'
-  | 'terminal'
-  | 'bug'
-  | 'lightbulb'
-  | 'gear'
-  | 'rocket'
-  | 'beaker'
-  | 'copilot'
-  | 'hubot'
-  | 'book'
-  | 'shield-lock'
-  | 'lock'
-
 // Extended type for child TOC items with additional metadata
+// This is recursive - children can also have their own children
 export type ChildTocItem = BaseTocItem & {
-  octicon?: ValidOcticon
-  category?: string[]
-  complexity?: string[]
-  industry?: string[]
+  octicon?: ValidOcticon | null
+  category?: string[] | null
+  complexity?: string[] | null
+  industry?: string[] | null
+  childTocItems?: ChildTocItem[]
 }
 
 // Main TOC item type that can contain children
 export type TocItem = BaseTocItem & {
   childTocItems?: ChildTocItem[]
-  octicon?: ValidOcticon
-  category?: string[]
-  complexity?: string[]
-  industry?: string[]
+  octicon?: ValidOcticon | null
+  category?: string[] | null
+  complexity?: string[] | null
+  industry?: string[] | null
 }
 
 // Type alias for article card components
@@ -54,26 +46,6 @@ export type RawTocItem = {
   childTocItems: RawTocItem[]
 }
 
-// Helper function to validate and cast octicon values
-export function isValidOcticon(octicon: string | null): octicon is ValidOcticon {
-  const validOcticons: ValidOcticon[] = [
-    'code',
-    'log',
-    'terminal',
-    'bug',
-    'lightbulb',
-    'gear',
-    'rocket',
-    'beaker',
-    'copilot',
-    'hubot',
-    'book',
-    'shield-lock',
-    'lock',
-  ]
-  return octicon !== null && validOcticons.includes(octicon as ValidOcticon)
-}
-
 // Simplified TOC item type for basic landing pages that don't need extended metadata
 export type SimpleTocItem = {
   fullPath: string
@@ -90,11 +62,11 @@ export function mapRawTocItemToTocItem(raw: RawTocItem): TocItem {
   return {
     fullPath: raw.fullPath,
     title: raw.title,
-    intro: raw.intro || undefined,
-    octicon: isValidOcticon(raw.octicon) ? raw.octicon : undefined,
-    category: raw.category || undefined,
-    complexity: raw.complexity || undefined,
-    industry: raw.industry || undefined,
+    intro: raw.intro || null,
+    octicon: isValidOcticon(raw.octicon) ? raw.octicon : null,
+    category: raw.category || null,
+    complexity: raw.complexity || null,
+    industry: raw.industry || null,
     childTocItems: raw.childTocItems?.map(mapRawTocItemToTocItem),
   }
 }
@@ -104,7 +76,7 @@ export function mapRawTocItemToSimpleTocItem(raw: RawTocItem): SimpleTocItem {
   return {
     fullPath: raw.fullPath,
     title: raw.title,
-    intro: raw.intro || undefined,
+    ...(raw.intro && { intro: raw.intro }),
     childTocItems: raw.childTocItems?.map((child) => ({
       fullPath: child.fullPath,
       title: child.title,

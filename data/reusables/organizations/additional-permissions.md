@@ -21,6 +21,13 @@ For more information, see [AUTOTITLE](/discussions).
 * Delete an issue
 * Mark an issue as a duplicate
 
+### Merge Queue
+
+* Request a solo merge
+* Jump to the front of the queue
+
+For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue).
+
 ### Pull Request
 
 * Close a pull request
@@ -59,6 +66,7 @@ For more information, see [AUTOTITLE](/discussions).
 * View {% data variables.product.prodname_secret_scanning %} results
 * Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results
 
+{%- ifversion ghec %}
 ### Actions
 
 * Manage {% data variables.product.prodname_actions %} general settings
@@ -66,3 +74,4 @@ For more information, see [AUTOTITLE](/discussions).
 * Manage secrets
 * Manage variables
 * Manage environments (including environment secrets and variables)
+{%- endif %}

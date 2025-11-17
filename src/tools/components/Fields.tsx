@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
 import { ActionList } from '@primer/react'
+import React, { ReactNode } from 'react'
+import cx from 'classnames'
 
 import { PickerItem } from './Picker'
-import { Link } from '@/frame/components/Link'
 
 import styles from './Fields.module.scss'
 
@@ -21,11 +21,11 @@ export const Fields = (fieldProps: {
         item.divider ? (
           <ActionList.Divider key={`divider${i}`} />
         ) : (
-          <ActionList.Item
-            as={Link}
+          <ActionList.LinkItem
+            as="a"
             key={item.text}
             href={item.href}
-            selected={item.selected === true}
+            active={item.selected === true}
             onSelect={() => {
               if (onSelect) onSelect(item)
               setOpen(!open)
@@ -35,17 +35,14 @@ export const Fields = (fieldProps: {
             // variant span box in front of it. To date there isn't a possibility to have
             // an ActionMenu in Primer that allow non-selection variant items with selection
             // variant items
-            className={(item.extra?.arrow || item.extra?.info) && styles.extrasDisplay}
-            sx={{
-              ':hover': {
-                textDecoration: 'none',
-                textAlign: 'left',
-              },
-            }}
+            className={cx(
+              (item.extra?.arrow || item.extra?.info) && styles.extrasDisplay,
+              styles.linkItem,
+            )}
             role={item.extra?.arrow || item.extra?.info ? 'menuitem' : 'menuitemradio'}
           >
             {renderItem ? renderItem(item) : item.text}
-          </ActionList.Item>
+          </ActionList.LinkItem>
         ),
       )}
     </ActionList>

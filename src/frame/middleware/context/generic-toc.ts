@@ -1,7 +1,25 @@
 import type { Response, NextFunction } from 'express'
 
 import type { ExtendedRequest, Context, Tree, ToC } from '@/types'
-import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree.js'
+import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree'
+
+function isNewLandingPage(currentLayoutName: string): boolean {
+  return (
+    currentLayoutName === 'category-landing' ||
+    currentLayoutName === 'bespoke-landing' ||
+    currentLayoutName === 'discovery-landing' ||
+    currentLayoutName === 'journey-landing'
+  )
+}
+
+// TODO: TEMP: This is a temporary solution to turn off/on new landing pages while we develop them.
+function isNewLandingPageFeature(req: ExtendedRequest): boolean {
+  return (
+    req.query?.feature === 'bespoke-landing' ||
+    req.query?.feature === 'journey-landing' ||
+    req.query?.feature === 'discovery-landing'
+  )
+}
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, category, and subcategory TOCs that don't have other layouts specified.
@@ -10,8 +28,9 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
   if (!req.context) throw new Error('request not contextualized')
   if (!req.context.page) return next()
   if (
+    !isNewLandingPageFeature(req) &&
     req.context.currentLayoutName !== 'default' &&
-    req.context.currentLayoutName !== 'category-landing'
+    !isNewLandingPage(req.context.currentLayoutName || '')
   )
     return next()
   // This middleware can only run on product, category, and subcategories.
@@ -87,6 +106,8 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
       recurse: isRecursive,
       renderIntros,
       includeHidden,
+      textOnly:
+        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || ''),
     })
   }
 
@@ -96,8 +117,13 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
     renderIntros = false
     req.context.genericTocNested = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
-      renderIntros: req.context.currentLayoutName === 'category-landing' ? true : false,
+      renderIntros:
+        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || '')
+          ? true
+          : false,
       includeHidden,
+      textOnly:
+        isNewLandingPageFeature(req) || isNewLandingPage(req.context.currentLayoutName || ''),
     })
   }
 
@@ -110,6 +136,7 @@ type Options = {
   recurse: boolean
   renderIntros: boolean
   includeHidden: boolean
+  textOnly: boolean
 }
 
 async function getTocItems(node: Tree, context: Context, opts: Options): Promise<ToC[]> {
@@ -122,7 +149,7 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
     node.childPages.filter(filterHidden).map(async (child) => {
       const { page } = child
       const title = await page.renderProp('rawTitle', context, { textOnly: true })
-      const octicon = page.octicon ? page.octicon : null
+      const octicon = page.octicon ?? null
       const category = page.category ? page.category : null
       const complexity = page.complexity ? page.complexity : null
       const industry = page.industry ? page.industry : null
@@ -132,18 +159,18 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
         if (page.rawIntro) {
           // The intro can contain Markdown even though it might not
           // contain any Liquid.
-          // Deliberately don't use `textOnly:true` here because we intend
-          // to display the intro, in a table of contents component,
-          // with the HTML (dangerouslySetInnerHTML).
+          // Use textOnly for new landing pages to strip HTML tags.
+          // For other pages, we intend to display the intro in a table of contents
+          // component with the HTML (dangerouslySetInnerHTML).
           intro = await page.renderProp(
             'rawIntro',
             context,
-            context.currentLayoutName === 'category-landing' ? { textOnly: true } : {},
+            opts.textOnly ? { textOnly: true } : {},
           )
         }
       }
 
-      let childTocItems = []
+      const childTocItems = []
       if (child.childPages) {
         childTocItems.push(...(await getTocItems(child, context, opts)))
       }

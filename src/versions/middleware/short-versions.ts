@@ -5,8 +5,8 @@
 // {% if ghec %}
 // {% if ghes %}
 //
-// For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.js`.
-import type { ExtendedRequest } from '@/types.js'
+// For the custom operator handling in statements like {% if ghes > 3.0 %}, see `lib/liquid-tags/if-ver.ts`.
+import type { ExtendedRequest } from '@/types'
 import type { Response, NextFunction } from 'express'
 
 export default async function shortVersions(

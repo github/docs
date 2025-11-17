@@ -1,27 +1,25 @@
 import fs from 'fs'
 import path from 'path'
 
-// eslint-disable-next-line import/named
 import { visit, Test } from 'unist-util-visit'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import yaml from 'js-yaml'
-// eslint-disable-next-line import/no-unresolved
 import { type Node, type Nodes, type Definition, type Link } from 'mdast'
 
-import frontmatter from '@/frame/lib/read-frontmatter.js'
+import frontmatter from '@/frame/lib/read-frontmatter'
 import {
   getPathWithLanguage,
   getPathWithoutLanguage,
   getPathWithoutVersion,
   getVersionStringFromPath,
-} from '@/frame/lib/path-utils.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
-import patterns from '@/frame/lib/patterns.js'
-import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-data.js'
-import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect.js'
-import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version.js'
-import { deprecated } from '@/versions/lib/enterprise-server-releases.js'
+} from '@/frame/lib/path-utils'
+import loadRedirects from '@/redirects/lib/precompile'
+import patterns from '@/frame/lib/patterns'
+import { loadUnversionedTree, loadPages, loadPageMap } from '@/frame/lib/page-data'
+import getRedirect, { splitPathByLanguage } from '@/redirects/lib/get-redirect'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import { deprecated } from '@/versions/lib/enterprise-server-releases'
 
 // That magical string that can be turned into the actual title when
 // we, at runtime, render out the links
@@ -69,7 +67,9 @@ export async function updateInternalLinks(files: string[], options = {}) {
 async function updateFile(
   file: string,
   context: {
+    // Using any because page data structures vary by page type (articles, guides, etc.)
     pages: Record<string, any>
+    // Using any because redirects can be strings or redirect objects with various properties
     redirects: any
     currentLanguage: string
     userLanguage: string
@@ -94,7 +94,9 @@ async function updateFile(
   let newContent = content
   const ast = fromMarkdown(newContent)
 
+  // Using any[] because replacements can contain various mdast node types with different structures
   const replacements: any[] = []
+  // Using any[] because warnings contain various error information depending on the issue type
   const warnings: any[] = []
 
   const newData = structuredClone(data)
@@ -104,6 +106,7 @@ async function updateFile(
 
   // This configuration determines which nested things to bother looking
   // into.
+  // Using any because frontmatter values can be strings, arrays, or nested objects
   const HAS_LINKS: Record<string, any> = {
     featuredLinks: ['gettingStarted', 'startHere', 'guideCards', 'popular'],
     introLinks: ANY,
@@ -217,8 +220,7 @@ async function updateFile(
 
       const hasQuotesAroundLink = content.includes(`"${asMarkdown}`)
 
-      // @ts-ignore
-      const xValue = node?.children?.[0]?.value
+      const xValue = (node?.children?.[0] as any)?.value
 
       if (opts.setAutotitle) {
         if (hasQuotesAroundLink) {
@@ -372,9 +374,12 @@ function linkMatcher(node: Node) {
 }
 
 function getNewFrontmatterLinkList(
+  // Using any[] because frontmatter links can be strings or objects with href/title properties
   list: any[],
   context: {
+    // Using any because page data structures vary by page type
     pages: Record<string, any>
+    // Using any because redirects can be strings or redirect objects
     redirects: any
     currentLanguage: string
     userLanguage: string
@@ -449,6 +454,7 @@ function getNewFrontmatterLinkList(
 // Try to return the line in the raw content that entry was on.
 // It's hard to know exactly because the `entry` is the result of parsing
 // the YAML, most likely, from the front
+// Using any because entry can be a string or an object with various link properties
 function findLineNumber(entry: any, rawContent: string) {
   let number = 0
   for (const line of rawContent.split(/\n/g)) {
@@ -482,6 +488,7 @@ function stripLiquid(text: string) {
   return text
 }
 
+// Using any[] for generic array comparison - works with strings, objects, etc.
 function equalArray(arr1: any[], arr2: any[]) {
   return arr1.length === arr2.length && arr1.every((item, i) => item === arr2[i])
 }
@@ -489,7 +496,9 @@ function equalArray(arr1: any[], arr2: any[]) {
 function getNewHref(
   href: string,
   context: {
+    // Using any because page data structures vary by page type
     pages: Record<string, any>
+    // Using any because redirects can be strings or redirect objects
     redirects: any
     currentLanguage: string
     userLanguage: string

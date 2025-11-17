@@ -1,10 +1,22 @@
-import statsd from '@/observability/lib/statsd.js'
-import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data.js'
-import loadRedirects from '@/redirects/lib/precompile.js'
+import statsd from '@/observability/lib/statsd'
+import { loadUnversionedTree, loadSiteTree, loadPages, loadPageMap } from './page-data'
+import loadRedirects from '@/redirects/lib/precompile'
+import { createLogger } from '@/observability/logger'
+
+const logger = createLogger(import.meta.url)
+
+type WarmServerResult = {
+  pages: Awaited<ReturnType<typeof loadPageMap>>
+  redirects: Awaited<ReturnType<typeof loadRedirects>>
+  unversionedTree: Awaited<ReturnType<typeof loadUnversionedTree>>
+  siteTree: Awaited<ReturnType<typeof loadSiteTree>>
+  pageList: Awaited<ReturnType<typeof loadPages>>
+  pageMap: Awaited<ReturnType<typeof loadPageMap>>
+}
 
 // Instrument these functions so that
 // it's wrapped in a timer that reports to Datadog
-const dog: Record<string, Function> = {
+const dog = {
   loadUnversionedTree: statsd.asyncTimer(loadUnversionedTree, 'load_unversioned_tree'),
   loadSiteTree: statsd.asyncTimer(loadSiteTree, 'load_site_tree'),
   loadPages: statsd.asyncTimer(loadPages, 'load_pages'),
@@ -14,17 +26,14 @@ const dog: Record<string, Function> = {
 }
 
 // For multiple-triggered Promise sharing
-let promisedWarmServer: any
+let promisedWarmServer: Promise<WarmServerResult> | undefined
 
-async function warmServer(languagesOnly = []) {
+async function warmServer(languagesOnly: string[] = []): Promise<WarmServerResult> {
   const startTime = Date.now()
 
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(
-      'Priming context information...',
-      languagesOnly && languagesOnly.length ? `${languagesOnly.join(',')} only` : '',
-    )
-  }
+  logger.debug(
+    `Priming context information...${languagesOnly && languagesOnly.length ? ` ${languagesOnly.join(',')} only` : ''}`,
+  )
 
   const unversionedTree = await dog.loadUnversionedTree(languagesOnly)
   const siteTree = await dog.loadSiteTree(unversionedTree, languagesOnly)
@@ -34,9 +43,7 @@ async function warmServer(languagesOnly = []) {
 
   statsd.gauge('memory_heap_used', process.memoryUsage().heapUsed, ['event:warm-server'])
 
-  if (process.env.NODE_ENV !== 'test') {
-    console.log(`Context primed in ${Date.now() - startTime} ms`)
-  }
+  logger.debug(`Context primed in ${Date.now() - startTime} ms`)
 
   return {
     pages: pageMap,
@@ -44,6 +51,7 @@ async function warmServer(languagesOnly = []) {
     unversionedTree,
     siteTree,
     pageList,
+    pageMap,
   }
 }
 

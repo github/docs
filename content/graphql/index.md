@@ -8,9 +8,8 @@ featuredLinks:
   startHere:
     - /graphql/guides/forming-calls-with-graphql
     - /graphql/guides/introduction-to-graphql
-    - /graphql/guides/using-the-explorer
+    - /graphql/guides/using-graphql-clients
   popular:
-    - /graphql/overview/explorer
     - /graphql/overview/public-schema
     - /graphql/guides/using-pagination-in-the-graphql-api
   guideCards:

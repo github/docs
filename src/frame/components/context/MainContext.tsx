@@ -3,6 +3,7 @@ import pick from 'lodash/pick'
 
 import type { BreadcrumbT } from '@/frame/components/page-header/Breadcrumbs'
 import type { FeatureFlags } from '@/frame/components/hooks/useFeatureFlags'
+import type { SidebarLink } from '@/types'
 
 export type ProductT = {
   external: boolean
@@ -21,7 +22,7 @@ export type VersionItem = {
   latestApiVersion: string
 }
 
-// This reflects what gets exported from `all-versions.js` in the
+// This reflects what gets exported from `all-versions.ts` in the
 // `allVersions` object.
 // It's necessary for TypeScript, but we don't need to write down
 // every possible key that might be present because we don't need it
@@ -54,6 +55,8 @@ export type ProductTreeNode = {
   title: string
   href: string
   childPages: Array<ProductTreeNode>
+  sidebarLink?: SidebarLink
+  layout?: string
 }
 
 type UIString = Record<string, string>
@@ -115,6 +118,7 @@ export type MainContextT = {
   page: {
     documentType: string
     type?: string
+    contentType?: string
     topics: Array<string>
     title: string
     fullTitle?: string
@@ -214,6 +218,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     (page && {
       documentType,
       type: req.context.page.type || null,
+      contentType: req.context.page.contentType || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle || null,
       topics: req.context.page.topics || [],
@@ -263,7 +268,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     error: req.context.error ? req.context.error.toString() : '',
     featureFlags: {},
-    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
+    fullUrl: `${req.protocol}://${req.hostname}${req.originalUrl}`, // does not include port for localhost
     isHomepageVersion: req.context.page?.documentType === 'homepage',
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     page: pageInfo,

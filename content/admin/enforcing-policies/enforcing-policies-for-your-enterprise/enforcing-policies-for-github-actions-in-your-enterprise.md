@@ -53,6 +53,9 @@ You can also limit the use of public actions {% ifversion actions-workflow-polic
 * **Allow all actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}:** Any action {% ifversion actions-workflow-policy %}or reusable workflow{% endif %} can be used, regardless of who authored it or where it is defined.
 * **Allow enterprise actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}:** Only actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} defined in a repository within the enterprise can be used. {% ifversion ghec %}Blocks all access to actions authored by {% data variables.product.prodname_dotcom %}, such as the [`actions/checkout`](https://github.com/actions/checkout) action.{% endif %}
 * {% data reusables.actions.policy-label-for-select-actions-workflows %}: Any action {% ifversion actions-workflow-policy %}or reusable workflow{% endif %} defined in a repository within the enterprise can be used, plus any action {% ifversion actions-workflow-policy %}or reusable workflow{% endif %} that matches criteria you specify.
+{%- ifversion actions-blocklist-sha-pinning %}
+* **Require actions to be pinned to a full-length commit SHA**: All actions must be pinned to a full-length commit SHA to be used. This includes actions from your enterprise and actions authored by {% data variables.product.github %}. {% ifversion actions-workflow-policy %}Reusable workflows can still be referenced by tag.{% endif %} For more information, see [AUTOTITLE](/actions/reference/security/secure-use#using-third-party-actions).
+{%- endif %}
 
 <span id="allowing-select-actions-and-reusable-workflows-to-run" ></span>
 
@@ -64,7 +67,7 @@ If you choose this option, actions {% ifversion actions-workflow-policy %}and re
 * **Allow Marketplace actions by verified creators:** Allows all {% data variables.product.prodname_marketplace %} actions created by verified creators, labeled with {% octicon "verified" aria-label="The verified badge" %}.{% ifversion ghes %}
 
    Only available if you have {% data variables.product.prodname_github_connect %} enabled and configured with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).{% endif %}
-* **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** Allows actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that you specify. You can specify individual actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} or entire organizations and repositories.
+* **Allow{% ifversion actions-blocklist-sha-pinning %} or block{% endif %} specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:** Allows actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that you specify. You can specify individual actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} or entire organizations and repositories.
 
 When specifying actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}, use the following syntax:
 
@@ -76,6 +79,13 @@ When specifying actions{% ifversion actions-workflow-policy %} and reusable work
 * To specify a pattern, use the wildcard character, `*`.
    * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in organizations that start with `space-org`, use `space-org*/*`.
    * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} in repositories that start with octocat, use `*/octocat**@*`.
+* To specify multiple patterns, use `,` to separate patterns.
+   * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} from the `octocat` and `octokit` organizations, use `octocat/*, octokit/*`.
+{%- ifversion actions-blocklist-sha-pinning %}
+* To block specific patterns, use the `!` prefix.
+   * To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} from the `space-org` organization, but block a specific action like `space-org/action`, use `space-org/*, !space-org/action@*`.
+   * By default, only actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} specified in the list will be allowed. To allow all actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} while also blocking specific actions, use `*, !space-org/action@*`.
+{%- endif %}
 
 Policies never restrict access to local actions on the runner filesystem (where the `uses:` path start with `./`).
 
@@ -94,6 +104,28 @@ In the "Runners" section, you can mediate these risks by disabling the use of re
 {% endif %}
 
 {% data reusables.actions.disable-selfhosted-runners-note %}
+
+## Custom images
+
+In the "Custom images" section, you can control which organizations in your enterprise are allowed to create and manage custom images with the following access policy:
+
+* **Enable for all organizations**: All organizations, including any created in the future, may use or create custom images.
+* **Enable for specific organizations**: Only selected organizations may use or create custom images.
+* **Disable for all organizations**: No organization may use or create custom images.
+
+### Custom images retention policies
+
+You can define how long custom image versions are retained and when they become inactive.
+
+* **Maximum versions per image**: Limits how many versions of each image are retained. When this limit is exceeded, the oldest unused image versions are automatically deleted.
+  * **Default**: 20 versions
+  * **Configurable range**: 1–100 versions
+* **Unused version retention**: Deletes image versions that have not been used for a specified number of days. Image versions that are assigned to a runner pool but not actively used are also considered unused.
+  * **Default**: 30 days
+  * **Configurable range**: 1–90 days
+* **Maximum version age**: Disables image versions that were created earlier than the specified number of days. Disabled image versions cannot be used by runners until the policy limit is increased.
+  * **Default**: 60 days
+  * **Configurable range**: 7–90 days
 
 ## {% ifversion ghes %}Artifact, log, and cache settings{% else %}Artifact and log retention{% endif %}
 

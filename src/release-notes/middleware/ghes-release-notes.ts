@@ -1,8 +1,8 @@
 import type { NextFunction, Response } from 'express'
 
 import { formatReleases, renderPatchNotes } from '@/release-notes/lib/release-notes-utils'
-import { all, latestStable } from '@/versions/lib/enterprise-server-releases.js'
-import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
+import { all, latestStable } from '@/versions/lib/enterprise-server-releases'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
 import { getReleaseNotes } from './get-release-notes'
 import type { Context, ExtendedRequest } from '@/types'
 
@@ -71,12 +71,10 @@ export default async function ghesReleaseNotesContext(
         // notes instead.
         enContext.ghesReleases = formatReleases(ghesReleaseNotes)
 
-        const matchedReleaseNotes = enContext.ghesReleases!.find(
-          (r) => r.version === requestedRelease,
-        )
-        if (!matchedReleaseNotes) throw new Error('Release notes not found')
-        const currentReleaseNotes = matchedReleaseNotes.patches
-        return renderPatchNotes(currentReleaseNotes, enContext)
+        const enMatchedNotes = enContext.ghesReleases!.find((r) => r.version === requestedRelease)
+        if (!enMatchedNotes) throw new Error('Release notes not found')
+        const enCurrentNotes = enMatchedNotes.patches
+        return renderPatchNotes(enCurrentNotes, enContext)
       },
     )
   } finally {
@@ -90,11 +88,11 @@ export default async function ghesReleaseNotesContext(
   req.context.latestRelease = latestStable
 
   // Add convenience props for "Supported releases" section on GHES Admin landing page (NOT release notes).
-  req.context.ghesReleases.forEach((release) => {
+  for (const release of req.context.ghesReleases) {
     release.firstPreviousRelease = all[all.findIndex((v) => v === release.version) + 1]
     release.secondPreviousRelease =
       all[all.findIndex((v) => v === release.firstPreviousRelease) + 1]
-  })
+  }
 
   return next()
 }
