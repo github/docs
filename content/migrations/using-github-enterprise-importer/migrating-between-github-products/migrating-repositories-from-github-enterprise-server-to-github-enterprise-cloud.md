@@ -252,9 +252,6 @@ You may need to allowlist {% data variables.product.company_short %}'s IP ranges
 
 ### Uploading your migration archives to {% data variables.product.prodname_ghos %}
 
-> [!NOTE]
-> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
-
 If you're using {% data variables.product.prodname_ghos %}, you will upload your archive to {% data variables.product.prodname_ghos %} using the following process:
 
 1. Create a multipart upload by submitting a POST request
@@ -412,9 +409,6 @@ For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migr
 ## Step 4: Set up blob storage
 
 ### Migrating repositories with {% data variables.product.prodname_ghos %}
-
-> [!NOTE]
-> Repository migrations with {% data variables.product.prodname_ghos %} are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 If you do not want to set up and provide {% data variables.product.prodname_importer_proper_name %} with access to a customer-owned blob storage account for storing your repository archives, you can migrate repositories using {% data variables.product.prodname_ghos %}. To do so, you must be running v1.9.0 (or higher) of {% data variables.product.prodname_gei_cli %}. {% data variables.product.prodname_ghos %} does not require additional setup and is available as an option when you run {% data variables.product.prodname_gei_cli %} commands.
 
