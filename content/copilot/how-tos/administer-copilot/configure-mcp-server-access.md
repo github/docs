@@ -283,4 +283,11 @@ For enterprises that want a dynamic and fully managed option, Azure API Center c
 1. Copy the API Center endpoint URL—this becomes your MCP registry URL.
 1. Paste this URL into the **MCP Registry URL (optional)** field in your {% data variables.product.prodname_enterprise %} or organization settings.
 
+> [!NOTE]
+> Azure API Center includes a free tier for basic API cataloging and discovery. Larger organizations may choose to use paid Azure API Management plans for higher scale and advanced governance.
+>
+> The Azure API Center URL serving the MCP Registry is the **Runtime URL** suffixed with `/workspaces/default`.
+> 
+> **Example**: https://{api-center-name}.data.{location}.azure-apicenter.ms/workspaces/default
+
 For more information, see [Register and discover remote MCP servers in your API inventory](https://learn.microsoft.com/en-us/azure/api-center/register-discover-mcp-server) in the Azure API Center Documentation.
