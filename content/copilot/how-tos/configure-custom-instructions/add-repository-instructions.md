@@ -645,6 +645,7 @@ Once prompt files are saved, their instructions will apply to the current worksp
 
 ## Further reading
 
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 * [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions)—a curated collection of examples
 
 {% endcopilotcli %}

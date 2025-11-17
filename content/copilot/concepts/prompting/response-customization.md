@@ -188,6 +188,7 @@ The following examples demonstrate how to use prompt files.
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endvscode %}
 
@@ -330,6 +331,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endjetbrains %}
 
@@ -372,6 +374,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endxcode %}
 
@@ -417,6 +420,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endeclipse %}
 
