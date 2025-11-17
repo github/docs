@@ -19,6 +19,7 @@ children:
   - /billing
   - /about-enterprise-accounts-for-copilot-business
   - /policies
+  - /mcp-management
   - /network-settings
   - /copilot-metrics
 contentType: concepts
