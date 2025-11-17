@@ -171,7 +171,7 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days. The `coooldown` option is only available for _version_ updates, not _security_ updates.
+Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days. The `cooldown` option is only available for _version_ updates, not _security_ updates.
 
 This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
 

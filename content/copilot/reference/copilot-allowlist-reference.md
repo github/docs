@@ -1,6 +1,5 @@
 ---
-title: Allowlist reference
-allowTitleToDifferFromFilename: true
+title: Copilot allowlist reference
 intro: 'Learn how to allow certain traffic through your firewall or proxy server for {% data variables.product.prodname_copilot_short %} to work as intended in your organization.'
 permissions: Proxy server maintainers or firewall maintainers
 versions:
@@ -13,6 +12,7 @@ redirect_from:
   - /copilot/reference/proxy-server-and-firewall-settings-for-copilot
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/configuring-your-proxy-server-or-firewall-for-copilot
   - /copilot/how-tos/administer/organizations/configuring-your-proxy-server-or-firewall-for-copilot
+  - /copilot/reference/allowlist-reference
 contentType: reference
 ---
 

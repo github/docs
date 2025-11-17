@@ -20,12 +20,20 @@
    ---
    ```
 
-   To apply the instructions to all files, use `applyTo: "**"`, `applyTo: "*"`, or `applyTo: "**/*"`.
+   Glob examples:
+
+   * `*` - will all match all files in the current directory.
+   * `**` or `**/*` - will all match all files in all directories.
+   * `*.py` - will match all `.py` files in the current directory.
+   * `**/*.py` - will recursively match all `.py` files in all directories.
+   * `src/*.py` - will match all `.py` files in the `src` directory. For example, `src/foo.py` and `src/bar.py` but _not_ `src/foo/bar.py`.
+   * `src/**/*.py` - will recursively match all `.py` files in the `src` directory. For example, `src/foo.py`, `src/foo/bar.py`, and `src/foo/bar/baz.py`.
+   * `**/subdir/**/*.py` - will recursively match all `.py` files in any `subdir` directory at any depth. For example, `subdir/foo.py`, `subdir/nested/bar.py`, `parent/subdir/baz.py`, and `deep/parent/subdir/nested/qux.py`, but _not_ `foo.py` at a path that does not contain a `subdir` directory.
 
 1. Optionally, to prevent the file from being used by either {% data variables.copilot.copilot_coding_agent %} or {% data variables.copilot.copilot_code-review_short %}, add the `excludeAgent` keyword to the frontmatter block. Use either `"code-review"` or `"coding-agent"`.
 
    For example, the following file will only be read by {% data variables.copilot.copilot_coding_agent %}.
-   
+
    ```markdown
    ---
    applyTo: "**"
