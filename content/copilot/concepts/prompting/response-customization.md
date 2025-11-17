@@ -183,6 +183,8 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
+For information on how to enable, create, and use prompt files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode#enabling-and-using-prompt-files).
+
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
