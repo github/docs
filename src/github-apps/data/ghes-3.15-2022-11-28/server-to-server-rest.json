@@ -1872,7 +1872,7 @@
     },
     {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "licensing",
+      "subcategory": "billing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
     },

@@ -16,6 +16,7 @@ children:
   - /admin-stats
   - /announcement
   - /audit-log
+  - /billing
   - /bypass-requests
   - /code-security-and-analysis
   - /custom-properties
@@ -24,7 +25,7 @@ children:
   - /enterprises
   - /global-webhooks
   - /ldap
-  - /licensing
+  - /license
   - /manage-ghes
   - /management-console
   - /network-configurations

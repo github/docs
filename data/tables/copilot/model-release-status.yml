@@ -105,13 +105,6 @@
   ask_mode: true
   edit_mode: true
 
-- name: 'Gemini 3 Pro'
-  provider: 'Google'
-  release_status: 'Public preview'
-  agent_mode: true
-  ask_mode: true
-  edit_mode: true
-
 # xAI models
 - name: 'Grok Code Fast 1'
   provider: 'xAI'

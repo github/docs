@@ -226,11 +226,6 @@ prodname_secret_risk_assessment_caps: 'Secret risk assessment'
 ## Azure DevOps
 prodname_ghas_azdo: 'GitHub Advanced Security for Azure DevOps'
 
-## Microsoft Defender for Cloud integration with GitHub Code Security
-prodname_microsoft_defender: 'Microsoft Defender for Cloud'
-prodname_mdc_definition: 'Microsoft Defender for Cloud (MDC)'
-prodname_mdc: 'MDC'
-
 # Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'

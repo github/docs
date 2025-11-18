@@ -238,6 +238,69 @@
         "access": "write"
       },
       {
+        "category": "billing",
+        "slug": "get-all-budgets-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/budgets",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-a-budget-by-id-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "update-a-budget-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "patch",
+        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "billing",
+        "slug": "delete-a-budget-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "delete",
+        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/premium_request/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-report-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/usage/summary",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
         "category": "orgs",
         "slug": "update-an-organization",
         "subcategory": "orgs",
@@ -986,10 +1049,37 @@
       },
       {
         "category": "billing",
+        "slug": "get-github-actions-billing-for-an-organization",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/billing/actions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
         "slug": "get-github-advanced-security-active-committers-for-an-organization",
         "subcategory": "billing",
         "verb": "get",
         "requestPath": "/orgs/{org}/settings/billing/advanced-security",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-github-packages-billing-for-an-organization",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/billing/packages",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-shared-storage-billing-for-an-organization",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/settings/billing/shared-storage",
         "additional-permissions": false,
         "access": "read"
       },
@@ -9596,6 +9686,66 @@
         "requestPath": "/user/interaction-limits",
         "additional-permissions": false,
         "access": "write"
+      }
+    ]
+  },
+  "plan": {
+    "title": "Plan",
+    "displayTitle": "User permissions for \"Plan\"",
+    "permissions": [
+      {
+        "category": "billing",
+        "slug": "get-github-actions-billing-for-a-user",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/actions",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-github-packages-billing-for-a-user",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/packages",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-premium-request-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/premium_request/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-shared-storage-billing-for-a-user",
+        "subcategory": "billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/shared-storage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage/summary",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },

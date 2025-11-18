@@ -7,11 +7,9 @@ product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: dependabot-metrics
-contentType: tutorials
 topics:
   - Code Security
   - Dependabot
-  - Code scanning
   - Organizations
   - Security
 redirect_from:
