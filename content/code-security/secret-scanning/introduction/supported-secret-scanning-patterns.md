@@ -51,19 +51,25 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
-| Provider | Token |
-|----------|:--------------------|
-|  Generic | ec_private_key |
-|  Generic | http_basic_authentication_header |
-|  Generic | http_bearer_authentication_header |
-|  Generic | mongodb_connection_string |
-|  Generic | mysql_connection_string |
-|  Generic | openssh_private_key |
-|  Generic | pgp_private_key |
-|  Generic | postgres_connection_string |
-|  Generic | rsa_private_key |
+Precision levels are estimated based on the pattern type's typical false positive rates.
 
->[!NOTE] Validity checks are not supported for non-provider patterns.
+| Provider | Token | Description | Precision |
+|:---------|:--------------------------------------|:------------|:----------|
+| Generic | ec_private_key | Elliptic Curve (EC) private keys used for cryptographic operations | High |
+| Generic | generic_private_key | Cryptographic private keys with `-----BEGIN PRIVATE KEY-----` header | High |
+| Generic | http_basic_authentication_header | HTTP Basic Authentication credentials in request headers | Medium |
+| Generic | http_bearer_authentication_header | HTTP Bearer tokens used for API authentication | Medium |
+| Generic | mongodb_connection_string | Connection strings for MongoDB databases containing credentials | High |
+| Generic | mysql_connection_string | Connection strings for MySQL databases containing credentials | High |
+| Generic | openssh_private_key | OpenSSH format private keys used for SSH authentication | High |
+| Generic | pgp_private_key | PGP (Pretty Good Privacy) private keys used for encryption and signing | High |
+| Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
+| Generic | rsa_private_key | RSA private keys used for cryptographic operations | High |
+
+`generic_private_key` support is only available on {% data variables.product.prodname_ghe_server %} from version 3.20.
+
+>[!NOTE]
+> Validity checks are **not supported** for non-provider patterns.
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 
