@@ -53,6 +53,14 @@
   xcode: true
   jetbrains: true
 
+- name: Gemini 3 Pro
+  dotcom: true
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
 - name: GPT-4.1
   dotcom: true
   vscode: true
