@@ -158,6 +158,22 @@ You can also filter the "Overview" view by properties of alerts.
 |`severity`| Display data only for alerts of a specific severity (`critical`, `high`, `medium`, or `low`).|
 |`third-party.rule`| Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for a tool developed by a third party. For example, `third-party.rule:CVE-2021-26291-maven-artifact` shows only results for the `CVE-2021-26291-maven-artifact` rule of a third-party {% data variables.product.prodname_code_scanning %} tool.|
 
+{% ifversion fpt or ghec %}
+
+## Production context filters
+
+{% data reusables.security.production-context-mdc-preview %}
+
+You can filter views of {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_code_scanning %} alerts by production context. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).
+
+| Qualifier | Description |
+| -------- | -------- |
+| `artifact-registry` or `artifact-registry-url` | Defines the name or location of the artifact registry used by the repository. For example: `artifact-registry:jfrog-artifactory` or `artifact-registry-url:my-registry.example.com`.<br><br>Uses metadata from the [Storage Record API](/rest/orgs/artifact-metadata?apiVersion=2022-11-28#create-artifact-metadata-storage-record). |
+| `has: deployment` | Limits alerts to those reported as in deployment.<br><br>Uses metadata from the [Deployment Record API](/rest/orgs/artifact-metadata?apiVersion=2022-11-28#create-artifact-deployment-record). |
+| `runtime-risk` | Limits alerts to those reported as presenting a specific type of runtime risk. For example: `runtime-risk:internet-exposed`<br><br>Uses metadata from the [Deployment Record API](/rest/orgs/artifact-metadata?apiVersion=2022-11-28#create-artifact-deployment-record). |
+
+{% endif %}
+
 ## {% data variables.product.prodname_dependabot %} alert view filters
 
 You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.

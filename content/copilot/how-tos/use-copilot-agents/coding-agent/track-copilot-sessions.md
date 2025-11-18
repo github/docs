@@ -1,8 +1,8 @@
 ---
 title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
-intro: 'You can use the agents panel or page, {% data variables.product.prodname_vscode %}, JetBrains IDEs, the {% data variables.product.prodname_cli %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+intro: 'You can use the agents panel or page, {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, the {% data variables.product.prodname_cli %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-web-copilot-agents-track-sessions&utm_medium=docs&utm_campaign=ghignite25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -91,6 +91,19 @@ To directly open agent sessions in {% data variables.product.prodname_vscode_sho
 You can see a list of your running and past agent sessions for a project in JetBrains IDEs with the {% data variables.copilot.copilot_chat %} extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=jetbrains).
 
 You can see all of {% data variables.product.prodname_copilot_short %}'s sessions by clicking the **GitHub Coding Agent Jobs** button in the sidebar or by clicking the **Open Job List** button after delegating a task to {% data variables.product.prodname_copilot_short %} from {% data variables.copilot.copilot_chat %}.
+
+For each session listed, you can see its status at a glance. Click **Open in Browser** to open the pull request in your browser, or right-click on a running job then click **Cancel Job** to cancel.
+
+{% data variables.product.prodname_copilot_short %} will also notify you when an agent job has started and finished.
+
+## Tracking sessions from Eclipse
+
+> [!NOTE]
+> {% data variables.copilot.copilot_coding_agent %} in Eclipse is in {% data variables.release-phases.public_preview %}, and subject to change.
+
+You can see a list of your running and past agent sessions for a project in Eclipse with the {% data variables.copilot.copilot_chat %} extension. See [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
+
+You can see all of {% data variables.product.prodname_copilot_short %}'s sessions by clicking **{% octicon "agent" aria-label="The Agents icon" %}** at the top right of the chat window, or by clicking the **Open Job List** button after delegating a task to {% data variables.product.prodname_copilot_short %} from {% data variables.copilot.copilot_chat %}.
 
 For each session listed, you can see its status at a glance. Click **Open in Browser** to open the pull request in your browser, or right-click on a running job then click **Cancel Job** to cancel.
 

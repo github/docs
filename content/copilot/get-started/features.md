@@ -23,7 +23,7 @@ category:
 
 Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
 
-If you use {% data variables.product.prodname_vscode_shortname %}, you can also use {% data variables.copilot.next_edit_suggestions %}, which will predict the location of the next edit you are likely to make and suggest a completion for it.
+If you use {% data variables.product.prodname_vscode_shortname %}, Xcode, and Eclipse, you can also use {% data variables.copilot.next_edit_suggestions %} ({% data variables.release-phases.public_preview %}), which will predict the location of the next edit you are likely to make and suggest a completion for it.
 
 ### {% data variables.copilot.copilot_chat_short %}
 

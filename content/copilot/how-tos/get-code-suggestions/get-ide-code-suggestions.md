@@ -13,7 +13,7 @@ defaultTool: vscode
 topics:
   - Copilot
 contentType: how-tos
-category: 
+category:
   - Author and optimize with Copilot
 ---
 
@@ -25,7 +25,7 @@ category:
 </style>
 
 <div class="button-container">
-    <a href="https://github.com/copilot?ref_product=copilot&ref_type=engagement&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
+    <a href="https://github.com/copilot?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=free&utm_source=docs-web-copilot-ide-code-suggestions&utm_medium=docs&utm_campaign=ghignite25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
         <span>Get started for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% vscode %}
@@ -523,6 +523,16 @@ If you encounter issues with code suggestions, such as conflicting or missing su
 
 You can also open an issue in the [{% data variables.product.prodname_copilot_short %} for Xcode repository](https://github.com/github/CopilotForXcode).
 
+## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes.
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion (unless you have disabled the "Accept suggestions with Tab" setting for the {% data variables.product.prodname_copilot %} for Xcode extension).
+
+An arrow in the gutter indicates an available edit suggestion. Hover over the arrow to access the edit suggestion menu, which provides keyboard shortcuts and settings options.
+
+![Screenshot of the gutter menu in Xcode. The arrow is outlined in dark orange.](/assets/images/help/copilot/xcode-advanced-code-completion-menu.png)
+
 {% endxcode %}
 
 {% eclipse %}
@@ -578,6 +588,16 @@ If you don't want to accept an entire suggestion from {% data variables.product.
 |:-----------------|:-------------------------------------|
 | macOS            | <kbd>Command</kbd>+<kbd>&rarr;</kbd> |
 | Windows or Linux | <kbd>Ctrl</kbd>+<kbd>&rarr;</kbd>    |
+
+## Navigating and accepting {% data variables.copilot.next_edit_suggestions %}
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes.
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
+
+An arrow in the gutter indicates an available edit suggestion. Hover over the arrow to access the edit suggestion menu, which provides keyboard shortcuts and settings options.
+
+![Screenshot of the gutter menu in Eclipse. The arrow is outlined in dark orange.](/assets/images/help/copilot/eclipse-advanced-code-completion-menu.png)
 
 {% endeclipse %}
 
