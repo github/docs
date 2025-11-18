@@ -2,7 +2,7 @@
 title: Viewing the Copilot usage metrics dashboard
 shortTitle: View usage and adoption
 intro: You can use the {% data variables.product.prodname_copilot_short %} usage metrics dashboard to monitor adoption and usage trends across your enterprise.
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 topics:

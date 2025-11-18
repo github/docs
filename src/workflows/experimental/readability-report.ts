@@ -94,7 +94,9 @@ Note: Requires a local server running on localhost:4000 (npm start)
   }
 
   console.log(`Analyzing readability for ${changedFiles.length} changed files:`)
-  changedFiles.forEach((file) => console.log(`  - ${file}`))
+  for (const file of changedFiles) {
+    console.log(`  - ${file}`)
+  }
 
   // Wait for server to be ready
   await waitForServer()
@@ -162,8 +164,8 @@ function getChangedContentFiles(): string[] {
   })
 }
 
-function makeURL(path: string): string {
-  return `http://localhost:4000${path}`
+function makeURL(urlPath: string): string {
+  return `http://localhost:4000${urlPath}`
 }
 
 async function waitForServer(): Promise<void> {
@@ -635,7 +637,9 @@ function generateReport(results: PageReadability[]): string {
   return report
 }
 
-main().catch((error) => {
+try {
+  await main()
+} catch (error) {
   console.error('Readability analysis failed:', error)
   process.exit(1)
-})
+}

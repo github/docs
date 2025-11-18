@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -23,7 +22,8 @@ export const journeyTracksLiquid = {
       ? params.lines.indexOf(journeyTracksLine) + 1
       : 1
 
-    fm.journeyTracks.forEach((track: any, trackIndex: number) => {
+    for (let trackIndex = 0; trackIndex < fm.journeyTracks.length; trackIndex++) {
+      const track: any = fm.journeyTracks[trackIndex]
       // Try to find the line number for this specific journey track so we can use that for the error
       // line number.  Getting the exact line number is probably more work than it's worth for this
       // particular rule.
@@ -58,7 +58,7 @@ export const journeyTracksLiquid = {
         { name: 'description', value: track.description },
       ]
 
-      properties.forEach((prop) => {
+      for (const prop of properties) {
         if (prop.value && typeof prop.value === 'string') {
           try {
             liquid.parse(prop.value)
@@ -71,10 +71,11 @@ export const journeyTracksLiquid = {
             )
           }
         }
-      })
+      }
 
       if (track.guides && Array.isArray(track.guides)) {
-        track.guides.forEach((guide: string, guideIndex: number) => {
+        for (let guideIndex = 0; guideIndex < track.guides.length; guideIndex++) {
+          const guide: string = track.guides[guideIndex]
           if (typeof guide === 'string') {
             try {
               liquid.parse(guide)
@@ -87,8 +88,8 @@ export const journeyTracksLiquid = {
               )
             }
           }
-        })
+        }
       }
-    })
+    }
   },
 }

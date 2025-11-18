@@ -10,6 +10,7 @@ redirect_from:
   - /copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot
   - /copilot/how-tos/ai-models/configuring-access-to-ai-models-in-copilot
   - /copilot/how-tos/ai-models/configure-access-to-ai-models
+  - /github-models/use-github-models/integrating-ai-models-into-your-development-workflow
 contentType: how-tos
 category: 
   - Configure Copilot

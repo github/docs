@@ -59,22 +59,22 @@ const restOperationData = new Map<
 >()
 const restOperations = new Map<string, Map<string, RestOperationData>>()
 
-Object.keys(languages).forEach((language: string) => {
+for (const language of Object.keys(languages)) {
   restOperationData.set(language, new Map())
-  Object.keys(allVersions).forEach((version: string) => {
+  for (const version of Object.keys(allVersions)) {
     // setting to undefined will allow us to perform checks
     // more easily later on
     restOperationData.get(language)!.set(version, new Map())
     if (allVersions[version].apiVersions && allVersions[version].apiVersions.length > 0) {
-      allVersions[version].apiVersions.forEach((date: string) => {
+      for (const date of allVersions[version].apiVersions) {
         restOperationData.get(language)!.get(version)!.set(date, new Map())
-      })
+      }
     } else {
       // Products that are not been calendar date versioned
       restOperationData.get(language)!.get(version)!.set(NOT_API_VERSIONED, new Map())
     }
-  })
-})
+  }
+}
 
 export const categoriesWithoutSubcategories: string[] = fs
   .readdirSync(REST_CONTENT_DIR)
@@ -120,7 +120,7 @@ export async function getRestMiniTocItems(
   category: string,
   subCategory: string,
   apiVersion: string | undefined,
-  restOperations: Operation[],
+  operations: Operation[],
   language: string,
   version: string,
   context: Context,
@@ -148,7 +148,7 @@ export async function getRestMiniTocItems(
 
   const categoryData = apiData.get(category)!
   if (!categoryData.get(subCategory)) {
-    const titles = restOperations.map((operation: Operation) => operation.title)
+    const titles = operations.map((operation: Operation) => operation.title)
     const restOperationsMiniTocItems = await getAutomatedPageMiniTocItems(titles, context, 3)
     categoryData.set(subCategory, {
       restOperationsMiniTocItems,

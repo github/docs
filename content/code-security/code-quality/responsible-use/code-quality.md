@@ -1,8 +1,7 @@
 ---
 title: Responsible use of GitHub Code Quality
 shortTitle: Code quality
-intro: 'Learn how to use {% data variables.product.prodname_code_quality %} responsibly by understanding its purposes, capabilities, and limitations.'
-product: '{% data reusables.gated-features.code-quality-availability %}'
+intro: 'Use {% data variables.product.prodname_code_quality %} responsibly by understanding its purposes, capabilities, and limitations.'
 versions:
   feature: code-quality
 topics:

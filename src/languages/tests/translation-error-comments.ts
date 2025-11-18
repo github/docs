@@ -320,8 +320,8 @@ describe('Translation Error Comments', () => {
         }
 
         // Mock renderContent to simulate error for Japanese, success for English
-        mockRenderContent.mockImplementation((template: string, context: any) => {
-          if (context.currentLanguage !== 'en' && template.includes('badtag')) {
+        mockRenderContent.mockImplementation((template: string, innerContext: any) => {
+          if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
             const error = new Error("Unknown tag 'badtag'")
             error.name = 'ParseError'
             ;(error as any).token = {
@@ -330,7 +330,7 @@ describe('Translation Error Comments', () => {
             }
             throw error
           }
-          return context.currentLanguage === 'en' ? 'English Title' : template
+          return innerContext.currentLanguage === 'en' ? 'English Title' : template
         })
 
         const result = await renderContentWithFallback(mockPage, 'rawTitle', context)
@@ -357,8 +357,8 @@ describe('Translation Error Comments', () => {
           },
         }
 
-        mockRenderContent.mockImplementation((template: string, context: any) => {
-          if (context.currentLanguage !== 'en' && template.includes('badtag')) {
+        mockRenderContent.mockImplementation((template: string, innerContext: any) => {
+          if (innerContext.currentLanguage !== 'en' && template.includes('badtag')) {
             const error = new Error("Unknown tag 'badtag'")
             error.name = 'ParseError'
             throw error

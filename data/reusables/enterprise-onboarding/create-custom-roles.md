@@ -10,10 +10,7 @@ Custom roles are sets of permissions for settings and resources that you can ass
 
 Enterprise custom roles grant access to a subset of enterprise settings, such as viewing audit logs and creating organizations. {% data variables.product.github %} plans to expand the list of available permissions over time.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-1. In the left sidebar, click **{% octicon "globe" aria-hidden="true" aria-label="globe" %} Enterprise roles**, then click **Role management**.
-1. Click **Create custom role**.
+{% data reusables.enterprise-accounts.start-creating-custom-role %}
 1. Enter the details, then click **Create role**.
 
 {% endif %}

@@ -133,11 +133,11 @@ describe('renderContent', () => {
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
 
-    ;[1, 2, 3, 4, 5].forEach((level) => {
+    for (const level of [1, 2, 3, 4, 5]) {
       expect(
         $(`h${level}#this-is-a-level-${level} a[href="#this-is-a-level-${level}"]`).length,
       ).toBe(1)
-    })
+    }
   })
 
   test('does syntax highlighting', async () => {

@@ -46,6 +46,27 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'GPT-5.1'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+- name: 'GPT-5.1-Codex-Mini'
+  provider: 'OpenAI'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 # Anthropic models
 - name: 'Claude Haiku 4.5'
   provider: 'Anthropic'
@@ -58,13 +79,6 @@
   provider: 'Anthropic'
   release_status: 'GA'
   agent_mode: false
-  ask_mode: true
-  edit_mode: true
-
-- name: 'Claude Sonnet 3.5'
-  provider: 'Anthropic'
-  release_status: 'Closing down: 2025-11-06'
-  agent_mode: true
   ask_mode: true
   edit_mode: true
 
@@ -94,6 +108,14 @@
 # xAI models
 - name: 'Grok Code Fast 1'
   provider: 'xAI'
+  release_status: 'GA'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
+# Fine-tuned OAI models
+- name: 'Raptor mini'
+  provider: 'Fine-tuned GPT-5 mini'
   release_status: 'Public preview'
   agent_mode: true
   ask_mode: true

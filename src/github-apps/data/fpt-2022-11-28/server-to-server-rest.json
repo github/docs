@@ -1147,6 +1147,30 @@
   ],
   "billing": [
     {
+      "slug": "get-all-budgets-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets"
+    },
+    {
+      "slug": "get-a-budget-by-id-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "update-a-budget-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "patch",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
+      "slug": "delete-a-budget-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "delete",
+      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
+    },
+    {
       "slug": "get-billing-premium-request-usage-report-for-an-organization",
       "subcategory": "enhanced-billing",
       "verb": "get",
@@ -1157,6 +1181,12 @@
       "subcategory": "enhanced-billing",
       "verb": "get",
       "requestPath": "/organizations/{org}/settings/billing/usage"
+    },
+    {
+      "slug": "get-billing-usage-summary-for-an-organization",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/organizations/{org}/settings/billing/usage/summary"
     },
     {
       "slug": "get-github-actions-billing-for-an-organization",
@@ -2949,10 +2979,28 @@
       "requestPath": "/orgs/{org}"
     },
     {
+      "slug": "create-an-artifact-deployment-record",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record"
+    },
+    {
+      "slug": "set-cluster-deployment-records",
+      "subcategory": "artifact-metadata",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}"
+    },
+    {
       "slug": "create-artifact-metadata-storage-record",
       "subcategory": "artifact-metadata",
       "verb": "post",
       "requestPath": "/orgs/{org}/artifacts/metadata/storage-record"
+    },
+    {
+      "slug": "list-artifact-deployment-records",
+      "subcategory": "artifact-metadata",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records"
     },
     {
       "slug": "list-artifact-storage-records",
@@ -3857,6 +3905,12 @@
       "requestPath": "/orgs/{org}/projectsV2/{project_number}"
     },
     {
+      "slug": "create-draft-item-for-organization-owned-project",
+      "subcategory": "drafts",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/projectsV2/{project_number}/drafts"
+    },
+    {
       "slug": "list-project-fields-for-organization",
       "subcategory": "fields",
       "verb": "get",
@@ -3901,18 +3955,6 @@
   ],
   "projects-classic": [
     {
-      "slug": "list-organization-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
-      "slug": "create-an-organization-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/projects"
-    },
-    {
       "slug": "get-a-project-column",
       "subcategory": "columns",
       "verb": "get",
@@ -3937,24 +3979,6 @@
       "requestPath": "/projects/columns/{column_id}/moves"
     },
     {
-      "slug": "get-a-project",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "update-a-project",
-      "subcategory": "projects",
-      "verb": "patch",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
-      "slug": "delete-a-project",
-      "subcategory": "projects",
-      "verb": "delete",
-      "requestPath": "/projects/{project_id}"
-    },
-    {
       "slug": "list-project-collaborators",
       "subcategory": "collaborators",
       "verb": "get",
@@ -3977,18 +4001,6 @@
       "subcategory": "collaborators",
       "verb": "get",
       "requestPath": "/projects/{project_id}/collaborators/{username}/permission"
-    },
-    {
-      "slug": "list-repository-projects",
-      "subcategory": "projects",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/projects"
-    },
-    {
-      "slug": "create-a-repository-project",
-      "subcategory": "projects",
-      "verb": "post",
-      "requestPath": "/repos/{owner}/{repo}/projects"
     }
   ],
   "pulls": [

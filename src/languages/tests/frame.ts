@@ -96,7 +96,7 @@ describe('release notes', () => {
   //
   // This is useful because if we test every single individual version of
   // every plan the test just takes way too long.
-  const getReleaseNotesVersionCombinations = (langs: string[]) => {
+  const getReleaseNotesVersionCombinations = (languages: string[]) => {
     const combinations = []
     const prefixes: string[] = []
     for (const version of page!.applicableVersions) {
@@ -105,7 +105,7 @@ describe('release notes', () => {
         continue
       }
       prefixes.push(prefix)
-      combinations.push(...langs.map((lang) => [lang, version]))
+      combinations.push(...languages.map((lang) => [lang, version]))
     }
     return combinations
   }

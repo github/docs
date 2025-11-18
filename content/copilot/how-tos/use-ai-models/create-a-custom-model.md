@@ -1,7 +1,7 @@
 ---
 title: Creating a custom model for GitHub Copilot
 shortTitle: Create a custom model
-intro: 'You can fine-tune {% data variables.product.prodname_copilot_short %} code completion by creating a custom model based on code in your organization''s repositories.'
+intro: 'You can fine-tune {% data variables.product.prodname_copilot_short %} inline suggestions by creating a custom model based on code in your organization''s repositories.'
 permissions: 'Owners of organizations enrolled in the {% data variables.release-phases.public_preview %}.'
 product: '{% data reusables.copilot.ce-product-callout %}'
 versions:
@@ -19,7 +19,7 @@ category:
   - Configure Copilot
 ---
 
-> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.copilot.copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).
+> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.copilot.copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to use the {% data variables.copilot.copilot_gpt_41 %} {% data variables.product.prodname_copilot_short %} model for  inline suggestions. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model?tool=vscode).
 
 ## Prerequisite
 
@@ -28,14 +28,14 @@ The code on which you want to train a custom model must be hosted in repositorie
 ## Limitations
 
 * For the {% data variables.release-phases.public_preview %}, an enterprise can deploy one custom model in a single organization.
-* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
+* Inline suggestions based on the custom model are only available to managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
 * The custom model is not used for code suggested in responses by {% data variables.copilot.copilot_chat %}.
 
 ## About {% data variables.product.prodname_copilot_short %} custom models
 
-By default {% data variables.product.prodname_copilot %} uses a large language model that has been trained on a large number of public code repositories, so that it can provide code completion for a wide range of programming languages in many different contexts. You can use this model as the basis for creating a custom large language model that you train specifically on your own code. This process is often known as fine-tuning.
+By default {% data variables.product.prodname_copilot %} uses a large language model that has been trained on a large number of public code repositories, so that it can provide inline suggestions for a wide range of programming languages in many different contexts. You can use this model as the basis for creating a custom large language model that you train specifically on your own code. This process is often known as fine-tuning.
 
-By creating a custom model you enable {% data variables.product.prodname_copilot %} to show you code completion suggestions that are:
+By creating a custom model you enable {% data variables.product.prodname_copilot %} to show you inline suggestions that are:
 
 * Based on code in your own designated repositories.
 * Created for proprietary or less publicly represented programming languages.
@@ -51,17 +51,17 @@ This provides:
 
 Currently, in the {% data variables.release-phases.public_preview %}, only one organization in an enterprise is permitted to create a custom model.
 
-As an owner of the organization that's permitted to create a custom model, you can choose which of your organization's repositories to use to train the model. You can train the model on one, several, or all of the repositories in the organization. The model is trained on the content of the default branches of the selected repositories. Optionally, you can specify that only code written in certain programming languages should be used for training. The custom model will be used for generating code completion suggestions in all file types, irrespective of whether that type of file was used for training.
+As an owner of the organization that's permitted to create a custom model, you can choose which of your organization's repositories to use to train the model. You can train the model on one, several, or all of the repositories in the organization. The model is trained on the content of the default branches of the selected repositories. Optionally, you can specify that only code written in certain programming languages should be used for training. The custom model will be used for generating inline suggestions in all file types, irrespective of whether that type of file was used for training.
 
 You can also choose whether telemetry data (such as the prompts entered by users and the suggestions generated by {% data variables.product.prodname_copilot_short %}) should be used when training the model. For more information, see [Telemetry data collection and usage for custom models](#telemetry-data-collection-and-usage-for-custom-models), later in this article.
 
 Once initiated, custom model creation will take many hours to complete. You can check the progress of the training in your organization's settings. When model creation completes - or if it fails to complete - the person who initiated the model training will be notified by email.
 
-If model creation fails, {% data variables.product.prodname_copilot_short %} will continue to use the current model for generating code completion suggestions.
+If model creation fails, {% data variables.product.prodname_copilot_short %} will continue to use the current model for generating inline suggestions.
 
 ### About model usage
 
-As soon as the custom model is successfully created, all managed users in your enterprise who get {% data variables.copilot.copilot_enterprise_short %} access from the organization in which the custom model is deployed will start to see {% data variables.product.prodname_copilot_short %} code completion suggestions that are generated using the custom model. The custom model will always be used for any code these users edit, irrespective of where the code resides. Users cannot choose which model is used to generate the code completion suggestions they see.
+As soon as the custom model is successfully created, all managed users in your enterprise who get {% data variables.copilot.copilot_enterprise_short %} access from the organization in which the custom model is deployed will start to see {% data variables.product.prodname_copilot_short %} inline suggestions that are generated using the custom model. The custom model will always be used for any code these users edit, irrespective of where the code resides. Users cannot choose which model is used to generate the inline suggestions they see.
 
 ## When you can benefit from a custom model
 
@@ -71,14 +71,14 @@ The value of a custom model is most pronounced in environments with:
 * **Internal libraries or custom frameworks**
 * **Custom standards and company-specific coding practices**
 
-However, even in standardized environments, fine-tuning offers an opportunity to align {% data variables.product.prodname_copilot_short %} code completion more closely with your organization’s established coding practices and standards.
+However, even in standardized environments, fine-tuning offers an opportunity to align {% data variables.product.prodname_copilot_short %} inline suggestions more closely with your organization's established coding practices and standards.
 
 ## Assess the effectiveness of a custom model
 
-While some coding environments are more likely to benefit from fine-tuning, there is no guaranteed correlation between specific behaviors in a codebase and the quality of the results you get from a custom model. It is advisable to assess the use and satisfaction levels of {% data variables.product.prodname_copilot %} code completion suggestions before and after the implementation of a custom model.
+While some coding environments are more likely to benefit from fine-tuning, there is no guaranteed correlation between specific behaviors in a codebase and the quality of the results you get from a custom model. It is advisable to assess the use and satisfaction levels of {% data variables.product.prodname_copilot %} inline suggestions before and after the implementation of a custom model.
 
 * Use the {% data variables.product.prodname_dotcom %} API to assess the usage of {% data variables.product.prodname_copilot %}. See [AUTOTITLE](/rest/copilot/copilot-usage?apiVersion=2022-11-28#get-a-summary-of-copilot-usage-for-an-enterprise-team).
-* Survey developers to assess their level of satisfaction with {% data variables.product.prodname_copilot %} code completion suggestions.
+* Survey developers to assess their level of satisfaction with {% data variables.product.prodname_copilot %} inline suggestions.
 
 Comparing results from the API and developer survey, from before and after the implementation of a custom model, will give you an indication of the effectiveness of the custom model.
 
@@ -99,7 +99,7 @@ You can use your organization settings to create a custom large language model.
    > [!NOTE]
    > If the checkbox isn't available to select it indicates that the **Telemetry data collection** policy for custom models has been disabled in your organization's settings. For information on how to change policies for your organization, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
-   By selecting this option you allow {% data variables.product.prodname_copilot_short %} to collect data for prompts that user submitted and the code completion suggestions that were generated. Once sufficient data has been collected, {% data variables.product.prodname_copilot_short %} will use this as part of the model training process, allowing it to produce a more effective model.
+   By selecting this option you allow {% data variables.product.prodname_copilot_short %} to collect data for prompts that user submitted and the inline suggestions that were generated. Once sufficient data has been collected, {% data variables.product.prodname_copilot_short %} will use this as part of the model training process, allowing it to produce a more effective model.
 
    For more information, see [Telemetry data collection and usage for custom models](#telemetry-data-collection-and-usage-for-custom-models), later in this article.
 
@@ -119,7 +119,7 @@ You can check in your organization settings for an indication of how model creat
 Model training may fail for a variety of reasons, including:
 
 * Not enough data or non-representative data. Lack of data provided for training, or too much replication in the data, may make the fine-tuning unstable.
-* Non-differentiated data. If the data is not sufficiently different from the public data on which the included model was trained, training may fail or the quality of code completion suggestions from the custom model may be only marginally improved.
+* Non-differentiated data. If the data is not sufficiently different from the public data on which the included model was trained, training may fail or the quality of inline suggestions from the custom model may be only marginally improved.
 * A data preprocessing step may encounter unexpected files types and formats which causes it to fail. A solution may be to specify only certain file types for training.
 
 ## Retraining or deleting the custom model
@@ -131,18 +131,18 @@ Retraining the model updates it to include any new code that has been added to t
 1. Go to your organization's settings for {% data variables.product.prodname_copilot_short %} custom models. See [Creating a custom model](#creating-a-custom-model) above.
 1. On the model training page, click the first ellipsis button (**...**), then click either **Retrain model** or **Delete model**.
 
-If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization.
+If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate inline suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for inline suggestions for all managed users who get a {% data variables.copilot.copilot_enterprise_short %} plan from the organization.
 
-If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the included model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
+If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the included model for generating inline suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
 
 ## Telemetry data collection and usage for custom models
 
-When you create a custom model, you can choose to allow {% data variables.product.company_short %} to collect telemetry data for the purposes of training the model. This data is used to improve the quality of the code completion suggestions the model can generate.
+When you create a custom model, you can choose to allow {% data variables.product.company_short %} to collect telemetry data for the purposes of training the model. This data is used to improve the quality of the inline suggestions the model can generate.
 
 ### What telemetry data is collected?
 
 * **Prompts:** This includes all the information sent to the {% data variables.product.prodname_copilot %} language model by the {% data variables.product.prodname_copilot_short %} extension, including context from your open files.
-* **Suggestions:** The code completion suggestions that {% data variables.product.prodname_copilot_short %} generates.
+* **Suggestions:** The inline suggestions that {% data variables.product.prodname_copilot_short %} generates.
 * **Code snippet:** A snapshot of the code 30 seconds after a suggestion is accepted, capturing how the suggestion was integrated into the codebase. This helps determine whether the suggestion was accepted as is or modified by the user before final integration.
 
 ### How is telemetry data used?

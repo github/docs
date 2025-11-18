@@ -13,7 +13,6 @@ children:
   - /repository-indexing
   - /content-exclusion
   - /knowledge-bases
-  - /copilot-extensions
 contentType: concepts
 ---
 

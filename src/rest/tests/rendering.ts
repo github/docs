@@ -23,13 +23,13 @@ describe('REST references docs', () => {
         .map((i, h2) => $(h2).attr('id'))
         .get()
       const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
-      expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
+      expect(schemaSlugs.every((operationSlug) => domH2Ids.includes(operationSlug))).toBe(true)
     }
   })
 
   // These tests exists because of issue #1960
   test('rest subcategory with fpt in URL', async () => {
-    for (const category of [
+    const categories = [
       'migrations',
       'actions',
       'activity',
@@ -58,7 +58,8 @@ describe('REST references docs', () => {
       'search',
       'teams',
       'users',
-    ]) {
+    ]
+    for (const category of categories) {
       // Without language prefix
       {
         const res = await get(`/free-pro-team@latest/rest/reference/${category}`)

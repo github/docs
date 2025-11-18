@@ -166,10 +166,10 @@ describe('server', () => {
     const categories = JSON.parse(res.body)
     expect(Array.isArray(categories)).toBe(true)
     expect(categories.length).toBeGreaterThan(1)
-    categories.forEach((category: Category) => {
+    for (const category of categories as Category[]) {
       expect('name' in category).toBe(true)
       expect('published_articles' in category).toBe(true)
-    })
+    }
   })
 
   describeViaActionsOnly('Early Access articles', () => {

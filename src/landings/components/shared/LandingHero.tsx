@@ -9,6 +9,16 @@ type LandingHeroProps = {
   introLinks?: Record<string, string> | null
 }
 
+function heroBackgroundCss(heroImage: string | undefined) {
+  if (!heroImage) return {}
+  return {
+    backgroundImage: `image-set(
+      url("${heroImage}.webp") type('image/webp'),
+      url("${heroImage}.png") type('image/png')
+    )`,
+  }
+}
+
 export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHeroProps) => {
   const { t } = useTranslation(['product_landing'])
 
@@ -17,16 +27,7 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
   const secondaryAction = linkEntries[1]
 
   return (
-    <div
-      className={styles.landingHero}
-      style={
-        heroImage
-          ? {
-              backgroundImage: `url("${heroImage}")`,
-            }
-          : undefined
-      }
-    >
+    <div className={styles.landingHero} style={heroBackgroundCss(heroImage)}>
       <div className={styles.heroContent}>
         <div className={styles.heroText}>
           <h1 className={styles.heroHeading}>{title}</h1>

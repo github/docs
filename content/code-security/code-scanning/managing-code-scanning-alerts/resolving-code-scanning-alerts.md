@@ -36,7 +36,7 @@ With a {% data variables.copilot.copilot_enterprise %} license, you can ask {% d
 
 ## Generating suggested fixes for {% data variables.product.prodname_code_scanning %} alerts
 
-{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported and also some alerts from third-party tools. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
+{% data variables.copilot.copilot_autofix %} can generate fixes for alerts identified by {% data variables.product.prodname_code_scanning %} analysis. Most {% data variables.product.prodname_codeql %} alert types are supported. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 

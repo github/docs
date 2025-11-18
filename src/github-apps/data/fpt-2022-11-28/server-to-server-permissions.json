@@ -143,6 +143,50 @@
       },
       {
         "category": "billing",
+        "slug": "get-all-budgets-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/budgets",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-a-budget-by-id-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "update-a-budget-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "patch",
+        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "delete-a-budget-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "delete",
+        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
         "slug": "get-billing-premium-request-usage-report-for-an-organization",
         "subcategory": "enhanced-billing",
         "verb": "get",
@@ -158,6 +202,17 @@
         "subcategory": "enhanced-billing",
         "verb": "get",
         "requestPath": "/organizations/{org}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-for-an-organization",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/settings/billing/usage/summary",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -2841,28 +2896,6 @@
     "displayTitle": "Organization permissions for \"Projects\"",
     "permissions": [
       {
-        "category": "projects-classic",
-        "slug": "list-organization-projects",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/projects",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-an-organization-project",
-        "subcategory": "projects",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/projects",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
         "category": "projects",
         "slug": "list-projects-for-organization",
         "subcategory": "projects",
@@ -2880,6 +2913,17 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/projectsV2/{project_number}",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "projects",
+        "slug": "create-draft-item-for-organization-owned-project",
+        "subcategory": "drafts",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/projectsV2/{project_number}/drafts",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -3022,39 +3066,6 @@
         "subcategory": "columns",
         "verb": "post",
         "requestPath": "/projects/columns/{column_id}/moves",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "get-a-project",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-a-project",
-        "subcategory": "projects",
-        "verb": "patch",
-        "requestPath": "/projects/{project_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project",
-        "subcategory": "projects",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -6019,6 +6030,67 @@
       }
     ]
   },
+  "artifact_metadata": {
+    "title": "Artifact metadata",
+    "displayTitle": "Repository permissions for \"Artifact metadata\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "create-an-artifact-deployment-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "set-cluster-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "create-artifact-metadata-storage-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-storage-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "attestations": {
     "title": "Attestations",
     "displayTitle": "Repository permissions for \"Attestations\"",
@@ -6777,6 +6849,28 @@
       },
       {
         "category": "orgs",
+        "slug": "create-an-artifact-deployment-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "set-cluster-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
         "slug": "create-artifact-metadata-storage-record",
         "subcategory": "artifact-metadata",
         "verb": "post",
@@ -6784,7 +6878,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "orgs",
@@ -6795,7 +6900,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "repos",
@@ -9141,39 +9246,6 @@
       },
       {
         "category": "projects-classic",
-        "slug": "get-a-project",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-a-project",
-        "subcategory": "projects",
-        "verb": "patch",
-        "requestPath": "/projects/{project_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project",
-        "subcategory": "projects",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
         "slug": "list-project-collaborators",
         "subcategory": "collaborators",
         "verb": "get",
@@ -9215,28 +9287,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-repository-projects",
-        "subcategory": "projects",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/projects",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "projects-classic",
-        "slug": "create-a-repository-project",
-        "subcategory": "projects",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/projects",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
       }
     ]
   },
@@ -11034,6 +11084,17 @@
         "subcategory": "enhanced-billing",
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-summary-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage/summary",
         "access": "read",
         "user-to-server": true,
         "server-to-server": false,

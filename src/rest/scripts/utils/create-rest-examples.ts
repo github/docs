@@ -62,9 +62,9 @@ export default async function getCodeSamples(operation: Operation): Promise<Merg
   // has the same description, add a number to the example
   if (mergedExamples.length > 1) {
     const count: Record<string, number> = {}
-    mergedExamples.forEach((item) => {
+    for (const item of mergedExamples) {
       count[item.request.description] = (count[item.request.description] || 0) + 1
-    })
+    }
 
     const newMergedExamples = mergedExamples.map((example, i) => ({
       ...example,
@@ -204,7 +204,7 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
 
   // Requests can have multiple content types each with their own set of
   // examples.
-  Object.keys(operation.requestBody.content).forEach((contentType) => {
+  for (const contentType of Object.keys(operation.requestBody.content)) {
     let examples: Record<string, any> = {}
     // This is a fallback to allow using the `example` property in
     // the schema. If we start to enforce using examples vs. example using
@@ -230,13 +230,13 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
           parameters: parameterExamples.default,
         },
       })
-      return
+      continue
     }
 
     // There can be more than one example for a given content type. We need to
     // iterate over the keys of the examples to create individual
     // example objects
-    Object.keys(examples).forEach((key) => {
+    for (const key of Object.keys(examples)) {
       // A content type that includes `+json` is a custom media type
       // The default accept header is application/vnd.github.v3+json
       // Which would have a content type of `application/json`
@@ -255,8 +255,8 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
         },
       }
       requestExamples.push(example)
-    })
-  })
+    }
+  }
   return requestExamples
 }
 
@@ -279,10 +279,10 @@ export function getRequestExamples(operation: Operation): RequestExample[] {
 */
 export function getResponseExamples(operation: Operation): ResponseExample[] {
   const responseExamples: ResponseExample[] = []
-  Object.keys(operation.responses).forEach((statusCode) => {
+  for (const statusCode of Object.keys(operation.responses)) {
     // We don't want to create examples for error codes
     // Error codes are displayed in the status table in the docs
-    if (parseInt(statusCode, 10) >= 400) return
+    if (parseInt(statusCode, 10) >= 400) continue
 
     const content = operation.responses[statusCode].content
 
@@ -298,12 +298,12 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
         },
       }
       responseExamples.push(example)
-      return
+      continue
     }
 
     // Responses can have multiple content types each with their own set of
     // examples.
-    Object.keys(content).forEach((contentType) => {
+    for (const contentType of Object.keys(content)) {
       let examples: Record<string, any> = {}
       // This is a fallback to allow using the `example` property in
       // the schema. If we start to enforce using examples vs. example using
@@ -333,18 +333,18 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
           },
         }
         responseExamples.push(example)
-        return
+        continue
       } else {
         // Example for this content type doesn't exist.
         // We could also check if there is a fully populated example
         // directly in the response schema examples properties.
-        return
+        continue
       }
 
       // There can be more than one example for a given content type. We need to
       // iterate over the keys of the examples to create individual
       // example objects
-      Object.keys(examples).forEach((key) => {
+      for (const key of Object.keys(examples)) {
         const example = {
           key,
           response: {
@@ -360,9 +360,9 @@ export function getResponseExamples(operation: Operation): ResponseExample[] {
           },
         }
         responseExamples.push(example)
-      })
-    })
-  })
+      }
+    }
+  }
   return responseExamples
 }
 
@@ -383,7 +383,7 @@ export function getParameterExamples(operation: Operation): Record<string, Recor
   }
   const parameters = operation.parameters.filter((param: any) => param.in === 'path')
   const parameterExamples: Record<string, Record<string, any>> = {}
-  parameters.forEach((parameter: any) => {
+  for (const parameter of parameters) {
     const examples = parameter.examples
     // If there are no examples, create an example from the uppercase parameter
     // name, so that it is more visible that the value is fake data
@@ -392,11 +392,11 @@ export function getParameterExamples(operation: Operation): Record<string, Recor
       if (!parameterExamples.default) parameterExamples.default = {}
       parameterExamples.default[parameter.name] = parameter.name.toUpperCase()
     } else {
-      Object.keys(examples).forEach((key) => {
+      for (const key of Object.keys(examples)) {
         if (!parameterExamples[key]) parameterExamples[key] = {}
         parameterExamples[key][parameter.name] = examples[key].value
-      })
+      }
     }
-  })
+  }
   return parameterExamples
 }

@@ -272,20 +272,18 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 
 1. Install the [{% data variables.product.github %} Pull Requests extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github) for {% data variables.product.prodname_vscode %}.
 1. Open {% data variables.copilot.copilot_chat %} in {% data variables.product.prodname_vscode %}.
-1. Type a prompt explaining what you want {% data variables.product.prodname_copilot_short %} to do, and add `#copilotCodingAgent` to the prompt.
+1. Type a prompt explaining what you want {% data variables.product.prodname_copilot_short %} to do.
 
-   For example, `Put backticks around file names and variables in output #copilotCodingAgent`
+   For example, `Put backticks around file names and variables in output`
 
    > [!TIP]
-   > * To help {% data variables.product.prodname_copilot_short %}, you can select the relevant line(s) of code before submitting your prompt.
+   > To help {% data variables.product.prodname_copilot_short %}, you can select the relevant line(s) of code before submitting your prompt.
 
-1. Submit your prompt.
+1. Submit your prompt by clicking the <svg class="octicon" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M15.724 11.053V11.948L7.724 15.948L7.026 15.343L8.14 12.001H13V11.001H8.14L7.026 7.659L7.724 7.054L15.724 11.053ZM1 8C1 6.46 2.15 5.18 3.67 5.02L4.02 4.98L4.11 4.64C4.5 3.09 5.89 2 7.5 2C9.43 2 11 3.57 11 5.5V6H11.5C12.88 6 14 7.12 14 8.5V8.52L14.95 8.99C14.98 8.83 15 8.67 15 8.5C15 6.73 13.68 5.26 11.98 5.03C11.74 2.77 9.82 1 7.5 1C5.55 1 3.84 2.25 3.23 4.07C1.37 4.43 0 6.07 0 8C0 10.21 1.79 12 4 12H7V11H4C2.35 11 1 9.65 1 8Z"/></svg> **Delegate this task to the GitHub Copilot coding agent** button, next to the <svg class="octicon" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M1 1.91L1.78 1.5L15 7.44899V8.3999L1.78 14.33L1 13.91L2.58311 8L1 1.91ZM3.6118 8.5L2.33037 13.1295L13.5 7.8999L2.33037 2.83859L3.6118 7.43874L9 7.5V8.5H3.6118Z"/></svg> **Send** button
 
-   {% data variables.product.prodname_copilot_short %} will typically do some research and context-gathering in {% data variables.product.prodname_vscode %}, and then will ask you to confirm that you want to use the coding agent to create a pull request.
+1. If you have local changes, a dialog will be displayed asking if you want to push those changes so {% data variables.product.prodname_copilot_short %} can start from your current state. Click **Include changes** to push your changes, or **Ignore changes** to ask {% data variables.product.prodname_copilot_short %} to start its work from your repository's default branch.
 
-1. Click **Continue**.
-
-   {% data variables.product.prodname_copilot_short %} will push up any local changes, start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
+   {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification.
 
 ## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %} in JetBrains IDEs
 

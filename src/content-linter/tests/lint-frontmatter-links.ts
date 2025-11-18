@@ -24,10 +24,10 @@ describe('front matter', () => {
       }
       // Using any type because trouble array contains objects with varying error properties
       const nonWarnings = trouble.filter((t: any) => !t.warning)
-      for (const { uri, index, redirects } of nonWarnings) {
+      for (const { uri, index, redirects: redirectTo } of nonWarnings) {
         customErrorMessage += `\nindex: ${index} URI: ${uri}`
-        if (redirects) {
-          customErrorMessage += `\n\tredirects to ${redirects}`
+        if (redirectTo) {
+          customErrorMessage += `\n\tredirects to ${redirectTo}`
         } else {
           customErrorMessage += '\tPage not found'
         }

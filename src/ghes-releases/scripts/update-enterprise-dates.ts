@@ -54,7 +54,7 @@ async function main(): Promise<void> {
   }
 
   const formattedDates: EnterpriseDates = {}
-  Object.entries(rawDates).forEach(([releaseNumber, releaseObject]) => {
+  for (const [releaseNumber, releaseObject] of Object.entries(rawDates)) {
     formattedDates[releaseNumber] = {
       // For backward compatibility, keep releaseDate as RC date initially, then GA date once available
       releaseDate: releaseObject.release_candidate || releaseObject.start,
@@ -62,7 +62,7 @@ async function main(): Promise<void> {
       releaseCandidateDate: releaseObject.release_candidate,
       generalAvailabilityDate: releaseObject.start,
     }
-  })
+  }
 
   const formattedDatesString = JSON.stringify(formattedDates, null, 2)
 

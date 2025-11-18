@@ -4,6 +4,7 @@ intro: Get reminders in Slack when you or your team have pull requests waiting f
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>= 3.17'
 topics:
   - Accounts
 redirect_from:

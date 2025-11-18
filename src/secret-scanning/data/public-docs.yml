@@ -976,6 +976,18 @@
   base64Supported: false
   isduplicate: false
 - provider: Azure
+  supportedSecret: Azure Logic Apps URL
+  secretType: azure_logic_apps_url
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: true
+- provider: Azure
   supportedSecret: Azure Luis Authoring Key
   secretType: azure_luis_authoring_key
   versions:
@@ -1974,7 +1986,7 @@
   base64Supported: false
   isduplicate: false
 - provider: Databricks
-  supportedSecret: Databricks Access Token
+  supportedSecret: Databricks API Token
   secretType: databricks_access_token
   versions:
     fpt: '*'
@@ -1986,6 +1998,138 @@
   hasValidityCheck: false
   base64Supported: true
   isduplicate: true
+- provider: Databricks
+  supportedSecret: Databricks Account Session Token
+  secretType: databricks_account_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Federated Account Session Token
+  secretType: databricks_federated_account_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Code
+  secretType: databricks_oauth_code
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Refresh Token
+  secretType: databricks_oauth_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Secret Token
+  secretType: databricks_oauth_secret_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Single Use Refresh Token Child
+  secretType: databricks_oauth_single_use_refresh_token_child
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks OAuth Single Use Refresh Token Parent
+  secretType: databricks_oauth_single_use_refresh_token_parent
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Scoped API Token
+  secretType: databricks_scoped_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Scoped Internal Token
+  secretType: databricks_scoped_internal_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Token
+  secretType: databricks_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Databricks
+  supportedSecret: Databricks Workspace Session Token
+  secretType: databricks_workspace_session_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Datadog
   supportedSecret: Datadog API Key
   secretType: datadog_api_key
@@ -2805,7 +2949,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
-  base64Supported: false
+  base64Supported: true
   isduplicate: true
 - provider: Google
   supportedSecret: Google OAuth Refresh Token
@@ -3646,6 +3790,18 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Microsoft
+  supportedSecret: Power Automate Webhook SAS
+  secretType: power_automate_webhook_sas
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Midtrans
   supportedSecret: Midtrans Production Server Key
   secretType: midtrans_production_server_key
@@ -4060,6 +4216,18 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: OneSignal
+  supportedSecret: OneSignal Rich API Key
+  secretType: onesignal_rich_authentication_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Onfido
   supportedSecret: Onfido Live API Token
   secretType: onfido_live_api_token
@@ -4162,6 +4330,54 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle API Key
+  secretType: paddle_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Development API Key
+  secretType: paddle_development_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Sandbox API Key
+  secretType: paddle_sandbox_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Staging API Key
+  secretType: paddle_staging_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: PagerDuty
   supportedSecret: PagerDuty OAuth Secret
   secretType: pagerduty_oauth_secret
@@ -4251,6 +4467,18 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion ghes %}false{% else %}true{% endif %}'
+  base64Supported: false
+  isduplicate: false
+- provider: Pineapple Technologies Limited
+  supportedSecret: Pineapple Technologies Incident API Key
+  secretType: pineapple_technologies_incident_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
   base64Supported: false
   isduplicate: false
 - provider: Pinecone
@@ -4486,6 +4714,30 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog Feature Flags Secure API Key
+  secretType: posthog_feature_flags_secure_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog Personal API Key
+  secretType: posthog_personal_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Postman
   supportedSecret: Postman API Key
   secretType: postman_api_key
@@ -4616,6 +4868,30 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Rainforest Pay
+  supportedSecret: Rainforest API Key
+  secretType: rainforest_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Rainforest Pay
+  supportedSecret: Rainforest Sandbox API Key
+  secretType: rainforest_sandbox_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: Ramp
   supportedSecret: Ramp OAuth Client ID
   secretType: ramp_client_id
@@ -4649,6 +4925,18 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Raycast
+  supportedSecret: Raycast Access Token
+  secretType: raycast_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -4851,8 +5139,21 @@
   base64Supported: false
   isduplicate: false
 - provider: Sentry
-  supportedSecret: Sentry Org Auth Token
-  secretType: sentry_org_auth_token
+  supportedSecret: Sentry Organization Token
+  secretType: sentry_organization_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.16'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Sentry
+  supportedSecret: Sentry Personal Token
+  secretType: sentry_personal_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -4866,19 +5167,6 @@
 - provider: Sentry
   supportedSecret: Sentry User App Auth Token
   secretType: sentry_user_app_auth_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.16'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Sentry
-  supportedSecret: Sentry User Auth Token
-  secretType: sentry_user_auth_token
   versions:
     fpt: '*'
     ghec: '*'

@@ -12,7 +12,7 @@ redirect_from:
   - /copilot/concepts/code-review/coding-guidelines
   - /copilot/concepts/response-customization
 contentType: concepts
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -26,15 +26,17 @@ category:
 
 {% data variables.product.prodname_copilot %} can provide responses that are tailored to your personal preferences, the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create custom instructions that automatically add this information for you. The additional information is not displayed, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
+{% data reusables.copilot.custom-insts-nondeterministic %}
+
 ## Types of custom instructions
 
 There are three main types of custom instructions that you can use to customize {% data variables.product.prodname_copilot_short %} responses on the {% data variables.product.github %} website:
 
-* **[Personal custom instructions](#about-personal-custom-instructions)** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
+* **[Personal instructions](#about-personal-instructions)** apply to all conversations you have with {% data variables.copilot.copilot_chat_short %} across the {% data variables.product.github %} website. They allow you to specify your individual preferences, such as preferred language or response style, ensuring that the responses are tailored to your personal needs.
 * **[Repository custom instructions](#about-repository-custom-instructions)** apply to conversations within the context of a specific repository. They are useful for defining project-specific coding standards, frameworks, or tools. For example, you can specify that a repository uses TypeScript and a particular library, ensuring consistent responses for all contributors.
 * **[Organization custom instructions](#about-organization-custom-instructions)** (public preview) apply to conversations within the context of an organization on the {% data variables.product.github %} website. They are ideal for enforcing organization-wide preferences, such as a common language or security guidelines. Organization custom instructions can only be set by organization owners for organizations with a {% data variables.copilot.copilot_enterprise_short %} subscription.
 
-## About personal custom instructions
+## About personal instructions
 
 {% data reusables.copilot.personal-instructions-note %}
 
@@ -67,12 +69,12 @@ Some examples of instructions you could add are:
 
 The following list shows the complete order of precedence, with instructions higher in this list taking precedence over those lower in the list:
 
-* Personal custom instructions
-* Repository custom instructions:
-  * Path-specific instructions in any applicable `.github/instructions/**/NAME.instructions.md` file
-  * Repository-wide instructions in the `.github/copilot-instructions.md` file
-  * Agent instructions (for example, in an `AGENTS.md` file)
-* Organization custom instructions
+* **Personal** instructions
+* **Repository** custom instructions:
+  * **Path-specific** instructions in any applicable `.github/instructions/**/NAME.instructions.md` file
+  * **Repository-wide** instructions in the `.github/copilot-instructions.md` file
+  * **Agent** instructions (for example, in an `AGENTS.md` file)
+* **Organization** custom instructions
 
 {% data reusables.copilot.custom-instructions-conflict %}
 
@@ -81,7 +83,7 @@ The following list shows the complete order of precedence, with instructions hig
 Custom instructions consist of natural language instructions and are most effective when they are short, self-contained statements. Consider the scope over which you want the instruction to apply when choosing whether to add an instruction on the personal, repository, or organization level.
 
 Here are some common use cases and examples for each type of custom instructions:
-* **Personal custom instructions:**
+* **Personal instructions:**
   * Preferred individual language: `Always respond in Portuguese.`
   * Individual response preferences: `Explain a single concept per line. Be clear and concise.`
 * **Repository custom instructions:**
@@ -121,6 +123,8 @@ There are two types of files you can use to provide context and instructions to 
 * **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. {% data reusables.copilot.prompt-files-available-in-editors %}
 
 While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
+
+{% data reusables.copilot.custom-insts-nondeterministic %}
 
 ## About repository custom instructions
 
@@ -179,11 +183,14 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
+For information on how to enable, create, and use prompt files, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions?tool=vscode#enabling-and-using-prompt-files).
+
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endvscode %}
 
@@ -198,6 +205,8 @@ The following examples demonstrate how to use prompt files.
 ## About customizing {% data variables.product.prodname_copilot_short %} responses
 
 {% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat input box, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+{% data reusables.copilot.custom-insts-nondeterministic %}
 
 ## About repository custom instructions
 
@@ -245,6 +254,8 @@ There are two types of files you can use to provide context and instructions to 
 * **Prompt files** (public preview) allow you to save common prompt instructions and relevant context in Markdown files (`*.prompt.md`) that you can then reuse in your chat prompts. {% data reusables.copilot.prompt-files-available-in-editors %}
 
 While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
+
+{% data reusables.copilot.custom-insts-nondeterministic %}
 
 ## About repository custom instructions
 
@@ -315,11 +326,14 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/prompt-files).
+
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endjetbrains %}
 
@@ -334,6 +348,8 @@ The following examples demonstrate how to use prompt files.
 ## About customizing {% data variables.product.prodname_copilot_short %} responses
 
 {% data variables.product.prodname_copilot %} can provide responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your prompts, you can create a custom instructions file in your repository that automatically adds this information for you. The additional information is not displayed in the chat input box, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+{% data reusables.copilot.custom-insts-nondeterministic %}
 
 ## About repository custom instructions
 
@@ -353,11 +369,14 @@ Common use cases for repository custom instructions include:
 
 {% data reusables.copilot.repository-custom-instructions-example %}
 
+For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customization-library/custom-instructions).
+
 {% data reusables.copilot.custom-instructions-effective %}
 
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endxcode %}
 
@@ -377,6 +396,8 @@ There are two types of repository custom instructions you can use to provide con
 
 * **Workspace custom instructions** which apply to all projects in a workspace, and allow you to specify workspace-wide instructions and preferences, in a single file.
 * **Project custom instructions** which apply to a specific project.
+
+{% data reusables.copilot.custom-insts-nondeterministic %}
 
 ## About repository custom instructions
 
@@ -401,6 +422,7 @@ For a curated collection of examples, see [AUTOTITLE](/copilot/tutorials/customi
 ## Next steps
 
 * [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+* [AUTOTITLE](/copilot/tutorials/use-custom-instructions)
 
 {% endeclipse %}
 

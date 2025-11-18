@@ -27,7 +27,7 @@ sections:
     - |
       Administrators debugging Elasticsearch index repairs previously did not see a "starting" log entry before a repair began, making it harder to track repair initiation in logs.
     - |
-      After upgrading to GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests for private repositories were no longer available.
+      After upgrading to GHES 3.16.7, or GHES 3.17.4, administrators found that draft pull requests and autolink references for private repositories were no longer available. [Updated: 2025-11-11]
     - |
       Site administrators experienced crashes in MySQL when running data backfills, such as during database maintenance or upgrades.
   changes:

@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { filterTokens } from 'markdownlint-rule-helpers'
 
 import { addFixErrorDetail, getRange } from '../helpers/utils'

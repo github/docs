@@ -1,6 +1,5 @@
 import fs from 'fs'
 import path from 'path'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -64,9 +63,11 @@ export const journeyTracksGuidePathExists = {
 
     const journeyTracksLineNumber = params.lines.indexOf(journeyTracksLine) + 1
 
-    fm.journeyTracks.forEach((track: any, trackIndex: number) => {
+    for (let trackIndex = 0; trackIndex < fm.journeyTracks.length; trackIndex++) {
+      const track: any = fm.journeyTracks[trackIndex]
       if (track.guides && Array.isArray(track.guides)) {
-        track.guides.forEach((guide: string, guideIndex: number) => {
+        for (let guideIndex = 0; guideIndex < track.guides.length; guideIndex++) {
+          const guide: string = track.guides[guideIndex]
           if (typeof guide === 'string') {
             if (!isValidGuidePath(guide, params.name)) {
               addError(
@@ -77,8 +78,8 @@ export const journeyTracksGuidePathExists = {
               )
             }
           }
-        })
+        }
       }
-    })
+    }
   },
 }

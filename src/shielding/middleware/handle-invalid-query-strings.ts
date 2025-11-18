@@ -139,7 +139,9 @@ export default function handleInvalidQuerystrings(
       }
       defaultCacheControl(res)
       const sp = new URLSearchParams(query as any)
-      keys.forEach((key) => sp.delete(key))
+      for (const key of keys) {
+        sp.delete(key)
+      }
       let newURL = req.path
       if (sp.toString()) newURL += `?${sp}`
 

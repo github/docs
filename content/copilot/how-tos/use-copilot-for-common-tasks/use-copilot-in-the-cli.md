@@ -22,6 +22,6 @@ category:
   - Author and optimize with Copilot
 ---
 
-# Replacing the deprecated {% data variables.product.prodname_copilot_short %} extension
+# Replacing the {% data variables.release-phases.retired %} {% data variables.product.prodname_copilot_short %} extension
 
-The {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_cli %} has been deprecated. It has been replaced by the new {% data variables.copilot.copilot_cli %}. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).
+The {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_cli %} is {% data variables.release-phases.retired %}. It has been replaced by the new {% data variables.copilot.copilot_cli %}. See [AUTOTITLE](/copilot/concepts/agents/about-copilot-cli).

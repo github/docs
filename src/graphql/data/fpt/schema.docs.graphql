@@ -1417,6 +1417,26 @@ type AddedToProjectV2Event implements Node & ProjectV2Event {
 }
 
 """
+Copilot Agentic fields in context of the current viewer.
+"""
+interface Agentic {
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
+}
+
+"""
 An announcement banner for an enterprise or organization.
 """
 type AnnouncementBanner {
@@ -8161,6 +8181,11 @@ input CreateIssueInput {
   An array of Node IDs for projects associated with this issue.
   """
   projectIds: [ID!] @possibleTypes(concreteTypes: ["Project"])
+
+  """
+  An array of Node IDs for Projects V2 associated with this issue.
+  """
+  projectV2Ids: [ID!] @possibleTypes(concreteTypes: ["ProjectV2"])
 
   """
   The Node ID of the repository.
@@ -41904,6 +41929,13 @@ type PullRequestParameters {
   All conversations on code must be resolved before a pull request can be merged.
   """
   requiredReviewThreadResolution: Boolean!
+
+  """
+  This field is in beta and subject to change. A collection of reviewers and
+  associated file patterns. Each reviewer has a list of file patterns which
+  determine the files that reviewer is required to review.
+  """
+  requiredReviewers: [RequiredReviewerConfiguration!]
 }
 
 """
@@ -41945,6 +41977,13 @@ input PullRequestParametersInput {
   All conversations on code must be resolved before a pull request can be merged.
   """
   requiredReviewThreadResolution: Boolean!
+
+  """
+  This argument is in beta and subject to change. A collection of reviewers and
+  associated file patterns. Each reviewer has a list of file patterns which
+  determine the files that reviewer is required to review.
+  """
+  requiredReviewers: [RequiredReviewerConfigurationInput!]
 }
 
 """
@@ -54509,6 +54548,50 @@ input RequiredDeploymentsParametersInput {
   The environments that must be successfully deployed to before branches can be merged.
   """
   requiredDeploymentEnvironments: [String!]!
+}
+
+"""
+A reviewing team, and file patterns describing which files they must approve changes to.
+"""
+type RequiredReviewerConfiguration {
+  """
+  Array of file patterns. Pull requests which change matching files must be
+  approved by the specified team. File patterns use fnmatch syntax.
+  """
+  filePatterns: [String!]!
+
+  """
+  Minimum number of approvals required from the specified team. If set to zero,
+  the team will be added to the pull request but approval is optional.
+  """
+  minimumApprovals: Int!
+
+  """
+  Node ID of the team which must review changes to matching files.
+  """
+  reviewerId: ID!
+}
+
+"""
+A reviewing team, and file patterns describing which files they must approve changes to.
+"""
+input RequiredReviewerConfigurationInput {
+  """
+  Array of file patterns. Pull requests which change matching files must be
+  approved by the specified team. File patterns use fnmatch syntax.
+  """
+  filePatterns: [String!]!
+
+  """
+  Minimum number of approvals required from the specified team. If set to zero,
+  the team will be added to the pull request but approval is optional.
+  """
+  minimumApprovals: Int!
+
+  """
+  Node ID of the team which must review changes to matching files.
+  """
+  reviewerId: ID!
 }
 
 """
@@ -67281,7 +67364,7 @@ type UpdateUserListsForItemPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Agentic & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -68887,6 +68970,21 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   Whether or not the viewer is able to sponsor this user/organization.
   """
   viewerCanSponsor: Boolean!
+
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
 
   """
   Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.

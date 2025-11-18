@@ -1,6 +1,8 @@
 # Contains variables to identify GitHub's release phases. These are aligned with Microsoft standards.
 # For reference: https://github.com/github/docs-team/issues/4302
 
+preview: 'preview'
+
 public_preview: >-
   {% ifversion ghes < 3.16 %}beta{% else %}public preview{% endif %}
 

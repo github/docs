@@ -74,25 +74,29 @@ describe('markdown for each rest version', () => {
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
           const apiOperations = await getRest(version, apiVersion)
-          Object.keys(apiOperations).forEach((category) => allCategories.add(category))
+          for (const category of Object.keys(apiOperations)) {
+            allCategories.add(category)
+          }
           openApiSchema[version] = apiOperations
         }
       } else {
         const apiOperations = await getRest(version)
-        Object.keys(apiOperations).forEach((category) => allCategories.add(category))
+        for (const category of Object.keys(apiOperations)) {
+          allCategories.add(category)
+        }
         openApiSchema[version] = apiOperations
       }
     }
 
     // Read the versions from each index.md file to build a list of
     // applicable versions for each category
-    walk('content/rest', { includeBasePath: true, directories: false })
-      .filter((filename) => filename.includes('index.md'))
-      .forEach((file) => {
-        const applicableVersions = getApplicableVersionFromFile(file)
-        const { category } = getCategorySubcategory(file)
-        categoryApplicableVersions[category] = applicableVersions
-      })
+    for (const file of walk('content/rest', { includeBasePath: true, directories: false }).filter(
+      (filename) => filename.includes('index.md'),
+    )) {
+      const applicableVersions = getApplicableVersionFromFile(file)
+      const { category } = getCategorySubcategory(file)
+      categoryApplicableVersions[category] = applicableVersions
+    }
   })
 
   test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
@@ -115,7 +119,7 @@ describe('markdown for each rest version', () => {
 
   test('category and subcategory exist in OpenAPI schema for every applicable version in markdown frontmatter', async () => {
     const automatedFiles = getAutomatedMarkdownFiles('content/rest')
-    automatedFiles.forEach((file) => {
+    for (const file of automatedFiles) {
       const applicableVersions = getApplicableVersionFromFile(file)
       const { category, subCategory } = getCategorySubcategory(file)
 
@@ -129,7 +133,7 @@ describe('markdown for each rest version', () => {
           `The versions that apply to category ${category} does not contain the ${version}, as is expected. Please check the versions for file ${file} or look at the index that governs that file (in its parent directory).`,
         ).toContain(version)
       }
-    })
+    }
   })
 })
 
@@ -155,15 +159,14 @@ describe('OpenAPI schema validation', () => {
   // even though the version is not yet supported in the docs)
   test('every OpenAPI version must have a schema file in the docs', async () => {
     const decoratedFilenames = walk(schemasPath).map((filename) => path.basename(filename, '.json'))
-    Object.values(allVersions)
-      .map((version) => version.openApiVersionName)
-      .forEach((openApiBaseName) => {
-        // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
-        // now checking if the decorated file names now start with an openApiBaseName
-        expect(
-          decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName)),
-        ).toBe(true)
-      })
+    const openApiBaseNames = Object.values(allVersions).map((version) => version.openApiVersionName)
+    for (const openApiBaseName of openApiBaseNames) {
+      // Because the rest calendar dates now have latest, next, or calendar date attached to the name, we're
+      // now checking if the decorated file names now start with an openApiBaseName
+      expect(
+        decoratedFilenames.some((versionFile) => versionFile.startsWith(openApiBaseName)),
+      ).toBe(true)
+    }
   })
 
   test('operations object structure organized by version, category, and subcategory', async () => {
@@ -190,10 +193,12 @@ describe('OpenAPI schema validation', () => {
   })
 })
 
-async function findOperation(version: string, method: string, path: string) {
+async function findOperation(version: string, method: string, requestPath: string) {
   const allOperations = await getFlatListOfOperations(version)
   return allOperations.find((operation) => {
-    return operation.requestPath === path && operation.verb.toLowerCase() === method.toLowerCase()
+    return (
+      operation.requestPath === requestPath && operation.verb.toLowerCase() === method.toLowerCase()
+    )
   })
 }
 
@@ -212,10 +217,10 @@ describe('code examples are defined', () => {
       expect(isPlainObject(operation)).toBe(true)
       expect(operation.codeExamples).toBeDefined()
       // Code examples have dynamic structure from OpenAPI schema
-      operation.codeExamples.forEach((example: any) => {
+      for (const example of operation.codeExamples as any[]) {
         expect(isPlainObject(example.request)).toBe(true)
         expect(isPlainObject(example.response)).toBe(true)
-      })
+      }
     }
   })
 })

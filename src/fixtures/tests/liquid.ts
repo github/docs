@@ -78,13 +78,13 @@ describe('post', () => {
     // Test what happens to `Cram{% ifversion fpt %}FPT{% endif %}ped.`
     // when it's not free-pro-team.
     {
-      const $: cheerio.Root = await getDOM(
+      const $inner: cheerio.Root = await getDOM(
         '/enterprise-server@latest/get-started/liquid/whitespace',
       )
-      const html = $('#article-contents').html()
+      const innerHtml = $inner('#article-contents').html()
       // Assures that there's not whitespace left when the `{% ifversion %}`
       // yields an empty string.
-      expect(html).toMatch('Cramped')
+      expect(innerHtml).toMatch('Cramped')
     }
   })
 })
@@ -203,12 +203,12 @@ describe('ifversion', () => {
         return !matchesPerVersion[version].includes(condition)
       })
 
-      wantedConditions.forEach((condition: string) => {
+      for (const condition of wantedConditions as string[]) {
         expect(html).toMatch(condition)
-      })
-      unwantedConditions.forEach((condition: string) => {
+      }
+      for (const condition of unwantedConditions as string[]) {
         expect(html).not.toMatch(condition)
-      })
+      }
     },
   )
 })

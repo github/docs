@@ -87,11 +87,11 @@ const STATIC_PREFIXES: Record<string, string> = {
   public: path.resolve(path.join('src', 'graphql', 'data')),
 }
 // Sanity check that these are valid paths
-Object.entries(STATIC_PREFIXES).forEach(([key, value]) => {
+for (const [key, value] of Object.entries(STATIC_PREFIXES)) {
   if (!fs.existsSync(value)) {
     throw new Error(`Can't find static prefix (${key}): ${value}`)
   }
-})
+}
 
 // By default, we don't cache external link checks to disk.
 // By setting this env var to something >0, it enables the disk-based
@@ -128,10 +128,12 @@ async function limitConcurrency<T, R>(
   const executing = new Set<Promise<R>>()
 
   for (const item of items) {
-    const promise = asyncFn(item).then((result) => {
+    const createPromise = async () => {
+      const result = await asyncFn(item)
       executing.delete(promise)
       return result
-    })
+    }
+    const promise = createPromise()
 
     results.push(promise)
     executing.add(promise)
@@ -481,8 +483,8 @@ async function commentOnPR(core: CoreInject, octokit: Octokit, flaws: LinkFlaw[]
     issue_number: pullNumber,
   })
   let previousCommentId
-  for (const { body, id } of data) {
-    if (body && body.includes(findAgainSymbol)) {
+  for (const { body: commentBody, id } of data) {
+    if (commentBody && commentBody.includes(findAgainSymbol)) {
       previousCommentId = id
     }
   }

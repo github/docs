@@ -20,7 +20,7 @@ category:
 
 ### Prerequisites
 
-This guide assumes that you know how to use {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion in your IDE. See [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide) and [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
+This guide assumes that you know how to use {% data variables.copilot.copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} inline suggestions in your IDE. See [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide) and [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
 
 ## Start with the basics
 
@@ -84,9 +84,9 @@ To get started, write a simple program that you would be able to write easily in
 
 * `Suggests ways I could enhance this app.`
 
-### Use comments and {% data variables.product.prodname_copilot_short %} code completion
+### Use comments and {% data variables.product.prodname_copilot_short %} inline suggestions
 
-As an alternative to asking {% data variables.copilot.copilot_chat_short %} to suggest the basic code for a new program, you can write comments in the editor and see what suggestions {% data variables.product.prodname_copilot_short %} code completion offers.
+As an alternative to asking {% data variables.copilot.copilot_chat_short %} to suggest the basic code for a new program, you can write comments in the editor and see what code {% data variables.product.prodname_copilot_short %} suggests.
 
 For example:
 
@@ -105,7 +105,7 @@ For example:
 
 1. If necessary, change the comment syntax to match the language you are using.
 1. Change `NEW-LANGUAGE` to the name of the language you are using. This, and the file name extension, will tell {% data variables.product.prodname_copilot_short %} which language to use.
-1. Press return and tab to see and accept the code completion suggestions that {% data variables.product.prodname_copilot_short %} offers. Continue accepting suggestions until you have a complete program.
+1. Press return and tab to see and accept the inline suggestions that {% data variables.product.prodname_copilot_short %} offers. Continue accepting suggestions until you have a complete program.
 1. Read through the code to see how it works. If you don't understand any part of the code, ask {% data variables.product.prodname_copilot_short %} to explain it. For example:
 
    1. Select one or more lines of code that you don't understand.

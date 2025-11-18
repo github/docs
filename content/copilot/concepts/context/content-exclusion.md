@@ -19,8 +19,8 @@ category:
 
 You can use content exclusion to configure {% data variables.product.prodname_copilot_short %} to ignore certain files. When you exclude content from {% data variables.product.prodname_copilot_short %}:
 
-* Code completion will not be available in the affected files.
-* The content in affected files will not inform code completion suggestions in other files.
+* Inline suggestions will not be available in the affected files.
+* The content in affected files will not inform inline suggestions in other files.
 * The content in affected files will not inform {% data variables.copilot.copilot_chat %}'s responses.
 * Affected files will not be reviewed in a {% data variables.product.prodname_copilot_short %} code review.
 
@@ -34,7 +34,7 @@ Repository administrators, organization owners, and enterprise owners can config
 
 The {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %} plans provide the following level of support for content exclusion.
 
-| Tool                                            |            Code completion support            | {% data variables.copilot.copilot_chat_short %} support |
+| Tool                                            |            Inline suggestions support         | {% data variables.copilot.copilot_chat_short %} support |
 |-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
 | {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
@@ -50,7 +50,7 @@ Content exclusions also apply to {% data variables.copilot.copilot_code-review_s
 
 > [!NOTE]
 > * Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
-> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}.
+> * Content exclusion is currently not supported in Edit and Agent modes of {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %} and other editors.
 
 ### Limitations of content exclusion
 

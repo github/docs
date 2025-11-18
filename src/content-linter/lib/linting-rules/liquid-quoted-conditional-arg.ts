@@ -1,5 +1,4 @@
 import { TokenKind } from 'liquidjs'
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getLiquidTokens, conditionalTags, getPositionData } from '../helpers/liquid-utils'

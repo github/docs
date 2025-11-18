@@ -96,21 +96,23 @@ async function main() {
     .listen(port, async () => {
       console.log(`started server on ${host}`)
 
-      await scrape({
-        urls,
-        urlFilter: (url: string) => {
-          // Do not download assets from other hosts like S3 or octodex.github.com
-          // (this will keep them as remote references in the downloaded pages)
-          return url.startsWith(`http://localhost:${port}/`)
-        },
-        directory: tmpArchivalDirectory,
-        filenameGenerator: 'bySiteStructure',
-        requestConcurrency: 6,
-        plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
-      }).catch((err: Error) => {
+      try {
+        await scrape({
+          urls,
+          urlFilter: (url: string) => {
+            // Do not download assets from other hosts like S3 or octodex.github.com
+            // (this will keep them as remote references in the downloaded pages)
+            return url.startsWith(`http://localhost:${port}/`)
+          },
+          directory: tmpArchivalDirectory,
+          filenameGenerator: 'bySiteStructure',
+          requestConcurrency: 6,
+          plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
+        })
+      } catch (err) {
         console.error('scraping error')
         console.error(err)
-      })
+      }
 
       fs.renameSync(
         path.join(tmpArchivalDirectory, `/localhost_${port}`),
@@ -140,7 +142,7 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
 
   const redirectEntries: Array<[string, string]> = Object.entries(redirects)
 
-  redirectEntries.forEach(([oldPath, newPath]) => {
+  for (let [oldPath, newPath] of redirectEntries) {
     // remove any liquid variables that sneak in
     oldPath = oldPath.replace('/{{ page.version }}', '').replace('/{{ currentVersion }}', '')
     // ignore any old paths that are not in this version
@@ -150,10 +152,10 @@ async function createRedirectsFile(pageList: PageList, outputDirectory: string) 
         oldPath.includes(`/enterprise/${version}`)
       )
     )
-      return
+      continue
 
     redirectsPerVersion[oldPath] = newPath
-  })
+  }
 
   fs.writeFileSync(
     path.join(outputDirectory, 'redirects.json'),

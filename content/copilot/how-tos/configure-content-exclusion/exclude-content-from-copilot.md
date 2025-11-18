@@ -184,7 +184,7 @@ You can verify that content exclusions you have configured are working as expect
 
 1. First confirm that content exclusion is working in files that are not subject to content exclusion. To do this:
    * In your IDE, open a file that is not subject to content exclusion.
-   * Make an edit that would normally generate a code completion suggestion. A suggestion should be offered
+   * Make an edit that would normally generate an inline suggestion. A suggestion should be offered
 1. Open a file that should be excluded and make the same edit. No suggestion should be offered.
 1. To test content exclusion for {% data variables.copilot.copilot_chat_short %}:
    * In your IDE, open the {% data variables.copilot.copilot_chat_short %} panel.

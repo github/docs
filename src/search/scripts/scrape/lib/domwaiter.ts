@@ -51,14 +51,18 @@ export default function domwaiter(pages: Permalink[], opts: DomWaiterOptions = {
 
   const limiter = new Bottleneck(opts)
 
-  pages.forEach((page) => {
-    limiter
-      .schedule(() => getPage(page, emitter, opts))
-      .catch((err) => {
+  for (const page of pages) {
+    async function schedulePage() {
+      try {
+        await limiter.schedule(() => getPage(page, emitter, opts))
+      } catch (err) {
         // Catch any unhandled promise rejections
         emitter.emit('error', err)
-      })
-  })
+      }
+    }
+
+    schedulePage()
+  }
 
   limiter.on('idle', () => {
     emitter.emit('done')

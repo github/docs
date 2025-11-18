@@ -20,8 +20,13 @@ Use a _.gitattributes_ file to mark files that match a given "pattern" with the 
 
    For example, to mark `search/index.json` as a generated file, add this line to _.gitattributes_:
 
-   ```text
-   search/index.json linguist-generated=true
+   ```gitattributes
+   search/index.json linguist-generated
+   ```
+
+   To unmark a file that would generally be considered _generated_, add this line to _.gitattributes_:
+   ```gitattributes
+   bootstrap.min.css -linguist-generated
    ```
 
 ## Further reading

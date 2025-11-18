@@ -360,11 +360,11 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ![Screenshot of the gutter menu in {% data variables.product.prodname_vscode %}. The arrow is outlined in dark orange.](/assets/images/help/copilot/vsc-advanced-code-completion-menu.png)
 
-For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions) in the {% data variables.product.prodname_vscode %} documentation.
+For more details and examples, see [Inline suggestions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Changing the AI model
 
-You can change the large language model that's used to generate code completion suggestions. For more information, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+You can change the large language model that's used to generate inline suggestions. For more information, see [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 
 {% endvscode %}
 
@@ -561,11 +561,11 @@ You can also describe something you want to do using natural language within a c
 > [!TIP]
 > If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
 
-## Manually triggering code completion
+## Manually triggering inline suggestions
 
-You can also use keyboard shortcuts to trigger code completion.
+You can also use keyboard shortcuts to trigger inline suggestions.
 
-| OS               | Trigger code completion                           |
+| OS               | Trigger inline suggestions                        |
 |:-----------------|:--------------------------------------------------|
 | macOS            | <kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>/</kbd> |
 | Windows or Linux | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>/</kbd>       |

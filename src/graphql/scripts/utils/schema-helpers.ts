@@ -128,8 +128,8 @@ function getFullLink(baseType: string, id: string): string {
   return `/graphql/reference/${baseType}#${id}`
 }
 
-function getId(path: string): string {
-  return removeMarkers(path).toLowerCase()
+function getId(typeName: string): string {
+  return removeMarkers(typeName).toLowerCase()
 }
 
 // e.g., given `ObjectTypeDefinition`, get `objects`

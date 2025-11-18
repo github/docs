@@ -1,7 +1,7 @@
 ---
 title: Tutorials for GitHub Code Quality
 shortTitle: Tutorials
-intro: Build skills and knowledge about {% data variables.product.prodname_code_quality %} through examples.
+intro: 'Build skills and knowledge about {% data variables.product.prodname_code_quality %} through examples.'
 versions:
   feature: code-quality
 topics:

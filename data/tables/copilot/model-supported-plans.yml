@@ -13,7 +13,7 @@
 # - enterprise: Availability on Copilot Enterprise.
 
 - name: Claude Haiku 4.5
-  free: false
+  free: true
   pro: true
   pro_plus: true
   business: true
@@ -24,13 +24,6 @@
   pro: false
   pro_plus: true
   business: false
-  enterprise: true
-
-- name: Claude Sonnet 3.5
-  free: true
-  pro: true
-  pro_plus: true
-  business: true
   enterprise: true
 
 - name: Claude Sonnet 4
@@ -82,9 +75,37 @@
   business: true
   enterprise: true
 
+- name: GPT-5.1
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.1-Codex
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
+- name: GPT-5.1-Codex-Mini
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: Grok Code Fast 1
   free: false
   pro: true
   pro_plus: true
   business: true
   enterprise: true
+
+- name: Raptor mini
+  free: true
+  pro: true
+  pro_plus: true
+  business: false
+  enterprise: false
