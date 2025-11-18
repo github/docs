@@ -1,6 +1,15 @@
 ---
 title: About GitHub Advanced Security
-intro: '{% data variables.product.github %} makes extra security features available to customers {% ifversion ghas-products %}who purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}under a {% data variables.product.prodname_GHAS %} license{% endif %}.{% ifversion fpt or ghec %} Some features are enabled for public repositories by default.{% endif %}'
+intro: >
+  {% data variables.product.github %} offers advanced security features to help protect your code. These features are available to customers 
+  {% ifversion ghas-products %}
+    who purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}
+  {% else %}
+    with a {% data variables.product.prodname_GHAS %} license
+  {% endif %}. 
+  {% ifversion fpt or ghec %}
+    Some features are enabled by default for public repositories.
+  {% endif %}
 product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   fpt: '*'
@@ -16,21 +25,23 @@ shortTitle: GitHub Advanced Security
 
 ## About {% data variables.product.prodname_GHAS %} {% ifversion ghas-products %}products{% endif %}
 
-{% data variables.product.github %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}.
+{% data variables.product.github %} provides many features that help you improve and maintain the quality and security of your code. Some of these features are included in all plans, such as the dependency graph and {% data variables.product.prodname_dependabot_alerts %}.
 
 {% ifversion ghas-products %}
 
-Other security features require you to purchase one of {% data variables.product.github %}'s {% data variables.product.prodname_AS %} products:
+Other advanced security features require purchasing one of {% data variables.product.github %}'s {% data variables.product.prodname_AS %} products:
 
 {% data reusables.advanced-security.ghas-products-bullets+ghas %}
 
-{% ifversion fpt or ghec %}Some of these features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, are enabled for public repositories by default. To run the feature on your private or internal repositories, you must purchase the relevant {% data variables.product.prodname_GHAS %} product.{% endif %}
+{% ifversion fpt or ghec %}
+Some features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, are enabled by default for public repositories. To use these features on private or internal repositories, you must purchase the relevant {% data variables.product.prodname_GHAS %} product.
+{% endif %}
 
-You must be on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan in order to purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans) and [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+You must be on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan to purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}. For more information, see [GitHub Plans](/get-started/learning-about-github/githubs-plans) and [Billing for GitHub Advanced Security](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 {% else %}
 
-Other security features require a {% data variables.product.prodname_GHAS %} (GHAS) license. For information about buying a license for {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+Other advanced security features require a {% data variables.product.prodname_GHAS %} (GHAS) license. For information about purchasing a license, see [Billing for GitHub Advanced Security](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 {% endif %}
 
@@ -38,144 +49,38 @@ Other security features require a {% data variables.product.prodname_GHAS %} (GH
 
 ## {% data variables.product.prodname_GH_code_security %}
 
-You get the following features with {% data variables.product.prodname_GH_code_security %}:
+With {% data variables.product.prodname_GH_code_security %}, you get the following features:
 
-* **{% data variables.product.prodname_code_scanning_caps %}**: Search for potential security vulnerabilities and coding errors in your code using {% data variables.product.prodname_codeql %} or a third-party tool.
+* **{% data variables.product.prodname_code_scanning_caps %}**: Automatically scan your code for potential security vulnerabilities and coding errors using {% data variables.product.prodname_codeql %}, GitHub's semantic code analysis engine, or third-party tools. [Learn more about CodeQL](https://codeql.github.com/).
 
-* **{% data variables.product.prodname_codeql_cli %}**: Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}.{% ifversion code-scanning-autofix %}
+* **{% data variables.product.prodname_codeql_cli %}**: Run {% data variables.product.prodname_codeql %} processes locally on your projects or generate {% data variables.product.prodname_code_scanning %} results to upload to {% data variables.product.github %}.{% ifversion code-scanning-autofix %}
 
 * **{% data variables.copilot.copilot_autofix_short %}**: Get automatically generated fixes for {% data variables.product.prodname_code_scanning %} alerts.{% endif %}{% ifversion security-campaigns %}
 
-* **Security campaigns**: Reduce security debt at scale.{% endif %}
+* **Security campaigns**: Reduce security debt at scale by managing and tracking security improvements across your repositories.{% endif %}
 
-* **{% data variables.dependabot.custom_rules_caps %} for {% data variables.product.prodname_dependabot %}**: Manage your {% data variables.product.prodname_dependabot_alerts %} at scale, by automating which alerts you want to ignore, snooze, or trigger a {% data variables.product.prodname_dependabot %} security update for.
+* **{% data variables.dependabot.custom_rules_caps %} for {% data variables.product.prodname_dependabot %}**: Automate management of {% data variables.product.prodname_dependabot_alerts %} by ignoring, snoozing, or triggering security updates.
 
-* **Dependency review**: Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request.
+* **Dependency review**: Understand the full impact of dependency changes and identify vulnerable versions before merging pull requests.
 
-* **Security overview**: Understand the distribution of risk across your organization.
+* **Security overview**: Gain insights into the distribution of security risks across your organization.
 
 {% ifversion fpt or ghec %}
 
-The table below summarizes the availability of {% data variables.product.prodname_GH_code_security %} features for public and private repositories.
+The table below summarizes the availability of {% data variables.product.prodname_GH_code_security %} features for public and private repositories:
 
-{% rowheaders %}
+| Feature | Public repository <br>without {% data variables.product.prodname_GH_code_security %} | Private repository <br>without {% data variables.product.prodname_GH_code_security %} | Public or private repository <br>with {% data variables.product.prodname_GH_code_security %} |
+| --- | :---: | :---: | :---: |
+| {% data variables.product.prodname_code_scanning_caps %} | ✅ | ❌ | ✅ |
+| {% data variables.product.prodname_codeql %} CLI | ❌ | ❌ | ✅ |
+| {% data variables.copilot.copilot_autofix_short %} | ❌ | ❌ | ✅ |
+| Security campaigns | ❌ | ❌ | ✅ |
+| {% data variables.dependabot.custom_rules_caps %} | ❌ | ❌ | ✅ |
+| Dependency review | ✅ | ❌ | ✅ |
+| Security overview | ✅ | ❌ | ✅ |
 
-| | Public repository <br>without {% data variables.product.prodname_GH_code_security %} | Private repository <br>without {% data variables.product.prodname_GH_code_security %} | Public or private repository <br>with {% data variables.product.prodname_GH_code_security %} |
-| --- | --- | --- | --- |
-| {% data variables.product.prodname_code_scanning_caps %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| {% data variables.product.prodname_codeql_cli %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% ifversion code-scanning-autofix %}|
-| {% data variables.copilot.copilot_autofix_short %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% endif %}|
-|{% ifversion security-campaigns %}|
-| Security campaigns | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% endif %}|
-| {% data variables.dependabot.custom_rules_caps %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| Dependency review | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| Security overview | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-{% endrowheaders %}
+*Legend: ✅ Feature available, ❌ Feature not available*
 
 {% endif %}
 
-For more information about features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
-
-## {% data variables.product.prodname_GH_secret_protection %}
-
-You get the following features with {% data variables.product.prodname_GH_secret_protection %}:
-
-{% data reusables.secret-protection.product-list %}
-
-{% ifversion ghas-products-cloud %}
-
-The table below summarizes the availability of {% data variables.product.prodname_GH_secret_protection %} features for public and private repositories.
-
-{% rowheaders %}
-
-| | Public repository <br>without {% data variables.product.prodname_GH_secret_protection %} | Private repository <br>without {% data variables.product.prodname_GH_secret_protection %} | Public or private repository <br>with {% data variables.product.prodname_GH_secret_protection %} |
-| --- | --- | --- | --- |
-| Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| Push protection   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% ifversion secret-scanning-ai-generic-secret-detection %}|
-| Copilot secret scanning  | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% endif %}|
-| Custom patterns   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| Delegated bypass for push protection    | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% ifversion security-campaigns-secrets %}|
-| Security campaigns | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-|{% endif %}|
-| Security overview   | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-
-{% endrowheaders %}
-
 {% endif %}
-
-For more information about individual features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
-
-{% else %}
-
-## About {% data variables.product.prodname_GHAS %} features
-
-A {% data variables.product.prodname_GHAS %} license provides the following additional features:
-
-* **{% data variables.product.prodname_code_scanning_caps %}** - Search for potential security vulnerabilities and coding errors in your code using {% data variables.product.prodname_codeql %} or a third-party tool. See [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning) and [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
-
-* **{% data variables.product.prodname_codeql_cli %}** - Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}. See [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli).
-
-* **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into  the repository. If push protection is enabled, {% data variables.product.prodname_dotcom %} also detects secrets when they are pushed to your repository. {% ifversion secret-scanning-enable-by-default-for-public-repos %}{% data variables.secret-scanning.user_alerts_caps %} and push protection are available and free of charge for all {% ifversion ghec %}user-owned {% endif %}public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %} See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning) and [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
-
-* **{% data variables.dependabot.custom_rules_caps %}** - {% data reusables.dependabot.dependabot-custom-rules-ghas %}
-
-* **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
-
-{% endif %}
-
-{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
-
-## Run an assessment of your organization's exposure to secret leaks
-
-{% ifversion secret-risk-assessment %}{% data variables.secret-scanning.secret-risk-assessment-cta-product %}{% endif %}
-
-Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. This can help you understand the current exposure of repositories in your organization to leaked secrets, as well as help you see how many existing secret leaks could have been prevented by {% data variables.product.prodname_GH_secret_protection %}.{% endif %}{% else %}{% endif %}
-
-## Deploying {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %} in your enterprise{% endif %}
-
-To learn about what you need to know to plan your deployment of {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %} at a high level and to review the rollout phases we recommended, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale).
-
-## Enabling features
-
-{% ifversion ghes %}
-A site administrator must enable {% data variables.product.prodname_AS %} for {% data variables.location.product_location %} before you can use these features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
-{% endif %}
-
-{% ifversion security-configurations %}
-{% data reusables.security-configurations.enable-security-features-with-gh-config %}
-{% endif %}
-
-{% ifversion security-configurations %}{% else %}Once your system is set up, you can enable and disable these features at the organization or repository level. See [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).{% endif %}
-
-If you are on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan, license use for the entire team or enterprise is shown on your license page. {% ifversion fpt or ghec %}See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).{% endif %}
-
-{% ifversion copilot-chat-ghas-alerts %}
-
-## Leveraging {% data variables.copilot.copilot_chat %} to understand security alerts
-
-Additionally, with a {% data variables.copilot.copilot_enterprise %} license, you can ask {% data variables.copilot.copilot_chat %} for help to better understand security alerts in repositories in your organization ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
-{% endif %}
-
-{% ifversion github-certification %}
-
-## About {% data variables.product.prodname_GHAS %} Certification
-
-You can highlight your knowledge by earning a {% data variables.product.prodname_GHAS %} certificate with {% data variables.product.prodname_certifications %}. The certification validates your expertise in vulnerability identification, workflow security, and robust security implementation. See [AUTOTITLE](/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications).
-
-{% endif %}
-
-## About {% data variables.product.prodname_GHAS %} with Azure Repos
-
-If you want to use {% data variables.product.prodname_GHAS %} with Azure Repos, see [{% data variables.product.prodname_GHAS %} & Azure DevOps](https://resources.github.com/topics/github-advanced-security/) in our resources site. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
-
-## Further reading
-
-* [AUTOTITLE](/code-security/getting-started/github-security-features)
-* [{% data variables.product.github %} public roadmap](https://github.com/github/roadmap){%- ifversion ghec or ghes %}
-* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise){% endif %}
