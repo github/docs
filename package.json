@@ -252,7 +252,7 @@
     "@axe-core/playwright": "^4.10.1",
     "@eslint/js": "^9.33.0",
     "@github/markdownlint-github": "^0.6.3",
-    "@graphql-inspector/core": "^6.1.0",
+    "@graphql-inspector/core": "^7.0.3",
     "@graphql-tools/load": "^8.0.19",
     "@octokit/rest": "22.0.0",
     "@playwright/test": "^1.56",
