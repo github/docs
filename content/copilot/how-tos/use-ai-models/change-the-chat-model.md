@@ -140,6 +140,8 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 1. In the popup menu, click **Open {% data variables.copilot.copilot_chat %}**.
 1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
+{% data reusables.copilot.auto-model-option %}
+
 {% endjetbrains %}
 
 {% eclipse %}
@@ -153,6 +155,8 @@ These instructions are for the Eclipse IDE. For instructions on different client
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open Chat**.
 1. In the bottom right of the chat panel, click the currently selected AI model, then select an alternative model from the popup menu.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endeclipse %}
 
@@ -168,6 +172,8 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must ins
 
 1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endxcode %}
 

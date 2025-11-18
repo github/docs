@@ -2,7 +2,7 @@
 title: Asking GitHub Copilot to create a pull request
 shortTitle: Create a PR
 intro: 'You can ask {% data variables.product.prodname_copilot_short %} to create a pull request from many places, including {% data variables.product.prodname_github_issues %}, the agents panel, {% data variables.copilot.copilot_chat_short %}, the {% data variables.product.prodname_cli %}, and agentic coding tools and IDEs with Model Context Protocol (MCP) support.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-web-copilot-agents-create-pr&utm_medium=docs&utm_campaign=ghignite25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -37,7 +37,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to create a new 
 * {% data variables.product.prodname_github_issues %}, by [assigning an issue to {% data variables.product.prodname_copilot_short %}](#assigning-an-issue-to-copilot)
 * The [agents tab or panel](#asking-copilot-to-create-a-pull-request-from-the-agents-tab-or-panel) on {% data variables.product.github %}
 * The [dashboard](#asking-copilot-to-create-a-pull-request-from-the-dashboard) on {% data variables.product.github %}
-* {% data variables.copilot.copilot_chat_short %} in [{% data variables.product.prodname_vscode %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code), [JetBrains IDEs](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-jetbrains-ides), and [{% data variables.product.prodname_vs %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio)
+* {% data variables.copilot.copilot_chat_short %} in [{% data variables.product.prodname_vscode %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio-code), [JetBrains IDEs](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-jetbrains-ides), [Eclipse](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-eclipse) and [{% data variables.product.prodname_vs %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-visual-studio)
 * {% data variables.copilot.copilot_chat_short %} on [{% data variables.product.prodname_dotcom_the_website %}](#asking-copilot-to-create-a-pull-request-from-copilot-chat-in-githubcom)
 * The [{% data variables.product.prodname_cli %}](#asking-copilot-to-create-a-pull-request-from-the-github-cli)
 * On [{% data variables.product.prodname_mobile %}](#asking-copilot-to-create-a-pull-request-from-github-mobile)
@@ -296,6 +296,21 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
    For example, `Put backticks around file names and variables in output`
 
 1. Click the **Delegate to Coding Agent** button next to the **Send** button.
+
+   {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification from {% data variables.product.github %} and in the IDE.
+
+## Asking {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.copilot.copilot_chat_short %} in Eclipse
+
+> [!NOTE]
+> {% data variables.copilot.copilot_coding_agent %} in Eclipse is in {% data variables.release-phases.public_preview %}, and subject to change.
+
+1. Open {% data variables.copilot.copilot_chat %} in Eclipse.
+1. Type a prompt explaining what you want {% data variables.product.prodname_copilot_short %} to do.
+
+   For example, `Put backticks around file names and variables in output`
+
+1. Click **{% octicon "agent" aria-label="The Agents icon" %}** next to the **Send** button.
+1. In the dialog box that opens, select the repository you want {% data variables.product.prodname_copilot_short %} to work in, then click **Continue**.
 
    {% data variables.product.prodname_copilot_short %} will start a new session and respond with a link to the pull request it creates. It will work on the task and push changes to the pull request, and then add you as a reviewer when it has finished, triggering a notification from {% data variables.product.github %} and in the IDE.
 

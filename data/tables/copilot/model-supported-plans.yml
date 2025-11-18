@@ -47,6 +47,13 @@
   business: true
   enterprise: true
 
+- name: Gemini 3 Pro
+  free: false
+  pro: true
+  pro_plus: true
+  business: true
+  enterprise: true
+
 - name: GPT-4.1
   free: true
   pro: true

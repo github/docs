@@ -11,13 +11,15 @@ contentType: reference
 
 This reference article provides detailed configuration information for {% data variables.copilot.custom_agents_short %}. For general information about creating {% data variables.copilot.custom_agents_short %}, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
 
+{% data reusables.copilot.custom-agents-ide-preview %}
+
 ## YAML frontmatter properties
 
 The following table outlines the properties that are supported in repository-level {% data variables.copilot.agent_profiles %}, organization or enterprise level {% data variables.copilot.agent_profiles %}, and in {% data variables.product.prodname_vscode_shortname %}.
 
 {% rowheaders %}
 
-| Property      | Type      | Purpose    | Repository | Organization / enterprise | {% data variables.product.prodname_vscode_shortname %} |
+| Property      | Type      | Purpose    | Repository | Organization / enterprise | {% data variables.product.prodname_vscode_shortname %}, JetBrains IDEs, Eclipse, and Xcode |
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------- | ------------------ |
 | `name`        | string     | Unique name for the {% data variables.copilot.copilot_custom_agent_short %}. Optional, if unset defaults to the filename (without `.md` or `.agent.md` suffix). <br/> Lowest level configuration takes precedence when there is a naming conflict.                                      | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
 | `description` | **Required** string     | Description of the {% data variables.copilot.copilot_custom_agent_short %}'s purpose and capabilities                                                                                                   | {% octicon "check" aria-label="Supported" %}          | {% octicon "check" aria-label="Supported" %}                         | {% octicon "check" aria-label="Supported" %}                  |
@@ -29,19 +31,19 @@ The following table outlines the properties that are supported in repository-lev
 {% endrowheaders %}
 
 > [!NOTE]
-> The `model`, `argument-hint`, and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility. For more information on {% data variables.copilot.copilot_custom_agent_short %} file structure in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+> The `model`, `argument-hint`, and `handoffs` properties from {% data variables.product.prodname_vscode_shortname %} and other IDE {% data variables.copilot.custom_agents_short %} are currently not supported for {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}. They are ignored to ensure compatibility. For more information on {% data variables.copilot.copilot_custom_agent_short %} file structure in {% data variables.product.prodname_vscode_shortname %}, see [{% data variables.copilot.custom_agents_caps_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/customization/custom-agents#_custom-agent-file-structure) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Tools
 
-The custom agent `tools` property controls which tools are available to your agent, including those from MCP servers.
+The {% data variables.copilot.copilot_custom_agent_short %} `tools` property controls which tools are available to your agent, including those from MCP servers.
 
-While you cannot configure MCP servers directly within an {% data variables.copilot.agent_profile %} for repository-level {% data variables.copilot.custom_agents_short %}, your custom agent will have access to MCP server tools that have been configured in the repository settings. For more information on configuring MCP servers for coding agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
+While you cannot configure MCP servers directly within an {% data variables.copilot.agent_profile %} for repository-level {% data variables.copilot.custom_agents_short %}, your {% data variables.copilot.copilot_custom_agent_short %} will have access to MCP server tools that have been configured in the repository settings. For more information on configuring MCP servers for coding agent in a repository, see [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/extend-coding-agent-with-mcp).
 
 You can configure `tools` using the following approaches:
 
 * **Enable all available tools**: Omit the `tools` property entirely or use `tools: ["*"]` to enable all available tools. This will include all MCP server tools configured in the repository settings.
 * **Enable specific tools**: Provide a list of specific tool names or aliases (for example, `tools: ["read", "edit", "search"]`) to enable only those tools. For available tool aliases, see [Tool aliases](#tool-aliases) below.
-  * Note that if your repository has MCP servers configured, you can choose to make only specific tools from those servers available to your custom agent. Tool names from specific MCP servers can be prefixed with the server name followed by a `/`. For example, `some-mcp-server/some-tool`.
+  * Note that if your repository has MCP servers configured, you can choose to make only specific tools from those servers available to your {% data variables.copilot.copilot_custom_agent_short %}. Tool names from specific MCP servers can be prefixed with the server name followed by a `/`. For example, `some-mcp-server/some-tool`.
   * You can also explicitly enable all tools from a specific MCP server using `some-mcp-server/*`.
   * Tools from {% data variables.product.prodname_vscode_shortname %} extensions can use the extension name as a proxy, like `azure.some-extension/some-tool`.
 * **Disable all tools**: Use an empty list (`tools: []`) to disable all tools for the agent.

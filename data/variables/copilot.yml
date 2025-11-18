@@ -81,6 +81,12 @@ copilot_custom_agent_caps_short: 'Custom agent'
 custom_agents_short: 'custom agents'
 custom_agents_caps_short: 'Custom agents'
 
+## Copilot subagents
+subagent_short: 'subagent'
+subagent_caps_short: 'Subagent'
+subagents_short: 'subagents'
+subagents_caps_short: 'Subagents'
+
 ## Agent profiles (configuration files that define custom agents)
 agent_profile: 'agent profile'
 agent_profile_caps: 'Agent profile'
@@ -141,6 +147,7 @@ copilot_claude_sonnet_45: 'Claude Sonnet 4.5'
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
+copilot_gemini_3_pro: 'Gemini 3 Pro'
 # OpenAI GPT series:
 copilot_gpt_4o: 'GPT-4o'
 copilot_gpt_41: 'GPT-4.1'
@@ -163,7 +170,7 @@ copilot_raptor_mini: 'Raptor mini'
 ## Current model used by Copilot coding agent and Copilot CLI
 cca_current_model: '{% data variables.copilot.copilot_claude_sonnet_40 %}'
 
-## Next edit suggestions in VS Code
+## Next edit suggestions
 next_edit_suggestions: 'next edit suggestions'
 next_edit_suggestions_caps: 'Next edit suggestions'
 

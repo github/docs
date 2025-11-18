@@ -1221,106 +1221,10 @@
   ],
   "billing": [
     {
-      "slug": "get-all-budgets-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/settings/billing/budgets"
-    },
-    {
-      "slug": "get-a-budget-by-id-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
-    },
-    {
-      "slug": "update-a-budget-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "patch",
-      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
-    },
-    {
-      "slug": "delete-a-budget-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "delete",
-      "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}"
-    },
-    {
-      "slug": "get-billing-premium-request-usage-report-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/settings/billing/premium_request/usage"
-    },
-    {
-      "slug": "get-billing-usage-report-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/settings/billing/usage"
-    },
-    {
-      "slug": "get-billing-usage-summary-for-an-organization",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/settings/billing/usage/summary"
-    },
-    {
-      "slug": "get-github-actions-billing-for-an-organization",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/billing/actions"
-    },
-    {
       "slug": "get-github-advanced-security-active-committers-for-an-organization",
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/orgs/{org}/settings/billing/advanced-security"
-    },
-    {
-      "slug": "get-github-packages-billing-for-an-organization",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/billing/packages"
-    },
-    {
-      "slug": "get-shared-storage-billing-for-an-organization",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/billing/shared-storage"
-    },
-    {
-      "slug": "get-github-actions-billing-for-a-user",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/actions"
-    },
-    {
-      "slug": "get-github-packages-billing-for-a-user",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/packages"
-    },
-    {
-      "slug": "get-billing-premium-request-usage-report-for-a-user",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/premium_request/usage"
-    },
-    {
-      "slug": "get-shared-storage-billing-for-a-user",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/shared-storage"
-    },
-    {
-      "slug": "get-billing-usage-report-for-a-user",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/usage"
-    },
-    {
-      "slug": "get-billing-usage-summary-for-a-user",
-      "subcategory": "enhanced-billing",
-      "verb": "get",
-      "requestPath": "/users/{username}/settings/billing/usage/summary"
     }
   ],
   "branches": [
@@ -2842,7 +2746,7 @@
     },
     {
       "slug": "list-enterprise-consumed-licenses",
-      "subcategory": "license",
+      "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/consumed-licenses"
     },
@@ -2908,7 +2812,7 @@
     },
     {
       "slug": "get-a-license-sync-status",
-      "subcategory": "license",
+      "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/license-sync-status"
     },
@@ -3015,28 +2919,10 @@
       "requestPath": "/enterprises/{enterprise}/rulesets/{ruleset_id}"
     },
     {
-      "slug": "get-github-actions-billing-for-an-enterprise",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/actions"
-    },
-    {
       "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-      "subcategory": "billing",
+      "subcategory": "licensing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security"
-    },
-    {
-      "slug": "get-github-packages-billing-for-an-enterprise",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/packages"
-    },
-    {
-      "slug": "get-shared-storage-billing-for-an-enterprise",
-      "subcategory": "billing",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/settings/billing/shared-storage"
     },
     {
       "slug": "list-provisioned-scim-groups-for-an-enterprise",
