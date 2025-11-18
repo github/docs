@@ -58,6 +58,7 @@ Let's compare some aspects of each solution:
 | Each step is logged in real-time | Logged as one step even if it contains multiple steps |
 | Can connect a maximum of {% ifversion fpt or ghec %}ten {% else %}four {% endif %}levels of workflows | Can be nested to have up to 10 composite actions in one workflow |
 | Can use secrets | Cannot use secrets |
+| Cannot be published to the [marketplace](https://github.com/marketplace?type=actions) | Can be published to the [marketplace](https://github.com/marketplace?type=actions) |
 
 ## Workflow templates
 
