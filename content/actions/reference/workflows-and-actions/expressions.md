@@ -59,7 +59,7 @@ env:
 | `==`        | Equal |
 | `!=`        | Not equal |
 | `&&`        | And |
-|  <code>\|\|</code> | Or |
+| <code>\|\|</code> | Or |
 
   > [!NOTE]
   > * {% data variables.product.company_short %} ignores case when comparing strings.
@@ -82,6 +82,19 @@ env:
 * Objects and arrays are only considered equal when they are the same instance.
 
 {% data variables.product.prodname_dotcom %} provides a way to create conditional logic in expressions using binary logical operators (`&&` and `||`). This pattern can be used to achieve similar functionality to the ternary operator (`?:`) found in many programming languages, while actually using only binary operators.
+
+### Example
+
+{% raw %}
+
+```yaml
+env:
+  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+```
+
+{% endraw %}
+
+In this example, we're using a combination of `&&` and `||` operators to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`. It is important to note that the first value after the `&&` must be truthy. Otherwise, the value after the `||` will always be returned.
 
 ## Functions
 

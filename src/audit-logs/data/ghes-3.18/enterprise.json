@@ -1553,48 +1553,6 @@
     "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
   },
   {
-    "action": "business_secret_scanning_push_protection_pattern_configuration.push_protection_setting_changed",
-    "description": "The push protection setting was changed for a secret type for your enterprise.",
-    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "user",
-      "user_id",
-      "business",
-      "business_id",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "secret_type",
-      "secret_type_display_name",
-      "push_protection_setting"
-    ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
-  },
-  {
-    "action": "business_secret_scanning_push_protection_pattern_configuration.updated",
-    "description": "The push protection pattern configuration was updated for your enterprise.",
-    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "user",
-      "user_id",
-      "business",
-      "business_id",
-      "action",
-      "_document_id",
-      "@timestamp"
-    ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
-  },
-  {
     "action": "business.secret_scanning_repo_admin_settings_policy_update",
     "description": "N/A",
     "docs_reference_links": "N/A",
@@ -3319,8 +3277,8 @@
   },
   {
     "action": "enterprise.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-enterprise",
     "fields": [
       "user_agent",
       "request_id",
@@ -3339,7 +3297,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-enterprise"
   },
   {
     "action": "enterprise_domain.approve",
@@ -4528,7 +4487,7 @@
   },
   {
     "action": "git.clone",
-    "description": "A repository was cloned.",
+    "description": "A repository was cloned. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A",
     "fields": [
       "transport_protocol",
@@ -4549,7 +4508,7 @@
   },
   {
     "action": "git.fetch",
-    "description": "Changes were fetched from a repository.",
+    "description": "Changes were fetched from a repository. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A",
     "fields": [
       "action",
@@ -4571,7 +4530,7 @@
   },
   {
     "action": "git.push",
-    "description": "Changes were pushed to a repository.",
+    "description": "Changes were pushed to a repository. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A",
     "fields": [
       "transport_protocol",
@@ -5781,7 +5740,7 @@
   },
   {
     "action": "merge_queue.pull_request_dequeued",
-    "description": "N/A",
+    "description": "A pull request was removed from a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -5801,7 +5760,7 @@
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
-    "description": "N/A",
+    "description": "A pull request was moved ahead in a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -5825,7 +5784,7 @@
   },
   {
     "action": "merge_queue.queue_cleared",
-    "description": "N/A",
+    "description": "A merge queue was cleared.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -5844,7 +5803,7 @@
   },
   {
     "action": "merge_queue.update_settings",
-    "description": "N/A",
+    "description": "The settings for a merge queue were updated.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -6976,8 +6935,8 @@
   },
   {
     "action": "org.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization",
     "fields": [
       "user_agent",
       "request_id",
@@ -6995,7 +6954,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization"
   },
   {
     "action": "org.confirm_business_invitation",
@@ -8222,52 +8182,6 @@
       "token_scopes"
     ],
     "docs_reference_titles": "About push protection"
-  },
-  {
-    "action": "org_secret_scanning_push_protection_pattern_configuration.push_protection_setting_changed",
-    "description": "The push protection setting was changed for a secret type for your org.",
-    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "user",
-      "user_id",
-      "org",
-      "org_id",
-      "business",
-      "business_id",
-      "action",
-      "_document_id",
-      "@timestamp",
-      "created_at",
-      "secret_type",
-      "secret_type_display_name",
-      "push_protection_setting"
-    ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
-  },
-  {
-    "action": "org_secret_scanning_push_protection_pattern_configuration.updated",
-    "description": "The push protection pattern configuration was updated for your org.",
-    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "user",
-      "user_id",
-      "org",
-      "org_id",
-      "business",
-      "business_id",
-      "action",
-      "_document_id",
-      "@timestamp"
-    ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
   },
   {
     "action": "org.security_center_export_code_scanning_metrics",
@@ -9658,7 +9572,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "project.access",
@@ -10921,7 +10835,8 @@
       "_document_id",
       "pull_request_url",
       "programmatic_access_type",
-      "actor_is_bot"
+      "actor_is_bot",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
   },
@@ -10946,7 +10861,8 @@
       "created_at",
       "_document_id",
       "pull_request_url",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
   },
@@ -11035,7 +10951,7 @@
   },
   {
     "action": "pull_request.rebase",
-    "description": "N/A",
+    "description": "A pull request was rebased.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -11122,7 +11038,8 @@
       "_document_id",
       "token_scopes",
       "programmatic_access_type",
-      "request_access_security_header"
+      "request_access_security_header",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
   },
@@ -11227,7 +11144,8 @@
       "created_at",
       "_document_id",
       "pull_request_url",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review"
   },
@@ -11843,8 +11761,8 @@
   },
   {
     "action": "repo.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository",
     "fields": [
       "user_agent",
       "request_id",
@@ -11866,7 +11784,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository"
   },
   {
     "action": "repo.create",
@@ -14031,6 +13950,334 @@
     ]
   },
   {
+    "action": "repository_vulnerability_alert.auto_dismiss",
+    "description": "A Dependabot alert was automatically dismissed because its metadata matches an enabled Dependabot rule.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "alert_id",
+      "alert_number",
+      "ghsa_id",
+      "action",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "owner",
+      "org",
+      "org_id",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "request_access_security_header"
+    ],
+    "docs_reference_titles": "About Dependabot auto-triage rules"
+  },
+  {
+    "action": "repository_vulnerability_alert.auto_reopen",
+    "description": "A previously auto-dismissed Dependabot alert was automatically reopened because its metadata no longer matches an enabled Dependabot rule.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "alert_id",
+      "alert_number",
+      "ghsa_id",
+      "action",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "owner",
+      "org",
+      "org_id",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "request_access_security_header"
+    ],
+    "docs_reference_titles": "About Dependabot auto-triage rules"
+  },
+  {
+    "action": "repository_vulnerability_alert.create",
+    "description": "GitHub created a Dependabot alert because the repository uses a vulnerable dependency.",
+    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts",
+    "fields": [
+      "operation_type",
+      "request_id",
+      "repo_id",
+      "@timestamp",
+      "user_agent",
+      "alert_id",
+      "action",
+      "repo",
+      "created_at",
+      "_document_id",
+      "token_scopes",
+      "alert_number",
+      "programmatic_access_type"
+    ],
+    "docs_reference_titles": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
+  },
+  {
+    "action": "repository_vulnerability_alert.dismiss",
+    "description": "A Dependabot alert was manually dismissed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "repo_id",
+      "org_id",
+      "user_id",
+      "request_id",
+      "@timestamp",
+      "operation_type",
+      "user_agent",
+      "alert_id",
+      "actor",
+      "repo",
+      "created_at",
+      "org",
+      "_document_id",
+      "action",
+      "actor_id",
+      "dismiss_reason",
+      "user",
+      "dismiss_comment",
+      "alert_number",
+      "actor_is_bot"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alert.reintroduce",
+    "description": "A Dependabot alert was automatically reopened because the repository resumed use of a vulnerable dependency.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "user_agent",
+      "request_id",
+      "actor",
+      "actor_id",
+      "alert_id",
+      "created_at",
+      "action",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "owner",
+      "_document_id",
+      "@timestamp",
+      "operation_type",
+      "token_scopes",
+      "alert_number"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alert.reopen",
+    "description": "A Dependabot alert was manually reopened.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "user_agent",
+      "request_id",
+      "actor",
+      "actor_id",
+      "alert_id",
+      "created_at",
+      "action",
+      "repo",
+      "repo_id",
+      "owner",
+      "org",
+      "org_id",
+      "_document_id",
+      "@timestamp",
+      "operation_type",
+      "business",
+      "business_id",
+      "public_repo",
+      "alert_number",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alert.resolve",
+    "description": "Changes were pushed to update and resolve a Dependabot alert in a project dependency.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "alert_id",
+      "repo",
+      "operation_type",
+      "action",
+      "repo_id",
+      "_document_id",
+      "user_agent",
+      "request_id",
+      "@timestamp",
+      "created_at",
+      "actor",
+      "actor_id",
+      "token_scopes",
+      "alert_number",
+      "programmatic_access_type"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alert.withdraw",
+    "description": "A Dependabot alert was withdrawn.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "alert_id",
+      "alert_number",
+      "ghsa_id",
+      "created_at",
+      "active",
+      "action",
+      "repository_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "owner",
+      "org",
+      "org_id",
+      "_document_id",
+      "@timestamp",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alerts.authorized_users_teams",
+    "description": "The list of people or teams authorized to receive Dependabot alerts for the repository was updated.",
+    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts",
+    "fields": [
+      "org",
+      "_document_id",
+      "repo",
+      "org_id",
+      "operation_type",
+      "created_at",
+      "actor",
+      "action",
+      "@timestamp",
+      "user_agent",
+      "repo_id",
+      "request_id",
+      "actor_id",
+      "request_access_security_header"
+    ],
+    "docs_reference_titles": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts"
+  },
+  {
+    "action": "repository_vulnerability_alerts_auto_dismissal.disable",
+    "description": "Automatic dismissal of low-impact Dependabot alerts was disabled for the repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alerts_auto_dismissal.enable",
+    "description": "Automatic dismissal of low-impact Dependabot alerts was enabled for the repository.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "user",
+      "user_id",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alerts.disable",
+    "description": "Dependabot alerts was disabled.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "repo",
+      "request_id",
+      "repo_id",
+      "action",
+      "actor_id",
+      "@timestamp",
+      "created_at",
+      "actor",
+      "user_agent",
+      "org_id",
+      "user",
+      "org",
+      "_document_id",
+      "user_id",
+      "operation_type",
+      "token_scopes",
+      "programmatic_access_type"
+    ]
+  },
+  {
+    "action": "repository_vulnerability_alerts.enable",
+    "description": "Dependabot alerts was enabled.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "user_agent",
+      "created_at",
+      "@timestamp",
+      "repo_id",
+      "action",
+      "user",
+      "repo",
+      "org",
+      "org_id",
+      "actor_id",
+      "_document_id",
+      "user_id",
+      "operation_type",
+      "request_id",
+      "token_scopes",
+      "programmatic_access_type",
+      "actor_is_bot"
+    ]
+  },
+  {
     "action": "restrict_notification_delivery.disable",
     "description": "Email notification restrictions for an organization or enterprise were disabled.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise",
@@ -15230,6 +15477,102 @@
     ]
   },
   {
+    "action": "sub_issues.parent_issue_add",
+    "description": "A parent issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.parent_issue_remove",
+    "description": "A parent issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_add",
+    "description": "A sub-issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_remove",
+    "description": "A sub-issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
     "action": "successor_invitation.accept",
     "description": "Triggered when you accept a succession invitation.",
     "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories",
@@ -15349,7 +15692,8 @@
       "org",
       "action",
       "actor",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/adding-organization-members-to-a-team"
   },
@@ -15415,7 +15759,8 @@
       "org_id",
       "@timestamp",
       "actor",
-      "_document_id"
+      "_document_id",
+      "team_type"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/changing-team-visibility"
   },
@@ -15438,7 +15783,8 @@
       "created_at",
       "_document_id",
       "token_scopes",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ]
   },
   {
@@ -15481,7 +15827,8 @@
       "request_id",
       "operation_type",
       "_document_id",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ]
   },
   {
@@ -15589,7 +15936,8 @@
       "user_agent",
       "_document_id",
       "token_scopes",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/removing-organization-members-from-a-team"
   },
@@ -15634,7 +15982,8 @@
       "@timestamp",
       "_document_id",
       "programmatic_access_type",
-      "request_access_security_header"
+      "request_access_security_header",
+      "team_type"
     ]
   },
   {
@@ -17032,7 +17381,7 @@
       "token_scopes",
       "programmatic_access_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "user.suspend",
@@ -17309,6 +17658,150 @@
     ]
   },
   {
+    "action": "vulnerability_alert_rule.create",
+    "description": "A Dependabot rule was created.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "repo_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "vulnerability_alert_rule.delete",
+    "description": "A Dependabot rule was deleted.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "repo_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "vulnerability_alert_rule.disable",
+    "description": "A Dependabot rule was disabled for a single repository or disabled by default for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
+    "action": "vulnerability_alert_rule.enable",
+    "description": "A Dependabot rule was enabled for a single repository or enabled by default for an organization.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "vulnerability_alert_rule.force_disable",
+    "description": "A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "action",
+      "org",
+      "org_id",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id"
+    ]
+  },
+  {
+    "action": "vulnerability_alert_rule.force_enable",
+    "description": "A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "action",
+      "org",
+      "org_id",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "business",
+      "business_id"
+    ]
+  },
+  {
+    "action": "vulnerability_alert_rule.update",
+    "description": "A Dependabot rule's conditions, actions, or metadata changed.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "repo_id",
+      "vulnerability_alert_rule_id",
+      "vulnerability_alert_rule_name",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type"
+    ]
+  },
+  {
     "action": "workflows.approve_workflow_job",
     "description": "A workflow job was approved.",
     "docs_reference_links": "/actions/managing-workflow-runs/reviewing-deployments",
@@ -17456,7 +17949,8 @@
       "trigger_id",
       "run_attempt",
       "programmatic_access_type",
-      "actor_is_bot"
+      "actor_is_bot",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "Viewing workflow run history"
   },
@@ -17491,7 +17985,8 @@
       "public_repo",
       "programmatic_access_type",
       "actor_is_bot",
-      "request_access_security_header"
+      "request_access_security_header",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "Understanding GitHub Actions"
   },

@@ -65,7 +65,7 @@ for (const productId of productIds) {
     const applicableVersions = getApplicableVersions(tocData.versions, toc)
     const href = removeFPTFromPath(path.posix.join('/', applicableVersions[0], productId))
 
-    // Note that a special middleware called `render-product-map.js` later
+    // Note that a special middleware called `render-product-map.ts` later
     // mutates this object by adding a `nameRendered` property to each product.
     // It's the outcome of rendering out possible Liquid from the
     // `shortTitle` or `title` after all the other contextualizers have run.

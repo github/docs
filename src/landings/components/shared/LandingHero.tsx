@@ -1,3 +1,4 @@
+import { LinkExternalIcon } from '@primer/octicons-react'
 import styles from './LandingHero.module.scss'
 import { useTranslation } from '@/languages/components/useTranslation'
 
@@ -8,6 +9,16 @@ type LandingHeroProps = {
   introLinks?: Record<string, string> | null
 }
 
+function heroBackgroundCss(heroImage: string | undefined) {
+  if (!heroImage) return {}
+  return {
+    backgroundImage: `image-set(
+      url("${heroImage}.webp") type('image/webp'),
+      url("${heroImage}.png") type('image/png')
+    )`,
+  }
+}
+
 export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHeroProps) => {
   const { t } = useTranslation(['product_landing'])
 
@@ -16,16 +27,7 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
   const secondaryAction = linkEntries[1]
 
   return (
-    <div
-      className={styles.landingHero}
-      style={
-        heroImage
-          ? {
-              backgroundImage: `url("${heroImage}")`,
-            }
-          : undefined
-      }
-    >
+    <div className={styles.landingHero} style={heroBackgroundCss(heroImage)}>
       <div className={styles.heroContent}>
         <div className={styles.heroText}>
           <h1 className={styles.heroHeading}>{title}</h1>
@@ -41,7 +43,12 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
                   href={primaryAction[1]}
                   className={`${styles.heroAction} ${styles.heroPrimaryAction}`}
                 >
-                  {t(primaryAction[0])}
+                  {t(primaryAction[0])}{' '}
+                  {primaryAction[1].startsWith('https') && (
+                    <span className="ml-1">
+                      <LinkExternalIcon aria-label="(external site)" size="small" />
+                    </span>
+                  )}
                 </a>
               )}
               {secondaryAction && (
@@ -49,7 +56,12 @@ export const LandingHero = ({ title, intro, heroImage, introLinks }: LandingHero
                   href={secondaryAction[1]}
                   className={`${styles.heroAction} ${styles.heroSecondaryAction}`}
                 >
-                  {t(secondaryAction[0])}
+                  {t(secondaryAction[0])}{' '}
+                  {secondaryAction[1].startsWith('https') && (
+                    <span className="ml-1">
+                      <LinkExternalIcon aria-label="(external site)" size="small" />
+                    </span>
+                  )}
                 </a>
               )}
             </div>

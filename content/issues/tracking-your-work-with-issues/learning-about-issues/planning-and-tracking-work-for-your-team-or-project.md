@@ -101,12 +101,6 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." The issue body contains a task list, with a checkbox preceding each issue link.](/assets/images/help/issues/quickstart-add-task-list-to-issue.png)
 
-## Using labels to highlight project goals and status
-
-You can create labels for a repository to categorize issues, pull requests, and discussions. {% data variables.product.prodname_dotcom %} also provides default labels for every new repository that you can edit or delete. Labels are useful for keeping track of project goals, bugs, types of work, and the status of an issue. See [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#creating-a-label).
-
-Once you have created a label in a repository, you can apply it on any issue, pull request, or discussion in the repository. You can then filter issues and pull requests by label to find all associated work. For example, find all the front end bugs in your project by filtering for issues with the `front-end` and `bug` labels. See [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests).
-
 ### Label example
 
 Below is an example of a `front-end` label that we created and added to the issue.

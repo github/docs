@@ -10,6 +10,8 @@ topics:
 children:
   - /coding-agent
   - /code-review
+  - /about-copilot-cli
+  - /openai-codex
+  - /enterprise-management
 contentType: concepts
 ---
-

@@ -17,6 +17,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/assigning-licenses/remind-inactive-users
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/assign-licenses/remind-inactive-users
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 When you're rolling out {% data variables.product.prodname_copilot %} in a business, it's important to keep track of which users are using their {% data variables.product.prodname_copilot_short %} license, so you can respond effectively by reassigning unused licenses or helping people to get started with {% data variables.product.prodname_copilot_short %}.
@@ -90,8 +93,7 @@ To use this workflow:
 
 ### Example workflow
 
->[!NOTE] This example assumes you assign licenses through an organization. If you use a dedicated enterprise account for {% data variables.copilot.copilot_business_short %}, you will need to use different API endpoints. See [AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-personal-accounts#automate-license-management).
-
+>[!NOTE] This example assumes you assign licenses through an organization. Similar API endpoints exist for enterprise accounts and enterprise teams. See [AUTOTITLE](/rest/copilot/copilot-user-management).
 <!-- markdownlint-disable GHD021 -->
 
 ``` yaml annotate

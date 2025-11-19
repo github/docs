@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/how-tos/personal-settings/installing-the-github-copilot-extension-in-your-environment
   - /copilot/how-tos/set-up/installing-the-github-copilot-extension-in-your-environment
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## Prerequisite
@@ -70,7 +72,7 @@ The following procedure will guide you through installation of the {% data varia
 
    {% data reusables.copilot.jetbrains-compatible-ides %}
 
-1. Install the {% data variables.product.prodname_copilot %} plugin for JetBrains. See [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot) in the JetBrains Marketplace.
+1. Install the {% data variables.product.prodname_copilot %} plugin for JetBrains. See [{% data variables.product.prodname_copilot %} plugin](https://plugins.jetbrains.com/plugin/17718-github-copilot?ref_product=copilot&ref_type=engagement&ref_style=text) in the JetBrains Marketplace.
 
 1. After {% data variables.product.prodname_copilot %} is installed, click **Restart IDE**.
 
@@ -120,8 +122,8 @@ To see instructions for other popular coding environments, use the tool switcher
    * For **Neovim on Windows**, run the following command in Git Bash:
 
      ```shell copy
-     git clone https://github.com/github/copilot.vim.git \
-     $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
+     git clone https://github.com/github/copilot.vim.git ^
+     %USERPROFILE%/AppData/Local/nvim/pack/github/start/copilot.vim
      ```
 
    * For **Vim on macOS or Linux**, run the following command in the terminal.
@@ -134,8 +136,8 @@ To see instructions for other popular coding environments, use the tool switcher
    * For **Vim on Windows**, run the following command in Git Bash:
 
      ```shell copy
-     git clone https://github.com/github/copilot.vim.git \
-     $HOME/vimfiles/pack/github/start/copilot.vim
+     git clone https://github.com/github/copilot.vim.git ^
+     %USERPROFILE%/vimfiles/pack/github/start/copilot.vim
      ```
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
@@ -152,7 +154,9 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ### Version compatibility
 
-Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.copilot.copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the Microsoft documentation.
+Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the unified {% data variables.product.prodname_copilot_short %} and {% data variables.copilot.copilot_chat %} extension is included by default as a built-in component. For more information, see [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
+
+The following instructions are for versions 2022 17.8 and 2022 17.9 of {% data variables.product.prodname_vs %} for Windows.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}
 
@@ -160,9 +164,9 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 1. Make sure you have a compatible version of {% data variables.product.prodname_vs %} installed. {% data reusables.copilot.visual-studio-version %}
 
-1. Install the {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %} See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the Microsoft documentation.
+1. Install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vs %}. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-install-and-states?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
 
-1. After installing the {% data variables.product.prodname_copilot %} extension, to enable {% data variables.product.prodname_copilot %}, ensure you have added your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}. For more information, see [Add your {% data variables.product.prodname_dotcom %} accounts to your {% data variables.product.prodname_vs %} keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts) in the Microsoft documentation.
+1. After installing the {% data variables.product.prodname_copilot %} extension, to enable {% data variables.product.prodname_copilot %}, ensure you have added your {% data variables.product.prodname_dotcom %} account to {% data variables.product.prodname_vs %}. For more information, see [Add your {% data variables.product.prodname_dotcom %} accounts to your {% data variables.product.prodname_vs %} keychain](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?ref_product=copilot&ref_type=engagement&ref_style=text) in the Microsoft documentation.
 
    >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=visualstudio#authenticating-from-visual-studio).
 
@@ -180,7 +184,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 When you set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} for the first time, the required extensions are installed automatically. You don't need to download or install them manually.
 
-For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) in the {% data variables.product.prodname_vscode %} documentation.
+For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup?ref_product=copilot&ref_type=engagement&ref_style=text#_set-up-copilot-in-vs-code) in the {% data variables.product.prodname_vscode %} documentation.
 
 >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=vscode#authenticating-from-vs-code).
 
@@ -202,7 +206,8 @@ To use {% data variables.product.prodname_copilot %} for Xcode you must have Xco
 
 1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/about-github-copilot#getting-access-to-github-copilot).
 1. Make sure you have a compatible version of Xcode installed. To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
-1. Download the latest version of the {% data variables.product.prodname_copilot %} for Xcode extension from the [`github/CopilotForXcode` repository](https://github.com/github/CopilotForXcode/releases/latest/download/GitHubCopilotForXcode.dmg) and install it. A background item will be added for the application to be able to start itself when Xcode starts.
+1. Download the latest version of the {% data variables.product.prodname_copilot %} for Xcode extension from the [`github/CopilotForXcode` repository](https://github.com/github/CopilotForXcode/releases/latest/download/GitHubCopilotForXcode.dmg?ref_product=copilot&ref_type=engagement&ref_style=text) and install it. A background item will be added for the application to be able to start itself when Xcode starts.
+1. Open the **{% data variables.product.prodname_copilot %} for Xcode** application from the Applications folder and step through the on-screen instructions for setting up the extension.
 
 ## Granting required permissions
 
@@ -241,7 +246,7 @@ To use the {% data variables.product.prodname_copilot %} extension, you must hav
 
 ## Installing {% data variables.product.prodname_copilot %} in Eclipse
 
-1. Download and install the latest version of {% data variables.product.prodname_copilot %} from the [Eclipse Marketplace](https://aka.ms/copiloteclipse) or directly via the [Eclipse Update Site](https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/). For more information, see [Installing New Software](https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm) in the Eclipse documentation.
+1. Download and install the latest version of {% data variables.product.prodname_copilot %} from the [Eclipse Marketplace](https://aka.ms/copiloteclipse?ref_product=copilot&ref_type=engagement&ref_style=text) or directly via the [Eclipse Update Site](https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/?ref_product=copilot&ref_type=engagement&ref_style=text). For more information, see [Installing New Software](https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm) in the Eclipse documentation.
 
 1. After the extension is installed, restart Eclipse to apply the changes.
 

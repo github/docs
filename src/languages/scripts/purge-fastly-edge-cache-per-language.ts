@@ -1,4 +1,4 @@
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 
 import { makeLanguageSurrogateKey } from '@/frame/middleware/set-fastly-surrogate-key'
 import purgeEdgeCache from '@/workflows/purge-edge-cache'
@@ -41,14 +41,14 @@ for (const language of languages) {
 }
 
 function languagesFromString(str: string): string[] {
-  const languages = str
+  const parsedLanguages = str
     .split(/,/)
     .map((x) => x.trim())
     .filter(Boolean)
-  if (!languages.every((lang) => languageKeys.includes(lang))) {
+  if (!parsedLanguages.every((lang) => languageKeys.includes(lang))) {
     throw new Error(
-      `Unrecognized language code (${languages.find((lang) => !languageKeys.includes(lang))})`,
+      `Unrecognized language code (${parsedLanguages.find((lang) => !languageKeys.includes(lang))})`,
     )
   }
-  return languages
+  return parsedLanguages
 }

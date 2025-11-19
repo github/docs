@@ -57,6 +57,7 @@ jobs:
         env:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          NODE_OPTIONS: '--max-old-space-size=8192'
         run: |
           npm run sync-rest -- \
             --source-repos rest-api-description models-gateway \
@@ -84,7 +85,7 @@ jobs:
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           if [[ $changes -eq 0 ]]; then
-            echo "There are no changes to commit after running `npm run sync-rest` Exiting..."
+            echo "There are no changes to commit after running 'npm run sync-rest'. Exiting..."
             exit 0
           fi
 

@@ -1269,7 +1269,7 @@
       "operation_type",
       "actor_is_bot"
     ],
-    "docs_reference_titles": "GitHub Copilot billing"
+    "docs_reference_titles": "GitHub Copilot licenses"
   },
   {
     "action": "copilot.plan_downgrade_scheduled",
@@ -2369,7 +2369,7 @@
   },
   {
     "action": "git.clone",
-    "description": "A repository was cloned.",
+    "description": "A repository was cloned. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A",
     "fields": [
       "transport_protocol",
@@ -2390,7 +2390,7 @@
   },
   {
     "action": "git.fetch",
-    "description": "Changes were fetched from a repository.",
+    "description": "Changes were fetched from a repository. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A",
     "fields": [
       "action",
@@ -2412,7 +2412,7 @@
   },
   {
     "action": "git.push",
-    "description": "Changes were pushed to a repository.",
+    "description": "Changes were pushed to a repository. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "N/A",
     "fields": [
       "transport_protocol",
@@ -3877,7 +3877,7 @@
   },
   {
     "action": "merge_queue.pull_request_dequeued",
-    "description": "N/A",
+    "description": "A pull request was removed from a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -3897,7 +3897,7 @@
   },
   {
     "action": "merge_queue.pull_request_queue_jump",
-    "description": "N/A",
+    "description": "A pull request was moved ahead in a merge queue.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -3921,7 +3921,7 @@
   },
   {
     "action": "merge_queue.queue_cleared",
-    "description": "N/A",
+    "description": "A merge queue was cleared.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -3940,7 +3940,7 @@
   },
   {
     "action": "merge_queue.update_settings",
-    "description": "N/A",
+    "description": "The settings for a merge queue were updated.",
     "docs_reference_links": "N/A",
     "fields": [
       "actor",
@@ -5213,8 +5213,8 @@
   },
   {
     "action": "org.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization",
     "fields": [
       "user_agent",
       "request_id",
@@ -5232,7 +5232,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization"
   },
   {
     "action": "org.confirm_business_invitation",
@@ -5915,7 +5916,8 @@
       "created_at",
       "operation_type",
       "business",
-      "business_id"
+      "business_id",
+      "oauth_application_name"
     ]
   },
   {
@@ -5978,7 +5980,8 @@
       "created_at",
       "operation_type",
       "business",
-      "business_id"
+      "business_id",
+      "oauth_application_name"
     ]
   },
   {
@@ -7191,27 +7194,6 @@
     "docs_reference_titles": "About push protection"
   },
   {
-    "action": "org_secret_scanning_push_protection_pattern_configuration.updated",
-    "description": "The push protection pattern configuration was updated for your org.",
-    "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise",
-    "fields": [
-      "actor",
-      "actor_id",
-      "user_agent",
-      "request_id",
-      "user",
-      "user_id",
-      "org",
-      "org_id",
-      "business",
-      "business_id",
-      "action",
-      "_document_id",
-      "@timestamp"
-    ],
-    "docs_reference_titles": "Managing GitHub Advanced Security features for your enterprise"
-  },
-  {
     "action": "org.security_center_export_code_scanning_metrics",
     "description": "A CSV export was requested on the CodeQL pull request alerts page.",
     "docs_reference_links": "N/A",
@@ -7817,8 +7799,8 @@
   },
   {
     "action": "org.update_repo_self_hosted_runners_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "The repository self-hosted runners policy was updated",
+    "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#limiting-the-use-of-self-hosted-runners",
     "fields": [
       "actor",
       "actor_id",
@@ -7833,7 +7815,8 @@
       "@timestamp",
       "created_at",
       "operation_type"
-    ]
+    ],
+    "docs_reference_titles": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#limiting-the-use-of-self-hosted-runners"
   },
   {
     "action": "org.update_saml_provider_settings",
@@ -9097,7 +9080,7 @@
       "actor",
       "operation_type"
     ],
-    "docs_reference_titles": "Personalizing your profile"
+    "docs_reference_titles": "Personalize your profile"
   },
   {
     "action": "project.access",
@@ -10386,7 +10369,8 @@
       "_document_id",
       "pull_request_url",
       "programmatic_access_type",
-      "actor_is_bot"
+      "actor_is_bot",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request"
   },
@@ -10411,7 +10395,8 @@
       "created_at",
       "_document_id",
       "pull_request_url",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
   },
@@ -10500,7 +10485,7 @@
   },
   {
     "action": "pull_request.rebase",
-    "description": "N/A",
+    "description": "A pull request was rebased.",
     "docs_reference_links": "N/A",
     "fields": [
       "user_agent",
@@ -10587,7 +10572,8 @@
       "_document_id",
       "token_scopes",
       "programmatic_access_type",
-      "request_access_security_header"
+      "request_access_security_header",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews"
   },
@@ -10692,7 +10678,8 @@
       "created_at",
       "_document_id",
       "pull_request_url",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request#submitting-your-review"
   },
@@ -11328,8 +11315,8 @@
   },
   {
     "action": "repo.configure_self_hosted_jit_runner",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A new just-in-time GitHub Actions self-hosted runner was configured",
+    "docs_reference_links": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository",
     "fields": [
       "user_agent",
       "request_id",
@@ -11351,7 +11338,8 @@
       "created_at",
       "operation_type",
       "request_access_security_header"
-    ]
+    ],
+    "docs_reference_titles": "/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-a-repository"
   },
   {
     "action": "repo.create",
@@ -11931,8 +11919,8 @@
   },
   {
     "action": "repo.rename_branch",
-    "description": "N/A",
-    "docs_reference_links": "N/A",
+    "description": "A branch was renamed.",
+    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch",
     "fields": [
       "user_agent",
       "request_id",
@@ -11954,7 +11942,8 @@
       "token_scopes",
       "programmatic_access_type",
       "actor_is_bot"
-    ]
+    ],
+    "docs_reference_titles": "/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch"
   },
   {
     "action": "repo.restore",
@@ -15595,6 +15584,102 @@
     ]
   },
   {
+    "action": "sub_issues.parent_issue_add",
+    "description": "A parent issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.parent_issue_remove",
+    "description": "A parent issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_add",
+    "description": "A sub-issue was added to an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
+    "action": "sub_issues.sub_issue_remove",
+    "description": "A sub-issue was removed from an issue.",
+    "docs_reference_links": "N/A",
+    "fields": [
+      "actor",
+      "actor_id",
+      "user_agent",
+      "request_id",
+      "title",
+      "repo",
+      "repo_id",
+      "public_repo",
+      "org",
+      "org_id",
+      "action",
+      "_document_id",
+      "@timestamp",
+      "created_at",
+      "operation_type",
+      "actor_is_bot",
+      "request_access_security_header"
+    ]
+  },
+  {
     "action": "team.add_member",
     "description": "A member of an organization was added to a team.",
     "docs_reference_links": "/organizations/organizing-members-into-teams/adding-organization-members-to-a-team",
@@ -15613,7 +15698,8 @@
       "org",
       "action",
       "actor",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/adding-organization-members-to-a-team"
   },
@@ -15679,7 +15765,8 @@
       "org_id",
       "@timestamp",
       "actor",
-      "_document_id"
+      "_document_id",
+      "team_type"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/changing-team-visibility"
   },
@@ -15702,7 +15789,8 @@
       "created_at",
       "_document_id",
       "token_scopes",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ]
   },
   {
@@ -15745,7 +15833,8 @@
       "request_id",
       "operation_type",
       "_document_id",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ]
   },
   {
@@ -15916,7 +16005,8 @@
       "user_agent",
       "_document_id",
       "token_scopes",
-      "programmatic_access_type"
+      "programmatic_access_type",
+      "team_type"
     ],
     "docs_reference_titles": "/organizations/organizing-members-into-teams/removing-organization-members-from-a-team"
   },
@@ -15961,7 +16051,8 @@
       "@timestamp",
       "_document_id",
       "programmatic_access_type",
-      "request_access_security_header"
+      "request_access_security_header",
+      "team_type"
     ]
   },
   {
@@ -16345,7 +16436,8 @@
       "trigger_id",
       "run_attempt",
       "programmatic_access_type",
-      "actor_is_bot"
+      "actor_is_bot",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "Viewing workflow run history"
   },
@@ -16380,7 +16472,8 @@
       "public_repo",
       "programmatic_access_type",
       "actor_is_bot",
-      "request_access_security_header"
+      "request_access_security_header",
+      "actor_is_agent"
     ],
     "docs_reference_titles": "Understanding GitHub Actions"
   },

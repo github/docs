@@ -10,6 +10,9 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/driving-downstream-impact/increase-test-coverage
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/drive-downstream-impact/increase-test-coverage
 contentType: tutorials
+category:
+  - Roll Copilot out at scale
+  - Manage Copilot for a team
 ---
 
 {% data reusables.copilot.essp-intro %}
@@ -37,7 +40,7 @@ Improving test coverage is a recognized best practice, but it requires time and 
 
 {% data reusables.copilot.evaluate-options-intro %}
 
-<a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=increase-test-coverage" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 ### How {% data variables.product.prodname_copilot_short %} can help
 
@@ -130,7 +133,7 @@ Developers **should not**:
 ### Recommended features
 
 * [{% data variables.copilot.copilot_chat_dotcom_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github)
-* [{% data variables.product.prodname_copilot_short %} code completion](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
+* [{% data variables.product.prodname_copilot_short %} inline suggestions](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot)
 * [{% data variables.copilot.copilot_chat_short %} in the IDE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide)
 * [{% data variables.copilot.copilot_coding_agent %}](/copilot/concepts/about-copilot-coding-agent)
 

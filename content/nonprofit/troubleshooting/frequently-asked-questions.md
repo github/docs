@@ -100,3 +100,9 @@ Unfortunately at this time, we do not subsidize our add-on tooling such as GitHu
 GitHub now offers Copilot Free for individual accounts, providing access to a limited set of Copilot's features. This allows you to experience AI-assisted code suggestions and other functionalities at no cost.
 
 Please stay tuned to our website for further updates from our work on the Social Impact team: [socialimpact.github.com](https://github.com/social-impact).
+
+## I received the error message: “We’re sorry, but something went wrong” when logging into my account. How do I fix this?
+
+We are sorry you are running into trouble with our GitHub for Nonprofits portal. An error message like this is most likely prompted by revoking or not allowing full permissions to the nonprofits.github.com site.
+Please try logging out of your account, deleting the OAuth app from your account, and then logging in again. For more about deleting the OAuth app from your account, please visit [Learn more about deleting the OAuth app from your account](/nonprofit/troubleshooting/cannot-find-my-organization-on-github-for-nonprofits).
+If the error message persists and you are a part of an organization within an enterprise, your account may have different permissions. Please reach out to the GitHub for Nonprofits support team at that time.

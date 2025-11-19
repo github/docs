@@ -1387,6 +1387,56 @@ type AddedToProjectEvent implements Node {
 }
 
 """
+Represents a 'added_to_project_v2' event on a given issue or pull request.
+"""
+type AddedToProjectV2Event implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the AddedToProjectV2Event object
+  """
+  id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
+}
+
+"""
+Copilot Agentic fields in context of the current viewer.
+"""
+interface Agentic {
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
+}
+
+"""
 An announcement banner for an enterprise or organization.
 """
 type AnnouncementBanner {
@@ -7180,6 +7230,36 @@ type ConvertToDraftEvent implements Node & UniformResourceLocatable {
 }
 
 """
+Represents a 'converted_from_draft' event on a given issue or pull request.
+"""
+type ConvertedFromDraftEvent implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the ConvertedFromDraftEvent object
+  """
+  id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
+}
+
+"""
 Represents a 'converted_note_to_issue' event on a given issue or pull request.
 """
 type ConvertedNoteToIssueEvent implements Node {
@@ -7248,6 +7328,36 @@ type ConvertedToDiscussionEvent implements Node {
   The Node ID of the ConvertedToDiscussionEvent object
   """
   id: ID!
+}
+
+"""
+Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+"""
+type CopilotCodeReviewParameters {
+  """
+  Copilot automatically reviews draft pull requests before they are marked as ready for review.
+  """
+  reviewDraftPullRequests: Boolean!
+
+  """
+  Copilot automatically reviews each new push to the pull request.
+  """
+  reviewOnPush: Boolean!
+}
+
+"""
+Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+"""
+input CopilotCodeReviewParametersInput {
+  """
+  Copilot automatically reviews draft pull requests before they are marked as ready for review.
+  """
+  reviewDraftPullRequests: Boolean
+
+  """
+  Copilot automatically reviews each new push to the pull request.
+  """
+  reviewOnPush: Boolean
 }
 
 """
@@ -8071,6 +8181,11 @@ input CreateIssueInput {
   An array of Node IDs for projects associated with this issue.
   """
   projectIds: [ID!] @possibleTypes(concreteTypes: ["Project"])
+
+  """
+  An array of Node IDs for Projects V2 associated with this issue.
+  """
+  projectV2Ids: [ID!] @possibleTypes(concreteTypes: ["ProjectV2"])
 
   """
   The Node ID of the repository.
@@ -19983,6 +20098,16 @@ type IssueDependenciesSummary {
   Count of issues this issue is blocking
   """
   blocking: Int!
+
+  """
+  Total count of issues this issue is blocked by (open and closed)
+  """
+  totalBlockedBy: Int!
+
+  """
+  Total count of issues this issue is blocking (open and closed)
+  """
+  totalBlocking: Int!
 }
 
 """
@@ -20289,7 +20414,7 @@ type IssueTimelineConnection {
 An item in an issue timeline
 """
 union IssueTimelineItem =
-    AssignedEvent
+  | AssignedEvent
   | ClosedEvent
   | Commit
   | CrossReferencedEvent
@@ -20328,7 +20453,8 @@ type IssueTimelineItemEdge {
 An item in an issue timeline
 """
 union IssueTimelineItems =
-    AddedToProjectEvent
+  | AddedToProjectEvent
+  | AddedToProjectV2Event
   | AssignedEvent
   | BlockedByAddedEvent
   | BlockedByRemovedEvent
@@ -20337,6 +20463,7 @@ union IssueTimelineItems =
   | ClosedEvent
   | CommentDeletedEvent
   | ConnectedEvent
+  | ConvertedFromDraftEvent
   | ConvertedNoteToIssueEvent
   | ConvertedToDiscussionEvent
   | CrossReferencedEvent
@@ -20355,8 +20482,10 @@ union IssueTimelineItems =
   | ParentIssueAddedEvent
   | ParentIssueRemovedEvent
   | PinnedEvent
+  | ProjectV2ItemStatusChangedEvent
   | ReferencedEvent
   | RemovedFromProjectEvent
+  | RemovedFromProjectV2Event
   | RenamedTitleEvent
   | ReopenedEvent
   | SubIssueAddedEvent
@@ -20436,6 +20565,11 @@ enum IssueTimelineItemsItemType {
   ADDED_TO_PROJECT_EVENT
 
   """
+  Represents a 'added_to_project_v2' event on a given issue or pull request.
+  """
+  ADDED_TO_PROJECT_V2_EVENT
+
+  """
   Represents an 'assigned' event on any assignable object.
   """
   ASSIGNED_EVENT
@@ -20474,6 +20608,11 @@ enum IssueTimelineItemsItemType {
   Represents a 'connected' event on a given issue or pull request.
   """
   CONNECTED_EVENT
+
+  """
+  Represents a 'converted_from_draft' event on a given issue or pull request.
+  """
+  CONVERTED_FROM_DRAFT_EVENT
 
   """
   Represents a 'converted_note_to_issue' event on a given issue or pull request.
@@ -20566,6 +20705,11 @@ enum IssueTimelineItemsItemType {
   PINNED_EVENT
 
   """
+  Represents a 'project_v2_item_status_changed' event on a given issue or pull request.
+  """
+  PROJECT_V2_ITEM_STATUS_CHANGED_EVENT
+
+  """
   Represents a 'referenced' event on a given `ReferencedSubject`.
   """
   REFERENCED_EVENT
@@ -20574,6 +20718,11 @@ enum IssueTimelineItemsItemType {
   Represents a 'removed_from_project' event on a given issue or pull request.
   """
   REMOVED_FROM_PROJECT_EVENT
+
+  """
+  Represents a 'removed_from_project_v2' event on a given issue or pull request.
+  """
+  REMOVED_FROM_PROJECT_V2_EVENT
 
   """
   Represents a 'renamed' event on a given issue or pull request
@@ -31271,7 +31420,7 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
 Types of memberships that can be restored for an Organization member.
 """
 union OrgRestoreMemberAuditEntryMembership =
-    OrgRestoreMemberMembershipOrganizationAuditEntryData
+  | OrgRestoreMemberMembershipOrganizationAuditEntryData
   | OrgRestoreMemberMembershipRepositoryAuditEntryData
   | OrgRestoreMemberMembershipTeamAuditEntryData
 
@@ -33739,7 +33888,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
 An audit entry in an organization audit log.
 """
 union OrganizationAuditEntry =
-    MembersCanDeleteReposClearAuditEntry
+  | MembersCanDeleteReposClearAuditEntry
   | MembersCanDeleteReposDisableAuditEntry
   | MembersCanDeleteReposEnableAuditEntry
   | OauthApplicationCreateAuditEntry
@@ -34436,6 +34585,66 @@ enum OrganizationOrderField {
   Order organizations by login
   """
   LOGIN
+}
+
+"""
+Parameters to be used for the organization_property condition
+"""
+type OrganizationPropertyConditionTarget {
+  """
+  Array of organization properties that must not match.
+  """
+  exclude: [OrganizationPropertyTargetDefinition!]!
+
+  """
+  Array of organization properties that must match
+  """
+  include: [OrganizationPropertyTargetDefinition!]!
+}
+
+"""
+Parameters to be used for the organization_property condition
+"""
+input OrganizationPropertyConditionTargetInput {
+  """
+  Array of organization properties that must not match.
+  """
+  exclude: [OrganizationPropertyTargetDefinitionInput!]!
+
+  """
+  Array of organization properties that must match
+  """
+  include: [OrganizationPropertyTargetDefinitionInput!]!
+}
+
+"""
+A property that must match
+"""
+type OrganizationPropertyTargetDefinition {
+  """
+  The name of the property
+  """
+  name: String!
+
+  """
+  The values to match for
+  """
+  propertyValues: [String!]!
+}
+
+"""
+A property that must match
+"""
+input OrganizationPropertyTargetDefinitionInput {
+  """
+  The name of the property
+  """
+  name: String!
+
+  """
+  The values to match for
+  """
+  propertyValues: [String!]!
 }
 
 """
@@ -37264,6 +37473,11 @@ type ProjectV2 implements Closable & Node & Updatable {
     Ordering options for project v2 items returned from the connection
     """
     orderBy: ProjectV2ItemOrder = {field: POSITION, direction: ASC}
+
+    """
+    Search query for filtering items
+    """
+    query: String = ""
   ): ProjectV2ItemConnection!
 
   """
@@ -37635,6 +37849,21 @@ type ProjectV2Edge {
   The item at the end of the edge.
   """
   node: ProjectV2
+}
+
+"""
+Represents an event related to a project on the timeline of an issue or pull request.
+"""
+interface ProjectV2Event {
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
 }
 
 """
@@ -38559,7 +38788,7 @@ type ProjectV2ItemFieldUserValue {
 Project field values
 """
 union ProjectV2ItemFieldValue =
-    ProjectV2ItemFieldDateValue
+  | ProjectV2ItemFieldDateValue
   | ProjectV2ItemFieldIterationValue
   | ProjectV2ItemFieldLabelValue
   | ProjectV2ItemFieldMilestoneValue
@@ -38699,6 +38928,46 @@ enum ProjectV2ItemOrderField {
   Order project v2 items by the their position in the project
   """
   POSITION
+}
+
+"""
+Represents a 'project_v2_item_status_changed' event on a given issue or pull request.
+"""
+type ProjectV2ItemStatusChangedEvent implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the ProjectV2ItemStatusChangedEvent object
+  """
+  id: ID!
+
+  """
+  The previous status of the project item.
+  """
+  previousStatus: String!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  The new status of the project item.
+  """
+  status: String!
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
 }
 
 """
@@ -41660,6 +41929,13 @@ type PullRequestParameters {
   All conversations on code must be resolved before a pull request can be merged.
   """
   requiredReviewThreadResolution: Boolean!
+
+  """
+  This field is in beta and subject to change. A collection of reviewers and
+  associated file patterns. Each reviewer has a list of file patterns which
+  determine the files that reviewer is required to review.
+  """
+  requiredReviewers: [RequiredReviewerConfiguration!]
 }
 
 """
@@ -41701,6 +41977,13 @@ input PullRequestParametersInput {
   All conversations on code must be resolved before a pull request can be merged.
   """
   requiredReviewThreadResolution: Boolean!
+
+  """
+  This argument is in beta and subject to change. A collection of reviewers and
+  associated file patterns. Each reviewer has a list of file patterns which
+  determine the files that reviewer is required to review.
+  """
+  requiredReviewers: [RequiredReviewerConfigurationInput!]
 }
 
 """
@@ -42881,7 +43164,7 @@ type PullRequestTimelineConnection {
 An item in a pull request timeline
 """
 union PullRequestTimelineItem =
-    AssignedEvent
+  | AssignedEvent
   | BaseRefDeletedEvent
   | BaseRefForcePushedEvent
   | ClosedEvent
@@ -42934,8 +43217,9 @@ type PullRequestTimelineItemEdge {
 An item in a pull request timeline
 """
 union PullRequestTimelineItems =
-    AddedToMergeQueueEvent
+  | AddedToMergeQueueEvent
   | AddedToProjectEvent
+  | AddedToProjectV2Event
   | AssignedEvent
   | AutoMergeDisabledEvent
   | AutoMergeEnabledEvent
@@ -42954,6 +43238,7 @@ union PullRequestTimelineItems =
   | CommentDeletedEvent
   | ConnectedEvent
   | ConvertToDraftEvent
+  | ConvertedFromDraftEvent
   | ConvertedNoteToIssueEvent
   | ConvertedToDiscussionEvent
   | CrossReferencedEvent
@@ -42978,6 +43263,7 @@ union PullRequestTimelineItems =
   | ParentIssueAddedEvent
   | ParentIssueRemovedEvent
   | PinnedEvent
+  | ProjectV2ItemStatusChangedEvent
   | PullRequestCommit
   | PullRequestCommitCommentThread
   | PullRequestReview
@@ -42987,6 +43273,7 @@ union PullRequestTimelineItems =
   | ReferencedEvent
   | RemovedFromMergeQueueEvent
   | RemovedFromProjectEvent
+  | RemovedFromProjectV2Event
   | RenamedTitleEvent
   | ReopenedEvent
   | ReviewDismissedEvent
@@ -43074,6 +43361,11 @@ enum PullRequestTimelineItemsItemType {
   ADDED_TO_PROJECT_EVENT
 
   """
+  Represents a 'added_to_project_v2' event on a given issue or pull request.
+  """
+  ADDED_TO_PROJECT_V2_EVENT
+
+  """
   Represents an 'assigned' event on any assignable object.
   """
   ASSIGNED_EVENT
@@ -43157,6 +43449,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'connected' event on a given issue or pull request.
   """
   CONNECTED_EVENT
+
+  """
+  Represents a 'converted_from_draft' event on a given issue or pull request.
+  """
+  CONVERTED_FROM_DRAFT_EVENT
 
   """
   Represents a 'converted_note_to_issue' event on a given issue or pull request.
@@ -43284,6 +43581,11 @@ enum PullRequestTimelineItemsItemType {
   PINNED_EVENT
 
   """
+  Represents a 'project_v2_item_status_changed' event on a given issue or pull request.
+  """
+  PROJECT_V2_ITEM_STATUS_CHANGED_EVENT
+
+  """
   Represents a Git commit part of a pull request.
   """
   PULL_REQUEST_COMMIT
@@ -43327,6 +43629,11 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'removed_from_project' event on a given issue or pull request.
   """
   REMOVED_FROM_PROJECT_EVENT
+
+  """
+  Represents a 'removed_from_project_v2' event on a given issue or pull request.
+  """
+  REMOVED_FROM_PROJECT_V2_EVENT
 
   """
   Represents a 'renamed' event on a given issue or pull request
@@ -45996,6 +46303,36 @@ type RemovedFromProjectEvent implements Node {
     @deprecated(
       reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
     )
+}
+
+"""
+Represents a 'removed_from_project_v2' event on a given issue or pull request.
+"""
+type RemovedFromProjectV2Event implements Node & ProjectV2Event {
+  """
+  Identifies the actor who performed the event.
+  """
+  actor: Actor
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
+
+  """
+  The Node ID of the RemovedFromProjectV2Event object
+  """
+  id: ID!
+
+  """
+  Project referenced by event.
+  """
+  project: ProjectV2
+
+  """
+  Did this event result from workflow automation?
+  """
+  wasAutomated: Boolean!
 }
 
 """
@@ -52733,6 +53070,11 @@ Set of conditions that determine if a ruleset will evaluate
 """
 type RepositoryRuleConditions {
   """
+  Configuration for the organization_property condition
+  """
+  organizationProperty: OrganizationPropertyConditionTarget
+
+  """
   Configuration for the ref_name condition
   """
   refName: RefNameConditionTarget
@@ -52757,6 +53099,11 @@ type RepositoryRuleConditions {
 Specifies the conditions required for a ruleset to evaluate
 """
 input RepositoryRuleConditionsInput {
+  """
+  Configuration for the organization_property condition
+  """
+  organizationProperty: OrganizationPropertyConditionTargetInput
+
   """
   Configuration for the ref_name condition
   """
@@ -52908,6 +53255,11 @@ enum RepositoryRuleType {
   Commit message pattern
   """
   COMMIT_MESSAGE_PATTERN
+
+  """
+  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  """
+  COPILOT_CODE_REVIEW
 
   """
   Only allow users with bypass permission to create matching refs.
@@ -53908,6 +54260,11 @@ enum RepositoryVulnerabilityAlertDependencyRelationship {
   DIRECT
 
   """
+  The relationship could not be determined
+  """
+  INCONCLUSIVE
+
+  """
   A transitive dependency of your project
   """
   TRANSITIVE
@@ -54191,6 +54548,50 @@ input RequiredDeploymentsParametersInput {
   The environments that must be successfully deployed to before branches can be merged.
   """
   requiredDeploymentEnvironments: [String!]!
+}
+
+"""
+A reviewing team, and file patterns describing which files they must approve changes to.
+"""
+type RequiredReviewerConfiguration {
+  """
+  Array of file patterns. Pull requests which change matching files must be
+  approved by the specified team. File patterns use fnmatch syntax.
+  """
+  filePatterns: [String!]!
+
+  """
+  Minimum number of approvals required from the specified team. If set to zero,
+  the team will be added to the pull request but approval is optional.
+  """
+  minimumApprovals: Int!
+
+  """
+  Node ID of the team which must review changes to matching files.
+  """
+  reviewerId: ID!
+}
+
+"""
+A reviewing team, and file patterns describing which files they must approve changes to.
+"""
+input RequiredReviewerConfigurationInput {
+  """
+  Array of file patterns. Pull requests which change matching files must be
+  approved by the specified team. File patterns use fnmatch syntax.
+  """
+  filePatterns: [String!]!
+
+  """
+  Minimum number of approvals required from the specified team. If set to zero,
+  the team will be added to the pull request but approval is optional.
+  """
+  minimumApprovals: Int!
+
+  """
+  Node ID of the team which must review changes to matching files.
+  """
+  reviewerId: ID!
 }
 
 """
@@ -54869,11 +55270,12 @@ enum RuleEnforcement {
 Types which can be parameters for `RepositoryRule` objects.
 """
 union RuleParameters =
-    BranchNamePatternParameters
+  | BranchNamePatternParameters
   | CodeScanningParameters
   | CommitAuthorEmailPatternParameters
   | CommitMessagePatternParameters
   | CommitterEmailPatternParameters
+  | CopilotCodeReviewParameters
   | FileExtensionRestrictionParameters
   | FilePathRestrictionParameters
   | MaxFilePathLengthParameters
@@ -54914,6 +55316,11 @@ input RuleParametersInput {
   Parameters used for the `committer_email_pattern` rule type
   """
   committerEmailPattern: CommitterEmailPatternParametersInput
+
+  """
+  Parameters used for the `copilot_code_review` rule type
+  """
+  copilotCodeReview: CopilotCodeReviewParametersInput
 
   """
   Parameters used for the `file_extension_restriction` rule type
@@ -55231,9 +55638,6 @@ enum SearchType {
   Returns results matching issues in repositories.
   """
   ISSUE_ADVANCED
-    @deprecated(
-      reason: "Search for issues and pull requests will be overridden by advanced search on November 4, 2025. You can read more about this change on https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/. Removal on 2025-11-04 UTC."
-    )
 
   """
   Returns results matching repositories.
@@ -65834,7 +66238,9 @@ input UpdateProjectV2FieldInput {
     )
 
   """
-  Configuration for an iteration field.
+  Configuration for a field of type ITERATION. Empty input is ignored, provided
+  values overwrite the existing configuration, and existing configuration should
+  be fetched for partial updates.
   """
   iterationConfiguration: ProjectV2IterationFieldConfigurationInput
 
@@ -65844,9 +66250,9 @@ input UpdateProjectV2FieldInput {
   name: String
 
   """
-  Options for a field of type SINGLE_SELECT. If empty, no changes will be made
-  to the options. If values are present, they will overwrite the existing
-  options for the field.
+  Options for a field of type SINGLE_SELECT. Empty input is ignored, provided
+  values overwrite existing options, and existing options should be fetched for
+  partial updates.
   """
   singleSelectOptions: [ProjectV2SingleSelectFieldOptionInput!]
 }
@@ -66958,7 +67364,7 @@ type UpdateUserListsForItemPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Agentic & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -68564,6 +68970,21 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   Whether or not the viewer is able to sponsor this user/organization.
   """
   viewerCanSponsor: Boolean!
+
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
 
   """
   Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.

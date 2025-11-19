@@ -62,7 +62,7 @@ export default function Category({
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { default: getRest, getRestMiniTocItems } = await import('@/rest/lib/index')
   const nonEnterpriseDefaultVersionModule = await import(
-    'src/versions/lib/non-enterprise-default-version.js'
+    '@/versions/lib/non-enterprise-default-version'
   )
   const nonEnterpriseDefaultVersion = nonEnterpriseDefaultVersionModule.default as string
 
@@ -144,7 +144,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       req.context,
     )) as MinitocItemsT
 
-    miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
+    for (const operationMinitoc of miniTocItems.restOperationsMiniTocItems) {
       const { title, href: miniTocAnchor } = operationMinitoc.contents
       const fullPath = `/${context.locale}${versionPathSegment}rest/${context.params?.category}/${subCat}${miniTocAnchor}`
 
@@ -152,7 +152,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         fullPath,
         title,
       })
-    })
+    }
 
     // TocLanding expects a collection of objects that looks like this:
     //
@@ -200,7 +200,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       req.context,
     )) as MinitocItemsT
 
-    restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)
+    if (restOperationsMiniTocItems) {
+      miniTocItems.push(...restOperationsMiniTocItems)
+    }
   }
 
   // Replace the toc items in the context with the REST toc items we just

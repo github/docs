@@ -20,15 +20,21 @@ shortTitle: Quickstart
 topics:
   - Copilot
 contentType: get-started
+category:
+  - Configure Copilot
 ---
 
 ## Introduction
+
+<!-- --------------------- -->
+<!-- Web browser -->
+<!-- --------------------- -->
 
 {% webui %}
 
 You can use {% data variables.product.prodname_copilot_short %} to get answers to coding-related questions, such as how best to code something, how to fix a bug, or how someone else's code works. For full details of what {% data variables.product.prodname_copilot_short %} can do, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot).
 
-Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for {% data variables.product.github %}. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for using {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
 
 {% ifversion fpt %}
 {% data reusables.copilot.quickstart-signup %}
@@ -75,12 +81,16 @@ For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-
 ## Next steps
 
 * **Find out more about {% data variables.copilot.copilot_chat %}** - See [AUTOTITLE](/copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide){% ifversion fpt %}.{% endif %}{% ifversion ghec %} and [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom).{% endif %}
-* **Get {% data variables.product.prodname_copilot_short %} code completion suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
+* **Get {% data variables.product.prodname_copilot_short %} inline suggestions in an IDE** - See [AUTOTITLE](/enterprise-cloud@latest/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).
 * **Learn how to write effective prompts** - See [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
 * **Use {% data variables.product.prodname_copilot_short %} on your mobile device** - See [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).
 * **Use {% data variables.product.prodname_copilot_short %} on the command line** - See [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli).
 
 {% endwebui %}
+
+<!-- --------------------- -->
+<!-- Windows terminal -->
+<!-- --------------------- -->
 
 {% windowsterminal %}
 
@@ -94,9 +104,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Prerequisites
 
-{% ifversion ghec %}
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_windows_terminal %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-{% endif %}
 * **{% data variables.product.prodname_windows_terminal %} Canary**. Terminal Chat is only available in [{% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
 
 ## Use {% data variables.product.prodname_copilot_short %} in Terminal Chat
@@ -132,6 +140,10 @@ After you've installed {% data variables.product.prodname_windows_terminal %} Ca
 
 {% endwindowsterminal %}
 
+<!-- --------------------- -->
+<!-- VS Code -->
+<!-- --------------------- -->
+
 {% vscode %}
 
 {% data reusables.copilot.quickstart-intro %}
@@ -144,9 +156,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Prerequisites
 
-{% ifversion ghec %}
 * **{% data variables.product.prodname_copilot_short %} subscription** - To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-{% endif %}
 {% data reusables.copilot.vscode-prerequisites %}
 
 ## Chat with {% data variables.product.prodname_copilot %}
@@ -171,7 +181,7 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 
    ![Screenshot of the "Insert at Cursor" icon in the chat view.](/assets/images/help/copilot/insert-at-cursor-vscode.png)
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -185,10 +195,14 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
 * **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
-* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [About {% data variables.copilot.next_edit_suggestions %}](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot#about-next-edit-suggestions).
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions#navigating-and-accepting-next-edit-suggestions-1).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvscode %}
+
+<!-- --------------------- -->
+<!-- Visual Studio -->
+<!-- --------------------- -->
 
 {% visualstudio %}
 
@@ -202,9 +216,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Prerequisites
 
-{% ifversion ghec %}
 * **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-{% endif %}
 {% data reusables.copilot.visual-studio-prerequisites %}
 
 ## Chat with {% data variables.product.prodname_copilot %}
@@ -222,7 +234,7 @@ After you've installed the {% data variables.product.prodname_copilot %} extensi
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -240,6 +252,10 @@ The following example uses JavaScript, however other languages will work similar
 
 {% endvisualstudio %}
 
+<!-- --------------------- -->
+<!-- JetBrains -->
+<!-- --------------------- -->
+
 {% jetbrains %}
 
 {% data reusables.copilot.quickstart-intro %}
@@ -252,9 +268,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Prerequisites
 
-{% ifversion ghec %}
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-{% endif %}
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
 * **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot_short %} is supported in a large number of JetBrains IDEs. For a full list, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide?tool=jetbrains).
 {% data reusables.copilot.jetbrains-plugin-prerequisites %}
 
@@ -276,7 +290,7 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 1. Select a line of code in the editor.
 1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
 
-## Get your first code completion suggestion
+## Get your first inline suggestion
 
 The following example uses JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
@@ -291,3 +305,127 @@ The following example uses JavaScript, however other languages will work similar
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endjetbrains %}
+
+<!-- --------------------- -->
+<!-- XCode -->
+<!-- --------------------- -->
+
+{% xcode %}
+
+{% data reusables.copilot.quickstart-intro %}
+
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for XCode in MacOS. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
+
+{% ifversion fpt %}
+{% data reusables.copilot.quickstart-signup %}
+{% endif %}
+
+## Prerequisites
+
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Xcode, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=xcode).
+* **Sign in to {% data variables.product.company_short %} in Xcode**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
+
+## Chat with {% data variables.product.prodname_copilot %}
+
+After you've installed the {% data variables.product.prodname_copilot %} plugin, you can ask {% data variables.product.prodname_copilot_short %} coding-related questions.
+
+> [!NOTE] {% data reusables.copilot.chat-access-denied %}
+
+1. Open an existing code file.
+1. Click **Editor** in the menu bar, then click **{% data variables.product.prodname_copilot %}** then **Open Chat**.
+
+   {% data variables.copilot.copilot_chat_short %} opens in a new window.
+
+1. In the {% data variables.copilot.copilot_chat_short %} window, select the file to indicate that you want to chat about this file.
+
+   ![Screenshot of a file selected in the Chat window. The file is highlighted with a dark orange outline.](/assets/images/help/copilot/xcode-chat-about-file.png)
+
+1. Type `what does this file do` then press <kbd>Enter</kbd>.
+
+   {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
+
+1. Select a line of code in the editor.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
+
+## Get your first inline suggestion
+
+The following example uses Swift, however other languages will work similarly.
+
+1. Create a new file called `CalculateDays.swift`.
+1. Type the following code in the new file:
+
+   ```swift copy
+   import Foundation
+
+   func calculateDaysBetweenDates(_ start: Date, _ end: Date)
+   ```
+
+   {% data variables.product.prodname_copilot %} adds a suggestion of code that continues this function. Suggestions are displayed in grayed text.
+1. {% data reusables.copilot.accept-suggestion %}
+1. {% data variables.product.prodname_copilot_short %} will continue to make suggestions, each of which you can accept by pressing <kbd>Tab</kbd>.
+
+## Next steps
+
+{% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=xcode#navigating-and-accepting-next-edit-suggestions-2).
+{% data reusables.copilot.quickstart-nextsteps2 %}
+
+{% endxcode %}
+
+<!-- --------------------- -->
+<!-- Eclipse -->
+<!-- --------------------- -->
+
+{% eclipse %}
+
+{% data reusables.copilot.quickstart-intro %}
+
+Instructions for using {% data variables.product.prodname_copilot_short %} differ depending on where you are using it. This version of the quickstart is for Eclipse. Click the tabs above for instructions on using {% data variables.product.prodname_copilot_short %} in other environments.
+
+{% ifversion fpt %}
+{% data reusables.copilot.quickstart-signup %}
+{% endif %}
+
+## Prerequisites
+
+* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. For installation instructions, see [AUTOTITLE](/copilot/how-tos/set-up/install-copilot-extension?tool=eclipse).
+* **Sign in to {% data variables.product.company_short %} in Eclipse**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
+
+## Chat with {% data variables.product.prodname_copilot %}
+
+After you've installed the {% data variables.product.prodname_copilot %} plugin, you can ask {% data variables.product.prodname_copilot_short %} coding-related questions.
+
+> [!NOTE] {% data reusables.copilot.chat-access-denied %}
+
+1. Open an existing code file.
+1. In the menu bar of Eclipse, click **{% data variables.product.prodname_copilot_short %}**, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Open Chat**.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
+
+   {% data variables.product.prodname_copilot_short %}'s answer is displayed below your question.
+
+1. Select a line of code in the editor.
+1. In the {% data variables.copilot.copilot_chat_short %} window, type `explain this line` then press <kbd>Enter</kbd>.
+
+## Get your first inline suggestion
+
+The following example uses Java, however other languages will work similarly.
+
+1. Create a new Java class called `CalculateDaysBetween`.
+1. Within the class add the following comment:
+
+   ```java copy
+   // Take 2 dates and return the number of days between them
+   ```
+
+   {% data variables.product.prodname_copilot %} adds a suggestion of code to use for this class. Suggestions are displayed in grayed text.
+1. {% data reusables.copilot.accept-suggestion %}
+
+## Next steps
+
+{% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=eclipse#navigating-and-accepting-next-edit-suggestions-3).
+{% data reusables.copilot.quickstart-nextsteps2 %}
+
+{% endeclipse %}

@@ -114,7 +114,7 @@ async function main() {
   // so that we don't spend time generating data files for them.
   if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
-    // TODO: After migrating all-version.js to TypeScript, we can remove the type assertion
+    // TODO: After migrating all-version.ts to TypeScript, we can remove the type assertion
     const currentOpenApiVersions = Object.values(allVersions).map(
       (elem) => (elem as any).openApiVersionName,
     )
@@ -242,7 +242,7 @@ async function validateInputParameters(): Promise<void> {
   }
 
   // Check that the source repo exists.
-  for (let sourceRepoDirectory of sourceRepoDirectories) {
+  for (const sourceRepoDirectory of sourceRepoDirectories) {
     if (!existsSync(sourceRepoDirectory)) {
       const errorMsg =
         sourceRepoDirectory === 'github' || sourceRepoDirectory === GITHUB_REP_DIR
@@ -261,7 +261,7 @@ async function validateInputParameters(): Promise<void> {
 // team that owns the data we consume. This function translates the version
 // names to use the names in the src/<pipeline>/lib/config.json file.
 // The names in the config.json file maps the incoming version name to
-// the short name of the version defined in lib/allVersions.js.
+// the short name of the version defined in lib/allVersions.ts.
 // This function also translates calendar-date format from .2022-11-28 to
 // -2022-11-28
 export async function normalizeDataVersionNames(sourceDirectory: string): Promise<void> {

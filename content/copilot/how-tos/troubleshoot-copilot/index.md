@@ -10,6 +10,7 @@ children:
   - /view-logs
   - /troubleshoot-firewall-settings
   - /troubleshoot-network-errors
+  - /troubleshoot-spark
 redirect_from:
   - /copilot/troubleshooting-github-copilot
   - /copilot/how-tos/troubleshoot

@@ -15,9 +15,15 @@ redirect_from:
 contentType: concepts
 ---
 
-## About licensing for {% data variables.product.prodname_enterprise %}
+## About enterprise deployments
 
 {% data reusables.enterprise.about-deployment-methods %}
+
+If you use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, you'll have **an enterprise account for each.** Even if you **only** use {% data variables.product.prodname_ghe_server %}, we recommend creating an enterprise account on {% data variables.product.prodname_ghe_cloud %}. This will make it easier to contact {% data variables.contact.enterprise_support %} and share support bundles with them. To create an additional enterprise account, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
+
+For most administration options, such as policies, you will manage each enterprise account separately. However, you can use the enterprise account on {% data variables.product.prodname_ghe_cloud %} to view all license usage across all deployments.
+
+## About licensing for {% data variables.product.prodname_enterprise %}
 
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
@@ -32,7 +38,7 @@ To use a {% data variables.product.prodname_ghe_server %} instance, you must upl
 There are two types of {% data variables.product.prodname_enterprise %} (GHE) licensing models, with different processes for enabling combined use of {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}.
 
 * **GHE (Usage-based, also called metered)**: A cloud-first license where users must first be assigned to a {% data variables.product.prodname_ghe_cloud %} organization.
-    * All Cloud users automatically receive a use right for {% data variables.product.prodname_ghe_server %}.
+    * All Cloud users automatically receive a right to use {% data variables.product.prodname_ghe_server %}.
     * Billing is based on the number of active users each month.
     * Users can generate their own Server license, which covers the number of assigned Cloud seats at the time of generation and is valid for one year.
     * Server-only users will be added to GHE (Metered) billing. These users are de-duplicated with email matching to avoid double billing.

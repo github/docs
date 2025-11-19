@@ -252,10 +252,10 @@
     "generalAvailabilityDate": "2025-06-03"
   },
   "3.18": {
-    "releaseDate": "2025-08-05",
-    "deprecationDate": "2026-08-25",
-    "releaseCandidateDate": "2025-08-05",
-    "generalAvailabilityDate": "2025-10-06"
+    "releaseDate": "2025-09-03",
+    "deprecationDate": "2026-10-14",
+    "releaseCandidateDate": "2025-09-03",
+    "generalAvailabilityDate": "2025-10-14"
   },
   "3.19": {
     "releaseDate": "2025-11-11",

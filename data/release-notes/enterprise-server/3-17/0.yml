@@ -86,6 +86,12 @@ sections:
         - |
           Developers using `pnpm` workspaces can ensure more reliable dependency updates with full Dependabot support for `pnpm` workspace catalogs. Dependabot prevents lockfile inconsistencies, avoids broken dependency trees, and improves update reliability in monorepos. See [the GitHub blog post](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/).
 
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+
     - heading: Identity and access management
       notes:
         # https://github.com/github/releases/issues/5040
@@ -116,9 +122,6 @@ sections:
         # https://github.com/github/releases/issues/4042
         - |
           Push rulesets are generally available. Users can block pushes to private and internal repositories, and their forks, based on file type, path, or size. Unlike pre-receive hooks, push rules are built-in, configurable via the UI or API, and support audit logs, evaluate mode, and bypass lists. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets).
-        # https://github.com/github/releases/issues/5128
-        - |
-          Enterprise administrators can manage rules more efficiently with the general availability of ruleset history, import, and export. Ruleset history allows tracking and rolling back changes, while import and export simplify sharing and reusing rulesets, including GitHub's ruleset-recipes. See [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
         # https://github.com/github/releases/issues/5129
         - |
           Repository administrators can easily convert a fork into a standalone repository by leaving the fork network, which stops automatic syncing with the upstream repository. This is useful for taking a project in a new direction or maintaining separate versions.

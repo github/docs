@@ -16,13 +16,15 @@ children:
   - /admin-stats
   - /announcement
   - /audit-log
-  - /billing
   - /bypass-requests
   - /code-security-and-analysis
   - /custom-properties
+  - /custom-properties-for-orgs
+  - /enterprise-roles
+  - /enterprises
   - /global-webhooks
   - /ldap
-  - /license
+  - /licensing
   - /manage-ghes
   - /management-console
   - /network-configurations

@@ -10,11 +10,11 @@ children:
   - /set-up-for-self
   - /set-up-for-organization
   - /set-up-for-enterprise
+  - /set-up-a-dedicated-enterprise-for-copilot-business
   - /install-copilot-extension
-  - /install-copilot-in-the-cli
+  - /install-copilot-cli
 redirect_from:
   - /copilot/setting-up-github-copilot
   - /copilot/get-started/setting-up-github-copilot
 contentType: how-tos
 ---
-

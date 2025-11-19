@@ -352,7 +352,7 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `libraryPathDependencies`
 
-* Optional, deprecated. Use the `dependencies` property instead.
+* Optional, {% data variables.release-phases.closing_down %}. Use the `dependencies` property instead.
 * Previously used to define the names of any {% data variables.product.prodname_codeql %} packs that this {% data variables.product.prodname_codeql %} pack depends on, as an array. This gives the pack access to any libraries, database schema, and query suites defined in the dependency. For example:
 
   ```yaml

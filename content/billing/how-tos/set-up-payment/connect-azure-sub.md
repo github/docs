@@ -36,8 +36,8 @@ You can pay for metered usage of {% data variables.product.github %} features th
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
-1. Under "Billing Management", to the right of "Metered billing via Azure", click **Add Azure Subscription**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing**.
+1. Under "Payment Information", to the right of "Metered billing via Azure", click **Add Azure Subscription**.
 1. Sign in to your Microsoft account.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
 

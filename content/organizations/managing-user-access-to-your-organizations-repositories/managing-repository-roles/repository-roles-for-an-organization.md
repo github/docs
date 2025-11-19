@@ -99,17 +99,15 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion fpt or ghec %} |
 | Create, edit, run, re-run, and cancel [GitHub Actions workflows](/actions) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
-| {% ifversion fpt or ghec %} |
+| {% ifversion repo-ci-cd-admin %} |
 | Create, update, and delete [GitHub Actions secrets](/actions/security-guides/using-secrets-in-github-actions) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% endif %} |
-| {% ifversion ghes %} |
+| {% else %} |
 | Create, update, and delete [GitHub Actions secrets](/actions/security-guides/using-secrets-in-github-actions) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | Create, update, and delete [GitHub Actions secrets](/rest/actions/secrets) using the REST API | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% ifversion fpt or ghec %} |
+| {% ifversion repo-ci-cd-admin %} |
 | Create, update, and delete [GitHub Actions variables](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% endif %} |
-| {% ifversion ghes %} |
+| {% else %} |
 | Create, update, and delete [GitHub Actions variables](/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) on GitHub.com | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | Create, update, and delete [GitHub Actions variables](/rest/actions/variables) using the REST API | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
@@ -188,18 +186,21 @@ In this section, you can find the access required for security features, such as
 
 > [!NOTE]
 > Repository writers and maintainers can only directly view secret scanning alert information for their own commits. They cannot access the alert list view.
+
 {% rowheaders %}
 
 | Repository action | Read | Triage | Write | Maintain | Admin |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | Receive [{% data variables.product.prodname_dependabot_alerts %} for insecure dependencies](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) in a repository | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | [Dismiss {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
-| {% ifversion ghes or ghec %}<!--Not available for FPT-->|
+| {% ifversion ghes or ghec %} |
 | [Designate additional people or teams to receive security alerts](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
-| Create [security advisories](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |{% endif %}{% ifversion ghes or ghec %} <!--Not available for FPT-->
-| Manage access to {% data variables.product.prodname_GHAS %} features (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES -->
+| Create [security advisories](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+| {% endif %} |
+| Manage access to {% data variables.product.prodname_GHAS %} features (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
+|{% ifversion fpt or ghec %}<!--Set at site-level for GHES -->|
 | [Enable the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository) for a private repository | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-x" aria-label="No">✗</span> | <span role="img" class="octicon-bg-check" aria-label="Yes">✓</span> |
 | {% endif %} |
 | {% ifversion ghes or ghec %} |

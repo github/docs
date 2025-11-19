@@ -12,7 +12,7 @@ const VERSIONLESS_REDIRECTS_FILE = path.join(
   '../../../../src/fixtures/fixtures/versionless-redirects.txt',
 )
 
-// This test checks the default versioning redirect fallbacks described in lib/all-versions.js.
+// This test checks the default versioning redirect fallbacks described in lib/all-versions.ts.
 // The fixture now contains mock URLs instead of live URLs to prevent test failures when content is moved.
 // This ensures the redirect logic works correctly without being dependent on real content files.
 describe('versioned redirects', () => {
@@ -58,17 +58,17 @@ describe('versioned redirects', () => {
     expect(redirectKeys.length).toBeGreaterThan(0)
 
     // Verify all old paths are properly formatted
-    redirectKeys.forEach((oldPath) => {
+    for (const oldPath of redirectKeys) {
       expect(oldPath).toMatch(/^\/[a-z0-9-/]+$/)
       expect(oldPath).not.toMatch(/^\/en\//)
-    })
+    }
 
     // Verify all new paths have proper versioning
-    Object.values(versionlessRedirects).forEach((newPath) => {
+    for (const newPath of Object.values(versionlessRedirects)) {
       expect(newPath).toMatch(
         /^\/(enterprise-cloud@latest|enterprise-server@latest|admin|github|articles|billing|code-security|actions|packages|copilot|rest|webhooks|developers)/,
       )
-    })
+    }
   })
 
   test('enterprise-server@latest paths are properly transformed', () => {
@@ -76,7 +76,7 @@ describe('versioned redirects', () => {
       newPath.includes('/enterprise-server@latest'),
     )
 
-    enterpriseServerPaths.forEach(([, newPath]) => {
+    for (const [, newPath] of enterpriseServerPaths) {
       const transformedPath = `/en${newPath.replace(
         '/enterprise-server@latest',
         `/enterprise-server@${latest}`,
@@ -85,6 +85,6 @@ describe('versioned redirects', () => {
       expect(transformedPath).toContain(`/enterprise-server@${latest}`)
       expect(transformedPath).not.toContain('/enterprise-server@latest')
       expect(transformedPath).toMatch(/^\/en\//)
-    })
+    }
   })
 })

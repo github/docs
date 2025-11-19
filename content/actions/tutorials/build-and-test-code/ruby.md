@@ -49,6 +49,7 @@ We recommend that you have a basic understanding of Ruby, YAML, workflow configu
    If you don't find the "Ruby" workflow template, copy the following workflow code to a new file called `ruby.yml` in the `.github/workflows` directory of your repository.
 
    ```yaml copy
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
    name: Ruby
 
    on:
@@ -102,6 +103,7 @@ Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with 
 The `setup-ruby` action takes a Ruby version as an input and configures that version on the runner.
 
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
@@ -170,6 +172,7 @@ jobs:
 The `setup-ruby` action will automatically install bundler for you. The version is determined by your `gemfile.lock` file. If no version is present in your lockfile, then the latest compatible version will be installed.
 
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
@@ -187,6 +190,7 @@ To enable caching, set the following.
 {% raw %}
 
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 steps:
 - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
   with:

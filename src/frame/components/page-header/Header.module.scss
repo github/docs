@@ -6,11 +6,6 @@
   display: unset;
 }
 
-// Need children of portal root to be higher z-index to show dropdown
-.portalRoot * {
-  z-index: 3 !important;
-}
-
 // Contains the logo and version picker and used when the smaller width search
 // input UI is closed.
 .logoWithClosedSearch {
@@ -61,4 +56,8 @@
   [class*="prc-Dialog-Body"] {
     padding: 0 !important;
   }
+}
+
+.headerContainer {
+  row-gap: 1rem;
 }

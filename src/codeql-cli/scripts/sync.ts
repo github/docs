@@ -41,7 +41,7 @@ async function main() {
     const matchHeading = '## Options\n'
     const primaryHeadingSourceContent = sourceContent.replace(
       matchHeading,
-      matchHeading + '\n### Primary Options\n',
+      `${matchHeading}\n### Primary Options\n`,
     )
     const currentFileName = path.basename(file)
     const { data, content } = await convertContentToDocs(
@@ -83,8 +83,8 @@ async function setupEnvironment() {
 
 // copy the raw rst files to the temp directory and convert them
 // to Markdownusing pandoc
-async function rstToMarkdown(sourceDirectory: string) {
-  const sourceFiles = walk(sourceDirectory, {
+async function rstToMarkdown(rstSourceDirectory: string) {
+  const sourceFiles = walk(rstSourceDirectory, {
     includeBasePath: true,
     globs: ['**/*.rst'],
   })

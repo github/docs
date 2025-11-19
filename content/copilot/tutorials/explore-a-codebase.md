@@ -10,6 +10,9 @@ redirect_from:
   - /copilot/using-github-copilot/guides-on-using-github-copilot/using-copilot-to-explore-a-codebase
   - /copilot/tutorials/using-copilot-to-explore-a-codebase
 contentType: tutorials
+category:
+  - Scale institutional knowledge 
+  - Author and optimize with Copilot
 ---
 
 ## Introduction

@@ -11,6 +11,8 @@ redirect_from:
   - /copilot/how-tos/ai-models/changing-the-ai-model-for-copilot-chat
   - /copilot/how-tos/ai-models/change-the-chat-model
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 Choose from a selection of models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
@@ -21,7 +23,9 @@ To view the available models per client, see [AUTOTITLE](/copilot/using-github-c
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
-Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+{% data reusables.copilot.model-picker-enable-alternative-models %}
+
+Changing the model used by {% data variables.copilot.copilot_chat_short %} does not affect the model used for {% data variables.product.prodname_copilot_short %} inline suggestions. See [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model).
 
 {% webui %}
 
@@ -36,9 +40,9 @@ Experimental pre-release versions of the models may not interact with all filter
 
 These instructions are for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For instructions on different clients, click the appropriate tab at the top of this page.
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 > [!NOTE] If you use {% data variables.copilot.copilot_extensions_short %}, they may override the model you select.
+
+{% data reusables.copilot.model-picker-enable-alternative-models %}
 
 1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon.
 
@@ -56,12 +60,12 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 These instructions are for {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 {% data reusables.copilot.open-chat-vs-code %}
 1. At the bottom of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 ## Adding more models
 
@@ -75,7 +79,7 @@ You can expand the model options that are available to power {% data variables.c
 ### Prerequisites
 
 * Depending on the provider or model you choose, you may need to supply an API key, or model ID, from the provider, or a {% data variables.product.github %} {% data variables.product.pat_generic %} (PAT).
-* To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio">install the AI Toolkit extension</a>.
+* To add models from the AI Toolkit for {% data variables.product.prodname_vscode %}, you must <a href="vscode:extension/ms-windows-ai-studio.windows-ai-studio?ref_product=copilot&ref_type=engagement&ref_style=text">install the AI Toolkit extension</a>.
 
 ### Adding models
 
@@ -115,12 +119,12 @@ These instructions are for {% data variables.product.prodname_vs %}. For instruc
 
 To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 2022 version 17.12 or later. See the [{% data variables.product.prodname_vs %} downloads page](https://visualstudio.microsoft.com/downloads/).
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.copilot.copilot_chat %}**.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endvisualstudio %}
 
@@ -130,13 +134,13 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use
 
 These instructions are for the JetBrains IDEs. For instructions on different clients, click the appropriate tab at the top of this page.
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open {% data variables.copilot.copilot_chat %}**.
 1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endjetbrains %}
 
@@ -146,13 +150,13 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 These instructions are for the Eclipse IDE. For instructions on different clients, click the appropriate tab at the top of this page.
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open Chat**.
 1. In the bottom right of the chat panel, click the currently selected AI model, then select an alternative model from the popup menu.
+
+{% data reusables.copilot.auto-model-option %}
 
 {% endeclipse %}
 
@@ -164,18 +168,18 @@ These instructions are for Xcode. For instructions on different clients, click t
 
 To use multi-model {% data variables.copilot.copilot_chat_short %}, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
 
-{% data reusables.copilot.model-picker-enable-alternative-models %}
-
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.copilot.copilot_chat_short %} opens in a new window.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
 
+{% data reusables.copilot.auto-model-option %}
+
 {% endxcode %}
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
+* [AUTOTITLE](/copilot/how-tos/use-ai-models/change-the-completion-model)
 * [AUTOTITLE](/copilot/reference/ai-models/model-comparison)
 
 {% vscode %}

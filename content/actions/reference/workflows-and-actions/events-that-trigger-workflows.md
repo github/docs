@@ -234,6 +234,27 @@ on:
   gollum
 ```
 
+## `image_version`
+
+| Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
+|----------------------| -------------- | ------------ | -------------|
+| Not applicable       | Not applicable | Last commit on default branch |  Default branch |
+
+Runs your workflow when a new version of a specified image becomes available for use. This event is typically triggered after a successful image version creation, allowing you to automate actions such as deployment or notifications in response to new image versions.
+
+This event supports glob patterns for both image names and versions. The example below triggers when a new image version matches any of the specified name and version combinations. For example, `["MyNewImage", 1.0.0]`, `["MyNewImage", 2.53.0]`, `["MyOtherImage", 1.0.0]`, and `["MyOtherImage", 2.0.0]`.
+
+```yaml
+on:
+  image_version:
+    names:
+    - "MyNewImage"
+    - "MyOtherImage"
+    versions:
+    - 1.*
+    - 2.*
+```
+
 ## `issue_comment`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1159,6 +1180,8 @@ For more information, see the {% data variables.product.prodname_cli %} informat
 
 This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. The workflow started by the `workflow_run` event is able to access secrets and write tokens, even if the previous workflow was not. This is useful in cases where the previous workflow is intentionally not privileged, but you need to take a privileged action in a later workflow.
 
+{% data reusables.actions.workflow-run-permissions-warning %}
+
 In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
 
 ```yaml
@@ -1285,7 +1308,7 @@ jobs:
             fs.writeFileSync(path.join(temp, 'pr_number.zip'), Buffer.from(download.data));
 
       - name: 'Unzip artifact'
-        run: unzip pr_number.zip -d "{% raw %}${{ runner.temp }}{% endraw %}/artifacts"
+        run: unzip "{% raw %}${{ runner.temp }}{% endraw %}/artifacts/pr_number.zip" -d "{% raw %}${{ runner.temp }}{% endraw %}/artifacts"
 
       - name: 'Comment on PR'
         uses: {% data reusables.actions.action-github-script %}

@@ -58,6 +58,7 @@ The following example uses the placeholders `YOUR_PROVIDER_NAME` and `YOUR_AUDIE
 {% raw %}
 
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 permissions:
   id-token: write
   contents: read
@@ -91,6 +92,7 @@ jobs:
 {% raw %}
 
 ```yaml
+{% data reusables.actions.actions-not-certified-by-github-comment %}
       - name: Sign in to Artifactory Docker registry
         uses: docker/login-action@v3
         with:

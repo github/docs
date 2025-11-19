@@ -1,6 +1,6 @@
 ---
 title: Profile reference
-intro: 'Reference information for your {% data variables.product.github %} profile.'
+intro: Reference information for your {% data variables.product.github %} profile.
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,15 +8,12 @@ versions:
 topics:
   - Profiles
 shortTitle: Profile reference
+contentType: reference
 ---
 
 ## Visibility of profile information
 
-{% ifversion fpt or ghec %}
-
-Any details you add to your public profile will be visible to all {% data variables.product.github %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone's decision about whether or not to share information about themselves on their {% data variables.product.github %} profile.
-
-{% endif %}
+{% data reusables.profile.profile-visibility %}
 
 The name that is displayed on your profile may also be displayed next to comments you make on private repositories owned by an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization).
 
@@ -27,6 +24,16 @@ The name that is displayed on your profile may also be displayed next to comment
 {% endif %}
 
 Links to your social accounts are visible to anyone who can view your profile.
+
+## Profile picture requirements
+
+When you sign up for an account, {% data variables.product.github %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
+
+> [!NOTE] {% ifversion ghec %}
+> * {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+{% ifversion ghec %}> * Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
+
+If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.github %}, the image will be shown as your {% data variables.product.github %} profile picture by default (rather than an identicon). To change your profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.github %} and override the Gravatar image.
 
 ## Profile status
 
@@ -43,16 +50,6 @@ If you select the "Busy" option, when people @mention your username, assign you 
 
 ![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-## Profile picture requirements
-
-When you sign up for an account, {% data variables.product.github %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
-
-> [!NOTE] {% ifversion ghec %}
-> * {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}> * Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.github %}, the image will be shown as your {% data variables.product.github %} profile picture by default (rather than an identicon). To change your profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.github %} and override the Gravatar image.
-
 ## Profile location and time zone
 
 You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
@@ -62,6 +59,26 @@ You can set a location and time zone on your profile to show other people your l
 ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
 
 When you view your profile, you will see your location, local time, and your time zone in relation to Universal Time Coordinated. When others view your profile, they will see your location, local time, and the time difference in hours from their own local time.
+
+## Pinning items to your profile
+
+You can pin a public repository if you own the repository or you've made contributions to the repository within the last year. Commits to forks don't count as contributions, so you can't pin a fork that you don't own. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)
+
+You can pin any public gist you own.
+
+Pinned items include important information about the item, like the number of stars a repository has received or the first few lines of a gist. Once you pin items to your profile, the "Pinned" section replaces the "Popular repositories" section on your profile.
+
+{% ifversion fpt %}
+
+## Limitations of private profiles
+
+Private profiles cannot receive sponsorships under [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). To be eligible for {% data variables.product.prodname_sponsors %}, your profile cannot be private.
+
+By making your profile private, you will not remove or hide past activity; this setting only applies to your activity while the private setting is enabled.
+
+When your profile is private, your activity on public repositories will still be publicly visible to anyone viewing those repositories, and some activity data may still be available through the {% data variables.product.prodname_dotcom %} API.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -95,6 +112,8 @@ To stop private contributions from counting toward your Achievements, or to turn
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endif %}
+
+If you `@mention` an organization you're a member of in your bio, that organization will be featured first in your activity overview.
 
 ## List of qualifying repositories for Mars 2020 Helicopter Contributor achievement
 
@@ -170,7 +189,3 @@ The Mars 2020 Helicopter Contributor achievement was given to those who had auth
 | [locationtech/spatial4j](https://github.com/locationtech/spatial4j) | 0.7 | [spatial4j-0.7](https://github.com/locationtech/spatial4j/releases/tag/spatial4j-0.7) |
 | [locationtech/jts](https://github.com/locationtech/jts) | 1.15.0 | [jts-1.15.0](https://github.com/locationtech/jts/releases/tag/jts-1.15.0) |
 | [apache/logging-log4j2](https://github.com/apache/logging-log4j2) | 2.11 | [log4j-2.11.0](https://github.com/apache/logging-log4j2/releases/tag/log4j-2.11.0) |
-
-## Further reading
-
-* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)

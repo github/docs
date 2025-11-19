@@ -378,11 +378,12 @@ The `job` context contains information about the currently running job.
 
 ### Example contents of the `job` context
 
-This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains the `status` property.
+This example `job` context uses a PostgreSQL service container with mapped ports. If there are no containers or service containers used in a job, the `job` context only contains the `status` and `check_run_id` properties.
 
 ```json
 {
   "status": "success",
+  {% ifversion fpt or ghec %}"check_run_id": 51725241954,{% endif %}
   "container": {
     "network": "github_network_53269bd575974817b43f4733536b200c"
   },

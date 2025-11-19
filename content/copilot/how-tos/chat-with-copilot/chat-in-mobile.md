@@ -18,6 +18,8 @@ redirect_from:
   - /copilot/how-tos/use-chat/use-chat-in-mobile
   - /copilot/how-tos/chat-with-copilot/use-chat-in-mobile
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 ## Overview
@@ -81,7 +83,7 @@ You can ask a general question about software development{% ifversion ghec %} th
 
 You can ask questions about a specific repository, to get help with understanding the code, or to get help with a specific task you're working on.
 
-1. In {% data variables.product.prodname_mobile %}, navigate to a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. In {% data variables.product.prodname_mobile %}, navigate to a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon in the bottom right corner of the screen.
 1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
 
    For example, if you chose the repository you are working in as the context, you could ask:
@@ -132,7 +134,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
 You can ask questions about a specific pull request in a repository.
 
-1. In {% data variables.product.prodname_mobile %}, navigate to a pull request in a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. In {% data variables.product.prodname_mobile %}, navigate to a pull request in a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon in the bottom right corner of the screen.
 1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
 
    For example, you could ask:
@@ -150,7 +152,7 @@ You can ask questions about a specific pull request in a repository.
 
 You can ask questions about a specific issue in a repository.
 
-1. In {% data variables.product.prodname_mobile %}, navigate to an issue in a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. In {% data variables.product.prodname_mobile %}, navigate to an issue in a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon in the bottom right corner of the screen.
 1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
 
    For example, you could ask:
@@ -168,7 +170,7 @@ You can ask questions about a specific issue in a repository.
 
 You can ask questions about a specific discussion in a repository.
 
-1. In {% data variables.product.prodname_mobile %}, navigate to a discussion in a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
+1. In {% data variables.product.prodname_mobile %}, navigate to a discussion in a repository, and tap the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon in the bottom right corner of the screen.
 1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
 
    For example, you could ask:

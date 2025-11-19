@@ -7,7 +7,7 @@ import { visitParents } from 'unist-util-visit-parents'
 import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
-import { languageKeys } from '@/languages/lib/languages'
+import { languageKeys } from '@/languages/lib/languages-server'
 import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options'
 
 interface Config {
@@ -130,11 +130,11 @@ export async function convertContentToDocs(
       // There are some keywords like [Plumbing] used by the code comments
       // but we don't want to render them in the docs.
       if (node.type === 'text' && node.value) {
-        removeKeywords.forEach((keyword) => {
+        for (const keyword of removeKeywords) {
           if (node.value.includes(keyword)) {
             node.value = node.value.replace(keyword, '').trim()
           }
-        })
+        }
       }
 
       // The subsections under the main headings (level 2) are commands

@@ -10,7 +10,6 @@ featuredLinks:
     - /graphql/guides/introduction-to-graphql
     - /graphql/guides/using-graphql-clients
   popular:
-    - /graphql/overview/explorer
     - /graphql/overview/public-schema
     - /graphql/guides/using-pagination-in-the-graphql-api
   guideCards:

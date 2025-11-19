@@ -13,6 +13,8 @@ redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review
   - /copilot/responsible-use-of-github-copilot-features/code-review
 contentType: rai
+category: 
+  - Responsible use
 ---
 
 ## About {% data variables.copilot.copilot_code-review %}
@@ -22,8 +24,6 @@ contentType: rai
 When a user requests a code review from {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} scans through the code changes, plus additional relevant context, and provides feedback on the code. As part of that feedback, it may also provide specific suggested code changes.
 
 {% data variables.product.prodname_copilot_short %}'s review can be customized with custom instructions, which are natural language descriptions of coding style and best practices. For more information, see [AUTOTITLE](/copilot/how-tos/configure-custom-instructions/add-repository-instructions).
-
-The only supported language for {% data variables.copilot.copilot_code-review %} is English.
 
 {% data variables.copilot.copilot_code-review %} inspects your code and provides feedback using a combination of natural language processing and machine learning. This process can be broken down into a number of steps.
 

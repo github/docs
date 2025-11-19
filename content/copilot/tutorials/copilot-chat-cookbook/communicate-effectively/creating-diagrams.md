@@ -9,6 +9,7 @@ complexity:
 octicon: copilot
 category:
   - Communicate effectively
+  - Visualize data
 topics:
   - Copilot
 contentType: tutorials

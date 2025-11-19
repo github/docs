@@ -10,6 +10,25 @@ topics:
 contentType: concepts
 redirect_from:
   - /copilot/concepts/about-mcp
+  - /copilot/concepts/extensions/agents
+  - /copilot/concepts/extensions/build-extensions
+  - /copilot/concepts/extensions/skillsets
+  - /copilot/concepts/extensions/openid-connect
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent/use-copilots-llm
+  - /copilot/how-tos/use-copilot-extensions/create-a-copilot-extension/create-github-app
+  - /copilot/how-tos/use-copilot-extensions/build-copilot-skillsets
+  - /copilot/how-tos/use-copilot-extensions/debug-copilot-extension
+  - /copilot/how-tos/use-copilot-extensions/manage-extension-availability
+  - /copilot/how-tos/use-copilot-extensions/set-up-oidc
+  - /copilot/how-tos/provide-context/install-copilot-extensions
+  - /copilot/concepts/extensions
+  - /copilot/how-tos/use-copilot-extensions/create-a-copilot-extension
+  - /copilot/how-tos/use-copilot-extensions
+  - /copilot/concepts/context/copilot-extensions
+  - /copilot/reference/extensions-glossary
+  - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent
+category: 
+  - Learn about Copilot
 ---
 
 ## Overview of Model Context Protocol (MCP)
@@ -44,6 +63,13 @@ If you want to utilize the remote {% data variables.product.github %} MCP server
 Running the {% data variables.product.github %} MCP server locally requires a bit more setup, but it allows for greater customization and control over your AI interactions.
 
 To learn how to set up and use the {% data variables.product.github %} MCP server, see [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/using-the-github-mcp-server).
+
+## About the {% data variables.product.github %} MCP Registry
+
+The {% data variables.product.github %} MCP Registry is a curated list of MCP servers from partners and the community. You can use the registry to discover new MCP servers and find ones that meet your specific needs. See [the {% data variables.product.github %} MCP Registry](https://github.com/mcp).
+
+>[!NOTE]
+> The {% data variables.product.github %} MCP Registry is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## Availability
 

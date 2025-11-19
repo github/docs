@@ -71,7 +71,7 @@ In the [`github/choosealicense.com`](https://github.com/github/choosealicense.co
 
 If the README.md file doesn't give you all the answers, you can ask {% data variables.product.prodname_copilot_short %} to help you navigate the repository and locate functionality.
 
-To open {% data variables.copilot.copilot_chat_short %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar and ask your question. For example:
+To open {% data variables.copilot.copilot_chat_short %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon next to the search bar and ask your question. For example:
 
 >What is the main landing page for this Jekyll website?
 

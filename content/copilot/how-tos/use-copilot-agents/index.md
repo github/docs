@@ -7,10 +7,11 @@ versions:
 topics:
   - Copilot
 children:
+  - /manage-agents
   - /coding-agent
   - /request-a-code-review
+  - /use-copilot-cli
 redirect_from:
   - /copilot/how-tos/agents
 contentType: how-tos
 ---
-

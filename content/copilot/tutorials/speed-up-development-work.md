@@ -11,9 +11,10 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-spaces/speeding-up-development-work-with-copilot-spaces
   - /copilot/tutorials/speeding-up-development-work-with-copilot-spaces
 contentType: tutorials
+category:
+  - Accelerate PR velocity
+  - Author and optimize with Copilot
 ---
-
-{% data reusables.copilot.copilot-spaces.preview-note %}
 
 If you're starting a new feature, trying to understand a system, or picking up a task in a codebase you’re still learning, {% data variables.copilot.copilot_spaces %} can help you:
 
@@ -21,7 +22,7 @@ If you're starting a new feature, trying to understand a system, or picking up a
 * Get better help from {% data variables.product.prodname_copilot_short %} by grounding it in relevant code and documentation.
 * Move faster without switching between tools or asking others for background information.
 
-To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces), and click **Create space**.
+To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces?ref_product=copilot&ref_type=engagement&ref_style=text), and click **Create space**.
 
 Below are some examples of how to use {% data variables.copilot.copilot_spaces_short %} to help you with development work.
 
@@ -68,6 +69,18 @@ In situations where people tend to ask similar questions, such as how authentica
 
 **Suggested prompt**:
 > How does SSO work?
+
+## Hands-on practice
+
+Try the [Scale institutional knowledge using Copilot Spaces](https://github.com/skills/scale-institutional-knowledge-using-copilot-spaces) Skills exercise for practical experience to do the following:
+* Centralize scattered project management knowledge in Copilot Spaces
+* Convert tacit team insights into searchable, versioned artifacts
+* Give all team members equal access to processes, decisions, and rationale
+* Connect a repository as a structured knowledge source
+* Extract, refine, and standardize workflows collaboratively
+* Feed validated improvements back into living documentation
+* Accelerate onboarding and reduce single-person dependency risk
+* Enable consistent, repeatable project execution
 
 ## Next steps
 

@@ -19,7 +19,7 @@ It is a block of key-value content that lives at the top of every Markdown file 
 
 The following frontmatter values have special meanings and requirements for {% data variables.product.prodname_docs %}.
 There's also a schema that's used by the test suite to validate every page's frontmatter.
-For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
+For more information, see [`lib/frontmatter.ts`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.ts).
 
 * [`versions`](#versions)
 * [`redirect_from`](#redirect_from)
@@ -39,6 +39,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 * [`defaultTool`](#defaulttool)
 * [`learningTracks`](#learningtracks)
 * [`includeGuides`](#includeguides)
+* [`journeyTracks`](#journeytracks)
 * [`type`](#type)
 * [`topics`](#topics)
 * [`communityRedirect`](#communityredirect)
@@ -48,7 +49,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 
 * Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.ts) to which a page applies.
 For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
-* Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
+* Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.ts`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.ts).
 * This frontmatter value is currently **required** for all pages.
 * The `*` is used to denote all releases for the version.
 * Must be present for all `index.md` files, but actual value is computed at runtime based on the children.
@@ -190,7 +191,7 @@ featuredLinks:
 
 ### `allowTitleToDifferFromFilename`
 
-* Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`.
+* Purpose: Indicates whether a page is allowed to have a title that differs from its filename. For example, `content/rest/reference/orgs.md` has a title of `Organizations` instead of `Orgs`. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.ts`.
 * Type: `Boolean`. Default is `false`.
 * Optional.
 
@@ -249,6 +250,36 @@ includeGuides:
   - /actions/guides/building-and-testing-powershell
 ```
 
+### `journeyTracks`
+
+* Purpose: Define journeys for journey landing pages.
+* Type: `Array` of objects with the following properties:
+  * `id` (required): Unique identifier for the journey. The id only needs to be unique for journeys within a single journey landing page.
+  * `title` (required): Display title for the journey (supports Liquid variables)
+  * `description` (optional): Description of the journey (supports Liquid variables)
+  * `guides` (required): Array of article paths that make up this journey
+* Only applicable when used with `layout: journey-landing`.
+* Optional.
+
+Example:
+
+```yaml
+journeyTracks:
+  - id: 'getting_started'
+    title: 'Getting started with {% data variables.product.prodname_actions %}'
+    description: 'Learn the basics of GitHub Actions.'
+    guides:
+      - '/actions/quickstart'
+      - '/actions/learn-github-actions'
+      - '/actions/using-workflows'
+  - id: 'advanced'
+    title: 'Advanced {% data variables.product.prodname_actions %}'
+    description: 'Dive deeper into advanced features.'
+    guides:
+      - '/actions/using-workflows/workflow-syntax-for-github-actions'
+      - '/actions/deployment/deploying-with-github-actions'
+```
+
 ### `type`
 
 * Purpose: Indicate the type of article.
@@ -257,7 +288,7 @@ includeGuides:
 
 ### `topics`
 
-* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.ts) will fail.
+* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.ts). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.ts) will fail.
 * Type: Array of `String`s
 * Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 

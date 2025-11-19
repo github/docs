@@ -6,6 +6,7 @@ versions:
 category:
   - Custom instructions
   - Getting started
+  - Configure Copilot
 complexity:
   - Simple
 octicon: book
@@ -20,7 +21,7 @@ topics:
 You can customize {% data variables.product.prodname_copilot %}'s responses using two types of files:
 
 * **Custom instructions** provide ongoing guidance for how {% data variables.product.prodname_copilot %} should behave across all your interactions.
-* **Prompt files (public preview)** define reusable prompts for specific tasks that you can invoke when needed. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}. For an introductory example, see [AUTOTITLE](/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file).
+* **Prompt files (public preview)** define reusable prompts for specific tasks that you can invoke when needed. {% data reusables.copilot.prompt-files-available-in-editors %} For an introductory example, see [AUTOTITLE](/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file).
 
 While custom instructions help to add context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
 
@@ -47,7 +48,7 @@ These instructions will change how {% data variables.product.prodname_copilot %}
 
 To quickly test out the difference that custom instructions can make, you can use personal custom instructions in {% data variables.copilot.copilot_chat_short %}'s immersive view.
 
-1. First, go to [github.com/copilot](https://github.com/copilot) and enter this prompt:
+1. First, go to [github.com/copilot](https://github.com/copilot?ref_product=copilot&ref_type=trial&ref_style=text) and enter this prompt:
 
     `Create a JavaScript function that calculates the area of a circle`
 

@@ -1,14 +1,14 @@
-// This script auto-populates the `contentType` frontmatter property based on
-// the directory location of the content file.
-// Run with:
-// npm run-script -- add-content-type --help
+/**
+ * @purpose Writer tool
+ * @description Auto-populate the `contentType` frontmatter property based on the directory location of the content file
+ */
 
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
 import frontmatter from '@/frame/lib/read-frontmatter'
 import walkFiles from '@/workflows/walk-files'
-import { contentTypesEnum } from '#src/frame/lib/frontmatter.js'
+import { contentTypesEnum } from '@/frame/lib/frontmatter'
 import type { MarkdownFrontmatter } from '@/types'
 
 const RESPONSIBLE_USE_STRING = 'responsible-use'
@@ -88,7 +88,7 @@ async function main() {
   console.log(`\nUpdated ${updatedCount} files out of ${processedCount}`)
 }
 
-function processFile(filePath: string, options: ScriptOptions) {
+function processFile(filePath: string, scriptOptions: ScriptOptions) {
   const fileContent = fs.readFileSync(filePath, 'utf8')
   const relativePath = path.relative(contentDir, filePath)
 
@@ -100,11 +100,11 @@ function processFile(filePath: string, options: ScriptOptions) {
   if (!data) return { processed: false, updated: false }
 
   // Remove the legacy type property if option is passed
-  const removeLegacyType = Boolean(options.removeType && data.type)
+  const removeLegacyType = Boolean(scriptOptions.removeType && data.type)
 
   const newContentType = determineContentType(relativePath, data.type || '')
 
-  if (options.dryRun) {
+  if (scriptOptions.dryRun) {
     console.log(`\n${relativePath}`)
     if (!data.contentType) {
       console.log(`   ✅  Would set contentType: "${newContentType}"`)
@@ -144,7 +144,7 @@ function processFile(filePath: string, options: ScriptOptions) {
   // Write the file back
   fs.writeFileSync(filePath, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
 
-  if (options.verbose) {
+  if (scriptOptions.verbose) {
     console.log(`\n${relativePath}`)
     console.log(`   ✅  Set contentType: "${newContentType}"`)
     if (removeLegacyType) {
@@ -192,4 +192,8 @@ function determineContentType(relativePath: string, legacyType: string): string 
   return OTHER_TYPE
 }
 
-main().catch(console.error)
+try {
+  await main()
+} catch (error) {
+  console.error(error)
+}

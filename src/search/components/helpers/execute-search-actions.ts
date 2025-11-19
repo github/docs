@@ -74,9 +74,9 @@ export async function executeCombinedSearch(
   debug = false,
   abortSignal?: AbortSignal,
 ) {
-  let language = router.locale || 'en'
+  const language = router.locale || 'en'
 
-  const params = new URLSearchParams({ query: query, version, language })
+  const params = new URLSearchParams({ query, version, language })
   if (debug) {
     params.set('debug', '1')
   }

@@ -31,12 +31,12 @@ export default async function secretScanning(
   const { currentVersion } = req.context
 
   req.context.secretScanningData = secretScanningData.filter((entry) =>
-    getApplicableVersions(entry.versions).includes(currentVersion),
+    currentVersion ? getApplicableVersions(entry.versions).includes(currentVersion) : false,
   )
 
   // Some entries might use Liquid syntax, so we need
   // to execute that Liquid to get the actual value.
-  req.context.secretScanningData.forEach(async (entry) => {
+  for (const entry of req.context.secretScanningData) {
     for (const [key, value] of Object.entries(entry)) {
       if (key === 'hasValidityCheck' && typeof value === 'string' && value.includes('{%')) {
         const evaluated = yaml.load(await liquid.parseAndRender(value, req.context))
@@ -49,7 +49,7 @@ export default async function secretScanning(
     if (entry.ismultipart) {
       entry.secretType += ' <br/><a href="#multi-part-secrets">Multi-part secrets</a>'
     }
-  })
+  }
 
   return next()
 }

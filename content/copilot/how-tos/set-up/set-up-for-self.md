@@ -12,18 +12,20 @@ redirect_from:
   - /copilot/get-started/setting-up-github-copilot/setting-up-github-copilot-for-yourself
   - /copilot/how-tos/set-up/setting-up-github-copilot-for-yourself
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* **Use {% data variables.copilot.copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 inline suggestion requests and 50 premium requests per month-no paid plan required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 * **Sign up for a paid plan**. You can subscribe to either:
 
-  * **{% data variables.copilot.copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
-  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_cta=Copilot+Pro%2B&ref_loc=subscriptions+page&ref_page=docs).
+  * **{% data variables.copilot.copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_product=copilot&ref_type=trial&ref_style=text" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
+  * **{% data variables.copilot.copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.copilot.copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_product=copilot&ref_type=purchase&ref_style=text&ref_plan=pro).
 
 * **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} plan, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
@@ -49,11 +51,11 @@ You may also need to install a custom SSL certificate on your machine. See [AUTO
 
 ## 6. Configure settings (optional)
 
-All users can configure {% data variables.product.prodname_copilot_short %} settings in their IDE or in the CLI. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment) and [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-the-cli).
+All users can configure {% data variables.product.prodname_copilot_short %} settings in their IDE. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment).
 
 If you have your own {% data variables.product.prodname_copilot_short %} plan (instead of using your organization or enterprise's plan), you can:
 
-* **Install {% data variables.copilot.copilot_extensions_short %}** to integrate other tools with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account).
+* **Install Model Context Protocol (MCP) servers to integrate with {% data variables.copilot.copilot_chat_short %}. See [AUTOTITLE](/copilot/how-tos/context/model-context-protocol/extending-copilot-chat-with-mcp).
 * **Manage policies**. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber).
 
 ## 7. Start using {% data variables.product.prodname_copilot_short %}

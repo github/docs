@@ -4,6 +4,8 @@ shortTitle: Metrics data
 intro: See how GitHub calculates properties from APIs and reports.
 versions:
   feature: copilot
+category:
+  - Learn about Copilot
 topics:
   - Copilot
 allowTitleToDifferFromFilename: true
@@ -72,7 +74,7 @@ The activity report provides visibility into usage of all generally available (G
 
 #### IDE features
 
-* Code completions
+* Inline suggestions
 * {% data variables.copilot.next_edit_suggestions_caps %}
 * {% data variables.copilot.copilot_chat_short %}
 * Agent mode

@@ -17,6 +17,8 @@ topics:
 versions:
   feature: copilot
 contentType: how-tos
+category:
+  - Configure Copilot
 ---
 
 {% jetbrains %}
@@ -49,7 +51,7 @@ Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
-You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays code completions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
+You can manage advanced settings for {% data variables.product.prodname_copilot %} in your JetBrains IDE, such as how your IDE displays inline suggestions, and which languages you want to enable or disable for {% data variables.product.prodname_copilot %}.
 
 {% data reusables.copilot.jetbrains-settings %}
 {% data reusables.copilot.jetbrains-languages-and-frameworks %}
@@ -358,6 +360,12 @@ You can configure the {% data variables.product.prodname_copilot %} extension to
 
 After updating the extension, Xcode must be restarted for the changes to take effect.
 
+## Disabling {% data variables.copilot.next_edit_suggestions %}
+
+{% data variables.copilot.next_edit_suggestions_caps %} are enabled by default. To disable {% data variables.copilot.next_edit_suggestions %}, go to the "Advanced" tab in the {% data variables.product.prodname_copilot %} for Xcode extension settings. You can also choose to disable the option to "Accept suggestions with Tab".
+
+{% data reusables.copilot.editor-preview-settings %}
+
 {% data reusables.copilot.dotcom-settings %}
 
 {% endxcode %}
@@ -384,6 +392,12 @@ If you don't want to use the default keyboard shortcuts for {% data variables.pr
 ## Settings and configurations
 
 For advanced settings, you can set auto-completion behavior, configure proxy, and assign a {% data variables.product.prodname_enterprise %} authentication endpoint.
+
+## Enabling {% data variables.copilot.next_edit_suggestions %}
+
+You can enable {% data variables.copilot.next_edit_suggestions %} under "Completions" in the {% data variables.product.prodname_copilot %} extension settings in Eclipse.
+
+{% data reusables.copilot.editor-preview-settings %}
 
 {% data reusables.copilot.dotcom-settings %}
 

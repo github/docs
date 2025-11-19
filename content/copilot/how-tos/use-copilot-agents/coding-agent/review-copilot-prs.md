@@ -2,7 +2,7 @@
 title: Reviewing a pull request created by GitHub Copilot
 shortTitle: Review Copilot PRs
 intro: 'After {% data variables.product.prodname_copilot_short %} creates a pull request, you should review it. You can mention `@copilot` to ask {% data variables.product.prodname_copilot_short %} to make changes, or push changes yourself.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=reviewing+a+pull+request+created+by+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=engagement&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -14,11 +14,11 @@ redirect_from:
   - /copilot/how-tos/agents/copilot-coding-agent/review-copilot-prs
   - /copilot/how-tos/agents/coding-agent/review-copilot-prs
 contentType: how-tos
+category: 
+  - Author and optimize with Copilot
 ---
 
 > [!NOTE]
-> {% data reusables.copilot.coding-agent.preview-note-text %}
->
 > For an introduction to {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/concepts/about-copilot-coding-agent).
 
 ## Reviewing {% data variables.product.prodname_copilot_short %}'s changes
@@ -40,6 +40,11 @@ You can ask {% data variables.product.prodname_copilot_short %} to make changes 
 When {% data variables.product.prodname_copilot_short %} starts a new agent session in response to your comment, an eyes emoji (👀) is added as a reaction to the comment, and a "Copilot has started work" event is added to the pull request timeline.
 
 ![Screenshot of a pull request timeline with a review comment with the eyes reaction and a "Copilot started work" timeline event.](/assets/images/help/copilot/coding-agent/comment-to-agent-on-pr.png)
+
+When {% data variables.product.prodname_copilot_short %} starts a new session on the same pull request, it remembers context from the previous session, allowing it to work faster and more reliably.
+
+> [!NOTE]
+> If the pull request was created by a {% data variables.copilot.copilot_custom_agent_short %}, when you mention `@copilot` in pull request comments, the same {% data variables.copilot.copilot_custom_agent_short %} will be used to make further changes. This ensures consistency in the agent's specialized configuration throughout the pull request lifecycle. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents).
 
 For more information, see the section "Use comments to iterate on a pull request" in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#using-comments-to-iterate-on-a-pull-request).
 

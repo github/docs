@@ -16,6 +16,8 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber
   - /copilot/how-tos/manage-your-account/managing-copilot-policies-as-an-individual-subscriber
 contentType: how-tos
+category: 
+  - Configure Copilot
 ---
 
 ## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.github %}
@@ -39,7 +41,6 @@ If you choose to allow suggestions matching public code, when {% data variables.
 
 > [!NOTE]
 > * {% data reusables.gated-features.copilot-coding-agent %}
-> * {% data reusables.copilot.coding-agent.preview-note-text %}
 
 {% data variables.copilot.copilot_coding_agent %} is enabled in all repositories by default, but you can block it from being used in repositories owned by your own personal account by changing your account settings.
 

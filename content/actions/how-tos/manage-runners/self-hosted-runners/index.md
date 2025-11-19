@@ -11,7 +11,6 @@ children:
   - /run-scripts
   - /customize-containers
   - /configure-the-application
-  - /use-proxy-servers
   - /apply-labels
   - /use-in-a-workflow
   - /manage-access

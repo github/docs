@@ -1,7 +1,7 @@
 ---
-title: About organizing and sharing context with GitHub Copilot Spaces
+title: About GitHub Copilot Spaces
 shortTitle: Spaces
-intro: Understand how gathering context with {% data variables.copilot.copilot_spaces %} can improve your results and help your teammates.
+intro: Understand how organizing and sharing context with {% data variables.copilot.copilot_spaces %} can improve your {% data variables.copilot.copilot_chat_dotcom_short %} results and help your teammates.
 permissions: Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.
 versions:
   feature: copilot
@@ -12,9 +12,9 @@ redirect_from:
   - /copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot/concepts/spaces
 contentType: concepts
+category: 
+  - Learn about Copilot
 ---
-
-{% data reusables.copilot.copilot-spaces.preview-note %}
 
 {% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. {% data variables.copilot.copilot_spaces_short %} can include repositories, code, pull requests, issues, free-text content like transcripts or notes, images, and file uploads. You can ask {% data variables.product.prodname_copilot_short %} questions grounded in that context, or share the space with your team to support collaboration and knowledge sharing.
 
@@ -28,6 +28,8 @@ With {% data variables.copilot.copilot_spaces %} you can:
 * Stay in flow by collecting what you need for a task in one place.
 * Reduce repeated questions by sharing knowledge with your team.
 * Support onboarding and reuse with self-service context that lives beyond chat history.
+
+Your spaces stay in sync as your project evolves. {% data variables.product.github %} files and other {% data variables.product.github %}-based sources added to a space are automatically updated as they change, making {% data variables.product.prodname_copilot_short %} an evergreen expert in your project.
 
 ### How are {% data variables.copilot.copilot_spaces_short %} different from knowledge bases?
 
@@ -48,9 +50,11 @@ With {% data variables.copilot.copilot_spaces %} you can:
 
 Anyone with a {% data variables.product.prodname_copilot_short %} license, including {% data variables.copilot.copilot_free_short %}, can create and use {% data variables.copilot.copilot_spaces_short %}.
 
-During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
-
 {% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members or kept private to the person who created the space.
+
+## Where can I use {% data variables.copilot.copilot_spaces_short %}?
+
+You can use {% data variables.copilot.copilot_spaces %} in {% data variables.copilot.copilot_chat_dotcom_short %}. You can also leverage {% data variables.copilot.copilot_spaces %} in your IDE, using the {% data variables.product.github %} MCP server in your IDE to access context from your spaces.
 
 ## How does using {% data variables.copilot.copilot_spaces_short %} affect my usage?
 
@@ -61,4 +65,4 @@ Questions you submit in a space count as {% data variables.copilot.copilot_chat_
 
 ## Next steps
 
-To start using {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/creating-and-using-copilot-spaces).
+To start using {% data variables.copilot.copilot_spaces_short %}, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces).

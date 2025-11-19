@@ -221,7 +221,7 @@ Octicons are icons used across {% data variables.product.prodname_dotcom %}’s 
 If you're referencing an Octicon that appears in the UI, identify whether the Octicon is the entire label of the UI element (for example, a button that is labeled only with "+") or whether it's only decorative, in addition to another label (for example, a button is labeled "+ Add message").
 
  * If the Octicon is the entire label, use your browser's developer tools to inspect the Octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (for example, `{% raw %}{% octicon "plus" aria-label="Add file" %}{% endraw %}`). Occasionally, in the UI, the Octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
-   * Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labelled `{% raw %}{% octicon "trash" aria-label="Delete Policy A" %}{% endraw %}` and `{% raw %}{% octicon "trash" aria-label="Delete Policy B" %}{% endraw %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% raw %}{% octicon "trash" aria-label="The trash icon, labelled 'Delete YOUR-POLICY-NAME'." %}{% endraw %}"`). This will help people identify both the Octicon and how it is labelled, and give context for collaborating with people who are visually describing the Octicon.
+   * Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labeled `{% raw %}{% octicon "trash" aria-label="Delete Policy A" %}{% endraw %}` and `{% raw %}{% octicon "trash" aria-label="Delete Policy B" %}{% endraw %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% raw %}{% octicon "trash" aria-label="The trash icon, labeled 'Delete YOUR-POLICY-NAME'." %}{% endraw %}"`). This will help people identify both the Octicon and how it is labeled, and give context for collaborating with people who are visually describing the Octicon.
  * If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% raw %}{% octicon "plus" aria-hidden="true" %} Add message"{% endraw %}`).
 
 If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#tables).
@@ -442,7 +442,7 @@ Links to docs in the `docs` repository must start with a product ID (like `/acti
 
 Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
 
-The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](https://github.com/github/docs/blob/main/src/content-render/unified/rewrite-local-links.js).
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](https://github.com/github/docs/blob/main/src/content-render/unified/rewrite-local-links.ts).
 
 For example, if you include the following link in a content file:
 
@@ -469,7 +469,7 @@ For more information about links, see [AUTOTITLE](/contributing/style-guide-and-
 Because the site is dynamic, it does not build HTML files for each different version of an article. Instead it generates a "permalink" for every version of the article. It does this based on the article's [`versions` frontmatter](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#versions).
 
 > [!NOTE]
-> As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
+> As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.ts` removes the version from URLs.
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 

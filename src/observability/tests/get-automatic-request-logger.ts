@@ -43,7 +43,7 @@ describe('getAutomaticRequestLogger', () => {
     }
 
     // Override res.end to simulate response completion
-    const endOverride = function (this: any, chunk?: any, encoding?: any) {
+    function endOverride(this: any, chunk?: any, encoding?: any) {
       if (!responseEnded) {
         responseEnded = true
         // Simulate a small delay for response time
@@ -116,7 +116,7 @@ describe('getAutomaticRequestLogger', () => {
 
         // Create a completely isolated test environment for each iteration
         const isolatedLogs: string[] = []
-        const originalConsoleLog = console.log
+        const savedConsoleLog = console.log
 
         // Replace console.log with isolated capture
         console.log = vi.fn((message: string) => {
@@ -143,7 +143,7 @@ describe('getAutomaticRequestLogger', () => {
         }
 
         // Override res.end to simulate response completion
-        const endOverride = function (this: any, chunk?: any, encoding?: any) {
+        function endOverride(this: any, chunk?: any, encoding?: any) {
           if (!responseEnded) {
             responseEnded = true
             // Simulate a small delay for response time
@@ -174,7 +174,7 @@ describe('getAutomaticRequestLogger', () => {
           expect(isolatedLogs[0]).toContain(testCase.expectedInLog)
         } finally {
           // Always restore console.log
-          console.log = originalConsoleLog
+          console.log = savedConsoleLog
         }
       }
     })
@@ -281,7 +281,7 @@ describe('getAutomaticRequestLogger', () => {
 
       // Create isolated log capture for this specific test
       const isolatedLogs: string[] = []
-      const originalConsoleLog = console.log
+      const savedConsoleLog = console.log
 
       console.log = vi.fn((message: string) => {
         isolatedLogs.push(message)
@@ -299,7 +299,7 @@ describe('getAutomaticRequestLogger', () => {
         expect(isolatedLogs).toHaveLength(0)
       } finally {
         // Always restore console.log
-        console.log = originalConsoleLog
+        console.log = savedConsoleLog
       }
     })
 

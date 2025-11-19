@@ -6,6 +6,7 @@ versions:
 category:
   - Prompt files
   - Team collaboration
+  - Configure Copilot
 complexity:
   - Simple
 octicon: copilot

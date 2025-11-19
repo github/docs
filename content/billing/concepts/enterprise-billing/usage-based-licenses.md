@@ -23,9 +23,13 @@ shortTitle: Usage-based licenses
 contentType: concepts
 ---
 
-With usage-based billing, you pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_cs_and_sp %} licenses you use. You do not need to buy a predefined number of licenses in advance.
+Usage-based billing means you pay each month for the number of licenses actually consumed in your enterprise account, instead of committing to a fixed number in advance. This model provides flexibility and can be more cost-efficient than traditional volume licensing.
 
-Usage-based billing for licenses provides flexibility and cost savings compared to more traditional licensing models, such as volume or subscription models.
+{% ifversion enhanced-billing-platform %}
+
+For how billing cycles work and how mid-cycle changes (such as adding or removing seats) affect charges, see [AUTOTITLE](/billing/concepts/billing-cycles) and [AUTOTITLE](/billing/concepts/impact-of-plan-changes).
+
+{% endif %}
 
 ## Do I have usage-based billing?
 

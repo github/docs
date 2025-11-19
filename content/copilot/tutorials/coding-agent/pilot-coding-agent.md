@@ -13,10 +13,11 @@ redirect_from:
   - /copilot/tutorials/rolling-out-github-copilot-at-scale/enabling-developers/using-copilot-coding-agent-in-org
   - /copilot/tutorials/pilot-copilot-coding-agent
 contentType: tutorials
+category:
+  - Automate simple user stories
+  - Manage Copilot for a team
 ---
 <!--JTBD: When rolling out {% data variables.copilot.copilot_coding_agent %}, I want to understand use cases and follow best practices, so I can ensure I'm using it as intended and get value from a pilot program.-->
-
-{% data reusables.copilot.coding-agent.preview-note %}
 
 {% data variables.copilot.copilot_coding_agent %} is an autonomous, AI-powered agent that completes software development tasks on {% data variables.product.github %}. Adopting {% data variables.copilot.copilot_coding_agent %} in your organization frees your engineering teams to spend more time thinking strategically and less time making routine fixes and maintenance updates in a codebase.
 
@@ -46,7 +47,7 @@ All AI models are trained to meet a request, even if they don't have all the inf
 
 ## 3. Pilot
 
-<a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=using-cca-effectively" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/github-copilot/purchase?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=enterprise" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
 > [!TIP] You need {% data variables.copilot.copilot_pro %}, {% data variables.copilot.copilot_pro_plus %}, {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %} to use {% data variables.copilot.copilot_coding_agent %}.
 

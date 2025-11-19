@@ -234,12 +234,12 @@ async function searchCode(
   }
 }
 
-async function secondaryRateLimitRetry(
-  callable: Function,
-  args: Record<string, any>,
+async function secondaryRateLimitRetry<T, TArgs = Record<string, unknown>>(
+  callable: (args: TArgs) => Promise<T>,
+  args: TArgs,
   maxAttempts = 10,
   sleepTime = 1000,
-) {
+): Promise<T> {
   try {
     const response = await callable(args)
     return response
