@@ -98157,7 +98157,7 @@
         },
         {
           "name": "assigneeIds",
-          "description": "<p>The id of users to add as assignees.</p>",
+          "description": "<p>The ids of actors (users or bots) to add as assignees.</p>",
           "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
