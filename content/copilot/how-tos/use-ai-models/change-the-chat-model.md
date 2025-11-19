@@ -29,9 +29,6 @@ Changing the model used by {% data variables.copilot.copilot_chat_short %} does 
 
 {% webui %}
 
-> [!NOTE]
-> You can only use an alternative AI model in the immersive view of {% data variables.copilot.copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}. This is the full-page version of {% data variables.copilot.copilot_chat_short %} that's displayed at [https://github.com/copilot](https://github.com/copilot). The {% data variables.copilot.copilot_chat_short %} panel always uses the default model.
-
 ### Limitations of AI models for {% data variables.copilot.copilot_chat_short %}
 
 Experimental pre-release versions of the models may not interact with all filters correctly, including the setting to block suggestions matching public code (see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-suggestions-matching-public-code)).
@@ -48,7 +45,7 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
    ![Screenshot of the 'Copilot' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)
 
-1. At the bottom of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+1. At the bottom of {% data variables.copilot.copilot_chat_short %}, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
 1. Optionally, after submitting a prompt, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
 

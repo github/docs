@@ -47,11 +47,11 @@ To hit a tight deadline, you're aiming to speed up each stage of the process, fo
 
 1. When the PM has worked with {% data variables.product.prodname_copilot_short %} to get an overview of the tasks required, they ask {% data variables.product.prodname_copilot_short %} to **create issues** for each part of the work.
 
-   {% data variables.product.prodname_copilot_short %} drafts the issues in immersive view, where the PM can refine them and publish them to the repository.
+   {% data variables.product.prodname_copilot_short %} drafts the issues in `https://github.com/copilot`, where the PM can refine them and publish them to the repository.
 
    The PM marks some of the issues as nice-to-haves or maintenance. These may be good candidates for {% data variables.copilot.copilot_coding_agent %}.
 
-   ![Screenshot of Copilot Chat in immersive mode. Copilot asks if the user would like to proceed with creating a set of prioritized issues.](/assets/images/help/copilot/sdlc-guide/issue-creation.png)
+   ![Screenshot of Copilot Chat. Copilot asks if the user would like to proceed with creating a set of prioritized issues.](/assets/images/help/copilot/sdlc-guide/issue-creation.png)
 
 1. To help the developer get started quickly, the PM creates a space with **{% data variables.copilot.copilot_spaces %}** at `https://github.com/copilot/spaces`. The PM collects resources like diagrams and references to code files, submits a few test questions, then shares the space with their organization.
 
@@ -148,7 +148,7 @@ To integrate agentic AI features effectively into your workstreams, you'll need 
 
 | Feature | More information |
 | ------- | ---------------- |
-| Immersive view of {% data variables.copilot.copilot_chat_short %} | [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github#submitting-a-question-to-copilot-chat) |
+| {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %} | [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github#submitting-a-question-to-copilot-chat) |
 | {% data variables.copilot.copilot_spaces %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces) |
 | {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %}) | [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-spark) |
 | {% data variables.copilot.copilot_chat_short %} agent mode | [Use agent mode in VS Code](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode) |
