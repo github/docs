@@ -32,7 +32,7 @@ If you have a {% data variables.copilot.copilot_free_short %}, {% data variables
 
 You can enable access in two ways:
 
-* The first time you use a model with {% data variables.copilot.copilot_chat_short %} in your editor or in the immersive view of {% data variables.copilot.copilot_chat_short %}, you will be prompted to allow access to the model.
+* The first time you use a model with {% data variables.copilot.copilot_chat_short %} in your editor or in {% data variables.product.github %}, you will be prompted to allow access to the model.
 
   Click **Allow** to enable the AI model and update the policy in your personal settings on {% data variables.product.github %}.
 

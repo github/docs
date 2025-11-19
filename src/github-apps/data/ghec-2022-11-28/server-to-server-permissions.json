@@ -194,7 +194,7 @@
       {
         "category": "copilot",
         "slug": "get-copilot-enterprise-usage-metrics-for-a-specific-day",
-        "subcategory": "copilot-metrics",
+        "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-1-day",
         "access": "read",
@@ -205,7 +205,7 @@
       {
         "category": "copilot",
         "slug": "get-copilot-enterprise-usage-metrics",
-        "subcategory": "copilot-metrics",
+        "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/enterprise-28-day/latest",
         "access": "read",
@@ -216,7 +216,7 @@
       {
         "category": "copilot",
         "slug": "get-copilot-users-usage-metrics-for-a-specific-day",
-        "subcategory": "copilot-metrics",
+        "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-1-day",
         "access": "read",
@@ -227,7 +227,7 @@
       {
         "category": "copilot",
         "slug": "get-copilot-users-usage-metrics",
-        "subcategory": "copilot-metrics",
+        "subcategory": "copilot-usage-metrics",
         "verb": "get",
         "requestPath": "/enterprises/{enterprise}/copilot/metrics/reports/users-28-day/latest",
         "access": "read",
@@ -784,83 +784,6 @@
         "verb": "put",
         "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-all-budgets-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/budgets",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-a-budget-by-id-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "update-a-budget-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "delete-a-budget-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "delete",
-        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-premium-request-usage-report-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/premium_request/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-report-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-summary-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/usage/summary",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
@@ -1780,43 +1703,10 @@
       },
       {
         "category": "billing",
-        "slug": "get-github-actions-billing-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/actions",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
         "slug": "get-github-advanced-security-active-committers-for-an-organization",
         "subcategory": "billing",
         "verb": "get",
         "requestPath": "/orgs/{org}/settings/billing/advanced-security",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-github-packages-billing-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/packages",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-shared-storage-billing-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/shared-storage",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
@@ -7323,6 +7213,67 @@
       }
     ]
   },
+  "artifact_metadata": {
+    "title": "Artifact metadata",
+    "displayTitle": "Repository permissions for \"Artifact metadata\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "create-an-artifact-deployment-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "set-cluster-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "create-artifact-metadata-storage-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-storage-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      }
+    ]
+  },
   "attestations": {
     "title": "Attestations",
     "displayTitle": "Repository permissions for \"Attestations\"",
@@ -8114,6 +8065,28 @@
       },
       {
         "category": "orgs",
+        "slug": "create-an-artifact-deployment-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "set-cluster-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
         "slug": "create-artifact-metadata-storage-record",
         "subcategory": "artifact-metadata",
         "verb": "post",
@@ -8121,7 +8094,18 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "orgs",
@@ -8132,7 +8116,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": false
+        "additional-permissions": true
       },
       {
         "category": "repos",
@@ -12532,78 +12516,6 @@
         "verb": "delete",
         "requestPath": "/user/interaction-limits",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      }
-    ]
-  },
-  "plan": {
-    "title": "Plan",
-    "displayTitle": "User permissions for \"Plan\"",
-    "permissions": [
-      {
-        "category": "billing",
-        "slug": "get-github-actions-billing-for-a-user",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/actions",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-github-packages-billing-for-a-user",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/packages",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-premium-request-usage-report-for-a-user",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/premium_request/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-shared-storage-billing-for-a-user",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/shared-storage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-report-for-a-user",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": false
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-summary-for-a-user",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/usage/summary",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": false,
         "additional-permissions": false

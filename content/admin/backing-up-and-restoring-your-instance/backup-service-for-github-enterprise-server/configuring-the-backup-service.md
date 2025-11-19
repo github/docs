@@ -80,8 +80,9 @@ If you're using a dedicated block device as your backup target, you need to init
     This command:
     * Formats the device (erases all data).
     * Prepares it for use by the backup service.
-    * Sets it to mount automatically at `/data/backup` on boot.
-
+    * Sets it to mount automatically at `/data/backup` on boot.{% ifversion ghes > 3.19 %}
+    * If in a clustered environment, configures the node in `cluster.conf` with the `backup-server` role.{% endif %}
+  
     {% ifversion ghes = 3.17 %}
     From {% data variables.product.prodname_ghe_server %} 3.17.4 onward, the script is installed in PATH so you can run it directly using: `ghe-storage-init-backup /dev/YOUR_DEVICE_NAME`.
     {% endif %}
@@ -109,9 +110,9 @@ If the device was already initialized using `ghe-storage-init-backup`, you can r
 
 ### Configuring backup settings
 
-After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %}. If you're using a block device, this requires completing the initialization or mount steps above.
+After the backup target is mounted, the Backup Service page will become available in the {% data variables.enterprise.management_console %}. {% ifversion ghes > 3.19 %} If your instance is part of a clustered environment, the system will automatically detect the node that was initialized with `ghe-storage-init-backup` and treat it as the backup server. {% endif %}
 
->[!NOTE] The settings page won’t appear until the backup storage is mounted at `/data/backup`.
+>[!NOTE] The settings page won’t appear until the backup storage is mounted at `/data/backup` by completing the initialization or mount steps above.
 
 If you're migrating from {% data variables.product.prodname_enterprise_backup_utilities %}, you can transfer your configuration in one of two ways:
 

@@ -1971,7 +1971,7 @@
   hasPushProtection: true
   hasValidityCheck: false
   base64Supported: false
-  isduplicate: false
+  isduplicate: true
 - provider: Databento
   supportedSecret: Databento API Key
   secretType: databento_api_key
@@ -2005,7 +2005,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2017,7 +2017,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2029,7 +2029,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2041,7 +2041,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2053,7 +2053,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2065,7 +2065,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2077,7 +2077,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2089,7 +2089,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2101,7 +2101,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2113,7 +2113,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -2125,7 +2125,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
@@ -4330,6 +4330,54 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle API Key
+  secretType: paddle_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Development API Key
+  secretType: paddle_development_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Sandbox API Key
+  secretType: paddle_sandbox_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Staging API Key
+  secretType: paddle_staging_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: PagerDuty
   supportedSecret: PagerDuty OAuth Secret
   secretType: pagerduty_oauth_secret
@@ -4663,6 +4711,30 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog Feature Flags Secure API Key
+  secretType: posthog_feature_flags_secure_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: PostHog
+  supportedSecret: PostHog Personal API Key
+  secretType: posthog_personal_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
@@ -5067,8 +5139,21 @@
   base64Supported: false
   isduplicate: false
 - provider: Sentry
-  supportedSecret: Sentry Org Auth Token
-  secretType: sentry_org_auth_token
+  supportedSecret: Sentry Organization Token
+  secretType: sentry_organization_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.16'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
+- provider: Sentry
+  supportedSecret: Sentry Personal Token
+  secretType: sentry_personal_token
   versions:
     fpt: '*'
     ghec: '*'
@@ -5082,19 +5167,6 @@
 - provider: Sentry
   supportedSecret: Sentry User App Auth Token
   secretType: sentry_user_app_auth_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.16'
-  isPublic: false
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Sentry
-  supportedSecret: Sentry User Auth Token
-  secretType: sentry_user_auth_token
   versions:
     fpt: '*'
     ghec: '*'

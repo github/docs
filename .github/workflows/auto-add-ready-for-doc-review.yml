@@ -48,7 +48,7 @@ jobs:
       - name: Add ready-for-doc-review label
         if: steps.membership_check.outputs.result == 'false'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
           gh pr edit $PR_URL --add-label ready-for-doc-review

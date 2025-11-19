@@ -56179,6 +56179,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredReviewers",
+          "description": "<p>This field is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "type": "[RequiredReviewerConfiguration!]",
+          "id": "requiredreviewerconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#requiredreviewerconfiguration"
         }
       ]
     },
@@ -70830,6 +70838,39 @@
       ]
     },
     {
+      "name": "RequiredReviewerConfiguration",
+      "kind": "objects",
+      "id": "requiredreviewerconfiguration",
+      "href": "/graphql/reference/objects#requiredreviewerconfiguration",
+      "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "fields": [
+        {
+          "name": "filePatterns",
+          "description": "<p>Array of file patterns. Pull requests which change matching files must be\napproved by the specified team. File patterns use fnmatch syntax.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "minimumApprovals",
+          "description": "<p>Minimum number of approvals required from the specified team. If set to zero,\nthe team will be added to the pull request but approval is optional.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "reviewerId",
+          "description": "<p>Node ID of the team which must review changes to matching files.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "RequiredStatusCheckDescription",
       "kind": "objects",
       "id": "requiredstatuscheckdescription",
@@ -79783,6 +79824,11 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
+          "name": "Agentic",
+          "id": "agentic",
+          "href": "/graphql/reference/interfaces#agentic"
+        },
+        {
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
@@ -82912,6 +82958,30 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "viewerIsFollowing",
           "description": "<p>Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.</p>",
           "type": "Boolean!",
@@ -84802,6 +84872,39 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "Agentic",
+      "kind": "interfaces",
+      "id": "agentic",
+      "href": "/graphql/reference/interfaces#agentic",
+      "description": "<p>Copilot Agentic fields in context of the current viewer.</p>",
+      "fields": [
+        {
+          "name": "viewerCopilotAgentCreatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session creations.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentLogUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session log updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "viewerCopilotAgentUpdatesChannel",
+          "description": "<p>Channel value for subscribing to live updates for session updates.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -98054,7 +98157,7 @@
         },
         {
           "name": "assigneeIds",
-          "description": "<p>The id of users to add as assignees.</p>",
+          "description": "<p>The ids of actors (users or bots) to add as assignees.</p>",
           "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
@@ -106132,6 +106235,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredReviewers",
+          "description": "<p>This argument is in beta and subject to change. A collection of reviewers and\nassociated file patterns. Each reviewer has a list of file patterns which\ndetermine the files that reviewer is required to review.</p>",
+          "type": "[RequiredReviewerConfigurationInput!]",
+          "id": "requiredreviewerconfigurationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput"
         }
       ]
     },
@@ -107385,6 +107496,39 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredReviewerConfigurationInput",
+      "kind": "inputObjects",
+      "id": "requiredreviewerconfigurationinput",
+      "href": "/graphql/reference/input-objects#requiredreviewerconfigurationinput",
+      "description": "<p>A reviewing team, and file patterns describing which files they must approve changes to.</p>",
+      "inputFields": [
+        {
+          "name": "filePatterns",
+          "description": "<p>Array of file patterns. Pull requests which change matching files must be\napproved by the specified team. File patterns use fnmatch syntax.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "minimumApprovals",
+          "description": "<p>Minimum number of approvals required from the specified team. If set to zero,\nthe team will be added to the pull request but approval is optional.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "reviewerId",
+          "description": "<p>Node ID of the team which must review changes to matching files.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },

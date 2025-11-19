@@ -12,7 +12,8 @@ children:
   - /keyboard-shortcuts
   - /custom-agents-configuration
   - /policy-conflicts
-  - /allowlist-reference
+  - /copilot-allowlist-reference
+  - /mcp-allowlist-enforcement
   - /metrics-data
   - /copilot-billing
   - /agentic-audit-log-events
