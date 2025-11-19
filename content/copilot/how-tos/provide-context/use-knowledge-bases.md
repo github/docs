@@ -32,7 +32,7 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
 ## Asking {% data variables.copilot.copilot_chat_short %} questions about a knowledge base
 
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. To select a knowledge base for context, click **{% octicon "paperclip" aria-label="Add attachments" %} Attach** at the bottom of the chat panel, then click **Knowledge bases**.
 1. In the "Select knowledge bases" dialog, type the name of the knowledge base you want to use as context, select the knowledge bases you want to use, and click **Save**.
 1. In the prompt box, type a question and press <kbd>Enter</kbd>.

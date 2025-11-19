@@ -183,7 +183,7 @@ Within {% data variables.copilot.copilot_chat_dotcom_short %}, the {% data varia
 
 The {% data variables.product.github %} MCP server is automatically configured in {% data variables.copilot.copilot_chat_dotcom_short %}. You can start using it immediately without any additional setup.
 
-{% data reusables.copilot.immersive-mode-instructions %}
+{% data reusables.copilot.access-chat-instructions %}
 1. In the prompt box, type a request related to the skill you want {% data variables.copilot.copilot_chat_short %} to perform, and press **Enter**.
 
     Some examples of requests you can make are:
