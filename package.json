@@ -188,7 +188,7 @@
     "file-type": "21.0.0",
     "flat": "^6.0.1",
     "github-slugger": "^2.0.0",
-    "glob": "11.0.2",
+    "glob": "11.1.0",
     "hast-util-from-parse5": "^8.0.3",
     "hast-util-to-string": "^3.0.1",
     "hastscript": "^9.0.1",
