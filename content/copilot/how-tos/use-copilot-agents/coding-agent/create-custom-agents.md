@@ -2,7 +2,7 @@
 title: Creating custom agents
 shortTitle: Create custom agents
 intro: 'You can create specialized agents with tailored expertise for specific development tasks.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -15,7 +15,7 @@ topics:
 
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in a repository on {% data variables.product.github %}
 
-1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-signup-custom-agents&utm_medium=docs&utm_campaign=universe25post).
+1. Navigate to the agents tab at [https://github.com/copilot/agents](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 1. Using the dropdown menu in the prompt box, select the repository you want to create the {% data variables.copilot.copilot_custom_agent_short %} profile in.
 
@@ -46,7 +46,7 @@ To update an {% data variables.copilot.agent_profile %}, select **Configure Cust
 ## Creating a {% data variables.copilot.copilot_custom_agent_short %} profile in JetBrains IDEs
 
 1. Open the {% data variables.copilot.copilot_chat %} window in your JetBrains IDE.
-2. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then in the settings window, under "Chat Agents", click **Workspace**.
+1. From the agents dropdown at the bottom of the chat view, click **Configure Agents...**, then in the settings window, under "Chat Agents", click **Workspace**.
 1. Enter a file name for the {% data variables.copilot.copilot_custom_agent_short %}. This is the default name that appears in the agents dropdown.
 1. Configure the {% data variables.copilot.agent_profile %} in the newly created `.agent.md` file in the `.github/agents` directory, including the description, tools, and prompts. For more information on what the {% data variables.copilot.agent_profile %} can include, see [Configuring an {% data variables.copilot.agent_profile %}](#configuring-an-agent-profile).
    * You can use the **Configure Tools...** button within the editor to open the tools dialog, where you can view and select available tools, including built-in tools and tools from MCP servers. Click **Apply** to add selected tools to the {% data variables.copilot.agent_profile %}.
