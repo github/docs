@@ -179,3 +179,6 @@ copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
 copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 copilot_workspace: 'Copilot Workspace'
 copilot_workspace_short: 'Workspace'
+
+# BYOK
+copilot_byok_supported_features: '{% data variables.copilot.copilot_chat %}'

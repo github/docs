@@ -2791,19 +2791,6 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
-- provider: GitHub Secret Scanning
-  supportedSecret: GitHub Secret Scanning
-  secretType: secret_scanning_sample_token
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.14'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  base64Supported: true
-  isduplicate: true
 - provider: GitLab
   supportedSecret: GitLab Access Token
   secretType: gitlab_access_token

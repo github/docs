@@ -37,7 +37,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 {% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
 
 * **Full project context gathering** to provide more specific, accurate, and contextually aware code reviews.
-* **Support for deterministic detections with {% data variables.product.prodname_codeql %}**, to deliver more high-signal, consistent findings for quality.
+* **Support for static analysis tools like {% data variables.product.prodname_codeql %}, ESLint, and PMD** to deliver more high-signal, consistent findings for security and quality.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**, for automated creation of a new pull request against your branch with the suggested fixes applied.
 
 You are not required to have {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the {% data variables.copilot.copilot_code-review-tools_short %}.
@@ -119,6 +119,15 @@ The triggers for automatic code review depend on the configuration settings:
 ## Configuring automatic pull request reviews
 
 For details of how to configure {% data variables.product.prodname_copilot_short %} to automatically review new pull requests, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot).
+
+## About static analysis tools
+
+You can enable static analysis tools in {% data variables.copilot.copilot_code-review_short %} to enhance its ability to identify and fix issues. Available tools include:
+* **{% data variables.product.prodname_codeql %}**: A code analysis engine that identifies security vulnerabilities. For more information, see [About {% data variables.product.prodname_codeql %}](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
+* **ESLint**: A linter designed specifically for JavaScript. For more information, see [Core Concepts](https://eslint.org/docs/latest/use/core-concepts/) in the the ESLint documentation.
+* **PMD**: A static code analyzer that focuses on Java and Apex, but also supports many other languages. For more information, see the [PMD documentation](https://docs.pmd-code.org/latest/).
+
+If you have access to {% data variables.copilot.copilot_code-review-tools_short %}, {% data variables.product.prodname_codeql %} is enabled by default, while ESLint and PMD are disabled. Additionally, if you have access to rulesets, you can change your selected tools. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/manage-tools).
 
 ## Getting detailed code quality feedback for your whole repository
 
