@@ -39,6 +39,8 @@ When you use the `@github` chat participant, {% data variables.copilot.copilot_c
 
 {% data reusables.rai.copilot.copilot-chat-ide-leveraging-web-search %}
 
+{% data reusables.rai.copilot.byok-transparency-note %}
+
 {% data reusables.rai.copilot.copilot-chat-ide-use-cases %}
 
 ### Answering coding questions
@@ -81,6 +83,8 @@ When you use the `@github` chat participant, {% data variables.copilot.copilot_c
 
 {% data reusables.rai.copilot.copilot-chat-ide-leveraging-web-search %}
 
+{% data reusables.rai.copilot.byok-transparency-note %}
+
 {% data reusables.rai.copilot.copilot-chat-ide-use-cases %}
 
 ### Answering coding questions
@@ -115,6 +119,8 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 
 {% data reusables.rai.copilot.copilot-chat-ide-output-formatting %}
 
+{% data reusables.rai.copilot.byok-transparency-note %}
+
 {% data reusables.rai.copilot.copilot-chat-ide-use-cases %}
 
 ### Answering coding questions
@@ -148,6 +154,8 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 {% data reusables.rai.copilot.copilot-chat-ide-response-generation %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-output-formatting %}
+
+{% data reusables.rai.copilot.byok-transparency-note %}
 
 ## Use cases for {% data variables.copilot.copilot_chat %}
 
