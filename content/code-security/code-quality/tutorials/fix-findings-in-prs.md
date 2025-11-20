@@ -72,4 +72,4 @@ By resolving issues before merging your pull request, you've directly contribute
 ## Next steps
 
 * Address code quality findings in your default branch and understand your repository’s reliability and maintainability ratings. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25post).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

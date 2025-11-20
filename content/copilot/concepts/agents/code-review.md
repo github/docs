@@ -61,7 +61,7 @@ In the event that {% data variables.product.prodname_actions %} is unavailable o
 * Xcode
 * JetBrains IDEs
 
-{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&utm_source=docs-signup-copilot&utm_medium=docs&utm_campaign=universe25post).
+{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
 
 If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.copilot.copilot_code-review_short %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
 

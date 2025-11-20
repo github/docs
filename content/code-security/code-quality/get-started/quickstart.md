@@ -86,4 +86,4 @@ Healthy code is easier to understand, maintain, and extend, and remediating co
 ## Next steps
 
 * Learn how {% data variables.product.prodname_code_quality %} works on pull requests to prevent code quality issues from reaching your default branch. See [AUTOTITLE](/code-security/code-quality/tutorials/fix-findings-in-prs).
-* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488?utm_source=docs-discussions-code-quality&utm_medium=docs&utm_campaign=universe25post).
+* Provide feedback on {% data variables.product.prodname_code_quality %} in the [community discussion](https://github.com/orgs/community/discussions/177488).

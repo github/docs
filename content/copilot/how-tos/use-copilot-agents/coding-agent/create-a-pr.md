@@ -252,7 +252,7 @@ You can ask {% data variables.product.prodname_copilot_short %} to open a pull r
 
 You can ask {% data variables.product.prodname_copilot_short %} to open a pull request from the {% data variables.product.prodname_copilot_short %} prompt box in the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit [https://github.com](https://github.com) while logged in.
 
-1. Navigate to the dashboard at [https://github.com](https://github.com/?ref_product=desktop&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-agents-create-pr&utm_medium=docs&utm_campaign=universe25post).
+1. Navigate to the dashboard at [https://github.com](https://github.com/?ref_product=desktop&ref_type=engagement&ref_style=text).
 1. Click the **{% octicon "agent" aria-label="The Agents icon" %} Task** button.
 1. Using the dropdown menu in the prompt field, select the repository you want {% data variables.product.prodname_copilot_short %} to work in.
 1. Type a prompt describing your request.

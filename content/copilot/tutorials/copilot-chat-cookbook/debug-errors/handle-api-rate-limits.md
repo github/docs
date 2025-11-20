@@ -1,7 +1,7 @@
 ---
 title: Handling API rate limits
 shortTitle: Handle API rate limits
-intro: '{% data variables.copilot.copilot_chat_short %} can help handle API  rate limits by suggesting code that detects implements retry logic.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help handle API rate limits by suggesting code that detects them and implements retry logic.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/debugging-errors/handling-api-rate-limits
   - /copilot/copilot-chat-cookbook/debugging-errors/handling-api-rate-limits
