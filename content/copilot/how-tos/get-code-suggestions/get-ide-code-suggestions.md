@@ -201,9 +201,7 @@ Alternatively, you can show alternate suggestions by pressing <kbd>Alt</kbd>+<kb
 
 ## Getting comment suggestions
 
-> [!NOTE]
-> * Comment suggestions are currently in {% data variables.release-phases.public_preview %} and are subject to change.
-> * Comment suggestions are available in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later.
+> [!NOTE] Comment suggestions are available in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later.
 
 {% data variables.product.prodname_copilot %} can suggest comments for your code, by analyzing the code you write and generating comments that describe what the code does. For {% data variables.copilot.copilot_free_short %} users, comment suggestions count towards your monthly {% data variables.copilot.copilot_chat_short %} usage, not your code suggestions usage.
 
@@ -220,16 +218,23 @@ To enable comment suggestions, you need to configure the comment style in {% dat
 
 1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
 1. In the left-side panel, click **Text Editor**.
-1. Click **C++**, then **Code Style**, then **General**.
+1. Click **C++**, then **Code Style**.
+1. Under the **Code Style** heading, click **General**.
 1. Under "Comments," select **Xml Doc Comments** from the dropdown.
-1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.**
+1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.** Then click **OK**.
+1. In the **Options** tab, in the left-side panel, click **GitHub**. 
+1. Click **Copilot**, then **Editor**.
+1. Select **Enable AI generated descriptions for auto-inserted documentation comments in supported languages**.
 
 #### For C#
 
 1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
-1. In the left-side panel, click **Text Editor**.
-1. Click **C#**, then **Advanced**.
-1. Under "Comments," select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.**
+1. In the left-side panel, click **Languages**.
+1. Click **C#**, then **More Settings**, then **Advanced**.
+1. Under "Comments," select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.** Then click **OK**.
+1. In the **Options** tab, in the left-side panel, click **GitHub**. 
+1. Click **Copilot**, then **Editor**.
+1. Select **Enable AI generated descriptions for auto-inserted documentation comments in supported languages**.
 
 ### Using comment suggestions
 

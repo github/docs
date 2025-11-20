@@ -141,7 +141,7 @@ You can steer {% data variables.product.prodname_copilot_short %} while it is wo
 
 Follow these steps to steer {% data variables.product.prodname_copilot_short %}:
 
-1. Open the [agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-agents&utm_medium=docs&utm_campaign=universe25post).
+1. Open the [agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. In the **Agent sessions** list, select the task that you want to provide further input for.
 1. In the prompt box, prompt {% data variables.product.prodname_copilot_short %} as it is working on a task.
 
