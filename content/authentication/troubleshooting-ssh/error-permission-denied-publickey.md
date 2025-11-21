@@ -246,3 +246,110 @@ If you don't see your public key in {% data variables.product.github %}, you'll 
 
 > [!WARNING]
 > If you see an SSH key you're not familiar with on {% data variables.product.github %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys).
+
+
+## Verify local SSH permissions 
+
+{% mac %}
+
+1. Open Terminal.
+1. Start SSH agent in the background.
+
+   ```shell
+   $ eval "$(ssh-agent -s)"
+   > Agent pid 59566 # Example output
+   ```
+
+1. Reattempt to add the appropriate SSH key to the authentication agent. If there is a problem with permissions, the return will specify this. 
+
+   ```shell
+   $ ssh-add ~/ssh-directory/<keyfile>
+   > Permissions 0604 for '/ssh-directory/<keyfile>' are too open. It is required that your private key files are NOT accessible by others. This private key will be ignored.
+   ```
+
+1. This may be fixed with the `chmod` command.
+
+   ```shell
+   $ chmod 700 /ssh-directory
+   $ chmod 600 /ssh-directory/*
+   $ chmod 644 /ssh-directory/*.pub
+   ```
+
+1. After setting permissions, reattempt to add the keyfile. An `Identity added` message indicates success.
+
+   ```shell
+   $ ssh-add ~/ssh-directory/<keyfile>
+   > Identity added: /ssh-directory/keyfile (username@hostname)
+   ```
+
+{% endmac %}
+
+{% windows %}
+
+1. Open Terminal.
+1. Start SSH agent in the background.
+
+   ```shell
+   $ eval "$(ssh-agent -s)"
+   > Agent pid 59566 # Example output
+   ```
+
+1. Reattempt to add the appropriate SSH key to the authentication agent. If there is a problem with permissions, the return will specify this. 
+
+   ```shell
+   $ ssh-add ~/ssh-directory/<keyfile>
+   > Permissions 0604 for '/ssh-directory/<keyfile>' are too open. It is required that your private key files are NOT accessible by others. This private key will be ignored.
+   ```
+
+1. This may be fixed with the `chmod` command.
+
+   ```shell
+   $ chmod 700 /ssh-directory
+   $ chmod 600 /ssh-directory/*
+   $ chmod 644 /ssh-directory/*.pub
+   ```
+
+1. After setting permissions, reattempt to add the keyfile. An `Identity added` message indicates success.
+
+   ```shell
+   $ ssh-add ~/ssh-directory/<keyfile>
+   > Identity added: /ssh-directory/keyfile (username@hostname)
+   ```
+
+{% endwindows %}
+
+{% linux %}
+
+1. Open Terminal.
+1. Start SSH agent in the background.
+
+   ```shell
+   $ eval "$(ssh-agent -s)"
+   > Agent pid 59566 # Example output
+   ```
+
+1. Reattempt to add the appropriate SSH key to the authentication agent. If there is a problem with permissions, the return will specify this. 
+
+   ```shell
+   $ ssh-add ~/ssh-directory/<keyfile>
+   > Permissions 0604 for '/ssh-directory/<keyfile>' are too open. It is required that your private key files are NOT accessible by others. This private key will be ignored.
+   ```
+
+1. This may be fixed with the `chmod` command.
+
+   ```shell
+   $ chmod 700 /ssh-directory
+   $ chmod 600 /ssh-directory/*
+   $ chmod 644 /ssh-directory/*.pub
+   ```
+
+1. After setting permissions, reattempt to add the keyfile. An `Identity added` message indicates success.
+
+   ```shell
+   $ ssh-add ~/ssh-directory/<keyfile>
+   > Identity added: /ssh-directory/keyfile (username@hostname)
+   ```
+
+{% endlinux %}
+
+The GitHub operation may be reattempted.
