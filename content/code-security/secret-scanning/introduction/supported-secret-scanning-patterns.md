@@ -53,6 +53,9 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 Precision levels are estimated based on the pattern type's typical false positive rates.
 
+<!-- Team plan and GHEC version of table -->
+{% ifversion fpt or ghec %}
+
 | Provider | Token | Description | Precision |
 |:---------|:--------------------------------------|:------------|:----------|
 | Generic | ec_private_key | Elliptic Curve (EC) private keys used for cryptographic operations | High |
@@ -66,7 +69,29 @@ Precision levels are estimated based on the pattern type's typical false positiv
 | Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
 | Generic | rsa_private_key | RSA private keys used for cryptographic operations | High |
 
-`generic_private_key` support is only available on {% data variables.product.prodname_ghe_server %} from version 3.20.
+{% endif %}
+
+<!-- GHES 3.11+ table -->
+{% ifversion ghes %}
+
+| Provider | Token | Description | Precision |
+|:---------|:--------------------------------------|:------------|:----------|
+| {% ifversion ghes > 3.18 %} |
+| Generic | ec_private_key | Elliptic Curve (EC) private keys used for cryptographic operations | High |
+| {% endif %} |
+| {% ifversion ghes > 3.19 %} |
+| Generic | generic_private_key | Cryptographic private keys with `-----BEGIN PRIVATE KEY-----` header | High |
+| {% endif %} |
+| Generic | http_basic_authentication_header | HTTP Basic Authentication credentials in request headers | Medium |
+| Generic | http_bearer_authentication_header | HTTP Bearer tokens used for API authentication | Medium |
+| Generic | mongodb_connection_string | Connection strings for MongoDB databases containing credentials | High |
+| Generic | mysql_connection_string | Connection strings for MySQL databases containing credentials | High |
+| Generic | openssh_private_key | OpenSSH format private keys used for SSH authentication | High |
+| Generic | pgp_private_key | PGP (Pretty Good Privacy) private keys used for encryption and signing | High |
+| Generic | postgres_connection_string | Connection strings for PostgreSQL databases containing credentials | High |
+| Generic | rsa_private_key | RSA private keys used for cryptographic operations | High |
+
+{% endif %}
 
 >[!NOTE]
 > Validity checks are **not supported** for non-provider patterns.
