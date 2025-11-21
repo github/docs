@@ -29,3 +29,5 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs
   - /actions/how-tos/managing-workflow-runs-and-deployments
 ---
+
+{% data reusables.actions.workflow-run-statuses-2 %}
