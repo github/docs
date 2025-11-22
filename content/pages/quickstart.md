@@ -38,9 +38,9 @@ In this guide, you'll create a user site at `<username>.github.io`.
 By default, the title of your site is `username.github.io`. You can change the title by editing the `_config.yml` file in your repository. You can also add a description for your site.
 
 1. Click the **Code** tab of your repository.
-1. In the file list, click `_config.yml` to open the file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-1. The `_config.yml` file already contains a line that specifies the theme for your site. Add a new line with `title:` followed by the title you want. Add a new line with `description:` followed by the description you want. For example:
+1. In the "Add File" drop-down menu, click "+ Create new file"
+1. Name your file "_config.yml"
+1. Add the following lines to your file and tweak to your liking to adjust the theme, title, and description. For example:
 
    ```yaml
    theme: jekyll-theme-minimal
