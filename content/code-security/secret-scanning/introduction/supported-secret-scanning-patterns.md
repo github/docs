@@ -34,7 +34,7 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token, as well as whether a validity check is performed on the token.
 
 * **Provider:** Name of the token provider.{% ifversion fpt or ghec %}
-* **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories only.
+* **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories and all gists, including secret gists. Secret gists are not private and can be accessed by anyone with the URL. See [About gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists).
 * **User:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.
   * Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} are enabled.
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
