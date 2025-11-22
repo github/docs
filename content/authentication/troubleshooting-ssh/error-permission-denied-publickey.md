@@ -271,8 +271,8 @@ If you don't see your public key in {% data variables.product.github %}, you'll 
 
    ```shell
    $ chmod 700 /ssh-directory
-   $ chmod 600 /ssh-directory/*
-   $ chmod 644 /ssh-directory/*.pub
+   $ chmod 600 /ssh-directory/<keyfile>
+   $ chmod 644 /ssh-directory/<keyfile>.pub
    ```
 
 1. After setting permissions, reattempt to add the keyfile. An `Identity added` message indicates success.
@@ -305,8 +305,8 @@ If you don't see your public key in {% data variables.product.github %}, you'll 
 
    ```shell
    $ chmod 700 /ssh-directory
-   $ chmod 600 /ssh-directory/*
-   $ chmod 644 /ssh-directory/*.pub
+   $ chmod 600 /ssh-directory/<keyfile>
+   $ chmod 644 /ssh-directory/<keyfile>.pub
    ```
 
 1. After setting permissions, reattempt to add the keyfile. An `Identity added` message indicates success.
@@ -339,8 +339,8 @@ If you don't see your public key in {% data variables.product.github %}, you'll 
 
    ```shell
    $ chmod 700 /ssh-directory
-   $ chmod 600 /ssh-directory/*
-   $ chmod 644 /ssh-directory/*.pub
+   $ chmod 600 /ssh-directory/<keyfile>
+   $ chmod 644 /ssh-directory/<keyfile>.pub
    ```
 
 1. After setting permissions, reattempt to add the keyfile. An `Identity added` message indicates success.
