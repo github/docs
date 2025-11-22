@@ -35,3 +35,23 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+# Docs Repository
+
+This repository contains documentation files, guides, and resources on various topics. Its purpose is to keep documentation organized, clear, and easy to access.
+
+## Table of Contents
+
+- [About](#about)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## About
+
+This repository is intended to be a central hub for documentation. It can include tutorials, examples, notes, and educational resources to help users learn or reference key information.
+
+## Usage
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Komali0706/docs.git
