@@ -39,19 +39,27 @@ This project is dual-licensed under:
 
 This repository contains documentation files, guides, and resources on various topics. Its purpose is to keep documentation organized, clear, and easy to access.
 
-## Table of Contents
-
-- [About](#about)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## About
-
-This repository is intended to be a central hub for documentation. It can include tutorials, examples, notes, and educational resources to help users learn or reference key information.
 
 ## Usage
 
 1. Clone the repository:
-   ```bash
    git clone https://github.com/Komali0706/docs.git
+2. Navigate into the project folder:
+   cd docs
+3. Browse the files and folders to access the documentation.
+
+## Contributing
+
+We welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   git checkout -b your-branch-name
+3. Make your changes (edit existing documentation or add new files).
+4. Commit your changes:
+   git commit -m "Add description of changes"
+5. Push your branch:
+   git push origin your-branch-name
+6. Open a Pull Request on the original repository.
+
+Make sure all contributions are clear, concise, and relevant.
