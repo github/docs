@@ -139,7 +139,7 @@ Job 1 performs these steps:
 Job 2 uses the result in the previous job:
 * Downloads the {% ifversion artifacts-v3-deprecation %}`homework_pre`{% else %}`homework`{% endif %} artifact uploaded in the previous job. By default, the `download-artifact` action downloads artifacts to the workspace directory that the step is executing in. You can use the `path` input parameter to specify a different download directory.
 * Reads the value in the `math-homework.txt` file, performs a math calculation, and saves the result to `math-homework.txt` again, overwriting its contents.
-* Uploads the `math-homework.txt` file. {% ifversion artifacts-v3-deprecation %}As artifacts are considered immutable in `v4`, the artifact is passed a different input, `homework_final`, as a name.{% else %}This upload overwrites the previously uploaded artifact because they share the same name.{% endif %}
+* Uploads the `math-homework.txt` file. {% ifversion artifacts-v3-deprecation %}As artifacts are considered immutable in `v5`, the artifact is passed a different input, `homework_final`, as a name.{% else %}This upload overwrites the previously uploaded artifact because they share the same name.{% endif %}
 
 Job 3 displays the result uploaded in the previous job:
 * Downloads the {% ifversion artifacts-v3-deprecation %}`homework_final` artifact from Job 2.{% else %}`homework` artifact.{% endif %}
