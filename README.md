@@ -35,3 +35,31 @@ This project is dual-licensed under:
 
 * **Creative Commons Attribution 4.0** - for documentation and content in the assets, content, and data folders (see [LICENSE](LICENSE))
 * **MIT License** - for code (see [LICENSE-CODE](LICENSE-CODE))
+# Docs Repository
+
+This repository contains documentation files, guides, and resources on various topics. Its purpose is to keep documentation organized, clear, and easy to access.
+
+
+## Usage
+
+1. Clone the repository:
+   git clone https://github.com/Komali0706/docs.git
+2. Navigate into the project folder:
+   cd docs
+3. Browse the files and folders to access the documentation.
+
+## Contributing
+
+We welcome contributions! To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   git checkout -b your-branch-name
+3. Make your changes (edit existing documentation or add new files).
+4. Commit your changes:
+   git commit -m "Add description of changes"
+5. Push your branch:
+   git push origin your-branch-name
+6. Open a Pull Request on the original repository.
+
+Make sure all contributions are clear, concise, and relevant.
