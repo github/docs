@@ -193,8 +193,9 @@ If you use custom prompt files or {% data variables.copilot.custom_agents_short 
 
 {% data reusables.copilot.using-subagents %}
 * **Calling the #runSubagent tool.**.
+
    ```text
-   Evaluate the #file:databaseSchema using #runSubagent and generate an optimized data-migration plan. 
+   Evaluate the #file:databaseSchema using #runSubagent and generate an optimized data-migration plan.
    ```
 
 When the {% data variables.copilot.subagent_short %} completes its task, its results appear back in the main chat session, ready for follow-up questions or next steps.
@@ -639,7 +640,7 @@ To use plan mode:
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
-### Using {% data variables.copilot.subagents_short %} 
+### Using {% data variables.copilot.subagents_short %}
 
 {% data reusables.copilot.subagent-intro %}
 

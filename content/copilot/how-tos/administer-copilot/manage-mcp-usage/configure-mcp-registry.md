@@ -56,7 +56,7 @@ While the MCP registry launched using the v0 specification, that version is now 
 
 To ensure {% data variables.product.prodname_copilot_short %} can successfully make cross-origin requests when fetching your registry, the registry or reverse proxy must include Cross-Origin Resource Sharing (CORS) headers. Add the following headers to all `/v0.1/servers` endpoints:
 
-```
+``` http copy
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Methods: GET, OPTIONS
 Access-Control-Allow-Headers: Authorization, Content-Type
