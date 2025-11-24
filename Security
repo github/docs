@@ -1,0 +1,21 @@
+Use a password manager to store and generate passwords.
+Avoid password reuse across websites and apps.
+Avoid using personal information in passwords.
+Use Multi-Factor Authentication.
+const { data, error } = await supabase.auth.signInWithOtp({
+  phone: '+13334445555',
+})const {
+  data: { session },
+  error,
+} = await supabase.auth.verifyOtp({
+  phone: '13334445555',
+  token: '123456',
+  type: 'sms',
+}){
+  "access_token": "<ACCESS_TOKEN>",
+  "token_type": "bearer",
+  "expires_in": 3600,
+  "refresh_token": "<REFRESH_TOKEN>"
+}const { data, error } = await supabase.auth.updateUser({
+  phone: '123456789',
+})
