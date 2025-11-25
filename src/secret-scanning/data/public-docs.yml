@@ -4493,45 +4493,6 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
-- provider: Paddle
-  supportedSecret: Paddle Development API Key
-  secretType: paddle_development_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.20'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Paddle
-  supportedSecret: Paddle Sandbox API Key
-  secretType: paddle_sandbox_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.20'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
-- provider: Paddle
-  supportedSecret: Paddle Staging API Key
-  secretType: paddle_staging_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.20'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: false
-  hasValidityCheck: false
-  base64Supported: false
-  isduplicate: false
 - provider: PagerDuty
   supportedSecret: PagerDuty OAuth Secret
   secretType: pagerduty_oauth_secret
