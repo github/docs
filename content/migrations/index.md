@@ -1,7 +1,7 @@
 ---
 title: Migrations documentation
 shortTitle: Migrations
-intro: 'If you''re moving to {% data variables.product.prodname_dotcom %} from another code hosting platform or moving between {% data variables.product.prodname_dotcom %} products, learn how to use our migration tooling to bring your work with you.'
+intro: If you're moving to {% data variables.product.prodname_dotcom %} from another code hosting platform or moving between {% data variables.product.prodname_dotcom %} products, learn how to use our migration tooling to bring your work with you.
 introLinks:
   overview: /migrations/overview/about-githubs-migration-tooling
   plan_your_migration: /migrations/overview/planning-your-migration-to-github
@@ -30,7 +30,9 @@ topics:
   - Repositories
 children:
   - /overview
+  - /ado
   - /importing-source-code
   - /using-github-enterprise-importer
   - /using-ghe-migrator
 ---
+

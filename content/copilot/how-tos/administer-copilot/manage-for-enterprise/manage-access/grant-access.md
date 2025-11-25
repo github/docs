@@ -44,8 +44,8 @@ When you assign licenses to an enterprise team, users receive or lose access to 
 
    ![Screenshot of the Licensing page, with the "Manage" button highlighted in orange.](/assets/images/help/copilot/manage-licenses.png)
 
-1. Click the **Users** or **Enterprise Teams** tab.
-1. Click **Assign Licenses**.
+1. Click the **All members** or **Enterprise Teams** tab.
+1. Click **Assign licenses**.
 1. Search for users or teams, then click **Add licenses**.
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for organizations

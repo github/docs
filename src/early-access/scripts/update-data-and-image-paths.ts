@@ -48,7 +48,7 @@ if (earlyAccessPath) {
 
   // We also need to include any reusable files that are referenced in the selected content files.
   const referencedDataFiles: string[] = []
-  contentFiles.forEach((file) => {
+  for (const file of contentFiles) {
     const contents = fs.readFileSync(file, 'utf8')
     const dataRefs: string[] = contents.match(patterns.dataReference) || []
     const filepaths: string[] = dataRefs
@@ -62,7 +62,7 @@ if (earlyAccessPath) {
         return path.posix.join(process.cwd(), 'data', `${filepath}.md`)
       })
     referencedDataFiles.push(...filepaths)
-  })
+  }
 
   const dataFiles = allEarlyAccessFiles.filter((file) => {
     return referencedDataFiles.some((f) =>
@@ -74,7 +74,7 @@ if (earlyAccessPath) {
 }
 
 // Update the EA content and data files
-selectedFiles.forEach((file) => {
+for (const file of selectedFiles) {
   const oldContents = fs.readFileSync(file, 'utf8')
 
   const dataRefs: string[] = oldContents.match(patterns.dataReference) || []
@@ -83,58 +83,54 @@ selectedFiles.forEach((file) => {
   const replacements: Record<string, string> = {}
 
   if (add) {
-    dataRefs
-      // Since we're adding early-access to the path, filter for those that do not already include it
-      .filter((dataRef) => !dataRef.includes(' early-access.'))
+    // Since we're adding early-access to the path, filter for those that do not already include it
+    const dataRefsToAdd = dataRefs.filter((ref) => !ref.includes(' early-access.'))
+    for (const dataRef of dataRefsToAdd) {
       // Add to the { oldRef: newRef } replacements object
-      .forEach((dataRef) => {
-        replacements[dataRef] = dataRef.replace(
-          /({% (?:data|indented_data_reference) )(.*)/,
-          '$1early-access.$2',
-        )
-      })
+      replacements[dataRef] = dataRef.replace(
+        /({% (?:data|indented_data_reference) )(.*)/,
+        '$1early-access.$2',
+      )
+    }
 
-    imageRefs
-      // Since we're adding early-access to the path, filter for those that do not already include it
-      .filter((imageRef) => !imageRef.split('/').includes('early-access'))
+    // Since we're adding early-access to the path, filter for those that do not already include it
+    const imageRefsToAdd = imageRefs.filter((ref) => !ref.split('/').includes('early-access'))
+    for (const imageRef of imageRefsToAdd) {
       // Add to the { oldRef: newRef } replacements object
-      .forEach((imageRef) => {
-        replacements[imageRef] = imageRef.replace('/assets/images/', '/assets/images/early-access/')
-      })
+      replacements[imageRef] = imageRef.replace('/assets/images/', '/assets/images/early-access/')
+    }
   }
 
   if (remove) {
-    dataRefs
-      // Since we're removing early-access from the path, filter for those that include it
-      .filter((dataRef) => dataRef.includes(' early-access.'))
+    // Since we're removing early-access from the path, filter for those that include it
+    const dataRefsToRemove = dataRefs.filter((ref) => ref.includes(' early-access.'))
+    for (const dataRef of dataRefsToRemove) {
       // Add to the { oldRef: newRef } replacements object
-      .forEach((dataRef) => {
-        replacements[dataRef] = dataRef.replace('early-access.', '').replace('-alt.', '.')
-        // replacements[dataRef] = dataRef.replace('early-access.', '')
-      })
+      replacements[dataRef] = dataRef.replace('early-access.', '').replace('-alt.', '.')
+      // replacements[dataRef] = dataRef.replace('early-access.', '')
+    }
 
-    imageRefs
-      // Since we're removing early-access from the path, filter for those that include it
-      .filter((imageRef) => imageRef.split('/').includes('early-access'))
+    // Since we're removing early-access from the path, filter for those that include it
+    const imageRefsToRemove = imageRefs.filter((ref) => ref.split('/').includes('early-access'))
+    for (const imageRef of imageRefsToRemove) {
       // Add to the { oldRef: newRef } replacements object
-      .forEach((imageRef) => {
-        replacements[imageRef] = imageRef.replace('/assets/images/early-access/', '/assets/images/')
-      })
+      replacements[imageRef] = imageRef.replace('/assets/images/early-access/', '/assets/images/')
+    }
   }
 
   // Return early if nothing to replace
   if (!Object.keys(replacements).length) {
-    return
+    continue
   }
 
   // Make the replacement in the content
   let newContents = oldContents
-  Object.entries(replacements).forEach(([oldRef, newRef]) => {
+  for (const [oldRef, newRef] of Object.entries(replacements)) {
     newContents = newContents.replace(new RegExp(escapeRegExp(oldRef), 'g'), newRef)
-  })
+  }
 
   // Write the updated content
   fs.writeFileSync(file, newContents)
-})
+}
 
 console.log('Done! Run "git status" in your docs-early-access checkout to see the changes.\n')

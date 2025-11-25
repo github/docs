@@ -24,7 +24,7 @@ interface ProcessedValidationError {
 export function formatAjvErrors(errors: AjvValidationError[] = []): ProcessedValidationError[] {
   const processedErrors: ProcessedValidationError[] = []
 
-  errors.forEach((errorObj: AjvValidationError) => {
+  for (const errorObj of errors) {
     const error: Partial<ProcessedValidationError> = {}
 
     error.instancePath =
@@ -58,7 +58,7 @@ export function formatAjvErrors(errors: AjvValidationError[] = []): ProcessedVal
     }
 
     processedErrors.push(error as ProcessedValidationError)
-  })
+  }
 
   return processedErrors
 }

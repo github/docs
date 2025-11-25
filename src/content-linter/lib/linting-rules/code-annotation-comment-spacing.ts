@@ -17,9 +17,10 @@ export const codeAnnotationCommentSpacing = {
 
       const lines = content.split('\n')
 
-      lines.forEach((line: string, index: number) => {
+      for (let index = 0; index < lines.length; index++) {
+        const line: string = lines[index]
         const trimmedLine = line.trim()
-        if (!trimmedLine) return
+        if (!trimmedLine) continue
 
         // Define a map of comment patterns
         const commentPatterns: Record<string, RegExp> = {
@@ -46,7 +47,7 @@ export const codeAnnotationCommentSpacing = {
         if (commentMatch && restOfLine !== null && commentChar !== null) {
           // Skip shebang lines (#!/...)
           if (trimmedLine.startsWith('#!')) {
-            return
+            continue
           }
 
           // Allow empty comments or comments with exactly one space
@@ -75,7 +76,7 @@ export const codeAnnotationCommentSpacing = {
               )
             }
             // Single space or empty - this is correct
-            return
+            continue
           } else {
             // No space after comment character - this is an error
             const lineNumber: number = token.lineNumber + index + 1
@@ -97,7 +98,7 @@ export const codeAnnotationCommentSpacing = {
             )
           }
         }
-      })
+      }
     })
   },
 }

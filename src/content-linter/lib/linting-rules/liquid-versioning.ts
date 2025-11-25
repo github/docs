@@ -128,7 +128,7 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
   // Note that Lengths 1 and 2 may be used with feature-based versioning, but NOT Length 3.
   const condParts = cond.split(/ (or|and) /).filter((part) => !(part === 'or' || part === 'and'))
 
-  condParts.forEach((str) => {
+  for (const str of condParts) {
     const strParts = str.split(' ')
     // if length = 1, this should be a valid short version or feature version name.
     if (strParts.length === 1) {
@@ -192,7 +192,7 @@ function validateIfversionConditionals(cond: string, possibleVersionNames: Set<s
         )
       }
     }
-  })
+  }
 
   return errors
 }

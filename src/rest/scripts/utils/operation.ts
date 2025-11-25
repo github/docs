@@ -45,9 +45,9 @@ export default class Operation {
     if (serverVariables) {
       // Template variables structure comes from OpenAPI server variables
       const templateVariables: Record<string, any> = {}
-      Object.keys(serverVariables).forEach(
-        (key) => (templateVariables[key] = serverVariables[key].default),
-      )
+      for (const key of Object.keys(serverVariables)) {
+        templateVariables[key] = serverVariables[key].default
+      }
       this.serverUrl = parseTemplate(this.serverUrl).expand(templateVariables)
     }
 

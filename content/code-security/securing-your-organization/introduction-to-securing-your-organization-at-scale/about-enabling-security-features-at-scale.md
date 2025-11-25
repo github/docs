@@ -72,6 +72,14 @@ If your organization uses private registries, providing {% data variables.produc
 
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+## About integrating production context
+
+If your organization uses {% data variables.product.prodname_microsoft_defender %}, JFrog Artifactory, or CI/CD to promote artifacts to production, you can integrate this data into {% data variables.product.github %}. This production context helps you prioritize {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} alerts. For more information, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-vulnerabilities/alerts-in-production-code).
+
+{% endif %}
+
 ## Next steps
 
 {% ifversion security-configurations-cloud %}

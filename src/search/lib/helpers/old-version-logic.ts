@@ -5,7 +5,7 @@ type VersionAliases = { [key: string]: string }
 export const versionAliases: VersionAliases = {}
 export const prefixVersionAliases: VersionAliases = {}
 
-Object.values(allVersions).forEach((info) => {
+for (const info of Object.values(allVersions)) {
   if (info.hasNumberedReleases) {
     versionAliases[info.currentRelease] = info.miscVersionName
   } else {
@@ -14,7 +14,7 @@ Object.values(allVersions).forEach((info) => {
   }
   prefixVersionAliases[info.plan] = info.shortName
   prefixVersionAliases[info.shortName] = info.shortName
-})
+}
 
 // Temporary hard-coded switch
 //

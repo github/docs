@@ -127,7 +127,6 @@ program
 
 const {
   fix,
-  paths,
   errorsOnly,
   rules,
   summaryByRule,
@@ -144,8 +143,13 @@ main()
 async function main() {
   if (!isOptionsValid()) return
 
+  // Get the updated paths after validation (invalid paths will have been filtered out)
+  const validatedPaths = program.opts().paths
+
   // If paths has not been specified, lint all files
-  const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
+  const files = getFilesToLint(
+    (summaryByRule && ALL_CONTENT_DIR) || validatedPaths || getChangedFiles(),
+  )
 
   if (new Set(files.data).size !== files.data.length) throw new Error('Duplicate data files')
   if (new Set(files.content).size !== files.content.length)
@@ -162,7 +166,7 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules || [])
+  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules)
 
   // Run Markdownlint for content directory
   const resultContent = (await markdownlint.promises.markdownlint({
@@ -197,7 +201,7 @@ async function main() {
       customRules: configuredRules.yml,
     })) as LintResults
 
-    Object.entries(resultYmlFile).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(resultYmlFile)) {
       if ((value as LintError[]).length) {
         const errors = (value as LintError[]).map((error) => {
           // Autofixing would require us to write the changes back to the YML
@@ -209,7 +213,7 @@ async function main() {
         })
         resultYml[key] = errors
       }
-    })
+    }
   }
 
   // There are no collisions when assigning the results to the new object
@@ -219,10 +223,10 @@ async function main() {
 
   // Merge in the results for frontmatter tests, which could be
   // in a file that already exists as a key in the `results` object.
-  Object.entries(resultFrontmatter).forEach(([key, value]) => {
+  for (const [key, value] of Object.entries(resultFrontmatter)) {
     if (results[key]) results[key].push(...(value as LintError[]))
     else results[key] = value as LintError[]
-  })
+  }
 
   // Apply markdownlint fixes if available and rewrite the files
   let countFixedFiles = 0
@@ -476,7 +480,7 @@ function reportSummaryByRule(results: LintResults, config: LintConfig): void {
   // the default property is not actually a rule
   delete ruleCount.default
 
-  Object.keys(results).forEach((key) => {
+  for (const key of Object.keys(results)) {
     if (results[key].length > 0) {
       for (const flaw of results[key]) {
         const ruleName = flaw.ruleNames[1]
@@ -485,7 +489,7 @@ function reportSummaryByRule(results: LintResults, config: LintConfig): void {
         ruleCount[ruleName] = count + 1
       }
     }
-  })
+  }
 }
 
 /*
@@ -498,26 +502,26 @@ function getFormattedResults(
   isInPrecommitMode: boolean,
 ): FormattedResults {
   const output: FormattedResults = {}
-  Object.entries(allResults)
+  const filteredResults = Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
     .filter(([, results]) => results.length)
-    .forEach(([key, fileResults]) => {
-      if (verbose) {
-        output[key] = fileResults.map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
-      } else {
-        const formattedResults = fileResults.map((flaw: LintError) =>
-          formatResult(flaw, isInPrecommitMode),
-        )
+  for (const [key, fileResults] of filteredResults) {
+    if (verbose) {
+      output[key] = fileResults.map((flaw: LintError) => formatResult(flaw, isInPrecommitMode))
+    } else {
+      const formattedResults = fileResults.map((flaw: LintError) =>
+        formatResult(flaw, isInPrecommitMode),
+      )
 
-        // Only add the file to output if there are results after filtering
-        if (formattedResults.length > 0) {
-          const errors = formattedResults.filter((result) => result.severity === 'error')
-          const warnings = formattedResults.filter((result) => result.severity === 'warning')
-          const sortedResult = [...errors, ...warnings]
-          output[key] = [...sortedResult]
-        }
+      // Only add the file to output if there are results after filtering
+      if (formattedResults.length > 0) {
+        const errors = formattedResults.filter((result) => result.severity === 'error')
+        const warnings = formattedResults.filter((result) => result.severity === 'warning')
+        const sortedResult = [...errors, ...warnings]
+        output[key] = [...sortedResult]
       }
-    })
+    }
+  }
   return output
 }
 
@@ -619,7 +623,7 @@ function listRules() {
 */
 function getMarkdownLintConfig(
   filterErrorsOnly: boolean,
-  runRules: string[],
+  runRules: string[] | undefined,
 ): MarkdownLintConfigResult {
   const config = {
     content: structuredClone(defaultConfig),
@@ -793,19 +797,25 @@ function getSearchReplaceRuleSeverity(
 function isOptionsValid() {
   // paths should only contain existing files and directories
   const optionPaths = program.opts().paths || []
+  const validPaths = []
+
   for (const filePath of optionPaths) {
     try {
       fs.statSync(filePath)
+      validPaths.push(filePath) // Keep track of valid paths
     } catch {
       if ('paths'.includes(filePath)) {
-        console.log('error: did you mean --paths')
+        console.warn('warning: did you mean --paths')
       } else {
-        console.log(
-          `error: invalid --paths (-p) option. The value '${filePath}' is not a valid file or directory`,
-        )
+        console.warn(`warning: the value '${filePath}' was not found. Skipping this path.`)
       }
-      return false
+      // Continue processing - don't return false here
     }
+  }
+
+  // Update the program options to only include valid paths
+  if (optionPaths.length > 0) {
+    program.setOptionValue('paths', validPaths)
   }
 
   // rules should only contain existing, correctly spelled rules
@@ -823,7 +833,9 @@ function isOptionsValid() {
       return false
     }
   }
-  return true
+
+  // Only return false if paths were specified but none are valid
+  return optionPaths.length === 0 || validPaths.length > 0
 }
 
 function isAFixtureMdFile(filePath: string): boolean {

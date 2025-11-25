@@ -56,16 +56,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   //    <li>Field filename was added to object type <code>IssueTemplate</code></li>
   //
   // ...without the additional <p>.
-  schema.forEach((item) => {
+  for (const item of schema) {
     for (const group of [item.schemaChanges, item.previewChanges, item.upcomingChanges]) {
-      group.forEach((change) => {
+      for (const change of group) {
         change.changes = change.changes.map((html) => {
           if (html.startsWith('<p>') && html.endsWith('</p>')) return html.slice(3, -4)
           return html
         })
-      })
+      }
     }
-  })
+  }
 
   return {
     props: {

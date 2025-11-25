@@ -37,12 +37,12 @@ export async function getDiffOpenAPIContentRest(): Promise<ErrorMessages> {
     for (const schemaName in differences) {
       errorMessages[schemaName] = {}
 
-      differences[schemaName].forEach((category) => {
+      for (const category of differences[schemaName]) {
         errorMessages[schemaName][category] = {
           contentDir: checkContentDir[schemaName][category],
           openAPI: openAPISchemaCheck[schemaName][category],
         }
-      })
+      }
     }
   }
 
@@ -57,23 +57,23 @@ async function createOpenAPISchemasCheck(): Promise<CheckObject> {
     // Allow the most recent deprecation to exist on disk until fully deprecated
     .filter((dir) => !dir.includes(deprecated[0]))
 
-  restDirectory.forEach((dir) => {
+  for (const dir of restDirectory) {
     const filename = path.join(REST_DATA_DIR, dir, REST_SCHEMA_FILENAME)
     const fileSchema = JSON.parse(fs.readFileSync(filename, 'utf8'))
     const categories = Object.keys(fileSchema).sort()
     const version = getDocsVersion(dir)
 
-    categories.forEach((category) => {
+    for (const category of categories) {
       const subcategories = Object.keys(fileSchema[category]) as string[]
       if (isApiVersioned(version)) {
-        getOnlyApiVersions(version).forEach(
-          (apiVersion) => (openAPICheck[apiVersion][category] = subcategories.sort()),
-        )
+        for (const apiVersion of getOnlyApiVersions(version)) {
+          openAPICheck[apiVersion][category] = subcategories.sort()
+        }
       } else {
         openAPICheck[version][category] = subcategories.sort()
       }
-    })
-  })
+    }
+  }
 
   return openAPICheck
 }
@@ -97,14 +97,14 @@ async function createCheckContentDirectory(contentFiles: string[]): Promise<Chec
         : version
     })
 
-    allCompleteVersions.forEach((version) => {
+    for (const version of allCompleteVersions) {
       if (!checkContent[version][category]) {
         checkContent[version][category] = [subCategory]
       } else {
         checkContent[version][category].push(subCategory)
       }
       checkContent[version][category].sort()
-    })
+    }
   }
 
   return checkContent
@@ -122,13 +122,15 @@ function getOnlyApiVersions(version: string): string[] {
 
 function createCheckObj(): CheckObject {
   const versions: CheckObject = {}
-  Object.keys(allVersions).forEach((version) => {
+  for (const version of Object.keys(allVersions)) {
     if (isApiVersioned(version)) {
-      getOnlyApiVersions(version).forEach((apiVersion) => (versions[apiVersion] = {}))
+      for (const apiVersion of getOnlyApiVersions(version)) {
+        versions[apiVersion] = {}
+      }
     } else {
       versions[`${allVersions[version].version}`] = {}
     }
-  })
+  }
 
   return versions
 }

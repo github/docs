@@ -171,7 +171,7 @@ Supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 
 ## `cooldown` {% octicon "versions" aria-label="Version updates" height="24" %}
 
-Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days.
+Defines a **cooldown period** for dependency updates, allowing updates to be delayed for a configurable number of days. The `cooldown` option is only available for _version_ updates, not _security_ updates.
 
 This feature enables users to customize how often {% data variables.product.prodname_dependabot %} generates new version updates, offering greater control over update frequency. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates#setting-up-a-cooldown-period-for-dependency-updates).
 
@@ -187,8 +187,6 @@ When **`cooldown`** is defined:
 1. If a dependency’s new release falls within its cooldown period, {% data variables.product.prodname_dependabot %} skips updating the version for that dependency.
 1. Dependencies without a cooldown period, or those past their cooldown period, are updated to the latest version as per the configured `versioning-strategy` setting.
 1. After a cooldown ends for a dependency, {% data variables.product.prodname_dependabot %} resumes updating the dependency following the standard update strategy defined in `dependabot.yml`.
-
-{% data reusables.dependabot.option-affects-security-updates %}
 
 ### **Configuration of `cooldown`**
 
@@ -381,11 +379,13 @@ Specify your own labels for all pull requests raised for a package manager.  For
 
 * All pull requests have a `dependencies` label.
 * If you define more than one package manager, an additional label for the ecosystem or language is added to each pull request. For example: `java` for Gradle updates and `submodules` for git submodule updates.
+* If semantic version (SemVer) labels are present in the repository, they will be applied automatically to indicate the type of version update (`major`, `minor`, or `patch`).
 * {% data variables.product.prodname_dependabot %} creates these default labels automatically, as necessary in your repository.
 
 When `labels` is defined:
 
 * The labels specified are used instead of the default labels.
+* SemVer labels (if present in the repository) will still be applied in addition to any custom labels defined.
 * If any of these labels is not defined in the repository, it is ignored.
 * You can disable all labels, including the default labels, using `labels: [ ]`.
 

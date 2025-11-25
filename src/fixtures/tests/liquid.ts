@@ -203,12 +203,12 @@ describe('ifversion', () => {
         return !matchesPerVersion[version].includes(condition)
       })
 
-      wantedConditions.forEach((condition: string) => {
+      for (const condition of wantedConditions as string[]) {
         expect(html).toMatch(condition)
-      })
-      unwantedConditions.forEach((condition: string) => {
+      }
+      for (const condition of unwantedConditions as string[]) {
         expect(html).not.toMatch(condition)
-      })
+      }
     },
   )
 })

@@ -317,14 +317,14 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
 // Categorizes the given array of audit log events by event category
 function categorizeEvents(events: AuditLogEventT[]) {
   const categorizedEvents: CategorizedEvents = {}
-  events.forEach((event) => {
+  for (const event of events) {
     const [category] = event.action.split('.')
     if (!Object.hasOwn(categorizedEvents, category)) {
       categorizedEvents[category] = []
     }
 
     categorizedEvents[category].push(event)
-  })
+  }
 
   return categorizedEvents
 }

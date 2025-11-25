@@ -54,7 +54,7 @@ export default function dataDirectory(
     fs.readFileSync(filename, 'utf8'),
   ])
 
-  files.forEach(([filename, fileContent]) => {
+  for (const [filename, fileContent] of files) {
     // derive `foo.bar.baz` object key from `foo/bar/baz.yml` filename
     const key = filenameToKey(path.relative(dir, filename))
     const extension = path.extname(filename).toLowerCase()
@@ -84,7 +84,7 @@ export default function dataDirectory(
         setWith(data, key, matter(processedContent).content, Object)
         break
     }
-  })
+  }
 
   return data
 }

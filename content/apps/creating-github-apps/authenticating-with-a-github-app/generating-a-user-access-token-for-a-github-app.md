@@ -60,14 +60,11 @@ If your app runs in the browser, you should use the web application flow to gene
 
 ## Using the device flow to generate a user access token
 
-> [!NOTE]
-> The device flow is in {% data variables.release-phases.public_preview %} and subject to change.
-
 If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see [AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app).
 
 Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
 
-The device flow uses the OAuth 2.0 Device Authorization Grant.
+The device flow uses the [OAuth 2.0 Device Authorization Grant](https://datatracker.ietf.org/doc/html/rfc8628).
 
 1. Send a `POST` request to `{% data variables.product.oauth_host_code %}/login/device/code` along with a `client_id` query parameter. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings).
 1. {% data variables.product.company_short %} will give a response that includes the following query parameters:

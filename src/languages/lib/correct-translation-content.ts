@@ -369,12 +369,14 @@ export function correctTranslatedContentStrings(
   }
 
   if (content.includes('{{%')) {
-    content.split('\n').forEach((line, i) => {
+    const lines = content.split('\n')
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
       if (line.includes('{{%') && !line.includes('{{{% endraw')) {
         console.log(context.code, 'context.relativePath', context.relativePath)
         console.log(i, line)
       }
-    })
+    }
   }
 
   return content

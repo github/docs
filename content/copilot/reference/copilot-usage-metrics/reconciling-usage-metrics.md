@@ -2,7 +2,7 @@
 title: Reconciling Copilot usage metrics across dashboards, APIs, and reports
 shortTitle: Reconciling Copilot usage metrics
 intro: Understand how {% data variables.product.prodname_copilot_short %} usage metrics differ between dashboards, APIs, and exported reports.
-permissions: Enterprise owners and billing managers
+permissions: '{% data reusables.copilot.usage-metrics-permissions %}'
 versions:
   feature: copilot
 topics:

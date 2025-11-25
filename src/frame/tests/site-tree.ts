@@ -61,7 +61,7 @@ describe('siteTree', () => {
 
 function validate(currentPage: Tree): void {
   const childPages: Tree[] = currentPage.childPages || []
-  childPages.forEach((childPage) => {
+  for (const childPage of childPages) {
     // Store page reference before validation to avoid type narrowing
     const pageRef: Tree = childPage
     const isValid = siteTreeValidate(childPage)
@@ -76,5 +76,5 @@ function validate(currentPage: Tree): void {
 
     // Run recursively until we run out of child pages
     validate(pageRef)
-  })
+  }
 }
