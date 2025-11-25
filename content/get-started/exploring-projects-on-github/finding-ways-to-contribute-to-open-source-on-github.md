@@ -53,7 +53,7 @@ Before getting started contributing to an open source repository, it's recommend
 
 1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="Copilot" %}** icon at the top right of the page.
-   The full-page, immersive, mode {% data variables.copilot.copilot_chat %} is displayed. The heading at the top of the chat panel will show the name of the repository as an attachment.
+   {% data variables.copilot.copilot_chat %} is displayed. The heading at the top of the chat panel will show the name of the repository as an attachment.
 1. In the prompt box, type "Is this repository being actively maintained?" and press <kbd>Enter</kbd>.  {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
 You can also visit the **Pulse** view under the **Insights** tab in the repository to get an overview of recent activity. See the [`github/docs` Pulse](https://github.com/github/docs/pulse) for an example of what an active open source project looks like.

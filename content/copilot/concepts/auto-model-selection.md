@@ -15,22 +15,28 @@ category:
 
 ## Overview
 
-Experience less rate limiting and reduce the mental load of choosing a model by letting {% data variables.copilot.copilot_auto_model_selection %} automatically choose the best available model.  
+Experience less rate limiting and reduce the mental load of choosing a model by letting {% data variables.copilot.copilot_auto_model_selection %} automatically choose the best available model on your behalf.
 
-{% data variables.copilot.copilot_auto_model_selection %} chooses from {% data variables.copilot.copilot_gpt_41 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_5 %}, {% data variables.copilot.copilot_claude_haiku_45 %}, and {% data variables.copilot.copilot_claude_sonnet_45 %}, based on availability and to help reduce rate limiting. Included models may change over time.
+{% data variables.copilot.copilot_auto_model_selection %} is currently optimized for model availability, choosing from a list of models that may change over time. It currently chooses from {% data variables.copilot.copilot_gpt_41 %}, {% data variables.copilot.copilot_gpt_5_mini %}, {% data variables.copilot.copilot_gpt_5 %}, {% data variables.copilot.copilot_claude_haiku_45 %}, and {% data variables.copilot.copilot_claude_sonnet_45 %}, based on your subscription type. 
 
-> [!NOTE] To see which model was used for each response, hover over the response in {% data variables.copilot.copilot_chat_short %}.
+With {% data variables.copilot.copilot_auto_model_selection %}, you benefit from:
+  * Reduced chances of rate limiting
+  * Discounted multipliers for paid plans
+ 
+> [!NOTE] Soon {% data variables.copilot.copilot_auto_model_selection %} will choose the best model for you by taking into account both model availability and your task.
+  
+> [!TIP] To see which model was used for each response, hover over the response in {% data variables.copilot.copilot_chat_short %}.
 
-{% data variables.copilot.copilot_auto_model_selection %} is available in the following IDEs: 
-  *  {% data variables.product.prodname_vscode_shortname %}
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} is available in the following IDEs: 
+  * {% data variables.product.prodname_vscode_shortname %}
   * {% data variables.product.prodname_vs %}
   * Eclipse
   * JetBrains IDEs
   * Xcode
 
-Automatically selected models **won't** include these models:
-* Models with premium request multipliers greater than one. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#model-multipliers).
+{% data variables.copilot.copilot_auto_model_selection_short_cap_a %} **won't** include these models:
 * Models excluded by individual or administrator policies. See [AUTOTITLE](/copilot/how-tos/use-ai-models/configure-access-to-ai-models).
+* Models with premium request multipliers greater than one. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#model-multipliers).
 * Models not available in your plan. See [AUTOTITLE](/copilot/reference/ai-models/supported-models#supported-ai-models-per-copilot-plan).
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}

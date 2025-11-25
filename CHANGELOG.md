@@ -1,5 +1,11 @@
 # Docs changelog
 
+**13 November 2025**
+
+We've published a new tutorial on [using custom instructions for Copilot code review](https://docs.github.com/copilot/tutorials/use-custom-instructions). In this tutorial you'll learn how to write effective custom instructions that help Copilot provide more relevant and actionable code reviews.
+
+<hr>
+
 **31 October 2025**
 
 A large amount of new information was added to the GitHub documentation website to coincide with the GitHub Universe 2025 conference. Here are links to some of the new and updated articles.

@@ -37,7 +37,7 @@ This article provides an overview of {% data variables.copilot.copilot_code-revi
 {% data variables.copilot.copilot_code-review_short %} has several new tools that are in {% data variables.release-phases.public_preview %} and subject to change.
 
 * **Full project context gathering** to provide more specific, accurate, and contextually aware code reviews.
-* **Support for deterministic detections with {% data variables.product.prodname_codeql %}**, to deliver more high-signal, consistent findings for quality.
+* **Support for static analysis tools like {% data variables.product.prodname_codeql %}, ESLint, and PMD** to deliver more high-signal, consistent findings for security and quality.
 * **The ability to pass suggestions to {% data variables.copilot.copilot_coding_agent %}**, for automated creation of a new pull request against your branch with the suggested fixes applied.
 
 You are not required to have {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_actions %} enabled in your organization or enterprise to use the {% data variables.copilot.copilot_code-review-tools_short %}.
@@ -61,7 +61,7 @@ In the event that {% data variables.product.prodname_actions %} is unavailable o
 * Xcode
 * JetBrains IDEs
 
-{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text&utm_source=docs-signup-copilot&utm_medium=docs&utm_campaign=universe25post).
+{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
 
 If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.copilot.copilot_code-review_short %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
 
@@ -119,6 +119,15 @@ The triggers for automatic code review depend on the configuration settings:
 ## Configuring automatic pull request reviews
 
 For details of how to configure {% data variables.product.prodname_copilot_short %} to automatically review new pull requests, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/configuring-automatic-code-review-by-copilot).
+
+## About static analysis tools
+
+You can enable static analysis tools in {% data variables.copilot.copilot_code-review_short %} to enhance its ability to identify and fix issues. Available tools include:
+* **{% data variables.product.prodname_codeql %}**: A code analysis engine that identifies security vulnerabilities. For more information, see [About {% data variables.product.prodname_codeql %}](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
+* **ESLint**: A linter designed specifically for JavaScript. For more information, see [Core Concepts](https://eslint.org/docs/latest/use/core-concepts/) in the the ESLint documentation.
+* **PMD**: A static code analyzer that focuses on Java and Apex, but also supports many other languages. For more information, see the [PMD documentation](https://docs.pmd-code.org/latest/).
+
+If you have access to {% data variables.copilot.copilot_code-review-tools_short %}, {% data variables.product.prodname_codeql %} is enabled by default, while ESLint and PMD are disabled. Additionally, if you have access to rulesets, you can change your selected tools. See [AUTOTITLE](/copilot/how-tos/use-copilot-agents/request-a-code-review/manage-tools).
 
 ## Getting detailed code quality feedback for your whole repository
 

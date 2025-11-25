@@ -2,7 +2,7 @@
 title: Tracking GitHub Copilot's sessions
 shortTitle: Track Copilot sessions
 intro: 'You can use the agents panel or page, {% data variables.product.prodname_vscode %}, JetBrains IDEs, Eclipse, the {% data variables.product.prodname_cli %}, Raycast and session logs to track {% data variables.product.prodname_copilot_short %}''s progress and understand its approach.'
-product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button&utm_source=docs-web-copilot-agents-track-sessions&utm_medium=docs&utm_campaign=ghignite25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
+product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=button" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
   feature: copilot
 topics:
@@ -141,7 +141,7 @@ You can steer {% data variables.product.prodname_copilot_short %} while it is wo
 
 Follow these steps to steer {% data variables.product.prodname_copilot_short %}:
 
-1. Open the [agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text&utm_source=docs-web-copilot-agents&utm_medium=docs&utm_campaign=universe25post).
+1. Open the [agents tab](https://github.com/copilot/agents?ref_product=copilot&ref_type=engagement&ref_style=text).
 1. In the **Agent sessions** list, select the task that you want to provide further input for.
 1. In the prompt box, prompt {% data variables.product.prodname_copilot_short %} as it is working on a task.
 

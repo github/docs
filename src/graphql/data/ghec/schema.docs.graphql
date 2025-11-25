@@ -361,9 +361,13 @@ input AddAssigneesToAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
-  The id of users to add as assignees.
+  The ids of actors (users or bots) to add as assignees.
   """
-  assigneeIds: [ID!]! @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   A unique identifier for the client performing the mutation.

@@ -149,6 +149,8 @@ Depending on the question you ask, {% data variables.copilot.copilot_chat %} can
 
 When leveraging Bing, {% data variables.product.prodname_copilot_short %} will use the content of your prompt, as well as additional available context, to generate a Bing search query on your behalf that is sent to the Bing Search API. {% data variables.product.prodname_copilot_short %} will provide a link to the search results with its response. The search query sent to Bing is governed by [Microsoft's Privacy Statement](https://privacy.microsoft.com/en-us/privacystatement).
 
+{% data reusables.rai.copilot.byok-transparency-note %}
+
 ## Next steps
 
 For details of how to use {% data variables.copilot.copilot_chat_dotcom %}, see:

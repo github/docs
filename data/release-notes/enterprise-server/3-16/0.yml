@@ -228,6 +228,10 @@ sections:
       [Updated: 2025-03-19]
     - |
       The security risk page returns a 500 error when secret scanning is disabled. [Updated: 2025-04-25]
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher or 3.15.14 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.16.10 or higher.
+
+      [Updated: 2025-11-24]
 
   closing_down:
     # https://github.com/github/releases/issues/4683
