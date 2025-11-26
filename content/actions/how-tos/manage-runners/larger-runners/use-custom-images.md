@@ -89,24 +89,6 @@ jobs:
       # Add any steps to download and setup any dependencies here
 ```
 
-### Conditionals
-
-The `snapshot` keyword supports conditional execution using the `if` keyword around the snapshot mapping. You can use conditions to control when an image snapshot is created. For example, the following job skips image creation for tag builds.
-
-```yaml
-jobs: 
-  build:
-    runs-on: my-image-generation-runner
-    snapshot: 
-        if: {% raw %}${{ ! startsWith(github.ref, 'refs/tags/') }}{% endraw %}
-        image-name: my-custom-image
-        version: 2.*
-    steps:
-      # Add any steps to download and setup any dependencies here
-```
-
-For more information about the `if` keyword, see [AUTOTITLE](/actions/writing-workflows/choosing-when-your-workflow-runs/using-conditions-to-control-job-execution).
-
 ## Versioning
 
 When you generate custom images, {% data variables.product.github %} automatically assigns version numbers to help you manage updates and track image history.
