@@ -1,5 +1,13 @@
 # Docs changelog
 
+**25 November 2025**
+
+We've added details of files that are excluded from Copilot code reviews. 
+
+See [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review#excluded-files).
+
+<hr>
+
 **24 November 2025**
 
 We've added a new tutorial on burning down technical debt in a project: 
