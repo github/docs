@@ -1,5 +1,23 @@
 # Docs changelog
 
+**25 November 2025**
+
+We've added details of files that are excluded from Copilot code reviews. 
+
+See [About GitHub Copilot code review](https://docs.github.com/copilot/concepts/agents/code-review#excluded-files).
+
+<hr>
+
+**24 November 2025**
+
+We've added a new tutorial on burning down technical debt in a project: 
+
+[Using GitHub Copilot to reduce technical debt](https://docs.github.com/en/copilot/tutorials/reduce-technical-debt)
+
+The addition of this tutorial was prompted by a presentation by Brittany Ellich at this year's GitHub Universe conference: [Tackling your tech debt with Copilot coding agent](https://www.youtube.com/watch?v=LafpndhNC_E), and is based on a GitHub community post by Akash Sharma: [Stop Letting Technical Debt Slow You Down](https://github.com/orgs/community/discussions/178975).
+
+<hr>
+
 **13 November 2025**
 
 We've published a new tutorial on [using custom instructions for Copilot code review](https://docs.github.com/copilot/tutorials/use-custom-instructions). In this tutorial you'll learn how to write effective custom instructions that help Copilot provide more relevant and actionable code reviews.

@@ -50,6 +50,8 @@ Code quality results should always be interpreted in the context of your reposit
 * Repositories with a lot of generated code may have many maintenance results, lowering the rating for maintainability. This is not a problem if the source code itself is maintainable.
 * Large repositories with a lot of code in a fully supported language often have many results even if the majority of the code has good maintainability and reliability standards.
 
+To learn more about the metrics and how the ratings are calculated, see [AUTOTITLE](/code-security/code-quality/reference/metrics-and-ratings).
+
 ## Next steps
 
 * Remediate quality findings in your default branch and improve the maintainability and reliability rating for your repository. See [AUTOTITLE](/code-security/code-quality/tutorials/improve-your-codebase).

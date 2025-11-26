@@ -1,1 +1,0 @@
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" aria-label="plus" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.

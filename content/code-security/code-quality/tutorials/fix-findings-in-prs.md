@@ -26,9 +26,9 @@ Catching code quality issues early keeps your team's codebase in shape. {% data 
 
 ## 1. Understand how {% data variables.product.prodname_code_quality %} works on pull requests
 
-When you open a pull request, {% data variables.product.prodname_code_quality %} automatically scans your changes for quality issues like those described above.
+When you open a pull request, {% data variables.product.prodname_code_quality %} uses {% data variables.product.prodname_codeql %} to automatically scan your changes for quality issues like those described above.
 
-The results of the scan are reported as comments on your pull request, left by the `{% data variables.code-quality.pr_commenter %}`. Each comment corresponds to a specific code quality problem that was detected in your changes, and comes with a suggested autofix.
+The results of the {% data variables.product.prodname_codeql %} scan are reported as comments on your pull request, left by the `{% data variables.code-quality.pr_commenter %}`. Each comment corresponds to a specific code quality problem that was detected in your changes, and comes with a suggested autofix.
 
 Comments are labeled by severity (**Error**, **Warning**, **Note**), so you can see which findings are the most critical to address.
 
