@@ -31,3 +31,4 @@ This policy:
 {% data reusables.enterprise-accounts.policies-tab %}
 1. In the left sidebar, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Member privileges**.
 1. Under "Unaffiliated user", choose your setting for the policy.
+2. https://myaccount.google.com/profile/work
