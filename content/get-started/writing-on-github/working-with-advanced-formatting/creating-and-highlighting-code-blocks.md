@@ -1,4 +1,4 @@
----
+-and-highlighting-code-blocks.md---
 title: Creating and highlighting code blocks
 intro: Share samples of code with fenced code blocks and enabling syntax highlighting.
 product: '{% data reusables.gated-features.markdown-ui %}'
