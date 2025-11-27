@@ -9,11 +9,8 @@ topics:
 children:
   - /use-copilot-spaces
   - /use-mcp
-  - /create-knowledge-bases
-  - /use-knowledge-bases
 redirect_from:
   - /copilot/customizing-copilot
   - /copilot/how-tos/context
 contentType: how-tos
 ---
-
