@@ -23,7 +23,8 @@ shortTitle: Quickstart
 ## Some useful commands
 
 > [!NOTE]
-> When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
+> When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. follow the on-screen instructions.
+
 
 ### Viewing your status
 
@@ -61,7 +62,7 @@ To create a pull request, enter `gh pr create` and follow the on-screen instruct
 
 To create a new codespace, enter `gh codespace create` and follow the on-screen instructions.
 
-To display your existing codespaces, enter `gh codespace list`. To open a codespace in the web version of {% data variables.product.prodname_vscode_shortname %} enter `gh codespace code -w` and choose a codespace .
+To display your existing codespaces, enter `gh codespace list`. To open a codespace in the web version of {% data variables.product.prodname_vscode_shortname %} enter `gh codespace code -w` and choose a codespace.
 
 In all of these commands you can substitute `cs` for `codespace`.
 
