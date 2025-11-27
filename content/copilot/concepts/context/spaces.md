@@ -11,8 +11,11 @@ redirect_from:
   - /copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot/concepts/about-organizing-and-sharing-context-with-copilot-spaces
   - /copilot/concepts/spaces
+  - /copilot/concepts/context/knowledge-bases
+  - /copilot/how-tos/provide-context/use-knowledge-bases
+  - /copilot/how-tos/provide-context/create-knowledge-bases
 contentType: concepts
-category: 
+category:
   - Learn about Copilot
 ---
 
@@ -30,21 +33,6 @@ With {% data variables.copilot.copilot_spaces %} you can:
 * Support onboarding and reuse with self-service context that lives beyond chat history.
 
 Your spaces stay in sync as your project evolves. {% data variables.product.github %} files and other {% data variables.product.github %}-based sources added to a space are automatically updated as they change, making {% data variables.product.prodname_copilot_short %} an evergreen expert in your project.
-
-### How are {% data variables.copilot.copilot_spaces_short %} different from knowledge bases?
-
-{% data variables.copilot.copilot_spaces_short %} are optimized for specific tasks and grounded conversations. Because context in {% data variables.copilot.copilot_spaces_short %} is scoped, {% data variables.product.prodname_copilot_short %}'s responses are more accurate and relevant.
-
-{% rowheaders %}
-
-|                      | {% data variables.copilot.copilot_spaces %}         | Knowledge bases                                             |
-| -------------------- | --------------------------- | -------------------------------------------------------------- |
-| Who can create   | Anyone with a {% data variables.product.prodname_copilot_short %} license             | Organization owners                                              |
-| Owned by   | Organizations or individual users              | Organizations                             |
-| Content type     | Entire {% data variables.product.github %} repositories, specific files, pull requests and issues, uploaded files including images, text files, rich documents, and spreadsheets, and free-text content                   | Markdown files hosted in {% data variables.product.github %} |
-| Context handling | Limited in size, which guarantees higher response quality given the focused selection | Unlimited, but that comes with reduced response quality |
-
-{% endrowheaders %}
 
 ## Who can use {% data variables.copilot.copilot_spaces_short %}?
 

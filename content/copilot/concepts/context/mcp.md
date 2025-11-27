@@ -27,7 +27,10 @@ redirect_from:
   - /copilot/concepts/context/copilot-extensions
   - /copilot/reference/extensions-glossary
   - /copilot/how-tos/use-copilot-extensions/build-a-copilot-agent
-category: 
+  - /copilot/building-copilot-extensions/about-building-copilot-extensions
+  - /copilot/customizing-copilot/extending-the-capabilities-of-github-copilot-in-your-organization
+  - /copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat
+category:
   - Learn about Copilot
 ---
 
