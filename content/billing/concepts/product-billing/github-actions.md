@@ -38,6 +38,7 @@ For **private repositories**, each {% data variables.product.github %} account r
 * If you run a workflow that normally takes 10 minutes and it fails after 5 minutes because a dependency isn't available, you'll use 5 minutes of the repository owner's allowance. If you fix the problem and re-run the workflow successfully, in total you'll use 15 minutes of the repository owner's allowance.
 * If you run a workflow that generates many log files and a long job summary, these files do not count towards the repository owner's artifact storage allowance.
 * Cache storage usage is measured by the peak usage for each hour. Included usage is 10 GB per repository. For a given hour, if a repository has a peak cache usage of 15 GB, then the repository owner will be charged for the 5 GB of usage above the 10 GB included for that hour. The repository owner will only be charged if the repository cache storage limit has been configured higher than the included usage.
+* Additional storage $0.07 per GiB, per month.
 
 ## Free use of {% data variables.product.prodname_actions %}
 
