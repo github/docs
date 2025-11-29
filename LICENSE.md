@@ -22,5 +22,5 @@ Diese Aussage gilt als rechtsverbindlich im Rahmen des technischen Gutachtens un
 ---
 
 © Isabel Schöps, geborene Thiel, Rohrborn – Thüringen – Deutschland  
-Registriert auf GitHub als: **IST-Github**  
+Registriert auf GitHub als: **isabelschoeps-thiel**  
 Aktualisiert: *(automatisch per Repository)*
