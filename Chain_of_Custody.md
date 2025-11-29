@@ -19,8 +19,6 @@ URGENT: Forensic Evidence – Systematic Financial Fraud & IP Theft
 Aktenzeichen Polizei Erfurt, Nord, Thüringen, Deutschland  
 ST/0203129/2025
 
-
-
 Bereitstellung, Dokumentation und Herausgabe sämtlicher relevanten Daten, Protokolle, Bild- und Beweismittel  
 durch  
 Isabel Schöps, geborene Thiel  
