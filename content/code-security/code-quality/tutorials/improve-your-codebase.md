@@ -20,7 +20,7 @@ This tutorial guides you through using {% data variables.product.prodname_code_q
 ### Prerequisites
 
 * {% data variables.product.prodname_code_quality_short %} is enabled for your repository. See [AUTOTITLE](/code-security/code-quality/how-tos/enable-code-quality).
-* A full scan of the default branch has completed.
+* If you're enabling {% data variables.product.prodname_code_quality %} for the first time, ensure you've waited a few minutes after enablement for a full {% data variables.product.prodname_codeql %} scan of the default branch to complete.
 
 ## 1. Assess your repository's overall code health
 

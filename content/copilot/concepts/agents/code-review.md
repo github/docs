@@ -26,7 +26,28 @@ category:
 
 This article provides an overview of {% data variables.copilot.copilot_code-review_short %}. For instructions on how to request a code review from {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/how-tos/agents/copilot-code-review/using-copilot-code-review).
 
-### {% data variables.copilot.copilot_code-review-tools-preview_cap %}
+## Availability
+
+{% data variables.copilot.copilot_code-review_short %} is supported in:
+
+* {% data variables.product.prodname_dotcom_the_website %}
+* {% data variables.product.prodname_mobile %}
+* {% data variables.product.prodname_vscode_shortname %}
+* {% data variables.product.prodname_vs %}
+* Xcode
+* JetBrains IDEs
+
+{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
+
+If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.copilot.copilot_code-review_short %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
+
+## Excluded files
+
+Dependency management files (such as package.json and Gemfile.lock) and certain other types of files (such as log files and SVGs) are excluded from {% data variables.copilot.copilot_code-review_short %}. If you include any of these files in a pull request, {% data variables.copilot.copilot_code-review_short %} will not consider the file when carrying out the review. Similarly, using {% data variables.copilot.copilot_code-review_short %} on one of these files in your IDE, will not generate review comments.
+
+For more information, see [AUTOTITLE](/copilot/reference/review-excluded-files).
+
+## {% data variables.copilot.copilot_code-review-tools-preview_cap %}
 
 > [!NOTE]
 >
@@ -49,21 +70,6 @@ In the event that {% data variables.product.prodname_actions %} is unavailable o
 > The {% data variables.release-phases.public_preview %} includes free actions minutes for the {% data variables.copilot.copilot_code-review-tools_short %}.
 >
 > Usage charges will apply when the feature becomes generally available.
-
-## Availability
-
-{% data variables.copilot.copilot_code-review_short %} is supported in:
-
-* {% data variables.product.prodname_dotcom_the_website %}
-* {% data variables.product.prodname_mobile %}
-* {% data variables.product.prodname_vscode_shortname %}
-* {% data variables.product.prodname_vs %}
-* Xcode
-* JetBrains IDEs
-
-{% data variables.copilot.copilot_code-review_short %} is a premium feature, available with the {% data variables.copilot.copilot_pro_short %}, {% data variables.copilot.copilot_pro_plus_short %}, {% data variables.copilot.copilot_business_short %}, and {% data variables.copilot.copilot_enterprise_short %} plans. See [Copilot plans](https://github.com/features/copilot/plans?ref_product=copilot&ref_type=purchase&ref_style=text).
-
-If you receive {% data variables.product.prodname_copilot_short %} from an organization then, to be able to request a pull request review from {% data variables.product.prodname_copilot_short %} on {% data variables.product.prodname_dotcom_the_website %} or in {% data variables.product.prodname_mobile %}, the **{% data variables.copilot.copilot_code-review_short %}** option must be enabled in the {% data variables.product.prodname_copilot_short %} policy settings for the organization. See [AUTOTITLE](/copilot/how-tos/administer/organizations/managing-policies-for-copilot-in-your-organization).
 
 ## Code review monthly quota
 
