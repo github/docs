@@ -45,12 +45,3 @@ npm run ai-tools -- --files content/copilot/tutorials/coding-agent/get-the-best-
 
 * A valid `GITHUB_TOKEN` with Models scopes in your local `.env` file.
 
-## Future development ideas
-
-* Add prompts to support all available editors.
-* Test prompts in Models UI and add evals to prevent regressions.
-* Enable running in CI.
-* Explore the new `llm` plugin for GitHub Models (see https://github.com/github/copilot-productivity/discussions/5937).
-* Add MCP for more comprehensive context.
-* Integrate with Copilot Edit mode in VS Code.
-* Add unit tests.
