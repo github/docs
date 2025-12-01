@@ -6,8 +6,10 @@ import type { NextFunction, Response } from 'express'
 import getApplicableVersions from '@/versions/lib/get-applicable-versions'
 import { liquid } from '@/content-render/index'
 import { ExtendedRequest, SecretScanningData } from '@/types'
+import { allVersions } from '@/versions/lib/all-versions'
+import { getVersionInfo } from '@/app/lib/constants'
 
-const secretScanningPath = 'src/secret-scanning/data/public-docs.yml'
+const secretScanningDir = 'src/secret-scanning/data/pattern-docs'
 
 // This is the path to the file that contains the secret scanning data.
 // Currently it's:
@@ -23,12 +25,20 @@ export default async function secretScanning(
 ) {
   if (!req.pagePath!.endsWith(targetFilename)) return next()
 
-  const secretScanningData = yaml.load(
-    fs.readFileSync(secretScanningPath, 'utf-8'),
-  ) as SecretScanningData[]
-
   if (!req.context) throw new Error('request not contextualized')
   const { currentVersion } = req.context
+  if (!currentVersion) throw new Error('currentVersion not set in context')
+
+  const { isEnterpriseCloud, isEnterpriseServer } = getVersionInfo(currentVersion)
+
+  const versionPath = isEnterpriseCloud
+    ? 'ghec'
+    : isEnterpriseServer
+      ? `ghes-${allVersions[currentVersion].currentRelease}`
+      : 'fpt'
+  const filepath = `${secretScanningDir}/${versionPath}/public-docs.yml`
+
+  const secretScanningData = yaml.load(fs.readFileSync(filepath, 'utf-8')) as SecretScanningData[]
 
   req.context.secretScanningData = secretScanningData.filter((entry) =>
     currentVersion ? getApplicableVersions(entry.versions).includes(currentVersion) : false,
