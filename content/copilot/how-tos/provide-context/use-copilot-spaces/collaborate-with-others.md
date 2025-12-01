@@ -1,7 +1,7 @@
 ---
-title: Collaborating with your team using GitHub Copilot Spaces
-shortTitle: Collaborate with your team
-intro: 'Learn how to share {% data variables.copilot.copilot_spaces %} with your team to support collaboration and knowledge sharing.'
+title: Collaborating with others using GitHub Copilot Spaces
+shortTitle: Collaborate with others
+intro: 'Learn how to share {% data variables.copilot.copilot_spaces %} to support collaboration and knowledge sharing.'
 permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
@@ -12,21 +12,22 @@ redirect_from:
   - /copilot/how-tos/context/copilot-spaces/collaborating-with-your-team-using-copilot-spaces
   - /copilot/how-tos/context/copilot-spaces/collaborate-with-your-team
   - /copilot/how-tos/context/use-copilot-spaces/collaborate-with-your-team
+  - /copilot/how-tos/provide-context/use-copilot-spaces/collaborate-with-your-team
 contentType: how-tos
 category: 
   - Author and optimize with Copilot
 ---
 
-{% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. Sharing {% data variables.copilot.copilot_spaces %} helps your team:
+{% data variables.copilot.copilot_spaces %} let you organize the context that {% data variables.product.prodname_copilot_short %} uses to answer your questions. Sharing {% data variables.copilot.copilot_spaces %} helps others:
 
 * Avoid repeated explanations and handoffs.
 * Stay aligned on how a system works or what’s expected.
 * Learn from past work, documentation, and examples.
-* Get better help from {% data variables.product.prodname_copilot_short %} with grounded, team-curated context.
+* Get better help from {% data variables.product.prodname_copilot_short %} with grounded, curated context.
 
-## Use cases for team collaboration
+## Use cases for collaboration
 
-* **Onboarding**: Share a space with code, documentation, diagrams, and checklists to help new developers get started faster. Make other members of your team editors so anyone can update the included resources.
+* **Onboarding**: Share a space with code, documentation, diagrams, and checklists to help new developers get started faster. Make other people editors so anyone can update the included resources.
 * **System knowledge**: Create a space for a complex system or workflow (like authentication or CI pipelines) that other people can reference.
 * **Style guides or review checklists**: Document standards and examples in a space that {% data variables.product.prodname_copilot_short %} can reference when suggesting changes.
 
@@ -34,14 +35,15 @@ For example, a subject matter expert creates a space called “Accessibility Rev
 
 ## Sharing {% data variables.copilot.copilot_spaces_short %}
 
-When you create a space, you can choose whether it’s owned by you or by one of your organizations. If you choose an organization:
+{% data variables.copilot.copilot_spaces_short %} can belong to a personal account or to an organization, and the sharing options differ depending on who the space belongs to.
 
-* You can share the space with the organization, giving viewer, editor, or admin access to all organization members.
-* You can give access to specific users or teams in the organization. For example, make everyone on your team an editor, or give admin access to a specific person so they can update the space's settings.
+### Organization-owned spaces
 
-If you choose to create a personal space, **you can't share it with others**.
+Organization-owned spaces can be shared with other organization members, and you decide which level of access you want to grant other members (admin, editor, viewer).
 
-To share a space with others:
+Alternatively, you can choose to grant "No access" to organization members, and keep the space hidden.
+
+To share a organization-owned space with others:
 
 1. In the top right corner of the space, click **{% octicon "share" aria-hidden="true" aria-label="share" %}**.
 1. To add specific users or teams, search for them with the search bar, then choose a role for the people you added.
@@ -50,8 +52,21 @@ To share a space with others:
    * **Viewers** can use the space to ask questions and view the included attachments and instructions.
    * **Editors** can update the space's attachments, description, name, and instructions, in addition to having all the permissions of viewers. However, editors can't update sharing settings or delete the space.
    * **Admins** can update sharing settings or delete the space, in addition to having all the permissions of viewers and editors.
+   * **No access** means the space will be hidden from other organization members.
 
 1. Optionally, click **{% octicon "link" aria-label="the link" %} Copy link** to copy the link to the space and share it with others.
+
+### Individual-owned spaces
+
+Spaces belonging to a personal account can be shared publicly, shared with specific {% data variables.product.github %} users, or kept private to the person who created the space.
+
+To share an individual-owned space with others:
+
+1. In the top right corner of the space, click **{% octicon "share" aria-hidden="true" aria-label="share" %}**.
+1. To add specific {% data variables.product.github %} users, search for them with the search bar, then choose a role for the people you added.
+1. Optionally, to make the space public, under "General access", select **Anyone with link**. Then, copy the link to the space and share it with others.
+
+   > [!NOTE] Publicly shared spaces are view-only by default, and viewers can only see sources that they have access to.
 
 ## Accessing shared {% data variables.copilot.copilot_spaces_short %}
 
