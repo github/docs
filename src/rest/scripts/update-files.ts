@@ -114,10 +114,7 @@ async function main() {
   // so that we don't spend time generating data files for them.
   if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
-    // TODO: After migrating all-version.ts to TypeScript, we can remove the type assertion
-    const currentOpenApiVersions = Object.values(allVersions).map(
-      (elem) => (elem as any).openApiVersionName,
-    )
+    const currentOpenApiVersions = Object.values(allVersions).map((elem) => elem.openApiVersionName)
 
     for (const schema of derefDir) {
       // if the schema does not start with a current version name, delete it

@@ -31,6 +31,8 @@ Enterprise policies control the options that are available to enterprise members
 
 If you don't enforce enterprise policies, organization owners{% ifversion custom-org-roles %} and users with the "Manage organization Actions policies" permission{% endif %} have full control over {% data variables.product.prodname_actions %} for their organizations.
 
+> [!NOTE] {% data variables.product.prodname_actions %} must be enabled for repositories in an organization for the {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_code_quality %} workflows to run. However, the {% data variables.product.prodname_codeql %} default setup for {% data variables.product.prodname_code_scanning %} is not affected by other {% data variables.product.prodname_actions %} policies (such as restricting access to public actions or reusable workflows).
+
 ## Enforcing policies
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -48,7 +50,14 @@ In the "Policies" section, you can control which organizations within your enter
 * Enable {% data variables.product.prodname_actions %} for specific organizations
 * Disable {% data variables.product.prodname_actions %} for all organizations
 
-You can also limit the use of public actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}, with the following options:
+> [!NOTE]
+> If you disable {% data variables.product.prodname_actions %}, or do not enable the feature for one or more organizations, this blocks affected organizations from using {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %} analysis.
+
+### Controlling access to public actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}
+
+Enterprises often want to limit access to only a well-tested group of public actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} as part of their supply chain governance. The policies available in {% data variables.product.github %} allow you to control access without blocking the dynamic workflows used by {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %}.
+
+You can enforce strict controls without defining exceptions or additional configuration for {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_code_quality %}, with the following options:
 
 * **Allow all actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}:** Any action {% ifversion actions-workflow-policy %}or reusable workflow{% endif %} can be used, regardless of who authored it or where it is defined.
 * **Allow enterprise actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %}:** Only actions {% ifversion actions-workflow-policy %}and reusable workflows{% endif %} defined in a repository within the enterprise can be used. {% ifversion ghec %}Blocks all access to actions authored by {% data variables.product.prodname_dotcom %}, such as the [`actions/checkout`](https://github.com/actions/checkout) action.{% endif %}
