@@ -42,7 +42,7 @@
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
     "find-orphaned-features": "tsx src/data-directory/scripts/find-orphaned-features/index.ts",
     "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
-    "find-unused-variables": "tsx src/content-linter/scripts/find-unsed-variables.ts",
+    "find-unused-variables": "tsx src/content-linter/scripts/find-unused-variables.ts",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
     "fixture-dev-debug": "cross-env NODE_ENV=development ROOT=src/fixtures/fixtures nodemon --inspect src/frame/server.ts",
     "fixture-test": "cross-env ROOT=src/fixtures/fixtures sh -c 'npm test -- ${1:-src/fixtures/tests}' --",
