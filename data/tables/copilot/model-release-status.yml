@@ -82,6 +82,13 @@
   ask_mode: true
   edit_mode: true
 
+- name: 'Claude Opus 4.5'
+  provider: 'Anthropic'
+  release_status: 'Public preview'
+  agent_mode: true
+  ask_mode: true
+  edit_mode: true
+
 - name: 'Claude Sonnet 4'
   provider: 'Anthropic'
   release_status: 'GA'

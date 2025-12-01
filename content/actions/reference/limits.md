@@ -83,3 +83,9 @@ When using larger runners with vnet injection, you need to determine the appropr
 * **OAuth apps \-** {% data reusables.rest-api.primary-rate-limit-oauth-apps %}
 * **GITHUB TOKEN** \- {% data reusables.rest-api.primary-rate-limit-github-token-in-actions %}
 * **Secondary rate limits** \- In addition to primary rate limits, {% data variables.product.github %} enforces secondary rate limits in order to prevent abuse and keep the API available for all users, these are not configurable with GHEC. For more information, see [AUTOTITLE](/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28#about-secondary-rate-limits).
+
+### Docker Hub's rate limit for {% data variables.product.prodname_actions %}
+
+* **{% data variables.product.github %}-hosted runners pulling public images:** Docker Hub's rate limit is not applied.
+* **{% data variables.product.github %}-hosted runners pulling private images:** Pulling private images from Docker Hub is subject to the rate limit.
+* **Self-hosted runners pulling public or private images:** Pulling images from Docker Hub is always subject to the rate limit.

@@ -72,7 +72,6 @@ There are many more things you can do with {% data variables.copilot.copilot_cha
 
 * Ask a general question about software development
 * Ask exploratory questions about a repository
-* Ask a question about a knowledge base
 * Find out about the changes in a pull request
 * Ask a question about a specific issue or commit
 

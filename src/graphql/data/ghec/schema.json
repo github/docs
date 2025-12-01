@@ -17559,7 +17559,7 @@
       "kind": "objects",
       "id": "copilotcodereviewparameters",
       "href": "/graphql/reference/objects#copilotcodereviewparameters",
-      "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
       "fields": [
         {
           "name": "reviewDraftPullRequests",
@@ -55188,6 +55188,56 @@
           ]
         },
         {
+          "name": "suggestedReviewerActors",
+          "description": "<p>Reviewer actor suggestions based on commit history, past review comments, and integrations.</p>",
+          "type": "SuggestedReviewerActorConnection!",
+          "id": "suggestedrevieweractorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#suggestedrevieweractorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "suggestedReviewers",
           "description": "<p>A list of reviewer suggestions based on commit history and past review comments.</p>",
           "type": "[SuggestedReviewer]!",
@@ -56134,7 +56184,7 @@
         },
         {
           "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -75055,6 +75105,105 @@
       ]
     },
     {
+      "name": "SuggestedReviewerActor",
+      "kind": "objects",
+      "id": "suggestedrevieweractor",
+      "href": "/graphql/reference/objects#suggestedrevieweractor",
+      "description": "<p>A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.</p>",
+      "fields": [
+        {
+          "name": "isAuthor",
+          "description": "<p>Is this suggestion based on past commits?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isCommenter",
+          "description": "<p>Is this suggestion based on past review comments?.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "reviewer",
+          "description": "<p>Identifies the actor suggested to review the pull request.</p>",
+          "type": "Actor!",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        }
+      ]
+    },
+    {
+      "name": "SuggestedReviewerActorConnection",
+      "kind": "objects",
+      "id": "suggestedrevieweractorconnection",
+      "href": "/graphql/reference/objects#suggestedrevieweractorconnection",
+      "description": "<p>A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[SuggestedReviewerActorEdge]",
+          "id": "suggestedrevieweractoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#suggestedrevieweractoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[SuggestedReviewerActor]",
+          "id": "suggestedrevieweractor",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#suggestedrevieweractor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "SuggestedReviewerActorEdge",
+      "kind": "objects",
+      "id": "suggestedrevieweractoredge",
+      "href": "/graphql/reference/objects#suggestedrevieweractoredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "SuggestedReviewerActor",
+          "id": "suggestedrevieweractor",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#suggestedrevieweractor"
+        }
+      ]
+    },
+    {
       "name": "Tag",
       "kind": "objects",
       "id": "tag",
@@ -90454,6 +90603,18 @@
           "description": "<p>Represents a comment on an Issue.</p>"
         },
         {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "ISSUE_TYPE_ADDED_EVENT",
           "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
         },
@@ -92637,6 +92798,18 @@
           "description": "<p>Represents a comment on an Issue.</p>"
         },
         {
+          "name": "ISSUE_FIELD_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_field_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_field_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_FIELD_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_field_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "ISSUE_TYPE_ADDED_EVENT",
           "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
         },
@@ -93413,7 +93586,7 @@
         },
         {
           "name": "COPILOT_CODE_REVIEW",
-          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>"
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>"
         },
         {
           "name": "CREATION",
@@ -100474,7 +100647,7 @@
       "kind": "inputObjects",
       "id": "copilotcodereviewparametersinput",
       "href": "/graphql/reference/input-objects#copilotcodereviewparametersinput",
-      "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+      "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
       "inputFields": [
         {
           "name": "reviewDraftPullRequests",
@@ -106190,7 +106363,7 @@
         },
         {
           "name": "automaticCopilotCodeReviewEnabled",
-          "description": "<p>Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.</p>",
+          "description": "<p>Request Copilot code review for new pull requests automatically if the author\nhas access to Copilot code review and their premium requests quota has not\nreached the limit.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -106499,7 +106672,7 @@
         },
         {
           "name": "assigneeIds",
-          "description": "<p>The id of users to remove as assignees.</p>",
+          "description": "<p>The ids of actors to remove as assignees.</p>",
           "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
@@ -110782,7 +110955,7 @@
       "inputFields": [
         {
           "name": "assigneeIds",
-          "description": "<p>An array of Node IDs of users for this issue.</p>",
+          "description": "<p>An array of Node IDs of users or bots for this issue.</p>",
           "type": "[ID!]",
           "id": "id",
           "kind": "scalars",

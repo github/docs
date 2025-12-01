@@ -38,7 +38,7 @@ The {% data variables.product.github %} MCP server in {% data variables.product.
 
 The steps below describe remote configuration through the MCP marketplace in {% data variables.product.prodname_vscode %}'s extension panel. The MCP marketplace is powered by the {% data variables.product.github %} MCP Registry. See [MCP Registry](https://github.com/mcp).
 
-For information on manually configuring the remote or local {% data variables.product.github %} MCP server, see the [{% data variables.product.github %} MCP server documentation](https://github.com/mcp/github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
+For information on manually configuring the remote or local {% data variables.product.github %} MCP server, see the [{% data variables.product.github %} MCP server documentation](https://github.com/mcp/io.github.github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 1. In {% data variables.product.prodname_vscode %}, open the extensions panel by clicking the extensions icon in the sidebar or pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> (Mac).
 1. In the extensions search bar, click the filter icon and select **MCP Server** from the dropdown.
@@ -50,7 +50,7 @@ For information on manually configuring the remote or local {% data variables.pr
 
 ## Tool configuration
 
-The {% data variables.product.github %} MCP server supports installing individual toolsets, either in read-only mode or with full read/write access, via the `--toolsets` flag. For more information, see [Tool Configuration](https://github.com/mcp/github/github-mcp-server#tool-configuration) in the GitHub MCP server documentation.
+The {% data variables.product.github %} MCP server supports installing individual toolsets, either in read-only mode or with full read/write access, via the `--toolsets` flag. For more information, see [Tool Configuration](https://github.com/mcp/io.github.github/github-mcp-server#tool-configuration) in the GitHub MCP server documentation.
 
 {% endvscode %}
 
@@ -74,7 +74,7 @@ The remote {% data variables.product.github %} MCP server uses one-click OAuth a
 > [!NOTE]
 > If you are an {% data variables.product.prodname_emu %}, then PAT is disabled by default, unless enabled by an enterprise administrator. If PAT is disabled, you won't be able to use PAT authentication. If you have OAuth access policy restrictions, you will need the OAuth App for each client (MCP host application) to be enabled (except {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}).
 
-For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server documentation](https://github.com/mcp/github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
+For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server documentation](https://github.com/mcp/io.github.github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 ### Remote MCP server configuration with OAuth
 
@@ -156,7 +156,7 @@ The remote {% data variables.product.github %} MCP server uses one-click OAuth a
 > [!NOTE]
 > If you are an {% data variables.product.prodname_emu %}, then PAT is disabled by default, unless enabled by an enterprise administrator. If PAT is disabled, you won't be able to use PAT authentication. If you have OAuth access policy restrictions, you will need the OAuth App for each client (MCP host application) to be enabled (except {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}).
 
-For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server documentation](https://github.com/mcp/github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
+For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server documentation](https://github.com/mcp/io.github.github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 ### Remote MCP server configuration with OAuth
 
@@ -213,7 +213,7 @@ The remote {% data variables.product.github %} MCP server uses one-click OAuth a
 > [!NOTE]
 > If you are an {% data variables.product.prodname_emu %}, then PAT is disabled by default, unless enabled by an enterprise administrator. If PAT is disabled, you won't be able to use PAT authentication. If you have OAuth access policy restrictions, you will need the OAuth App for each client (MCP host application) to be enabled (except {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}).
 
-For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server documentation](https://github.com/mcp/github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
+For information on setting up the {% data variables.product.github %} MCP server locally, see the [GitHub MCP server documentation](https://github.com/mcp/io.github.github/github-mcp-server?ref_product=copilot&ref_type=engagement&ref_style=text).
 
 ### Remote MCP server configuration with OAuth
 
