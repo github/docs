@@ -183,7 +183,7 @@
     "dereference-json-schema": "^0.2.1",
     "dotenv": "^17.0.1",
     "escape-string-regexp": "5.0.0",
-    "express": "^5.1.0",
+    "express": "^5.2.0",
     "fastest-levenshtein": "1.0.16",
     "file-type": "21.0.0",
     "flat": "^6.0.1",
