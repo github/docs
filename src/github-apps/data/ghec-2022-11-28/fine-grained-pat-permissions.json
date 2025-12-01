@@ -238,69 +238,6 @@
         "access": "write"
       },
       {
-        "category": "billing",
-        "slug": "get-all-budgets-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/budgets",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-a-budget-by-id-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "update-a-budget-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "patch",
-        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "billing",
-        "slug": "delete-a-budget-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "delete",
-        "requestPath": "/organizations/{org}/settings/billing/budgets/{budget_id}",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-premium-request-usage-report-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/premium_request/usage",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-report-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/usage",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-summary-for-an-organization",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/settings/billing/usage/summary",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
         "category": "orgs",
         "slug": "update-an-organization",
         "subcategory": "orgs",
@@ -1049,37 +986,10 @@
       },
       {
         "category": "billing",
-        "slug": "get-github-actions-billing-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/actions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
         "slug": "get-github-advanced-security-active-committers-for-an-organization",
         "subcategory": "billing",
         "verb": "get",
         "requestPath": "/orgs/{org}/settings/billing/advanced-security",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-github-packages-billing-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/packages",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-shared-storage-billing-for-an-organization",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/settings/billing/shared-storage",
         "additional-permissions": false,
         "access": "read"
       },
@@ -2105,42 +2015,6 @@
       },
       {
         "category": "teams",
-        "slug": "list-team-projects",
-        "subcategory": "teams",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "check-team-permissions-for-a-project",
-        "subcategory": "teams",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "add-or-update-team-project-permissions",
-        "subcategory": "teams",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "teams",
-        "slug": "remove-a-project-from-a-team",
-        "subcategory": "teams",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "teams",
         "slug": "list-team-repositories",
         "subcategory": "teams",
         "verb": "get",
@@ -3017,96 +2891,6 @@
         "requestPath": "/orgs/{org}/projectsV2/{project_number}/items/{item_id}",
         "additional-permissions": false,
         "access": "write"
-      },
-      {
-        "category": "teams",
-        "slug": "add-or-update-team-project-permissions",
-        "subcategory": "teams",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "teams",
-        "slug": "remove-a-project-from-a-team",
-        "subcategory": "teams",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "get-a-project-column",
-        "subcategory": "columns",
-        "verb": "get",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "update-an-existing-project-column",
-        "subcategory": "columns",
-        "verb": "patch",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "delete-a-project-column",
-        "subcategory": "columns",
-        "verb": "delete",
-        "requestPath": "/projects/columns/{column_id}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "move-a-project-column",
-        "subcategory": "columns",
-        "verb": "post",
-        "requestPath": "/projects/columns/{column_id}/moves",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "list-project-collaborators",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "add-project-collaborator",
-        "subcategory": "collaborators",
-        "verb": "put",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "remove-user-as-a-collaborator",
-        "subcategory": "collaborators",
-        "verb": "delete",
-        "requestPath": "/projects/{project_id}/collaborators/{username}",
-        "additional-permissions": true,
-        "access": "admin"
-      },
-      {
-        "category": "projects-classic",
-        "slug": "get-project-permission-for-a-user",
-        "subcategory": "collaborators",
-        "verb": "get",
-        "requestPath": "/projects/{project_id}/collaborators/{username}/permission",
-        "additional-permissions": true,
-        "access": "admin"
       }
     ]
   },
@@ -5516,6 +5300,57 @@
       }
     ]
   },
+  "artifact_metadata": {
+    "title": "Artifact metadata",
+    "displayTitle": "Repository permissions for \"Artifact metadata\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "create-an-artifact-deployment-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "set-cluster-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "create-artifact-metadata-storage-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-storage-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
+        "additional-permissions": true,
+        "access": "read"
+      }
+    ]
+  },
   "attestations": {
     "title": "Attestations",
     "displayTitle": "Repository permissions for \"Attestations\"",
@@ -6059,12 +5894,39 @@
       },
       {
         "category": "orgs",
+        "slug": "create-an-artifact-deployment-record",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "set-cluster-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/artifacts/metadata/deployment-record/cluster/{cluster}",
+        "additional-permissions": true,
+        "access": "write"
+      },
+      {
+        "category": "orgs",
         "slug": "create-artifact-metadata-storage-record",
         "subcategory": "artifact-metadata",
         "verb": "post",
         "requestPath": "/orgs/{org}/artifacts/metadata/storage-record",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
+      },
+      {
+        "category": "orgs",
+        "slug": "list-artifact-deployment-records",
+        "subcategory": "artifact-metadata",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/deployment-records",
+        "additional-permissions": true,
+        "access": "read"
       },
       {
         "category": "orgs",
@@ -6072,7 +5934,7 @@
         "subcategory": "artifact-metadata",
         "verb": "get",
         "requestPath": "/orgs/{org}/artifacts/{subject_digest}/metadata/storage-records",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -9608,66 +9470,6 @@
         "requestPath": "/user/interaction-limits",
         "additional-permissions": false,
         "access": "write"
-      }
-    ]
-  },
-  "plan": {
-    "title": "Plan",
-    "displayTitle": "User permissions for \"Plan\"",
-    "permissions": [
-      {
-        "category": "billing",
-        "slug": "get-github-actions-billing-for-a-user",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/actions",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-github-packages-billing-for-a-user",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/packages",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-premium-request-usage-report-for-a-user",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/premium_request/usage",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-shared-storage-billing-for-a-user",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/shared-storage",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-report-for-a-user",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/usage",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "billing",
-        "slug": "get-billing-usage-summary-for-a-user",
-        "subcategory": "enhanced-billing",
-        "verb": "get",
-        "requestPath": "/users/{username}/settings/billing/usage/summary",
-        "additional-permissions": false,
-        "access": "read"
       }
     ]
   },

@@ -61,13 +61,13 @@ These limits are subject to change.
 
 {% data variables.product.github %} Support **cannot** increase storage limits for {% data variables.product.prodname_actions %}.
 
-| {% data variables.product.github %} plan | Storage | Minutes (per month)|
-|------- | ------- | ---------|
-| {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
-| {% data variables.product.prodname_pro %} | 1 GB | 3,000 |
-| {% data variables.product.prodname_free_team %} for organizations | 500 MB | 2,000 |
-| {% data variables.product.prodname_team %} | 2 GB | 3,000 |
-| {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
+{% data reusables.billing.actions-included-quotas %}
+
+{% ifversion fpt or ghec %}
+
+For information about cache storage limits and how to increase them, see [Usage limits and eviction policy](/actions/reference/workflows-and-actions/dependency-caching#usage-limits-and-eviction-policy).
+
+{% endif %}
 
 ### Private IP scaling for vnet injection on larger runners
 

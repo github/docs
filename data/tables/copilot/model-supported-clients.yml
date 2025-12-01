@@ -29,6 +29,14 @@
   xcode: true
   jetbrains: true
 
+- name: Claude Opus 4.5
+  dotcom: true
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
+
 - name: Claude Sonnet 4
   dotcom: true
   vscode: true
@@ -52,6 +60,14 @@
   eclipse: true
   xcode: true
   jetbrains: true
+
+- name: Gemini 3 Pro
+  dotcom: true
+  vscode: true
+  vs: false
+  eclipse: false
+  xcode: false
+  jetbrains: false
 
 - name: GPT-4.1
   dotcom: true

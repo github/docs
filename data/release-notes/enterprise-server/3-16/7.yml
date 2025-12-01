@@ -78,3 +78,7 @@ sections:
       The autolink references feature is missing from the repository settings page.
     - |
       When attempting to open a pull request as a draft in a private or internal repository, users are incorrectly prompted to upgrade their plan.[Updated: 2025-08-11]
+    - |
+      Upgrading to this version from GHES 3.14.19 and higher or 3.15.14 and higher will cause the upgrade to fail due to this version containing an older version of MySQL. To avoid this issue please upgrade to GHES 3.16.10 or higher.
+
+      [Updated: 2025-11-24]

@@ -20,7 +20,7 @@ shortTitle: Quickstart
 topics:
   - Copilot
 contentType: get-started
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -72,7 +72,6 @@ There are many more things you can do with {% data variables.copilot.copilot_cha
 
 * Ask a general question about software development
 * Ask exploratory questions about a repository
-* Ask a question about a knowledge base
 * Find out about the changes in a pull request
 * Ask a question about a specific issue or commit
 
@@ -195,7 +194,7 @@ The following example uses JavaScript, however other languages will work similar
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
 * **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
-* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [About {% data variables.copilot.next_edit_suggestions %}](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot#about-next-edit-suggestions).
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions#navigating-and-accepting-next-edit-suggestions-1).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvscode %}
@@ -368,6 +367,7 @@ The following example uses Swift, however other languages will work similarly.
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=xcode#navigating-and-accepting-next-edit-suggestions-2).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endxcode %}
@@ -424,6 +424,7 @@ The following example uses Java, however other languages will work similarly.
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [Navigating and accepting {% data variables.copilot.next_edit_suggestions %}](/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions?tool=eclipse#navigating-and-accepting-next-edit-suggestions-3).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endeclipse %}
