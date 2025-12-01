@@ -4493,6 +4493,19 @@
   hasValidityCheck: false
   base64Supported: false
   isduplicate: false
+- provider: Paddle
+  supportedSecret: Paddle Sandbox API Key
+  secretType: paddle_sandbox_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.20'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  base64Supported: false
+  isduplicate: false
 - provider: PagerDuty
   supportedSecret: PagerDuty OAuth Secret
   secretType: pagerduty_oauth_secret
