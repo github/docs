@@ -41,7 +41,7 @@ The agent firewall has important limitations that affect its security coverage.
 
 These limitations mean that the firewall provides a layer of protection for common scenarios, but should not be considered a comprehensive security solution.
 
-## Managing the recommended firewall allowlist
+## Understanding the recommended firewall allowlist
 
 The recommended allowlist, enabled by default, allows access to:
 
@@ -51,7 +51,11 @@ The recommended allowlist, enabled by default, allows access to:
 * Common certificate authorities (to allow SSL certificates to be validated).
 * Hosts used to download web browsers for the Playwright MCP server.
 
-You can choose to turn off the recommended allowlist.
+For the complete list of hosts included in the recommended allowlist, see [AUTOTITLE](/copilot/reference/copilot-allowlist-reference#copilot-coding-agent-recommended-allowlist).
+
+## Disabling the recommended allowlist
+
+You can choose to turn off the recommended allowlist. Disabling the recommended allowlist is likely to increase the risk of unauthorized access to external resources.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
