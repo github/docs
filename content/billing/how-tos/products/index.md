@@ -26,6 +26,7 @@ children:
   - /view-productlicense-use
   - /download-license-use
   - /buy-advanced-security
+  - /use-cost-centers
   - /manage-ghas-licenses
   - /view-ghas-committers
 contentType: how-tos
