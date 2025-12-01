@@ -186,6 +186,8 @@ When using self-hosted runners, especially with the firewall disabled, ensure yo
 * `uploads.github.com`
 * `user-images.githubusercontent.com`
 
+For a comprehensive list of other hosts that must also be allowlisted for {% data variables.product.prodname_actions %} self-hosted runners, see [AUTOTITLE](/actions/reference/runners/self-hosted-runners#accessible-domains-by-function).
+
 ## Enabling Git Large File Storage (LFS)
 
 If you use Git Large File Storage (LFS) to store large files in your repository, you will need to customize {% data variables.product.prodname_copilot_short %}'s environment to install Git LFS and fetch LFS objects.
