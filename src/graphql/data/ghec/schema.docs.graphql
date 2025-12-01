@@ -361,9 +361,13 @@ input AddAssigneesToAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
-  The id of users to add as assignees.
+  The ids of actors (users or bots) to add as assignees.
   """
-  assigneeIds: [ID!]! @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   A unique identifier for the client performing the mutation.
@@ -7331,7 +7335,9 @@ type ConvertedToDiscussionEvent implements Node {
 }
 
 """
-Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+Request Copilot code review for new pull requests automatically if the author
+has access to Copilot code review and their premium requests quota has not
+reached the limit.
 """
 type CopilotCodeReviewParameters {
   """
@@ -7346,7 +7352,9 @@ type CopilotCodeReviewParameters {
 }
 
 """
-Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+Request Copilot code review for new pull requests automatically if the author
+has access to Copilot code review and their premium requests quota has not
+reached the limit.
 """
 input CopilotCodeReviewParametersInput {
   """
@@ -20643,6 +20651,21 @@ enum IssueTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_field_added' event on a given issue.
+  """
+  ISSUE_FIELD_ADDED_EVENT
+
+  """
+  Represents a 'issue_field_changed' event on a given issue.
+  """
+  ISSUE_FIELD_CHANGED_EVENT
+
+  """
+  Represents a 'issue_field_removed' event on a given issue.
+  """
+  ISSUE_FIELD_REMOVED_EVENT
 
   """
   Represents a 'issue_type_added' event on a given issue.
@@ -41288,6 +41311,31 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   ): AssigneeConnection!
 
   """
+  Reviewer actor suggestions based on commit history, past review comments, and integrations.
+  """
+  suggestedReviewerActors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): SuggestedReviewerActorConnection!
+
+  """
   A list of reviewer suggestions based on commit history and past review comments.
   """
   suggestedReviewers: [SuggestedReviewer]!
@@ -41901,7 +41949,9 @@ type PullRequestParameters {
   allowedMergeMethods: [PullRequestAllowedMergeMethods!]
 
   """
-  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author
+  has access to Copilot code review and their premium requests quota has not
+  reached the limit.
   """
   automaticCopilotCodeReviewEnabled: Boolean!
 
@@ -41949,7 +41999,9 @@ input PullRequestParametersInput {
   allowedMergeMethods: [PullRequestAllowedMergeMethods!]
 
   """
-  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author
+  has access to Copilot code review and their premium requests quota has not
+  reached the limit.
   """
   automaticCopilotCodeReviewEnabled: Boolean
 
@@ -43514,6 +43566,21 @@ enum PullRequestTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_field_added' event on a given issue.
+  """
+  ISSUE_FIELD_ADDED_EVENT
+
+  """
+  Represents a 'issue_field_changed' event on a given issue.
+  """
+  ISSUE_FIELD_CHANGED_EVENT
+
+  """
+  Represents a 'issue_field_removed' event on a given issue.
+  """
+  ISSUE_FIELD_REMOVED_EVENT
 
   """
   Represents a 'issue_type_added' event on a given issue.
@@ -45715,9 +45782,13 @@ input RemoveAssigneesFromAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
-  The id of users to remove as assignees.
+  The ids of actors to remove as assignees.
   """
-  assigneeIds: [ID!]! @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   A unique identifier for the client performing the mutation.
@@ -53257,7 +53328,9 @@ enum RepositoryRuleType {
   COMMIT_MESSAGE_PATTERN
 
   """
-  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author
+  has access to Copilot code review and their premium requests quota has not
+  reached the limit.
   """
   COPILOT_CODE_REVIEW
 
@@ -60387,6 +60460,66 @@ type SuggestedReviewer {
 }
 
 """
+A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
+"""
+type SuggestedReviewerActor {
+  """
+  Is this suggestion based on past commits?
+  """
+  isAuthor: Boolean!
+
+  """
+  Is this suggestion based on past review comments?
+  """
+  isCommenter: Boolean!
+
+  """
+  Identifies the actor suggested to review the pull request.
+  """
+  reviewer: Actor!
+}
+
+"""
+A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
+"""
+type SuggestedReviewerActorConnection {
+  """
+  A list of edges.
+  """
+  edges: [SuggestedReviewerActorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SuggestedReviewerActor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SuggestedReviewerActorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SuggestedReviewerActor
+}
+
+"""
 Represents a Git tag.
 """
 type Tag implements GitObject & Node {
@@ -65622,9 +65755,13 @@ Autogenerated input type of UpdateIssue
 """
 input UpdateIssueInput {
   """
-  An array of Node IDs of users for this issue.
+  An array of Node IDs of users or bots for this issue.
   """
-  assigneeIds: [ID!] @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   The body for the issue description.

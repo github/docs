@@ -88,23 +88,6 @@ To see all available chat variables, type `#` in the chat prompt box. See also [
 
 {% data reusables.copilot.using-skills %}
 
-{% ifversion ghec %}
-
-## Asking a question about a knowledge base
-
-> [!NOTE] This feature is only available if you have a {% data variables.copilot.copilot_enterprise_short %} subscription.
-
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases).
-
-You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
-
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %} or type / for commands** text box, type `@github #kb`, then press **Enter** to open the knowledge base selector.
-1. Pick one of your available knowledge bases using the arrow keys, then press **Enter**.
-1. In the **Ask {% data variables.product.prodname_copilot_short %} or type / for commands** text box, continue your message with your question, and then press **Enter**.
-1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
-
-{% endif %}
-
 ## Using Model Context Protocol (MCP) servers
 
 {% data reusables.copilot.mcp.mcp-chat-in-ide %}
@@ -193,8 +176,9 @@ If you use custom prompt files or {% data variables.copilot.custom_agents_short 
 
 {% data reusables.copilot.using-subagents %}
 * **Calling the #runSubagent tool.**.
+
    ```text
-   Evaluate the #file:databaseSchema using #runSubagent and generate an optimized data-migration plan. 
+   Evaluate the #file:databaseSchema using #runSubagent and generate an optimized data-migration plan.
    ```
 
 When the {% data variables.copilot.subagent_short %} completes its task, its results appear back in the main chat session, ready for follow-up questions or next steps.
@@ -310,24 +294,6 @@ See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-she
 When you add `@github` to a question, {% data variables.product.prodname_copilot_short %} dynamically selects an appropriate skill, based on the content of your question. You can also explicitly ask {% data variables.copilot.copilot_chat_short %} to use a particular skill. For example, `@github Search the web to find the latest GPT4 model from OpenAI.`
 
 You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `@github What skills are available?`
-
-{% ifversion ghec %}
-
-## Asking a question about a knowledge base (preview)
-
-> [!NOTE]
-> * This feature is only available if you have a {% data variables.copilot.copilot_enterprise_short %} subscription.
-> * Support for knowledge bases is currently in preview, and only available in [{% data variables.product.prodname_vs %} 2022 Preview 3](https://visualstudio.microsoft.com/vs/preview/) onwards.
-
-Organization owners can create knowledge bases, grouping together Markdown documentation across one or more repositories. For more information, see [AUTOTITLE](/copilot/github-copilot-enterprise/managing-copilot-knowledge-bases).
-
-You can tell {% data variables.product.prodname_copilot_short %} to answer a question within the context of a knowledge base.
-
-1. At the bottom of the {% data variables.copilot.copilot_chat_short %} window, in the **Ask {% data variables.product.prodname_copilot_short %}: Type / for commands and # to reference** text box, type `@github`, press <kbd>#</kbd>, then select a knowledge base from the list.
-1. In the **Type / for commands and # to reference** text box, continue your message with your question, and then press **Enter**.
-1. {% data variables.copilot.copilot_chat_short %} will process your question and provide an answer, with citations from your knowledge base, in the chat window.
-
-{% endif %}
 
 ## Using Model Context Protocol (MCP) servers
 
@@ -639,7 +605,7 @@ To use plan mode:
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
-### Using {% data variables.copilot.subagents_short %} 
+### Using {% data variables.copilot.subagents_short %}
 
 {% data reusables.copilot.subagent-intro %}
 

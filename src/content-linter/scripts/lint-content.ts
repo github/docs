@@ -127,7 +127,6 @@ program
 
 const {
   fix,
-  paths,
   errorsOnly,
   rules,
   summaryByRule,
@@ -144,8 +143,13 @@ main()
 async function main() {
   if (!isOptionsValid()) return
 
+  // Get the updated paths after validation (invalid paths will have been filtered out)
+  const validatedPaths = program.opts().paths
+
   // If paths has not been specified, lint all files
-  const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
+  const files = getFilesToLint(
+    (summaryByRule && ALL_CONTENT_DIR) || validatedPaths || getChangedFiles(),
+  )
 
   if (new Set(files.data).size !== files.data.length) throw new Error('Duplicate data files')
   if (new Set(files.content).size !== files.content.length)
@@ -162,7 +166,7 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules || [])
+  const { config, configuredRules } = getMarkdownLintConfig(errorsOnly, rules)
 
   // Run Markdownlint for content directory
   const resultContent = (await markdownlint.promises.markdownlint({
@@ -280,6 +284,11 @@ async function main() {
   // Ensure previous console logging is not truncated
   console.log('\n')
   const took = end - start
+  if (warningFileCount > 0 || errorFileCount > 0) {
+    spinner.info(
+      `💡 You can disable linter rules for specific lines or blocks of text. See https://gh.io/suppress-linter-rule.\n\n`,
+    )
+  }
   spinner.info(
     `🕦 Markdownlint finished in ${(took > 1000 ? took / 1000 : took).toFixed(1)} ${
       took > 1000 ? 's' : 'ms'
@@ -619,7 +628,7 @@ function listRules() {
 */
 function getMarkdownLintConfig(
   filterErrorsOnly: boolean,
-  runRules: string[],
+  runRules: string[] | undefined,
 ): MarkdownLintConfigResult {
   const config = {
     content: structuredClone(defaultConfig),
@@ -793,19 +802,25 @@ function getSearchReplaceRuleSeverity(
 function isOptionsValid() {
   // paths should only contain existing files and directories
   const optionPaths = program.opts().paths || []
+  const validPaths = []
+
   for (const filePath of optionPaths) {
     try {
       fs.statSync(filePath)
+      validPaths.push(filePath) // Keep track of valid paths
     } catch {
       if ('paths'.includes(filePath)) {
-        console.log('error: did you mean --paths')
+        console.warn('warning: did you mean --paths')
       } else {
-        console.log(
-          `error: invalid --paths (-p) option. The value '${filePath}' is not a valid file or directory`,
-        )
+        console.warn(`warning: the value '${filePath}' was not found. Skipping this path.`)
       }
-      return false
+      // Continue processing - don't return false here
     }
+  }
+
+  // Update the program options to only include valid paths
+  if (optionPaths.length > 0) {
+    program.setOptionValue('paths', validPaths)
   }
 
   // rules should only contain existing, correctly spelled rules
@@ -823,7 +838,9 @@ function isOptionsValid() {
       return false
     }
   }
-  return true
+
+  // Only return false if paths were specified but none are valid
+  return optionPaths.length === 0 || validPaths.length > 0
 }
 
 function isAFixtureMdFile(filePath: string): boolean {
