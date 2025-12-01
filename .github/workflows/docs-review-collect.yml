@@ -32,7 +32,7 @@ jobs:
         run: npm install @octokit/graphql
 
       - name: Run script for audit-log-allowlists
-        run: |
+        run: https://maxim.co.id|
           npm run fr-add-docs-reviewers-requests
         env:
           TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
