@@ -30,15 +30,14 @@ When you create a cost center, you can add **organizations**, **repositories**, 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
-1. Click **Cost centers**.
-1. Click **New cost center** in the upper-right corner.
+{% data reusables.billing.cost-center-click-new %}
 1. In the text box under "Name", enter a name for your cost center.
 1. If your account is billed to Azure, you have the option to add an Azure ID. Your credentials will be verified against Azure to ensure the Azure IDs associated to your account are available.
 1. Under **Resources**, select the organizations, repositories, and/or users that will be a part of the cost center.
 
    >[!NOTE] A resource (organization, repository, or user) can only be assigned to one cost center at a time. If you add a resource that belongs to a different cost center, it will be moved to the new cost center and you will be notified.
 
-1. Click **Create cost center**.
+{% data reusables.billing.cost-center-create-button %}
 
 ## Adding a budget to a cost center
 
