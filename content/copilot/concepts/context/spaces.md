@@ -56,6 +56,8 @@ Publicly shared spaces are view-only by default.
 
 Viewers can only see sources that they have access to.
 
+Eligibility to create or use {% data variables.copilot.copilot_spaces_short %} is user-based and depends on the organization that grants the user a {% data variables.product.prodname_copilot_short %} seat. Currently, the system does not block the creation of a space under an organization that has not configured {% data variables.copilot.copilot_spaces_short %}, or has {% data variables.copilot.copilot_spaces_short %} disabled. This means users can create spaces in such organizations if their {% data variables.product.prodname_copilot_short %} seat comes from another organization where {% data variables.copilot.copilot_spaces_short %} are enabled.
+
 ## Where can I use {% data variables.copilot.copilot_spaces_short %}?
 
 You can use {% data variables.copilot.copilot_spaces %} in {% data variables.copilot.copilot_chat_dotcom_short %}. You can also leverage {% data variables.copilot.copilot_spaces %} in your IDE, using the {% data variables.product.github %} MCP server in your IDE to access context from your spaces.
