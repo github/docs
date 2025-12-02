@@ -46,7 +46,7 @@ sections:
       In rare cases, inconsistent data could lead to a panic in the code scanning service, causing it to restart and become unavailable for a few seconds. This could cause HTTP 500 errors when interacting with the code scanning API or in parts of the UI.
   changes:
     - |
-      Elasticsearch deprecation warnings, which are logged to index files in new versions of Elasticsearch, have been disabled. These warnings provided no value to administrators, and in some cases could block upgrades of instances in high-availability or cluster configurations.
+      <!-- markdownlint-disable-line GHD046 --> Elasticsearch deprecation warnings, which are logged to index files in new versions of Elasticsearch, have been disabled. These warnings provided no value to administrators, and in some cases could block upgrades of instances in high-availability or cluster configurations.
     - |
       Logging of configuration runs is improved with streamlined logging for different configuration phases. Phase-specific logs are written to both the main log file (`ghe-config.log`) and the console for better visibility.
   known_issues:
