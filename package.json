@@ -210,7 +210,7 @@
     "lowlight": "^3.3.0",
     "markdownlint-rule-helpers": "^0.25.0",
     "mdast-util-from-markdown": "^2.0.2",
-    "mdast-util-to-hast": "^13.2.0",
+    "mdast-util-to-hast": "^13.2.1",
     "mdast-util-to-markdown": "2.1.2",
     "mdast-util-to-string": "^4.0.0",
     "next": "^16.0.1",
