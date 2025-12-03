@@ -376,7 +376,7 @@ You can create your own custom instructions file from scratch. See [Writing your
 
    - For each of bootstrap, build, test, run, lint, and any other scripted step, document the sequence of steps to take to run it successfully as well as the versions of any runtime or build tools used.
    - Each command should be validated by running it to ensure that it works correctly as well as any preconditions and postconditions.
-   - Try cleaning the repo and environment and running commands in different orders and document errors and and misbehavior observed as well as any steps used to mitigate the problem.
+   - Try cleaning the repo and environment and running commands in different orders and document errors and misbehavior observed as well as any steps used to mitigate the problem.
    - Run the tests and document the order of steps required to run the tests.
    - Make a change to the codebase. Document any unexpected build issues as well as the workarounds.
    - Document environment setup steps that seem optional but that you have validated are actually required.
