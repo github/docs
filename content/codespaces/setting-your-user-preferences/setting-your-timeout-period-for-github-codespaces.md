@@ -15,7 +15,7 @@ type: how_to
 
 ## About the idle timeout
 
-A codespace will stop running after a period of inactivity. By default this period is 30 minutes, but you can specify a longer or shorter default timeout period in your personal settings on {% data variables.product.prodname_dotcom %}. The updated setting will apply to any new codespaces you create, or to existing codespaces the next time you start them. You can also specify a timeout when you use {% data variables.product.prodname_cli %} to create a codespace.
+A codespace will stop running after a period of inactivity. By default this period is 30 minutes, but you can specify a longer or shorter default timeout period in your personal settings on {% data variables.product.prodname_dotcom %}. The updated setting will apply to any new codespaces you create. You can also specify a timeout when you use {% data variables.product.prodname_cli %} to create a codespace.
 
 > [!WARNING]
 > Codespaces compute usage is billed for the duration for which a codespace is active. If you're not using a codespace but it remains running, and hasn't yet timed out, you are billed for the total time that the codespace was active, irrespective of whether you were using it. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
