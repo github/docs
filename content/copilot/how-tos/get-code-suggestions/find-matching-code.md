@@ -53,7 +53,7 @@ For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/config
 
 {% jetbrains %}
 
-## View code references for code completion
+## View code references for inline suggestions
 
 You can view code references in the log file for your JetBrains IDE.
 
@@ -90,7 +90,7 @@ The log entry includes the following details:
 
 {% vscode %}
 
-## View code references for code completion
+## View code references for inline suggestions
 
 You can find code references in one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
 
@@ -98,14 +98,14 @@ You can find code references in one of the {% data variables.product.prodname_co
 1. In the dropdown menu at the right of the **Output** window, select **{% data variables.product.prodname_copilot %} Log (Code References)**.
 1. Leave the **{% data variables.product.prodname_copilot %} Log (Code References)** view displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
 
-   When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
+   When you accept an inline suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
 
    The log entry includes the following details:
 
    * The date and time you accepted the suggestion.
    * The name of the file in which the suggestion was added.
    * "Similar code at" followed by the location in the file where the suggestion was added.
-   * An extract of the code that was added by code completion.
+   * An extract of the code that was added by the inline suggestion.
    * The license type for the matching code, if found, otherwise `unknown`.
    * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the similar code was found.
 
@@ -125,7 +125,7 @@ You can find code references in one of the {% data variables.product.prodname_co
 
 {% visualstudio %}
 
-## View code references for code completion
+## View code references for inline suggestions
 
 You can find code references in the {% data variables.product.prodname_copilot %} log in {% data variables.product.prodname_vs %}.
 
@@ -134,7 +134,7 @@ You can find code references in the {% data variables.product.prodname_copilot %
 1. In Output view, click the box to the right of "Show output from" and select **{% data variables.product.prodname_copilot %}**.
 1. Leave the log displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
 
-   When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
+   When you accept an inline suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
 
    The log entry includes the following details:
 
@@ -227,7 +227,7 @@ To see details of the matching code:
 
    A list of {% data variables.product.github %} repositories containing matching code is displayed in a dropdown, together with licensing information, if found.
 
-   ![Screenshot of a code completion suggestion in {% data variables.copilot.copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
+   ![Screenshot of an inline suggestion in {% data variables.copilot.copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
 
 1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
 

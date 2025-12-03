@@ -169,7 +169,9 @@ async function getMtime(filePath: string): Promise<number> {
 function assertUniqueChildren(page: any): void {
   if (page.children.length !== new Set(page.children).size) {
     const count: Record<string, number> = {}
-    page.children.forEach((entry: string) => (count[entry] = 1 + (count[entry] || 0)))
+    for (const entry of page.children) {
+      count[entry] = 1 + (count[entry] || 0)
+    }
     let msg = `${page.relativePath} has duplicates in the 'children' key.`
     for (const [entry, times] of Object.entries(count)) {
       if (times > 1) msg += ` '${entry}' is repeated ${times} times. `

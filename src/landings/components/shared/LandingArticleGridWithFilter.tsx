@@ -223,7 +223,7 @@ export const ArticleGrid = ({ tocItems, includedCategories, landingType }: Artic
               placeholder={t('article_grid.search_articles')}
               ref={inputRef}
               autoComplete="false"
-              onChange={(e) => {
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const query = e.target.value || ''
                 handleSearch(query)
               }}
@@ -235,7 +235,11 @@ export const ArticleGrid = ({ tocItems, includedCategories, landingType }: Artic
       {/* Results Grid */}
       <div className={styles.articleGrid} data-testid="article-grid">
         {paginatedResults.map((article, index) => (
-          <ArticleCard key={startIndex + index} article={article} />
+          <ArticleCard
+            key={startIndex + index}
+            article={article}
+            includedCategories={includedCategories}
+          />
         ))}
         {filteredResults.length === 0 && (
           <div className={styles.noArticlesContainer} data-testid="no-articles-message">
@@ -269,9 +273,18 @@ export const ArticleGrid = ({ tocItems, includedCategories, landingType }: Artic
 
 type ArticleCardProps = {
   article: ChildTocItem
+  includedCategories?: string[]
 }
 
-const ArticleCard = ({ article }: ArticleCardProps) => {
+const ArticleCard = ({ article, includedCategories }: ArticleCardProps) => {
+  // Filter categories to only show those in includedCategories (if provided and not empty)
+  const displayCategories =
+    includedCategories && includedCategories.length > 0 && article.category
+      ? article.category.filter((cat) =>
+          includedCategories.some((included) => included.toLowerCase() === cat.toLowerCase()),
+        )
+      : article.category
+
   return (
     <Link
       href={article.fullPath}
@@ -285,8 +298,8 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       data-testid="article-card"
     >
       <div className={styles.tagsContainer}>
-        {article.category &&
-          article.category.map((cat) => <Token key={cat} text={cat} className="mr-1 mb-2" />)}
+        {displayCategories &&
+          displayCategories.map((cat) => <Token key={cat} text={cat} className="mr-1 mb-2" />)}
       </div>
 
       <h3 className={styles.cardTitle}>

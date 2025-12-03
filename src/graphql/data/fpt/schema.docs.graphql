@@ -361,9 +361,13 @@ input AddAssigneesToAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
-  The id of users to add as assignees.
+  The ids of actors (users or bots) to add as assignees.
   """
-  assigneeIds: [ID!]! @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   A unique identifier for the client performing the mutation.
@@ -1414,6 +1418,26 @@ type AddedToProjectV2Event implements Node & ProjectV2Event {
   Did this event result from workflow automation?
   """
   wasAutomated: Boolean!
+}
+
+"""
+Copilot Agentic fields in context of the current viewer.
+"""
+interface Agentic {
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
 }
 
 """
@@ -7311,7 +7335,9 @@ type ConvertedToDiscussionEvent implements Node {
 }
 
 """
-Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+Request Copilot code review for new pull requests automatically if the author
+has access to Copilot code review and their premium requests quota has not
+reached the limit.
 """
 type CopilotCodeReviewParameters {
   """
@@ -7326,7 +7352,9 @@ type CopilotCodeReviewParameters {
 }
 
 """
-Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+Request Copilot code review for new pull requests automatically if the author
+has access to Copilot code review and their premium requests quota has not
+reached the limit.
 """
 input CopilotCodeReviewParametersInput {
   """
@@ -8161,6 +8189,11 @@ input CreateIssueInput {
   An array of Node IDs for projects associated with this issue.
   """
   projectIds: [ID!] @possibleTypes(concreteTypes: ["Project"])
+
+  """
+  An array of Node IDs for Projects V2 associated with this issue.
+  """
+  projectV2Ids: [ID!] @possibleTypes(concreteTypes: ["ProjectV2"])
 
   """
   The Node ID of the repository.
@@ -20618,6 +20651,21 @@ enum IssueTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_field_added' event on a given issue.
+  """
+  ISSUE_FIELD_ADDED_EVENT
+
+  """
+  Represents a 'issue_field_changed' event on a given issue.
+  """
+  ISSUE_FIELD_CHANGED_EVENT
+
+  """
+  Represents a 'issue_field_removed' event on a given issue.
+  """
+  ISSUE_FIELD_REMOVED_EVENT
 
   """
   Represents a 'issue_type_added' event on a given issue.
@@ -41263,6 +41311,31 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   ): AssigneeConnection!
 
   """
+  Reviewer actor suggestions based on commit history, past review comments, and integrations.
+  """
+  suggestedReviewerActors(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): SuggestedReviewerActorConnection!
+
+  """
   A list of reviewer suggestions based on commit history and past review comments.
   """
   suggestedReviewers: [SuggestedReviewer]!
@@ -41876,7 +41949,9 @@ type PullRequestParameters {
   allowedMergeMethods: [PullRequestAllowedMergeMethods!]
 
   """
-  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author
+  has access to Copilot code review and their premium requests quota has not
+  reached the limit.
   """
   automaticCopilotCodeReviewEnabled: Boolean!
 
@@ -41904,6 +41979,13 @@ type PullRequestParameters {
   All conversations on code must be resolved before a pull request can be merged.
   """
   requiredReviewThreadResolution: Boolean!
+
+  """
+  This field is in beta and subject to change. A collection of reviewers and
+  associated file patterns. Each reviewer has a list of file patterns which
+  determine the files that reviewer is required to review.
+  """
+  requiredReviewers: [RequiredReviewerConfiguration!]
 }
 
 """
@@ -41917,7 +41999,9 @@ input PullRequestParametersInput {
   allowedMergeMethods: [PullRequestAllowedMergeMethods!]
 
   """
-  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author
+  has access to Copilot code review and their premium requests quota has not
+  reached the limit.
   """
   automaticCopilotCodeReviewEnabled: Boolean
 
@@ -41945,6 +42029,13 @@ input PullRequestParametersInput {
   All conversations on code must be resolved before a pull request can be merged.
   """
   requiredReviewThreadResolution: Boolean!
+
+  """
+  This argument is in beta and subject to change. A collection of reviewers and
+  associated file patterns. Each reviewer has a list of file patterns which
+  determine the files that reviewer is required to review.
+  """
+  requiredReviewers: [RequiredReviewerConfigurationInput!]
 }
 
 """
@@ -43475,6 +43566,21 @@ enum PullRequestTimelineItemsItemType {
   Represents a comment on an Issue.
   """
   ISSUE_COMMENT
+
+  """
+  Represents a 'issue_field_added' event on a given issue.
+  """
+  ISSUE_FIELD_ADDED_EVENT
+
+  """
+  Represents a 'issue_field_changed' event on a given issue.
+  """
+  ISSUE_FIELD_CHANGED_EVENT
+
+  """
+  Represents a 'issue_field_removed' event on a given issue.
+  """
+  ISSUE_FIELD_REMOVED_EVENT
 
   """
   Represents a 'issue_type_added' event on a given issue.
@@ -45676,9 +45782,13 @@ input RemoveAssigneesFromAssignableInput {
   assignableId: ID! @possibleTypes(concreteTypes: ["Issue", "PullRequest"], abstractType: "Assignable")
 
   """
-  The id of users to remove as assignees.
+  The ids of actors to remove as assignees.
   """
-  assigneeIds: [ID!]! @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]!
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   A unique identifier for the client performing the mutation.
@@ -53218,7 +53328,9 @@ enum RepositoryRuleType {
   COMMIT_MESSAGE_PATTERN
 
   """
-  Request Copilot code review for new pull requests automatically if the author has access to Copilot code review.
+  Request Copilot code review for new pull requests automatically if the author
+  has access to Copilot code review and their premium requests quota has not
+  reached the limit.
   """
   COPILOT_CODE_REVIEW
 
@@ -54509,6 +54621,50 @@ input RequiredDeploymentsParametersInput {
   The environments that must be successfully deployed to before branches can be merged.
   """
   requiredDeploymentEnvironments: [String!]!
+}
+
+"""
+A reviewing team, and file patterns describing which files they must approve changes to.
+"""
+type RequiredReviewerConfiguration {
+  """
+  Array of file patterns. Pull requests which change matching files must be
+  approved by the specified team. File patterns use fnmatch syntax.
+  """
+  filePatterns: [String!]!
+
+  """
+  Minimum number of approvals required from the specified team. If set to zero,
+  the team will be added to the pull request but approval is optional.
+  """
+  minimumApprovals: Int!
+
+  """
+  Node ID of the team which must review changes to matching files.
+  """
+  reviewerId: ID!
+}
+
+"""
+A reviewing team, and file patterns describing which files they must approve changes to.
+"""
+input RequiredReviewerConfigurationInput {
+  """
+  Array of file patterns. Pull requests which change matching files must be
+  approved by the specified team. File patterns use fnmatch syntax.
+  """
+  filePatterns: [String!]!
+
+  """
+  Minimum number of approvals required from the specified team. If set to zero,
+  the team will be added to the pull request but approval is optional.
+  """
+  minimumApprovals: Int!
+
+  """
+  Node ID of the team which must review changes to matching files.
+  """
+  reviewerId: ID!
 }
 
 """
@@ -60304,6 +60460,66 @@ type SuggestedReviewer {
 }
 
 """
+A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
+"""
+type SuggestedReviewerActor {
+  """
+  Is this suggestion based on past commits?
+  """
+  isAuthor: Boolean!
+
+  """
+  Is this suggestion based on past review comments?
+  """
+  isCommenter: Boolean!
+
+  """
+  Identifies the actor suggested to review the pull request.
+  """
+  reviewer: Actor!
+}
+
+"""
+A suggestion to review a pull request based on an actor's commit history, review comments, and integrations.
+"""
+type SuggestedReviewerActorConnection {
+  """
+  A list of edges.
+  """
+  edges: [SuggestedReviewerActorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [SuggestedReviewerActor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type SuggestedReviewerActorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: SuggestedReviewerActor
+}
+
+"""
 Represents a Git tag.
 """
 type Tag implements GitObject & Node {
@@ -65539,9 +65755,13 @@ Autogenerated input type of UpdateIssue
 """
 input UpdateIssueInput {
   """
-  An array of Node IDs of users for this issue.
+  An array of Node IDs of users or bots for this issue.
   """
-  assigneeIds: [ID!] @possibleTypes(concreteTypes: ["User"])
+  assigneeIds: [ID!]
+    @possibleTypes(
+      concreteTypes: ["Bot", "EnterpriseUserAccount", "Mannequin", "Organization", "User"]
+      abstractType: "Actor"
+    )
 
   """
   The body for the issue description.
@@ -67281,7 +67501,7 @@ type UpdateUserListsForItemPayload {
 """
 A user is an individual's account on GitHub that owns repositories and can make new content.
 """
-type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
+type User implements Actor & Agentic & Node & PackageOwner & ProfileOwner & ProjectOwner & ProjectV2Owner & ProjectV2Recent & RepositoryDiscussionAuthor & RepositoryDiscussionCommentAuthor & RepositoryOwner & Sponsorable & UniformResourceLocatable {
   """
   Determine if this repository owner has any items that can be pinned to their profile.
   """
@@ -68887,6 +69107,21 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   Whether or not the viewer is able to sponsor this user/organization.
   """
   viewerCanSponsor: Boolean!
+
+  """
+  Channel value for subscribing to live updates for session creations.
+  """
+  viewerCopilotAgentCreatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session log updates.
+  """
+  viewerCopilotAgentLogUpdatesChannel: String
+
+  """
+  Channel value for subscribing to live updates for session updates.
+  """
+  viewerCopilotAgentUpdatesChannel: String
 
   """
   Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.

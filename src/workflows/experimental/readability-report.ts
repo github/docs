@@ -94,7 +94,9 @@ Note: Requires a local server running on localhost:4000 (npm start)
   }
 
   console.log(`Analyzing readability for ${changedFiles.length} changed files:`)
-  changedFiles.forEach((file) => console.log(`  - ${file}`))
+  for (const file of changedFiles) {
+    console.log(`  - ${file}`)
+  }
 
   // Wait for server to be ready
   await waitForServer()

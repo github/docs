@@ -378,10 +378,10 @@ function getDisplayPermissions(
 ): Array<Record<string, string>> {
   const displayPermissions = permissionSets.map((permissionSet) => {
     const displayPermissionSet: Record<string, string> = {}
-    Object.entries(permissionSet).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(permissionSet)) {
       const { displayTitle } = getDisplayTitle(key, progActorResources, true)
       displayPermissionSet[displayTitle] = value
-    })
+    }
 
     return displayPermissionSet
   })
@@ -579,7 +579,9 @@ async function getProgActorResourceContent({
   if (gitHubSourceDirectory) {
     files = await getProgActorContentFromDisk(gitHubSourceDirectory)
   } else {
-    files = await getDirectoryContents(owner!, repo!, branch!, resourcePath!)
+    files = (await getDirectoryContents(owner!, repo!, branch!, resourcePath!)).map(
+      (file) => file.content,
+    )
   }
 
   // We need to format the file content into a single object. Each file
@@ -592,9 +594,9 @@ async function getProgActorResourceContent({
     if (Object.keys(fileContent).length !== 1) {
       throw new Error(`Error: The file ${JSON.stringify(fileContent)} must only have one key.`)
     }
-    Object.entries(fileContent).forEach(([key, value]) => {
+    for (const [key, value] of Object.entries(fileContent)) {
       progActorResources[key] = value
-    })
+    }
   }
   return progActorResources
 }

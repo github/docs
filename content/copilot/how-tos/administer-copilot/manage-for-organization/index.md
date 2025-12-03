@@ -18,7 +18,7 @@ children:
   - /manage-policies
   - /add-copilot-coding-agent
   - /prepare-for-custom-agents
-  - /set-extension-permissions
   - /review-activity
+  - /use-your-own-api-keys
 contentType: how-tos
 ---

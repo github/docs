@@ -80,7 +80,7 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
   const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
   const operationsByCategory: OperationsByCategory = {}
-  categories.forEach((category) => {
+  for (const category of categories) {
     operationsByCategory[category] = {}
     const categoryOperations = operations.filter((operation) => operation.category === category)
 
@@ -95,7 +95,7 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
       subcategories.unshift(firstItem)
     }
 
-    subcategories.forEach((subcategory) => {
+    for (const subcategory of subcategories) {
       operationsByCategory[category][subcategory] = []
 
       const subcategoryOperations = categoryOperations.filter(
@@ -103,8 +103,8 @@ async function formatRestData(operations: Operation[]): Promise<OperationsByCate
       )
 
       operationsByCategory[category][subcategory] = subcategoryOperations
-    })
-  })
+    }
+  }
   return operationsByCategory
 }
 

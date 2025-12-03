@@ -177,9 +177,9 @@ class Cart:
 * It can interpret visual assets, such as UML diagrams, wireframes, or flowcharts, to generate code scaffolding or suggest architecture.
 * It can be useful for reviewing screenshots of UI layouts or form designs and generating.
 
-## {% data variables.copilot.copilot_claude_sonnet_35 %}
+## {% data variables.copilot.copilot_claude_haiku_45 %}
 
-{% data reusables.copilot.model-use-cases.claude-35-sonnet %}
+{% data reusables.copilot.model-use-cases.claude-haiku-45 %}
 
 ### Example scenario
 
@@ -187,7 +187,7 @@ Consider a scenario where you are implementing both unit tests and integration t
 
 For a complete walkthrough of the scenario, see [AUTOTITLE](/copilot/tutorials/writing-tests-with-github-copilot).
 
-### Why {% data variables.copilot.copilot_claude_sonnet_35 %} is a good fit
+### Why {% data variables.copilot.copilot_claude_haiku_45 %} is a good fit
 
 * It performs well on everyday coding tasks like test generation, boilerplate scaffolding, and validation logic.
 * The task leans into multi-step reasoning, but still stays within the confidence zone of a less advanced model because the logic isn’t too deep.

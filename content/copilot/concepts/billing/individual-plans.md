@@ -26,7 +26,7 @@ You can choose from the following plans.
 
 For developers looking to get started with {% data variables.product.prodname_copilot_short %}.
 
-* Includes up to **2,000 code completions** in IDEs per month
+* Includes up to **2,000 inline suggestions** in IDEs per month
 * Includes up to **50 premium requests** per month
 * Designed to give you a limited taste of {% data variables.product.prodname_copilot_short %}'s capabilities
 * No subscription or payment required

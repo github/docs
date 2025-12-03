@@ -1,7 +1,7 @@
 ---
 title: Get started with GitHub Code Quality
 shortTitle: Get started
-intro: 'Learn how to get started with {% data variables.product.prodname_code_quality %}.'
+intro: 'Try out {% data variables.product.prodname_code_quality %} for your repository.'
 versions:
   feature: code-quality
 topics:

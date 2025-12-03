@@ -31,7 +31,6 @@ The following interactions count as activity:
 
 * Receiving a code suggestion in an IDE
 * Chatting with {% data variables.copilot.copilot_chat_short %} in an IDE
-* Creating or updating a knowledge base
 * Generating a pull request summary
 * Interacting with {% data variables.copilot.copilot_chat_short %} in GitHub
 * Interacting with Copilot on a mobile device
@@ -74,7 +73,7 @@ The activity report provides visibility into usage of all generally available (G
 
 #### IDE features
 
-* Code completions
+* Inline suggestions
 * {% data variables.copilot.next_edit_suggestions_caps %}
 * {% data variables.copilot.copilot_chat_short %}
 * Agent mode
@@ -85,7 +84,6 @@ The activity report provides visibility into usage of all generally available (G
 * {% data variables.copilot.copilot_chat_short %}
 * {% data variables.copilot.copilot_coding_agent %}
 * Copilot for Docs
-* Knowledge base management
 * {% data variables.copilot.copilot_for_prs %}
 * {% data variables.copilot.copilot_code-review_short %}
 

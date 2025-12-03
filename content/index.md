@@ -149,7 +149,6 @@ childGroups:
       - code-security/securing-your-organization
       - enterprise-onboarding
       - admin
-      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -157,7 +156,6 @@ childGroups:
       - rest
       - graphql
       - webhooks
-      - copilot/how-tos/use-copilot-extensions
       - github-models
   - name: Community
     octicon: GlobeIcon
@@ -197,4 +195,3 @@ externalProducts:
     href: 'https://wellarchitected.github.com/'
     external: true
 ---
-

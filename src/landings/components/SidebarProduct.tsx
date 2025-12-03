@@ -133,7 +133,7 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
     if (nonAutomatedRestPaths.every((item: string) => !asPath.includes(item))) {
       const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+          for (const entry of entries) {
             if (entry.target.id) {
               const anchor = `#${entry.target.id.split('--')[0]}`
               if (entry.isIntersecting === true) setVisibleAnchor(anchor)
@@ -142,17 +142,15 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
             } else {
               setVisibleAnchor('')
             }
-          })
+          }
         },
         { rootMargin: '0px 0px -85% 0px' },
       )
-      // TODO: When we add the ## About the {title} API to each operation
-      // we can remove the h2 here
       const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
-      headingsList.forEach((heading) => {
+      for (const heading of headingsList) {
         observer.observe(heading)
-      })
+      }
 
       return () => {
         observer.disconnect()
@@ -174,7 +172,8 @@ function RestNavListItem({ category }: { category: ProductTreeNode }) {
               <NavList.Item
                 defaultOpen={routePath.includes(childPage.href)}
                 key={childPage.href}
-                onClick={(event) => {
+                // Using any because Primer React's NavList doesn't export proper event types
+                onClick={(event: any) => {
                   event.preventDefault()
                   push(childPage.href)
                 }}

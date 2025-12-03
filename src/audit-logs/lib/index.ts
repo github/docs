@@ -3,6 +3,7 @@ import path from 'path'
 import { readCompressedJsonFileFallback } from '@/frame/lib/read-json-file'
 import { getOpenApiVersion } from '@/versions/lib/all-versions'
 import findPage from '@/frame/lib/find-page'
+import type { Context, Page } from '@/types'
 import type {
   AuditLogEventT,
   CategorizedEvents,
@@ -30,8 +31,8 @@ export function getCategoryNotes(): CategoryNotes {
   return auditLogConfig.categoryNotes || {}
 }
 
-type TitleResolutionContext = {
-  pages: Record<string, any>
+type TitleResolutionContext = Context & {
+  pages: Record<string, Page>
   redirects: Record<string, string>
 }
 
@@ -61,7 +62,7 @@ async function resolveReferenceLinksToTitles(
           currentVersion: 'free-pro-team@latest',
           pages: context.pages,
           redirects: context.redirects,
-        }
+        } as unknown as Context
         const title = await page.renderProp('title', renderContext, { textOnly: true })
         titles.push(title)
       } else {
@@ -317,14 +318,14 @@ export async function filterAndUpdateGhesDataByAllowlistValues({
 // Categorizes the given array of audit log events by event category
 function categorizeEvents(events: AuditLogEventT[]) {
   const categorizedEvents: CategorizedEvents = {}
-  events.forEach((event) => {
+  for (const event of events) {
     const [category] = event.action.split('.')
     if (!Object.hasOwn(categorizedEvents, category)) {
       categorizedEvents[category] = []
     }
 
     categorizedEvents[category].push(event)
-  })
+  }
 
   return categorizedEvents
 }

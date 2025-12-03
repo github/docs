@@ -1,7 +1,7 @@
 ---
-title: Changing the AI model for GitHub Copilot code completion
+title: Changing the AI model for GitHub Copilot inline suggestions
 shortTitle: Change the completion model
-intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_short %} code completion to a different model.'
+intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_short %} inline suggestions to a different model.'
 versions:
   feature: copilot
 topics:
@@ -25,9 +25,9 @@ The following instructions are for {% data variables.product.prodname_vscode_sho
 
 {% data reusables.copilot.code-completion-available-models %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-code-completion).
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-inline-suggestions).
 
-## Changing the AI model for code completion
+## Changing the AI model for inline suggestions
 
 1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
@@ -52,9 +52,9 @@ The following instructions are for {% data variables.product.prodname_vs %}. If 
 
 {% data reusables.copilot.code-completion-available-models %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-code-completion).
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-inline-suggestions).
 
-## Changing the AI model for code completion
+## Changing the AI model for inline suggestions
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the top right corner.
 1. Click **Settings**, then click **Options**.
@@ -72,9 +72,9 @@ The following instructions are for JetBrains IDEs. If you are using {% data vari
 
 {% data reusables.copilot.code-completion-available-models %}
 
-For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-code-completion).
+For more information, see [AUTOTITLE](/copilot/concepts/completions/code-suggestions#changing-the-model-used-for-inline-suggestions).
 
-## Changing the AI model for code completion
+## Changing the AI model for inline suggestions
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Edit Model for Completion**.

@@ -22,6 +22,10 @@ class HTTPError extends Error {
   }
 }
 
+// Type aliases for error objects with additional URL information
+type HTTPErrorWithUrl = HTTPError & { url?: string; relativePath?: string }
+type ErrorWithUrl = Error & { url?: string; relativePath?: string }
+
 interface DomWaiterOptions {
   parseDOM?: boolean
   json?: boolean
@@ -51,7 +55,7 @@ export default function domwaiter(pages: Permalink[], opts: DomWaiterOptions = {
 
   const limiter = new Bottleneck(opts)
 
-  pages.forEach((page) => {
+  for (const page of pages) {
     async function schedulePage() {
       try {
         await limiter.schedule(() => getPage(page, emitter, opts))
@@ -62,7 +66,7 @@ export default function domwaiter(pages: Permalink[], opts: DomWaiterOptions = {
     }
 
     schedulePage()
-  })
+  }
 
   limiter.on('idle', () => {
     emitter.emit('done')
@@ -94,8 +98,8 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
             { requestUrl: { pathname: page.url } },
           )
           // Add URL and path info directly to the HTTPError
-          ;(httpError as any).url = page.url
-          ;(httpError as any).relativePath = page.relativePath
+          ;(httpError as HTTPErrorWithUrl).url = page.url
+          ;(httpError as HTTPErrorWithUrl).relativePath = page.relativePath
           // Emit error instead of throwing
           emitter.emit('error', httpError)
           return // Exit early, don't continue processing
@@ -109,8 +113,8 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
           const enhancedError = new Error(err.message, { cause: err.cause })
           enhancedError.name = err.name
           enhancedError.stack = err.stack
-          ;(enhancedError as any).url = page.url
-          ;(enhancedError as any).relativePath = page.relativePath
+          ;(enhancedError as ErrorWithUrl).url = page.url
+          ;(enhancedError as ErrorWithUrl).relativePath = page.relativePath
           emitter.emit('error', enhancedError)
         } else {
           emitter.emit('error', err)
@@ -130,15 +134,16 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
             { requestUrl: { pathname: page.url } },
           )
           // Add URL and path info directly to the HTTPError
-          ;(httpError as any).url = page.url
-          ;(httpError as any).relativePath = page.relativePath
+          ;(httpError as HTTPErrorWithUrl).url = page.url
+          ;(httpError as HTTPErrorWithUrl).relativePath = page.relativePath
           // Emit error instead of throwing
           emitter.emit('error', httpError)
           return // Exit early, don't continue processing
         }
         const body = await response.text()
         const pageCopy = Object.assign({}, page, { body })
-        if (opts.parseDOM) (pageCopy as any).$ = cheerio.load(body)
+        if (opts.parseDOM)
+          (pageCopy as Permalink & { $?: ReturnType<typeof cheerio.load> }).$ = cheerio.load(body)
         emitter.emit('page', pageCopy)
       } catch (err) {
         // Enhance error with URL information
@@ -146,8 +151,8 @@ async function getPage(page: Permalink, emitter: EventEmitter, opts: DomWaiterOp
           const enhancedError = new Error(err.message, { cause: err.cause })
           enhancedError.name = err.name
           enhancedError.stack = err.stack
-          ;(enhancedError as any).url = page.url
-          ;(enhancedError as any).relativePath = page.relativePath
+          ;(enhancedError as ErrorWithUrl).url = page.url
+          ;(enhancedError as ErrorWithUrl).relativePath = page.relativePath
           emitter.emit('error', enhancedError)
         } else {
           emitter.emit('error', err)

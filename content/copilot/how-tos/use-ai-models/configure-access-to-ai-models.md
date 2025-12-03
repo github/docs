@@ -10,8 +10,9 @@ redirect_from:
   - /copilot/using-github-copilot/ai-models/configuring-access-to-ai-models-in-copilot
   - /copilot/how-tos/ai-models/configuring-access-to-ai-models-in-copilot
   - /copilot/how-tos/ai-models/configure-access-to-ai-models
+  - /github-models/use-github-models/integrating-ai-models-into-your-development-workflow
 contentType: how-tos
-category: 
+category:
   - Configure Copilot
 ---
 
@@ -31,7 +32,7 @@ If you have a {% data variables.copilot.copilot_free_short %}, {% data variables
 
 You can enable access in two ways:
 
-* The first time you use a model with {% data variables.copilot.copilot_chat_short %} in your editor or in the immersive view of {% data variables.copilot.copilot_chat_short %}, you will be prompted to allow access to the model.
+* The first time you use a model with {% data variables.copilot.copilot_chat_short %} in your editor or in {% data variables.product.github %}, you will be prompted to allow access to the model.
 
   Click **Allow** to enable the AI model and update the policy in your personal settings on {% data variables.product.github %}.
 
@@ -46,3 +47,9 @@ You can enable access in two ways:
 As an enterprise or organization owner, you can enable or disable access to AI models for everyone who has been assigned a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} seat through your enterprise or organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 > [!NOTE] Models available in {% data variables.copilot.copilot_auto_model_selection %} will follow the policies set for an organization or enterprise. See [AUTOTITLE](/copilot/concepts/auto-model-selection).
+
+{% ifversion copilot-byok %}
+
+You can also integrate your preferred custom models from supported LLM providers by bringing your own API keys. Organization owners can make custom models available for members of their organization and enterprise owners can add custom models and choose which organizations can make use of them. See [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-organization/use-your-own-api-keys) for organizations and [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/use-your-own-api-keys) for enterprise accounts.
+
+{% endif %}

@@ -59,18 +59,19 @@ describe('pages module', () => {
       const versionedRedirects: Array<{ path: string; file: string }> = []
 
       // Page objects have dynamic properties from chain/lodash that aren't fully typed
-      englishPages.forEach((page: any) => {
-        page.redirect_from.forEach((redirect: string) => {
-          page.applicableVersions.forEach((version: string) => {
+      for (const page of englishPages) {
+        const pageObj = page as Record<string, unknown>
+        for (const redirect of pageObj.redirect_from as string[]) {
+          for (const version of pageObj.applicableVersions as string[]) {
             const versioned = removeFPTFromPath(path.posix.join('/', version, redirect))
-            versionedRedirects.push({ path: versioned, file: page.fullPath })
+            versionedRedirects.push({ path: versioned, file: pageObj.fullPath as string })
             if (!redirectToFiles.has(versioned)) {
               redirectToFiles.set(versioned, new Set<string>())
             }
-            redirectToFiles.get(versioned)!.add(page.fullPath)
-          })
-        })
-      })
+            redirectToFiles.get(versioned)!.add(pageObj.fullPath as string)
+          }
+        }
+      }
 
       // Only consider as duplicate if more than one unique file defines the same redirect
       const duplicates = Array.from(redirectToFiles.entries())
@@ -97,7 +98,7 @@ describe('pages module', () => {
             page.languageCode === 'en' && // only check English
             !page.relativePath.includes('index.md') && // ignore TOCs
             // Page class has dynamic frontmatter properties like 'allowTitleToDifferFromFilename' not in type definition
-            !(page as any).allowTitleToDifferFromFilename && // ignore docs with override
+            !(page as Record<string, unknown>).allowTitleToDifferFromFilename && // ignore docs with override
             slugger.slug(decode(page.title)) !== path.basename(page.relativePath, '.md') &&
             slugger.slug(decode(page.shortTitle || '')) !== path.basename(page.relativePath, '.md')
           )
@@ -129,7 +130,7 @@ describe('pages module', () => {
       const frontmatterErrors = chain(pages)
         // .filter(page => page.languageCode === 'en')
         // Page class has dynamic error properties like 'frontmatterErrors' not in type definition
-        .map((page) => (page as any).frontmatterErrors)
+        .map((page) => (page as Record<string, unknown>).frontmatterErrors)
         .filter(Boolean)
         .flatten()
         .value()
@@ -149,7 +150,7 @@ describe('pages module', () => {
 
       for (const page of pages) {
         // Page class has dynamic properties like 'raw' markdown not in type definition
-        const markdown = (page as any).raw
+        const markdown = (page as Record<string, unknown>).raw as string
         if (!patterns.hasLiquid.test(markdown)) continue
         try {
           await liquid.parse(markdown)

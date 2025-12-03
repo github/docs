@@ -1,8 +1,8 @@
 // src/content-render/liquid/prompt.ts
 // Defines {% prompt %}…{% endprompt %} to wrap its content in <code> and append the Copilot icon.
 
-// @ts-ignore - @primer/octicons doesn't provide TypeScript declarations
 import octicons from '@primer/octicons'
+import { generatePromptId } from '../lib/prompt-id'
 
 interface LiquidTag {
   type: 'block'
@@ -31,10 +31,20 @@ export const Prompt: LiquidTag = {
   // Render the inner Markdown, wrap in <code>, then append the SVG
   *render(scope: any): Generator<any, string, unknown> {
     const content = yield this.liquid.renderer.renderTemplates(this.templates, scope)
+    const contentString = String(content)
 
     // build a URL with the prompt text encoded as query parameter
-    const promptParam: string = encodeURIComponent(content as string)
+    const promptParam: string = encodeURIComponent(contentString)
     const href: string = `https://github.com/copilot?prompt=${promptParam}`
-    return `<code>${content}</code><a href="${href}" target="_blank" class="tooltipped tooltipped-nw ml-1" aria-label="Run this prompt in Copilot Chat" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`
+    // Use murmur hash for deterministic ID (avoids hydration mismatch)
+    const promptId: string = generatePromptId(contentString)
+    // Show long text on larger screens and short text on smaller screens (set via accessibility.scss)
+    const promptLabelLong: string = 'Run this prompt in Copilot Chat'
+    const promptLabelShort: string = 'Run prompt'
+    return [
+      `<code id="${promptId}">${content}</code>`,
+      `<a href="${href}" target="_blank" class="tooltipped tooltipped-n ml-1 copilot-prompt-long" aria-label="${promptLabelLong}" aria-describedby="${promptId}" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`,
+      `<a href="${href}" target="_blank" class="tooltipped tooltipped-n ml-1 copilot-prompt-short" aria-label="${promptLabelShort}" aria-describedby="${promptId}" style="text-decoration:none;">${octicons.copilot.toSVG()}</a>`,
+    ].join('')
   },
 }

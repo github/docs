@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import matter from '@gr2m/gray-matter'
 
@@ -115,11 +114,12 @@ export function filterTokensByOrder(
   // first token (root) in the tokenOrder array
   const tokenRootIndexes: number[] = []
   const firstTokenOrderType = tokenOrder[0]
-  tokens.forEach((token, index) => {
+  for (let index = 0; index < tokens.length; index++) {
+    const token = tokens[index]
     if (token.type === firstTokenOrderType) {
       tokenRootIndexes.push(index)
     }
-  })
+  }
 
   // Loop through each root token index and check if
   // the order matches the tokenOrder array

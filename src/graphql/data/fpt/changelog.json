@@ -4,6 +4,74 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>SuggestedReviewerActor</code> was added</p>",
+          "<p>Type <code>SuggestedReviewerActorConnection</code> was added</p>",
+          "<p>Type <code>SuggestedReviewerActorEdge</code> was added</p>",
+          "<p>Enum value 'ISSUE_FIELD_ADDED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_CHANGED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_REMOVED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Field <code>suggestedReviewerActors</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Enum value 'ISSUE_FIELD_ADDED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_CHANGED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_FIELD_REMOVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>Agentic</code> was added</p>",
+          "<p><code>User</code> object implements <code>Agentic</code> interface</p>",
+          "<p>Field <code>viewerCopilotAgentCreatesChannel</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>viewerCopilotAgentLogUpdatesChannel</code> was added to object type <code>User</code></p>",
+          "<p>Field <code>viewerCopilotAgentUpdatesChannel</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Type <code>RequiredReviewerConfiguration</code> was added</p>",
+          "<p>Type <code>RequiredReviewerConfigurationInput</code> was added</p>",
+          "<p>Field <code>requiredReviewers</code> was added to object type <code>PullRequestParameters</code></p>",
+          "<p>Input field <code>requiredReviewers</code> of type '[RequiredReviewerConfigurationInput!]<code>was added to input object type</code>PullRequestParametersInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field 'projectV2Ids<code>of type</code>[ID!]<code>was added to input object type</code>CreateIssueInput'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-11-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>OrganizationPropertyConditionTarget</code> was added</p>",
           "<p>Type <code>OrganizationPropertyConditionTargetInput</code> was added</p>",
           "<p>Type <code>OrganizationPropertyTargetDefinition</code> was added</p>",

@@ -1,0 +1,1 @@
+1. Navigate to your organization or enterprise. For example, from [https://github.com/settings/organizations](https://github.com/settings/organizations?ref_product=github&ref_type=engagement&ref_style=text) or [https://github.com/settings/enterprises](https://github.com/settings/enterprises?ref_product=ghec&ref_type=engagement&ref_style=text).

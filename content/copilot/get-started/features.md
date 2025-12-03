@@ -13,17 +13,17 @@ redirect_from:
   - /copilot/about-github-copilot/github-copilot-features
   - /copilot/get-started/github-copilot-features
 contentType: get-started
-category: 
+category:
   - Learn about Copilot
 ---
 
 ## {% data variables.product.prodname_copilot %} features
 
-### Code completion
+### Inline suggestions
 
 Autocomplete-style suggestions from {% data variables.product.prodname_copilot_short %} in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Azure Data Studio, Xcode, Vim/Neovim, and Eclipse)_. See [AUTOTITLE](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot).
 
-If you use {% data variables.product.prodname_vscode_shortname %}, you can also use {% data variables.copilot.next_edit_suggestions %}, which will predict the location of the next edit you are likely to make and suggest a completion for it.
+If you use {% data variables.product.prodname_vscode_shortname %}, Xcode, and Eclipse, you can also use {% data variables.copilot.next_edit_suggestions %} ({% data variables.release-phases.public_preview %}), which will predict the location of the next edit you are likely to make and suggest a completion for it.
 
 ### {% data variables.copilot.copilot_chat_short %}
 
@@ -51,10 +51,6 @@ AI-generated summaries of the changes that were made in a pull request, which fi
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
 
-### {% data variables.copilot.copilot_extensions_short %}
-
-{% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} See [AUTOTITLE](/copilot/concepts/copilot-extensions/about-copilot-extensions).
-
 ### {% data variables.copilot.copilot_edits_short %}
 
 {% data variables.copilot.copilot_edits_short %} is available in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs. {% data reusables.copilot.copilot-edits.about-copilot-edits %}
@@ -70,10 +66,6 @@ Automatically generate commit messages and descriptions with {% data variables.c
 ### {% data variables.copilot.copilot_spaces %}
 
 Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.copilot.copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
-
-### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.copilot.copilot_enterprise_short %} only)_
-
-Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.copilot.copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. See [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
 ### {% data variables.product.prodname_spark %} ({% data variables.release-phases.public_preview %})
 

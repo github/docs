@@ -18,6 +18,7 @@ contentType: tutorials
 You can use custom roles and enterprise teams to delegate AI administration permissions without granting enterprise ownership. AI managers can view and manage **nearly all AI features in your enterprise's AI Controls**, including agentic AI features, {% data variables.product.prodname_copilot_short %} features, and Model Context Protocol (MCP) features.
 
 Unless you grant additional permissions beyond those listed in this article, AI managers **cannot access** the following:
+
 * Access management settings for {% data variables.product.prodname_copilot_short %}
 * Settings in the "Billing" section of the {% data variables.product.prodname_copilot_short %} page
 * Settings in the "Metrics" section of the {% data variables.product.prodname_copilot_short %} page
@@ -32,6 +33,7 @@ To get started, you need to create a custom role with the necessary permissions 
 
     * **Manage enterprise AI controls**: Allows this role to view and manage all settings in the "AI Controls" tab for your enterprise
     * **Read enterprise audit logs**: Allows this role to view **all** audit log events for your enterprise, helping your AI managers monitor agentic activity
+    * **View Enterprise {% data variables.product.prodname_copilot_short %} Metrics**: Allows this role to view {% data variables.product.prodname_copilot_short %} usage metrics under the "Insights" tab
 
 1. Click **Create role**.
 
@@ -71,4 +73,4 @@ If you have created a ruleset targeting {% data variables.copilot.agent_profiles
 
 Now that you have established AI managers for your enterprise, help them customize and manage your enterprise's AI experience by sharing the following resources:
 * [AUTOTITLE](/copilot/how-tos/administer-copilot/manage-for-enterprise/manage-enterprise-policies)
-* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+* [AUTOTITLE](/copilot/how-tos/use-copilot-agents/coding-agent/test-custom-agents)

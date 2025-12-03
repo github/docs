@@ -1,4 +1,4 @@
-/* 
+/*
  Flattens a JSON object and converts it to a logfmt string
  Nested objects are flattened with a dot separator, e.g. requestContext.path=/en
  This is because Splunk doesn't support nested JSON objects.
@@ -61,7 +61,7 @@ export function toLogfmt(jsonString: Record<string, any>): string {
     result: Record<string, any> = {},
     seen: WeakSet<object> = new WeakSet(),
   ): Record<string, any> => {
-    Object.keys(obj).forEach((key) => {
+    for (const key of Object.keys(obj)) {
       const newKey = parentKey ? `${parentKey}.${key}` : key
       const value = obj[key]
 
@@ -69,19 +69,19 @@ export function toLogfmt(jsonString: Record<string, any>): string {
         // Handle circular references
         if (seen.has(value)) {
           result[newKey] = '[Circular]'
-          return
+          continue
         }
 
         // Handle Date objects specially
         if (value instanceof Date) {
           result[newKey] = value.toISOString()
-          return
+          continue
         }
 
         // Handle arrays
         if (Array.isArray(value)) {
           result[newKey] = value.join(',')
-          return
+          continue
         }
 
         // Handle other objects - only flatten if not empty
@@ -96,7 +96,7 @@ export function toLogfmt(jsonString: Record<string, any>): string {
         result[newKey] =
           value === undefined || (typeof value === 'string' && value === '') ? null : value
       }
-    })
+    }
     return result
   }
 

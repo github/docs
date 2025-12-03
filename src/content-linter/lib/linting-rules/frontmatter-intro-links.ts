@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't have TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
@@ -7,7 +6,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 interface Frontmatter {
   introLinks?: Record<string, string>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 // Get the valid introLinks keys from ui.yml

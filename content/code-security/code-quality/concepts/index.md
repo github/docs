@@ -2,7 +2,7 @@
 title: Concepts for GitHub Code Quality
 shortTitle: Concepts
 allowTitleToDifferFromFilename: true
-intro: Learn about {% data variables.product.prodname_code_quality %} and how it can help improve and maintain the quality of your code.
+intro: 'Discover how {% data variables.product.prodname_code_quality %} works, its core features, and key terms.'
 versions:
   feature: code-quality
 topics:

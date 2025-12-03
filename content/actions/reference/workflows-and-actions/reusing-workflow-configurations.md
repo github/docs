@@ -46,8 +46,9 @@ For {% ifversion ghes or ghec %}internal or {% endif %}private repositories, the
 
 ### Limitations of reusable workflows
 
-* You can connect up to four levels of workflows. For more information, see [Nesting reusable workflows](/actions/how-tos/sharing-automations/reuse-workflows#nesting-reusable-workflows).
-* You can call a maximum of 20 unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
+
+* You can connect up to {% ifversion fpt or ghec %}ten {% else %}four {% endif %}levels of workflows. For more information, see [Nesting reusable workflows](/actions/how-tos/sharing-automations/reuse-workflows#nesting-reusable-workflows).
+* You can call a maximum of {% ifversion fpt or ghec %}50 {% else %}20 {% endif %}unique reusable workflows from a single workflow file. This limit includes any trees of nested reusable workflows that may be called starting from your top-level caller workflow file.
 
   For example, _top-level-caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ counts as 2 reusable workflows.
 

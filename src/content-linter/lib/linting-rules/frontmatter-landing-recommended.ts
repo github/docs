@@ -1,10 +1,15 @@
 import fs from 'fs'
 import path from 'path'
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError } from 'markdownlint-rule-helpers'
 
 import { getFrontmatter } from '../helpers/utils'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
+
+interface Frontmatter {
+  recommended?: string[]
+  layout?: string
+  [key: string]: unknown
+}
 
 function isValidArticlePath(articlePath: string, currentFilePath: string): boolean {
   const ROOT = process.env.ROOT || '.'
@@ -54,7 +59,7 @@ export const frontmatterLandingRecommended = {
   tags: ['frontmatter', 'landing', 'recommended'],
   function: (params: RuleParams, onError: RuleErrorCallback) => {
     // Using any for frontmatter as it's a dynamic YAML object with varying properties
-    const fm: any = getFrontmatter(params.lines)
+    const fm = getFrontmatter(params.lines) as Frontmatter | null
     if (!fm || !fm.recommended) return
 
     const recommendedLine: string | undefined = params.lines.find((line) =>
@@ -82,7 +87,7 @@ export const frontmatterLandingRecommended = {
       const duplicates: string[] = []
       const invalidPaths: string[] = []
 
-      fm.recommended.forEach((item: string) => {
+      for (const item of fm.recommended) {
         if (seen.has(item)) {
           duplicates.push(item)
         } else {
@@ -93,7 +98,7 @@ export const frontmatterLandingRecommended = {
         if (!isValidArticlePath(item, params.name)) {
           invalidPaths.push(item)
         }
-      })
+      }
 
       if (duplicates.length > 0) {
         addError(

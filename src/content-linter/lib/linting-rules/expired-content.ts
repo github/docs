@@ -1,4 +1,3 @@
-// @ts-ignore - markdownlint-rule-helpers doesn't provide TypeScript declarations
 import { addError, newLineRe } from 'markdownlint-rule-helpers'
 
 import type { RuleParams, RuleErrorCallback, MarkdownToken, Rule } from '@/content-linter/types'
@@ -20,15 +19,15 @@ export const expiredContent: Rule = {
       (token: MarkdownToken) => token.type === 'inline' || token.type === 'html_block',
     )
 
-    tokensToCheck.forEach((token: MarkdownToken) => {
+    for (const token of tokensToCheck) {
       // Looking for just opening tag with format:
       // <!-- expires yyyy-mm-dd -->
       const match = token.content?.match(/<!--\s*expires\s(\d\d\d\d)-(\d\d)-(\d\d)\s*-->/)
-      if (!match || !token.content) return
+      if (!match || !token.content) continue
 
       const expireDate = new Date(match.splice(1, 3).join(' '))
       const today = new Date()
-      if (today < expireDate) return
+      if (today < expireDate) continue
 
       // We want the content split by line since not all token.content is in one line
       // to get the correct range of the expired content. Below is how markdownlint
@@ -45,7 +44,7 @@ export const expiredContent: Rule = {
         [startRange, match[0].length],
         null, // No fix possible
       )
-    })
+    }
   },
 }
 
@@ -69,11 +68,11 @@ export const expiringSoon: Rule = {
       (token: MarkdownToken) => token.type === 'inline' || token.type === 'html_block',
     )
 
-    tokensToCheck.forEach((token: MarkdownToken) => {
+    for (const token of tokensToCheck) {
       // Looking for just opening tag with format:
       // <!-- expires yyyy-mm-dd -->
       const match = token.content?.match(/<!--\s*expires\s(\d\d\d\d)-(\d\d)-(\d\d)\s*-->/)
-      if (!match || !token.content) return
+      if (!match || !token.content) continue
 
       const expireDate = new Date(match.splice(1, 3).join(' '))
       const today = new Date()
@@ -81,7 +80,7 @@ export const expiringSoon: Rule = {
       futureDate.setDate(today.getDate() + DAYS_TO_WARN_BEFORE_EXPIRED)
       // Don't set warning if the content is already expired or
       // if the content expires later than the DAYS_TO_WARN_BEFORE_EXPIRED
-      if (today > expireDate || expireDate > futureDate) return
+      if (today > expireDate || expireDate > futureDate) continue
 
       addError(
         onError,
@@ -91,6 +90,6 @@ export const expiringSoon: Rule = {
         [token.content.indexOf(match[0]) + 1, match[0].length],
         null, // No fix possible
       )
-    })
+    }
   },
 }
