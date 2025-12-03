@@ -13,7 +13,7 @@ sections:
     - |
       On instances with a "No Proxy" setting configured for GitHub Actions with MinIO or AWS remote blob providers, administrators sometimes experienced failures reading or writing Actions logs, artifacts, or caches because some traffic was incorrectly routed through the instances proxy.
     - |
-      <!-- markdownlint-disable-line GHD046 --> New Microsoft Teams integrations failed to set up because the required `tenant_id` field was missing from the configuration, following Microsoft's deprecation of multi-tenant bot creation.
+      New Microsoft Teams integrations failed to set up because the required `tenant_id` field was missing from the configuration, following Microsoft's deprecation of multi-tenant bot creation. <!-- markdownlint-disable-line GHD046 --> 
     - |
       Administrators running the `ghe-repl-decommission` script received an error.
     - |
