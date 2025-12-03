@@ -5,6 +5,7 @@ import type enterpriseServerReleases from '@/versions/lib/enterprise-server-rele
 import type { ValidOcticon } from '@/landings/types'
 import type { Language, Languages } from '@/languages/lib/languages-server'
 import type { MiniTocItem } from '@/frame/lib/get-mini-toc-items'
+import type { UIStrings } from '@/frame/components/context/MainContext'
 
 // Shared type for resolved article information used across landing pages and carousels
 export interface ResolvedArticle {
@@ -121,7 +122,7 @@ type Redirects = {
 
 export type Context = {
   // Allows dynamic properties like features & version shortnames as keys
-  [key: string]: any
+  [key: string]: unknown
   currentCategory?: string
   error?: Error
   siteTree?: SiteTree
@@ -134,7 +135,7 @@ export type Context = {
   allVersions?: AllVersions
   currentPathWithoutLanguage?: string
   currentArticle?: string
-  query?: Record<string, any>
+  query?: Record<string, unknown>
   relativePath?: string
   page?: Page
   enPage?: Page
@@ -143,13 +144,13 @@ export type Context = {
   process?: { env: Record<string, string> }
   site?: {
     data: {
-      ui: any
+      ui: UIStrings
     }
   }
   currentVersionObj?: Version
   currentProduct?: string
   getEnglishPage?: (ctx: Context) => Page
-  getDottedData?: (dottedPath: string) => any
+  getDottedData?: (dottedPath: string) => unknown
   initialRestVersioningReleaseDate?: string
   initialRestVersioningReleaseDateLong?: string
   nonEnterpriseDefaultVersion?: string
@@ -360,8 +361,8 @@ export type Page = {
   rawPermissions?: string
   languageCode: string
   documentType: string
-  renderProp: (prop: string, context: any, opts?: any) => Promise<string>
-  renderTitle: (context: Context, opts?: any) => Promise<string>
+  renderProp: (prop: string, context: Context, opts?: Record<string, unknown>) => Promise<string>
+  renderTitle: (context: Context, opts?: Record<string, unknown>) => Promise<string>
   markdown: string
   versions: FrontmatterVersions
   applicableVersions: string[]

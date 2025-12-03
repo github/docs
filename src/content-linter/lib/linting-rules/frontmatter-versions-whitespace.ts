@@ -4,7 +4,7 @@ import type { RuleParams, RuleErrorCallback, Rule } from '@/content-linter/types
 
 interface Frontmatter {
   versions?: Record<string, string | string[]>
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export const frontmatterVersionsWhitespace: Rule = {
