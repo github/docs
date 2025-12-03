@@ -49,6 +49,16 @@ You can add two types of context to your space:
   * **{% octicon "upload" aria-hidden="true" aria-label="upload" %} Upload a file**: You can upload files directly from your local machine. This includes images, text files, rich documents, and spreadsheets.
   * **{% octicon "paste" aria-hidden="true" aria-label="paste" %} Add text content**: You can type or paste free-text content, such as transcripts, notes, or any other relevant information that can help {% data variables.product.prodname_copilot_short %} understand the context of your space.
 
+## Adding context as you're working
+
+You can add files to a space directly from the code view on {% data variables.product.github %}, so you don't need to break your flow when building context for your space.
+
+1. At the top of any file in the code view, click **{% octicon "space" aria-label="Add to space" %}**.
+
+   ![Screenshot of a file in the code view. The "Add to space" icon is highlighted in orange.](/assets/images/help/copilot/add-to-copilot-space.png)
+
+1. From the dropdown, select the space you want to add the file to, or create a new space.
+
 ## Next steps
 
 * To learn more about using {% data variables.copilot.copilot_spaces_short %} in {% data variables.product.github %} and your IDE, see [AUTOTITLE](/copilot/how-tos/provide-context/use-copilot-spaces/use-copilot-spaces).

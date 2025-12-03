@@ -29,14 +29,14 @@ const rawDates: RawDatesData = JSON.parse(
 // ============================================================================
 
 // Upcoming GHES release numbers (used in frontmatter and release planning)
-export const next = '3.19'
-export const nextNext = '3.20'
+export const next = '3.20'
+export const nextNext = '3.21'
 
 // Currently supported GHES versions (in descending order, latest first)
-export const supported = ['3.18', '3.17', '3.16', '3.15', '3.14']
+export const supported = ['3.19', '3.18', '3.17', '3.16', '3.15', '3.14']
 
 // Set to version number when in RC phase, null when no RC is active
-export const releaseCandidate = null
+export const releaseCandidate = '3.19'
 
 // Deprecated versions with functional redirect handling (3.0+)
 // When archiving a new version, add it here and update the archival process

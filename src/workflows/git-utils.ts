@@ -295,11 +295,11 @@ export async function getDirectoryContents(
     } else if (blob.type === 'file') {
       if (!data.content) {
         const blobContents = await getContentsForBlob(owner, repo, blob.sha)
-        files.push(blobContents)
+        files.push({ path: blob.path, content: blobContents })
       } else {
         // decode Base64 encoded contents
         const decodedContent = Buffer.from(blob.content, 'base64').toString()
-        files.push(decodedContent)
+        files.push({ path: blob.path, content: decodedContent })
       }
     }
   }

@@ -15,8 +15,9 @@ import {
   isAllVersions,
   getFeatureVersionsObject,
   isInAllGhes,
+  isGhesReleaseDeprecated,
 } from '@/ghes-releases/scripts/version-utils'
-import { deprecated, oldestSupported } from '@/versions/lib/enterprise-server-releases'
+import { oldestSupported } from '@/versions/lib/enterprise-server-releases'
 import type { RuleParams, RuleErrorCallback } from '@/content-linter/types'
 
 export const liquidIfversionVersions = {
@@ -337,19 +338,9 @@ function updateConditionals(condTagItems: any[]) {
       }
       // Checks for features that are only available in no
       // supported GHES releases
-      // TODO use isGhesReleaseDeprecated
-      if (item.versionsObjAll.ghes.startsWith('<=')) {
-        const releaseNumber = item.versionsObjAll.ghes.replace('<=', '').trim()
-        if (deprecated.includes(releaseNumber)) {
-          item.action.type = 'delete'
-          continue
-        }
-      } else if (item.versionsObjAll.ghes.startsWith('<')) {
-        const releaseNumber = item.versionsObjAll.ghes.replace('<', '').trim()
-        if (deprecated.includes(releaseNumber) || releaseNumber === oldestSupported) {
-          item.action.type = 'delete'
-          continue
-        }
+      if (isGhesReleaseDeprecated(oldestSupported, item.versionsObjAll.ghes)) {
+        item.action.type = 'delete'
+        continue
       }
     }
     if (item.versionsObj?.feature || item.fileVersionsFm?.feature) break

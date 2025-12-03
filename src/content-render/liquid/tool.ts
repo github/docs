@@ -47,26 +47,27 @@ export const Tool = {
   type: 'block' as const,
   tagName: '',
   // Liquid template objects don't have TypeScript definitions
-  templates: [] as any[],
+  templates: [] as unknown[],
 
   // tagToken and remainTokens are Liquid internal types without TypeScript definitions
-  parse(tagToken: any, remainTokens: any) {
-    this.tagName = tagToken.name
+  parse(tagToken: unknown, remainTokens: unknown) {
+    const token = tagToken as { name: string; getText: () => string }
+    this.tagName = token.name
     this.templates = []
 
     const stream = this.liquid.parser.parseStream(remainTokens)
     stream
       .on(`tag:end${this.tagName}`, () => stream.stop())
       // tpl is a Liquid template object without TypeScript definitions
-      .on('template', (tpl: any) => this.templates.push(tpl))
+      .on('template', (tpl: unknown) => this.templates.push(tpl))
       .on('end', () => {
-        throw new Error(`tag ${tagToken.getText()} not closed`)
+        throw new Error(`tag ${token.getText()} not closed`)
       })
     stream.start()
   },
 
   // scope is a Liquid scope object, Generator yields/returns Liquid template values - no TypeScript definitions available
-  *render(scope: any): Generator<any, any, any> {
+  *render(scope: unknown): Generator<unknown, unknown, unknown> {
     const output = yield this.liquid.renderer.renderTemplates(this.templates, scope)
     return yield this.liquid.parseAndRender(template, {
       tagName: this.tagName,

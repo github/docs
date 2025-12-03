@@ -51,7 +51,7 @@ You can create cost centers to map spending to individual business units or grou
 
 For example, if you were running a pilot program for {% data variables.copilot.copilot_enterprise %} for a group of employees, you might want to create a cost center to track their spending and set a budget independently of the rest of the company.
 
-For more information, see [AUTOTITLE](/billing/tutorials/use-cost-centers).
+For more information, see [AUTOTITLE](/billing/tutorials/control-costs-at-scale).
 
 ## Preventing overspending
 

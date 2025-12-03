@@ -4272,7 +4272,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.knowledge_base_deleted",
@@ -4296,7 +4296,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.knowledge_base_updated",
@@ -4320,7 +4320,7 @@
       "actor_is_bot",
       "request_access_security_header"
     ],
-    "docs_reference_titles": "Creating and managing GitHub Copilot knowledge bases"
+    "docs_reference_titles": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
   },
   {
     "action": "copilot.plan_changed",
@@ -18572,6 +18572,29 @@
       "secret_type_display_name",
       "publicly_leaked",
       "multi_repo"
+    ],
+    "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
+    "action": "secret_scanning_alert.delete",
+    "description": "A secret scanning alert was deleted by GitHub.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning",
+    "fields": [
+      "repo_id",
+      "repo",
+      "actor_id",
+      "actor",
+      "org_id",
+      "org",
+      "business",
+      "business_id",
+      "number",
+      "secret_type",
+      "secret_type_display_name",
+      "publicly_leaked",
+      "multi_repo",
+      "created_at",
+      "reason"
     ],
     "docs_reference_titles": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
