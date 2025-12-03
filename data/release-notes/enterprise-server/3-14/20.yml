@@ -13,7 +13,7 @@ sections:
     - |
       On instances with a "No Proxy" setting configured for GitHub Actions with MinIO or AWS remote blob providers, administrators sometimes experienced failures reading or writing Actions logs, artifacts, or caches because some traffic was incorrectly routed through the instance's proxy.
     - |
-      <!-- markdownlint-disable-line GHD046 --> New Microsoft Teams integrations failed to set up because the required `tenant_id` field was missing from the configuration, following Microsoft's deprecation of multi-tenant bot creation.
+      New Microsoft Teams integrations failed to set up because the required `tenant_id` field was missing from the configuration, following Microsoft's deprecation of multi-tenant bot creation. <!-- markdownlint-disable-line GHD046 -->
     - |
       An "Invite member" button intended only for GitHub.com was displayed on the enterprise "People" tab.
     - |
@@ -22,7 +22,7 @@ sections:
       When new Elasticsearch indexes were created, index routing memos could go to a read-only MySQL replica and fail, causing delays in audit log indexing after monthly rollovers. The memos are now written to the primary database rather than a read-only replica.
   changes:
     - |
-      <!-- markdownlint-disable-line GHD046 --> A new weekly job automatically disables Elasticsearch deprecation logging and removes existing deprecation logs every Saturday at midnight. This helps administrators manage disk space by regularly cleaning up deprecation data streams and log indices that are no longer needed.
+      A new weekly job automatically disables Elasticsearch deprecation logging and removes existing deprecation logs every Saturday at midnight. This helps administrators manage disk space by regularly cleaning up deprecation data streams and log indices that are no longer needed. <!-- markdownlint-disable-line GHD046 -->
     - |
       Administrators can add security key-backed (SK) SSH certificate authorities.
     - |
