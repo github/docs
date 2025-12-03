@@ -34,10 +34,30 @@ interface ChatCompletionResponse {
   }
 }
 
-export async function callModelsApi(promptWithContent: ChatCompletionRequest): Promise<string> {
+export async function callModelsApi(
+  promptWithContent: ChatCompletionRequest,
+  verbose = false,
+): Promise<string> {
   let aiResponse: ChatCompletionChoice
 
+  // Set default model if none specified
+  if (!promptWithContent.model) {
+    promptWithContent.model = 'openai/gpt-4o'
+    if (verbose) {
+      console.log('⚠️  No model specified, using default: openai/gpt-4o')
+    }
+  }
+
   try {
+    // Create an AbortController for timeout handling
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 180000) // 3 minutes
+
+    const startTime = Date.now()
+    if (verbose) {
+      console.log(`🚀 Making API request to GitHub Models using ${promptWithContent.model}...`)
+    }
+
     const response = await fetch(modelsCompletionsEndpoint, {
       method: 'post',
       body: JSON.stringify(promptWithContent),
@@ -45,16 +65,80 @@ export async function callModelsApi(promptWithContent: ChatCompletionRequest): P
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         'X-GitHub-Api-Version': '2022-11-28',
-        Accept: 'Accept: application/vnd.github+json',
+        Accept: 'application/vnd.github+json',
       },
+      signal: controller.signal,
     })
 
+    const fetchTime = Date.now() - startTime
+    if (verbose) {
+      console.log(`⏱️  API response received in ${fetchTime}ms`)
+    }
+
+    clearTimeout(timeoutId)
+
+    if (!response.ok) {
+      let errorMessage = `HTTP error! status: ${response.status} - ${response.statusText}`
+
+      // Try to get more detailed error information
+      try {
+        const errorBody = await response.json()
+        if (errorBody.error && errorBody.error.message) {
+          errorMessage += ` - ${errorBody.error.message}`
+        }
+      } catch {
+        // If we can't parse error body, continue with basic error
+      }
+
+      // Add helpful hints for common errors
+      if (response.status === 401) {
+        errorMessage += ' (Check your GITHUB_TOKEN)'
+      } else if (response.status === 400) {
+        errorMessage += ' (This may be due to an invalid model or malformed request)'
+      } else if (response.status === 429) {
+        errorMessage += ' (Rate limit exceeded - try again later)'
+      }
+
+      throw new Error(errorMessage)
+    }
+
     const data: ChatCompletionResponse = await response.json()
+
+    if (!data.choices || data.choices.length === 0) {
+      throw new Error('No response choices returned from API')
+    }
+
     aiResponse = data.choices[0]
+
+    if (verbose) {
+      const totalTime = Date.now() - startTime
+      console.log(`✅ Total API call completed in ${totalTime}ms`)
+
+      if (data.usage) {
+        console.log(
+          `📊 Tokens: ${data.usage.prompt_tokens} prompt + ${data.usage.completion_tokens} completion = ${data.usage.total_tokens} total`,
+        )
+      }
+    }
   } catch (error) {
-    console.error('Error calling GitHub Models REST API')
+    if (error instanceof Error) {
+      if (error.name === 'AbortError') {
+        throw new Error('API call timed out after 3 minutes')
+      }
+      console.error('Error calling GitHub Models REST API:', error.message)
+    }
     throw error
   }
 
-  return aiResponse.message.content
+  return cleanAIResponse(aiResponse.message.content)
+}
+
+// Helper function to clean up AI response content
+function cleanAIResponse(content: string): string {
+  // Remove markdown code blocks
+  return content
+    .replace(/^```[\w]*\n/gm, '') // Remove opening code blocks
+    .replace(/\n```$/gm, '') // Remove closing code blocks at end
+    .replace(/\n```\n/gm, '\n') // Remove standalone closing code blocks
+    .trim()
 }

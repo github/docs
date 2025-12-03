@@ -28,7 +28,7 @@ If you're the **owner** or **billing manager** of an organization on a {% data v
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.billing.org-billing-menu %}
-1. Click **Licensing**.
+{% data reusables.billing.click-licensing %}
 1. In the {% data variables.product.prodname_team %} banner, click **Edit** and select **Add seats** or **Remove seats**.
 1. Define the number of new seats you require. The details of the prorated cost for the remainder of the billing cycle and the total for your next bill are updated automatically.
 1. Click **Add seats** or **Remove seats**.
@@ -55,8 +55,8 @@ To add or remove licenses from your enterprise account:
 
 Enterprise **owners** or **billing managers** can add or remove user licenses.
 
-1. Navigate to your enterprise account.
+{% data reusables.billing.nav-to-ent %}
 {% data reusables.billing.enterprise-billing-menu %}
-1. In the left sidebar, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing**.
+{% data reusables.billing.click-licensing %}
 1. Next to "Enterprise Cloud", click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **Manage licenses**.
 1. Choose your number of licenses, then click **Confirm licenses**.

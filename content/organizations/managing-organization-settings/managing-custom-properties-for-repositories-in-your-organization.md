@@ -52,7 +52,7 @@ You{% ifversion custom-org-roles %}, and any users with the "Edit custom propert
 
     ![Screenshot the page to set values for repositories. A button, labeled with a pencil icon and "Edit properties", is highlighted with an orange outline.](/assets/images/help/repository/edit-properties.png)
 
-1. In the modal dialog that appears, select a value for each property you'd like to set for the selected repositories.
+1. In the modal dialog that appears, select a value for each property you'd like to set for the selected repositories. This value cannot exceed 75 characters in length.
 1. Click **Save changes**.
 
 ## Viewing values for repositories in your organization

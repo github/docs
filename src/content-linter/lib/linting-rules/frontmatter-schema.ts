@@ -37,7 +37,9 @@ export const frontmatterSchema: Rule = {
 
     // Check that the frontmatter matches the schema
     const { errors } = readFrontmatter(params.lines.join('\n'), { schema: frontmatter.schema })
-    const formattedErrors = formatAjvErrors(errors as any)
+    const formattedErrors = formatAjvErrors(
+      errors as unknown as Parameters<typeof formatAjvErrors>[0],
+    )
     for (const error of formattedErrors) {
       // If the missing property is at the top level, we don't have a line
       // to point to. In that case, the error will be added to line 1.

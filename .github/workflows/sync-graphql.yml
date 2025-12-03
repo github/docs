@@ -23,7 +23,7 @@ jobs:
       ignored-types: ${{ steps.sync.outputs.ignored-types }}
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       - uses: ./.github/actions/node-npm-setup
       - name: Run updater scripts
         id: sync
@@ -33,7 +33,7 @@ jobs:
         run: npm run sync-graphql
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79 # pin @v7.0.3
+        uses: peter-evans/create-pull-request@84ae59a2cdc2258d6fa0732dd66352dddae2a412 # pin @v7.0.9
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
       - uses: ./.github/actions/slack-alert
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

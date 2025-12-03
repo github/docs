@@ -25,7 +25,7 @@ category:
 </style>
 
 <div class="button-container">
-    <a href="https://github.com/copilot?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=free&utm_source=docs-web-copilot-ide-code-suggestions&utm_medium=docs&utm_campaign=ghignite25" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
+    <a href="https://github.com/copilot?ref_product=copilot&ref_type=trial&ref_style=button&ref_plan=free" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
         <span>Get started for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% vscode %}

@@ -50,8 +50,6 @@ export default {
       'isPrivateWithGhas',
       'hasPushProtection',
       'hasValidityCheck',
-      'base64Supported',
-      'isduplicate',
     ],
     properties: {
       provider: {
