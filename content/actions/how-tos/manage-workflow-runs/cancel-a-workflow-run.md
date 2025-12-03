@@ -13,6 +13,8 @@ redirect_from:
   - /actions/how-tos/managing-workflow-runs-and-deployments/managing-workflow-runs/canceling-a-workflow
 ---
 
+{% data reusables.actions.workflow-run-statuses-2 %}
+
 ## Canceling a workflow run
 
 {% data reusables.repositories.navigate-to-repo %}
