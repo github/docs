@@ -1,0 +1,9 @@
+#for Loop in Python 
+#Iterating over a string
+
+name = "Abhishek"
+for i in name:
+    print(i)
+
+    if i=="b":
+        print("This is special word")
