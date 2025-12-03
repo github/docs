@@ -672,6 +672,7 @@ function getMarkdownLintConfig(
       const ymlSearchReplaceRules = []
       const frontmatterSearchReplaceRules = []
 
+      if (!ruleConfig.rules) continue
       for (const searchRule of ruleConfig.rules) {
         const searchRuleSeverity = getSeverity(searchRule, isPrecommit)
         if (filterErrorsOnly && searchRuleSeverity !== 'error') continue
